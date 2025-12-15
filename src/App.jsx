@@ -1189,13 +1189,15 @@ const App = () => {
     const handleGeminiAssist = async (frontText, contextPos = '', contextLevel = '') => {
         if (!frontText) return null;
 
-        const apiKey = import.meta.env.VITE_GEMINI_TTS_API_KEY;
+        // Ưu tiên dùng key chung cho Gemini text, fallback sang key TTS nếu đang tái sử dụng
+        const apiKey = import.meta.env.VITE_GEMINI_API_KEY || import.meta.env.VITE_GEMINI_TTS_API_KEY;
 
         if (!apiKey) {
-            setNotification("Chưa cấu hình khóa API Gemini. Vui lòng kiểm tra biến môi trường VITE_GEMINI_TTS_API_KEY.");
+            setNotification("Chưa cấu hình khóa API Gemini. Vui lòng thêm VITE_GEMINI_API_KEY (hoặc VITE_GEMINI_TTS_API_KEY) vào file .env.");
             return null;
         }
 
+        // Theo hướng dẫn Google: dùng model Gemini 2.5 Flash Preview (v1beta)
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
         
         // Tạo ngữ cảnh bổ sung cho AI
@@ -1203,42 +1205,30 @@ const App = () => {
         if (contextPos) contextInfo += `, Từ loại: ${contextPos}`;
         if (contextLevel) contextInfo += `, Cấp độ: ${contextLevel}`;
 
-        // Prompt Updated: Ưu tiên cụm từ ngắn, tìm 2 từ đồng nghĩa, sử dụng ngữ cảnh
+        // Prompt yêu cầu trả về JSON, không dùng responseSchema để tránh kén model
         const systemPrompt = `Bạn là trợ lý từ điển Nhật-Việt. Người dùng đang tìm kiếm thông tin cho từ vựng: "${frontText}"${contextInfo}.
-        Trả về JSON. QUAN TRỌNG: Sử dụng dấu ngoặc đơn full-width '（' và '）' cho phần phiên âm ở từ vựng chính.
-        1. 'frontWithFurigana': Từ vựng + (Phiên âm Hiragana). Ví dụ: 食べる（たべる）.
-        2. 'meaning': Nghĩa Việt ngắn gọn, sát với từ loại/cấp độ đã cho (nếu có).
-        3. 'pos': Từ loại (noun, verb, adj_i, adj_na, adverb, conjunction, grammar, phrase, other).
-        4. 'level': Cấp độ JLPT (N5, N4, N3, N2, N1).
-        5. 'sinoVietnamese': Âm Hán Việt tương ứng (Ví dụ: 食 -> Thực).
-        6. 'synonym': 2 từ đồng nghĩa thông dụng nhất (ngăn cách bằng dấu phẩy). Nếu không có, để trống.
-        7. 'synonymSinoVietnamese': Âm Hán Việt của các từ đồng nghĩa đó (nếu có).
-        8. 'example': Cụm từ thông dụng hoặc câu ví dụ ngắn gọn. BẮT BUỘC chứa từ vựng gốc. KHÔNG kèm phiên âm.
-        9. 'exampleMeaning': Nghĩa tiếng Việt của ví dụ.
-        10. 'nuance': Phân biệt ngắn gọn.`;
+Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo đúng schema sau:
+{
+  "frontWithFurigana": "食べる（たべる）",
+  "meaning": "ăn",
+  "pos": "verb",
+  "level": "N5",
+  "sinoVietnamese": "Thực",
+  "synonym": "食事する, 食う",
+  "synonymSinoVietnamese": "Thực sự, Cự",
+  "example": "私は毎日ご飯を食べる。",
+  "exampleMeaning": "Tôi ăn cơm mỗi ngày.",
+  "nuance": "Dùng phổ biến trong cả văn nói và văn viết."
+}
+Không được trả về markdown, không được dùng \`\`\`, không được trả lời thêm bất cứ chữ nào ngoài JSON.`;
 
         const payload = {
-            contents: [{ parts: [{ text: frontText }] }],
-            systemInstruction: { parts: [{ text: systemPrompt }] },
-            generationConfig: {
-                responseMimeType: "application/json",
-                responseSchema: {
-                    type: "OBJECT",
-                    properties: {
-                        frontWithFurigana: { type: "STRING" }, 
-                        meaning: { type: "STRING" },
-                        pos: { type: "STRING", enum: ["noun", "verb", "adj_i", "adj_na", "adverb", "conjunction", "grammar", "phrase", "other"] },
-                        level: { type: "STRING", enum: ["N5", "N4", "N3", "N2", "N1"] },
-                        sinoVietnamese: { type: "STRING" }, 
-                        synonym: { type: "STRING" },
-                        synonymSinoVietnamese: { type: "STRING" },
-                        example: { type: "STRING" },
-                        exampleMeaning: { type: "STRING" },
-                        nuance: { type: "STRING" } 
-                    },
-                    required: ["frontWithFurigana", "meaning", "pos", "level", "synonym", "example", "exampleMeaning", "nuance"] 
+            contents: [
+                {
+                    role: "user",
+                    parts: [{ text: systemPrompt }]
                 }
-            }
+            ]
         };
 
         try {
@@ -1249,32 +1239,53 @@ const App = () => {
             });
 
             if (!response.ok) {
-                // Bắt riêng lỗi quota / rate-limit để báo rõ cho người dùng
+                // Đọc body lỗi để dễ debug trong console
+                let errorBody = "";
+                try {
+                    errorBody = await response.text();
+                    console.error("Gemini error body:", errorBody);
+                } catch (_) {}
+
                 if (response.status === 429) {
-                    setNotification("Gemini báo quá giới hạn lượt gọi (429). Hãy đợi khoảng 1–2 phút rồi thử lại, hoặc giảm tần suất dùng AI tạo từ vựng.");
+                    setNotification("Gemini báo quá giới hạn lượt gọi (429). Hãy đợi 1–2 phút rồi thử lại, hoặc giảm tần suất dùng AI tạo từ vựng.");
                 } else if (response.status === 403) {
-                    setNotification("Gemini từ chối truy cập (403). Hãy kiểm tra lại API key, quyền truy cập hoặc hạn mức thanh toán.");
+                    setNotification("Gemini từ chối truy cập (403). Hãy kiểm tra lại API key, quyền truy cập API Generative Language và billing.");
+                } else if (response.status === 401) {
+                    setNotification("Gemini báo lỗi xác thực (401). Hãy kiểm tra lại VITE_GEMINI_API_KEY có đúng và chưa hết hạn mức.");
                 } else {
-                    setNotification(`Lỗi từ Gemini: ${response.status} ${response.statusText}. Vui lòng thử lại sau.`);
+                    setNotification(`Lỗi từ Gemini: ${response.status} ${response.statusText}. Xem chi tiết trong console.`);
                 }
-                throw new Error(`Lỗi API Gemini: ${response.status} ${response.statusText}`);
+                throw new Error(`Lỗi API Gemini: ${response.status} ${response.statusText} ${errorBody}`);
             }
 
             const result = await response.json();
+            console.log("Gemini raw result:", result);
+
             const candidate = result.candidates?.[0];
             
             if (candidate && candidate.content?.parts?.[0]?.text) {
-                const jsonText = candidate.content.parts[0].text;
-                const parsedJson = JSON.parse(jsonText);
-                return parsedJson; 
+                const rawText = candidate.content.parts[0].text.trim();
+
+                // Nếu Gemini lỡ trả về JSON kèm ``` hoặc text thừa, cố gắng cắt lấy phần JSON
+                const jsonMatch = rawText.match(/\{[\s\S]*\}/);
+                const jsonText = jsonMatch ? jsonMatch[0] : rawText;
+
+                try {
+                    const parsedJson = JSON.parse(jsonText);
+                    return parsedJson; 
+                } catch (parseErr) {
+                    console.error("Lỗi parse JSON từ Gemini:", parseErr, "rawText:", rawText);
+                    setNotification("Gemini trả về dữ liệu không phải JSON hợp lệ. Thử lại với từ khác hoặc thử lại sau ít phút.");
+                    return null;
+                }
             } else {
-                setNotification("Gemini trả về dữ liệu không hợp lệ. Hãy thử lại với từ khác hoặc sau vài phút.");
+                setNotification("Gemini trả về dữ liệu trống hoặc không đúng cấu trúc. Hãy thử lại sau ít phút.");
                 throw new Error("Phản hồi JSON không hợp lệ");
             }
         } catch (e) {
             console.error("Lỗi Gemini Assist:", e);
             if (!e.message?.includes("Lỗi API Gemini")) {
-                setNotification("Không gọi được Gemini. Hãy kiểm tra kết nối mạng hoặc thử lại sau ít phút.");
+                setNotification("Không gọi được Gemini. Hãy kiểm tra kết nối mạng, API key hoặc thử lại sau ít phút.");
             }
             return null;
         }
@@ -1331,7 +1342,12 @@ const App = () => {
         setIsLoading(true);
         setNotification(`Đang tạo âm Hán Việt cho ${cardsWithKanji.length} từ chứa Kanji (Đã bỏ qua ${cardsToProcess.length - cardsWithKanji.length} từ không có Kanji)...`);
         
-        const apiKey = ""; 
+        const apiKey = import.meta.env.VITE_GEMINI_API_KEY || import.meta.env.VITE_GEMINI_TTS_API_KEY;
+        if (!apiKey) {
+            setNotification("Chưa cấu hình khóa API Gemini cho Hán Việt. Vui lòng thêm VITE_GEMINI_API_KEY vào file .env.");
+            setIsLoading(false);
+            return;
+        }
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
         const delay = (ms) => new Promise(res => setTimeout(res, ms));
         let successCount = 0;
@@ -1536,7 +1552,7 @@ const App = () => {
         <div className="min-h-screen bg-gray-50 flex flex-col font-sans selection:bg-indigo-100 selection:text-indigo-800">
             <Header currentView={view} setView={setView} />
             <main className="flex-grow p-3 md:p-6 lg:p-8 flex justify-center items-stretch pt-24 pb-6 lg:pb-10">
-                <div className="w-full max-w-6xl mx-auto flex flex-col">
+                <div className="w-full max-w-7xl mx-auto flex flex-col">
                     {/* Modern Container for Main Content */}
                     <div className="flex-1 bg-white/90 backdrop-blur-sm shadow-xl shadow-indigo-100/50 rounded-3xl border border-white/50 p-4 sm:p-6 md:p-8 transition-all duration-300 flex flex-col">
                         {renderContent()}
@@ -1615,7 +1631,7 @@ const ProfileScreen = ({ onSave }) => {
 
 const Header = ({ currentView, setView }) => (
     <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 h-16 transition-all duration-300">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between">
             <div 
                 className="flex items-center space-x-2 cursor-pointer group"
                 onClick={() => setView('HOME')}
@@ -1662,15 +1678,23 @@ const Header = ({ currentView, setView }) => (
 );
 
 const MemoryStatCard = ({ title, count, icon: Icon, color, subtext }) => (
-    <div className={`p-5 rounded-2xl border transition-all hover:shadow-md ${color.bg} ${color.border} group h-full`}>
-        <div className="flex items-center justify-between">
+    <div className={`relative overflow-hidden p-5 rounded-2xl border transition-all duration-300 ${color.bg} ${color.border} group h-full`}>
+        {/* Glow background */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+            <div className="absolute -inset-10 bg-gradient-to-br from-white/40 via-transparent to-white/10 blur-2xl" />
+        </div>
+
+        {/* Animated top bar */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+        <div className="relative flex items-center justify-between">
             <div>
-                <p className="text-3xl font-black text-gray-800">{count}</p>
-                <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mt-1">{title}</p>
-                {subtext && <p className="text-[10px] text-gray-400 mt-1">{subtext}</p>}
+                <p className="text-3xl font-black text-gray-900 drop-shadow-sm">{count}</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-gray-600 mt-1">{title}</p>
+                {subtext && <p className="text-[11px] text-gray-500 mt-1">{subtext}</p>}
             </div>
-            <div className={`p-3 rounded-xl ${color.iconBg} group-hover:scale-110 transition-transform`}>
-                <Icon className={`w-6 h-6 ${color.text}`} />
+            <div className={`p-3 rounded-xl ${color.iconBg} group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
+                <Icon className={`w-7 h-7 ${color.text}`} />
             </div>
         </div>
     </div>
@@ -1681,7 +1705,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, onStartReview, onNavig
         <button
             onClick={onClick}
             disabled={disabled}
-            className={`relative overflow-hidden group flex flex-col items-start justify-between p-4 md:p-5 h-32 rounded-2xl shadow-md transition-all duration-300 w-full text-left
+            className={`relative overflow-hidden group flex flex-col items-start justify-between p-5 md:p-6 h-40 rounded-2xl shadow-md transition-all duration-300 w-full text-left
                         ${disabled ? 'bg-gray-100 cursor-not-allowed opacity-70' : `bg-gradient-to-br ${gradient} hover:shadow-xl hover:-translate-y-1`}`}
         >
             <div className="z-10 w-full">
@@ -1695,8 +1719,8 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, onStartReview, onNavig
                         </span>
                     )}
                 </div>
-                <h3 className="text-lg font-semibold text-white">{title}</h3>
-                <p className="text-indigo-50 text-xs font-medium mt-1 opacity-90">{description}</p>
+                <h3 className="text-xl font-extrabold text-white tracking-tight">{title}</h3>
+                <p className="text-indigo-50 text-sm font-medium mt-2 opacity-95 leading-snug">{description}</p>
             </div>
             
             {/* Background Decoration */}
@@ -1714,17 +1738,17 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, onStartReview, onNavig
                     </h2>
                     <p className="text-gray-500 mt-2 font-medium">Bạn đã sẵn sàng chinh phục mục tiêu hôm nay chưa?</p>
                 </div>
-                <div className="flex items-center space-x-2 bg-indigo-50 px-4 py-2 rounded-full border border-indigo-100">
+                    <div className="flex items-center space-x-2 bg-indigo-50 px-5 py-2.5 rounded-full border border-indigo-100">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-sm font-bold text-indigo-700">{totalCards} từ vựng trong kho</span>
+                    <span className="text-base font-bold text-indigo-700">{totalCards} từ vựng trong kho</span>
                 </div>
             </div>
             
             {/* Review Section */}
             <div className="space-y-4">
                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-                    <h3 className="text-lg font-bold text-gray-700 flex items-center">
-                        <Zap className="w-5 h-5 mr-2 text-amber-500" />
+                    <h3 className="text-xl font-extrabold text-gray-800 flex items-center">
+                        <Zap className="w-6 h-6 mr-2 text-amber-500" />
                         Chế độ Ôn tập
                     </h3>
 
@@ -1872,7 +1896,6 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
     const [showAudioInput, setShowAudioInput] = useState(false); 
     const [isSaving, setIsSaving] = useState(false);
     const [isAiLoading, setIsAiLoading] = useState(false); 
-    const [showAdvanced, setShowAdvanced] = useState(false); // Ẩn/hiện phần nâng cao để form gọn, ít phải cuộn hơn
     const frontInputRef = useRef(null);
 
     // ... (Helpers giữ nguyên: handleImageChange, handleRemoveImage, handleAudioFileChange, handleSave, handleAiAssist, handleKeyDown)
@@ -2025,19 +2048,8 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                     </div>
                 </div>
 
-                {/* Cột Phải: Thông tin bổ sung (ẩn bớt theo toggle để tránh phải cuộn) */}
+                {/* Cột Phải: Thông tin bổ sung (luôn hiển thị nhưng bố cục gọn hơn) */}
                 <div className="space-y-3">
-                    <button
-                        type="button"
-                        onClick={() => setShowAdvanced(!showAdvanced)}
-                        className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-200 text-gray-600 transition-colors"
-                    >
-                        <span>Tùy chọn nâng cao (ví dụ, sắc thái, media...)</span>
-                        <ChevronRight className={`w-4 h-4 transition-transform ${showAdvanced ? 'rotate-90' : ''}`} />
-                    </button>
-
-                    {showAdvanced && (
-                    <>
                     <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm space-y-3">
                         <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider">Ngữ cảnh & Ví dụ</h3>
                         <div>
@@ -2113,8 +2125,6 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                             )}
                         </div>
                     </div>
-                    </>
-                    )}
                 </div>
             </div>
 
@@ -2680,7 +2690,7 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
     const progress = Math.round(((currentIndex) / cards.length) * 100);
 
     return (
-        <div className="max-w-2xl mx-auto space-y-8">
+        <div className="w-full max-w-5xl mx-auto space-y-8">
             {/* Header & Progress */}
             <div className="space-y-4">
                 <div className="flex justify-between items-center text-sm font-medium text-gray-500">
@@ -2730,7 +2740,7 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
                         </span>
                     )}
 
-                    {promptInfo.meaning && <p className="text-gray-500 mt-4 italic text-sm border-t border-gray-100 pt-3 px-4">"{promptInfo.meaning}"</p>}
+                    {promptInfo.meaning && <p className="text-gray-600 mt-4 italic text-base border-t border-gray-100 pt-3 px-4 leading-relaxed">"{promptInfo.meaning}"</p>}
                  </div>
             </div>
 
@@ -2747,7 +2757,7 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
                             onChange={(e) => setInputValue(e.target.value)}
                             onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); isRevealed ? handleNext() : checkAnswer(); }}}
                             disabled={feedback === 'correct'}
-                            className={`w-full pl-6 pr-14 py-4 text-xl font-medium rounded-2xl border-2 transition-all outline-none shadow-sm
+                            className={`w-full pl-7 pr-16 py-5 text-2xl font-semibold rounded-2xl border-2 transition-all outline-none shadow-md
                                 ${feedback === 'correct' 
                                     ? 'border-green-400 bg-green-50 text-green-800' 
                                     : feedback === 'incorrect' 
@@ -2755,10 +2765,10 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
                                         : 'border-gray-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10'}`}
                             placeholder="Nhập từ vựng tiếng Nhật..."
                         />
-                        <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                        <div className="absolute right-4 top-1/2 -translate-y-1/2">
                             {!isRevealed && (
-                                <button onClick={checkAnswer} disabled={!inputValue.trim()} className="p-2 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 disabled:opacity-50 disabled:shadow-none transition-all">
-                                    <Send className="w-5 h-5" />
+                                <button onClick={checkAnswer} disabled={!inputValue.trim()} className="p-3 bg-indigo-600 text-white rounded-2xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 disabled:opacity-50 disabled:shadow-none transition-all">
+                                    <Send className="w-6 h-6" />
                                 </button>
                             )}
                         </div>
@@ -2769,32 +2779,32 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
                 {reviewStyle === 'flashcard' && !isRevealed && (
                      <button 
                         onClick={() => setIsRevealed(true)}
-                        className="w-full py-4 text-xl font-bold rounded-2xl bg-indigo-600 text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all flex items-center justify-center gap-2"
+                        className="w-full py-5 text-2xl font-extrabold rounded-2xl bg-indigo-600 text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all flex items-center justify-center gap-3"
                     >
-                        <Eye className="w-6 h-6" /> Hiện Đáp Án
+                        <Eye className="w-7 h-7" /> Hiện Đáp Án
                     </button>
                 )}
 
 
                 {/* Feedback & Actions */}
                 <div className={`transition-all duration-300 ease-out overflow-hidden ${isRevealed ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <div className={`p-4 rounded-xl border mb-4 flex items-start gap-3 ${feedback === 'correct' ? 'bg-green-50 border-green-200' : feedback === 'incorrect' ? 'bg-red-50 border-red-200' : 'bg-gray-50 border-gray-200'}`}>
+                    <div className={`p-5 rounded-2xl border mb-4 flex items-start gap-4 ${feedback === 'correct' ? 'bg-green-50 border-green-200' : feedback === 'incorrect' ? 'bg-red-50 border-red-200' : 'bg-gray-50 border-gray-200'}`}>
                         {reviewStyle === 'typing' && (
-                            <div className={`p-1 rounded-full ${feedback === 'correct' ? 'bg-green-200 text-green-700' : 'bg-red-200 text-red-700'}`}>
-                                {feedback === 'correct' ? <Check className="w-4 h-4" strokeWidth={3}/> : <X className="w-4 h-4" strokeWidth={3}/>}
+                            <div className={`p-2 rounded-full ${feedback === 'correct' ? 'bg-green-200 text-green-700' : 'bg-red-200 text-red-700'}`}>
+                                {feedback === 'correct' ? <Check className="w-5 h-5" strokeWidth={3}/> : <X className="w-5 h-5" strokeWidth={3}/>}
                             </div>
                         )}
                         <div className="flex-1">
                              {/* Flashcard reveal message vs Typing feedback message */}
                              {reviewStyle === 'flashcard' && !feedback ? (
                                  <div className="text-center">
-                                    <p className="text-lg font-bold text-gray-800 mb-1">{displayFront}</p>
-                                    <p className="text-sm text-gray-500">{currentCard.nuance}</p>
+                                    <p className="text-2xl font-extrabold text-gray-900 mb-2">{displayFront}</p>
+                                    <p className="text-base text-gray-600">{currentCard.nuance}</p>
                                  </div>
                              ) : (
                                 <div>
-                                    <p className={`font-bold text-lg ${feedback === 'correct' ? 'text-green-800' : 'text-red-800'}`}>{message}</p>
-                                    {feedback === 'incorrect' && reviewStyle === 'typing' && <p className="text-sm text-red-600 mt-1">Gõ lại từ đúng để tiếp tục</p>}
+                                    <p className={`font-bold text-xl ${feedback === 'correct' ? 'text-green-800' : 'text-red-800'}`}>{message}</p>
+                                    {feedback === 'incorrect' && reviewStyle === 'typing' && <p className="text-base text-red-600 mt-1">Gõ lại từ đúng để tiếp tục</p>}
                                 </div>
                              )}
                         </div>
@@ -3123,9 +3133,26 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                      </div>
                 </div>
 
-                <MemoryStatCard title="Trong Tuần" count={wordsAddedThisWeek} icon={TrendingUp} color={{bg:'bg-blue-50',border:'',text:'text-blue-600',iconBg:'bg-white'}} subtext="từ vựng mới" />
-                <MemoryStatCard title="Chuỗi ngày" count={streak} icon={Flame} color={{bg:'bg-orange-50',border:'',text:'text-orange-600',iconBg:'bg-white'}} subtext="liên tục" />
-                <MemoryStatCard title="Tổng số" count={totalCards} icon={List} color={{bg:'bg-gray-50',border:'',text:'text-gray-600',iconBg:'bg-white'}} />
+                <MemoryStatCard 
+                    title="Trong tuần" 
+                    count={wordsAddedThisWeek} 
+                    icon={TrendingUp} 
+                    color={{bg:'bg-gradient-to-br from-sky-50 to-sky-100',border:'border border-sky-100',text:'text-sky-600',iconBg:'bg-white/80'}} 
+                    subtext="từ vựng mới" 
+                />
+                <MemoryStatCard 
+                    title="Chuỗi ngày" 
+                    count={streak} 
+                    icon={Flame} 
+                    color={{bg:'bg-gradient-to-br from-orange-50 to-amber-100',border:'border border-amber-100',text:'text-orange-600',iconBg:'bg-white/80'}} 
+                    subtext="liên tục" 
+                />
+                <MemoryStatCard 
+                    title="Tổng số" 
+                    count={totalCards} 
+                    icon={List} 
+                    color={{bg:'bg-gradient-to-br from-slate-50 to-slate-100',border:'border border-slate-100',text:'text-slate-700',iconBg:'bg-white/80'}} 
+                />
             </div>
 
             {/* Middle Row: Charts */}
