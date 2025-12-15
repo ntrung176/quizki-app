@@ -502,82 +502,6 @@ const App = () => {
         return () => unsubscribe();
     }, [authReady, vocabCollectionPath]);
 
-    // MANUAL FIX INCONSISTENT DATA
-    const handleFixInconsistentData = async () => {
-        if (!vocabCollectionPath || allCards.length === 0) return;
-        
-        setIsLoading(true);
-        setNotification("Đang kiểm tra và sửa lỗi dữ liệu...");
-        const now = new Date();
-        const cardsToFix = [];
-
-        allCards.forEach(card => {
-             const checkFix = (prefix) => {
-                const intervalKey = `intervalIndex_${prefix}`;
-                const nextReviewKey = `nextReview_${prefix}`;
-                const interval = card[intervalKey];
-                const nextReview = card[nextReviewKey];
-                
-                // Condition: Interval is -1 (New/Ready) AND NextReview is more than 48 hours in the future.
-                if (interval === -1 && nextReview > new Date(now.getTime() + 1000 * 60 * 60 * 48)) {
-                    const diffTime = nextReview - now;
-                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                    
-                    let newIndex = 0;
-                    if (diffDays >= 90) newIndex = 4;
-                    else if (diffDays >= 30) newIndex = 3;
-                    else if (diffDays >= 7) newIndex = 2;
-                    else if (diffDays >= 3) newIndex = 1;
-                    else newIndex = 0; 
-
-                    return newIndex;
-                }
-                return null;
-            };
-
-            const fixedBack = checkFix('back');
-            const fixedSynonym = checkFix('synonym');
-            const fixedExample = checkFix('example');
-
-            if (fixedBack !== null || fixedSynonym !== null || fixedExample !== null) {
-                const updatePayload = {};
-                if (fixedBack !== null) updatePayload.intervalIndex_back = fixedBack;
-                if (fixedSynonym !== null) updatePayload.intervalIndex_synonym = fixedSynonym;
-                if (fixedExample !== null) updatePayload.intervalIndex_example = fixedExample;
-                cardsToFix.push({ id: card.id, ...updatePayload });
-            }
-        });
-
-        if (cardsToFix.length > 0) {
-            const commitBatches = async () => {
-                const chunkSize = 400; 
-                let fixedCount = 0;
-                for (let i = 0; i < cardsToFix.length; i += chunkSize) {
-                    const chunk = cardsToFix.slice(i, i + chunkSize);
-                    const batch = writeBatch(db);
-                    chunk.forEach(item => {
-                        const { id, ...data } = item;
-                        const docRef = doc(db, vocabCollectionPath, id);
-                        batch.update(docRef, data);
-                    });
-                    try {
-                        await batch.commit();
-                        fixedCount += chunk.length;
-                    } catch (e) {
-                        console.error("Auto-fix batch failed:", e);
-                    }
-                }
-                setNotification(`Đã sửa lỗi ${fixedCount} thẻ.`);
-                setIsLoading(false);
-            };
-            commitBatches();
-        } else {
-             setNotification("Dữ liệu đã ổn định, không tìm thấy lỗi.");
-             setIsLoading(false);
-        }
-    };
-
-
     useEffect(() => {
         if (!authReady || !activityCollectionPath) return;
         
@@ -1261,88 +1185,17 @@ const App = () => {
         }
     };
     
-    // --- FEATURE: NORMALIZE DATA ---
-    const handleNormalizeData = async () => {
-        if (!vocabCollectionPath || allCards.length === 0) return;
-        
-        setIsLoading(true);
-        setNotification(`Đang chuẩn hoá ${allCards.length} thẻ...`);
-        
-        let count = 0;
-        const batchSize = 400;
-        const regexBracket = /\s*[\[\(](.*?)[\]\)]$/; // Match [...] or (...) at end of string
-
-        // Helper: Làm sạch văn bản Hán Việt (loại bỏ "Hán Việt:", "HV:", v.v.)
-        const cleanSinoText = (text) => {
-            if (!text) return '';
-            return text
-                .replace(/^(Hán Việt|HV|H\.V|Han Viet|H\.Việt)\s*[:\.-]?\s*/gi, '') // Xóa tiền tố
-                .replace(/^[:\.-]\s*/, '') // Xóa dấu câu đầu dòng nếu còn sót
-                .trim()
-                .toUpperCase();
-        };
-
-        const chunks = [];
-        for (let i = 0; i < allCards.length; i += batchSize) {
-            chunks.push(allCards.slice(i, i + batchSize));
-        }
-
-        for (const chunk of chunks) {
-            const batch = writeBatch(db);
-            let hasUpdate = false;
-
-            chunk.forEach(card => {
-                let updates = {};
-
-                // 1. Normalize Back (Tách content -> sinoVietnamese & In hoa & Xóa tiền tố thừa)
-                if (card.back) {
-                    const matchBack = card.back.match(regexBracket);
-                    if (matchBack) {
-                        const content = matchBack[1]; // Nội dung trong ngoặc
-                        
-                        updates.sinoVietnamese = cleanSinoText(content); 
-                        updates.back = card.back.replace(regexBracket, '').trim();
-                    }
-                }
-
-                // 2. Normalize Synonym (Tách content -> synonymSinoVietnamese & In hoa & Xóa tiền tố thừa)
-                if (card.synonym) {
-                    const matchSyn = card.synonym.match(regexBracket);
-                    if (matchSyn) {
-                        const content = matchSyn[1]; // Nội dung trong ngoặc
-                        
-                        updates.synonymSinoVietnamese = cleanSinoText(content);
-                        updates.synonym = card.synonym.replace(regexBracket, '').trim();
-                    }
-                }
-
-                if (Object.keys(updates).length > 0) {
-                    const ref = doc(db, vocabCollectionPath, card.id);
-                    batch.update(ref, updates);
-                    hasUpdate = true;
-                    count++;
-                }
-            });
-
-            if (hasUpdate) {
-                try {
-                    await batch.commit();
-                } catch (e) {
-                    console.error("Lỗi commit batch normalization:", e);
-                }
-            }
-        }
-        
-        setNotification(`Đã chuẩn hoá thành công ${count} thẻ!`);
-        setIsLoading(false);
-    };
-
-
     // --- GEMINI AI ASSISTANT ---
     const handleGeminiAssist = async (frontText, contextPos = '', contextLevel = '') => {
         if (!frontText) return null;
 
         const apiKey = import.meta.env.VITE_GEMINI_TTS_API_KEY;
+
+        if (!apiKey) {
+            setNotification("Chưa cấu hình khóa API Gemini. Vui lòng kiểm tra biến môi trường VITE_GEMINI_TTS_API_KEY.");
+            return null;
+        }
+
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
         
         // Tạo ngữ cảnh bổ sung cho AI
@@ -1395,7 +1248,17 @@ const App = () => {
                 body: JSON.stringify(payload)
             });
 
-            if (!response.ok) throw new Error(`Lỗi API Gemini: ${response.statusText}`); 
+            if (!response.ok) {
+                // Bắt riêng lỗi quota / rate-limit để báo rõ cho người dùng
+                if (response.status === 429) {
+                    setNotification("Gemini báo quá giới hạn lượt gọi (429). Hãy đợi khoảng 1–2 phút rồi thử lại, hoặc giảm tần suất dùng AI tạo từ vựng.");
+                } else if (response.status === 403) {
+                    setNotification("Gemini từ chối truy cập (403). Hãy kiểm tra lại API key, quyền truy cập hoặc hạn mức thanh toán.");
+                } else {
+                    setNotification(`Lỗi từ Gemini: ${response.status} ${response.statusText}. Vui lòng thử lại sau.`);
+                }
+                throw new Error(`Lỗi API Gemini: ${response.status} ${response.statusText}`);
+            }
 
             const result = await response.json();
             const candidate = result.candidates?.[0];
@@ -1405,10 +1268,14 @@ const App = () => {
                 const parsedJson = JSON.parse(jsonText);
                 return parsedJson; 
             } else {
+                setNotification("Gemini trả về dữ liệu không hợp lệ. Hãy thử lại với từ khác hoặc sau vài phút.");
                 throw new Error("Phản hồi JSON không hợp lệ");
             }
         } catch (e) {
             console.error("Lỗi Gemini Assist:", e);
+            if (!e.message?.includes("Lỗi API Gemini")) {
+                setNotification("Không gọi được Gemini. Hãy kiểm tra kết nối mạng hoặc thử lại sau ít phút.");
+            }
             return null;
         }
     };
@@ -1624,8 +1491,6 @@ const App = () => {
                     onNavigateToEdit={handleNavigateToEdit} 
                     onAutoClassifyBatch={handleAutoClassifyBatch} 
                     onAutoSinoVietnameseBatch={handleAutoSinoVietnameseBatch}
-                    onNormalizeData={handleNormalizeData}
-                    onFixData={handleFixInconsistentData}
                 />;
             case 'IMPORT':
                 return <ImportScreen 
@@ -1670,10 +1535,10 @@ const App = () => {
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col font-sans selection:bg-indigo-100 selection:text-indigo-800">
             <Header currentView={view} setView={setView} />
-            <main className="flex-grow p-4 md:p-8 flex justify-center items-start pt-24 pb-10">
-                <div className="w-full max-w-5xl">
+            <main className="flex-grow p-3 md:p-6 lg:p-8 flex justify-center items-stretch pt-24 pb-6 lg:pb-10">
+                <div className="w-full max-w-6xl mx-auto flex flex-col">
                     {/* Modern Container for Main Content */}
-                    <div className="bg-white/80 backdrop-blur-sm shadow-xl shadow-indigo-100/50 rounded-3xl border border-white/50 p-6 md:p-8 transition-all duration-300">
+                    <div className="flex-1 bg-white/90 backdrop-blur-sm shadow-xl shadow-indigo-100/50 rounded-3xl border border-white/50 p-4 sm:p-6 md:p-8 transition-all duration-300 flex flex-col">
                         {renderContent()}
                         
                         {notification && (view === 'HOME' || view === 'STATS' || view === 'ADD_CARD' || view === 'LIST') && (
@@ -1685,8 +1550,7 @@ const App = () => {
                                 <span>{notification}</span>
                             </div>
                         )}
-                        
-                        <div className="mt-8 text-xs text-gray-400 text-center border-t border-gray-100 pt-4 flex flex-col items-center gap-1">
+                        <div className="mt-auto pt-6 border-t border-gray-100 text-xs text-gray-400 text-center flex flex-col items-center gap-1">
                             <span>QuizKi V1.6.3 (Enhanced TTS & Fallback)</span>
                             <span className="font-mono bg-gray-50 px-2 py-1 rounded text-[10px] text-gray-300">UID: {userId?.substring(0, 8)}...</span>
                         </div>
@@ -1817,7 +1681,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, onStartReview, onNavig
         <button
             onClick={onClick}
             disabled={disabled}
-            className={`relative overflow-hidden group flex flex-col items-start justify-between p-6 h-40 rounded-3xl shadow-md transition-all duration-300 w-full text-left
+            className={`relative overflow-hidden group flex flex-col items-start justify-between p-4 md:p-5 h-32 rounded-2xl shadow-md transition-all duration-300 w-full text-left
                         ${disabled ? 'bg-gray-100 cursor-not-allowed opacity-70' : `bg-gradient-to-br ${gradient} hover:shadow-xl hover:-translate-y-1`}`}
         >
             <div className="z-10 w-full">
@@ -1831,7 +1695,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, onStartReview, onNavig
                         </span>
                     )}
                 </div>
-                <h3 className="text-xl font-bold text-white">{title}</h3>
+                <h3 className="text-lg font-semibold text-white">{title}</h3>
                 <p className="text-indigo-50 text-xs font-medium mt-1 opacity-90">{description}</p>
             </div>
             
@@ -1841,11 +1705,11 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, onStartReview, onNavig
     );
 
     return (
-        <div className="space-y-10">
+        <div className="space-y-6">
             {/* Hero Section */}
             <div className="flex flex-col md:flex-row justify-between items-end md:items-center gap-4 pb-2 border-b border-gray-100">
                 <div>
-                    <h2 className="text-4xl font-extrabold text-gray-800 tracking-tight">
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-gray-800 tracking-tight">
                         Chào, <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">{displayName}</span>! 👋
                     </h2>
                     <p className="text-gray-500 mt-2 font-medium">Bạn đã sẵn sàng chinh phục mục tiêu hôm nay chưa?</p>
@@ -1857,8 +1721,8 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, onStartReview, onNavig
             </div>
             
             {/* Review Section */}
-            <div>
-                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
+            <div className="space-y-4">
+                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
                     <h3 className="text-lg font-bold text-gray-700 flex items-center">
                         <Zap className="w-5 h-5 mr-2 text-amber-500" />
                         Chế độ Ôn tập
@@ -1892,7 +1756,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, onStartReview, onNavig
                 </div>
 
                 {reviewStyle === 'flashcard' && (
-                     <div className="mb-4 bg-rose-50 border border-rose-100 rounded-xl p-3 flex items-start text-xs text-rose-700">
+                     <div className="bg-rose-50 border border-rose-100 rounded-xl p-2 flex items-start text-[11px] text-rose-700">
                          <Target className="w-4 h-4 mr-2 shrink-0 mt-0.5" />
                          <span><b>Lưu ý:</b> Chế độ Lật thẻ chỉ áp dụng cho các thẻ đã đạt <b>Cấp độ 3 trở lên</b> (đã nhớ qua chu kỳ 7 ngày). Các thẻ mới hoặc chưa nhớ kỹ sẽ không xuất hiện trong chế độ này.</span>
                      </div>
@@ -1939,12 +1803,12 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, onStartReview, onNavig
             </div>
             
             {/* Management Section */}
-            <div className="pt-2">
-                <h3 className="text-lg font-bold text-gray-700 mb-4 flex items-center">
+            <div className="pt-2 space-y-3">
+                <h3 className="text-base font-bold text-gray-700 flex items-center">
                     <Settings className="w-5 h-5 mr-2 text-gray-500" />
                     Quản lý & Tiện ích
                 </h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                      <button
                         onClick={() => onNavigate('ADD_CARD')}
                         className="flex items-center p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md hover:border-indigo-200 transition-all group"
@@ -2008,6 +1872,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
     const [showAudioInput, setShowAudioInput] = useState(false); 
     const [isSaving, setIsSaving] = useState(false);
     const [isAiLoading, setIsAiLoading] = useState(false); 
+    const [showAdvanced, setShowAdvanced] = useState(false); // Ẩn/hiện phần nâng cao để form gọn, ít phải cuộn hơn
     const frontInputRef = useRef(null);
 
     // ... (Helpers giữ nguyên: handleImageChange, handleRemoveImage, handleAudioFileChange, handleSave, handleAiAssist, handleKeyDown)
@@ -2066,7 +1931,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
     const handleKeyDown = (e) => { if (e.key === 'g' && (e.altKey || e.metaKey)) { e.preventDefault(); handleAiAssist(e); } };
 
     return (
-        <div className="space-y-8">
+        <div className="space-y-6">
             <div className="flex items-center justify-between border-b border-gray-100 pb-4">
                 <div>
                     <h2 className="text-2xl font-bold text-gray-800">Thêm Từ Vựng Mới</h2>
@@ -2077,10 +1942,10 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Cột Trái: Thông tin chính */}
-                <div className="space-y-6">
-                    <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-4">
+                <div className="space-y-4">
+                    <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm space-y-3">
                         <div className="flex justify-between items-center mb-2">
                              <label className="block text-sm font-semibold text-gray-700">
                                 Từ vựng (Nhật): <span className="text-rose-500">*</span>
@@ -2105,7 +1970,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                         </div>
                         
                         {/* MOVED: Classification Section (Level & POS) to below Vocabulary */}
-                        <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-3">
+                        <div className="bg-gray-50 p-3 rounded-xl border border-gray-100 space-y-3">
                              <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider">Phân loại & Cấp độ</label>
                              <div className="flex flex-col gap-3">
                                 {/* Level Buttons */}
@@ -2134,7 +1999,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                              </div>
                         </div>
 
-                        <div>
+                        <div className="space-y-1">
                             <label className="block text-sm font-semibold text-gray-700 mb-2">
                                 Ý nghĩa (Việt): <span className="text-rose-500">*</span>
                             </label>
@@ -2143,7 +2008,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                             />
                         </div>
 
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-2 gap-3">
                              <div>
                                 <label className="block text-xs font-semibold text-gray-500 mb-1">Hán Việt</label>
                                 <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)}
@@ -2160,9 +2025,20 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                     </div>
                 </div>
 
-                {/* Cột Phải: Thông tin bổ sung */}
-                <div className="space-y-6">
-                    <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-4">
+                {/* Cột Phải: Thông tin bổ sung (ẩn bớt theo toggle để tránh phải cuộn) */}
+                <div className="space-y-3">
+                    <button
+                        type="button"
+                        onClick={() => setShowAdvanced(!showAdvanced)}
+                        className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-200 text-gray-600 transition-colors"
+                    >
+                        <span>Tùy chọn nâng cao (ví dụ, sắc thái, media...)</span>
+                        <ChevronRight className={`w-4 h-4 transition-transform ${showAdvanced ? 'rotate-90' : ''}`} />
+                    </button>
+
+                    {showAdvanced && (
+                    <>
+                    <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm space-y-3">
                         <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider">Ngữ cảnh & Ví dụ</h3>
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Câu ví dụ (Nhật)</label>
@@ -2186,7 +2062,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                         </div>
                     </div>
 
-                    <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-4">
+                    <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm space-y-3">
                         <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider">Media</h3>
                         
                         {/* Image Upload */}
@@ -2237,22 +2113,35 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                             )}
                         </div>
                     </div>
+                    </>
+                    )}
                 </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-100">
-                <button type="button" onClick={() => handleSave('continue')} disabled={isSaving || isAiLoading || !front || !back}
-                    className="flex-1 flex items-center justify-center px-6 py-4 text-base font-bold rounded-xl shadow-lg shadow-indigo-200 text-white bg-indigo-600 hover:bg-indigo-700 hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                <button
+                    type="button"
+                    onClick={() => handleSave('continue')}
+                    disabled={isSaving || isAiLoading || !front || !back}
+                    className="flex-1 flex items-center justify-center px-6 py-4 text-base font-bold rounded-xl shadow-lg shadow-indigo-200 text-white bg-indigo-600 hover:bg-indigo-700 hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                >
                     {isSaving ? <Loader2 className="animate-spin w-5 h-5 mr-2" /> : <Plus className="w-5 h-5 mr-2" />}
                     Lưu & Thêm Tiếp
                 </button>
-                <button type="button" onClick={() => handleSave('back')} disabled={isSaving || isAiLoading || !front || !back}
-                    className="flex-1 flex items-center justify-center px-6 py-4 text-base font-bold rounded-xl shadow-sm text-indigo-700 bg-indigo-50 hover:bg-indigo-100 hover:-translate-y-1 transition-all disabled:opacity-50">
+                <button
+                    type="button"
+                    onClick={() => handleSave('back')}
+                    disabled={isSaving || isAiLoading || !front || !back}
+                    className="flex-1 flex items-center justify-center px-6 py-4 text-base font-bold rounded-xl shadow-sm text-indigo-700 bg-indigo-50 hover:bg-indigo-100 hover:-translate-y-1 transition-all disabled:opacity-50"
+                >
                     <Check className="w-5 h-5 mr-2" />
                     Lưu & Về Home
                 </button>
-                <button type="button" onClick={onBack}
-                    className="px-6 py-4 text-base font-medium rounded-xl text-gray-600 bg-white border border-gray-200 hover:bg-gray-50 transition-all">
+                <button
+                    type="button"
+                    onClick={onBack}
+                    className="px-6 py-4 text-base font-medium rounded-xl text-gray-600 bg-white border border-gray-200 hover:bg-gray-50 transition-all"
+                >
                     Hủy
                 </button>
             </div>
@@ -2423,7 +2312,7 @@ const SrsStatusCell = ({ intervalIndex, correctStreak, nextReview, hasData }) =>
     );
 };
 
-const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToEdit, onAutoClassifyBatch, onAutoSinoVietnameseBatch, onNormalizeData, onFixData }) => {
+const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToEdit, onAutoClassifyBatch, onAutoSinoVietnameseBatch }) => {
     // ... (Filter State logic giữ nguyên)
     const [filterLevel, setFilterLevel] = useState('all');
     const [filterPos, setFilterPos] = useState('all');
@@ -2491,12 +2380,6 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                      </div>
 
                     <div className="flex flex-wrap gap-2">
-                        <button onClick={onFixData} className="px-3 py-2 text-xs font-bold rounded-lg bg-orange-50 text-orange-600 hover:bg-orange-100 transition-colors flex items-center border border-orange-100">
-                            <Wrench className="w-3.5 h-3.5 mr-1.5" /> Sửa lỗi
-                        </button>
-                        <button onClick={onNormalizeData} className="px-3 py-2 text-xs font-bold rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-colors flex items-center">
-                            <RefreshCw className="w-3.5 h-3.5 mr-1.5" /> Chuẩn hoá
-                        </button>
                         {cardsMissingPos.length > 0 && (
                             <button onClick={() => onAutoClassifyBatch(cardsMissingPos)} className="px-3 py-2 text-xs font-bold rounded-lg bg-violet-100 text-violet-700 hover:bg-violet-200 transition-colors flex items-center">
                                 <Sparkles className="w-3.5 h-3.5 mr-1.5" /> Auto-Tags ({cardsMissingPos.length})
