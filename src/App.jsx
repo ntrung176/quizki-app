@@ -1342,7 +1342,7 @@ const App = () => {
     const handleGeminiAssist = async (frontText, contextPos = '', contextLevel = '') => {
         if (!frontText) return null;
 
-        const apiKey = "";
+        const apiKey = import.meta.env.VITE_GEMINI_TTS_API_KEY;
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
         
         // Tạo ngữ cảnh bổ sung cho AI
