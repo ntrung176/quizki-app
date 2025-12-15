@@ -8,13 +8,13 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Ba
 
 // --- Cấu hình và Tiện ích Firebase ---
 const firebaseConfig = {
-  apiKey: "AIzaSyBGHxudWm6DnkL9g_rLmqKpVaaT4R39_zk",
-  authDomain: "quizki-988e9.firebaseapp.com",
-  projectId: "quizki-988e9",
-  storageBucket: "quizki-988e9.firebasestorage.app",
-  messagingSenderId: "28989364918",
-  appId: "1:28989364918:web:a2a99ad33fc0c23fca6417",
-  measurementId: "G-98D01DW92Z"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 const appId = firebaseConfig.appId; // dùng chung cho đường dẫn Firestore
 const initialAuthToken = null; 
@@ -298,7 +298,7 @@ const playBrowserTts = (text) => {
 
 const _fetchTtsApiCall = async (text, voiceName, attempts = 0) => {
     if (!text) return null;
-    const apiKey = "AIzaSyDsrpaJm89kB_3KCrYLBI3pJlc9VSSTh-k"; 
+    const apiKey = import.meta.env.VITE_GEMINI_TTS_API_KEY; 
     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
     
     const payload = {
