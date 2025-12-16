@@ -411,6 +411,61 @@ const App = () => {
         return `artifacts/${appId}/users/${userId}/dailyActivity`; 
     }, [userId]);
 
+    const isAdmin = useMemo(() => {
+        const rawEnv = import.meta.env.VITE_ADMIN_EMAIL || '';
+        // Loại bỏ khoảng trắng + dấu nháy bao quanh (nếu vô tình thêm trong .env)
+        const adminEmailEnv = rawEnv.trim().replace(/^['"]|['"]$/g, '').toLowerCase();
+        const currentEmail = (auth?.currentUser?.email || '').trim().toLowerCase();
+        return !!adminEmailEnv && !!currentEmail && currentEmail === adminEmailEnv;
+    }, [authReady, userId]);
+
+    // Debug: log trạng thái admin để dễ kiểm tra khi cấu hình
+    useEffect(() => {
+        const rawEnv = import.meta.env.VITE_ADMIN_EMAIL || '';
+        const adminEmailEnv = rawEnv.trim().replace(/^['"]|['"]$/g, '').toLowerCase();
+        const currentEmail = (auth?.currentUser?.email || '').trim().toLowerCase();
+        console.log('QuizKi admin check', JSON.stringify({ adminEmailEnv, currentEmail, isAdmin }));
+    }, [authReady, userId, isAdmin]);
+
+    const handleAdminDeleteUserData = useCallback(async (targetUserId) => {
+        if (!db || !appId || !targetUserId) return;
+        if (!isAdmin) {
+            setNotification("Bạn không có quyền thực hiện chức năng này.");
+            return;
+        }
+        try {
+            const userRoot = doc(db, `artifacts/${appId}/users/${targetUserId}`);
+
+            // Xóa vocabulary
+            const vocabSnap = await getDocs(collection(db, `artifacts/${appId}/users/${targetUserId}/vocabulary`));
+            const vocabBatch = writeBatch(db);
+            vocabSnap.forEach(d => vocabBatch.delete(d.ref));
+            await vocabBatch.commit();
+
+            // Xóa dailyActivity
+            const actSnap = await getDocs(collection(db, `artifacts/${appId}/users/${targetUserId}/dailyActivity`));
+            const actBatch = writeBatch(db);
+            actSnap.forEach(d => actBatch.delete(d.ref));
+            await actBatch.commit();
+
+            // Xóa settings/profile
+            const profileDoc = doc(db, `artifacts/${appId}/users/${targetUserId}/settings/profile`);
+            await deleteDoc(profileDoc).catch(() => {});
+
+            // Xóa root doc (nếu có)
+            await deleteDoc(userRoot).catch(() => {});
+
+            // Xóa luôn dữ liệu trên bảng xếp hạng công khai
+            const statsDocRef = doc(db, publicStatsCollectionPath, targetUserId);
+            await deleteDoc(statsDocRef).catch(() => {});
+
+            setNotification("Đã xoá toàn bộ dữ liệu của người dùng.");
+        } catch (e) {
+            console.error("Lỗi xoá dữ liệu người dùng bởi admin:", e);
+            setNotification("Lỗi khi xoá dữ liệu người dùng.");
+        }
+    }, [db, appId, isAdmin, publicStatsCollectionPath]);
+
     useEffect(() => {
         if (!db || !auth) return;
 
@@ -455,7 +510,8 @@ const App = () => {
                     const newProfile = {
                         displayName: defaultName,
                         dailyGoal: defaultGoal,
-                        hasSeenHelp: true
+                        hasSeenHelp: true,
+                        isApproved: false // yêu cầu admin duyệt trước khi dùng app
                     };
                     await setDoc(doc(db, settingsDocPath), newProfile);
                     setProfile(newProfile);
@@ -1449,6 +1505,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     shortTerm: memoryStats.shortTerm,
                     midTerm: memoryStats.midTerm,
                     longTerm: memoryStats.longTerm,
+                    isApproved: profile.isApproved === true,
                     lastUpdated: serverTimestamp() 
                 };
                 await setDoc(statsDocRef, publicData, { merge: true }); 
@@ -1481,6 +1538,21 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
             <div className="flex items-center justify-center min-h-screen bg-gray-50">
                 <Loader2 className="animate-spin text-indigo-600 w-10 h-10" />
             </div>
+        );
+    }
+
+    // Nếu chưa được admin duyệt, hiển thị màn thanh toán/kích hoạt
+    if (!isAdmin && profile && profile.isApproved !== true) {
+        return (
+            <PaymentScreen
+                displayName={profile.displayName}
+                onPaidClick={() =>
+                    setNotification('Đã ghi nhận yêu cầu. Admin sẽ kiểm tra thanh toán và kích hoạt tài khoản sớm nhất.')
+                }
+                onLogout={async () => {
+                    if (auth) await signOut(auth);
+                }}
+            />
         );
     }
     
@@ -1551,6 +1623,8 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                 return <FriendsScreen 
                     publicStatsPath={publicStatsCollectionPath} 
                     currentUserId={userId} 
+                    isAdmin={isAdmin}
+                    onAdminDeleteUserData={handleAdminDeleteUserData}
                     onBack={() => setView('HOME')} 
                 />;
             case 'ACCOUNT':
@@ -1676,6 +1750,7 @@ const LoginScreen = () => {
                         displayName: defaultName,
                         dailyGoal: 10,
                         hasSeenHelp: true,
+                        isApproved: false, // Chờ admin duyệt
                         createdAt: serverTimestamp()
                     }, { merge: true });
                 }
@@ -1853,6 +1928,66 @@ const LoginScreen = () => {
                         </button>
                     )}
                 </form>
+            </div>
+        </div>
+    );
+};
+
+const PaymentScreen = ({ displayName, onPaidClick, onLogout }) => {
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center p-4">
+            <div className="w-full max-w-3xl bg-white/90 backdrop-blur-xl shadow-2xl rounded-3xl p-8 md:p-10 border border-white/60 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                    <div>
+                        <h2 className="text-2xl md:text-3xl font-extrabold text-gray-800">
+                            Chào {displayName || 'bạn'} 👋
+                        </h2>
+                        <p className="mt-2 text-gray-500 text-sm">
+                            Tài khoản của bạn đã được tạo và email đã được xác thực. Để tiếp tục sử dụng đầy đủ tính năng của QuizKi, vui lòng hoàn tất bước thanh toán kích hoạt bên phải.
+                        </p>
+                    </div>
+                    <ul className="space-y-2 text-sm text-gray-600">
+                        <li>• Quyền truy cập toàn bộ các tính năng học từ vựng, ôn tập SRS, thống kê.</li>
+                        <li>• Dữ liệu được lưu trữ và đồng bộ giữa các thiết bị.</li>
+                        <li>• Thanh toán một lần, sử dụng lâu dài cho tài khoản này.</li>
+                    </ul>
+                    <div className="text-xs text-gray-400">
+                        Sau khi thanh toán, hãy nhấn nút <b>“Đã thanh toán”</b>. Admin sẽ kiểm tra và kích hoạt tài khoản cho bạn trong thời gian sớm nhất.
+                    </div>
+                </div>
+                <div className="space-y-4 bg-gray-50 rounded-2xl border border-gray-100 p-6">
+                    <h3 className="text-lg font-bold text-gray-800">Thông tin thanh toán</h3>
+                    <div className="space-y-2 text-sm">
+                        <div>
+                            <p className="text-gray-500 font-semibold">Chủ tài khoản</p>
+                            <p className="text-gray-900 font-bold text-base">LÝ NGUYỄN NHẬT TRUNG</p>
+                        </div>
+                        <div>
+                            <p className="text-gray-500 font-semibold">STK MOMO / MB Bank</p>
+                            <p className="text-gray-900 font-mono text-base font-bold">0376486121</p>
+                        </div>
+                        <div>
+                            <p className="text-gray-500 font-semibold">Nội dung chuyển khoản gợi ý</p>
+                            <p className="text-gray-900 text-xs bg-white border border-gray-200 rounded-xl px-3 py-2">
+                                QUIZKI - {displayName || 'TEN_TAI_KHOAN'}
+                            </p>
+                        </div>
+                    </div>
+                    <button
+                        type="button"
+                        onClick={onPaidClick}
+                        className="w-full mt-2 px-4 py-3 text-sm font-bold rounded-xl bg-emerald-500 text-white hover:bg-emerald-600 shadow-md"
+                    >
+                        Đã thanh toán
+                    </button>
+                    <button
+                        type="button"
+                        onClick={onLogout}
+                        className="w-full px-4 py-2 text-xs font-semibold rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-50"
+                    >
+                        Đăng xuất
+                    </button>
+                </div>
             </div>
         </div>
     );
@@ -3753,11 +3888,109 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
     );
 };
 
-const FriendsScreen = ({ publicStatsPath, currentUserId, onBack }) => {
+const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteUserData, onBack }) => {
     // ... Copy logic cũ
     const [friendStats, setFriendStats] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    useEffect(() => { if (!db || !publicStatsPath) return; const q = query(collection(db, publicStatsPath)); const unsubscribe = onSnapshot(q, (s) => { const l = s.docs.map(d => d.data()); l.sort((a, b) => (b.totalCards || 0) - (a.totalCards || 0)); setFriendStats(l); setIsLoading(false); }); return () => unsubscribe(); }, [publicStatsPath]);
+    const [editingUser, setEditingUser] = useState(null);
+    const [editDisplayName, setEditDisplayName] = useState('');
+    const [editGoal, setEditGoal] = useState('');
+    const [editApproved, setEditApproved] = useState(false);
+    const [editError, setEditError] = useState('');
+    const [editSaving, setEditSaving] = useState(false);
+
+    useEffect(() => {
+        if (!db || !publicStatsPath) return;
+        const q = query(collection(db, publicStatsPath));
+        const unsubscribe = onSnapshot(q, (s) => {
+            const l = s.docs.map(d => d.data());
+            l.sort((a, b) => (b.totalCards || 0) - (a.totalCards || 0));
+            setFriendStats(l);
+            setIsLoading(false);
+        });
+        return () => unsubscribe();
+    }, [publicStatsPath]);
+
+    const handleOpenEdit = async (u) => {
+        if (!db || !appId || !isAdmin) return;
+        setEditError('');
+        setEditingUser(u);
+        setEditDisplayName(u.displayName || '');
+        setEditGoal('');
+        setEditApproved(u.isApproved === true);
+        try {
+            const profileRef = doc(db, `artifacts/${appId}/users/${u.userId}/settings/profile`);
+            const snap = await getDoc(profileRef);
+            if (snap.exists()) {
+                const data = snap.data();
+                if (typeof data.dailyGoal === 'number') {
+                    setEditGoal(String(data.dailyGoal));
+                }
+                if (data.isApproved === true) {
+                    setEditApproved(true);
+                }
+            }
+        } catch (e) {
+            console.error("Lỗi tải profile để chỉnh sửa:", e);
+        }
+    };
+
+    const handleSaveEdit = async () => {
+        if (!db || !appId || !editingUser || !isAdmin) return;
+        const name = editDisplayName.trim();
+        if (!name) {
+            setEditError('Tên hiển thị không được để trống.');
+            return;
+        }
+        setEditError('');
+        setEditSaving(true);
+        try {
+            // Kiểm tra trùng tên hiển thị với user khác
+            try {
+                const q = query(
+                    collectionGroup(db, 'settings'),
+                    where('displayName', '==', name)
+                );
+                const snap = await getDocs(q);
+                if (!snap.empty) {
+                    const conflict = snap.docs.find(d => d.ref.path.indexOf(`/users/${editingUser.userId}/`) === -1);
+                    if (conflict) {
+                        setEditError('Tên hiển thị này đã được sử dụng. Vui lòng chọn tên khác.');
+                        setEditSaving(false);
+                        return;
+                    }
+                }
+            } catch (checkErr) {
+                console.error('Lỗi kiểm tra trùng tên (admin edit):', checkErr);
+            }
+
+            const profileRef = doc(db, `artifacts/${appId}/users/${editingUser.userId}/settings/profile`);
+            const updates = { displayName: name, isApproved: editApproved === true };
+            const goalNum = editGoal ? Number(editGoal) : null;
+            if (!isNaN(goalNum) && goalNum && goalNum > 0) {
+                updates.dailyGoal = goalNum;
+            }
+            await updateDoc(profileRef, updates);
+
+            // Cập nhật bảng xếp hạng công khai
+            const statsRef = doc(db, publicStatsPath, editingUser.userId);
+            await updateDoc(statsRef, { displayName: name, isApproved: editApproved === true }).catch(() => {});
+
+            // Cập nhật UI local
+            setFriendStats(prev =>
+                prev.map(item =>
+                    item.userId === editingUser.userId ? { ...item, displayName: name, isApproved: editApproved === true } : item
+                )
+            );
+
+            setEditingUser(null);
+            setEditSaving(false);
+        } catch (e) {
+            console.error("Lỗi admin cập nhật thông tin người dùng:", e);
+            setEditError('Không thể cập nhật thông tin người dùng. Vui lòng thử lại.');
+            setEditSaving(false);
+        }
+    };
 
     return (
         <div className="space-y-6">
@@ -3772,23 +4005,127 @@ const FriendsScreen = ({ publicStatsPath, currentUserId, onBack }) => {
                             <th className="px-4 py-4 text-center text-xs font-bold text-emerald-600 uppercase">Trung</th>
                             <th className="px-4 py-4 text-center text-xs font-bold text-green-700 uppercase">Dài</th> 
                             <th className="px-6 py-4 text-right text-xs font-bold text-gray-500 uppercase">Tổng từ</th>
+                            {isAdmin && <th className="px-4 py-4 text-right text-xs font-bold text-red-500 uppercase">Admin</th>}
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-50">
                         {friendStats.map((u, i) => (
                             <tr key={u.userId} className={u.userId === currentUserId ? 'bg-indigo-50/50' : ''}>
                                 <td className="px-6 py-4 text-sm font-bold text-gray-400">#{i + 1}</td>
-                                <td className={`px-6 py-4 text-sm font-bold ${u.userId === currentUserId ? 'text-indigo-600' : 'text-gray-700'}`}>{u.displayName} {u.userId === currentUserId && '(Bạn)'}</td>
+                                <td className={`px-6 py-4 text-sm font-bold ${u.userId === currentUserId ? 'text-indigo-600' : 'text-gray-700'}`}>
+                                    <div className="flex items-center gap-2">
+                                        <span>{u.displayName} {u.userId === currentUserId && '(Bạn)'}</span>
+                                        {isAdmin && (
+                                            <span className={`px-2 py-0.5 text-[10px] font-semibold rounded-full border ${
+                                                u.isApproved
+                                                    ? 'bg-emerald-50 text-emerald-700 border-emerald-100'
+                                                    : 'bg-yellow-50 text-amber-700 border-amber-100'
+                                            }`}>
+                                                {u.isApproved ? 'Đã duyệt' : 'Chờ duyệt'}
+                                            </span>
+                                        )}
+                                    </div>
+                                </td>
                                 <td className="px-4 py-4 text-center text-sm font-medium text-amber-600">{u.shortTerm || 0}</td>
                                 <td className="px-4 py-4 text-center text-sm font-medium text-emerald-600">{u.midTerm || 0}</td>
                                 <td className="px-4 py-4 text-center text-sm font-medium text-green-700">{u.longTerm || 0}</td>
                                 <td className="px-6 py-4 text-right text-sm font-bold text-emerald-600">{u.totalCards}</td>
+                                {isAdmin && (
+                                    <td className="px-4 py-4 text-right space-x-2">
+                                        <button
+                                            type="button"
+                                            onClick={() => handleOpenEdit(u)}
+                                            className="px-3 py-1.5 text-xs font-semibold rounded-lg border border-indigo-200 text-indigo-600 hover:bg-indigo-50"
+                                        >
+                                            Sửa
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={() => {
+                                                if (u.userId === currentUserId) return;
+                                                if (window.confirm(`Bạn có chắc muốn xoá toàn bộ dữ liệu của ${u.displayName || 'người dùng này'}?`)) {
+                                                    onAdminDeleteUserData(u.userId);
+                                                }
+                                            }}
+                                            className={`px-3 py-1.5 text-xs font-semibold rounded-lg border ${
+                                                u.userId === currentUserId
+                                                    ? 'border-gray-200 text-gray-300 cursor-not-allowed'
+                                                    : 'border-red-200 text-red-600 hover:bg-red-50'
+                                            }`}
+                                        >
+                                            Xoá dữ liệu
+                                        </button>
+                                    </td>
+                                )}
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
-            <button onClick={onBack} className="w-full py-3 border border-gray-200 rounded-xl hover:bg-gray-50">Quay lại</button>
+            {isAdmin && editingUser && (
+                <div className="bg-white rounded-2xl border border-indigo-100 shadow-sm p-4 space-y-3">
+                    <h3 className="text-sm font-bold text-gray-800">
+                        Chỉnh sửa người dùng: <span className="text-indigo-600">{editingUser.displayName || editingUser.userId}</span>
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                            <label className="block text-xs font-semibold text-gray-700">Tên hiển thị</label>
+                            <input
+                                type="text"
+                                value={editDisplayName}
+                                onChange={(e) => setEditDisplayName(e.target.value)}
+                                className="w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 outline-none"
+                            />
+                        </div>
+                        <div className="space-y-2">
+                            <label className="block text-xs font-semibold text-gray-700">Mục tiêu/ngày</label>
+                        <div className="flex items-center gap-2 pt-1">
+                            <input
+                                id="edit-approved"
+                                type="checkbox"
+                                checked={editApproved}
+                                onChange={(e) => setEditApproved(e.target.checked)}
+                                className="w-4 h-4 text-indigo-600 border-gray-300 rounded"
+                            />
+                            <label htmlFor="edit-approved" className="text-xs text-gray-600">
+                                Cho phép tài khoản này sử dụng app (Admin duyệt)
+                            </label>
+                        </div>
+                            <input
+                                type="number"
+                                min={1}
+                                value={editGoal}
+                                onChange={(e) => setEditGoal(e.target.value)}
+                                className="w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 outline-none"
+                                placeholder="Giữ nguyên nếu để trống"
+                            />
+                        </div>
+                    </div>
+                    {editError && (
+                        <div className="text-xs text-red-600 bg-red-50 border border-red-100 rounded-xl px-3 py-2">
+                            {editError}
+                        </div>
+                    )}
+                    <div className="flex justify-end gap-2">
+                        <button
+                            type="button"
+                            onClick={() => { setEditingUser(null); setEditError(''); }}
+                            className="px-4 py-2 text-xs font-semibold rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-50"
+                        >
+                            Huỷ
+                        </button>
+                        <button
+                            type="button"
+                            disabled={editSaving}
+                            onClick={handleSaveEdit}
+                            className="px-4 py-2 text-xs font-semibold rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-50"
+                        >
+                            {editSaving ? 'Đang lưu...' : 'Lưu thay đổi'}
+                        </button>
+                    </div>
+                </div>
+            )}
+            <button onClick={onBack} className="w-full py-3 border border-gray-200 rounded-xl hover:bg-gray-50 mt-4">Quay lại</button>
         </div>
     );
 };
