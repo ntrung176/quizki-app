@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithCustomToken, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail, updatePassword } from 'firebase/auth';
-import { getFirestore, doc, setDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, increment, getDoc, writeBatch } from 'firebase/firestore';
+import { getAuth, signInWithCustomToken, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail, updatePassword, sendEmailVerification } from 'firebase/auth';
+import { getFirestore, doc, setDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, increment, getDoc, writeBatch, getDocs, where, collectionGroup } from 'firebase/firestore';
 import { Loader2, Plus, Repeat2, Home, CheckCircle, XCircle, Volume2, Send, BookOpen, Clock, HeartHandshake, List, Calendar, Trash2, Mic, FileText, MessageSquare, HelpCircle, Upload, Wand2, BarChart3, Users, PieChart as PieChartIcon, Target, Save, Edit, Zap, Eye, EyeOff, AlertTriangle, Check, VolumeX, Image as ImageIcon, X, Music, FileAudio, Tag, Sparkles, Filter, ArrowDown, ArrowUp, GraduationCap, Search, Languages, RefreshCw, Settings, ChevronRight, Wrench, LayoutGrid, Flame, TrendingUp, Lightbulb, Brain, Ear, Keyboard, MousePointerClick, Layers, RotateCw, Lock } from 'lucide-react';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 
@@ -415,8 +415,20 @@ const App = () => {
         if (!db || !auth) return;
 
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) setUserId(user.uid);
-            else setUserId(null);
+            // Chặn vào app nếu email chưa xác thực
+            if (user && !user.emailVerified) {
+                setNotification("Email chưa xác thực. Vui lòng kiểm tra hộp thư và bấm link xác nhận, sau đó đăng nhập lại.");
+                signOut(auth);
+                setUserId(null);
+                setAuthReady(true);
+                return;
+            }
+            if (user) {
+                setUserId(user.uid);
+                setNotification(''); // Đã xác thực và đăng nhập, xoá thông báo cũ (nếu có)
+            } else {
+                setUserId(null);
+            }
             setAuthReady(true);
         });
 
@@ -1191,6 +1203,13 @@ const App = () => {
             setNotification("Lỗi khi cập nhật mục tiêu.");
         }
     };
+
+    // Tự động ẩn thông báo sau 3s
+    useEffect(() => {
+        if (!notification) return;
+        const t = setTimeout(() => setNotification(''), 3000);
+        return () => clearTimeout(t);
+    }, [notification]);
     
     // --- GEMINI AI ASSISTANT ---
     const handleGeminiAssist = async (frontText, contextPos = '', contextLevel = '') => {
@@ -1600,7 +1619,6 @@ const LoginScreen = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [displayName, setDisplayName] = useState('');
     const [mode, setMode] = useState('login'); // 'login' | 'register'
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
@@ -1615,10 +1633,6 @@ const LoginScreen = () => {
         setInfo('');
 
         if (mode === 'register') {
-            if (!displayName.trim()) {
-                setError('Vui lòng nhập tên hiển thị.');
-                return;
-            }
             if (password.length < 6) {
                 setError('Mật khẩu phải có ít nhất 6 ký tự.');
                 return;
@@ -1632,23 +1646,45 @@ const LoginScreen = () => {
         setIsLoading(true);
         try {
             if (mode === 'login') {
-                await signInWithEmailAndPassword(auth, email.trim(), password);
+                const cred = await signInWithEmailAndPassword(auth, email.trim(), password);
+                if (!cred.user.emailVerified) {
+                    // Gửi lại email xác thực (nếu cần) và không cho vào app
+                    try {
+                        await sendEmailVerification(cred.user);
+                    } catch (ve) {
+                        console.error('Lỗi gửi lại email xác thực:', ve);
+                    }
+                    setError('Email của bạn chưa được xác thực. Vui lòng kiểm tra hộp thư, bấm vào link xác nhận rồi đăng nhập lại.');
+                    await signOut(auth);
+                    return;
+                }
             } else {
                 const cred = await createUserWithEmailAndPassword(auth, email.trim(), password);
-                // Khởi tạo profile cơ bản cho user mới
+                // Gửi email xác thực cho tài khoản mới
+                try {
+                    await sendEmailVerification(cred.user);
+                    setInfo('Đăng ký thành công! Một email xác thực đã được gửi, vui lòng kiểm tra hộp thư và xác thực tài khoản.');
+                } catch (ve) {
+                    console.error('Lỗi gửi email xác thực:', ve);
+                    setInfo('Đăng ký thành công, nhưng không gửi được email xác thực. Vui lòng thử lại chức năng quên mật khẩu hoặc liên hệ hỗ trợ.');
+                }
+                // Khởi tạo profile cơ bản cho user mới với tên mặc định (sẽ cho phép đổi trong app)
                 if (db) {
+                    const defaultName = email.trim().split('@')[0];
                     const profileRef = doc(db, `artifacts/${appId}/users/${cred.user.uid}/settings/profile`);
                     await setDoc(profileRef, {
-                        displayName: displayName.trim(),
+                        displayName: defaultName,
                         dailyGoal: 10,
-                        hasSeenHelp: false,
+                        hasSeenHelp: true,
                         createdAt: serverTimestamp()
                     }, { merge: true });
                 }
+                // Đăng ký xong nhưng bắt buộc xác thực email rồi mới cho đăng nhập
+                await signOut(auth);
             }
         } catch (e) {
             console.error('Lỗi đăng nhập:', e);
-            let msg = 'Không thể đăng nhập. Vui lòng thử lại.';
+            let msg = '';
             if (e.code === 'auth/invalid-credential' || e.code === 'auth/wrong-password') {
                 msg = 'Email hoặc mật khẩu không đúng.';
             } else if (e.code === 'auth/user-not-found') {
@@ -1660,7 +1696,7 @@ const LoginScreen = () => {
             } else if (e.code === 'auth/operation-not-allowed') {
                 msg = 'Email/Password Auth chưa được bật trong Firebase Console.';
             }
-            setError(msg);
+            if (msg) setError(msg);
         } finally {
             setIsLoading(false);
         }
@@ -1736,20 +1772,6 @@ const LoginScreen = () => {
                             required
                         />
                     </div>
-
-                    {mode === 'register' && (
-                        <div className="space-y-2">
-                            <label className="block text-sm font-semibold text-gray-700">Tên hiển thị</label>
-                            <input
-                                type="text"
-                                value={displayName}
-                                onChange={(e) => setDisplayName(e.target.value)}
-                                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 text-sm outline-none"
-                                placeholder="Tên sẽ hiển thị trong app"
-                                required
-                            />
-                        </div>
-                    )}
 
                     <div className="space-y-2">
                         <label className="block text-sm font-semibold text-gray-700">Mật khẩu</label>
@@ -1855,6 +1877,28 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack 
             return;
         }
         try {
+            // Kiểm tra trùng tên hiển thị trong toàn bộ profile
+            if (db) {
+                try {
+                    const q = query(
+                        collectionGroup(db, 'settings'),
+                        where('displayName', '==', newDisplayName.trim())
+                    );
+                    const snap = await getDocs(q);
+                    // Nếu có ít nhất một user khác (không phải current user) dùng tên này thì báo lỗi
+                    if (!snap.empty) {
+                        const conflict = snap.docs.find(d => d.ref.path.indexOf(`/users/${auth?.currentUser?.uid}/`) === -1);
+                        if (conflict) {
+                            setError('Tên hiển thị này đã được sử dụng. Vui lòng chọn tên khác.');
+                            return;
+                        }
+                    }
+                } catch (checkErr) {
+                    console.error('Lỗi kiểm tra trùng tên hiển thị:', checkErr);
+                    // Nếu lỗi kiểm tra, vẫn cho phép đổi tên để không chặn người dùng
+                }
+            }
+
             await onUpdateProfileName(newDisplayName.trim());
             setMessage('Đã cập nhật tên hiển thị.');
         } catch (e) {
