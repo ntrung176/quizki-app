@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from 'firebase/auth';
+import { getAuth, signInWithCustomToken, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail, updatePassword } from 'firebase/auth';
 import { getFirestore, doc, setDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, increment, getDoc, writeBatch } from 'firebase/firestore';
-import { Loader2, Plus, Repeat2, Home, CheckCircle, XCircle, Volume2, Send, BookOpen, Clock, HeartHandshake, List, Calendar, Trash2, Mic, FileText, MessageSquare, HelpCircle, Upload, Wand2, BarChart3, Users, PieChart as PieChartIcon, Target, Save, Edit, Zap, Eye, EyeOff, AlertTriangle, Check, VolumeX, Image as ImageIcon, X, Music, FileAudio, Tag, Sparkles, Filter, ArrowDown, ArrowUp, GraduationCap, Search, Languages, RefreshCw, Settings, ChevronRight, Wrench, LayoutGrid, Flame, TrendingUp, Lightbulb, Brain, Ear, Keyboard, MousePointerClick, Layers, RotateCw } from 'lucide-react';
+import { Loader2, Plus, Repeat2, Home, CheckCircle, XCircle, Volume2, Send, BookOpen, Clock, HeartHandshake, List, Calendar, Trash2, Mic, FileText, MessageSquare, HelpCircle, Upload, Wand2, BarChart3, Users, PieChart as PieChartIcon, Target, Save, Edit, Zap, Eye, EyeOff, AlertTriangle, Check, VolumeX, Image as ImageIcon, X, Music, FileAudio, Tag, Sparkles, Filter, ArrowDown, ArrowUp, GraduationCap, Search, Languages, RefreshCw, Settings, ChevronRight, Wrench, LayoutGrid, Flame, TrendingUp, Lightbulb, Brain, Ear, Keyboard, MousePointerClick, Layers, RotateCw, Lock } from 'lucide-react';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 
 
@@ -413,23 +413,14 @@ const App = () => {
 
     useEffect(() => {
         if (!db || !auth) return;
-        const setupAuth = async () => {
-            try {
-                if (initialAuthToken) {
-                    await signInWithCustomToken(auth, initialAuthToken);
-                } else {
-                    await signInAnonymously(auth);
-                }
-            } catch (e) {
-                console.error("Lỗi xác thực Firebase:", e);
-            }
-        };
+
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) setUserId(user.uid);
             else setUserId(null);
             setAuthReady(true);
         });
-        setupAuth();
+
+        // Không còn tự động đăng nhập ẩn danh; sẽ để LoginScreen quyết định
         return () => unsubscribe();
     }, []);
 
@@ -439,11 +430,27 @@ const App = () => {
             return;
         }
 
-        const unsubscribe = onSnapshot(doc(db, settingsDocPath), (docSnap) => {
+        const unsubscribe = onSnapshot(doc(db, settingsDocPath), async (docSnap) => {
             if (docSnap.exists()) {
                 setProfile(docSnap.data());
             } else {
-                setProfile(null); 
+                // Tự động tạo profile mặc định nếu chưa có, không hiển thị màn hỏi tên riêng
+                try {
+                    const defaultName = auth?.currentUser?.email
+                        ? auth.currentUser.email.split('@')[0]
+                        : 'Người học';
+                    const defaultGoal = 10;
+                    const newProfile = {
+                        displayName: defaultName,
+                        dailyGoal: defaultGoal,
+                        hasSeenHelp: true
+                    };
+                    await setDoc(doc(db, settingsDocPath), newProfile);
+                    setProfile(newProfile);
+                } catch (e) {
+                    console.error("Lỗi tạo hồ sơ mặc định:", e);
+                    setProfile(null);
+                }
             }
             setIsProfileLoading(false);
             setIsLoading(false); 
@@ -1436,7 +1443,8 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
     }, [memoryStats, allCards.length, profile, userId, authReady, publicStatsCollectionPath]); 
 
 
-    if (isLoading || isProfileLoading) { 
+    // Nếu chưa biết trạng thái auth, show loading
+    if (!authReady) {
         return (
             <div className="flex items-center justify-center min-h-screen bg-gray-50">
                 <Loader2 className="animate-spin text-indigo-600 w-10 h-10" />
@@ -1444,23 +1452,15 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
         );
     }
 
-    if (!profile) {
-        return <ProfileScreen onSave={handleSaveProfile} />;
+    // Nếu chưa có userId (chưa đăng nhập), hiển thị màn Login
+    if (!userId) {
+        return <LoginScreen />;
     }
-    
-    if (!profile.hasSeenHelp) {
+
+    if (isLoading || isProfileLoading || !profile) { 
         return (
-            <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
-                <Header currentView="HELP" setView={setView} />
-                <main className="flex-grow p-4 md:p-8 flex justify-center items-start pt-20">
-                    <div className="w-full max-w-4xl bg-white shadow-xl rounded-2xl p-6 md:p-10 border border-gray-100">
-                        <HelpScreen 
-                            isFirstTime={true} 
-                            onConfirmFirstTime={handleConfirmHelp}
-                            onBack={() => {}} 
-                        />
-                    </div>
-                </main>
+            <div className="flex items-center justify-center min-h-screen bg-gray-50">
+                <Loader2 className="animate-spin text-indigo-600 w-10 h-10" />
             </div>
         );
     }
@@ -1525,7 +1525,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     profile={profile}
                     allCards={allCards}
                     dailyActivityLogs={dailyActivityLogs}
-                    onUpdateGoal={handleUpdateGoal} 
+                    onUpdateGoal={handleUpdateGoal}
                     onBack={() => setView('HOME')} 
                 />;
             case 'FRIENDS':
@@ -1533,6 +1533,22 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     publicStatsPath={publicStatsCollectionPath} 
                     currentUserId={userId} 
                     onBack={() => setView('HOME')} 
+                />;
+            case 'ACCOUNT':
+                return <AccountScreen
+                    profile={profile}
+                    onUpdateProfileName={async (newName) => {
+                        if (!settingsDocPath) return;
+                        await updateDoc(doc(db, settingsDocPath), { displayName: newName });
+                        setProfile(prev => prev ? { ...prev, displayName: newName } : prev);
+                    }}
+                    onChangePassword={async (newPassword, currentPassword) => {
+                        if (!auth || !auth.currentUser) throw new Error('Chưa đăng nhập.');
+                        // Với Email/Password, để đổi mật khẩu an toàn bạn nên reauthenticate với currentPassword.
+                        // Ở đây, để đơn giản, ta chỉ gọi updatePassword (Firebase có thể yêu cầu re-auth trong một số trường hợp).
+                        await updatePassword(auth.currentUser, newPassword);
+                    }}
+                    onBack={() => setView('HOME')}
                 />;
             case 'HOME':
             default:
@@ -1567,7 +1583,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                             </div>
                         )}
                         <div className="mt-auto pt-6 border-t border-gray-100 text-xs text-gray-400 text-center flex flex-col items-center gap-1">
-                            <span>QuizKi V1.6.3 (Enhanced TTS & Fallback)</span>
+                            <span>QuizKi V2.0</span>
                             <span className="font-mono bg-gray-50 px-2 py-1 rounded text-[10px] text-gray-300">UID: {userId?.substring(0, 8)}...</span>
                         </div>
                     </div>
@@ -1579,6 +1595,438 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
 };
 
 // --- Component Phụ Trợ ---
+
+const LoginScreen = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [displayName, setDisplayName] = useState('');
+    const [mode, setMode] = useState('login'); // 'login' | 'register'
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState('');
+    const [info, setInfo] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!auth) return;
+        setError('');
+        setInfo('');
+
+        if (mode === 'register') {
+            if (!displayName.trim()) {
+                setError('Vui lòng nhập tên hiển thị.');
+                return;
+            }
+            if (password.length < 6) {
+                setError('Mật khẩu phải có ít nhất 6 ký tự.');
+                return;
+            }
+            if (password !== confirmPassword) {
+                setError('Mật khẩu xác nhận không khớp.');
+                return;
+            }
+        }
+
+        setIsLoading(true);
+        try {
+            if (mode === 'login') {
+                await signInWithEmailAndPassword(auth, email.trim(), password);
+            } else {
+                const cred = await createUserWithEmailAndPassword(auth, email.trim(), password);
+                // Khởi tạo profile cơ bản cho user mới
+                if (db) {
+                    const profileRef = doc(db, `artifacts/${appId}/users/${cred.user.uid}/settings/profile`);
+                    await setDoc(profileRef, {
+                        displayName: displayName.trim(),
+                        dailyGoal: 10,
+                        hasSeenHelp: false,
+                        createdAt: serverTimestamp()
+                    }, { merge: true });
+                }
+            }
+        } catch (e) {
+            console.error('Lỗi đăng nhập:', e);
+            let msg = 'Không thể đăng nhập. Vui lòng thử lại.';
+            if (e.code === 'auth/invalid-credential' || e.code === 'auth/wrong-password') {
+                msg = 'Email hoặc mật khẩu không đúng.';
+            } else if (e.code === 'auth/user-not-found') {
+                msg = 'Tài khoản không tồn tại. Hãy chọn Đăng ký.';
+            } else if (e.code === 'auth/email-already-in-use') {
+                msg = 'Email này đã được đăng ký, hãy chuyển sang Đăng nhập.';
+            } else if (e.code === 'auth/weak-password') {
+                msg = 'Mật khẩu quá yếu. Vui lòng chọn mật khẩu từ 6 ký tự trở lên.';
+            } else if (e.code === 'auth/operation-not-allowed') {
+                msg = 'Email/Password Auth chưa được bật trong Firebase Console.';
+            }
+            setError(msg);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleResetPassword = async () => {
+        if (!auth) return;
+        setError('');
+        setInfo('');
+        if (!email.trim()) {
+            setError('Vui lòng nhập email để đặt lại mật khẩu.');
+            return;
+        }
+        try {
+            await sendPasswordResetEmail(auth, email.trim());
+            setInfo('Đã gửi email đặt lại mật khẩu. Vui lòng kiểm tra hộp thư của bạn.');
+        } catch (e) {
+            console.error('Lỗi quên mật khẩu:', e);
+            const msg = e.code === 'auth/user-not-found'
+                ? 'Không tìm thấy tài khoản với email này.'
+                : 'Không thể gửi email đặt lại mật khẩu. Vui lòng thử lại.';
+            setError(msg);
+        }
+    };
+
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center p-4">
+            <div className="w-full max-w-md bg-white/90 backdrop-blur-xl shadow-2xl rounded-3xl p-8 space-y-6 border border-white/50">
+                <div className="text-center space-y-2">
+                    <div className="w-16 h-16 bg-indigo-600 rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-indigo-200">
+                        <Sparkles className="w-8 h-8 text-white" />
+                    </div>
+                    <h2 className="text-3xl font-extrabold text-gray-800">QuizKi</h2>
+                    <p className="text-gray-500 text-sm">
+                        Đăng nhập để đồng bộ kho từ vựng của bạn trên mọi thiết bị
+                    </p>
+                </div>
+
+                <div className="flex bg-gray-100 rounded-2xl p-1 text-sm font-semibold">
+                    <button
+                        type="button"
+                        onClick={() => setMode('login')}
+                        className={`flex-1 py-2 rounded-xl transition-all ${
+                            mode === 'login'
+                                ? 'bg-white text-indigo-700 shadow-sm'
+                                : 'text-gray-500 hover:text-gray-700'
+                        }`}
+                    >
+                        Đăng nhập
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => setMode('register')}
+                        className={`flex-1 py-2 rounded-xl transition-all ${
+                            mode === 'register'
+                                ? 'bg-white text-indigo-700 shadow-sm'
+                                : 'text-gray-500 hover:text-gray-700'
+                        }`}
+                    >
+                        Đăng ký
+                    </button>
+                </div>
+
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="space-y-2">
+                        <label className="block text-sm font-semibold text-gray-700">Email</label>
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 text-sm outline-none"
+                            placeholder="you@example.com"
+                            required
+                        />
+                    </div>
+
+                    {mode === 'register' && (
+                        <div className="space-y-2">
+                            <label className="block text-sm font-semibold text-gray-700">Tên hiển thị</label>
+                            <input
+                                type="text"
+                                value={displayName}
+                                onChange={(e) => setDisplayName(e.target.value)}
+                                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 text-sm outline-none"
+                                placeholder="Tên sẽ hiển thị trong app"
+                                required
+                            />
+                        </div>
+                    )}
+
+                    <div className="space-y-2">
+                        <label className="block text-sm font-semibold text-gray-700">Mật khẩu</label>
+                        <div className="relative">
+                            <input
+                                type={showPassword ? 'text' : 'password'}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="w-full px-4 py-3 pr-10 bg-gray-50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 text-sm outline-none"
+                                placeholder="Tối thiểu 6 ký tự"
+                                required
+                            />
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                className="absolute inset-y-0 right-2 px-2 flex items-center text-gray-400 hover:text-gray-600"
+                                tabIndex={-1}
+                            >
+                                {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                            </button>
+                        </div>
+                    </div>
+
+                    {mode === 'register' && (
+                        <div className="space-y-2">
+                            <label className="block text-sm font-semibold text-gray-700">Xác nhận mật khẩu</label>
+                            <div className="relative">
+                                <input
+                                    type={showConfirmPassword ? 'text' : 'password'}
+                                    value={confirmPassword}
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                    className="w-full px-4 py-3 pr-10 bg-gray-50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 text-sm outline-none"
+                                    placeholder="Nhập lại mật khẩu"
+                                    required
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                    className="absolute inset-y-0 right-2 px-2 flex items-center text-gray-400 hover:text-gray-600"
+                                    tabIndex={-1}
+                                >
+                                    {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                    {error && (
+                        <div className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-xl px-3 py-2">
+                            {error}
+                        </div>
+                    )}
+                    {info && (
+                        <div className="text-sm text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-xl px-3 py-2">
+                            {info}
+                        </div>
+                    )}
+                    <button
+                        type="submit"
+                        disabled={isLoading}
+                        className="w-full px-6 py-3 text-sm font-bold rounded-xl shadow-lg shadow-indigo-200 text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                    >
+                        {isLoading ? (
+                            <Loader2 className="animate-spin w-5 h-5 mx-auto" />
+                        ) : mode === 'login' ? (
+                            'Đăng nhập'
+                        ) : (
+                            'Đăng ký tài khoản mới'
+                        )}
+                    </button>
+                    {mode === 'login' && (
+                        <button
+                            type="button"
+                            onClick={handleResetPassword}
+                            disabled={isLoading}
+                            className="w-full text-xs text-indigo-600 hover:text-indigo-700 text-right mt-1"
+                        >
+                            Quên mật khẩu?
+                        </button>
+                    )}
+                </form>
+            </div>
+        </div>
+    );
+};
+
+const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack }) => {
+    const [newDisplayName, setNewDisplayName] = useState(profile.displayName || '');
+    const [currentPassword, setCurrentPassword] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [confirmNewPassword, setConfirmNewPassword] = useState('');
+    const [showCurrent, setShowCurrent] = useState(false);
+    const [showNew, setShowNew] = useState(false);
+    const [showConfirmNew, setShowConfirmNew] = useState(false);
+    const [message, setMessage] = useState('');
+    const [error, setError] = useState('');
+
+    const handleSaveProfile = async () => {
+        setError('');
+        setMessage('');
+        if (!newDisplayName.trim()) {
+            setError('Tên hiển thị không được để trống.');
+            return;
+        }
+        try {
+            await onUpdateProfileName(newDisplayName.trim());
+            setMessage('Đã cập nhật tên hiển thị.');
+        } catch (e) {
+            console.error('Lỗi cập nhật tên:', e);
+            setError('Không thể cập nhật tên hiển thị. Vui lòng thử lại.');
+        }
+    };
+
+    const handleChangePassword = async () => {
+        setError('');
+        setMessage('');
+        if (!newPassword || newPassword.length < 6) {
+            setError('Mật khẩu mới phải có ít nhất 6 ký tự.');
+            return;
+        }
+        if (newPassword !== confirmNewPassword) {
+            setError('Mật khẩu xác nhận không khớp.');
+            return;
+        }
+        try {
+            await onChangePassword(newPassword, currentPassword);
+            setMessage('Đã cập nhật mật khẩu. Lần sau hãy dùng mật khẩu mới để đăng nhập.');
+            setCurrentPassword('');
+            setNewPassword('');
+            setConfirmNewPassword('');
+        } catch (e) {
+            console.error('Lỗi đổi mật khẩu:', e);
+            setError('Không thể đổi mật khẩu. Có thể bạn cần đăng nhập lại gần đây hoặc mật khẩu hiện tại không đúng.');
+        }
+    };
+
+    return (
+        <div className="space-y-8">
+            <div className="flex items-center justify-between pb-4 border-b border-gray-100">
+                <div>
+                    <h2 className="text-2xl font-bold text-gray-800">Tài khoản của bạn</h2>
+                    <p className="text-gray-500 text-sm">Quản lý thông tin cá nhân và bảo mật</p>
+                </div>
+                <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
+                    <Users className="w-5 h-5 text-indigo-600" />
+                </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-4">
+                    <h3 className="text-lg font-bold text-gray-800">Thông tin cá nhân</h3>
+                    <div className="space-y-3">
+                        <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-1">Email</label>
+                            <input
+                                type="email"
+                                value={auth?.currentUser?.email || ''}
+                                readOnly
+                                className="w-full px-4 py-2.5 bg-gray-100 border border-gray-200 rounded-xl text-sm text-gray-500 cursor-not-allowed"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-1">Tên hiển thị</label>
+                            <input
+                                type="text"
+                                value={newDisplayName}
+                                onChange={(e) => setNewDisplayName(e.target.value)}
+                                className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 text-sm outline-none"
+                                placeholder="Tên sẽ hiển thị trong app"
+                            />
+                        </div>
+                        <button
+                            type="button"
+                            onClick={handleSaveProfile}
+                            className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm"
+                        >
+                            <Save className="w-4 h-4 mr-1" /> Lưu thay đổi
+                        </button>
+                    </div>
+                </div>
+
+                <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-4">
+                    <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2">
+                        <Lock className="w-5 h-5 text-rose-500" /> Bảo mật & mật khẩu
+                    </h3>
+                    <div className="space-y-3">
+                        <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-1">Mật khẩu hiện tại</label>
+                            <div className="relative">
+                                <input
+                                    type={showCurrent ? 'text' : 'password'}
+                                    value={currentPassword}
+                                    onChange={(e) => setCurrentPassword(e.target.value)}
+                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 text-sm outline-none"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowCurrent(!showCurrent)}
+                                    className="absolute inset-y-0 right-2 px-2 flex items-center text-gray-400 hover:text-gray-600"
+                                    tabIndex={-1}
+                                >
+                                    {showCurrent ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-1">Mật khẩu mới</label>
+                            <div className="relative">
+                                <input
+                                    type={showNew ? 'text' : 'password'}
+                                    value={newPassword}
+                                    onChange={(e) => setNewPassword(e.target.value)}
+                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 text-sm outline-none"
+                                    placeholder="Tối thiểu 6 ký tự"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowNew(!showNew)}
+                                    className="absolute inset-y-0 right-2 px-2 flex items-center text-gray-400 hover:text-gray-600"
+                                    tabIndex={-1}
+                                >
+                                    {showNew ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-1">Xác nhận mật khẩu mới</label>
+                            <div className="relative">
+                                <input
+                                    type={showConfirmNew ? 'text' : 'password'}
+                                    value={confirmNewPassword}
+                                    onChange={(e) => setConfirmNewPassword(e.target.value)}
+                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 text-sm outline-none"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowConfirmNew(!showConfirmNew)}
+                                    className="absolute inset-y-0 right-2 px-2 flex items-center text-gray-400 hover:text-gray-600"
+                                    tabIndex={-1}
+                                >
+                                    {showConfirmNew ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                </button>
+                            </div>
+                        </div>
+                        <button
+                            type="button"
+                            onClick={handleChangePassword}
+                            className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-xl bg-rose-500 text-white hover:bg-rose-600 shadow-sm"
+                        >
+                            <Save className="w-4 h-4 mr-1" /> Đổi mật khẩu
+                        </button>
+                    </div>
+                    {error && (
+                        <div className="text-xs text-red-600 bg-red-50 border border-red-100 rounded-xl px-3 py-2 mt-1">
+                            {error}
+                        </div>
+                    )}
+                    {message && (
+                        <div className="text-xs text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-xl px-3 py-2 mt-1">
+                            {message}
+                        </div>
+                    )}
+                </div>
+            </div>
+
+            <div className="pt-4 border-t border-gray-100 flex justify-end">
+                <button
+                    type="button"
+                    onClick={onBack}
+                    className="px-4 py-2 text-sm font-medium rounded-xl text-gray-600 bg-white border border-gray-200 hover:bg-gray-50"
+                >
+                    Quay lại
+                </button>
+            </div>
+        </div>
+    );
+};
 
 const ProfileScreen = ({ onSave }) => {
     const [displayName, setDisplayName] = useState('');
@@ -1629,7 +2077,18 @@ const ProfileScreen = ({ onSave }) => {
     );
 };
 
-const Header = ({ currentView, setView }) => (
+const Header = ({ currentView, setView }) => {
+    const handleLogout = async () => {
+        try {
+            if (auth) {
+                await signOut(auth);
+            }
+        } catch (e) {
+            console.error('Lỗi đăng xuất:', e);
+        }
+    };
+
+    return (
     <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 h-16 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between">
             <div 
@@ -1650,6 +2109,7 @@ const Header = ({ currentView, setView }) => (
                     { id: 'LIST', icon: List, label: 'List' },
                     { id: 'STATS', icon: BarChart3, label: 'Stats' },
                     { id: 'FRIENDS', icon: Users, label: 'Rank' },
+                    { id: 'ACCOUNT', icon: Settings, label: 'Account' },
                 ].map((item) => (
                     <button 
                         key={item.id}
@@ -1669,13 +2129,25 @@ const Header = ({ currentView, setView }) => (
                 
                 <div className="h-6 w-px bg-gray-200 mx-2" />
                 
-                <button onClick={() => setView('ADD_CARD')} className={`p-2.5 rounded-xl transition-all ${currentView === 'ADD_CARD' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200' : 'text-indigo-600 bg-indigo-50 hover:bg-indigo-100'}`}>
+                <button
+                    onClick={() => setView('ADD_CARD')}
+                    className={`p-2.5 rounded-xl transition-all ${currentView === 'ADD_CARD' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200' : 'text-indigo-600 bg-indigo-50 hover:bg-indigo-100'}`}
+                >
                     <Plus className="w-5 h-5" strokeWidth={2.5} />
+                </button>
+
+                <button
+                    onClick={handleLogout}
+                    className="ml-1 p-2.5 rounded-xl transition-all text-gray-400 hover:text-red-600 hover:bg-red-50"
+                    title="Đăng xuất"
+                >
+                    <X className="w-5 h-5" />
                 </button>
             </nav>
         </div>
     </header>
-);
+    );
+};
 
 const MemoryStatCard = ({ title, count, icon: Icon, color, subtext }) => (
     <div className={`relative overflow-hidden p-5 rounded-2xl border transition-all duration-300 ${color.bg} ${color.border} group h-full`}>
@@ -3037,10 +3509,9 @@ const ImportScreen = ({ onImport, onBack }) => {
 // UPDATED: Advanced Stats
 const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivityLogs, onUpdateGoal, onBack }) => {
     const { shortTerm, midTerm, longTerm, new: newCards } = memoryStats;
-    const [isEditingGoal, setIsEditingGoal] = useState(false);
     const [newGoal, setNewGoal] = useState(profile.dailyGoal);
 
-    const handleSaveGoal = () => { onUpdateGoal(newGoal); setIsEditingGoal(false); };
+    const handleSaveGoal = () => { onUpdateGoal(newGoal); };
 
     // --- Statistics Calculations ---
 
@@ -3124,15 +3595,31 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
             <h2 className="text-2xl font-bold text-gray-800 pb-4 border-b">Thống Kê Chi Tiết</h2>
             
             {/* Top Row: Summary Cards */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                 <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-5 rounded-2xl text-white shadow-lg">
-                     <div className="flex justify-between items-start mb-2"><Target className="w-5 h-5 text-indigo-200"/></div>
-                     <div className="flex items-end gap-2">
-                         {isEditingGoal ? <div className="flex items-center gap-2"><input type="number" value={newGoal} onChange={e=>setNewGoal(e.target.value)} className="w-16 px-1 py-0.5 text-gray-800 rounded text-lg"/><button onClick={handleSaveGoal}><Save className="w-5 h-5"/></button></div> 
-                         : <div className="flex flex-col"><span className="text-3xl font-bold">{profile.dailyGoal}</span><span className="text-xs opacity-80">Mục tiêu/ngày</span><button onClick={()=>setIsEditingGoal(true)} className="absolute top-5 right-5 opacity-50 hover:opacity-100"><Edit className="w-4 h-4"/></button></div>}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                 <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 p-5 rounded-2xl text-white shadow-lg space-y-2">
+                     <div className="flex justify-between items-start">
+                        <div>
+                            <p className="text-xs uppercase tracking-wide opacity-80">Mục tiêu mỗi ngày</p>
+                            <div className="flex items-end gap-2 mt-1">
+                                <input
+                                    type="number"
+                                    min={1}
+                                    value={newGoal}
+                                    onChange={e => setNewGoal(e.target.value)}
+                                    className="w-20 px-2 py-1 rounded-lg text-2xl font-bold text-indigo-700 bg-white"
+                                />
+                                <span className="text-xs opacity-90">từ/ngày</span>
+                            </div>
+                        </div>
+                        <Target className="w-5 h-5 text-indigo-200"/>
                      </div>
+                     <button
+                        onClick={handleSaveGoal}
+                        className="mt-2 inline-flex items-center px-3 py-1.5 text-xs font-semibold rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                     >
+                        <Save className="w-3 h-3 mr-1" /> Lưu mục tiêu
+                     </button>
                 </div>
-
                 <MemoryStatCard 
                     title="Trong tuần" 
                     count={wordsAddedThisWeek} 
