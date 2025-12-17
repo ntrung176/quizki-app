@@ -2485,45 +2485,45 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, onStartReview, onNavig
                     <Settings className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2 text-gray-500" />
                     Quản lý & Tiện ích
                 </h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5 md:gap-3">
                      <button
                         onClick={() => onNavigate('ADD_CARD')}
-                        className="flex items-center p-2 md:p-4 bg-white border border-gray-100 rounded-xl md:rounded-2xl shadow-sm hover:shadow-md hover:border-indigo-200 transition-all group"
+                        className="flex items-center p-1.5 md:p-4 bg-white border border-gray-100 rounded-lg md:rounded-2xl shadow-sm hover:shadow-md hover:border-indigo-200 transition-all group"
                     >
-                        <div className="bg-indigo-50 p-1.5 md:p-2 rounded-lg mr-2 md:mr-3 group-hover:bg-indigo-100 transition-colors">
-                            <Plus className="w-4 h-4 md:w-5 md:h-5 text-indigo-600" />
+                        <div className="bg-indigo-50 p-1 md:p-2 rounded-md md:rounded-lg mr-1.5 md:mr-3 group-hover:bg-indigo-100 transition-colors flex-shrink-0">
+                            <Plus className="w-3.5 h-3.5 md:w-5 md:h-5 text-indigo-600" />
                         </div>
-                        <span className="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-indigo-700">Thêm từ mới</span>
+                        <span className="text-[10px] md:text-sm font-semibold text-gray-700 group-hover:text-indigo-700 truncate">Thêm từ mới</span>
                     </button>
 
                     <button
                         onClick={() => onNavigate('IMPORT')}
-                        className="flex items-center p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md hover:border-teal-200 transition-all group"
+                        className="flex items-center p-1.5 md:p-4 bg-white border border-gray-100 rounded-lg md:rounded-2xl shadow-sm hover:shadow-md hover:border-teal-200 transition-all group"
                     >
-                        <div className="bg-teal-50 p-2 rounded-lg mr-3 group-hover:bg-teal-100 transition-colors">
-                            <Upload className="w-5 h-5 text-teal-600" />
+                        <div className="bg-teal-50 p-1 md:p-2 rounded-md md:rounded-lg mr-1.5 md:mr-3 group-hover:bg-teal-100 transition-colors flex-shrink-0">
+                            <Upload className="w-3.5 h-3.5 md:w-5 md:h-5 text-teal-600" />
                         </div>
-                        <span className="font-semibold text-gray-700 group-hover:text-teal-700">Nhập File</span>
+                        <span className="text-[10px] md:text-sm font-semibold text-gray-700 group-hover:text-teal-700 truncate">Nhập File</span>
                     </button>
 
                     <button
                         onClick={() => onNavigate('LIST')}
-                        className="flex items-center p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md hover:border-blue-200 transition-all group"
+                        className="flex items-center p-1.5 md:p-4 bg-white border border-gray-100 rounded-lg md:rounded-2xl shadow-sm hover:shadow-md hover:border-blue-200 transition-all group"
                     >
-                        <div className="bg-blue-50 p-2 rounded-lg mr-3 group-hover:bg-blue-100 transition-colors">
-                            <List className="w-5 h-5 text-blue-600" />
+                        <div className="bg-blue-50 p-1 md:p-2 rounded-md md:rounded-lg mr-1.5 md:mr-3 group-hover:bg-blue-100 transition-colors flex-shrink-0">
+                            <List className="w-3.5 h-3.5 md:w-5 md:h-5 text-blue-600" />
                         </div>
-                        <span className="font-semibold text-gray-700 group-hover:text-blue-700">Xem Danh sách</span>
+                        <span className="text-[10px] md:text-sm font-semibold text-gray-700 group-hover:text-blue-700 truncate">Xem Danh sách</span>
                     </button>
 
                     <button
                         onClick={() => onNavigate('HELP')}
-                        className="flex items-center p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all group"
+                        className="flex items-center p-1.5 md:p-4 bg-white border border-gray-100 rounded-lg md:rounded-2xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all group"
                     >
-                        <div className="bg-orange-50 p-2 rounded-lg mr-3 group-hover:bg-orange-100 transition-colors">
-                            <HelpCircle className="w-5 h-5 text-orange-600" />
+                        <div className="bg-orange-50 p-1 md:p-2 rounded-md md:rounded-lg mr-1.5 md:mr-3 group-hover:bg-orange-100 transition-colors flex-shrink-0">
+                            <HelpCircle className="w-3.5 h-3.5 md:w-5 md:h-5 text-orange-600" />
                         </div>
-                        <span className="font-semibold text-gray-700 group-hover:text-orange-700">Hướng dẫn</span>
+                        <span className="text-[10px] md:text-sm font-semibold text-gray-700 group-hover:text-orange-700 truncate">Hướng dẫn</span>
                     </button>
                 </div>
             </div>
@@ -3094,12 +3094,17 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
             {viewMode === 'list' ? (
                 <div className="bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                     <div className="overflow-x-auto">
-                        <table className="min-w-full divide-y divide-gray-100">
+                        <table className="w-full divide-y divide-gray-100 table-fixed">
                             <thead className="bg-gray-50">
                                 <tr>
-                                    {["Hình", "Từ vựng", "Tags", "Âm thanh", "Nghĩa", "Đồng nghĩa", "Trạng thái SRS", ""].map((h, i) => (
-                                        <th key={i} className="px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">{h}</th>
-                                    ))}
+                                    <th className="w-12 md:w-16 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">Hình</th>
+                                    <th className="w-20 md:w-24 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">Từ vựng</th>
+                                    <th className="w-16 md:w-20 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">Tags</th>
+                                    <th className="w-12 md:w-16 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">Âm thanh</th>
+                                    <th className="w-20 md:w-24 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">Nghĩa</th>
+                                    <th className="w-20 md:w-24 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">Đồng nghĩa</th>
+                                    <th className="w-20 md:w-24 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">SRS</th>
+                                    <th className="w-16 md:w-20 px-2 md:px-4 py-2 md:py-3 text-right text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider"></th>
                                 </tr>
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-50">
@@ -3111,23 +3116,23 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                                             </div>
                                         </td>
                                         <td className="px-2 md:px-4 py-2 md:py-3">
-                                            <div className="font-bold text-gray-800 text-sm md:text-base">{card.front}</div>
-                                            {card.sinoVietnamese && <div className="text-[9px] md:text-[10px] font-medium text-pink-500 bg-pink-50 inline-block px-1 md:px-1.5 rounded mt-0.5 md:mt-1">{card.sinoVietnamese}</div>}
+                                            <div className="font-bold text-gray-800 text-xs md:text-sm truncate" title={card.front}>{card.front}</div>
+                                            {card.sinoVietnamese && <div className="text-[9px] md:text-[10px] font-medium text-pink-500 bg-pink-50 inline-block px-1 md:px-1.5 rounded mt-0.5 md:mt-1 truncate max-w-full" title={card.sinoVietnamese}>{card.sinoVietnamese}</div>}
                                         </td>
                                         <td className="px-2 md:px-4 py-2 md:py-3">
                                             <div className="flex flex-col gap-0.5 md:gap-1 items-start">
                                                 {card.level && <span className={`text-[9px] md:text-[10px] px-1.5 md:px-2 py-0.5 rounded-full border font-bold ${getLevelColor(card.level)}`}>{card.level}</span>}
-                                                {card.pos ? <span className={`text-[9px] md:text-[10px] px-1.5 md:px-2 py-0.5 rounded-full border font-semibold ${getPosColor(card.pos)}`}>{getPosLabel(card.pos)}</span> : <span className="text-[10px] md:text-xs text-gray-300">--</span>}
+                                                {card.pos ? <span className={`text-[9px] md:text-[10px] px-1.5 md:px-2 py-0.5 rounded-full border font-semibold ${getPosColor(card.pos)} truncate`} title={getPosLabel(card.pos)}>{getPosLabel(card.pos)}</span> : <span className="text-[10px] md:text-xs text-gray-300">--</span>}
                                             </div>
                                         </td>
                                         <td className="px-2 md:px-4 py-2 md:py-3">
                                             <button onClick={() => onPlayAudio(card.audioBase64, card.front)} className="p-1.5 md:p-2 rounded-full text-indigo-500 hover:bg-indigo-100"><Volume2 className="w-3 h-3 md:w-4 md:h-4"/></button>
                                         </td>
-                                        <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-600 max-w-[120px] md:max-w-[150px] truncate">{card.back}</td>
-                                        <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-500 max-w-[120px] md:max-w-[150px] truncate">{card.synonym || '-'}</td>
+                                        <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-600 truncate" title={card.back}>{card.back}</td>
+                                        <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-500 truncate" title={card.synonym || '-'}>{card.synonym || '-'}</td>
                                         <SrsStatusCell intervalIndex={card.intervalIndex_back} correctStreak={card.correctStreak_back} nextReview={card.nextReview_back} hasData={true}/>
                                         <td className="px-2 md:px-4 py-2 md:py-3 text-right">
-                                            <div className="flex justify-end gap-0.5 md:gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <div className="flex justify-end gap-0.5 md:gap-1 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
                                                 <button onClick={() => onNavigateToEdit(card)} className="p-1.5 md:p-2 rounded-lg text-blue-600 hover:bg-blue-50"><Edit className="w-3 h-3 md:w-4 md:h-4"/></button>
                                                 <button onClick={() => onDeleteCard(card.id, card.front)} className="p-1.5 md:p-2 rounded-lg text-red-600 hover:bg-red-50"><Trash2 className="w-3 h-3 md:w-4 md:h-4"/></button>
                                             </div>
@@ -3692,6 +3697,46 @@ const ImportScreen = ({ onImport, onBack }) => {
 const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivityLogs, onUpdateGoal, onBack }) => {
     const { shortTerm, midTerm, longTerm, new: newCards } = memoryStats;
     const [newGoal, setNewGoal] = useState(profile.dailyGoal);
+    const pieChartRef = useRef(null);
+    const barChartRef = useRef(null);
+    const [pieChartSize, setPieChartSize] = useState({ width: 0, height: 250 });
+    const [barChartSize, setBarChartSize] = useState({ width: 0, height: 250 });
+    
+    useEffect(() => {
+        const updatePieSize = () => {
+            if (pieChartRef.current) {
+                const width = pieChartRef.current.offsetWidth || 0;
+                if (width > 0) {
+                    setPieChartSize({ width, height: 250 });
+                }
+            }
+        };
+        const updateBarSize = () => {
+            if (barChartRef.current) {
+                const width = barChartRef.current.offsetWidth || 0;
+                if (width > 0) {
+                    setBarChartSize({ width, height: 250 });
+                }
+            }
+        };
+        
+        // Delay để đảm bảo DOM đã render
+        const timer = setTimeout(() => {
+            updatePieSize();
+            updateBarSize();
+        }, 100);
+        
+        window.addEventListener('resize', () => {
+            updatePieSize();
+            updateBarSize();
+        });
+        
+        return () => {
+            clearTimeout(timer);
+            window.removeEventListener('resize', updatePieSize);
+            window.removeEventListener('resize', updateBarSize);
+        };
+    }, []);
 
     const handleSaveGoal = () => { onUpdateGoal(newGoal); };
 
@@ -3772,6 +3817,18 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
         { name: 'Dài hạn', value: longTerm, fill: '#22c55e' }, 
     ].filter(e => e.value > 0);
 
+    // Debug: Log data để kiểm tra
+    useEffect(() => {
+        console.log('StatsScreen Data:', { 
+            pieData, 
+            jlptData, 
+            totalCards, 
+            memoryStats,
+            pieDataLength: pieData.length,
+            jlptDataLength: jlptData?.length 
+        });
+    }, [pieData, jlptData, totalCards, memoryStats]);
+
     return (
         <div className="space-y-3 md:space-y-8">
             <h2 className="text-lg md:text-2xl font-bold text-gray-800 pb-2 md:pb-4 border-b">Thống Kê Chi Tiết</h2>
@@ -3827,61 +3884,93 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
             {/* Middle Row: Charts */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-8">
                 {/* Pie Chart: Memory Retention */}
-                 <div className="bg-white p-3 md:p-6 rounded-xl md:rounded-2xl border border-gray-100 shadow-sm flex flex-col items-center">
-                    <h3 className="text-sm md:text-lg font-bold text-gray-700 mb-2 md:mb-4 w-full text-left">Ghi nhớ Từ vựng</h3>
-                    <div className="h-48 md:h-64 w-full flex items-center justify-center">
-                        {pieData.length > 0 ? (
-                            <ResponsiveContainer width="100%" height="100%">
-                                <PieChart>
-                                    <Pie data={pieData} cx="50%" cy="50%" innerRadius="40%" outerRadius="60%" paddingAngle={5} dataKey="value">
-                                        <Cell fill="#94a3b8"/><Cell fill="#f59e0b"/><Cell fill="#10b981"/><Cell fill="#22c55e"/>
+                 <div className="bg-white p-3 md:p-6 rounded-xl md:rounded-2xl border border-gray-100 shadow-sm">
+                    <h3 className="text-sm md:text-lg font-bold text-gray-700 mb-2 md:mb-4">Ghi nhớ Từ vựng</h3>
+                    {pieData.length > 0 ? (
+                        <div ref={pieChartRef} className="w-full overflow-hidden" style={{ height: '250px' }}>
+                            {pieChartSize.width > 0 ? (
+                                <ResponsiveContainer width={pieChartSize.width} height={pieChartSize.height}>
+                                    <PieChart>
+                                    <Pie 
+                                        data={pieData} 
+                                        cx="50%" 
+                                        cy="50%" 
+                                        innerRadius={60} 
+                                        outerRadius={90} 
+                                        paddingAngle={5} 
+                                        dataKey="value"
+                                        label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                                    >
+                                        {pieData.map((entry, index) => (
+                                            <Cell key={`cell-${index}`} fill={entry.fill} />
+                                        ))}
                                     </Pie>
                                     <Tooltip/>
-                                    <Legend wrapperStyle={{fontSize: '10px'}} className="text-[10px] md:text-xs"/>
-                                </PieChart>
-                            </ResponsiveContainer>
-                        ) : <span className="text-gray-400 text-xs md:text-sm">Chưa có dữ liệu</span>}
-                    </div>
+                                    <Legend wrapperStyle={{fontSize: '10px'}} iconSize={8}/>
+                                    </PieChart>
+                                </ResponsiveContainer>
+                            ) : (
+                                <div className="w-full h-full flex items-center justify-center">
+                                    <span className="text-gray-400 text-xs">Đang tải...</span>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <div className="w-full flex items-center justify-center" style={{ height: '250px' }}>
+                            <span className="text-gray-400 text-xs md:text-sm">Chưa có dữ liệu</span>
+                        </div>
+                    )}
                  </div>
 
                  {/* Bar Chart: JLPT Progress */}
-                 <div className="bg-white p-3 md:p-6 rounded-xl md:rounded-2xl border border-gray-100 shadow-sm flex flex-col">
+                 <div className="bg-white p-3 md:p-6 rounded-xl md:rounded-2xl border border-gray-100 shadow-sm">
                     <h3 className="text-sm md:text-lg font-bold text-gray-700 mb-2 md:mb-4">Tiến độ theo Cấp độ JLPT</h3>
-                    <div className="h-48 md:h-64 w-full">
-                        <ResponsiveContainer width="100%" height="100%">
-                            <BarChart data={jlptData} layout="vertical" margin={{top: 5, right: 10, left: 15, bottom: 5}}>
-                                <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-                                <XAxis type="number" hide/>
-                                <YAxis dataKey="name" type="category" width={20} tick={{fontSize: 10, fontWeight: 'bold'}} className="text-[10px] md:text-xs"/>
-                                <Tooltip cursor={{fill: 'transparent'}} content={({ active, payload }) => {
-                                    if (active && payload && payload.length) {
-                                        const d = payload[0].payload;
-                                        return (
-                                            <div className="bg-white p-1.5 md:p-2 border border-gray-100 shadow-lg rounded-md md:rounded-lg text-[10px] md:text-xs">
-                                                <p className="font-bold">{d.name}</p>
-                                                <p>Đã có: {d.count}</p>
-                                                <p>Yêu cầu: {d.target}</p>
-                                                <p>Tiến độ: {Math.round((d.count/d.target)*100)}%</p>
-                                            </div>
-                                        );
-                                    }
-                                    return null;
-                                }}/>
-                                <Bar dataKey="count" barSize={15} radius={[0, 4, 4, 0]}>
-                                    {jlptData.map((entry, index) => (
-                                        <Cell key={`cell-${index}`} fill={
-                                            index === 0 ? '#10b981' : 
-                                            index === 1 ? '#0d9488' : 
-                                            index === 2 ? '#0ea5e9' : 
-                                            index === 3 ? '#8b5cf6' : 
-                                            '#f43f5e'
-                                        } />
-                                    ))}
-                                </Bar>
-                                {/* Background Bar for Target (Simulated with stacked bar approach usually, but simple here) */}
-                            </BarChart>
-                        </ResponsiveContainer>
-                    </div>
+                    {jlptData && jlptData.length > 0 ? (
+                        <div ref={barChartRef} className="w-full overflow-hidden" style={{ height: '250px' }}>
+                            {barChartSize.width > 0 ? (
+                                <ResponsiveContainer width={barChartSize.width} height={barChartSize.height}>
+                                    <BarChart data={jlptData} layout="vertical" margin={{top: 5, right: 10, left: 15, bottom: 5}}>
+                                    <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+                                    <XAxis type="number" hide/>
+                                    <YAxis dataKey="name" type="category" width={20} tick={{fontSize: 10, fontWeight: 'bold'}}/>
+                                    <Tooltip cursor={{fill: 'transparent'}} content={({ active, payload }) => {
+                                        if (active && payload && payload.length) {
+                                            const d = payload[0].payload;
+                                            return (
+                                                <div className="bg-white p-1.5 md:p-2 border border-gray-100 shadow-lg rounded-md md:rounded-lg text-[10px] md:text-xs">
+                                                    <p className="font-bold">{d.name}</p>
+                                                    <p>Đã có: {d.count}</p>
+                                                    <p>Yêu cầu: {d.target}</p>
+                                                    <p>Tiến độ: {Math.round((d.count/d.target)*100)}%</p>
+                                                </div>
+                                            );
+                                        }
+                                        return null;
+                                    }}/>
+                                    <Bar dataKey="count" barSize={15} radius={[0, 4, 4, 0]}>
+                                        {jlptData.map((entry, index) => (
+                                            <Cell key={`cell-${index}`} fill={
+                                                index === 0 ? '#10b981' : 
+                                                index === 1 ? '#0d9488' : 
+                                                index === 2 ? '#0ea5e9' : 
+                                                index === 3 ? '#8b5cf6' : 
+                                                '#f43f5e'
+                                            } />
+                                        ))}
+                                    </Bar>
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            ) : (
+                                <div className="w-full h-full flex items-center justify-center">
+                                    <span className="text-gray-400 text-xs">Đang tải...</span>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <div className="w-full flex items-center justify-center" style={{ height: '250px' }}>
+                            <span className="text-gray-400 text-xs md:text-sm">Chưa có dữ liệu</span>
+                        </div>
+                    )}
                     <p className="text-[9px] md:text-xs text-gray-400 mt-1 md:mt-2 text-center">*Số lượng yêu cầu chỉ mang tính chất tham khảo</p>
                  </div>
             </div>
