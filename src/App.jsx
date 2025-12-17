@@ -1658,26 +1658,28 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 flex flex-col font-sans selection:bg-indigo-100 selection:text-indigo-800">
+        <div className="h-screen md:min-h-screen bg-gray-50 flex flex-col font-sans selection:bg-indigo-100 selection:text-indigo-800 overflow-hidden">
             <Header currentView={view} setView={setView} />
-            <main className="flex-grow p-3 md:p-6 lg:p-8 flex justify-center items-stretch pt-24 pb-6 lg:pb-10">
-                <div className="w-full max-w-7xl mx-auto flex flex-col">
+            <main className="flex-grow p-2 md:p-6 lg:p-8 flex justify-center items-stretch pt-16 md:pt-24 pb-2 md:pb-6 lg:pb-10 overflow-hidden">
+                <div className="w-full max-w-7xl mx-auto flex flex-col h-full">
                     {/* Modern Container for Main Content */}
-                    <div className="flex-1 bg-white/90 backdrop-blur-sm shadow-xl shadow-indigo-100/50 rounded-3xl border border-white/50 p-4 sm:p-6 md:p-8 transition-all duration-300 flex flex-col">
-                        {renderContent()}
+                    <div className={`flex-1 bg-white/90 backdrop-blur-sm shadow-xl shadow-indigo-100/50 rounded-xl md:rounded-3xl border border-white/50 p-2 sm:p-4 md:p-6 lg:p-8 transition-all duration-300 flex flex-col ${view === 'LIST' ? 'overflow-hidden' : 'overflow-y-auto'} ${view === 'REVIEW' ? 'overflow-hidden' : ''}`}>
+                        <div className={`flex-1 ${view === 'LIST' ? 'overflow-y-auto overflow-x-hidden' : view === 'REVIEW' ? 'overflow-hidden' : ''}`}>
+                            {renderContent()}
+                        </div>
                         
                         {notification && (view === 'HOME' || view === 'STATS' || view === 'ADD_CARD' || view === 'LIST') && (
-                            <div className={`mt-6 p-4 rounded-xl text-center text-sm font-medium animate-fade-in flex items-center justify-center space-x-2
+                            <div className={`mt-2 md:mt-6 p-2 md:p-4 rounded-lg md:rounded-xl text-center text-xs md:text-sm font-medium animate-fade-in flex items-center justify-center space-x-2
                                 ${notification.includes('Lỗi') || notification.includes('có trong') 
                                     ? 'bg-red-50 text-red-600 border border-red-100' 
                                     : 'bg-emerald-50 text-emerald-600 border border-emerald-100'}`}>
-                                {notification.includes('Lỗi') ? <AlertTriangle className="w-4 h-4"/> : <CheckCircle className="w-4 h-4"/>}
+                                {notification.includes('Lỗi') ? <AlertTriangle className="w-3 h-3 md:w-4 md:h-4"/> : <CheckCircle className="w-3 h-3 md:w-4 md:h-4"/>}
                                 <span>{notification}</span>
                             </div>
                         )}
-                        <div className="mt-auto pt-6 border-t border-gray-100 text-xs text-gray-400 text-center flex flex-col items-center gap-1">
+                        <div className="mt-auto pt-2 md:pt-6 border-t border-gray-100 text-[10px] md:text-xs text-gray-400 text-center flex flex-col items-center gap-0.5 md:gap-1">
                             <span>QuizKi V2.0</span>
-                            <span className="font-mono bg-gray-50 px-2 py-1 rounded text-[10px] text-gray-300">UID: {userId?.substring(0, 8)}...</span>
+                            <span className="font-mono bg-gray-50 px-1.5 md:px-2 py-0.5 md:py-1 rounded text-[8px] md:text-[10px] text-gray-300">UID: {userId?.substring(0, 8)}...</span>
                         </div>
                     </div>
                 </div>
@@ -2268,21 +2270,21 @@ const Header = ({ currentView, setView }) => {
     };
 
     return (
-    <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 h-16 transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 h-12 md:h-16 transition-all duration-300">
+        <div className="max-w-7xl mx-auto px-2 md:px-4 sm:px-6 h-full flex items-center justify-between">
             <div 
-                className="flex items-center space-x-2 cursor-pointer group"
+                className="flex items-center space-x-1 md:space-x-2 cursor-pointer group"
                 onClick={() => setView('HOME')}
             >
-                <div className="bg-indigo-600 p-1.5 rounded-lg group-hover:bg-indigo-700 transition-colors">
-                    <Sparkles className="w-5 h-5 text-white" />
+                <div className="bg-indigo-600 p-1 md:p-1.5 rounded-lg group-hover:bg-indigo-700 transition-colors">
+                    <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-white" />
                 </div>
-                <span className="text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
+                <span className="text-base md:text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
                     QuizKi
                 </span>
             </div>
             
-            <nav className="flex items-center space-x-1 sm:space-x-2">
+            <nav className="flex items-center space-x-0.5 md:space-x-1 sm:space-x-2">
                 {[
                     { id: 'HOME', icon: Home, label: 'Home' },
                     { id: 'LIST', icon: List, label: 'List' },
@@ -2293,34 +2295,34 @@ const Header = ({ currentView, setView }) => {
                     <button 
                         key={item.id}
                         onClick={() => setView(item.id)} 
-                        className={`p-2.5 rounded-xl transition-all duration-200 relative
+                        className={`p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all duration-200 relative
                             ${currentView === item.id 
                                 ? 'text-indigo-600 bg-indigo-50' 
                                 : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50'}`}
                         title={item.label}
                     >
-                        <item.icon className="w-5 h-5" strokeWidth={currentView === item.id ? 2.5 : 2} />
+                        <item.icon className="w-4 h-4 md:w-5 md:h-5" strokeWidth={currentView === item.id ? 2.5 : 2} />
                         {currentView === item.id && (
-                            <span className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-indigo-600 rounded-full" />
+                            <span className="absolute bottom-0.5 md:bottom-1 left-1/2 transform -translate-x-1/2 w-0.5 md:w-1 h-0.5 md:h-1 bg-indigo-600 rounded-full" />
                         )}
                     </button>
                 ))}
                 
-                <div className="h-6 w-px bg-gray-200 mx-2" />
+                <div className="h-4 md:h-6 w-px bg-gray-200 mx-1 md:mx-2" />
                 
                 <button
                     onClick={() => setView('ADD_CARD')}
-                    className={`p-2.5 rounded-xl transition-all ${currentView === 'ADD_CARD' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200' : 'text-indigo-600 bg-indigo-50 hover:bg-indigo-100'}`}
+                    className={`p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all ${currentView === 'ADD_CARD' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200' : 'text-indigo-600 bg-indigo-50 hover:bg-indigo-100'}`}
                 >
-                    <Plus className="w-5 h-5" strokeWidth={2.5} />
+                    <Plus className="w-4 h-4 md:w-5 md:h-5" strokeWidth={2.5} />
                 </button>
 
                 <button
                     onClick={handleLogout}
-                    className="ml-1 p-2.5 rounded-xl transition-all text-gray-400 hover:text-red-600 hover:bg-red-50"
+                    className="ml-0.5 md:ml-1 p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all text-gray-400 hover:text-red-600 hover:bg-red-50"
                     title="Đăng xuất"
                 >
-                    <X className="w-5 h-5" />
+                    <X className="w-4 h-4 md:w-5 md:h-5" />
                 </button>
             </nav>
         </div>
@@ -2356,88 +2358,88 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, onStartReview, onNavig
         <button
             onClick={onClick}
             disabled={disabled}
-            className={`relative overflow-hidden group flex flex-col items-start justify-between p-5 md:p-6 h-40 rounded-2xl shadow-md transition-all duration-300 w-full text-left
+            className={`relative overflow-hidden group flex flex-col items-start justify-between p-3 md:p-5 lg:p-6 h-32 md:h-40 rounded-xl md:rounded-2xl shadow-md transition-all duration-300 w-full text-left
                         ${disabled ? 'bg-gray-100 cursor-not-allowed opacity-70' : `bg-gradient-to-br ${gradient} hover:shadow-xl hover:-translate-y-1`}`}
         >
             <div className="z-10 w-full">
-                <div className="flex justify-between items-start w-full mb-2">
-                    <div className={`p-2 rounded-lg bg-white/20 backdrop-blur-sm`}>
-                        <Icon className={`w-6 h-6 text-white`} strokeWidth={2.5} />
+                <div className="flex justify-between items-start w-full mb-1.5 md:mb-2">
+                    <div className={`p-1.5 md:p-2 rounded-lg bg-white/20 backdrop-blur-sm`}>
+                        <Icon className={`w-4 h-4 md:w-6 md:h-6 text-white`} strokeWidth={2.5} />
                     </div>
                      {typeof count !== 'undefined' && count > 0 && (
-                        <span className="bg-white/25 backdrop-blur-md text-white text-xs font-bold px-2 py-1 rounded-full">
+                        <span className="bg-white/25 backdrop-blur-md text-white text-[10px] md:text-xs font-bold px-1.5 md:px-2 py-0.5 md:py-1 rounded-full">
                             {count} cần ôn
                         </span>
                     )}
                 </div>
-                <h3 className="text-xl font-extrabold text-white tracking-tight">{title}</h3>
-                <p className="text-indigo-50 text-sm font-medium mt-2 opacity-95 leading-snug">{description}</p>
+                <h3 className="text-base md:text-xl font-extrabold text-white tracking-tight">{title}</h3>
+                <p className="text-indigo-50 text-xs md:text-sm font-medium mt-1 md:mt-2 opacity-95 leading-snug">{description}</p>
             </div>
             
             {/* Background Decoration */}
-            <Icon className="absolute -bottom-4 -right-4 w-32 h-32 text-white/10 group-hover:scale-110 transition-transform duration-500" />
+            <Icon className="absolute -bottom-3 md:-bottom-4 -right-3 md:-right-4 w-24 h-24 md:w-32 md:h-32 text-white/10 group-hover:scale-110 transition-transform duration-500" />
         </button>
     );
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-3 md:space-y-6">
             {/* Hero Section */}
-            <div className="flex flex-col md:flex-row justify-between items-end md:items-center gap-4 pb-2 border-b border-gray-100">
+            <div className="flex flex-col md:flex-row justify-between items-end md:items-center gap-2 md:gap-4 pb-2 border-b border-gray-100">
                 <div>
-                    <h2 className="text-2xl md:text-3xl font-extrabold text-gray-800 tracking-tight">
+                    <h2 className="text-lg md:text-2xl lg:text-3xl font-extrabold text-gray-800 tracking-tight">
                         Chào, <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">{displayName}</span>! 👋
                     </h2>
-                    <p className="text-gray-500 mt-2 font-medium">Bạn đã sẵn sàng chinh phục mục tiêu hôm nay chưa?</p>
+                    <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm font-medium">Bạn đã sẵn sàng chinh phục mục tiêu hôm nay chưa?</p>
                 </div>
-                    <div className="flex items-center space-x-2 bg-indigo-50 px-5 py-2.5 rounded-full border border-indigo-100">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-base font-bold text-indigo-700">{totalCards} từ vựng trong kho</span>
+                    <div className="flex items-center space-x-1.5 md:space-x-2 bg-indigo-50 px-3 md:px-5 py-1.5 md:py-2.5 rounded-full border border-indigo-100">
+                    <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-green-500 rounded-full animate-pulse" />
+                    <span className="text-xs md:text-base font-bold text-indigo-700">{totalCards} từ vựng trong kho</span>
                 </div>
             </div>
             
             {/* Review Section */}
-            <div className="space-y-4">
-                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-                    <h3 className="text-xl font-extrabold text-gray-800 flex items-center">
-                        <Zap className="w-6 h-6 mr-2 text-amber-500" />
+            <div className="space-y-2 md:space-y-4">
+                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-3">
+                    <h3 className="text-base md:text-xl font-extrabold text-gray-800 flex items-center">
+                        <Zap className="w-4 h-4 md:w-6 md:h-6 mr-1.5 md:mr-2 text-amber-500" />
                         Chế độ Ôn tập
                     </h3>
 
                     {/* NEW: Review Style Toggle */}
-                    <div className="flex bg-gray-100 p-1 rounded-xl w-fit">
+                    <div className="flex bg-gray-100 p-0.5 md:p-1 rounded-lg md:rounded-xl w-fit">
                         <button 
                             onClick={() => setReviewStyle('typing')}
-                            className={`flex items-center px-4 py-2 rounded-lg text-sm font-bold transition-all ${
+                            className={`flex items-center px-2 md:px-4 py-1.5 md:py-2 rounded-md md:rounded-lg text-xs md:text-sm font-bold transition-all ${
                                 reviewStyle === 'typing' 
                                 ? 'bg-white text-indigo-700 shadow-sm' 
                                 : 'text-gray-500 hover:text-gray-700'
                             }`}
                         >
-                            <Keyboard className="w-4 h-4 mr-2" />
+                            <Keyboard className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
                             Tự luận
                         </button>
                         <button 
                             onClick={() => setReviewStyle('flashcard')}
-                            className={`flex items-center px-4 py-2 rounded-lg text-sm font-bold transition-all ${
+                            className={`flex items-center px-2 md:px-4 py-1.5 md:py-2 rounded-md md:rounded-lg text-xs md:text-sm font-bold transition-all ${
                                 reviewStyle === 'flashcard' 
                                 ? 'bg-white text-rose-600 shadow-sm' 
                                 : 'text-gray-500 hover:text-gray-700'
                             }`}
                         >
-                            <Layers className="w-4 h-4 mr-2" />
+                            <Layers className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
                             Lật thẻ
                         </button>
                     </div>
                 </div>
 
                 {reviewStyle === 'flashcard' && (
-                     <div className="bg-rose-50 border border-rose-100 rounded-xl p-2 flex items-start text-[11px] text-rose-700">
-                         <Target className="w-4 h-4 mr-2 shrink-0 mt-0.5" />
+                     <div className="bg-rose-50 border border-rose-100 rounded-lg md:rounded-xl p-2 flex items-start text-[10px] md:text-[11px] text-rose-700">
+                         <Target className="w-3 h-3 md:w-4 md:h-4 mr-1.5 md:mr-2 shrink-0 mt-0.5" />
                          <span><b>Lưu ý:</b> Chế độ Lật thẻ chỉ áp dụng cho các thẻ đã đạt <b>Cấp độ 3 trở lên</b> (đã nhớ qua chu kỳ 7 ngày). Các thẻ mới hoặc chưa nhớ kỹ sẽ không xuất hiện trong chế độ này.</span>
                      </div>
                 )}
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
                     <ActionCard
                         onClick={() => onStartReview('mixed')}
                         icon={Zap}
@@ -2478,20 +2480,20 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, onStartReview, onNavig
             </div>
             
             {/* Management Section */}
-            <div className="pt-2 space-y-3">
-                <h3 className="text-base font-bold text-gray-700 flex items-center">
-                    <Settings className="w-5 h-5 mr-2 text-gray-500" />
+            <div className="pt-1 md:pt-2 space-y-2 md:space-y-3">
+                <h3 className="text-sm md:text-base font-bold text-gray-700 flex items-center">
+                    <Settings className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2 text-gray-500" />
                     Quản lý & Tiện ích
                 </h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
                      <button
                         onClick={() => onNavigate('ADD_CARD')}
-                        className="flex items-center p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md hover:border-indigo-200 transition-all group"
+                        className="flex items-center p-2 md:p-4 bg-white border border-gray-100 rounded-xl md:rounded-2xl shadow-sm hover:shadow-md hover:border-indigo-200 transition-all group"
                     >
-                        <div className="bg-indigo-50 p-2 rounded-lg mr-3 group-hover:bg-indigo-100 transition-colors">
-                            <Plus className="w-5 h-5 text-indigo-600" />
+                        <div className="bg-indigo-50 p-1.5 md:p-2 rounded-lg mr-2 md:mr-3 group-hover:bg-indigo-100 transition-colors">
+                            <Plus className="w-4 h-4 md:w-5 md:h-5 text-indigo-600" />
                         </div>
-                        <span className="font-semibold text-gray-700 group-hover:text-indigo-700">Thêm từ mới</span>
+                        <span className="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-indigo-700">Thêm từ mới</span>
                     </button>
 
                     <button
@@ -2955,18 +2957,18 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
 };
 
 const SrsStatusCell = ({ intervalIndex, correctStreak, nextReview, hasData }) => {
-    if (!hasData || intervalIndex === -999) return <td className="px-4 py-4 text-sm text-gray-300 italic">--</td>;
+    if (!hasData || intervalIndex === -999) return <td className="px-2 md:px-4 py-2 md:py-4 text-xs md:text-sm text-gray-300 italic">--</td>;
     const isDue = nextReview <= new Date().setHours(0,0,0,0);
     const progressColor = intervalIndex >= 3 ? 'bg-green-100 text-green-700 border-green-200' : intervalIndex >= 1 ? 'bg-amber-100 text-amber-700 border-amber-200' : 'bg-gray-100 text-gray-600 border-gray-200';
     
     return (
-        <td className="px-4 py-4">
-            <div className={`inline-flex flex-col px-3 py-1.5 rounded-lg border text-xs font-medium ${progressColor}`}>
+        <td className="px-2 md:px-4 py-2 md:py-4">
+            <div className={`inline-flex flex-col px-2 md:px-3 py-1 md:py-1.5 rounded-md md:rounded-lg border text-[10px] md:text-xs font-medium ${progressColor}`}>
                 <span>{getSrsProgressText(intervalIndex)}</span>
                 {isDue ? (
-                    <span className="text-red-600 font-bold mt-0.5 flex items-center"><AlertTriangle className="w-3 h-3 mr-1"/> Ôn ngay</span>
+                    <span className="text-red-600 font-bold mt-0.5 flex items-center text-[9px] md:text-xs"><AlertTriangle className="w-2.5 h-2.5 md:w-3 md:h-3 mr-0.5 md:mr-1"/> Ôn ngay</span>
                 ) : (
-                    <span className="opacity-70 mt-0.5">{nextReview.toLocaleDateString('vi-VN')}</span>
+                    <span className="opacity-70 mt-0.5 text-[9px] md:text-xs">{nextReview.toLocaleDateString('vi-VN')}</span>
                 )}
             </div>
         </td>
@@ -3001,28 +3003,28 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
     }, [allCards, filterLevel, filterPos, sortOrder, searchTerm]);
 
     return (
-        <div className="space-y-6">
-            <div className="flex flex-col gap-4 pb-4 border-b border-gray-100">
+        <div className="h-full flex flex-col space-y-2 md:space-y-6">
+            <div className="flex flex-col gap-2 md:gap-4 pb-2 md:pb-4 border-b border-gray-100 flex-shrink-0">
                 <div className="flex justify-between items-center">
                     <div>
-                        <h2 className="text-2xl font-bold text-gray-800">Danh Sách Từ Vựng</h2>
-                        <p className="text-sm text-gray-500">Quản lý {allCards.length} thẻ ghi nhớ của bạn</p>
+                        <h2 className="text-lg md:text-2xl font-bold text-gray-800">Danh Sách Từ Vựng</h2>
+                        <p className="text-xs md:text-sm text-gray-500">Quản lý {allCards.length} thẻ ghi nhớ của bạn</p>
                     </div>
                     {/* View Mode Toggle */}
-                    <div className="flex bg-gray-100 rounded-lg p-1">
+                    <div className="flex bg-gray-100 rounded-lg p-0.5 md:p-1">
                         <button 
                             onClick={() => setViewMode('list')}
-                            className={`p-2 rounded-md transition-all ${viewMode === 'list' ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}
+                            className={`p-1.5 md:p-2 rounded-md transition-all ${viewMode === 'list' ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}
                             title="Xem dạng danh sách"
                         >
-                            <List className="w-5 h-5"/>
+                            <List className="w-4 h-4 md:w-5 md:h-5"/>
                         </button>
                         <button 
                             onClick={() => setViewMode('grid')}
-                            className={`p-2 rounded-md transition-all ${viewMode === 'grid' ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}
+                            className={`p-1.5 md:p-2 rounded-md transition-all ${viewMode === 'grid' ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}
                             title="Xem dạng thẻ"
                         >
-                            <LayoutGrid className="w-5 h-5"/>
+                            <LayoutGrid className="w-4 h-4 md:w-5 md:h-5"/>
                         </button>
                     </div>
                 </div>
@@ -3030,31 +3032,31 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                 <div className="flex flex-wrap gap-2 items-center justify-between">
                      {/* Search Bar */}
                      <div className="relative w-full md:w-96">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+                        <Search className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 w-3 h-3 md:w-4 md:h-4" />
                         <input 
                             type="text" 
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             placeholder="Tìm kiếm từ vựng, ý nghĩa, Hán Việt..." 
-                            className="w-full pl-9 pr-4 py-2 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 transition-all text-sm shadow-sm"
+                            className="w-full pl-7 md:pl-9 pr-3 md:pr-4 py-1.5 md:py-2 bg-white border border-gray-200 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 transition-all text-xs md:text-sm shadow-sm"
                         />
                      </div>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 md:gap-2">
                         {cardsMissingPos.length > 0 && (
-                            <button onClick={() => onAutoClassifyBatch(cardsMissingPos)} className="px-3 py-2 text-xs font-bold rounded-lg bg-violet-100 text-violet-700 hover:bg-violet-200 transition-colors flex items-center">
-                                <Sparkles className="w-3.5 h-3.5 mr-1.5" /> Auto-Tags ({cardsMissingPos.length})
+                            <button onClick={() => onAutoClassifyBatch(cardsMissingPos)} className="px-2 md:px-3 py-1.5 md:py-2 text-[10px] md:text-xs font-bold rounded-lg bg-violet-100 text-violet-700 hover:bg-violet-200 transition-colors flex items-center">
+                                <Sparkles className="w-3 h-3 md:w-3.5 md:h-3.5 mr-1 md:mr-1.5" /> Auto-Tags ({cardsMissingPos.length})
                             </button>
                         )}
-                        <button onClick={() => onExport(allCards)} className="px-3 py-2 text-xs font-bold rounded-lg bg-teal-50 text-teal-600 hover:bg-teal-100 transition-colors flex items-center">
-                            <Upload className="w-3.5 h-3.5 mr-1.5" /> Xuất Excel
+                        <button onClick={() => onExport(allCards)} className="px-2 md:px-3 py-1.5 md:py-2 text-[10px] md:text-xs font-bold rounded-lg bg-teal-50 text-teal-600 hover:bg-teal-100 transition-colors flex items-center">
+                            <Upload className="w-3 h-3 md:w-3.5 md:h-3.5 mr-1 md:mr-1.5" /> Xuất Excel
                         </button>
                     </div>
                 </div>
             </div>
 
             {/* Filters */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-gray-50 p-4 rounded-xl border border-gray-100">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3 bg-gray-50 p-2 md:p-4 rounded-lg md:rounded-xl border border-gray-100 flex-shrink-0">
                 <div className="space-y-1">
                     <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Sắp xếp</label>
                     <div className="relative">
@@ -3087,46 +3089,47 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                 </div>
             </div>
 
-            {/* CONTENT AREA: LIST or GRID */}
+            {/* CONTENT AREA: LIST or GRID - Scrollable */}
+            <div className="flex-1 overflow-y-auto overflow-x-hidden min-h-0">
             {viewMode === 'list' ? (
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <div className="bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                     <div className="overflow-x-auto">
                         <table className="min-w-full divide-y divide-gray-100">
                             <thead className="bg-gray-50">
                                 <tr>
                                     {["Hình", "Từ vựng", "Tags", "Âm thanh", "Nghĩa", "Đồng nghĩa", "Trạng thái SRS", ""].map((h, i) => (
-                                        <th key={i} className="px-4 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">{h}</th>
+                                        <th key={i} className="px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">{h}</th>
                                     ))}
                                 </tr>
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-50">
                                 {filteredCards.map((card) => (
                                     <tr key={card.id} className="hover:bg-indigo-50/50 transition-colors group">
-                                        <td className="px-4 py-3">
-                                            <div className="w-10 h-10 rounded-lg bg-gray-100 overflow-hidden border border-gray-200">
-                                                {card.imageBase64 ? <img src={card.imageBase64} className="w-full h-full object-cover"/> : <div className="w-full h-full flex items-center justify-center text-gray-300"><ImageIcon className="w-4 h-4"/></div>}
+                                        <td className="px-2 md:px-4 py-2 md:py-3">
+                                            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gray-100 overflow-hidden border border-gray-200">
+                                                {card.imageBase64 ? <img src={card.imageBase64} className="w-full h-full object-cover"/> : <div className="w-full h-full flex items-center justify-center text-gray-300"><ImageIcon className="w-3 h-3 md:w-4 md:h-4"/></div>}
                                             </div>
                                         </td>
-                                        <td className="px-4 py-3">
-                                            <div className="font-bold text-gray-800 text-base">{card.front}</div>
-                                            {card.sinoVietnamese && <div className="text-[10px] font-medium text-pink-500 bg-pink-50 inline-block px-1.5 rounded mt-1">{card.sinoVietnamese}</div>}
+                                        <td className="px-2 md:px-4 py-2 md:py-3">
+                                            <div className="font-bold text-gray-800 text-sm md:text-base">{card.front}</div>
+                                            {card.sinoVietnamese && <div className="text-[9px] md:text-[10px] font-medium text-pink-500 bg-pink-50 inline-block px-1 md:px-1.5 rounded mt-0.5 md:mt-1">{card.sinoVietnamese}</div>}
                                         </td>
-                                        <td className="px-4 py-3">
-                                            <div className="flex flex-col gap-1 items-start">
-                                                {card.level && <span className={`text-[10px] px-2 py-0.5 rounded-full border font-bold ${getLevelColor(card.level)}`}>{card.level}</span>}
-                                                {card.pos ? <span className={`text-[10px] px-2 py-0.5 rounded-full border font-semibold ${getPosColor(card.pos)}`}>{getPosLabel(card.pos)}</span> : <span className="text-xs text-gray-300">--</span>}
+                                        <td className="px-2 md:px-4 py-2 md:py-3">
+                                            <div className="flex flex-col gap-0.5 md:gap-1 items-start">
+                                                {card.level && <span className={`text-[9px] md:text-[10px] px-1.5 md:px-2 py-0.5 rounded-full border font-bold ${getLevelColor(card.level)}`}>{card.level}</span>}
+                                                {card.pos ? <span className={`text-[9px] md:text-[10px] px-1.5 md:px-2 py-0.5 rounded-full border font-semibold ${getPosColor(card.pos)}`}>{getPosLabel(card.pos)}</span> : <span className="text-[10px] md:text-xs text-gray-300">--</span>}
                                             </div>
                                         </td>
-                                        <td className="px-4 py-3">
-                                            <button onClick={() => onPlayAudio(card.audioBase64, card.front)} className="p-2 rounded-full text-indigo-500 hover:bg-indigo-100"><Volume2 className="w-4 h-4"/></button>
+                                        <td className="px-2 md:px-4 py-2 md:py-3">
+                                            <button onClick={() => onPlayAudio(card.audioBase64, card.front)} className="p-1.5 md:p-2 rounded-full text-indigo-500 hover:bg-indigo-100"><Volume2 className="w-3 h-3 md:w-4 md:h-4"/></button>
                                         </td>
-                                        <td className="px-4 py-3 text-sm text-gray-600 max-w-[150px] truncate">{card.back}</td>
-                                        <td className="px-4 py-3 text-sm text-gray-500 max-w-[150px] truncate">{card.synonym || '-'}</td>
+                                        <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-600 max-w-[120px] md:max-w-[150px] truncate">{card.back}</td>
+                                        <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-500 max-w-[120px] md:max-w-[150px] truncate">{card.synonym || '-'}</td>
                                         <SrsStatusCell intervalIndex={card.intervalIndex_back} correctStreak={card.correctStreak_back} nextReview={card.nextReview_back} hasData={true}/>
-                                        <td className="px-4 py-3 text-right">
-                                            <div className="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                <button onClick={() => onNavigateToEdit(card)} className="p-2 rounded-lg text-blue-600 hover:bg-blue-50"><Edit className="w-4 h-4"/></button>
-                                                <button onClick={() => onDeleteCard(card.id, card.front)} className="p-2 rounded-lg text-red-600 hover:bg-red-50"><Trash2 className="w-4 h-4"/></button>
+                                        <td className="px-2 md:px-4 py-2 md:py-3 text-right">
+                                            <div className="flex justify-end gap-0.5 md:gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <button onClick={() => onNavigateToEdit(card)} className="p-1.5 md:p-2 rounded-lg text-blue-600 hover:bg-blue-50"><Edit className="w-3 h-3 md:w-4 md:h-4"/></button>
+                                                <button onClick={() => onDeleteCard(card.id, card.front)} className="p-1.5 md:p-2 rounded-lg text-red-600 hover:bg-red-50"><Trash2 className="w-3 h-3 md:w-4 md:h-4"/></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -3136,51 +3139,51 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                     </div>
                 </div>
             ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
                     {filteredCards.map((card) => {
                         const levelColor = getLevelColor(card.level);
                         const isDue = card.nextReview_back <= new Date().setHours(0,0,0,0);
                         
                         return (
-                            <div key={card.id} className="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden relative group">
+                            <div key={card.id} className="bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden relative group">
                                 {/* Top colored bar */}
-                                <div className={`h-2 w-full ${levelColor.replace('bg-', 'bg-gradient-to-r from-').replace(' text-', ' to-white ')}`}></div>
+                                <div className={`h-1.5 md:h-2 w-full ${levelColor.replace('bg-', 'bg-gradient-to-r from-').replace(' text-', ' to-white ')}`}></div>
                                 
-                                <div className="p-5 flex-grow">
-                                    <div className="flex justify-between items-start mb-3">
-                                        <div className="flex flex-col gap-1">
+                                <div className="p-3 md:p-5 flex-grow">
+                                    <div className="flex justify-between items-start mb-2 md:mb-3">
+                                        <div className="flex flex-col gap-0.5 md:gap-1">
                                             {card.level ? (
-                                                <span className={`text-[10px] font-bold px-2 py-0.5 rounded border self-start ${levelColor}`}>
+                                                <span className={`text-[9px] md:text-[10px] font-bold px-1.5 md:px-2 py-0.5 rounded border self-start ${levelColor}`}>
                                                     {card.level}
                                                 </span>
-                                            ) : <span className="h-4"></span>}
+                                            ) : <span className="h-3 md:h-4"></span>}
                                         </div>
                                         {isDue && (
-                                            <span className="text-red-500 bg-red-50 p-1 rounded-full" title="Cần ôn tập">
-                                                <Clock className="w-3 h-3" />
+                                            <span className="text-red-500 bg-red-50 p-0.5 md:p-1 rounded-full" title="Cần ôn tập">
+                                                <Clock className="w-2.5 h-2.5 md:w-3 md:h-3" />
                                             </span>
                                         )}
                                     </div>
                                     
-                                    <h3 className="text-xl font-bold text-gray-800 mb-1">{card.front}</h3>
-                                    {card.sinoVietnamese && <p className="text-xs font-medium text-pink-500 mb-2">{card.sinoVietnamese}</p>}
+                                    <h3 className="text-base md:text-xl font-bold text-gray-800 mb-0.5 md:mb-1">{card.front}</h3>
+                                    {card.sinoVietnamese && <p className="text-[10px] md:text-xs font-medium text-pink-500 mb-1.5 md:mb-2">{card.sinoVietnamese}</p>}
                                     
-                                    <div className="h-px bg-gray-100 w-full my-2"></div>
+                                    <div className="h-px bg-gray-100 w-full my-1.5 md:my-2"></div>
                                     
-                                    <p className="text-sm text-gray-600 line-clamp-2" title={card.back}>{card.back}</p>
+                                    <p className="text-xs md:text-sm text-gray-600 line-clamp-2" title={card.back}>{card.back}</p>
                                 </div>
                                 
                                 {/* Bottom Action Bar */}
-                                <div className="bg-gray-50 px-4 py-3 flex justify-between items-center border-t border-gray-100">
-                                     <button onClick={() => onPlayAudio(card.audioBase64, card.front)} className="text-indigo-500 hover:bg-indigo-100 p-1.5 rounded-lg">
-                                        <Volume2 className="w-4 h-4"/>
+                                <div className="bg-gray-50 px-3 md:px-4 py-2 md:py-3 flex justify-between items-center border-t border-gray-100">
+                                     <button onClick={() => onPlayAudio(card.audioBase64, card.front)} className="text-indigo-500 hover:bg-indigo-100 p-1 md:p-1.5 rounded-lg">
+                                        <Volume2 className="w-3 h-3 md:w-4 md:h-4"/>
                                      </button>
-                                     <div className="flex gap-2">
-                                        <button onClick={() => onNavigateToEdit(card)} className="text-blue-500 hover:bg-blue-100 p-1.5 rounded-lg">
-                                            <Edit className="w-4 h-4"/>
+                                     <div className="flex gap-1.5 md:gap-2">
+                                        <button onClick={() => onNavigateToEdit(card)} className="text-blue-500 hover:bg-blue-100 p-1 md:p-1.5 rounded-lg">
+                                            <Edit className="w-3 h-3 md:w-4 md:h-4"/>
                                         </button>
-                                        <button onClick={() => onDeleteCard(card.id, card.front)} className="text-red-500 hover:bg-red-100 p-1.5 rounded-lg">
-                                            <Trash2 className="w-4 h-4"/>
+                                        <button onClick={() => onDeleteCard(card.id, card.front)} className="text-red-500 hover:bg-red-100 p-1 md:p-1.5 rounded-lg">
+                                            <Trash2 className="w-3 h-3 md:w-4 md:h-4"/>
                                         </button>
                                      </div>
                                 </div>
@@ -3189,8 +3192,9 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                     })}
                 </div>
             )}
+            </div>
 
-            {filteredCards.length === 0 && <div className="p-10 text-center text-gray-400">Không tìm thấy từ vựng nào.</div>}
+            {filteredCards.length === 0 && <div className="p-6 md:p-10 text-center text-xs md:text-sm text-gray-400">Không tìm thấy từ vựng nào.</div>}
         </div>
     );
 };
@@ -3341,62 +3345,62 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
     const progress = Math.round(((currentIndex) / cards.length) * 100);
 
     return (
-        <div className="w-full max-w-5xl mx-auto space-y-8">
+        <div className="w-full max-w-5xl mx-auto h-full flex flex-col space-y-2 md:space-y-4 md:space-y-8">
             {/* Header & Progress */}
-            <div className="space-y-4">
-                <div className="flex justify-between items-center text-sm font-medium text-gray-500">
+            <div className="space-y-2 md:space-y-4 flex-shrink-0">
+                <div className="flex justify-between items-center text-xs md:text-sm font-medium text-gray-500">
                     <span className="flex items-center">
-                        <Zap className="w-4 h-4 mr-1 text-amber-500"/> 
+                        <Zap className="w-3 h-3 md:w-4 md:h-4 mr-0.5 md:mr-1 text-amber-500"/> 
                         {reviewMode.toUpperCase()} - {reviewStyle === 'typing' ? 'Tự luận' : 'Lật thẻ'}
                     </span>
                     <span>{currentIndex + 1} / {cards.length}</span>
                 </div>
-                <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                <div className="h-1.5 md:h-2 w-full bg-gray-100 rounded-full overflow-hidden">
                     <div className="h-full bg-indigo-500 transition-all duration-500 ease-out" style={{ width: `${progress}%` }}></div>
                 </div>
             </div>
 
-            {/* Flashcard Area */}
-            <div className="relative group perspective">
-                 <div className="w-full bg-white rounded-3xl shadow-xl shadow-indigo-100/50 border border-gray-100 p-8 min-h-[320px] flex flex-col items-center justify-center text-center transition-all hover:shadow-2xl hover:shadow-indigo-200/50 relative overflow-hidden">
+            {/* Flashcard Area - Flexible height */}
+            <div className="relative group perspective flex-shrink-0">
+                 <div className="w-full bg-white rounded-xl md:rounded-3xl shadow-xl shadow-indigo-100/50 border border-gray-100 p-4 md:p-8 min-h-[200px] md:min-h-[280px] max-h-[40vh] md:max-h-none flex flex-col items-center justify-center text-center transition-all hover:shadow-2xl hover:shadow-indigo-200/50 relative overflow-hidden">
                     {/* Background decoration */}
-                    <div className={`absolute top-0 left-0 w-full h-1.5 ${reviewMode === 'mixed' ? 'bg-gradient-to-r from-rose-400 to-orange-400' : 'bg-gradient-to-r from-indigo-400 to-cyan-400'}`}></div>
+                    <div className={`absolute top-0 left-0 w-full h-1 md:h-1.5 ${reviewMode === 'mixed' ? 'bg-gradient-to-r from-rose-400 to-orange-400' : 'bg-gradient-to-r from-indigo-400 to-cyan-400'}`}></div>
                     
                     {/* Top Hints */}
-                    <div className="absolute top-6 right-6 flex flex-col gap-2 items-end">
-                        {currentCard.level && <span className={`text-[10px] px-2 py-1 rounded border font-bold ${getLevelColor(currentCard.level)}`}>{currentCard.level}</span>}
-                        {currentCard.pos && <span className={`text-[10px] px-2 py-1 rounded border font-bold ${getPosColor(currentCard.pos)}`}>{getPosLabel(currentCard.pos)}</span>}
+                    <div className="absolute top-2 md:top-6 right-2 md:right-6 flex flex-col gap-1 md:gap-2 items-end">
+                        {currentCard.level && <span className={`text-[9px] md:text-[10px] px-1.5 md:px-2 py-0.5 md:py-1 rounded border font-bold ${getLevelColor(currentCard.level)}`}>{currentCard.level}</span>}
+                        {currentCard.pos && <span className={`text-[9px] md:text-[10px] px-1.5 md:px-2 py-0.5 md:py-1 rounded border font-bold ${getPosColor(currentCard.pos)}`}>{getPosLabel(currentCard.pos)}</span>}
                     </div>
 
-                    <div className="flex items-center gap-2 mb-6 opacity-80">
-                         <promptInfo.icon className={`w-5 h-5 ${promptInfo.color}`}/>
-                         <span className="text-sm font-bold text-gray-500 uppercase tracking-wide">{promptInfo.label}</span>
+                    <div className="flex items-center gap-1.5 md:gap-2 mb-3 md:mb-6 opacity-80">
+                         <promptInfo.icon className={`w-4 h-4 md:w-5 md:h-5 ${promptInfo.color}`}/>
+                         <span className="text-xs md:text-sm font-bold text-gray-500 uppercase tracking-wide">{promptInfo.label}</span>
                     </div>
 
                     {promptInfo.image && (
-                        <div className="mb-6 rounded-xl overflow-hidden shadow-sm border border-gray-100">
-                            <img src={promptInfo.image} alt="Hint" className="h-32 object-cover" />
+                        <div className="mb-3 md:mb-6 rounded-lg md:rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                            <img src={promptInfo.image} alt="Hint" className="h-20 md:h-32 object-cover" />
                         </div>
                     )}
 
-                    <h3 className="text-3xl md:text-4xl font-black text-gray-800 leading-tight mb-2">
+                    <h3 className="text-xl md:text-3xl lg:text-4xl font-black text-gray-800 leading-tight mb-1 md:mb-2 px-2">
                         {promptInfo.text}
                     </h3>
                     
                     {/* UPDATE: Hide SinoVietnamese in Synonym/Example Mode */}
                     {/* Only show SinoVietnamese if reviewMode is NOT 'synonym' or 'example' */}
                     {!['synonym', 'example'].includes(cardReviewType) && (currentCard.sinoVietnamese || currentCard.synonymSinoVietnamese) && (
-                        <span className="text-sm font-semibold text-pink-500 bg-pink-50 px-3 py-1 rounded-full mt-2">
+                        <span className="text-xs md:text-sm font-semibold text-pink-500 bg-pink-50 px-2 md:px-3 py-0.5 md:py-1 rounded-full mt-1 md:mt-2">
                             {reviewMode === 'synonym' ? currentCard.synonymSinoVietnamese : currentCard.sinoVietnamese}
                         </span>
                     )}
 
-                    {promptInfo.meaning && <p className="text-gray-600 mt-4 italic text-base border-t border-gray-100 pt-3 px-4 leading-relaxed">"{promptInfo.meaning}"</p>}
+                    {promptInfo.meaning && <p className="text-gray-600 mt-2 md:mt-4 italic text-xs md:text-base border-t border-gray-100 pt-2 md:pt-3 px-2 md:px-4 leading-relaxed">"{promptInfo.meaning}"</p>}
                  </div>
             </div>
 
-            {/* Interaction Area */}
-            <div className="space-y-4">
+            {/* Interaction Area - Fixed at bottom with space for keyboard */}
+            <div className="space-y-2 md:space-y-4 flex-shrink-0 pb-4 md:pb-0">
                 
                 {/* --- TYPING MODE UI --- */}
                 {reviewStyle === 'typing' && (
@@ -3408,7 +3412,7 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
                             onChange={(e) => setInputValue(e.target.value)}
                             onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); isRevealed ? handleNext() : checkAnswer(); }}}
                             disabled={feedback === 'correct'}
-                            className={`w-full pl-7 pr-16 py-5 text-2xl font-semibold rounded-2xl border-2 transition-all outline-none shadow-md
+                            className={`w-full pl-5 md:pl-7 pr-12 md:pr-16 py-3 md:py-5 text-lg md:text-2xl font-semibold rounded-xl md:rounded-2xl border-2 transition-all outline-none shadow-md
                                 ${feedback === 'correct' 
                                     ? 'border-green-400 bg-green-50 text-green-800' 
                                     : feedback === 'incorrect' 
@@ -3416,10 +3420,10 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
                                         : 'border-gray-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10'}`}
                             placeholder="Nhập từ vựng tiếng Nhật..."
                         />
-                        <div className="absolute right-4 top-1/2 -translate-y-1/2">
+                        <div className="absolute right-3 md:right-4 top-1/2 -translate-y-1/2">
                             {!isRevealed && (
-                                <button onClick={checkAnswer} disabled={!inputValue.trim()} className="p-3 bg-indigo-600 text-white rounded-2xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 disabled:opacity-50 disabled:shadow-none transition-all">
-                                    <Send className="w-6 h-6" />
+                                <button onClick={checkAnswer} disabled={!inputValue.trim()} className="p-2 md:p-3 bg-indigo-600 text-white rounded-xl md:rounded-2xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 disabled:opacity-50 disabled:shadow-none transition-all">
+                                    <Send className="w-4 h-4 md:w-6 md:h-6" />
                                 </button>
                             )}
                         </div>
@@ -3430,32 +3434,31 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
                 {reviewStyle === 'flashcard' && !isRevealed && (
                      <button 
                         onClick={() => setIsRevealed(true)}
-                        className="w-full py-5 text-2xl font-extrabold rounded-2xl bg-indigo-600 text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all flex items-center justify-center gap-3"
+                        className="w-full py-3 md:py-5 text-lg md:text-2xl font-extrabold rounded-xl md:rounded-2xl bg-indigo-600 text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all flex items-center justify-center gap-2 md:gap-3"
                     >
-                        <Eye className="w-7 h-7" /> Hiện Đáp Án
+                        <Eye className="w-5 h-5 md:w-7 md:h-7" /> Hiện Đáp Án
                     </button>
                 )}
 
 
                 {/* Feedback & Actions */}
-                <div className={`transition-all duration-300 ease-out overflow-hidden ${isRevealed ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <div className={`p-5 rounded-2xl border mb-4 flex items-start gap-4 ${feedback === 'correct' ? 'bg-green-50 border-green-200' : feedback === 'incorrect' ? 'bg-red-50 border-red-200' : 'bg-gray-50 border-gray-200'}`}>
+                <div className={`transition-all duration-300 ease-out overflow-hidden ${isRevealed ? 'max-h-[200px] md:max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <div className={`p-3 md:p-5 rounded-xl md:rounded-2xl border mb-2 md:mb-4 flex items-start gap-2 md:gap-4 ${feedback === 'correct' ? 'bg-green-50 border-green-200' : feedback === 'incorrect' ? 'bg-red-50 border-red-200' : 'bg-gray-50 border-gray-200'}`}>
                         {reviewStyle === 'typing' && (
-                            <div className={`p-2 rounded-full ${feedback === 'correct' ? 'bg-green-200 text-green-700' : 'bg-red-200 text-red-700'}`}>
-                                {feedback === 'correct' ? <Check className="w-5 h-5" strokeWidth={3}/> : <X className="w-5 h-5" strokeWidth={3}/>}
+                            <div className={`p-1.5 md:p-2 rounded-full flex-shrink-0 ${feedback === 'correct' ? 'bg-green-200 text-green-700' : 'bg-red-200 text-red-700'}`}>
+                                {feedback === 'correct' ? <Check className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3}/> : <X className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3}/>}
                             </div>
                         )}
-                        <div className="flex-1">
+                        <div className="flex-1 min-w-0">
                              {/* Flashcard reveal message vs Typing feedback message */}
                              {reviewStyle === 'flashcard' && !feedback ? (
                                  <div className="text-center">
-                                    <p className="text-2xl font-extrabold text-gray-900 mb-2">{displayFront}</p>
-                                    <p className="text-base text-gray-600">{currentCard.nuance}</p>
+                                    <p className="text-lg md:text-2xl font-extrabold text-gray-900">{displayFront}</p>
                                  </div>
                              ) : (
                                 <div>
-                                    <p className={`font-bold text-xl ${feedback === 'correct' ? 'text-green-800' : 'text-red-800'}`}>{message}</p>
-                                    {feedback === 'incorrect' && reviewStyle === 'typing' && <p className="text-base text-red-600 mt-1">Gõ lại từ đúng để tiếp tục</p>}
+                                    <p className={`font-bold text-base md:text-xl ${feedback === 'correct' ? 'text-green-800' : 'text-red-800'}`}>{message}</p>
+                                    {feedback === 'incorrect' && reviewStyle === 'typing' && <p className="text-xs md:text-base text-red-600 mt-0.5 md:mt-1">Gõ lại từ đúng để tiếp tục</p>}
                                 </div>
                              )}
                         </div>
@@ -3466,32 +3469,32 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
                         <button
                             onClick={handleNext}
                             disabled={isProcessing || (feedback === 'incorrect' && normalizeAnswer(inputValue) !== normalizeAnswer(currentCard.front.split('（')[0]) && normalizeAnswer(inputValue) !== normalizeAnswer(currentCard.front.match(/（([^）]+)）/)?.[1] || ''))}
-                            className={`w-full py-4 rounded-xl font-bold text-lg shadow-lg transition-all flex items-center justify-center
+                            className={`w-full py-3 md:py-4 rounded-lg md:rounded-xl font-bold text-base md:text-lg shadow-lg transition-all flex items-center justify-center
                                 ${feedback === 'correct' 
                                     ? 'bg-green-500 text-white shadow-green-200 hover:bg-green-600' 
                                     : 'bg-indigo-600 text-white shadow-indigo-200 hover:bg-indigo-700 disabled:bg-gray-300 disabled:text-gray-500 disabled:shadow-none'}`}
                         >
                             {currentIndex === cards.length - 1 ? 'Hoàn thành' : 'Tiếp theo'}
-                            <ChevronRight className="w-5 h-5 ml-2" strokeWidth={3}/>
+                            <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-1.5 md:ml-2" strokeWidth={3}/>
                         </button>
                     )}
 
                     {/* FLASHCARD MODE ACTIONS */}
                     {reviewStyle === 'flashcard' && !feedback && (
-                        <div className="flex gap-4">
+                        <div className="flex gap-2 md:gap-4">
                             <button
                                 onClick={() => handleFlashcardGrade(false)}
                                 disabled={isProcessing}
-                                className="flex-1 py-4 bg-red-100 text-red-700 font-bold rounded-xl hover:bg-red-200 transition-colors flex items-center justify-center gap-2"
+                                className="flex-1 py-3 md:py-4 bg-red-100 text-red-700 font-bold rounded-lg md:rounded-xl hover:bg-red-200 transition-colors flex items-center justify-center gap-1.5 md:gap-2"
                             >
-                                <XCircle className="w-6 h-6"/> Quên / Sai
+                                <XCircle className="w-5 h-5 md:w-6 md:h-6"/> <span className="text-xs md:text-base">Quên / Sai</span>
                             </button>
                             <button
                                 onClick={() => handleFlashcardGrade(true)}
                                 disabled={isProcessing}
-                                className="flex-1 py-4 bg-green-100 text-green-700 font-bold rounded-xl hover:bg-green-200 transition-colors flex items-center justify-center gap-2"
+                                className="flex-1 py-3 md:py-4 bg-green-100 text-green-700 font-bold rounded-lg md:rounded-xl hover:bg-green-200 transition-colors flex items-center justify-center gap-1.5 md:gap-2"
                             >
-                                <CheckCircle className="w-6 h-6"/> Nhớ / Đúng
+                                <CheckCircle className="w-5 h-5 md:w-6 md:h-6"/> <span className="text-xs md:text-base">Nhớ / Đúng</span>
                             </button>
                         </div>
                     )}
@@ -3501,9 +3504,9 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
                          <button
                             onClick={handleNext}
                             disabled={isProcessing}
-                            className="w-full py-4 bg-gray-800 text-white rounded-xl font-bold shadow-lg hover:bg-gray-700 transition-all flex items-center justify-center mt-2"
+                            className="w-full py-3 md:py-4 bg-gray-800 text-white rounded-lg md:rounded-xl font-bold text-base md:text-lg shadow-lg hover:bg-gray-700 transition-all flex items-center justify-center mt-1.5 md:mt-2"
                         >
-                            Tiếp tục <ChevronRight className="w-5 h-5 ml-2"/>
+                            Tiếp tục <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-1.5 md:ml-2"/>
                         </button>
                     )}
 
