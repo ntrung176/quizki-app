@@ -1658,7 +1658,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
     };
 
     return (
-        <div className="h-screen md:min-h-screen bg-gray-50 flex flex-col font-sans selection:bg-indigo-100 selection:text-indigo-800 overflow-hidden">
+        <div className="h-screen md:min-h-screen bg-gray-50 flex flex-col font-sans selection:bg-indigo-100 selection:text-indigo-800 overflow-hidden w-full">
             <Header currentView={view} setView={setView} />
             <main className="flex-grow p-2 md:p-6 lg:p-8 flex justify-center items-stretch pt-16 md:pt-24 pb-2 md:pb-6 lg:pb-10 overflow-hidden">
                 <div className="w-full max-w-7xl mx-auto flex flex-col h-full">
@@ -2630,8 +2630,24 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                         </div>
                         
                         <div className="flex gap-2">
-                            <input id="front" type="text" ref={frontInputRef} value={front} onChange={(e) => setFront(e.target.value)} onKeyDown={handleKeyDown} required
-                                className="flex-1 px-3 md:px-4 py-2 md:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium text-base md:text-lg" placeholder="Ví dụ: 食べる（たべる）"/>
+                            <input 
+                                id="front" 
+                                type="text" 
+                                ref={frontInputRef} 
+                                value={front} 
+                                onChange={(e) => setFront(e.target.value)} 
+                                onKeyDown={handleKeyDown}
+                                onFocus={(e) => {
+                                    if (window.innerWidth <= 768) {
+                                        setTimeout(() => {
+                                            e.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+                                        }, 300);
+                                    }
+                                }}
+                                required
+                                className="flex-1 px-3 md:px-4 py-2 md:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium text-base md:text-lg" 
+                                placeholder="Ví dụ: 食べる（たべる）"
+                            />
                             
                             <button 
                                 type="button" 
@@ -2707,13 +2723,37 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                         <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider">Ngữ cảnh & Ví dụ</h3>
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Câu ví dụ (Nhật)</label>
-                            <textarea value={example} onChange={(e) => setExample(e.target.value)} rows="2"
-                                className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-indigo-500 text-sm" placeholder="私は毎日ご飯を食べる。" />
+                            <textarea 
+                                value={example} 
+                                onChange={(e) => setExample(e.target.value)} 
+                                onFocus={(e) => {
+                                    if (window.innerWidth <= 768) {
+                                        setTimeout(() => {
+                                            e.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+                                        }, 300);
+                                    }
+                                }}
+                                rows="2"
+                                className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-indigo-500 text-sm" 
+                                placeholder="私は毎日ご飯を食べる。" 
+                            />
                         </div>
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Nghĩa ví dụ (Việt)</label>
-                            <textarea value={exampleMeaning} onChange={(e) => setExampleMeaning(e.target.value)} rows="2"
-                                className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-indigo-500 text-sm" placeholder="Tôi ăn cơm mỗi ngày." />
+                            <textarea 
+                                value={exampleMeaning} 
+                                onChange={(e) => setExampleMeaning(e.target.value)} 
+                                onFocus={(e) => {
+                                    if (window.innerWidth <= 768) {
+                                        setTimeout(() => {
+                                            e.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+                                        }, 300);
+                                    }
+                                }}
+                                rows="2"
+                                className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-indigo-500 text-sm" 
+                                placeholder="Tôi ăn cơm mỗi ngày." 
+                            />
                         </div>
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Sắc thái / Ghi chú</label>
@@ -2851,7 +2891,21 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
                      <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-4">
                         <label className="block text-sm font-semibold text-gray-700">Từ vựng (Nhật)</label>
                         <div className="flex gap-2">
-                            <input type="text" ref={frontInputRef} value={front} onChange={(e) => setFront(e.target.value)} onKeyDown={handleKeyDown} className="flex-1 pl-3 md:pl-4 pr-2 md:pr-12 py-2 md:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:border-indigo-500 font-medium text-base md:text-lg"/>
+                            <input 
+                                type="text" 
+                                ref={frontInputRef} 
+                                value={front} 
+                                onChange={(e) => setFront(e.target.value)} 
+                                onKeyDown={handleKeyDown}
+                                onFocus={(e) => {
+                                    if (window.innerWidth <= 768) {
+                                        setTimeout(() => {
+                                            e.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+                                        }, 300);
+                                    }
+                                }}
+                                className="flex-1 pl-3 md:pl-4 pr-2 md:pr-12 py-2 md:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:border-indigo-500 font-medium text-base md:text-lg"
+                            />
                             <button type="button" onClick={handleAiAssist} className="px-2 md:px-3 bg-indigo-100 text-indigo-700 rounded-lg md:rounded-xl font-bold hover:bg-indigo-200 flex-shrink-0 text-xs md:text-sm">{isAiLoading ? <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5"/> : "AI"}</button>
                         </div>
                         
@@ -3416,6 +3470,14 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
                             onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); isRevealed ? handleNext() : checkAnswer(); }}}
+                            onFocus={(e) => {
+                                // Prevent viewport shift on mobile
+                                if (window.innerWidth <= 768) {
+                                    setTimeout(() => {
+                                        e.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+                                    }, 300);
+                                }
+                            }}
                             disabled={feedback === 'correct'}
                             className={`w-full pl-5 md:pl-7 pr-12 md:pr-16 py-3 md:py-5 text-lg md:text-2xl font-semibold rounded-xl md:rounded-2xl border-2 transition-all outline-none shadow-md
                                 ${feedback === 'correct' 
@@ -4085,74 +4147,76 @@ const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteU
     };
 
     return (
-        <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-800 pb-4 border-b">Bảng Xếp Hạng</h2>
-            <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
-                <table className="w-full">
-                    <thead className="bg-gray-50 border-b border-gray-100">
-                        <tr>
-                            <th className="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase">Hạng</th>
-                            <th className="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase">Thành viên</th>
-                            <th className="px-4 py-4 text-center text-xs font-bold text-amber-600 uppercase">Ngắn</th> 
-                            <th className="px-4 py-4 text-center text-xs font-bold text-emerald-600 uppercase">Trung</th>
-                            <th className="px-4 py-4 text-center text-xs font-bold text-green-700 uppercase">Dài</th> 
-                            <th className="px-6 py-4 text-right text-xs font-bold text-gray-500 uppercase">Tổng từ</th>
-                            {isAdmin && <th className="px-4 py-4 text-right text-xs font-bold text-red-500 uppercase">Admin</th>}
-                        </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-50">
-                        {friendStats.map((u, i) => (
-                            <tr key={u.userId} className={u.userId === currentUserId ? 'bg-indigo-50/50' : ''}>
-                                <td className="px-6 py-4 text-sm font-bold text-gray-400">#{i + 1}</td>
-                                <td className={`px-6 py-4 text-sm font-bold ${u.userId === currentUserId ? 'text-indigo-600' : 'text-gray-700'}`}>
-                                    <div className="flex items-center gap-2">
-                                        <span>{u.displayName} {u.userId === currentUserId && '(Bạn)'}</span>
-                                        {isAdmin && (
-                                            <span className={`px-2 py-0.5 text-[10px] font-semibold rounded-full border ${
-                                                u.isApproved
-                                                    ? 'bg-emerald-50 text-emerald-700 border-emerald-100'
-                                                    : 'bg-yellow-50 text-amber-700 border-amber-100'
-                                            }`}>
-                                                {u.isApproved ? 'Đã duyệt' : 'Chờ duyệt'}
-                                            </span>
-                                        )}
-                                    </div>
-                                </td>
-                                <td className="px-4 py-4 text-center text-sm font-medium text-amber-600">{u.shortTerm || 0}</td>
-                                <td className="px-4 py-4 text-center text-sm font-medium text-emerald-600">{u.midTerm || 0}</td>
-                                <td className="px-4 py-4 text-center text-sm font-medium text-green-700">{u.longTerm || 0}</td>
-                                <td className="px-6 py-4 text-right text-sm font-bold text-emerald-600">{u.totalCards}</td>
-                                {isAdmin && (
-                                    <td className="px-4 py-4 text-right space-x-2">
-                                        <button
-                                            type="button"
-                                            onClick={() => handleOpenEdit(u)}
-                                            className="px-3 py-1.5 text-xs font-semibold rounded-lg border border-indigo-200 text-indigo-600 hover:bg-indigo-50"
-                                        >
-                                            Sửa
-                                        </button>
-                                        <button
-                                            type="button"
-                                            onClick={() => {
-                                                if (u.userId === currentUserId) return;
-                                                if (window.confirm(`Bạn có chắc muốn xoá toàn bộ dữ liệu của ${u.displayName || 'người dùng này'}?`)) {
-                                                    onAdminDeleteUserData(u.userId);
-                                                }
-                                            }}
-                                            className={`px-3 py-1.5 text-xs font-semibold rounded-lg border ${
-                                                u.userId === currentUserId
-                                                    ? 'border-gray-200 text-gray-300 cursor-not-allowed'
-                                                    : 'border-red-200 text-red-600 hover:bg-red-50'
-                                            }`}
+        <div className="space-y-3 md:space-y-6">
+            <h2 className="text-lg md:text-2xl font-bold text-gray-800 pb-2 md:pb-4 border-b">Bảng Xếp Hạng</h2>
+            <div className="bg-white rounded-xl md:rounded-2xl border border-gray-100 overflow-hidden">
+                <div className="overflow-x-auto overflow-y-visible -mx-2 md:mx-0 px-2 md:px-0">
+                    <table className="w-full min-w-[600px]">
+                        <thead className="bg-gray-50 border-b border-gray-100">
+                            <tr>
+                                <th className="px-3 md:px-6 py-2 md:py-4 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase">Hạng</th>
+                                <th className="px-3 md:px-6 py-2 md:py-4 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase">Thành viên</th>
+                                <th className="px-2 md:px-4 py-2 md:py-4 text-center text-[10px] md:text-xs font-bold text-amber-600 uppercase">Ngắn</th> 
+                                <th className="px-2 md:px-4 py-2 md:py-4 text-center text-[10px] md:text-xs font-bold text-emerald-600 uppercase">Trung</th>
+                                <th className="px-2 md:px-4 py-2 md:py-4 text-center text-[10px] md:text-xs font-bold text-green-700 uppercase">Dài</th> 
+                                <th className="px-3 md:px-6 py-2 md:py-4 text-right text-[10px] md:text-xs font-bold text-gray-500 uppercase">Tổng từ</th>
+                                {isAdmin && <th className="px-2 md:px-4 py-2 md:py-4 text-right text-[10px] md:text-xs font-bold text-red-500 uppercase">Admin</th>}
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-50">
+                            {friendStats.map((u, i) => (
+                                <tr key={u.userId} className={u.userId === currentUserId ? 'bg-indigo-50/50' : ''}>
+                                    <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm font-bold text-gray-400">#{i + 1}</td>
+                                    <td className={`px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm font-bold ${u.userId === currentUserId ? 'text-indigo-600' : 'text-gray-700'}`}>
+                                        <div className="flex items-center gap-1.5 md:gap-2">
+                                            <span className="truncate max-w-[120px] md:max-w-none">{u.displayName} {u.userId === currentUserId && '(Bạn)'}</span>
+                                            {isAdmin && (
+                                                <span className={`px-1.5 md:px-2 py-0.5 text-[9px] md:text-[10px] font-semibold rounded-full border flex-shrink-0 ${
+                                                    u.isApproved
+                                                        ? 'bg-emerald-50 text-emerald-700 border-emerald-100'
+                                                        : 'bg-yellow-50 text-amber-700 border-amber-100'
+                                                }`}>
+                                                    {u.isApproved ? 'Đã duyệt' : 'Chờ duyệt'}
+                                                </span>
+                                            )}
+                                        </div>
+                                    </td>
+                                    <td className="px-2 md:px-4 py-2 md:py-4 text-center text-xs md:text-sm font-medium text-amber-600">{u.shortTerm || 0}</td>
+                                    <td className="px-2 md:px-4 py-2 md:py-4 text-center text-xs md:text-sm font-medium text-emerald-600">{u.midTerm || 0}</td>
+                                    <td className="px-2 md:px-4 py-2 md:py-4 text-center text-xs md:text-sm font-medium text-green-700">{u.longTerm || 0}</td>
+                                    <td className="px-3 md:px-6 py-2 md:py-4 text-right text-xs md:text-sm font-bold text-emerald-600">{u.totalCards}</td>
+                                    {isAdmin && (
+                                        <td className="px-2 md:px-4 py-2 md:py-4 text-right space-x-1 md:space-x-2">
+                                            <button
+                                                type="button"
+                                                onClick={() => handleOpenEdit(u)}
+                                                className="px-2 md:px-3 py-1 md:py-1.5 text-[10px] md:text-xs font-semibold rounded-md md:rounded-lg border border-indigo-200 text-indigo-600 hover:bg-indigo-50 whitespace-nowrap"
+                                            >
+                                                Sửa
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    if (u.userId === currentUserId) return;
+                                                    if (window.confirm(`Bạn có chắc muốn xoá toàn bộ dữ liệu của ${u.displayName || 'người dùng này'}?`)) {
+                                                        onAdminDeleteUserData(u.userId);
+                                                    }
+                                                }}
+                                                className={`px-2 md:px-3 py-1 md:py-1.5 text-[10px] md:text-xs font-semibold rounded-md md:rounded-lg border whitespace-nowrap ${
+                                                    u.userId === currentUserId
+                                                        ? 'border-gray-200 text-gray-300 cursor-not-allowed'
+                                                        : 'border-red-200 text-red-600 hover:bg-red-50'
+                                                }`}
                                         >
                                             Xoá dữ liệu
                                         </button>
                                     </td>
                                 )}
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
             {isAdmin && editingUser && (
                 <div className="bg-white rounded-2xl border border-indigo-100 shadow-sm p-4 space-y-3">

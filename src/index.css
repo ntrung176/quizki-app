@@ -39,6 +39,32 @@ body {
   }
 }
 
+/* Prevent viewport shift when keyboard appears on mobile */
+@media screen and (max-width: 768px) {
+  /* Use visual viewport height instead of window height */
+  html {
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height */
+  }
+  
+  body {
+    height: 100vh;
+    height: 100dvh;
+    position: relative;
+  }
+  
+  #root {
+    height: 100vh;
+    height: 100dvh;
+    position: relative;
+  }
+  
+  /* Prevent input from causing viewport shift */
+  input:focus, textarea:focus {
+    scroll-margin-top: 0;
+  }
+}
+
 /* Thêm animation fade-in nếu cần */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
