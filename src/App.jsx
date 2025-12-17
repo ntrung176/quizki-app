@@ -2331,7 +2331,7 @@ const Header = ({ currentView, setView }) => {
 };
 
 const MemoryStatCard = ({ title, count, icon: Icon, color, subtext }) => (
-    <div className={`relative overflow-hidden p-5 rounded-2xl border transition-all duration-300 ${color.bg} ${color.border} group h-full`}>
+    <div className={`relative overflow-hidden p-3 md:p-5 rounded-xl md:rounded-2xl border transition-all duration-300 ${color.bg} ${color.border} group h-full`}>
         {/* Glow background */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
             <div className="absolute -inset-10 bg-gradient-to-br from-white/40 via-transparent to-white/10 blur-2xl" />
@@ -2342,12 +2342,12 @@ const MemoryStatCard = ({ title, count, icon: Icon, color, subtext }) => (
 
         <div className="relative flex items-center justify-between">
             <div>
-                <p className="text-3xl font-black text-gray-900 drop-shadow-sm">{count}</p>
-                <p className="text-xs font-bold uppercase tracking-wider text-gray-600 mt-1">{title}</p>
-                {subtext && <p className="text-[11px] text-gray-500 mt-1">{subtext}</p>}
+                <p className="text-xl md:text-3xl font-black text-gray-900 drop-shadow-sm">{count}</p>
+                <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-600 mt-0.5 md:mt-1">{title}</p>
+                {subtext && <p className="text-[9px] md:text-[11px] text-gray-500 mt-0.5 md:mt-1">{subtext}</p>}
             </div>
-            <div className={`p-3 rounded-xl ${color.iconBg} group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
-                <Icon className={`w-7 h-7 ${color.text}`} />
+            <div className={`p-2 md:p-3 rounded-lg md:rounded-xl ${color.iconBg} group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 flex-shrink-0`}>
+                <Icon className={`w-5 h-5 md:w-7 md:h-7 ${color.text}`} />
             </div>
         </div>
     </div>
@@ -2439,7 +2439,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, onStartReview, onNavig
                      </div>
                 )}
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
+                <div className="grid grid-cols-2 gap-2 md:gap-4">
                     <ActionCard
                         onClick={() => onStartReview('mixed')}
                         icon={Zap}
@@ -2631,17 +2631,17 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                         
                         <div className="flex gap-2">
                             <input id="front" type="text" ref={frontInputRef} value={front} onChange={(e) => setFront(e.target.value)} onKeyDown={handleKeyDown} required
-                                className="flex-1 px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium text-lg" placeholder="Ví dụ: 食べる（たべる）"/>
+                                className="flex-1 px-3 md:px-4 py-2 md:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium text-base md:text-lg" placeholder="Ví dụ: 食べる（たべる）"/>
                             
                             <button 
                                 type="button" 
                                 onClick={handleAiAssist} 
                                 disabled={isAiLoading}
-                                className="flex items-center px-4 py-3 bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-xl shadow-md hover:shadow-lg hover:from-violet-700 hover:to-indigo-700 transition-all font-bold whitespace-nowrap"
+                                className="flex items-center px-2 md:px-4 py-2 md:py-3 bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-lg md:rounded-xl shadow-md hover:shadow-lg hover:from-violet-700 hover:to-indigo-700 transition-all font-bold whitespace-nowrap flex-shrink-0"
                                 title="Tự động điền thông tin bằng AI"
                             >
-                                {isAiLoading ? <Loader2 className="animate-spin w-5 h-5 mr-2" /> : <Wand2 className="w-5 h-5 mr-2" />}
-                                AI Hỗ trợ
+                                {isAiLoading ? <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5 md:mr-2" /> : <Wand2 className="w-4 h-4 md:w-5 md:h-5 md:mr-2" />}
+                                <span className="hidden sm:inline">AI Hỗ trợ</span>
                             </button>
                         </div>
                         
@@ -2851,8 +2851,8 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
                      <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-4">
                         <label className="block text-sm font-semibold text-gray-700">Từ vựng (Nhật)</label>
                         <div className="flex gap-2">
-                            <input type="text" ref={frontInputRef} value={front} onChange={(e) => setFront(e.target.value)} onKeyDown={handleKeyDown} className="flex-1 pl-4 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-indigo-500 font-medium text-lg"/>
-                            <button type="button" onClick={handleAiAssist} className="px-3 bg-indigo-100 text-indigo-700 rounded-xl font-bold hover:bg-indigo-200">{isAiLoading ? <Loader2 className="animate-spin w-5 h-5"/> : "AI"}</button>
+                            <input type="text" ref={frontInputRef} value={front} onChange={(e) => setFront(e.target.value)} onKeyDown={handleKeyDown} className="flex-1 pl-3 md:pl-4 pr-2 md:pr-12 py-2 md:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:border-indigo-500 font-medium text-base md:text-lg"/>
+                            <button type="button" onClick={handleAiAssist} className="px-2 md:px-3 bg-indigo-100 text-indigo-700 rounded-lg md:rounded-xl font-bold hover:bg-indigo-200 flex-shrink-0 text-xs md:text-sm">{isAiLoading ? <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5"/> : "AI"}</button>
                         </div>
                         
                         {/* UPDATE: Moved Classification & Level Buttons for Edit Form as well */}
@@ -3056,35 +3056,35 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
             </div>
 
             {/* Filters */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3 bg-gray-50 p-2 md:p-4 rounded-lg md:rounded-xl border border-gray-100 flex-shrink-0">
-                <div className="space-y-1">
-                    <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Sắp xếp</label>
+            <div className="grid grid-cols-3 gap-1.5 md:gap-3 bg-gray-50 p-2 md:p-4 rounded-lg md:rounded-xl border border-gray-100 flex-shrink-0">
+                <div className="space-y-0.5 md:space-y-1">
+                    <label className="text-[9px] md:text-[10px] font-bold text-gray-400 uppercase tracking-wider">Sắp xếp</label>
                     <div className="relative">
-                        <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)} className="w-full pl-9 pr-4 py-2 text-sm bg-white border border-gray-200 rounded-lg focus:border-indigo-500 appearance-none">
+                        <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white border border-gray-200 rounded-md md:rounded-lg focus:border-indigo-500 appearance-none">
                             <option value="newest">Mới nhất</option>
                             <option value="oldest">Cũ nhất</option>
                         </select>
-                        <ArrowDown className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-3.5 h-3.5" />
+                        <ArrowDown className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
                     </div>
                 </div>
-                <div className="space-y-1">
-                    <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Cấp độ</label>
+                <div className="space-y-0.5 md:space-y-1">
+                    <label className="text-[9px] md:text-[10px] font-bold text-gray-400 uppercase tracking-wider">Cấp độ</label>
                     <div className="relative">
-                        <select value={filterLevel} onChange={(e) => setFilterLevel(e.target.value)} className="w-full pl-9 pr-4 py-2 text-sm bg-white border border-gray-200 rounded-lg focus:border-indigo-500 appearance-none">
+                        <select value={filterLevel} onChange={(e) => setFilterLevel(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white border border-gray-200 rounded-md md:rounded-lg focus:border-indigo-500 appearance-none">
                             <option value="all">Tất cả</option>
                             {JLPT_LEVELS.map(l => (<option key={l.value} value={l.value}>{l.label}</option>))}
                         </select>
-                        <GraduationCap className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-3.5 h-3.5" />
+                        <GraduationCap className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
                     </div>
                 </div>
-                <div className="space-y-1">
-                    <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Từ loại</label>
+                <div className="space-y-0.5 md:space-y-1">
+                    <label className="text-[9px] md:text-[10px] font-bold text-gray-400 uppercase tracking-wider">Từ loại</label>
                     <div className="relative">
-                         <select value={filterPos} onChange={(e) => setFilterPos(e.target.value)} className="w-full pl-9 pr-4 py-2 text-sm bg-white border border-gray-200 rounded-lg focus:border-indigo-500 appearance-none">
+                         <select value={filterPos} onChange={(e) => setFilterPos(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white border border-gray-200 rounded-md md:rounded-lg focus:border-indigo-500 appearance-none">
                             <option value="all">Tất cả</option>
                             {Object.entries(POS_TYPES).map(([k,v]) => (<option key={k} value={k}>{v.label}</option>))}
                         </select>
-                        <Tag className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-3.5 h-3.5" />
+                        <Tag className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
                     </div>
                 </div>
             </div>
@@ -3773,33 +3773,33 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
     ].filter(e => e.value > 0);
 
     return (
-        <div className="space-y-8">
-            <h2 className="text-2xl font-bold text-gray-800 pb-4 border-b">Thống Kê Chi Tiết</h2>
+        <div className="space-y-3 md:space-y-8">
+            <h2 className="text-lg md:text-2xl font-bold text-gray-800 pb-2 md:pb-4 border-b">Thống Kê Chi Tiết</h2>
             
-            {/* Top Row: Summary Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                 <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 p-5 rounded-2xl text-white shadow-lg space-y-2">
+            {/* Top Row: Summary Cards - 2 columns on mobile */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
+                 <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 p-3 md:p-5 rounded-xl md:rounded-2xl text-white shadow-lg space-y-1 md:space-y-2">
                      <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-xs uppercase tracking-wide opacity-80">Mục tiêu mỗi ngày</p>
-                            <div className="flex items-end gap-2 mt-1">
+                            <p className="text-[9px] md:text-xs uppercase tracking-wide opacity-80">Mục tiêu mỗi ngày</p>
+                            <div className="flex items-end gap-1 md:gap-2 mt-0.5 md:mt-1">
                                 <input
                                     type="number"
                                     min={1}
                                     value={newGoal}
                                     onChange={e => setNewGoal(e.target.value)}
-                                    className="w-20 px-2 py-1 rounded-lg text-2xl font-bold text-indigo-700 bg-white"
+                                    className="w-12 md:w-20 px-1 md:px-2 py-0.5 md:py-1 rounded-md md:rounded-lg text-lg md:text-2xl font-bold text-indigo-700 bg-white"
                                 />
-                                <span className="text-xs opacity-90">từ/ngày</span>
+                                <span className="text-[9px] md:text-xs opacity-90">từ/ngày</span>
                             </div>
                         </div>
-                        <Target className="w-5 h-5 text-indigo-200"/>
+                        <Target className="w-4 h-4 md:w-5 md:h-5 text-indigo-200 flex-shrink-0"/>
                      </div>
                      <button
                         onClick={handleSaveGoal}
-                        className="mt-2 inline-flex items-center px-3 py-1.5 text-xs font-semibold rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                        className="mt-1 md:mt-2 inline-flex items-center px-2 md:px-3 py-1 md:py-1.5 text-[9px] md:text-xs font-semibold rounded-md md:rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
                      >
-                        <Save className="w-3 h-3 mr-1" /> Lưu mục tiêu
+                        <Save className="w-2.5 h-2.5 md:w-3 md:h-3 mr-0.5 md:mr-1" /> Lưu mục tiêu
                      </button>
                 </div>
                 <MemoryStatCard 
@@ -3825,39 +3825,39 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
             </div>
 
             {/* Middle Row: Charts */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-8">
                 {/* Pie Chart: Memory Retention */}
-                 <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col items-center">
-                    <h3 className="text-lg font-bold text-gray-700 mb-4 w-full text-left">Ghi nhớ Từ vựng</h3>
-                    <div className="h-64 w-full flex items-center justify-center">
+                 <div className="bg-white p-3 md:p-6 rounded-xl md:rounded-2xl border border-gray-100 shadow-sm flex flex-col items-center">
+                    <h3 className="text-sm md:text-lg font-bold text-gray-700 mb-2 md:mb-4 w-full text-left">Ghi nhớ Từ vựng</h3>
+                    <div className="h-48 md:h-64 w-full flex items-center justify-center">
                         {pieData.length > 0 ? (
                             <ResponsiveContainer width="100%" height="100%">
                                 <PieChart>
-                                    <Pie data={pieData} cx="50%" cy="50%" innerRadius={60} outerRadius={80} paddingAngle={5} dataKey="value">
+                                    <Pie data={pieData} cx="50%" cy="50%" innerRadius="40%" outerRadius="60%" paddingAngle={5} dataKey="value">
                                         <Cell fill="#94a3b8"/><Cell fill="#f59e0b"/><Cell fill="#10b981"/><Cell fill="#22c55e"/>
                                     </Pie>
                                     <Tooltip/>
-                                    <Legend/>
+                                    <Legend wrapperStyle={{fontSize: '10px'}} className="text-[10px] md:text-xs"/>
                                 </PieChart>
                             </ResponsiveContainer>
-                        ) : <span className="text-gray-400">Chưa có dữ liệu</span>}
+                        ) : <span className="text-gray-400 text-xs md:text-sm">Chưa có dữ liệu</span>}
                     </div>
                  </div>
 
                  {/* Bar Chart: JLPT Progress */}
-                 <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col">
-                    <h3 className="text-lg font-bold text-gray-700 mb-4">Tiến độ theo Cấp độ JLPT</h3>
-                    <div className="h-64 w-full">
+                 <div className="bg-white p-3 md:p-6 rounded-xl md:rounded-2xl border border-gray-100 shadow-sm flex flex-col">
+                    <h3 className="text-sm md:text-lg font-bold text-gray-700 mb-2 md:mb-4">Tiến độ theo Cấp độ JLPT</h3>
+                    <div className="h-48 md:h-64 w-full">
                         <ResponsiveContainer width="100%" height="100%">
-                            <BarChart data={jlptData} layout="vertical" margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+                            <BarChart data={jlptData} layout="vertical" margin={{top: 5, right: 10, left: 15, bottom: 5}}>
                                 <CartesianGrid strokeDasharray="3 3" horizontal={false} />
                                 <XAxis type="number" hide/>
-                                <YAxis dataKey="name" type="category" width={30} tick={{fontWeight: 'bold'}} />
+                                <YAxis dataKey="name" type="category" width={20} tick={{fontSize: 10, fontWeight: 'bold'}} className="text-[10px] md:text-xs"/>
                                 <Tooltip cursor={{fill: 'transparent'}} content={({ active, payload }) => {
                                     if (active && payload && payload.length) {
                                         const d = payload[0].payload;
                                         return (
-                                            <div className="bg-white p-2 border border-gray-100 shadow-lg rounded-lg text-xs">
+                                            <div className="bg-white p-1.5 md:p-2 border border-gray-100 shadow-lg rounded-md md:rounded-lg text-[10px] md:text-xs">
                                                 <p className="font-bold">{d.name}</p>
                                                 <p>Đã có: {d.count}</p>
                                                 <p>Yêu cầu: {d.target}</p>
@@ -3867,7 +3867,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                                     }
                                     return null;
                                 }}/>
-                                <Bar dataKey="count" barSize={20} radius={[0, 4, 4, 0]}>
+                                <Bar dataKey="count" barSize={15} radius={[0, 4, 4, 0]}>
                                     {jlptData.map((entry, index) => (
                                         <Cell key={`cell-${index}`} fill={
                                             index === 0 ? '#10b981' : 
@@ -3882,11 +3882,11 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                             </BarChart>
                         </ResponsiveContainer>
                     </div>
-                    <p className="text-xs text-gray-400 mt-2 text-center">*Số lượng yêu cầu chỉ mang tính chất tham khảo</p>
+                    <p className="text-[9px] md:text-xs text-gray-400 mt-1 md:mt-2 text-center">*Số lượng yêu cầu chỉ mang tính chất tham khảo</p>
                  </div>
             </div>
 
-            <button onClick={onBack} className="w-full py-3 border border-gray-200 rounded-xl hover:bg-gray-50 font-medium text-gray-600">Quay lại</button>
+            <button onClick={onBack} className="w-full py-2 md:py-3 border border-gray-200 rounded-lg md:rounded-xl hover:bg-gray-50 font-medium text-sm md:text-base text-gray-600">Quay lại</button>
         </div>
     );
 };
