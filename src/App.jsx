@@ -1546,9 +1546,9 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
         return (
             <PaymentScreen
                 displayName={profile.displayName}
-                onPaidClick={() =>
-                    setNotification('Đã ghi nhận yêu cầu. Admin sẽ kiểm tra thanh toán và kích hoạt tài khoản sớm nhất.')
-                }
+                onPaidClick={() => {
+                    // Popup sẽ được hiển thị trong PaymentScreen component
+                }}
                 onLogout={async () => {
                     if (auth) await signOut(auth);
                 }}
@@ -1630,6 +1630,8 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
             case 'ACCOUNT':
                 return <AccountScreen
                     profile={profile}
+                    publicStatsPath={publicStatsCollectionPath}
+                    currentUserId={userId}
                     onUpdateProfileName={async (newName) => {
                         if (!settingsDocPath) return;
                         await updateDoc(doc(db, settingsDocPath), { displayName: newName });
@@ -1661,7 +1663,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
         <div className="h-screen md:min-h-screen bg-gray-50 flex flex-col font-sans selection:bg-indigo-100 selection:text-indigo-800 overflow-hidden w-full">
             <Header currentView={view} setView={setView} />
             <main className="flex-grow p-2 md:p-6 lg:p-8 flex justify-center items-stretch pt-16 md:pt-24 pb-2 md:pb-6 lg:pb-10 overflow-hidden">
-                <div className="w-full max-w-7xl mx-auto flex flex-col h-full">
+                <div className="w-full max-w-5xl mx-auto flex flex-col h-full">
                     {/* Modern Container for Main Content */}
                     <div className={`flex-1 bg-white/90 backdrop-blur-sm shadow-xl shadow-indigo-100/50 rounded-xl md:rounded-3xl border border-white/50 p-2 sm:p-4 md:p-6 lg:p-8 transition-all duration-300 flex flex-col ${view === 'LIST' ? 'overflow-hidden' : 'overflow-y-auto'} ${view === 'REVIEW' ? 'overflow-hidden' : ''}`}>
                         <div className={`flex-1 ${view === 'LIST' ? 'overflow-y-auto overflow-x-hidden' : view === 'REVIEW' ? 'overflow-hidden' : ''}`}>
@@ -1801,22 +1803,22 @@ const LoginScreen = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center p-4">
-            <div className="w-full max-w-md bg-white/90 backdrop-blur-xl shadow-2xl rounded-3xl p-8 space-y-6 border border-white/50">
+            <div className="w-full max-w-sm bg-white/90 backdrop-blur-xl shadow-2xl rounded-2xl md:rounded-3xl p-6 md:p-8 space-y-4 md:space-y-6 border border-white/50">
                 <div className="text-center space-y-2">
-                    <div className="w-16 h-16 bg-indigo-600 rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-indigo-200">
-                        <Sparkles className="w-8 h-8 text-white" />
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-indigo-600 rounded-xl md:rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-indigo-200">
+                        <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-white" />
                     </div>
-                    <h2 className="text-3xl font-extrabold text-gray-800">QuizKi</h2>
-                    <p className="text-gray-500 text-sm">
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-gray-800">QuizKi</h2>
+                    <p className="text-gray-500 text-xs md:text-sm">
                         Đăng nhập để đồng bộ kho từ vựng của bạn trên mọi thiết bị
                     </p>
                 </div>
 
-                <div className="flex bg-gray-100 rounded-2xl p-1 text-sm font-semibold">
+                <div className="flex bg-gray-100 rounded-xl md:rounded-2xl p-0.5 md:p-1 text-xs md:text-sm font-semibold">
                     <button
                         type="button"
                         onClick={() => setMode('login')}
-                        className={`flex-1 py-2 rounded-xl transition-all ${
+                        className={`flex-1 py-1.5 md:py-2 rounded-lg md:rounded-xl transition-all ${
                             mode === 'login'
                                 ? 'bg-white text-indigo-700 shadow-sm'
                                 : 'text-gray-500 hover:text-gray-700'
@@ -1827,7 +1829,7 @@ const LoginScreen = () => {
                     <button
                         type="button"
                         onClick={() => setMode('register')}
-                        className={`flex-1 py-2 rounded-xl transition-all ${
+                        className={`flex-1 py-1.5 md:py-2 rounded-lg md:rounded-xl transition-all ${
                             mode === 'register'
                                 ? 'bg-white text-indigo-700 shadow-sm'
                                 : 'text-gray-500 hover:text-gray-700'
@@ -1837,27 +1839,27 @@ const LoginScreen = () => {
                     </button>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="space-y-2">
-                        <label className="block text-sm font-semibold text-gray-700">Email</label>
+                <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+                    <div className="space-y-1.5 md:space-y-2">
+                        <label className="block text-xs md:text-sm font-semibold text-gray-700">Email</label>
                         <input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 text-sm outline-none"
+                            className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:ring-2 md:focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 text-xs md:text-sm outline-none"
                             placeholder="you@example.com"
                             required
                         />
                     </div>
 
-                    <div className="space-y-2">
-                        <label className="block text-sm font-semibold text-gray-700">Mật khẩu</label>
+                    <div className="space-y-1.5 md:space-y-2">
+                        <label className="block text-xs md:text-sm font-semibold text-gray-700">Mật khẩu</label>
                         <div className="relative">
                             <input
                                 type={showPassword ? 'text' : 'password'}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="w-full px-4 py-3 pr-10 bg-gray-50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 text-sm outline-none"
+                                className="w-full px-3 md:px-4 py-2 md:py-3 pr-8 md:pr-10 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:ring-2 md:focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 text-xs md:text-sm outline-none"
                                 placeholder="Tối thiểu 6 ký tự"
                                 required
                             />
@@ -1867,20 +1869,20 @@ const LoginScreen = () => {
                                 className="absolute inset-y-0 right-2 px-2 flex items-center text-gray-400 hover:text-gray-600"
                                 tabIndex={-1}
                             >
-                                {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                {showPassword ? <EyeOff className="w-3.5 h-3.5 md:w-4 md:h-4" /> : <Eye className="w-3.5 h-3.5 md:w-4 md:h-4" />}
                             </button>
                         </div>
                     </div>
 
                     {mode === 'register' && (
-                        <div className="space-y-2">
-                            <label className="block text-sm font-semibold text-gray-700">Xác nhận mật khẩu</label>
+                        <div className="space-y-1.5 md:space-y-2">
+                            <label className="block text-xs md:text-sm font-semibold text-gray-700">Xác nhận mật khẩu</label>
                             <div className="relative">
                                 <input
                                     type={showConfirmPassword ? 'text' : 'password'}
                                     value={confirmPassword}
                                     onChange={(e) => setConfirmPassword(e.target.value)}
-                                    className="w-full px-4 py-3 pr-10 bg-gray-50 border border-gray-200 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 text-sm outline-none"
+                                    className="w-full px-3 md:px-4 py-2 md:py-3 pr-8 md:pr-10 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:ring-2 md:focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 text-xs md:text-sm outline-none"
                                     placeholder="Nhập lại mật khẩu"
                                     required
                                 />
@@ -1890,29 +1892,29 @@ const LoginScreen = () => {
                                     className="absolute inset-y-0 right-2 px-2 flex items-center text-gray-400 hover:text-gray-600"
                                     tabIndex={-1}
                                 >
-                                    {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                    {showConfirmPassword ? <EyeOff className="w-3.5 h-3.5 md:w-4 md:h-4" /> : <Eye className="w-3.5 h-3.5 md:w-4 md:h-4" />}
                                 </button>
                             </div>
                         </div>
                     )}
 
                     {error && (
-                        <div className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-xl px-3 py-2">
+                        <div className="text-xs md:text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg md:rounded-xl px-2 md:px-3 py-1.5 md:py-2">
                             {error}
                         </div>
                     )}
                     {info && (
-                        <div className="text-sm text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-xl px-3 py-2">
+                        <div className="text-xs md:text-sm text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-lg md:rounded-xl px-2 md:px-3 py-1.5 md:py-2">
                             {info}
                         </div>
                     )}
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className="w-full px-6 py-3 text-sm font-bold rounded-xl shadow-lg shadow-indigo-200 text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                        className="w-full px-4 md:px-6 py-2 md:py-3 text-xs md:text-sm font-bold rounded-lg md:rounded-xl shadow-md md:shadow-lg shadow-indigo-200 text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                     >
                         {isLoading ? (
-                            <Loader2 className="animate-spin w-5 h-5 mx-auto" />
+                            <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5 mx-auto" />
                         ) : mode === 'login' ? (
                             'Đăng nhập'
                         ) : (
@@ -1924,7 +1926,7 @@ const LoginScreen = () => {
                             type="button"
                             onClick={handleResetPassword}
                             disabled={isLoading}
-                            className="w-full text-xs text-indigo-600 hover:text-indigo-700 text-right mt-1"
+                            className="w-full text-[10px] md:text-xs text-indigo-600 hover:text-indigo-700 text-right mt-0.5 md:mt-1"
                         >
                             Quên mật khẩu?
                         </button>
@@ -1936,6 +1938,17 @@ const LoginScreen = () => {
 };
 
 const PaymentScreen = ({ displayName, onPaidClick, onLogout }) => {
+    const [showPopup, setShowPopup] = useState(false);
+
+    const handlePaidClick = () => {
+        setShowPopup(true);
+        onPaidClick();
+        // Tự động đóng sau 3 giây
+        setTimeout(() => {
+            setShowPopup(false);
+        }, 3000);
+    };
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center p-4">
             <div className="w-full max-w-3xl bg-white/90 backdrop-blur-xl shadow-2xl rounded-3xl p-8 md:p-10 border border-white/60 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -1957,45 +1970,92 @@ const PaymentScreen = ({ displayName, onPaidClick, onLogout }) => {
                         Sau khi thanh toán, hãy nhấn nút <b>“Đã thanh toán”</b>. Admin sẽ kiểm tra và kích hoạt tài khoản cho bạn trong thời gian sớm nhất.
                     </div>
                 </div>
-                <div className="space-y-4 bg-gray-50 rounded-2xl border border-gray-100 p-6">
-                    <h3 className="text-lg font-bold text-gray-800">Thông tin thanh toán</h3>
-                    <div className="space-y-2 text-sm">
+                <div className="space-y-4 bg-gray-50 rounded-2xl border border-gray-100 p-4 md:p-6">
+                    <h3 className="text-base md:text-lg font-bold text-gray-800">Thông tin thanh toán</h3>
+                    <div className="space-y-2 text-xs md:text-sm">
                         <div>
                             <p className="text-gray-500 font-semibold">Chủ tài khoản</p>
-                            <p className="text-gray-900 font-bold text-base">LÝ NGUYỄN NHẬT TRUNG</p>
+                            <p className="text-gray-900 font-bold text-sm md:text-base">LÝ NGUYỄN NHẬT TRUNG</p>
                         </div>
                         <div>
                             <p className="text-gray-500 font-semibold">STK MOMO / MB Bank</p>
-                            <p className="text-gray-900 font-mono text-base font-bold">0376486121</p>
+                            <p className="text-gray-900 font-mono text-sm md:text-base font-bold">0376486121</p>
                         </div>
                         <div>
-                            <p className="text-gray-500 font-semibold">Nội dung chuyển khoản gợi ý</p>
-                            <p className="text-gray-900 text-xs bg-white border border-gray-200 rounded-xl px-3 py-2">
+                            <p className="text-gray-500 font-semibold">Nội dung chuyển khoản</p>
+                            <p className="text-gray-900 text-[10px] md:text-xs bg-white border border-gray-200 rounded-lg md:rounded-xl px-2 md:px-3 py-1.5 md:py-2">
                                 QUIZKI - {displayName || 'TEN_TAI_KHOAN'}
                             </p>
                         </div>
                     </div>
+                    
+                    {/* QR Codes */}
+                    <div className="space-y-3 mt-4">
+                        <p className="text-xs md:text-sm font-semibold text-gray-700">Quét mã QR để thanh toán:</p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div className="flex flex-col items-center">
+                                <img 
+                                    src="/qr-codes/qr-momo.png" 
+                                    alt="QR Code MoMo" 
+                                    className="w-full max-w-[200px] h-auto rounded-lg shadow-sm"
+                                />
+                                <p className="text-[10px] md:text-xs text-gray-600 mt-2 text-center">MoMo / VietQR / Napas</p>
+                            </div>
+                            <div className="flex flex-col items-center">
+                                <img 
+                                    src="/qr-codes/qr-vietqr.png" 
+                                    alt="QR Code VietQR" 
+                                    className="w-full max-w-[200px] h-auto rounded-lg shadow-sm"
+                                />
+                                <p className="text-[10px] md:text-xs text-gray-600 mt-2 text-center">VietQR / Napas 247</p>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <button
                         type="button"
-                        onClick={onPaidClick}
-                        className="w-full mt-2 px-4 py-3 text-sm font-bold rounded-xl bg-emerald-500 text-white hover:bg-emerald-600 shadow-md"
+                        onClick={handlePaidClick}
+                        className="w-full mt-2 px-4 py-2.5 md:py-3 text-xs md:text-sm font-bold rounded-lg md:rounded-xl bg-emerald-500 text-white hover:bg-emerald-600 shadow-md"
                     >
                         Đã thanh toán
                     </button>
                     <button
                         type="button"
                         onClick={onLogout}
-                        className="w-full px-4 py-2 text-xs font-semibold rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-50"
+                        className="w-full px-4 py-2 text-[10px] md:text-xs font-semibold rounded-lg md:rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-50"
                     >
                         Đăng xuất
                     </button>
                 </div>
             </div>
+
+            {/* Popup thông báo */}
+            {showPopup && (
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowPopup(false)}>
+                    <div className="bg-white rounded-xl md:rounded-2xl shadow-2xl max-w-[280px] md:max-w-sm w-full p-4 md:p-5 relative animate-fade-in" onClick={(e) => e.stopPropagation()}>
+                        <button
+                            onClick={() => setShowPopup(false)}
+                            className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors"
+                        >
+                            <X className="w-4 h-4 md:w-5 md:h-5" />
+                        </button>
+                        <div className="flex items-center gap-2 md:gap-3">
+                            <div className="w-10 h-10 md:w-12 md:h-12 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-emerald-600" />
+                            </div>
+                            <div>
+                                <h3 className="text-sm md:text-base lg:text-lg font-bold text-gray-800">Đã gửi yêu cầu thanh toán</h3>
+                                <p className="text-xs md:text-sm text-gray-600 mt-0.5 md:mt-1">Vui lòng đợi ít phút</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
 
-const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack }) => {
+const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack, publicStatsPath, currentUserId }) => {
     const [newDisplayName, setNewDisplayName] = useState(profile.displayName || '');
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
@@ -2014,17 +2074,17 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack 
             return;
         }
         try {
-            // Kiểm tra trùng tên hiển thị trong toàn bộ profile
-            if (db) {
+            // Kiểm tra trùng tên hiển thị - query trên publicStats thay vì collectionGroup để tránh cần index
+            if (db && publicStatsPath) {
                 try {
                     const q = query(
-                        collectionGroup(db, 'settings'),
+                        collection(db, publicStatsPath),
                         where('displayName', '==', newDisplayName.trim())
                     );
                     const snap = await getDocs(q);
                     // Nếu có ít nhất một user khác (không phải current user) dùng tên này thì báo lỗi
                     if (!snap.empty) {
-                        const conflict = snap.docs.find(d => d.ref.path.indexOf(`/users/${auth?.currentUser?.uid}/`) === -1);
+                        const conflict = snap.docs.find(d => d.id !== currentUserId);
                         if (conflict) {
                             setError('Tên hiển thị này đã được sử dụng. Vui lòng chọn tên khác.');
                             return;
@@ -2645,7 +2705,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                                     }
                                 }}
                                 required
-                                className="flex-1 px-3 md:px-4 py-2 md:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium text-base md:text-lg" 
+                                className="flex-1 px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium text-sm md:text-base lg:text-lg" 
                                 placeholder="Ví dụ: 食べる（たべる）"
                             />
                             
@@ -2653,7 +2713,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                                 type="button" 
                                 onClick={handleAiAssist} 
                                 disabled={isAiLoading}
-                                className="flex items-center px-2 md:px-4 py-2 md:py-3 bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-lg md:rounded-xl shadow-md hover:shadow-lg hover:from-violet-700 hover:to-indigo-700 transition-all font-bold whitespace-nowrap flex-shrink-0"
+                                className="flex items-center px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-lg md:rounded-xl shadow-md hover:shadow-lg hover:from-violet-700 hover:to-indigo-700 transition-all font-bold whitespace-nowrap flex-shrink-0 text-xs md:text-sm"
                                 title="Tự động điền thông tin bằng AI"
                             >
                                 {isAiLoading ? <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5 md:mr-2" /> : <Wand2 className="w-4 h-4 md:w-5 md:h-5 md:mr-2" />}
@@ -2696,7 +2756,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                                 Ý nghĩa (Việt): <span className="text-rose-500">*</span>
                             </label>
                             <input id="back" type="text" value={back} onChange={(e) => setBack(e.target.value)} required
-                                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all" placeholder="Ví dụ: Ăn"
+                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-sm md:text-base" placeholder="Ví dụ: Ăn"
                             />
                         </div>
 
@@ -2704,13 +2764,13 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                              <div>
                                 <label className="block text-xs font-semibold text-gray-500 mb-1">Hán Việt</label>
                                 <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)}
-                                    className="w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:border-indigo-500" placeholder="Thực"
+                                    className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 border border-gray-200 rounded-lg focus:border-indigo-500" placeholder="Thực"
                                 />
                             </div>
                             <div>
                                 <label className="block text-xs font-semibold text-gray-500 mb-1">Đồng nghĩa</label>
                                 <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)}
-                                    className="w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:border-indigo-500" placeholder="食事する..."
+                                    className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 border border-gray-200 rounded-lg focus:border-indigo-500" placeholder="食事する..."
                                 />
                             </div>
                         </div>
@@ -2734,7 +2794,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                                     }
                                 }}
                                 rows="2"
-                                className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-indigo-500 text-sm" 
+                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:border-indigo-500 text-xs md:text-sm" 
                                 placeholder="私は毎日ご飯を食べる。" 
                             />
                         </div>
@@ -2751,7 +2811,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                                     }
                                 }}
                                 rows="2"
-                                className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-indigo-500 text-sm" 
+                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:border-indigo-500 text-xs md:text-sm" 
                                 placeholder="Tôi ăn cơm mỗi ngày." 
                             />
                         </div>
@@ -2761,7 +2821,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                                 value={nuance} 
                                 onChange={(e) => setNuance(e.target.value)}
                                 rows="3"
-                                className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:border-indigo-500 text-sm" 
+                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:border-indigo-500 text-xs md:text-sm" 
                                 placeholder="Dùng trong văn viết..." 
                             />
                         </div>
@@ -2826,24 +2886,24 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                     type="button"
                     onClick={() => handleSave('continue')}
                     disabled={isSaving || isAiLoading || !front || !back}
-                    className="flex-1 flex items-center justify-center px-6 py-4 text-base font-bold rounded-xl shadow-lg shadow-indigo-200 text-white bg-indigo-600 hover:bg-indigo-700 hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex-1 flex items-center justify-center px-3 md:px-4 lg:px-6 py-2 md:py-3 lg:py-4 text-xs md:text-sm lg:text-base font-bold rounded-lg md:rounded-xl shadow-md md:shadow-lg shadow-indigo-200 text-white bg-indigo-600 hover:bg-indigo-700 hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                    {isSaving ? <Loader2 className="animate-spin w-5 h-5 mr-2" /> : <Plus className="w-5 h-5 mr-2" />}
-                    Lưu & Thêm Tiếp
+                    {isSaving ? <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2" /> : <Plus className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2" />}
+                    <span className="text-xs md:text-sm lg:text-base">Lưu & Thêm Tiếp</span>
                 </button>
                 <button
                     type="button"
                     onClick={() => handleSave('back')}
                     disabled={isSaving || isAiLoading || !front || !back}
-                    className="flex-1 flex items-center justify-center px-6 py-4 text-base font-bold rounded-xl shadow-sm text-indigo-700 bg-indigo-50 hover:bg-indigo-100 hover:-translate-y-1 transition-all disabled:opacity-50"
+                    className="flex-1 flex items-center justify-center px-3 md:px-4 lg:px-6 py-2 md:py-3 lg:py-4 text-xs md:text-sm lg:text-base font-bold rounded-lg md:rounded-xl shadow-sm text-indigo-700 bg-indigo-50 hover:bg-indigo-100 hover:-translate-y-1 transition-all disabled:opacity-50"
                 >
-                    <Check className="w-5 h-5 mr-2" />
-                    Lưu & Về Home
+                    <Check className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2" />
+                    <span className="text-xs md:text-sm lg:text-base">Lưu & Về Home</span>
                 </button>
                 <button
                     type="button"
                     onClick={onBack}
-                    className="px-6 py-4 text-base font-medium rounded-xl text-gray-600 bg-white border border-gray-200 hover:bg-gray-50 transition-all"
+                    className="px-4 md:px-5 lg:px-6 py-2 md:py-3 lg:py-4 text-xs md:text-sm lg:text-base font-medium rounded-lg md:rounded-xl text-gray-600 bg-white border border-gray-200 hover:bg-gray-50 transition-all"
                 >
                     Hủy
                 </button>
@@ -2904,7 +2964,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
                                         }, 300);
                                     }
                                 }}
-                                className="flex-1 pl-3 md:pl-4 pr-2 md:pr-12 py-2 md:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:border-indigo-500 font-medium text-base md:text-lg"
+                                className="flex-1 pl-2 md:pl-3 lg:pl-4 pr-2 md:pr-12 py-1.5 md:py-2 lg:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:border-indigo-500 font-medium text-sm md:text-base lg:text-lg"
                             />
                             <button type="button" onClick={handleAiAssist} className="px-2 md:px-3 bg-indigo-100 text-indigo-700 rounded-lg md:rounded-xl font-bold hover:bg-indigo-200 flex-shrink-0 text-xs md:text-sm">{isAiLoading ? <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5"/> : "AI"}</button>
                         </div>
@@ -2938,18 +2998,18 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
                         </div>
 
                         <label className="block text-sm font-semibold text-gray-700">Ý nghĩa</label>
-                        <input type="text" value={back} onChange={(e) => setBack(e.target.value)} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-indigo-500"/>
-                        <div className="grid grid-cols-2 gap-4">
-                            <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Hán Việt" className="w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg"/>
-                            <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg"/>
+                        <input type="text" value={back} onChange={(e) => setBack(e.target.value)} className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:border-indigo-500 text-sm md:text-base"/>
+                        <div className="grid grid-cols-2 gap-2 md:gap-4">
+                            <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Hán Việt" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 border border-gray-200 rounded-lg"/>
+                            <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 border border-gray-200 rounded-lg"/>
                         </div>
                      </div>
                 </div>
                 <div className="space-y-6">
                     <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-4">
-                        <textarea value={example} onChange={(e) => setExample(e.target.value)} rows="2" placeholder="Ví dụ (Nhật)" className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm"/>
-                        <textarea value={exampleMeaning} onChange={(e) => setExampleMeaning(e.target.value)} rows="2" placeholder="Nghĩa ví dụ" className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm"/>
-                        <textarea value={nuance} onChange={(e) => setNuance(e.target.value)} rows="3" placeholder="Ghi chú" className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm"/>
+                        <textarea value={example} onChange={(e) => setExample(e.target.value)} rows="2" placeholder="Ví dụ (Nhật)" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl text-xs md:text-sm"/>
+                        <textarea value={exampleMeaning} onChange={(e) => setExampleMeaning(e.target.value)} rows="2" placeholder="Nghĩa ví dụ" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl text-xs md:text-sm"/>
+                        <textarea value={nuance} onChange={(e) => setNuance(e.target.value)} rows="3" placeholder="Ghi chú" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl text-xs md:text-sm"/>
                     </div>
                     {/* Media Edit Enhanced */}
                     <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-4">
@@ -3003,8 +3063,8 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
                 </div>
              </div>
              <div className="flex gap-4 pt-4 border-t">
-                 <button onClick={handleSave} className="flex-1 py-3 bg-indigo-600 text-white rounded-xl font-bold shadow-lg shadow-indigo-200 hover:bg-indigo-700">Lưu Thay Đổi</button>
-                 <button onClick={onBack} className="px-6 py-3 bg-white border border-gray-200 rounded-xl font-medium text-gray-600 hover:bg-gray-50">Hủy</button>
+                 <button onClick={handleSave} className="flex-1 py-2 md:py-2.5 lg:py-3 bg-indigo-600 text-white rounded-lg md:rounded-xl font-bold text-xs md:text-sm lg:text-base shadow-md md:shadow-lg shadow-indigo-200 hover:bg-indigo-700">Lưu Thay Đổi</button>
+                 <button onClick={onBack} className="px-4 md:px-5 lg:px-6 py-2 md:py-2.5 lg:py-3 bg-white border border-gray-200 rounded-lg md:rounded-xl font-medium text-xs md:text-sm lg:text-base text-gray-600 hover:bg-gray-50">Hủy</button>
              </div>
         </div>
     );
@@ -4099,15 +4159,15 @@ const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteU
         setEditError('');
         setEditSaving(true);
         try {
-            // Kiểm tra trùng tên hiển thị với user khác
+            // Kiểm tra trùng tên hiển thị với user khác - query trên publicStats thay vì collectionGroup
             try {
                 const q = query(
-                    collectionGroup(db, 'settings'),
+                    collection(db, publicStatsPath),
                     where('displayName', '==', name)
                 );
                 const snap = await getDocs(q);
                 if (!snap.empty) {
-                    const conflict = snap.docs.find(d => d.ref.path.indexOf(`/users/${editingUser.userId}/`) === -1);
+                    const conflict = snap.docs.find(d => d.id !== editingUser.userId);
                     if (conflict) {
                         setEditError('Tên hiển thị này đã được sử dụng. Vui lòng chọn tên khác.');
                         setEditSaving(false);
@@ -4116,6 +4176,7 @@ const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteU
                 }
             } catch (checkErr) {
                 console.error('Lỗi kiểm tra trùng tên (admin edit):', checkErr);
+                // Nếu lỗi, vẫn cho phép lưu để không chặn admin
             }
 
             const profileRef = doc(db, `artifacts/${appId}/users/${editingUser.userId}/settings/profile`);
