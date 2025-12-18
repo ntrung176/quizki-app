@@ -27,6 +27,7 @@ jobs:
       VITE_FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
       VITE_FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
       VITE_GEMINI_TTS_API_KEY: ${{ secrets.GEMINI_TTS_API_KEY }}
+      VITE_ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
