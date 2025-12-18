@@ -1995,7 +1995,7 @@ const PaymentScreen = ({ displayName, onPaidClick, onLogout }) => {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div className="flex flex-col items-center">
                                 <img 
-                                    src="/qr-codes/qr-momo.png" 
+                                    src={`${import.meta.env.BASE_URL}qr-codes/qr-momo.png`} 
                                     alt="QR Code MoMo" 
                                     className="w-full max-w-[200px] h-auto rounded-lg shadow-sm"
                                 />
@@ -2003,7 +2003,7 @@ const PaymentScreen = ({ displayName, onPaidClick, onLogout }) => {
                             </div>
                             <div className="flex flex-col items-center">
                                 <img 
-                                    src="/qr-codes/qr-vietqr.png" 
+                                    src={`${import.meta.env.BASE_URL}qr-codes/qr-vietqr.png`} 
                                     alt="QR Code VietQR" 
                                     className="w-full max-w-[200px] h-auto rounded-lg shadow-sm"
                                 />
