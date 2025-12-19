@@ -193,20 +193,23 @@ const pcmToWav = (pcm16, sampleRate) => {
 
 const getSpeechText = (text) => {
     if (!text) return '';
-    const furiganaMatch = text.match(/（([^）]+)）/); 
+    // Nhận diện cả ngoặc Nhật （）và ngoặc Việt Nam ()
+    const furiganaMatch = text.match(/（([^）]+)）/) || text.match(/\(([^)]+)\)/); 
     if (furiganaMatch && furiganaMatch[1]) {
         return furiganaMatch[1];
     }
-    return text.replace(/（[^）]*）/g, '').trim(); 
+    // Loại bỏ cả hai loại ngoặc
+    return text.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').trim(); 
 };
 
 const getWordForMasking = (text) => {
     if (!text) return '';
-    const mainWord = text.split('（')[0].trim();
+    // Nhận diện cả ngoặc Nhật （）và ngoặc Việt Nam ()
+    const mainWord = text.split('（')[0].split('(')[0].trim();
     if (mainWord) {
         return mainWord;
     }
-    const furiganaMatch = text.match(/（([^）]+)）/); 
+    const furiganaMatch = text.match(/（([^）]+)）/) || text.match(/\(([^)]+)\)/); 
     if (furiganaMatch && furiganaMatch[1]) {
         return furiganaMatch[1];
     }
@@ -3365,11 +3368,12 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
 
         const userAnswer = normalizeAnswer(inputValue);
         
-        // Extract Kanji and Kana from format "Kanji（Kana）"
+        // Extract Kanji and Kana from format "Kanji（Kana）" or "Kanji(Kana)"
+        // Nhận diện cả ngoặc Nhật （）và ngoặc Việt Nam ()
         // If no brackets, it assumes the whole string is the answer
         const rawFront = currentCard.front;
-        const kanjiPart = rawFront.split('（')[0];
-        const kanaPartMatch = rawFront.match(/（([^）]+)）/);
+        const kanjiPart = rawFront.split('（')[0].split('(')[0];
+        const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
         const kanaPart = kanaPartMatch ? kanaPartMatch[1] : '';
 
         const normalizedKanji = normalizeAnswer(kanjiPart);
