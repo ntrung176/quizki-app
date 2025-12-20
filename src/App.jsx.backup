@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithCustomToken, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail, updatePassword, sendEmailVerification } from 'firebase/auth';
 import { getFirestore, doc, setDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, increment, getDoc, writeBatch, getDocs, where, collectionGroup } from 'firebase/firestore';
-import { Loader2, Plus, Repeat2, Home, CheckCircle, XCircle, Volume2, Send, BookOpen, Clock, HeartHandshake, List, Calendar, Trash2, Mic, FileText, MessageSquare, HelpCircle, Upload, Wand2, BarChart3, Users, PieChart as PieChartIcon, Target, Save, Edit, Zap, Eye, EyeOff, AlertTriangle, Check, VolumeX, Image as ImageIcon, X, Music, FileAudio, Tag, Sparkles, Filter, ArrowDown, ArrowUp, GraduationCap, Search, Languages, RefreshCw, Settings, ChevronRight, Wrench, LayoutGrid, Flame, TrendingUp, Lightbulb, Brain, Ear, Keyboard, MousePointerClick, Layers, RotateCw, Lock, LogOut } from 'lucide-react';
+import { Loader2, Plus, Repeat2, Home, CheckCircle, XCircle, Volume2, Send, BookOpen, Clock, HeartHandshake, List, Calendar, Trash2, Mic, FileText, MessageSquare, HelpCircle, Upload, Wand2, BarChart3, Users, PieChart as PieChartIcon, Target, Save, Edit, Zap, Eye, EyeOff, AlertTriangle, Check, VolumeX, Image as ImageIcon, X, Music, FileAudio, Tag, Sparkles, Filter, ArrowDown, ArrowUp, GraduationCap, Search, Languages, RefreshCw, Settings, ChevronRight, Wrench, LayoutGrid, Flame, TrendingUp, Lightbulb, Brain, Ear, Keyboard, MousePointerClick, Layers, RotateCw, Lock } from 'lucide-react';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 
 
@@ -398,16 +398,7 @@ const App = () => {
 
     const [profile, setProfile] = useState(null); 
     const [isProfileLoading, setIsProfileLoading] = useState(true);
-    const [dailyActivityLogs, setDailyActivityLogs] = useState([]);
-    const [studySessionData, setStudySessionData] = useState({
-        learning: [], // Từ sai trong session (ưu tiên 1)
-        new: [], // Từ mới chưa học (ưu tiên 2)
-        reviewing: [], // Từ đã học nhưng cần review (ưu tiên 3)
-        currentBatch: [], // Batch hiện tại (5 từ)
-        currentPhase: 'multipleChoice', // 'multipleChoice' | 'typing'
-        batchIndex: 0,
-        allNoSrsCards: [] // Tất cả từ chưa có SRS
-    }); 
+    const [dailyActivityLogs, setDailyActivityLogs] = useState([]); 
 
     const vocabCollectionPath = useMemo(() => {
         if (!userId) return null;
@@ -643,16 +634,8 @@ const App = () => {
             }
         }).length;
 
-        // Study mode: Chỉ từ vựng chưa có SRS (intervalIndex === -1 hoặc undefined)
-        const study = allCards.filter(card => {
-            return (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined) &&
-                   (card.intervalIndex_synonym === -1 || card.intervalIndex_synonym === undefined) &&
-                   (card.intervalIndex_example === -1 || card.intervalIndex_example === undefined);
-        }).length;
-
-        return { mixed, flashcard, back, synonym, example, study };
+        return { mixed, flashcard, back, synonym, example };
     }, [allCards, flashcardFilter]);
-
 
 
     const prepareReviewCards = useCallback((mode = 'back') => {
@@ -1596,25 +1579,6 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     onBack={() => { setEditingCard(null); setView('LIST'); }} 
                     onGeminiAssist={handleGeminiAssist}
                 />;
-            case 'STUDY':
-                return <StudyScreen
-                    studySessionData={studySessionData}
-                    setStudySessionData={setStudySessionData}
-                    allCards={allCards}
-                    onUpdateCard={handleUpdateCard}
-                    onCompleteStudy={() => {
-                        setStudySessionData({
-                            learning: [],
-                            new: [],
-                            reviewing: [],
-                            currentBatch: [],
-                            currentPhase: 'multipleChoice',
-                            batchIndex: 0,
-                            allNoSrsCards: []
-                        });
-                        setView('HOME');
-                    }}
-                />;
             case 'REVIEW':
                 if (reviewCards.length === 0) {
                     return <ReviewCompleteScreen onBack={() => setView('HOME')} />;
@@ -1691,12 +1655,6 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     displayName={profile.displayName} 
                     dueCounts={dueCounts} 
                     totalCards={allCards.length}
-                    allCards={allCards}
-                    studySessionData={studySessionData}
-                    setStudySessionData={setStudySessionData}
-                    setNotification={setNotification}
-                    setReviewMode={setReviewMode}
-                    setView={setView}
                     reviewStyle={reviewStyle} // Pass reviewStyle prop
                     setReviewStyle={setReviewStyle} // Pass setter
                     flashcardFilter={flashcardFilter}
@@ -1710,7 +1668,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
     return (
         <div className="h-screen md:min-h-screen bg-gray-50 flex flex-col font-sans selection:bg-indigo-100 selection:text-indigo-800 overflow-hidden w-full">
             <Header currentView={view} setView={setView} />
-            <main className="flex-grow p-2 md:p-6 lg:p-8 flex justify-center items-stretch pb-2 md:pb-6 lg:pb-10 overflow-hidden main-with-header">
+            <main className="flex-grow p-2 md:p-6 lg:p-8 flex justify-center items-stretch pt-16 md:pt-24 pb-2 md:pb-6 lg:pb-10 overflow-hidden">
                 <div className="w-full max-w-xl lg:max-w-2xl mx-auto flex flex-col h-full">
                     {/* Modern Container for Main Content - Padding nhỏ hơn */}
                     <div className={`flex-1 bg-white/90 backdrop-blur-sm shadow-xl shadow-indigo-100/50 rounded-xl md:rounded-2xl border border-white/50 p-3 md:p-4 transition-all duration-300 flex flex-col ${view === 'LIST' ? 'overflow-hidden' : 'overflow-y-auto'} ${view === 'REVIEW' ? 'overflow-hidden' : ''}`}>
@@ -2379,8 +2337,11 @@ const Header = ({ currentView, setView }) => {
 
     return (
     <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 h-12 md:h-16 transition-all duration-300">
-        <div className="w-full max-w-xl lg:max-w-2xl mx-auto px-2 md:px-4 sm:px-6 h-full flex items-center justify-between">
-            <div className="flex items-center space-x-1 md:space-x-2 cursor-pointer group" onClick={() => setView('HOME')}>
+        <div className="max-w-xl lg:max-w-2xl mx-auto px-2 md:px-4 sm:px-6 h-full flex items-center justify-between">
+            <div 
+                className="flex items-center space-x-1 md:space-x-2 cursor-pointer group"
+                onClick={() => setView('HOME')}
+            >
                 <div className="bg-indigo-600 p-1 md:p-1.5 rounded-lg group-hover:bg-indigo-700 transition-colors">
                     <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-white" />
                 </div>
@@ -2427,7 +2388,7 @@ const Header = ({ currentView, setView }) => {
                     className="ml-0.5 md:ml-1 p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all text-gray-400 hover:text-red-600 hover:bg-red-50"
                     title="Đăng xuất"
                 >
-                    <LogOut className="w-4 h-4 md:w-5 md:h-5" />
+                    <X className="w-4 h-4 md:w-5 md:h-5" />
                 </button>
             </nav>
         </div>
@@ -2463,27 +2424,22 @@ const ActionCard = ({ onClick, icon: Icon, title, count, gradient, disabled = fa
         <button
             onClick={onClick}
             disabled={disabled}
-            className={`relative overflow-hidden group flex items-center p-3 md:p-5 h-28 md:h-32 rounded-xl md:rounded-2xl shadow-md transition-all duration-300 w-[calc(50%-0.5rem)] md:w-[calc(50%-1rem)] max-w-xs md:max-w-sm text-left
+            className={`relative overflow-hidden group flex flex-col items-start justify-between p-3 md:p-5 lg:p-6 h-32 md:h-40 rounded-xl md:rounded-2xl shadow-md transition-all duration-300 w-full text-left
                         ${disabled ? 'bg-gray-100 cursor-not-allowed opacity-70' : `bg-gradient-to-br ${gradient} hover:shadow-xl hover:-translate-y-1`}`}
         >
-            <div className="z-10 w-full flex items-center gap-3 md:gap-4">
-                {/* Icon với tỉ lệ 2:4 (width:height = 1:2) */}
-                <div className={`flex-shrink-0 w-12 h-24 md:w-16 md:h-32 rounded-xl md:rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center`}>
-                    <Icon className={`w-6 h-6 md:w-8 md:h-8 text-white`} strokeWidth={2.5} />
-                </div>
-                
-                {/* Text content bên phải */}
-                <div className="flex-1 flex flex-col justify-center min-w-0">
-                    <div className="flex items-center justify-between mb-1 md:mb-1.5">
-                        <h3 className="text-sm md:text-lg font-extrabold text-white tracking-tight truncate">{title}</h3>
-                        {typeof count !== 'undefined' && count > 0 && (
-                            <span className="bg-white/25 backdrop-blur-md text-white text-xs md:text-sm font-bold px-2 md:px-2.5 py-1 md:py-1.5 rounded-full flex-shrink-0 ml-2">
-                                {count} cần ôn
-                            </span>
-                        )}
+            <div className="z-10 w-full">
+                <div className="flex justify-between items-start w-full mb-1.5 md:mb-2">
+                    <div className={`p-1.5 md:p-2 rounded-lg bg-white/20 backdrop-blur-sm`}>
+                        <Icon className={`w-4 h-4 md:w-6 md:h-6 text-white`} strokeWidth={2.5} />
                     </div>
-                    <p className="text-indigo-50 text-xs md:text-sm font-medium opacity-95 leading-snug">{description}</p>
+                     {typeof count !== 'undefined' && count > 0 && (
+                        <span className="bg-white/25 backdrop-blur-md text-white text-[10px] md:text-xs font-bold px-1.5 md:px-2 py-0.5 md:py-1 rounded-full">
+                            {count} cần ôn
+                        </span>
+                    )}
                 </div>
+                <h3 className="text-base md:text-xl font-extrabold text-white tracking-tight">{title}</h3>
+                <p className="text-indigo-50 text-xs md:text-sm font-medium mt-1 md:mt-2 opacity-95 leading-snug">{description}</p>
             </div>
             
             {/* Background Decoration */}
@@ -2491,72 +2447,72 @@ const ActionCard = ({ onClick, icon: Icon, title, count, gradient, disabled = fa
         </button>
 );
 
-const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySessionData, setStudySessionData, setNotification, setReviewMode, setView, onStartReview, onNavigate, reviewStyle, setReviewStyle, flashcardFilter, setFlashcardFilter }) => {
+const HomeScreen = ({ displayName, dueCounts, totalCards, onStartReview, onNavigate, reviewStyle, setReviewStyle, flashcardFilter, setFlashcardFilter }) => {
     return (
-        <div className="space-y-2.5 md:space-y-5">
+        <div className="space-y-3 md:space-y-6">
             {/* Hero Section */}
             <div className="flex flex-col md:flex-row justify-between items-end md:items-center gap-2 md:gap-4 pb-2 border-b border-gray-100">
-                <div className="flex-shrink-0 min-w-0">
-                    <h2 className="text-lg md:text-2xl lg:text-3xl font-extrabold text-gray-800 tracking-tight break-words">
-                        Chào, <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">{displayName || 'bạn'}</span>! 👋
+                <div>
+                    <h2 className="text-lg md:text-2xl lg:text-3xl font-extrabold text-gray-800 tracking-tight">
+                        Chào, <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">{displayName}</span>! 👋
                     </h2>
                     <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm font-medium">Bạn đã sẵn sàng chinh phục mục tiêu hôm nay chưa?</p>
                 </div>
-                <div className="flex items-center space-x-2 md:space-x-2.5 bg-indigo-50 px-3 md:px-5 py-2 md:py-2.5 rounded-full border border-indigo-100 flex-shrink-0">
-                    <div className="w-2 h-2 md:w-2.5 md:h-2.5 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-xs md:text-sm font-bold text-indigo-700 whitespace-nowrap">{totalCards} từ vựng</span>
+                    <div className="flex items-center space-x-1.5 md:space-x-2 bg-indigo-50 px-3 md:px-5 py-1.5 md:py-2.5 rounded-full border border-indigo-100">
+                    <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-green-500 rounded-full animate-pulse" />
+                    <span className="text-xs md:text-base font-bold text-indigo-700">{totalCards} từ vựng trong kho</span>
                 </div>
             </div>
             
             {/* Review Section */}
-            <div className="space-y-2 md:space-y-3">
+            <div className="space-y-2 md:space-y-4">
                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-3">
-                    <h3 className="text-sm md:text-lg font-extrabold text-gray-800 flex items-center">
+                    <h3 className="text-base md:text-xl font-extrabold text-gray-800 flex items-center">
                         <Zap className="w-4 h-4 md:w-6 md:h-6 mr-1.5 md:mr-2 text-amber-500" />
                         Chế độ Ôn tập
                     </h3>
 
                     {/* NEW: Review Style Toggle */}
-                    <div className="flex bg-gray-100 p-1 md:p-1.5 rounded-xl md:rounded-2xl w-fit">
+                    <div className="flex bg-gray-100 p-0.5 md:p-1 rounded-lg md:rounded-xl w-fit">
                         <button 
                             onClick={() => setReviewStyle('typing')}
-                            className={`flex items-center px-3 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl text-xs md:text-sm font-bold transition-all ${
+                            className={`flex items-center px-2 md:px-4 py-1.5 md:py-2 rounded-md md:rounded-lg text-xs md:text-sm font-bold transition-all ${
                                 reviewStyle === 'typing' 
                                 ? 'bg-white text-indigo-700 shadow-sm' 
                                 : 'text-gray-500 hover:text-gray-700'
                             }`}
                         >
-                            <Keyboard className="w-3.5 h-3.5 md:w-4 md:h-4 mr-1 md:mr-2" />
+                            <Keyboard className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
                             Tự luận
                         </button>
                         <button 
                             onClick={() => setReviewStyle('flashcard')}
-                            className={`flex items-center px-3 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl text-xs md:text-sm font-bold transition-all ${
+                            className={`flex items-center px-2 md:px-4 py-1.5 md:py-2 rounded-md md:rounded-lg text-xs md:text-sm font-bold transition-all ${
                                 reviewStyle === 'flashcard' 
                                 ? 'bg-white text-rose-600 shadow-sm' 
                                 : 'text-gray-500 hover:text-gray-700'
                             }`}
                         >
-                            <Layers className="w-3.5 h-3.5 md:w-4 md:h-4 mr-1 md:mr-2" />
+                            <Layers className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
                             Ôn tập nhanh
                         </button>
                     </div>
                 </div>
 
                 {reviewStyle === 'flashcard' && (
-                     <div className="bg-rose-50 border border-rose-100 rounded-xl md:rounded-2xl p-2.5 md:p-3 flex items-start text-xs md:text-sm text-rose-700">
-                         <Target className="w-3.5 h-3.5 md:w-4 md:h-4 mr-2 md:mr-2.5 shrink-0 mt-0.5" />
+                     <div className="bg-rose-50 border border-rose-100 rounded-lg md:rounded-xl p-2 flex items-start text-[10px] md:text-[11px] text-rose-700">
+                         <Target className="w-3 h-3 md:w-4 md:h-4 mr-1.5 md:mr-2 shrink-0 mt-0.5" />
                          <span><b>Lưu ý:</b> Chế độ Ôn tập nhanh cho phép xem đáp án ngay, phù hợp với các thẻ đã đạt <b>Cấp độ 3+</b>. Các thẻ mới vẫn nên dùng <b>Tự luận</b> để ghi nhớ tốt hơn.</span>
                      </div>
                 )}
                 
                 {/* Flashcard Filter Options */}
-                <div className="bg-purple-50 border border-purple-100 rounded-xl md:rounded-2xl p-2.5 md:p-3">
-                    <p className="text-xs md:text-sm font-bold text-purple-700 mb-1.5 md:mb-2">Lọc Flashcard:</p>
-                    <div className="flex flex-wrap gap-2 md:gap-2.5">
+                <div className="bg-purple-50 border border-purple-100 rounded-lg md:rounded-xl p-2 md:p-3">
+                    <p className="text-[10px] md:text-xs font-bold text-purple-700 mb-1.5 md:mb-2">Lọc Flashcard:</p>
+                    <div className="flex flex-wrap gap-1.5 md:gap-2">
                         <button
                             onClick={() => setFlashcardFilter('all')}
-                            className={`px-2.5 md:px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all ${
+                            className={`px-2 md:px-3 py-1 rounded-md text-[10px] md:text-xs font-bold transition-all ${
                                 flashcardFilter === 'all' 
                                     ? 'bg-purple-600 text-white shadow-md' 
                                     : 'bg-white text-purple-600 border border-purple-200 hover:bg-purple-100'
@@ -2566,7 +2522,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                         </button>
                         <button
                             onClick={() => setFlashcardFilter('level1')}
-                            className={`px-2.5 md:px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all ${
+                            className={`px-2 md:px-3 py-1 rounded-md text-[10px] md:text-xs font-bold transition-all ${
                                 flashcardFilter === 'level1' 
                                     ? 'bg-purple-600 text-white shadow-md' 
                                     : 'bg-white text-purple-600 border border-purple-200 hover:bg-purple-100'
@@ -2576,7 +2532,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                         </button>
                         <button
                             onClick={() => setFlashcardFilter('level2')}
-                            className={`px-2.5 md:px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all ${
+                            className={`px-2 md:px-3 py-1 rounded-md text-[10px] md:text-xs font-bold transition-all ${
                                 flashcardFilter === 'level2' 
                                     ? 'bg-purple-600 text-white shadow-md' 
                                     : 'bg-white text-purple-600 border border-purple-200 hover:bg-purple-100'
@@ -2586,7 +2542,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                         </button>
                         <button
                             onClick={() => setFlashcardFilter('noSRS')}
-                            className={`px-2.5 md:px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all ${
+                            className={`px-2 md:px-3 py-1 rounded-md text-[10px] md:text-xs font-bold transition-all ${
                                 flashcardFilter === 'noSRS' 
                                     ? 'bg-purple-600 text-white shadow-md' 
                                     : 'bg-white text-purple-600 border border-purple-200 hover:bg-purple-100'
@@ -2597,89 +2553,25 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                     </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2.5 md:gap-4 justify-center">
-                    {reviewStyle === 'typing' && (
-                        <>
-                            <ActionCard
-                                onClick={() => onStartReview('mixed')}
-                                icon={Zap}
-                                title="Hỗn hợp"
-                                description="Tất cả loại câu hỏi"
-                                count={dueCounts.mixed}
-                                gradient="from-amber-400 to-orange-500"
-                                disabled={dueCounts.mixed === 0}
-                            />
-                            <ActionCard
-                                onClick={() => onStartReview('flashcard')}
-                                icon={Layers}
-                                title="Flashcard"
-                                description={flashcardFilter === 'all' ? 'Lật thẻ mới' : flashcardFilter === 'level1' ? 'Cấp độ 1' : flashcardFilter === 'level2' ? 'Cấp độ 2' : 'Chưa SRS'}
-                                count={dueCounts.flashcard}
-                                gradient="from-purple-500 to-pink-500"
-                                disabled={dueCounts.flashcard === 0}
-                            />
-                            <ActionCard
-                                onClick={() => {
-                                    // Prepare study cards - chỉ từ vựng chưa có SRS
-                                    const noSrsCards = allCards.filter(card => {
-                                        return (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined) &&
-                                               (card.intervalIndex_synonym === -1 || card.intervalIndex_synonym === undefined) &&
-                                               (card.intervalIndex_example === -1 || card.intervalIndex_example === undefined);
-                                    });
-                                    
-                                    if (noSrsCards.length === 0) {
-                                        setNotification('Không có từ vựng nào chưa có cấp độ SRS để học.');
-                                        return;
-                                    }
-                                    
-                                    // Tạo batch đầu tiên (5 từ) - ưu tiên Learning > New > Reviewing
-                                    const learning = studySessionData.learning.filter(card => 
-                                        noSrsCards.some(c => c.id === card.id)
-                                    );
-                                    const newCards = noSrsCards.filter(card => 
-                                        !learning.some(c => c.id === card.id) &&
-                                        !studySessionData.reviewing.some(c => c.id === card.id)
-                                    );
-                                    const reviewing = studySessionData.reviewing.filter(card => 
-                                        noSrsCards.some(c => c.id === card.id) &&
-                                        !learning.some(c => c.id === card.id)
-                                    );
-                                    
-                                    const firstBatch = [];
-                                    firstBatch.push(...learning.slice(0, 5));
-                                    if (firstBatch.length < 5) {
-                                        firstBatch.push(...shuffleArray(newCards).slice(0, 5 - firstBatch.length));
-                                    }
-                                    if (firstBatch.length < 5) {
-                                        firstBatch.push(...shuffleArray(reviewing).slice(0, 5 - firstBatch.length));
-                                    }
-                                    
-                                    if (firstBatch.length === 0) {
-                                        setNotification('Không có từ vựng nào để học.');
-                                        return;
-                                    }
-                                    
-                                    setStudySessionData({
-                                        learning: learning,
-                                        new: newCards,
-                                        reviewing: reviewing,
-                                        currentBatch: firstBatch,
-                                        currentPhase: 'multipleChoice',
-                                        batchIndex: 0,
-                                        allNoSrsCards: noSrsCards
-                                    });
-                                    setReviewMode('study');
-                                    setView('STUDY');
-                                }}
-                                icon={GraduationCap}
-                                title="Học"
-                                description="Học từ mới"
-                                count={dueCounts.study}
-                                gradient="from-teal-400 to-emerald-500"
-                                disabled={dueCounts.study === 0}
-                            />
-                        </>
-                    )}
+                <div className="grid grid-cols-2 gap-2 md:gap-4">
+                    <ActionCard
+                        onClick={() => onStartReview('mixed')}
+                        icon={Zap}
+                        title="Hỗn hợp"
+                        description="Tất cả loại câu hỏi"
+                        count={dueCounts.mixed}
+                        gradient="from-amber-400 to-orange-500"
+                        disabled={dueCounts.mixed === 0}
+                    />
+                    <ActionCard
+                        onClick={() => onStartReview('flashcard')}
+                        icon={Layers}
+                        title="Flashcard"
+                        description={flashcardFilter === 'all' ? 'Lật thẻ mới' : flashcardFilter === 'level1' ? 'Cấp độ 1' : flashcardFilter === 'level2' ? 'Cấp độ 2' : 'Chưa SRS'}
+                        count={dueCounts.flashcard}
+                        gradient="from-purple-500 to-pink-500"
+                        disabled={dueCounts.flashcard === 0}
+                    />
                     <ActionCard
                         onClick={() => onStartReview('back')}
                         icon={Repeat2}
@@ -2711,50 +2603,50 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
             </div>
             
             {/* Management Section */}
-            <div className="pt-1.5 md:pt-2 space-y-2 md:space-y-2.5">
+            <div className="pt-1 md:pt-2 space-y-2 md:space-y-3">
                 <h3 className="text-sm md:text-base font-bold text-gray-700 flex items-center">
                     <Settings className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2 text-gray-500" />
                     Quản lý & Tiện ích
                 </h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-2.5">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5 md:gap-3">
                      <button
                         onClick={() => onNavigate('ADD_CARD')}
-                        className="flex items-center p-2 md:p-3 bg-white border border-gray-100 rounded-lg md:rounded-xl shadow-sm hover:shadow-md hover:border-indigo-200 transition-all group"
+                        className="flex items-center p-1.5 md:p-4 bg-white border border-gray-100 rounded-lg md:rounded-2xl shadow-sm hover:shadow-md hover:border-indigo-200 transition-all group"
                     >
-                        <div className="bg-indigo-50 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-indigo-100 transition-colors flex-shrink-0">
-                            <Plus className="w-3.5 h-3.5 md:w-4 md:h-4 text-indigo-600" />
+                        <div className="bg-indigo-50 p-1 md:p-2 rounded-md md:rounded-lg mr-1.5 md:mr-3 group-hover:bg-indigo-100 transition-colors flex-shrink-0">
+                            <Plus className="w-3.5 h-3.5 md:w-5 md:h-5 text-indigo-600" />
                         </div>
-                        <span className="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-indigo-700 truncate">Thêm từ mới</span>
+                        <span className="text-[10px] md:text-sm font-semibold text-gray-700 group-hover:text-indigo-700 truncate">Thêm từ mới</span>
                     </button>
 
                     <button
                         onClick={() => onNavigate('IMPORT')}
-                        className="flex items-center p-2 md:p-3 bg-white border border-gray-100 rounded-lg md:rounded-xl shadow-sm hover:shadow-md hover:border-teal-200 transition-all group"
+                        className="flex items-center p-1.5 md:p-4 bg-white border border-gray-100 rounded-lg md:rounded-2xl shadow-sm hover:shadow-md hover:border-teal-200 transition-all group"
                     >
-                        <div className="bg-teal-50 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-teal-100 transition-colors flex-shrink-0">
-                            <Upload className="w-3.5 h-3.5 md:w-4 md:h-4 text-teal-600" />
+                        <div className="bg-teal-50 p-1 md:p-2 rounded-md md:rounded-lg mr-1.5 md:mr-3 group-hover:bg-teal-100 transition-colors flex-shrink-0">
+                            <Upload className="w-3.5 h-3.5 md:w-5 md:h-5 text-teal-600" />
                         </div>
-                        <span className="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-teal-700 truncate">Nhập File</span>
+                        <span className="text-[10px] md:text-sm font-semibold text-gray-700 group-hover:text-teal-700 truncate">Nhập File</span>
                     </button>
 
                     <button
                         onClick={() => onNavigate('LIST')}
-                        className="flex items-center p-2 md:p-3 bg-white border border-gray-100 rounded-lg md:rounded-xl shadow-sm hover:shadow-md hover:border-blue-200 transition-all group"
+                        className="flex items-center p-1.5 md:p-4 bg-white border border-gray-100 rounded-lg md:rounded-2xl shadow-sm hover:shadow-md hover:border-blue-200 transition-all group"
                     >
-                        <div className="bg-blue-50 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-blue-100 transition-colors flex-shrink-0">
-                            <List className="w-3.5 h-3.5 md:w-4 md:h-4 text-blue-600" />
+                        <div className="bg-blue-50 p-1 md:p-2 rounded-md md:rounded-lg mr-1.5 md:mr-3 group-hover:bg-blue-100 transition-colors flex-shrink-0">
+                            <List className="w-3.5 h-3.5 md:w-5 md:h-5 text-blue-600" />
                         </div>
-                        <span className="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-blue-700 truncate">Xem Danh sách</span>
+                        <span className="text-[10px] md:text-sm font-semibold text-gray-700 group-hover:text-blue-700 truncate">Xem Danh sách</span>
                     </button>
 
                     <button
                         onClick={() => onNavigate('HELP')}
-                        className="flex items-center p-2 md:p-3 bg-white border border-gray-100 rounded-lg md:rounded-xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all group"
+                        className="flex items-center p-1.5 md:p-4 bg-white border border-gray-100 rounded-lg md:rounded-2xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all group"
                     >
-                        <div className="bg-orange-50 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-orange-100 transition-colors flex-shrink-0">
-                            <HelpCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-600" />
+                        <div className="bg-orange-50 p-1 md:p-2 rounded-md md:rounded-lg mr-1.5 md:mr-3 group-hover:bg-orange-100 transition-colors flex-shrink-0">
+                            <HelpCircle className="w-3.5 h-3.5 md:w-5 md:h-5 text-orange-600" />
                         </div>
-                        <span className="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-orange-700 truncate">Hướng dẫn</span>
+                        <span className="text-[10px] md:text-sm font-semibold text-gray-700 group-hover:text-orange-700 truncate">Hướng dẫn</span>
                     </button>
                 </div>
             </div>
@@ -3501,7 +3393,6 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
     const [feedback, setFeedback] = useState(null);
     const [isProcessing, setIsProcessing] = useState(false); // V1.6.2 Fix: Thêm biến khoá để ngăn submit 2 lần
     const [isFlipped, setIsFlipped] = useState(false); // Cho flashcard mode 3D flip
-    const [slideDirection, setSlideDirection] = useState(''); // 'left' | 'right' | '' for slide animation
     const inputRef = useRef(null);
     
     // Auto focus logic conditional based on style
@@ -3521,46 +3412,7 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
     // Reset flip state khi chuyển card
     useEffect(() => {
         setIsFlipped(false);
-        setSlideDirection(''); // Reset slide direction
     }, [currentIndex]);
-
-    // Keyboard event handlers for flashcard mode
-    useEffect(() => {
-        if (reviewMode !== 'flashcard') return;
-
-        const handleKeyDown = (e) => {
-            // Prevent default if we're handling the key (but allow in input fields)
-            if ((e.key === ' ' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') && 
-                e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-                e.preventDefault();
-            }
-
-            // Space: Flip card (only if not in input)
-            if (e.key === ' ' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-                setIsFlipped(prev => !prev);
-            }
-            // Arrow Left: Previous card
-            else if (e.key === 'ArrowLeft' && currentIndex > 0 && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-                moveToPreviousCard();
-            }
-            // Arrow Right: Next card
-            else if (e.key === 'ArrowRight' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-                if (currentIndex < cards.length - 1) {
-                    setSlideDirection('left'); // Slide out to left
-                    setTimeout(() => {
-                        setCurrentIndex(currentIndex + 1);
-                        setSlideDirection('right'); // Slide in from right
-                        setTimeout(() => setSlideDirection(''), 300);
-                    }, 150);
-                } else {
-                    onCompleteReview();
-                }
-            }
-        };
-
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [currentIndex, cards.length, reviewMode, onCompleteReview]);
     if (cards.length === 0 || currentIndex >= cards.length) { onCompleteReview(); return null; }
 
     const currentCard = cards[currentIndex];
@@ -3651,56 +3503,10 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
         await onUpdateCard(currentCard.id, isCorrect, cardReviewType); 
         const nextIndex = currentIndex + 1;
         if (nextIndex < cards.length) {
-            // Slide animation for flashcard mode
-            if (reviewMode === 'flashcard') {
-                setSlideDirection('left'); // Slide out to left
-                setTimeout(() => {
-                    setCurrentIndex(nextIndex);
-                    setInputValue('');
-                    setIsRevealed(false);
-                    setIsLocked(false);
-                    setFeedback(null);
-                    setMessage('');
-                    setIsProcessing(false);
-                    setSlideDirection('right'); // Slide in from right
-                    setTimeout(() => setSlideDirection(''), 300);
-                }, 150);
-            } else {
-                setCurrentIndex(nextIndex);
-                setInputValue('');
-                setIsRevealed(false);
-                setIsLocked(false);
-                setFeedback(null);
-                setMessage('');
-                setIsProcessing(false);
-            }
+            setCurrentIndex(nextIndex); setInputValue(''); setIsRevealed(false); setIsLocked(false); setFeedback(null); setMessage('');
+            setIsProcessing(false); // V1.6.2 Fix: Mở khoá cho thẻ tiếp theo
         } else {
             onCompleteReview();
-        }
-    };
-
-    const moveToPreviousCard = () => {
-        if (currentIndex > 0 && !isProcessing) {
-            if (reviewMode === 'flashcard') {
-                setSlideDirection('right'); // Slide out to right
-                setTimeout(() => {
-                    setCurrentIndex(currentIndex - 1);
-                    setInputValue('');
-                    setIsRevealed(false);
-                    setIsLocked(false);
-                    setFeedback(null);
-                    setMessage('');
-                    setSlideDirection('left'); // Slide in from left
-                    setTimeout(() => setSlideDirection(''), 300);
-                }, 150);
-            } else {
-                setCurrentIndex(currentIndex - 1);
-                setInputValue('');
-                setIsRevealed(false);
-                setIsLocked(false);
-                setFeedback(null);
-                setMessage('');
-            }
         }
     };
 
@@ -3755,17 +3561,16 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
             </div>
 
             {/* Flashcard Area - Flexible height */}
-            <div className="relative group perspective flex-shrink-0 overflow-hidden">
+            <div className="relative group perspective flex-shrink-0">
                 {reviewMode === 'flashcard' ? (
                     // Chế độ Flashcard: Lật thẻ 3D giống thẻ bài thật
-                    <div className="perspective-1000 w-full max-w-[240px] md:max-w-[280px] mx-auto relative" style={{ minHeight: '340px' }}>
+                    <div className="perspective-1000 w-full max-w-[240px] md:max-w-[280px] mx-auto">
                         <div 
-                            className={`flip-card-container transform-style-3d cursor-pointer relative card-slide ${isFlipped ? 'rotate-y-180' : ''} ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
+                            className={`flip-card-container transition-transform duration-200 transform-style-3d cursor-pointer relative ${isFlipped ? 'rotate-y-180' : ''}`}
                             onClick={() => setIsFlipped(!isFlipped)}
                             style={{ 
                                 width: '100%',
                                 height: '340px', // Chiều cao cố định thay vì padding
-                                transition: slideDirection ? 'transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.3s ease' : 'transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1)',
                             }}
                         >
                             {/* Mặt trước - CÙNG kích thước */}
@@ -3836,7 +3641,7 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
                         </div>
                         <p className="text-center text-[10px] md:text-xs text-gray-500 mt-3 flex items-center justify-center gap-1">
                             <RotateCw className="w-3 h-3" />
-                            Click vào card để lật | Space: Lật | ← →: Chuyển thẻ
+                            Click vào card để lật
                         </p>
                     </div>
                 ) : (
@@ -3882,34 +3687,13 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
             {/* Interaction Area - Fixed at bottom with space for keyboard */}
             <div className="space-y-2 md:space-y-4 flex-shrink-0 pb-4 md:pb-0">
                 
-                {/* --- FLASHCARD MODE: Navigation Buttons --- */}
+                {/* --- FLASHCARD MODE: Simple Next Button --- */}
                 {reviewMode === 'flashcard' && (
                     <div className="flex gap-2 md:gap-4">
                         <button
-                            onClick={moveToPreviousCard}
-                            disabled={isProcessing || currentIndex === 0}
-                            className={`px-3 md:px-4 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all shadow-md ${
-                                isProcessing || currentIndex === 0
-                                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                                    : 'bg-gray-500 text-white hover:bg-gray-600 hover:shadow-lg hover:scale-105'
-                            }`}
-                            title="Thẻ trước (←)"
-                        >
-                            ←
-                        </button>
-                        <button
                             onClick={() => {
                                 if (currentIndex < cards.length - 1) {
-                                    if (reviewMode === 'flashcard') {
-                                        setSlideDirection('left'); // Slide out to left
-                                        setTimeout(() => {
-                                            setCurrentIndex(currentIndex + 1);
-                                            setSlideDirection('right'); // Slide in from right
-                                            setTimeout(() => setSlideDirection(''), 300);
-                                        }, 150);
-                                    } else {
-                                        setCurrentIndex(currentIndex + 1);
-                                    }
+                                    setCurrentIndex(currentIndex + 1);
                                 } else {
                                     onCompleteReview();
                                 }
@@ -3920,9 +3704,9 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
                                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                                     : 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:shadow-lg hover:scale-105'
                             }`}
-                            title="Thẻ tiếp theo (→)"
+                            title="Tiếp tục"
                         >
-                            {currentIndex < cards.length - 1 ? 'Thẻ tiếp theo →' : 'Hoàn thành'}
+                            {currentIndex < cards.length - 1 ? 'Thẻ tiếp theo' : 'Hoàn thành'}
                         </button>
                     </div>
                 )}
@@ -4067,354 +3851,6 @@ const ReviewCompleteScreen = ({ onBack }) => (
         </button>
     </div>
 );
-
-const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdateCard, onCompleteStudy }) => {
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [selectedAnswer, setSelectedAnswer] = useState(null);
-    const [inputValue, setInputValue] = useState('');
-    const [isRevealed, setIsRevealed] = useState(false);
-    const [feedback, setFeedback] = useState(null);
-    const [isProcessing, setIsProcessing] = useState(false);
-    const [multipleChoiceResults, setMultipleChoiceResults] = useState({}); // {cardId: isCorrect}
-    const [completedCards, setCompletedCards] = useState(new Set()); // Track các từ đã hoàn thành (cả multiple choice và typing)
-    const inputRef = useRef(null);
-
-    const currentBatch = studySessionData.currentBatch || [];
-    const currentPhase = studySessionData.currentPhase || 'multipleChoice';
-    const currentCard = currentBatch[currentQuestionIndex];
-
-    // Reset khi chuyển phase
-    useEffect(() => {
-        if (currentPhase === 'typing' && currentQuestionIndex === 0) {
-            setInputValue('');
-            setIsRevealed(false);
-            setFeedback(null);
-            if (inputRef.current) {
-                setTimeout(() => inputRef.current?.focus(), 100);
-            }
-        }
-    }, [currentPhase, currentQuestionIndex]);
-
-    // Reset completedCards khi bắt đầu batch mới
-    useEffect(() => {
-        if (currentPhase === 'multipleChoice' && currentQuestionIndex === 0 && studySessionData.batchIndex > 0) {
-            // Giữ lại completedCards từ các batch trước
-        }
-    }, [currentPhase, currentQuestionIndex, studySessionData.batchIndex]);
-
-    const normalizeAnswer = (text) => text.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').replace(/\s+/g, '').toLowerCase();
-
-    // Generate multiple choice options
-    const generateMultipleChoiceOptions = useMemo(() => {
-        if (!currentCard || currentPhase !== 'multipleChoice') return [];
-        
-        const correctAnswer = currentCard.front; // Đáp án đúng là từ vựng tiếng Nhật
-        // Lấy 3 đáp án sai từ các từ vựng khác
-        const wrongOptions = allCards
-            .filter(card => 
-                card.id !== currentCard.id && 
-                card.front && 
-                card.front.trim() !== '' &&
-                normalizeAnswer(card.front) !== normalizeAnswer(correctAnswer)
-            )
-            .map(card => card.front)
-            .filter((front, index, self) => self.findIndex(f => normalizeAnswer(f) === normalizeAnswer(front)) === index) // Remove duplicates
-            .slice(0, 3);
-        
-        // Nếu không đủ 3, thêm placeholder
-        while (wrongOptions.length < 3) {
-            wrongOptions.push('...');
-        }
-        
-        const options = [correctAnswer, ...wrongOptions];
-        return shuffleArray([...options]);
-    }, [currentCard, currentPhase, allCards]);
-
-    // Handle multiple choice answer
-    const handleMultipleChoiceAnswer = (selectedOption) => {
-        if (isProcessing || isRevealed) return;
-        
-        setIsProcessing(true);
-        setSelectedAnswer(selectedOption);
-        const isCorrect = normalizeAnswer(selectedOption) === normalizeAnswer(currentCard.front); // So sánh với front (tiếng Nhật)
-        setFeedback(isCorrect ? 'correct' : 'incorrect');
-        setIsRevealed(true);
-        setMultipleChoiceResults(prev => ({ ...prev, [currentCard.id]: isCorrect }));
-        
-        playAudio(currentCard.audioBase64, currentCard.front);
-        
-        setTimeout(() => {
-            setIsProcessing(false);
-            if (currentQuestionIndex < currentBatch.length - 1) {
-                setCurrentQuestionIndex(currentQuestionIndex + 1);
-                setSelectedAnswer(null);
-                setIsRevealed(false);
-                setFeedback(null);
-            } else {
-                // Chuyển sang phase typing cho cùng batch
-                setStudySessionData(prev => ({
-                    ...prev,
-                    currentPhase: 'typing'
-                }));
-                setCurrentQuestionIndex(0);
-                setSelectedAnswer(null);
-                setIsRevealed(false);
-                setFeedback(null);
-            }
-        }, 1500);
-    };
-
-    // Handle typing answer
-    const handleTypingAnswer = async () => {
-        if (isProcessing || !inputValue.trim()) return;
-
-        const userAnswer = normalizeAnswer(inputValue);
-        const correctAnswer = normalizeAnswer(currentCard.front); // Đáp án đúng là từ vựng tiếng Nhật
-        const isCorrect = userAnswer === correctAnswer;
-
-        setIsProcessing(true);
-        setFeedback(isCorrect ? 'correct' : 'incorrect');
-        setIsRevealed(true);
-        playAudio(currentCard.audioBase64, currentCard.front);
-
-        // Update card SRS
-        await onUpdateCard(currentCard.id, isCorrect, 'back');
-
-        // Cập nhật learning/reviewing lists
-        if (isCorrect) {
-            // Chuyển từ learning sang reviewing nếu có
-            setStudySessionData(prev => ({
-                ...prev,
-                learning: prev.learning.filter(c => c.id !== currentCard.id),
-                reviewing: [...prev.reviewing.filter(c => c.id !== currentCard.id), currentCard]
-            }));
-        } else {
-            // Thêm vào learning nếu sai
-            setStudySessionData(prev => ({
-                ...prev,
-                learning: [...prev.learning.filter(c => c.id !== currentCard.id), currentCard]
-            }));
-        }
-
-        setTimeout(() => {
-            setIsProcessing(false);
-            // Đánh dấu từ này đã hoàn thành typing phase
-            setCompletedCards(prev => new Set([...prev, currentCard.id]));
-            
-            if (currentQuestionIndex < currentBatch.length - 1) {
-                setCurrentQuestionIndex(currentQuestionIndex + 1);
-                setInputValue('');
-                setIsRevealed(false);
-                setFeedback(null);
-            } else {
-                // Hoàn thành batch typing, tạo batch tiếp theo
-                createNextBatch();
-            }
-        }, 1500);
-    };
-
-    // Function to create next batch
-    const createNextBatch = () => {
-        // Lấy tất cả từ chưa hoàn thành (chưa có trong completedCards)
-        const remainingNoSrs = studySessionData.allNoSrsCards.filter(card => 
-            !completedCards.has(card.id)
-        );
-        
-        if (remainingNoSrs.length === 0) {
-            onCompleteStudy();
-            return;
-        }
-        
-        // Phân loại theo ưu tiên: Learning > New > Reviewing
-        const learning = studySessionData.learning.filter(card => 
-            remainingNoSrs.some(c => c.id === card.id)
-        );
-        const newCards = remainingNoSrs.filter(card => 
-            !learning.some(c => c.id === card.id) &&
-            !studySessionData.reviewing.some(c => c.id === card.id)
-        );
-        const reviewing = studySessionData.reviewing.filter(card => 
-            remainingNoSrs.some(c => c.id === card.id) &&
-            !learning.some(c => c.id === card.id)
-        );
-
-        // Tạo batch 5 từ theo ưu tiên
-        const nextBatch = [];
-        nextBatch.push(...learning.slice(0, 5));
-        if (nextBatch.length < 5) {
-            nextBatch.push(...shuffleArray(newCards).slice(0, 5 - nextBatch.length));
-        }
-        if (nextBatch.length < 5) {
-            nextBatch.push(...shuffleArray(reviewing).slice(0, 5 - nextBatch.length));
-        }
-
-        if (nextBatch.length === 0) {
-            onCompleteStudy();
-        } else {
-            setStudySessionData(prev => ({
-                ...prev,
-                currentBatch: nextBatch,
-                currentPhase: 'multipleChoice',
-                batchIndex: prev.batchIndex + 1
-            }));
-            setCurrentQuestionIndex(0);
-            setInputValue('');
-            setIsRevealed(false);
-            setFeedback(null);
-            setMultipleChoiceResults({});
-        }
-    };
-
-    if (!currentCard) {
-        onCompleteStudy();
-        return null;
-    }
-
-    const progress = currentPhase === 'multipleChoice' 
-        ? ((currentQuestionIndex + 1) / currentBatch.length) * 50
-        : 50 + ((currentQuestionIndex + 1) / currentBatch.length) * 50;
-
-    return (
-        <div className="w-full max-w-xl lg:max-w-2xl mx-auto h-full flex flex-col space-y-2 md:space-y-3">
-            {/* Header & Progress */}
-            <div className="space-y-2 md:space-y-4 flex-shrink-0">
-                <div className="flex justify-between items-center text-xs md:text-sm font-medium text-gray-500">
-                    <span className="flex items-center">
-                        <GraduationCap className="w-3 h-3 md:w-4 md:h-4 mr-0.5 md:mr-1 text-teal-500"/> 
-                        Học - {currentPhase === 'multipleChoice' ? 'Trắc nghiệm' : 'Tự luận'} - Batch {studySessionData.batchIndex + 1}
-                    </span>
-                    <span>{currentQuestionIndex + 1} / {currentBatch.length}</span>
-                </div>
-                <div className="h-1.5 md:h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-teal-500 progress-bar" style={{ width: `${progress}%` }}></div>
-                </div>
-            </div>
-
-            {/* Question Area */}
-            <div className="flex-1 flex flex-col items-center justify-center space-y-4 md:space-y-6">
-                {currentPhase === 'multipleChoice' ? (
-                    // Multiple Choice Phase - Hỏi bằng tiếng Việt, đáp án là tiếng Nhật
-                    <div className="w-full bg-white rounded-xl md:rounded-3xl shadow-xl border border-gray-100 p-4 md:p-8 space-y-4 md:space-y-6">
-                        <div className="text-center">
-                            <h3 className="text-2xl md:text-4xl font-extrabold text-gray-800 mb-4">
-                                {currentCard.back}
-                            </h3>
-                            <p className="text-sm md:text-base text-gray-500">Chọn từ vựng tiếng Nhật đúng:</p>
-                        </div>
-                        
-                        <div className="grid grid-cols-1 gap-2 md:gap-3">
-                            {generateMultipleChoiceOptions.map((option, idx) => (
-                                <button
-                                    key={idx}
-                                    onClick={() => handleMultipleChoiceAnswer(option)}
-                                    disabled={isProcessing || isRevealed}
-                                    className={`p-3 md:p-4 rounded-lg md:rounded-xl font-bold text-sm md:text-base transition-all text-left border-2
-                                        ${selectedAnswer === option
-                                            ? feedback === 'correct'
-                                                ? 'bg-green-500 text-white shadow-lg border-green-600'
-                                                : 'bg-red-500 text-white shadow-lg border-red-600'
-                                            : isRevealed && normalizeAnswer(option) === normalizeAnswer(currentCard.front)
-                                                ? 'bg-green-500 text-white shadow-lg border-green-600'
-                                                : 'bg-gray-100 hover:bg-gray-200 text-gray-800 border-gray-300'
-                                        }
-                                        ${isProcessing || isRevealed ? 'cursor-not-allowed' : 'cursor-pointer hover:scale-105'}
-                                    `}
-                                >
-                                    {option}
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-                ) : (
-                    // Typing Phase - Hỏi bằng tiếng Việt, đáp án là tiếng Nhật
-                    <div className="w-full bg-white rounded-xl md:rounded-3xl shadow-xl border border-gray-100 p-4 md:p-8 space-y-4 md:space-y-6">
-                        <div className="text-center">
-                            <h3 className="text-xl md:text-2xl font-bold text-gray-700 mb-2">Từ vựng tiếng Nhật là gì?</h3>
-                            <p className="text-3xl md:text-5xl font-extrabold text-gray-800 mb-4">
-                                {currentCard.back}
-                            </p>
-                        </div>
-                        
-                        <div className="relative">
-                            <input
-                                ref={inputRef}
-                                type="text"
-                                value={inputValue}
-                                onChange={(e) => setInputValue(e.target.value)}
-                                onKeyDown={(e) => {
-                                    if (e.key === 'Enter' && !isRevealed) {
-                                        handleTypingAnswer();
-                                    }
-                                }}
-                                disabled={isRevealed || isProcessing}
-                                className={`w-full px-4 md:px-6 py-3 md:py-4 text-lg md:text-2xl font-semibold rounded-xl md:rounded-2xl border-2 transition-all outline-none shadow-md text-center
-                                    ${feedback === 'correct'
-                                        ? 'border-green-400 bg-green-50 text-green-800'
-                                        : feedback === 'incorrect'
-                                            ? 'border-red-400 bg-red-50 text-red-800'
-                                            : 'border-gray-200 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10'
-                                    }
-                                `}
-                                placeholder="Nhập từ vựng tiếng Nhật..."
-                            />
-                        </div>
-
-                        {isRevealed && (
-                            <div className={`p-4 md:p-5 rounded-xl md:rounded-2xl border ${
-                                feedback === 'correct' ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'
-                            }`}>
-                                <p className={`font-bold text-base md:text-xl text-center ${
-                                    feedback === 'correct' ? 'text-green-800' : 'text-red-800'
-                                }`}>
-                                    {feedback === 'correct' ? '✓ Chính xác!' : `✗ Đáp án đúng: ${currentCard.front}`}
-                                </p>
-                            </div>
-                        )}
-                    </div>
-                )}
-            </div>
-
-            {/* Actions */}
-            <div className="space-y-2 md:space-y-4 flex-shrink-0 pb-4 md:pb-0">
-                {currentPhase === 'typing' && !isRevealed && (
-                    <button
-                        onClick={handleTypingAnswer}
-                        disabled={isProcessing || !inputValue.trim()}
-                        className="w-full py-3 md:py-4 rounded-lg md:rounded-xl font-bold text-base md:text-lg shadow-lg transition-all flex items-center justify-center bg-teal-600 text-white hover:bg-teal-700 disabled:bg-gray-300 disabled:text-gray-500 disabled:shadow-none"
-                    >
-                        Kiểm tra
-                    </button>
-                )}
-                
-                {currentPhase === 'typing' && isRevealed && (
-                    <button
-                        onClick={async () => {
-                            if (isProcessing) return;
-                            
-                            setIsProcessing(true);
-                            
-                            if (currentQuestionIndex < currentBatch.length - 1) {
-                                setCurrentQuestionIndex(currentQuestionIndex + 1);
-                                setInputValue('');
-                                setIsRevealed(false);
-                                setFeedback(null);
-                                setIsProcessing(false);
-                            } else {
-                                // Hoàn thành batch typing, tạo batch tiếp theo
-                                createNextBatch();
-                                setIsProcessing(false);
-                            }
-                        }}
-                        disabled={isProcessing}
-                        className="w-full py-3 md:py-4 rounded-lg md:rounded-xl font-bold text-base md:text-lg shadow-lg transition-all flex items-center justify-center bg-teal-600 text-white hover:bg-teal-700 disabled:bg-gray-300 disabled:text-gray-500"
-                    >
-                        {currentQuestionIndex < currentBatch.length - 1 ? 'Tiếp theo →' : 'Batch tiếp theo →'}
-                    </button>
-                )}
-            </div>
-        </div>
-    );
-};
 
 // ... (HelpScreen logic simplified)
 const HelpScreen = ({ onBack, isFirstTime, onConfirmFirstTime }) => {
