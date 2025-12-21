@@ -618,14 +618,22 @@ const App = () => {
 
         const mixed = allCards.filter(card => {
             const backDue = card.nextReview_back <= today;
-            const synonymDue = card.synonym && card.synonym.trim() !== '' && card.nextReview_synonym <= today;
-            const exampleDue = card.example && card.example.trim() !== '' && card.nextReview_example <= today;
+            // Synonym và Example chỉ due khi Back cũng due
+            const synonymDue = backDue && card.synonym && card.synonym.trim() !== '' && card.nextReview_synonym <= today;
+            const exampleDue = backDue && card.example && card.example.trim() !== '' && card.nextReview_example <= today;
             return backDue || synonymDue || exampleDue;
         }).length;
 
         const back = allCards.filter(card => card.nextReview_back <= today).length;
-        const synonym = allCards.filter(card => card.synonym && card.synonym.trim() !== '' && card.nextReview_synonym <= today).length;
-        const example = allCards.filter(card => card.example && card.example.trim() !== '' && card.nextReview_example <= today).length;
+        // Synonym và Example chỉ due khi Back cũng due
+        const synonym = allCards.filter(card => {
+            const backDue = card.nextReview_back <= today;
+            return backDue && card.synonym && card.synonym.trim() !== '' && card.nextReview_synonym <= today;
+        }).length;
+        const example = allCards.filter(card => {
+            const backDue = card.nextReview_back <= today;
+            return backDue && card.example && card.example.trim() !== '' && card.nextReview_example <= today;
+        }).length;
 
         // Flashcard: Theo filter (all, level1, level2, noSRS)
         const flashcard = allCards.filter(card => {
@@ -683,12 +691,19 @@ const App = () => {
                 .filter(card => card.nextReview_back <= today)
                 .map(card => ({ ...card, reviewType: 'back' })); 
             
+            // Synonym và Example chỉ due khi Back cũng due
             const dueSynonymCards = allCards
-                .filter(card => card.synonym && card.synonym.trim() !== '' && card.nextReview_synonym <= today)
+                .filter(card => {
+                    const backDue = card.nextReview_back <= today;
+                    return backDue && card.synonym && card.synonym.trim() !== '' && card.nextReview_synonym <= today;
+                })
                 .map(card => ({ ...card, reviewType: 'synonym' })); 
             
             const dueExampleCards = allCards
-                .filter(card => card.example && card.example.trim() !== '' && card.nextReview_example <= today)
+                .filter(card => {
+                    const backDue = card.nextReview_back <= today;
+                    return backDue && card.example && card.example.trim() !== '' && card.nextReview_example <= today;
+                })
                 .map(card => ({ ...card, reviewType: 'example' })); 
             
             dueCards = shuffleArray([...dueBackCards, ...dueSynonymCards, ...dueExampleCards]);
@@ -697,11 +712,19 @@ const App = () => {
             dueCards = allCards
                 .filter(card => card.nextReview_back <= today);
         } else if (mode === 'synonym') {
+            // Synonym chỉ due khi Back cũng due
             dueCards = allCards
-                .filter(card => card.synonym && card.synonym.trim() !== '' && card.nextReview_synonym <= today);
+                .filter(card => {
+                    const backDue = card.nextReview_back <= today;
+                    return backDue && card.synonym && card.synonym.trim() !== '' && card.nextReview_synonym <= today;
+                });
         } else if (mode === 'example') {
+            // Example chỉ due khi Back cũng due
             dueCards = allCards
-                .filter(card => card.example && card.example.trim() !== '' && card.nextReview_example <= today);
+                .filter(card => {
+                    const backDue = card.nextReview_back <= today;
+                    return backDue && card.example && card.example.trim() !== '' && card.nextReview_example <= today;
+                });
         }
 
         if (dueCards.length > 0) {
@@ -1179,6 +1202,38 @@ const App = () => {
             [reviewKey]: nextDate,
             lastReviewed: serverTimestamp(),
         };
+        
+        // Khi cập nhật Back, đồng bộ nextReview cho Synonym và Example dựa trên intervalIndex_back
+        if (cardReviewType === 'back') {
+            const hasSynonym = cardData.synonym && cardData.synonym.trim() !== '';
+            const hasExample = cardData.example && cardData.example.trim() !== '';
+            
+            // Tính nextReview dựa trên intervalIndex_back mới
+            const nextReviewBasedOnBack = getNextReviewDate(newIndex);
+            
+            if (hasSynonym) {
+                // Đồng bộ nextReview_synonym với intervalIndex_back
+                updateData.nextReview_synonym = nextReviewBasedOnBack;
+                // Đồng bộ intervalIndex_synonym với intervalIndex_back
+                updateData.intervalIndex_synonym = newIndex;
+            }
+            
+            if (hasExample) {
+                // Đồng bộ nextReview_example với intervalIndex_back
+                updateData.nextReview_example = nextReviewBasedOnBack;
+                // Đồng bộ intervalIndex_example với intervalIndex_back
+                updateData.intervalIndex_example = newIndex;
+            }
+        } else if (cardReviewType === 'synonym' || cardReviewType === 'example') {
+            // Khi cập nhật Synonym hoặc Example, nextReview vẫn dựa trên intervalIndex_back
+            const backInterval = typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1;
+            if (backInterval === -999) backInterval = -1;
+            const nextReviewBasedOnBack = getNextReviewDate(backInterval);
+            
+            // Cập nhật nextReview dựa trên intervalIndex_back, không phải intervalIndex riêng
+            updateData[reviewKey] = nextReviewBasedOnBack;
+        }
+        
         try {
             await updateDoc(cardRef, updateData);
         } catch (e) {
@@ -3524,6 +3579,32 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
         setSlideDirection(''); // Reset slide direction
     }, [currentIndex]);
 
+    // Define moveToPreviousCard before useEffect that uses it
+    const moveToPreviousCard = useCallback(() => {
+        if (currentIndex > 0 && !isProcessing) {
+            if (reviewMode === 'flashcard') {
+                setSlideDirection('right'); // Slide out to right
+                setTimeout(() => {
+                    setCurrentIndex(currentIndex - 1);
+                    setInputValue('');
+                    setIsRevealed(false);
+                    setIsLocked(false);
+                    setFeedback(null);
+                    setMessage('');
+                    setSlideDirection('left'); // Slide in from left
+                    setTimeout(() => setSlideDirection(''), 300);
+                }, 150);
+            } else {
+                setCurrentIndex(currentIndex - 1);
+                setInputValue('');
+                setIsRevealed(false);
+                setIsLocked(false);
+                setFeedback(null);
+                setMessage('');
+            }
+        }
+    }, [currentIndex, isProcessing, reviewMode]);
+
     // Keyboard event handlers for flashcard mode
     useEffect(() => {
         if (reviewMode !== 'flashcard') return;
@@ -3676,31 +3757,6 @@ const ReviewScreen = ({ cards, reviewMode, reviewStyle, onUpdateCard, onComplete
             }
         } else {
             onCompleteReview();
-        }
-    };
-
-    const moveToPreviousCard = () => {
-        if (currentIndex > 0 && !isProcessing) {
-            if (reviewMode === 'flashcard') {
-                setSlideDirection('right'); // Slide out to right
-                setTimeout(() => {
-                    setCurrentIndex(currentIndex - 1);
-                    setInputValue('');
-                    setIsRevealed(false);
-                    setIsLocked(false);
-                    setFeedback(null);
-                    setMessage('');
-                    setSlideDirection('left'); // Slide in from left
-                    setTimeout(() => setSlideDirection(''), 300);
-                }, 150);
-            } else {
-                setCurrentIndex(currentIndex - 1);
-                setInputValue('');
-                setIsRevealed(false);
-                setIsLocked(false);
-                setFeedback(null);
-                setMessage('');
-            }
         }
     };
 
