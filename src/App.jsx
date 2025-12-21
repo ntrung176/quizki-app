@@ -1226,8 +1226,8 @@ const App = () => {
             }
         } else if (cardReviewType === 'synonym' || cardReviewType === 'example') {
             // Khi cập nhật Synonym hoặc Example, nextReview vẫn dựa trên intervalIndex_back
-            const backInterval = typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1;
-            if (backInterval === -999) backInterval = -1;
+            const backIntervalRaw = typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1;
+            const backInterval = backIntervalRaw === -999 ? -1 : backIntervalRaw;
             const nextReviewBasedOnBack = getNextReviewDate(backInterval);
             
             // Cập nhật nextReview dựa trên intervalIndex_back, không phải intervalIndex riêng
