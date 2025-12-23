@@ -648,24 +648,37 @@ const App = () => {
             return hasBack || hasSynonym || hasExample;
         }).length;
         
-        // Back: các từ đã đến chu kỳ (nextReview_back <= today)
+        // Back: các từ đã đến chu kỳ VÀ chưa hoàn thành phần back (streak < 1)
         const back = allCards.filter(card => {
-            return card.nextReview_back <= today;
+            const isDue = card.nextReview_back <= today;
+            const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
+            return isDue && backStreak < 1;
         }).length;
         
-        // Synonym: các từ đã đến chu kỳ, có synonym
-        // Lưu ý: Vì dùng chung nextReview, nếu nextReview_back <= today thì cả 3 phần đều due
+        // Synonym: các từ đã đến chu kỳ, có synonym VÀ chưa hoàn thành phần synonym (streak < 1)
         const synonym = allCards.filter(card => {
             if (!card.synonym || card.synonym.trim() === '') return false;
             const isDue = card.nextReview_back <= today;
-            return isDue;
+            const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
+            const result = isDue && synonymStreak < 1;
+            // Debug: Log một vài từ để kiểm tra
+            if (card.front && card.front.includes('調整')) {
+                console.log(`[DueCount Synonym] ${card.front}: isDue=${isDue}, synonymStreak=${synonymStreak}, result=${result}`);
+            }
+            return result;
         }).length;
         
-        // Example: các từ đã đến chu kỳ, có example
+        // Example: các từ đã đến chu kỳ, có example VÀ chưa hoàn thành phần example (streak < 1)
         const example = allCards.filter(card => {
             if (!card.example || card.example.trim() === '') return false;
             const isDue = card.nextReview_back <= today;
-            return isDue;
+            const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
+            const result = isDue && exampleStreak < 1;
+            // Debug: Log một vài từ để kiểm tra
+            if (card.front && card.front.includes('調整')) {
+                console.log(`[DueCount Example] ${card.front}: isDue=${isDue}, exampleStreak=${exampleStreak}, result=${result}`);
+            }
+            return result;
         }).length;
 
         // Flashcard: Luôn hiển thị số từ chưa có SRS (không phụ thuộc filter)
@@ -1286,15 +1299,18 @@ const App = () => {
             if (hasSynonym) updateData.correctStreak_synonym = 0;
             if (hasExample) updateData.correctStreak_example = 0;
         } else {
-            // Chưa hoàn thành đủ 3 phần: GIỮ NGUYÊN nextReview để không làm thay đổi chu kỳ SRS
-            // Chỉ set nextReview = tomorrow nếu từ chưa có nextReview (từ mới)
+            // Chưa hoàn thành đủ 3 phần: KHÔNG THAY ĐỔI nextReview
+            // Để từ vẫn xuất hiện trong danh sách "cần ôn" cho đến khi hoàn thành đủ 3 phần
+            // CHỈ cập nhật nextReview khi hoàn thành ĐỦ 3 phần (ở block if trên)
+            
+            // Nếu là từ mới chưa có nextReview, set về hôm nay để nó vẫn xuất hiện
             const currentNextReview = cardData.nextReview_back?.toDate ? cardData.nextReview_back.toDate() : null;
             
             if (!currentNextReview || currentInterval < 0) {
-                // Từ mới chưa có nextReview: set về ngày mai
-                updateData.nextReview_back = tomorrow;
-                if (hasSynonym) updateData.nextReview_synonym = tomorrow;
-                if (hasExample) updateData.nextReview_example = tomorrow;
+                // Từ mới: set nextReview = today để nó vẫn xuất hiện trong danh sách due
+                updateData.nextReview_back = today;
+                if (hasSynonym) updateData.nextReview_synonym = today;
+                if (hasExample) updateData.nextReview_example = today;
             }
             // Nếu từ đã có nextReview: KHÔNG cập nhật, giữ nguyên chu kỳ cũ
             
@@ -1304,6 +1320,11 @@ const App = () => {
         
         try {
             await updateDoc(cardRef, updateData);
+            
+            // Debug: Log streaks sau khi cập nhật
+            console.log(`[SRS Update] Card: ${cardData.front}, Type: ${cardReviewType}`);
+            console.log(`  Streaks - Back: ${updateData.correctStreak_back}, Syn: ${updateData.correctStreak_synonym || 'N/A'}, Ex: ${updateData.correctStreak_example || 'N/A'}`);
+            console.log(`  AllCompleted: ${allRequiredPartsCompleted}, NextReview: ${updateData.nextReview_back || 'unchanged'}`);
         } catch (e) {
             console.error("Lỗi khi cập nhật thẻ:", e);
         }
@@ -2656,35 +2677,35 @@ const MemoryStatCard = ({ title, count, icon: Icon, color, subtext }) => (
 );
 
 // ActionCard component - định nghĩa bên ngoài để tránh tạo lại mỗi lần render
-    const ActionCard = ({ onClick, icon: Icon, title, count, gradient, disabled = false, description }) => (
+    const ActionCard = ({ onClick, icon: Icon, title, count, gradient, disabled = false, description, hideCount = false }) => (
         <button
             onClick={onClick}
             disabled={disabled}
-            className={`relative overflow-hidden group flex items-center p-3 md:p-5 h-28 md:h-32 rounded-xl md:rounded-2xl shadow-md transition-all duration-300 w-[calc(50%-0.5rem)] md:w-[calc(50%-1rem)] max-w-xs md:max-w-sm text-left
-                        ${disabled ? 'bg-gray-100 cursor-not-allowed opacity-70' : `bg-gradient-to-br ${gradient} hover:shadow-xl hover:-translate-y-1`}`}
+            className={`relative overflow-hidden group flex items-center p-3 md:p-5 h-28 md:h-32 rounded-xl md:rounded-2xl shadow-md transition-all duration-300 w-[calc(50%-0.5rem)] md:w-[calc(50%-1rem)] max-w-xs md:max-w-sm text-left bg-gradient-to-br ${gradient}
+                        ${disabled ? 'cursor-not-allowed grayscale opacity-50' : 'hover:shadow-xl hover:-translate-y-1'}`}
         >
             <div className="z-10 w-full flex items-center gap-3 md:gap-4">
                 {/* Icon với tỉ lệ 2:4 (width:height = 1:2) */}
-                <div className={`flex-shrink-0 w-12 h-24 md:w-16 md:h-32 rounded-xl md:rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center`}>
-                    <Icon className={`w-6 h-6 md:w-8 md:h-8 text-white`} strokeWidth={2.5} />
+                <div className={`flex-shrink-0 w-12 h-24 md:w-16 md:h-32 rounded-xl md:rounded-2xl ${disabled ? 'bg-gray-600/30' : 'bg-white/20'} backdrop-blur-sm flex items-center justify-center`}>
+                    <Icon className={`w-6 h-6 md:w-8 md:h-8 ${disabled ? 'text-gray-300' : 'text-white'}`} strokeWidth={2.5} />
                     </div>
                 
                 {/* Text content bên phải */}
                 <div className="flex-1 flex flex-col justify-center min-w-0">
                     <div className="flex items-center justify-between mb-1 md:mb-1.5">
-                        <h3 className="text-sm md:text-lg font-extrabold text-white tracking-tight truncate">{title}</h3>
-                     {typeof count !== 'undefined' && count > 0 && (
-                            <span className="bg-white/25 backdrop-blur-md text-white text-xs md:text-sm font-bold px-2 md:px-2.5 py-1 md:py-1.5 rounded-full flex-shrink-0 ml-2">
+                        <h3 className={`text-sm md:text-lg font-extrabold tracking-tight truncate ${disabled ? 'text-gray-300' : 'text-white'}`}>{title}</h3>
+                     {!hideCount && typeof count !== 'undefined' && count > 0 && (
+                            <span className={`backdrop-blur-md text-xs md:text-sm font-bold px-2 md:px-2.5 py-1 md:py-1.5 rounded-full flex-shrink-0 ml-2 ${disabled ? 'bg-gray-600/30 text-gray-300' : 'bg-white/25 text-white'}`}>
                             {count} cần ôn
                         </span>
                     )}
                 </div>
-                    <p className="text-indigo-50 text-xs md:text-sm font-medium opacity-95 leading-snug">{description}</p>
+                    <p className={`text-xs md:text-sm font-medium opacity-95 leading-snug ${disabled ? 'text-gray-400' : 'text-indigo-50'}`}>{description}</p>
                 </div>
             </div>
             
             {/* Background Decoration */}
-            <Icon className="absolute -bottom-3 md:-bottom-4 -right-3 md:-right-4 w-24 h-24 md:w-32 md:h-32 text-white/10 group-hover:scale-110 transition-transform duration-500" />
+            <Icon className={`absolute -bottom-3 md:-bottom-4 -right-3 md:-right-4 w-24 h-24 md:w-32 md:h-32 group-hover:scale-110 transition-transform duration-500 ${disabled ? 'text-gray-400/10' : 'text-white/10'}`} />
         </button>
     );
 
@@ -2801,6 +2822,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                                 title="Kiểm Tra"
                                 description="Luyện thi JLPT"
                                 count={allCards.length}
+                                hideCount={true}
                                 gradient="from-rose-500 to-red-600"
                                 disabled={allCards.length === 0}
                             />
@@ -3615,7 +3637,7 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
 };
 
 
-const ReviewScreen = ({ cards: initialCards, reviewMode, reviewStyle, allCards, onUpdateCard, onCompleteReview }) => {
+const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard, onCompleteReview }) => {
     // ... Logic giữ nguyên
     const [cards, setCards] = useState(initialCards); // Sử dụng state để có thể cập nhật danh sách
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -3631,20 +3653,27 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, reviewStyle, allCards, 
     const [multipleChoiceOptions, setMultipleChoiceOptions] = useState([]); // Cho trắc nghiệm Synonym/Example
     const [failedCards, setFailedCards] = useState(new Set()); // Lưu các từ đã sai trong lần ôn tập hiện tại: Set<cardId-reviewType>
     const inputRef = useRef(null);
+    const isCompletingRef = useRef(false); // Track xem đã gọi handleCompleteReview chưa
     
     // Cập nhật cards khi initialCards thay đổi
     useEffect(() => {
         setCards(initialCards);
         setCurrentIndex(0);
         setFailedCards(new Set());
+        isCompletingRef.current = false; // Reset khi bắt đầu session mới
     }, [initialCards]);
+    
+    // Get current card safely (trước khi dùng trong hooks)
+    const currentCard = cards.length > 0 && currentIndex < cards.length ? cards[currentIndex] : null;
+    const cardReviewType = currentCard ? (currentCard.reviewType || reviewMode) : null;
+    const isMultipleChoice = cardReviewType === 'synonym' || cardReviewType === 'example';
     
     // Auto focus logic conditional based on style
     useEffect(() => { 
-        if (reviewStyle === 'typing' && inputRef.current && !isRevealed) {
+        if (cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && inputRef.current && !isRevealed) {
             inputRef.current.focus(); 
         }
-    }, [currentIndex, isRevealed, reviewStyle]);
+    }, [currentIndex, isRevealed, cardReviewType, reviewMode, isMultipleChoice]);
 
     // Prevent out of bounds index
     useEffect(() => { 
@@ -3687,6 +3716,46 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, reviewStyle, allCards, 
         }
     }, [currentIndex, isProcessing, reviewMode]);
 
+    // Keyboard event handlers for flashcard mode - Khai báo handleCompleteReview TRƯỚC
+    const handleCompleteReview = useCallback(() => {
+        // Tránh gọi 2 lần
+        if (isCompletingRef.current) return;
+        isCompletingRef.current = true;
+        
+        if (failedCards.size > 0) {
+            // Có các từ đã sai, tạo lại danh sách để kiểm tra lại
+            const failedCardsList = [];
+            failedCards.forEach(cardKey => {
+                const [cardId, reviewType] = cardKey.split('-');
+                const card = allCards.find(c => c.id === cardId);
+                if (card) {
+                    failedCardsList.push({ ...card, reviewType });
+                }
+            });
+            // Thêm các từ đã sai vào đầu danh sách để kiểm tra lại
+            if (failedCardsList.length > 0) {
+                const remainingCards = cards.filter(c => {
+                    const cardKey = `${c.id}-${c.reviewType || reviewMode}`;
+                    return !failedCards.has(cardKey);
+                });
+                const newCards = [...failedCardsList, ...remainingCards];
+                setCards(newCards);
+                setCurrentIndex(0);
+                // KHÔNG reset failedCards - chỉ remove khỏi failedCards khi làm đúng lần 2
+                setInputValue('');
+                setIsRevealed(false);
+                setIsLocked(false);
+                setFeedback(null);
+                setMessage('');
+                setIsProcessing(false);
+                isCompletingRef.current = false; // Reset để có thể gọi lại sau khi tạo danh sách mới
+                return; // Không gọi onCompleteReview, tiếp tục với danh sách mới
+            }
+        }
+        // Không có từ sai hoặc không còn từ nào để ôn lại, gọi onCompleteReview với failedCards
+        onCompleteReview(failedCards);
+    }, [failedCards, allCards, cards, reviewMode, onCompleteReview]);
+    
     // Keyboard event handlers for flashcard mode
     useEffect(() => {
         if (reviewMode !== 'flashcard') return;
@@ -3723,24 +3792,19 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, reviewStyle, allCards, 
                         setTimeout(() => setSlideDirection(''), 300);
                     }, 150);
                 } else {
-                    onCompleteReview();
+                    handleCompleteReview();
                 }
             }
         };
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [currentIndex, cards, reviewMode, onCompleteReview, moveToPreviousCard]);
+    }, [currentIndex, cards, reviewMode, handleCompleteReview, moveToPreviousCard]);
     
     // Normalize answer function - wrap in useCallback để tránh thay đổi dependency
     const normalizeAnswer = useCallback((text) => {
         return text.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').replace(/\s+/g, '').toLowerCase();
     }, []);
-    
-    // Get current card safely (trước khi dùng trong hooks)
-    const currentCard = cards.length > 0 && currentIndex < cards.length ? cards[currentIndex] : null;
-    const cardReviewType = currentCard ? (currentCard.reviewType || reviewMode) : null;
-    const isMultipleChoice = cardReviewType === 'synonym' || cardReviewType === 'example';
     
     // Generate multiple choice options cho Synonym và Example
     const generateMultipleChoiceOptions = useMemo(() => {
@@ -3810,52 +3874,25 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, reviewStyle, allCards, 
         return shuffleArray(options);
     }, [currentCard, isMultipleChoice, allCards, cards, normalizeAnswer]);
     
-    // Set options khi card thay đổi
+    // Set options khi card thay đổi - shuffle thêm 1 lần nữa để tránh pattern
     useEffect(() => {
         if (generateMultipleChoiceOptions.length > 0) {
-            setMultipleChoiceOptions(generateMultipleChoiceOptions);
+            // Shuffle lại để tránh pattern nhận ra vị trí đáp án
+            setMultipleChoiceOptions(shuffleArray([...generateMultipleChoiceOptions]));
         } else {
             setMultipleChoiceOptions([]);
         }
-    }, [generateMultipleChoiceOptions]);
-    
-    // Tạo hàm wrapper để xử lý logic hiển thị lại các từ đã sai
-    const handleCompleteReview = useCallback(() => {
-        if (failedCards.size > 0) {
-            // Có các từ đã sai, tạo lại danh sách để kiểm tra lại
-            const failedCardsList = [];
-            failedCards.forEach(cardKey => {
-                const [cardId, reviewType] = cardKey.split('-');
-                const card = allCards.find(c => c.id === cardId);
-                if (card) {
-                    failedCardsList.push({ ...card, reviewType });
-                }
-            });
-            // Thêm các từ đã sai vào đầu danh sách để kiểm tra lại
-            if (failedCardsList.length > 0) {
-                const remainingCards = cards.filter(c => {
-                    const cardKey = `${c.id}-${c.reviewType || reviewMode}`;
-                    return !failedCards.has(cardKey);
-                });
-                const newCards = [...failedCardsList, ...remainingCards];
-                setCards(newCards);
-                setCurrentIndex(0);
-                // KHÔNG reset failedCards - chỉ remove khỏi failedCards khi làm đúng lần 2
-                setInputValue('');
-                setIsRevealed(false);
-                setIsLocked(false);
-                setFeedback(null);
-                setMessage('');
-                setIsProcessing(false);
-                return; // Không gọi onCompleteReview, tiếp tục với danh sách mới
-            }
-        }
-        onCompleteReview();
-    }, [failedCards, allCards, cards, reviewMode, onCompleteReview]);
+    }, [generateMultipleChoiceOptions, currentIndex]); // Thêm currentIndex để shuffle lại mỗi lần chuyển card
     
     // Early return check - phải đặt sau tất cả hooks
+    // Sử dụng useEffect để gọi handleCompleteReview sau khi render (tránh truy cập ref trong render)
+    useEffect(() => {
+        if ((cards.length === 0 || currentIndex >= cards.length) && !isCompletingRef.current) {
+            handleCompleteReview();
+        }
+    }, [cards.length, currentIndex, handleCompleteReview]);
+    
     if (cards.length === 0 || currentIndex >= cards.length) { 
-        handleCompleteReview(); 
         return null; 
     }
 
@@ -4076,16 +4113,16 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, reviewStyle, allCards, 
                 setIsProcessing(false);
             }
         } else {
-            // Đã hết thẻ, gọi onCompleteReview với danh sách từ sai
-            onCompleteReview(failedCards);
+            // Đã hết thẻ, gọi handleCompleteReview để xử lý logic hoàn thành
+            handleCompleteReview();
         }
     };
 
     const handleNext = () => {
         if (isProcessing) return; // V1.6.2 Fix: Chặn nếu đang xử lý
 
-        // Logic for typing mode retry or manual proceed
-        if (reviewStyle === 'typing') {
+        // Logic for typing mode retry or manual proceed (chỉ cho Back mode)
+        if (cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice) {
             if (feedback === 'correct') { 
                 // Đã đúng, chuyển sang thẻ tiếp theo (đã xử lý failedCards trong checkAnswer)
                 setIsProcessing(true); // V1.6.2 Fix: Khoá
@@ -4135,7 +4172,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, reviewStyle, allCards, 
                 <div className="flex justify-between items-center text-xs md:text-sm font-medium text-gray-500">
                     <span className="flex items-center">
                         <Zap className="w-3 h-3 md:w-4 md:h-4 mr-0.5 md:mr-1 text-amber-500"/> 
-                        {reviewMode.toUpperCase()} - {reviewStyle === 'typing' ? 'Tự luận' : 'Ôn tập nhanh'}
+                        {reviewMode.toUpperCase()} - {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice ? 'Tự luận' : 'Ôn tập nhanh'}
                     </span>
                     <span>{currentIndex + 1} / {cards.length}</span>
                 </div>
@@ -4420,7 +4457,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, reviewStyle, allCards, 
                                         setCurrentIndex(currentIndex + 1);
                                     }
                                 } else {
-                                    onCompleteReview();
+                                    handleCompleteReview();
                                 }
                             }}
                             disabled={isProcessing}
@@ -4437,7 +4474,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, reviewStyle, allCards, 
                 )}
                 
                 {/* --- TYPING MODE UI --- (Chỉ cho Back, không cho Synonym và Example) */}
-                {reviewStyle === 'typing' && reviewMode !== 'flashcard' && !isMultipleChoice && (
+                {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
                     <div className="relative">
                         <input
                             ref={inputRef}
@@ -4472,43 +4509,28 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, reviewStyle, allCards, 
                     </div>
                 )}
 
-                {/* --- FLASHCARD STYLE (for other modes) UI --- */}
-                {reviewStyle === 'flashcard' && reviewMode !== 'flashcard' && !isRevealed && !isMultipleChoice && (
-                     <button 
-                        onClick={() => setIsRevealed(true)}
-                        className="w-full py-3 md:py-5 text-lg md:text-2xl font-extrabold rounded-xl md:rounded-2xl bg-indigo-600 text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all flex items-center justify-center gap-2 md:gap-3"
-                    >
-                        <Eye className="w-5 h-5 md:w-7 md:h-7" /> Hiện Đáp Án
-                    </button>
-                )}
 
 
                 {/* Feedback & Actions - Only for non-flashcard modes */}
                 {reviewMode !== 'flashcard' && (
                 <div className={`transition-all duration-300 ease-out overflow-hidden ${isRevealed ? 'max-h-[200px] md:max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
                     <div className={`p-3 md:p-5 rounded-xl md:rounded-2xl border mb-2 md:mb-4 flex items-start gap-2 md:gap-4 ${feedback === 'correct' ? 'bg-green-50 border-green-200' : feedback === 'incorrect' ? 'bg-red-50 border-red-200' : 'bg-gray-50 border-gray-200'}`}>
-                        {reviewStyle === 'typing' && reviewMode !== 'flashcard' && !isMultipleChoice && (
+                        {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
                             <div className={`p-1.5 md:p-2 rounded-full flex-shrink-0 ${feedback === 'correct' ? 'bg-green-200 text-green-700' : 'bg-red-200 text-red-700'}`}>
                                 {feedback === 'correct' ? <Check className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3}/> : <X className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3}/>}
                             </div>
                         )}
                         <div className="flex-1 min-w-0">
-                             {/* Flashcard reveal message vs Typing feedback message */}
-                             {reviewStyle === 'flashcard' && !feedback ? (
-                                 <div className="text-center">
-                                    <p className="text-lg md:text-2xl font-extrabold text-gray-900">{displayFront}</p>
-                                 </div>
-                             ) : (
-                                <div>
-                                    <p className={`font-bold text-base md:text-xl ${feedback === 'correct' ? 'text-green-800' : 'text-red-800'}`}>{message}</p>
-                                    {feedback === 'incorrect' && reviewStyle === 'typing' && !isMultipleChoice && <p className="text-xs md:text-base text-red-600 mt-0.5 md:mt-1">Gõ lại từ đúng để tiếp tục</p>}
-                                </div>
-                             )}
+                             {/* Typing feedback message */}
+                             <div>
+                                 <p className={`font-bold text-base md:text-xl ${feedback === 'correct' ? 'text-green-800' : 'text-red-800'}`}>{message}</p>
+                                 {feedback === 'incorrect' && cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && <p className="text-xs md:text-base text-red-600 mt-0.5 md:mt-1">Gõ lại từ đúng để tiếp tục</p>}
+                             </div>
                         </div>
                     </div>
                     
                     {/* TYPING MODE ACTIONS (Chỉ cho Back, không cho Synonym và Example) */}
-                    {reviewStyle === 'typing' && reviewMode !== 'flashcard' && !isMultipleChoice && (
+                    {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
                         <button
                             onClick={handleNext}
                             disabled={isProcessing || (feedback === 'incorrect' && normalizeAnswer(inputValue) !== normalizeAnswer(currentCard.front.split('（')[0].split('(')[0]) && normalizeAnswer(inputValue) !== normalizeAnswer((currentCard.front.match(/（([^）]+)）/) || currentCard.front.match(/\(([^)]+)\)/))?.[1] || ''))}
@@ -4519,37 +4541,6 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, reviewStyle, allCards, 
                         >
                             {currentIndex === cards.length - 1 ? 'Hoàn thành' : 'Tiếp theo'}
                             <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-1.5 md:ml-2" strokeWidth={3}/>
-                        </button>
-                    )}
-
-                    {/* FLASHCARD STYLE (for other modes) ACTIONS */}
-                    {reviewStyle === 'flashcard' && reviewMode !== 'flashcard' && !feedback && (
-                        <div className="flex gap-2 md:gap-4">
-                            <button
-                                onClick={() => handleFlashcardGrade(false)}
-                                disabled={isProcessing}
-                                className="flex-1 py-3 md:py-4 bg-red-100 text-red-700 font-bold rounded-lg md:rounded-xl hover:bg-red-200 transition-colors flex items-center justify-center gap-1.5 md:gap-2"
-                            >
-                                <XCircle className="w-5 h-5 md:w-6 md:h-6"/> <span className="text-xs md:text-base">Quên / Sai</span>
-                            </button>
-                            <button
-                                onClick={() => handleFlashcardGrade(true)}
-                                disabled={isProcessing}
-                                className="flex-1 py-3 md:py-4 bg-green-100 text-green-700 font-bold rounded-lg md:rounded-xl hover:bg-green-200 transition-colors flex items-center justify-center gap-1.5 md:gap-2"
-                            >
-                                <CheckCircle className="w-5 h-5 md:w-6 md:h-6"/> <span className="text-xs md:text-base">Nhớ / Đúng</span>
-                            </button>
-                        </div>
-                    )}
-                    
-                    {/* Flashcard Style Incorrect Proceed */}
-                    {reviewStyle === 'flashcard' && reviewMode !== 'flashcard' && feedback === 'incorrect' && (
-                         <button
-                            onClick={handleNext}
-                            disabled={isProcessing}
-                            className="w-full py-3 md:py-4 bg-gray-800 text-white rounded-lg md:rounded-xl font-bold text-base md:text-lg shadow-lg hover:bg-gray-700 transition-all flex items-center justify-center mt-1.5 md:mt-2"
-                        >
-                            Tiếp tục <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-1.5 md:ml-2"/>
                         </button>
                     )}
 
