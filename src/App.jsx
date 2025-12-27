@@ -2881,13 +2881,21 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                                         !learning.some(c => c.id === card.id)
                                     );
                                     
+                                    // Tạo batch đầu tiên (5 từ) - đảm bảo shuffle đúng cách
                                     const firstBatch = [];
-                                    firstBatch.push(...learning.slice(0, 5));
-                                    if (firstBatch.length < 5) {
-                                        firstBatch.push(...shuffleArray(newCards).slice(0, 5 - firstBatch.length));
+                                    // Ưu tiên 1: Learning (từ đã sai)
+                                    if (learning.length > 0) {
+                                        firstBatch.push(...shuffleArray(learning).slice(0, Math.min(5, learning.length)));
                                     }
-                                    if (firstBatch.length < 5) {
-                                        firstBatch.push(...shuffleArray(reviewing).slice(0, 5 - firstBatch.length));
+                                    // Ưu tiên 2: New cards (từ mới chưa học)
+                                    if (firstBatch.length < 5 && newCards.length > 0) {
+                                        const shuffledNew = shuffleArray(newCards);
+                                        firstBatch.push(...shuffledNew.slice(0, Math.min(5 - firstBatch.length, shuffledNew.length)));
+                                    }
+                                    // Ưu tiên 3: Reviewing (từ cần review)
+                                    if (firstBatch.length < 5 && reviewing.length > 0) {
+                                        const shuffledReviewing = shuffleArray(reviewing);
+                                        firstBatch.push(...shuffledReviewing.slice(0, Math.min(5 - firstBatch.length, shuffledReviewing.length)));
                                     }
                                     
                                     if (firstBatch.length === 0) {
@@ -4211,10 +4219,10 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         <div className="w-full max-w-xl lg:max-w-2xl mx-auto h-full flex flex-col space-y-2 md:space-y-3">
             {/* Header & Progress */}
             <div className="space-y-2 md:space-y-4 flex-shrink-0">
-                <div className="flex justify-between items-center text-xs md:text-sm font-medium text-gray-500 dark:text-gray-400">
+                <div className="flex justify-between items-center text-xs md:text-sm font-medium text-gray-500 dark:text-gray-300">
                     <span className="flex items-center">
                         <Zap className="w-3 h-3 md:w-4 md:h-4 mr-0.5 md:mr-1 text-amber-500 dark:text-amber-400"/> 
-                        {reviewMode.toUpperCase()} - {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice ? 'Tự luận' : 'Ôn tập nhanh'}
+                        <span className="dark:text-gray-200">{reviewMode.toUpperCase()} - {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice ? 'Tự luận' : 'Ôn tập nhanh'}</span>
                     </span>
                     <span>{currentIndex + 1} / {cards.length} {failedCards.size > 0 && <span className="text-red-500 dark:text-red-400">({failedCards.size} sai)</span>}</span>
                 </div>
@@ -4819,14 +4827,21 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             !learning.some(c => c.id === card.id)
         );
 
-        // Tạo batch 5 từ theo ưu tiên
+        // Tạo batch 5 từ theo ưu tiên - đảm bảo lấy đủ từ
         const nextBatch = [];
-        nextBatch.push(...learning.slice(0, 5));
-        if (nextBatch.length < 5) {
-            nextBatch.push(...shuffleArray(newCards).slice(0, 5 - nextBatch.length));
+        // Ưu tiên 1: Learning (từ đã sai)
+        if (learning.length > 0) {
+            nextBatch.push(...shuffleArray(learning).slice(0, Math.min(5, learning.length)));
         }
-        if (nextBatch.length < 5) {
-            nextBatch.push(...shuffleArray(reviewing).slice(0, 5 - nextBatch.length));
+        // Ưu tiên 2: New cards (từ mới chưa học)
+        if (nextBatch.length < 5 && newCards.length > 0) {
+            const shuffledNew = shuffleArray(newCards);
+            nextBatch.push(...shuffledNew.slice(0, Math.min(5 - nextBatch.length, shuffledNew.length)));
+        }
+        // Ưu tiên 3: Reviewing (từ cần review)
+        if (nextBatch.length < 5 && reviewing.length > 0) {
+            const shuffledReviewing = shuffleArray(reviewing);
+            nextBatch.push(...shuffledReviewing.slice(0, Math.min(5 - nextBatch.length, shuffledReviewing.length)));
         }
 
         if (nextBatch.length === 0) {
