@@ -1,0 +1,96 @@
+/* App-specific styles */
+
+/* 3D Flip Card Styles - Quizlet style */
+.perspective-1000 {
+  perspective: 1000px;
+  position: relative;
+}
+
+.flip-card-container {
+  position: relative;
+  width: 100%;
+  transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Hover effect for flip card */
+.flip-card-container:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Progress bar animation */
+.progress-bar {
+  transition: width 500ms ease-out;
+}
+
+/* Chart container fixed height */
+.chart-container {
+  height: 250px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.chart-center {
+  height: 250px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Slide animation for flashcard navigation */
+.card-slide {
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.slide-out-left {
+  transform: translateX(-120%) scale(0.8);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slide-out-right {
+  transform: translateX(120%) scale(0.8);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Main content padding to avoid header overlap */
+.main-with-header {
+  padding-top: calc(3rem + 0.5rem); /* h-12 (48px) + 8px spacing */
+}
+
+@media (min-width: 768px) {
+  .main-with-header {
+    padding-top: calc(4rem + 0.5rem); /* h-16 (64px) + 8px spacing */
+  }
+}
+ 

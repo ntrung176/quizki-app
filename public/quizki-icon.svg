@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="QuizKi icon">
+  <defs>
+    <linearGradient id="qk-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#qk-bg)"/>
+  <!-- Spark/star -->
+  <path d="M32 12l2.4 6.9 7-2.3-2.3 7L46 26l-7 2.3 2.3 7-7-2.3L32 40l-2.4-6.9-7 2.3 2.3-7L18 26l7-2.3-2.3-7 7 2.3L32 12z"
+        fill="#fff" fill-opacity="0.9"/>
+  <!-- Q shape -->
+  <circle cx="32" cy="36" r="11" fill="none" stroke="#eef2ff" stroke-width="3"/>
+  <path d="M38 40l4 4" stroke="#eef2ff" stroke-width="3" stroke-linecap="round"/>
+</svg>
+
