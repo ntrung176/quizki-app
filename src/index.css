@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark, .dark *));
+
 html {
   height: 100%;
   height: -webkit-fill-available;
   overflow-x: hidden;
   color-scheme: light;
+  background-color: #f3f4f6;
 }
 
 html.dark {
   color-scheme: dark;
+  background-color: #111827;
 }
 
 body {
@@ -22,6 +26,11 @@ body {
   width: 100%;
   max-width: 100vw;
   transition: background-color 0.3s ease;
+  background-color: #f3f4f6;
+}
+
+body.dark {
+  background-color: #111827;
 }
 
 #root {
