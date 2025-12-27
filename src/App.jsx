@@ -4,7 +4,7 @@ import { useDebounce } from 'use-debounce';
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail, updatePassword, sendEmailVerification } from 'firebase/auth';
 import { getFirestore, doc, setDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, getDocs, where, writeBatch, increment } from 'firebase/firestore';
-import { Loader2, Plus, Repeat2, Home, CheckCircle, XCircle, Volume2, Send, BookOpen, Clock, HeartHandshake, List, Calendar, Trash2, Mic, FileText, MessageSquare, HelpCircle, Upload, Wand2, BarChart3, Users, PieChart as PieChartIcon, Target, Save, Edit, Zap, Eye, EyeOff, AlertTriangle, Check, VolumeX, Image as ImageIcon, X, Music, FileAudio, Tag, Sparkles, Filter, ArrowDown, ArrowUp, GraduationCap, Search, Languages, RefreshCw, Settings, ChevronRight, Wrench, LayoutGrid, Flame, TrendingUp, Lightbulb, Brain, Ear, Keyboard, MousePointerClick, Layers, RotateCw, Lock, LogOut, FileCheck } from 'lucide-react';
+import { Loader2, Plus, Repeat2, Home, CheckCircle, XCircle, Volume2, Send, BookOpen, Clock, HeartHandshake, List, Calendar, Trash2, Mic, FileText, MessageSquare, HelpCircle, Upload, Wand2, BarChart3, Users, PieChart as PieChartIcon, Target, Save, Edit, Zap, Eye, EyeOff, AlertTriangle, Check, VolumeX, Image as ImageIcon, X, Music, FileAudio, Tag, Sparkles, Filter, ArrowDown, ArrowUp, GraduationCap, Search, Languages, RefreshCw, Settings, ChevronRight, Wrench, LayoutGrid, Flame, TrendingUp, Lightbulb, Brain, Ear, Keyboard, MousePointerClick, Layers, RotateCw, Lock, LogOut, FileCheck, Moon, Sun } from 'lucide-react';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 
 
@@ -389,6 +389,22 @@ const App = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [notification, setNotification] = useState('');
     const [editingCard, setEditingCard] = useState(null);
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        // Lấy từ localStorage, mặc định là false (light mode)
+        const saved = localStorage.getItem('darkMode');
+        const result = saved === 'true';
+        console.log('[DarkMode Init] localStorage:', saved, 'isDarkMode:', result);
+        
+        // Force remove dark class ngay lập tức nếu không phải dark mode
+        if (!result) {
+            document.documentElement.classList.remove('dark');
+            document.body.classList.remove('dark');
+            document.documentElement.style.colorScheme = 'light';
+            document.body.style.backgroundColor = '#f3f4f6';
+        }
+        
+        return result;
+    });
 
     const [profile, setProfile] = useState(null); 
     // Danh sách API keys cho Gemini (có thể cấu hình từ env hoặc localStorage)
@@ -450,15 +466,6 @@ const App = () => {
         const currentEmail = (auth?.currentUser?.email || '').trim().toLowerCase();
         return !!adminEmailEnv && !!currentEmail && currentEmail === adminEmailEnv;
     }, [authReady, userId]);
-
-    // Debug: log trạng thái admin để dễ kiểm tra khi cấu hình
-    // useEffect(() => {
-    //     const rawEnv = import.meta.env.VITE_ADMIN_EMAIL || '';
-    //     const adminEmailEnv = rawEnv.trim().replace(/^['"]|['"]$/g, '').toLowerCase();
-    //     const currentEmail = (auth?.currentUser?.email || '').trim().toLowerCase();
-    //     // Debug admin check - comment out in production if needed
-    //     // console.log('QuizKi admin check', JSON.stringify({ adminEmailEnv, currentEmail, isAdmin }));
-    // }, [authReady, userId, isAdmin]);
 
     const handleAdminDeleteUserData = useCallback(async (targetUserId) => {
         if (!db || !appId || !targetUserId) return;
@@ -523,6 +530,82 @@ const App = () => {
         // Không còn tự động đăng nhập ẩn danh; sẽ để LoginScreen quyết định
         return () => unsubscribe();
     }, []);
+
+    // Khởi tạo dark mode ngay khi component mount - đồng bộ với state
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(() => {
+        const htmlElement = document.documentElement;
+        const bodyElement = document.body;
+        const rootElement = document.getElementById('root');
+        
+        // Apply state hiện tại (đã được khởi tạo từ localStorage)
+        if (isDarkMode) {
+            htmlElement.classList.add('dark');
+            bodyElement.classList.add('dark');
+            if (rootElement) rootElement.classList.add('dark');
+            htmlElement.style.colorScheme = 'dark';
+            bodyElement.style.backgroundColor = '#111827';
+        } else {
+            // Force light mode
+            htmlElement.classList.remove('dark');
+            bodyElement.classList.remove('dark');
+            if (rootElement) rootElement.classList.remove('dark');
+            htmlElement.style.colorScheme = 'light';
+            bodyElement.style.backgroundColor = '#f3f4f6';
+        }
+        console.log('[DarkMode Mount] Applied isDarkMode:', isDarkMode);
+    }, []); // Chạy một lần khi mount để khởi tạo, isDarkMode đã được capture từ initial state
+
+    // Quản lý dark mode khi state thay đổi
+    useEffect(() => {
+        // Lưu vào localStorage
+        localStorage.setItem('darkMode', isDarkMode.toString());
+        
+        // Áp dụng/xóa class dark trên documentElement
+        const htmlElement = document.documentElement;
+        const bodyElement = document.body;
+        const rootElement = document.getElementById('root');
+        
+        console.log('[DarkMode Effect] isDarkMode:', isDarkMode);
+        
+        // Sử dụng requestAnimationFrame để đảm bảo DOM đã sẵn sàng
+        requestAnimationFrame(() => {
+            if (isDarkMode) {
+                htmlElement.classList.add('dark');
+                bodyElement.classList.add('dark');
+                if (rootElement) rootElement.classList.add('dark');
+                htmlElement.style.colorScheme = 'dark';
+                htmlElement.style.backgroundColor = '#111827';
+                bodyElement.style.backgroundColor = '#111827';
+                console.log('[Dark Mode ON] HTML classes:', htmlElement.className);
+            } else {
+                // Force remove class dark - thử nhiều cách
+                htmlElement.classList.remove('dark');
+                bodyElement.classList.remove('dark');
+                if (rootElement) rootElement.classList.remove('dark');
+                
+                // Đảm bảo remove hoàn toàn bằng cách replace className
+                if (htmlElement.className.includes('dark')) {
+                    htmlElement.className = htmlElement.className.replace(/\bdark\b/g, '').trim();
+                }
+                if (bodyElement.className.includes('dark')) {
+                    bodyElement.className = bodyElement.className.replace(/\bdark\b/g, '').trim();
+                }
+                
+                // Force set color-scheme và background
+                htmlElement.style.colorScheme = 'light';
+                htmlElement.style.backgroundColor = '#f3f4f6';
+                bodyElement.style.backgroundColor = '#f3f4f6';
+                
+                console.log('[Light Mode ON] HTML classes:', htmlElement.className, 'Has dark?', htmlElement.classList.contains('dark'));
+                console.log('[Light Mode ON] Computed bg:', window.getComputedStyle(bodyElement).backgroundColor);
+            }
+            
+            // Force reflow và repaint
+            void htmlElement.offsetHeight;
+            void bodyElement.offsetHeight;
+        });
+    }, [isDarkMode]);
 
     useEffect(() => {
         if (!authReady || !userId || !settingsDocPath) {
@@ -1709,13 +1792,26 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     isApproved: profile.isApproved === true,
                     lastUpdated: serverTimestamp() 
                 };
-                await setDoc(statsDocRef, publicData, { merge: true }); 
+                await setDoc(statsDocRef, publicData, { merge: true }).catch(err => {
+                    // Ignore network/resource errors to prevent console spam
+                    if (err?.code !== 'unavailable' && err?.code !== 'resource-exhausted' && err?.message?.includes('ERR_INSUFFICIENT_RESOURCES') === false) {
+                        console.error("Lỗi cập nhật public stats:", err);
+                    }
+                }); 
             } catch (e) {
-                console.error("Lỗi cập nhật public stats:", e);
+                // Ignore network/resource errors to prevent console spam
+                if (e?.code !== 'unavailable' && e?.code !== 'resource-exhausted' && e?.message?.includes('ERR_INSUFFICIENT_RESOURCES') === false) {
+                    console.error("Lỗi cập nhật public stats:", e);
+                }
             }
         };
 
-        updatePublicStats();
+        // Debounce để tránh quá nhiều requests
+        const timeoutId = setTimeout(() => {
+            updatePublicStats();
+        }, 2000); // Delay 2 giây để tránh spam requests
+
+        return () => clearTimeout(timeoutId);
         
     }, [memoryStats, allCards.length, profile, userId, authReady, publicStatsCollectionPath]); 
 
@@ -1723,8 +1819,8 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
     // Nếu chưa biết trạng thái auth, show loading
     if (!authReady) {
         return (
-            <div className="flex items-center justify-center min-h-screen bg-gray-50">
-                <Loader2 className="animate-spin text-indigo-600 w-10 h-10" />
+            <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900">
+                <Loader2 className="animate-spin text-indigo-600 dark:text-indigo-400 w-10 h-10" />
             </div>
         );
     }
@@ -1736,8 +1832,8 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
 
     if (isLoading || isProfileLoading || !profile) { 
         return (
-            <div className="flex items-center justify-center min-h-screen bg-gray-50">
-                <Loader2 className="animate-spin text-indigo-600 w-10 h-10" />
+            <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900">
+                <Loader2 className="animate-spin text-indigo-600 dark:text-indigo-400 w-10 h-10" />
             </div>
         );
     }
@@ -1907,28 +2003,28 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
     };
 
     return (
-        <div className="h-screen md:min-h-screen bg-gray-50 flex flex-col font-sans selection:bg-indigo-100 selection:text-indigo-800 overflow-hidden w-full">
-            <Header currentView={view} setView={setView} />
-            <main className="flex-grow p-2 md:p-6 lg:p-8 flex justify-center items-stretch pb-2 md:pb-6 lg:pb-10 overflow-hidden main-with-header">
-                <div className="w-full max-w-xl lg:max-w-2xl mx-auto flex flex-col h-full">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col font-sans selection:bg-indigo-100 dark:selection:bg-indigo-900 selection:text-indigo-800 dark:selection:text-indigo-200 w-full">
+            <Header currentView={view} setView={setView} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+            <main className="flex-grow flex justify-center items-stretch main-with-header w-full">
+                <div className="w-full max-w-xl lg:max-w-2xl mx-auto flex flex-col px-2 md:px-6 lg:px-8 pb-2 md:pb-6 lg:pb-10 pt-2 md:pt-6 lg:pt-8">
                     {/* Modern Container for Main Content - Padding nhỏ hơn */}
-                    <div className={`flex-1 bg-white/90 backdrop-blur-sm shadow-xl shadow-indigo-100/50 rounded-xl md:rounded-2xl border border-white/50 p-3 md:p-4 transition-all duration-300 flex flex-col ${view === 'LIST' ? 'overflow-hidden' : 'overflow-y-auto'} ${view === 'REVIEW' ? 'overflow-hidden' : ''}`}>
-                        <div className={`flex-1 ${view === 'LIST' ? 'overflow-y-auto overflow-x-hidden' : view === 'REVIEW' ? 'overflow-hidden' : ''}`}>
+                    <div className={`bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-xl shadow-indigo-100/50 dark:shadow-indigo-900/20 rounded-xl md:rounded-2xl border border-white/50 dark:border-gray-700/50 p-3 md:p-4 transition-all duration-300 flex flex-col ${view === 'REVIEW' ? 'overflow-hidden' : ''}`}>
+                        <div className={view === 'REVIEW' ? 'overflow-hidden' : ''}>
                         {renderContent()}
                         </div>
                         
                         {notification && (view === 'HOME' || view === 'STATS' || view === 'ADD_CARD' || view === 'LIST') && (
                             <div className={`mt-2 md:mt-6 p-2 md:p-4 rounded-lg md:rounded-xl text-center text-xs md:text-sm font-medium animate-fade-in flex items-center justify-center space-x-2
                                 ${notification.includes('Lỗi') || notification.includes('có trong') 
-                                    ? 'bg-red-50 text-red-600 border border-red-100' 
-                                    : 'bg-emerald-50 text-emerald-600 border border-emerald-100'}`}>
+                                    ? 'bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 border border-red-100 dark:border-red-800' 
+                                    : 'bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800'}`}>
                                 {notification.includes('Lỗi') ? <AlertTriangle className="w-3 h-3 md:w-4 md:h-4"/> : <CheckCircle className="w-3 h-3 md:w-4 md:h-4"/>}
                                 <span>{notification}</span>
                             </div>
                         )}
-                        <div className="mt-auto pt-2 md:pt-6 border-t border-gray-100 text-[10px] md:text-xs text-gray-400 text-center flex flex-col items-center gap-0.5 md:gap-1">
+                        <div className="mt-auto pt-2 md:pt-6 border-t border-gray-100 dark:border-gray-700 text-[10px] md:text-xs text-gray-400 dark:text-gray-500 text-center flex flex-col items-center gap-0.5 md:gap-1">
                             <span>QuizKi V2.0</span>
-                            <span className="font-mono bg-gray-50 px-1.5 md:px-2 py-0.5 md:py-1 rounded text-[8px] md:text-[10px] text-gray-300">UID: {userId?.substring(0, 8)}...</span>
+                            <span className="font-mono bg-gray-50 dark:bg-gray-800 px-1.5 md:px-2 py-0.5 md:py-1 rounded text-[8px] md:text-[10px] text-gray-300 dark:text-gray-600">UID: {userId?.substring(0, 8)}...</span>
                         </div>
                     </div>
                 </div>
@@ -2376,67 +2472,67 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack,
 
     return (
         <div className="space-y-8">
-            <div className="flex items-center justify-between pb-4 border-b border-gray-100">
+            <div className="flex items-center justify-between pb-4 border-b border-gray-100 dark:border-gray-700">
                 <div>
-                    <h2 className="text-2xl font-bold text-gray-800">Tài khoản của bạn</h2>
-                    <p className="text-gray-500 text-sm">Quản lý thông tin cá nhân và bảo mật</p>
+                    <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">Tài khoản của bạn</h2>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">Quản lý thông tin cá nhân và bảo mật</p>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                    <Users className="w-5 h-5 text-indigo-600" />
+                <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
+                    <Users className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                 </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-4">
-                    <h3 className="text-lg font-bold text-gray-800">Thông tin cá nhân</h3>
+                <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100">Thông tin cá nhân</h3>
                     <div className="space-y-3">
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-1">Email</label>
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Email</label>
                             <input
                                 type="email"
                                 value={auth?.currentUser?.email || ''}
                                 readOnly
-                                className="w-full px-4 py-2.5 bg-gray-100 border border-gray-200 rounded-xl text-sm text-gray-500 cursor-not-allowed"
+                                className="w-full px-4 py-2.5 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm text-gray-500 dark:text-gray-400 cursor-not-allowed"
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-1">Tên hiển thị</label>
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Tên hiển thị</label>
                             <input
                                 type="text"
                                 value={newDisplayName}
                                 onChange={(e) => setNewDisplayName(e.target.value)}
-                                className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 text-sm outline-none"
+                                className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 text-sm outline-none text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                                 placeholder="Tên sẽ hiển thị trong app"
                             />
                         </div>
                         <button
                             type="button"
                             onClick={handleSaveProfile}
-                            className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm"
+                            className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-xl bg-indigo-600 dark:bg-indigo-500 text-white hover:bg-indigo-700 dark:hover:bg-indigo-600 shadow-sm transition-colors"
                         >
                             <Save className="w-4 h-4 mr-1" /> Lưu thay đổi
                         </button>
                     </div>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-4">
-                    <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2">
-                        <Lock className="w-5 h-5 text-rose-500" /> Bảo mật & mật khẩu
+                <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 flex items-center gap-2">
+                        <Lock className="w-5 h-5 text-rose-500 dark:text-rose-400" /> Bảo mật & mật khẩu
                     </h3>
                     <div className="space-y-3">
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-1">Mật khẩu hiện tại</label>
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Mật khẩu hiện tại</label>
                             <div className="relative">
                                 <input
                                     type={showCurrent ? 'text' : 'password'}
                                     value={currentPassword}
                                     onChange={(e) => setCurrentPassword(e.target.value)}
-                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 text-sm outline-none"
+                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 text-sm outline-none text-gray-900 dark:text-gray-100"
                                 />
                                 <button
                                     type="button"
                                     onClick={() => setShowCurrent(!showCurrent)}
-                                    className="absolute inset-y-0 right-2 px-2 flex items-center text-gray-400 hover:text-gray-600"
+                                    className="absolute inset-y-0 right-2 px-2 flex items-center text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300"
                                     tabIndex={-1}
                                 >
                                     {showCurrent ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -2444,19 +2540,19 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack,
                             </div>
                         </div>
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-1">Mật khẩu mới</label>
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Mật khẩu mới</label>
                             <div className="relative">
                                 <input
                                     type={showNew ? 'text' : 'password'}
                                     value={newPassword}
                                     onChange={(e) => setNewPassword(e.target.value)}
-                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 text-sm outline-none"
+                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 text-sm outline-none text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                                     placeholder="Tối thiểu 6 ký tự"
                                 />
                                 <button
                                     type="button"
                                     onClick={() => setShowNew(!showNew)}
-                                    className="absolute inset-y-0 right-2 px-2 flex items-center text-gray-400 hover:text-gray-600"
+                                    className="absolute inset-y-0 right-2 px-2 flex items-center text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300"
                                     tabIndex={-1}
                                 >
                                     {showNew ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -2464,18 +2560,18 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack,
                             </div>
                         </div>
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-1">Xác nhận mật khẩu mới</label>
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Xác nhận mật khẩu mới</label>
                             <div className="relative">
                                 <input
                                     type={showConfirmNew ? 'text' : 'password'}
                                     value={confirmNewPassword}
                                     onChange={(e) => setConfirmNewPassword(e.target.value)}
-                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 text-sm outline-none"
+                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 text-sm outline-none text-gray-900 dark:text-gray-100"
                                 />
                                 <button
                                     type="button"
                                     onClick={() => setShowConfirmNew(!showConfirmNew)}
-                                    className="absolute inset-y-0 right-2 px-2 flex items-center text-gray-400 hover:text-gray-600"
+                                    className="absolute inset-y-0 right-2 px-2 flex items-center text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300"
                                     tabIndex={-1}
                                 >
                                     {showConfirmNew ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -2485,29 +2581,29 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack,
                         <button
                             type="button"
                             onClick={handleChangePassword}
-                            className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-xl bg-rose-500 text-white hover:bg-rose-600 shadow-sm"
+                            className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-xl bg-rose-500 dark:bg-rose-600 text-white hover:bg-rose-600 dark:hover:bg-rose-700 shadow-sm transition-colors"
                         >
                             <Save className="w-4 h-4 mr-1" /> Đổi mật khẩu
                         </button>
                     </div>
                     {error && (
-                        <div className="text-xs text-red-600 bg-red-50 border border-red-100 rounded-xl px-3 py-2 mt-1">
+                        <div className="text-xs text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/30 border border-red-100 dark:border-red-800 rounded-xl px-3 py-2 mt-1">
                             {error}
                         </div>
                     )}
                     {message && (
-                        <div className="text-xs text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-xl px-3 py-2 mt-1">
+                        <div className="text-xs text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-100 dark:border-emerald-800 rounded-xl px-3 py-2 mt-1">
                             {message}
                         </div>
                     )}
                 </div>
             </div>
 
-            <div className="pt-4 border-t border-gray-100 flex justify-end">
+            <div className="pt-4 border-t border-gray-100 dark:border-gray-700 flex justify-end">
                 <button
                     type="button"
                     onClick={onBack}
-                    className="px-4 py-2 text-sm font-medium rounded-xl text-gray-600 bg-white border border-gray-200 hover:bg-gray-50"
+                    className="px-4 py-2 text-sm font-medium rounded-xl text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                 >
                     Quay lại
                 </button>
@@ -2565,7 +2661,7 @@ const ProfileScreen = ({ onSave }) => {
     );
 };
 
-const Header = ({ currentView, setView }) => {
+const Header = ({ currentView, setView, isDarkMode, setIsDarkMode }) => {
     const handleLogout = async () => {
         try {
             if (auth) {
@@ -2577,13 +2673,13 @@ const Header = ({ currentView, setView }) => {
     };
 
     return (
-    <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 h-12 md:h-16 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 z-50 h-12 md:h-16 transition-all duration-300">
         <div className="w-full max-w-xl lg:max-w-2xl mx-auto px-2 md:px-4 sm:px-6 h-full flex items-center justify-between">
             <div className="flex items-center space-x-1 md:space-x-2 cursor-pointer group" onClick={() => setView('HOME')}>
-                <div className="bg-indigo-600 p-1 md:p-1.5 rounded-lg group-hover:bg-indigo-700 transition-colors">
+                <div className="bg-indigo-600 dark:bg-indigo-500 p-1 md:p-1.5 rounded-lg group-hover:bg-indigo-700 dark:group-hover:bg-indigo-600 transition-colors">
                     <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-white" />
                 </div>
-                <span className="text-base md:text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
+                <span className="text-base md:text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
                     QuizKi
                 </span>
             </div>
@@ -2601,29 +2697,47 @@ const Header = ({ currentView, setView }) => {
                         onClick={() => setView(item.id)} 
                         className={`p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all duration-200 relative
                             ${currentView === item.id 
-                                ? 'text-indigo-600 bg-indigo-50' 
-                                : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50'}`}
+                                ? 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30' 
+                                : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'}`}
                         title={item.label}
                     >
                         <item.icon className="w-4 h-4 md:w-5 md:h-5" strokeWidth={currentView === item.id ? 2.5 : 2} />
                         {currentView === item.id && (
-                            <span className="absolute bottom-0.5 md:bottom-1 left-1/2 transform -translate-x-1/2 w-0.5 md:w-1 h-0.5 md:h-1 bg-indigo-600 rounded-full" />
+                            <span className="absolute bottom-0.5 md:bottom-1 left-1/2 transform -translate-x-1/2 w-0.5 md:w-1 h-0.5 md:h-1 bg-indigo-600 dark:bg-indigo-400 rounded-full" />
                         )}
                     </button>
                 ))}
                 
-                <div className="h-4 md:h-6 w-px bg-gray-200 mx-1 md:mx-2" />
+                <div className="h-4 md:h-6 w-px bg-gray-200 dark:bg-gray-700 mx-1 md:mx-2" />
+                
+                <button
+                    onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log('Toggle clicked, current isDarkMode:', isDarkMode);
+                        setIsDarkMode(prev => {
+                            const newValue = !prev;
+                            console.log('Setting isDarkMode to:', newValue);
+                            return newValue;
+                        });
+                    }}
+                    className="p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
+                    title={isDarkMode ? "Chế độ sáng" : "Chế độ tối"}
+                    type="button"
+                >
+                    {isDarkMode ? <Sun className="w-4 h-4 md:w-5 md:h-5" /> : <Moon className="w-4 h-4 md:w-5 md:h-5" />}
+                </button>
                 
                 <button
                     onClick={() => setView('ADD_CARD')}
-                    className={`p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all ${currentView === 'ADD_CARD' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200' : 'text-indigo-600 bg-indigo-50 hover:bg-indigo-100'}`}
+                    className={`p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all ${currentView === 'ADD_CARD' ? 'bg-indigo-600 dark:bg-indigo-500 text-white shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50' : 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50'}`}
                 >
                     <Plus className="w-4 h-4 md:w-5 md:h-5" strokeWidth={2.5} />
                 </button>
 
                 <button
                     onClick={handleLogout}
-                    className="ml-0.5 md:ml-1 p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all text-gray-400 hover:text-red-600 hover:bg-red-50"
+                    className="ml-0.5 md:ml-1 p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all text-gray-400 dark:text-gray-500 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30"
                     title="Đăng xuất"
                 >
                     <LogOut className="w-4 h-4 md:w-5 md:h-5" />
@@ -2648,9 +2762,9 @@ const MemoryStatCard = ({ title, count, icon: IconComponent, color, subtext }) =
 
         <div className="relative flex items-center justify-between">
             <div>
-                <p className="text-xl md:text-3xl font-black text-gray-900 drop-shadow-sm">{count}</p>
-                <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-600 mt-0.5 md:mt-1">{title}</p>
-                {subtext && <p className="text-[9px] md:text-[11px] text-gray-500 mt-0.5 md:mt-1">{subtext}</p>}
+                <p className="text-xl md:text-3xl font-black text-gray-900 dark:text-gray-100 drop-shadow-sm">{count}</p>
+                <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mt-0.5 md:mt-1">{title}</p>
+                {subtext && <p className="text-[9px] md:text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 md:mt-1">{subtext}</p>}
             </div>
             <div className={`p-2 md:p-3 rounded-lg md:rounded-xl ${color.iconBg} group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 flex-shrink-0`}>
                 <Icon className={`w-5 h-5 md:w-7 md:h-7 ${color.text}`} />
@@ -2700,16 +2814,16 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
     return (
         <div className="space-y-2.5 md:space-y-5">
             {/* Hero Section */}
-            <div className="flex flex-col md:flex-row justify-between items-end md:items-center gap-2 md:gap-4 pb-2 border-b border-gray-100">
+            <div className="flex flex-col md:flex-row justify-between items-end md:items-center gap-2 md:gap-4 pb-2 border-b border-gray-100 dark:border-gray-700">
                 <div className="flex-shrink-0 min-w-0">
-                    <h2 className="text-lg md:text-2xl lg:text-3xl font-extrabold text-gray-800 tracking-tight break-words">
-                        Chào, <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">{displayName || 'bạn'}</span>! 👋
+                    <h2 className="text-lg md:text-2xl lg:text-3xl font-extrabold text-gray-800 dark:text-gray-100 tracking-tight break-words">
+                        Chào, <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">{displayName || 'bạn'}</span>! 👋
                     </h2>
-                    <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm font-medium">Bạn đã sẵn sàng chinh phục mục tiêu hôm nay chưa?</p>
+                    <p className="text-gray-500 dark:text-gray-400 mt-1 md:mt-2 text-xs md:text-sm font-medium">Bạn đã sẵn sàng chinh phục mục tiêu hôm nay chưa?</p>
                 </div>
-                <div className="flex items-center space-x-2 md:space-x-2.5 bg-indigo-50 px-3 md:px-5 py-2 md:py-2.5 rounded-full border border-indigo-100 flex-shrink-0">
+                <div className="flex items-center space-x-2 md:space-x-2.5 bg-indigo-50 dark:bg-indigo-900/30 px-3 md:px-5 py-2 md:py-2.5 rounded-full border border-indigo-100 dark:border-indigo-800 flex-shrink-0">
                     <div className="w-2 h-2 md:w-2.5 md:h-2.5 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-xs md:text-sm font-bold text-indigo-700 whitespace-nowrap">{totalCards} từ vựng</span>
+                    <span className="text-xs md:text-sm font-bold text-indigo-700 dark:text-indigo-300 whitespace-nowrap">{totalCards} từ vựng</span>
                 </div>
             </div>
             
@@ -2845,49 +2959,49 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
             
             {/* Management Section */}
             <div className="pt-1.5 md:pt-2 space-y-2 md:space-y-2.5">
-                <h3 className="text-sm md:text-base font-bold text-gray-700 flex items-center">
-                    <Settings className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2 text-gray-500" />
+                <h3 className="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 flex items-center">
+                    <Settings className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2 text-gray-500 dark:text-gray-400" />
                     Quản lý & Tiện ích
                 </h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-2.5">
                      <button
                         onClick={() => onNavigate('ADD_CARD')}
-                        className="flex items-center p-2 md:p-3 bg-white border border-gray-100 rounded-lg md:rounded-xl shadow-sm hover:shadow-md hover:border-indigo-200 transition-all group"
+                        className="flex items-center p-2 md:p-3 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg md:rounded-xl shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-indigo-200 dark:hover:border-indigo-600 transition-all group"
                     >
-                        <div className="bg-indigo-50 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-indigo-100 transition-colors flex-shrink-0">
-                            <Plus className="w-3.5 h-3.5 md:w-4 md:h-4 text-indigo-600" />
+                        <div className="bg-indigo-50 dark:bg-indigo-900/30 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/50 transition-colors flex-shrink-0">
+                            <Plus className="w-3.5 h-3.5 md:w-4 md:h-4 text-indigo-600 dark:text-indigo-400" />
                         </div>
-                        <span className="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-indigo-700 truncate">Thêm từ mới</span>
+                        <span className="text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300 group-hover:text-indigo-700 dark:group-hover:text-indigo-400 truncate">Thêm từ mới</span>
                     </button>
 
                     <button
                         onClick={() => onNavigate('IMPORT')}
-                        className="flex items-center p-2 md:p-3 bg-white border border-gray-100 rounded-lg md:rounded-xl shadow-sm hover:shadow-md hover:border-teal-200 transition-all group"
+                        className="flex items-center p-2 md:p-3 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg md:rounded-xl shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-teal-200 dark:hover:border-teal-600 transition-all group"
                     >
-                        <div className="bg-teal-50 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-teal-100 transition-colors flex-shrink-0">
-                            <Upload className="w-3.5 h-3.5 md:w-4 md:h-4 text-teal-600" />
+                        <div className="bg-teal-50 dark:bg-teal-900/30 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-teal-100 dark:group-hover:bg-teal-900/50 transition-colors flex-shrink-0">
+                            <Upload className="w-3.5 h-3.5 md:w-4 md:h-4 text-teal-600 dark:text-teal-400" />
                         </div>
-                        <span className="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-teal-700 truncate">Nhập File</span>
+                        <span className="text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300 group-hover:text-teal-700 dark:group-hover:text-teal-400 truncate">Nhập File</span>
                     </button>
 
                     <button
                         onClick={() => onNavigate('LIST')}
-                        className="flex items-center p-2 md:p-3 bg-white border border-gray-100 rounded-lg md:rounded-xl shadow-sm hover:shadow-md hover:border-blue-200 transition-all group"
+                        className="flex items-center p-2 md:p-3 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg md:rounded-xl shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-blue-200 dark:hover:border-blue-600 transition-all group"
                     >
-                        <div className="bg-blue-50 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-blue-100 transition-colors flex-shrink-0">
-                            <List className="w-3.5 h-3.5 md:w-4 md:h-4 text-blue-600" />
+                        <div className="bg-blue-50 dark:bg-blue-900/30 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors flex-shrink-0">
+                            <List className="w-3.5 h-3.5 md:w-4 md:h-4 text-blue-600 dark:text-blue-400" />
                         </div>
-                        <span className="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-blue-700 truncate">Xem Danh sách</span>
+                        <span className="text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300 group-hover:text-blue-700 dark:group-hover:text-blue-400 truncate">Xem Danh sách</span>
                     </button>
 
                     <button
                         onClick={() => onNavigate('HELP')}
-                        className="flex items-center p-2 md:p-3 bg-white border border-gray-100 rounded-lg md:rounded-xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all group"
+                        className="flex items-center p-2 md:p-3 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg md:rounded-xl shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-orange-200 dark:hover:border-orange-600 transition-all group"
                     >
-                        <div className="bg-orange-50 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-orange-100 transition-colors flex-shrink-0">
-                            <HelpCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-600" />
+                        <div className="bg-orange-50 dark:bg-orange-900/30 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-orange-100 dark:group-hover:bg-orange-900/50 transition-colors flex-shrink-0">
+                            <HelpCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-600 dark:text-orange-400" />
                         </div>
-                        <span className="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-orange-700 truncate">Hướng dẫn</span>
+                        <span className="text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300 group-hover:text-orange-700 dark:group-hover:text-orange-400 truncate">Hướng dẫn</span>
                     </button>
                 </div>
             </div>
@@ -2970,23 +3084,23 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
 
     return (
         <div className="space-y-6">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-4">
+            <div className="flex items-center justify-between border-b border-gray-100 dark:border-gray-700 pb-4">
                 <div>
-                    <h2 className="text-2xl font-bold text-gray-800">Thêm Từ Vựng Mới</h2>
-                    <p className="text-gray-500 text-sm">Xây dựng kho tàng kiến thức của bạn</p>
+                    <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">Thêm Từ Vựng Mới</h2>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">Xây dựng kho tàng kiến thức của bạn</p>
                 </div>
-                <div className="bg-indigo-50 p-2 rounded-xl">
-                    <Plus className="w-6 h-6 text-indigo-600" />
+                <div className="bg-indigo-50 dark:bg-indigo-900/30 p-2 rounded-xl">
+                    <Plus className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                 </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Cột Trái: Thông tin chính */}
                 <div className="space-y-4">
-                    <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm space-y-3">
+                    <div className="bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-3">
                         <div className="flex justify-between items-center mb-2">
-                             <label className="block text-sm font-semibold text-gray-700">
-                                Từ vựng (Nhật): <span className="text-rose-500">*</span>
+                             <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">
+                                Từ vựng (Nhật): <span className="text-rose-500 dark:text-rose-400">*</span>
                             </label>
                             
                         </div>
@@ -3007,7 +3121,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                                     }
                                 }}
                                 required
-                                className="flex-1 px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium text-sm md:text-base lg:text-lg" 
+                                className="flex-1 px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 transition-all font-medium text-sm md:text-base lg:text-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" 
                                 placeholder="Ví dụ: 食べる（たべる）"
                             />
                             
@@ -3015,7 +3129,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                                 type="button" 
                                 onClick={handleAiAssist} 
                                 disabled={isAiLoading}
-                                className="flex items-center px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-lg md:rounded-xl shadow-md hover:shadow-lg hover:from-violet-700 hover:to-indigo-700 transition-all font-bold whitespace-nowrap flex-shrink-0 text-xs md:text-sm"
+                                className="flex items-center px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-500 dark:to-indigo-500 text-white rounded-lg md:rounded-xl shadow-md hover:shadow-lg hover:from-violet-700 hover:to-indigo-700 dark:hover:from-violet-600 dark:hover:to-indigo-600 transition-all font-bold whitespace-nowrap flex-shrink-0 text-xs md:text-sm"
                                 title="Tự động điền thông tin bằng AI"
                             >
                                 {isAiLoading ? <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5 md:mr-2" /> : <Wand2 className="w-4 h-4 md:w-5 md:h-5 md:mr-2" />}
@@ -3024,8 +3138,8 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                         </div>
                         
                         {/* MOVED: Classification Section (Level & POS) to below Vocabulary */}
-                        <div className="bg-gray-50 p-3 rounded-xl border border-gray-100 space-y-3">
-                             <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider">Phân loại & Cấp độ</label>
+                        <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-xl border border-gray-100 dark:border-gray-700 space-y-3">
+                             <label className="block text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Phân loại & Cấp độ</label>
                              <div className="flex flex-col gap-3">
                                 {/* Level Buttons */}
                                 <div className="flex gap-2 overflow-x-auto pb-1">
@@ -3036,8 +3150,8 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                                             onClick={() => setLevel(lvl.value)}
                                             className={`flex-1 py-2 px-3 rounded-lg text-sm font-bold transition-all border ${
                                                 level === lvl.value 
-                                                ? `${lvl.color} shadow-sm ring-1 ring-offset-1 ring-indigo-200` 
-                                                : 'bg-white border-gray-200 text-gray-500 hover:bg-gray-100'
+                                                ? `${lvl.color} shadow-sm ring-1 ring-offset-1 ring-indigo-200 dark:ring-indigo-800` 
+                                                : 'bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600'
                                             }`}
                                         >
                                             {lvl.label}
@@ -3046,7 +3160,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                                 </div>
                                 
                                 {/* POS Dropdown */}
-                                <select value={pos} onChange={(e) => setPos(e.target.value)} className="w-full px-3 py-2 bg-white border border-gray-200 rounded-lg focus:border-indigo-500 text-sm font-medium text-gray-700">
+                                <select value={pos} onChange={(e) => setPos(e.target.value)} className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-sm font-medium text-gray-700 dark:text-gray-100">
                                     <option value="">-- Chọn Từ Loại --</option>
                                     {Object.entries(POS_TYPES).map(([key, value]) => (<option key={key} value={key}>{value.label}</option>))}
                                 </select>
@@ -3054,25 +3168,25 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                         </div>
 
                         <div className="space-y-1">
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                Ý nghĩa (Việt): <span className="text-rose-500">*</span>
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                                Ý nghĩa (Việt): <span className="text-rose-500 dark:text-rose-400">*</span>
                             </label>
                             <input id="back" type="text" value={back} onChange={(e) => setBack(e.target.value)} required
-                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-sm md:text-base" placeholder="Ví dụ: Ăn"
+                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 transition-all text-sm md:text-base text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" placeholder="Ví dụ: Ăn"
                             />
                         </div>
 
                         <div className="grid grid-cols-2 gap-3">
                              <div>
-                                <label className="block text-xs font-semibold text-gray-500 mb-1">Hán Việt</label>
+                                <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">Hán Việt</label>
                                 <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)}
-                                    className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 border border-gray-200 rounded-lg focus:border-indigo-500" placeholder="Thực"
+                                    className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" placeholder="Thực"
                                 />
                             </div>
                             <div>
-                                <label className="block text-xs font-semibold text-gray-500 mb-1">Đồng nghĩa</label>
+                                <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">Đồng nghĩa</label>
                                 <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)}
-                                    className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 border border-gray-200 rounded-lg focus:border-indigo-500" placeholder="食事する..."
+                                    className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" placeholder="食事する..."
                                 />
                             </div>
                         </div>
@@ -3081,10 +3195,10 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
 
                 {/* Cột Phải: Thông tin bổ sung (luôn hiển thị nhưng bố cục gọn hơn) */}
                 <div className="space-y-3">
-                    <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm space-y-3">
-                        <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider">Ngữ cảnh & Ví dụ</h3>
+                    <div className="bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-3">
+                        <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Ngữ cảnh & Ví dụ</h3>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Câu ví dụ (Nhật)</label>
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Câu ví dụ (Nhật)</label>
                             <textarea 
                                 value={example} 
                                 onChange={(e) => setExample(e.target.value)} 
@@ -3096,12 +3210,12 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                                     }
                                 }}
                                 rows="2"
-                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:border-indigo-500 text-xs md:text-sm" 
+                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" 
                                 placeholder="私は毎日ご飯を食べる。" 
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Nghĩa ví dụ (Việt)</label>
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nghĩa ví dụ (Việt)</label>
                             <textarea 
                                 value={exampleMeaning} 
                                 onChange={(e) => setExampleMeaning(e.target.value)} 
@@ -3113,40 +3227,40 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                                     }
                                 }}
                                 rows="2"
-                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:border-indigo-500 text-xs md:text-sm" 
+                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" 
                                 placeholder="Tôi ăn cơm mỗi ngày." 
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Sắc thái / Ghi chú</label>
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Sắc thái / Ghi chú</label>
                             <textarea 
                                 value={nuance} 
                                 onChange={(e) => setNuance(e.target.value)}
                                 rows="3"
-                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:border-indigo-500 text-xs md:text-sm" 
+                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" 
                                 placeholder="Dùng trong văn viết..." 
                             />
                         </div>
                     </div>
 
-                    <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm space-y-3">
-                        <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider">Media</h3>
+                    <div className="bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-3">
+                        <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Media</h3>
                         
                         {/* Image Upload */}
                         <div className="flex items-start space-x-4">
                              <div className="flex-1">
-                                <label htmlFor="image-upload" className="flex flex-col items-center justify-center w-full h-24 border-2 border-gray-300 border-dashed rounded-xl cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <label htmlFor="image-upload" className="flex flex-col items-center justify-center w-full h-24 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-xl cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                                        <ImageIcon className="w-6 h-6 text-gray-400 mb-1" />
-                                        <p className="text-xs text-gray-500">Tải ảnh minh họa</p>
+                                        <ImageIcon className="w-6 h-6 text-gray-400 dark:text-gray-500 mb-1" />
+                                        <p className="text-xs text-gray-500 dark:text-gray-400">Tải ảnh minh họa</p>
                                     </div>
                                     <input id="image-upload" type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
                                 </label>
                              </div>
                              {imagePreview && (
-                                <div className="relative w-24 h-24 rounded-xl overflow-hidden border border-gray-200 shadow-sm group">
+                                <div className="relative w-24 h-24 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-600 shadow-sm group">
                                     <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
-                                    <button type="button" onClick={handleRemoveImage} className="absolute top-1 right-1 bg-white/80 p-1 rounded-full text-red-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button type="button" onClick={handleRemoveImage} className="absolute top-1 right-1 bg-white/80 dark:bg-gray-800/80 p-1 rounded-full text-red-500 dark:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity">
                                         <X className="w-4 h-4" />
                                     </button>
                                 </div>
@@ -3154,26 +3268,26 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                         </div>
 
                         {/* Audio Upload */}
-                        <div className="pt-2 border-t border-gray-100">
+                        <div className="pt-2 border-t border-gray-100 dark:border-gray-700">
                             <button type="button" onClick={() => setShowAudioInput(!showAudioInput)}
-                                className="text-indigo-600 hover:text-indigo-700 text-sm font-medium flex items-center">
+                                className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-medium flex items-center">
                                 <Music className="w-4 h-4 mr-1" />
                                 {showAudioInput ? 'Ẩn Audio' : 'Tùy chỉnh Audio (Mặc định tự động)'}
                             </button>
                             {showAudioInput && (
-                                <div className="mt-2 bg-gray-50 p-3 rounded-xl border border-gray-200">
+                                <div className="mt-2 bg-gray-50 dark:bg-gray-700 p-3 rounded-xl border border-gray-200 dark:border-gray-600">
                                      <div className="flex items-center space-x-2">
-                                        <label htmlFor="audio-upload" className="cursor-pointer flex items-center px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs font-medium text-gray-700 hover:bg-gray-50 shadow-sm">
-                                            <FileAudio className="w-4 h-4 mr-2 text-indigo-500" />
+                                        <label htmlFor="audio-upload" className="cursor-pointer flex items-center px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm">
+                                            <FileAudio className="w-4 h-4 mr-2 text-indigo-500 dark:text-indigo-400" />
                                             {customAudio ? "Đổi file" : "Chọn .wav/.mp3"}
                                         </label>
                                         <input id="audio-upload" type="file" accept=".wav,.mp3,audio/wav,audio/mpeg" onChange={handleAudioFileChange} className="hidden" />
-                                        {customAudio && <span className="text-xs text-emerald-600 font-bold flex items-center"><Check className="w-3 h-3 mr-1" /> Xong</span>}
+                                        {customAudio && <span className="text-xs text-emerald-600 dark:text-emerald-400 font-bold flex items-center"><Check className="w-3 h-3 mr-1" /> Xong</span>}
                                     </div>
                                     {customAudio && (
                                         <div className="flex justify-between items-center mt-2">
-                                            <button type="button" onClick={() => playAudio(customAudio)} className="text-xs text-indigo-600 font-medium hover:underline">Nghe thử</button>
-                                            <button type="button" onClick={() => setCustomAudio('')} className="text-xs text-red-500 hover:text-red-600">Xóa</button>
+                                            <button type="button" onClick={() => playAudio(customAudio)} className="text-xs text-indigo-600 dark:text-indigo-400 font-medium hover:underline">Nghe thử</button>
+                                            <button type="button" onClick={() => setCustomAudio('')} className="text-xs text-red-500 dark:text-red-400 hover:text-red-600 dark:hover:text-red-300">Xóa</button>
                                         </div>
                                     )}
                                 </div>
@@ -3183,12 +3297,12 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                 </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-100">
+            <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-100 dark:border-gray-700">
                 <button
                     type="button"
                     onClick={() => handleSave('continue')}
                     disabled={isSaving || isAiLoading || !front || !back}
-                    className="flex-1 flex items-center justify-center px-3 md:px-4 lg:px-6 py-2 md:py-3 lg:py-4 text-xs md:text-sm lg:text-base font-bold rounded-lg md:rounded-xl shadow-md md:shadow-lg shadow-indigo-200 text-white bg-indigo-600 hover:bg-indigo-700 hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex-1 flex items-center justify-center px-3 md:px-4 lg:px-6 py-2 md:py-3 lg:py-4 text-xs md:text-sm lg:text-base font-bold rounded-lg md:rounded-xl shadow-md md:shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 text-white bg-indigo-600 dark:bg-indigo-500 hover:bg-indigo-700 dark:hover:bg-indigo-600 hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     {isSaving ? <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2" /> : <Plus className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2" />}
                     <span className="text-xs md:text-sm lg:text-base">Lưu & Thêm Tiếp</span>
@@ -3197,7 +3311,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                     type="button"
                     onClick={() => handleSave('back')}
                     disabled={isSaving || isAiLoading || !front || !back}
-                    className="flex-1 flex items-center justify-center px-3 md:px-4 lg:px-6 py-2 md:py-3 lg:py-4 text-xs md:text-sm lg:text-base font-bold rounded-lg md:rounded-xl shadow-sm text-indigo-700 bg-indigo-50 hover:bg-indigo-100 hover:-translate-y-1 transition-all disabled:opacity-50"
+                    className="flex-1 flex items-center justify-center px-3 md:px-4 lg:px-6 py-2 md:py-3 lg:py-4 text-xs md:text-sm lg:text-base font-bold rounded-lg md:rounded-xl shadow-sm text-indigo-700 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 hover:-translate-y-1 transition-all disabled:opacity-50"
                 >
                     <Check className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2" />
                     <span className="text-xs md:text-sm lg:text-base">Lưu & Về Home</span>
@@ -3205,7 +3319,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                 <button
                     type="button"
                     onClick={onBack}
-                    className="px-4 md:px-5 lg:px-6 py-2 md:py-3 lg:py-4 text-xs md:text-sm lg:text-base font-medium rounded-lg md:rounded-xl text-gray-600 bg-white border border-gray-200 hover:bg-gray-50 transition-all"
+                    className="px-4 md:px-5 lg:px-6 py-2 md:py-3 lg:py-4 text-xs md:text-sm lg:text-base font-medium rounded-lg md:rounded-xl text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all"
                 >
                     Hủy
                 </button>
@@ -3365,7 +3479,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
                 </div>
              </div>
              <div className="flex gap-4 pt-4 border-t">
-                 <button onClick={handleSave} className="flex-1 py-2 md:py-2.5 lg:py-3 bg-indigo-600 text-white rounded-lg md:rounded-xl font-bold text-xs md:text-sm lg:text-base shadow-md md:shadow-lg shadow-indigo-200 hover:bg-indigo-700">Lưu Thay Đổi</button>
+                 <button onClick={handleSave} className="flex-1 py-2 md:py-2.5 lg:py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg md:rounded-xl font-bold text-xs md:text-sm lg:text-base shadow-md md:shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors">Lưu Thay Đổi</button>
                  <button onClick={onBack} className="px-4 md:px-5 lg:px-6 py-2 md:py-2.5 lg:py-3 bg-white border border-gray-200 rounded-lg md:rounded-xl font-medium text-xs md:text-sm lg:text-base text-gray-600 hover:bg-gray-50">Hủy</button>
              </div>
         </div>
@@ -3398,7 +3512,7 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
     const [sortOrder, setSortOrder] = useState('newest');
     const [searchTerm, setSearchTerm] = useState(''); // Thêm state cho Search
     const [debouncedSearchTerm] = useDebounce(searchTerm, 300); // Debounce search với 300ms delay
-    const [viewMode, setViewMode] = useState('list'); // 'list' hoặc 'grid'
+    const [viewMode, setViewMode] = useState('grid'); // 'list' hoặc 'grid' - mặc định là grid
 
     const cardsMissingPos = allCards.filter(c => !c.pos || !c.level);
     const filteredCards = useMemo(() => {
@@ -3424,24 +3538,24 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
 
     return (
         <div className="h-full flex flex-col space-y-2 md:space-y-6">
-            <div className="flex flex-col gap-2 md:gap-4 pb-2 md:pb-4 border-b border-gray-100 flex-shrink-0">
+            <div className="flex flex-col gap-2 md:gap-4 pb-2 md:pb-4 border-b border-gray-100 dark:border-gray-700 flex-shrink-0">
                 <div className="flex justify-between items-center">
                     <div>
-                        <h2 className="text-lg md:text-2xl font-bold text-gray-800">Danh Sách Từ Vựng</h2>
-                        <p className="text-xs md:text-sm text-gray-500">Quản lý {allCards.length} thẻ ghi nhớ của bạn</p>
+                        <h2 className="text-lg md:text-2xl font-bold text-gray-800 dark:text-gray-100">Danh Sách Từ Vựng</h2>
+                        <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400">Quản lý {allCards.length} thẻ ghi nhớ của bạn</p>
                     </div>
                     {/* View Mode Toggle */}
-                    <div className="flex bg-gray-100 rounded-lg p-0.5 md:p-1">
+                    <div className="flex bg-gray-100 dark:bg-gray-800 rounded-lg p-0.5 md:p-1">
                         <button 
                             onClick={() => setViewMode('list')}
-                            className={`p-1.5 md:p-2 rounded-md transition-all ${viewMode === 'list' ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}
+                            className={`p-1.5 md:p-2 rounded-md transition-all ${viewMode === 'list' ? 'bg-white dark:bg-gray-700 text-indigo-600 dark:text-indigo-400 shadow-sm' : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300'}`}
                             title="Xem dạng danh sách"
                         >
                             <List className="w-4 h-4 md:w-5 md:h-5"/>
                         </button>
                         <button 
                             onClick={() => setViewMode('grid')}
-                            className={`p-1.5 md:p-2 rounded-md transition-all ${viewMode === 'grid' ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}
+                            className={`p-1.5 md:p-2 rounded-md transition-all ${viewMode === 'grid' ? 'bg-white dark:bg-gray-700 text-indigo-600 dark:text-indigo-400 shadow-sm' : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300'}`}
                             title="Xem dạng thẻ"
                         >
                             <LayoutGrid className="w-4 h-4 md:w-5 md:h-5"/>
@@ -3452,23 +3566,23 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                 <div className="flex flex-wrap gap-2 items-center justify-between">
                      {/* Search Bar */}
                      <div className="relative w-full md:w-96">
-                        <Search className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 w-3 h-3 md:w-4 md:h-4" />
+                        <Search className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-3 h-3 md:w-4 md:h-4" />
                         <input 
                             type="text" 
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             placeholder="Tìm kiếm từ vựng, ý nghĩa, Hán Việt..." 
-                            className="w-full pl-7 md:pl-9 pr-3 md:pr-4 py-1.5 md:py-2 bg-white border border-gray-200 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 transition-all text-xs md:text-sm shadow-sm"
+                            className="w-full pl-7 md:pl-9 pr-3 md:pr-4 py-1.5 md:py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 transition-all text-xs md:text-sm shadow-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                         />
                      </div>
 
                     <div className="flex flex-wrap gap-1.5 md:gap-2">
                         {cardsMissingPos.length > 0 && (
-                            <button onClick={() => onAutoClassifyBatch(cardsMissingPos)} className="px-2 md:px-3 py-1.5 md:py-2 text-[10px] md:text-xs font-bold rounded-lg bg-violet-100 text-violet-700 hover:bg-violet-200 transition-colors flex items-center">
+                            <button onClick={() => onAutoClassifyBatch(cardsMissingPos)} className="px-2 md:px-3 py-1.5 md:py-2 text-[10px] md:text-xs font-bold rounded-lg bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 hover:bg-violet-200 dark:hover:bg-violet-900/50 transition-colors flex items-center">
                                 <Sparkles className="w-3 h-3 md:w-3.5 md:h-3.5 mr-1 md:mr-1.5" /> Auto-Tags ({cardsMissingPos.length})
                             </button>
                         )}
-                        <button onClick={() => onExport(allCards)} className="px-2 md:px-3 py-1.5 md:py-2 text-[10px] md:text-xs font-bold rounded-lg bg-teal-50 text-teal-600 hover:bg-teal-100 transition-colors flex items-center">
+                        <button onClick={() => onExport(allCards)} className="px-2 md:px-3 py-1.5 md:py-2 text-[10px] md:text-xs font-bold rounded-lg bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-teal-900/50 transition-colors flex items-center">
                             <Upload className="w-3 h-3 md:w-3.5 md:h-3.5 mr-1 md:mr-1.5" /> Xuất Excel
                         </button>
                     </div>
@@ -3476,41 +3590,41 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
             </div>
 
             {/* Filters */}
-            <div className="grid grid-cols-3 gap-1.5 md:gap-3 bg-gray-50 p-2 md:p-4 rounded-lg md:rounded-xl border border-gray-100 flex-shrink-0">
+            <div className="grid grid-cols-3 gap-1.5 md:gap-3 bg-gray-50 dark:bg-gray-800 p-2 md:p-4 rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-700 flex-shrink-0">
                 <div className="space-y-0.5 md:space-y-1">
-                    <label className="text-[9px] md:text-[10px] font-bold text-gray-400 uppercase tracking-wider">Sắp xếp</label>
+                    <label className="text-[9px] md:text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Sắp xếp</label>
                     <div className="relative">
-                        <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white border border-gray-200 rounded-md md:rounded-lg focus:border-indigo-500 appearance-none">
+                        <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-md md:rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 appearance-none text-gray-900 dark:text-gray-100">
                             <option value="newest">Mới nhất</option>
                             <option value="oldest">Cũ nhất</option>
                         </select>
-                        <ArrowDown className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
+                        <ArrowDown className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
                     </div>
                 </div>
                 <div className="space-y-0.5 md:space-y-1">
-                    <label className="text-[9px] md:text-[10px] font-bold text-gray-400 uppercase tracking-wider">Cấp độ</label>
+                    <label className="text-[9px] md:text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Cấp độ</label>
                     <div className="relative">
-                        <select value={filterLevel} onChange={(e) => setFilterLevel(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white border border-gray-200 rounded-md md:rounded-lg focus:border-indigo-500 appearance-none">
+                        <select value={filterLevel} onChange={(e) => setFilterLevel(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-md md:rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 appearance-none text-gray-900 dark:text-gray-100">
                             <option value="all">Tất cả</option>
                             {JLPT_LEVELS.map(l => (<option key={l.value} value={l.value}>{l.label}</option>))}
                         </select>
-                        <GraduationCap className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
+                        <GraduationCap className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
                     </div>
                 </div>
                 <div className="space-y-0.5 md:space-y-1">
-                    <label className="text-[9px] md:text-[10px] font-bold text-gray-400 uppercase tracking-wider">Từ loại</label>
+                    <label className="text-[9px] md:text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Từ loại</label>
                     <div className="relative">
-                         <select value={filterPos} onChange={(e) => setFilterPos(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white border border-gray-200 rounded-md md:rounded-lg focus:border-indigo-500 appearance-none">
+                         <select value={filterPos} onChange={(e) => setFilterPos(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-md md:rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 appearance-none text-gray-900 dark:text-gray-100">
                             <option value="all">Tất cả</option>
                             {Object.entries(POS_TYPES).map(([k,v]) => (<option key={k} value={k}>{v.label}</option>))}
                         </select>
-                        <Tag className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
+                        <Tag className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
                     </div>
                 </div>
             </div>
 
             {/* CONTENT AREA: LIST or GRID - Scrollable */}
-            <div className="flex-1 overflow-y-auto overflow-x-hidden min-h-0">
+            <div className="flex-1">
             {viewMode === 'list' ? (
                 <div className="bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                     <div className="overflow-x-auto">
@@ -3571,44 +3685,44 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                         const isDue = card.nextReview_back <= new Date().setHours(0,0,0,0);
                         
                         return (
-                            <div key={card.id} className="bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden relative group">
-                                {/* Top colored bar */}
-                                <div className={`h-1.5 md:h-2 w-full ${levelColor.replace('bg-', 'bg-gradient-to-r from-').replace(' text-', ' to-white ')}`}></div>
+                            <div key={card.id} className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl md:rounded-2xl shadow-md dark:shadow-lg border-2 border-gray-200 dark:border-gray-700 hover:shadow-xl dark:hover:shadow-2xl hover:-translate-y-1 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all duration-300 flex flex-col overflow-hidden relative group">
+                                {/* Top colored bar với gradient đẹp hơn */}
+                                <div className={`h-2 md:h-2.5 w-full ${levelColor.replace('bg-', 'bg-gradient-to-r from-').replace(' text-', ' to-white dark:to-gray-800 ')}`}></div>
                                 
-                                <div className="p-3 md:p-5 flex-grow">
+                                <div className="p-3 md:p-5 flex-grow bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
                                     <div className="flex justify-between items-start mb-2 md:mb-3">
                                         <div className="flex flex-col gap-0.5 md:gap-1">
                                             {card.level ? (
-                                                <span className={`text-[9px] md:text-[10px] font-bold px-1.5 md:px-2 py-0.5 rounded border self-start ${levelColor}`}>
+                                                <span className={`text-[9px] md:text-[10px] font-bold px-1.5 md:px-2 py-0.5 rounded-md border-2 self-start shadow-sm ${levelColor}`}>
                                                     {card.level}
                                                 </span>
                                             ) : <span className="h-3 md:h-4"></span>}
                                         </div>
                                         {isDue && (
-                                            <span className="text-red-500 bg-red-50 p-0.5 md:p-1 rounded-full" title="Cần ôn tập">
+                                            <span className="text-red-500 dark:text-red-400 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 p-0.5 md:p-1 rounded-full shadow-sm" title="Cần ôn tập">
                                                 <Clock className="w-2.5 h-2.5 md:w-3 md:h-3" />
                                             </span>
                                         )}
                                     </div>
                                     
-                                    <h3 className="text-base md:text-xl font-bold text-gray-800 mb-0.5 md:mb-1">{card.front}</h3>
-                                    {card.sinoVietnamese && <p className="text-[10px] md:text-xs font-medium text-pink-500 mb-1.5 md:mb-2">{card.sinoVietnamese}</p>}
+                                    <h3 className="text-base md:text-xl font-bold text-gray-800 dark:text-gray-100 mb-0.5 md:mb-1 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{card.front}</h3>
+                                    {card.sinoVietnamese && <p className="text-[10px] md:text-xs font-medium text-pink-600 dark:text-pink-400 bg-pink-50 dark:bg-pink-900/30 px-2 py-0.5 rounded-md inline-block">{card.sinoVietnamese}</p>}
                                     
-                                    <div className="h-px bg-gray-100 w-full my-1.5 md:my-2"></div>
+                                    <div className="h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-700 to-transparent w-full my-1.5 md:my-2"></div>
                                     
-                                    <p className="text-xs md:text-sm text-gray-600 line-clamp-2" title={card.back}>{card.back}</p>
+                                    <p className="text-xs md:text-sm text-gray-700 dark:text-gray-300 line-clamp-2 leading-relaxed" title={card.back}>{card.back}</p>
                                 </div>
                                 
-                                {/* Bottom Action Bar */}
-                                <div className="bg-gray-50 px-3 md:px-4 py-2 md:py-3 flex justify-between items-center border-t border-gray-100">
-                                     <button onClick={() => onPlayAudio(card.audioBase64, card.front)} className="text-indigo-500 hover:bg-indigo-100 p-1 md:p-1.5 rounded-lg">
+                                {/* Bottom Action Bar với background đẹp hơn */}
+                                <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 px-3 md:px-4 py-2 md:py-3 flex justify-between items-center border-t-2 border-gray-200 dark:border-gray-600">
+                                     <button onClick={() => onPlayAudio(card.audioBase64, card.front)} className="text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 hover:text-indigo-700 dark:hover:text-indigo-300 p-1 md:p-1.5 rounded-lg transition-all shadow-sm hover:shadow-md">
                                         <Volume2 className="w-3 h-3 md:w-4 md:h-4"/>
                                      </button>
                                      <div className="flex gap-1.5 md:gap-2">
-                                        <button onClick={() => onNavigateToEdit(card)} className="text-blue-500 hover:bg-blue-100 p-1 md:p-1.5 rounded-lg">
+                                        <button onClick={() => onNavigateToEdit(card)} className="text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 p-1 md:p-1.5 rounded-lg transition-all shadow-sm hover:shadow-md">
                                             <Edit className="w-3 h-3 md:w-4 md:h-4"/>
                                         </button>
-                                        <button onClick={() => onDeleteCard(card.id, card.front)} className="text-red-500 hover:bg-red-100 p-1 md:p-1.5 rounded-lg">
+                                        <button onClick={() => onDeleteCard(card.id, card.front)} className="text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-700 dark:hover:text-red-300 p-1 md:p-1.5 rounded-lg transition-all shadow-sm hover:shadow-md">
                                             <Trash2 className="w-3 h-3 md:w-4 md:h-4"/>
                                         </button>
                                      </div>
@@ -5176,11 +5290,11 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
 
     return (
         <div className="space-y-3 md:space-y-8">
-            <h2 className="text-lg md:text-2xl font-bold text-gray-800 pb-2 md:pb-4 border-b">Thống Kê Chi Tiết</h2>
+            <h2 className="text-lg md:text-2xl font-bold text-gray-800 dark:text-gray-100 pb-2 md:pb-4 border-b dark:border-gray-700">Thống Kê Chi Tiết</h2>
             
             {/* Top Row: Summary Cards - 2 columns on mobile */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
-                 <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 p-3 md:p-5 rounded-xl md:rounded-2xl text-white shadow-lg space-y-1 md:space-y-2">
+                 <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-indigo-600 dark:to-purple-700 p-3 md:p-5 rounded-xl md:rounded-2xl text-white shadow-lg space-y-1 md:space-y-2">
                      <div className="flex justify-between items-start">
                         <div>
                             <p className="text-[9px] md:text-xs uppercase tracking-wide opacity-80">Mục tiêu mỗi ngày</p>
@@ -5190,16 +5304,16 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                                     min={1}
                                     value={newGoal}
                                     onChange={e => setNewGoal(e.target.value)}
-                                    className="w-12 md:w-20 px-1 md:px-2 py-0.5 md:py-1 rounded-md md:rounded-lg text-lg md:text-2xl font-bold text-indigo-700 bg-white"
+                                    className="w-12 md:w-20 px-1 md:px-2 py-0.5 md:py-1 rounded-md md:rounded-lg text-lg md:text-2xl font-bold text-indigo-700 dark:text-indigo-800 bg-white dark:bg-gray-100"
                                 />
                                 <span className="text-[9px] md:text-xs opacity-90">từ/ngày</span>
                             </div>
                         </div>
-                        <Target className="w-4 h-4 md:w-5 md:h-5 text-indigo-200 flex-shrink-0"/>
+                        <Target className="w-4 h-4 md:w-5 md:h-5 text-indigo-200 dark:text-indigo-300 flex-shrink-0"/>
                      </div>
                      <button
                         onClick={handleSaveGoal}
-                        className="mt-1 md:mt-2 inline-flex items-center px-2 md:px-3 py-1 md:py-1.5 text-[9px] md:text-xs font-semibold rounded-md md:rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                        className="mt-1 md:mt-2 inline-flex items-center px-2 md:px-3 py-1 md:py-1.5 text-[9px] md:text-xs font-semibold rounded-md md:rounded-lg bg-white/10 dark:bg-white/20 hover:bg-white/20 dark:hover:bg-white/30 transition-colors"
                      >
                         <Save className="w-2.5 h-2.5 md:w-3 md:h-3 mr-0.5 md:mr-1" /> Lưu mục tiêu
                      </button>
@@ -5208,29 +5322,29 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                     title="Trong tuần" 
                     count={wordsAddedThisWeek} 
                     icon={TrendingUp} 
-                    color={{bg:'bg-gradient-to-br from-sky-50 to-sky-100',border:'border border-sky-100',text:'text-sky-600',iconBg:'bg-white/80'}} 
+                    color={{bg:'bg-gradient-to-br from-sky-50 to-sky-100 dark:from-sky-900/30 dark:to-sky-800/30',border:'border border-sky-100 dark:border-sky-800',text:'text-sky-600 dark:text-sky-400',iconBg:'bg-white/80 dark:bg-gray-800/80'}} 
                     subtext="từ vựng mới" 
                 />
                 <MemoryStatCard 
                     title="Chuỗi ngày" 
                     count={streak} 
                     icon={Flame} 
-                    color={{bg:'bg-gradient-to-br from-orange-50 to-amber-100',border:'border border-amber-100',text:'text-orange-600',iconBg:'bg-white/80'}} 
+                    color={{bg:'bg-gradient-to-br from-orange-50 to-amber-100 dark:from-orange-900/30 dark:to-amber-900/30',border:'border border-amber-100 dark:border-amber-900/30',text:'text-orange-600 dark:text-orange-400',iconBg:'bg-white/80 dark:bg-gray-800/80'}} 
                     subtext="liên tục" 
                 />
                 <MemoryStatCard 
                     title="Tổng số" 
                     count={totalCards} 
                     icon={List} 
-                    color={{bg:'bg-gradient-to-br from-slate-50 to-slate-100',border:'border border-slate-100',text:'text-slate-700',iconBg:'bg-white/80'}} 
+                    color={{bg:'bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800/30 dark:to-slate-700/30',border:'border border-slate-100 dark:border-slate-700',text:'text-slate-700 dark:text-slate-300',iconBg:'bg-white/80 dark:bg-gray-800/80'}} 
                 />
             </div>
 
             {/* Middle Row: Charts */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-8">
                 {/* Pie Chart: Memory Retention */}
-                 <div className="bg-white p-3 md:p-6 rounded-xl md:rounded-2xl border border-gray-100 shadow-sm">
-                    <h3 className="text-sm md:text-lg font-bold text-gray-700 mb-2 md:mb-4">Ghi nhớ Từ vựng</h3>
+                 <div className="bg-white dark:bg-gray-800 p-3 md:p-6 rounded-xl md:rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                    <h3 className="text-sm md:text-lg font-bold text-gray-700 dark:text-gray-200 mb-2 md:mb-4">Ghi nhớ Từ vựng</h3>
                         {pieData.length > 0 ? (
                         <div ref={pieChartRef} className="chart-container">
                             {pieChartSize.width > 0 ? (
@@ -5268,8 +5382,8 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                  </div>
 
                  {/* Bar Chart: JLPT Progress */}
-                 <div className="bg-white p-3 md:p-6 rounded-xl md:rounded-2xl border border-gray-100 shadow-sm">
-                    <h3 className="text-sm md:text-lg font-bold text-gray-700 mb-2 md:mb-4">Tiến độ theo Cấp độ JLPT</h3>
+                 <div className="bg-white dark:bg-gray-800 p-3 md:p-6 rounded-xl md:rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                    <h3 className="text-sm md:text-lg font-bold text-gray-700 dark:text-gray-200 mb-2 md:mb-4">Tiến độ theo Cấp độ JLPT</h3>
                     {jlptData && jlptData.length > 0 ? (
                         <div ref={barChartRef} className="chart-container">
                             {barChartSize.width > 0 ? (
@@ -5282,7 +5396,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                                     if (active && payload && payload.length) {
                                         const d = payload[0].payload;
                                         return (
-                                                <div className="bg-white p-1.5 md:p-2 border border-gray-100 shadow-lg rounded-md md:rounded-lg text-[10px] md:text-xs">
+                                                <div className="bg-white dark:bg-gray-800 p-1.5 md:p-2 border border-gray-100 dark:border-gray-700 shadow-lg rounded-md md:rounded-lg text-[10px] md:text-xs text-gray-900 dark:text-gray-100">
                                                 <p className="font-bold">{d.name}</p>
                                                 <p>Đã có: {d.count}</p>
                                                 <p>Yêu cầu: {d.target}</p>
@@ -5432,49 +5546,49 @@ const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteU
 
     return (
         <div className="space-y-3 md:space-y-6">
-            <h2 className="text-lg md:text-2xl font-bold text-gray-800 pb-2 md:pb-4 border-b">Bảng Xếp Hạng</h2>
-            <div className="bg-white rounded-xl md:rounded-2xl border border-gray-100 overflow-hidden">
+            <h2 className="text-lg md:text-2xl font-bold text-gray-800 dark:text-gray-100 pb-2 md:pb-4 border-b dark:border-gray-700">Bảng Xếp Hạng</h2>
+            <div className="bg-white dark:bg-gray-800 rounded-xl md:rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
                 <div className="overflow-x-auto overflow-y-visible -mx-2 md:mx-0 px-2 md:px-0">
                     <table className="w-full min-w-[600px]">
-                    <thead className="bg-gray-50 border-b border-gray-100">
+                    <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-100 dark:border-gray-600">
                         <tr>
-                                <th className="px-3 md:px-6 py-2 md:py-4 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase">Hạng</th>
-                                <th className="px-3 md:px-6 py-2 md:py-4 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase">Thành viên</th>
-                                <th className="px-2 md:px-4 py-2 md:py-4 text-center text-[10px] md:text-xs font-bold text-amber-600 uppercase">Ngắn</th> 
-                                <th className="px-2 md:px-4 py-2 md:py-4 text-center text-[10px] md:text-xs font-bold text-emerald-600 uppercase">Trung</th>
-                                <th className="px-2 md:px-4 py-2 md:py-4 text-center text-[10px] md:text-xs font-bold text-green-700 uppercase">Dài</th> 
-                                <th className="px-3 md:px-6 py-2 md:py-4 text-right text-[10px] md:text-xs font-bold text-gray-500 uppercase">Tổng từ</th>
-                                {isAdmin && <th className="px-2 md:px-4 py-2 md:py-4 text-right text-[10px] md:text-xs font-bold text-red-500 uppercase">Admin</th>}
+                                <th className="px-3 md:px-6 py-2 md:py-4 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">Hạng</th>
+                                <th className="px-3 md:px-6 py-2 md:py-4 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">Thành viên</th>
+                                <th className="px-2 md:px-4 py-2 md:py-4 text-center text-[10px] md:text-xs font-bold text-amber-600 dark:text-amber-400 uppercase">Ngắn</th> 
+                                <th className="px-2 md:px-4 py-2 md:py-4 text-center text-[10px] md:text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Trung</th>
+                                <th className="px-2 md:px-4 py-2 md:py-4 text-center text-[10px] md:text-xs font-bold text-green-700 dark:text-green-400 uppercase">Dài</th> 
+                                <th className="px-3 md:px-6 py-2 md:py-4 text-right text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">Tổng từ</th>
+                                {isAdmin && <th className="px-2 md:px-4 py-2 md:py-4 text-right text-[10px] md:text-xs font-bold text-red-500 dark:text-red-400 uppercase">Admin</th>}
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-50">
+                    <tbody className="divide-y divide-gray-50 dark:divide-gray-700">
                         {friendStats.map((u, i) => (
-                            <tr key={u.userId} className={u.userId === currentUserId ? 'bg-indigo-50/50' : ''}>
-                                    <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm font-bold text-gray-400">#{i + 1}</td>
-                                    <td className={`px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm font-bold ${u.userId === currentUserId ? 'text-indigo-600' : 'text-gray-700'}`}>
+                            <tr key={u.userId} className={u.userId === currentUserId ? 'bg-indigo-50/50 dark:bg-indigo-900/20' : ''}>
+                                    <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm font-bold text-gray-400 dark:text-gray-500">#{i + 1}</td>
+                                    <td className={`px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm font-bold ${u.userId === currentUserId ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-700 dark:text-gray-300'}`}>
                                         <div className="flex items-center gap-1.5 md:gap-2">
                                             <span className="truncate max-w-[120px] md:max-w-none">{u.displayName} {u.userId === currentUserId && '(Bạn)'}</span>
                                         {isAdmin && (
                                                 <span className={`px-1.5 md:px-2 py-0.5 text-[9px] md:text-[10px] font-semibold rounded-full border flex-shrink-0 ${
                                                 u.isApproved
-                                                    ? 'bg-emerald-50 text-emerald-700 border-emerald-100'
-                                                    : 'bg-yellow-50 text-amber-700 border-amber-100'
+                                                    ? 'bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-100 dark:border-emerald-800'
+                                                    : 'bg-yellow-50 dark:bg-yellow-900/30 text-amber-700 dark:text-amber-300 border-amber-100 dark:border-amber-800'
                                             }`}>
                                                 {u.isApproved ? 'Đã duyệt' : 'Chờ duyệt'}
                                             </span>
                                         )}
                                     </div>
                                 </td>
-                                    <td className="px-2 md:px-4 py-2 md:py-4 text-center text-xs md:text-sm font-medium text-amber-600">{u.shortTerm || 0}</td>
-                                    <td className="px-2 md:px-4 py-2 md:py-4 text-center text-xs md:text-sm font-medium text-emerald-600">{u.midTerm || 0}</td>
-                                    <td className="px-2 md:px-4 py-2 md:py-4 text-center text-xs md:text-sm font-medium text-green-700">{u.longTerm || 0}</td>
-                                    <td className="px-3 md:px-6 py-2 md:py-4 text-right text-xs md:text-sm font-bold text-emerald-600">{u.totalCards}</td>
+                                    <td className="px-2 md:px-4 py-2 md:py-4 text-center text-xs md:text-sm font-medium text-amber-600 dark:text-amber-400">{u.shortTerm || 0}</td>
+                                    <td className="px-2 md:px-4 py-2 md:py-4 text-center text-xs md:text-sm font-medium text-emerald-600 dark:text-emerald-400">{u.midTerm || 0}</td>
+                                    <td className="px-2 md:px-4 py-2 md:py-4 text-center text-xs md:text-sm font-medium text-green-700 dark:text-green-400">{u.longTerm || 0}</td>
+                                    <td className="px-3 md:px-6 py-2 md:py-4 text-right text-xs md:text-sm font-bold text-emerald-600 dark:text-emerald-400">{u.totalCards}</td>
                                 {isAdmin && (
                                         <td className="px-2 md:px-4 py-2 md:py-4 text-right space-x-1 md:space-x-2">
                                         <button
                                             type="button"
                                             onClick={() => handleOpenEdit(u)}
-                                                className="px-2 md:px-3 py-1 md:py-1.5 text-[10px] md:text-xs font-semibold rounded-md md:rounded-lg border border-indigo-200 text-indigo-600 hover:bg-indigo-50 whitespace-nowrap"
+                                                className="px-2 md:px-3 py-1 md:py-1.5 text-[10px] md:text-xs font-semibold rounded-md md:rounded-lg border border-indigo-200 dark:border-indigo-700 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 whitespace-nowrap transition-colors"
                                         >
                                             Sửa
                                         </button>
@@ -5486,10 +5600,10 @@ const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteU
                                                     onAdminDeleteUserData(u.userId);
                                                 }
                                             }}
-                                                className={`px-2 md:px-3 py-1 md:py-1.5 text-[10px] md:text-xs font-semibold rounded-md md:rounded-lg border whitespace-nowrap ${
+                                                className={`px-2 md:px-3 py-1 md:py-1.5 text-[10px] md:text-xs font-semibold rounded-md md:rounded-lg border whitespace-nowrap transition-colors ${
                                                 u.userId === currentUserId
-                                                    ? 'border-gray-200 text-gray-300 cursor-not-allowed'
-                                                    : 'border-red-200 text-red-600 hover:bg-red-50'
+                                                    ? 'border-gray-200 dark:border-gray-700 text-gray-300 dark:text-gray-600 cursor-not-allowed'
+                                                    : 'border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30'
                                             }`}
                                         >
                                             Xoá dữ liệu
@@ -5503,31 +5617,31 @@ const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteU
                 </div>
             </div>
             {isAdmin && editingUser && (
-                <div className="bg-white rounded-2xl border border-indigo-100 shadow-sm p-4 space-y-3">
-                    <h3 className="text-sm font-bold text-gray-800">
-                        Chỉnh sửa người dùng: <span className="text-indigo-600">{editingUser.displayName || editingUser.userId}</span>
+                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-indigo-100 dark:border-indigo-900/30 shadow-sm p-4 space-y-3">
+                    <h3 className="text-sm font-bold text-gray-800 dark:text-gray-100">
+                        Chỉnh sửa người dùng: <span className="text-indigo-600 dark:text-indigo-400">{editingUser.displayName || editingUser.userId}</span>
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="space-y-2">
-                            <label className="block text-xs font-semibold text-gray-700">Tên hiển thị</label>
+                            <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300">Tên hiển thị</label>
                             <input
                                 type="text"
                                 value={editDisplayName}
                                 onChange={(e) => setEditDisplayName(e.target.value)}
-                                className="w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 outline-none"
+                                className="w-full px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 outline-none text-gray-900 dark:text-gray-100"
                             />
                         </div>
                         <div className="space-y-2">
-                            <label className="block text-xs font-semibold text-gray-700">Mục tiêu/ngày</label>
+                            <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300">Mục tiêu/ngày</label>
                         <div className="flex items-center gap-2 pt-1">
                             <input
                                 id="edit-approved"
                                 type="checkbox"
                                 checked={editApproved}
                                 onChange={(e) => setEditApproved(e.target.checked)}
-                                className="w-4 h-4 text-indigo-600 border-gray-300 rounded"
+                                className="w-4 h-4 text-indigo-600 dark:text-indigo-400 border-gray-300 dark:border-gray-600 rounded"
                             />
-                            <label htmlFor="edit-approved" className="text-xs text-gray-600">
+                            <label htmlFor="edit-approved" className="text-xs text-gray-600 dark:text-gray-400">
                                 Cho phép tài khoản này sử dụng app (Admin duyệt)
                             </label>
                         </div>
@@ -5536,13 +5650,13 @@ const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteU
                                 min={1}
                                 value={editGoal}
                                 onChange={(e) => setEditGoal(e.target.value)}
-                                className="w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 outline-none"
+                                className="w-full px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 outline-none text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                                 placeholder="Giữ nguyên nếu để trống"
                             />
                         </div>
                     </div>
                     {editError && (
-                        <div className="text-xs text-red-600 bg-red-50 border border-red-100 rounded-xl px-3 py-2">
+                        <div className="text-xs text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/30 border border-red-100 dark:border-red-800 rounded-xl px-3 py-2">
                             {editError}
                         </div>
                     )}
@@ -5550,7 +5664,7 @@ const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteU
                         <button
                             type="button"
                             onClick={() => { setEditingUser(null); setEditError(''); }}
-                            className="px-4 py-2 text-xs font-semibold rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-50"
+                            className="px-4 py-2 text-xs font-semibold rounded-xl border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                         >
                             Huỷ
                         </button>
@@ -5558,7 +5672,7 @@ const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteU
                             type="button"
                             disabled={editSaving}
                             onClick={handleSaveEdit}
-                            className="px-4 py-2 text-xs font-semibold rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-50"
+                            className="px-4 py-2 text-xs font-semibold rounded-xl bg-indigo-600 dark:bg-indigo-500 text-white hover:bg-indigo-700 dark:hover:bg-indigo-600 disabled:opacity-50 transition-colors"
                         >
                             {editSaving ? 'Đang lưu...' : 'Lưu thay đổi'}
                         </button>

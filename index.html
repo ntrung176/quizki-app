@@ -5,6 +5,23 @@
     <link rel="icon" type="image/svg+xml" href="/quizki-icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <title>QuizKi v2.0</title>
+    <script>
+      // Force remove dark class ngay từ đầu để đảm bảo light mode mặc định
+      (function() {
+        const html = document.documentElement;
+        // Kiểm tra localStorage trước
+        const saved = localStorage.getItem('darkMode');
+        // Nếu không có giá trị hoặc là 'false', xóa và đặt light mode
+        if (!saved || saved === 'false') {
+          localStorage.removeItem('darkMode'); // Xóa để đảm bảo mặc định
+          html.classList.remove('dark');
+          html.style.colorScheme = 'light';
+        } else if (saved === 'true') {
+          html.classList.add('dark');
+          html.style.colorScheme = 'dark';
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

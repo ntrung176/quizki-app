@@ -86,6 +86,7 @@
 /* Main content padding to avoid header overlap */
 .main-with-header {
   padding-top: calc(3rem + 0.5rem); /* h-12 (48px) + 8px spacing */
+  box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
