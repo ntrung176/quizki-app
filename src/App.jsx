@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import { useDebounce } from 'use-debounce';
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signInAnonymously, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail, updatePassword, sendEmailVerification } from 'firebase/auth';
 import { getFirestore, doc, setDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, addDoc, getDocs, where, writeBatch, increment } from 'firebase/firestore';
@@ -3413,14 +3414,15 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
     const [filterPos, setFilterPos] = useState('all');
     const [sortOrder, setSortOrder] = useState('newest');
     const [searchTerm, setSearchTerm] = useState(''); // Thêm state cho Search
+    const [debouncedSearchTerm] = useDebounce(searchTerm, 300); // Debounce search với 300ms delay
     const [viewMode, setViewMode] = useState('list'); // 'list' hoặc 'grid'
 
     const cardsMissingPos = allCards.filter(c => !c.pos || !c.level);
     const filteredCards = useMemo(() => {
         let result = [...allCards];
-        // Lọc theo tìm kiếm
-        if (searchTerm.trim()) {
-            const lowerTerm = searchTerm.toLowerCase().trim();
+        // Lọc theo tìm kiếm (sử dụng debounced value để giảm re-renders)
+        if (debouncedSearchTerm.trim()) {
+            const lowerTerm = debouncedSearchTerm.toLowerCase().trim();
             result = result.filter(c => 
                 c.front.toLowerCase().includes(lowerTerm) || 
                 c.back.toLowerCase().includes(lowerTerm) || 
@@ -3432,7 +3434,10 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
         if (filterPos !== 'all') result = result.filter(c => c.pos === filterPos);
         sortOrder === 'newest' ? result.sort((a, b) => b.createdAt - a.createdAt) : result.sort((a, b) => a.createdAt - b.createdAt);
         return result;
-    }, [allCards, filterLevel, filterPos, sortOrder, searchTerm]);
+    }, [allCards, filterLevel, filterPos, sortOrder, debouncedSearchTerm]);
+
+    // Note: Virtual scrolling tạm thời disable, có thể enable sau
+    // const useVirtualScrolling = viewMode === 'grid' && filteredCards.length > 100;
 
     return (
         <div className="h-full flex flex-col space-y-2 md:space-y-6">
@@ -3576,6 +3581,7 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                     </div>
                 </div>
             ) : (
+                // Normal grid cho small lists
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
                     {filteredCards.map((card) => {
                         const levelColor = getLevelColor(card.level);

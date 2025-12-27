@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   // Base path for GitHub Pages (repo: quizki-app) - chỉ dùng khi build production
-  base: process.env.NODE_ENV === 'production' ? '/quizki-app/' : '/',
+  base: '/',
   build: {
     rollupOptions: {
       output: {
