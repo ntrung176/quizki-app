@@ -2,8 +2,8 @@ import './App.css';
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useDebounce } from 'use-debounce';
 import { initializeApp } from 'firebase/app';
-import { getAuth, onAuthStateChanged, signInAnonymously, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail, updatePassword, sendEmailVerification } from 'firebase/auth';
-import { getFirestore, doc, setDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, addDoc, getDocs, where, writeBatch, increment } from 'firebase/firestore';
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail, updatePassword, sendEmailVerification } from 'firebase/auth';
+import { getFirestore, doc, setDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, getDocs, where, writeBatch, increment } from 'firebase/firestore';
 import { Loader2, Plus, Repeat2, Home, CheckCircle, XCircle, Volume2, Send, BookOpen, Clock, HeartHandshake, List, Calendar, Trash2, Mic, FileText, MessageSquare, HelpCircle, Upload, Wand2, BarChart3, Users, PieChart as PieChartIcon, Target, Save, Edit, Zap, Eye, EyeOff, AlertTriangle, Check, VolumeX, Image as ImageIcon, X, Music, FileAudio, Tag, Sparkles, Filter, ArrowDown, ArrowUp, GraduationCap, Search, Languages, RefreshCw, Settings, ChevronRight, Wrench, LayoutGrid, Flame, TrendingUp, Lightbulb, Brain, Ear, Keyboard, MousePointerClick, Layers, RotateCw, Lock, LogOut, FileCheck } from 'lucide-react';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 
@@ -18,8 +18,7 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
-const appId = firebaseConfig.appId; // dùng chung cho đường dẫn Firestore
-const initialAuthToken = null; 
+const appId = firebaseConfig.appId; // dùng chung cho đường dẫn Firestore 
 
 let app;
 let db;
@@ -453,13 +452,13 @@ const App = () => {
     }, [authReady, userId]);
 
     // Debug: log trạng thái admin để dễ kiểm tra khi cấu hình
-    useEffect(() => {
-        const rawEnv = import.meta.env.VITE_ADMIN_EMAIL || '';
-        const adminEmailEnv = rawEnv.trim().replace(/^['"]|['"]$/g, '').toLowerCase();
-        const currentEmail = (auth?.currentUser?.email || '').trim().toLowerCase();
-        // Debug admin check - comment out in production if needed
-        // console.log('QuizKi admin check', JSON.stringify({ adminEmailEnv, currentEmail, isAdmin }));
-    }, [authReady, userId, isAdmin]);
+    // useEffect(() => {
+    //     const rawEnv = import.meta.env.VITE_ADMIN_EMAIL || '';
+    //     const adminEmailEnv = rawEnv.trim().replace(/^['"]|['"]$/g, '').toLowerCase();
+    //     const currentEmail = (auth?.currentUser?.email || '').trim().toLowerCase();
+    //     // Debug admin check - comment out in production if needed
+    //     // console.log('QuizKi admin check', JSON.stringify({ adminEmailEnv, currentEmail, isAdmin }));
+    // }, [authReady, userId, isAdmin]);
 
     const handleAdminDeleteUserData = useCallback(async (targetUserId) => {
         if (!db || !appId || !targetUserId) return;
@@ -1387,30 +1386,6 @@ const App = () => {
         }
     };
 
-    const handleSaveProfile = async (displayName) => {
-        if (!settingsDocPath) return;
-        const defaultGoal = 10;
-        const newProfile = {
-            displayName: displayName.trim(),
-            dailyGoal: defaultGoal,
-            hasSeenHelp: false 
-        };
-        try {
-            await setDoc(doc(db, settingsDocPath), newProfile);
-        } catch (e) {
-            console.error("Lỗi lưu hồ sơ:", e);
-        }
-    };
-
-    const handleConfirmHelp = async () => {
-        if (!settingsDocPath) return;
-        try {
-            await updateDoc(doc(db, settingsDocPath), { hasSeenHelp: true });
-        } catch (e) {
-            console.error("Lỗi cập nhật hasSeenHelp:", e);
-        }
-    };
-
     const handleUpdateGoal = async (newGoal) => {
         if (!settingsDocPath || isNaN(newGoal) || newGoal <= 0) {
             setNotification("Mục tiêu phải là một số dương.");
@@ -1485,7 +1460,10 @@ const App = () => {
                 try {
                     errorBody = await response.text();
                     console.error(`Gemini error với key ${i + 1}/${apiKeys.length}:`, errorBody);
-                } catch (_) {}
+                } catch (err) {
+                    // Ignore error when reading error body
+                    console.error('Error reading error response:', err);
+                }
 
                 // Các lỗi có thể retry với key khác: 401, 403, 429
                 const retryableErrors = [401, 403, 429];
@@ -1634,6 +1612,8 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
     };
 
     // --- NEW: Batch Auto-SinoVietnamese ---
+    // Note: Function này chưa được sử dụng, có thể implement sau
+    /*
     const handleAutoSinoVietnameseBatch = async (cardsToProcess) => {
         if (!cardsToProcess || cardsToProcess.length === 0) return;
 
@@ -1687,6 +1667,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
         setNotification(`Đã cập nhật Hán Việt cho ${successCount}/${cardsWithKanji.length} thẻ.`);
         setIsLoading(false);
     };
+    */
 
 
     const memoryStats = useMemo(() => {
@@ -1859,8 +1840,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     onPlayAudio={playAudio} 
                     onExport={() => handleExport(allCards)} 
                     onNavigateToEdit={handleNavigateToEdit} 
-                    onAutoClassifyBatch={handleAutoClassifyBatch} 
-                    onAutoSinoVietnameseBatch={handleAutoSinoVietnameseBatch}
+                    onAutoClassifyBatch={handleAutoClassifyBatch}
                 />;
             case 'IMPORT':
                 return <ImportScreen 
@@ -1900,7 +1880,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                         await updateDoc(doc(db, settingsDocPath), { displayName: newName });
                         setProfile(prev => prev ? { ...prev, displayName: newName } : prev);
                     }}
-                    onChangePassword={async (newPassword, currentPassword) => {
+                    onChangePassword={async (newPassword) => {
                         if (!auth || !auth.currentUser) throw new Error('Chưa đăng nhập.');
                         // Với Email/Password, để đổi mật khẩu an toàn bạn nên reauthenticate với currentPassword.
                         // Ở đây, để đơn giản, ta chỉ gọi updatePassword (Firebase có thể yêu cầu re-auth trong một số trường hợp).
@@ -2383,7 +2363,7 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack,
             return;
         }
         try {
-            await onChangePassword(newPassword, currentPassword);
+            await onChangePassword(newPassword);
             setMessage('Đã cập nhật mật khẩu. Lần sau hãy dùng mật khẩu mới để đăng nhập.');
             setCurrentPassword('');
             setNewPassword('');
@@ -2654,7 +2634,9 @@ const Header = ({ currentView, setView }) => {
     );
 };
 
-const MemoryStatCard = ({ title, count, icon: Icon, color, subtext }) => (
+const MemoryStatCard = ({ title, count, icon: IconComponent, color, subtext }) => {
+    const Icon = IconComponent;
+    return (
     <div className={`relative overflow-hidden p-3 md:p-5 rounded-xl md:rounded-2xl border transition-all duration-300 ${color.bg} ${color.border} group h-full`}>
         {/* Glow background */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
@@ -2675,10 +2657,13 @@ const MemoryStatCard = ({ title, count, icon: Icon, color, subtext }) => (
             </div>
         </div>
     </div>
-);
+    );
+};
 
 // ActionCard component - định nghĩa bên ngoài để tránh tạo lại mỗi lần render
-    const ActionCard = ({ onClick, icon: Icon, title, count, gradient, disabled = false, description, hideCount = false }) => (
+    const ActionCard = ({ onClick, icon: IconComponent, title, count, gradient, disabled = false, description, hideCount = false }) => {
+        const Icon = IconComponent;
+        return (
         <button
             onClick={onClick}
             disabled={disabled}
@@ -2708,7 +2693,8 @@ const MemoryStatCard = ({ title, count, icon: Icon, color, subtext }) => (
             {/* Background Decoration */}
             <Icon className={`absolute -bottom-3 md:-bottom-4 -right-3 md:-right-4 w-24 h-24 md:w-32 md:h-32 group-hover:scale-110 transition-transform duration-500 ${disabled ? 'text-gray-400/10' : 'text-white/10'}`} />
         </button>
-    );
+        );
+    };
 
 const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySessionData, setStudySessionData, setNotification, setReviewMode, setView, onStartReview, onNavigate }) => {
     return (
@@ -2921,13 +2907,11 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
     const [level, setLevel] = useState(''); 
     const [sinoVietnamese, setSinoVietnamese] = useState(''); 
     const [synonymSinoVietnamese, setSynonymSinoVietnamese] = useState(''); 
-    const [imageFile, setImageFile] = useState(null); 
     const [imagePreview, setImagePreview] = useState(null);
     const [customAudio, setCustomAudio] = useState(''); 
     const [showAudioInput, setShowAudioInput] = useState(false); 
     const [isSaving, setIsSaving] = useState(false);
     const [isAiLoading, setIsAiLoading] = useState(false); 
-    const [isFlipped, setIsFlipped] = useState(false); // State để lật card
     const frontInputRef = useRef(null);
 
     // ... (Helpers giữ nguyên: handleImageChange, handleRemoveImage, handleAudioFileChange, handleSave, handleAiAssist, handleKeyDown)
@@ -2937,14 +2921,13 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
             try {
                 const compressedBase64 = await compressImage(file);
                 setImagePreview(compressedBase64);
-                setImageFile(file); 
             } catch (error) {
                 console.error("Lỗi nén ảnh:", error);
                 alert("Không thể xử lý ảnh này.");
             }
         }
     };
-    const handleRemoveImage = () => { setImageFile(null); setImagePreview(null); };
+    const handleRemoveImage = () => { setImagePreview(null); };
     const handleAudioFileChange = (e) => {
         const file = e.target.files[0];
         if (!file) return;
@@ -2959,7 +2942,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
         const success = await onSave({ front, back, synonym, example, exampleMeaning, nuance, pos, level, sinoVietnamese, synonymSinoVietnamese, action, imageBase64: imagePreview, audioBase64: customAudio.trim() !== '' ? customAudio.trim() : null });
         setIsSaving(false); 
         if (success && action === 'continue') {
-            setFront(''); setBack(''); setSynonym(''); setExample(''); setExampleMeaning(''); setNuance(''); setPos(''); setLevel(''); setSinoVietnamese(''); setSynonymSinoVietnamese(''); setImageFile(null); setImagePreview(null); setCustomAudio(''); setShowAudioInput(false);
+            setFront(''); setBack(''); setSynonym(''); setExample(''); setExampleMeaning(''); setNuance(''); setPos(''); setLevel(''); setSinoVietnamese(''); setSynonymSinoVietnamese(''); setImagePreview(null); setCustomAudio(''); setShowAudioInput(false);
             if (frontInputRef.current) frontInputRef.current.focus();
         }
     };
@@ -3247,7 +3230,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
     const [imagePreview, setImagePreview] = useState(card.imageBase64 || null);
     const [customAudio, setCustomAudio] = useState(card.audioBase64 || ''); 
     const [showAudioInput, setShowAudioInput] = useState(false);
-    const [isSaving, setIsSaving] = useState(false);
+    const [_isSaving, setIsSaving] = useState(false); // eslint-disable-line no-unused-vars
     const [isAiLoading, setIsAiLoading] = useState(false); 
     const frontInputRef = useRef(null);
     
@@ -3255,7 +3238,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
     const handleImageChange = async (e) => { const file = e.target.files[0]; if (file) { try { const compressed = await compressImage(file); setImagePreview(compressed); } catch (error) { console.error("Lỗi ảnh:", error); } } };
     const handleRemoveImage = () => { setImagePreview(null); };
     const handleAudioFileChange = (e) => { const file = e.target.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = (event) => { const res = event.target.result; setCustomAudio(res.split(',')[1]); }; reader.readAsDataURL(file); };
-    const handleSave = async () => { if (!front.trim() || !back.trim()) return; setIsSaving(true); await onSave({ cardId: card.id, front, back, synonym, example, exampleMeaning, nuance, pos, level, sinoVietnamese, synonymSinoVietnamese, imageBase64: imagePreview, audioBase64: customAudio.trim() !== '' ? customAudio.trim() : null }); setIsSaving(false); };
+    const handleSave = async () => { if (!front.trim() || !back.trim()) return; setIsSaving(true); await onSave({ cardId: card.id, front, back, synonym, example, exampleMeaning, nuance, pos, level, sinoVietnamese, synonymSinoVietnamese, imageBase64: imagePreview, audioBase64: customAudio.trim() !== '' ? customAudio.trim() : null }); setIsSaving(false); }; // eslint-disable-line no-unused-vars
     const handleAiAssist = async (e) => { e.preventDefault(); if(!front.trim()) return; setIsAiLoading(true); const aiData = await onGeminiAssist(front, pos, level); if(aiData) { if(aiData.frontWithFurigana) setFront(aiData.frontWithFurigana); if(aiData.meaning) setBack(aiData.meaning); if(aiData.sinoVietnamese) setSinoVietnamese(aiData.sinoVietnamese); if(aiData.synonym) setSynonym(aiData.synonym); if(aiData.synonymSinoVietnamese) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese); if(aiData.example) setExample(aiData.example); if(aiData.exampleMeaning) setExampleMeaning(aiData.exampleMeaning); if(aiData.nuance) setNuance(aiData.nuance); if(aiData.pos) setPos(aiData.pos); if(aiData.level) setLevel(aiData.level); } setIsAiLoading(false); };
     const handleKeyDown = (e) => { if(e.key === 'g' && (e.altKey || e.metaKey)) { e.preventDefault(); handleAiAssist(e); }};
 
@@ -3389,7 +3372,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
     );
 };
 
-const SrsStatusCell = ({ intervalIndex, correctStreak, nextReview, hasData }) => {
+const SrsStatusCell = ({ intervalIndex, nextReview, hasData }) => {
     if (!hasData || intervalIndex === -999) return <td className="px-2 md:px-4 py-2 md:py-4 text-xs md:text-sm text-gray-300 italic">--</td>;
     const isDue = nextReview <= new Date().setHours(0,0,0,0);
     const progressColor = intervalIndex >= 3 ? 'bg-green-100 text-green-700 border-green-200' : intervalIndex >= 1 ? 'bg-amber-100 text-amber-700 border-amber-200' : 'bg-gray-100 text-gray-600 border-gray-200';
@@ -3408,7 +3391,7 @@ const SrsStatusCell = ({ intervalIndex, correctStreak, nextReview, hasData }) =>
     );
 };
 
-const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToEdit, onAutoClassifyBatch, onAutoSinoVietnameseBatch }) => {
+const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToEdit, onAutoClassifyBatch }) => {
     // ... (Filter State logic giữ nguyên)
     const [filterLevel, setFilterLevel] = useState('all');
     const [filterPos, setFilterPos] = useState('all');
@@ -3567,7 +3550,7 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                                         </td>
                                         <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-600 truncate" title={card.back}>{card.back}</td>
                                         <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-500 truncate" title={card.synonym || '-'}>{card.synonym || '-'}</td>
-                                        <SrsStatusCell intervalIndex={card.intervalIndex_back} correctStreak={card.correctStreak_back} nextReview={card.nextReview_back} hasData={true}/>
+                                        <SrsStatusCell intervalIndex={card.intervalIndex_back} nextReview={card.nextReview_back} hasData={true}/>
                                         <td className="px-2 md:px-4 py-2 md:py-3 text-right">
                                             <div className="flex justify-end gap-0.5 md:gap-1 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
                                                 <button onClick={() => onNavigateToEdit(card)} className="p-1.5 md:p-2 rounded-lg text-blue-600 hover:bg-blue-50"><Edit className="w-3 h-3 md:w-4 md:h-4"/></button>
@@ -4003,70 +3986,8 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         }
     };
 
-    // --- NEW: Handle Manual Flashcard grading ---
-    const handleFlashcardGrade = async (isCorrect) => {
-        if (isProcessing) return; // V1.6.2 Fix: Chặn nếu đang xử lý
-
-        const cardKey = `${currentCard.id}-${cardReviewType}`;
-        const hasFailedBefore = failedCards.has(cardKey);
-        
-        if (isCorrect) {
-            // Nếu đã từng sai trong lần ôn tập này
-            if (hasFailedBefore) {
-                // Làm đúng lần này: KHÔNG remove khỏi failedCards, KHÔNG tăng streak
-                // Từ này vẫn phải ôn lại sau khi kết thúc phiên ôn tập
-                setIsProcessing(true);
-                setFeedback('correct');
-                setMessage(`Đúng rồi! Nhưng bạn sẽ phải ôn lại từ này sau.`);
-                setIsRevealed(true);
-                setIsLocked(false);
-                playAudio(currentCard.audioBase64, currentCard.front);
-                await new Promise(resolve => setTimeout(resolve, 800));
-                // KHÔNG tăng streak, chỉ chuyển thẻ
-                await moveToNextCard(false);
-            } else {
-                // Chưa từng sai, tính là hoàn thành
-                setIsProcessing(true);
-                setFeedback('correct');
-                setMessage(`Tuyệt vời! ${displayFront}`);
-                setIsRevealed(true); 
-                playAudio(currentCard.audioBase64, currentCard.front);
-                await new Promise(resolve => setTimeout(resolve, 800));
-                await moveToNextCard(true);
-            }
-        } else {
-            // Sai: lưu vào danh sách các từ đã sai và reset streak
-            setFailedCards(prev => new Set([...prev, cardKey]));
-            setFeedback('incorrect');
-            const nuanceText = currentCard.nuance ? ` (${currentCard.nuance})` : '';
-            setMessage(`Đáp án đúng: ${displayFront}${nuanceText}. Hãy làm lại!`);
-            setIsRevealed(true);
-            setIsLocked(true); // Khóa để người dùng phải đánh giá lại đúng mới tiếp tục
-            playAudio(currentCard.audioBase64, currentCard.front);
-            
-            // Cập nhật streak về 0 trong local state ngay lập tức
-            setCards(prevCards => {
-                return prevCards.map(card => {
-                    if (card.id === currentCard.id) {
-                        const updatedCard = { ...card };
-                        if (cardReviewType === 'back') {
-                            updatedCard.correctStreak_back = 0;
-                        } else if (cardReviewType === 'synonym') {
-                            updatedCard.correctStreak_synonym = 0;
-                        } else if (cardReviewType === 'example') {
-                            updatedCard.correctStreak_example = 0;
-                        }
-                        return updatedCard;
-                    }
-                    return card;
-                });
-            });
-            
-            // Cập nhật streak về 0 trong Firestore
-            await onUpdateCard(currentCard.id, false, cardReviewType);
-        }
-    };
-
+    // Flashcard grading logic được xử lý trực tiếp trong checkAnswer và moveToNextCard
+    // handleFlashcardGrade đã được tích hợp vào checkAnswer, không cần function riêng
 
     const moveToNextCard = async (shouldUpdateStreak) => {
         // Cập nhật streak nếu cần
@@ -4581,7 +4502,6 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     const [isRevealed, setIsRevealed] = useState(false);
     const [feedback, setFeedback] = useState(null);
     const [isProcessing, setIsProcessing] = useState(false);
-    const [multipleChoiceResults, setMultipleChoiceResults] = useState({}); // {cardId: isCorrect}
     const [completedCards, setCompletedCards] = useState(new Set()); // Track các từ đã hoàn thành (cả multiple choice và typing)
     const inputRef = useRef(null);
 
@@ -4686,7 +4606,6 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         const isCorrect = normalizeAnswer(selectedOption) === normalizeAnswer(currentCard.front); // So sánh với front (tiếng Nhật)
         setFeedback(isCorrect ? 'correct' : 'incorrect');
         setIsRevealed(true);
-        setMultipleChoiceResults(prev => ({ ...prev, [currentCard.id]: isCorrect }));
         
         playAudio(currentCard.audioBase64, currentCard.front);
         
@@ -4808,7 +4727,6 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             setInputValue('');
             setIsRevealed(false);
             setFeedback(null);
-            setMultipleChoiceResults({});
         }
     };
 
@@ -5051,8 +4969,7 @@ const ImportScreen = ({ onImport, onBack }) => {
      // ... (Logic giữ nguyên)
     const [isLoading, setIsLoading] = useState(false);
     const [fileName, setFileName] = useState('');
-    const [message, setMessage] = useState(''); 
-    const [errorLines, setErrorLines] = useState(0);
+    const [message, setMessage] = useState('');
 
     // Helpers file parsing (Copy từ code cũ)...
     const handleFileParse = (e) => {
@@ -5062,7 +4979,6 @@ const ImportScreen = ({ onImport, onBack }) => {
         setFileName(file.name);
         setIsLoading(true);
         setMessage('');
-        setErrorLines(0);
         
         const reader = new FileReader();
         reader.onload = async (event) => { 
@@ -5091,7 +5007,11 @@ const ImportScreen = ({ onImport, onBack }) => {
                 });
                 
                 if (cardsToImport.length > 0) {
-                    if (invalidCount > 0) setErrorLines(invalidCount); await onImport(cardsToImport); setMessage(`Thành công: ${validCount} thẻ.`);
+                    await onImport(cardsToImport); 
+                    const messageText = invalidCount > 0 
+                        ? `Thành công: ${validCount} thẻ. ${invalidCount} dòng lỗi đã bỏ qua.`
+                        : `Thành công: ${validCount} thẻ.`;
+                    setMessage(messageText);
                 } else { setMessage("File lỗi hoặc rỗng."); setIsLoading(false); }
             } catch (error) { console.error(error); setMessage("Lỗi đọc file."); setIsLoading(false); }
         };
@@ -5408,7 +5328,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
 const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteUserData, onBack }) => {
     // ... Copy logic cũ
     const [friendStats, setFriendStats] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [_isLoading, setIsLoading] = useState(true); // eslint-disable-line no-unused-vars
     const [editingUser, setEditingUser] = useState(null);
     const [editDisplayName, setEditDisplayName] = useState('');
     const [editGoal, setEditGoal] = useState('');
