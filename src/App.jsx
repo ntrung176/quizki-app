@@ -215,9 +215,9 @@ const getWordForMasking = (text) => {
 
 let currentAudioObj = null;
 
-// UPDATED: Play Audio - CHỈ phát audioBase64 đã lưu, không fallback sang Browser TTS
+// Play Audio - CHỈ phát audioBase64 từ Gemini TTS, không dùng Browser TTS/Google Translate
 const playAudio = (base64Data) => {
-    // CHỈ phát audioBase64 nếu có, không fallback sang Browser TTS
+    // CHỈ phát audioBase64 từ Gemini TTS nếu có
     if (!base64Data) {
         return; // Không có audio, không phát gì cả
     }
@@ -261,7 +261,7 @@ const playAudio = (base64Data) => {
 
         audio.play().catch(e => {
             console.error("Lỗi phát audio file:", e);
-            // Không fallback sang Browser TTS, chỉ log lỗi
+            // Chỉ dùng Gemini TTS, không fallback sang Browser TTS
         });
         
         audio.onended = () => {
@@ -272,33 +272,11 @@ const playAudio = (base64Data) => {
         };
     } catch (e) {
         console.error("Lỗi xử lý audio:", e);
-        // Không fallback sang Browser TTS
+        // Chỉ dùng Gemini TTS, không fallback sang Browser TTS
     }
 };
 
-// Helper cho Browser TTS (không dùng nữa, giữ lại để tương lai có thể dùng)
-// eslint-disable-next-line no-unused-vars
-const _playBrowserTts = (text) => {
-    if (!text || typeof window === 'undefined' || !window.speechSynthesis) return;
-    
-    // Stop current speech
-    window.speechSynthesis.cancel();
-
-    // Clean text for TTS (remove brackets mostly)
-    const cleanText = getSpeechText(text); 
-    const utterance = new SpeechSynthesisUtterance(cleanText);
-    utterance.lang = 'ja-JP'; 
-    utterance.rate = 0.9; // Đọc chậm một chút cho rõ
-    
-    // Thử chọn giọng Google hoặc giọng tốt nhất có sẵn
-    const voices = window.speechSynthesis.getVoices();
-    const jaVoice = voices.find(v => v.lang === 'ja-JP' && v.name.includes('Google')) || voices.find(v => v.lang === 'ja-JP');
-    if (jaVoice) utterance.voice = jaVoice;
-
-    // Debug TTS - comment out in production
-    // console.log("Using Browser TTS for:", cleanText);
-    window.speechSynthesis.speak(utterance);
-};
+// NOTE: Chỉ sử dụng Gemini TTS để tạo âm thanh, không dùng Browser TTS/Google Translate nữa
 
 
 // Helper: Lấy danh sách API keys từ env (dùng cho TTS)
@@ -354,13 +332,24 @@ const _fetchTtsApiCall = async (text, voiceName, apiKeys = null, keyIndex = 0) =
                 const result = await response.json();
                 const part = result?.candidates?.[0]?.content?.parts?.[0];
                 const audioData = part?.inlineData?.data;
+                if (audioData) {
+                    console.log(`_fetchTtsApiCall: ✓ Thành công với key ${i + 1}/${apiKeys.length} (Giọng: ${voiceName}) cho "${text}"`);
+                } else {
+                    console.warn(`_fetchTtsApiCall: Response OK nhưng không có audioData cho "${text}"`);
+                }
                 return audioData || null;
             }
 
             // Đọc body lỗi để xác định loại lỗi
             let errorBody = "";
+            let errorJson = null;
             try {
                 errorBody = await response.text();
+                try {
+                    errorJson = JSON.parse(errorBody);
+                } catch (e) {
+                    // Không phải JSON, giữ nguyên errorBody
+                }
                 console.error(`TTS error với key ${i + 1}/${apiKeys.length} (Giọng: ${voiceName}):`, errorBody);
             } catch (err) {
                 console.error('Error reading error response:', err);
@@ -369,9 +358,39 @@ const _fetchTtsApiCall = async (text, voiceName, apiKeys = null, keyIndex = 0) =
             // Các lỗi có thể retry với key khác: 401, 403, 429
             const retryableErrors = [401, 403, 429];
             if (retryableErrors.includes(response.status)) {
-                // Nếu là lỗi 429 và còn key khác, thử key tiếp theo
-                if (i < apiKeys.length - 1) {
-                    continue; // Thử key tiếp theo
+                // Nếu là lỗi 429 (quota exceeded) và còn key khác, chuyển sang key tiếp theo
+                if (response.status === 429) {
+                    console.warn(`Key ${i + 1}/${apiKeys.length} đã hết quota (429). Chuyển sang key tiếp theo...`);
+                    
+                    // Parse retry delay từ error response nếu có
+                    let retryDelay = 1000; // Default 1 giây
+                    if (errorJson?.error?.details) {
+                        const retryInfo = errorJson.error.details.find(d => d['@type'] === 'type.googleapis.com/google.rpc.RetryInfo');
+                        if (retryInfo?.retryDelay) {
+                            // retryDelay có thể là string "27s" hoặc số giây
+                            const delayStr = retryInfo.retryDelay.toString();
+                            const seconds = parseFloat(delayStr.replace('s', ''));
+                            if (!isNaN(seconds)) {
+                                retryDelay = Math.min(seconds * 1000, 5000); // Tối đa 5 giây
+                            }
+                        }
+                    }
+                    
+                    // Nếu còn key khác, đợi một chút rồi thử key tiếp theo
+                    if (i < apiKeys.length - 1) {
+                        console.log(`Đợi ${retryDelay}ms trước khi thử key ${i + 2}/${apiKeys.length}...`);
+                        await new Promise(r => setTimeout(r, retryDelay));
+                        continue; // Thử key tiếp theo
+                    } else {
+                        console.error("Tất cả các API keys đã hết quota. Vui lòng đợi hoặc thêm API keys mới.");
+                        return null;
+                    }
+                } else {
+                    // Lỗi 401, 403: thử key tiếp theo ngay (không cần delay)
+                    if (i < apiKeys.length - 1) {
+                        console.log(`Key ${i + 1}/${apiKeys.length} bị lỗi ${response.status}. Chuyển sang key tiếp theo...`);
+                        continue; // Thử key tiếp theo
+                    }
                 }
             }
             
@@ -391,14 +410,19 @@ const _fetchTtsApiCall = async (text, voiceName, apiKeys = null, keyIndex = 0) =
 };
 
 const fetchTtsBase64 = async (text) => {
-    if (!text || text.length > 100) return null;
+    if (!text || text.length > 100) {
+        console.warn(`fetchTtsBase64: Text không hợp lệ (${text ? text.length : 'null'} chars)`);
+        return null;
+    }
     
     // Lấy danh sách keys một lần để dùng chung cho tất cả các giọng
     const apiKeys = getTtsApiKeys();
     if (apiKeys.length === 0) {
-        console.error("Không có API key nào được cấu hình cho TTS");
+        console.error("fetchTtsBase64: Không có API key nào được cấu hình cho TTS");
         return null;
     }
+    
+    console.log(`fetchTtsBase64: Bắt đầu tạo âm thanh cho "${text}" với ${apiKeys.length} API key(s)`);
     
     // Ưu tiên giọng nam chuẩn: Charon, Orus (giọng nam chuẩn, rõ ràng)
     // Sau đó là các giọng nam khác: Fenrir, Iapetus, Umbriel, Algenib
@@ -418,13 +442,17 @@ const fetchTtsBase64 = async (text) => {
     const voicesToTry = prioritizedVoices.slice(0, 6);
 
     for (const voice of voicesToTry) {
+        console.log(`fetchTtsBase64: Thử giọng "${voice}" cho "${text}" với ${apiKeys.length} API key(s)`);
+        // Thử với tất cả keys từ đầu cho mỗi giọng mới
         const audioData = await _fetchTtsApiCall(text, voice, apiKeys, 0);
         if (audioData) {
+            console.log(`fetchTtsBase64: ✓ Thành công với giọng "${voice}" cho "${text}"`);
             return audioData; 
         }
-        // Delay nhẹ giữa các lần thử
-        await new Promise(r => setTimeout(r, 600));
+        // Delay nhẹ giữa các lần thử giọng khác (không delay nếu đã delay trong _fetchTtsApiCall do 429)
+        await new Promise(r => setTimeout(r, 300));
     }
+    console.warn(`fetchTtsBase64: ✗ Không thể tạo âm thanh cho "${text}" sau khi thử ${voicesToTry.length} giọng với tất cả ${apiKeys.length} API key(s)`);
     return null;
 };
 
@@ -745,6 +773,116 @@ const App = () => {
         });
         return () => unsubscribe();
     }, [authReady, vocabCollectionPath]);
+
+    // Tự động tạo âm thanh cho các từ vựng thiếu âm thanh
+    const generatingAudioRef = useRef(new Set());
+    useEffect(() => {
+        if (!authReady || !vocabCollectionPath || allCards.length === 0) return;
+        
+        // Kiểm tra API keys
+        const apiKeys = getTtsApiKeys();
+        if (apiKeys.length === 0) {
+            console.warn("Không có API key nào được cấu hình cho TTS - bỏ qua tạo âm thanh tự động");
+            return;
+        }
+        
+        // Tìm các thẻ thiếu âm thanh
+        const cardsWithoutAudio = allCards.filter(card => {
+            if (!card.audioBase64 || card.audioBase64 === null) return true;
+            if (typeof card.audioBase64 === 'string' && card.audioBase64.trim() === '') return true;
+            return false;
+        });
+        
+        if (cardsWithoutAudio.length === 0) return;
+        
+        // Kiểm tra xem có thẻ nào đang được xử lý không
+        const cardsToProcess = cardsWithoutAudio.filter(card => 
+            !generatingAudioRef.current.has(card.id)
+        );
+        
+        if (cardsToProcess.length === 0) return;
+        
+        console.log(`Tìm thấy ${cardsToProcess.length} từ vựng thiếu âm thanh, bắt đầu tạo...`);
+        
+        // Đánh dấu các thẻ đang được xử lý
+        cardsToProcess.forEach(card => generatingAudioRef.current.add(card.id));
+        
+        // Hiển thị thông báo
+        setNotification(`Đang tạo âm thanh cho ${cardsToProcess.length} từ vựng...`);
+        
+        // Tạo âm thanh song song cho nhiều thẻ cùng lúc
+        (async () => {
+            let successCount = 0;
+            let failCount = 0;
+            
+            // Lấy danh sách API keys để phân chia tải
+            const maxConcurrent = Math.max(apiKeys.length * 3, 5); // Tối đa 3 request/key hoặc tối thiểu 5
+            
+            // Hàm xử lý một thẻ
+            const processCard = async (card) => {
+                try {
+                    const speechText = getSpeechText(card.front);
+                    if (!speechText || speechText.trim() === '') {
+                        console.warn(`Không có text để tạo âm thanh cho: ${card.front}`);
+                        generatingAudioRef.current.delete(card.id);
+                        return { success: false, cardId: card.id };
+                    }
+                    
+                    console.log(`Đang tạo âm thanh cho: ${card.front}`);
+                    const fetchedAudioBase64 = await fetchTtsBase64(speechText);
+                    
+                    if (fetchedAudioBase64) {
+                        const cardRef = doc(db, vocabCollectionPath, card.id);
+                        await updateDoc(cardRef, { audioBase64: fetchedAudioBase64 });
+                        console.log(`✓ Đã tạo âm thanh thành công cho: ${card.front}`);
+                        return { success: true, cardId: card.id };
+                    } else {
+                        console.warn(`✗ Không thể tạo âm thanh cho: ${card.front} - fetchTtsBase64 trả về null`);
+                        return { success: false, cardId: card.id };
+                    }
+                } catch (e) {
+                    console.error(`Lỗi tạo âm thanh cho thẻ ${card.id} (${card.front}):`, e);
+                    return { success: false, cardId: card.id };
+                } finally {
+                    generatingAudioRef.current.delete(card.id);
+                }
+            };
+            
+            // Xử lý song song với giới hạn số lượng đồng thời
+            const processBatch = async (batch) => {
+                const results = await Promise.allSettled(batch.map(card => processCard(card)));
+                return results;
+            };
+            
+            // Chia thành các batch để xử lý
+            for (let i = 0; i < cardsToProcess.length; i += maxConcurrent) {
+                const batch = cardsToProcess.slice(i, i + maxConcurrent);
+                const results = await processBatch(batch);
+                
+                results.forEach((result, index) => {
+                    if (result.status === 'fulfilled') {
+                        if (result.value.success) {
+                            successCount++;
+                        } else {
+                            failCount++;
+                        }
+                    } else {
+                        failCount++;
+                        const cardId = batch[index]?.id;
+                        if (cardId) generatingAudioRef.current.delete(cardId);
+                    }
+                });
+            }
+            
+            // Cập nhật thông báo
+            console.log(`Hoàn thành tạo âm thanh: ${successCount} thành công, ${failCount} lỗi`);
+            if (successCount > 0) {
+                setNotification(`Đã tạo âm thanh cho ${successCount} từ vựng${failCount > 0 ? ` (${failCount} lỗi)` : ''}`);
+            } else if (failCount > 0) {
+                setNotification(`Không thể tạo âm thanh cho ${failCount} từ vựng. Vui lòng kiểm tra API keys và thử lại sau.`);
+            }
+        })();
+    }, [allCards, authReady, vocabCollectionPath]);
 
     useEffect(() => {
         if (!authReady || !activityCollectionPath) return;
@@ -1079,17 +1217,27 @@ const App = () => {
                 setView('HOME');
             }
 
-            if (!audioBase64) {
+            // Tạo âm thanh nếu chưa có
+            if (!audioBase64 || (typeof audioBase64 === 'string' && audioBase64.trim() === '')) {
                 (async () => {
                     try {
                         const speechText = getSpeechText(front);
+                        if (!speechText || speechText.trim() === '') {
+                            console.log("Không có text để tạo âm thanh cho:", front);
+                            return;
+                        }
+                        
+                        console.log("Bắt đầu tạo âm thanh cho:", front);
                         const fetchedAudioBase64 = await fetchTtsBase64(speechText);
                         
                         if (fetchedAudioBase64 && cardRef) {
                             await updateDoc(cardRef, { audioBase64: fetchedAudioBase64 });
+                            console.log("Đã tạo âm thanh thành công cho:", front);
+                        } else {
+                            console.warn("Không thể tạo âm thanh cho:", front, "- fetchTtsBase64 trả về null");
                         }
                     } catch (e) {
-                        console.error("Lỗi tạo âm thanh (nền):", e);
+                        console.error("Lỗi tạo âm thanh (nền) cho:", front, e);
                     }
                 })(); 
             }
@@ -3668,6 +3816,7 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
     // ... (Filter State logic giữ nguyên)
     const [filterLevel, setFilterLevel] = useState('all');
     const [filterPos, setFilterPos] = useState('all');
+    const [filterAudio, setFilterAudio] = useState('all'); // 'all', 'with', 'without'
     const [sortOrder, setSortOrder] = useState('newest');
     const [searchTerm, setSearchTerm] = useState(''); // Thêm state cho Search
     const [debouncedSearchTerm] = useDebounce(searchTerm, 300); // Debounce search với 300ms delay
@@ -3688,9 +3837,11 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
         }
         if (filterLevel !== 'all') result = result.filter(c => c.level === filterLevel);
         if (filterPos !== 'all') result = result.filter(c => c.pos === filterPos);
+        if (filterAudio === 'with') result = result.filter(c => c.audioBase64 && c.audioBase64.trim() !== '');
+        if (filterAudio === 'without') result = result.filter(c => !c.audioBase64 || c.audioBase64.trim() === '' || c.audioBase64 === null);
         sortOrder === 'newest' ? result.sort((a, b) => b.createdAt - a.createdAt) : result.sort((a, b) => a.createdAt - b.createdAt);
         return result;
-    }, [allCards, filterLevel, filterPos, sortOrder, debouncedSearchTerm]);
+    }, [allCards, filterLevel, filterPos, filterAudio, sortOrder, debouncedSearchTerm]);
 
     // Note: Virtual scrolling tạm thời disable, có thể enable sau
     // const useVirtualScrolling = viewMode === 'grid' && filteredCards.length > 100;
@@ -3778,7 +3929,7 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
             </div>
 
             {/* Filters */}
-            <div className="grid grid-cols-3 gap-1.5 md:gap-3 bg-gray-50 dark:bg-gray-800 p-2 md:p-4 rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-700 flex-shrink-0">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5 md:gap-3 bg-gray-50 dark:bg-gray-800 p-2 md:p-4 rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-700 flex-shrink-0">
                 <div className="space-y-0.5 md:space-y-1">
                     <label className="text-[9px] md:text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Sắp xếp</label>
                     <div className="relative">
@@ -3807,6 +3958,17 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                             {Object.entries(POS_TYPES).map(([k,v]) => (<option key={k} value={k}>{v.label}</option>))}
                         </select>
                         <Tag className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
+                    </div>
+                </div>
+                <div className="space-y-0.5 md:space-y-1">
+                    <label className="text-[9px] md:text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Âm thanh</label>
+                    <div className="relative">
+                        <select value={filterAudio} onChange={(e) => setFilterAudio(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-md md:rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 appearance-none text-gray-900 dark:text-gray-100">
+                            <option value="all">Tất cả</option>
+                            <option value="with">Có âm thanh</option>
+                            <option value="without">Chưa có âm thanh</option>
+                        </select>
+                        <Volume2 className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
                     </div>
                 </div>
             </div>
@@ -3848,7 +4010,7 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                                             </div>
                                         </td>
                                         <td className="px-2 md:px-4 py-2 md:py-3">
-                                            <button onClick={() => onPlayAudio(card.audioBase64, card.front)} className="p-1.5 md:p-2 rounded-full text-indigo-500 hover:bg-indigo-100"><Volume2 className="w-3 h-3 md:w-4 md:h-4"/></button>
+                                            <button onClick={() => onPlayAudio(card.audioBase64, card.front)} className={`p-1.5 md:p-2 rounded-full hover:bg-indigo-100 ${card.audioBase64 ? 'text-indigo-500' : 'text-gray-300 dark:text-gray-600'}`}><Volume2 className="w-3 h-3 md:w-4 md:h-4"/></button>
                                         </td>
                                         <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-600 truncate" title={card.back}>{card.back}</td>
                                         <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-500 truncate" title={card.synonym || '-'}>{card.synonym || '-'}</td>
@@ -3903,7 +4065,7 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                                 
                                 {/* Bottom Action Bar với background đẹp hơn */}
                                 <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 px-3 md:px-4 py-2 md:py-3 flex justify-between items-center border-t-2 border-gray-200 dark:border-gray-600">
-                                     <button onClick={() => onPlayAudio(card.audioBase64, card.front)} className="text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 hover:text-indigo-700 dark:hover:text-indigo-300 p-1 md:p-1.5 rounded-lg transition-all shadow-sm hover:shadow-md">
+                                     <button onClick={() => onPlayAudio(card.audioBase64, card.front)} className={`hover:bg-indigo-100 dark:hover:bg-indigo-900/30 hover:text-indigo-700 dark:hover:text-indigo-300 p-1 md:p-1.5 rounded-lg transition-all shadow-sm hover:shadow-md ${card.audioBase64 ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-300 dark:text-gray-600'}`}>
                                         <Volume2 className="w-3 h-3 md:w-4 md:h-4"/>
                                      </button>
                                      <div className="flex gap-1.5 md:gap-2">
@@ -4067,7 +4229,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 setIsFlipped(prev => {
                     const newFlippedState = !prev;
                     // Phát âm thanh khi lật card (khi lật sang mặt sau)
-                    // CHỈ phát audioBase64 đã lưu, không phát Browser TTS
+                    // CHỈ phát audioBase64 từ Gemini TTS, không dùng Browser TTS
                     if (newFlippedState && currentCard && currentCard.audioBase64) {
                         playAudio(currentCard.audioBase64);
                     }
@@ -4438,7 +4600,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                 const newFlippedState = !isFlipped;
                                 setIsFlipped(newFlippedState);
                                 // Phát âm thanh khi lật card (khi lật sang mặt sau)
-                                // CHỈ phát audioBase64 đã lưu, không phát Browser TTS
+                                // CHỈ phát audioBase64 từ Gemini TTS, không dùng Browser TTS
                                 if (newFlippedState && currentCard && currentCard.audioBase64) {
                                     playAudio(currentCard.audioBase64);
                                 }

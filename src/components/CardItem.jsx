@@ -48,7 +48,7 @@ export const CardItem = memo(({
       <div className="bg-gray-50 px-3 md:px-4 py-2 md:py-3 flex justify-between items-center border-t border-gray-100">
         <button 
           onClick={() => onPlayAudio(card.audioBase64, card.front)} 
-          className="text-indigo-500 hover:bg-indigo-100 p-1 md:p-1.5 rounded-lg"
+          className={`hover:bg-indigo-100 p-1 md:p-1.5 rounded-lg ${card.audioBase64 ? 'text-indigo-500' : 'text-gray-300 dark:text-gray-600'}`}
         >
           <Volume2 className="w-3 h-3 md:w-4 md:h-4"/>
         </button>
