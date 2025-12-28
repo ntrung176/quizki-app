@@ -2753,7 +2753,7 @@ const Header = ({ currentView, setView, isDarkMode, setIsDarkMode }) => {
                 <div className="bg-indigo-600 dark:bg-indigo-500 p-1 md:p-1.5 rounded-lg group-hover:bg-indigo-700 dark:group-hover:bg-indigo-600 transition-colors">
                     <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-white" />
                 </div>
-                <span className="text-base md:text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
+                <span className="text-base md:text-xl font-extrabold text-black dark:text-white">
                     QuizKi
                 </span>
             </div>
@@ -2846,20 +2846,20 @@ const MemoryStatCard = ({ title, count, icon: IconComponent, color, subtext }) =
 // ActionCard component - Liquid Glass Effect (iOS style)
     const ActionCard = ({ onClick, icon: IconComponent, title, count, gradient, disabled = false, description, hideCount = false }) => {
         const Icon = IconComponent;
-        // Map gradient colors to glass effect colors
+        // Map gradient colors to glass effect colors - More vibrant and eye-catching
         const getGlassColor = (gradient) => {
             if (gradient.includes('amber') || gradient.includes('orange')) {
-                return 'bg-amber-500/10 dark:bg-amber-400/10 border-amber-200/50 dark:border-amber-300/30';
+                return 'bg-gradient-to-br from-amber-400/20 via-amber-500/15 to-orange-500/20 dark:from-amber-400/25 dark:via-amber-500/20 dark:to-orange-500/25 border-amber-300/60 dark:border-amber-400/50 shadow-amber-200/30 dark:shadow-amber-900/40';
             } else if (gradient.includes('purple') || gradient.includes('pink')) {
-                return 'bg-purple-500/10 dark:bg-purple-400/10 border-purple-200/50 dark:border-purple-300/30';
+                return 'bg-gradient-to-br from-purple-400/20 via-purple-500/15 to-pink-500/20 dark:from-purple-400/25 dark:via-purple-500/20 dark:to-pink-500/25 border-purple-300/60 dark:border-purple-400/50 shadow-purple-200/30 dark:shadow-purple-900/40';
             } else if (gradient.includes('teal') || gradient.includes('emerald')) {
-                return 'bg-emerald-500/10 dark:bg-emerald-400/10 border-emerald-200/50 dark:border-emerald-300/30';
+                return 'bg-gradient-to-br from-emerald-400/20 via-emerald-500/15 to-teal-500/20 dark:from-emerald-400/25 dark:via-emerald-500/20 dark:to-teal-500/25 border-emerald-300/60 dark:border-emerald-400/50 shadow-emerald-200/30 dark:shadow-emerald-900/40';
             } else if (gradient.includes('rose') || gradient.includes('red')) {
-                return 'bg-rose-500/10 dark:bg-rose-400/10 border-rose-200/50 dark:border-rose-300/30';
+                return 'bg-gradient-to-br from-rose-400/20 via-rose-500/15 to-red-500/20 dark:from-rose-400/25 dark:via-rose-500/20 dark:to-red-500/25 border-rose-300/60 dark:border-rose-400/50 shadow-rose-200/30 dark:shadow-rose-900/40';
             } else if (gradient.includes('blue') || gradient.includes('cyan')) {
-                return 'bg-blue-500/10 dark:bg-blue-400/10 border-blue-200/50 dark:border-blue-300/30';
+                return 'bg-gradient-to-br from-blue-400/20 via-blue-500/15 to-cyan-500/20 dark:from-blue-400/25 dark:via-blue-500/20 dark:to-cyan-500/25 border-blue-300/60 dark:border-blue-400/50 shadow-blue-200/30 dark:shadow-blue-900/40';
             } else {
-                return 'bg-indigo-500/10 dark:bg-indigo-400/10 border-indigo-200/50 dark:border-indigo-300/30';
+                return 'bg-gradient-to-br from-indigo-400/20 via-indigo-500/15 to-purple-500/20 dark:from-indigo-400/25 dark:via-indigo-500/20 dark:to-purple-500/25 border-indigo-300/60 dark:border-indigo-400/50 shadow-indigo-200/30 dark:shadow-indigo-900/40';
             }
         };
         
@@ -2869,21 +2869,24 @@ const MemoryStatCard = ({ title, count, icon: IconComponent, color, subtext }) =
         <button
             onClick={onClick}
             disabled={disabled}
-            className={`relative overflow-hidden group flex items-center p-2 md:p-3 h-24 md:h-28 rounded-2xl md:rounded-3xl transition-all duration-300 w-[calc(50%-0.5rem)] md:w-[calc(50%-1rem)] max-w-xs md:max-w-sm text-left
+            className={`relative overflow-hidden group flex items-center p-2 md:p-3 h-28 md:h-32 rounded-2xl md:rounded-3xl transition-all duration-300 w-[calc(50%-0.5rem)] md:w-[calc(50%-1rem)] max-w-xs md:max-w-sm text-left
                         backdrop-blur-xl ${glassColor} border
                         shadow-lg shadow-black/5 dark:shadow-black/20
                         ${disabled ? 'cursor-not-allowed opacity-50' : 'hover:shadow-xl hover:shadow-black/10 dark:hover:shadow-black/30 hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98]'}`}
         >
-            {/* Liquid glass shine effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl md:rounded-3xl" />
+            {/* Liquid glass shine effect - More vibrant */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl md:rounded-3xl" />
             
-            {/* Subtle inner glow */}
-            <div className="absolute inset-[1px] bg-gradient-to-br from-white/10 to-transparent rounded-2xl md:rounded-3xl pointer-events-none" />
+            {/* Subtle inner glow - Enhanced */}
+            <div className="absolute inset-[1px] bg-gradient-to-br from-white/20 via-white/10 to-transparent rounded-2xl md:rounded-3xl pointer-events-none" />
+            
+            {/* Animated shimmer effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out rounded-2xl md:rounded-3xl pointer-events-none" />
             
             <div className="z-10 w-full flex items-center gap-2 md:gap-3 relative">
                 {/* Icon với liquid glass effect */}
-                <div className={`flex-shrink-0 w-10 h-20 md:w-14 md:h-28 rounded-xl md:rounded-2xl backdrop-blur-md flex items-center justify-center
-                                ${disabled ? 'bg-gray-500/20 border border-gray-400/20' : 'bg-white/30 dark:bg-white/10 border border-white/30 dark:border-white/20 shadow-inner'}`}>
+                <div className={`flex-shrink-0 w-10 h-24 md:w-14 md:h-32 rounded-xl md:rounded-2xl backdrop-blur-md flex items-center justify-center
+                                ${disabled ? 'bg-gray-500/20 border border-gray-400/20' : 'bg-gradient-to-br from-white/40 via-white/30 to-white/20 dark:from-white/20 dark:via-white/15 dark:to-white/10 border border-white/50 dark:border-white/30 shadow-lg shadow-white/20 dark:shadow-white/10'}`}>
                     <Icon className={`w-5 h-5 md:w-7 md:h-7 ${disabled ? 'text-gray-400 dark:text-gray-500' : 'text-gray-700 dark:text-gray-200'}`} strokeWidth={2.5} />
                 </div>
                 
@@ -2909,7 +2912,7 @@ const MemoryStatCard = ({ title, count, icon: IconComponent, color, subtext }) =
     };
 
 const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySessionData, setStudySessionData, setNotification, setReviewMode, setView, onStartReview, onNavigate }) => {
-    const [activeFilter, setActiveFilter] = useState('study'); // 'study' or 'review'
+    const [activeFilter, setActiveFilter] = useState('review'); // 'study' or 'review'
     
     return (
         <div className="space-y-1 md:space-y-2">
@@ -2917,7 +2920,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
             <div className="flex flex-col md:flex-row justify-between items-end md:items-center gap-1 md:gap-2 pb-1 border-b border-gray-100 dark:border-gray-700">
                 <div className="flex-shrink-0 min-w-0">
                     <h2 className="text-sm md:text-lg lg:text-xl font-extrabold text-gray-800 dark:text-gray-100 tracking-tight break-words">
-                        Chào, <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">{displayName || 'bạn'}</span>! 👋
+                        Chào, <span className="text-black dark:text-white">{displayName || 'bạn'}</span>! 👋
                     </h2>
                     <p className="text-gray-500 dark:text-gray-400 mt-0.5 text-xs font-medium">Bạn đã sẵn sàng chinh phục mục tiêu hôm nay chưa?</p>
                 </div>
@@ -2930,17 +2933,6 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
             {/* Filter Tabs */}
             <div className="flex gap-2 bg-gray-100/50 dark:bg-gray-800/50 p-1 rounded-xl backdrop-blur-sm">
                 <button
-                    onClick={() => setActiveFilter('study')}
-                    className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg transition-all duration-200 ${
-                        activeFilter === 'study'
-                            ? 'bg-white dark:bg-gray-700 shadow-md text-teal-600 dark:text-teal-400 font-bold'
-                            : 'text-gray-600 dark:text-gray-400 hover:bg-white/50 dark:hover:bg-gray-700/50'
-                    }`}
-                >
-                    <GraduationCap className="w-4 h-4" />
-                    <span className="text-xs md:text-sm">Chế độ Học</span>
-                </button>
-                <button
                     onClick={() => setActiveFilter('review')}
                     className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg transition-all duration-200 ${
                         activeFilter === 'review'
@@ -2950,6 +2942,17 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                 >
                     <Zap className="w-4 h-4" />
                     <span className="text-xs md:text-sm">Chế độ Ôn tập</span>
+                </button>
+                <button
+                    onClick={() => setActiveFilter('study')}
+                    className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg transition-all duration-200 ${
+                        activeFilter === 'study'
+                            ? 'bg-white dark:bg-gray-700 shadow-md text-teal-600 dark:text-teal-400 font-bold'
+                            : 'text-gray-600 dark:text-gray-400 hover:bg-white/50 dark:hover:bg-gray-700/50'
+                    }`}
+                >
+                    <GraduationCap className="w-4 h-4" />
+                    <span className="text-xs md:text-sm">Chế độ Học</span>
                 </button>
             </div>
 
@@ -5410,7 +5413,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
     const [newGoal, setNewGoal] = useState(profile.dailyGoal);
     const pieChartRef = useRef(null);
     const barChartRef = useRef(null);
-    const [pieChartSize, setPieChartSize] = useState({ width: 0, height: 200 });
+    const [pieChartSize, setPieChartSize] = useState({ width: 0, height: 250 });
     const [barChartSize, setBarChartSize] = useState({ width: 0, height: 200 });
     
     useEffect(() => {
@@ -5418,7 +5421,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
             if (pieChartRef.current) {
                 const width = pieChartRef.current.offsetWidth || 0;
                 if (width > 0) {
-                    setPieChartSize({ width, height: 200 });
+                    setPieChartSize({ width, height: 250 });
                 }
             }
         };
@@ -5601,11 +5604,11 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                         <div ref={pieChartRef} className="chart-container">
                             {pieChartSize.width > 0 ? (
                                 <ResponsiveContainer width={pieChartSize.width} height={pieChartSize.height}>
-                                <PieChart>
+                                <PieChart margin={{ top: 50, right: 0, bottom: 0, left: 0}}>
                                     <Pie 
                                         data={pieData} 
                                         cx="50%" 
-                                        cy="50%" 
+                                        cy="35%" 
                                         innerRadius={60} 
                                         outerRadius={90} 
                                         paddingAngle={5} 
@@ -5617,7 +5620,12 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                                         ))}
                                     </Pie>
                                     <Tooltip/>
-                                    <Legend wrapperStyle={{fontSize: '12px', fontWeight: '500'}} iconSize={12}/>
+                                    <Legend 
+                                        verticalAlign="bottom" 
+                                        align="center"
+                                        wrapperStyle={{fontSize: '12px', fontWeight: '500', marginTop: '0px'}} 
+                                        iconSize={12}
+                                    />
                                 </PieChart>
                             </ResponsiveContainer>
                             ) : (
