@@ -347,7 +347,7 @@ const _fetchTtsApiCall = async (text, voiceName, apiKeys = null, keyIndex = 0) =
                 errorBody = await response.text();
                 try {
                     errorJson = JSON.parse(errorBody);
-                } catch (e) {
+                } catch {
                     // Không phải JSON, giữ nguyên errorBody
                 }
                 console.error(`TTS error với key ${i + 1}/${apiKeys.length} (Giọng: ${voiceName}):`, errorBody);
@@ -3401,19 +3401,31 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                             <input 
                                 id="front" 
                                 type="text" 
+                                inputMode="text"
+                                autoComplete="off"
+                                autoCapitalize="off"
+                                autoCorrect="off"
+                                spellCheck="false"
                                 ref={frontInputRef} 
                                 value={front} 
                                 onChange={(e) => setFront(e.target.value)} 
                                 onKeyDown={handleKeyDown}
                                 onFocus={(e) => {
                                     if (window.innerWidth <= 768) {
+                                        e.target.focus();
                                         setTimeout(() => {
                                             e.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
-                                        }, 300);
+                                        }, 100);
+                                    }
+                                }}
+                                onTouchStart={(e) => {
+                                    // Ensure input is focusable on touch devices
+                                    if (window.innerWidth <= 768 && !e.target.disabled) {
+                                        e.target.focus();
                                     }
                                 }}
                                 required
-                                className="flex-1 px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 transition-all font-medium text-sm md:text-base lg:text-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" 
+                                className="flex-1 px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 transition-all font-medium text-sm md:text-base lg:text-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 touch-manipulation" 
                                 placeholder="Ví dụ: 食べる（たべる）"
                             />
                             
@@ -4888,19 +4900,31 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                         <input
                             ref={inputRef}
                             type="text"
+                            inputMode="text"
+                            autoComplete="off"
+                            autoCapitalize="off"
+                            autoCorrect="off"
+                            spellCheck="false"
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
                             onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); isRevealed ? handleNext() : checkAnswer(); }}}
                             onFocus={(e) => {
-                                // Prevent viewport shift on mobile
+                                // Ensure keyboard shows on mobile
                                 if (window.innerWidth <= 768) {
+                                    e.target.focus();
                                     setTimeout(() => {
                                         e.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
-                                    }, 300);
+                                    }, 100);
+                                }
+                            }}
+                            onTouchStart={(e) => {
+                                // Ensure input is focusable on touch devices
+                                if (window.innerWidth <= 768 && !e.target.disabled) {
+                                    e.target.focus();
                                 }
                             }}
                             disabled={feedback === 'correct'}
-                            className={`w-full pl-5 md:pl-7 pr-12 md:pr-16 py-3 md:py-5 text-lg md:text-2xl font-semibold rounded-xl md:rounded-2xl border-2 transition-all outline-none shadow-md
+                            className={`w-full pl-5 md:pl-7 pr-12 md:pr-16 py-3 md:py-5 text-lg md:text-2xl font-semibold rounded-xl md:rounded-2xl border-2 transition-all outline-none shadow-md touch-manipulation
                                 ${feedback === 'correct' 
                                     ? 'border-green-400 dark:border-green-600 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300' 
                                     : feedback === 'incorrect' 
@@ -5357,6 +5381,11 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                             <input
                                 ref={inputRef}
                                 type="text"
+                                inputMode="text"
+                                autoComplete="off"
+                                autoCapitalize="off"
+                                autoCorrect="off"
+                                spellCheck="false"
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
                                 onKeyDown={(e) => {
@@ -5364,8 +5393,23 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                         handleTypingAnswer();
                                     }
                                 }}
+                                onFocus={(e) => {
+                                    // Ensure keyboard shows on mobile
+                                    if (window.innerWidth <= 768) {
+                                        e.target.focus();
+                                        setTimeout(() => {
+                                            e.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+                                        }, 100);
+                                    }
+                                }}
+                                onTouchStart={(e) => {
+                                    // Ensure input is focusable on touch devices
+                                    if (window.innerWidth <= 768 && !e.target.disabled) {
+                                        e.target.focus();
+                                    }
+                                }}
                                 disabled={isRevealed || isProcessing}
-                                className={`w-full px-4 md:px-6 py-3 md:py-4 text-lg md:text-2xl font-semibold rounded-xl md:rounded-2xl border-2 transition-all outline-none shadow-md text-center
+                                className={`w-full px-4 md:px-6 py-3 md:py-4 text-lg md:text-2xl font-semibold rounded-xl md:rounded-2xl border-2 transition-all outline-none shadow-md text-center touch-manipulation
                                     ${feedback === 'correct'
                                         ? 'border-green-400 dark:border-green-600 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300'
                                         : feedback === 'incorrect'
