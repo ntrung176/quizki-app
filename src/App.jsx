@@ -94,6 +94,18 @@ const getSrsProgressText = (intervalIndex) => {
     return `Cấp độ ${intervalIndex + 1} (Chờ ${nextDays} ngày)`;
 };
 
+// --- Helper function để phát hiện thiết bị mobile/touch ---
+const isMobileDevice = () => {
+    // Kiểm tra độ rộng màn hình
+    if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+        return true;
+    }
+    // Kiểm tra touch support
+    if (typeof window !== 'undefined' && 'ontouchstart' in window) {
+        return true;
+    }
+    return false;
+};
 
 // --- Tiện ích Text-to-Speech (TTS) & Xử lý Ảnh ---
 
@@ -774,116 +786,6 @@ const App = () => {
         return () => unsubscribe();
     }, [authReady, vocabCollectionPath]);
 
-    // Tự động tạo âm thanh cho các từ vựng thiếu âm thanh
-    const generatingAudioRef = useRef(new Set());
-    useEffect(() => {
-        if (!authReady || !vocabCollectionPath || allCards.length === 0) return;
-        
-        // Kiểm tra API keys
-        const apiKeys = getTtsApiKeys();
-        if (apiKeys.length === 0) {
-            console.warn("Không có API key nào được cấu hình cho TTS - bỏ qua tạo âm thanh tự động");
-            return;
-        }
-        
-        // Tìm các thẻ thiếu âm thanh
-        const cardsWithoutAudio = allCards.filter(card => {
-            if (!card.audioBase64 || card.audioBase64 === null) return true;
-            if (typeof card.audioBase64 === 'string' && card.audioBase64.trim() === '') return true;
-            return false;
-        });
-        
-        if (cardsWithoutAudio.length === 0) return;
-        
-        // Kiểm tra xem có thẻ nào đang được xử lý không
-        const cardsToProcess = cardsWithoutAudio.filter(card => 
-            !generatingAudioRef.current.has(card.id)
-        );
-        
-        if (cardsToProcess.length === 0) return;
-        
-        console.log(`Tìm thấy ${cardsToProcess.length} từ vựng thiếu âm thanh, bắt đầu tạo...`);
-        
-        // Đánh dấu các thẻ đang được xử lý
-        cardsToProcess.forEach(card => generatingAudioRef.current.add(card.id));
-        
-        // Hiển thị thông báo
-        setNotification(`Đang tạo âm thanh cho ${cardsToProcess.length} từ vựng...`);
-        
-        // Tạo âm thanh song song cho nhiều thẻ cùng lúc
-        (async () => {
-            let successCount = 0;
-            let failCount = 0;
-            
-            // Lấy danh sách API keys để phân chia tải
-            const maxConcurrent = Math.max(apiKeys.length * 3, 5); // Tối đa 3 request/key hoặc tối thiểu 5
-            
-            // Hàm xử lý một thẻ
-            const processCard = async (card) => {
-                try {
-                    const speechText = getSpeechText(card.front);
-                    if (!speechText || speechText.trim() === '') {
-                        console.warn(`Không có text để tạo âm thanh cho: ${card.front}`);
-                        generatingAudioRef.current.delete(card.id);
-                        return { success: false, cardId: card.id };
-                    }
-                    
-                    console.log(`Đang tạo âm thanh cho: ${card.front}`);
-                    const fetchedAudioBase64 = await fetchTtsBase64(speechText);
-                    
-                    if (fetchedAudioBase64) {
-                        const cardRef = doc(db, vocabCollectionPath, card.id);
-                        await updateDoc(cardRef, { audioBase64: fetchedAudioBase64 });
-                        console.log(`✓ Đã tạo âm thanh thành công cho: ${card.front}`);
-                        return { success: true, cardId: card.id };
-                    } else {
-                        console.warn(`✗ Không thể tạo âm thanh cho: ${card.front} - fetchTtsBase64 trả về null`);
-                        return { success: false, cardId: card.id };
-                    }
-                } catch (e) {
-                    console.error(`Lỗi tạo âm thanh cho thẻ ${card.id} (${card.front}):`, e);
-                    return { success: false, cardId: card.id };
-                } finally {
-                    generatingAudioRef.current.delete(card.id);
-                }
-            };
-            
-            // Xử lý song song với giới hạn số lượng đồng thời
-            const processBatch = async (batch) => {
-                const results = await Promise.allSettled(batch.map(card => processCard(card)));
-                return results;
-            };
-            
-            // Chia thành các batch để xử lý
-            for (let i = 0; i < cardsToProcess.length; i += maxConcurrent) {
-                const batch = cardsToProcess.slice(i, i + maxConcurrent);
-                const results = await processBatch(batch);
-                
-                results.forEach((result, index) => {
-                    if (result.status === 'fulfilled') {
-                        if (result.value.success) {
-                            successCount++;
-                        } else {
-                            failCount++;
-                        }
-                    } else {
-                        failCount++;
-                        const cardId = batch[index]?.id;
-                        if (cardId) generatingAudioRef.current.delete(cardId);
-                    }
-                });
-            }
-            
-            // Cập nhật thông báo
-            console.log(`Hoàn thành tạo âm thanh: ${successCount} thành công, ${failCount} lỗi`);
-            if (successCount > 0) {
-                setNotification(`Đã tạo âm thanh cho ${successCount} từ vựng${failCount > 0 ? ` (${failCount} lỗi)` : ''}`);
-            } else if (failCount > 0) {
-                setNotification(`Không thể tạo âm thanh cho ${failCount} từ vựng. Vui lòng kiểm tra API keys và thử lại sau.`);
-            }
-        })();
-    }, [allCards, authReady, vocabCollectionPath]);
-
     useEffect(() => {
         if (!authReady || !activityCollectionPath) return;
         
@@ -1259,7 +1161,6 @@ const App = () => {
         
         try {
             const importedCardsLocal = [];
-            const cardsForTts = []; 
             let skippedCount = 0;
             const validCardsToInsert = [];
 
@@ -1346,9 +1247,6 @@ const App = () => {
                     ...newCardData
                 });
                 
-                if (!newCardData.audioBase64) {
-                    cardsForTts.push({ id: cardRef.id, front: newCardData.front });
-                }
             }
 
             if (validCardsToInsert.length === 0 && skippedCount > 0) {
@@ -1395,47 +1293,10 @@ const App = () => {
                 message += ` (Bỏ qua ${skippedCount} thẻ trùng lặp)`;
             }
 
-            if (cardsForTts.length > 0) {
-                 setNotification(`${message} Đang tạo âm thanh cho ${cardsForTts.length} thẻ mới...`); 
-            } else {
-                 setNotification(`${message} (Sử dụng âm thanh có sẵn)`);
-            }
+            setNotification(message);
            
             setIsLoading(false);
             setView('HOME');
-
-            if (cardsForTts.length > 0) {
-                (async () => {
-                    const CONCURRENCY_LIMIT = 2; 
-                    let currentIndex = 0;
-
-                    const worker = async () => {
-                        while (currentIndex < cardsForTts.length) {
-                            const index = currentIndex++;
-                            const item = cardsForTts[index];
-                            if (!item) break;
-
-                            try {
-                                const speechText = getSpeechText(item.front);
-                                const audioBase64 = await fetchTtsBase64(speechText);
-                                if (audioBase64) {
-                                    const cardRef = doc(db, vocabCollectionPath, item.id);
-                                    await updateDoc(cardRef, { audioBase64: audioBase64 });
-                                }
-                            } catch (e) {
-                                console.error(`Lỗi tạo âm thanh cho thẻ ${item.front}:`, e);
-                            }
-                        }
-                    };
-
-                    const workers = [];
-                    for (let i = 0; i < CONCURRENCY_LIMIT; i++) {
-                        workers.push(worker());
-                    }
-
-                    await Promise.all(workers);
-                })();
-            }
 
         } catch (e) {
             console.error("Lỗi khi nhập hàng loạt:", e);
@@ -3004,17 +2865,19 @@ const MemoryStatCard = ({ title, count, icon: IconComponent, color, subtext }) =
         // Map gradient colors to glass effect colors - More vibrant and eye-catching
         const getGlassColor = (gradient) => {
             if (gradient.includes('amber') || gradient.includes('orange')) {
-                return 'bg-gradient-to-br from-amber-400/20 via-amber-500/15 to-orange-500/20 dark:from-amber-400/25 dark:via-amber-500/20 dark:to-orange-500/25 border-amber-300/60 dark:border-amber-400/50 shadow-amber-200/30 dark:shadow-amber-900/40';
+                return 'bg-gradient-to-br from-amber-500/25 via-amber-600/20 to-orange-600/25 dark:from-amber-500/30 dark:via-amber-600/25 dark:to-orange-600/30 border-amber-400/70 dark:border-amber-500/60 shadow-amber-300/40 dark:shadow-amber-900/50';
             } else if (gradient.includes('purple') || gradient.includes('pink')) {
-                return 'bg-gradient-to-br from-purple-400/20 via-purple-500/15 to-pink-500/20 dark:from-purple-400/25 dark:via-purple-500/20 dark:to-pink-500/25 border-purple-300/60 dark:border-purple-400/50 shadow-purple-200/30 dark:shadow-purple-900/40';
+                return 'bg-gradient-to-br from-purple-600/25 via-purple-600/20 to-pink-600/25 dark:from-purple-600/30 dark:via-purple-600/25 dark:to-pink-600/30 border-purple-400/70 dark:border-purple-500/60 shadow-purple-300/40 dark:shadow-purple-900/50';
             } else if (gradient.includes('teal') || gradient.includes('emerald')) {
-                return 'bg-gradient-to-br from-emerald-400/20 via-emerald-500/15 to-teal-500/20 dark:from-emerald-400/25 dark:via-emerald-500/20 dark:to-teal-500/25 border-emerald-300/60 dark:border-emerald-400/50 shadow-emerald-200/30 dark:shadow-emerald-900/40';
+                return 'bg-gradient-to-br from-emerald-500/25 via-emerald-600/20 to-teal-600/25 dark:from-emerald-500/30 dark:via-emerald-600/25 dark:to-teal-600/30 border-emerald-400/70 dark:border-emerald-500/60 shadow-emerald-300/40 dark:shadow-emerald-900/50';
             } else if (gradient.includes('rose') || gradient.includes('red')) {
-                return 'bg-gradient-to-br from-rose-400/20 via-rose-500/15 to-red-500/20 dark:from-rose-400/25 dark:via-rose-500/20 dark:to-red-500/25 border-rose-300/60 dark:border-rose-400/50 shadow-rose-200/30 dark:shadow-rose-900/40';
+                return 'bg-gradient-to-br from-rose-500/25 via-rose-600/20 to-red-600/25 dark:from-rose-500/30 dark:via-rose-600/25 dark:to-red-600/30 border-rose-400/70 dark:border-rose-500/60 shadow-rose-300/40 dark:shadow-rose-900/50';
             } else if (gradient.includes('blue') || gradient.includes('cyan')) {
-                return 'bg-gradient-to-br from-blue-400/20 via-blue-500/15 to-cyan-500/20 dark:from-blue-400/25 dark:via-blue-500/20 dark:to-cyan-500/25 border-blue-300/60 dark:border-blue-400/50 shadow-blue-200/30 dark:shadow-blue-900/40';
+                return 'bg-gradient-to-br from-blue-500/25 via-blue-600/20 to-cyan-600/25 dark:from-blue-500/30 dark:via-blue-600/25 dark:to-cyan-600/30 border-blue-400/70 dark:border-blue-500/60 shadow-blue-300/40 dark:shadow-blue-900/50';
+            } else if (gradient.includes('green')) {
+                return 'bg-gradient-to-br from-green-500/25 via-green-600/20 to-emerald-600/25 dark:from-green-500/30 dark:via-green-600/25 dark:to-emerald-600/30 border-green-400/70 dark:border-green-500/60 shadow-green-300/40 dark:shadow-green-900/50';
             } else {
-                return 'bg-gradient-to-br from-indigo-400/20 via-indigo-500/15 to-purple-500/20 dark:from-indigo-400/25 dark:via-indigo-500/20 dark:to-purple-500/25 border-indigo-300/60 dark:border-indigo-400/50 shadow-indigo-200/30 dark:shadow-indigo-900/40';
+                return 'bg-gradient-to-br from-indigo-500/25 via-indigo-600/20 to-purple-600/25 dark:from-indigo-500/30 dark:via-indigo-600/25 dark:to-purple-600/30 border-indigo-400/70 dark:border-indigo-500/60 shadow-indigo-300/40 dark:shadow-indigo-900/50';
             }
         };
         
@@ -3121,7 +2984,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                             title="Flashcard"
                             description="Từ vựng mới"
                             count={dueCounts.flashcard}
-                            gradient="from-purple-500 to-pink-500"
+                            gradient="from-purple-600 to-pink-600"
                             disabled={dueCounts.flashcard === 0}
                         />
                         <ActionCard
@@ -3187,7 +3050,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                             title="Học"
                             description="Học từ mới"
                             count={dueCounts.study}
-                            gradient="from-teal-400 to-emerald-500"
+                            gradient="from-teal-500 to-emerald-600"
                             disabled={dueCounts.study === 0}
                         />
                     </div>
@@ -3204,7 +3067,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                             title="Hỗn hợp"
                             description="Tất cả loại câu hỏi"
                             count={dueCounts.mixed}
-                            gradient="from-amber-400 to-orange-500"
+                            gradient="from-amber-500 to-orange-600"
                             disabled={dueCounts.mixed === 0}
                         />
                         <ActionCard
@@ -3213,7 +3076,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                             title="Ý nghĩa"
                             description="Nhớ nghĩa từ vựng" 
                             count={dueCounts.back}
-                            gradient="from-emerald-400 to-green-500"
+                            gradient="from-emerald-500 to-green-600"
                             disabled={dueCounts.back === 0}
                         />
                         <ActionCard
@@ -3222,7 +3085,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                             title="Đồng nghĩa"
                             description="Từ tương tự"
                             count={dueCounts.synonym}
-                            gradient="from-blue-400 to-cyan-500"
+                            gradient="from-blue-500 to-cyan-600"
                             disabled={dueCounts.synonym === 0}
                         />
                         <ActionCard
@@ -3231,7 +3094,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                             title="Ngữ cảnh"
                             description="Điền vào chỗ trống"
                             count={dueCounts.example}
-                            gradient="from-purple-400 to-pink-500"
+                            gradient="from-purple-600 to-pink-600"
                             disabled={dueCounts.example === 0}
                         />
                     </div>
@@ -3349,12 +3212,21 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
         setIsSaving(false); 
         if (success && action === 'continue') {
             setFront(''); setBack(''); setSynonym(''); setExample(''); setExampleMeaning(''); setNuance(''); setPos(''); setLevel(''); setSinoVietnamese(''); setSynonymSinoVietnamese(''); setImagePreview(null); setCustomAudio(''); setShowAudioInput(false);
-            if (frontInputRef.current) frontInputRef.current.focus();
+            // Chỉ focus trên desktop, không focus trên mobile để tránh xung đột với bàn phím
+            if (frontInputRef.current && !isMobileDevice()) {
+                frontInputRef.current.focus();
+            }
         }
     };
     const handleAiAssist = async (e) => {
         e.preventDefault();
-        if (!front.trim()) { if (frontInputRef.current) frontInputRef.current.focus(); return; }
+        if (!front.trim()) { 
+            // Chỉ focus trên desktop, không focus trên mobile để tránh xung đột với bàn phím
+            if (frontInputRef.current && !isMobileDevice()) {
+                frontInputRef.current.focus();
+            }
+            return; 
+        }
         setIsAiLoading(true);
         // Pass current pos and level as context to Gemini
         const aiData = await onGeminiAssist(front, pos, level);
@@ -3411,17 +3283,11 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                                 onChange={(e) => setFront(e.target.value)} 
                                 onKeyDown={handleKeyDown}
                                 onFocus={(e) => {
+                                    // Scroll vào view trên mobile khi focus (không cần gọi focus() vì đã được focus rồi)
                                     if (window.innerWidth <= 768) {
-                                        e.target.focus();
                                         setTimeout(() => {
                                             e.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
-                                        }, 100);
-                                    }
-                                }}
-                                onTouchStart={(e) => {
-                                    // Ensure input is focusable on touch devices
-                                    if (window.innerWidth <= 768 && !e.target.disabled) {
-                                        e.target.focus();
+                                        }, 300);
                                     }
                                 }}
                                 required
@@ -4133,9 +3999,9 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
     const cardReviewType = currentCard ? (currentCard.reviewType || reviewMode) : null;
     const isMultipleChoice = cardReviewType === 'synonym' || cardReviewType === 'example';
     
-    // Auto focus logic conditional based on style
+    // Auto focus logic conditional based on style (tắt trên mobile để tránh xung đột với bàn phím)
     useEffect(() => { 
-        if (cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && inputRef.current && !isRevealed) {
+        if (cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && inputRef.current && !isRevealed && !isMobileDevice()) {
             // Delay focus để đảm bảo DOM đã render xong, đặc biệt sau animation
             const timer = setTimeout(() => {
                 inputRef.current?.focus(); 
@@ -4513,8 +4379,8 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                     setSlideDirection('right'); // Slide in from right
                     setTimeout(() => {
                         setSlideDirection('');
-                        // Auto focus sau khi animation hoàn thành (chỉ cho typing mode)
-                        if (cardReviewType === 'back' && !isMultipleChoice && inputRef.current) {
+                        // Auto focus sau khi animation hoàn thành (chỉ cho typing mode, tắt trên mobile)
+                        if (cardReviewType === 'back' && !isMultipleChoice && inputRef.current && !isMobileDevice()) {
                             setTimeout(() => inputRef.current?.focus(), 100);
                         }
                     }, 300);
@@ -4527,8 +4393,8 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 setFeedback(null);
                 setMessage('');
                 setIsProcessing(false);
-                // Auto focus sau khi chuyển thẻ (chỉ cho typing mode)
-                if (cardReviewType === 'back' && !isMultipleChoice && inputRef.current) {
+                // Auto focus sau khi chuyển thẻ (chỉ cho typing mode, tắt trên mobile)
+                if (cardReviewType === 'back' && !isMultipleChoice && inputRef.current && !isMobileDevice()) {
                     setTimeout(() => inputRef.current?.focus(), 100);
                 }
             }
@@ -4909,18 +4775,11 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                             onChange={(e) => setInputValue(e.target.value)}
                             onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); isRevealed ? handleNext() : checkAnswer(); }}}
                             onFocus={(e) => {
-                                // Ensure keyboard shows on mobile
+                                // Scroll vào view trên mobile khi focus (không cần gọi focus() vì đã được focus rồi)
                                 if (window.innerWidth <= 768) {
-                                    e.target.focus();
                                     setTimeout(() => {
                                         e.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
-                                    }, 100);
-                                }
-                            }}
-                            onTouchStart={(e) => {
-                                // Ensure input is focusable on touch devices
-                                if (window.innerWidth <= 768 && !e.target.disabled) {
-                                    e.target.focus();
+                                    }, 300);
                                 }
                             }}
                             disabled={feedback === 'correct'}
@@ -5016,14 +4875,14 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     const currentPhase = studySessionData.currentPhase || 'multipleChoice';
     const currentCard = currentBatch[currentQuestionIndex];
 
-    // Reset khi chuyển phase và auto focus
+    // Reset khi chuyển phase và auto focus (tắt trên mobile để tránh xung đột với bàn phím)
     useEffect(() => {
         if (currentPhase === 'typing') {
             setInputValue('');
             setIsRevealed(false);
             setFeedback(null);
-            // Auto focus khi chuyển sang typing phase hoặc chuyển sang thẻ tiếp theo
-            if (inputRef.current) {
+            // Auto focus khi chuyển sang typing phase hoặc chuyển sang thẻ tiếp theo (chỉ trên desktop)
+            if (inputRef.current && !isMobileDevice()) {
                 setTimeout(() => inputRef.current?.focus(), 100);
             }
         }
@@ -5394,18 +5253,11 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                     }
                                 }}
                                 onFocus={(e) => {
-                                    // Ensure keyboard shows on mobile
+                                    // Scroll vào view trên mobile khi focus (không cần gọi focus() vì đã được focus rồi)
                                     if (window.innerWidth <= 768) {
-                                        e.target.focus();
                                         setTimeout(() => {
                                             e.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
-                                        }, 100);
-                                    }
-                                }}
-                                onTouchStart={(e) => {
-                                    // Ensure input is focusable on touch devices
-                                    if (window.innerWidth <= 768 && !e.target.disabled) {
-                                        e.target.focus();
+                                        }, 300);
                                     }
                                 }}
                                 disabled={isRevealed || isProcessing}
