@@ -722,7 +722,7 @@ const App = () => {
                     nuance: data.nuance || '', 
                     pos: data.pos || '', 
                     level: data.level || '', 
-                    audioBase64: data.audioBase64 || null, 
+                    audioBase64: data.audioBase64 !== undefined ? data.audioBase64 : null, 
                     imageBase64: data.imageBase64 || null,
                     createdAt: data.createdAt ? data.createdAt.toDate() : today,
                     intervalIndex_back: typeof data.intervalIndex_back === 'number' ? data.intervalIndex_back : -1,
@@ -1524,7 +1524,14 @@ const App = () => {
             setView('LIST');
             // Scroll đến card sẽ được xử lý trong ListView component 
 
-            if (oldSpeechText !== newSpeechText && !audioBase64) {
+            // Tạo lại audio nếu front thay đổi và:
+            // - audioBase64 là undefined (không truyền vào, giữ nguyên audio cũ) HOẶC
+            // - audioBase64 là null (đã xóa audio) HOẶC  
+            // - không có audio ban đầu
+            const shouldRegenerateAudio = oldSpeechText !== newSpeechText && 
+                (audioBase64 === undefined || audioBase64 === null || !oldCard.audioBase64);
+            
+            if (shouldRegenerateAudio) {
                 (async () => {
                     try {
                         const newAudioBase64 = await fetchTtsBase64(newSpeechText);
@@ -3955,7 +3962,11 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
     // Auto focus logic conditional based on style
     useEffect(() => { 
         if (cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && inputRef.current && !isRevealed) {
-            inputRef.current.focus(); 
+            // Delay focus để đảm bảo DOM đã render xong, đặc biệt sau animation
+            const timer = setTimeout(() => {
+                inputRef.current?.focus(); 
+            }, reviewMode === 'flashcard' ? 450 : 100); // Delay lâu hơn nếu có animation
+            return () => clearTimeout(timer);
         }
     }, [currentIndex, isRevealed, cardReviewType, reviewMode, isMultipleChoice]);
 
@@ -4326,7 +4337,13 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                     setMessage('');
                     setIsProcessing(false);
                     setSlideDirection('right'); // Slide in from right
-                    setTimeout(() => setSlideDirection(''), 300);
+                    setTimeout(() => {
+                        setSlideDirection('');
+                        // Auto focus sau khi animation hoàn thành (chỉ cho typing mode)
+                        if (cardReviewType === 'back' && !isMultipleChoice && inputRef.current) {
+                            setTimeout(() => inputRef.current?.focus(), 100);
+                        }
+                    }, 300);
                 }, 150);
             } else {
                 setCurrentIndex(nextIndex);
@@ -4336,6 +4353,10 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 setFeedback(null);
                 setMessage('');
                 setIsProcessing(false);
+                // Auto focus sau khi chuyển thẻ (chỉ cho typing mode)
+                if (cardReviewType === 'back' && !isMultipleChoice && inputRef.current) {
+                    setTimeout(() => inputRef.current?.focus(), 100);
+                }
             }
         } else {
             // Đã hết thẻ, gọi handleCompleteReview để xử lý logic hoàn thành
@@ -4809,12 +4830,13 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     const currentPhase = studySessionData.currentPhase || 'multipleChoice';
     const currentCard = currentBatch[currentQuestionIndex];
 
-    // Reset khi chuyển phase
+    // Reset khi chuyển phase và auto focus
     useEffect(() => {
-        if (currentPhase === 'typing' && currentQuestionIndex === 0) {
+        if (currentPhase === 'typing') {
             setInputValue('');
             setIsRevealed(false);
             setFeedback(null);
+            // Auto focus khi chuyển sang typing phase hoặc chuyển sang thẻ tiếp theo
             if (inputRef.current) {
                 setTimeout(() => inputRef.current?.focus(), 100);
             }
