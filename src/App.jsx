@@ -1451,7 +1451,29 @@ const App = () => {
         }
     };
 
+    // Lưu cardId để scroll đến sau khi save
+    const scrollToCardIdRef = useRef(null);
+    // Lưu view trước đó để phát hiện thay đổi view
+    const prevViewRef = useRef(view);
+
+    // Scroll về đầu trang khi chuyển view (trừ khi có scrollToCardId)
+    useEffect(() => {
+        // Nếu view thay đổi và không phải scroll đến card cụ thể
+        if (prevViewRef.current !== view && !scrollToCardIdRef.current) {
+            // Scroll về đầu trang
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Nếu có container chính, scroll container đó
+            const mainContainer = document.querySelector('.main-with-header');
+            if (mainContainer) {
+                mainContainer.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+        prevViewRef.current = view;
+    }, [view]);
+
     const handleNavigateToEdit = (card) => {
+        // Lưu cardId để scroll đến sau khi quay lại
+        scrollToCardIdRef.current = card.id;
         setEditingCard(card);
         setView('EDIT_CARD');
     };
@@ -1496,8 +1518,11 @@ const App = () => {
         try {
             await updateDoc(doc(db, vocabCollectionPath, cardId), updatedData);
             setNotification(`Đã cập nhật thẻ: ${front}`);
-            setView('LIST'); 
-            setEditingCard(null); 
+            // Giữ lại cardId để scroll đến sau khi quay lại LIST
+            // Không setEditingCard(null) ngay để giữ thông tin card
+            setEditingCard(null);
+            setView('LIST');
+            // Scroll đến card sẽ được xử lý trong ListView component 
 
             if (oldSpeechText !== newSpeechText && !audioBase64) {
                 (async () => {
@@ -1984,6 +2009,8 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     onExport={() => handleExport(allCards)} 
                     onNavigateToEdit={handleNavigateToEdit} 
                     onAutoClassifyBatch={handleAutoClassifyBatch}
+                    scrollToCardId={scrollToCardIdRef.current}
+                    onScrollComplete={() => { scrollToCardIdRef.current = null; }}
                 />;
             case 'IMPORT':
                 return <ImportScreen 
@@ -2053,9 +2080,9 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col font-sans selection:bg-indigo-100 dark:selection:bg-indigo-900 selection:text-indigo-800 dark:selection:text-indigo-200 w-full">
             <Header currentView={view} setView={setView} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
             <main className="flex-grow flex justify-center items-stretch main-with-header w-full">
-                <div className="w-full max-w-xl lg:max-w-2xl mx-auto flex flex-col px-2 md:px-6 lg:px-8 pb-2 md:pb-6 lg:pb-10 pt-2 md:pt-6 lg:pt-8">
-                    {/* Modern Container for Main Content - Padding nhỏ hơn */}
-                    <div className={`bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-xl shadow-indigo-100/50 dark:shadow-indigo-900/20 rounded-xl md:rounded-2xl border border-white/50 dark:border-gray-700/50 p-3 md:p-4 transition-all duration-300 flex flex-col ${view === 'REVIEW' ? 'overflow-hidden' : ''}`}>
+                <div className={`w-full max-w-xl lg:max-w-2xl mx-auto flex flex-col px-2 md:px-6 lg:px-8 pb-2 md:pb-6 lg:pb-10 pt-2 md:pt-6 lg:pt-8 ${view === 'HOME' || view === 'STATS' ? 'pt-1 md:pt-3 lg:pt-4 pb-1 md:pb-3 lg:pb-4' : ''}`}>
+                    {/* Modern Container for Main Content - Padding nhỏ hơn cho HOME và STATS */}
+                    <div className={`bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-xl shadow-indigo-100/50 dark:shadow-indigo-900/20 rounded-xl md:rounded-2xl border border-white/50 dark:border-gray-700/50 ${view === 'HOME' || view === 'STATS' ? 'p-2 md:p-3' : 'p-3 md:p-4'} transition-all duration-300 flex flex-col ${view === 'REVIEW' ? 'overflow-hidden' : ''}`}>
                         <div className={view === 'REVIEW' ? 'overflow-hidden' : ''}>
                         {renderContent()}
                         </div>
@@ -2793,7 +2820,7 @@ const Header = ({ currentView, setView, isDarkMode, setIsDarkMode }) => {
 const MemoryStatCard = ({ title, count, icon: IconComponent, color, subtext }) => {
     const Icon = IconComponent;
     return (
-    <div className={`relative overflow-hidden p-3 md:p-5 rounded-xl md:rounded-2xl border transition-all duration-300 ${color.bg} ${color.border} group h-full`}>
+    <div className={`relative overflow-hidden p-2 md:p-3 rounded-lg md:rounded-xl border transition-all duration-300 ${color.bg} ${color.border} group h-full`}>
         {/* Glow background */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
             <div className="absolute -inset-10 bg-gradient-to-br from-white/40 via-transparent to-white/10 blur-2xl" />
@@ -2804,12 +2831,12 @@ const MemoryStatCard = ({ title, count, icon: IconComponent, color, subtext }) =
 
         <div className="relative flex items-center justify-between">
             <div>
-                <p className="text-xl md:text-3xl font-black text-gray-900 dark:text-gray-100 drop-shadow-sm">{count}</p>
-                <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mt-0.5 md:mt-1">{title}</p>
-                {subtext && <p className="text-[9px] md:text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 md:mt-1">{subtext}</p>}
+                <p className="text-lg md:text-2xl font-black text-gray-900 dark:text-gray-100 drop-shadow-sm">{count}</p>
+                <p className="text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mt-0.5">{title}</p>
+                {subtext && <p className="text-[8px] md:text-[10px] text-gray-500 dark:text-gray-400 mt-0.5">{subtext}</p>}
             </div>
-            <div className={`p-2 md:p-3 rounded-lg md:rounded-xl ${color.iconBg} group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 flex-shrink-0`}>
-                <Icon className={`w-5 h-5 md:w-7 md:h-7 ${color.text}`} />
+            <div className={`p-1.5 md:p-2 rounded-md md:rounded-lg ${color.iconBg} group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 flex-shrink-0`}>
+                <Icon className={`w-4 h-4 md:w-5 md:h-5 ${color.text}`} />
             </div>
         </div>
     </div>
@@ -2823,26 +2850,26 @@ const MemoryStatCard = ({ title, count, icon: IconComponent, color, subtext }) =
         <button
             onClick={onClick}
             disabled={disabled}
-            className={`relative overflow-hidden group flex items-center p-3 md:p-5 h-28 md:h-32 rounded-xl md:rounded-2xl shadow-md transition-all duration-300 w-[calc(50%-0.5rem)] md:w-[calc(50%-1rem)] max-w-xs md:max-w-sm text-left bg-gradient-to-br ${gradient}
+            className={`relative overflow-hidden group flex items-center p-2 md:p-3 h-24 md:h-28 rounded-lg md:rounded-xl shadow-md transition-all duration-300 w-[calc(50%-0.5rem)] md:w-[calc(50%-1rem)] max-w-xs md:max-w-sm text-left bg-gradient-to-br ${gradient}
                         ${disabled ? 'cursor-not-allowed grayscale opacity-50' : 'hover:shadow-xl hover:-translate-y-1'}`}
         >
-            <div className="z-10 w-full flex items-center gap-3 md:gap-4">
+            <div className="z-10 w-full flex items-center gap-2 md:gap-3">
                 {/* Icon với tỉ lệ 2:4 (width:height = 1:2) */}
-                <div className={`flex-shrink-0 w-12 h-24 md:w-16 md:h-32 rounded-xl md:rounded-2xl ${disabled ? 'bg-gray-600/30' : 'bg-white/20'} backdrop-blur-sm flex items-center justify-center`}>
-                    <Icon className={`w-6 h-6 md:w-8 md:h-8 ${disabled ? 'text-gray-300' : 'text-white'}`} strokeWidth={2.5} />
+                <div className={`flex-shrink-0 w-10 h-20 md:w-14 md:h-28 rounded-lg md:rounded-xl ${disabled ? 'bg-gray-600/30' : 'bg-white/20'} backdrop-blur-sm flex items-center justify-center`}>
+                    <Icon className={`w-5 h-5 md:w-7 md:h-7 ${disabled ? 'text-gray-300' : 'text-white'}`} strokeWidth={2.5} />
                     </div>
                 
                 {/* Text content bên phải */}
                 <div className="flex-1 flex flex-col justify-center min-w-0">
-                    <div className="flex items-center justify-between mb-1 md:mb-1.5">
-                        <h3 className={`text-sm md:text-lg font-extrabold tracking-tight truncate ${disabled ? 'text-gray-300' : 'text-white'}`}>{title}</h3>
+                    <div className="flex items-center justify-between mb-0.5 md:mb-1">
+                        <h3 className={`text-xs md:text-base font-extrabold tracking-tight truncate ${disabled ? 'text-gray-300' : 'text-white'}`}>{title}</h3>
                      {!hideCount && typeof count !== 'undefined' && count > 0 && (
-                            <span className={`backdrop-blur-md text-xs md:text-sm font-bold px-2 md:px-2.5 py-1 md:py-1.5 rounded-full flex-shrink-0 ml-2 ${disabled ? 'bg-gray-600/30 text-gray-300' : 'bg-white/25 text-white'}`}>
+                            <span className={`backdrop-blur-md text-[10px] md:text-xs font-bold px-1.5 md:px-2 py-0.5 md:py-1 rounded-full flex-shrink-0 ml-1.5 ${disabled ? 'bg-gray-600/30 text-gray-300' : 'bg-white/25 text-white'}`}>
                             {count} cần ôn
                         </span>
                     )}
                 </div>
-                    <p className={`text-xs md:text-sm font-medium opacity-95 leading-snug ${disabled ? 'text-gray-400' : 'text-indigo-50'}`}>{description}</p>
+                    <p className={`text-[10px] md:text-xs font-medium opacity-95 leading-snug ${disabled ? 'text-gray-400' : 'text-indigo-50'}`}>{description}</p>
                 </div>
             </div>
             
@@ -2854,33 +2881,33 @@ const MemoryStatCard = ({ title, count, icon: IconComponent, color, subtext }) =
 
 const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySessionData, setStudySessionData, setNotification, setReviewMode, setView, onStartReview, onNavigate }) => {
     return (
-        <div className="space-y-2.5 md:space-y-5">
+        <div className="space-y-1 md:space-y-2">
             {/* Hero Section */}
-            <div className="flex flex-col md:flex-row justify-between items-end md:items-center gap-2 md:gap-4 pb-2 border-b border-gray-100 dark:border-gray-700">
+            <div className="flex flex-col md:flex-row justify-between items-end md:items-center gap-1 md:gap-2 pb-1 border-b border-gray-100 dark:border-gray-700">
                 <div className="flex-shrink-0 min-w-0">
-                    <h2 className="text-lg md:text-2xl lg:text-3xl font-extrabold text-gray-800 dark:text-gray-100 tracking-tight break-words">
+                    <h2 className="text-sm md:text-lg lg:text-xl font-extrabold text-gray-800 dark:text-gray-100 tracking-tight break-words">
                         Chào, <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">{displayName || 'bạn'}</span>! 👋
                     </h2>
-                    <p className="text-gray-500 dark:text-gray-400 mt-1 md:mt-2 text-xs md:text-sm font-medium">Bạn đã sẵn sàng chinh phục mục tiêu hôm nay chưa?</p>
+                    <p className="text-gray-500 dark:text-gray-400 mt-0.5 text-xs font-medium">Bạn đã sẵn sàng chinh phục mục tiêu hôm nay chưa?</p>
                 </div>
-                <div className="flex items-center space-x-2 md:space-x-2.5 bg-indigo-50 dark:bg-indigo-900/30 px-3 md:px-5 py-2 md:py-2.5 rounded-full border border-indigo-100 dark:border-indigo-800 flex-shrink-0">
-                    <div className="w-2 h-2 md:w-2.5 md:h-2.5 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-xs md:text-sm font-bold text-indigo-700 dark:text-indigo-300 whitespace-nowrap">{totalCards} từ vựng</span>
+                <div className="flex items-center space-x-1.5 bg-indigo-50 dark:bg-indigo-900/30 px-2 md:px-3 py-1 md:py-1.5 rounded-full border border-indigo-100 dark:border-indigo-800 flex-shrink-0">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                    <span className="text-xs font-bold text-indigo-700 dark:text-indigo-300 whitespace-nowrap">{totalCards} từ vựng</span>
                 </div>
             </div>
             
             {/* Review Section */}
-            <div className="space-y-2 md:space-y-3">
-                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-3">
-                    <h3 className="text-sm md:text-lg font-extrabold text-gray-800 dark:text-gray-100 flex items-center">
-                        <Zap className="w-4 h-4 md:w-6 md:h-6 mr-1.5 md:mr-2 text-amber-500" />
+            <div className="space-y-1 md:space-y-1.5">
+                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-1 md:gap-1.5">
+                    <h3 className="text-xs md:text-sm font-extrabold text-gray-800 dark:text-gray-100 flex items-center">
+                        <Zap className="w-3 h-3 md:w-4 md:h-4 mr-1 text-amber-500" />
                         Chế độ Ôn tập
                     </h3>
 
                 </div>
 
 
-                <div className="flex flex-wrap gap-2.5 md:gap-4 justify-center">
+                <div className="flex flex-wrap gap-1.5 md:gap-2 justify-center">
                     <ActionCard
                         onClick={() => onStartReview('mixed')}
                         icon={Zap}
@@ -3006,15 +3033,15 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
             </div>
             
             {/* Management Section */}
-            <div className="pt-1.5 md:pt-2 space-y-2 md:space-y-2.5">
-                <h3 className="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 flex items-center">
-                    <Settings className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2 text-gray-500 dark:text-gray-400" />
+            <div className="pt-0.5 md:pt-1 space-y-1 md:space-y-1.5">
+                <h3 className="text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 flex items-center">
+                    <Settings className="w-3.5 h-3.5 md:w-4 md:h-4 mr-1 md:mr-1.5 text-gray-500 dark:text-gray-400" />
                     Quản lý & Tiện ích
                 </h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-2.5">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5 md:gap-2">
                      <button
                         onClick={() => onNavigate('ADD_CARD')}
-                        className="flex items-center p-2 md:p-3 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg md:rounded-xl shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-indigo-200 dark:hover:border-indigo-600 transition-all group"
+                        className="flex items-center p-1.5 md:p-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-indigo-200 dark:hover:border-indigo-600 transition-all group"
                     >
                         <div className="bg-indigo-50 dark:bg-indigo-900/30 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/50 transition-colors flex-shrink-0">
                             <Plus className="w-3.5 h-3.5 md:w-4 md:h-4 text-indigo-600 dark:text-indigo-400" />
@@ -3024,7 +3051,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
 
                     <button
                         onClick={() => onNavigate('IMPORT')}
-                        className="flex items-center p-2 md:p-3 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg md:rounded-xl shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-teal-200 dark:hover:border-teal-600 transition-all group"
+                        className="flex items-center p-1.5 md:p-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-teal-200 dark:hover:border-teal-600 transition-all group"
                     >
                         <div className="bg-teal-50 dark:bg-teal-900/30 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-teal-100 dark:group-hover:bg-teal-900/50 transition-colors flex-shrink-0">
                             <Upload className="w-3.5 h-3.5 md:w-4 md:h-4 text-teal-600 dark:text-teal-400" />
@@ -3034,7 +3061,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
 
                     <button
                         onClick={() => onNavigate('LIST')}
-                        className="flex items-center p-2 md:p-3 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg md:rounded-xl shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-blue-200 dark:hover:border-blue-600 transition-all group"
+                        className="flex items-center p-1.5 md:p-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-blue-200 dark:hover:border-blue-600 transition-all group"
                     >
                         <div className="bg-blue-50 dark:bg-blue-900/30 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors flex-shrink-0">
                             <List className="w-3.5 h-3.5 md:w-4 md:h-4 text-blue-600 dark:text-blue-400" />
@@ -3044,7 +3071,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
 
                     <button
                         onClick={() => onNavigate('HELP')}
-                        className="flex items-center p-2 md:p-3 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg md:rounded-xl shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-orange-200 dark:hover:border-orange-600 transition-all group"
+                        className="flex items-center p-1.5 md:p-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-orange-200 dark:hover:border-orange-600 transition-all group"
                     >
                         <div className="bg-orange-50 dark:bg-orange-900/30 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-orange-100 dark:group-hover:bg-orange-900/50 transition-colors flex-shrink-0">
                             <HelpCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-600 dark:text-orange-400" />
@@ -3568,7 +3595,7 @@ const SrsStatusCell = ({ intervalIndex, nextReview, hasData }) => {
     );
 };
 
-const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToEdit, onAutoClassifyBatch }) => {
+const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToEdit, onAutoClassifyBatch, scrollToCardId, onScrollComplete }) => {
     // ... (Filter State logic giữ nguyên)
     const [filterLevel, setFilterLevel] = useState('all');
     const [filterPos, setFilterPos] = useState('all');
@@ -3598,6 +3625,35 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
 
     // Note: Virtual scrolling tạm thời disable, có thể enable sau
     // const useVirtualScrolling = viewMode === 'grid' && filteredCards.length > 100;
+
+    // Scroll đến card sau khi quay lại từ edit mode, hoặc scroll về đầu trang nếu không có
+    useEffect(() => {
+        if (scrollToCardId) {
+            // Đợi DOM render xong
+            setTimeout(() => {
+                const element = document.querySelector(`[data-card-id="${scrollToCardId}"]`);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    // Highlight card một chút
+                    element.classList.add('ring-2', 'ring-indigo-500');
+                    setTimeout(() => {
+                        element.classList.remove('ring-2', 'ring-indigo-500');
+                    }, 2000);
+                    // Gọi callback để reset scrollToCardId
+                    if (onScrollComplete) {
+                        onScrollComplete();
+                    }
+                }
+            }, 100);
+        } else {
+            // Nếu không có scrollToCardId, scroll về đầu trang khi vào LIST
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            const mainContainer = document.querySelector('.main-with-header');
+            if (mainContainer) {
+                mainContainer.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    }, [scrollToCardId, filteredCards, onScrollComplete]);
 
     return (
         <div className="h-full flex flex-col space-y-2 md:space-y-6">
@@ -3706,7 +3762,7 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                             </thead>
                             <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-50 dark:divide-gray-700">
                                 {filteredCards.map((card) => (
-                                    <tr key={card.id} className="hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10 transition-colors group">
+                                    <tr key={card.id} data-card-id={card.id} className="hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10 transition-colors group">
                                         <td className="px-2 md:px-4 py-2 md:py-3">
                                             <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gray-100 dark:bg-gray-700 overflow-hidden border border-gray-200 dark:border-gray-600">
                                                 {card.imageBase64 ? <img src={card.imageBase64} className="w-full h-full object-cover"/> : <div className="w-full h-full flex items-center justify-center text-gray-300 dark:text-gray-600"><ImageIcon className="w-3 h-3 md:w-4 md:h-4"/></div>}
@@ -3748,7 +3804,7 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                         const isDue = card.nextReview_back <= new Date().setHours(0,0,0,0);
                         
                         return (
-                            <div key={card.id} className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl md:rounded-2xl shadow-md dark:shadow-lg border-2 border-gray-200 dark:border-gray-700 hover:shadow-xl dark:hover:shadow-2xl hover:-translate-y-1 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all duration-300 flex flex-col overflow-hidden relative group">
+                            <div key={card.id} data-card-id={card.id} className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl md:rounded-2xl shadow-md dark:shadow-lg border-2 border-gray-200 dark:border-gray-700 hover:shadow-xl dark:hover:shadow-2xl hover:-translate-y-1 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all duration-300 flex flex-col overflow-hidden relative group">
                                 {/* Top colored bar với gradient đẹp hơn */}
                                 <div className={`h-2 md:h-2.5 w-full ${levelColor.replace('bg-', 'bg-gradient-to-r from-').replace(' text-', ' to-white dark:to-gray-800 ')}`}></div>
                                 
@@ -5295,15 +5351,15 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
     const [newGoal, setNewGoal] = useState(profile.dailyGoal);
     const pieChartRef = useRef(null);
     const barChartRef = useRef(null);
-    const [pieChartSize, setPieChartSize] = useState({ width: 0, height: 250 });
-    const [barChartSize, setBarChartSize] = useState({ width: 0, height: 250 });
+    const [pieChartSize, setPieChartSize] = useState({ width: 0, height: 200 });
+    const [barChartSize, setBarChartSize] = useState({ width: 0, height: 200 });
     
     useEffect(() => {
         const updatePieSize = () => {
             if (pieChartRef.current) {
                 const width = pieChartRef.current.offsetWidth || 0;
                 if (width > 0) {
-                    setPieChartSize({ width, height: 250 });
+                    setPieChartSize({ width, height: 200 });
                 }
             }
         };
@@ -5311,7 +5367,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
             if (barChartRef.current) {
                 const width = barChartRef.current.offsetWidth || 0;
                 if (width > 0) {
-                    setBarChartSize({ width, height: 250 });
+                    setBarChartSize({ width, height: 200 });
                 }
             }
         };
@@ -5431,7 +5487,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
             
             {/* Top Row: Summary Cards - 2 columns on mobile */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
-                 <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-indigo-600 dark:to-purple-700 p-3 md:p-5 rounded-xl md:rounded-2xl text-white shadow-lg space-y-1 md:space-y-2">
+                 <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-indigo-600 dark:to-purple-700 p-2 md:p-3 rounded-lg md:rounded-xl text-white shadow-lg space-y-0.5 md:space-y-1">
                      <div className="flex justify-between items-start">
                         <div>
                             <p className="text-[9px] md:text-xs uppercase tracking-wide opacity-80">Mục tiêu mỗi ngày</p>
@@ -5478,10 +5534,10 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
             </div>
 
             {/* Middle Row: Charts */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4">
                 {/* Pie Chart: Memory Retention */}
-                 <div className="bg-white dark:bg-gray-800 p-3 md:p-6 rounded-xl md:rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
-                    <h3 className="text-sm md:text-lg font-bold text-gray-700 dark:text-gray-200 mb-2 md:mb-4">Ghi nhớ Từ vựng</h3>
+                 <div className="bg-white dark:bg-gray-800 p-2 md:p-4 rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                    <h3 className="text-xs md:text-base font-bold text-gray-700 dark:text-gray-200 mb-1.5 md:mb-2">Ghi nhớ Từ vựng</h3>
                         {pieData.length > 0 ? (
                         <div ref={pieChartRef} className="chart-container">
                             {pieChartSize.width > 0 ? (
@@ -5495,14 +5551,14 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                                         outerRadius={90} 
                                         paddingAngle={5} 
                                         dataKey="value"
-                                        label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                                        label={false}
                                     >
                                         {pieData.map((entry, index) => (
                                             <Cell key={`cell-${index}`} fill={entry.fill} />
                                         ))}
                                     </Pie>
                                     <Tooltip/>
-                                    <Legend wrapperStyle={{fontSize: '10px'}} iconSize={8}/>
+                                    <Legend wrapperStyle={{fontSize: '12px', fontWeight: '500'}} iconSize={12}/>
                                 </PieChart>
                             </ResponsiveContainer>
                             ) : (
@@ -5519,8 +5575,8 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                  </div>
 
                  {/* Bar Chart: JLPT Progress */}
-                 <div className="bg-white dark:bg-gray-800 p-3 md:p-6 rounded-xl md:rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
-                    <h3 className="text-sm md:text-lg font-bold text-gray-700 dark:text-gray-200 mb-2 md:mb-4">Tiến độ theo Cấp độ JLPT</h3>
+                 <div className="bg-white dark:bg-gray-800 p-2 md:p-4 rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                    <h3 className="text-xs md:text-base font-bold text-gray-700 dark:text-gray-200 mb-1.5 md:mb-2">Tiến độ theo Cấp độ JLPT</h3>
                     {jlptData && jlptData.length > 0 ? (
                         <div ref={barChartRef} className="chart-container">
                             {barChartSize.width > 0 ? (
