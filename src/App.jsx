@@ -215,66 +215,70 @@ const getWordForMasking = (text) => {
 
 let currentAudioObj = null;
 
-// UPDATED: Play Audio with Fallback
-const playAudio = (base64Data, textFallback = '') => {
-    // 1. Thử phát file audio nếu có
-    if (base64Data) {
-        try {
-            if (currentAudioObj) {
-                currentAudioObj.pause();
-                currentAudioObj.currentTime = 0;
-            }
-
-            const buffer = base64ToArrayBuffer(base64Data);
-            if (buffer) {
-                const view = new DataView(buffer);
-                const isWavFile = buffer.byteLength > 4 && view.getUint32(0, false) === 0x52494646;
-                const isMp3ID3 = buffer.byteLength > 3 && view.getUint8(0) === 0x49 && view.getUint8(1) === 0x44 && view.getUint8(2) === 0x33;
-                const isMp3Sync = buffer.byteLength > 2 && view.getUint8(0) === 0xFF && (view.getUint8(1) & 0xE0) === 0xE0;
-
-                let audioUrl;
-                
-                if (isWavFile) {
-                    const blob = new Blob([buffer], { type: 'audio/wav' });
-                    audioUrl = URL.createObjectURL(blob);
-                } else if (isMp3ID3 || isMp3Sync) {
-                    const blob = new Blob([buffer], { type: 'audio/mpeg' });
-                    audioUrl = URL.createObjectURL(blob);
-                } else {
-                    const sampleRate = 24000; 
-                    const pcm16 = new Int16Array(buffer);
-                    const wavBlob = pcmToWav(pcm16, sampleRate);
-                    audioUrl = URL.createObjectURL(wavBlob);
-                }
-                
-                const audio = new Audio(audioUrl);
-                currentAudioObj = audio;
-
-                audio.play().catch(e => {
-                    console.error("Lỗi phát audio file, thử fallback:", e);
-                    // Nếu lỗi phát file (file hỏng), thử dùng trình duyệt
-                    playBrowserTts(textFallback);
-                });
-                
-                audio.onended = () => {
-                    URL.revokeObjectURL(audioUrl);
-                    if (currentAudioObj === audio) {
-                        currentAudioObj = null;
-                    }
-                };
-                return; // Thành công (hoặc đang thử phát)
-            }
-        } catch (e) {
-            console.error("Lỗi xử lý audio, chuyển sang fallback:", e);
-        }
+// UPDATED: Play Audio - CHỈ phát audioBase64 đã lưu, không fallback sang Browser TTS
+const playAudio = (base64Data) => {
+    // CHỈ phát audioBase64 nếu có, không fallback sang Browser TTS
+    if (!base64Data) {
+        return; // Không có audio, không phát gì cả
     }
+    
+    try {
+        // Dừng audio hiện tại nếu đang phát
+        if (currentAudioObj) {
+            currentAudioObj.pause();
+            currentAudioObj.currentTime = 0;
+        }
 
-    // 2. Fallback: Nếu không có file hoặc file lỗi, dùng trình duyệt
-    playBrowserTts(textFallback);
+        const buffer = base64ToArrayBuffer(base64Data);
+        if (!buffer) {
+            console.error("Không thể chuyển đổi audioBase64 thành buffer");
+            return;
+        }
+
+        const view = new DataView(buffer);
+        const isWavFile = buffer.byteLength > 4 && view.getUint32(0, false) === 0x52494646;
+        const isMp3ID3 = buffer.byteLength > 3 && view.getUint8(0) === 0x49 && view.getUint8(1) === 0x44 && view.getUint8(2) === 0x33;
+        const isMp3Sync = buffer.byteLength > 2 && view.getUint8(0) === 0xFF && (view.getUint8(1) & 0xE0) === 0xE0;
+
+        let audioUrl;
+        
+        if (isWavFile) {
+            const blob = new Blob([buffer], { type: 'audio/wav' });
+            audioUrl = URL.createObjectURL(blob);
+        } else if (isMp3ID3 || isMp3Sync) {
+            const blob = new Blob([buffer], { type: 'audio/mpeg' });
+            audioUrl = URL.createObjectURL(blob);
+        } else {
+            // Mặc định xử lý như PCM/WAV từ Gemini TTS
+            const sampleRate = 24000; 
+            const pcm16 = new Int16Array(buffer);
+            const wavBlob = pcmToWav(pcm16, sampleRate);
+            audioUrl = URL.createObjectURL(wavBlob);
+        }
+        
+        const audio = new Audio(audioUrl);
+        currentAudioObj = audio;
+
+        audio.play().catch(e => {
+            console.error("Lỗi phát audio file:", e);
+            // Không fallback sang Browser TTS, chỉ log lỗi
+        });
+        
+        audio.onended = () => {
+            URL.revokeObjectURL(audioUrl);
+            if (currentAudioObj === audio) {
+                currentAudioObj = null;
+            }
+        };
+    } catch (e) {
+        console.error("Lỗi xử lý audio:", e);
+        // Không fallback sang Browser TTS
+    }
 };
 
-// Helper cho Browser TTS
-const playBrowserTts = (text) => {
+// Helper cho Browser TTS (không dùng nữa, giữ lại để tương lai có thể dùng)
+// eslint-disable-next-line no-unused-vars
+const _playBrowserTts = (text) => {
     if (!text || typeof window === 'undefined' || !window.speechSynthesis) return;
     
     // Stop current speech
@@ -297,64 +301,124 @@ const playBrowserTts = (text) => {
 };
 
 
-const _fetchTtsApiCall = async (text, voiceName, attempts = 0) => {
+// Helper: Lấy danh sách API keys từ env (dùng cho TTS)
+const getTtsApiKeys = () => {
+    const keys = [];
+    // Lấy tất cả các keys từ env (VITE_GEMINI_API_KEY, VITE_GEMINI_TTS_API_KEY, VITE_GEMINI_API_KEY_2, ...)
+    if (import.meta.env.VITE_GEMINI_API_KEY) keys.push(import.meta.env.VITE_GEMINI_API_KEY);
+    if (import.meta.env.VITE_GEMINI_TTS_API_KEY) keys.push(import.meta.env.VITE_GEMINI_TTS_API_KEY);
+    // Hỗ trợ thêm keys từ env (VITE_GEMINI_API_KEY_2, VITE_GEMINI_API_KEY_3, ...)
+    let i = 2;
+    while (import.meta.env[`VITE_GEMINI_API_KEY_${i}`]) {
+        keys.push(import.meta.env[`VITE_GEMINI_API_KEY_${i}`]);
+        i++;
+    }
+    return keys;
+};
+
+const _fetchTtsApiCall = async (text, voiceName, apiKeys = null, keyIndex = 0) => {
     if (!text) return null;
-    const apiKey = import.meta.env.VITE_GEMINI_TTS_API_KEY; 
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
     
-    const payload = {
-        contents: [{ parts: [{ text: text }] }],
-        generationConfig: {
-            responseModalities: ["AUDIO"],
-            speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: voiceName } } } 
-        },
-        model: "gemini-2.5-flash-preview-tts"
-    };
+    // Lấy danh sách keys nếu chưa có
+    if (!apiKeys || apiKeys.length === 0) {
+        apiKeys = getTtsApiKeys();
+    }
+    
+    if (apiKeys.length === 0) {
+        console.error("Không có API key nào được cấu hình cho TTS");
+        return null;
+    }
+    
+    // Thử từng key một
+    for (let i = keyIndex; i < apiKeys.length; i++) {
+        const apiKey = apiKeys[i];
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+        
+        const payload = {
+            contents: [{ parts: [{ text: text }] }],
+            generationConfig: {
+                responseModalities: ["AUDIO"],
+                speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: voiceName } } } 
+            },
+            model: "gemini-2.5-flash-preview-tts"
+        };
 
-    try {
-        const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        });
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
 
-        if (!response.ok) {
-            if (response.status === 429 && attempts < 1) {
-                const delay = 2000; 
-                await new Promise(resolve => setTimeout(resolve, delay));
-                return _fetchTtsApiCall(text, voiceName, attempts + 1);
+            if (response.ok) {
+                const result = await response.json();
+                const part = result?.candidates?.[0]?.content?.parts?.[0];
+                const audioData = part?.inlineData?.data;
+                return audioData || null;
+            }
+
+            // Đọc body lỗi để xác định loại lỗi
+            let errorBody = "";
+            try {
+                errorBody = await response.text();
+                console.error(`TTS error với key ${i + 1}/${apiKeys.length} (Giọng: ${voiceName}):`, errorBody);
+            } catch (err) {
+                console.error('Error reading error response:', err);
+            }
+
+            // Các lỗi có thể retry với key khác: 401, 403, 429
+            const retryableErrors = [401, 403, 429];
+            if (retryableErrors.includes(response.status)) {
+                // Nếu là lỗi 429 và còn key khác, thử key tiếp theo
+                if (i < apiKeys.length - 1) {
+                    continue; // Thử key tiếp theo
+                }
+            }
+            
+            // Lỗi khác (400, 500, ...) hoặc đã hết key, trả về null
+            return null;
+        } catch (e) {
+            console.error(`Lỗi network với key ${i + 1}/${apiKeys.length} (Giọng: ${voiceName}):`, e);
+            // Nếu còn key khác, thử tiếp
+            if (i < apiKeys.length - 1) {
+                continue;
             }
             return null;
         }
-
-        const result = await response.json();
-        const part = result?.candidates?.[0]?.content?.parts?.[0];
-        const audioData = part?.inlineData?.data;
-
-        return audioData || null; 
-    } catch (e) {
-        console.error(`Lỗi trong quá trình gọi TTS API (Giọng: ${voiceName}):`, e);
-        return null;
     }
+    
+    return null;
 };
 
 const fetchTtsBase64 = async (text) => {
     if (!text || text.length > 100) return null;
     
-    // UPDATED: Danh sách giọng đa dạng hơn (Multi-Model simulation)
-    // Chia làm các nhóm để thử lần lượt
-    const VOICE_POOLS = [
-        ["Aoede", "Puck", "Charon", "Kore", "Fenrir"], // Nhóm 1: Cơ bản
-        ["Leda", "Orus", "Zephyr", "Iapetus", "Umbriel"], // Nhóm 2: Bổ sung
-        ["Callirrhoe", "Algieba", "Despina", "Erinome", "Algenib"] // Nhóm 3: Dự phòng
+    // Lấy danh sách keys một lần để dùng chung cho tất cả các giọng
+    const apiKeys = getTtsApiKeys();
+    if (apiKeys.length === 0) {
+        console.error("Không có API key nào được cấu hình cho TTS");
+        return null;
+    }
+    
+    // Ưu tiên giọng nam chuẩn: Charon, Orus (giọng nam chuẩn, rõ ràng)
+    // Sau đó là các giọng nam khác: Fenrir, Iapetus, Umbriel, Algenib
+    // Cuối cùng mới đến giọng nữ nếu cần
+    const MALE_VOICES_STANDARD = ["Charon", "Orus"]; // Giọng nam chuẩn (ưu tiên cao nhất)
+    const MALE_VOICES_OTHER = ["Fenrir", "Iapetus", "Umbriel", "Algenib"]; // Giọng nam khác
+    const FEMALE_VOICES = ["Aoede", "Puck", "Kore", "Leda", "Zephyr", "Callirrhoe", "Algieba", "Despina", "Erinome"]; // Giọng nữ (dự phòng)
+    
+    // Tạo danh sách ưu tiên: giọng nam chuẩn → giọng nam khác → giọng nữ
+    const prioritizedVoices = [
+        ...MALE_VOICES_STANDARD,
+        ...MALE_VOICES_OTHER,
+        ...FEMALE_VOICES
     ];
+    
+    // Thử từng giọng theo thứ tự ưu tiên (tối đa 6 giọng để tránh chậm)
+    const voicesToTry = prioritizedVoices.slice(0, 6);
 
-    // Lấy ngẫu nhiên tối đa 4 giọng từ các pool để thử (tránh thử hết 15 cái gây chậm)
-    const allVoices = VOICE_POOLS.flat();
-    const shuffledVoices = allVoices.sort(() => 0.5 - Math.random()).slice(0, 4);
-
-    for (const voice of shuffledVoices) {
-        const audioData = await _fetchTtsApiCall(text, voice);
+    for (const voice of voicesToTry) {
+        const audioData = await _fetchTtsApiCall(text, voice, apiKeys, 0);
         if (audioData) {
             return audioData; 
         }
@@ -1415,8 +1479,18 @@ const App = () => {
             imageBase64: imageBase64,
         };
         
+        // CHỈ cập nhật audioBase64 nếu có giá trị mới (không null/undefined)
+        // Nếu audioBase64 là null, có nghĩa là người dùng muốn xóa audio
+        // Nếu audioBase64 là undefined, giữ nguyên audio cũ (không cập nhật)
         if (audioBase64 !== undefined) {
-             updatedData.audioBase64 = audioBase64;
+            if (audioBase64 === null) {
+                // Người dùng muốn xóa audio
+                updatedData.audioBase64 = null;
+            } else if (audioBase64 !== '') {
+                // Có audio mới
+                updatedData.audioBase64 = audioBase64;
+            }
+            // Nếu audioBase64 === '', không cập nhật (giữ nguyên audio cũ)
         }
 
         try {
@@ -3326,7 +3400,18 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
     const handleImageChange = async (e) => { const file = e.target.files[0]; if (file) { try { const compressed = await compressImage(file); setImagePreview(compressed); } catch (error) { console.error("Lỗi ảnh:", error); } } };
     const handleRemoveImage = () => { setImagePreview(null); };
     const handleAudioFileChange = (e) => { const file = e.target.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = (event) => { const res = event.target.result; setCustomAudio(res.split(',')[1]); }; reader.readAsDataURL(file); };
-    const handleSave = async () => { if (!front.trim() || !back.trim()) return; setIsSaving(true); await onSave({ cardId: card.id, front, back, synonym, example, exampleMeaning, nuance, pos, level, sinoVietnamese, synonymSinoVietnamese, imageBase64: imagePreview, audioBase64: customAudio.trim() !== '' ? customAudio.trim() : null }); setIsSaving(false); }; // eslint-disable-line no-unused-vars
+    const handleSave = async () => { 
+        if (!front.trim() || !back.trim()) return; 
+        setIsSaving(true); 
+        // Nếu customAudio rỗng và card ban đầu có audioBase64, giữ nguyên (không truyền undefined)
+        // Nếu customAudio có giá trị, truyền giá trị đó
+        // Nếu người dùng chủ động xóa (customAudio === '' và ban đầu có audio), truyền null
+        const hasOriginalAudio = card.audioBase64 && card.audioBase64.trim() !== '';
+        const hasNewAudio = customAudio.trim() !== '';
+        const audioToSave = hasNewAudio ? customAudio.trim() : (hasOriginalAudio ? undefined : null);
+        await onSave({ cardId: card.id, front, back, synonym, example, exampleMeaning, nuance, pos, level, sinoVietnamese, synonymSinoVietnamese, imageBase64: imagePreview, audioBase64: audioToSave }); 
+        setIsSaving(false); 
+    }; // eslint-disable-line no-unused-vars
     const handleAiAssist = async (e) => { e.preventDefault(); if(!front.trim()) return; setIsAiLoading(true); const aiData = await onGeminiAssist(front, pos, level); if(aiData) { if(aiData.frontWithFurigana) setFront(aiData.frontWithFurigana); if(aiData.meaning) setBack(aiData.meaning); if(aiData.sinoVietnamese) setSinoVietnamese(aiData.sinoVietnamese); if(aiData.synonym) setSynonym(aiData.synonym); if(aiData.synonymSinoVietnamese) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese); if(aiData.example) setExample(aiData.example); if(aiData.exampleMeaning) setExampleMeaning(aiData.exampleMeaning); if(aiData.nuance) setNuance(aiData.nuance); if(aiData.pos) setPos(aiData.pos); if(aiData.level) setLevel(aiData.level); } setIsAiLoading(false); };
     const handleKeyDown = (e) => { if(e.key === 'g' && (e.altKey || e.metaKey)) { e.preventDefault(); handleAiAssist(e); }};
 
@@ -3853,8 +3938,9 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 setIsFlipped(prev => {
                     const newFlippedState = !prev;
                     // Phát âm thanh khi lật card (khi lật sang mặt sau)
+                    // CHỈ phát audioBase64 đã lưu, không phát Browser TTS
                     if (newFlippedState && currentCard && currentCard.audioBase64) {
-                        playAudio(currentCard.audioBase64, currentCard.front);
+                        playAudio(currentCard.audioBase64);
                     }
                     return newFlippedState;
                 });
@@ -4213,8 +4299,9 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                 const newFlippedState = !isFlipped;
                                 setIsFlipped(newFlippedState);
                                 // Phát âm thanh khi lật card (khi lật sang mặt sau)
-                                if (newFlippedState && currentCard.audioBase64) {
-                                    playAudio(currentCard.audioBase64, currentCard.front);
+                                // CHỈ phát audioBase64 đã lưu, không phát Browser TTS
+                                if (newFlippedState && currentCard && currentCard.audioBase64) {
+                                    playAudio(currentCard.audioBase64);
                                 }
                             }}
                             style={{ 
@@ -4433,7 +4520,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                     }
                                     
                                     setIsRevealed(true);
-                                    playAudio(currentCard.audioBase64, currentCard.front);
+                                    playAudio(currentCard.audioBase64);
                                     await new Promise(resolve => setTimeout(resolve, 1000));
                                     
                                     // Nếu đã từng sai, không tăng streak
