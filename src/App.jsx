@@ -393,7 +393,6 @@ const App = () => {
         // Lấy từ localStorage, mặc định là false (light mode)
         const saved = localStorage.getItem('darkMode');
         const result = saved === 'true';
-        console.log('[DarkMode Init] localStorage:', saved, 'isDarkMode:', result);
         
         // Force remove dark class ngay lập tức nếu không phải dark mode
         if (!result) {
@@ -551,7 +550,6 @@ const App = () => {
             htmlElement.style.removeProperty('background-color');
             bodyElement.style.removeProperty('background-color');
         }
-        console.log('[DarkMode Mount] Applied isDarkMode:', isDarkMode);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []); // Chạy một lần khi mount để khởi tạo, isDarkMode đã được capture từ initial state
 
@@ -565,15 +563,12 @@ const App = () => {
         const bodyElement = document.body;
         const rootElement = document.getElementById('root');
         
-        console.log('[DarkMode Effect] isDarkMode:', isDarkMode);
-        
         // Sử dụng requestAnimationFrame để đảm bảo DOM đã sẵn sàng
         requestAnimationFrame(() => {
             if (isDarkMode) {
                 htmlElement.classList.add('dark');
                 bodyElement.classList.add('dark');
                 if (rootElement) rootElement.classList.add('dark');
-                console.log('[Dark Mode ON] HTML classes:', htmlElement.className);
             } else {
                 // Force remove class dark
                 htmlElement.classList.remove('dark');
@@ -593,9 +588,6 @@ const App = () => {
                 bodyElement.style.removeProperty('background-color');
                 htmlElement.style.removeProperty('color-scheme');
                 bodyElement.style.removeProperty('color-scheme');
-                
-                console.log('[Light Mode ON] HTML classes:', htmlElement.className, 'Has dark?', htmlElement.classList.contains('dark'));
-                console.log('[Light Mode ON] Computed bg:', window.getComputedStyle(bodyElement).backgroundColor);
             }
             
             // Force reflow và repaint
@@ -741,10 +733,6 @@ const App = () => {
             const isDue = card.nextReview_back <= today;
             const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
             const result = isDue && synonymStreak < 1;
-            // Debug: Log một vài từ để kiểm tra
-            if (card.front && card.front.includes('調整')) {
-                console.log(`[DueCount Synonym] ${card.front}: isDue=${isDue}, synonymStreak=${synonymStreak}, result=${result}`);
-            }
             return result;
         }).length;
         
@@ -754,10 +742,6 @@ const App = () => {
             const isDue = card.nextReview_back <= today;
             const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
             const result = isDue && exampleStreak < 1;
-            // Debug: Log một vài từ để kiểm tra
-            if (card.front && card.front.includes('調整')) {
-                console.log(`[DueCount Example] ${card.front}: isDue=${isDue}, exampleStreak=${exampleStreak}, result=${result}`);
-            }
             return result;
         }).length;
 
@@ -766,11 +750,9 @@ const App = () => {
             return card.intervalIndex_back === -1 || card.intervalIndex_back === undefined;
         }).length;
 
-        // Study mode: Chỉ từ vựng chưa có SRS (intervalIndex === -1 hoặc undefined)
+        // Study mode: Chỉ từ vựng chưa có SRS (chỉ cần intervalIndex_back === -1)
         const study = allCards.filter(card => {
-            return (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined) &&
-                   (card.intervalIndex_synonym === -1 || card.intervalIndex_synonym === undefined) &&
-                   (card.intervalIndex_example === -1 || card.intervalIndex_example === undefined);
+            return card.intervalIndex_back === -1 || card.intervalIndex_back === undefined;
         }).length;
 
         return { mixed, flashcard, back, synonym, example, study };
@@ -1400,11 +1382,6 @@ const App = () => {
         
         try {
             await updateDoc(cardRef, updateData);
-            
-            // Debug: Log streaks sau khi cập nhật
-            console.log(`[SRS Update] Card: ${cardData.front}, Type: ${cardReviewType}`);
-            console.log(`  Streaks - Back: ${updateData.correctStreak_back}, Syn: ${updateData.correctStreak_synonym || 'N/A'}, Ex: ${updateData.correctStreak_example || 'N/A'}`);
-            console.log(`  AllCompleted: ${allRequiredPartsCompleted}, NextReview: ${updateData.nextReview_back || 'unchanged'}`);
         } catch (e) {
             console.error("Lỗi khi cập nhật thẻ:", e);
         }
@@ -1548,7 +1525,6 @@ const App = () => {
                 // Các lỗi có thể retry với key khác: 401, 403, 429
                 const retryableErrors = [401, 403, 429];
                 if (retryableErrors.includes(response.status)) {
-                    console.log(`Key ${i + 1} thất bại (${response.status}), thử key tiếp theo...`);
                     lastError = new Error(`Lỗi API Gemini với key ${i + 1}: ${response.status} ${response.statusText}`);
                     // Tiếp tục vòng lặp để thử key tiếp theo
                     continue;
@@ -2711,12 +2687,7 @@ const Header = ({ currentView, setView, isDarkMode, setIsDarkMode }) => {
                     onClick={(e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        console.log('Toggle clicked, current isDarkMode:', isDarkMode);
-                        setIsDarkMode(prev => {
-                            const newValue = !prev;
-                            console.log('Setting isDarkMode to:', newValue);
-                            return newValue;
-                        });
+                        setIsDarkMode(prev => !prev);
                     }}
                     className="p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
                     title={isDarkMode ? "Chế độ sáng" : "Chế độ tối"}
@@ -2827,7 +2798,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
             {/* Review Section */}
             <div className="space-y-2 md:space-y-3">
                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-3">
-                    <h3 className="text-sm md:text-lg font-extrabold text-gray-800 flex items-center">
+                    <h3 className="text-sm md:text-lg font-extrabold text-gray-800 dark:text-gray-100 flex items-center">
                         <Zap className="w-4 h-4 md:w-6 md:h-6 mr-1.5 md:mr-2 text-amber-500" />
                         Chế độ Ôn tập
                     </h3>
@@ -2856,11 +2827,9 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                             />
                             <ActionCard
                                 onClick={() => {
-                                    // Prepare study cards - chỉ từ vựng chưa có SRS
+                                    // Prepare study cards - chỉ từ vựng chưa có SRS (chỉ cần intervalIndex_back === -1)
                                     const noSrsCards = allCards.filter(card => {
-                                        return (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined) &&
-                                               (card.intervalIndex_synonym === -1 || card.intervalIndex_synonym === undefined) &&
-                                               (card.intervalIndex_example === -1 || card.intervalIndex_example === undefined);
+                                        return card.intervalIndex_back === -1 || card.intervalIndex_back === undefined;
                                     });
                                     
                                     if (noSrsCards.length === 0) {
@@ -3363,14 +3332,14 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
 
     return (
         <div className="space-y-8">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-4">
-                <h2 className="text-2xl font-bold text-gray-800">Chỉnh Sửa Thẻ</h2>
+            <div className="flex items-center justify-between border-b border-gray-100 dark:border-gray-700 pb-4">
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">Chỉnh Sửa Thẻ</h2>
             </div>
             {/* Tái sử dụng layout 2 cột từ AddCardForm cho đồng bộ */}
              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-6">
-                     <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-4">
-                        <label className="block text-sm font-semibold text-gray-700">Từ vựng (Nhật)</label>
+                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Từ vựng (Nhật)</label>
                         <div className="flex gap-2">
                             <input 
                                 type="text" 
@@ -3385,14 +3354,14 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
                                         }, 300);
                                     }
                                 }}
-                                className="flex-1 pl-2 md:pl-3 lg:pl-4 pr-2 md:pr-12 py-1.5 md:py-2 lg:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:border-indigo-500 font-medium text-sm md:text-base lg:text-lg"
+                                className="flex-1 pl-2 md:pl-3 lg:pl-4 pr-2 md:pr-12 py-1.5 md:py-2 lg:py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 font-medium text-sm md:text-base lg:text-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                             />
-                            <button type="button" onClick={handleAiAssist} className="px-2 md:px-3 bg-indigo-100 text-indigo-700 rounded-lg md:rounded-xl font-bold hover:bg-indigo-200 flex-shrink-0 text-xs md:text-sm">{isAiLoading ? <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5"/> : "AI"}</button>
+                            <button type="button" onClick={handleAiAssist} className="px-2 md:px-3 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 rounded-lg md:rounded-xl font-bold hover:bg-indigo-200 dark:hover:bg-indigo-900/50 flex-shrink-0 text-xs md:text-sm">{isAiLoading ? <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5"/> : "AI"}</button>
                         </div>
                         
                         {/* UPDATE: Moved Classification & Level Buttons for Edit Form as well */}
-                        <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-3">
-                             <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider">Phân loại & Cấp độ</label>
+                        <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-xl border border-gray-100 dark:border-gray-700 space-y-3">
+                             <label className="block text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Phân loại & Cấp độ</label>
                              <div className="flex flex-col gap-3">
                                 {/* Level Buttons */}
                                 <div className="flex gap-2 overflow-x-auto pb-1">
@@ -3403,47 +3372,47 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
                                             onClick={() => setLevel(lvl.value)}
                                             className={`flex-1 py-2 px-3 rounded-lg text-sm font-bold transition-all border ${
                                                 level === lvl.value 
-                                                ? `${lvl.color} shadow-sm ring-1 ring-offset-1 ring-indigo-200` 
-                                                : 'bg-white border-gray-200 text-gray-500 hover:bg-gray-100'
+                                                ? `${lvl.color} shadow-sm ring-1 ring-offset-1 ring-indigo-200 dark:ring-indigo-800` 
+                                                : 'bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600'
                                             }`}
                                         >
                                             {lvl.label}
                                         </button>
                                     ))}
                                 </div>
-                                <select value={pos} onChange={(e) => setPos(e.target.value)} className="w-full px-3 py-2 bg-white border border-gray-200 rounded-lg focus:border-indigo-500 text-sm font-medium text-gray-700">
+                                <select value={pos} onChange={(e) => setPos(e.target.value)} className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-sm font-medium text-gray-700 dark:text-gray-100">
                                     <option value="">-- Chọn Từ Loại --</option>
                                     {Object.entries(POS_TYPES).map(([key, value]) => (<option key={key} value={key}>{value.label}</option>))}
                                 </select>
                              </div>
                         </div>
 
-                        <label className="block text-sm font-semibold text-gray-700">Ý nghĩa</label>
-                        <input type="text" value={back} onChange={(e) => setBack(e.target.value)} className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:border-indigo-500 text-sm md:text-base"/>
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Ý nghĩa</label>
+                        <input type="text" value={back} onChange={(e) => setBack(e.target.value)} className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-sm md:text-base text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"/>
                         <div className="grid grid-cols-2 gap-2 md:gap-4">
-                            <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Hán Việt" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 border border-gray-200 rounded-lg"/>
-                            <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 border border-gray-200 rounded-lg"/>
+                            <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Hán Việt" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"/>
+                            <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"/>
                         </div>
                      </div>
                 </div>
                 <div className="space-y-6">
-                    <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-4">
-                        <textarea value={example} onChange={(e) => setExample(e.target.value)} rows="2" placeholder="Ví dụ (Nhật)" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl text-xs md:text-sm"/>
-                        <textarea value={exampleMeaning} onChange={(e) => setExampleMeaning(e.target.value)} rows="2" placeholder="Nghĩa ví dụ" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl text-xs md:text-sm"/>
-                        <textarea value={nuance} onChange={(e) => setNuance(e.target.value)} rows="3" placeholder="Ghi chú" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl text-xs md:text-sm"/>
+                    <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
+                        <textarea value={example} onChange={(e) => setExample(e.target.value)} rows="2" placeholder="Ví dụ (Nhật)" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"/>
+                        <textarea value={exampleMeaning} onChange={(e) => setExampleMeaning(e.target.value)} rows="2" placeholder="Nghĩa ví dụ" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"/>
+                        <textarea value={nuance} onChange={(e) => setNuance(e.target.value)} rows="3" placeholder="Ghi chú" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"/>
                     </div>
                     {/* Media Edit Enhanced */}
-                    <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-4">
-                         <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider">Media</h3>
+                    <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
+                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Media</h3>
                          
                          {/* Image Part */}
                          <div className="flex items-center justify-between">
-                             <label htmlFor="img-edit" className="cursor-pointer text-indigo-600 font-medium text-sm flex items-center hover:text-indigo-800 transition-colors">
+                             <label htmlFor="img-edit" className="cursor-pointer text-indigo-600 dark:text-indigo-400 font-medium text-sm flex items-center hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors">
                                 <ImageIcon className="w-4 h-4 mr-2"/> {imagePreview ? "Thay đổi ảnh" : "Tải ảnh lên"}
                              </label>
                              <input id="img-edit" type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
                              {imagePreview && (
-                                <div className="relative w-16 h-16 rounded-lg overflow-hidden border border-gray-200 group">
+                                <div className="relative w-16 h-16 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600 group">
                                     <img src={imagePreview} className="w-full h-full object-cover"/>
                                     <button type="button" onClick={handleRemoveImage} className="absolute inset-0 bg-black/50 text-white opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><X className="w-4 h-4"/></button>
                                 </div>
@@ -3451,41 +3420,41 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
                         </div>
 
                         {/* Audio Part */}
-                        <div className="pt-2 border-t border-gray-100">
+                        <div className="pt-2 border-t border-gray-100 dark:border-gray-700">
                             <button type="button" onClick={() => setShowAudioInput(!showAudioInput)}
-                                className="text-indigo-600 hover:text-indigo-700 text-sm font-medium flex items-center w-full justify-between">
+                                className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-medium flex items-center w-full justify-between">
                                 <div className="flex items-center"><Music className="w-4 h-4 mr-2" /> {customAudio ? "Đã có Audio tuỳ chỉnh" : "Thêm Audio tuỳ chỉnh"}</div>
-                                <span className="text-xs text-gray-400">{showAudioInput ? '▲' : '▼'}</span>
+                                <span className="text-xs text-gray-400 dark:text-gray-500">{showAudioInput ? '▲' : '▼'}</span>
                             </button>
                             
                             {showAudioInput && (
-                                <div className="mt-3 bg-gray-50 p-3 rounded-xl border border-gray-200 animate-fade-in">
+                                <div className="mt-3 bg-gray-50 dark:bg-gray-700 p-3 rounded-xl border border-gray-200 dark:border-gray-600 animate-fade-in">
                                      <div className="flex items-center justify-between mb-2">
-                                        <label htmlFor="audio-edit" className="cursor-pointer px-3 py-1.5 bg-white border border-gray-300 rounded-lg text-xs font-medium text-gray-700 hover:bg-gray-50 shadow-sm">
+                                        <label htmlFor="audio-edit" className="cursor-pointer px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm">
                                             {customAudio ? "Chọn file khác" : "Chọn file .mp3/wav"}
                                         </label>
                                         <input id="audio-edit" type="file" accept=".wav,.mp3,audio/wav,audio/mpeg" onChange={handleAudioFileChange} className="hidden" />
                                     </div>
                                     
                                     {customAudio && (
-                                        <div className="flex items-center justify-between bg-white p-2 rounded-lg border border-gray-100">
-                                            <span className="text-xs text-emerald-600 font-bold flex items-center"><Check className="w-3 h-3 mr-1" /> Đã lưu</span>
+                                        <div className="flex items-center justify-between bg-white dark:bg-gray-800 p-2 rounded-lg border border-gray-100 dark:border-gray-700">
+                                            <span className="text-xs text-emerald-600 dark:text-emerald-400 font-bold flex items-center"><Check className="w-3 h-3 mr-1" /> Đã lưu</span>
                                             <div className="flex gap-2">
-                                                 <button type="button" onClick={() => playAudio(customAudio)} className="p-1 text-indigo-600 hover:bg-indigo-50 rounded"><Volume2 className="w-4 h-4"/></button>
-                                                 <button type="button" onClick={() => setCustomAudio('')} className="p-1 text-red-500 hover:bg-red-50 rounded"><Trash2 className="w-4 h-4"/></button>
+                                                 <button type="button" onClick={() => playAudio(customAudio)} className="p-1 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded"><Volume2 className="w-4 h-4"/></button>
+                                                 <button type="button" onClick={() => setCustomAudio('')} className="p-1 text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 rounded"><Trash2 className="w-4 h-4"/></button>
                                             </div>
                                         </div>
                                     )}
-                                     {!customAudio && <p className="text-[10px] text-gray-400 mt-1 text-center">Nếu trống, hệ thống sẽ tự tạo audio từ văn bản.</p>}
+                                     {!customAudio && <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-1 text-center">Nếu trống, hệ thống sẽ tự tạo audio từ văn bản.</p>}
                                 </div>
                             )}
                         </div>
                     </div>
                 </div>
              </div>
-             <div className="flex gap-4 pt-4 border-t">
+             <div className="flex gap-4 pt-4 border-t border-gray-100 dark:border-gray-700">
                  <button onClick={handleSave} className="flex-1 py-2 md:py-2.5 lg:py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg md:rounded-xl font-bold text-xs md:text-sm lg:text-base shadow-md md:shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors">Lưu Thay Đổi</button>
-                 <button onClick={onBack} className="px-4 md:px-5 lg:px-6 py-2 md:py-2.5 lg:py-3 bg-white border border-gray-200 rounded-lg md:rounded-xl font-medium text-xs md:text-sm lg:text-base text-gray-600 hover:bg-gray-50">Hủy</button>
+                 <button onClick={onBack} className="px-4 md:px-5 lg:px-6 py-2 md:py-2.5 lg:py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:rounded-xl font-medium text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">Hủy</button>
              </div>
         </div>
     );
@@ -3918,83 +3887,85 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         return text.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').replace(/\s+/g, '').toLowerCase();
     }, []);
     
-    // Generate multiple choice options cho Synonym và Example
-    const generateMultipleChoiceOptions = useMemo(() => {
-        if (!currentCard || !isMultipleChoice) return [];
-        
-        const correctAnswer = currentCard.front;
-        const currentPos = currentCard.pos;
-        
-        // Lấy tất cả từ hợp lệ (không trùng với đáp án đúng)
-        const allValidCards = (allCards || cards)
-            .filter(card => 
-                card.id !== currentCard.id && 
-                card.front && 
-                card.front.trim() !== '' &&
-                normalizeAnswer(card.front) !== normalizeAnswer(correctAnswer)
-            );
-        
-        // Ưu tiên 1: Từ cùng loại (POS)
-        const samePosCards = currentPos 
-            ? allValidCards.filter(card => card.pos === currentPos)
-            : [];
-        
-        // Ưu tiên 2: Từ có độ dài tương tự (±2 ký tự)
-        const correctLength = correctAnswer.length;
-        const similarLengthCards = allValidCards.filter(card => 
-            Math.abs(card.front.length - correctLength) <= 2
-        );
-        
-        // Kết hợp: Ưu tiên cùng POS, sau đó độ dài tương tự
-        let candidates = [];
-        
-        // Lấy từ cùng POS trước
-        if (samePosCards.length > 0) {
-            candidates.push(...samePosCards.slice(0, 3));
-        }
-        
-        // Nếu chưa đủ, lấy từ độ dài tương tự
-        if (candidates.length < 3) {
-            const remaining = similarLengthCards.filter(card => 
-                !candidates.find(c => c.id === card.id)
-            );
-            candidates.push(...remaining.slice(0, 3 - candidates.length));
-        }
-        
-        // Nếu vẫn chưa đủ, lấy ngẫu nhiên từ còn lại
-        if (candidates.length < 3) {
-            const remaining = allValidCards.filter(card => 
-                !candidates.find(c => c.id === card.id)
-            );
-            candidates.push(...remaining.slice(0, 3 - candidates.length));
-        }
-        
-        // Trộn candidates và lấy 3 từ
-        const shuffledCandidates = shuffleArray(candidates);
-        const wrongOptions = shuffledCandidates
-            .slice(0, 3)
-            .map(card => card.front)
-            .filter((front, index, self) => self.findIndex(f => normalizeAnswer(f) === normalizeAnswer(front)) === index);
-        
-        // Nếu không đủ 3, thêm placeholder
-        while (wrongOptions.length < 3) {
-            wrongOptions.push('...');
-        }
-        
-        // Trộn ngẫu nhiên tất cả options
-        const options = [correctAnswer, ...wrongOptions];
-        return shuffleArray(options);
-    }, [currentCard, isMultipleChoice, allCards, cards, normalizeAnswer]);
+    // Generate multiple choice options cho Synonym và Example - dùng useRef để lock options cho mỗi card
+    const optionsRef = useRef({});
+    const currentCardId = currentCard?.id;
     
-    // Set options khi card thay đổi - shuffle thêm 1 lần nữa để tránh pattern
     useEffect(() => {
-        if (generateMultipleChoiceOptions.length > 0) {
-            // Shuffle lại để tránh pattern nhận ra vị trí đáp án
-            setMultipleChoiceOptions(shuffleArray([...generateMultipleChoiceOptions]));
-        } else {
+        if (!currentCard || !isMultipleChoice) {
             setMultipleChoiceOptions([]);
+            return;
         }
-    }, [generateMultipleChoiceOptions, currentIndex]); // Thêm currentIndex để shuffle lại mỗi lần chuyển card
+        
+        // Chỉ tạo options mới nếu chưa có cho card này
+        if (!optionsRef.current[currentCardId]) {
+            const correctAnswer = currentCard.front;
+            const currentPos = currentCard.pos;
+            
+            // Lấy tất cả từ hợp lệ (không trùng với đáp án đúng)
+            const allValidCards = (allCards || cards)
+                .filter(card => 
+                    card.id !== currentCard.id && 
+                    card.front && 
+                    card.front.trim() !== '' &&
+                    normalizeAnswer(card.front) !== normalizeAnswer(correctAnswer)
+                );
+            
+            // Ưu tiên 1: Từ cùng loại (POS)
+            const samePosCards = currentPos 
+                ? allValidCards.filter(card => card.pos === currentPos)
+                : [];
+            
+            // Ưu tiên 2: Từ có độ dài tương tự (±2 ký tự)
+            const correctLength = correctAnswer.length;
+            const similarLengthCards = allValidCards.filter(card => 
+                Math.abs(card.front.length - correctLength) <= 2
+            );
+            
+            // Kết hợp: Ưu tiên cùng POS, sau đó độ dài tương tự
+            let candidates = [];
+            
+            // Lấy từ cùng POS trước
+            if (samePosCards.length > 0) {
+                candidates.push(...samePosCards.slice(0, 3));
+            }
+            
+            // Nếu chưa đủ, lấy từ độ dài tương tự
+            if (candidates.length < 3) {
+                const remaining = similarLengthCards.filter(card => 
+                    !candidates.find(c => c.id === card.id)
+                );
+                candidates.push(...remaining.slice(0, 3 - candidates.length));
+            }
+            
+            // Nếu vẫn chưa đủ, lấy ngẫu nhiên từ còn lại
+            if (candidates.length < 3) {
+                const remaining = allValidCards.filter(card => 
+                    !candidates.find(c => c.id === card.id)
+                );
+                candidates.push(...remaining.slice(0, 3 - candidates.length));
+            }
+            
+            // Trộn candidates và lấy 3 từ
+            const shuffledCandidates = shuffleArray(candidates);
+            const wrongOptions = shuffledCandidates
+                .slice(0, 3)
+                .map(card => card.front)
+                .filter((front, index, self) => self.findIndex(f => normalizeAnswer(f) === normalizeAnswer(front)) === index);
+            
+            // Nếu không đủ 3, thêm placeholder
+            while (wrongOptions.length < 3) {
+                wrongOptions.push('...');
+            }
+            
+            // Trộn ngẫu nhiên tất cả options và lưu vào ref
+            const options = [correctAnswer, ...wrongOptions];
+            optionsRef.current[currentCardId] = shuffleArray(options);
+        }
+        
+        // Set options từ ref
+        setMultipleChoiceOptions(optionsRef.current[currentCardId] || []);
+    }, [currentCardId, isMultipleChoice, currentCard, allCards, cards, normalizeAnswer]);
     
     // Early return check - phải đặt sau tất cả hooks
     // Sử dụng useEffect để gọi handleCompleteReview sau khi render (tránh truy cập ref trong render)
@@ -4626,6 +4597,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     const [feedback, setFeedback] = useState(null);
     const [isProcessing, setIsProcessing] = useState(false);
     const [completedCards, setCompletedCards] = useState(new Set()); // Track các từ đã hoàn thành (cả multiple choice và typing)
+    const [multipleChoiceOptions, setMultipleChoiceOptions] = useState([]); // Options cho trắc nghiệm
     const inputRef = useRef(null);
 
     const currentBatch = studySessionData.currentBatch || [];
@@ -4653,75 +4625,88 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
 
     const normalizeAnswer = (text) => text.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').replace(/\s+/g, '').toLowerCase();
 
-    // Generate multiple choice options
-    const generateMultipleChoiceOptions = useMemo(() => {
-        if (!currentCard || currentPhase !== 'multipleChoice') return [];
+    // Generate multiple choice options - dùng useRef để lock options cho mỗi card
+    const optionsRef = useRef({});
+    const currentCardId = currentCard?.id;
+    
+    useEffect(() => {
+        if (!currentCard || currentPhase !== 'multipleChoice') {
+            setMultipleChoiceOptions([]);
+            return;
+        }
         
-        const correctAnswer = currentCard.front;
-        const currentPos = currentCard.pos;
-        
-        // Lấy tất cả từ hợp lệ
-        const allValidCards = allCards
-            .filter(card => 
-                card.id !== currentCard.id && 
-                card.front && 
-                card.front.trim() !== '' &&
-                normalizeAnswer(card.front) !== normalizeAnswer(correctAnswer)
+        // Chỉ tạo options mới nếu chưa có cho card này
+        if (!optionsRef.current[currentCardId]) {
+            const correctAnswer = currentCard.front;
+            const currentPos = currentCard.pos;
+            
+            // Lấy tất cả từ hợp lệ
+            const allValidCards = allCards
+                .filter(card => 
+                    card.id !== currentCard.id && 
+                    card.front && 
+                    card.front.trim() !== '' &&
+                    normalizeAnswer(card.front) !== normalizeAnswer(correctAnswer)
+                );
+            
+            // Ưu tiên 1: Từ cùng loại (POS)
+            const samePosCards = currentPos 
+                ? allValidCards.filter(card => card.pos === currentPos)
+                : [];
+            
+            // Ưu tiên 2: Từ có độ dài tương tự
+            const correctLength = correctAnswer.length;
+            const similarLengthCards = allValidCards.filter(card => 
+                Math.abs(card.front.length - correctLength) <= 2
             );
-        
-        // Ưu tiên 1: Từ cùng loại (POS)
-        const samePosCards = currentPos 
-            ? allValidCards.filter(card => card.pos === currentPos)
-            : [];
-        
-        // Ưu tiên 2: Từ có độ dài tương tự
-        const correctLength = correctAnswer.length;
-        const similarLengthCards = allValidCards.filter(card => 
-            Math.abs(card.front.length - correctLength) <= 2
-        );
-        
-        // Kết hợp candidates
-        let candidates = [];
-        
-        // Lấy từ cùng POS trước
-        if (samePosCards.length > 0) {
-            candidates.push(...samePosCards.slice(0, 3));
+            
+            // Kết hợp candidates
+            let candidates = [];
+            
+            // Lấy từ cùng POS trước
+            if (samePosCards.length > 0) {
+                candidates.push(...samePosCards.slice(0, 3));
+            }
+            
+            // Nếu chưa đủ, lấy từ độ dài tương tự
+            if (candidates.length < 3) {
+                const remaining = similarLengthCards.filter(card => 
+                    !candidates.find(c => c.id === card.id)
+                );
+                candidates.push(...remaining.slice(0, 3 - candidates.length));
+            }
+            
+            // Nếu vẫn chưa đủ, lấy ngẫu nhiên
+            if (candidates.length < 3) {
+                const remaining = allValidCards.filter(card => 
+                    !candidates.find(c => c.id === card.id)
+                );
+                candidates.push(...remaining.slice(0, 3 - candidates.length));
+            }
+            
+            // Trộn và lấy 3 từ
+            const shuffledCandidates = shuffleArray(candidates);
+            const wrongOptions = shuffledCandidates
+                .slice(0, 3)
+                .map(card => card.front)
+                .filter((front, index, self) => self.findIndex(f => normalizeAnswer(f) === normalizeAnswer(front)) === index);
+            
+            // Nếu không đủ 3, thêm placeholder
+            while (wrongOptions.length < 3) {
+                wrongOptions.push('...');
+            }
+            
+            // Trộn ngẫu nhiên tất cả options và lưu vào ref
+            const options = [correctAnswer, ...wrongOptions];
+            optionsRef.current[currentCardId] = shuffleArray([...options]);
         }
         
-        // Nếu chưa đủ, lấy từ độ dài tương tự
-        if (candidates.length < 3) {
-            const remaining = similarLengthCards.filter(card => 
-                !candidates.find(c => c.id === card.id)
-            );
-            candidates.push(...remaining.slice(0, 3 - candidates.length));
-        }
-        
-        // Nếu vẫn chưa đủ, lấy ngẫu nhiên
-        if (candidates.length < 3) {
-            const remaining = allValidCards.filter(card => 
-                !candidates.find(c => c.id === card.id)
-            );
-            candidates.push(...remaining.slice(0, 3 - candidates.length));
-        }
-        
-        // Trộn và lấy 3 từ
-        const shuffledCandidates = shuffleArray(candidates);
-        const wrongOptions = shuffledCandidates
-            .slice(0, 3)
-            .map(card => card.front)
-            .filter((front, index, self) => self.findIndex(f => normalizeAnswer(f) === normalizeAnswer(front)) === index);
-        
-        // Nếu không đủ 3, thêm placeholder
-        while (wrongOptions.length < 3) {
-            wrongOptions.push('...');
-        }
-        
-        const options = [correctAnswer, ...wrongOptions];
-        return shuffleArray([...options]);
-    }, [currentCard, currentPhase, allCards]);
+        // Set options từ ref
+        setMultipleChoiceOptions(optionsRef.current[currentCardId] || []);
+    }, [currentCardId, currentPhase, currentCard, allCards]);
 
     // Handle multiple choice answer
-    const handleMultipleChoiceAnswer = (selectedOption) => {
+    const handleMultipleChoiceAnswer = async (selectedOption) => {
         if (isProcessing || isRevealed) return;
         
         setIsProcessing(true);
@@ -4731,6 +4716,25 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         setIsRevealed(true);
         
         playAudio(currentCard.audioBase64, currentCard.front);
+        
+        // Update card SRS
+        await onUpdateCard(currentCard.id, isCorrect, 'back');
+        
+        // Cập nhật learning/reviewing lists - từ sai sẽ được thêm vào learning để hiện lại ở batch tiếp theo
+        if (isCorrect) {
+            // Chuyển từ learning sang reviewing nếu có
+            setStudySessionData(prev => ({
+                ...prev,
+                learning: prev.learning.filter(c => c.id !== currentCard.id),
+                reviewing: [...prev.reviewing.filter(c => c.id !== currentCard.id), currentCard]
+            }));
+        } else {
+            // Thêm vào learning nếu sai để hiện lại ở batch tiếp theo
+            setStudySessionData(prev => ({
+                ...prev,
+                learning: [...prev.learning.filter(c => c.id !== currentCard.id), currentCard]
+            }));
+        }
         
         setTimeout(() => {
             setIsProcessing(false);
@@ -4809,11 +4813,6 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             !completedCards.has(card.id)
         );
         
-        if (remainingNoSrs.length === 0) {
-            onCompleteStudy();
-            return;
-        }
-        
         // Phân loại theo ưu tiên: Learning > New > Reviewing
         const learning = studySessionData.learning.filter(card => 
             remainingNoSrs.some(c => c.id === card.id)
@@ -4826,6 +4825,38 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             remainingNoSrs.some(c => c.id === card.id) &&
             !learning.some(c => c.id === card.id)
         );
+
+        // Nếu hết từ trong remainingNoSrs nhưng còn từ trong learning (đã sai ở typing), 
+        // reset completedCards cho các từ đó và tạo batch mới
+        if (remainingNoSrs.length === 0 && studySessionData.learning.length > 0) {
+            // Reset completedCards cho các từ trong learning để học lại
+            const learningIds = new Set(studySessionData.learning.map(c => c.id));
+            setCompletedCards(prev => {
+                const newSet = new Set(prev);
+                learningIds.forEach(id => newSet.delete(id));
+                return newSet;
+            });
+            
+            // Tạo batch mới từ learning list
+            const nextBatch = shuffleArray([...studySessionData.learning]).slice(0, Math.min(5, studySessionData.learning.length));
+            
+            setStudySessionData(prev => ({
+                ...prev,
+                currentBatch: nextBatch,
+                currentPhase: 'multipleChoice',
+                batchIndex: prev.batchIndex + 1
+            }));
+            setCurrentQuestionIndex(0);
+            setInputValue('');
+            setIsRevealed(false);
+            setFeedback(null);
+            return;
+        }
+        
+        if (remainingNoSrs.length === 0) {
+            onCompleteStudy();
+            return;
+        }
 
         // Tạo batch 5 từ theo ưu tiên - đảm bảo lấy đủ từ
         const nextBatch = [];
@@ -4901,7 +4932,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                         </div>
                         
                         <div className="grid grid-cols-1 gap-2 md:gap-3">
-                            {generateMultipleChoiceOptions.map((option, idx) => (
+                            {multipleChoiceOptions.map((option, idx) => (
                                 <button
                                     key={idx}
                                     onClick={() => handleMultipleChoiceAnswer(option)}
