@@ -2843,43 +2843,74 @@ const MemoryStatCard = ({ title, count, icon: IconComponent, color, subtext }) =
     );
 };
 
-// ActionCard component - định nghĩa bên ngoài để tránh tạo lại mỗi lần render
+// ActionCard component - Liquid Glass Effect (iOS style)
     const ActionCard = ({ onClick, icon: IconComponent, title, count, gradient, disabled = false, description, hideCount = false }) => {
         const Icon = IconComponent;
+        // Map gradient colors to glass effect colors
+        const getGlassColor = (gradient) => {
+            if (gradient.includes('amber') || gradient.includes('orange')) {
+                return 'bg-amber-500/10 dark:bg-amber-400/10 border-amber-200/50 dark:border-amber-300/30';
+            } else if (gradient.includes('purple') || gradient.includes('pink')) {
+                return 'bg-purple-500/10 dark:bg-purple-400/10 border-purple-200/50 dark:border-purple-300/30';
+            } else if (gradient.includes('teal') || gradient.includes('emerald')) {
+                return 'bg-emerald-500/10 dark:bg-emerald-400/10 border-emerald-200/50 dark:border-emerald-300/30';
+            } else if (gradient.includes('rose') || gradient.includes('red')) {
+                return 'bg-rose-500/10 dark:bg-rose-400/10 border-rose-200/50 dark:border-rose-300/30';
+            } else if (gradient.includes('blue') || gradient.includes('cyan')) {
+                return 'bg-blue-500/10 dark:bg-blue-400/10 border-blue-200/50 dark:border-blue-300/30';
+            } else {
+                return 'bg-indigo-500/10 dark:bg-indigo-400/10 border-indigo-200/50 dark:border-indigo-300/30';
+            }
+        };
+        
+        const glassColor = getGlassColor(gradient);
+        
         return (
         <button
             onClick={onClick}
             disabled={disabled}
-            className={`relative overflow-hidden group flex items-center p-2 md:p-3 h-24 md:h-28 rounded-lg md:rounded-xl shadow-md transition-all duration-300 w-[calc(50%-0.5rem)] md:w-[calc(50%-1rem)] max-w-xs md:max-w-sm text-left bg-gradient-to-br ${gradient}
-                        ${disabled ? 'cursor-not-allowed grayscale opacity-50' : 'hover:shadow-xl hover:-translate-y-1'}`}
+            className={`relative overflow-hidden group flex items-center p-2 md:p-3 h-24 md:h-28 rounded-2xl md:rounded-3xl transition-all duration-300 w-[calc(50%-0.5rem)] md:w-[calc(50%-1rem)] max-w-xs md:max-w-sm text-left
+                        backdrop-blur-xl ${glassColor} border
+                        shadow-lg shadow-black/5 dark:shadow-black/20
+                        ${disabled ? 'cursor-not-allowed opacity-50' : 'hover:shadow-xl hover:shadow-black/10 dark:hover:shadow-black/30 hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98]'}`}
         >
-            <div className="z-10 w-full flex items-center gap-2 md:gap-3">
-                {/* Icon với tỉ lệ 2:4 (width:height = 1:2) */}
-                <div className={`flex-shrink-0 w-10 h-20 md:w-14 md:h-28 rounded-lg md:rounded-xl ${disabled ? 'bg-gray-600/30' : 'bg-white/20'} backdrop-blur-sm flex items-center justify-center`}>
-                    <Icon className={`w-5 h-5 md:w-7 md:h-7 ${disabled ? 'text-gray-300' : 'text-white'}`} strokeWidth={2.5} />
-                    </div>
+            {/* Liquid glass shine effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl md:rounded-3xl" />
+            
+            {/* Subtle inner glow */}
+            <div className="absolute inset-[1px] bg-gradient-to-br from-white/10 to-transparent rounded-2xl md:rounded-3xl pointer-events-none" />
+            
+            <div className="z-10 w-full flex items-center gap-2 md:gap-3 relative">
+                {/* Icon với liquid glass effect */}
+                <div className={`flex-shrink-0 w-10 h-20 md:w-14 md:h-28 rounded-xl md:rounded-2xl backdrop-blur-md flex items-center justify-center
+                                ${disabled ? 'bg-gray-500/20 border border-gray-400/20' : 'bg-white/30 dark:bg-white/10 border border-white/30 dark:border-white/20 shadow-inner'}`}>
+                    <Icon className={`w-5 h-5 md:w-7 md:h-7 ${disabled ? 'text-gray-400 dark:text-gray-500' : 'text-gray-700 dark:text-gray-200'}`} strokeWidth={2.5} />
+                </div>
                 
                 {/* Text content bên phải */}
                 <div className="flex-1 flex flex-col justify-center min-w-0">
                     <div className="flex items-center justify-between mb-0.5 md:mb-1">
-                        <h3 className={`text-xs md:text-base font-extrabold tracking-tight truncate ${disabled ? 'text-gray-300' : 'text-white'}`}>{title}</h3>
+                        <h3 className={`text-xs md:text-base font-extrabold tracking-tight truncate ${disabled ? 'text-gray-400 dark:text-gray-500' : 'text-gray-800 dark:text-gray-100'}`}>{title}</h3>
                      {!hideCount && typeof count !== 'undefined' && count > 0 && (
-                            <span className={`backdrop-blur-md text-[10px] md:text-xs font-bold px-1.5 md:px-2 py-0.5 md:py-1 rounded-full flex-shrink-0 ml-1.5 ${disabled ? 'bg-gray-600/30 text-gray-300' : 'bg-white/25 text-white'}`}>
+                            <span className={`backdrop-blur-md text-[10px] md:text-xs font-bold px-1.5 md:px-2 py-0.5 md:py-1 rounded-full flex-shrink-0 ml-1.5 border
+                                            ${disabled ? 'bg-gray-500/20 border-gray-400/30 text-gray-400 dark:text-gray-500' : 'bg-white/40 dark:bg-white/20 border-white/40 dark:border-white/30 text-gray-700 dark:text-gray-200 shadow-sm'}`}>
                             {count} cần ôn
                         </span>
                     )}
                 </div>
-                    <p className={`text-[10px] md:text-xs font-medium opacity-95 leading-snug ${disabled ? 'text-gray-400' : 'text-indigo-50'}`}>{description}</p>
+                    <p className={`text-[10px] md:text-xs font-medium leading-snug ${disabled ? 'text-gray-400 dark:text-gray-500' : 'text-gray-600 dark:text-gray-300'}`}>{description}</p>
                 </div>
             </div>
             
-            {/* Background Decoration */}
-            <Icon className={`absolute -bottom-3 md:-bottom-4 -right-3 md:-right-4 w-24 h-24 md:w-32 md:h-32 group-hover:scale-110 transition-transform duration-500 ${disabled ? 'text-gray-400/10' : 'text-white/10'}`} />
+            {/* Background Decoration - subtle */}
+            <Icon className={`absolute -bottom-3 md:-bottom-4 -right-3 md:-right-4 w-24 h-24 md:w-32 md:h-32 group-hover:scale-110 transition-transform duration-500 ${disabled ? 'text-gray-300/5 dark:text-gray-600/5' : 'text-gray-400/5 dark:text-gray-500/5'}`} />
         </button>
         );
     };
 
 const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySessionData, setStudySessionData, setNotification, setReviewMode, setView, onStartReview, onNavigate }) => {
+    const [activeFilter, setActiveFilter] = useState('study'); // 'study' or 'review'
+    
     return (
         <div className="space-y-1 md:space-y-2">
             {/* Hero Section */}
@@ -2896,141 +2927,158 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                 </div>
             </div>
             
-            {/* Review Section */}
-            <div className="space-y-1 md:space-y-1.5">
-                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-1 md:gap-1.5">
-                    <h3 className="text-xs md:text-sm font-extrabold text-gray-800 dark:text-gray-100 flex items-center">
-                        <Zap className="w-3 h-3 md:w-4 md:h-4 mr-1 text-amber-500" />
-                        Chế độ Ôn tập
-                    </h3>
-
-                </div>
-
-
-                <div className="flex flex-wrap gap-1.5 md:gap-2 justify-center">
-                    <ActionCard
-                        onClick={() => onStartReview('mixed')}
-                        icon={Zap}
-                        title="Hỗn hợp"
-                                description="Tất cả loại câu hỏi"
-                        count={dueCounts.mixed}
-                                gradient="from-amber-400 to-orange-500"
-                        disabled={dueCounts.mixed === 0}
-                    />
-                            <ActionCard
-                                onClick={() => onStartReview('flashcard')}
-                                icon={Layers}
-                                title="Flashcard"
-                                description="Từ vựng mới"
-                                count={dueCounts.flashcard}
-                                gradient="from-purple-500 to-pink-500"
-                                disabled={dueCounts.flashcard === 0}
-                            />
-                            <ActionCard
-                                onClick={() => {
-                                    // Prepare study cards - chỉ từ vựng chưa có SRS (chỉ cần intervalIndex_back === -1)
-                                    const noSrsCards = allCards.filter(card => {
-                                        return card.intervalIndex_back === -1 || card.intervalIndex_back === undefined;
-                                    });
-                                    
-                                    if (noSrsCards.length === 0) {
-                                        setNotification('Không có từ vựng nào chưa có cấp độ SRS để học.');
-                                        return;
-                                    }
-                                    
-                                    // Tạo batch đầu tiên (5 từ) - ưu tiên Learning > New > Reviewing
-                                    const learning = studySessionData.learning.filter(card => 
-                                        noSrsCards.some(c => c.id === card.id)
-                                    );
-                                    const newCards = noSrsCards.filter(card => 
-                                        !learning.some(c => c.id === card.id) &&
-                                        !studySessionData.reviewing.some(c => c.id === card.id)
-                                    );
-                                    const reviewing = studySessionData.reviewing.filter(card => 
-                                        noSrsCards.some(c => c.id === card.id) &&
-                                        !learning.some(c => c.id === card.id)
-                                    );
-                                    
-                                    // Tạo batch đầu tiên (5 từ) - đảm bảo shuffle đúng cách
-                                    const firstBatch = [];
-                                    // Ưu tiên 1: Learning (từ đã sai)
-                                    if (learning.length > 0) {
-                                        firstBatch.push(...shuffleArray(learning).slice(0, Math.min(5, learning.length)));
-                                    }
-                                    // Ưu tiên 2: New cards (từ mới chưa học)
-                                    if (firstBatch.length < 5 && newCards.length > 0) {
-                                        const shuffledNew = shuffleArray(newCards);
-                                        firstBatch.push(...shuffledNew.slice(0, Math.min(5 - firstBatch.length, shuffledNew.length)));
-                                    }
-                                    // Ưu tiên 3: Reviewing (từ cần review)
-                                    if (firstBatch.length < 5 && reviewing.length > 0) {
-                                        const shuffledReviewing = shuffleArray(reviewing);
-                                        firstBatch.push(...shuffledReviewing.slice(0, Math.min(5 - firstBatch.length, shuffledReviewing.length)));
-                                    }
-                                    
-                                    if (firstBatch.length === 0) {
-                                        setNotification('Không có từ vựng nào để học.');
-                                        return;
-                                    }
-                                    
-                                    setStudySessionData({
-                                        learning: learning,
-                                        new: newCards,
-                                        reviewing: reviewing,
-                                        currentBatch: firstBatch,
-                                        currentPhase: 'multipleChoice',
-                                        batchIndex: 0,
-                                        allNoSrsCards: noSrsCards
-                                    });
-                                    setReviewMode('study');
-                                    setView('STUDY');
-                                }}
-                                icon={GraduationCap}
-                                title="Học"
-                                description="Học từ mới"
-                                count={dueCounts.study}
-                                gradient="from-teal-400 to-emerald-500"
-                                disabled={dueCounts.study === 0}
-                            />
-                            <ActionCard
-                                onClick={() => setView('TEST')}
-                                icon={FileCheck}
-                                title="Kiểm Tra"
-                                description="Luyện thi JLPT"
-                                count={allCards.length}
-                                hideCount={true}
-                                gradient="from-rose-500 to-red-600"
-                                disabled={allCards.length === 0}
-                            />
-                    <ActionCard
-                        onClick={() => onStartReview('back')}
-                        icon={Repeat2}
-                        title="Ý nghĩa"
-                        description="Nhớ nghĩa từ vựng" 
-                        count={dueCounts.back}
-                        gradient="from-emerald-400 to-green-500"
-                        disabled={dueCounts.back === 0}
-                    />
-                    <ActionCard
-                        onClick={() => onStartReview('synonym')}
-                        icon={MessageSquare}
-                        title="Đồng nghĩa"
-                        description="Từ tương tự"
-                        count={dueCounts.synonym}
-                        gradient="from-blue-400 to-cyan-500"
-                        disabled={dueCounts.synonym === 0}
-                    />
-                    <ActionCard
-                        onClick={() => onStartReview('example')}
-                        icon={FileText}
-                        title="Ngữ cảnh"
-                        description="Điền vào chỗ trống"
-                        count={dueCounts.example}
-                        gradient="from-purple-400 to-pink-500"
-                        disabled={dueCounts.example === 0}
-                    />
-                </div>
+            {/* Filter Tabs */}
+            <div className="flex gap-2 bg-gray-100/50 dark:bg-gray-800/50 p-1 rounded-xl backdrop-blur-sm">
+                <button
+                    onClick={() => setActiveFilter('study')}
+                    className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg transition-all duration-200 ${
+                        activeFilter === 'study'
+                            ? 'bg-white dark:bg-gray-700 shadow-md text-teal-600 dark:text-teal-400 font-bold'
+                            : 'text-gray-600 dark:text-gray-400 hover:bg-white/50 dark:hover:bg-gray-700/50'
+                    }`}
+                >
+                    <GraduationCap className="w-4 h-4" />
+                    <span className="text-xs md:text-sm">Chế độ Học</span>
+                </button>
+                <button
+                    onClick={() => setActiveFilter('review')}
+                    className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg transition-all duration-200 ${
+                        activeFilter === 'review'
+                            ? 'bg-white dark:bg-gray-700 shadow-md text-amber-600 dark:text-amber-400 font-bold'
+                            : 'text-gray-600 dark:text-gray-400 hover:bg-white/50 dark:hover:bg-gray-700/50'
+                    }`}
+                >
+                    <Zap className="w-4 h-4" />
+                    <span className="text-xs md:text-sm">Chế độ Ôn tập</span>
+                </button>
             </div>
+
+            {/* Chế độ Học */}
+            {activeFilter === 'study' && (
+                <div className="space-y-1 md:space-y-1.5">
+                    <div className="flex flex-wrap gap-1.5 md:gap-2 justify-center">
+                        <ActionCard
+                            onClick={() => onStartReview('flashcard')}
+                            icon={Layers}
+                            title="Flashcard"
+                            description="Từ vựng mới"
+                            count={dueCounts.flashcard}
+                            gradient="from-purple-500 to-pink-500"
+                            disabled={dueCounts.flashcard === 0}
+                        />
+                        <ActionCard
+                            onClick={() => {
+                                // Prepare study cards - chỉ từ vựng chưa có SRS (chỉ cần intervalIndex_back === -1)
+                                const noSrsCards = allCards.filter(card => {
+                                    return card.intervalIndex_back === -1 || card.intervalIndex_back === undefined;
+                                });
+                                
+                                if (noSrsCards.length === 0) {
+                                    setNotification('Không có từ vựng nào chưa có cấp độ SRS để học.');
+                                    return;
+                                }
+                                
+                                // Tạo batch đầu tiên (5 từ) - ưu tiên Learning > New > Reviewing
+                                const learning = studySessionData.learning.filter(card => 
+                                    noSrsCards.some(c => c.id === card.id)
+                                );
+                                const newCards = noSrsCards.filter(card => 
+                                    !learning.some(c => c.id === card.id) &&
+                                    !studySessionData.reviewing.some(c => c.id === card.id)
+                                );
+                                const reviewing = studySessionData.reviewing.filter(card => 
+                                    noSrsCards.some(c => c.id === card.id) &&
+                                    !learning.some(c => c.id === card.id)
+                                );
+                                
+                                // Tạo batch đầu tiên (5 từ) - đảm bảo shuffle đúng cách
+                                const firstBatch = [];
+                                // Ưu tiên 1: Learning (từ đã sai)
+                                if (learning.length > 0) {
+                                    firstBatch.push(...shuffleArray(learning).slice(0, Math.min(5, learning.length)));
+                                }
+                                // Ưu tiên 2: New cards (từ mới chưa học)
+                                if (firstBatch.length < 5 && newCards.length > 0) {
+                                    const shuffledNew = shuffleArray(newCards);
+                                    firstBatch.push(...shuffledNew.slice(0, Math.min(5 - firstBatch.length, shuffledNew.length)));
+                                }
+                                // Ưu tiên 3: Reviewing (từ cần review)
+                                if (firstBatch.length < 5 && reviewing.length > 0) {
+                                    const shuffledReviewing = shuffleArray(reviewing);
+                                    firstBatch.push(...shuffledReviewing.slice(0, Math.min(5 - firstBatch.length, shuffledReviewing.length)));
+                                }
+                                
+                                if (firstBatch.length === 0) {
+                                    setNotification('Không có từ vựng nào để học.');
+                                    return;
+                                }
+                                
+                                setStudySessionData({
+                                    learning: learning,
+                                    new: newCards,
+                                    reviewing: reviewing,
+                                    currentBatch: firstBatch,
+                                    currentPhase: 'multipleChoice',
+                                    batchIndex: 0,
+                                    allNoSrsCards: noSrsCards
+                                });
+                                setReviewMode('study');
+                                setView('STUDY');
+                            }}
+                            icon={GraduationCap}
+                            title="Học"
+                            description="Học từ mới"
+                            count={dueCounts.study}
+                            gradient="from-teal-400 to-emerald-500"
+                            disabled={dueCounts.study === 0}
+                        />
+                    </div>
+                </div>
+            )}
+
+            {/* Chế độ Ôn tập */}
+            {activeFilter === 'review' && (
+                <div className="space-y-1 md:space-y-1.5">
+                    <div className="flex flex-wrap gap-1.5 md:gap-2 justify-center">
+                        <ActionCard
+                            onClick={() => onStartReview('mixed')}
+                            icon={Zap}
+                            title="Hỗn hợp"
+                            description="Tất cả loại câu hỏi"
+                            count={dueCounts.mixed}
+                            gradient="from-amber-400 to-orange-500"
+                            disabled={dueCounts.mixed === 0}
+                        />
+                        <ActionCard
+                            onClick={() => onStartReview('back')}
+                            icon={Repeat2}
+                            title="Ý nghĩa"
+                            description="Nhớ nghĩa từ vựng" 
+                            count={dueCounts.back}
+                            gradient="from-emerald-400 to-green-500"
+                            disabled={dueCounts.back === 0}
+                        />
+                        <ActionCard
+                            onClick={() => onStartReview('synonym')}
+                            icon={MessageSquare}
+                            title="Đồng nghĩa"
+                            description="Từ tương tự"
+                            count={dueCounts.synonym}
+                            gradient="from-blue-400 to-cyan-500"
+                            disabled={dueCounts.synonym === 0}
+                        />
+                        <ActionCard
+                            onClick={() => onStartReview('example')}
+                            icon={FileText}
+                            title="Ngữ cảnh"
+                            description="Điền vào chỗ trống"
+                            count={dueCounts.example}
+                            gradient="from-purple-400 to-pink-500"
+                            disabled={dueCounts.example === 0}
+                        />
+                    </div>
+                </div>
+            )}
             
             {/* Management Section */}
             <div className="pt-0.5 md:pt-1 space-y-1 md:space-y-1.5">
@@ -3038,45 +3086,56 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                     <Settings className="w-3.5 h-3.5 md:w-4 md:h-4 mr-1 md:mr-1.5 text-gray-500 dark:text-gray-400" />
                     Quản lý & Tiện ích
                 </h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5 md:gap-2">
+                <div className="grid grid-cols-5 gap-1.5 md:gap-2">
                      <button
                         onClick={() => onNavigate('ADD_CARD')}
-                        className="flex items-center p-1.5 md:p-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-indigo-200 dark:hover:border-indigo-600 transition-all group"
+                        className="flex flex-col items-center justify-center p-2 md:p-2.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-indigo-200 dark:hover:border-indigo-600 transition-all group min-h-[70px]"
                     >
-                        <div className="bg-indigo-50 dark:bg-indigo-900/30 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/50 transition-colors flex-shrink-0">
+                        <div className="bg-indigo-50 dark:bg-indigo-900/30 p-1.5 md:p-2 rounded-lg mb-1.5 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/50 transition-colors">
                             <Plus className="w-3.5 h-3.5 md:w-4 md:h-4 text-indigo-600 dark:text-indigo-400" />
                         </div>
-                        <span className="text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300 group-hover:text-indigo-700 dark:group-hover:text-indigo-400 truncate">Thêm từ mới</span>
+                        <span className="text-[10px] md:text-xs font-semibold text-gray-700 dark:text-gray-300 group-hover:text-indigo-700 dark:group-hover:text-indigo-400 text-center leading-tight">Thêm từ mới</span>
                     </button>
 
                     <button
                         onClick={() => onNavigate('IMPORT')}
-                        className="flex items-center p-1.5 md:p-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-teal-200 dark:hover:border-teal-600 transition-all group"
+                        className="flex flex-col items-center justify-center p-2 md:p-2.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-teal-200 dark:hover:border-teal-600 transition-all group min-h-[70px]"
                     >
-                        <div className="bg-teal-50 dark:bg-teal-900/30 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-teal-100 dark:group-hover:bg-teal-900/50 transition-colors flex-shrink-0">
+                        <div className="bg-teal-50 dark:bg-teal-900/30 p-1.5 md:p-2 rounded-lg mb-1.5 group-hover:bg-teal-100 dark:group-hover:bg-teal-900/50 transition-colors">
                             <Upload className="w-3.5 h-3.5 md:w-4 md:h-4 text-teal-600 dark:text-teal-400" />
                         </div>
-                        <span className="text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300 group-hover:text-teal-700 dark:group-hover:text-teal-400 truncate">Nhập File</span>
+                        <span className="text-[10px] md:text-xs font-semibold text-gray-700 dark:text-gray-300 group-hover:text-teal-700 dark:group-hover:text-teal-400 text-center leading-tight">Nhập File</span>
                     </button>
 
                     <button
                         onClick={() => onNavigate('LIST')}
-                        className="flex items-center p-1.5 md:p-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-blue-200 dark:hover:border-blue-600 transition-all group"
+                        className="flex flex-col items-center justify-center p-2 md:p-2.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-blue-200 dark:hover:border-blue-600 transition-all group min-h-[70px]"
                     >
-                        <div className="bg-blue-50 dark:bg-blue-900/30 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors flex-shrink-0">
+                        <div className="bg-blue-50 dark:bg-blue-900/30 p-1.5 md:p-2 rounded-lg mb-1.5 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors">
                             <List className="w-3.5 h-3.5 md:w-4 md:h-4 text-blue-600 dark:text-blue-400" />
                         </div>
-                        <span className="text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300 group-hover:text-blue-700 dark:group-hover:text-blue-400 truncate">Xem Danh sách</span>
+                        <span className="text-[10px] md:text-xs font-semibold text-gray-700 dark:text-gray-300 group-hover:text-blue-700 dark:group-hover:text-blue-400 text-center leading-tight">Xem Danh sách</span>
+                    </button>
+
+                    <button
+                        onClick={() => setView('TEST')}
+                        className="flex flex-col items-center justify-center p-2 md:p-2.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-rose-200 dark:hover:border-rose-600 transition-all group min-h-[70px] disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled={allCards.length === 0}
+                    >
+                        <div className="bg-rose-50 dark:bg-rose-900/30 p-1.5 md:p-2 rounded-lg mb-1.5 group-hover:bg-rose-100 dark:group-hover:bg-rose-900/50 transition-colors">
+                            <FileCheck className="w-3.5 h-3.5 md:w-4 md:h-4 text-rose-600 dark:text-rose-400" />
+                        </div>
+                        <span className="text-[10px] md:text-xs font-semibold text-gray-700 dark:text-gray-300 group-hover:text-rose-700 dark:group-hover:text-rose-400 text-center leading-tight">Kiểm Tra JLPT</span>
                     </button>
 
                     <button
                         onClick={() => onNavigate('HELP')}
-                        className="flex items-center p-1.5 md:p-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-orange-200 dark:hover:border-orange-600 transition-all group"
+                        className="flex flex-col items-center justify-center p-2 md:p-2.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-orange-200 dark:hover:border-orange-600 transition-all group min-h-[70px]"
                     >
-                        <div className="bg-orange-50 dark:bg-orange-900/30 p-1.5 md:p-2 rounded-lg mr-1.5 md:mr-2.5 group-hover:bg-orange-100 dark:group-hover:bg-orange-900/50 transition-colors flex-shrink-0">
+                        <div className="bg-orange-50 dark:bg-orange-900/30 p-1.5 md:p-2 rounded-lg mb-1.5 group-hover:bg-orange-100 dark:group-hover:bg-orange-900/50 transition-colors">
                             <HelpCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-600 dark:text-orange-400" />
                         </div>
-                        <span className="text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300 group-hover:text-orange-700 dark:group-hover:text-orange-400 truncate">Hướng dẫn</span>
+                        <span className="text-[10px] md:text-xs font-semibold text-gray-700 dark:text-gray-300 group-hover:text-orange-700 dark:group-hover:text-orange-400 text-center leading-tight">Hướng dẫn</span>
                     </button>
                 </div>
             </div>
