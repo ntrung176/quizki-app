@@ -427,44 +427,31 @@ const fetchTtsBase64 = async (text) => {
         return null;
     }
     
-    // Lấy danh sách keys một lần để dùng chung cho tất cả các giọng
+    // Lấy danh sách keys
     const apiKeys = getTtsApiKeys();
     if (apiKeys.length === 0) {
         console.error("fetchTtsBase64: Không có API key nào được cấu hình cho TTS");
         return null;
     }
     
-    console.log(`fetchTtsBase64: Bắt đầu tạo âm thanh cho "${text}" với ${apiKeys.length} API key(s)`);
+    // Sử dụng một giọng mặc định để tiết kiệm API (chỉ gọi API 1 lần thay vì thử nhiều giọng)
+    // Danh sách tất cả giọng có sẵn
+    const ALL_VOICES = ["Charon", "Orus", "Fenrir", "Iapetus", "Umbriel", "Algenib", "Aoede", "Puck", "Kore", "Leda", "Zephyr", "Callirrhoe", "Algieba", "Despina", "Erinome"];
     
-    // Ưu tiên giọng nam chuẩn: Charon, Orus (giọng nam chuẩn, rõ ràng)
-    // Sau đó là các giọng nam khác: Fenrir, Iapetus, Umbriel, Algenib
-    // Cuối cùng mới đến giọng nữ nếu cần
-    const MALE_VOICES_STANDARD = ["Charon", "Orus"]; // Giọng nam chuẩn (ưu tiên cao nhất)
-    const MALE_VOICES_OTHER = ["Fenrir", "Iapetus", "Umbriel", "Algenib"]; // Giọng nam khác
-    const FEMALE_VOICES = ["Aoede", "Puck", "Kore", "Leda", "Zephyr", "Callirrhoe", "Algieba", "Despina", "Erinome"]; // Giọng nữ (dự phòng)
+    // Chọn một giọng ngẫu nhiên từ danh sách (hoặc có thể dùng giọng cố định)
+    // Để tiết kiệm API, chỉ dùng 1 giọng duy nhất cho mỗi lần gọi
+    const defaultVoice = ALL_VOICES[Math.floor(Math.random() * ALL_VOICES.length)];
     
-    // Tạo danh sách ưu tiên: giọng nam chuẩn → giọng nam khác → giọng nữ
-    const prioritizedVoices = [
-        ...MALE_VOICES_STANDARD,
-        ...MALE_VOICES_OTHER,
-        ...FEMALE_VOICES
-    ];
+    console.log(`fetchTtsBase64: Tạo âm thanh cho "${text}" với giọng "${defaultVoice}" (${apiKeys.length} API key(s))`);
     
-    // Thử từng giọng theo thứ tự ưu tiên (tối đa 6 giọng để tránh chậm)
-    const voicesToTry = prioritizedVoices.slice(0, 6);
-
-    for (const voice of voicesToTry) {
-        console.log(`fetchTtsBase64: Thử giọng "${voice}" cho "${text}" với ${apiKeys.length} API key(s)`);
-        // Thử với tất cả keys từ đầu cho mỗi giọng mới
-        const audioData = await _fetchTtsApiCall(text, voice, apiKeys, 0);
-        if (audioData) {
-            console.log(`fetchTtsBase64: ✓ Thành công với giọng "${voice}" cho "${text}"`);
-            return audioData; 
-        }
-        // Delay nhẹ giữa các lần thử giọng khác (không delay nếu đã delay trong _fetchTtsApiCall do 429)
-        await new Promise(r => setTimeout(r, 300));
+    // Chỉ gọi API 1 lần với giọng đã chọn
+    const audioData = await _fetchTtsApiCall(text, defaultVoice, apiKeys, 0);
+    if (audioData) {
+        console.log(`fetchTtsBase64: ✓ Thành công với giọng "${defaultVoice}" cho "${text}"`);
+        return audioData; 
     }
-    console.warn(`fetchTtsBase64: ✗ Không thể tạo âm thanh cho "${text}" sau khi thử ${voicesToTry.length} giọng với tất cả ${apiKeys.length} API key(s)`);
+    
+    console.warn(`fetchTtsBase64: ✗ Không thể tạo âm thanh cho "${text}" với giọng "${defaultVoice}"`);
     return null;
 };
 
@@ -3980,19 +3967,29 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
     const [isProcessing, setIsProcessing] = useState(false); // V1.6.2 Fix: Thêm biến khoá để ngăn submit 2 lần
     const [isFlipped, setIsFlipped] = useState(false); // Cho flashcard mode 3D flip
     const [slideDirection, setSlideDirection] = useState(''); // 'left' | 'right' | '' for slide animation
+    const [touchStart, setTouchStart] = useState(null); // Cho swipe gesture
+    const [touchEnd, setTouchEnd] = useState(null); // Cho swipe gesture
+    const [swipeOffset, setSwipeOffset] = useState(0); // Offset khi đang swipe
     const [selectedAnswer, setSelectedAnswer] = useState(null); // Cho trắc nghiệm Synonym/Example
     const [multipleChoiceOptions, setMultipleChoiceOptions] = useState([]); // Cho trắc nghiệm Synonym/Example
     const [failedCards, setFailedCards] = useState(new Set()); // Lưu các từ đã sai trong lần ôn tập hiện tại: Set<cardId-reviewType>
     const inputRef = useRef(null);
     const isCompletingRef = useRef(false); // Track xem đã gọi handleCompleteReview chưa
+    const failedCardsRef = useRef(failedCards); // Lưu giá trị mới nhất của failedCards
     
     // Cập nhật cards khi initialCards thay đổi
     useEffect(() => {
         setCards(initialCards);
         setCurrentIndex(0);
         setFailedCards(new Set());
+        failedCardsRef.current = new Set(); // Reset ref
         isCompletingRef.current = false; // Reset khi bắt đầu session mới
     }, [initialCards]);
+    
+    // Cập nhật ref khi failedCards thay đổi
+    useEffect(() => {
+        failedCardsRef.current = failedCards;
+    }, [failedCards]);
     
     // Get current card safely (trước khi dùng trong hooks)
     const currentCard = cards.length > 0 && currentIndex < cards.length ? cards[currentIndex] : null;
@@ -4023,6 +4020,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         setSlideDirection(''); // Reset slide direction
         setSelectedAnswer(null); // Reset selected answer
         setMultipleChoiceOptions([]); // Reset options
+        setSwipeOffset(0); // Reset swipe offset
     }, [currentIndex]);
 
     // Define moveToPreviousCard before useEffect that uses it
@@ -4057,26 +4055,26 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         if (isCompletingRef.current) return;
         isCompletingRef.current = true;
         
-        if (failedCards.size > 0) {
+        // Sử dụng ref để lấy giá trị mới nhất của failedCards
+        const currentFailedCards = failedCardsRef.current;
+        
+        if (currentFailedCards.size > 0) {
             // Có các từ đã sai, tạo lại danh sách để kiểm tra lại
             const failedCardsList = [];
-            failedCards.forEach(cardKey => {
+            currentFailedCards.forEach(cardKey => {
                 const [cardId, reviewType] = cardKey.split('-');
                 const card = allCards.find(c => c.id === cardId);
                 if (card) {
                     failedCardsList.push({ ...card, reviewType });
                 }
             });
-            // Thêm các từ đã sai vào đầu danh sách để kiểm tra lại
+            // Tạo bài test mới CHỈ với các câu sai (không bao gồm các câu đã làm đúng)
             if (failedCardsList.length > 0) {
-                const remainingCards = cards.filter(c => {
-                    const cardKey = `${c.id}-${c.reviewType || reviewMode}`;
-                    return !failedCards.has(cardKey);
-                });
-                const newCards = [...failedCardsList, ...remainingCards];
-                setCards(newCards);
+                // Shuffle các từ sai để tạo bài test mới
+                const shuffledFailedCards = shuffleArray(failedCardsList);
+                setCards(shuffledFailedCards);
                 setCurrentIndex(0);
-                // KHÔNG reset failedCards - chỉ remove khỏi failedCards khi làm đúng lần 2
+                // KHÔNG reset failedCards - chỉ remove khỏi failedCards khi làm đúng ở lần test mới
                 setInputValue('');
                 setIsRevealed(false);
                 setIsLocked(false);
@@ -4088,8 +4086,8 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
             }
         }
         // Không có từ sai hoặc không còn từ nào để ôn lại, gọi onCompleteReview với failedCards
-        onCompleteReview(failedCards);
-    }, [failedCards, allCards, cards, reviewMode, onCompleteReview]);
+        onCompleteReview(currentFailedCards);
+    }, [allCards, reviewMode, onCompleteReview]);
     
     // Keyboard event handlers for flashcard mode
     useEffect(() => {
@@ -4136,6 +4134,75 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [currentIndex, cards, reviewMode, handleCompleteReview, moveToPreviousCard]);
+    
+    // Swipe handlers cho flashcard mode - Định nghĩa sau handleCompleteReview
+    const minSwipeDistance = 50; // Khoảng cách tối thiểu để coi là swipe
+    
+    const onTouchStart = (e) => {
+        if (reviewMode !== 'flashcard') return;
+        setTouchEnd(null); // Reset touchEnd
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+    
+    const onTouchMove = (e) => {
+        if (reviewMode !== 'flashcard' || !touchStart) return;
+        const currentTouch = e.targetTouches[0].clientX;
+        setTouchEnd(currentTouch); // Update touchEnd để tính distance
+        const diff = currentTouch - touchStart;
+        // Giới hạn offset để không swipe quá xa
+        const maxOffset = 200;
+        setSwipeOffset(Math.max(-maxOffset, Math.min(maxOffset, diff)));
+    };
+    
+    const onTouchEnd = () => {
+        if (reviewMode !== 'flashcard' || !touchStart) {
+            setTouchStart(null);
+            setTouchEnd(null);
+            setSwipeOffset(0);
+            return;
+        }
+        
+        if (!touchEnd) {
+            setTouchStart(null);
+            setTouchEnd(null);
+            setSwipeOffset(0);
+            return;
+        }
+        
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+        
+        if (isLeftSwipe && currentIndex < cards.length - 1) {
+            // Swipe trái -> Next card
+            setSlideDirection('left');
+            setTimeout(() => {
+                setCurrentIndex(currentIndex + 1);
+                setSlideDirection('right');
+                setTimeout(() => setSlideDirection(''), 300);
+            }, 150);
+        } else if (isRightSwipe && currentIndex > 0) {
+            // Swipe phải -> Previous card
+            setSlideDirection('right');
+            setTimeout(() => {
+                setCurrentIndex(currentIndex - 1);
+                setInputValue('');
+                setIsRevealed(false);
+                setIsLocked(false);
+                setFeedback(null);
+                setMessage('');
+                setSlideDirection('left');
+                setTimeout(() => setSlideDirection(''), 300);
+            }, 150);
+        } else if (currentIndex >= cards.length - 1 && isLeftSwipe) {
+            // Đã hết thẻ, swipe trái -> Complete review
+            handleCompleteReview();
+        }
+        
+        setTouchStart(null);
+        setTouchEnd(null);
+        setSwipeOffset(0);
+    };
     
     // Normalize answer function - wrap in useCallback để tránh thay đổi dependency
     const normalizeAnswer = useCallback((text) => {
@@ -4224,11 +4291,16 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
     
     // Early return check - phải đặt sau tất cả hooks
     // Sử dụng useEffect để gọi handleCompleteReview sau khi render (tránh truy cập ref trong render)
+    // Thêm failedCards.size vào dependency để theo dõi khi failedCards thay đổi
     useEffect(() => {
         if ((cards.length === 0 || currentIndex >= cards.length) && !isCompletingRef.current) {
-            handleCompleteReview();
+            // Đợi một chút để đảm bảo state đã được cập nhật
+            const timer = setTimeout(() => {
+                handleCompleteReview();
+            }, 150);
+            return () => clearTimeout(timer);
         }
-    }, [cards.length, currentIndex, handleCompleteReview]);
+    }, [cards.length, currentIndex, handleCompleteReview, failedCards.size]);
     
     if (cards.length === 0 || currentIndex >= cards.length) { 
         return null; 
@@ -4280,17 +4352,21 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         if (isCorrect) {
             // Nếu đã từng sai trong lần ôn tập này
             if (hasFailedBefore) {
-                // Làm đúng lần này: KHÔNG remove khỏi failedCards, KHÔNG tăng streak
-                // Từ này vẫn phải ôn lại sau khi kết thúc phiên ôn tập
+                // Làm đúng lần này: Remove khỏi failedCards và đánh streak hoàn thành
+                setFailedCards(prev => {
+                    const newSet = new Set(prev);
+                    newSet.delete(cardKey);
+                    return newSet;
+                });
                 setIsProcessing(true);
                 setFeedback('correct');
-                setMessage(`Đúng rồi! Nhưng bạn sẽ phải ôn lại từ này sau.`);
+                setMessage(`Chính xác! ${displayFront} - Đã hoàn thành!`);
                 setIsRevealed(true); 
                 setIsLocked(false);
                 playAudio(currentCard.audioBase64, currentCard.front);
                 await new Promise(resolve => setTimeout(resolve, 1000));
-                // KHÔNG tăng streak, chỉ chuyển thẻ
-                await moveToNextCard(false);
+                // Đánh streak vì đã làm đúng ở lần test mới
+                await moveToNextCard(true);
             } else {
                 // Chưa từng sai, tính là hoàn thành
                 setIsProcessing(true);
@@ -4399,7 +4475,9 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 }
             }
         } else {
-            // Đã hết thẻ, gọi handleCompleteReview để xử lý logic hoàn thành
+            // Đã hết thẻ, đợi một chút để đảm bảo failedCards state đã được cập nhật
+            // Sau đó gọi handleCompleteReview để xử lý logic hoàn thành
+            await new Promise(resolve => setTimeout(resolve, 100));
             handleCompleteReview();
         }
     };
@@ -4428,6 +4506,8 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
 
                 if (isCorrect) { 
                     // Nhập lại đúng: không tăng streak, chỉ chuyển thẻ và chờ ôn lại sau
+                    // Phát âm thanh khi nhập lại đúng
+                    playAudio(currentCard.audioBase64, currentCard.front);
                     setIsProcessing(true); // V1.6.2 Fix: Khoá
                     moveToNextCard(false); // false = không tăng streak
                 } else { 
@@ -4475,18 +4555,26 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                         <div 
                             className={`flip-card-container transform-style-3d cursor-pointer relative card-slide ${isFlipped ? 'rotate-y-180' : ''} ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
                             onClick={() => {
-                                const newFlippedState = !isFlipped;
-                                setIsFlipped(newFlippedState);
-                                // Phát âm thanh khi lật card (khi lật sang mặt sau)
-                                // CHỈ phát audioBase64 từ Gemini TTS, không dùng Browser TTS
-                                if (newFlippedState && currentCard && currentCard.audioBase64) {
-                                    playAudio(currentCard.audioBase64);
+                                // Chỉ lật card nếu không có swipe đang diễn ra
+                                if (Math.abs(swipeOffset) < 10) {
+                                    const newFlippedState = !isFlipped;
+                                    setIsFlipped(newFlippedState);
+                                    // Phát âm thanh khi lật card (khi lật sang mặt sau)
+                                    // CHỈ phát audioBase64 từ Gemini TTS, không dùng Browser TTS
+                                    if (newFlippedState && currentCard && currentCard.audioBase64) {
+                                        playAudio(currentCard.audioBase64);
+                                    }
                                 }
                             }}
+                            onTouchStart={onTouchStart}
+                            onTouchMove={onTouchMove}
+                            onTouchEnd={onTouchEnd}
                             style={{ 
                                 width: '100%',
                                 height: '340px', // Chiều cao cố định thay vì padding
-                                transition: slideDirection ? 'transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.3s ease' : 'transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1)',
+                                transform: swipeOffset ? `translateX(${swipeOffset}px)` : undefined,
+                                transition: swipeOffset ? 'none' : (slideDirection ? 'transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.3s ease' : 'transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1)'),
+                                touchAction: 'pan-y', // Cho phép swipe ngang nhưng vẫn scroll dọc
                             }}
                         >
                             {/* Mặt trước - CÙNG kích thước */}
@@ -4557,7 +4645,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                         </div>
                         <p className="text-center text-[10px] md:text-xs text-gray-500 mt-3 flex items-center justify-center gap-1">
                             <RotateCw className="w-3 h-3" />
-                            Click vào card để lật | Space: Lật | ← →: Chuyển thẻ
+                            Click vào card để lật | Space: Lật | ← →: Chuyển thẻ | Trượt trái/phải: Chuyển thẻ
                         </p>
                     </div>
                 ) : (
@@ -4663,9 +4751,14 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                     if (isCorrect) {
                                         // Nếu đã từng sai trong lần ôn tập này
                                         if (hasFailedBefore) {
-                                            // Làm đúng lần này: KHÔNG remove khỏi failedCards, KHÔNG tăng streak
+                                            // Làm đúng lần này: Remove khỏi failedCards và đánh streak hoàn thành
+                                            setFailedCards(prev => {
+                                                const newSet = new Set(prev);
+                                                newSet.delete(cardKey);
+                                                return newSet;
+                                            });
                                             setFeedback('correct');
-                                            setMessage(`Đúng rồi! Nhưng bạn sẽ phải ôn lại từ này sau.`);
+                                            setMessage(`Chính xác! ${displayFront} - Đã hoàn thành!`);
                                         } else {
                                             setFeedback('correct');
                                             setMessage(`Chính xác! ${displayFront}`);
@@ -4675,6 +4768,8 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                         setFailedCards(prev => new Set([...prev, cardKey]));
                                         setFeedback('incorrect');
                                         setMessage(`Đáp án đúng: ${displayFront}`);
+                                        // Phát âm thanh khi nhập sai
+                                        playAudio(currentCard.audioBase64);
                                         
                                         // Cập nhật streak về 0 trong local state ngay lập tức
                                         setCards(prevCards => {
@@ -4702,9 +4797,8 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                     playAudio(currentCard.audioBase64);
                                     await new Promise(resolve => setTimeout(resolve, 1000));
                                     
-                                    // Nếu đã từng sai, không tăng streak
-                                    const shouldUpdateStreak = isCorrect && !hasFailedBefore;
-                                    await moveToNextCard(shouldUpdateStreak);
+                                    // Đánh streak nếu làm đúng (kể cả khi đã từng sai, vì đã remove khỏi failedCards)
+                                    await moveToNextCard(isCorrect);
                                 }}
                                 disabled={isProcessing}
                                 className="w-full py-3 md:py-4 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg md:rounded-xl font-bold text-base md:text-lg shadow-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-all"
