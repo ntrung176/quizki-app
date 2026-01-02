@@ -4309,6 +4309,50 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
     // Always show full text now
     const displayFront = currentCard.front;
     
+    // Helper function để format từ nhiều nghĩa với ký hiệu ➀, ➁, ➂
+    const formatMultipleMeanings = (text) => {
+        if (!text) return text;
+        
+        // Ký hiệu số cho các nghĩa
+        const numberSymbols = ['➀', '➁', '➂', '➃', '➄', '➅', '➆', '➇', '➈', '➉'];
+        
+        // Tách các nghĩa bằng nhiều cách: dấu phẩy, chấm phẩy, hoặc xuống dòng
+        // Ưu tiên: xuống dòng > chấm phẩy > dấu phẩy
+        let meanings = [];
+        
+        if (text.includes('\n')) {
+            // Nếu có xuống dòng, tách theo xuống dòng
+            meanings = text.split('\n').map(m => m.trim()).filter(m => m);
+        } else if (text.includes(';')) {
+            // Nếu có chấm phẩy, tách theo chấm phẩy
+            meanings = text.split(';').map(m => m.trim()).filter(m => m);
+        } else if (text.includes(',')) {
+            // Nếu có dấu phẩy, tách theo dấu phẩy (nhưng chỉ khi có nhiều hơn 1 nghĩa rõ ràng)
+            const parts = text.split(',').map(m => m.trim()).filter(m => m);
+            // Chỉ tách nếu có ít nhất 2 phần và mỗi phần có độ dài hợp lý
+            if (parts.length >= 2 && parts.every(p => p.length > 3)) {
+                meanings = parts;
+            } else {
+                // Nếu không rõ ràng, giữ nguyên
+                meanings = [text];
+            }
+        } else {
+            // Không có dấu phân cách, giữ nguyên
+            meanings = [text];
+        }
+        
+        // Nếu chỉ có 1 nghĩa, trả về nguyên bản
+        if (meanings.length <= 1) {
+            return text;
+        }
+        
+        // Format với ký hiệu số
+        return meanings.map((meaning, index) => {
+            const symbol = numberSymbols[index] || `${index + 1}.`;
+            return `${symbol} ${meaning}`;
+        }).join('\n');
+    };
+    
     const getPrompt = () => {
         switch (cardReviewType) { 
             case 'synonym': 
@@ -4321,7 +4365,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 return { label: 'Điền từ còn thiếu', text: currentCard.example.replace(maskRegex, '______'), meaning: currentCard.exampleMeaning || null, image: currentCard.imageBase64, icon: FileText, color: 'text-purple-600' };
             }
             default: 
-                return { label: 'Ý nghĩa (Mặt sau)', text: currentCard.back, image: currentCard.imageBase64, icon: Repeat2, color: 'text-emerald-600' };
+                return { label: 'Ý nghĩa (Mặt sau)', text: formatMultipleMeanings(currentCard.back), image: currentCard.imageBase64, icon: Repeat2, color: 'text-emerald-600' };
         }
     };
     const promptInfo = getPrompt();
@@ -4608,7 +4652,9 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                     {/* Phần ý nghĩa chính - TO và ở GIỮA */}
                                     <div className="flex-1 flex flex-col items-center justify-center text-center">
                                         <p className="text-xs text-emerald-200 mb-2 font-medium uppercase tracking-wide">Ý nghĩa</p>
-                                        <h3 className="text-3xl md:text-4xl font-extrabold text-white leading-tight break-words px-2">{currentCard.back}</h3>
+                                        <div className="text-3xl md:text-4xl font-extrabold text-white leading-relaxed break-words px-2 whitespace-pre-line">
+                                            {formatMultipleMeanings(currentCard.back)}
+                                        </div>
                                     </div>
                                     
                                     {/* Các phần phụ - NHỎ phía dưới */}
@@ -4671,9 +4717,9 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                         </div>
                     )}
 
-                        <h3 className="text-xl md:text-3xl lg:text-4xl font-black text-gray-800 dark:text-gray-100 leading-tight mb-1 md:mb-2 px-2">
+                        <div className="text-xl md:text-3xl lg:text-4xl font-black text-gray-800 dark:text-gray-100 leading-relaxed mb-1 md:mb-2 px-2 whitespace-pre-line">
                         {promptInfo.text}
-                    </h3>
+                    </div>
                     
                     {/* UPDATE: Hide SinoVietnamese in Synonym/Example Mode */}
                     {/* Only show SinoVietnamese if reviewMode is NOT 'synonym' or 'example' */}
@@ -5291,9 +5337,9 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                     // Multiple Choice Phase - Hỏi bằng tiếng Việt, đáp án là tiếng Nhật
                     <div className="w-full bg-white dark:bg-gray-800 rounded-xl md:rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 p-4 md:p-8 space-y-4 md:space-y-6">
                         <div className="text-center">
-                            <h3 className="text-2xl md:text-4xl font-extrabold text-gray-800 dark:text-gray-100 mb-4">
-                                {currentCard.back}
-                            </h3>
+                            <div className="text-2xl md:text-4xl font-extrabold text-gray-800 dark:text-gray-100 mb-4 leading-relaxed whitespace-pre-line">
+                                {formatMultipleMeanings(currentCard.back)}
+                            </div>
                             <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">Chọn từ vựng tiếng Nhật đúng:</p>
                         </div>
                         
@@ -5325,9 +5371,9 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                     <div className="w-full bg-white dark:bg-gray-800 rounded-xl md:rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 p-4 md:p-8 space-y-4 md:space-y-6">
                         <div className="text-center">
                             <h3 className="text-xl md:text-2xl font-bold text-gray-700 dark:text-gray-300 mb-2">Từ vựng tiếng Nhật là gì?</h3>
-                            <p className="text-3xl md:text-5xl font-extrabold text-gray-800 dark:text-gray-100 mb-4">
-                                {currentCard.back}
-                            </p>
+                            <div className="text-3xl md:text-5xl font-extrabold text-gray-800 dark:text-gray-100 mb-4 leading-relaxed whitespace-pre-line">
+                                {formatMultipleMeanings(currentCard.back)}
+                            </div>
                         </div>
                         
                         <div className="relative">
