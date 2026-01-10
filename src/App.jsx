@@ -36,6 +36,7 @@ try {
 const POS_TYPES = {
     noun: { label: 'Danh từ', color: 'bg-blue-100 text-blue-700 border-blue-200' },
     verb: { label: 'Động từ', color: 'bg-red-100 text-red-700 border-red-200' },
+    suru_verb: { label: 'Danh động từ', color: 'bg-cyan-100 text-cyan-700 border-cyan-200' },
     adj_i: { label: 'Tính từ -i', color: 'bg-amber-100 text-amber-700 border-amber-200' },
     adj_na: { label: 'Tính từ -na', color: 'bg-orange-100 text-orange-700 border-orange-200' },
     adverb: { label: 'Trạng từ', color: 'bg-purple-100 text-purple-700 border-purple-200' },
@@ -475,6 +476,7 @@ const App = () => {
     const [userId, setUserId] = useState(null);
     const [view, setView] = useState('HOME');
     const [reviewMode, setReviewMode] = useState('back');
+    const [savedFilters, setSavedFilters] = useState(null); // Lưu filter state khi edit
     const [allCards, setAllCards] = useState([]);
     const [reviewCards, setReviewCards] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -1467,9 +1469,13 @@ const App = () => {
         prevViewRef.current = view;
     }, [view]);
 
-    const handleNavigateToEdit = (card) => {
+    const handleNavigateToEdit = (card, currentFilters) => {
         // Lưu cardId để scroll đến sau khi quay lại
         scrollToCardIdRef.current = card.id;
+        // Lưu filter state hiện tại
+        if (currentFilters) {
+            setSavedFilters(currentFilters);
+        }
         setEditingCard(card);
         setView('EDIT_CARD');
     };
@@ -1517,6 +1523,7 @@ const App = () => {
             // Giữ lại cardId để scroll đến sau khi quay lại LIST
             // Không setEditingCard(null) ngay để giữ thông tin card
             setEditingCard(null);
+            // KHÔNG reset savedFilters để giữ nguyên bộ lọc
             setView('LIST');
             // Scroll đến card sẽ được xử lý trong ListView component 
 
@@ -1675,8 +1682,8 @@ const App = () => {
         const systemPrompt = `Bạn là trợ lý từ điển Nhật-Việt. Người dùng đang tìm kiếm thông tin cho từ vựng: "${frontText}"${contextInfo}.
 Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo đúng schema sau:
 {
-  "frontWithFurigana": "食べる（たべる）",
-  "meaning": "ăn",
+  "frontWithFurigana": "鍵をかける（かぎをかける）",
+  "meaning": "khóa cửa",
   "pos": "verb",
   "level": "N5",
   "sinoVietnamese": "Thực",
@@ -1686,6 +1693,7 @@ Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo
   "exampleMeaning": "Tôi ăn cơm mỗi ngày.",
   "nuance": "Dùng phổ biến trong cả văn nói và văn viết."
 }
+QUAN TRỌNG: frontWithFurigana PHẢI dùng dấu ngoặc Nhật （）để bao quanh phần phiên âm hiragana, theo format: [từ vựng]（[phiên âm]）. Ví dụ: 鍵をかける（かぎをかける）. Không được dùng dấu ngoặc thường ().
 Không được trả về markdown, không được dùng \`\`\`, không được trả lời thêm bất cứ chữ nào ngoài JSON.`;
 
         const payload = {
@@ -1944,7 +1952,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                 return <EditCardForm 
                     card={editingCard}
                     onSave={handleSaveChanges} 
-                    onBack={() => { setEditingCard(null); setView('LIST'); }} 
+                    onBack={() => { setEditingCard(null); setView('LIST'); }} // Giữ filter khi quay lại
                     onGeminiAssist={handleGeminiAssist}
                 />;
             case 'STUDY':
@@ -2014,6 +2022,8 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     onAutoClassifyBatch={handleAutoClassifyBatch}
                     scrollToCardId={scrollToCardIdRef.current}
                     onScrollComplete={() => { scrollToCardIdRef.current = null; }}
+                    savedFilters={savedFilters}
+                    onFiltersChange={(filters) => setSavedFilters(filters)}
                 />;
             case 'IMPORT':
                 return <ImportScreen 
@@ -3677,15 +3687,57 @@ const SrsStatusCell = ({ intervalIndex, nextReview, hasData }) => {
     );
 };
 
-const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToEdit, onAutoClassifyBatch, scrollToCardId, onScrollComplete }) => {
-    // ... (Filter State logic giữ nguyên)
-    const [filterLevel, setFilterLevel] = useState('all');
-    const [filterPos, setFilterPos] = useState('all');
-    const [filterAudio, setFilterAudio] = useState('all'); // 'all', 'with', 'without'
-    const [sortOrder, setSortOrder] = useState('newest');
-    const [searchTerm, setSearchTerm] = useState(''); // Thêm state cho Search
+const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToEdit, onAutoClassifyBatch, scrollToCardId, onScrollComplete, savedFilters, onFiltersChange }) => {
+    // Sử dụng savedFilters nếu có, không thì dùng default
+    const [filterLevel, setFilterLevel] = useState(savedFilters?.filterLevel || 'all');
+    const [filterPos, setFilterPos] = useState(savedFilters?.filterPos || 'all');
+    const [filterAudio, setFilterAudio] = useState(savedFilters?.filterAudio || 'all'); // 'all', 'with', 'without'
+    const [sortOrder, setSortOrder] = useState(savedFilters?.sortOrder || 'newest');
+    const [searchTerm, setSearchTerm] = useState(savedFilters?.searchTerm || ''); // Thêm state cho Search
     const [debouncedSearchTerm] = useDebounce(searchTerm, 300); // Debounce search với 300ms delay
-    const [viewMode, setViewMode] = useState('grid'); // 'list' hoặc 'grid' - mặc định là grid
+    const [viewMode, setViewMode] = useState(savedFilters?.viewMode || 'grid'); // 'list' hoặc 'grid' - mặc định là grid
+    
+    // Khôi phục filters từ savedFilters khi quay lại từ edit
+    // Dùng ref để tránh vòng lặp và track khi nào đang restore
+    const previousSavedFiltersRef = useRef(null);
+    const isRestoringRef = useRef(false);
+    
+    useEffect(() => {
+        // Nếu savedFilters thay đổi và khác với lần trước, khôi phục filters
+        if (savedFilters && JSON.stringify(previousSavedFiltersRef.current) !== JSON.stringify(savedFilters)) {
+            isRestoringRef.current = true;
+            previousSavedFiltersRef.current = savedFilters;
+            // Khôi phục từ savedFilters
+            setFilterLevel(savedFilters.filterLevel || 'all');
+            setFilterPos(savedFilters.filterPos || 'all');
+            setFilterAudio(savedFilters.filterAudio || 'all');
+            setSortOrder(savedFilters.sortOrder || 'newest');
+            setSearchTerm(savedFilters.searchTerm || '');
+            setViewMode(savedFilters.viewMode || 'grid');
+            // Đánh dấu đã khôi phục xong sau một tick
+            setTimeout(() => {
+                isRestoringRef.current = false;
+            }, 50);
+        }
+    }, [savedFilters]);
+    
+    // Cập nhật filters lên parent khi người dùng thay đổi filter (KHÔNG cập nhật khi đang restore)
+    useEffect(() => {
+        // Không cập nhật lên parent khi đang restore từ savedFilters
+        if (isRestoringRef.current || !onFiltersChange) {
+            return;
+        }
+        onFiltersChange({ filterLevel, filterPos, filterAudio, sortOrder, searchTerm, viewMode });
+    }, [filterLevel, filterPos, filterAudio, sortOrder, searchTerm, viewMode, onFiltersChange]);
+    
+    // Helper để reset tất cả filters
+    const resetFilters = () => {
+        setFilterLevel('all');
+        setFilterPos('all');
+        setFilterAudio('all');
+        setSortOrder('newest');
+        setSearchTerm('');
+    };
 
     const cardsMissingPos = allCards.filter(c => !c.pos || !c.level);
     const filteredCards = useMemo(() => {
@@ -3794,7 +3846,8 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
             </div>
 
             {/* Filters */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5 md:gap-3 bg-gray-50 dark:bg-gray-800 p-2 md:p-4 rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-700 flex-shrink-0">
+            <div className="flex flex-col gap-2 md:gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5 md:gap-3 bg-gray-50 dark:bg-gray-800 p-2 md:p-4 rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-700 flex-shrink-0">
                 <div className="space-y-0.5 md:space-y-1">
                     <label className="text-[9px] md:text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Sắp xếp</label>
                     <div className="relative">
@@ -3836,6 +3889,20 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                         <Volume2 className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
                     </div>
                 </div>
+                </div>
+                {/* Icon bỏ lọc - hiển thị khi có filter active */}
+                {(filterLevel !== 'all' || filterPos !== 'all' || filterAudio !== 'all' || searchTerm.trim() !== '') && (
+                    <div className="flex justify-end">
+                        <button 
+                            onClick={resetFilters}
+                            className="px-2 md:px-3 py-1.5 md:py-2 text-[10px] md:text-xs font-bold rounded-lg bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors flex items-center gap-1"
+                            title="Bỏ tất cả bộ lọc"
+                        >
+                            <X className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                            <span>Bỏ lọc</span>
+                        </button>
+                    </div>
+                )}
             </div>
 
             {/* CONTENT AREA: LIST or GRID - Scrollable */}
@@ -3882,7 +3949,7 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                                         <SrsStatusCell intervalIndex={card.intervalIndex_back} nextReview={card.nextReview_back} hasData={true}/>
                                         <td className="px-2 md:px-4 py-2 md:py-3 text-right">
                                             <div className="flex justify-end gap-0.5 md:gap-1 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
-                                                <button onClick={() => onNavigateToEdit(card)} className="p-1.5 md:p-2 rounded-lg text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30"><Edit className="w-3 h-3 md:w-4 md:h-4"/></button>
+                                                <button onClick={() => onNavigateToEdit(card, { filterLevel, filterPos, filterAudio, sortOrder, searchTerm, viewMode })} className="p-1.5 md:p-2 rounded-lg text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30"><Edit className="w-3 h-3 md:w-4 md:h-4"/></button>
                                                 <button onClick={() => onDeleteCard(card.id, card.front)} className="p-1.5 md:p-2 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30"><Trash2 className="w-3 h-3 md:w-4 md:h-4"/></button>
                                             </div>
                                         </td>
@@ -3934,7 +4001,7 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                                         <Volume2 className="w-3 h-3 md:w-4 md:h-4"/>
                                      </button>
                                      <div className="flex gap-1.5 md:gap-2">
-                                        <button onClick={() => onNavigateToEdit(card)} className="text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 p-1 md:p-1.5 rounded-lg transition-all shadow-sm hover:shadow-md">
+                                        <button onClick={() => onNavigateToEdit(card, { filterLevel, filterPos, filterAudio, sortOrder, searchTerm, viewMode })} className="text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 p-1 md:p-1.5 rounded-lg transition-all shadow-sm hover:shadow-md">
                                             <Edit className="w-3 h-3 md:w-4 md:h-4"/>
                                         </button>
                                         <button onClick={() => onDeleteCard(card.id, card.front)} className="text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-700 dark:hover:text-red-300 p-1 md:p-1.5 rounded-lg transition-all shadow-sm hover:shadow-md">
@@ -5014,6 +5081,57 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     const currentBatch = studySessionData.currentBatch || [];
     const currentPhase = studySessionData.currentPhase || 'multipleChoice';
     const currentCard = currentBatch[currentQuestionIndex];
+
+    // Helper function để format từ nhiều nghĩa với ký hiệu ➀, ➁, ➂
+    const formatMultipleMeanings = (text) => {
+        if (!text) return text;
+        
+        // Ký hiệu số cho các nghĩa
+        const numberSymbols = ['➀', '➁', '➂', '➃', '➄', '➅', '➆', '➇', '➈', '➉'];
+        
+        // Tách các nghĩa bằng nhiều cách: dấu phẩy, chấm phẩy, hoặc xuống dòng
+        // Ưu tiên: xuống dòng > chấm phẩy > dấu phẩy
+        let meanings = [];
+        
+        if (text.includes('\n')) {
+            // Nếu có xuống dòng, tách theo xuống dòng
+            meanings = text.split('\n').map(m => m.trim()).filter(m => m);
+        } else if (text.includes(';')) {
+            // Nếu có chấm phẩy, tách theo chấm phẩy
+            meanings = text.split(';').map(m => m.trim()).filter(m => m);
+        } else if (text.includes(',')) {
+            // Nếu có dấu phẩy, tách theo dấu phẩy (nhưng chỉ khi có nhiều hơn 1 nghĩa rõ ràng)
+            const parts = text.split(',').map(m => m.trim()).filter(m => m);
+            // Chỉ tách nếu có ít nhất 2 phần và mỗi phần có độ dài hợp lý
+            if (parts.length >= 2 && parts.every(p => p.length > 3)) {
+                meanings = parts;
+            } else {
+                // Nếu không rõ ràng, giữ nguyên
+                meanings = [text];
+            }
+        } else {
+            // Không có dấu phân cách, giữ nguyên
+            meanings = [text];
+        }
+        
+        // Nếu chỉ có 1 nghĩa, trả về nguyên bản
+        if (meanings.length <= 1) {
+            return text;
+        }
+        
+        // Format với ký hiệu số
+        return meanings.map((meaning, index) => {
+            const symbol = numberSymbols[index] || `${index + 1}.`;
+            return `${symbol} ${meaning}`;
+        }).join('\n');
+    };
+
+    // Early return nếu không có card
+    if (!currentCard) {
+        return <div className="flex items-center justify-center h-full">
+            <p className="text-gray-500">Không có từ vựng nào để học.</p>
+        </div>;
+    }
 
     // Reset khi chuyển phase và auto focus (tắt trên mobile để tránh xung đột với bàn phím)
     useEffect(() => {
