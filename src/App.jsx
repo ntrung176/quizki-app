@@ -1693,6 +1693,9 @@ Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo
   "exampleMeaning": "Tôi ăn cơm mỗi ngày.",
   "nuance": "Dùng phổ biến trong cả văn nói và văn viết."
 }
+QUAN TRỌNG về từ loại (pos): 
+- Sử dụng các giá trị: "noun" (Danh từ), "verb" (Động từ), "suru_verb" (Danh động từ - các từ kết thúc bằng する như 勉強する, 約束する, 掃除する), "adj_i" (Tính từ -i), "adj_na" (Tính từ -na), "adverb" (Trạng từ), "conjunction" (Liên từ), "grammar" (Ngữ pháp), "phrase" (Cụm từ), "other" (Khác).
+- Đặc biệt chú ý: Nếu từ kết thúc bằng "する" (する動詞) hoặc có thể dùng như động từ nhưng gốc là danh từ + する, hãy phân loại là "suru_verb" (Danh động từ).
 QUAN TRỌNG: frontWithFurigana PHẢI dùng dấu ngoặc Nhật （）để bao quanh phần phiên âm hiragana, theo format: [từ vựng]（[phiên âm]）. Ví dụ: 鍵をかける（かぎをかける）. Không được dùng dấu ngoặc thường ().
 Không được trả về markdown, không được dùng \`\`\`, không được trả lời thêm bất cứ chữ nào ngoài JSON.`;
 
@@ -5252,7 +5255,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         
         // Cập nhật learning/reviewing lists - từ sai sẽ được thêm vào learning để hiện lại ở batch tiếp theo
         if (isCorrect) {
-            // Chuyển từ learning sang reviewing nếu có
+            // Khi hoàn thành multiple choice (đúng): loại bỏ khỏi learning list
             setStudySessionData(prev => ({
                 ...prev,
                 learning: prev.learning.filter(c => c.id !== currentCard.id),
@@ -5292,8 +5295,20 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         if (isProcessing || !inputValue.trim()) return;
 
         const userAnswer = normalizeAnswer(inputValue);
-        const correctAnswer = normalizeAnswer(currentCard.front); // Đáp án đúng là từ vựng tiếng Nhật
-        const isCorrect = userAnswer === correctAnswer;
+        
+        // Extract Kanji and Kana from format "Kanji（Kana）" or "Kanji(Kana)"
+        // Nhận diện cả ngoặc Nhật （）và ngoặc Việt Nam ()
+        const rawFront = currentCard.front;
+        const kanjiPart = rawFront.split('（')[0].split('(')[0];
+        const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
+        const kanaPart = kanaPartMatch ? kanaPartMatch[1] : '';
+
+        const normalizedKanji = normalizeAnswer(kanjiPart);
+        const normalizedKana = normalizeAnswer(kanaPart);
+        const normalizedFull = normalizeAnswer(rawFront);
+        
+        // Correct if matches either Kanji part OR Kana part (if exists) OR the full string (legacy fallback)
+        const isCorrect = userAnswer === normalizedKanji || (kanaPart && userAnswer === normalizedKana) || userAnswer === normalizedFull;
 
         setIsProcessing(true);
         setFeedback(isCorrect ? 'correct' : 'incorrect');
@@ -5305,14 +5320,16 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
 
         // Cập nhật learning/reviewing lists
         if (isCorrect) {
-            // Chuyển từ learning sang reviewing nếu có
+            // Khi hoàn thành (đúng): loại bỏ khỏi learning list và đánh dấu completed (giống như phần ý nghĩa)
             setStudySessionData(prev => ({
                 ...prev,
                 learning: prev.learning.filter(c => c.id !== currentCard.id),
                 reviewing: [...prev.reviewing.filter(c => c.id !== currentCard.id), currentCard]
             }));
+            // Đánh dấu completed khi hoàn thành
+            setCompletedCards(prev => new Set([...prev, currentCard.id]));
         } else {
-            // Thêm vào learning nếu sai
+            // Thêm vào learning nếu sai để hiện lại ở batch tiếp theo
             setStudySessionData(prev => ({
                 ...prev,
                 learning: [...prev.learning.filter(c => c.id !== currentCard.id), currentCard]
@@ -5321,8 +5338,6 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
 
         setTimeout(() => {
             setIsProcessing(false);
-            // Đánh dấu từ này đã hoàn thành typing phase
-            setCompletedCards(prev => new Set([...prev, currentCard.id]));
             
             if (currentQuestionIndex < currentBatch.length - 1) {
                 setCurrentQuestionIndex(currentQuestionIndex + 1);
