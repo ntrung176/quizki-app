@@ -4379,6 +4379,49 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
     // Always show full text now
     const displayFront = currentCard.front;
     
+    // Helper function để tách chuỗi theo delimiter nhưng bỏ qua delimiter trong ngoặc
+    const splitIgnoringParentheses = (text, delimiter) => {
+        const result = [];
+        let currentPart = '';
+        let depth = 0; // Độ sâu của ngoặc
+        
+        for (let i = 0; i < text.length; i++) {
+            const char = text[i];
+            
+            // Kiểm tra ngoặc đơn Việt Nam ()
+            if (char === '(') {
+                depth++;
+                currentPart += char;
+            } else if (char === ')') {
+                depth--;
+                currentPart += char;
+            }
+            // Kiểm tra ngoặc Nhật （）
+            else if (char === '（') {
+                depth++;
+                currentPart += char;
+            } else if (char === '）') {
+                depth--;
+                currentPart += char;
+            }
+            // Kiểm tra delimiter
+            else if (char === delimiter && depth === 0) {
+                // Chỉ tách nếu không đang trong ngoặc
+                result.push(currentPart.trim());
+                currentPart = '';
+            } else {
+                currentPart += char;
+            }
+        }
+        
+        // Thêm phần cuối cùng
+        if (currentPart.trim()) {
+            result.push(currentPart.trim());
+        }
+        
+        return result;
+    };
+    
     // Helper function để format từ nhiều nghĩa với ký hiệu ➀, ➁, ➂
     const formatMultipleMeanings = (text) => {
         if (!text) return text;
@@ -4386,29 +4429,65 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         // Ký hiệu số cho các nghĩa
         const numberSymbols = ['➀', '➁', '➂', '➃', '➄', '➅', '➆', '➇', '➈', '➉'];
         
-        // Tách các nghĩa bằng nhiều cách: dấu phẩy, chấm phẩy, hoặc xuống dòng
-        // Ưu tiên: xuống dòng > chấm phẩy > dấu phẩy
+        // Tách các nghĩa bằng nhiều cách: số thứ tự > xuống dòng > chấm phẩy > dấu phẩy
         let meanings = [];
         
-        if (text.includes('\n')) {
-            // Nếu có xuống dòng, tách theo xuống dòng
-            meanings = text.split('\n').map(m => m.trim()).filter(m => m);
-        } else if (text.includes(';')) {
-            // Nếu có chấm phẩy, tách theo chấm phẩy
-            meanings = text.split(';').map(m => m.trim()).filter(m => m);
-        } else if (text.includes(',')) {
-            // Nếu có dấu phẩy, tách theo dấu phẩy (nhưng chỉ khi có nhiều hơn 1 nghĩa rõ ràng)
-            const parts = text.split(',').map(m => m.trim()).filter(m => m);
-            // Chỉ tách nếu có ít nhất 2 phần và mỗi phần có độ dài hợp lý
-            if (parts.length >= 2 && parts.every(p => p.length > 3)) {
-                meanings = parts;
+        // Ưu tiên 1: Tách theo số thứ tự (1., 2., 3., ...)
+        // Tìm tất cả các vị trí có pattern "số. " không nằm trong ngoặc
+        const numberedMatches = [];
+        let depth = 0;
+        let currentPos = 0;
+        
+        for (let i = 0; i < text.length; i++) {
+            const char = text[i];
+            
+            if (char === '(' || char === '（') {
+                depth++;
+            } else if (char === ')' || char === '）') {
+                depth--;
+            } else if (depth === 0 && /^\d+\.\s/.test(text.substring(i))) {
+                // Tìm thấy pattern "số. " không trong ngoặc
+                const match = text.substring(i).match(/^(\d+\.\s+)/);
+                if (match) {
+                    numberedMatches.push({ start: i, number: parseInt(match[1]) });
+                }
+            }
+        }
+        
+        // Nếu có ít nhất 2 số thứ tự, tách theo chúng
+        if (numberedMatches.length >= 2) {
+            for (let i = 0; i < numberedMatches.length; i++) {
+                const start = numberedMatches[i].start;
+                const end = i < numberedMatches.length - 1 ? numberedMatches[i + 1].start : text.length;
+                const part = text.substring(start, end).trim();
+                if (part) {
+                    meanings.push(part);
+                }
+            }
+        }
+        
+        // Nếu chưa tách được, thử các cách khác
+        if (meanings.length <= 1) {
+            if (text.includes('\n')) {
+                // Nếu có xuống dòng, tách theo xuống dòng
+                meanings = text.split('\n').map(m => m.trim()).filter(m => m);
+            } else if (text.includes(';')) {
+                // Nếu có chấm phẩy, tách theo chấm phẩy (bỏ qua chấm phẩy trong ngoặc)
+                meanings = splitIgnoringParentheses(text, ';').filter(m => m);
+            } else if (text.includes(',')) {
+                // Nếu có dấu phẩy, tách theo dấu phẩy (bỏ qua dấu phẩy trong ngoặc)
+                const parts = splitIgnoringParentheses(text, ',').filter(m => m);
+                // Chỉ tách nếu có ít nhất 2 phần và mỗi phần có độ dài hợp lý
+                if (parts.length >= 2 && parts.every(p => p.length > 3)) {
+                    meanings = parts;
+                } else {
+                    // Nếu không rõ ràng, giữ nguyên
+                    meanings = [text];
+                }
             } else {
-                // Nếu không rõ ràng, giữ nguyên
+                // Không có dấu phân cách, giữ nguyên
                 meanings = [text];
             }
-        } else {
-            // Không có dấu phân cách, giữ nguyên
-            meanings = [text];
         }
         
         // Nếu chỉ có 1 nghĩa, trả về nguyên bản
@@ -5085,6 +5164,49 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     const currentPhase = studySessionData.currentPhase || 'multipleChoice';
     const currentCard = currentBatch[currentQuestionIndex];
 
+    // Helper function để tách chuỗi theo delimiter nhưng bỏ qua delimiter trong ngoặc
+    const splitIgnoringParentheses = (text, delimiter) => {
+        const result = [];
+        let currentPart = '';
+        let depth = 0; // Độ sâu của ngoặc
+        
+        for (let i = 0; i < text.length; i++) {
+            const char = text[i];
+            
+            // Kiểm tra ngoặc đơn Việt Nam ()
+            if (char === '(') {
+                depth++;
+                currentPart += char;
+            } else if (char === ')') {
+                depth--;
+                currentPart += char;
+            }
+            // Kiểm tra ngoặc Nhật （）
+            else if (char === '（') {
+                depth++;
+                currentPart += char;
+            } else if (char === '）') {
+                depth--;
+                currentPart += char;
+            }
+            // Kiểm tra delimiter
+            else if (char === delimiter && depth === 0) {
+                // Chỉ tách nếu không đang trong ngoặc
+                result.push(currentPart.trim());
+                currentPart = '';
+            } else {
+                currentPart += char;
+            }
+        }
+        
+        // Thêm phần cuối cùng
+        if (currentPart.trim()) {
+            result.push(currentPart.trim());
+        }
+        
+        return result;
+    };
+    
     // Helper function để format từ nhiều nghĩa với ký hiệu ➀, ➁, ➂
     const formatMultipleMeanings = (text) => {
         if (!text) return text;
@@ -5092,29 +5214,64 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         // Ký hiệu số cho các nghĩa
         const numberSymbols = ['➀', '➁', '➂', '➃', '➄', '➅', '➆', '➇', '➈', '➉'];
         
-        // Tách các nghĩa bằng nhiều cách: dấu phẩy, chấm phẩy, hoặc xuống dòng
-        // Ưu tiên: xuống dòng > chấm phẩy > dấu phẩy
+        // Tách các nghĩa bằng nhiều cách: số thứ tự > xuống dòng > chấm phẩy > dấu phẩy
         let meanings = [];
         
-        if (text.includes('\n')) {
-            // Nếu có xuống dòng, tách theo xuống dòng
-            meanings = text.split('\n').map(m => m.trim()).filter(m => m);
-        } else if (text.includes(';')) {
-            // Nếu có chấm phẩy, tách theo chấm phẩy
-            meanings = text.split(';').map(m => m.trim()).filter(m => m);
-        } else if (text.includes(',')) {
-            // Nếu có dấu phẩy, tách theo dấu phẩy (nhưng chỉ khi có nhiều hơn 1 nghĩa rõ ràng)
-            const parts = text.split(',').map(m => m.trim()).filter(m => m);
-            // Chỉ tách nếu có ít nhất 2 phần và mỗi phần có độ dài hợp lý
-            if (parts.length >= 2 && parts.every(p => p.length > 3)) {
-                meanings = parts;
+        // Ưu tiên 1: Tách theo số thứ tự (1., 2., 3., ...)
+        // Tìm tất cả các vị trí có pattern "số. " không nằm trong ngoặc
+        const numberedMatches = [];
+        let depth = 0;
+        
+        for (let i = 0; i < text.length; i++) {
+            const char = text[i];
+            
+            if (char === '(' || char === '（') {
+                depth++;
+            } else if (char === ')' || char === '）') {
+                depth--;
+            } else if (depth === 0 && /^\d+\.\s/.test(text.substring(i))) {
+                // Tìm thấy pattern "số. " không trong ngoặc
+                const match = text.substring(i).match(/^(\d+\.\s+)/);
+                if (match) {
+                    numberedMatches.push({ start: i, number: parseInt(match[1]) });
+                }
+            }
+        }
+        
+        // Nếu có ít nhất 2 số thứ tự, tách theo chúng
+        if (numberedMatches.length >= 2) {
+            for (let i = 0; i < numberedMatches.length; i++) {
+                const start = numberedMatches[i].start;
+                const end = i < numberedMatches.length - 1 ? numberedMatches[i + 1].start : text.length;
+                const part = text.substring(start, end).trim();
+                if (part) {
+                    meanings.push(part);
+                }
+            }
+        }
+        
+        // Nếu chưa tách được, thử các cách khác
+        if (meanings.length <= 1) {
+            if (text.includes('\n')) {
+                // Nếu có xuống dòng, tách theo xuống dòng
+                meanings = text.split('\n').map(m => m.trim()).filter(m => m);
+            } else if (text.includes(';')) {
+                // Nếu có chấm phẩy, tách theo chấm phẩy (bỏ qua chấm phẩy trong ngoặc)
+                meanings = splitIgnoringParentheses(text, ';').filter(m => m);
+            } else if (text.includes(',')) {
+                // Nếu có dấu phẩy, tách theo dấu phẩy (bỏ qua dấu phẩy trong ngoặc)
+                const parts = splitIgnoringParentheses(text, ',').filter(m => m);
+                // Chỉ tách nếu có ít nhất 2 phần và mỗi phần có độ dài hợp lý
+                if (parts.length >= 2 && parts.every(p => p.length > 3)) {
+                    meanings = parts;
+                } else {
+                    // Nếu không rõ ràng, giữ nguyên
+                    meanings = [text];
+                }
             } else {
-                // Nếu không rõ ràng, giữ nguyên
+                // Không có dấu phân cách, giữ nguyên
                 meanings = [text];
             }
-        } else {
-            // Không có dấu phân cách, giữ nguyên
-            meanings = [text];
         }
         
         // Nếu chỉ có 1 nghĩa, trả về nguyên bản
