@@ -848,83 +848,207 @@ const App = () => {
             return card.intervalIndex_back === -1 || card.intervalIndex_back === undefined;
         }).length;
 
-        return { mixed, flashcard, back, synonym, example, study };
+        // Tính counts cho các chế độ mới
+        // Old cards (đã có SRS)
+        const oldCards = allCards.filter(card => 
+            card.intervalIndex_back !== -1 && card.intervalIndex_back !== undefined && card.intervalIndex_back >= 0
+        );
+        const oldMixed = oldCards.filter(card => {
+            const isDue = card.nextReview_back <= today;
+            if (!isDue) return false;
+            const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
+            const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
+            const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
+            return backStreak < 1 || (card.synonym && synonymStreak < 1) || (card.example && exampleStreak < 1);
+        }).length;
+        const oldBack = oldCards.filter(card => {
+            const isDue = card.nextReview_back <= today;
+            const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
+            return isDue && backStreak < 1;
+        }).length;
+        const oldSynonym = oldCards.filter(card => {
+            if (!card.synonym || card.synonym.trim() === '') return false;
+            const isDue = card.nextReview_back <= today;
+            const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
+            return isDue && synonymStreak < 1;
+        }).length;
+        const oldExample = oldCards.filter(card => {
+            if (!card.example || card.example.trim() === '') return false;
+            const isDue = card.nextReview_back <= today;
+            const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
+            return isDue && exampleStreak < 1;
+        }).length;
+
+        // New cards (chưa có SRS)
+        const newCards = allCards.filter(card => 
+            card.intervalIndex_back === -1 || card.intervalIndex_back === undefined
+        );
+        const newMixed = newCards.length; // Tất cả từ mới đều có thể ôn
+        const newBack = newCards.length;
+        const newSynonym = newCards.filter(card => card.synonym && card.synonym.trim() !== '').length;
+        const newExample = newCards.filter(card => card.example && card.example.trim() !== '').length;
+
+        // Grammar cards
+        const grammarCards = allCards.filter(card => card.pos === 'grammar');
+        const grammarMixed = grammarCards.filter(card => {
+            const isDue = card.nextReview_back <= today;
+            if (!isDue && card.intervalIndex_back >= 0) return false;
+            const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
+            const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
+            const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
+            return backStreak < 1 || (card.synonym && synonymStreak < 1) || (card.example && exampleStreak < 1);
+        }).length;
+        const grammarBack = grammarCards.filter(card => {
+            const isDue = card.nextReview_back <= today;
+            if (!isDue && card.intervalIndex_back >= 0) return false;
+            const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
+            return backStreak < 1;
+        }).length;
+        const grammarSynonym = grammarCards.filter(card => {
+            if (!card.synonym || card.synonym.trim() === '') return false;
+            const isDue = card.nextReview_back <= today;
+            if (!isDue && card.intervalIndex_back >= 0) return false;
+            const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
+            return synonymStreak < 1;
+        }).length;
+        const grammarExample = grammarCards.filter(card => {
+            if (!card.example || card.example.trim() === '') return false;
+            const isDue = card.nextReview_back <= today;
+            if (!isDue && card.intervalIndex_back >= 0) return false;
+            const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
+            return exampleStreak < 1;
+        }).length;
+
+        return { 
+            mixed, flashcard, back, synonym, example, study,
+            old: { mixed: oldMixed, back: oldBack, synonym: oldSynonym, example: oldExample },
+            new: { mixed: newMixed, back: newBack, synonym: newSynonym, example: newExample },
+            grammar: { mixed: grammarMixed, back: grammarBack, synonym: grammarSynonym, example: grammarExample }
+        };
     }, [allCards]);
 
 
 
-    const prepareReviewCards = useCallback((mode = 'back') => {
+    const prepareReviewCards = useCallback((mode = 'back', category = 'all') => {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         let dueCards = [];
+        
+        // Filter theo category trước
+        let filteredCards = allCards;
+        if (category === 'old') {
+            // Từ vựng cũ: đã có SRS (intervalIndex_back >= 0)
+            filteredCards = allCards.filter(card => 
+                card.intervalIndex_back !== -1 && card.intervalIndex_back !== undefined && card.intervalIndex_back >= 0
+            );
+        } else if (category === 'new') {
+            // Từ vựng mới: chưa có SRS (intervalIndex_back === -1)
+            filteredCards = allCards.filter(card => 
+                card.intervalIndex_back === -1 || card.intervalIndex_back === undefined
+            );
+        } else if (category === 'grammar') {
+            // Từ vựng ngữ pháp: pos === 'grammar'
+            filteredCards = allCards.filter(card => card.pos === 'grammar');
+        }
+        // category === 'all' thì không filter
 
+        // Kiểm tra xem có phải từ mới (chưa có SRS) không
+        const isNewCategory = category === 'new';
+        
         // Flashcard mode: Chỉ dành cho từ vựng chưa có SRS
         if (mode === 'flashcard') {
-            dueCards = allCards.filter(card => {
+            dueCards = filteredCards.filter(card => {
                 return card.intervalIndex_back === -1 || card.intervalIndex_back === undefined;
             });
             dueCards = shuffleArray(dueCards);
             
         } else if (mode === 'mixed') {
             // Logic mới: Tất cả 3 phần dùng chung nextReview_back
-            // Chỉ lấy những phần chưa hoàn thành (streak < 1)
-            const dueBackCards = allCards
-                .filter(card => {
-                    if (card.nextReview_back > today) return false;
-                    // Chỉ lấy phần back nếu chưa hoàn thành (streak < 1)
-                    const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
-                    return backStreak < 1;
-                })
-                .map(card => ({ ...card, reviewType: 'back' })); 
-            
-            // Synonym: chỉ lấy nếu chưa hoàn thành (streak < 1)
-            const dueSynonymCards = allCards
-                .filter(card => {
-                    if (!card.synonym || card.synonym.trim() === '') return false;
-                    if (card.nextReview_back > today) return false;
-                    const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
-                    return synonymStreak < 1;
-                })
-                .map(card => ({ ...card, reviewType: 'synonym' })); 
-            
-            // Example: chỉ lấy nếu chưa hoàn thành (streak < 1)
-            const dueExampleCards = allCards
-                .filter(card => {
-                    if (!card.example || card.example.trim() === '') return false;
-                    if (card.nextReview_back > today) return false;
-                    const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
-                    return exampleStreak < 1;
-                })
-                .map(card => ({ ...card, reviewType: 'example' })); 
-            
-            dueCards = shuffleArray([...dueBackCards, ...dueSynonymCards, ...dueExampleCards]);
+            // Đối với từ mới (chưa có SRS): không cần kiểm tra nextReview_back hay streak
+            if (isNewCategory) {
+                const dueBackCards = filteredCards.map(card => ({ ...card, reviewType: 'back' }));
+                const dueSynonymCards = filteredCards
+                    .filter(card => card.synonym && card.synonym.trim() !== '')
+                    .map(card => ({ ...card, reviewType: 'synonym' }));
+                const dueExampleCards = filteredCards
+                    .filter(card => card.example && card.example.trim() !== '')
+                    .map(card => ({ ...card, reviewType: 'example' }));
+                dueCards = shuffleArray([...dueBackCards, ...dueSynonymCards, ...dueExampleCards]);
+            } else {
+                // Từ cũ hoặc grammar: kiểm tra nextReview_back và streak
+                const dueBackCards = filteredCards
+                    .filter(card => {
+                        if (card.nextReview_back > today) return false;
+                        const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
+                        return backStreak < 1;
+                    })
+                    .map(card => ({ ...card, reviewType: 'back' })); 
+                
+                const dueSynonymCards = filteredCards
+                    .filter(card => {
+                        if (!card.synonym || card.synonym.trim() === '') return false;
+                        if (card.nextReview_back > today) return false;
+                        const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
+                        return synonymStreak < 1;
+                    })
+                    .map(card => ({ ...card, reviewType: 'synonym' })); 
+                
+                const dueExampleCards = filteredCards
+                    .filter(card => {
+                        if (!card.example || card.example.trim() === '') return false;
+                        if (card.nextReview_back > today) return false;
+                        const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
+                        return exampleStreak < 1;
+                    })
+                    .map(card => ({ ...card, reviewType: 'example' }));
+                
+                dueCards = shuffleArray([...dueBackCards, ...dueSynonymCards, ...dueExampleCards]);
+            }
 
         } else if (mode === 'back') {
             // Back: các từ đã đến chu kỳ và chưa hoàn thành (streak < 1)
-            dueCards = allCards
-                .filter(card => {
-                    if (card.nextReview_back > today) return false;
-                    const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
-                    return backStreak < 1;
-                });
+            if (isNewCategory) {
+                // Từ mới: tất cả đều có thể ôn
+                dueCards = filteredCards;
+            } else {
+                // Từ cũ hoặc grammar: kiểm tra nextReview_back và streak
+                dueCards = filteredCards
+                    .filter(card => {
+                        if (card.nextReview_back > today) return false;
+                        const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
+                        return backStreak < 1;
+                    });
+            }
         } else if (mode === 'synonym') {
             // Synonym: các từ đã đến chu kỳ, có synonym và chưa hoàn thành (streak < 1)
-            dueCards = allCards
-                .filter(card => {
-                    if (!card.synonym || card.synonym.trim() === '') return false;
-                    if (card.nextReview_back > today) return false;
-                    const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
-                    return synonymStreak < 1;
-                });
+            if (isNewCategory) {
+                // Từ mới: chỉ cần có synonym
+                dueCards = filteredCards.filter(card => card.synonym && card.synonym.trim() !== '');
+            } else {
+                // Từ cũ hoặc grammar: kiểm tra nextReview_back và streak
+                dueCards = filteredCards
+                    .filter(card => {
+                        if (!card.synonym || card.synonym.trim() === '') return false;
+                        if (card.nextReview_back > today) return false;
+                        const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
+                        return synonymStreak < 1;
+                    });
+            }
         } else if (mode === 'example') {
             // Example: các từ đã đến chu kỳ, có example và chưa hoàn thành (streak < 1)
-            dueCards = allCards
-                .filter(card => {
-                    if (!card.example || card.example.trim() === '') return false;
-                    if (card.nextReview_back > today) return false;
-                    const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
-                    return exampleStreak < 1;
-                });
+            if (isNewCategory) {
+                // Từ mới: chỉ cần có example
+                dueCards = filteredCards.filter(card => card.example && card.example.trim() !== '');
+            } else {
+                // Từ cũ hoặc grammar: kiểm tra nextReview_back và streak
+                dueCards = filteredCards
+                    .filter(card => {
+                        if (!card.example || card.example.trim() === '') return false;
+                        if (card.nextReview_back > today) return false;
+                        const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
+                        return exampleStreak < 1;
+                    });
+            }
         }
 
         if (dueCards.length > 0) {
@@ -2931,6 +3055,7 @@ const MemoryStatCard = ({ title, count, icon: IconComponent, color, subtext }) =
 
 const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySessionData, setStudySessionData, setNotification, setReviewMode, setView, onStartReview, onNavigate }) => {
     const [activeFilter, setActiveFilter] = useState('review'); // 'study' or 'review'
+    const [reviewCategory, setReviewCategory] = useState('all'); // 'all', 'old', 'new', 'grammar'
     
     return (
         <div className="space-y-1 md:space-y-2">
@@ -3059,44 +3184,101 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
 
             {/* Chế độ Ôn tập */}
             {activeFilter === 'review' && (
-                <div className="space-y-1 md:space-y-1.5">
+                <div className="space-y-1.5 md:space-y-2">
+                    {/* 4 Action Cards dựa trên category đã chọn */}
                     <div className="flex flex-wrap gap-1.5 md:gap-2 justify-center">
                         <ActionCard
-                            onClick={() => onStartReview('mixed')}
+                            onClick={() => onStartReview('mixed', reviewCategory)}
                             icon={Zap}
                             title="Hỗn hợp"
                             description="Tất cả loại câu hỏi"
-                            count={dueCounts.mixed}
+                            count={reviewCategory === 'all' ? dueCounts.mixed : reviewCategory === 'old' ? dueCounts.old.mixed : reviewCategory === 'new' ? dueCounts.new.mixed : dueCounts.grammar.mixed}
                             gradient="from-amber-500 to-orange-600"
-                            disabled={dueCounts.mixed === 0}
+                            disabled={reviewCategory === 'all' ? dueCounts.mixed === 0 : reviewCategory === 'old' ? dueCounts.old.mixed === 0 : reviewCategory === 'new' ? dueCounts.new.mixed === 0 : dueCounts.grammar.mixed === 0}
                         />
                         <ActionCard
-                            onClick={() => onStartReview('back')}
+                            onClick={() => onStartReview('back', reviewCategory)}
                             icon={Repeat2}
                             title="Ý nghĩa"
                             description="Nhớ nghĩa từ vựng" 
-                            count={dueCounts.back}
+                            count={reviewCategory === 'all' ? dueCounts.back : reviewCategory === 'old' ? dueCounts.old.back : reviewCategory === 'new' ? dueCounts.new.back : dueCounts.grammar.back}
                             gradient="from-emerald-500 to-green-600"
-                            disabled={dueCounts.back === 0}
+                            disabled={reviewCategory === 'all' ? dueCounts.back === 0 : reviewCategory === 'old' ? dueCounts.old.back === 0 : reviewCategory === 'new' ? dueCounts.new.back === 0 : dueCounts.grammar.back === 0}
                         />
                         <ActionCard
-                            onClick={() => onStartReview('synonym')}
+                            onClick={() => onStartReview('synonym', reviewCategory)}
                             icon={MessageSquare}
                             title="Đồng nghĩa"
                             description="Từ tương tự"
-                            count={dueCounts.synonym}
+                            count={reviewCategory === 'all' ? dueCounts.synonym : reviewCategory === 'old' ? dueCounts.old.synonym : reviewCategory === 'new' ? dueCounts.new.synonym : dueCounts.grammar.synonym}
                             gradient="from-blue-500 to-cyan-600"
-                            disabled={dueCounts.synonym === 0}
+                            disabled={reviewCategory === 'all' ? dueCounts.synonym === 0 : reviewCategory === 'old' ? dueCounts.old.synonym === 0 : reviewCategory === 'new' ? dueCounts.new.synonym === 0 : dueCounts.grammar.synonym === 0}
                         />
                         <ActionCard
-                            onClick={() => onStartReview('example')}
+                            onClick={() => onStartReview('example', reviewCategory)}
                             icon={FileText}
                             title="Ngữ cảnh"
                             description="Điền vào chỗ trống"
-                            count={dueCounts.example}
+                            count={reviewCategory === 'all' ? dueCounts.example : reviewCategory === 'old' ? dueCounts.old.example : reviewCategory === 'new' ? dueCounts.new.example : dueCounts.grammar.example}
                             gradient="from-purple-600 to-pink-600"
-                            disabled={dueCounts.example === 0}
+                            disabled={reviewCategory === 'all' ? dueCounts.example === 0 : reviewCategory === 'old' ? dueCounts.old.example === 0 : reviewCategory === 'new' ? dueCounts.new.example === 0 : dueCounts.grammar.example === 0}
                         />
+                    </div>
+
+                    {/* 4 Button lọc ở dưới */}
+                    <div className="flex flex-wrap gap-1.5 md:gap-2 justify-center pt-1">
+                        <button
+                            onClick={() => setReviewCategory('all')}
+                            className={`flex-1 min-w-[calc(50%-0.75rem)] md:min-w-[calc(25%-1.5rem)] px-3 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-medium transition-all duration-200 ${
+                                reviewCategory === 'all'
+                                    ? 'bg-indigo-600 dark:bg-indigo-500 text-white shadow-md shadow-indigo-200 dark:shadow-indigo-900/50'
+                                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'
+                            }`}
+                        >
+                            <div className="flex items-center justify-center gap-1.5">
+                                <Repeat2 className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                                <span>Tổng hợp</span>
+                            </div>
+                        </button>
+                        <button
+                            onClick={() => setReviewCategory('old')}
+                            className={`flex-1 min-w-[calc(50%-0.75rem)] md:min-w-[calc(25%-1.5rem)] px-3 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-medium transition-all duration-200 ${
+                                reviewCategory === 'old'
+                                    ? 'bg-amber-600 dark:bg-amber-500 text-white shadow-md shadow-amber-200 dark:shadow-amber-900/50'
+                                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'
+                            }`}
+                        >
+                            <div className="flex items-center justify-center gap-1.5">
+                                <Clock className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                                <span>Từ cũ</span>
+                            </div>
+                        </button>
+                        <button
+                            onClick={() => setReviewCategory('new')}
+                            className={`flex-1 min-w-[calc(50%-0.75rem)] md:min-w-[calc(25%-1.5rem)] px-3 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-medium transition-all duration-200 ${
+                                reviewCategory === 'new'
+                                    ? 'bg-indigo-600 dark:bg-indigo-500 text-white shadow-md shadow-indigo-200 dark:shadow-indigo-900/50'
+                                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'
+                            }`}
+                        >
+                            <div className="flex items-center justify-center gap-1.5">
+                                <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                                <span>Từ mới</span>
+                            </div>
+                        </button>
+                        <button
+                            onClick={() => setReviewCategory('grammar')}
+                            className={`flex-1 min-w-[calc(50%-0.75rem)] md:min-w-[calc(25%-1.5rem)] px-3 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-medium transition-all duration-200 ${
+                                reviewCategory === 'grammar'
+                                    ? 'bg-purple-600 dark:bg-purple-500 text-white shadow-md shadow-purple-200 dark:shadow-purple-900/50'
+                                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'
+                            }`}
+                        >
+                            <div className="flex items-center justify-center gap-1.5">
+                                <FileText className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                                <span>Ngữ pháp</span>
+                            </div>
+                        </button>
                     </div>
                 </div>
             )}
