@@ -292,19 +292,24 @@ const playAudio = (base64Data) => {
 // NOTE: Chỉ sử dụng Gemini TTS để tạo âm thanh, không dùng Browser TTS/Google Translate nữa
 
 
-// Helper: Lấy danh sách API keys từ env (dùng cho TTS)
-const getTtsApiKeys = () => {
+// Helper: Lấy tất cả API keys từ env (VITE_GEMINI_API_KEY_1, VITE_GEMINI_API_KEY_2, ..., VITE_GEMINI_API_KEY_N)
+const getAllGeminiApiKeysFromEnv = () => {
     const keys = [];
-    // Lấy tất cả các keys từ env (VITE_GEMINI_API_KEY, VITE_GEMINI_TTS_API_KEY, VITE_GEMINI_API_KEY_2, ...)
-    if (import.meta.env.VITE_GEMINI_API_KEY) keys.push(import.meta.env.VITE_GEMINI_API_KEY);
-    if (import.meta.env.VITE_GEMINI_TTS_API_KEY) keys.push(import.meta.env.VITE_GEMINI_TTS_API_KEY);
-    // Hỗ trợ thêm keys từ env (VITE_GEMINI_API_KEY_2, VITE_GEMINI_API_KEY_3, ...)
-    let i = 2;
+    // Bắt đầu từ VITE_GEMINI_API_KEY_1 và tiếp tục cho đến khi không tìm thấy key nào nữa
+    let i = 1;
     while (import.meta.env[`VITE_GEMINI_API_KEY_${i}`]) {
-        keys.push(import.meta.env[`VITE_GEMINI_API_KEY_${i}`]);
+        const key = import.meta.env[`VITE_GEMINI_API_KEY_${i}`];
+        if (key && key.trim()) {
+            keys.push(key.trim());
+        }
         i++;
     }
     return keys;
+};
+
+// Helper: Lấy danh sách API keys từ env (dùng cho TTS)
+const getTtsApiKeys = () => {
+    return getAllGeminiApiKeysFromEnv();
 };
 
 const _fetchTtsApiCall = async (text, voiceName, apiKeys = null, keyIndex = 0) => {
@@ -510,17 +515,8 @@ const App = () => {
                 console.error('Lỗi parse geminiApiKeys từ localStorage:', e);
             }
         }
-        // Lấy từ env variables (hỗ trợ nhiều keys: VITE_GEMINI_API_KEY, VITE_GEMINI_API_KEY_2, ...)
-        const keys = [];
-        if (import.meta.env.VITE_GEMINI_API_KEY) keys.push(import.meta.env.VITE_GEMINI_API_KEY);
-        if (import.meta.env.VITE_GEMINI_TTS_API_KEY) keys.push(import.meta.env.VITE_GEMINI_TTS_API_KEY);
-        // Hỗ trợ thêm keys từ env (VITE_GEMINI_API_KEY_2, VITE_GEMINI_API_KEY_3, ...)
-        let i = 2;
-        while (import.meta.env[`VITE_GEMINI_API_KEY_${i}`]) {
-            keys.push(import.meta.env[`VITE_GEMINI_API_KEY_${i}`]);
-            i++;
-        }
-        return keys.length > 0 ? keys : [];
+        // Lấy từ env variables (VITE_GEMINI_API_KEY_1, VITE_GEMINI_API_KEY_2, ..., VITE_GEMINI_API_KEY_N)
+        return getAllGeminiApiKeysFromEnv();
     }); 
     const [isProfileLoading, setIsProfileLoading] = useState(true);
     const [dailyActivityLogs, setDailyActivityLogs] = useState([]); 
@@ -1703,17 +1699,8 @@ const App = () => {
         if (geminiApiKeys && geminiApiKeys.length > 0) {
             return geminiApiKeys;
         }
-        // Fallback: lấy từ env
-        const keys = [];
-        if (import.meta.env.VITE_GEMINI_API_KEY) keys.push(import.meta.env.VITE_GEMINI_API_KEY);
-        if (import.meta.env.VITE_GEMINI_TTS_API_KEY) keys.push(import.meta.env.VITE_GEMINI_TTS_API_KEY);
-        // Hỗ trợ thêm keys từ env (VITE_GEMINI_API_KEY_2, VITE_GEMINI_API_KEY_3, ...)
-        let i = 2;
-        while (import.meta.env[`VITE_GEMINI_API_KEY_${i}`]) {
-            keys.push(import.meta.env[`VITE_GEMINI_API_KEY_${i}`]);
-            i++;
-        }
-        return keys;
+        // Fallback: lấy từ env (VITE_GEMINI_API_KEY_1, VITE_GEMINI_API_KEY_2, ..., VITE_GEMINI_API_KEY_N)
+        return getAllGeminiApiKeysFromEnv();
     };
 
     // --- Helper: Gọi Gemini API với retry logic tự động chuyển key ---
@@ -1721,7 +1708,7 @@ const App = () => {
         const apiKeys = getGeminiApiKeys();
         
         if (apiKeys.length === 0) {
-            setNotification("Chưa cấu hình khóa API Gemini. Vui lòng thêm VITE_GEMINI_API_KEY vào file .env hoặc cấu hình trong Settings.");
+            setNotification("Chưa cấu hình khóa API Gemini. Vui lòng thêm VITE_GEMINI_API_KEY_1, VITE_GEMINI_API_KEY_2, ... vào file .env hoặc cấu hình trong Settings.");
             throw new Error("Không có API key nào được cấu hình");
         }
 
@@ -1923,7 +1910,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
         
         const apiKeys = getGeminiApiKeys();
         if (apiKeys.length === 0) {
-            setNotification("Chưa cấu hình khóa API Gemini cho Hán Việt. Vui lòng thêm VITE_GEMINI_API_KEY vào file .env.");
+            setNotification("Chưa cấu hình khóa API Gemini cho Hán Việt. Vui lòng thêm VITE_GEMINI_API_KEY_1, VITE_GEMINI_API_KEY_2, ... vào file .env.");
             setIsLoading(false);
             return;
         }
