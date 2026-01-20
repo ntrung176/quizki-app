@@ -348,14 +348,40 @@ const _fetchTtsApiCall = async (text, voiceName, apiKeys = null, keyIndex = 0) =
 
             if (response.ok) {
                 const result = await response.json();
+                
+                // Kiểm tra nhiều cấu trúc response có thể có
+                let audioData = null;
+                
+                // Cấu trúc 1: candidates[0].content.parts[0].inlineData.data
                 const part = result?.candidates?.[0]?.content?.parts?.[0];
-                const audioData = part?.inlineData?.data;
+                if (part?.inlineData?.data) {
+                    audioData = part.inlineData.data;
+                }
+                
+                // Cấu trúc 2: candidates[0].content.parts[0].audioData
+                if (!audioData && part?.audioData) {
+                    audioData = part.audioData;
+                }
+                
+                // Cấu trúc 3: Trực tiếp từ result
+                if (!audioData && result?.audioData) {
+                    audioData = result.audioData;
+                }
+                
+                // Cấu trúc 4: result.data hoặc result.content
+                if (!audioData && result?.data) {
+                    audioData = result.data;
+                }
+                
                 if (audioData) {
                     console.log(`_fetchTtsApiCall: ✓ Thành công với key ${i + 1}/${apiKeys.length} (Giọng: ${voiceName}) cho "${text}"`);
+                    return audioData;
                 } else {
-                    console.warn(`_fetchTtsApiCall: Response OK nhưng không có audioData cho "${text}"`);
+                    // Log chi tiết để debug
+                    console.warn(`_fetchTtsApiCall: Response OK nhưng không có audioData cho "${text}". Response structure:`, JSON.stringify(result, null, 2));
+                    // Tiếp tục thử key tiếp theo hoặc giọng tiếp theo
+                    continue;
                 }
-                return audioData || null;
             }
 
             // Đọc body lỗi để xác định loại lỗi
@@ -440,24 +466,44 @@ const fetchTtsBase64 = async (text) => {
         return null;
     }
     
-    // Sử dụng một giọng mặc định để tiết kiệm API (chỉ gọi API 1 lần thay vì thử nhiều giọng)
-    // Danh sách tất cả giọng có sẵn
-    const ALL_VOICES = ["Charon", "Orus", "Fenrir", "Iapetus", "Umbriel", "Algenib", "Aoede", "Puck", "Kore", "Leda", "Zephyr", "Callirrhoe", "Algieba", "Despina", "Erinome"];
+    // Danh sách tất cả giọng có sẵn - ưu tiên giọng chuẩn Nhật trước
+    // Giọng được ưu tiên cho tiếng Nhật: Aoede, Kore, Leda (theo tài liệu Gemini)
+    const JAPANESE_VOICES = ["Aoede", "Kore", "Leda"]; // Giọng chuẩn Nhật
+    const OTHER_VOICES = ["Charon", "Orus", "Fenrir", "Iapetus", "Umbriel", "Algenib", "Puck", "Zephyr", "Callirrhoe", "Algieba", "Despina", "Erinome"];
+    const ALL_VOICES = [...JAPANESE_VOICES, ...OTHER_VOICES];
     
-    // Chọn một giọng ngẫu nhiên từ danh sách (hoặc có thể dùng giọng cố định)
-    // Để tiết kiệm API, chỉ dùng 1 giọng duy nhất cho mỗi lần gọi
-    const defaultVoice = ALL_VOICES[Math.floor(Math.random() * ALL_VOICES.length)];
+    console.log(`fetchTtsBase64: Tạo âm thanh cho "${text}" (${apiKeys.length} API key(s), ${ALL_VOICES.length} giọng)`);
     
-    console.log(`fetchTtsBase64: Tạo âm thanh cho "${text}" với giọng "${defaultVoice}" (${apiKeys.length} API key(s))`);
-    
-    // Chỉ gọi API 1 lần với giọng đã chọn
-    const audioData = await _fetchTtsApiCall(text, defaultVoice, apiKeys, 0);
-    if (audioData) {
-        console.log(`fetchTtsBase64: ✓ Thành công với giọng "${defaultVoice}" cho "${text}"`);
-        return audioData; 
+    // Thử lần lượt từng giọng (ưu tiên giọng Nhật trước)
+    for (let voiceIndex = 0; voiceIndex < ALL_VOICES.length; voiceIndex++) {
+        const voiceName = ALL_VOICES[voiceIndex];
+        const isJapaneseVoice = voiceIndex < JAPANESE_VOICES.length;
+        
+        console.log(`fetchTtsBase64: Thử giọng "${voiceName}" ${isJapaneseVoice ? '(chuẩn Nhật)' : ''}...`);
+        
+        // Thử lần lượt tất cả các API keys với giọng này
+        for (let keyIndex = 0; keyIndex < apiKeys.length; keyIndex++) {
+            const audioData = await _fetchTtsApiCall(text, voiceName, apiKeys, keyIndex);
+            
+            if (audioData) {
+                console.log(`fetchTtsBase64: ✓ Thành công với giọng "${voiceName}" và key ${keyIndex + 1}/${apiKeys.length} cho "${text}"`);
+                return audioData;
+            }
+            
+            // Nếu không thành công với key này, tiếp tục thử key tiếp theo
+            if (keyIndex < apiKeys.length - 1) {
+                console.log(`fetchTtsBase64: Key ${keyIndex + 1}/${apiKeys.length} thất bại với giọng "${voiceName}", thử key tiếp theo...`);
+            }
+        }
+        
+        // Nếu tất cả keys đều thất bại với giọng này, thử giọng tiếp theo
+        if (voiceIndex < ALL_VOICES.length - 1) {
+            console.log(`fetchTtsBase64: Tất cả keys thất bại với giọng "${voiceName}", thử giọng tiếp theo...`);
+        }
     }
     
-    console.warn(`fetchTtsBase64: ✗ Không thể tạo âm thanh cho "${text}" với giọng "${defaultVoice}"`);
+    // Tất cả giọng và keys đều thất bại
+    console.error(`fetchTtsBase64: ✗ Không thể tạo âm thanh cho "${text}" sau khi thử ${ALL_VOICES.length} giọng và ${apiKeys.length} API key(s)`);
     return null;
 };
 
@@ -795,18 +841,18 @@ const App = () => {
         today.setHours(0, 0, 0, 0);
 
         // Logic mới: Tất cả 3 phần dùng chung nextReview_back
-        // Một từ được coi là "due" nếu nextReview_back <= today
+        // Một từ được coi là "due" nếu nextReview_back <= today VÀ có ít nhất một phần chưa hoàn thành
         const mixed = allCards.filter(card => {
             const isDue = card.nextReview_back <= today;
             if (!isDue) return false;
             
-            // Kiểm tra xem có phần nào cần ôn không
-            const hasBack = true; // Back luôn có
-            const hasSynonym = card.synonym && card.synonym.trim() !== '';
-            const hasExample = card.example && card.example.trim() !== '';
+            // Kiểm tra xem có phần nào chưa hoàn thành không (streak < 1)
+            const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
+            const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
+            const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
             
-            // Nếu từ đã due, ít nhất một phần sẽ được ôn tập
-            return hasBack || hasSynonym || hasExample;
+            // Có ít nhất một phần chưa hoàn thành
+            return backStreak < 1 || (card.synonym && card.synonym.trim() !== '' && synonymStreak < 1) || (card.example && card.example.trim() !== '' && exampleStreak < 1);
         }).length;
         
         // Back: các từ đã đến chu kỳ VÀ chưa hoàn thành phần back (streak < 1)
