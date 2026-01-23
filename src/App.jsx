@@ -226,6 +226,170 @@ const getWordForMasking = (text) => {
     return text.trim(); 
 };
 
+// Danh sách hậu tố ngữ pháp cho động từ (ưu tiên từ dài đến ngắn)
+const GRAMMAR_SUFFIXES = [
+    // Nhóm Thể Bị động & Sai khiến (Phức tạp nhất)
+    'させられました', 'させられる', 'させます', 'させられた', 'られました', 'させる', 'られる', 'れました',
+    // Nhóm Thì & Trạng thái (Phổ biến nhất)
+    '始めています', 'ていきたい', 'ていません', 'てください', 'ています', 'てみます', 'ましょう', 'ました', 'ません', 'ないで', 'ます', 'たい', 'たら', 'て', 'た',
+    // Nhóm Phủ định & Điều kiện
+    'なければ', 'なかった', 'ないと', 'ない', 'れば',
+    // Nhóm Động từ phức (V-với-V)
+    'はじめる', 'おわる', 'すぎる', 'やすい', 'にくい'
+];
+
+// Danh sách trợ từ để dừng khi không tìm thấy hậu tố
+const PARTICLES = ['は', 'が', 'を', 'に', 'で', 'へ', 'と', 'から', 'まで', 'より', 'の', 'も', 'か', 'ね', 'よ', '。', '、', '！', '？'];
+
+/**
+ * Xử lý masking cho động từ với logic hậu tố ngữ pháp
+ * @param {string} targetWord - Từ mục tiêu cần ẩn
+ * @param {string} exampleSentence - Câu ví dụ
+ * @returns {string} - Câu đã được mask
+ */
+const maskVerbInExample = (targetWord, exampleSentence) => {
+    if (!targetWord || !exampleSentence) return exampleSentence;
+    
+    // Bước 1: Xác định điểm neo (Anchor Point)
+    // Tìm vị trí xuất hiện của ký tự đầu tiên của Target Word
+    const firstChar = targetWord[0];
+    let startIndex = exampleSentence.indexOf(firstChar);
+    
+    // Nếu không tìm thấy ký tự đầu tiên, thử tìm toàn bộ từ
+    if (startIndex === -1) {
+        startIndex = exampleSentence.indexOf(targetWord);
+        if (startIndex === -1) {
+            // Nếu vẫn không tìm thấy, giữ nguyên câu
+            return exampleSentence;
+        }
+    }
+    
+    // Bước 2: Xác định điểm biên ngữ pháp (Grammar Boundary)
+    // Trích xuất phần chuỗi tính từ Start_Index đến hết câu ví dụ
+    const substring = exampleSentence.substring(startIndex);
+    let endIndex = -1;
+    
+    // Duyệt qua danh sách hậu tố từ dài đến ngắn
+    for (const suffix of GRAMMAR_SUFFIXES) {
+        const suffixIndex = substring.indexOf(suffix);
+        if (suffixIndex !== -1) {
+            // Tìm thấy hậu tố, tính endIndex từ vị trí bắt đầu của hậu tố
+            endIndex = startIndex + suffixIndex;
+            break;
+        }
+    }
+    
+    // Bước 3: Xử lý ngoại lệ (Fallback)
+    if (endIndex === -1) {
+        // Không tìm thấy hậu tố ngữ pháp
+        // Ẩn toàn bộ phần Kanji
+        let maskEnd = startIndex;
+        
+        // Tìm tất cả các ký tự Kanji liên tiếp từ startIndex
+        while (maskEnd < exampleSentence.length) {
+            const char = exampleSentence[maskEnd];
+            const isKanji = char >= '\u4E00' && char <= '\u9FAF';
+            
+            // Dừng nếu gặp trợ từ hoặc dấu câu
+            if (PARTICLES.includes(char)) {
+                endIndex = maskEnd;
+                break;
+            }
+            
+            // Tiếp tục nếu là Kanji
+            if (isKanji) {
+                maskEnd++;
+            } else {
+                // Gặp ký tự không phải Kanji, dừng lại
+                break;
+            }
+        }
+        
+        // Ẩn thêm tối đa 1 ký tự Hiragana ngay sau Kanji
+        if (maskEnd < exampleSentence.length && endIndex === -1) {
+            const nextChar = exampleSentence[maskEnd];
+            const isHiragana = nextChar >= '\u3040' && nextChar <= '\u309F';
+            
+            // Dừng nếu gặp trợ từ hoặc dấu câu
+            if (PARTICLES.includes(nextChar)) {
+                endIndex = maskEnd;
+            } else if (isHiragana) {
+                // Ẩn thêm 1 ký tự Hiragana
+                maskEnd++;
+                endIndex = maskEnd;
+            } else {
+                // Không phải Hiragana, dừng tại vị trí hiện tại
+                endIndex = maskEnd;
+            }
+        }
+        
+        // Nếu vẫn chưa tìm thấy điểm dừng, sử dụng maskEnd
+        if (endIndex === -1) {
+            endIndex = maskEnd;
+        }
+        
+        // Đảm bảo endIndex không vượt quá độ dài câu
+        if (endIndex > exampleSentence.length) {
+            endIndex = exampleSentence.length;
+        }
+    }
+    
+    // Bước 4: Thực hiện ẩn (Masking)
+    const maskedPart = '_'.repeat(endIndex - startIndex);
+    return exampleSentence.substring(0, startIndex) + maskedPart + exampleSentence.substring(endIndex);
+};
+
+/**
+ * Xử lý masking cho tính từ な với logic khớp không hoàn toàn
+ * @param {string} targetWord - Từ mục tiêu (có thể có な ở cuối)
+ * @param {string} exampleSentence - Câu ví dụ
+ * @returns {string} - Câu đã được mask
+ */
+const maskAdjNaInExample = (targetWord, exampleSentence) => {
+    if (!targetWord || !exampleSentence) return exampleSentence;
+    
+    // Loại bỏ な ở cuối nếu có để tìm phần khớp
+    const wordWithoutNa = targetWord.endsWith('な') ? targetWord.slice(0, -1) : targetWord;
+    
+    // Tìm vị trí xuất hiện của phần khớp (không cần な)
+    const startIndex = exampleSentence.indexOf(wordWithoutNa);
+    if (startIndex === -1) {
+        // Nếu không tìm thấy, giữ nguyên câu
+        return exampleSentence;
+    }
+    
+    // Ẩn phần khớp được
+    const maskedPart = '_'.repeat(wordWithoutNa.length);
+    return exampleSentence.substring(0, startIndex) + maskedPart + exampleSentence.substring(startIndex + wordWithoutNa.length);
+};
+
+/**
+ * Xử lý masking cho câu ví dụ dựa trên từ loại
+ * @param {string} targetWord - Từ mục tiêu
+ * @param {string} exampleSentence - Câu ví dụ
+ * @param {string} pos - Từ loại (part of speech)
+ * @returns {string} - Câu đã được mask
+ */
+const maskWordInExample = (targetWord, exampleSentence, pos) => {
+    if (!targetWord || !exampleSentence) return exampleSentence;
+    
+    // Xử lý động từ
+    if (pos === 'verb' || pos === 'suru_verb') {
+        return maskVerbInExample(targetWord, exampleSentence);
+    }
+    
+    // Xử lý tính từ な
+    if (pos === 'adj_na') {
+        return maskAdjNaInExample(targetWord, exampleSentence);
+    }
+    
+    // Các từ loại khác: áp dụng quy tắc khớp 100%
+    const escapedWord = targetWord.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
+    // Tạo regex match cả: từ, （từ）, (từ)
+    const maskRegex = new RegExp(`(${escapedWord}|（${escapedWord}）|\\(${escapedWord}\\))`, 'g');
+    return exampleSentence.replace(maskRegex, '______');
+};
+
 let currentAudioObj = null;
 
 // Play Audio - CHỈ phát audioBase64 từ Gemini TTS, không dùng Browser TTS/Google Translate
@@ -4723,10 +4887,8 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 return { label: 'Từ đồng nghĩa', text: currentCard.synonym, image: currentCard.imageBase64, icon: MessageSquare, color: 'text-blue-600' };
             case 'example': {
                 const wordToMask = getWordForMasking(currentCard.front);
-                const escapedWord = wordToMask.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
-                // Tạo regex match cả: từ, （từ）, (từ)
-                const maskRegex = new RegExp(`(${escapedWord}|（${escapedWord}）|\\(${escapedWord}\\))`, 'g');
-                return { label: 'Điền từ còn thiếu', text: currentCard.example.replace(maskRegex, '______'), meaning: currentCard.exampleMeaning || null, image: currentCard.imageBase64, icon: FileText, color: 'text-purple-600' };
+                const maskedExample = maskWordInExample(wordToMask, currentCard.example, currentCard.pos);
+                return { label: 'Điền từ còn thiếu', text: maskedExample, meaning: currentCard.exampleMeaning || null, image: currentCard.imageBase64, icon: FileText, color: 'text-purple-600' };
             }
             default: 
                 return { label: 'Ý nghĩa (Mặt sau)', text: formatMultipleMeanings(currentCard.back), image: currentCard.imageBase64, icon: Repeat2, color: 'text-emerald-600' };
