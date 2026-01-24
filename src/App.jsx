@@ -4452,6 +4452,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
     const [selectedAnswer, setSelectedAnswer] = useState(null); // Cho trắc nghiệm Synonym/Example
     const [multipleChoiceOptions, setMultipleChoiceOptions] = useState([]); // Cho trắc nghiệm Synonym/Example
     const [failedCards, setFailedCards] = useState(new Set()); // Lưu các từ đã sai trong lần ôn tập hiện tại: Set<cardId-reviewType>
+    const [showSrsAdjustment, setShowSrsAdjustment] = useState(false); // Hiển thị 3 box lựa chọn SRS khi sai
     const inputRef = useRef(null);
     const isCompletingRef = useRef(false); // Track xem đã gọi handleCompleteReview chưa
     const failedCardsRef = useRef(failedCards); // Lưu giá trị mới nhất của failedCards
@@ -4613,6 +4614,44 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [currentIndex, cards, reviewMode, handleCompleteReview, moveToPreviousCard]);
+    
+    // Keyboard handlers cho SRS adjustment và multiple choice
+    useEffect(() => {
+        if (!currentCard) return;
+        
+        const handleKeyDown = (e) => {
+            // Chỉ xử lý khi không đang nhập vào input/textarea
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            
+            // Phím 1, 2, 3 cho SRS adjustment (chỉ khi hiển thị box)
+            if (showSrsAdjustment && !isProcessing) {
+                if (e.key === '1') {
+                    e.preventDefault();
+                    handleSrsAdjustment('very_hard');
+                } else if (e.key === '2') {
+                    e.preventDefault();
+                    handleSrsAdjustment('hard');
+                } else if (e.key === '3') {
+                    e.preventDefault();
+                    handleSrsAdjustment('normal');
+                }
+                return;
+            }
+            
+            // Phím 1, 2, 3, 4 cho multiple choice (chỉ khi chưa reveal và có options)
+            if (isMultipleChoice && !isRevealed && multipleChoiceOptions.length > 0 && !isProcessing) {
+                const keyIndex = parseInt(e.key);
+                if (keyIndex >= 1 && keyIndex <= 4 && keyIndex <= multipleChoiceOptions.length) {
+                    e.preventDefault();
+                    const selectedOption = multipleChoiceOptions[keyIndex - 1];
+                    setSelectedAnswer(selectedOption);
+                }
+            }
+        };
+        
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [showSrsAdjustment, isMultipleChoice, isRevealed, multipleChoiceOptions, isProcessing, currentCard]);
     
     // Swipe handlers cho flashcard mode - Định nghĩa sau handleCompleteReview
     const minSwipeDistance = 50; // Khoảng cách tối thiểu để coi là swipe
@@ -5020,11 +5059,70 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
             
             // Cập nhật streak về 0 trong Firestore
             await onUpdateCard(currentCard.id, false, cardReviewType);
+            
+            // Hiển thị 3 box lựa chọn SRS nếu là phần back và SRS level >= 2
+            if (cardReviewType === 'back' && currentCard.intervalIndex_back >= 2) {
+                setShowSrsAdjustment(true);
+            }
         }
     };
 
     // Flashcard grading logic được xử lý trực tiếp trong checkAnswer và moveToNextCard
     // handleFlashcardGrade đã được tích hợp vào checkAnswer, không cần function riêng
+
+    // Hàm xử lý điều chỉnh SRS level khi sai
+    const handleSrsAdjustment = async (adjustment) => {
+        if (!vocabCollectionPath || !currentCard) return;
+        
+        const cardRef = doc(db, vocabCollectionPath, currentCard.id);
+        let cardSnap;
+        try {
+            cardSnap = await getDoc(cardRef);
+        } catch (e) {
+            console.error("Lỗi fetch thẻ để điều chỉnh SRS:", e);
+            return;
+        }
+        
+        if (!cardSnap.exists()) return;
+        const cardData = cardSnap.data();
+        let currentInterval = typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1;
+        if (currentInterval === -999) currentInterval = -1;
+        
+        let newInterval;
+        if (adjustment === 'very_hard') {
+            // Rất khó: Reset về không có cấp độ
+            newInterval = -1;
+        } else if (adjustment === 'hard') {
+            // Khó: -1 cấp độ
+            newInterval = Math.max(-1, currentInterval - 1);
+        } else {
+            // Bình thường: Giữ nguyên
+            newInterval = currentInterval;
+        }
+        
+        const nextReviewDate = getNextReviewDate(newInterval);
+        
+        try {
+            await updateDoc(cardRef, {
+                intervalIndex_back: newInterval,
+                nextReview_back: nextReviewDate,
+            });
+            
+            // Cập nhật local state
+            setCards(prevCards => {
+                return prevCards.map(card => {
+                    if (card.id === currentCard.id) {
+                        return { ...card, intervalIndex_back: newInterval, nextReview_back: nextReviewDate };
+                    }
+                    return card;
+                });
+            });
+            
+            setShowSrsAdjustment(false);
+        } catch (e) {
+            console.error("Lỗi cập nhật SRS:", e);
+        }
+    };
 
     const moveToNextCard = async (shouldUpdateStreak) => {
         // Cập nhật streak nếu cần
@@ -5049,6 +5147,9 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 });
             });
         }
+        
+        // Reset SRS adjustment box khi chuyển thẻ
+        setShowSrsAdjustment(false);
         
         // Luôn chuyển sang thẻ tiếp theo
         const nextIndex = currentIndex + 1;
@@ -5121,6 +5222,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                     // Phát âm thanh khi nhập lại đúng
                     playAudio(currentCard.audioBase64, currentCard.front);
                     setIsProcessing(true); // V1.6.2 Fix: Khoá
+                    setShowSrsAdjustment(false); // Reset SRS adjustment box
                     moveToNextCard(false); // false = không tăng streak
                 } else { 
                     // Vẫn sai, yêu cầu nhập lại
@@ -5318,7 +5420,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                             {multipleChoiceOptions.map((option, index) => {
                                 const isSelected = selectedAnswer === option;
                                 const isCorrect = option === currentCard.front;
-                                let buttonClass = "px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all border-2 ";
+                                let buttonClass = "px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all border-2 flex items-center justify-center gap-2 ";
                                 
                                 if (isRevealed) {
                                     if (isCorrect) {
@@ -5346,8 +5448,10 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                         }}
                                         disabled={isRevealed || isProcessing}
                                         className={buttonClass}
+                                        title={`Phím ${index + 1}`}
                                     >
-                                        {option}
+                                        <span className="text-xs md:text-sm font-bold bg-white/20 dark:bg-white/10 px-1.5 md:px-2 py-0.5 rounded">{index + 1}</span>
+                                        <span>{option}</span>
                                     </button>
                                 );
                             })}
@@ -5528,6 +5632,39 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                              </div>
                         </div>
                     </div>
+                    
+                    {/* SRS Adjustment Boxes - Chỉ hiển thị khi sai ở phần back và SRS level >= 2 */}
+                    {showSrsAdjustment && feedback === 'incorrect' && cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
+                        <div className="mb-2 md:mb-4 p-3 md:p-4 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-xl md:rounded-2xl">
+                            <p className="text-sm md:text-base font-semibold text-blue-800 dark:text-blue-300 mb-2 md:mb-3">Đánh giá độ khó:</p>
+                            <div className="grid grid-cols-3 gap-2 md:gap-3">
+                                <button
+                                    onClick={() => handleSrsAdjustment('very_hard')}
+                                    className="px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm font-bold rounded-lg md:rounded-xl bg-red-500 dark:bg-red-600 text-white hover:bg-red-600 dark:hover:bg-red-700 transition-all shadow-md hover:shadow-lg"
+                                    title="Phím 1"
+                                >
+                                    <div className="font-bold">1. Rất khó</div>
+                                    <div className="text-[10px] md:text-xs mt-0.5 opacity-90">Reset SRS</div>
+                                </button>
+                                <button
+                                    onClick={() => handleSrsAdjustment('hard')}
+                                    className="px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm font-bold rounded-lg md:rounded-xl bg-orange-500 dark:bg-orange-600 text-white hover:bg-orange-600 dark:hover:bg-orange-700 transition-all shadow-md hover:shadow-lg"
+                                    title="Phím 2"
+                                >
+                                    <div className="font-bold">2. Khó</div>
+                                    <div className="text-[10px] md:text-xs mt-0.5 opacity-90">-1 cấp độ</div>
+                                </button>
+                                <button
+                                    onClick={() => handleSrsAdjustment('normal')}
+                                    className="px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm font-bold rounded-lg md:rounded-xl bg-green-500 dark:bg-green-600 text-white hover:bg-green-600 dark:hover:bg-green-700 transition-all shadow-md hover:shadow-lg"
+                                    title="Phím 3"
+                                >
+                                    <div className="font-bold">3. Bình thường</div>
+                                    <div className="text-[10px] md:text-xs mt-0.5 opacity-90">Giữ nguyên</div>
+                                </button>
+                            </div>
+                        </div>
+                    )}
                     
                     {/* TYPING MODE ACTIONS (Chỉ cho Back, không cho Synonym và Example) */}
                     {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
