@@ -2030,7 +2030,7 @@ const App = () => {
 Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo đúng schema sau:
 {
   "frontWithFurigana": "鍵をかける（かぎをかける）",
-  "meaning": "khóa cửa",
+  "meaning": "khóa cửa; khóa lại",
   "pos": "verb",
   "level": "N5",
   "sinoVietnamese": "Thực",
@@ -2040,6 +2040,10 @@ Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo
   "exampleMeaning": "Tôi ăn cơm mỗi ngày.",
   "nuance": "Dùng phổ biến trong cả văn nói và văn viết."
 }
+QUAN TRỌNG về định dạng trường "meaning":
+- Nếu có NHIỀU nghĩa CHÍNH, hãy ngăn cách bằng dấu chấm phẩy ";".
+- Các nghĩa gần nhau / đồng nghĩa trong CÙNG một nghĩa chính thì ngăn cách bằng dấu phẩy ",".
+Ví dụ: ご馳走 → "Bữa ăn ngon, món ăn thịnh soạn; Sự chiêu đãi, khao."
 QUAN TRỌNG về từ loại (pos): 
 - Sử dụng các giá trị: "noun" (Danh từ), "verb" (Động từ), "suru_verb" (Danh động từ - các từ kết thúc bằng する như 勉強する, 約束する, 掃除する), "adj_i" (Tính từ -i), "adj_na" (Tính từ -na), "adverb" (Trạng từ), "conjunction" (Liên từ), "grammar" (Ngữ pháp), "phrase" (Cụm từ), "other" (Khác).
 - Đặc biệt chú ý: Nếu từ kết thúc bằng "する" (する動詞) hoặc có thể dùng như động từ nhưng gốc là danh từ + する, hãy phân loại là "suru_verb" (Danh động từ).
@@ -4878,7 +4882,10 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 meanings = text.split('\n').map(m => m.trim()).filter(m => m);
             } else if (text.includes(';')) {
                 // Nếu có chấm phẩy, tách theo chấm phẩy (bỏ qua chấm phẩy trong ngoặc)
-                meanings = splitIgnoringParentheses(text, ';').filter(m => m);
+                // Đây là delimiter cho "nghĩa chính"
+                meanings = splitIgnoringParentheses(text, ';')
+                    .map(m => m.replace(/\s+/g, ' ').trim())
+                    .filter(m => m);
             } else if (text.includes(',')) {
                 // Nếu có dấu phẩy, tách theo dấu phẩy (bỏ qua dấu phẩy trong ngoặc)
                 const parts = splitIgnoringParentheses(text, ',').filter(m => m);
@@ -4900,11 +4907,9 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
             return text;
         }
         
-        // Format với ký hiệu số
-        return meanings.map((meaning, index) => {
-            const symbol = numberSymbols[index] || `${index + 1}.`;
-            return `${symbol} ${meaning}`;
-        }).join('\n');
+        // Format với số thường (1., 2., 3.) để "nghĩa chính" rõ ràng
+        // (Đặc biệt khi input đã theo chuẩn: nghĩa chính bằng ';', nghĩa gần nhau bằng ',')
+        return meanings.map((meaning, index) => `${index + 1}. ${meaning}`).join('\n');
     };
     
     const getPrompt = () => {
