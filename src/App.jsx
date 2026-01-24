@@ -390,6 +390,13 @@ const maskWordInExample = (targetWord, exampleSentence, pos) => {
     return exampleSentence.replace(maskRegex, '______');
 };
 
+// Với tính từ -na: chấp nhận đáp án có/không có "な"
+const buildAdjNaAcceptedAnswers = (normalizedText) => {
+    if (!normalizedText) return [];
+    if (normalizedText.endsWith('な')) return [normalizedText, normalizedText.slice(0, -1)];
+    return [normalizedText, `${normalizedText}な`];
+};
+
 let currentAudioObj = null;
 
 // Play Audio - CHỈ phát audioBase64 từ Gemini TTS, không dùng Browser TTS/Google Translate
@@ -4912,9 +4919,20 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
 
         const normalizedKanji = normalizeAnswer(kanjiPart);
         const normalizedKana = normalizeAnswer(kanaPart);
-        
+        const normalizedFull = normalizeAnswer(rawFront);
+
         // Correct if matches either Kanji part OR Kana part (if exists) OR the full string (legacy fallback)
-        const isCorrect = userAnswer === normalizedKanji || (kanaPart && userAnswer === normalizedKana) || userAnswer === normalizeAnswer(rawFront);
+        let isCorrect = userAnswer === normalizedKanji || (kanaPart && userAnswer === normalizedKana) || userAnswer === normalizedFull;
+
+        // adj_na: cho phép nhập có/không có "な"
+        if (!isCorrect && currentCard.pos === 'adj_na') {
+            const accepted = new Set([
+                ...buildAdjNaAcceptedAnswers(normalizedKanji),
+                ...(kanaPart ? buildAdjNaAcceptedAnswers(normalizedKana) : []),
+                ...buildAdjNaAcceptedAnswers(normalizedFull),
+            ]);
+            isCorrect = accepted.has(userAnswer);
+        }
         
         const cardKey = `${currentCard.id}-${cardReviewType}`;
         const hasFailedBefore = failedCards.has(cardKey);
@@ -5842,7 +5860,17 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         const normalizedFull = normalizeAnswer(rawFront);
         
         // Correct if matches either Kanji part OR Kana part (if exists) OR the full string (legacy fallback)
-        const isCorrect = userAnswer === normalizedKanji || (kanaPart && userAnswer === normalizedKana) || userAnswer === normalizedFull;
+        let isCorrect = userAnswer === normalizedKanji || (kanaPart && userAnswer === normalizedKana) || userAnswer === normalizedFull;
+
+        // adj_na: cho phép nhập có/không có "な"
+        if (!isCorrect && currentCard.pos === 'adj_na') {
+            const accepted = new Set([
+                ...buildAdjNaAcceptedAnswers(normalizedKanji),
+                ...(kanaPart ? buildAdjNaAcceptedAnswers(normalizedKana) : []),
+                ...buildAdjNaAcceptedAnswers(normalizedFull),
+            ]);
+            isCorrect = accepted.has(userAnswer);
+        }
 
         setIsProcessing(true);
         setFeedback(isCorrect ? 'correct' : 'incorrect');
