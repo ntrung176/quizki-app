@@ -335,7 +335,8 @@ const maskVerbInExample = (targetWord, exampleSentence) => {
     }
     
     // Bước 4: Thực hiện ẩn (Masking)
-    const maskedPart = '_'.repeat(endIndex - startIndex);
+    // Đảm bảo khoảng trống không bị quá ngắn khi che ít ký tự
+    const maskedPart = '_____';
     return exampleSentence.substring(0, startIndex) + maskedPart + exampleSentence.substring(endIndex);
 };
 
@@ -348,7 +349,8 @@ const maskVerbInExample = (targetWord, exampleSentence) => {
 const maskAdjNaInExample = (targetWord, exampleSentence) => {
     if (!targetWord || !exampleSentence) return exampleSentence;
     
-    // Loại bỏ な ở cuối nếu có để tìm phần khớp
+    // Lưu ý: app luôn lưu tính từ -na dưới dạng có "な"
+    // Ta sẽ tìm phần gốc (bỏ "な"), và nếu trong câu có "な" ngay sau đó thì ẩn luôn "な".
     const wordWithoutNa = targetWord.endsWith('な') ? targetWord.slice(0, -1) : targetWord;
     
     // Tìm vị trí xuất hiện của phần khớp (không cần な)
@@ -358,9 +360,15 @@ const maskAdjNaInExample = (targetWord, exampleSentence) => {
         return exampleSentence;
     }
     
-    // Ẩn phần khớp được
-    const maskedPart = '_'.repeat(wordWithoutNa.length);
-    return exampleSentence.substring(0, startIndex) + maskedPart + exampleSentence.substring(startIndex + wordWithoutNa.length);
+    // Nếu câu dùng dạng "...<gốc>な...", ẩn luôn cả "な" để không bị chừa lại
+    let endIndex = startIndex + wordWithoutNa.length;
+    if (endIndex < exampleSentence.length && exampleSentence[endIndex] === 'な') {
+        endIndex += 1;
+    }
+
+    // Đối với tính từ -na: luôn hiển thị khoảng trống dài hơn để dễ nhìn
+    const maskedPart = '_____';
+    return exampleSentence.substring(0, startIndex) + maskedPart + exampleSentence.substring(endIndex);
 };
 
 /**
@@ -372,9 +380,20 @@ const maskAdjNaInExample = (targetWord, exampleSentence) => {
  */
 const maskWordInExample = (targetWord, exampleSentence, pos) => {
     if (!targetWord || !exampleSentence) return exampleSentence;
+
+    // Helper: thử khớp 100% (từ / （từ） / (từ))
+    const maskExact100 = (word, sentence, blank = '_____') => {
+        const escapedWord = word.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
+        const maskRegex = new RegExp(`(${escapedWord}|（${escapedWord}）|\\(${escapedWord}\\))`, 'g');
+        const masked = sentence.replace(maskRegex, blank);
+        return { masked, didMask: masked !== sentence };
+    };
     
     // Xử lý động từ
     if (pos === 'verb' || pos === 'suru_verb') {
+        // Ưu tiên khớp 100% trước; nếu không khớp được mới dùng khớp thông minh
+        const exact = maskExact100(targetWord, exampleSentence, '_____');
+        if (exact.didMask) return exact.masked;
         return maskVerbInExample(targetWord, exampleSentence);
     }
     
