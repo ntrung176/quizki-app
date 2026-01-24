@@ -2336,7 +2336,8 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     cards={reviewCards} 
                     reviewMode={reviewMode}
                     allCards={allCards}
-                    onUpdateCard={handleUpdateCard} 
+                    onUpdateCard={handleUpdateCard}
+                    vocabCollectionPath={vocabCollectionPath}
                     onCompleteReview={(failedCardsSet) => {
                         // Nếu có từ sai, tạo danh sách ôn lại
                         if (failedCardsSet && failedCardsSet.size > 0) {
@@ -4434,7 +4435,7 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
 };
 
 
-const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard, onCompleteReview }) => {
+const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard, onCompleteReview, vocabCollectionPath }) => {
     // ... Logic giữ nguyên
     const [cards, setCards] = useState(initialCards); // Sử dụng state để có thể cập nhật danh sách
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -5059,11 +5060,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
             
             // Cập nhật streak về 0 trong Firestore
             await onUpdateCard(currentCard.id, false, cardReviewType);
-            
-            // Hiển thị 3 box lựa chọn SRS nếu là phần back và SRS level >= 2
-            if (cardReviewType === 'back' && currentCard.intervalIndex_back >= 2) {
-                setShowSrsAdjustment(true);
-            }
+            // KHÔNG hiển thị 3 box ngay, đợi người dùng nhập lại đúng
         }
     };
 
@@ -5072,7 +5069,9 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
 
     // Hàm xử lý điều chỉnh SRS level khi sai
     const handleSrsAdjustment = async (adjustment) => {
-        if (!vocabCollectionPath || !currentCard) return;
+        if (!vocabCollectionPath || !currentCard || isProcessing) return;
+        
+        setIsProcessing(true);
         
         const cardRef = doc(db, vocabCollectionPath, currentCard.id);
         let cardSnap;
@@ -5080,10 +5079,15 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
             cardSnap = await getDoc(cardRef);
         } catch (e) {
             console.error("Lỗi fetch thẻ để điều chỉnh SRS:", e);
+            setIsProcessing(false);
             return;
         }
         
-        if (!cardSnap.exists()) return;
+        if (!cardSnap.exists()) {
+            setIsProcessing(false);
+            return;
+        }
+        
         const cardData = cardSnap.data();
         let currentInterval = typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1;
         if (currentInterval === -999) currentInterval = -1;
@@ -5119,8 +5123,12 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
             });
             
             setShowSrsAdjustment(false);
+            
+            // Sau khi chọn box, chuyển sang thẻ tiếp theo
+            await moveToNextCard(false); // false = không tăng streak vì đã sai trước đó
         } catch (e) {
             console.error("Lỗi cập nhật SRS:", e);
+            setIsProcessing(false);
         }
     };
 
@@ -5218,12 +5226,20 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 const isCorrect = userAnswer === normalizedKanji || (kanaPart && userAnswer === normalizedKana) || userAnswer === normalizeAnswer(rawFront);
 
                 if (isCorrect) { 
-                    // Nhập lại đúng: không tăng streak, chỉ chuyển thẻ và chờ ôn lại sau
-                    // Phát âm thanh khi nhập lại đúng
+                    // Nhập lại đúng: phát âm thanh
                     playAudio(currentCard.audioBase64, currentCard.front);
-                    setIsProcessing(true); // V1.6.2 Fix: Khoá
-                    setShowSrsAdjustment(false); // Reset SRS adjustment box
-                    moveToNextCard(false); // false = không tăng streak
+                    
+                    // Hiển thị 3 box lựa chọn SRS nếu là phần back và SRS level >= 2
+                    if (cardReviewType === 'back' && currentCard.intervalIndex_back >= 2) {
+                        setShowSrsAdjustment(true);
+                        setIsLocked(false); // Mở khóa để có thể chọn box
+                        setFeedback('incorrect'); // Giữ feedback là incorrect để hiển thị box
+                        setMessage(`Đã nhập đúng! Vui lòng đánh giá độ khó:`);
+                    } else {
+                        // Không có SRS adjustment, chuyển thẻ luôn
+                        setIsProcessing(true);
+                        moveToNextCard(false); // false = không tăng streak
+                    }
                 } else { 
                     // Vẫn sai, yêu cầu nhập lại
                     setMessage(`Hãy nhập lại: "${displayFront}"`); 
@@ -5633,41 +5649,44 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                         </div>
                     </div>
                     
-                    {/* SRS Adjustment Boxes - Chỉ hiển thị khi sai ở phần back và SRS level >= 2 */}
-                    {showSrsAdjustment && feedback === 'incorrect' && cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
-                        <div className="mb-2 md:mb-4 p-3 md:p-4 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-xl md:rounded-2xl">
-                            <p className="text-sm md:text-base font-semibold text-blue-800 dark:text-blue-300 mb-2 md:mb-3">Đánh giá độ khó:</p>
-                            <div className="grid grid-cols-3 gap-2 md:gap-3">
+                    {/* SRS Adjustment Boxes - Chỉ hiển thị sau khi nhập lại đúng ở phần back và SRS level >= 2 */}
+                    {showSrsAdjustment && cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
+                        <div className="mb-2 md:mb-4 p-2 md:p-3 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-lg md:rounded-xl">
+                            <p className="text-xs md:text-sm font-semibold text-blue-800 dark:text-blue-300 mb-2 text-center">Đánh giá độ khó:</p>
+                            <div className="grid grid-cols-3 gap-1.5 md:gap-2">
                                 <button
                                     onClick={() => handleSrsAdjustment('very_hard')}
-                                    className="px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm font-bold rounded-lg md:rounded-xl bg-red-500 dark:bg-red-600 text-white hover:bg-red-600 dark:hover:bg-red-700 transition-all shadow-md hover:shadow-lg"
+                                    disabled={isProcessing}
+                                    className="px-2 md:px-3 py-1.5 md:py-2 text-[10px] md:text-xs font-bold rounded-md md:rounded-lg bg-red-500 dark:bg-red-600 text-white hover:bg-red-600 dark:hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md"
                                     title="Phím 1"
                                 >
                                     <div className="font-bold">1. Rất khó</div>
-                                    <div className="text-[10px] md:text-xs mt-0.5 opacity-90">Reset SRS</div>
+                                    <div className="text-[9px] md:text-[10px] mt-0.5 opacity-90">Reset SRS</div>
                                 </button>
                                 <button
                                     onClick={() => handleSrsAdjustment('hard')}
-                                    className="px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm font-bold rounded-lg md:rounded-xl bg-orange-500 dark:bg-orange-600 text-white hover:bg-orange-600 dark:hover:bg-orange-700 transition-all shadow-md hover:shadow-lg"
+                                    disabled={isProcessing}
+                                    className="px-2 md:px-3 py-1.5 md:py-2 text-[10px] md:text-xs font-bold rounded-md md:rounded-lg bg-orange-500 dark:bg-orange-600 text-white hover:bg-orange-600 dark:hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md"
                                     title="Phím 2"
                                 >
                                     <div className="font-bold">2. Khó</div>
-                                    <div className="text-[10px] md:text-xs mt-0.5 opacity-90">-1 cấp độ</div>
+                                    <div className="text-[9px] md:text-[10px] mt-0.5 opacity-90">-1 cấp độ</div>
                                 </button>
                                 <button
                                     onClick={() => handleSrsAdjustment('normal')}
-                                    className="px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm font-bold rounded-lg md:rounded-xl bg-green-500 dark:bg-green-600 text-white hover:bg-green-600 dark:hover:bg-green-700 transition-all shadow-md hover:shadow-lg"
+                                    disabled={isProcessing}
+                                    className="px-2 md:px-3 py-1.5 md:py-2 text-[10px] md:text-xs font-bold rounded-md md:rounded-lg bg-green-500 dark:bg-green-600 text-white hover:bg-green-600 dark:hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md"
                                     title="Phím 3"
                                 >
                                     <div className="font-bold">3. Bình thường</div>
-                                    <div className="text-[10px] md:text-xs mt-0.5 opacity-90">Giữ nguyên</div>
+                                    <div className="text-[9px] md:text-[10px] mt-0.5 opacity-90">Giữ nguyên</div>
                                 </button>
                             </div>
                         </div>
                     )}
                     
                     {/* TYPING MODE ACTIONS (Chỉ cho Back, không cho Synonym và Example) */}
-                    {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
+                    {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && !showSrsAdjustment && (
                         <button
                             onClick={handleNext}
                             disabled={isProcessing || (feedback === 'incorrect' && normalizeAnswer(inputValue) !== normalizeAnswer(currentCard.front.split('（')[0].split('(')[0]) && normalizeAnswer(inputValue) !== normalizeAnswer((currentCard.front.match(/（([^）]+)）/) || currentCard.front.match(/\(([^)]+)\)/))?.[1] || ''))}
