@@ -5263,22 +5263,12 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 meanings = text.split('\n').map(m => m.trim()).filter(m => m);
             } else if (text.includes(';')) {
                 // Nếu có chấm phẩy, tách theo chấm phẩy (bỏ qua chấm phẩy trong ngoặc)
-                // Đây là delimiter cho "nghĩa chính"
+                // Đây là delimiter cho "nghĩa chính" - chỉ dấu ; mới tạo số thứ tự mới
                 meanings = splitIgnoringParentheses(text, ';')
                     .map(m => m.replace(/\s+/g, ' ').trim())
                     .filter(m => m);
-            } else if (text.includes(',')) {
-                // Nếu có dấu phẩy, tách theo dấu phẩy (bỏ qua dấu phẩy trong ngoặc)
-                const parts = splitIgnoringParentheses(text, ',').filter(m => m);
-                // Chỉ tách nếu có ít nhất 2 phần và mỗi phần có độ dài hợp lý
-                if (parts.length >= 2 && parts.every(p => p.length > 3)) {
-                    meanings = parts;
-                } else {
-                    // Nếu không rõ ràng, giữ nguyên
-                    meanings = [text];
-                }
             } else {
-                // Không có dấu phân cách, giữ nguyên
+                // Không có dấu phân cách, giữ nguyên (dấu phẩy không tạo số thứ tự mới)
                 meanings = [text];
             }
         }
@@ -6176,19 +6166,12 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                 meanings = text.split('\n').map(m => m.trim()).filter(m => m);
             } else if (text.includes(';')) {
                 // Nếu có chấm phẩy, tách theo chấm phẩy (bỏ qua chấm phẩy trong ngoặc)
-                meanings = splitIgnoringParentheses(text, ';').filter(m => m);
-            } else if (text.includes(',')) {
-                // Nếu có dấu phẩy, tách theo dấu phẩy (bỏ qua dấu phẩy trong ngoặc)
-                const parts = splitIgnoringParentheses(text, ',').filter(m => m);
-                // Chỉ tách nếu có ít nhất 2 phần và mỗi phần có độ dài hợp lý
-                if (parts.length >= 2 && parts.every(p => p.length > 3)) {
-                    meanings = parts;
-                } else {
-                    // Nếu không rõ ràng, giữ nguyên
-                    meanings = [text];
-                }
+                // Đây là delimiter cho "nghĩa chính" - chỉ dấu ; mới tạo số thứ tự mới
+                meanings = splitIgnoringParentheses(text, ';')
+                    .map(m => m.replace(/\s+/g, ' ').trim())
+                    .filter(m => m);
             } else {
-                // Không có dấu phân cách, giữ nguyên
+                // Không có dấu phân cách, giữ nguyên (dấu phẩy không tạo số thứ tự mới)
                 meanings = [text];
             }
         }
