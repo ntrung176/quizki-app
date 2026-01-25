@@ -852,7 +852,8 @@ const App = () => {
                 setUserId(user.uid);
                 setNotification(''); // Đã xác thực và đăng nhập, xoá thông báo cũ (nếu có)
             } else {
-                // Khi đăng xuất: clear tất cả state ngay lập tức
+                // Khi đăng xuất: clear tất cả state ngay lập tức và xóa sessionStorage
+                const oldUserId = userId;
                 setUserId(null);
                 setAllCards([]);
                 setReviewCards([]);
@@ -860,6 +861,12 @@ const App = () => {
                 setView('HOME');
                 setEditingCard(null);
                 setNotification('');
+                // Xóa sessionStorage của user cũ
+                if (oldUserId) {
+                    sessionStorage.removeItem(`profile_${oldUserId}`);
+                    sessionStorage.removeItem(`allCards_${oldUserId}`);
+                    sessionStorage.removeItem(`dailyActivityLogs_${oldUserId}`);
+                }
             }
             setAuthReady(true);
         });
@@ -940,9 +947,26 @@ const App = () => {
             return;
         }
 
+        // Khôi phục profile từ sessionStorage nếu có
+        const cachedProfileKey = `profile_${userId}`;
+        const cachedProfile = sessionStorage.getItem(cachedProfileKey);
+        if (cachedProfile) {
+            try {
+                const parsedProfile = JSON.parse(cachedProfile);
+                setProfile(parsedProfile);
+                setIsProfileLoading(false);
+                setIsLoading(false);
+            } catch (e) {
+                console.error('Lỗi parse cached profile:', e);
+            }
+        }
+
         const unsubscribe = onSnapshot(doc(db, settingsDocPath), async (docSnap) => {
             if (docSnap.exists()) {
-                setProfile(docSnap.data());
+                const profileData = docSnap.data();
+                setProfile(profileData);
+                // Lưu vào sessionStorage
+                sessionStorage.setItem(cachedProfileKey, JSON.stringify(profileData));
             } else {
                 // Tự động tạo profile mặc định nếu chưa có, không hiển thị màn hỏi tên riêng
                 try {
@@ -958,6 +982,8 @@ const App = () => {
                     };
                     await setDoc(doc(db, settingsDocPath), newProfile);
                     setProfile(newProfile);
+                    // Lưu vào sessionStorage
+                    sessionStorage.setItem(cachedProfileKey, JSON.stringify(newProfile));
                 } catch (e) {
                     console.error("Lỗi tạo hồ sơ mặc định:", e);
                     setProfile(null);
@@ -976,6 +1002,36 @@ const App = () => {
 
     useEffect(() => {
         if (!authReady || !vocabCollectionPath) return;
+        
+        // Khôi phục allCards từ sessionStorage nếu có
+        const cachedCardsKey = `allCards_${userId}`;
+        const cachedCards = sessionStorage.getItem(cachedCardsKey);
+        if (cachedCards) {
+            try {
+                const parsedCards = JSON.parse(cachedCards);
+                // Convert date strings back to Date objects và khôi phục audioBase64/imageBase64 từ Firestore
+                // (chúng sẽ được cập nhật khi Firestore listener chạy)
+                const cardsWithDates = parsedCards.map(card => ({
+                    ...card,
+                    createdAt: new Date(card.createdAt),
+                    nextReview_back: new Date(card.nextReview_back),
+                    nextReview_synonym: new Date(card.nextReview_synonym),
+                    nextReview_example: new Date(card.nextReview_example),
+                    // Khôi phục audioBase64 và imageBase64 từ cache nếu có, nếu không thì null
+                    // (sẽ được cập nhật từ Firestore sau)
+                    audioBase64: card.hasAudio ? null : null, // Sẽ được load từ Firestore
+                    imageBase64: card.hasImage ? null : null, // Sẽ được load từ Firestore
+                    // Loại bỏ các flag tạm
+                    hasAudio: undefined,
+                    hasImage: undefined,
+                }));
+                setAllCards(cardsWithDates);
+            } catch (e) {
+                console.error('Lỗi parse cached cards:', e);
+                // Xóa cache bị lỗi
+                sessionStorage.removeItem(cachedCardsKey);
+            }
+        }
         
         const q = query(collection(db, vocabCollectionPath));
         const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -1013,15 +1069,67 @@ const App = () => {
             // Sort by createdAt desc by default initially
             cards.sort((a, b) => b.createdAt - a.createdAt);
             setAllCards(cards);
+            // Lưu vào sessionStorage (convert Date objects to ISO strings, loại bỏ audioBase64 và imageBase64 để tiết kiệm dung lượng)
+            const cardsForStorage = cards.map(card => {
+                const { audioBase64, imageBase64, ...cardWithoutMedia } = card;
+                return {
+                    ...cardWithoutMedia,
+                    createdAt: card.createdAt.toISOString(),
+                    nextReview_back: card.nextReview_back.toISOString(),
+                    nextReview_synonym: card.nextReview_synonym.toISOString(),
+                    nextReview_example: card.nextReview_example.toISOString(),
+                    // Chỉ lưu flag để biết có media hay không, không lưu dữ liệu thực tế
+                    hasAudio: !!audioBase64,
+                    hasImage: !!imageBase64,
+                };
+            });
+            try {
+                const jsonString = JSON.stringify(cardsForStorage);
+                // Kiểm tra kích thước trước khi lưu (sessionStorage thường có giới hạn ~5-10MB)
+                if (jsonString.length > 4 * 1024 * 1024) { // Nếu > 4MB, không lưu
+                    console.warn('Dữ liệu quá lớn, bỏ qua cache vào sessionStorage');
+                    return;
+                }
+                sessionStorage.setItem(cachedCardsKey, jsonString);
+            } catch (e) {
+                // Nếu sessionStorage đầy, thử xóa cache cũ và lưu lại
+                if (e.name === 'QuotaExceededError') {
+                    try {
+                        // Xóa tất cả cache cũ của user này
+                        sessionStorage.removeItem(cachedCardsKey);
+                        sessionStorage.removeItem(`profile_${userId}`);
+                        sessionStorage.removeItem(`dailyActivityLogs_${userId}`);
+                        // Thử lưu lại với dữ liệu đã giảm
+                        const jsonString = JSON.stringify(cardsForStorage);
+                        if (jsonString.length <= 4 * 1024 * 1024) {
+                            sessionStorage.setItem(cachedCardsKey, jsonString);
+                        }
+                    } catch (e2) {
+                        // Im lặng nếu vẫn không được, không cần log error
+                    }
+                }
+            }
         }, (error) => {
             console.error("Lỗi khi lắng nghe Firestore:", error);
             setNotification("Lỗi kết nối dữ liệu.");
         });
         return () => unsubscribe();
-    }, [authReady, vocabCollectionPath]);
+    }, [authReady, vocabCollectionPath, userId]);
 
     useEffect(() => {
         if (!authReady || !activityCollectionPath) return;
+        
+        // Khôi phục dailyActivityLogs từ sessionStorage nếu có
+        const cachedLogsKey = `dailyActivityLogs_${userId}`;
+        const cachedLogs = sessionStorage.getItem(cachedLogsKey);
+        if (cachedLogs) {
+            try {
+                const parsedLogs = JSON.parse(cachedLogs);
+                setDailyActivityLogs(parsedLogs);
+            } catch (e) {
+                console.error('Lỗi parse cached logs:', e);
+            }
+        }
         
         const q = query(collection(db, activityCollectionPath));
         const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -1032,12 +1140,23 @@ const App = () => {
             // Sort logs by date string (ID) just in case
             logs.sort((a, b) => a.id.localeCompare(b.id));
             setDailyActivityLogs(logs);
+            // Lưu vào sessionStorage
+            try {
+                const jsonString = JSON.stringify(logs);
+                // Kiểm tra kích thước trước khi lưu
+                if (jsonString.length > 1 * 1024 * 1024) { // Nếu > 1MB, không lưu
+                    return;
+                }
+                sessionStorage.setItem(cachedLogsKey, jsonString);
+            } catch (e) {
+                // Im lặng nếu không thể lưu, không cần log
+            }
         }, (error) => {
             console.error("Lỗi khi tải hoạt động hàng ngày:", error);
         });
         
         return () => unsubscribe();
-    }, [authReady, activityCollectionPath]);
+    }, [authReady, activityCollectionPath, userId]);
 
     const dueCounts = useMemo(() => {
         const today = new Date();
