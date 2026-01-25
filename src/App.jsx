@@ -723,6 +723,12 @@ const App = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [notification, setNotification] = useState('');
     const [editingCard, setEditingCard] = useState(null);
+    // State cho batch import từ vựng hàng loạt
+    const [showBatchImportModal, setShowBatchImportModal] = useState(false);
+    const [batchVocabInput, setBatchVocabInput] = useState('');
+    const [batchVocabList, setBatchVocabList] = useState([]);
+    const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
+    const [isProcessingBatch, setIsProcessingBatch] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(() => {
         // Lấy từ localStorage, mặc định là false (light mode)
         const saved = localStorage.getItem('darkMode');
@@ -1448,8 +1454,66 @@ const App = () => {
     const handleAddCard = async ({ front, back, synonym, example, exampleMeaning, nuance, pos, level, action, imageBase64, audioBase64, sinoVietnamese, synonymSinoVietnamese }) => {
         if (!vocabCollectionPath) return false;
         
+        // Nếu đang trong batch mode, tìm và cập nhật card tạm thay vì tạo mới
+        if (batchVocabList.length > 0 && currentBatchIndex < batchVocabList.length) {
+            const currentVocab = batchVocabList[currentBatchIndex];
+            const tempCard = allCards.find(card => {
+                const cardFront = card.front.split('（')[0].split('(')[0].trim();
+                return cardFront === currentVocab.trim() && (!card.back || card.back.trim() === '');
+            });
+            
+            if (tempCard) {
+                // Cập nhật card tạm với dữ liệu từ form
+                const updatedData = {
+                    front: front.trim(),
+                    back: back.trim(),
+                    synonym: synonym.trim(),
+                    example: example.trim(),
+                    exampleMeaning: exampleMeaning.trim(),
+                    nuance: nuance.trim(),
+                    pos: pos || '',
+                    level: level || '',
+                    sinoVietnamese: sinoVietnamese ? sinoVietnamese.trim() : '',
+                    synonymSinoVietnamese: synonymSinoVietnamese ? synonymSinoVietnamese.trim() : '',
+                    imageBase64: imageBase64 || null,
+                    audioBase64: audioBase64 || null,
+                };
+                
+                try {
+                    await updateDoc(doc(db, vocabCollectionPath, tempCard.id), updatedData);
+                    setNotification(`Đã cập nhật từ vựng: ${updatedData.front}`);
+                    await updateDailyActivity(1);
+                    
+                    // Tạo âm thanh nếu chưa có
+                    if (!audioBase64 || (typeof audioBase64 === 'string' && audioBase64.trim() === '')) {
+                        (async () => {
+                            try {
+                                const speechText = getSpeechText(front);
+                                if (!speechText || speechText.trim() === '') return;
+                                const fetchedAudioBase64 = await fetchTtsBase64(speechText);
+                                if (fetchedAudioBase64) {
+                                    await updateDoc(doc(db, vocabCollectionPath, tempCard.id), { audioBase64: fetchedAudioBase64 });
+                                }
+                            } catch (e) {
+                                console.error("Lỗi tạo âm thanh (nền):", e);
+                            }
+                        })();
+                    }
+                    
+                    return true;
+                } catch (e) {
+                    console.error("Lỗi khi cập nhật thẻ:", e);
+                    setNotification("Lỗi khi cập nhật thẻ.");
+                    return false;
+                }
+            }
+        }
+        
         const normalizedFront = front.trim();
-        const isDuplicate = allCards.some(card => card.front.trim() === normalizedFront);
+        const isDuplicate = allCards.some(card => {
+            const cardFront = card.front.split('（')[0].split('(')[0].trim();
+            return cardFront === normalizedFront;
+        });
         
         if (isDuplicate) {
             setNotification(`⚠️ Từ vựng "${normalizedFront}" đã có trong danh sách!`);
@@ -1467,8 +1531,12 @@ const App = () => {
             setNotification(`Đã thêm thẻ mới: ${newCardData.front}`);
             await updateDailyActivity(1);
 
-            if (action === 'back') {
-                setView('HOME');
+            // Nếu đang trong batch mode, chuyển sang từ tiếp theo thay vì về HOME
+            // (Logic này đã được xử lý trong nút lưu của AddCardForm)
+            if (!batchVocabList.length || currentBatchIndex >= batchVocabList.length) {
+                if (action === 'back') {
+                    setView('HOME');
+                }
             }
 
             // Tạo âm thanh nếu chưa có
@@ -1503,6 +1571,178 @@ const App = () => {
             setNotification("Lỗi khi lưu thẻ. Vui lòng thử lại.");
             return false;
         } 
+    };
+
+    // Hàm xử lý batch import từ vựng hàng loạt từ danh sách text
+    const handleBatchImportFromText = async (vocabList) => {
+        if (!vocabCollectionPath || vocabList.length === 0) return;
+        
+        // Lọc bỏ các từ trùng lặp và từ đã có trong database
+        const filteredList = vocabList.filter(vocab => {
+            const normalized = vocab.trim();
+            if (!normalized) return false;
+            return !allCards.some(card => {
+                const cardFront = card.front.split('（')[0].split('(')[0].trim();
+                return cardFront === normalized;
+            });
+        });
+        
+        if (filteredList.length === 0) {
+            setNotification('Tất cả từ vựng đã có trong danh sách!');
+            return;
+        }
+        
+        setIsProcessingBatch(true);
+        setBatchVocabList(filteredList);
+        setCurrentBatchIndex(0);
+        setShowBatchImportModal(false);
+        
+        // Tạo từ đầu tiên với API
+        const firstVocab = filteredList[0];
+        const aiData = await handleGeminiAssist(firstVocab);
+        
+        // Tạo các từ còn lại với dữ liệu tạm (chỉ có front)
+        if (filteredList.length > 1) {
+            const batch = writeBatch(db);
+            for (let i = 1; i < filteredList.length; i++) {
+                const vocab = filteredList[i].trim();
+                if (!vocab) continue;
+                
+                const tempCardData = createCardObject(
+                    vocab, // front
+                    '', // back - sẽ được điền sau
+                    '', // synonym
+                    '', // example
+                    '', // exampleMeaning
+                    '', // nuance
+                    {}, // srsData
+                    null, // createdAtDate
+                    null, // imageBase64
+                    null, // audioBase64
+                    '', // pos
+                    '', // level
+                    '', // sinoVietnamese
+                    '' // synonymSinoVietnamese
+                );
+                
+                const cardRef = doc(collection(db, vocabCollectionPath));
+                batch.set(cardRef, tempCardData);
+            }
+            
+            // Commit batch tạo các từ tạm
+            try {
+                await batch.commit();
+            } catch (e) {
+                console.error('Lỗi tạo các từ vựng tạm:', e);
+                setNotification('Lỗi khi tạo các từ vựng tạm. Vui lòng thử lại.');
+                setIsProcessingBatch(false);
+                return;
+            }
+        }
+        
+        // Chuyển sang view ADD_CARD với dữ liệu từ đầu tiên
+        setView('ADD_CARD');
+        setEditingCard({
+            id: null,
+            front: aiData?.frontWithFurigana || firstVocab,
+            back: aiData?.meaning || '',
+            synonym: aiData?.synonym || '',
+            example: aiData?.example || '',
+            exampleMeaning: aiData?.exampleMeaning || '',
+            nuance: aiData?.nuance || '',
+            pos: aiData?.pos || '',
+            level: aiData?.level || '',
+            sinoVietnamese: aiData?.sinoVietnamese || '',
+            synonymSinoVietnamese: aiData?.synonymSinoVietnamese || '',
+            imageBase64: null,
+            audioBase64: null,
+        });
+        
+        setIsProcessingBatch(false);
+        setNotification(`Đang xử lý từ vựng 1/${filteredList.length}...`);
+    };
+
+    // Hàm xử lý khi lưu từ vựng trong batch (sau khi user check và lưu)
+    const handleBatchSaveNext = async () => {
+        if (currentBatchIndex >= batchVocabList.length - 1) {
+            // Đã hết danh sách
+            setBatchVocabList([]);
+            setCurrentBatchIndex(0);
+            setEditingCard(null);
+            setNotification('Đã hoàn thành thêm tất cả từ vựng!');
+            setView('HOME');
+            return;
+        }
+        
+        // Chuyển sang từ tiếp theo
+        const nextIndex = currentBatchIndex + 1;
+        setCurrentBatchIndex(nextIndex);
+        const nextVocab = batchVocabList[nextIndex];
+        
+        // Đợi một chút để allCards được cập nhật từ Firestore
+        await new Promise(resolve => setTimeout(resolve, 800));
+        
+        // Tìm card tạm đã tạo trước đó (tìm trong allCards mới nhất)
+        const tempCard = allCards.find(card => {
+            const cardFront = card.front.split('（')[0].split('(')[0].trim();
+            return cardFront === nextVocab.trim() && (!card.back || card.back.trim() === '');
+        });
+        
+        if (tempCard) {
+            // Cập nhật card tạm với dữ liệu từ API
+            const aiData = await handleGeminiAssist(nextVocab);
+            
+            // Cập nhật card với dữ liệu từ API
+            const updateData = {
+                front: aiData?.frontWithFurigana || nextVocab,
+                back: aiData?.meaning || '',
+                synonym: aiData?.synonym || '',
+                example: aiData?.example || '',
+                exampleMeaning: aiData?.exampleMeaning || '',
+                nuance: aiData?.nuance || '',
+                pos: aiData?.pos || '',
+                level: aiData?.level || '',
+                sinoVietnamese: aiData?.sinoVietnamese || '',
+                synonymSinoVietnamese: aiData?.synonymSinoVietnamese || '',
+            };
+            
+            try {
+                await updateDoc(doc(db, vocabCollectionPath, tempCard.id), updateData);
+                // Cập nhật local state
+                setAllCards(prev => prev.map(card => 
+                    card.id === tempCard.id ? { ...card, ...updateData } : card
+                ));
+            } catch (e) {
+                console.error('Lỗi cập nhật từ vựng tạm:', e);
+            }
+            
+            // Hiển thị form với dữ liệu mới
+            setEditingCard({
+                ...tempCard,
+                ...updateData,
+            });
+        } else {
+            // Nếu không tìm thấy card tạm, tạo mới với API
+            const aiData = await handleGeminiAssist(nextVocab);
+            setEditingCard({
+                id: null,
+                front: aiData?.frontWithFurigana || nextVocab,
+                back: aiData?.meaning || '',
+                synonym: aiData?.synonym || '',
+                example: aiData?.example || '',
+                exampleMeaning: aiData?.exampleMeaning || '',
+                nuance: aiData?.nuance || '',
+                pos: aiData?.pos || '',
+                level: aiData?.level || '',
+                sinoVietnamese: aiData?.sinoVietnamese || '',
+                synonymSinoVietnamese: aiData?.synonymSinoVietnamese || '',
+                imageBase64: null,
+                audioBase64: null,
+            });
+        }
+        
+        setView('ADD_CARD');
+        setNotification(`Đang xử lý từ vựng ${nextIndex + 1}/${batchVocabList.length}...`);
     };
 
     const handleBatchImport = async (cardsArray) => {
@@ -2302,8 +2542,22 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
             case 'ADD_CARD':
                 return <AddCardForm 
                     onSave={handleAddCard} 
-                    onBack={() => setView('HOME')} 
+                    onBack={() => {
+                        if (batchVocabList.length > 0 && currentBatchIndex < batchVocabList.length) {
+                            // Đang trong batch mode, hủy batch
+                            setBatchVocabList([]);
+                            setCurrentBatchIndex(0);
+                        }
+                        setEditingCard(null);
+                        setView('HOME');
+                    }}
                     onGeminiAssist={handleGeminiAssist}
+                    batchMode={batchVocabList.length > 0 && currentBatchIndex < batchVocabList.length}
+                    currentBatchIndex={currentBatchIndex}
+                    totalBatchCount={batchVocabList.length}
+                    onBatchNext={handleBatchSaveNext}
+                    editingCard={editingCard}
+                    onOpenBatchImport={() => setShowBatchImportModal(true)}
                 />;
             case 'EDIT_CARD':
                 if (!editingCard) {
@@ -2454,6 +2708,70 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col font-sans selection:bg-indigo-100 dark:selection:bg-indigo-900 selection:text-indigo-800 dark:selection:text-indigo-200 w-full">
             <Header currentView={view} setView={setView} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+            
+            {/* Modal nhập từ vựng hàng loạt */}
+            {showBatchImportModal && (
+                <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
+                    <div className="bg-white dark:bg-gray-800 rounded-xl md:rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col">
+                        <div className="p-4 md:p-6 border-b border-gray-200 dark:border-gray-700">
+                            <h2 className="text-lg md:text-xl font-bold text-gray-800 dark:text-gray-100">Thêm từ vựng hàng loạt</h2>
+                            <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mt-1">Mỗi từ vựng trên một dòng</p>
+                        </div>
+                        <div className="flex-1 overflow-y-auto p-4 md:p-6">
+                            <textarea
+                                value={batchVocabInput}
+                                onChange={(e) => setBatchVocabInput(e.target.value)}
+                                placeholder="適当&#10;高まる&#10;現れる&#10;低下&#10;真実&#10;ガム&#10;環境汚染&#10;健康&#10;沈む&#10;支払い"
+                                className="w-full h-64 md:h-80 px-3 md:px-4 py-2 md:py-3 text-sm md:text-base bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-indigo-500 dark:focus:border-indigo-400 outline-none text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 resize-none font-mono"
+                            />
+                        </div>
+                        <div className="p-4 md:p-6 border-t border-gray-200 dark:border-gray-700 flex gap-3">
+                            <button
+                                onClick={() => {
+                                    setShowBatchImportModal(false);
+                                    setBatchVocabInput('');
+                                }}
+                                className="flex-1 px-4 py-2 md:py-3 text-sm md:text-base font-medium rounded-lg md:rounded-xl text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all"
+                            >
+                                Hủy
+                            </button>
+                            <button
+                                onClick={async () => {
+                                    if (!batchVocabInput.trim()) {
+                                        setNotification('Vui lòng nhập danh sách từ vựng!');
+                                        return;
+                                    }
+                                    // Parse danh sách từ vựng (tách theo xuống dòng)
+                                    const vocabList = batchVocabInput
+                                        .split('\n')
+                                        .map(line => line.trim())
+                                        .filter(line => line.length > 0);
+                                    
+                                    if (vocabList.length === 0) {
+                                        setNotification('Không tìm thấy từ vựng nào!');
+                                        return;
+                                    }
+                                    
+                                    setBatchVocabInput('');
+                                    await handleBatchImportFromText(vocabList);
+                                }}
+                                disabled={isProcessingBatch || !batchVocabInput.trim()}
+                                className="flex-1 px-4 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl text-white bg-indigo-600 dark:bg-indigo-500 hover:bg-indigo-700 dark:hover:bg-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                            >
+                                {isProcessingBatch ? (
+                                    <>
+                                        <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5 inline mr-2" />
+                                        Đang xử lý...
+                                    </>
+                                ) : (
+                                    'Nhập'
+                                )}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+            
             <main className="flex-grow flex justify-center items-stretch main-with-header w-full">
                 <div className={`w-full max-w-xl lg:max-w-2xl mx-auto flex flex-col px-2 md:px-6 lg:px-8 pb-2 md:pb-6 lg:pb-10 pt-2 md:pt-6 lg:pt-8 ${view === 'HOME' || view === 'STATS' ? 'pt-1 md:pt-3 lg:pt-4 pb-1 md:pb-3 lg:pb-4' : ''}`}>
                     {/* Modern Container for Main Content - Padding nhỏ hơn cho HOME và STATS */}
@@ -3582,7 +3900,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
     );
 };
 
-const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
+const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, currentBatchIndex = 0, totalBatchCount = 0, onBatchNext, editingCard: initialEditingCard = null, onOpenBatchImport }) => {
     // ... (State logic giữ nguyên)
     const [front, setFront] = useState('');
     const [back, setBack] = useState('');
@@ -3600,6 +3918,24 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
     const [isSaving, setIsSaving] = useState(false);
     const [isAiLoading, setIsAiLoading] = useState(false); 
     const frontInputRef = useRef(null);
+
+    // Load dữ liệu từ editingCard nếu có (cho batch mode)
+    useEffect(() => {
+        if (initialEditingCard) {
+            setFront(initialEditingCard.front || '');
+            setBack(initialEditingCard.back || '');
+            setSynonym(initialEditingCard.synonym || '');
+            setExample(initialEditingCard.example || '');
+            setExampleMeaning(initialEditingCard.exampleMeaning || '');
+            setNuance(initialEditingCard.nuance || '');
+            setPos(initialEditingCard.pos || '');
+            setLevel(initialEditingCard.level || '');
+            setSinoVietnamese(initialEditingCard.sinoVietnamese || '');
+            setSynonymSinoVietnamese(initialEditingCard.synonymSinoVietnamese || '');
+            setImagePreview(initialEditingCard.imageBase64 || null);
+            setCustomAudio(initialEditingCard.audioBase64 || '');
+        }
+    }, [initialEditingCard]);
 
     // ... (Helpers giữ nguyên: handleImageChange, handleRemoveImage, handleAudioFileChange, handleSave, handleAiAssist, handleKeyDown)
     const handleImageChange = async (e) => {
@@ -3671,8 +4007,20 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                     <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">Thêm Từ Vựng Mới</h2>
                     <p className="text-gray-500 dark:text-gray-400 text-sm">Xây dựng kho tàng kiến thức của bạn</p>
                 </div>
-                <div className="bg-indigo-50 dark:bg-indigo-900/30 p-2 rounded-xl">
-                    <Plus className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                <div className="flex items-center gap-2">
+                    {onOpenBatchImport && (
+                        <button
+                            type="button"
+                            onClick={onOpenBatchImport}
+                            className="px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-medium rounded-lg md:rounded-xl text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 border border-indigo-200 dark:border-indigo-800 transition-all flex items-center gap-1.5"
+                        >
+                            <Plus className="w-4 h-4" />
+                            <span>Nhập nhiều từ vựng</span>
+                        </button>
+                    )}
+                    <div className="bg-indigo-50 dark:bg-indigo-900/30 p-2 rounded-xl">
+                        <Plus className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                    </div>
                 </div>
             </div>
 
@@ -3885,25 +4233,50 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist }) => {
                 </div>
             </div>
 
+            {/* Batch mode indicator */}
+            {batchMode && (
+                <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-lg">
+                    <p className="text-sm font-semibold text-blue-800 dark:text-blue-300 text-center">
+                        Đang xử lý từ vựng {currentBatchIndex + 1}/{totalBatchCount}
+                    </p>
+                </div>
+            )}
+
             <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-100 dark:border-gray-700">
                 <button
                     type="button"
-                    onClick={() => handleSave('continue')}
+                    onClick={async () => {
+                        if (batchMode && onBatchNext) {
+                            // Trong batch mode, lưu và chuyển sang từ tiếp theo
+                            const success = await onSave({ front, back, synonym, example, exampleMeaning, nuance, pos, level, sinoVietnamese, synonymSinoVietnamese, action: 'continue', imageBase64: imagePreview, audioBase64: customAudio.trim() !== '' ? customAudio.trim() : null });
+                            if (success) {
+                                // Reset form
+                                setFront(''); setBack(''); setSynonym(''); setExample(''); setExampleMeaning(''); setNuance(''); setPos(''); setLevel(''); setSinoVietnamese(''); setSynonymSinoVietnamese(''); setImagePreview(null); setCustomAudio(''); setShowAudioInput(false);
+                                // Chuyển sang từ tiếp theo
+                                await onBatchNext();
+                            }
+                        } else {
+                            // Không phải batch mode, xử lý bình thường
+                            handleSave('continue');
+                        }
+                    }}
                     disabled={isSaving || isAiLoading || !front || !back}
                     className="flex-1 flex items-center justify-center px-3 md:px-4 lg:px-6 py-2 md:py-3 lg:py-4 text-xs md:text-sm lg:text-base font-bold rounded-lg md:rounded-xl shadow-md md:shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 text-white bg-indigo-600 dark:bg-indigo-500 hover:bg-indigo-700 dark:hover:bg-indigo-600 hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     {isSaving ? <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2" /> : <Plus className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2" />}
-                    <span className="text-xs md:text-sm lg:text-base">Lưu & Thêm Tiếp</span>
+                    <span className="text-xs md:text-sm lg:text-base">{batchMode ? `Lưu & Tiếp (${currentBatchIndex + 1}/${totalBatchCount})` : 'Lưu & Thêm Tiếp'}</span>
                 </button>
-                <button
-                    type="button"
-                    onClick={() => handleSave('back')}
-                    disabled={isSaving || isAiLoading || !front || !back}
-                    className="flex-1 flex items-center justify-center px-3 md:px-4 lg:px-6 py-2 md:py-3 lg:py-4 text-xs md:text-sm lg:text-base font-bold rounded-lg md:rounded-xl shadow-sm text-indigo-700 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 hover:-translate-y-1 transition-all disabled:opacity-50"
-                >
-                    <Check className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2" />
-                    <span className="text-xs md:text-sm lg:text-base">Lưu & Về Home</span>
-                </button>
+                {!batchMode && (
+                    <button
+                        type="button"
+                        onClick={() => handleSave('back')}
+                        disabled={isSaving || isAiLoading || !front || !back}
+                        className="flex-1 flex items-center justify-center px-3 md:px-4 lg:px-6 py-2 md:py-3 lg:py-4 text-xs md:text-sm lg:text-base font-bold rounded-lg md:rounded-xl shadow-sm text-indigo-700 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 hover:-translate-y-1 transition-all disabled:opacity-50"
+                    >
+                        <Check className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2" />
+                        <span className="text-xs md:text-sm lg:text-base">Lưu & Về Home</span>
+                    </button>
+                )}
                 <button
                     type="button"
                     onClick={onBack}
