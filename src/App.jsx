@@ -846,7 +846,14 @@ const App = () => {
                 setUserId(user.uid);
                 setNotification(''); // Đã xác thực và đăng nhập, xoá thông báo cũ (nếu có)
             } else {
+                // Khi đăng xuất: clear tất cả state ngay lập tức
                 setUserId(null);
+                setAllCards([]);
+                setReviewCards([]);
+                setProfile(null);
+                setView('HOME');
+                setEditingCard(null);
+                setNotification('');
             }
             setAuthReady(true);
         });
@@ -2626,25 +2633,25 @@ const LoginScreen = () => {
 
                 <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
                     <div className="space-y-1.5 md:space-y-2">
-                        <label className="block text-xs md:text-sm font-semibold text-gray-700">Email</label>
+                        <label className="block text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300">Email</label>
                         <input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:ring-2 md:focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 text-xs md:text-sm outline-none"
+                            className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:ring-2 md:focus:ring-4 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none"
                             placeholder="you@example.com"
                             required
                         />
                     </div>
 
                     <div className="space-y-1.5 md:space-y-2">
-                        <label className="block text-xs md:text-sm font-semibold text-gray-700">Mật khẩu</label>
+                        <label className="block text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300">Mật khẩu</label>
                         <div className="relative">
                             <input
                                 type={showPassword ? 'text' : 'password'}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="w-full px-3 md:px-4 py-2 md:py-3 pr-8 md:pr-10 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:ring-2 md:focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 text-xs md:text-sm outline-none"
+                                className="w-full px-3 md:px-4 py-2 md:py-3 pr-8 md:pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:ring-2 md:focus:ring-4 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none"
                                 placeholder="Tối thiểu 6 ký tự"
                                 required
                             />
@@ -2661,13 +2668,13 @@ const LoginScreen = () => {
 
                     {mode === 'register' && (
                         <div className="space-y-1.5 md:space-y-2">
-                            <label className="block text-xs md:text-sm font-semibold text-gray-700">Xác nhận mật khẩu</label>
+                            <label className="block text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300">Xác nhận mật khẩu</label>
                             <div className="relative">
                                 <input
                                     type={showConfirmPassword ? 'text' : 'password'}
                                     value={confirmPassword}
                                     onChange={(e) => setConfirmPassword(e.target.value)}
-                                    className="w-full px-3 md:px-4 py-2 md:py-3 pr-8 md:pr-10 bg-gray-50 border border-gray-200 rounded-lg md:rounded-xl focus:ring-2 md:focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 text-xs md:text-sm outline-none"
+                                    className="w-full px-3 md:px-4 py-2 md:py-3 pr-8 md:pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:ring-2 md:focus:ring-4 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none"
                                     placeholder="Nhập lại mật khẩu"
                                     required
                                 />
@@ -3106,6 +3113,16 @@ const ProfileScreen = ({ onSave }) => {
 const Header = ({ currentView, setView, isDarkMode, setIsDarkMode }) => {
     const handleLogout = async () => {
         try {
+            // Clear state ngay lập tức trước khi signOut để tránh hiển thị dữ liệu cũ
+            setAllCards([]);
+            setReviewCards([]);
+            setProfile(null);
+            setView('HOME');
+            setEditingCard(null);
+            setNotification('');
+            setDailyActivityLogs([]);
+            
+            // Sau đó mới signOut
             if (auth) {
                 await signOut(auth);
             }
@@ -5633,25 +5650,28 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
 
                 {/* Feedback & Actions - Only for non-flashcard modes */}
                 {reviewMode !== 'flashcard' && (
-                <div className={`transition-all duration-300 ease-out overflow-hidden ${isRevealed ? 'max-h-[200px] md:max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <div className={`p-3 md:p-5 rounded-xl md:rounded-2xl border mb-2 md:mb-4 flex items-start gap-2 md:gap-4 ${feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : feedback === 'incorrect' ? 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800' : 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700'}`}>
-                        {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
-                            <div className={`p-1.5 md:p-2 rounded-full flex-shrink-0 ${feedback === 'correct' ? 'bg-green-200 dark:bg-green-800 text-green-700 dark:text-green-300' : 'bg-red-200 dark:bg-red-800 text-red-700 dark:text-red-300'}`}>
-                                {feedback === 'correct' ? <Check className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3}/> : <X className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3}/>}
+                <div className="space-y-2 md:space-y-3">
+                    {/* Feedback Message - Có thể scroll nếu dài */}
+                    <div className={`transition-all duration-300 ease-out overflow-hidden ${isRevealed ? 'max-h-[120px] md:max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+                        <div className={`p-3 md:p-5 rounded-xl md:rounded-2xl border flex items-start gap-2 md:gap-4 overflow-y-auto max-h-[120px] md:max-h-40 ${feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : feedback === 'incorrect' ? 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800' : 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700'}`}>
+                            {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
+                                <div className={`p-1.5 md:p-2 rounded-full flex-shrink-0 ${feedback === 'correct' ? 'bg-green-200 dark:bg-green-800 text-green-700 dark:text-green-300' : 'bg-red-200 dark:bg-red-800 text-red-700 dark:text-red-300'}`}>
+                                    {feedback === 'correct' ? <Check className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3}/> : <X className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3}/>}
+                                </div>
+                            )}
+                            <div className="flex-1 min-w-0">
+                                 {/* Typing feedback message */}
+                                 <div>
+                                     <p className={`font-bold text-base md:text-xl ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'}`}>{message}</p>
+                                     {feedback === 'incorrect' && cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && <p className="text-xs md:text-base text-red-600 dark:text-red-400 mt-0.5 md:mt-1">Gõ lại từ đúng để tiếp tục</p>}
+                                 </div>
                             </div>
-                        )}
-                        <div className="flex-1 min-w-0">
-                             {/* Typing feedback message */}
-                             <div>
-                                 <p className={`font-bold text-base md:text-xl ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'}`}>{message}</p>
-                                 {feedback === 'incorrect' && cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && <p className="text-xs md:text-base text-red-600 dark:text-red-400 mt-0.5 md:mt-1">Gõ lại từ đúng để tiếp tục</p>}
-                             </div>
                         </div>
                     </div>
                     
                     {/* SRS Adjustment Boxes - Chỉ hiển thị sau khi nhập lại đúng ở phần back và SRS level >= 2 */}
                     {showSrsAdjustment && cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
-                        <div className="mb-2 md:mb-4 p-2 md:p-3 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-lg md:rounded-xl">
+                        <div className="p-2 md:p-3 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-lg md:rounded-xl">
                             <p className="text-xs md:text-sm font-semibold text-blue-800 dark:text-blue-300 mb-2 text-center">Đánh giá độ khó:</p>
                             <div className="grid grid-cols-3 gap-1.5 md:gap-2">
                                 <button
@@ -5685,7 +5705,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                         </div>
                     )}
                     
-                    {/* TYPING MODE ACTIONS (Chỉ cho Back, không cho Synonym và Example) */}
+                    {/* TYPING MODE ACTIONS (Chỉ cho Back, không cho Synonym và Example) - Luôn hiển thị bên ngoài để không bị che */}
                     {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && !showSrsAdjustment && (
                         <button
                             onClick={handleNext}
@@ -7034,7 +7054,7 @@ const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteU
                     </div>
                 </div>
             )}
-            <button onClick={onBack} className="w-full py-3 border border-gray-200 rounded-xl hover:bg-gray-50 mt-4">Quay lại</button>
+            <button onClick={onBack} className="w-full py-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 mt-4 text-gray-600 dark:text-gray-900 dark:bg-white font-medium">Quay lại</button>
         </div>
     );
 };
