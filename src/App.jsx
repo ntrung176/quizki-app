@@ -3113,16 +3113,7 @@ const ProfileScreen = ({ onSave }) => {
 const Header = ({ currentView, setView, isDarkMode, setIsDarkMode }) => {
     const handleLogout = async () => {
         try {
-            // Clear state ngay lập tức trước khi signOut để tránh hiển thị dữ liệu cũ
-            setAllCards([]);
-            setReviewCards([]);
-            setProfile(null);
-            setView('HOME');
-            setEditingCard(null);
-            setNotification('');
-            setDailyActivityLogs([]);
-            
-            // Sau đó mới signOut
+            // Chỉ cần signOut, logic clear state đã được xử lý trong onAuthStateChanged
             if (auth) {
                 await signOut(auth);
             }
