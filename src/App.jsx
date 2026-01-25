@@ -1454,62 +1454,8 @@ const App = () => {
     const handleAddCard = async ({ front, back, synonym, example, exampleMeaning, nuance, pos, level, action, imageBase64, audioBase64, sinoVietnamese, synonymSinoVietnamese }) => {
         if (!vocabCollectionPath) return false;
         
-        // Nếu đang trong batch mode, tìm và cập nhật card tạm thay vì tạo mới
-        if (batchVocabList.length > 0 && currentBatchIndex < batchVocabList.length) {
-            const currentVocab = batchVocabList[currentBatchIndex];
-            const tempCard = allCards.find(card => {
-                const cardFront = card.front.split('（')[0].split('(')[0].trim();
-                return cardFront === currentVocab.trim() && (!card.back || card.back.trim() === '');
-            });
-            
-            if (tempCard) {
-                // Cập nhật card tạm với dữ liệu từ form
-                const updatedData = {
-                    front: front.trim(),
-                    back: back.trim(),
-                    synonym: synonym.trim(),
-                    example: example.trim(),
-                    exampleMeaning: exampleMeaning.trim(),
-                    nuance: nuance.trim(),
-                    pos: pos || '',
-                    level: level || '',
-                    sinoVietnamese: sinoVietnamese ? sinoVietnamese.trim() : '',
-                    synonymSinoVietnamese: synonymSinoVietnamese ? synonymSinoVietnamese.trim() : '',
-                    imageBase64: imageBase64 || null,
-                    audioBase64: audioBase64 || null,
-                };
-                
-                try {
-                    await updateDoc(doc(db, vocabCollectionPath, tempCard.id), updatedData);
-                    setNotification(`Đã cập nhật từ vựng: ${updatedData.front}`);
-                    await updateDailyActivity(1);
-                    
-                    // Tạo âm thanh nếu chưa có
-                    if (!audioBase64 || (typeof audioBase64 === 'string' && audioBase64.trim() === '')) {
-                        (async () => {
-                            try {
-                                const speechText = getSpeechText(front);
-                                if (!speechText || speechText.trim() === '') return;
-                                const fetchedAudioBase64 = await fetchTtsBase64(speechText);
-                                if (fetchedAudioBase64) {
-                                    await updateDoc(doc(db, vocabCollectionPath, tempCard.id), { audioBase64: fetchedAudioBase64 });
-                                }
-                            } catch (e) {
-                                console.error("Lỗi tạo âm thanh (nền):", e);
-                            }
-                        })();
-                    }
-                    
-                    return true;
-                } catch (e) {
-                    console.error("Lỗi khi cập nhật thẻ:", e);
-                    setNotification("Lỗi khi cập nhật thẻ.");
-                    return false;
-                }
-            }
-        }
-        
-        const normalizedFront = front.trim();
+        // Kiểm tra trùng lặp với database
+        const normalizedFront = front.split('（')[0].split('(')[0].trim();
         const isDuplicate = allCards.some(card => {
             const cardFront = card.front.split('（')[0].split('(')[0].trim();
             return cardFront === normalizedFront;
@@ -1577,73 +1523,68 @@ const App = () => {
     const handleBatchImportFromText = async (vocabList) => {
         if (!vocabCollectionPath || vocabList.length === 0) return;
         
-        // Lọc bỏ các từ trùng lặp và từ đã có trong database
-        const filteredList = vocabList.filter(vocab => {
-            const normalized = vocab.trim();
-            if (!normalized) return false;
-            return !allCards.some(card => {
-                const cardFront = card.front.split('（')[0].split('(')[0].trim();
-                return cardFront === normalized;
-            });
-        });
+        // Loại bỏ các từ trống và normalize
+        const normalizedList = vocabList
+            .map(vocab => vocab.trim())
+            .filter(vocab => vocab.length > 0);
         
-        if (filteredList.length === 0) {
+        if (normalizedList.length === 0) {
+            setNotification('Không có từ vựng hợp lệ!');
+            return;
+        }
+        
+        // Tách thành 2 nhóm: từ mới và từ đã có
+        const newVocabs = [];
+        const existingVocabs = [];
+        const seenInInput = new Set(); // Để loại bỏ trùng lặp trong input
+        
+        for (const vocab of normalizedList) {
+            // Kiểm tra trùng lặp trong input
+            if (seenInInput.has(vocab)) {
+                existingVocabs.push(vocab);
+                continue;
+            }
+            seenInInput.add(vocab);
+            
+            // Kiểm tra trùng lặp với database
+            const existsInDb = allCards.some(card => {
+                const cardFront = card.front.split('（')[0].split('(')[0].trim();
+                return cardFront === vocab;
+            });
+            
+            if (existsInDb) {
+                existingVocabs.push(vocab);
+            } else {
+                newVocabs.push(vocab);
+            }
+        }
+        
+        // Hiển thị thông báo các từ đã có
+        if (existingVocabs.length > 0) {
+            const existingList = existingVocabs.slice(0, 10).join(', ');
+            const moreText = existingVocabs.length > 10 ? ` và ${existingVocabs.length - 10} từ khác` : '';
+            setNotification(`⚠️ ${existingVocabs.length} từ vựng đã có trong danh sách: ${existingList}${moreText}`);
+        }
+        
+        if (newVocabs.length === 0) {
             setNotification('Tất cả từ vựng đã có trong danh sách!');
             return;
         }
         
         setIsProcessingBatch(true);
-        setBatchVocabList(filteredList);
+        setBatchVocabList(newVocabs);
         setCurrentBatchIndex(0);
         setShowBatchImportModal(false);
         
-        // Tạo từ đầu tiên với API
-        const firstVocab = filteredList[0];
+        // KHÔNG tạo tạm vào database, chỉ lưu danh sách vào state
+        // Lấy dữ liệu từ API cho từ đầu tiên
+        const firstVocab = newVocabs[0];
         const aiData = await handleGeminiAssist(firstVocab);
-        
-        // Tạo các từ còn lại với dữ liệu tạm (chỉ có front)
-        if (filteredList.length > 1) {
-            const batch = writeBatch(db);
-            for (let i = 1; i < filteredList.length; i++) {
-                const vocab = filteredList[i].trim();
-                if (!vocab) continue;
-                
-                const tempCardData = createCardObject(
-                    vocab, // front
-                    '', // back - sẽ được điền sau
-                    '', // synonym
-                    '', // example
-                    '', // exampleMeaning
-                    '', // nuance
-                    {}, // srsData
-                    null, // createdAtDate
-                    null, // imageBase64
-                    null, // audioBase64
-                    '', // pos
-                    '', // level
-                    '', // sinoVietnamese
-                    '' // synonymSinoVietnamese
-                );
-                
-                const cardRef = doc(collection(db, vocabCollectionPath));
-                batch.set(cardRef, tempCardData);
-            }
-            
-            // Commit batch tạo các từ tạm
-            try {
-                await batch.commit();
-            } catch (e) {
-                console.error('Lỗi tạo các từ vựng tạm:', e);
-                setNotification('Lỗi khi tạo các từ vựng tạm. Vui lòng thử lại.');
-                setIsProcessingBatch(false);
-                return;
-            }
-        }
         
         // Chuyển sang view ADD_CARD với dữ liệu từ đầu tiên
         setView('ADD_CARD');
         setEditingCard({
-            id: null,
+            id: null, // Không có id vì chưa tạo trong database
             front: aiData?.frontWithFurigana || firstVocab,
             back: aiData?.meaning || '',
             synonym: aiData?.synonym || '',
@@ -1659,7 +1600,13 @@ const App = () => {
         });
         
         setIsProcessingBatch(false);
-        setNotification(`Đang xử lý từ vựng 1/${filteredList.length}...`);
+        
+        // Thông báo kết hợp
+        let finalMessage = `Đang xử lý từ vựng 1/${newVocabs.length}...`;
+        if (existingVocabs.length > 0) {
+            finalMessage += ` (${existingVocabs.length} từ đã có trong danh sách)`;
+        }
+        setNotification(finalMessage);
     };
 
     // Hàm xử lý khi lưu từ vựng trong batch (sau khi user check và lưu)
@@ -1679,70 +1626,69 @@ const App = () => {
         setCurrentBatchIndex(nextIndex);
         const nextVocab = batchVocabList[nextIndex];
         
-        // Đợi một chút để allCards được cập nhật từ Firestore
-        await new Promise(resolve => setTimeout(resolve, 800));
+        // Lấy dữ liệu từ API cho từ tiếp theo
+        const aiData = await handleGeminiAssist(nextVocab);
         
-        // Tìm card tạm đã tạo trước đó (tìm trong allCards mới nhất)
-        const tempCard = allCards.find(card => {
-            const cardFront = card.front.split('（')[0].split('(')[0].trim();
-            return cardFront === nextVocab.trim() && (!card.back || card.back.trim() === '');
+        // Hiển thị form với dữ liệu mới (chưa tạo trong database)
+        setEditingCard({
+            id: null, // Chưa có id vì chưa tạo trong database
+            front: aiData?.frontWithFurigana || nextVocab,
+            back: aiData?.meaning || '',
+            synonym: aiData?.synonym || '',
+            example: aiData?.example || '',
+            exampleMeaning: aiData?.exampleMeaning || '',
+            nuance: aiData?.nuance || '',
+            pos: aiData?.pos || '',
+            level: aiData?.level || '',
+            sinoVietnamese: aiData?.sinoVietnamese || '',
+            synonymSinoVietnamese: aiData?.synonymSinoVietnamese || '',
+            imageBase64: null,
+            audioBase64: null,
         });
-        
-        if (tempCard) {
-            // Cập nhật card tạm với dữ liệu từ API
-            const aiData = await handleGeminiAssist(nextVocab);
-            
-            // Cập nhật card với dữ liệu từ API
-            const updateData = {
-                front: aiData?.frontWithFurigana || nextVocab,
-                back: aiData?.meaning || '',
-                synonym: aiData?.synonym || '',
-                example: aiData?.example || '',
-                exampleMeaning: aiData?.exampleMeaning || '',
-                nuance: aiData?.nuance || '',
-                pos: aiData?.pos || '',
-                level: aiData?.level || '',
-                sinoVietnamese: aiData?.sinoVietnamese || '',
-                synonymSinoVietnamese: aiData?.synonymSinoVietnamese || '',
-            };
-            
-            try {
-                await updateDoc(doc(db, vocabCollectionPath, tempCard.id), updateData);
-                // Cập nhật local state
-                setAllCards(prev => prev.map(card => 
-                    card.id === tempCard.id ? { ...card, ...updateData } : card
-                ));
-            } catch (e) {
-                console.error('Lỗi cập nhật từ vựng tạm:', e);
-            }
-            
-            // Hiển thị form với dữ liệu mới
-            setEditingCard({
-                ...tempCard,
-                ...updateData,
-            });
-        } else {
-            // Nếu không tìm thấy card tạm, tạo mới với API
-            const aiData = await handleGeminiAssist(nextVocab);
-            setEditingCard({
-                id: null,
-                front: aiData?.frontWithFurigana || nextVocab,
-                back: aiData?.meaning || '',
-                synonym: aiData?.synonym || '',
-                example: aiData?.example || '',
-                exampleMeaning: aiData?.exampleMeaning || '',
-                nuance: aiData?.nuance || '',
-                pos: aiData?.pos || '',
-                level: aiData?.level || '',
-                sinoVietnamese: aiData?.sinoVietnamese || '',
-                synonymSinoVietnamese: aiData?.synonymSinoVietnamese || '',
-                imageBase64: null,
-                audioBase64: null,
-            });
-        }
         
         setView('ADD_CARD');
         setNotification(`Đang xử lý từ vựng ${nextIndex + 1}/${batchVocabList.length}...`);
+    };
+
+    // Hàm xử lý khi bỏ qua từ vựng hiện tại
+    const handleBatchSkip = async () => {
+        if (currentBatchIndex >= batchVocabList.length - 1) {
+            // Đã hết danh sách
+            setBatchVocabList([]);
+            setCurrentBatchIndex(0);
+            setEditingCard(null);
+            setNotification('Đã hoàn thành xử lý tất cả từ vựng!');
+            setView('HOME');
+            return;
+        }
+        
+        // Chuyển sang từ tiếp theo
+        const nextIndex = currentBatchIndex + 1;
+        setCurrentBatchIndex(nextIndex);
+        const nextVocab = batchVocabList[nextIndex];
+        
+        // Lấy dữ liệu từ API cho từ tiếp theo
+        const aiData = await handleGeminiAssist(nextVocab);
+        
+        // Hiển thị form với dữ liệu mới
+        setEditingCard({
+            id: null,
+            front: aiData?.frontWithFurigana || nextVocab,
+            back: aiData?.meaning || '',
+            synonym: aiData?.synonym || '',
+            example: aiData?.example || '',
+            exampleMeaning: aiData?.exampleMeaning || '',
+            nuance: aiData?.nuance || '',
+            pos: aiData?.pos || '',
+            level: aiData?.level || '',
+            sinoVietnamese: aiData?.sinoVietnamese || '',
+            synonymSinoVietnamese: aiData?.synonymSinoVietnamese || '',
+            imageBase64: null,
+            audioBase64: null,
+        });
+        
+        setView('ADD_CARD');
+        setNotification(`Đã bỏ qua. Đang xử lý từ vựng ${nextIndex + 1}/${batchVocabList.length}...`);
     };
 
     const handleBatchImport = async (cardsArray) => {
@@ -2556,6 +2502,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     currentBatchIndex={currentBatchIndex}
                     totalBatchCount={batchVocabList.length}
                     onBatchNext={handleBatchSaveNext}
+                    onBatchSkip={handleBatchSkip}
                     editingCard={editingCard}
                     onOpenBatchImport={() => setShowBatchImportModal(true)}
                 />;
@@ -3900,7 +3847,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
     );
 };
 
-const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, currentBatchIndex = 0, totalBatchCount = 0, onBatchNext, editingCard: initialEditingCard = null, onOpenBatchImport }) => {
+const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, currentBatchIndex = 0, totalBatchCount = 0, onBatchNext, onBatchSkip, editingCard: initialEditingCard = null, onOpenBatchImport }) => {
     // ... (State logic giữ nguyên)
     const [front, setFront] = useState('');
     const [back, setBack] = useState('');
@@ -4266,6 +4213,19 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, curren
                     {isSaving ? <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2" /> : <Plus className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2" />}
                     <span className="text-xs md:text-sm lg:text-base">{batchMode ? `Lưu & Tiếp (${currentBatchIndex + 1}/${totalBatchCount})` : 'Lưu & Thêm Tiếp'}</span>
                 </button>
+                {batchMode && onBatchSkip && (
+                    <button
+                        type="button"
+                        onClick={async () => {
+                            await onBatchSkip();
+                        }}
+                        disabled={isSaving || isAiLoading}
+                        className="flex-1 flex items-center justify-center px-3 md:px-4 lg:px-6 py-2 md:py-3 lg:py-4 text-xs md:text-sm lg:text-base font-bold rounded-lg md:rounded-xl shadow-sm text-orange-700 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/30 hover:bg-orange-100 dark:hover:bg-orange-900/50 hover:-translate-y-1 transition-all disabled:opacity-50"
+                    >
+                        <X className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2" />
+                        <span className="text-xs md:text-sm lg:text-base">Bỏ qua</span>
+                    </button>
+                )}
                 {!batchMode && (
                     <button
                         type="button"
