@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useRef, useTransition, useDeferredValue } from 'react';
 import { useDebounce } from 'use-debounce';
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail, updatePassword, sendEmailVerification } from 'firebase/auth';
@@ -4560,15 +4560,80 @@ const SrsStatusCell = ({ intervalIndex, nextReview, hasData }) => {
     );
 };
 
-const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToEdit, onAutoClassifyBatch, scrollToCardId, onScrollComplete, savedFilters, onFiltersChange }) => {
+// Memoize ListView để tránh re-render không cần thiết
+// Component SearchInput riêng với uncontrolled input để tránh re-render hoàn toàn
+// Chỉ tìm kiếm khi nhấn Enter, không tự động debounce
+const SearchInput = React.memo(({ defaultValue, onSearchChange, onSearchClick, placeholder }) => {
+    const inputRef = useRef(null);
+    const lastDefaultValueRef = useRef(defaultValue);
+    
+    // Sync defaultValue khi nó thay đổi từ bên ngoài (khi restore filters)
+    useEffect(() => {
+        if (defaultValue !== lastDefaultValueRef.current) {
+            lastDefaultValueRef.current = defaultValue;
+            if (inputRef.current) {
+                inputRef.current.value = defaultValue;
+            }
+        }
+    }, [defaultValue]);
+    
+    // Xử lý khi nhấn Enter
+    const handleKeyDown = useCallback((e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const value = e.target.value;
+            onSearchChange(value);
+        }
+    }, [onSearchChange]);
+    
+    // Xử lý khi click vào icon search
+    const handleSearchClick = useCallback(() => {
+        if (inputRef.current) {
+            const value = inputRef.current.value;
+            onSearchChange(value);
+        }
+    }, [onSearchChange]);
+    
+    return (
+        <div className="relative w-full md:w-96">
+            <Search 
+                className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-3 h-3 md:w-4 md:h-4 cursor-pointer hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors" 
+                onClick={handleSearchClick}
+            />
+            <input 
+                ref={inputRef}
+                type="text" 
+                defaultValue={defaultValue}
+                onKeyDown={handleKeyDown}
+                placeholder={placeholder}
+                className="w-full pl-7 md:pl-9 pr-3 md:pr-4 py-1.5 md:py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 transition-all text-xs md:text-sm shadow-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+            />
+        </div>
+    );
+}, (prevProps, nextProps) => {
+    // Chỉ re-render khi defaultValue thay đổi, không re-render khi callbacks thay đổi
+    return prevProps.defaultValue === nextProps.defaultValue && 
+           prevProps.placeholder === nextProps.placeholder;
+});
+SearchInput.displayName = 'SearchInput';
+
+const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToEdit, onAutoClassifyBatch, scrollToCardId, onScrollComplete, savedFilters, onFiltersChange }) => {
     // Sử dụng savedFilters nếu có, không thì dùng default
     const [filterLevel, setFilterLevel] = useState(savedFilters?.filterLevel || 'all');
     const [filterPos, setFilterPos] = useState(savedFilters?.filterPos || 'all');
     const [filterAudio, setFilterAudio] = useState(savedFilters?.filterAudio || 'all'); // 'all', 'with', 'without'
     const [sortOrder, setSortOrder] = useState(savedFilters?.sortOrder || 'newest');
-    const [searchTerm, setSearchTerm] = useState(savedFilters?.searchTerm || ''); // Thêm state cho Search
-    const [debouncedSearchTerm] = useDebounce(searchTerm, 300); // Debounce search với 300ms delay
+    // Chỉ lưu search term khi người dùng nhấn Enter, không tự động debounce
+    const [searchTerm, setSearchTerm] = useState(savedFilters?.searchTerm || ''); // Chỉ update khi nhấn Enter
+    // Sử dụng useDeferredValue để ưu tiên update input, defer việc filter
+    const deferredSearchTerm = useDeferredValue(searchTerm);
     const [viewMode, setViewMode] = useState(savedFilters?.viewMode || 'grid'); // 'list' hoặc 'grid' - mặc định là grid
+    
+    // Handler cho search input - chỉ update searchTerm khi nhấn Enter hoặc click search
+    const handleSearchChange = useCallback((value) => {
+        // Chỉ update searchTerm khi người dùng nhấn Enter hoặc click search
+        setSearchTerm(value);
+    }, []);
     
     // Khôi phục filters từ savedFilters khi quay lại từ edit
     // Dùng ref để tránh vòng lặp và track khi nào đang restore
@@ -4585,7 +4650,8 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
             setFilterPos(savedFilters.filterPos || 'all');
             setFilterAudio(savedFilters.filterAudio || 'all');
             setSortOrder(savedFilters.sortOrder || 'newest');
-            setSearchTerm(savedFilters.searchTerm || '');
+            const savedSearchTerm = savedFilters.searchTerm || '';
+            setSearchTerm(savedSearchTerm);
             setViewMode(savedFilters.viewMode || 'grid');
             // Đánh dấu đã khôi phục xong sau một tick
             setTimeout(() => {
@@ -4600,38 +4666,109 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
         if (isRestoringRef.current || !onFiltersChange) {
             return;
         }
+        // Chỉ update filters khi searchTerm thay đổi (khi nhấn Enter)
         onFiltersChange({ filterLevel, filterPos, filterAudio, sortOrder, searchTerm, viewMode });
     }, [filterLevel, filterPos, filterAudio, sortOrder, searchTerm, viewMode, onFiltersChange]);
     
-    // Helper để reset tất cả filters
-    const resetFilters = () => {
+    // Helper để reset tất cả filters - memoize với useCallback
+    const resetFilters = useCallback(() => {
         setFilterLevel('all');
         setFilterPos('all');
         setFilterAudio('all');
         setSortOrder('newest');
-        setSearchTerm('');
-    };
+        setInputValue('');
+    }, []);
 
-    const cardsMissingPos = allCards.filter(c => !c.pos || !c.level);
+    // Memoize cardsMissingPos để tránh tính toán lại mỗi lần render
+    const cardsMissingPos = useMemo(() => {
+        return allCards.filter(c => !c.pos || !c.level);
+    }, [allCards]);
+
+    // Pre-compute searchable text và sort timestamps cho tất cả cards một lần
+    const preprocessedCards = useMemo(() => {
+        return allCards.map(card => {
+            // Pre-compute searchable text một lần
+            if (!card._searchableText) {
+                card._searchableText = [
+                    card.front?.toLowerCase() || '',
+                    card.back?.toLowerCase() || '',
+                    card.synonym?.toLowerCase() || '',
+                    card.sinoVietnamese?.toLowerCase() || ''
+                ].join(' ');
+            }
+            // Pre-compute timestamp một lần
+            if (card._timestamp === undefined) {
+                card._timestamp = card.createdAt?.getTime() || 0;
+            }
+            return card;
+        });
+    }, [allCards]);
+
+    // Tối ưu filtering: single-pass filtering với for loop để đạt tốc độ tối đa
+    // Sử dụng useMemo với dependencies rõ ràng để tránh tính toán lại không cần thiết
     const filteredCards = useMemo(() => {
-        let result = [...allCards];
-        // Lọc theo tìm kiếm (sử dụng debounced value để giảm re-renders)
-        if (debouncedSearchTerm.trim()) {
-            const lowerTerm = debouncedSearchTerm.toLowerCase().trim();
-            result = result.filter(c => 
-                c.front.toLowerCase().includes(lowerTerm) || 
-                c.back.toLowerCase().includes(lowerTerm) || 
-                (c.synonym && c.synonym.toLowerCase().includes(lowerTerm)) ||
-                (c.sinoVietnamese && c.sinoVietnamese.toLowerCase().includes(lowerTerm))
-            );
+        const searchTermLower = deferredSearchTerm.trim().toLowerCase();
+        const hasSearch = searchTermLower.length > 0;
+        const hasLevelFilter = filterLevel !== 'all';
+        const hasPosFilter = filterPos !== 'all';
+        const hasAudioFilter = filterAudio !== 'all';
+        const hasAnyFilter = hasSearch || hasLevelFilter || hasPosFilter || hasAudioFilter;
+
+        // Nếu không có filter nào, trả về allCards đã sort (fast path)
+        if (!hasAnyFilter) {
+            // Sử dụng preprocessed cards với timestamp đã cache
+            const sorted = [...preprocessedCards];
+            if (sortOrder === 'newest') {
+                sorted.sort((a, b) => b._timestamp - a._timestamp);
+            } else {
+                sorted.sort((a, b) => a._timestamp - b._timestamp);
+            }
+            return sorted;
         }
-        if (filterLevel !== 'all') result = result.filter(c => c.level === filterLevel);
-        if (filterPos !== 'all') result = result.filter(c => c.pos === filterPos);
-        if (filterAudio === 'with') result = result.filter(c => c.audioBase64 && c.audioBase64.trim() !== '');
-        if (filterAudio === 'without') result = result.filter(c => !c.audioBase64 || c.audioBase64.trim() === '' || c.audioBase64 === null);
-        sortOrder === 'newest' ? result.sort((a, b) => b.createdAt - a.createdAt) : result.sort((a, b) => a.createdAt - b.createdAt);
+
+        // Single-pass filtering với for loop (nhanh hơn filter() nhiều lần)
+        const result = [];
+        const cardsLength = preprocessedCards.length;
+        
+        for (let i = 0; i < cardsLength; i++) {
+            const card = preprocessedCards[i];
+            
+            // Search filter
+            if (hasSearch && !card._searchableText.includes(searchTermLower)) {
+                continue;
+            }
+            
+            // Level filter
+            if (hasLevelFilter && card.level !== filterLevel) {
+                continue;
+            }
+            
+            // POS filter
+            if (hasPosFilter && card.pos !== filterPos) {
+                continue;
+            }
+            
+            // Audio filter
+            if (hasAudioFilter) {
+                if (filterAudio === 'with' && (!card.audioBase64 || card.audioBase64.trim() === '')) {
+                    continue;
+                } else if (filterAudio === 'without' && card.audioBase64 && card.audioBase64.trim() !== '') {
+                    continue;
+                }
+            }
+            
+            result.push(card);
+        }
+        
+        // Sort - sử dụng pre-computed timestamp
+        if (sortOrder === 'newest') {
+            result.sort((a, b) => b._timestamp - a._timestamp);
+        } else {
+            result.sort((a, b) => a._timestamp - b._timestamp);
+        }
+        
         return result;
-    }, [allCards, filterLevel, filterPos, filterAudio, sortOrder, debouncedSearchTerm]);
+    }, [preprocessedCards, filterLevel, filterPos, filterAudio, sortOrder, deferredSearchTerm]);
 
     // Note: Virtual scrolling tạm thời disable, có thể enable sau
     // const useVirtualScrolling = viewMode === 'grid' && filteredCards.length > 100;
@@ -4694,16 +4831,12 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
                 
                 <div className="flex flex-wrap gap-2 items-center justify-between">
                      {/* Search Bar */}
-                     <div className="relative w-full md:w-96">
-                        <Search className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-3 h-3 md:w-4 md:h-4" />
-                        <input 
-                            type="text" 
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                            placeholder="Tìm kiếm từ vựng, ý nghĩa, Hán Việt..." 
-                            className="w-full pl-7 md:pl-9 pr-3 md:pr-4 py-1.5 md:py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 transition-all text-xs md:text-sm shadow-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
-                        />
-                     </div>
+                     <SearchInput 
+                        defaultValue={searchTerm}
+                        onSearchChange={handleSearchChange}
+                        onSearchClick={handleSearchChange}
+                        placeholder="Tìm kiếm từ vựng, ý nghĩa, Hán Việt... (Nhấn Enter để tìm)"
+                     />
 
                     <div className="flex flex-wrap gap-1.5 md:gap-2">
                         {cardsMissingPos.length > 0 && (
@@ -4892,7 +5025,9 @@ const ListView = ({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToE
             {filteredCards.length === 0 && <div className="p-6 md:p-10 text-center text-xs md:text-sm text-gray-400">Không tìm thấy từ vựng nào.</div>}
         </div>
     );
-};
+});
+
+ListView.displayName = 'ListView';
 
 
 const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard, onCompleteReview, vocabCollectionPath }) => {
@@ -4913,7 +5048,6 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
     const [selectedAnswer, setSelectedAnswer] = useState(null); // Cho trắc nghiệm Synonym/Example
     const [multipleChoiceOptions, setMultipleChoiceOptions] = useState([]); // Cho trắc nghiệm Synonym/Example
     const [failedCards, setFailedCards] = useState(new Set()); // Lưu các từ đã sai trong lần ôn tập hiện tại: Set<cardId-reviewType>
-    const [showSrsAdjustment, setShowSrsAdjustment] = useState(false); // Hiển thị 3 box lựa chọn SRS khi sai
     const inputRef = useRef(null);
     const isCompletingRef = useRef(false); // Track xem đã gọi handleCompleteReview chưa
     const failedCardsRef = useRef(failedCards); // Lưu giá trị mới nhất của failedCards
@@ -5076,28 +5210,13 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [currentIndex, cards, reviewMode, handleCompleteReview, moveToPreviousCard]);
     
-    // Keyboard handlers cho SRS adjustment và multiple choice
+    // Keyboard handlers cho multiple choice
     useEffect(() => {
         if (!currentCard) return;
         
         const handleKeyDown = (e) => {
             // Chỉ xử lý khi không đang nhập vào input/textarea
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-            
-            // Phím 1, 2, 3 cho SRS adjustment (chỉ khi hiển thị box)
-            if (showSrsAdjustment && !isProcessing) {
-                if (e.key === '1') {
-                    e.preventDefault();
-                    handleSrsAdjustment('very_hard');
-                } else if (e.key === '2') {
-                    e.preventDefault();
-                    handleSrsAdjustment('hard');
-                } else if (e.key === '3') {
-                    e.preventDefault();
-                    handleSrsAdjustment('normal');
-                }
-                return;
-            }
             
             // Phím 1, 2, 3, 4 cho multiple choice (chỉ khi chưa reveal và có options)
             if (isMultipleChoice && !isRevealed && multipleChoiceOptions.length > 0 && !isProcessing) {
@@ -5112,7 +5231,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [showSrsAdjustment, isMultipleChoice, isRevealed, multipleChoiceOptions, isProcessing, currentCard]);
+    }, [isMultipleChoice, isRevealed, multipleChoiceOptions, isProcessing, currentCard]);
     
     // Swipe handlers cho flashcard mode - Định nghĩa sau handleCompleteReview
     const minSwipeDistance = 50; // Khoảng cách tối thiểu để coi là swipe
@@ -5510,77 +5629,11 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
             
             // Cập nhật streak về 0 trong Firestore
             await onUpdateCard(currentCard.id, false, cardReviewType);
-            // KHÔNG hiển thị 3 box ngay, đợi người dùng nhập lại đúng
         }
     };
 
     // Flashcard grading logic được xử lý trực tiếp trong checkAnswer và moveToNextCard
     // handleFlashcardGrade đã được tích hợp vào checkAnswer, không cần function riêng
-
-    // Hàm xử lý điều chỉnh SRS level khi sai
-    const handleSrsAdjustment = async (adjustment) => {
-        if (!vocabCollectionPath || !currentCard || isProcessing) return;
-        
-        setIsProcessing(true);
-        
-        const cardRef = doc(db, vocabCollectionPath, currentCard.id);
-        let cardSnap;
-        try {
-            cardSnap = await getDoc(cardRef);
-        } catch (e) {
-            console.error("Lỗi fetch thẻ để điều chỉnh SRS:", e);
-            setIsProcessing(false);
-            return;
-        }
-        
-        if (!cardSnap.exists()) {
-            setIsProcessing(false);
-            return;
-        }
-        
-        const cardData = cardSnap.data();
-        let currentInterval = typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1;
-        if (currentInterval === -999) currentInterval = -1;
-        
-        let newInterval;
-        if (adjustment === 'very_hard') {
-            // Rất khó: Reset về không có cấp độ
-            newInterval = -1;
-        } else if (adjustment === 'hard') {
-            // Khó: -1 cấp độ
-            newInterval = Math.max(-1, currentInterval - 1);
-        } else {
-            // Bình thường: Giữ nguyên
-            newInterval = currentInterval;
-        }
-        
-        const nextReviewDate = getNextReviewDate(newInterval);
-        
-        try {
-            await updateDoc(cardRef, {
-                intervalIndex_back: newInterval,
-                nextReview_back: nextReviewDate,
-            });
-            
-            // Cập nhật local state
-            setCards(prevCards => {
-                return prevCards.map(card => {
-                    if (card.id === currentCard.id) {
-                        return { ...card, intervalIndex_back: newInterval, nextReview_back: nextReviewDate };
-                    }
-                    return card;
-                });
-            });
-            
-            setShowSrsAdjustment(false);
-            
-            // Sau khi chọn box, chuyển sang thẻ tiếp theo
-            await moveToNextCard(false); // false = không tăng streak vì đã sai trước đó
-        } catch (e) {
-            console.error("Lỗi cập nhật SRS:", e);
-            setIsProcessing(false);
-        }
-    };
 
     const moveToNextCard = async (shouldUpdateStreak) => {
         // Cập nhật streak nếu cần
@@ -5605,9 +5658,6 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 });
             });
         }
-        
-        // Reset SRS adjustment box khi chuyển thẻ
-        setShowSrsAdjustment(false);
         
         // Luôn chuyển sang thẻ tiếp theo
         const nextIndex = currentIndex + 1;
@@ -5679,17 +5729,9 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                     // Nhập lại đúng: phát âm thanh
                     playAudio(currentCard.audioBase64, currentCard.front);
                     
-                    // Hiển thị 3 box lựa chọn SRS nếu là phần back và SRS level >= 2
-                    if (cardReviewType === 'back' && currentCard.intervalIndex_back >= 2) {
-                        setShowSrsAdjustment(true);
-                        setIsLocked(false); // Mở khóa để có thể chọn box
-                        setFeedback('incorrect'); // Giữ feedback là incorrect để hiển thị box
-                        setMessage(`Đã nhập đúng! Vui lòng đánh giá độ khó:`);
-                    } else {
-                        // Không có SRS adjustment, chuyển thẻ luôn
-                        setIsProcessing(true);
-                        moveToNextCard(false); // false = không tăng streak
-                    }
+                    // Chuyển thẻ luôn
+                    setIsProcessing(true);
+                    moveToNextCard(false); // false = không tăng streak
                 } else { 
                     // Vẫn sai, yêu cầu nhập lại
                     setMessage(`Hãy nhập lại: "${displayFront}"`); 
@@ -6102,44 +6144,8 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                         </div>
                     </div>
                     
-                    {/* SRS Adjustment Boxes - Chỉ hiển thị sau khi nhập lại đúng ở phần back và SRS level >= 2 */}
-                    {showSrsAdjustment && cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
-                        <div className="p-2 md:p-3 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-lg md:rounded-xl">
-                            <p className="text-xs md:text-sm font-semibold text-blue-800 dark:text-blue-300 mb-2 text-center">Đánh giá độ khó:</p>
-                            <div className="grid grid-cols-3 gap-1.5 md:gap-2">
-                                <button
-                                    onClick={() => handleSrsAdjustment('very_hard')}
-                                    disabled={isProcessing}
-                                    className="px-2 md:px-3 py-1.5 md:py-2 text-[10px] md:text-xs font-bold rounded-md md:rounded-lg bg-red-500 dark:bg-red-600 text-white hover:bg-red-600 dark:hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md"
-                                    title="Phím 1"
-                                >
-                                    <div className="font-bold">1. Rất khó</div>
-                                    <div className="text-[9px] md:text-[10px] mt-0.5 opacity-90">Reset SRS</div>
-                                </button>
-                                <button
-                                    onClick={() => handleSrsAdjustment('hard')}
-                                    disabled={isProcessing}
-                                    className="px-2 md:px-3 py-1.5 md:py-2 text-[10px] md:text-xs font-bold rounded-md md:rounded-lg bg-orange-500 dark:bg-orange-600 text-white hover:bg-orange-600 dark:hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md"
-                                    title="Phím 2"
-                                >
-                                    <div className="font-bold">2. Khó</div>
-                                    <div className="text-[9px] md:text-[10px] mt-0.5 opacity-90">-1 cấp độ</div>
-                                </button>
-                                <button
-                                    onClick={() => handleSrsAdjustment('normal')}
-                                    disabled={isProcessing}
-                                    className="px-2 md:px-3 py-1.5 md:py-2 text-[10px] md:text-xs font-bold rounded-md md:rounded-lg bg-green-500 dark:bg-green-600 text-white hover:bg-green-600 dark:hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md"
-                                    title="Phím 3"
-                                >
-                                    <div className="font-bold">3. Bình thường</div>
-                                    <div className="text-[9px] md:text-[10px] mt-0.5 opacity-90">Giữ nguyên</div>
-                                </button>
-                            </div>
-                        </div>
-                    )}
-                    
                     {/* TYPING MODE ACTIONS (Chỉ cho Back, không cho Synonym và Example) - Luôn hiển thị bên ngoài để không bị che */}
-                    {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && !showSrsAdjustment && (
+                    {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
                         <button
                             onClick={handleNext}
                             disabled={isProcessing || (feedback === 'incorrect' && normalizeAnswer(inputValue) !== normalizeAnswer(currentCard.front.split('（')[0].split('(')[0]) && normalizeAnswer(inputValue) !== normalizeAnswer((currentCard.front.match(/（([^）]+)）/) || currentCard.front.match(/\(([^)]+)\)/))?.[1] || ''))}
