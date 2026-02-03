@@ -10,13 +10,13 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Ba
 
 // --- Cấu hình và Tiện ích Firebase ---
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 const appId = firebaseConfig.appId; // dùng chung cho đường dẫn Firestore 
 
@@ -75,19 +75,19 @@ const SRS_INTERVALS = [
 const getNextReviewDate = (intervalIndex) => {
     const date = new Date();
     if (intervalIndex < 0) {
-        date.setHours(0, 0, 0, 0); 
+        date.setHours(0, 0, 0, 0);
         return date;
     }
     const index = Math.min(intervalIndex, SRS_INTERVALS.length - 1);
-    const days = SRS_INTERVALS[index] || 1; 
+    const days = SRS_INTERVALS[index] || 1;
     date.setDate(date.getDate() + days);
-    date.setHours(0, 0, 0, 0); 
+    date.setHours(0, 0, 0, 0);
     return date;
 };
 
 const getSrsProgressText = (intervalIndex) => {
     if (intervalIndex === -1) return "Sẵn sàng";
-    if (intervalIndex === -999) return "Không có dữ liệu"; 
+    if (intervalIndex === -999) return "Không có dữ liệu";
     if (intervalIndex >= SRS_INTERVALS.length) {
         return `Dài hạn (90+)`;
     }
@@ -134,8 +134,8 @@ const compressImage = (file) => {
             img.src = event.target.result;
             img.onload = () => {
                 const canvas = document.createElement('canvas');
-                const MAX_WIDTH = 500; 
-                const MAX_HEIGHT = 500; 
+                const MAX_WIDTH = 500;
+                const MAX_HEIGHT = 500;
                 let width = img.width;
                 let height = img.height;
 
@@ -154,7 +154,7 @@ const compressImage = (file) => {
                 canvas.height = height;
                 const ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0, width, height);
-                resolve(canvas.toDataURL('image/jpeg', 0.6)); 
+                resolve(canvas.toDataURL('image/jpeg', 0.6));
             };
             img.onerror = (error) => reject(error);
         };
@@ -172,29 +172,29 @@ const pcmToWav = (pcm16, sampleRate) => {
     let offset = 0;
     view.setUint32(offset, 0x52494646, false); // "RIFF"
     offset += 4;
-    view.setUint32(offset, 36 + pcm16.byteLength, true); 
+    view.setUint32(offset, 36 + pcm16.byteLength, true);
     offset += 4;
     view.setUint32(offset, 0x57415645, false); // "WAVE"
     offset += 4;
     view.setUint32(offset, 0x666d7420, false); // "fmt "
     offset += 4;
-    view.setUint32(offset, 16, true); 
+    view.setUint32(offset, 16, true);
     offset += 4;
-    view.setUint16(offset, 1, true); 
+    view.setUint16(offset, 1, true);
     offset += 2;
-    view.setUint16(offset, numChannels, true); 
+    view.setUint16(offset, numChannels, true);
     offset += 2;
-    view.setUint32(offset, sampleRate, true); 
+    view.setUint32(offset, sampleRate, true);
     offset += 4;
-    view.setUint32(offset, byteRate, true); 
+    view.setUint32(offset, byteRate, true);
     offset += 4;
-    view.setUint16(offset, blockAlign, true); 
+    view.setUint16(offset, blockAlign, true);
     offset += 2;
-    view.setUint16(offset, bitsPerSample, true); 
+    view.setUint16(offset, bitsPerSample, true);
     offset += 2;
     view.setUint32(offset, 0x64617461, false); // "data"
     offset += 4;
-    view.setUint32(offset, pcm16.byteLength, true); 
+    view.setUint32(offset, pcm16.byteLength, true);
     offset += 4;
     const bytes = new Uint8Array(buffer, 44);
     bytes.set(new Uint8Array(pcm16.buffer));
@@ -204,12 +204,12 @@ const pcmToWav = (pcm16, sampleRate) => {
 const getSpeechText = (text) => {
     if (!text) return '';
     // Nhận diện cả ngoặc Nhật （）và ngoặc Việt Nam ()
-    const furiganaMatch = text.match(/（([^）]+)）/) || text.match(/\(([^)]+)\)/); 
+    const furiganaMatch = text.match(/（([^）]+)）/) || text.match(/\(([^)]+)\)/);
     if (furiganaMatch && furiganaMatch[1]) {
         return furiganaMatch[1];
     }
     // Loại bỏ cả hai loại ngoặc
-    return text.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').trim(); 
+    return text.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').trim();
 };
 
 const getWordForMasking = (text) => {
@@ -219,11 +219,11 @@ const getWordForMasking = (text) => {
     if (mainWord) {
         return mainWord;
     }
-    const furiganaMatch = text.match(/（([^）]+)）/) || text.match(/\(([^)]+)\)/); 
+    const furiganaMatch = text.match(/（([^）]+)）/) || text.match(/\(([^)]+)\)/);
     if (furiganaMatch && furiganaMatch[1]) {
         return furiganaMatch[1];
     }
-    return text.trim(); 
+    return text.trim();
 };
 
 // Danh sách hậu tố ngữ pháp cho động từ (ưu tiên từ dài đến ngắn)
@@ -249,12 +249,12 @@ const PARTICLES = ['は', 'が', 'を', 'に', 'で', 'へ', 'と', 'から', '�
  */
 const maskVerbInExample = (targetWord, exampleSentence) => {
     if (!targetWord || !exampleSentence) return exampleSentence;
-    
+
     // Bước 1: Xác định điểm neo (Anchor Point)
     // Tìm vị trí xuất hiện của ký tự đầu tiên của Target Word
     const firstChar = targetWord[0];
     let startIndex = exampleSentence.indexOf(firstChar);
-    
+
     // Nếu không tìm thấy ký tự đầu tiên, thử tìm toàn bộ từ
     if (startIndex === -1) {
         startIndex = exampleSentence.indexOf(targetWord);
@@ -263,12 +263,12 @@ const maskVerbInExample = (targetWord, exampleSentence) => {
             return exampleSentence;
         }
     }
-    
+
     // Bước 2: Xác định điểm biên ngữ pháp (Grammar Boundary)
     // Trích xuất phần chuỗi tính từ Start_Index đến hết câu ví dụ
     const substring = exampleSentence.substring(startIndex);
     let endIndex = -1;
-    
+
     // Duyệt qua danh sách hậu tố từ dài đến ngắn
     for (const suffix of GRAMMAR_SUFFIXES) {
         const suffixIndex = substring.indexOf(suffix);
@@ -278,24 +278,24 @@ const maskVerbInExample = (targetWord, exampleSentence) => {
             break;
         }
     }
-    
+
     // Bước 3: Xử lý ngoại lệ (Fallback)
     if (endIndex === -1) {
         // Không tìm thấy hậu tố ngữ pháp
         // Ẩn toàn bộ phần Kanji
         let maskEnd = startIndex;
-        
+
         // Tìm tất cả các ký tự Kanji liên tiếp từ startIndex
         while (maskEnd < exampleSentence.length) {
             const char = exampleSentence[maskEnd];
             const isKanji = char >= '\u4E00' && char <= '\u9FAF';
-            
+
             // Dừng nếu gặp trợ từ hoặc dấu câu
             if (PARTICLES.includes(char)) {
                 endIndex = maskEnd;
                 break;
             }
-            
+
             // Tiếp tục nếu là Kanji
             if (isKanji) {
                 maskEnd++;
@@ -304,12 +304,12 @@ const maskVerbInExample = (targetWord, exampleSentence) => {
                 break;
             }
         }
-        
+
         // Ẩn thêm tối đa 1 ký tự Hiragana ngay sau Kanji
         if (maskEnd < exampleSentence.length && endIndex === -1) {
             const nextChar = exampleSentence[maskEnd];
             const isHiragana = nextChar >= '\u3040' && nextChar <= '\u309F';
-            
+
             // Dừng nếu gặp trợ từ hoặc dấu câu
             if (PARTICLES.includes(nextChar)) {
                 endIndex = maskEnd;
@@ -322,18 +322,18 @@ const maskVerbInExample = (targetWord, exampleSentence) => {
                 endIndex = maskEnd;
             }
         }
-        
+
         // Nếu vẫn chưa tìm thấy điểm dừng, sử dụng maskEnd
         if (endIndex === -1) {
             endIndex = maskEnd;
         }
-        
+
         // Đảm bảo endIndex không vượt quá độ dài câu
         if (endIndex > exampleSentence.length) {
             endIndex = exampleSentence.length;
         }
     }
-    
+
     // Bước 4: Thực hiện ẩn (Masking)
     // Đảm bảo khoảng trống không bị quá ngắn khi che ít ký tự
     const maskedPart = '_____';
@@ -348,18 +348,18 @@ const maskVerbInExample = (targetWord, exampleSentence) => {
  */
 const maskAdjNaInExample = (targetWord, exampleSentence) => {
     if (!targetWord || !exampleSentence) return exampleSentence;
-    
+
     // Lưu ý: app luôn lưu tính từ -na dưới dạng có "な"
     // Ta sẽ tìm phần gốc (bỏ "な"), và nếu trong câu có "な" ngay sau đó thì ẩn luôn "な".
     const wordWithoutNa = targetWord.endsWith('な') ? targetWord.slice(0, -1) : targetWord;
-    
+
     // Tìm vị trí xuất hiện của phần khớp (không cần な)
     const startIndex = exampleSentence.indexOf(wordWithoutNa);
     if (startIndex === -1) {
         // Nếu không tìm thấy, giữ nguyên câu
         return exampleSentence;
     }
-    
+
     // Nếu câu dùng dạng "...<gốc>な...", ẩn luôn cả "な" để không bị chừa lại
     let endIndex = startIndex + wordWithoutNa.length;
     if (endIndex < exampleSentence.length && exampleSentence[endIndex] === 'な') {
@@ -388,7 +388,7 @@ const maskWordInExample = (targetWord, exampleSentence, pos) => {
         const masked = sentence.replace(maskRegex, blank);
         return { masked, didMask: masked !== sentence };
     };
-    
+
     // Xử lý động từ
     if (pos === 'verb' || pos === 'suru_verb') {
         // Ưu tiên khớp 100% trước; nếu không khớp được mới dùng khớp thông minh
@@ -396,12 +396,12 @@ const maskWordInExample = (targetWord, exampleSentence, pos) => {
         if (exact.didMask) return exact.masked;
         return maskVerbInExample(targetWord, exampleSentence);
     }
-    
+
     // Xử lý tính từ な
     if (pos === 'adj_na') {
         return maskAdjNaInExample(targetWord, exampleSentence);
     }
-    
+
     // Các từ loại khác: áp dụng quy tắc khớp 100%
     const escapedWord = targetWord.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
     // Tạo regex match cả: từ, （từ）, (từ)
@@ -424,7 +424,7 @@ const playAudio = (base64Data) => {
     if (!base64Data) {
         return; // Không có audio, không phát gì cả
     }
-    
+
     try {
         // Dừng audio hiện tại nếu đang phát
         if (currentAudioObj) {
@@ -444,7 +444,7 @@ const playAudio = (base64Data) => {
         const isMp3Sync = buffer.byteLength > 2 && view.getUint8(0) === 0xFF && (view.getUint8(1) & 0xE0) === 0xE0;
 
         let audioUrl;
-        
+
         if (isWavFile) {
             const blob = new Blob([buffer], { type: 'audio/wav' });
             audioUrl = URL.createObjectURL(blob);
@@ -453,12 +453,12 @@ const playAudio = (base64Data) => {
             audioUrl = URL.createObjectURL(blob);
         } else {
             // Mặc định xử lý như PCM/WAV từ Gemini TTS
-            const sampleRate = 24000; 
+            const sampleRate = 24000;
             const pcm16 = new Int16Array(buffer);
             const wavBlob = pcmToWav(pcm16, sampleRate);
             audioUrl = URL.createObjectURL(wavBlob);
         }
-        
+
         const audio = new Audio(audioUrl);
         currentAudioObj = audio;
 
@@ -466,7 +466,7 @@ const playAudio = (base64Data) => {
             console.error("Lỗi phát audio file:", e);
             // Chỉ dùng Gemini TTS, không fallback sang Browser TTS
         });
-        
+
         audio.onended = () => {
             URL.revokeObjectURL(audioUrl);
             if (currentAudioObj === audio) {
@@ -504,27 +504,27 @@ const getTtsApiKeys = () => {
 
 const _fetchTtsApiCall = async (text, voiceName, apiKeys = null, keyIndex = 0) => {
     if (!text) return null;
-    
+
     // Lấy danh sách keys nếu chưa có
     if (!apiKeys || apiKeys.length === 0) {
         apiKeys = getTtsApiKeys();
     }
-    
+
     if (apiKeys.length === 0) {
         console.error("Không có API key nào được cấu hình cho TTS");
         return null;
     }
-    
+
     // Thử từng key một
     for (let i = keyIndex; i < apiKeys.length; i++) {
         const apiKey = apiKeys[i];
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
-        
+
         const payload = {
             contents: [{ parts: [{ text: text }] }],
             generationConfig: {
                 responseModalities: ["AUDIO"],
-                speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: voiceName } } } 
+                speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: voiceName } } }
             },
             model: "gemini-2.5-flash-preview-tts"
         };
@@ -538,31 +538,31 @@ const _fetchTtsApiCall = async (text, voiceName, apiKeys = null, keyIndex = 0) =
 
             if (response.ok) {
                 const result = await response.json();
-                
+
                 // Kiểm tra nhiều cấu trúc response có thể có
                 let audioData = null;
-                
+
                 // Cấu trúc 1: candidates[0].content.parts[0].inlineData.data
                 const part = result?.candidates?.[0]?.content?.parts?.[0];
                 if (part?.inlineData?.data) {
                     audioData = part.inlineData.data;
                 }
-                
+
                 // Cấu trúc 2: candidates[0].content.parts[0].audioData
                 if (!audioData && part?.audioData) {
                     audioData = part.audioData;
                 }
-                
+
                 // Cấu trúc 3: Trực tiếp từ result
                 if (!audioData && result?.audioData) {
                     audioData = result.audioData;
                 }
-                
+
                 // Cấu trúc 4: result.data hoặc result.content
                 if (!audioData && result?.data) {
                     audioData = result.data;
                 }
-                
+
                 if (audioData) {
                     console.log(`_fetchTtsApiCall: ✓ Thành công với key ${i + 1}/${apiKeys.length} (Giọng: ${voiceName}) cho "${text}"`);
                     return audioData;
@@ -595,7 +595,7 @@ const _fetchTtsApiCall = async (text, voiceName, apiKeys = null, keyIndex = 0) =
                 // Nếu là lỗi 429 (quota exceeded) và còn key khác, chuyển sang key tiếp theo
                 if (response.status === 429) {
                     console.warn(`Key ${i + 1}/${apiKeys.length} đã hết quota (429). Chuyển sang key tiếp theo...`);
-                    
+
                     // Parse retry delay từ error response nếu có
                     let retryDelay = 1000; // Default 1 giây
                     if (errorJson?.error?.details) {
@@ -609,7 +609,7 @@ const _fetchTtsApiCall = async (text, voiceName, apiKeys = null, keyIndex = 0) =
                             }
                         }
                     }
-                    
+
                     // Nếu còn key khác, đợi một chút rồi thử key tiếp theo
                     if (i < apiKeys.length - 1) {
                         console.log(`Đợi ${retryDelay}ms trước khi thử key ${i + 2}/${apiKeys.length}...`);
@@ -627,7 +627,7 @@ const _fetchTtsApiCall = async (text, voiceName, apiKeys = null, keyIndex = 0) =
                     }
                 }
             }
-            
+
             // Lỗi khác (400, 500, ...) hoặc đã hết key, trả về null
             return null;
         } catch (e) {
@@ -639,7 +639,7 @@ const _fetchTtsApiCall = async (text, voiceName, apiKeys = null, keyIndex = 0) =
             return null;
         }
     }
-    
+
     return null;
 };
 
@@ -648,50 +648,50 @@ const fetchTtsBase64 = async (text) => {
         console.warn(`fetchTtsBase64: Text không hợp lệ (${text ? text.length : 'null'} chars)`);
         return null;
     }
-    
+
     // Lấy danh sách keys
     const apiKeys = getTtsApiKeys();
     if (apiKeys.length === 0) {
         console.error("fetchTtsBase64: Không có API key nào được cấu hình cho TTS");
         return null;
     }
-    
+
     // Danh sách tất cả giọng có sẵn - ưu tiên giọng chuẩn Nhật trước
     // Giọng được ưu tiên cho tiếng Nhật: Aoede, Kore, Leda (theo tài liệu Gemini)
     const JAPANESE_VOICES = ["Aoede", "Kore", "Leda"]; // Giọng chuẩn Nhật
     const OTHER_VOICES = ["Charon", "Orus", "Fenrir", "Iapetus", "Umbriel", "Algenib", "Puck", "Zephyr", "Callirrhoe", "Algieba", "Despina", "Erinome"];
     const ALL_VOICES = [...JAPANESE_VOICES, ...OTHER_VOICES];
-    
+
     console.log(`fetchTtsBase64: Tạo âm thanh cho "${text}" (${apiKeys.length} API key(s), ${ALL_VOICES.length} giọng)`);
-    
+
     // Thử lần lượt từng giọng (ưu tiên giọng Nhật trước)
     for (let voiceIndex = 0; voiceIndex < ALL_VOICES.length; voiceIndex++) {
         const voiceName = ALL_VOICES[voiceIndex];
         const isJapaneseVoice = voiceIndex < JAPANESE_VOICES.length;
-        
+
         console.log(`fetchTtsBase64: Thử giọng "${voiceName}" ${isJapaneseVoice ? '(chuẩn Nhật)' : ''}...`);
-        
+
         // Thử lần lượt tất cả các API keys với giọng này
         for (let keyIndex = 0; keyIndex < apiKeys.length; keyIndex++) {
             const audioData = await _fetchTtsApiCall(text, voiceName, apiKeys, keyIndex);
-            
+
             if (audioData) {
                 console.log(`fetchTtsBase64: ✓ Thành công với giọng "${voiceName}" và key ${keyIndex + 1}/${apiKeys.length} cho "${text}"`);
                 return audioData;
             }
-            
+
             // Nếu không thành công với key này, tiếp tục thử key tiếp theo
             if (keyIndex < apiKeys.length - 1) {
                 console.log(`fetchTtsBase64: Key ${keyIndex + 1}/${apiKeys.length} thất bại với giọng "${voiceName}", thử key tiếp theo...`);
             }
         }
-        
+
         // Nếu tất cả keys đều thất bại với giọng này, thử giọng tiếp theo
         if (voiceIndex < ALL_VOICES.length - 1) {
             console.log(`fetchTtsBase64: Tất cả keys thất bại với giọng "${voiceName}", thử giọng tiếp theo...`);
         }
     }
-    
+
     // Tất cả giọng và keys đều thất bại
     console.error(`fetchTtsBase64: ✗ Không thể tạo âm thanh cho "${text}" sau khi thử ${ALL_VOICES.length} giọng và ${apiKeys.length} API key(s)`);
     return null;
@@ -733,7 +733,7 @@ const App = () => {
         // Lấy từ localStorage, mặc định là false (light mode)
         const saved = localStorage.getItem('darkMode');
         const result = saved === 'true';
-        
+
         // Force remove dark class ngay lập tức nếu không phải dark mode
         if (!result) {
             document.documentElement.classList.remove('dark');
@@ -741,11 +741,11 @@ const App = () => {
             document.documentElement.style.removeProperty('background-color');
             document.body.style.removeProperty('background-color');
         }
-        
+
         return result;
     });
 
-    const [profile, setProfile] = useState(null); 
+    const [profile, setProfile] = useState(null);
     // Danh sách API keys cho Gemini (có thể cấu hình từ env hoặc localStorage)
     const [geminiApiKeys] = useState(() => {
         // Lấy từ localStorage nếu có, nếu không thì lấy từ env
@@ -759,9 +759,9 @@ const App = () => {
         }
         // Lấy từ env variables (VITE_GEMINI_API_KEY_1, VITE_GEMINI_API_KEY_2, ..., VITE_GEMINI_API_KEY_N)
         return getAllGeminiApiKeysFromEnv();
-    }); 
+    });
     const [isProfileLoading, setIsProfileLoading] = useState(true);
-    const [dailyActivityLogs, setDailyActivityLogs] = useState([]); 
+    const [dailyActivityLogs, setDailyActivityLogs] = useState([]);
     const [studySessionData, setStudySessionData] = useState({
         learning: [], // Từ sai trong session (ưu tiên 1)
         new: [], // Từ mới chưa học (ưu tiên 2)
@@ -770,7 +770,7 @@ const App = () => {
         currentPhase: 'multipleChoice', // 'multipleChoice' | 'typing'
         batchIndex: 0,
         allNoSrsCards: [] // Tất cả từ chưa có SRS
-    }); 
+    });
 
     const vocabCollectionPath = useMemo(() => {
         if (!userId) return null;
@@ -778,15 +778,15 @@ const App = () => {
     }, [userId]);
 
     const publicStatsCollectionPath = useMemo(() => `artifacts/${appId}/public/data/userStats`, []);
-    
+
     const settingsDocPath = useMemo(() => {
         if (!userId) return null;
-        return `artifacts/${appId}/users/${userId}/settings/profile`; 
+        return `artifacts/${appId}/users/${userId}/settings/profile`;
     }, [userId]);
-    
+
     const activityCollectionPath = useMemo(() => {
         if (!userId) return null;
-        return `artifacts/${appId}/users/${userId}/dailyActivity`; 
+        return `artifacts/${appId}/users/${userId}/dailyActivity`;
     }, [userId]);
 
     const isAdmin = useMemo(() => {
@@ -820,14 +820,14 @@ const App = () => {
 
             // Xóa settings/profile
             const profileDoc = doc(db, `artifacts/${appId}/users/${targetUserId}/settings/profile`);
-            await deleteDoc(profileDoc).catch(() => {});
+            await deleteDoc(profileDoc).catch(() => { });
 
             // Xóa root doc (nếu có)
-            await deleteDoc(userRoot).catch(() => {});
+            await deleteDoc(userRoot).catch(() => { });
 
             // Xóa luôn dữ liệu trên bảng xếp hạng công khai
             const statsDocRef = doc(db, publicStatsCollectionPath, targetUserId);
-            await deleteDoc(statsDocRef).catch(() => {});
+            await deleteDoc(statsDocRef).catch(() => { });
 
             setNotification("Đã xoá toàn bộ dữ liệu của người dùng.");
         } catch (e) {
@@ -880,7 +880,7 @@ const App = () => {
         const htmlElement = document.documentElement;
         const bodyElement = document.body;
         const rootElement = document.getElementById('root');
-        
+
         // Apply state hiện tại (đã được khởi tạo từ localStorage)
         if (isDarkMode) {
             htmlElement.classList.add('dark');
@@ -895,19 +895,19 @@ const App = () => {
             htmlElement.style.removeProperty('background-color');
             bodyElement.style.removeProperty('background-color');
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []); // Chạy một lần khi mount để khởi tạo, isDarkMode đã được capture từ initial state
 
     // Quản lý dark mode khi state thay đổi
     useEffect(() => {
         // Lưu vào localStorage
         localStorage.setItem('darkMode', isDarkMode.toString());
-        
+
         // Áp dụng/xóa class dark trên documentElement
         const htmlElement = document.documentElement;
         const bodyElement = document.body;
         const rootElement = document.getElementById('root');
-        
+
         // Sử dụng requestAnimationFrame để đảm bảo DOM đã sẵn sàng
         requestAnimationFrame(() => {
             if (isDarkMode) {
@@ -919,7 +919,7 @@ const App = () => {
                 htmlElement.classList.remove('dark');
                 bodyElement.classList.remove('dark');
                 if (rootElement) rootElement.classList.remove('dark');
-                
+
                 // Đảm bảo remove hoàn toàn bằng cách replace className
                 if (htmlElement.className.includes('dark')) {
                     htmlElement.className = htmlElement.className.replace(/\bdark\b/g, '').trim();
@@ -927,14 +927,14 @@ const App = () => {
                 if (bodyElement.className.includes('dark')) {
                     bodyElement.className = bodyElement.className.replace(/\bdark\b/g, '').trim();
                 }
-                
+
                 // XÓA inline styles thay vì set - để CSS tự xử lý
                 htmlElement.style.removeProperty('background-color');
                 bodyElement.style.removeProperty('background-color');
                 htmlElement.style.removeProperty('color-scheme');
                 bodyElement.style.removeProperty('color-scheme');
             }
-            
+
             // Force reflow và repaint
             void htmlElement.offsetHeight;
             void bodyElement.offsetHeight;
@@ -990,7 +990,7 @@ const App = () => {
                 }
             }
             setIsProfileLoading(false);
-            setIsLoading(false); 
+            setIsLoading(false);
         }, (error) => {
             console.error("Lỗi khi tải hồ sơ:", error);
             setIsProfileLoading(false);
@@ -1002,7 +1002,7 @@ const App = () => {
 
     useEffect(() => {
         if (!authReady || !vocabCollectionPath) return;
-        
+
         // Khôi phục allCards từ sessionStorage nếu có
         const cachedCardsKey = `allCards_${userId}`;
         const cachedCards = sessionStorage.getItem(cachedCardsKey);
@@ -1032,7 +1032,7 @@ const App = () => {
                 sessionStorage.removeItem(cachedCardsKey);
             }
         }
-        
+
         const q = query(collection(db, vocabCollectionPath));
         const unsubscribe = onSnapshot(q, (snapshot) => {
             const cards = [];
@@ -1045,14 +1045,14 @@ const App = () => {
                     front: data.front || '',
                     back: data.back || '',
                     synonym: data.synonym || '',
-                    synonymSinoVietnamese: data.synonymSinoVietnamese || '', 
-                    sinoVietnamese: data.sinoVietnamese || '', 
+                    synonymSinoVietnamese: data.synonymSinoVietnamese || '',
+                    sinoVietnamese: data.sinoVietnamese || '',
                     example: data.example || '',
-                    exampleMeaning: data.exampleMeaning || '', 
-                    nuance: data.nuance || '', 
-                    pos: data.pos || '', 
-                    level: data.level || '', 
-                    audioBase64: data.audioBase64 !== undefined ? data.audioBase64 : null, 
+                    exampleMeaning: data.exampleMeaning || '',
+                    nuance: data.nuance || '',
+                    pos: data.pos || '',
+                    level: data.level || '',
+                    audioBase64: data.audioBase64 !== undefined ? data.audioBase64 : null,
                     imageBase64: data.imageBase64 || null,
                     createdAt: data.createdAt ? data.createdAt.toDate() : today,
                     intervalIndex_back: typeof data.intervalIndex_back === 'number' ? data.intervalIndex_back : -1,
@@ -1118,7 +1118,7 @@ const App = () => {
 
     useEffect(() => {
         if (!authReady || !activityCollectionPath) return;
-        
+
         // Khôi phục dailyActivityLogs từ sessionStorage nếu có
         const cachedLogsKey = `dailyActivityLogs_${userId}`;
         const cachedLogs = sessionStorage.getItem(cachedLogsKey);
@@ -1130,7 +1130,7 @@ const App = () => {
                 console.error('Lỗi parse cached logs:', e);
             }
         }
-        
+
         const q = query(collection(db, activityCollectionPath));
         const unsubscribe = onSnapshot(q, (snapshot) => {
             const logs = snapshot.docs.map(doc => ({
@@ -1154,7 +1154,7 @@ const App = () => {
         }, (error) => {
             console.error("Lỗi khi tải hoạt động hàng ngày:", error);
         });
-        
+
         return () => unsubscribe();
     }, [authReady, activityCollectionPath, userId]);
 
@@ -1167,23 +1167,23 @@ const App = () => {
         const mixed = allCards.filter(card => {
             const isDue = card.nextReview_back <= today;
             if (!isDue) return false;
-            
+
             // Kiểm tra xem có phần nào chưa hoàn thành không (streak < 1)
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
             const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
             const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
-            
+
             // Có ít nhất một phần chưa hoàn thành
             return backStreak < 1 || (card.synonym && card.synonym.trim() !== '' && synonymStreak < 1) || (card.example && card.example.trim() !== '' && exampleStreak < 1);
         }).length;
-        
+
         // Back: các từ đã đến chu kỳ VÀ chưa hoàn thành phần back (streak < 1)
         const back = allCards.filter(card => {
             const isDue = card.nextReview_back <= today;
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
             return isDue && backStreak < 1;
         }).length;
-        
+
         // Synonym: các từ đã đến chu kỳ, có synonym VÀ chưa hoàn thành phần synonym (streak < 1)
         const synonym = allCards.filter(card => {
             if (!card.synonym || card.synonym.trim() === '') return false;
@@ -1192,7 +1192,7 @@ const App = () => {
             const result = isDue && synonymStreak < 1;
             return result;
         }).length;
-        
+
         // Example: các từ đã đến chu kỳ, có example VÀ chưa hoàn thành phần example (streak < 1)
         const example = allCards.filter(card => {
             if (!card.example || card.example.trim() === '') return false;
@@ -1214,7 +1214,7 @@ const App = () => {
 
         // Tính counts cho các chế độ mới
         // Old cards (đã có SRS)
-        const oldCards = allCards.filter(card => 
+        const oldCards = allCards.filter(card =>
             card.intervalIndex_back !== -1 && card.intervalIndex_back !== undefined && card.intervalIndex_back >= 0
         );
         const oldMixed = oldCards.filter(card => {
@@ -1244,7 +1244,7 @@ const App = () => {
         }).length;
 
         // New cards (chưa có SRS)
-        const newCards = allCards.filter(card => 
+        const newCards = allCards.filter(card =>
             card.intervalIndex_back === -1 || card.intervalIndex_back === undefined
         );
         const newMixed = newCards.length; // Tất cả từ mới đều có thể ôn
@@ -1283,7 +1283,7 @@ const App = () => {
             return exampleStreak < 1;
         }).length;
 
-        return { 
+        return {
             mixed, flashcard, back, synonym, example, study,
             old: { mixed: oldMixed, back: oldBack, synonym: oldSynonym, example: oldExample },
             new: { mixed: newMixed, back: newBack, synonym: newSynonym, example: newExample },
@@ -1297,17 +1297,17 @@ const App = () => {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         let dueCards = [];
-        
+
         // Filter theo category trước
         let filteredCards = allCards;
         if (category === 'old') {
             // Từ vựng cũ: đã có SRS (intervalIndex_back >= 0)
-            filteredCards = allCards.filter(card => 
+            filteredCards = allCards.filter(card =>
                 card.intervalIndex_back !== -1 && card.intervalIndex_back !== undefined && card.intervalIndex_back >= 0
             );
         } else if (category === 'new') {
             // Từ vựng mới: chưa có SRS (intervalIndex_back === -1)
-            filteredCards = allCards.filter(card => 
+            filteredCards = allCards.filter(card =>
                 card.intervalIndex_back === -1 || card.intervalIndex_back === undefined
             );
         } else if (category === 'grammar') {
@@ -1318,14 +1318,14 @@ const App = () => {
 
         // Kiểm tra xem có phải từ mới (chưa có SRS) không
         const isNewCategory = category === 'new';
-        
+
         // Flashcard mode: Chỉ dành cho từ vựng chưa có SRS
         if (mode === 'flashcard') {
             dueCards = filteredCards.filter(card => {
                 return card.intervalIndex_back === -1 || card.intervalIndex_back === undefined;
             });
             dueCards = shuffleArray(dueCards);
-            
+
         } else if (mode === 'mixed') {
             // Logic mới: Tất cả 3 phần dùng chung nextReview_back
             // Đối với từ mới (chưa có SRS): không cần kiểm tra nextReview_back hay streak
@@ -1346,8 +1346,8 @@ const App = () => {
                         const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
                         return backStreak < 1;
                     })
-                    .map(card => ({ ...card, reviewType: 'back' })); 
-                
+                    .map(card => ({ ...card, reviewType: 'back' }));
+
                 const dueSynonymCards = filteredCards
                     .filter(card => {
                         if (!card.synonym || card.synonym.trim() === '') return false;
@@ -1355,8 +1355,8 @@ const App = () => {
                         const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
                         return synonymStreak < 1;
                     })
-                    .map(card => ({ ...card, reviewType: 'synonym' })); 
-                
+                    .map(card => ({ ...card, reviewType: 'synonym' }));
+
                 const dueExampleCards = filteredCards
                     .filter(card => {
                         if (!card.example || card.example.trim() === '') return false;
@@ -1365,7 +1365,7 @@ const App = () => {
                         return exampleStreak < 1;
                     })
                     .map(card => ({ ...card, reviewType: 'example' }));
-                
+
                 dueCards = shuffleArray([...dueBackCards, ...dueSynonymCards, ...dueExampleCards]);
             }
 
@@ -1420,7 +1420,7 @@ const App = () => {
                 dueCards = shuffleArray(dueCards);
             }
             setReviewCards(dueCards);
-            setReviewMode(mode); 
+            setReviewMode(mode);
             setView('REVIEW');
         } else {
             setNotification(`Tuyệt vời! Bạn không còn thẻ nào cần ôn tập ở chế độ này.`);
@@ -1432,20 +1432,20 @@ const App = () => {
     const handleExport = (cards) => {
         const headers = [
             "Front", "Back", "Synonym", "Example", "ExampleMeaning", "Nuance",
-            "CreatedAt", 
-            "intervalIndex_back", "correctStreak_back", "nextReview_back_timestamp", 
-            "intervalIndex_synonym", "correctStreak_synonym", "nextReview_synonym_timestamp", 
-            "intervalIndex_example", "correctStreak_example", "nextReview_example_timestamp", 
+            "CreatedAt",
+            "intervalIndex_back", "correctStreak_back", "nextReview_back_timestamp",
+            "intervalIndex_synonym", "correctStreak_synonym", "nextReview_synonym_timestamp",
+            "intervalIndex_example", "correctStreak_example", "nextReview_example_timestamp",
             "AudioBase64", "ImageBase64", "POS", "Level", "SinoVietnamese", "SynonymSinoVietnamese"
         ];
-        
+
         const rows = cards.map(card => [
             card.front,
             card.back,
             card.synonym,
             card.example,
             card.exampleMeaning,
-            card.nuance, 
+            card.nuance,
             card.createdAt ? card.createdAt.toISOString() : new Date().toISOString(),
             card.intervalIndex_back || -1,
             card.correctStreak_back || 0,
@@ -1469,9 +1469,9 @@ const App = () => {
             const str = field.toString();
             return `"${str.replace(/"/g, '""')}"`;
         }).join('\t'));
-        
+
         const tsvContent = [headers.join('\t'), ...rows].join('\n');
-        const blob = new Blob([`\uFEFF${tsvContent}`], { type: 'text/tab-separated-values;charset=utf-8;' }); 
+        const blob = new Blob([`\uFEFF${tsvContent}`], { type: 'text/tab-separated-values;charset=utf-8;' });
         const link = document.createElement("a");
         const url = URL.createObjectURL(blob);
         link.setAttribute("href", url);
@@ -1485,11 +1485,11 @@ const App = () => {
 
     const updateDailyActivity = async (count) => {
         if (!activityCollectionPath) return;
-        const todayDateString = new Date().toISOString().split('T')[0]; 
+        const todayDateString = new Date().toISOString().split('T')[0];
         const activityRef = doc(db, activityCollectionPath, todayDateString);
         try {
-            await setDoc(activityRef, { 
-                newWordsAdded: increment(count) 
+            await setDoc(activityRef, {
+                newWordsAdded: increment(count)
             }, { merge: true });
         } catch (e) {
             console.error("Lỗi cập nhật hoạt động hàng ngày:", e);
@@ -1526,17 +1526,17 @@ const App = () => {
             }
             return defaultDate;
         };
-        
+
         const intervalIndex_back = parseSrsValue('intervalIndex_back', -1);
         const correctStreak_back = parseSrsValue('correctStreak_back', 0);
         const nextReview_back = parseReviewDate('nextReview_back_timestamp', today);
-        
+
         const defaultSynonymIndex = hasSynonym ? -1 : -999;
         const defaultSynonymDate = hasSynonym ? today : new Date(9999, 0, 1);
         const intervalIndex_synonym = parseSrsValue('intervalIndex_synonym', defaultSynonymIndex);
         const correctStreak_synonym = parseSrsValue('correctStreak_synonym', 0);
         const nextReview_synonym = parseReviewDate('nextReview_synonym_timestamp', defaultSynonymDate);
-        
+
         const defaultExampleIndex = hasExample ? -1 : -999;
         const defaultExampleDate = hasExample ? today : new Date(9999, 0, 1);
         const intervalIndex_example = parseSrsValue('intervalIndex_example', defaultExampleIndex);
@@ -1544,26 +1544,26 @@ const App = () => {
         const nextReview_example = parseReviewDate('nextReview_example_timestamp', defaultExampleDate);
 
         return {
-            front: front.trim(), 
+            front: front.trim(),
             back: back.trim(),
             synonym: synonym.trim(),
             sinoVietnamese: sinoVietnamese ? sinoVietnamese.trim() : '',
             synonymSinoVietnamese: synonymSinoVietnamese ? synonymSinoVietnamese.trim() : '', // Store new field
             example: example.trim(),
-            exampleMeaning: exampleMeaning.trim(), 
-            nuance: nuance.trim(), 
-            pos: pos || '', 
+            exampleMeaning: exampleMeaning.trim(),
+            nuance: nuance.trim(),
+            pos: pos || '',
             level: level || '', // JLPT Level
-            audioBase64: audioBase64, 
-            imageBase64: imageBase64, 
-            createdAt: createdAtDate || serverTimestamp(), 
+            audioBase64: audioBase64,
+            imageBase64: imageBase64,
+            createdAt: createdAtDate || serverTimestamp(),
             userId: userId,
             intervalIndex_back: intervalIndex_back,
             correctStreak_back: correctStreak_back,
             nextReview_back: nextReview_back,
             intervalIndex_synonym: intervalIndex_synonym,
             correctStreak_synonym: correctStreak_synonym,
-            nextReview_synonym: nextReview_synonym, 
+            nextReview_synonym: nextReview_synonym,
             intervalIndex_example: intervalIndex_example,
             correctStreak_example: correctStreak_example,
             nextReview_example: nextReview_example,
@@ -1572,14 +1572,14 @@ const App = () => {
 
     const handleAddCard = async ({ front, back, synonym, example, exampleMeaning, nuance, pos, level, action, imageBase64, audioBase64, sinoVietnamese, synonymSinoVietnamese }) => {
         if (!vocabCollectionPath) return false;
-        
+
         // Kiểm tra trùng lặp với database
         const normalizedFront = front.split('（')[0].split('(')[0].trim();
         const isDuplicate = allCards.some(card => {
             const cardFront = card.front.split('（')[0].split('(')[0].trim();
             return cardFront === normalizedFront;
         });
-        
+
         if (isDuplicate) {
             setNotification(`⚠️ Từ vựng "${normalizedFront}" đã có trong danh sách!`);
             return false;
@@ -1587,12 +1587,12 @@ const App = () => {
 
         const newCardData = createCardObject(front, back, synonym, example, exampleMeaning, nuance, {}, null, imageBase64, audioBase64, pos, level, sinoVietnamese, synonymSinoVietnamese);
 
-        let cardRef; 
+        let cardRef;
 
         try {
             cardRef = doc(collection(db, vocabCollectionPath));
             await setDoc(cardRef, newCardData);
-            
+
             setNotification(`Đã thêm thẻ mới: ${newCardData.front}`);
             await updateDailyActivity(1);
 
@@ -1613,10 +1613,10 @@ const App = () => {
                             console.log("Không có text để tạo âm thanh cho:", front);
                             return;
                         }
-                        
+
                         console.log("Bắt đầu tạo âm thanh cho:", front);
                         const fetchedAudioBase64 = await fetchTtsBase64(speechText);
-                        
+
                         if (fetchedAudioBase64 && cardRef) {
                             await updateDoc(cardRef, { audioBase64: fetchedAudioBase64 });
                             console.log("Đã tạo âm thanh thành công cho:", front);
@@ -1626,37 +1626,37 @@ const App = () => {
                     } catch (e) {
                         console.error("Lỗi tạo âm thanh (nền) cho:", front, e);
                     }
-                })(); 
+                })();
             }
-            
-            return true; 
+
+            return true;
 
         } catch (e) {
             console.error("Lỗi khi thêm thẻ:", e);
             setNotification("Lỗi khi lưu thẻ. Vui lòng thử lại.");
             return false;
-        } 
+        }
     };
 
     // Hàm xử lý batch import từ vựng hàng loạt từ danh sách text
     const handleBatchImportFromText = async (vocabList) => {
         if (!vocabCollectionPath || vocabList.length === 0) return;
-        
+
         // Loại bỏ các từ trống và normalize
         const normalizedList = vocabList
             .map(vocab => vocab.trim())
             .filter(vocab => vocab.length > 0);
-        
+
         if (normalizedList.length === 0) {
             setNotification('Không có từ vựng hợp lệ!');
             return;
         }
-        
+
         // Tách thành 2 nhóm: từ mới và từ đã có
         const newVocabs = [];
         const existingVocabs = [];
         const seenInInput = new Set(); // Để loại bỏ trùng lặp trong input
-        
+
         for (const vocab of normalizedList) {
             // Kiểm tra trùng lặp trong input
             if (seenInInput.has(vocab)) {
@@ -1664,42 +1664,42 @@ const App = () => {
                 continue;
             }
             seenInInput.add(vocab);
-            
+
             // Kiểm tra trùng lặp với database
             const existsInDb = allCards.some(card => {
                 const cardFront = card.front.split('（')[0].split('(')[0].trim();
                 return cardFront === vocab;
             });
-            
+
             if (existsInDb) {
                 existingVocabs.push(vocab);
             } else {
                 newVocabs.push(vocab);
             }
         }
-        
+
         // Hiển thị thông báo các từ đã có
         if (existingVocabs.length > 0) {
             const existingList = existingVocabs.slice(0, 10).join(', ');
             const moreText = existingVocabs.length > 10 ? ` và ${existingVocabs.length - 10} từ khác` : '';
             setNotification(`⚠️ ${existingVocabs.length} từ vựng đã có trong danh sách: ${existingList}${moreText}`);
         }
-        
+
         if (newVocabs.length === 0) {
             setNotification('Tất cả từ vựng đã có trong danh sách!');
             return;
         }
-        
+
         setIsProcessingBatch(true);
         setBatchVocabList(newVocabs);
         setCurrentBatchIndex(0);
         setShowBatchImportModal(false);
-        
+
         // KHÔNG tạo tạm vào database, chỉ lưu danh sách vào state
         // Lấy dữ liệu từ API cho từ đầu tiên
         const firstVocab = newVocabs[0];
         const aiData = await handleGeminiAssist(firstVocab);
-        
+
         // Chuyển sang view ADD_CARD với dữ liệu từ đầu tiên
         setView('ADD_CARD');
         setEditingCard({
@@ -1717,9 +1717,9 @@ const App = () => {
             imageBase64: null,
             audioBase64: null,
         });
-        
+
         setIsProcessingBatch(false);
-        
+
         // Thông báo kết hợp
         let finalMessage = `Đang xử lý từ vựng 1/${newVocabs.length}...`;
         if (existingVocabs.length > 0) {
@@ -1739,15 +1739,15 @@ const App = () => {
             setView('HOME');
             return;
         }
-        
+
         // Chuyển sang từ tiếp theo
         const nextIndex = currentBatchIndex + 1;
         setCurrentBatchIndex(nextIndex);
         const nextVocab = batchVocabList[nextIndex];
-        
+
         // Lấy dữ liệu từ API cho từ tiếp theo
         const aiData = await handleGeminiAssist(nextVocab);
-        
+
         // Hiển thị form với dữ liệu mới (chưa tạo trong database)
         setEditingCard({
             id: null, // Chưa có id vì chưa tạo trong database
@@ -1764,7 +1764,7 @@ const App = () => {
             imageBase64: null,
             audioBase64: null,
         });
-        
+
         setView('ADD_CARD');
         setNotification(`Đang xử lý từ vựng ${nextIndex + 1}/${batchVocabList.length}...`);
     };
@@ -1780,15 +1780,15 @@ const App = () => {
             setView('HOME');
             return;
         }
-        
+
         // Chuyển sang từ tiếp theo
         const nextIndex = currentBatchIndex + 1;
         setCurrentBatchIndex(nextIndex);
         const nextVocab = batchVocabList[nextIndex];
-        
+
         // Lấy dữ liệu từ API cho từ tiếp theo
         const aiData = await handleGeminiAssist(nextVocab);
-        
+
         // Hiển thị form với dữ liệu mới
         setEditingCard({
             id: null,
@@ -1805,17 +1805,17 @@ const App = () => {
             imageBase64: null,
             audioBase64: null,
         });
-        
+
         setView('ADD_CARD');
         setNotification(`Đã bỏ qua. Đang xử lý từ vựng ${nextIndex + 1}/${batchVocabList.length}...`);
     };
 
     const handleBatchImport = async (cardsArray) => {
         if (!vocabCollectionPath || cardsArray.length === 0) return;
-        
+
         setIsLoading(true);
         setNotification(`Đang xử lý ${cardsArray.length} thẻ...`);
-        
+
         try {
             const importedCardsLocal = [];
             let skippedCount = 0;
@@ -1824,25 +1824,25 @@ const App = () => {
             for (const card of cardsArray) {
                 const normalizedFront = card.front.trim();
                 const isDuplicate = allCards.some(c => c.front.trim() === normalizedFront);
-                
+
                 if (isDuplicate) {
                     skippedCount++;
-                    continue; 
+                    continue;
                 }
 
                 const now = new Date();
-                
+
                 const calculateCorrectInterval = (interval, nextReviewTimestamp) => {
                     const reviewDate = nextReviewTimestamp ? new Date(parseInt(nextReviewTimestamp)) : now;
-                    const diffTime = reviewDate - now; 
+                    const diffTime = reviewDate - now;
                     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                    
+
                     if ((interval === -1 || interval === '-1') && diffDays >= 2) {
-                         if (diffDays >= 90) return 4;
-                         if (diffDays >= 30) return 3;
-                         if (diffDays >= 7) return 2;
-                         if (diffDays >= 3) return 1;
-                         return 0; 
+                        if (diffDays >= 90) return 4;
+                        if (diffDays >= 30) return 3;
+                        if (diffDays >= 7) return 2;
+                        if (diffDays >= 3) return 1;
+                        return 0;
                     }
                     return interval;
                 };
@@ -1852,7 +1852,7 @@ const App = () => {
                 let intervalExample = calculateCorrectInterval(card.intervalIndex_example, card.nextReview_example_timestamp);
 
                 const srsData = {
-                    intervalIndex_back: intervalBack, 
+                    intervalIndex_back: intervalBack,
                     correctStreak_back: card.correctStreak_back,
                     nextReview_back_timestamp: card.nextReview_back_timestamp,
                     intervalIndex_synonym: intervalSynonym,
@@ -1862,7 +1862,7 @@ const App = () => {
                     correctStreak_example: card.correctStreak_example,
                     nextReview_example_timestamp: card.nextReview_example_timestamp,
                 };
-                
+
                 let createdAtDate = null;
                 if (card.createdAtRaw && card.createdAtRaw !== 'N/A') {
                     const parsed = new Date(card.createdAtRaw);
@@ -1872,38 +1872,38 @@ const App = () => {
                 }
 
                 const newCardData = createCardObject(
-                    card.front, 
-                    card.back, 
-                    card.synonym, 
-                    card.example, 
-                    card.exampleMeaning, 
+                    card.front,
+                    card.back,
+                    card.synonym,
+                    card.example,
+                    card.exampleMeaning,
                     card.nuance,
                     srsData,
                     createdAtDate,
-                    null, 
-                    null,  
+                    null,
+                    null,
                     card.pos || '',
-                    card.level || '', 
+                    card.level || '',
                     card.sinoVietnamese || '', // Import SinoVietnamese
                     card.synonymSinoVietnamese || '' // Import Synonym SV
                 );
 
-                if (card.audioBase64 && card.audioBase64.length > 100) { 
+                if (card.audioBase64 && card.audioBase64.length > 100) {
                     newCardData.audioBase64 = card.audioBase64;
                 }
-                
+
                 if (card.imageBase64 && card.imageBase64.length > 100) {
-                     newCardData.imageBase64 = card.imageBase64;
+                    newCardData.imageBase64 = card.imageBase64;
                 }
 
                 const cardRef = doc(collection(db, vocabCollectionPath));
                 validCardsToInsert.push({ ref: cardRef, data: newCardData });
-                
+
                 importedCardsLocal.push({
                     id: cardRef.id,
                     ...newCardData
                 });
-                
+
             }
 
             if (validCardsToInsert.length === 0 && skippedCount > 0) {
@@ -1914,13 +1914,13 @@ const App = () => {
 
             // Batch Write (Fix payload size limit with Smart Batching)
             // Strategy: Commit batch when count >= 500 OR approximate size >= 1MB
-            const BATCH_SIZE_LIMIT = 500; 
+            const BATCH_SIZE_LIMIT = 500;
             const PAYLOAD_SIZE_LIMIT = 1 * 1024 * 1024; // 1MB Safety Limit
 
             let currentBatch = writeBatch(db);
             let currentBatchCount = 0;
             let currentBatchSize = 0;
-            
+
             for (const item of validCardsToInsert) {
                 // Approximate size: stringify JSON + key length overhead
                 const itemSize = JSON.stringify(item.data).length + 100;
@@ -1951,7 +1951,7 @@ const App = () => {
             }
 
             setNotification(message);
-           
+
             setIsLoading(false);
             setView('HOME');
 
@@ -1969,14 +1969,14 @@ const App = () => {
             setReviewCards(prevCards => prevCards.filter(card => card.id !== cardId));
             if (editingCard && editingCard.id === cardId) {
                 setEditingCard(null);
-                setView('LIST'); 
+                setView('LIST');
             }
             setNotification(`Đã xoá thẻ: ${cardFront}`);
         } catch (e) {
             console.error("Lỗi khi xoá thẻ:", e);
         }
     };
-    
+
     const handleUpdateCard = async (cardId, isCorrect, cardReviewType) => {
         if (!vocabCollectionPath) return;
 
@@ -1995,24 +1995,24 @@ const App = () => {
         // Tất cả 3 phần dùng chung intervalIndex_back và nextReview_back
         let currentInterval = typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1;
         if (currentInterval === -999) currentInterval = -1;
-        
+
         // Lấy streak của các phần
         const backStreak = typeof cardData.correctStreak_back === 'number' ? cardData.correctStreak_back : 0;
         const synonymStreak = typeof cardData.correctStreak_synonym === 'number' ? cardData.correctStreak_synonym : 0;
         const exampleStreak = typeof cardData.correctStreak_example === 'number' ? cardData.correctStreak_example : 0;
-        
+
         const hasSynonym = cardData.synonym && cardData.synonym.trim() !== '';
         const hasExample = cardData.example && cardData.example.trim() !== '';
-        
+
         const updateData = {
             lastReviewed: serverTimestamp(),
         };
-        
+
         // Cập nhật streak của phần được ôn tập
         let newBackStreak = backStreak;
         let newSynonymStreak = synonymStreak;
         let newExampleStreak = exampleStreak;
-        
+
         if (isCorrect) {
             // Tăng streak của phần được ôn tập
             if (cardReviewType === 'back') {
@@ -2032,50 +2032,50 @@ const App = () => {
                 newExampleStreak = 0;
             }
         }
-        
+
         updateData.correctStreak_back = newBackStreak;
         if (hasSynonym) updateData.correctStreak_synonym = newSynonymStreak;
         if (hasExample) updateData.correctStreak_example = newExampleStreak;
-        
+
         // Kiểm tra xem cả 3 phần đã hoàn thành chưa (streak >= 1)
         // CHỈ ĐẾM CÁC PHẦN TỒN TẠI
         const backCompleted = newBackStreak >= 1;
         const synonymCompleted = hasSynonym && newSynonymStreak >= 1; // Chỉ đếm nếu CÓ synonym
         const exampleCompleted = hasExample && newExampleStreak >= 1; // Chỉ đếm nếu CÓ example
-        
+
         // Tính số phần đã hoàn thành và số phần cần thiết
         let completedCount = 0;
         let requiredCount = 1; // Back luôn bắt buộc
-        
+
         if (backCompleted) completedCount++;
-        
+
         if (hasSynonym) {
             requiredCount++;
             if (synonymCompleted) completedCount++;
         }
-        
+
         if (hasExample) {
             requiredCount++;
             if (exampleCompleted) completedCount++;
         }
-        
+
         const allRequiredPartsCompleted = completedCount >= requiredCount;
-        
+
         // Tính ngày hôm nay và ngày mai
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-        
+
         const tomorrow = new Date(today);
         tomorrow.setDate(tomorrow.getDate() + 1);
-        
+
         if (allRequiredPartsCompleted) {
             // Cả 3 phần đều hoàn thành: tăng interval và tính nextReview mới
             const newInterval = currentInterval < 0 ? 0 : Math.min(currentInterval + 1, SRS_INTERVALS.length - 1);
             const nextReviewDate = getNextReviewDate(newInterval);
-            
+
             updateData.intervalIndex_back = newInterval;
             updateData.nextReview_back = nextReviewDate;
-            
+
             // Đồng bộ interval và nextReview cho synonym và example (dùng chung)
             if (hasSynonym) {
                 updateData.intervalIndex_synonym = newInterval;
@@ -2085,7 +2085,7 @@ const App = () => {
                 updateData.intervalIndex_example = newInterval;
                 updateData.nextReview_example = nextReviewDate;
             }
-            
+
             // Reset streaks về 0 sau khi hoàn thành một chu kỳ
             updateData.correctStreak_back = 0;
             if (hasSynonym) updateData.correctStreak_synonym = 0;
@@ -2094,10 +2094,10 @@ const App = () => {
             // Chưa hoàn thành đủ 3 phần: KHÔNG THAY ĐỔI nextReview
             // Để từ vẫn xuất hiện trong danh sách "cần ôn" cho đến khi hoàn thành đủ 3 phần
             // CHỈ cập nhật nextReview khi hoàn thành ĐỦ 3 phần (ở block if trên)
-            
+
             // Nếu là từ mới chưa có nextReview, set về hôm nay để nó vẫn xuất hiện
             const currentNextReview = cardData.nextReview_back?.toDate ? cardData.nextReview_back.toDate() : null;
-            
+
             if (!currentNextReview || currentInterval < 0) {
                 // Từ mới: set nextReview = today để nó vẫn xuất hiện trong danh sách due
                 updateData.nextReview_back = today;
@@ -2105,11 +2105,11 @@ const App = () => {
                 if (hasExample) updateData.nextReview_example = today;
             }
             // Nếu từ đã có nextReview: KHÔNG cập nhật, giữ nguyên chu kỳ cũ
-            
+
             // Giữ nguyên interval hiện tại (không tăng)
             // Không cần cập nhật intervalIndex vì vẫn giữ nguyên giá trị cũ
         }
-        
+
         try {
             await updateDoc(cardRef, updateData);
         } catch (e) {
@@ -2170,7 +2170,7 @@ const App = () => {
             level: level || '', // Update Level
             imageBase64: imageBase64,
         };
-        
+
         // CHỈ cập nhật audioBase64 nếu có giá trị mới (không null/undefined)
         // Nếu audioBase64 là null, có nghĩa là người dùng muốn xóa audio
         // Nếu audioBase64 là undefined, giữ nguyên audio cũ (không cập nhật)
@@ -2199,9 +2199,9 @@ const App = () => {
             // - audioBase64 là undefined (không truyền vào, giữ nguyên audio cũ) HOẶC
             // - audioBase64 là null (đã xóa audio) HOẶC  
             // - không có audio ban đầu
-            const shouldRegenerateAudio = oldSpeechText !== newSpeechText && 
+            const shouldRegenerateAudio = oldSpeechText !== newSpeechText &&
                 (audioBase64 === undefined || audioBase64 === null || !oldCard.audioBase64);
-            
+
             if (shouldRegenerateAudio) {
                 (async () => {
                     try {
@@ -2240,7 +2240,7 @@ const App = () => {
         const t = setTimeout(() => setNotification(''), 3000);
         return () => clearTimeout(t);
     }, [notification]);
-    
+
     // --- Helper: Lấy danh sách API keys ---
     const getGeminiApiKeys = () => {
         // Ưu tiên dùng keys từ state (có thể được cấu hình từ UI)
@@ -2254,19 +2254,19 @@ const App = () => {
     // --- Helper: Gọi Gemini API với retry logic tự động chuyển key ---
     const callGeminiApiWithRetry = async (payload, model = 'gemini-2.5-flash-preview-09-2025') => {
         const apiKeys = getGeminiApiKeys();
-        
+
         if (apiKeys.length === 0) {
             setNotification("Chưa cấu hình khóa API Gemini. Vui lòng thêm VITE_GEMINI_API_KEY_1, VITE_GEMINI_API_KEY_2, ... vào file .env hoặc cấu hình trong Settings.");
             throw new Error("Không có API key nào được cấu hình");
         }
 
         let lastError = null;
-        
+
         // Thử từng key một
         for (let i = 0; i < apiKeys.length; i++) {
             const apiKey = apiKeys[i];
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-            
+
             try {
                 const response = await fetch(apiUrl, {
                     method: 'POST',
@@ -2324,14 +2324,14 @@ const App = () => {
             setNotification(`Tất cả ${apiKeys.length} API key đều thất bại. Vui lòng kiểm tra lại các keys hoặc thử lại sau.`);
             throw lastError;
         }
-        
+
         throw new Error("Không thể gọi API Gemini với bất kỳ key nào");
     };
 
     // --- GEMINI AI ASSISTANT ---
     const handleGeminiAssist = async (frontText, contextPos = '', contextLevel = '') => {
         if (!frontText) return null;
-        
+
         // Tạo ngữ cảnh bổ sung cho AI
         let contextInfo = "";
         if (contextPos) contextInfo += `, Từ loại: ${contextPos}`;
@@ -2378,7 +2378,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
             // console.log("Gemini raw result:", result);
 
             const candidate = result.candidates?.[0];
-            
+
             if (candidate && candidate.content?.parts?.[0]?.text) {
                 const rawText = candidate.content.parts[0].text.trim();
 
@@ -2388,7 +2388,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
 
                 try {
                     const parsedJson = JSON.parse(jsonText);
-                    return parsedJson; 
+                    return parsedJson;
                 } catch (parseErr) {
                     console.error("Lỗi parse JSON từ Gemini:", parseErr, "rawText:", rawText);
                     setNotification("Gemini trả về dữ liệu không phải JSON hợp lệ. Thử lại với từ khác hoặc thử lại sau ít phút.");
@@ -2406,22 +2406,22 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
             return null;
         }
     };
-    
+
     // --- NEW: Batch Auto-Classification for Missing POS ---
     const handleAutoClassifyBatch = async (cardsToClassify) => {
         if (!cardsToClassify || cardsToClassify.length === 0) return;
-        
+
         setIsLoading(true);
         setNotification(`Đang tự động phân loại ${cardsToClassify.length} từ...`);
-        
+
         let successCount = 0;
         const delay = (ms) => new Promise(res => setTimeout(res, ms));
 
         for (const card of cardsToClassify) {
             try {
-                const text = card.front; 
+                const text = card.front;
                 const aiData = await handleGeminiAssist(text);
-                
+
                 const updates = {};
                 if (aiData && aiData.pos) updates.pos = aiData.pos;
                 if (aiData && aiData.level) updates.level = aiData.level;
@@ -2431,14 +2431,14 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     await updateDoc(cardRef, updates);
                     successCount++;
                 }
-                
-                await delay(1000); 
+
+                await delay(1000);
 
             } catch (e) {
                 console.error(`Lỗi phân loại thẻ ${card.front}:`, e);
             }
         }
-        
+
         setNotification(`Đã phân loại thành công ${successCount}/${cardsToClassify.length} thẻ.`);
         setIsLoading(false);
     };
@@ -2507,18 +2507,18 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
         allCards.forEach(card => {
             // Liên kết chặt chẽ với SRS Interval Index
             switch (card.intervalIndex_back) {
-                case -1: 
-                case 0: 
-                case 1: 
-                    stats.new++; 
+                case -1:
+                case 0:
+                case 1:
+                    stats.new++;
                     break;
-                case 2: 
+                case 2:
                     stats.shortTerm++;
                     break;
-                case 3: 
+                case 3:
                     stats.midTerm++;
                     break;
-                default: 
+                default:
                     if (card.intervalIndex_back >= 4) stats.longTerm++;
             }
         });
@@ -2533,20 +2533,20 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                 const statsDocRef = doc(db, publicStatsCollectionPath, userId);
                 const publicData = {
                     userId: userId,
-                    displayName: profile.displayName || 'Người dùng ẩn danh', 
+                    displayName: profile.displayName || 'Người dùng ẩn danh',
                     totalCards: allCards.length,
                     shortTerm: memoryStats.shortTerm,
                     midTerm: memoryStats.midTerm,
                     longTerm: memoryStats.longTerm,
                     isApproved: profile.isApproved === true,
-                    lastUpdated: serverTimestamp() 
+                    lastUpdated: serverTimestamp()
                 };
                 await setDoc(statsDocRef, publicData, { merge: true }).catch(err => {
                     // Ignore network/resource errors to prevent console spam
                     if (err?.code !== 'unavailable' && err?.code !== 'resource-exhausted' && err?.message?.includes('ERR_INSUFFICIENT_RESOURCES') === false) {
                         console.error("Lỗi cập nhật public stats:", err);
                     }
-                }); 
+                });
             } catch (e) {
                 // Ignore network/resource errors to prevent console spam
                 if (e?.code !== 'unavailable' && e?.code !== 'resource-exhausted' && e?.message?.includes('ERR_INSUFFICIENT_RESOURCES') === false) {
@@ -2561,8 +2561,8 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
         }, 2000); // Delay 2 giây để tránh spam requests
 
         return () => clearTimeout(timeoutId);
-        
-    }, [memoryStats, allCards.length, profile, userId, authReady, publicStatsCollectionPath]); 
+
+    }, [memoryStats, allCards.length, profile, userId, authReady, publicStatsCollectionPath]);
 
 
     // Nếu chưa biết trạng thái auth, show loading
@@ -2579,7 +2579,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
         return <LoginScreen />;
     }
 
-    if (isLoading || isProfileLoading || !profile) { 
+    if (isLoading || isProfileLoading || !profile) {
         return (
             <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900">
                 <Loader2 className="animate-spin text-indigo-600 dark:text-indigo-400 w-10 h-10" />
@@ -2601,12 +2601,12 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
             />
         );
     }
-    
+
     const renderContent = () => {
         switch (view) {
             case 'ADD_CARD':
-                return <AddCardForm 
-                    onSave={handleAddCard} 
+                return <AddCardForm
+                    onSave={handleAddCard}
                     onBack={() => {
                         if (batchVocabList.length > 0 && currentBatchIndex < batchVocabList.length) {
                             // Đang trong batch mode, hủy batch
@@ -2627,12 +2627,12 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                 />;
             case 'EDIT_CARD':
                 if (!editingCard) {
-                    setView('LIST'); 
+                    setView('LIST');
                     return null;
                 }
-                return <EditCardForm 
+                return <EditCardForm
                     card={editingCard}
-                    onSave={handleSaveChanges} 
+                    onSave={handleSaveChanges}
                     onBack={() => { setEditingCard(null); setView('LIST'); }} // Giữ filter khi quay lại
                     onGeminiAssist={handleGeminiAssist}
                 />;
@@ -2659,8 +2659,8 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                 if (reviewCards.length === 0) {
                     return <ReviewCompleteScreen onBack={() => setView('HOME')} />;
                 }
-                return <ReviewScreen 
-                    cards={reviewCards} 
+                return <ReviewScreen
+                    cards={reviewCards}
                     reviewMode={reviewMode}
                     allCards={allCards}
                     onUpdateCard={handleUpdateCard}
@@ -2677,7 +2677,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                                     failedCardsList.push({ ...card, reviewType });
                                 }
                             });
-                            
+
                             // Shuffle và set lại reviewCards
                             setReviewCards(shuffleArray(failedCardsList));
                             setReviewMode('mixed'); // Ôn lại tất cả các phần
@@ -2685,55 +2685,55 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                         } else {
                             // Không có từ sai, hoàn thành và về HOME
                             setReviewCards([]);
-                            setView('HOME'); 
+                            setView('HOME');
                         }
-                    }} 
+                    }}
                 />;
             case 'TEST':
-                return <TestScreen 
+                return <TestScreen
                     allCards={allCards}
-                    onBack={() => setView('HOME')} 
+                    onBack={() => setView('HOME')}
                 />;
             case 'LIST':
-                return <ListView 
-                    allCards={allCards} 
+                return <ListView
+                    allCards={allCards}
                     onDeleteCard={handleDeleteCard}
-                    onPlayAudio={playAudio} 
-                    onExport={() => handleExport(allCards)} 
-                    onNavigateToEdit={handleNavigateToEdit} 
-                    onAutoClassifyBatch={handleAutoClassifyBatch}
+                    onPlayAudio={playAudio}
+                    onExport={() => handleExport(allCards)}
+                    onNavigateToEdit={handleNavigateToEdit}
+
                     scrollToCardId={scrollToCardIdRef.current}
                     onScrollComplete={() => { scrollToCardIdRef.current = null; }}
                     savedFilters={savedFilters}
                     onFiltersChange={(filters) => setSavedFilters(filters)}
                 />;
             case 'IMPORT':
-                return <ImportScreen 
-                    onImport={handleBatchImport} 
-                    onBack={() => setView('HOME')} 
+                return <ImportScreen
+                    onImport={handleBatchImport}
+                    onBack={() => setView('HOME')}
                 />;
             case 'HELP':
-                return <HelpScreen 
-                    isFirstTime={false} 
-                    onBack={() => setView('HOME')} 
+                return <HelpScreen
+                    isFirstTime={false}
+                    onBack={() => setView('HOME')}
                 />;
             case 'STATS':
-                return <StatsScreen 
-                    memoryStats={memoryStats} 
+                return <StatsScreen
+                    memoryStats={memoryStats}
                     totalCards={allCards.length}
                     profile={profile}
                     allCards={allCards}
                     dailyActivityLogs={dailyActivityLogs}
                     onUpdateGoal={handleUpdateGoal}
-                    onBack={() => setView('HOME')} 
+                    onBack={() => setView('HOME')}
                 />;
             case 'FRIENDS':
-                return <FriendsScreen 
-                    publicStatsPath={publicStatsCollectionPath} 
-                    currentUserId={userId} 
+                return <FriendsScreen
+                    publicStatsPath={publicStatsCollectionPath}
+                    currentUserId={userId}
                     isAdmin={isAdmin}
                     onAdminDeleteUserData={handleAdminDeleteUserData}
-                    onBack={() => setView('HOME')} 
+                    onBack={() => setView('HOME')}
                 />;
             case 'ACCOUNT':
                 return <AccountScreen
@@ -2755,9 +2755,9 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                 />;
             case 'HOME':
             default:
-                return <HomeScreen 
-                    displayName={profile.displayName} 
-                    dueCounts={dueCounts} 
+                return <HomeScreen
+                    displayName={profile.displayName}
+                    dueCounts={dueCounts}
                     totalCards={allCards.length}
                     allCards={allCards}
                     studySessionData={studySessionData}
@@ -2765,7 +2765,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     setNotification={setNotification}
                     setReviewMode={setReviewMode}
                     setView={setView}
-                    onStartReview={prepareReviewCards} 
+                    onStartReview={prepareReviewCards}
                     onNavigate={setView}
                 />;
         }
@@ -2774,7 +2774,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col font-sans selection:bg-indigo-100 dark:selection:bg-indigo-900 selection:text-indigo-800 dark:selection:text-indigo-200 w-full">
             <Header currentView={view} setView={setView} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-            
+
             {/* Modal nhập từ vựng hàng loạt */}
             {showBatchImportModal && (
                 <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
@@ -2812,12 +2812,12 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                                         .split('\n')
                                         .map(line => line.trim())
                                         .filter(line => line.length > 0);
-                                    
+
                                     if (vocabList.length === 0) {
                                         setNotification('Không tìm thấy từ vựng nào!');
                                         return;
                                     }
-                                    
+
                                     setBatchVocabInput('');
                                     await handleBatchImportFromText(vocabList);
                                 }}
@@ -2837,21 +2837,21 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     </div>
                 </div>
             )}
-            
+
             <main className="flex-grow flex justify-center items-stretch main-with-header w-full">
                 <div className={`w-full max-w-xl lg:max-w-2xl mx-auto flex flex-col px-2 md:px-6 lg:px-8 pb-2 md:pb-6 lg:pb-10 pt-2 md:pt-6 lg:pt-8 ${view === 'HOME' || view === 'STATS' ? 'pt-1 md:pt-3 lg:pt-4 pb-1 md:pb-3 lg:pb-4' : ''}`}>
                     {/* Modern Container for Main Content - Padding nhỏ hơn cho HOME và STATS */}
                     <div className={`bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-xl shadow-indigo-100/50 dark:shadow-indigo-900/20 rounded-xl md:rounded-2xl border border-white/50 dark:border-gray-700/50 ${view === 'HOME' || view === 'STATS' ? 'p-2 md:p-3' : 'p-3 md:p-4'} transition-all duration-300 flex flex-col ${view === 'REVIEW' ? 'overflow-hidden' : ''}`}>
                         <div className={view === 'REVIEW' ? 'overflow-hidden' : ''}>
-                        {renderContent()}
+                            {renderContent()}
                         </div>
-                        
+
                         {notification && (view === 'HOME' || view === 'STATS' || view === 'ADD_CARD' || view === 'LIST') && (
                             <div className={`mt-2 md:mt-6 p-2 md:p-4 rounded-lg md:rounded-xl text-center text-xs md:text-sm font-medium animate-fade-in flex items-center justify-center space-x-2
-                                ${notification.includes('Lỗi') || notification.includes('có trong') 
-                                    ? 'bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 border border-red-100 dark:border-red-800' 
+                                ${notification.includes('Lỗi') || notification.includes('có trong')
+                                    ? 'bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 border border-red-100 dark:border-red-800'
                                     : 'bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800'}`}>
-                                {notification.includes('Lỗi') ? <AlertTriangle className="w-3 h-3 md:w-4 md:h-4"/> : <CheckCircle className="w-3 h-3 md:w-4 md:h-4"/>}
+                                {notification.includes('Lỗi') ? <AlertTriangle className="w-3 h-3 md:w-4 md:h-4" /> : <CheckCircle className="w-3 h-3 md:w-4 md:h-4" />}
                                 <span>{notification}</span>
                             </div>
                         )}
@@ -2994,22 +2994,20 @@ const LoginScreen = () => {
                     <button
                         type="button"
                         onClick={() => setMode('login')}
-                        className={`flex-1 py-1.5 md:py-2 rounded-lg md:rounded-xl transition-all ${
-                            mode === 'login'
+                        className={`flex-1 py-1.5 md:py-2 rounded-lg md:rounded-xl transition-all ${mode === 'login'
                                 ? 'bg-white text-indigo-700 shadow-sm'
                                 : 'text-gray-500 hover:text-gray-700'
-                        }`}
+                            }`}
                     >
                         Đăng nhập
                     </button>
                     <button
                         type="button"
                         onClick={() => setMode('register')}
-                        className={`flex-1 py-1.5 md:py-2 rounded-lg md:rounded-xl transition-all ${
-                            mode === 'register'
+                        className={`flex-1 py-1.5 md:py-2 rounded-lg md:rounded-xl transition-all ${mode === 'register'
                                 ? 'bg-white text-indigo-700 shadow-sm'
                                 : 'text-gray-500 hover:text-gray-700'
-                        }`}
+                            }`}
                     >
                         Đăng ký
                     </button>
@@ -3164,30 +3162,30 @@ const PaymentScreen = ({ displayName, onPaidClick, onLogout }) => {
                             </p>
                         </div>
                     </div>
-                    
+
                     {/* QR Codes */}
                     <div className="space-y-3 mt-4">
                         <p className="text-xs md:text-sm font-semibold text-gray-700">Quét mã QR để thanh toán:</p>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div className="flex flex-col items-center">
-                                <img 
-                                    src={`${import.meta.env.BASE_URL}qr-codes/qr-momo.png`} 
-                                    alt="QR Code MoMo" 
+                                <img
+                                    src={`${import.meta.env.BASE_URL}qr-codes/qr-momo.png`}
+                                    alt="QR Code MoMo"
                                     className="w-full max-w-[200px] h-auto rounded-lg shadow-sm"
                                 />
                                 <p className="text-[10px] md:text-xs text-gray-600 mt-2 text-center">MoMo / VietQR / Napas</p>
                             </div>
                             <div className="flex flex-col items-center">
-                                <img 
-                                    src={`${import.meta.env.BASE_URL}qr-codes/qr-vietqr.png`} 
-                                    alt="QR Code VietQR" 
+                                <img
+                                    src={`${import.meta.env.BASE_URL}qr-codes/qr-vietqr.png`}
+                                    alt="QR Code VietQR"
                                     className="w-full max-w-[200px] h-auto rounded-lg shadow-sm"
                                 />
                                 <p className="text-[10px] md:text-xs text-gray-600 mt-2 text-center">VietQR / Napas 247</p>
                             </div>
                         </div>
                     </div>
-                    
+
                     <button
                         type="button"
                         onClick={handlePaidClick}
@@ -3460,12 +3458,12 @@ const ProfileScreen = ({ onSave }) => {
             <div className="w-full max-w-md bg-white/90 backdrop-blur-xl shadow-2xl rounded-3xl p-10 space-y-8 border border-white/50">
                 <div className="text-center space-y-2">
                     <div className="w-16 h-16 bg-indigo-600 rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-indigo-200">
-                         <Sparkles className="w-8 h-8 text-white" />
+                        <Sparkles className="w-8 h-8 text-white" />
                     </div>
                     <h2 className="text-3xl font-extrabold text-gray-800">QuizKi</h2>
                     <p className="text-gray-500 text-sm">Học từ vựng tiếng Nhật thông minh</p>
                 </div>
-                
+
                 <div className="space-y-4">
                     <label htmlFor="displayName" className="block text-sm font-semibold text-gray-700">
                         Bạn tên là gì?
@@ -3507,127 +3505,127 @@ const Header = ({ currentView, setView, isDarkMode, setIsDarkMode }) => {
     };
 
     return (
-    <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 z-50 h-12 md:h-16 transition-all duration-300">
-        <div className="w-full max-w-xl lg:max-w-2xl mx-auto px-2 md:px-4 sm:px-6 h-full flex items-center justify-between">
-            <div className="flex items-center space-x-1 md:space-x-2 cursor-pointer group" onClick={() => setView('HOME')}>
-                <div className="bg-indigo-600 dark:bg-indigo-500 p-1 md:p-1.5 rounded-lg group-hover:bg-indigo-700 dark:group-hover:bg-indigo-600 transition-colors">
-                    <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-white" />
+        <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 z-50 h-12 md:h-16 transition-all duration-300">
+            <div className="w-full max-w-xl lg:max-w-2xl mx-auto px-2 md:px-4 sm:px-6 h-full flex items-center justify-between">
+                <div className="flex items-center space-x-1 md:space-x-2 cursor-pointer group" onClick={() => setView('HOME')}>
+                    <div className="bg-indigo-600 dark:bg-indigo-500 p-1 md:p-1.5 rounded-lg group-hover:bg-indigo-700 dark:group-hover:bg-indigo-600 transition-colors">
+                        <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                    </div>
+                    <span className="text-base md:text-xl font-extrabold text-black dark:text-white">
+                        QuizKi
+                    </span>
                 </div>
-                <span className="text-base md:text-xl font-extrabold text-black dark:text-white">
-                    QuizKi
-                </span>
-            </div>
-            
-            <nav className="flex items-center space-x-0.5 md:space-x-1 sm:space-x-2">
-                {[
-                    { id: 'HOME', icon: Home, label: 'Home' },
-                    { id: 'LIST', icon: List, label: 'List' },
-                    { id: 'STATS', icon: BarChart3, label: 'Stats' },
-                    { id: 'FRIENDS', icon: Users, label: 'Rank' },
-                    { id: 'ACCOUNT', icon: Settings, label: 'Account' },
-                ].map((item) => (
-                    <button 
-                        key={item.id}
-                        onClick={() => setView(item.id)} 
-                        className={`p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all duration-200 relative
-                            ${currentView === item.id 
-                                ? 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30' 
-                                : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'}`}
-                        title={item.label}
-                    >
-                        <item.icon className="w-4 h-4 md:w-5 md:h-5" strokeWidth={currentView === item.id ? 2.5 : 2} />
-                        {currentView === item.id && (
-                            <span className="absolute bottom-0.5 md:bottom-1 left-1/2 transform -translate-x-1/2 w-0.5 md:w-1 h-0.5 md:h-1 bg-indigo-600 dark:bg-indigo-400 rounded-full" />
-                        )}
-                    </button>
-                ))}
-                
-                <div className="h-4 md:h-6 w-px bg-gray-200 dark:bg-gray-700 mx-1 md:mx-2" />
-                
-                <button
-                    onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setIsDarkMode(prev => !prev);
-                    }}
-                    className="p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
-                    title={isDarkMode ? "Chế độ sáng" : "Chế độ tối"}
-                    type="button"
-                >
-                    {isDarkMode ? <Sun className="w-4 h-4 md:w-5 md:h-5" /> : <Moon className="w-4 h-4 md:w-5 md:h-5" />}
-                </button>
-                
-                <button
-                    onClick={() => setView('ADD_CARD')}
-                    className={`p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all ${currentView === 'ADD_CARD' ? 'bg-indigo-600 dark:bg-indigo-500 text-white shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50' : 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50'}`}
-                >
-                    <Plus className="w-4 h-4 md:w-5 md:h-5" strokeWidth={2.5} />
-                </button>
 
-                <button
-                    onClick={handleLogout}
-                    className="ml-0.5 md:ml-1 p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all text-gray-400 dark:text-gray-500 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30"
-                    title="Đăng xuất"
-                >
-                    <LogOut className="w-4 h-4 md:w-5 md:h-5" />
-                </button>
-            </nav>
-        </div>
-    </header>
+                <nav className="flex items-center space-x-0.5 md:space-x-1 sm:space-x-2">
+                    {[
+                        { id: 'HOME', icon: Home, label: 'Home' },
+                        { id: 'LIST', icon: List, label: 'List' },
+                        { id: 'STATS', icon: BarChart3, label: 'Stats' },
+                        { id: 'FRIENDS', icon: Users, label: 'Rank' },
+                        { id: 'ACCOUNT', icon: Settings, label: 'Account' },
+                    ].map((item) => (
+                        <button
+                            key={item.id}
+                            onClick={() => setView(item.id)}
+                            className={`p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all duration-200 relative
+                            ${currentView === item.id
+                                    ? 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30'
+                                    : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'}`}
+                            title={item.label}
+                        >
+                            <item.icon className="w-4 h-4 md:w-5 md:h-5" strokeWidth={currentView === item.id ? 2.5 : 2} />
+                            {currentView === item.id && (
+                                <span className="absolute bottom-0.5 md:bottom-1 left-1/2 transform -translate-x-1/2 w-0.5 md:w-1 h-0.5 md:h-1 bg-indigo-600 dark:bg-indigo-400 rounded-full" />
+                            )}
+                        </button>
+                    ))}
+
+                    <div className="h-4 md:h-6 w-px bg-gray-200 dark:bg-gray-700 mx-1 md:mx-2" />
+
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setIsDarkMode(prev => !prev);
+                        }}
+                        className="p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
+                        title={isDarkMode ? "Chế độ sáng" : "Chế độ tối"}
+                        type="button"
+                    >
+                        {isDarkMode ? <Sun className="w-4 h-4 md:w-5 md:h-5" /> : <Moon className="w-4 h-4 md:w-5 md:h-5" />}
+                    </button>
+
+                    <button
+                        onClick={() => setView('ADD_CARD')}
+                        className={`p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all ${currentView === 'ADD_CARD' ? 'bg-indigo-600 dark:bg-indigo-500 text-white shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50' : 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50'}`}
+                    >
+                        <Plus className="w-4 h-4 md:w-5 md:h-5" strokeWidth={2.5} />
+                    </button>
+
+                    <button
+                        onClick={handleLogout}
+                        className="ml-0.5 md:ml-1 p-1.5 md:p-2.5 rounded-lg md:rounded-xl transition-all text-gray-400 dark:text-gray-500 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30"
+                        title="Đăng xuất"
+                    >
+                        <LogOut className="w-4 h-4 md:w-5 md:h-5" />
+                    </button>
+                </nav>
+            </div>
+        </header>
     );
 };
 
 const MemoryStatCard = ({ title, count, icon: IconComponent, color, subtext }) => {
     const Icon = IconComponent;
     return (
-    <div className={`relative overflow-hidden p-2 md:p-3 rounded-lg md:rounded-xl border transition-all duration-300 ${color.bg} ${color.border} group h-full`}>
-        {/* Glow background */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-            <div className="absolute -inset-10 bg-gradient-to-br from-white/40 via-transparent to-white/10 blur-2xl" />
-        </div>
-
-        {/* Animated top bar */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-        <div className="relative flex items-center justify-between">
-            <div>
-                <p className="text-lg md:text-2xl font-black text-gray-900 dark:text-gray-100 drop-shadow-sm">{count}</p>
-                <p className="text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mt-0.5">{title}</p>
-                {subtext && <p className="text-[8px] md:text-[10px] text-gray-500 dark:text-gray-400 mt-0.5">{subtext}</p>}
+        <div className={`relative overflow-hidden p-2 md:p-3 rounded-lg md:rounded-xl border transition-all duration-300 ${color.bg} ${color.border} group h-full`}>
+            {/* Glow background */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <div className="absolute -inset-10 bg-gradient-to-br from-white/40 via-transparent to-white/10 blur-2xl" />
             </div>
-            <div className={`p-1.5 md:p-2 rounded-md md:rounded-lg ${color.iconBg} group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 flex-shrink-0`}>
-                <Icon className={`w-4 h-4 md:w-5 md:h-5 ${color.text}`} />
+
+            {/* Animated top bar */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+            <div className="relative flex items-center justify-between">
+                <div>
+                    <p className="text-lg md:text-2xl font-black text-gray-900 dark:text-gray-100 drop-shadow-sm">{count}</p>
+                    <p className="text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mt-0.5">{title}</p>
+                    {subtext && <p className="text-[8px] md:text-[10px] text-gray-500 dark:text-gray-400 mt-0.5">{subtext}</p>}
+                </div>
+                <div className={`p-1.5 md:p-2 rounded-md md:rounded-lg ${color.iconBg} group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 flex-shrink-0`}>
+                    <Icon className={`w-4 h-4 md:w-5 md:h-5 ${color.text}`} />
+                </div>
             </div>
         </div>
-    </div>
     );
 };
 
 // ActionCard component - Liquid Glass Effect (iOS style)
-    const ActionCard = ({ onClick, icon: IconComponent, title, count, gradient, disabled = false, description, hideCount = false }) => {
-        const Icon = IconComponent;
-        // Map gradient colors to glass effect colors - More vibrant and eye-catching
-        const getGlassColor = (gradient) => {
-            if (gradient.includes('amber') || gradient.includes('orange')) {
-                return 'bg-gradient-to-br from-amber-500/25 via-amber-600/20 to-orange-600/25 dark:from-amber-500/30 dark:via-amber-600/25 dark:to-orange-600/30 border-amber-400/70 dark:border-amber-500/60 shadow-amber-300/40 dark:shadow-amber-900/50';
-            } else if (gradient.includes('purple') || gradient.includes('pink')) {
-                return 'bg-gradient-to-br from-purple-600/25 via-purple-600/20 to-pink-600/25 dark:from-purple-600/30 dark:via-purple-600/25 dark:to-pink-600/30 border-purple-400/70 dark:border-purple-500/60 shadow-purple-300/40 dark:shadow-purple-900/50';
-            } else if (gradient.includes('teal') || gradient.includes('emerald')) {
-                return 'bg-gradient-to-br from-emerald-500/25 via-emerald-600/20 to-teal-600/25 dark:from-emerald-500/30 dark:via-emerald-600/25 dark:to-teal-600/30 border-emerald-400/70 dark:border-emerald-500/60 shadow-emerald-300/40 dark:shadow-emerald-900/50';
-            } else if (gradient.includes('rose') || gradient.includes('red')) {
-                return 'bg-gradient-to-br from-rose-500/25 via-rose-600/20 to-red-600/25 dark:from-rose-500/30 dark:via-rose-600/25 dark:to-red-600/30 border-rose-400/70 dark:border-rose-500/60 shadow-rose-300/40 dark:shadow-rose-900/50';
-            } else if (gradient.includes('blue') || gradient.includes('cyan')) {
-                return 'bg-gradient-to-br from-blue-500/25 via-blue-600/20 to-cyan-600/25 dark:from-blue-500/30 dark:via-blue-600/25 dark:to-cyan-600/30 border-blue-400/70 dark:border-blue-500/60 shadow-blue-300/40 dark:shadow-blue-900/50';
-            } else if (gradient.includes('green')) {
-                return 'bg-gradient-to-br from-green-500/25 via-green-600/20 to-emerald-600/25 dark:from-green-500/30 dark:via-green-600/25 dark:to-emerald-600/30 border-green-400/70 dark:border-green-500/60 shadow-green-300/40 dark:shadow-green-900/50';
-            } else {
-                return 'bg-gradient-to-br from-indigo-500/25 via-indigo-600/20 to-purple-600/25 dark:from-indigo-500/30 dark:via-indigo-600/25 dark:to-purple-600/30 border-indigo-400/70 dark:border-indigo-500/60 shadow-indigo-300/40 dark:shadow-indigo-900/50';
-            }
-        };
-        
-        const glassColor = getGlassColor(gradient);
-        
-        return (
+const ActionCard = ({ onClick, icon: IconComponent, title, count, gradient, disabled = false, description, hideCount = false }) => {
+    const Icon = IconComponent;
+    // Map gradient colors to glass effect colors - More vibrant and eye-catching
+    const getGlassColor = (gradient) => {
+        if (gradient.includes('amber') || gradient.includes('orange')) {
+            return 'bg-gradient-to-br from-amber-500/25 via-amber-600/20 to-orange-600/25 dark:from-amber-500/30 dark:via-amber-600/25 dark:to-orange-600/30 border-amber-400/70 dark:border-amber-500/60 shadow-amber-300/40 dark:shadow-amber-900/50';
+        } else if (gradient.includes('purple') || gradient.includes('pink')) {
+            return 'bg-gradient-to-br from-purple-600/25 via-purple-600/20 to-pink-600/25 dark:from-purple-600/30 dark:via-purple-600/25 dark:to-pink-600/30 border-purple-400/70 dark:border-purple-500/60 shadow-purple-300/40 dark:shadow-purple-900/50';
+        } else if (gradient.includes('teal') || gradient.includes('emerald')) {
+            return 'bg-gradient-to-br from-emerald-500/25 via-emerald-600/20 to-teal-600/25 dark:from-emerald-500/30 dark:via-emerald-600/25 dark:to-teal-600/30 border-emerald-400/70 dark:border-emerald-500/60 shadow-emerald-300/40 dark:shadow-emerald-900/50';
+        } else if (gradient.includes('rose') || gradient.includes('red')) {
+            return 'bg-gradient-to-br from-rose-500/25 via-rose-600/20 to-red-600/25 dark:from-rose-500/30 dark:via-rose-600/25 dark:to-red-600/30 border-rose-400/70 dark:border-rose-500/60 shadow-rose-300/40 dark:shadow-rose-900/50';
+        } else if (gradient.includes('blue') || gradient.includes('cyan')) {
+            return 'bg-gradient-to-br from-blue-500/25 via-blue-600/20 to-cyan-600/25 dark:from-blue-500/30 dark:via-blue-600/25 dark:to-cyan-600/30 border-blue-400/70 dark:border-blue-500/60 shadow-blue-300/40 dark:shadow-blue-900/50';
+        } else if (gradient.includes('green')) {
+            return 'bg-gradient-to-br from-green-500/25 via-green-600/20 to-emerald-600/25 dark:from-green-500/30 dark:via-green-600/25 dark:to-emerald-600/30 border-green-400/70 dark:border-green-500/60 shadow-green-300/40 dark:shadow-green-900/50';
+        } else {
+            return 'bg-gradient-to-br from-indigo-500/25 via-indigo-600/20 to-purple-600/25 dark:from-indigo-500/30 dark:via-indigo-600/25 dark:to-purple-600/30 border-indigo-400/70 dark:border-indigo-500/60 shadow-indigo-300/40 dark:shadow-indigo-900/50';
+        }
+    };
+
+    const glassColor = getGlassColor(gradient);
+
+    return (
         <button
             onClick={onClick}
             disabled={disabled}
@@ -3638,45 +3636,45 @@ const MemoryStatCard = ({ title, count, icon: IconComponent, color, subtext }) =
         >
             {/* Liquid glass shine effect - More vibrant */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl md:rounded-3xl" />
-            
+
             {/* Subtle inner glow - Enhanced */}
             <div className="absolute inset-[1px] bg-gradient-to-br from-white/20 via-white/10 to-transparent rounded-2xl md:rounded-3xl pointer-events-none" />
-            
+
             {/* Animated shimmer effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out rounded-2xl md:rounded-3xl pointer-events-none" />
-            
+
             <div className="z-10 w-full flex items-center gap-2 md:gap-3 relative">
                 {/* Icon với liquid glass effect */}
                 <div className={`flex-shrink-0 w-10 h-24 md:w-14 md:h-32 rounded-xl md:rounded-2xl backdrop-blur-md flex items-center justify-center
                                 ${disabled ? 'bg-gray-500/20 border border-gray-400/20' : 'bg-gradient-to-br from-white/40 via-white/30 to-white/20 dark:from-white/20 dark:via-white/15 dark:to-white/10 border border-white/50 dark:border-white/30 shadow-lg shadow-white/20 dark:shadow-white/10'}`}>
                     <Icon className={`w-5 h-5 md:w-7 md:h-7 ${disabled ? 'text-gray-400 dark:text-gray-500' : 'text-gray-700 dark:text-gray-200'}`} strokeWidth={2.5} />
                 </div>
-                
+
                 {/* Text content bên phải */}
                 <div className="flex-1 flex flex-col justify-center min-w-0">
                     <div className="flex items-center justify-between mb-0.5 md:mb-1">
                         <h3 className={`text-xs md:text-base font-extrabold tracking-tight truncate ${disabled ? 'text-gray-400 dark:text-gray-500' : 'text-gray-800 dark:text-gray-100'}`}>{title}</h3>
-                     {!hideCount && typeof count !== 'undefined' && count > 0 && (
+                        {!hideCount && typeof count !== 'undefined' && count > 0 && (
                             <span className={`backdrop-blur-md text-[10px] md:text-xs font-bold px-1.5 md:px-2 py-0.5 md:py-1 rounded-full flex-shrink-0 ml-1.5 border
                                             ${disabled ? 'bg-gray-500/20 border-gray-400/30 text-gray-400 dark:text-gray-500' : 'bg-white/40 dark:bg-white/20 border-white/40 dark:border-white/30 text-gray-700 dark:text-gray-200 shadow-sm'}`}>
-                            {count} cần ôn
-                        </span>
-                    )}
-                </div>
+                                {count} cần ôn
+                            </span>
+                        )}
+                    </div>
                     <p className={`text-[10px] md:text-xs font-medium leading-snug ${disabled ? 'text-gray-400 dark:text-gray-500' : 'text-gray-600 dark:text-gray-300'}`}>{description}</p>
                 </div>
             </div>
-            
+
             {/* Background Decoration - subtle */}
             <Icon className={`absolute -bottom-3 md:-bottom-4 -right-3 md:-right-4 w-24 h-24 md:w-32 md:h-32 group-hover:scale-110 transition-transform duration-500 ${disabled ? 'text-gray-300/5 dark:text-gray-600/5' : 'text-gray-400/5 dark:text-gray-500/5'}`} />
         </button>
-        );
-    };
+    );
+};
 
 const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySessionData, setStudySessionData, setNotification, setReviewMode, setView, onStartReview, onNavigate }) => {
     const [activeFilter, setActiveFilter] = useState('review'); // 'study' or 'review'
     const [reviewCategory, setReviewCategory] = useState('all'); // 'all', 'old', 'new', 'grammar'
-    
+
     return (
         <div className="space-y-1 md:space-y-2">
             {/* Hero Section */}
@@ -3692,27 +3690,25 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                     <span className="text-xs font-bold text-indigo-700 dark:text-indigo-300 whitespace-nowrap">{totalCards} từ vựng</span>
                 </div>
             </div>
-            
+
             {/* Filter Tabs */}
             <div className="flex gap-2 bg-gray-100/50 dark:bg-gray-800/50 p-1 rounded-xl backdrop-blur-sm">
                 <button
                     onClick={() => setActiveFilter('review')}
-                    className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg transition-all duration-200 ${
-                        activeFilter === 'review'
+                    className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg transition-all duration-200 ${activeFilter === 'review'
                             ? 'bg-white dark:bg-gray-700 shadow-md text-amber-600 dark:text-amber-400 font-bold'
                             : 'text-gray-600 dark:text-gray-400 hover:bg-white/50 dark:hover:bg-gray-700/50'
-                    }`}
+                        }`}
                 >
                     <Zap className="w-4 h-4" />
                     <span className="text-xs md:text-sm">Chế độ Ôn tập</span>
                 </button>
                 <button
                     onClick={() => setActiveFilter('study')}
-                    className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg transition-all duration-200 ${
-                        activeFilter === 'study'
+                    className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg transition-all duration-200 ${activeFilter === 'study'
                             ? 'bg-white dark:bg-gray-700 shadow-md text-teal-600 dark:text-teal-400 font-bold'
                             : 'text-gray-600 dark:text-gray-400 hover:bg-white/50 dark:hover:bg-gray-700/50'
-                    }`}
+                        }`}
                 >
                     <GraduationCap className="w-4 h-4" />
                     <span className="text-xs md:text-sm">Chế độ Học</span>
@@ -3738,25 +3734,25 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                                 const noSrsCards = allCards.filter(card => {
                                     return card.intervalIndex_back === -1 || card.intervalIndex_back === undefined;
                                 });
-                                
+
                                 if (noSrsCards.length === 0) {
                                     setNotification('Không có từ vựng nào chưa có cấp độ SRS để học.');
                                     return;
                                 }
-                                
+
                                 // Tạo batch đầu tiên (5 từ) - ưu tiên Learning > New > Reviewing
-                                const learning = studySessionData.learning.filter(card => 
+                                const learning = studySessionData.learning.filter(card =>
                                     noSrsCards.some(c => c.id === card.id)
                                 );
-                                const newCards = noSrsCards.filter(card => 
+                                const newCards = noSrsCards.filter(card =>
                                     !learning.some(c => c.id === card.id) &&
                                     !studySessionData.reviewing.some(c => c.id === card.id)
                                 );
-                                const reviewing = studySessionData.reviewing.filter(card => 
+                                const reviewing = studySessionData.reviewing.filter(card =>
                                     noSrsCards.some(c => c.id === card.id) &&
                                     !learning.some(c => c.id === card.id)
                                 );
-                                
+
                                 // Tạo batch đầu tiên (5 từ) - đảm bảo shuffle đúng cách
                                 const firstBatch = [];
                                 // Ưu tiên 1: Learning (từ đã sai)
@@ -3773,12 +3769,12 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                                     const shuffledReviewing = shuffleArray(reviewing);
                                     firstBatch.push(...shuffledReviewing.slice(0, Math.min(5 - firstBatch.length, shuffledReviewing.length)));
                                 }
-                                
+
                                 if (firstBatch.length === 0) {
                                     setNotification('Không có từ vựng nào để học.');
                                     return;
                                 }
-                                
+
                                 setStudySessionData({
                                     learning: learning,
                                     new: newCards,
@@ -3820,7 +3816,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                             onClick={() => onStartReview('back', reviewCategory)}
                             icon={Repeat2}
                             title="Ý nghĩa"
-                            description="Nhớ nghĩa từ vựng" 
+                            description="Nhớ nghĩa từ vựng"
                             count={reviewCategory === 'all' ? dueCounts.back : reviewCategory === 'old' ? dueCounts.old.back : reviewCategory === 'new' ? dueCounts.new.back : dueCounts.grammar.back}
                             gradient="from-emerald-500 to-green-600"
                             disabled={reviewCategory === 'all' ? dueCounts.back === 0 : reviewCategory === 'old' ? dueCounts.old.back === 0 : reviewCategory === 'new' ? dueCounts.new.back === 0 : dueCounts.grammar.back === 0}
@@ -3849,11 +3845,10 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                     <div className="flex flex-wrap gap-1.5 md:gap-2 justify-center pt-1">
                         <button
                             onClick={() => setReviewCategory('all')}
-                            className={`flex-1 min-w-[calc(50%-0.75rem)] md:min-w-[calc(25%-1.5rem)] px-3 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-medium transition-all duration-200 ${
-                                reviewCategory === 'all'
+                            className={`flex-1 min-w-[calc(50%-0.75rem)] md:min-w-[calc(25%-1.5rem)] px-3 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-medium transition-all duration-200 ${reviewCategory === 'all'
                                     ? 'bg-indigo-600 dark:bg-indigo-500 text-white shadow-md shadow-indigo-200 dark:shadow-indigo-900/50'
                                     : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'
-                            }`}
+                                }`}
                         >
                             <div className="flex items-center justify-center gap-1.5">
                                 <Repeat2 className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -3862,11 +3857,10 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                         </button>
                         <button
                             onClick={() => setReviewCategory('old')}
-                            className={`flex-1 min-w-[calc(50%-0.75rem)] md:min-w-[calc(25%-1.5rem)] px-3 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-medium transition-all duration-200 ${
-                                reviewCategory === 'old'
+                            className={`flex-1 min-w-[calc(50%-0.75rem)] md:min-w-[calc(25%-1.5rem)] px-3 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-medium transition-all duration-200 ${reviewCategory === 'old'
                                     ? 'bg-amber-600 dark:bg-amber-500 text-white shadow-md shadow-amber-200 dark:shadow-amber-900/50'
                                     : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'
-                            }`}
+                                }`}
                         >
                             <div className="flex items-center justify-center gap-1.5">
                                 <Clock className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -3875,11 +3869,10 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                         </button>
                         <button
                             onClick={() => setReviewCategory('new')}
-                            className={`flex-1 min-w-[calc(50%-0.75rem)] md:min-w-[calc(25%-1.5rem)] px-3 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-medium transition-all duration-200 ${
-                                reviewCategory === 'new'
+                            className={`flex-1 min-w-[calc(50%-0.75rem)] md:min-w-[calc(25%-1.5rem)] px-3 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-medium transition-all duration-200 ${reviewCategory === 'new'
                                     ? 'bg-indigo-600 dark:bg-indigo-500 text-white shadow-md shadow-indigo-200 dark:shadow-indigo-900/50'
                                     : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'
-                            }`}
+                                }`}
                         >
                             <div className="flex items-center justify-center gap-1.5">
                                 <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -3888,11 +3881,10 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                         </button>
                         <button
                             onClick={() => setReviewCategory('grammar')}
-                            className={`flex-1 min-w-[calc(50%-0.75rem)] md:min-w-[calc(25%-1.5rem)] px-3 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-medium transition-all duration-200 ${
-                                reviewCategory === 'grammar'
+                            className={`flex-1 min-w-[calc(50%-0.75rem)] md:min-w-[calc(25%-1.5rem)] px-3 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-medium transition-all duration-200 ${reviewCategory === 'grammar'
                                     ? 'bg-purple-600 dark:bg-purple-500 text-white shadow-md shadow-purple-200 dark:shadow-purple-900/50'
                                     : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'
-                            }`}
+                                }`}
                         >
                             <div className="flex items-center justify-center gap-1.5">
                                 <FileText className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -3902,7 +3894,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                     </div>
                 </div>
             )}
-            
+
             {/* Management Section */}
             <div className="pt-0.5 md:pt-1 space-y-1 md:space-y-1.5">
                 <h3 className="text-xs md:text-sm font-bold text-gray-700 dark:text-gray-300 flex items-center">
@@ -3910,7 +3902,7 @@ const HomeScreen = ({ displayName, dueCounts, totalCards, allCards, studySession
                     Quản lý & Tiện ích
                 </h3>
                 <div className="grid grid-cols-5 gap-1.5 md:gap-2">
-                     <button
+                    <button
                         onClick={() => onNavigate('ADD_CARD')}
                         className="flex flex-col items-center justify-center p-2 md:p-2.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg hover:border-indigo-200 dark:hover:border-indigo-600 transition-all group min-h-[70px]"
                     >
@@ -3972,17 +3964,17 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, curren
     const [back, setBack] = useState('');
     const [synonym, setSynonym] = useState('');
     const [example, setExample] = useState('');
-    const [exampleMeaning, setExampleMeaning] = useState(''); 
+    const [exampleMeaning, setExampleMeaning] = useState('');
     const [nuance, setNuance] = useState('');
-    const [pos, setPos] = useState(''); 
-    const [level, setLevel] = useState(''); 
-    const [sinoVietnamese, setSinoVietnamese] = useState(''); 
-    const [synonymSinoVietnamese, setSynonymSinoVietnamese] = useState(''); 
+    const [pos, setPos] = useState('');
+    const [level, setLevel] = useState('');
+    const [sinoVietnamese, setSinoVietnamese] = useState('');
+    const [synonymSinoVietnamese, setSynonymSinoVietnamese] = useState('');
     const [imagePreview, setImagePreview] = useState(null);
-    const [customAudio, setCustomAudio] = useState(''); 
-    const [showAudioInput, setShowAudioInput] = useState(false); 
+    const [customAudio, setCustomAudio] = useState('');
+    const [showAudioInput, setShowAudioInput] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
-    const [isAiLoading, setIsAiLoading] = useState(false); 
+    const [isAiLoading, setIsAiLoading] = useState(false);
     const frontInputRef = useRef(null);
 
     // Load dữ liệu từ editingCard nếu có (cho batch mode)
@@ -4027,9 +4019,9 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, curren
     };
     const handleSave = async (action) => {
         if (!front.trim() || !back.trim()) return;
-        setIsSaving(true); 
+        setIsSaving(true);
         const success = await onSave({ front, back, synonym, example, exampleMeaning, nuance, pos, level, sinoVietnamese, synonymSinoVietnamese, action, imageBase64: imagePreview, audioBase64: customAudio.trim() !== '' ? customAudio.trim() : null });
-        setIsSaving(false); 
+        setIsSaving(false);
         if (success && action === 'continue') {
             setFront(''); setBack(''); setSynonym(''); setExample(''); setExampleMeaning(''); setNuance(''); setPos(''); setLevel(''); setSinoVietnamese(''); setSynonymSinoVietnamese(''); setImagePreview(null); setCustomAudio(''); setShowAudioInput(false);
             // Chỉ focus trên desktop, không focus trên mobile để tránh xung đột với bàn phím
@@ -4040,12 +4032,12 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, curren
     };
     const handleAiAssist = async (e) => {
         e.preventDefault();
-        if (!front.trim()) { 
+        if (!front.trim()) {
             // Chỉ focus trên desktop, không focus trên mobile để tránh xung đột với bàn phím
             if (frontInputRef.current && !isMobileDevice()) {
                 frontInputRef.current.focus();
             }
-            return; 
+            return;
         }
         setIsAiLoading(true);
         // Pass current pos and level as context to Gemini
@@ -4057,7 +4049,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, curren
             if (aiData.synonym) setSynonym(aiData.synonym);
             if (aiData.synonymSinoVietnamese) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese);
             if (aiData.example) setExample(aiData.example);
-            if (aiData.exampleMeaning) setExampleMeaning(aiData.exampleMeaning); 
+            if (aiData.exampleMeaning) setExampleMeaning(aiData.exampleMeaning);
             if (aiData.nuance) setNuance(aiData.nuance);
             if (aiData.pos) setPos(aiData.pos);
             if (aiData.level) setLevel(aiData.level);
@@ -4095,24 +4087,24 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, curren
                 <div className="space-y-4">
                     <div className="bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-3">
                         <div className="flex justify-between items-center mb-2">
-                             <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">
                                 Từ vựng (Nhật): <span className="text-rose-500 dark:text-rose-400">*</span>
                             </label>
-                            
+
                         </div>
-                        
+
                         <div className="flex gap-2">
-                            <input 
-                                id="front" 
-                                type="text" 
+                            <input
+                                id="front"
+                                type="text"
                                 inputMode="text"
                                 autoComplete="off"
                                 autoCapitalize="off"
                                 autoCorrect="off"
                                 spellCheck="false"
-                                ref={frontInputRef} 
-                                value={front} 
-                                onChange={(e) => setFront(e.target.value)} 
+                                ref={frontInputRef}
+                                value={front}
+                                onChange={(e) => setFront(e.target.value)}
                                 onKeyDown={handleKeyDown}
                                 onFocus={(e) => {
                                     // Scroll vào view trên mobile khi focus (không cần gọi focus() vì đã được focus rồi)
@@ -4123,13 +4115,13 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, curren
                                     }
                                 }}
                                 required
-                                className="flex-1 px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 transition-all font-medium text-sm md:text-base lg:text-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 touch-manipulation" 
+                                className="flex-1 px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 transition-all font-medium text-sm md:text-base lg:text-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 touch-manipulation"
                                 placeholder="Ví dụ: 食べる（たべる）"
                             />
-                            
-                            <button 
-                                type="button" 
-                                onClick={handleAiAssist} 
+
+                            <button
+                                type="button"
+                                onClick={handleAiAssist}
                                 disabled={isAiLoading}
                                 className="flex items-center px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-500 dark:to-indigo-500 text-white rounded-lg md:rounded-xl shadow-md hover:shadow-lg hover:from-violet-700 hover:to-indigo-700 dark:hover:from-violet-600 dark:hover:to-indigo-600 transition-all font-bold whitespace-nowrap flex-shrink-0 text-xs md:text-sm"
                                 title="Tự động điền thông tin bằng AI"
@@ -4138,11 +4130,11 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, curren
                                 <span className="hidden sm:inline">AI Hỗ trợ</span>
                             </button>
                         </div>
-                        
+
                         {/* MOVED: Classification Section (Level & POS) to below Vocabulary */}
                         <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-xl border border-gray-100 dark:border-gray-700 space-y-3">
-                             <label className="block text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Phân loại & Cấp độ</label>
-                             <div className="flex flex-col gap-3">
+                            <label className="block text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Phân loại & Cấp độ</label>
+                            <div className="flex flex-col gap-3">
                                 {/* Level Buttons */}
                                 <div className="flex gap-2 overflow-x-auto pb-1">
                                     {JLPT_LEVELS.map((lvl) => (
@@ -4150,23 +4142,22 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, curren
                                             key={lvl.value}
                                             type="button"
                                             onClick={() => setLevel(lvl.value)}
-                                            className={`flex-1 py-2 px-3 rounded-lg text-sm font-bold transition-all border ${
-                                                level === lvl.value 
-                                                ? `${lvl.color} shadow-sm ring-1 ring-offset-1 ring-indigo-200 dark:ring-indigo-800` 
-                                                : 'bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600'
-                                            }`}
+                                            className={`flex-1 py-2 px-3 rounded-lg text-sm font-bold transition-all border ${level === lvl.value
+                                                    ? `${lvl.color} shadow-sm ring-1 ring-offset-1 ring-indigo-200 dark:ring-indigo-800`
+                                                    : 'bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600'
+                                                }`}
                                         >
                                             {lvl.label}
                                         </button>
                                     ))}
                                 </div>
-                                
+
                                 {/* POS Dropdown */}
                                 <select value={pos} onChange={(e) => setPos(e.target.value)} className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-sm font-medium text-gray-700 dark:text-gray-100">
                                     <option value="">-- Chọn Từ Loại --</option>
                                     {Object.entries(POS_TYPES).map(([key, value]) => (<option key={key} value={key}>{value.label}</option>))}
                                 </select>
-                             </div>
+                            </div>
                         </div>
 
                         <div className="space-y-1">
@@ -4179,7 +4170,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, curren
                         </div>
 
                         <div className="grid grid-cols-2 gap-3">
-                             <div>
+                            <div>
                                 <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">Hán Việt</label>
                                 <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)}
                                     className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" placeholder="Thực"
@@ -4201,9 +4192,9 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, curren
                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Ngữ cảnh & Ví dụ</h3>
                         <div>
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Câu ví dụ (Nhật)</label>
-                            <textarea 
-                                value={example} 
-                                onChange={(e) => setExample(e.target.value)} 
+                            <textarea
+                                value={example}
+                                onChange={(e) => setExample(e.target.value)}
                                 onFocus={(e) => {
                                     if (window.innerWidth <= 768) {
                                         setTimeout(() => {
@@ -4212,15 +4203,15 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, curren
                                     }
                                 }}
                                 rows="2"
-                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" 
-                                placeholder="私は毎日ご飯を食べる。" 
+                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                                placeholder="私は毎日ご飯を食べる。"
                             />
                         </div>
                         <div>
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nghĩa ví dụ (Việt)</label>
-                            <textarea 
-                                value={exampleMeaning} 
-                                onChange={(e) => setExampleMeaning(e.target.value)} 
+                            <textarea
+                                value={exampleMeaning}
+                                onChange={(e) => setExampleMeaning(e.target.value)}
                                 onFocus={(e) => {
                                     if (window.innerWidth <= 768) {
                                         setTimeout(() => {
@@ -4229,28 +4220,28 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, curren
                                     }
                                 }}
                                 rows="2"
-                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" 
-                                placeholder="Tôi ăn cơm mỗi ngày." 
+                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                                placeholder="Tôi ăn cơm mỗi ngày."
                             />
                         </div>
                         <div>
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Sắc thái / Ghi chú</label>
-                            <textarea 
-                                value={nuance} 
+                            <textarea
+                                value={nuance}
                                 onChange={(e) => setNuance(e.target.value)}
                                 rows="3"
-                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" 
-                                placeholder="Dùng trong văn viết..." 
+                                className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                                placeholder="Dùng trong văn viết..."
                             />
                         </div>
                     </div>
 
                     <div className="bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-3">
                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Media</h3>
-                        
+
                         {/* Image Upload */}
                         <div className="flex items-start space-x-4">
-                             <div className="flex-1">
+                            <div className="flex-1">
                                 <label htmlFor="image-upload" className="flex flex-col items-center justify-center w-full h-24 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-xl cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                         <ImageIcon className="w-6 h-6 text-gray-400 dark:text-gray-500 mb-1" />
@@ -4258,8 +4249,8 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, curren
                                     </div>
                                     <input id="image-upload" type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
                                 </label>
-                             </div>
-                             {imagePreview && (
+                            </div>
+                            {imagePreview && (
                                 <div className="relative w-24 h-24 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-600 shadow-sm group">
                                     <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
                                     <button type="button" onClick={handleRemoveImage} className="absolute top-1 right-1 bg-white/80 dark:bg-gray-800/80 p-1 rounded-full text-red-500 dark:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -4278,7 +4269,7 @@ const AddCardForm = ({ onSave, onBack, onGeminiAssist, batchMode = false, curren
                             </button>
                             {showAudioInput && (
                                 <div className="mt-2 bg-gray-50 dark:bg-gray-700 p-3 rounded-xl border border-gray-200 dark:border-gray-600">
-                                     <div className="flex items-center space-x-2">
+                                    <div className="flex items-center space-x-2">
                                         <label htmlFor="audio-upload" className="cursor-pointer flex items-center px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm">
                                             <FileAudio className="w-4 h-4 mr-2 text-indigo-500 dark:text-indigo-400" />
                                             {customAudio ? "Đổi file" : "Chọn .wav/.mp3"}
@@ -4375,37 +4366,37 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
     const [back, setBack] = useState(card.back);
     const [synonym, setSynonym] = useState(card.synonym);
     const [example, setExample] = useState(card.example);
-    const [exampleMeaning, setExampleMeaning] = useState(card.exampleMeaning); 
+    const [exampleMeaning, setExampleMeaning] = useState(card.exampleMeaning);
     const [nuance, setNuance] = useState(card.nuance);
-    const [pos, setPos] = useState(card.pos || ''); 
-    const [level, setLevel] = useState(card.level || ''); 
-    const [sinoVietnamese, setSinoVietnamese] = useState(card.sinoVietnamese || ''); 
-    const [synonymSinoVietnamese, setSynonymSinoVietnamese] = useState(card.synonymSinoVietnamese || ''); 
+    const [pos, setPos] = useState(card.pos || '');
+    const [level, setLevel] = useState(card.level || '');
+    const [sinoVietnamese, setSinoVietnamese] = useState(card.sinoVietnamese || '');
+    const [synonymSinoVietnamese, setSynonymSinoVietnamese] = useState(card.synonymSinoVietnamese || '');
     const [imagePreview, setImagePreview] = useState(card.imageBase64 || null);
-    const [customAudio, setCustomAudio] = useState(card.audioBase64 || ''); 
+    const [customAudio, setCustomAudio] = useState(card.audioBase64 || '');
     const [showAudioInput, setShowAudioInput] = useState(false);
     const [_isSaving, setIsSaving] = useState(false); // eslint-disable-line no-unused-vars
-    const [isAiLoading, setIsAiLoading] = useState(false); 
+    const [isAiLoading, setIsAiLoading] = useState(false);
     const frontInputRef = useRef(null);
-    
+
     // ... Copy Helpers
     const handleImageChange = async (e) => { const file = e.target.files[0]; if (file) { try { const compressed = await compressImage(file); setImagePreview(compressed); } catch (error) { console.error("Lỗi ảnh:", error); } } };
     const handleRemoveImage = () => { setImagePreview(null); };
     const handleAudioFileChange = (e) => { const file = e.target.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = (event) => { const res = event.target.result; setCustomAudio(res.split(',')[1]); }; reader.readAsDataURL(file); };
-    const handleSave = async () => { 
-        if (!front.trim() || !back.trim()) return; 
-        setIsSaving(true); 
+    const handleSave = async () => {
+        if (!front.trim() || !back.trim()) return;
+        setIsSaving(true);
         // Nếu customAudio rỗng và card ban đầu có audioBase64, giữ nguyên (không truyền undefined)
         // Nếu customAudio có giá trị, truyền giá trị đó
         // Nếu người dùng chủ động xóa (customAudio === '' và ban đầu có audio), truyền null
         const hasOriginalAudio = card.audioBase64 && card.audioBase64.trim() !== '';
         const hasNewAudio = customAudio.trim() !== '';
         const audioToSave = hasNewAudio ? customAudio.trim() : (hasOriginalAudio ? undefined : null);
-        await onSave({ cardId: card.id, front, back, synonym, example, exampleMeaning, nuance, pos, level, sinoVietnamese, synonymSinoVietnamese, imageBase64: imagePreview, audioBase64: audioToSave }); 
-        setIsSaving(false); 
+        await onSave({ cardId: card.id, front, back, synonym, example, exampleMeaning, nuance, pos, level, sinoVietnamese, synonymSinoVietnamese, imageBase64: imagePreview, audioBase64: audioToSave });
+        setIsSaving(false);
     }; // eslint-disable-line no-unused-vars
-    const handleAiAssist = async (e) => { e.preventDefault(); if(!front.trim()) return; setIsAiLoading(true); const aiData = await onGeminiAssist(front, pos, level); if(aiData) { if(aiData.frontWithFurigana) setFront(aiData.frontWithFurigana); if(aiData.meaning) setBack(aiData.meaning); if(aiData.sinoVietnamese) setSinoVietnamese(aiData.sinoVietnamese); if(aiData.synonym) setSynonym(aiData.synonym); if(aiData.synonymSinoVietnamese) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese); if(aiData.example) setExample(aiData.example); if(aiData.exampleMeaning) setExampleMeaning(aiData.exampleMeaning); if(aiData.nuance) setNuance(aiData.nuance); if(aiData.pos) setPos(aiData.pos); if(aiData.level) setLevel(aiData.level); } setIsAiLoading(false); };
-    const handleKeyDown = (e) => { if(e.key === 'g' && (e.altKey || e.metaKey)) { e.preventDefault(); handleAiAssist(e); }};
+    const handleAiAssist = async (e) => { e.preventDefault(); if (!front.trim()) return; setIsAiLoading(true); const aiData = await onGeminiAssist(front, pos, level); if (aiData) { if (aiData.frontWithFurigana) setFront(aiData.frontWithFurigana); if (aiData.meaning) setBack(aiData.meaning); if (aiData.sinoVietnamese) setSinoVietnamese(aiData.sinoVietnamese); if (aiData.synonym) setSynonym(aiData.synonym); if (aiData.synonymSinoVietnamese) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese); if (aiData.example) setExample(aiData.example); if (aiData.exampleMeaning) setExampleMeaning(aiData.exampleMeaning); if (aiData.nuance) setNuance(aiData.nuance); if (aiData.pos) setPos(aiData.pos); if (aiData.level) setLevel(aiData.level); } setIsAiLoading(false); };
+    const handleKeyDown = (e) => { if (e.key === 'g' && (e.altKey || e.metaKey)) { e.preventDefault(); handleAiAssist(e); } };
 
     return (
         <div className="space-y-8">
@@ -4413,16 +4404,16 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
                 <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">Chỉnh Sửa Thẻ</h2>
             </div>
             {/* Tái sử dụng layout 2 cột từ AddCardForm cho đồng bộ */}
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-6">
-                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
+                    <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
                         <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Từ vựng (Nhật)</label>
                         <div className="flex gap-2">
-                            <input 
-                                type="text" 
-                                ref={frontInputRef} 
-                                value={front} 
-                                onChange={(e) => setFront(e.target.value)} 
+                            <input
+                                type="text"
+                                ref={frontInputRef}
+                                value={front}
+                                onChange={(e) => setFront(e.target.value)}
                                 onKeyDown={handleKeyDown}
                                 onFocus={(e) => {
                                     if (window.innerWidth <= 768) {
@@ -4433,13 +4424,13 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
                                 }}
                                 className="flex-1 pl-2 md:pl-3 lg:pl-4 pr-2 md:pr-12 py-1.5 md:py-2 lg:py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 font-medium text-sm md:text-base lg:text-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                             />
-                            <button type="button" onClick={handleAiAssist} className="px-2 md:px-3 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 rounded-lg md:rounded-xl font-bold hover:bg-indigo-200 dark:hover:bg-indigo-900/50 flex-shrink-0 text-xs md:text-sm">{isAiLoading ? <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5"/> : "AI"}</button>
+                            <button type="button" onClick={handleAiAssist} className="px-2 md:px-3 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 rounded-lg md:rounded-xl font-bold hover:bg-indigo-200 dark:hover:bg-indigo-900/50 flex-shrink-0 text-xs md:text-sm">{isAiLoading ? <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5" /> : "AI"}</button>
                         </div>
-                        
+
                         {/* UPDATE: Moved Classification & Level Buttons for Edit Form as well */}
                         <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-xl border border-gray-100 dark:border-gray-700 space-y-3">
-                             <label className="block text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Phân loại & Cấp độ</label>
-                             <div className="flex flex-col gap-3">
+                            <label className="block text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Phân loại & Cấp độ</label>
+                            <div className="flex flex-col gap-3">
                                 {/* Level Buttons */}
                                 <div className="flex gap-2 overflow-x-auto pb-1">
                                     {JLPT_LEVELS.map((lvl) => (
@@ -4447,11 +4438,10 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
                                             key={lvl.value}
                                             type="button"
                                             onClick={() => setLevel(lvl.value)}
-                                            className={`flex-1 py-2 px-3 rounded-lg text-sm font-bold transition-all border ${
-                                                level === lvl.value 
-                                                ? `${lvl.color} shadow-sm ring-1 ring-offset-1 ring-indigo-200 dark:ring-indigo-800` 
-                                                : 'bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600'
-                                            }`}
+                                            className={`flex-1 py-2 px-3 rounded-lg text-sm font-bold transition-all border ${level === lvl.value
+                                                    ? `${lvl.color} shadow-sm ring-1 ring-offset-1 ring-indigo-200 dark:ring-indigo-800`
+                                                    : 'bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600'
+                                                }`}
                                         >
                                             {lvl.label}
                                         </button>
@@ -4461,39 +4451,39 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
                                     <option value="">-- Chọn Từ Loại --</option>
                                     {Object.entries(POS_TYPES).map(([key, value]) => (<option key={key} value={key}>{value.label}</option>))}
                                 </select>
-                             </div>
+                            </div>
                         </div>
 
                         <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Ý nghĩa</label>
-                        <input type="text" value={back} onChange={(e) => setBack(e.target.value)} className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-sm md:text-base text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"/>
+                        <input type="text" value={back} onChange={(e) => setBack(e.target.value)} className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-sm md:text-base text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
                         <div className="grid grid-cols-2 gap-2 md:gap-4">
-                            <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Hán Việt" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"/>
-                            <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"/>
+                            <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Hán Việt" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
+                            <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
                         </div>
-                     </div>
+                    </div>
                 </div>
                 <div className="space-y-6">
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
-                        <textarea value={example} onChange={(e) => setExample(e.target.value)} rows="2" placeholder="Ví dụ (Nhật)" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"/>
-                        <textarea value={exampleMeaning} onChange={(e) => setExampleMeaning(e.target.value)} rows="2" placeholder="Nghĩa ví dụ" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"/>
-                        <textarea value={nuance} onChange={(e) => setNuance(e.target.value)} rows="3" placeholder="Ghi chú" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"/>
+                        <textarea value={example} onChange={(e) => setExample(e.target.value)} rows="2" placeholder="Ví dụ (Nhật)" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
+                        <textarea value={exampleMeaning} onChange={(e) => setExampleMeaning(e.target.value)} rows="2" placeholder="Nghĩa ví dụ" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
+                        <textarea value={nuance} onChange={(e) => setNuance(e.target.value)} rows="3" placeholder="Ghi chú" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
                     </div>
                     {/* Media Edit Enhanced */}
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
-                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Media</h3>
-                         
-                         {/* Image Part */}
-                         <div className="flex items-center justify-between">
-                             <label htmlFor="img-edit" className="cursor-pointer text-indigo-600 dark:text-indigo-400 font-medium text-sm flex items-center hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors">
-                                <ImageIcon className="w-4 h-4 mr-2"/> {imagePreview ? "Thay đổi ảnh" : "Tải ảnh lên"}
-                             </label>
-                             <input id="img-edit" type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
-                             {imagePreview && (
+                        <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Media</h3>
+
+                        {/* Image Part */}
+                        <div className="flex items-center justify-between">
+                            <label htmlFor="img-edit" className="cursor-pointer text-indigo-600 dark:text-indigo-400 font-medium text-sm flex items-center hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors">
+                                <ImageIcon className="w-4 h-4 mr-2" /> {imagePreview ? "Thay đổi ảnh" : "Tải ảnh lên"}
+                            </label>
+                            <input id="img-edit" type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
+                            {imagePreview && (
                                 <div className="relative w-16 h-16 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600 group">
-                                    <img src={imagePreview} className="w-full h-full object-cover"/>
-                                    <button type="button" onClick={handleRemoveImage} className="absolute inset-0 bg-black/50 text-white opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><X className="w-4 h-4"/></button>
+                                    <img src={imagePreview} className="w-full h-full object-cover" />
+                                    <button type="button" onClick={handleRemoveImage} className="absolute inset-0 bg-black/50 text-white opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><X className="w-4 h-4" /></button>
                                 </div>
-                             )}
+                            )}
                         </div>
 
                         {/* Audio Part */}
@@ -4503,55 +4493,55 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
                                 <div className="flex items-center"><Music className="w-4 h-4 mr-2" /> {customAudio ? "Đã có Audio tuỳ chỉnh" : "Thêm Audio tuỳ chỉnh"}</div>
                                 <span className="text-xs text-gray-400 dark:text-gray-500">{showAudioInput ? '▲' : '▼'}</span>
                             </button>
-                            
+
                             {showAudioInput && (
                                 <div className="mt-3 bg-gray-50 dark:bg-gray-700 p-3 rounded-xl border border-gray-200 dark:border-gray-600 animate-fade-in">
-                                     <div className="flex items-center justify-between mb-2">
+                                    <div className="flex items-center justify-between mb-2">
                                         <label htmlFor="audio-edit" className="cursor-pointer px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm">
                                             {customAudio ? "Chọn file khác" : "Chọn file .mp3/wav"}
                                         </label>
                                         <input id="audio-edit" type="file" accept=".wav,.mp3,audio/wav,audio/mpeg" onChange={handleAudioFileChange} className="hidden" />
                                     </div>
-                                    
+
                                     {customAudio && (
                                         <div className="flex items-center justify-between bg-white dark:bg-gray-800 p-2 rounded-lg border border-gray-100 dark:border-gray-700">
                                             <span className="text-xs text-emerald-600 dark:text-emerald-400 font-bold flex items-center"><Check className="w-3 h-3 mr-1" /> Đã lưu</span>
                                             <div className="flex gap-2">
-                                                 <button type="button" onClick={() => playAudio(customAudio)} className="p-1 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded"><Volume2 className="w-4 h-4"/></button>
-                                                 <button type="button" onClick={() => setCustomAudio('')} className="p-1 text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 rounded"><Trash2 className="w-4 h-4"/></button>
+                                                <button type="button" onClick={() => playAudio(customAudio)} className="p-1 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded"><Volume2 className="w-4 h-4" /></button>
+                                                <button type="button" onClick={() => setCustomAudio('')} className="p-1 text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 rounded"><Trash2 className="w-4 h-4" /></button>
                                             </div>
                                         </div>
                                     )}
-                                     {!customAudio && <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-1 text-center">Nếu trống, hệ thống sẽ tự tạo audio từ văn bản.</p>}
+                                    {!customAudio && <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-1 text-center">Nếu trống, hệ thống sẽ tự tạo audio từ văn bản.</p>}
                                 </div>
                             )}
                         </div>
                     </div>
                 </div>
-             </div>
-             <div className="flex gap-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-                 <button onClick={handleSave} className="flex-1 py-2 md:py-2.5 lg:py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg md:rounded-xl font-bold text-xs md:text-sm lg:text-base shadow-md md:shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors">Lưu Thay Đổi</button>
-                 <button onClick={onBack} className="px-4 md:px-5 lg:px-6 py-2 md:py-2.5 lg:py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:rounded-xl font-medium text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">Hủy</button>
-             </div>
+            </div>
+            <div className="flex gap-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+                <button onClick={handleSave} className="flex-1 py-2 md:py-2.5 lg:py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg md:rounded-xl font-bold text-xs md:text-sm lg:text-base shadow-md md:shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors">Lưu Thay Đổi</button>
+                <button onClick={onBack} className="px-4 md:px-5 lg:px-6 py-2 md:py-2.5 lg:py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:rounded-xl font-medium text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">Hủy</button>
+            </div>
         </div>
     );
 };
 
 const SrsStatusCell = ({ intervalIndex, nextReview, hasData }) => {
     if (!hasData || intervalIndex === -999) return <td className="px-2 md:px-4 py-2 md:py-4 text-xs md:text-sm text-gray-300 dark:text-gray-600 italic">--</td>;
-    const isDue = nextReview <= new Date().setHours(0,0,0,0);
-    const progressColor = intervalIndex >= 3 
-        ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 border-green-200 dark:border-green-800' 
-        : intervalIndex >= 1 
-        ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800' 
-        : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-600';
-    
+    const isDue = nextReview <= new Date().setHours(0, 0, 0, 0);
+    const progressColor = intervalIndex >= 3
+        ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 border-green-200 dark:border-green-800'
+        : intervalIndex >= 1
+            ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800'
+            : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-600';
+
     return (
         <td className="px-2 md:px-4 py-2 md:py-4">
             <div className={`inline-flex flex-col px-2 md:px-3 py-1 md:py-1.5 rounded-md md:rounded-lg border text-[10px] md:text-xs font-medium ${progressColor}`}>
                 <span>{getSrsProgressText(intervalIndex)}</span>
                 {isDue ? (
-                    <span className="text-red-600 dark:text-red-400 font-bold mt-0.5 flex items-center text-[9px] md:text-xs"><AlertTriangle className="w-2.5 h-2.5 md:w-3 md:h-3 mr-0.5 md:mr-1"/> Ôn ngay</span>
+                    <span className="text-red-600 dark:text-red-400 font-bold mt-0.5 flex items-center text-[9px] md:text-xs"><AlertTriangle className="w-2.5 h-2.5 md:w-3 md:h-3 mr-0.5 md:mr-1" /> Ôn ngay</span>
                 ) : (
                     <span className="opacity-70 mt-0.5 text-[9px] md:text-xs">{nextReview.toLocaleDateString('vi-VN')}</span>
                 )}
@@ -4566,7 +4556,7 @@ const SrsStatusCell = ({ intervalIndex, nextReview, hasData }) => {
 const SearchInput = React.memo(({ defaultValue, onSearchChange, onSearchClick, placeholder }) => {
     const inputRef = useRef(null);
     const lastDefaultValueRef = useRef(defaultValue);
-    
+
     // Sync defaultValue khi nó thay đổi từ bên ngoài (khi restore filters)
     useEffect(() => {
         if (defaultValue !== lastDefaultValueRef.current) {
@@ -4576,7 +4566,7 @@ const SearchInput = React.memo(({ defaultValue, onSearchChange, onSearchClick, p
             }
         }
     }, [defaultValue]);
-    
+
     // Xử lý khi nhấn Enter
     const handleKeyDown = useCallback((e) => {
         if (e.key === 'Enter') {
@@ -4585,7 +4575,7 @@ const SearchInput = React.memo(({ defaultValue, onSearchChange, onSearchClick, p
             onSearchChange(value);
         }
     }, [onSearchChange]);
-    
+
     // Xử lý khi click vào icon search
     const handleSearchClick = useCallback(() => {
         if (inputRef.current) {
@@ -4593,16 +4583,16 @@ const SearchInput = React.memo(({ defaultValue, onSearchChange, onSearchClick, p
             onSearchChange(value);
         }
     }, [onSearchChange]);
-    
+
     return (
         <div className="relative w-full md:w-96">
-            <Search 
-                className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-3 h-3 md:w-4 md:h-4 cursor-pointer hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors" 
+            <Search
+                className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-3 h-3 md:w-4 md:h-4 cursor-pointer hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
                 onClick={handleSearchClick}
             />
-            <input 
+            <input
                 ref={inputRef}
-                type="text" 
+                type="text"
                 defaultValue={defaultValue}
                 onKeyDown={handleKeyDown}
                 placeholder={placeholder}
@@ -4612,12 +4602,12 @@ const SearchInput = React.memo(({ defaultValue, onSearchChange, onSearchClick, p
     );
 }, (prevProps, nextProps) => {
     // Chỉ re-render khi defaultValue thay đổi, không re-render khi callbacks thay đổi
-    return prevProps.defaultValue === nextProps.defaultValue && 
-           prevProps.placeholder === nextProps.placeholder;
+    return prevProps.defaultValue === nextProps.defaultValue &&
+        prevProps.placeholder === nextProps.placeholder;
 });
 SearchInput.displayName = 'SearchInput';
 
-const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToEdit, onAutoClassifyBatch, scrollToCardId, onScrollComplete, savedFilters, onFiltersChange }) => {
+const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, onNavigateToEdit, scrollToCardId, onScrollComplete, savedFilters, onFiltersChange }) => {
     // Sử dụng savedFilters nếu có, không thì dùng default
     const [filterLevel, setFilterLevel] = useState(savedFilters?.filterLevel || 'all');
     const [filterPos, setFilterPos] = useState(savedFilters?.filterPos || 'all');
@@ -4628,18 +4618,18 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
     // Sử dụng useDeferredValue để ưu tiên update input, defer việc filter
     const deferredSearchTerm = useDeferredValue(searchTerm);
     const [viewMode, setViewMode] = useState(savedFilters?.viewMode || 'grid'); // 'list' hoặc 'grid' - mặc định là grid
-    
+
     // Handler cho search input - chỉ update searchTerm khi nhấn Enter hoặc click search
     const handleSearchChange = useCallback((value) => {
         // Chỉ update searchTerm khi người dùng nhấn Enter hoặc click search
         setSearchTerm(value);
     }, []);
-    
+
     // Khôi phục filters từ savedFilters khi quay lại từ edit
     // Dùng ref để tránh vòng lặp và track khi nào đang restore
     const previousSavedFiltersRef = useRef(null);
     const isRestoringRef = useRef(false);
-    
+
     useEffect(() => {
         // Nếu savedFilters thay đổi và khác với lần trước, khôi phục filters
         if (savedFilters && JSON.stringify(previousSavedFiltersRef.current) !== JSON.stringify(savedFilters)) {
@@ -4659,7 +4649,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
             }, 50);
         }
     }, [savedFilters]);
-    
+
     // Cập nhật filters lên parent khi người dùng thay đổi filter (KHÔNG cập nhật khi đang restore)
     useEffect(() => {
         // Không cập nhật lên parent khi đang restore từ savedFilters
@@ -4669,7 +4659,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
         // Chỉ update filters khi searchTerm thay đổi (khi nhấn Enter)
         onFiltersChange({ filterLevel, filterPos, filterAudio, sortOrder, searchTerm, viewMode });
     }, [filterLevel, filterPos, filterAudio, sortOrder, searchTerm, viewMode, onFiltersChange]);
-    
+
     // Helper để reset tất cả filters - memoize với useCallback
     const resetFilters = useCallback(() => {
         setFilterLevel('all');
@@ -4679,10 +4669,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
         setInputValue('');
     }, []);
 
-    // Memoize cardsMissingPos để tránh tính toán lại mỗi lần render
-    const cardsMissingPos = useMemo(() => {
-        return allCards.filter(c => !c.pos || !c.level);
-    }, [allCards]);
+
 
     // Pre-compute searchable text và sort timestamps cho tất cả cards một lần
     const preprocessedCards = useMemo(() => {
@@ -4729,25 +4716,25 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
         // Single-pass filtering với for loop (nhanh hơn filter() nhiều lần)
         const result = [];
         const cardsLength = preprocessedCards.length;
-        
+
         for (let i = 0; i < cardsLength; i++) {
             const card = preprocessedCards[i];
-            
+
             // Search filter
             if (hasSearch && !card._searchableText.includes(searchTermLower)) {
                 continue;
             }
-            
+
             // Level filter
             if (hasLevelFilter && card.level !== filterLevel) {
                 continue;
             }
-            
+
             // POS filter
             if (hasPosFilter && card.pos !== filterPos) {
                 continue;
             }
-            
+
             // Audio filter
             if (hasAudioFilter) {
                 if (filterAudio === 'with' && (!card.audioBase64 || card.audioBase64.trim() === '')) {
@@ -4756,17 +4743,17 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
                     continue;
                 }
             }
-            
+
             result.push(card);
         }
-        
+
         // Sort - sử dụng pre-computed timestamp
         if (sortOrder === 'newest') {
             result.sort((a, b) => b._timestamp - a._timestamp);
         } else {
             result.sort((a, b) => a._timestamp - b._timestamp);
         }
-        
+
         return result;
     }, [preprocessedCards, filterLevel, filterPos, filterAudio, sortOrder, deferredSearchTerm]);
 
@@ -4812,38 +4799,34 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
                     </div>
                     {/* View Mode Toggle */}
                     <div className="flex bg-gray-100 dark:bg-gray-800 rounded-lg p-0.5 md:p-1">
-                        <button 
+                        <button
                             onClick={() => setViewMode('list')}
                             className={`p-1.5 md:p-2 rounded-md transition-all ${viewMode === 'list' ? 'bg-white dark:bg-gray-700 text-indigo-600 dark:text-indigo-400 shadow-sm' : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300'}`}
                             title="Xem dạng danh sách"
                         >
-                            <List className="w-4 h-4 md:w-5 md:h-5"/>
+                            <List className="w-4 h-4 md:w-5 md:h-5" />
                         </button>
-                        <button 
+                        <button
                             onClick={() => setViewMode('grid')}
                             className={`p-1.5 md:p-2 rounded-md transition-all ${viewMode === 'grid' ? 'bg-white dark:bg-gray-700 text-indigo-600 dark:text-indigo-400 shadow-sm' : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300'}`}
                             title="Xem dạng thẻ"
                         >
-                            <LayoutGrid className="w-4 h-4 md:w-5 md:h-5"/>
+                            <LayoutGrid className="w-4 h-4 md:w-5 md:h-5" />
                         </button>
                     </div>
                 </div>
-                
+
                 <div className="flex flex-wrap gap-2 items-center justify-between">
-                     {/* Search Bar */}
-                     <SearchInput 
+                    {/* Search Bar */}
+                    <SearchInput
                         defaultValue={searchTerm}
                         onSearchChange={handleSearchChange}
                         onSearchClick={handleSearchChange}
                         placeholder="Tìm kiếm từ vựng, ý nghĩa, Hán Việt... (Nhấn Enter để tìm)"
-                     />
+                    />
 
                     <div className="flex flex-wrap gap-1.5 md:gap-2">
-                        {cardsMissingPos.length > 0 && (
-                            <button onClick={() => onAutoClassifyBatch(cardsMissingPos)} className="px-2 md:px-3 py-1.5 md:py-2 text-[10px] md:text-xs font-bold rounded-lg bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 hover:bg-violet-200 dark:hover:bg-violet-900/50 transition-colors flex items-center">
-                                <Sparkles className="w-3 h-3 md:w-3.5 md:h-3.5 mr-1 md:mr-1.5" /> Auto-Tags ({cardsMissingPos.length})
-                            </button>
-                        )}
+
                         <button onClick={() => onExport(allCards)} className="px-2 md:px-3 py-1.5 md:py-2 text-[10px] md:text-xs font-bold rounded-lg bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-teal-900/50 transition-colors flex items-center">
                             <Upload className="w-3 h-3 md:w-3.5 md:h-3.5 mr-1 md:mr-1.5" /> Xuất Excel
                         </button>
@@ -4854,52 +4837,52 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
             {/* Filters */}
             <div className="flex flex-col gap-2 md:gap-3">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5 md:gap-3 bg-gray-50 dark:bg-gray-800 p-2 md:p-4 rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-700 flex-shrink-0">
-                <div className="space-y-0.5 md:space-y-1">
-                    <label className="text-[9px] md:text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Sắp xếp</label>
-                    <div className="relative">
-                        <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-md md:rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 appearance-none text-gray-900 dark:text-gray-100">
-                            <option value="newest">Mới nhất</option>
-                            <option value="oldest">Cũ nhất</option>
-                        </select>
-                        <ArrowDown className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
+                    <div className="space-y-0.5 md:space-y-1">
+                        <label className="text-[9px] md:text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Sắp xếp</label>
+                        <div className="relative">
+                            <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-md md:rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 appearance-none text-gray-900 dark:text-gray-100">
+                                <option value="newest">Mới nhất</option>
+                                <option value="oldest">Cũ nhất</option>
+                            </select>
+                            <ArrowDown className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
+                        </div>
                     </div>
-                </div>
-                <div className="space-y-0.5 md:space-y-1">
-                    <label className="text-[9px] md:text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Cấp độ</label>
-                    <div className="relative">
-                        <select value={filterLevel} onChange={(e) => setFilterLevel(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-md md:rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 appearance-none text-gray-900 dark:text-gray-100">
-                            <option value="all">Tất cả</option>
-                            {JLPT_LEVELS.map(l => (<option key={l.value} value={l.value}>{l.label}</option>))}
-                        </select>
-                        <GraduationCap className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
+                    <div className="space-y-0.5 md:space-y-1">
+                        <label className="text-[9px] md:text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Cấp độ</label>
+                        <div className="relative">
+                            <select value={filterLevel} onChange={(e) => setFilterLevel(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-md md:rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 appearance-none text-gray-900 dark:text-gray-100">
+                                <option value="all">Tất cả</option>
+                                {JLPT_LEVELS.map(l => (<option key={l.value} value={l.value}>{l.label}</option>))}
+                            </select>
+                            <GraduationCap className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
+                        </div>
                     </div>
-                </div>
-                <div className="space-y-0.5 md:space-y-1">
-                    <label className="text-[9px] md:text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Từ loại</label>
-                    <div className="relative">
-                         <select value={filterPos} onChange={(e) => setFilterPos(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-md md:rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 appearance-none text-gray-900 dark:text-gray-100">
-                            <option value="all">Tất cả</option>
-                            {Object.entries(POS_TYPES).map(([k,v]) => (<option key={k} value={k}>{v.label}</option>))}
-                        </select>
-                        <Tag className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
+                    <div className="space-y-0.5 md:space-y-1">
+                        <label className="text-[9px] md:text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Từ loại</label>
+                        <div className="relative">
+                            <select value={filterPos} onChange={(e) => setFilterPos(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-md md:rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 appearance-none text-gray-900 dark:text-gray-100">
+                                <option value="all">Tất cả</option>
+                                {Object.entries(POS_TYPES).map(([k, v]) => (<option key={k} value={k}>{v.label}</option>))}
+                            </select>
+                            <Tag className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
+                        </div>
                     </div>
-                </div>
-                <div className="space-y-0.5 md:space-y-1">
-                    <label className="text-[9px] md:text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Âm thanh</label>
-                    <div className="relative">
-                        <select value={filterAudio} onChange={(e) => setFilterAudio(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-md md:rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 appearance-none text-gray-900 dark:text-gray-100">
-                            <option value="all">Tất cả</option>
-                            <option value="with">Có âm thanh</option>
-                            <option value="without">Chưa có âm thanh</option>
-                        </select>
-                        <Volume2 className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
+                    <div className="space-y-0.5 md:space-y-1">
+                        <label className="text-[9px] md:text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Âm thanh</label>
+                        <div className="relative">
+                            <select value={filterAudio} onChange={(e) => setFilterAudio(e.target.value)} className="w-full pl-6 md:pl-9 pr-2 md:pr-4 py-1.5 md:py-2 text-xs md:text-sm bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-md md:rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 appearance-none text-gray-900 dark:text-gray-100">
+                                <option value="all">Tất cả</option>
+                                <option value="with">Có âm thanh</option>
+                                <option value="without">Chưa có âm thanh</option>
+                            </select>
+                            <Volume2 className="absolute left-1.5 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-2.5 h-2.5 md:w-3.5 md:h-3.5" />
+                        </div>
                     </div>
-                </div>
                 </div>
                 {/* Icon bỏ lọc - hiển thị khi có filter active */}
                 {(filterLevel !== 'all' || filterPos !== 'all' || filterAudio !== 'all' || searchTerm.trim() !== '') && (
                     <div className="flex justify-end">
-                        <button 
+                        <button
                             onClick={resetFilters}
                             className="px-2 md:px-3 py-1.5 md:py-2 text-[10px] md:text-xs font-bold rounded-lg bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors flex items-center gap-1"
                             title="Bỏ tất cả bộ lọc"
@@ -4913,113 +4896,113 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
 
             {/* CONTENT AREA: LIST or GRID - Scrollable */}
             <div className="flex-1">
-            {viewMode === 'list' ? (
-                <div className="bg-white dark:bg-gray-800 rounded-xl md:rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
-                    <div className="overflow-x-auto">
-                        <table className="w-full divide-y divide-gray-100 dark:divide-gray-700 table-fixed">
-                            <thead className="bg-gray-50 dark:bg-gray-700">
-                                <tr>
-                                    <th className="w-12 md:w-16 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Hình</th>
-                                    <th className="w-20 md:w-24 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Từ vựng</th>
-                                    <th className="w-16 md:w-20 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Tags</th>
-                                    <th className="w-12 md:w-16 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Âm thanh</th>
-                                    <th className="w-20 md:w-24 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Nghĩa</th>
-                                    <th className="w-20 md:w-24 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">Đồng nghĩa</th>
-                                    <th className="w-20 md:w-24 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">SRS</th>
-                                    <th className="w-16 md:w-20 px-2 md:px-4 py-2 md:py-3 text-right text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider"></th>
-                                </tr>
-                            </thead>
-                            <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-50 dark:divide-gray-700">
-                                {filteredCards.map((card) => (
-                                    <tr key={card.id} data-card-id={card.id} className="hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10 transition-colors group">
-                                        <td className="px-2 md:px-4 py-2 md:py-3">
-                                            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gray-100 dark:bg-gray-700 overflow-hidden border border-gray-200 dark:border-gray-600">
-                                                {card.imageBase64 ? <img src={card.imageBase64} className="w-full h-full object-cover"/> : <div className="w-full h-full flex items-center justify-center text-gray-300 dark:text-gray-600"><ImageIcon className="w-3 h-3 md:w-4 md:h-4"/></div>}
-                                            </div>
-                                        </td>
-                                        <td className="px-2 md:px-4 py-2 md:py-3">
-                                            <div className="font-bold text-gray-800 dark:text-gray-200 text-xs md:text-sm truncate" title={card.front}>{card.front}</div>
-                                            {card.sinoVietnamese && <div className="text-[9px] md:text-[10px] font-medium text-pink-500 dark:text-pink-400 bg-pink-50 dark:bg-pink-900/30 inline-block px-1 md:px-1.5 rounded mt-0.5 md:mt-1 truncate max-w-full" title={card.sinoVietnamese}>{card.sinoVietnamese}</div>}
-                                        </td>
-                                        <td className="px-2 md:px-4 py-2 md:py-3">
-                                            <div className="flex flex-col gap-0.5 md:gap-1 items-start">
-                                                {card.level && <span className={`text-[9px] md:text-[10px] px-1.5 md:px-2 py-0.5 rounded-full border font-bold ${getLevelColor(card.level)}`}>{card.level}</span>}
-                                                {card.pos ? <span className={`text-[9px] md:text-[10px] px-1.5 md:px-2 py-0.5 rounded-full border font-semibold ${getPosColor(card.pos)} truncate`} title={getPosLabel(card.pos)}>{getPosLabel(card.pos)}</span> : <span className="text-[10px] md:text-xs text-gray-300 dark:text-gray-600">--</span>}
-                                            </div>
-                                        </td>
-                                        <td className="px-2 md:px-4 py-2 md:py-3">
-                                            <button onClick={() => onPlayAudio(card.audioBase64, card.front)} className={`p-1.5 md:p-2 rounded-full hover:bg-indigo-100 ${card.audioBase64 ? 'text-indigo-500' : 'text-gray-300 dark:text-gray-600'}`}><Volume2 className="w-3 h-3 md:w-4 md:h-4"/></button>
-                                        </td>
-                                        <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-600 truncate" title={card.back}>{card.back}</td>
-                                        <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-500 truncate" title={card.synonym || '-'}>{card.synonym || '-'}</td>
-                                        <SrsStatusCell intervalIndex={card.intervalIndex_back} nextReview={card.nextReview_back} hasData={true}/>
-                                        <td className="px-2 md:px-4 py-2 md:py-3 text-right">
-                                            <div className="flex justify-end gap-0.5 md:gap-1 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
-                                                <button onClick={() => onNavigateToEdit(card, { filterLevel, filterPos, filterAudio, sortOrder, searchTerm, viewMode })} className="p-1.5 md:p-2 rounded-lg text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30"><Edit className="w-3 h-3 md:w-4 md:h-4"/></button>
-                                                <button onClick={() => onDeleteCard(card.id, card.front)} className="p-1.5 md:p-2 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30"><Trash2 className="w-3 h-3 md:w-4 md:h-4"/></button>
-                                            </div>
-                                        </td>
+                {viewMode === 'list' ? (
+                    <div className="bg-white dark:bg-gray-800 rounded-xl md:rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                        <div className="overflow-x-auto">
+                            <table className="w-full divide-y divide-gray-100 dark:divide-gray-700 table-fixed">
+                                <thead className="bg-gray-50 dark:bg-gray-700">
+                                    <tr>
+                                        <th className="w-12 md:w-16 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Hình</th>
+                                        <th className="w-20 md:w-24 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Từ vựng</th>
+                                        <th className="w-16 md:w-20 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Tags</th>
+                                        <th className="w-12 md:w-16 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Âm thanh</th>
+                                        <th className="w-20 md:w-24 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Nghĩa</th>
+                                        <th className="w-20 md:w-24 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">Đồng nghĩa</th>
+                                        <th className="w-20 md:w-24 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">SRS</th>
+                                        <th className="w-16 md:w-20 px-2 md:px-4 py-2 md:py-3 text-right text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider"></th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-50 dark:divide-gray-700">
+                                    {filteredCards.map((card) => (
+                                        <tr key={card.id} data-card-id={card.id} className="hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10 transition-colors group">
+                                            <td className="px-2 md:px-4 py-2 md:py-3">
+                                                <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gray-100 dark:bg-gray-700 overflow-hidden border border-gray-200 dark:border-gray-600">
+                                                    {card.imageBase64 ? <img src={card.imageBase64} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-gray-300 dark:text-gray-600"><ImageIcon className="w-3 h-3 md:w-4 md:h-4" /></div>}
+                                                </div>
+                                            </td>
+                                            <td className="px-2 md:px-4 py-2 md:py-3">
+                                                <div className="font-bold text-gray-800 dark:text-gray-200 text-xs md:text-sm truncate" title={card.front}>{card.front}</div>
+                                                {card.sinoVietnamese && <div className="text-[9px] md:text-[10px] font-medium text-pink-500 dark:text-pink-400 bg-pink-50 dark:bg-pink-900/30 inline-block px-1 md:px-1.5 rounded mt-0.5 md:mt-1 truncate max-w-full" title={card.sinoVietnamese}>{card.sinoVietnamese}</div>}
+                                            </td>
+                                            <td className="px-2 md:px-4 py-2 md:py-3">
+                                                <div className="flex flex-col gap-0.5 md:gap-1 items-start">
+                                                    {card.level && <span className={`text-[9px] md:text-[10px] px-1.5 md:px-2 py-0.5 rounded-full border font-bold ${getLevelColor(card.level)}`}>{card.level}</span>}
+                                                    {card.pos ? <span className={`text-[9px] md:text-[10px] px-1.5 md:px-2 py-0.5 rounded-full border font-semibold ${getPosColor(card.pos)} truncate`} title={getPosLabel(card.pos)}>{getPosLabel(card.pos)}</span> : <span className="text-[10px] md:text-xs text-gray-300 dark:text-gray-600">--</span>}
+                                                </div>
+                                            </td>
+                                            <td className="px-2 md:px-4 py-2 md:py-3">
+                                                <button onClick={() => onPlayAudio(card.audioBase64, card.front)} className={`p-1.5 md:p-2 rounded-full hover:bg-indigo-100 ${card.audioBase64 ? 'text-indigo-500' : 'text-gray-300 dark:text-gray-600'}`}><Volume2 className="w-3 h-3 md:w-4 md:h-4" /></button>
+                                            </td>
+                                            <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-600 truncate" title={card.back}>{card.back}</td>
+                                            <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-500 truncate" title={card.synonym || '-'}>{card.synonym || '-'}</td>
+                                            <SrsStatusCell intervalIndex={card.intervalIndex_back} nextReview={card.nextReview_back} hasData={true} />
+                                            <td className="px-2 md:px-4 py-2 md:py-3 text-right">
+                                                <div className="flex justify-end gap-0.5 md:gap-1 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+                                                    <button onClick={() => onNavigateToEdit(card, { filterLevel, filterPos, filterAudio, sortOrder, searchTerm, viewMode })} className="p-1.5 md:p-2 rounded-lg text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30"><Edit className="w-3 h-3 md:w-4 md:h-4" /></button>
+                                                    <button onClick={() => onDeleteCard(card.id, card.front)} className="p-1.5 md:p-2 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30"><Trash2 className="w-3 h-3 md:w-4 md:h-4" /></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-            ) : (
-                // Normal grid cho small lists
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
-                    {filteredCards.map((card) => {
-                        const levelColor = getLevelColor(card.level);
-                        const isDue = card.nextReview_back <= new Date().setHours(0,0,0,0);
-                        
-                        return (
-                            <div key={card.id} data-card-id={card.id} className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl md:rounded-2xl shadow-md dark:shadow-lg border-2 border-gray-200 dark:border-gray-700 hover:shadow-xl dark:hover:shadow-2xl hover:-translate-y-1 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all duration-300 flex flex-col overflow-hidden relative group">
-                                {/* Top colored bar với gradient đẹp hơn */}
-                                <div className={`h-2 md:h-2.5 w-full ${levelColor.replace('bg-', 'bg-gradient-to-r from-').replace(' text-', ' to-white dark:to-gray-800 ')}`}></div>
-                                
-                                <div className="p-3 md:p-5 flex-grow bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
-                                    <div className="flex justify-between items-start mb-2 md:mb-3">
-                                        <div className="flex flex-col gap-0.5 md:gap-1">
-                                            {card.level ? (
-                                                <span className={`text-[9px] md:text-[10px] font-bold px-1.5 md:px-2 py-0.5 rounded-md border-2 self-start shadow-sm ${levelColor}`}>
-                                                    {card.level}
+                ) : (
+                    // Normal grid cho small lists
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
+                        {filteredCards.map((card) => {
+                            const levelColor = getLevelColor(card.level);
+                            const isDue = card.nextReview_back <= new Date().setHours(0, 0, 0, 0);
+
+                            return (
+                                <div key={card.id} data-card-id={card.id} className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl md:rounded-2xl shadow-md dark:shadow-lg border-2 border-gray-200 dark:border-gray-700 hover:shadow-xl dark:hover:shadow-2xl hover:-translate-y-1 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all duration-300 flex flex-col overflow-hidden relative group">
+                                    {/* Top colored bar với gradient đẹp hơn */}
+                                    <div className={`h-2 md:h-2.5 w-full ${levelColor.replace('bg-', 'bg-gradient-to-r from-').replace(' text-', ' to-white dark:to-gray-800 ')}`}></div>
+
+                                    <div className="p-3 md:p-5 flex-grow bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
+                                        <div className="flex justify-between items-start mb-2 md:mb-3">
+                                            <div className="flex flex-col gap-0.5 md:gap-1">
+                                                {card.level ? (
+                                                    <span className={`text-[9px] md:text-[10px] font-bold px-1.5 md:px-2 py-0.5 rounded-md border-2 self-start shadow-sm ${levelColor}`}>
+                                                        {card.level}
+                                                    </span>
+                                                ) : <span className="h-3 md:h-4"></span>}
+                                            </div>
+                                            {isDue && (
+                                                <span className="text-red-500 dark:text-red-400 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 p-0.5 md:p-1 rounded-full shadow-sm" title="Cần ôn tập">
+                                                    <Clock className="w-2.5 h-2.5 md:w-3 md:h-3" />
                                                 </span>
-                                            ) : <span className="h-3 md:h-4"></span>}
+                                            )}
                                         </div>
-                                        {isDue && (
-                                            <span className="text-red-500 dark:text-red-400 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 p-0.5 md:p-1 rounded-full shadow-sm" title="Cần ôn tập">
-                                                <Clock className="w-2.5 h-2.5 md:w-3 md:h-3" />
-                                            </span>
-                                        )}
+
+                                        <h3 className="text-base md:text-xl font-bold text-gray-800 dark:text-gray-100 mb-0.5 md:mb-1 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{card.front}</h3>
+                                        {card.sinoVietnamese && <p className="text-[10px] md:text-xs font-medium text-pink-600 dark:text-pink-400 bg-pink-50 dark:bg-pink-900/30 px-2 py-0.5 rounded-md inline-block">{card.sinoVietnamese}</p>}
+
+                                        <div className="h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-700 to-transparent w-full my-1.5 md:my-2"></div>
+
+                                        <p className="text-xs md:text-sm text-gray-700 dark:text-gray-300 line-clamp-2 leading-relaxed" title={card.back}>{card.back}</p>
                                     </div>
-                                    
-                                    <h3 className="text-base md:text-xl font-bold text-gray-800 dark:text-gray-100 mb-0.5 md:mb-1 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{card.front}</h3>
-                                    {card.sinoVietnamese && <p className="text-[10px] md:text-xs font-medium text-pink-600 dark:text-pink-400 bg-pink-50 dark:bg-pink-900/30 px-2 py-0.5 rounded-md inline-block">{card.sinoVietnamese}</p>}
-                                    
-                                    <div className="h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-700 to-transparent w-full my-1.5 md:my-2"></div>
-                                    
-                                    <p className="text-xs md:text-sm text-gray-700 dark:text-gray-300 line-clamp-2 leading-relaxed" title={card.back}>{card.back}</p>
-                                </div>
-                                
-                                {/* Bottom Action Bar với background đẹp hơn */}
-                                <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 px-3 md:px-4 py-2 md:py-3 flex justify-between items-center border-t-2 border-gray-200 dark:border-gray-600">
-                                     <button onClick={() => onPlayAudio(card.audioBase64, card.front)} className={`hover:bg-indigo-100 dark:hover:bg-indigo-900/30 hover:text-indigo-700 dark:hover:text-indigo-300 p-1 md:p-1.5 rounded-lg transition-all shadow-sm hover:shadow-md ${card.audioBase64 ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-300 dark:text-gray-600'}`}>
-                                        <Volume2 className="w-3 h-3 md:w-4 md:h-4"/>
-                                     </button>
-                                     <div className="flex gap-1.5 md:gap-2">
-                                        <button onClick={() => onNavigateToEdit(card, { filterLevel, filterPos, filterAudio, sortOrder, searchTerm, viewMode })} className="text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 p-1 md:p-1.5 rounded-lg transition-all shadow-sm hover:shadow-md">
-                                            <Edit className="w-3 h-3 md:w-4 md:h-4"/>
+
+                                    {/* Bottom Action Bar với background đẹp hơn */}
+                                    <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 px-3 md:px-4 py-2 md:py-3 flex justify-between items-center border-t-2 border-gray-200 dark:border-gray-600">
+                                        <button onClick={() => onPlayAudio(card.audioBase64, card.front)} className={`hover:bg-indigo-100 dark:hover:bg-indigo-900/30 hover:text-indigo-700 dark:hover:text-indigo-300 p-1 md:p-1.5 rounded-lg transition-all shadow-sm hover:shadow-md ${card.audioBase64 ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-300 dark:text-gray-600'}`}>
+                                            <Volume2 className="w-3 h-3 md:w-4 md:h-4" />
                                         </button>
-                                        <button onClick={() => onDeleteCard(card.id, card.front)} className="text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-700 dark:hover:text-red-300 p-1 md:p-1.5 rounded-lg transition-all shadow-sm hover:shadow-md">
-                                            <Trash2 className="w-3 h-3 md:w-4 md:h-4"/>
-                                        </button>
-                                     </div>
+                                        <div className="flex gap-1.5 md:gap-2">
+                                            <button onClick={() => onNavigateToEdit(card, { filterLevel, filterPos, filterAudio, sortOrder, searchTerm, viewMode })} className="text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 p-1 md:p-1.5 rounded-lg transition-all shadow-sm hover:shadow-md">
+                                                <Edit className="w-3 h-3 md:w-4 md:h-4" />
+                                            </button>
+                                            <button onClick={() => onDeleteCard(card.id, card.front)} className="text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-700 dark:hover:text-red-300 p-1 md:p-1.5 rounded-lg transition-all shadow-sm hover:shadow-md">
+                                                <Trash2 className="w-3 h-3 md:w-4 md:h-4" />
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            )}
+                            );
+                        })}
+                    </div>
+                )}
             </div>
 
             {filteredCards.length === 0 && <div className="p-6 md:p-10 text-center text-xs md:text-sm text-gray-400">Không tìm thấy từ vựng nào.</div>}
@@ -5051,7 +5034,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
     const inputRef = useRef(null);
     const isCompletingRef = useRef(false); // Track xem đã gọi handleCompleteReview chưa
     const failedCardsRef = useRef(failedCards); // Lưu giá trị mới nhất của failedCards
-    
+
     // Cập nhật cards khi initialCards thay đổi
     useEffect(() => {
         setCards(initialCards);
@@ -5060,30 +5043,30 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         failedCardsRef.current = new Set(); // Reset ref
         isCompletingRef.current = false; // Reset khi bắt đầu session mới
     }, [initialCards]);
-    
+
     // Cập nhật ref khi failedCards thay đổi
     useEffect(() => {
         failedCardsRef.current = failedCards;
     }, [failedCards]);
-    
+
     // Get current card safely (trước khi dùng trong hooks)
     const currentCard = cards.length > 0 && currentIndex < cards.length ? cards[currentIndex] : null;
     const cardReviewType = currentCard ? (currentCard.reviewType || reviewMode) : null;
     const isMultipleChoice = cardReviewType === 'synonym' || cardReviewType === 'example';
-    
+
     // Auto focus logic conditional based on style (tắt trên mobile để tránh xung đột với bàn phím)
-    useEffect(() => { 
+    useEffect(() => {
         if (cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && inputRef.current && !isRevealed && !isMobileDevice()) {
             // Delay focus để đảm bảo DOM đã render xong, đặc biệt sau animation
             const timer = setTimeout(() => {
-                inputRef.current?.focus(); 
+                inputRef.current?.focus();
             }, reviewMode === 'flashcard' ? 450 : 100); // Delay lâu hơn nếu có animation
             return () => clearTimeout(timer);
         }
     }, [currentIndex, isRevealed, cardReviewType, reviewMode, isMultipleChoice]);
 
     // Prevent out of bounds index
-    useEffect(() => { 
+    useEffect(() => {
         if (cards.length > 0 && currentIndex >= cards.length) {
             setCurrentIndex(cards.length - 1);
         }
@@ -5129,10 +5112,10 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         // Tránh gọi 2 lần
         if (isCompletingRef.current) return;
         isCompletingRef.current = true;
-        
+
         // Sử dụng ref để lấy giá trị mới nhất của failedCards
         const currentFailedCards = failedCardsRef.current;
-        
+
         if (currentFailedCards.size > 0) {
             // Có các từ đã sai, tạo lại danh sách để kiểm tra lại
             const failedCardsList = [];
@@ -5163,14 +5146,14 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         // Không có từ sai hoặc không còn từ nào để ôn lại, gọi onCompleteReview với failedCards
         onCompleteReview(currentFailedCards);
     }, [allCards, reviewMode, onCompleteReview]);
-    
+
     // Keyboard event handlers for flashcard mode
     useEffect(() => {
         if (reviewMode !== 'flashcard') return;
 
         const handleKeyDown = (e) => {
             // Prevent default if we're handling the key (but allow in input fields)
-            if ((e.key === ' ' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') && 
+            if ((e.key === ' ' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') &&
                 e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
                 e.preventDefault();
             }
@@ -5209,15 +5192,15 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [currentIndex, cards, reviewMode, handleCompleteReview, moveToPreviousCard]);
-    
+
     // Keyboard handlers cho multiple choice
     useEffect(() => {
         if (!currentCard) return;
-        
+
         const handleKeyDown = (e) => {
             // Chỉ xử lý khi không đang nhập vào input/textarea
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-            
+
             // Phím 1, 2, 3, 4 cho multiple choice (chỉ khi chưa reveal và có options)
             if (isMultipleChoice && !isRevealed && multipleChoiceOptions.length > 0 && !isProcessing) {
                 const keyIndex = parseInt(e.key);
@@ -5228,20 +5211,20 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 }
             }
         };
-        
+
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [isMultipleChoice, isRevealed, multipleChoiceOptions, isProcessing, currentCard]);
-    
+
     // Swipe handlers cho flashcard mode - Định nghĩa sau handleCompleteReview
     const minSwipeDistance = 50; // Khoảng cách tối thiểu để coi là swipe
-    
+
     const onTouchStart = (e) => {
         if (reviewMode !== 'flashcard') return;
         setTouchEnd(null); // Reset touchEnd
         setTouchStart(e.targetTouches[0].clientX);
     };
-    
+
     const onTouchMove = (e) => {
         if (reviewMode !== 'flashcard' || !touchStart) return;
         const currentTouch = e.targetTouches[0].clientX;
@@ -5251,7 +5234,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         const maxOffset = 200;
         setSwipeOffset(Math.max(-maxOffset, Math.min(maxOffset, diff)));
     };
-    
+
     const onTouchEnd = () => {
         if (reviewMode !== 'flashcard' || !touchStart) {
             setTouchStart(null);
@@ -5259,18 +5242,18 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
             setSwipeOffset(0);
             return;
         }
-        
+
         if (!touchEnd) {
             setTouchStart(null);
             setTouchEnd(null);
             setSwipeOffset(0);
             return;
         }
-        
+
         const distance = touchStart - touchEnd;
         const isLeftSwipe = distance > minSwipeDistance;
         const isRightSwipe = distance < -minSwipeDistance;
-        
+
         if (isLeftSwipe && currentIndex < cards.length - 1) {
             // Swipe trái -> Next card
             setSlideDirection('left');
@@ -5296,97 +5279,97 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
             // Đã hết thẻ, swipe trái -> Complete review
             handleCompleteReview();
         }
-        
+
         setTouchStart(null);
         setTouchEnd(null);
         setSwipeOffset(0);
     };
-    
+
     // Normalize answer function - wrap in useCallback để tránh thay đổi dependency
     const normalizeAnswer = useCallback((text) => {
         return text.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').replace(/\s+/g, '').toLowerCase();
     }, []);
-    
+
     // Generate multiple choice options cho Synonym và Example - dùng useRef để lock options cho mỗi card
     const optionsRef = useRef({});
     const currentCardId = currentCard?.id;
-    
+
     useEffect(() => {
         if (!currentCard || !isMultipleChoice) {
             setMultipleChoiceOptions([]);
             return;
         }
-        
+
         // Chỉ tạo options mới nếu chưa có cho card này
         if (!optionsRef.current[currentCardId]) {
             const correctAnswer = currentCard.front;
             const currentPos = currentCard.pos;
-            
+
             // Lấy tất cả từ hợp lệ (không trùng với đáp án đúng)
             const allValidCards = (allCards || cards)
-                .filter(card => 
-                    card.id !== currentCard.id && 
-                    card.front && 
+                .filter(card =>
+                    card.id !== currentCard.id &&
+                    card.front &&
                     card.front.trim() !== '' &&
                     normalizeAnswer(card.front) !== normalizeAnswer(correctAnswer)
                 );
-            
+
             // Ưu tiên 1: Từ cùng loại (POS)
-            const samePosCards = currentPos 
+            const samePosCards = currentPos
                 ? allValidCards.filter(card => card.pos === currentPos)
                 : [];
-            
+
             // Ưu tiên 2: Từ có độ dài tương tự (±2 ký tự)
             const correctLength = correctAnswer.length;
-            const similarLengthCards = allValidCards.filter(card => 
+            const similarLengthCards = allValidCards.filter(card =>
                 Math.abs(card.front.length - correctLength) <= 2
             );
-            
+
             // Kết hợp: Ưu tiên cùng POS, sau đó độ dài tương tự
             let candidates = [];
-            
+
             // Lấy từ cùng POS trước
             if (samePosCards.length > 0) {
                 candidates.push(...samePosCards.slice(0, 3));
             }
-            
+
             // Nếu chưa đủ, lấy từ độ dài tương tự
             if (candidates.length < 3) {
-                const remaining = similarLengthCards.filter(card => 
+                const remaining = similarLengthCards.filter(card =>
                     !candidates.find(c => c.id === card.id)
                 );
                 candidates.push(...remaining.slice(0, 3 - candidates.length));
             }
-            
+
             // Nếu vẫn chưa đủ, lấy ngẫu nhiên từ còn lại
             if (candidates.length < 3) {
-                const remaining = allValidCards.filter(card => 
+                const remaining = allValidCards.filter(card =>
                     !candidates.find(c => c.id === card.id)
                 );
                 candidates.push(...remaining.slice(0, 3 - candidates.length));
             }
-            
+
             // Trộn candidates và lấy 3 từ
             const shuffledCandidates = shuffleArray(candidates);
             const wrongOptions = shuffledCandidates
                 .slice(0, 3)
                 .map(card => card.front)
                 .filter((front, index, self) => self.findIndex(f => normalizeAnswer(f) === normalizeAnswer(front)) === index);
-            
+
             // Nếu không đủ 3, thêm placeholder
             while (wrongOptions.length < 3) {
                 wrongOptions.push('...');
             }
-            
+
             // Trộn ngẫu nhiên tất cả options và lưu vào ref
             const options = [correctAnswer, ...wrongOptions];
             optionsRef.current[currentCardId] = shuffleArray(options);
         }
-        
+
         // Set options từ ref
         setMultipleChoiceOptions(optionsRef.current[currentCardId] || []);
     }, [currentCardId, isMultipleChoice, currentCard, allCards, cards, normalizeAnswer]);
-    
+
     // Early return check - phải đặt sau tất cả hooks
     // Sử dụng useEffect để gọi handleCompleteReview sau khi render (tránh truy cập ref trong render)
     // Thêm failedCards.size vào dependency để theo dõi khi failedCards thay đổi
@@ -5399,23 +5382,23 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
             return () => clearTimeout(timer);
         }
     }, [cards.length, currentIndex, handleCompleteReview, failedCards.size]);
-    
-    if (cards.length === 0 || currentIndex >= cards.length) { 
-        return null; 
+
+    if (cards.length === 0 || currentIndex >= cards.length) {
+        return null;
     }
 
     // Always show full text now
     const displayFront = currentCard.front;
-    
+
     // Helper function để tách chuỗi theo delimiter nhưng bỏ qua delimiter trong ngoặc
     const splitIgnoringParentheses = (text, delimiter) => {
         const result = [];
         let currentPart = '';
         let depth = 0; // Độ sâu của ngoặc
-        
+
         for (let i = 0; i < text.length; i++) {
             const char = text[i];
-            
+
             // Kiểm tra ngoặc đơn Việt Nam ()
             if (char === '(') {
                 depth++;
@@ -5441,34 +5424,34 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 currentPart += char;
             }
         }
-        
+
         // Thêm phần cuối cùng
         if (currentPart.trim()) {
             result.push(currentPart.trim());
         }
-        
+
         return result;
     };
-    
+
     // Helper function để format từ nhiều nghĩa với ký hiệu ➀, ➁, ➂
     const formatMultipleMeanings = (text) => {
         if (!text) return text;
-        
+
         // Ký hiệu số cho các nghĩa
         const numberSymbols = ['➀', '➁', '➂', '➃', '➄', '➅', '➆', '➇', '➈', '➉'];
-        
+
         // Tách các nghĩa bằng nhiều cách: số thứ tự > xuống dòng > chấm phẩy > dấu phẩy
         let meanings = [];
-        
+
         // Ưu tiên 1: Tách theo số thứ tự (1., 2., 3., ...)
         // Tìm tất cả các vị trí có pattern "số. " không nằm trong ngoặc
         const numberedMatches = [];
         let depth = 0;
         let currentPos = 0;
-        
+
         for (let i = 0; i < text.length; i++) {
             const char = text[i];
-            
+
             if (char === '(' || char === '（') {
                 depth++;
             } else if (char === ')' || char === '）') {
@@ -5481,7 +5464,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 }
             }
         }
-        
+
         // Nếu có ít nhất 2 số thứ tự, tách theo chúng
         if (numberedMatches.length >= 2) {
             for (let i = 0; i < numberedMatches.length; i++) {
@@ -5493,7 +5476,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 }
             }
         }
-        
+
         // Nếu chưa tách được, thử các cách khác
         if (meanings.length <= 1) {
             if (text.includes('\n')) {
@@ -5510,27 +5493,27 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 meanings = [text];
             }
         }
-        
+
         // Nếu chỉ có 1 nghĩa, trả về nguyên bản
         if (meanings.length <= 1) {
             return text;
         }
-        
+
         // Format với số thường (1., 2., 3.) để "nghĩa chính" rõ ràng
         // (Đặc biệt khi input đã theo chuẩn: nghĩa chính bằng ';', nghĩa gần nhau bằng ',')
         return meanings.map((meaning, index) => `${index + 1}. ${meaning}`).join('\n');
     };
-    
+
     const getPrompt = () => {
-        switch (cardReviewType) { 
-            case 'synonym': 
+        switch (cardReviewType) {
+            case 'synonym':
                 return { label: 'Từ đồng nghĩa', text: currentCard.synonym, image: currentCard.imageBase64, icon: MessageSquare, color: 'text-blue-600' };
             case 'example': {
                 const wordToMask = getWordForMasking(currentCard.front);
                 const maskedExample = maskWordInExample(wordToMask, currentCard.example, currentCard.pos);
                 return { label: 'Điền từ còn thiếu', text: maskedExample, meaning: currentCard.exampleMeaning || null, image: currentCard.imageBase64, icon: FileText, color: 'text-purple-600' };
             }
-            default: 
+            default:
                 return { label: 'Ý nghĩa (Mặt sau)', text: formatMultipleMeanings(currentCard.back), image: currentCard.imageBase64, icon: Repeat2, color: 'text-emerald-600' };
         }
     };
@@ -5541,7 +5524,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         if (isProcessing) return; // V1.6.2 Fix: Chặn nếu đang xử lý
 
         const userAnswer = normalizeAnswer(inputValue);
-        
+
         // Extract Kanji and Kana from format "Kanji（Kana）" or "Kanji(Kana)"
         // Nhận diện cả ngoặc Nhật （）và ngoặc Việt Nam ()
         // If no brackets, it assumes the whole string is the answer
@@ -5566,10 +5549,10 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
             ]);
             isCorrect = accepted.has(userAnswer);
         }
-        
+
         const cardKey = `${currentCard.id}-${cardReviewType}`;
         const hasFailedBefore = failedCards.has(cardKey);
-        
+
         if (isCorrect) {
             // Nếu đã từng sai trong lần ôn tập này
             if (hasFailedBefore) {
@@ -5582,7 +5565,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 setIsProcessing(true);
                 setFeedback('correct');
                 setMessage(`Chính xác! ${displayFront} - Đã hoàn thành!`);
-                setIsRevealed(true); 
+                setIsRevealed(true);
                 setIsLocked(false);
                 playAudio(currentCard.audioBase64, currentCard.front);
                 await new Promise(resolve => setTimeout(resolve, 1000));
@@ -5593,11 +5576,11 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 setIsProcessing(true);
                 setFeedback('correct');
                 setMessage(`Chính xác! ${displayFront}`);
-                setIsRevealed(true); 
-                setIsLocked(false); 
+                setIsRevealed(true);
+                setIsLocked(false);
                 playAudio(currentCard.audioBase64, currentCard.front);
                 await new Promise(resolve => setTimeout(resolve, 1000));
-                await moveToNextCard(true); 
+                await moveToNextCard(true);
             }
         } else {
             // Sai: lưu vào danh sách các từ đã sai và reset streak
@@ -5605,10 +5588,10 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
             setFeedback('incorrect');
             const nuanceText = currentCard.nuance ? ` (${currentCard.nuance})` : '';
             setMessage(`Đáp án đúng: ${displayFront}${nuanceText}. Hãy làm lại!`);
-            setIsRevealed(true); 
+            setIsRevealed(true);
             setIsLocked(true); // Khóa để người dùng phải nhập lại đúng mới tiếp tục
             playAudio(currentCard.audioBase64, currentCard.front);
-            
+
             // Cập nhật streak về 0 trong local state ngay lập tức
             setCards(prevCards => {
                 return prevCards.map(card => {
@@ -5626,7 +5609,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                     return card;
                 });
             });
-            
+
             // Cập nhật streak về 0 trong Firestore
             await onUpdateCard(currentCard.id, false, cardReviewType);
         }
@@ -5639,7 +5622,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
         // Cập nhật streak nếu cần
         if (shouldUpdateStreak) {
             await onUpdateCard(currentCard.id, true, cardReviewType);
-            
+
             // Cập nhật streak trong cards state local
             setCards(prevCards => {
                 return prevCards.map(card => {
@@ -5658,7 +5641,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 });
             });
         }
-        
+
         // Luôn chuyển sang thẻ tiếp theo
         const nextIndex = currentIndex + 1;
         if (nextIndex < cards.length) {
@@ -5708,10 +5691,10 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
 
         // Logic for typing mode retry or manual proceed (chỉ cho Back mode)
         if (cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice) {
-            if (feedback === 'correct') { 
+            if (feedback === 'correct') {
                 // Đã đúng, chuyển sang thẻ tiếp theo (đã xử lý failedCards trong checkAnswer)
                 setIsProcessing(true); // V1.6.2 Fix: Khoá
-                moveToNextCard(true); 
+                moveToNextCard(true);
             } else if (feedback === 'incorrect' && isLocked) {
                 // Đã sai, kiểm tra lại xem người dùng đã nhập đúng chưa
                 const userAnswer = normalizeAnswer(inputValue);
@@ -5725,16 +5708,16 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
 
                 const isCorrect = userAnswer === normalizedKanji || (kanaPart && userAnswer === normalizedKana) || userAnswer === normalizeAnswer(rawFront);
 
-                if (isCorrect) { 
+                if (isCorrect) {
                     // Nhập lại đúng: phát âm thanh
                     playAudio(currentCard.audioBase64, currentCard.front);
-                    
+
                     // Chuyển thẻ luôn
                     setIsProcessing(true);
                     moveToNextCard(false); // false = không tăng streak
-                } else { 
+                } else {
                     // Vẫn sai, yêu cầu nhập lại
-                    setMessage(`Hãy nhập lại: "${displayFront}"`); 
+                    setMessage(`Hãy nhập lại: "${displayFront}"`);
                 }
             }
         } else {
@@ -5759,7 +5742,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
             <div className="space-y-2 md:space-y-4 flex-shrink-0">
                 <div className="flex justify-between items-center text-xs md:text-sm font-medium text-gray-500 dark:text-gray-300">
                     <span className="flex items-center">
-                        <Zap className="w-3 h-3 md:w-4 md:h-4 mr-0.5 md:mr-1 text-amber-500 dark:text-amber-400"/> 
+                        <Zap className="w-3 h-3 md:w-4 md:h-4 mr-0.5 md:mr-1 text-amber-500 dark:text-amber-400" />
                         <span className="dark:text-gray-200">{reviewMode.toUpperCase()} - {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice ? 'Tự luận' : 'Ôn tập nhanh'}</span>
                     </span>
                     <span>{currentIndex + 1} / {cards.length} {failedCards.size > 0 && <span className="text-red-500 dark:text-red-400">({failedCards.size} sai)</span>}</span>
@@ -5774,7 +5757,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 {reviewMode === 'flashcard' ? (
                     // Chế độ Flashcard: Lật thẻ 3D giống thẻ bài thật
                     <div className="perspective-1000 w-full max-w-[240px] md:max-w-[280px] mx-auto relative" style={{ minHeight: '340px' }}>
-                        <div 
+                        <div
                             className={`flip-card-container transform-style-3d cursor-pointer relative card-slide ${isFlipped ? 'rotate-y-180' : ''} ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
                             onClick={() => {
                                 // Chỉ lật card nếu không có swipe đang diễn ra
@@ -5791,7 +5774,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                             onTouchStart={onTouchStart}
                             onTouchMove={onTouchMove}
                             onTouchEnd={onTouchEnd}
-                            style={{ 
+                            style={{
                                 width: '100%',
                                 height: '340px', // Chiều cao cố định thay vì padding
                                 transform: swipeOffset ? `translateX(${swipeOffset}px)` : undefined,
@@ -5823,7 +5806,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                     </div>
                                 </div>
                             </div>
-                            
+
                             {/* Mặt sau - CÙNG kích thước, Ý nghĩa ở giữa */}
                             <div className="flip-card-back backface-hidden absolute inset-0 w-full h-full rotate-y-180">
                                 <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl shadow-2xl p-6 w-full h-full border-4 border-white hover:shadow-3xl transition-shadow flex flex-col overflow-y-auto">
@@ -5834,7 +5817,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                             {formatMultipleMeanings(currentCard.back)}
                                         </div>
                                     </div>
-                                    
+
                                     {/* Các phần phụ - NHỎ phía dưới */}
                                     <div className="text-center space-y-1.5 mt-2 pb-8">
                                         {currentCard.sinoVietnamese && (
@@ -5860,7 +5843,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                             </div>
                                         )}
                                     </div>
-                                    
+
                                     <div className="absolute bottom-4 right-4 text-white/30">
                                         <RotateCw className="w-4 h-4 animate-pulse" />
                                     </div>
@@ -5875,51 +5858,51 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                 ) : (
                     // Chế độ ôn tập thông thường (mixed, back, synonym, example)
                     <div className="w-full bg-white dark:bg-gray-800 rounded-xl md:rounded-3xl shadow-xl shadow-indigo-100/50 dark:shadow-indigo-900/20 border border-gray-100 dark:border-gray-700 p-4 md:p-8 min-h-[200px] md:min-h-[280px] max-h-[40vh] md:max-h-none flex flex-col items-center justify-center text-center transition-all hover:shadow-2xl hover:shadow-indigo-200/50 dark:hover:shadow-indigo-900/50 relative overflow-hidden">
-                    {/* Background decoration */}
+                        {/* Background decoration */}
                         <div className={`absolute top-0 left-0 w-full h-1 md:h-1.5 ${reviewMode === 'mixed' ? 'bg-gradient-to-r from-rose-400 to-orange-400 dark:from-rose-500 dark:to-orange-500' : 'bg-gradient-to-r from-indigo-400 to-cyan-400 dark:from-indigo-500 dark:to-cyan-500'}`}></div>
-                    
-                    {/* Top Hints */}
+
+                        {/* Top Hints */}
                         <div className="absolute top-2 md:top-6 right-2 md:right-6 flex flex-col gap-1 md:gap-2 items-end">
                             {currentCard.level && <span className={`text-[9px] md:text-[10px] px-1.5 md:px-2 py-0.5 md:py-1 rounded border font-bold ${getLevelColor(currentCard.level)}`}>{currentCard.level}</span>}
                             {currentCard.pos && <span className={`text-[9px] md:text-[10px] px-1.5 md:px-2 py-0.5 md:py-1 rounded border font-bold ${getPosColor(currentCard.pos)}`}>{getPosLabel(currentCard.pos)}</span>}
-                    </div>
+                        </div>
 
                         <div className="flex items-center gap-1.5 md:gap-2 mb-3 md:mb-6 opacity-80">
-                             <promptInfo.icon className={`w-4 h-4 md:w-5 md:h-5 ${promptInfo.color}`}/>
-                             <span className="text-xs md:text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">{promptInfo.label}</span>
-                    </div>
+                            <promptInfo.icon className={`w-4 h-4 md:w-5 md:h-5 ${promptInfo.color}`} />
+                            <span className="text-xs md:text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">{promptInfo.label}</span>
+                        </div>
 
-                    {promptInfo.image && (
+                        {promptInfo.image && (
                             <div className="mb-3 md:mb-6 rounded-lg md:rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700">
                                 <img src={promptInfo.image} alt="Hint" className="h-20 md:h-32 object-cover" />
-                        </div>
-                    )}
+                            </div>
+                        )}
 
                         <div className="text-xl md:text-3xl lg:text-4xl font-black text-gray-800 dark:text-gray-100 leading-relaxed mb-1 md:mb-2 px-2 whitespace-pre-line">
-                        {promptInfo.text}
-                    </div>
-                    
-                    {/* UPDATE: Hide SinoVietnamese in Synonym/Example Mode */}
-                    {/* Only show SinoVietnamese if reviewMode is NOT 'synonym' or 'example' */}
-                    {!['synonym', 'example'].includes(cardReviewType) && (currentCard.sinoVietnamese || currentCard.synonymSinoVietnamese) && (
+                            {promptInfo.text}
+                        </div>
+
+                        {/* UPDATE: Hide SinoVietnamese in Synonym/Example Mode */}
+                        {/* Only show SinoVietnamese if reviewMode is NOT 'synonym' or 'example' */}
+                        {!['synonym', 'example'].includes(cardReviewType) && (currentCard.sinoVietnamese || currentCard.synonymSinoVietnamese) && (
                             <span className="text-xs md:text-sm font-semibold text-pink-500 dark:text-pink-400 bg-pink-50 dark:bg-pink-900/30 px-2 md:px-3 py-0.5 md:py-1 rounded-full mt-1 md:mt-2">
-                            {reviewMode === 'synonym' ? currentCard.synonymSinoVietnamese : currentCard.sinoVietnamese}
-                        </span>
-                    )}
+                                {reviewMode === 'synonym' ? currentCard.synonymSinoVietnamese : currentCard.sinoVietnamese}
+                            </span>
+                        )}
 
                         {promptInfo.meaning && <p className="text-gray-600 dark:text-gray-400 mt-2 md:mt-4 italic text-xs md:text-base border-t border-gray-100 dark:border-gray-700 pt-2 md:pt-3 px-2 md:px-4 leading-relaxed">"{promptInfo.meaning}"</p>}
-                 </div>
+                    </div>
                 )}
             </div>
 
             {/* Interaction Area - Fixed at bottom with space for keyboard */}
             <div className="space-y-2 md:space-y-4 flex-shrink-0 pb-4 md:pb-0">
-                
+
                 {/* --- MULTIPLE CHOICE: Synonym và Example --- */}
                 {isMultipleChoice && !isRevealed && multipleChoiceOptions.length > 0 && (
                     <div className="space-y-3 md:space-y-4">
                         <p className="text-sm md:text-base font-semibold text-gray-700 dark:text-gray-300 text-center">
-                            {cardReviewType === 'synonym' 
+                            {cardReviewType === 'synonym'
                                 ? `Từ đồng nghĩa của "${promptInfo.text}" là gì?`
                                 : `Điền từ còn thiếu trong câu: "${promptInfo.text}"`
                             }
@@ -5929,7 +5912,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                 const isSelected = selectedAnswer === option;
                                 const isCorrect = option === currentCard.front;
                                 let buttonClass = "px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all border-2 flex items-center justify-center gap-2 ";
-                                
+
                                 if (isRevealed) {
                                     if (isCorrect) {
                                         buttonClass += "bg-green-500 dark:bg-green-600 text-white border-green-600 dark:border-green-700 shadow-lg";
@@ -5945,7 +5928,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                         buttonClass += "bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:border-indigo-300 dark:hover:border-indigo-500";
                                     }
                                 }
-                                
+
                                 return (
                                     <button
                                         key={index}
@@ -5971,9 +5954,9 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                     const isCorrect = selectedAnswer === currentCard.front;
                                     const cardKey = `${currentCard.id}-${cardReviewType}`;
                                     const hasFailedBefore = failedCards.has(cardKey);
-                                    
+
                                     setIsProcessing(true);
-                                    
+
                                     if (isCorrect) {
                                         // Nếu đã từng sai trong lần ôn tập này
                                         if (hasFailedBefore) {
@@ -5996,7 +5979,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                         setMessage(`Đáp án đúng: ${displayFront}`);
                                         // Phát âm thanh khi nhập sai
                                         playAudio(currentCard.audioBase64);
-                                        
+
                                         // Cập nhật streak về 0 trong local state ngay lập tức
                                         setCards(prevCards => {
                                             return prevCards.map(card => {
@@ -6014,15 +5997,15 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                                 return card;
                                             });
                                         });
-                                        
+
                                         // Cập nhật streak về 0 trong Firestore
                                         await onUpdateCard(currentCard.id, false, cardReviewType);
                                     }
-                                    
+
                                     setIsRevealed(true);
                                     playAudio(currentCard.audioBase64);
                                     await new Promise(resolve => setTimeout(resolve, 1000));
-                                    
+
                                     // Đánh streak nếu làm đúng (kể cả khi đã từng sai, vì đã remove khỏi failedCards)
                                     await moveToNextCard(isCorrect);
                                 }}
@@ -6034,18 +6017,17 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                         )}
                     </div>
                 )}
-                
+
                 {/* --- FLASHCARD MODE: Navigation Buttons --- */}
                 {reviewMode === 'flashcard' && (
                     <div className="flex gap-2 md:gap-4">
                         <button
                             onClick={moveToPreviousCard}
                             disabled={isProcessing || currentIndex === 0}
-                            className={`px-3 md:px-4 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all shadow-md ${
-                                isProcessing || currentIndex === 0
+                            className={`px-3 md:px-4 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all shadow-md ${isProcessing || currentIndex === 0
                                     ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
                                     : 'bg-gray-500 dark:bg-gray-600 text-white hover:bg-gray-600 dark:hover:bg-gray-700 hover:shadow-lg hover:scale-105'
-                            }`}
+                                }`}
                             title="Thẻ trước (←)"
                         >
                             ←
@@ -6068,18 +6050,17 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                                 }
                             }}
                             disabled={isProcessing}
-                            className={`flex-1 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all shadow-md ${
-                                isProcessing
+                            className={`flex-1 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all shadow-md ${isProcessing
                                     ? 'bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-500 cursor-not-allowed'
                                     : 'bg-gradient-to-r from-indigo-500 to-purple-600 dark:from-indigo-600 dark:to-purple-700 text-white hover:shadow-lg hover:scale-105'
-                            }`}
+                                }`}
                             title="Thẻ tiếp theo (→)"
                         >
                             {currentIndex < cards.length - 1 ? 'Thẻ tiếp theo →' : 'Hoàn thành'}
                         </button>
                     </div>
                 )}
-                
+
                 {/* --- TYPING MODE UI --- (Chỉ cho Back, không cho Synonym và Example) */}
                 {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
                     <div className="relative">
@@ -6093,7 +6074,7 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                             spellCheck="false"
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
-                            onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); isRevealed ? handleNext() : checkAnswer(); }}}
+                            onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); isRevealed ? handleNext() : checkAnswer(); } }}
                             onFocus={(e) => {
                                 // Scroll vào view trên mobile khi focus (không cần gọi focus() vì đã được focus rồi)
                                 if (window.innerWidth <= 768) {
@@ -6104,10 +6085,10 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
                             }}
                             disabled={feedback === 'correct'}
                             className={`w-full pl-5 md:pl-7 pr-12 md:pr-16 py-3 md:py-5 text-lg md:text-2xl font-semibold rounded-xl md:rounded-2xl border-2 transition-all outline-none shadow-md touch-manipulation
-                                ${feedback === 'correct' 
-                                    ? 'border-green-400 dark:border-green-600 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300' 
-                                    : feedback === 'incorrect' 
-                                        ? 'border-red-400 dark:border-red-600 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300' 
+                                ${feedback === 'correct'
+                                    ? 'border-green-400 dark:border-green-600 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300'
+                                    : feedback === 'incorrect'
+                                        ? 'border-red-400 dark:border-red-600 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300'
                                         : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10 dark:focus:ring-indigo-500/20'}`}
                             placeholder="Nhập từ vựng tiếng Nhật..."
                         />
@@ -6125,41 +6106,41 @@ const ReviewScreen = ({ cards: initialCards, reviewMode, allCards, onUpdateCard,
 
                 {/* Feedback & Actions - Only for non-flashcard modes */}
                 {reviewMode !== 'flashcard' && (
-                <div className="space-y-2 md:space-y-3">
-                    {/* Feedback Message - Có thể scroll nếu dài */}
-                    <div className={`transition-all duration-300 ease-out overflow-hidden ${isRevealed ? 'max-h-[120px] md:max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
-                        <div className={`p-3 md:p-5 rounded-xl md:rounded-2xl border flex items-start gap-2 md:gap-4 overflow-y-auto max-h-[120px] md:max-h-40 ${feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : feedback === 'incorrect' ? 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800' : 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700'}`}>
-                            {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
-                                <div className={`p-1.5 md:p-2 rounded-full flex-shrink-0 ${feedback === 'correct' ? 'bg-green-200 dark:bg-green-800 text-green-700 dark:text-green-300' : 'bg-red-200 dark:bg-red-800 text-red-700 dark:text-red-300'}`}>
-                                    {feedback === 'correct' ? <Check className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3}/> : <X className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3}/>}
+                    <div className="space-y-2 md:space-y-3">
+                        {/* Feedback Message - Có thể scroll nếu dài */}
+                        <div className={`transition-all duration-300 ease-out overflow-hidden ${isRevealed ? 'max-h-[120px] md:max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+                            <div className={`p-3 md:p-5 rounded-xl md:rounded-2xl border flex items-start gap-2 md:gap-4 overflow-y-auto max-h-[120px] md:max-h-40 ${feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : feedback === 'incorrect' ? 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800' : 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700'}`}>
+                                {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
+                                    <div className={`p-1.5 md:p-2 rounded-full flex-shrink-0 ${feedback === 'correct' ? 'bg-green-200 dark:bg-green-800 text-green-700 dark:text-green-300' : 'bg-red-200 dark:bg-red-800 text-red-700 dark:text-red-300'}`}>
+                                        {feedback === 'correct' ? <Check className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3} /> : <X className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3} />}
+                                    </div>
+                                )}
+                                <div className="flex-1 min-w-0">
+                                    {/* Typing feedback message */}
+                                    <div>
+                                        <p className={`font-bold text-base md:text-xl ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'}`}>{message}</p>
+                                        {feedback === 'incorrect' && cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && <p className="text-xs md:text-base text-red-600 dark:text-red-400 mt-0.5 md:mt-1">Gõ lại từ đúng để tiếp tục</p>}
+                                    </div>
                                 </div>
-                            )}
-                            <div className="flex-1 min-w-0">
-                                 {/* Typing feedback message */}
-                                 <div>
-                                     <p className={`font-bold text-base md:text-xl ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'}`}>{message}</p>
-                                     {feedback === 'incorrect' && cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && <p className="text-xs md:text-base text-red-600 dark:text-red-400 mt-0.5 md:mt-1">Gõ lại từ đúng để tiếp tục</p>}
-                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    {/* TYPING MODE ACTIONS (Chỉ cho Back, không cho Synonym và Example) - Luôn hiển thị bên ngoài để không bị che */}
-                    {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
-                        <button
-                            onClick={handleNext}
-                            disabled={isProcessing || (feedback === 'incorrect' && normalizeAnswer(inputValue) !== normalizeAnswer(currentCard.front.split('（')[0].split('(')[0]) && normalizeAnswer(inputValue) !== normalizeAnswer((currentCard.front.match(/（([^）]+)）/) || currentCard.front.match(/\(([^)]+)\)/))?.[1] || ''))}
-                            className={`w-full py-3 md:py-4 rounded-lg md:rounded-xl font-bold text-base md:text-lg shadow-lg transition-all flex items-center justify-center
-                                ${feedback === 'correct' 
-                                    ? 'bg-green-500 dark:bg-green-600 text-white shadow-green-200 dark:shadow-green-900/50 hover:bg-green-600 dark:hover:bg-green-700' 
-                                    : 'bg-indigo-600 dark:bg-indigo-500 text-white shadow-indigo-200 dark:shadow-indigo-900/50 hover:bg-indigo-700 dark:hover:bg-indigo-600 disabled:bg-gray-300 dark:disabled:bg-gray-700 disabled:text-gray-500 dark:disabled:text-gray-500 disabled:shadow-none'}`}
-                        >
-                            {currentIndex === cards.length - 1 ? 'Hoàn thành' : 'Tiếp theo'}
-                            <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-1.5 md:ml-2" strokeWidth={3}/>
-                        </button>
-                    )}
 
-                </div>
+                        {/* TYPING MODE ACTIONS (Chỉ cho Back, không cho Synonym và Example) - Luôn hiển thị bên ngoài để không bị che */}
+                        {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
+                            <button
+                                onClick={handleNext}
+                                disabled={isProcessing || (feedback === 'incorrect' && normalizeAnswer(inputValue) !== normalizeAnswer(currentCard.front.split('（')[0].split('(')[0]) && normalizeAnswer(inputValue) !== normalizeAnswer((currentCard.front.match(/（([^）]+)）/) || currentCard.front.match(/\(([^)]+)\)/))?.[1] || ''))}
+                                className={`w-full py-3 md:py-4 rounded-lg md:rounded-xl font-bold text-base md:text-lg shadow-lg transition-all flex items-center justify-center
+                                ${feedback === 'correct'
+                                        ? 'bg-green-500 dark:bg-green-600 text-white shadow-green-200 dark:shadow-green-900/50 hover:bg-green-600 dark:hover:bg-green-700'
+                                        : 'bg-indigo-600 dark:bg-indigo-500 text-white shadow-indigo-200 dark:shadow-indigo-900/50 hover:bg-indigo-700 dark:hover:bg-indigo-600 disabled:bg-gray-300 dark:disabled:bg-gray-700 disabled:text-gray-500 dark:disabled:text-gray-500 disabled:shadow-none'}`}
+                            >
+                                {currentIndex === cards.length - 1 ? 'Hoàn thành' : 'Tiếp theo'}
+                                <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-1.5 md:ml-2" strokeWidth={3} />
+                            </button>
+                        )}
+
+                    </div>
                 )}
             </div>
         </div>
@@ -6203,10 +6184,10 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         const result = [];
         let currentPart = '';
         let depth = 0; // Độ sâu của ngoặc
-        
+
         for (let i = 0; i < text.length; i++) {
             const char = text[i];
-            
+
             // Kiểm tra ngoặc đơn Việt Nam ()
             if (char === '(') {
                 depth++;
@@ -6232,33 +6213,33 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                 currentPart += char;
             }
         }
-        
+
         // Thêm phần cuối cùng
         if (currentPart.trim()) {
             result.push(currentPart.trim());
         }
-        
+
         return result;
     };
-    
+
     // Helper function để format từ nhiều nghĩa với ký hiệu ➀, ➁, ➂
     const formatMultipleMeanings = (text) => {
         if (!text) return text;
-        
+
         // Ký hiệu số cho các nghĩa
         const numberSymbols = ['➀', '➁', '➂', '➃', '➄', '➅', '➆', '➇', '➈', '➉'];
-        
+
         // Tách các nghĩa bằng nhiều cách: số thứ tự > xuống dòng > chấm phẩy > dấu phẩy
         let meanings = [];
-        
+
         // Ưu tiên 1: Tách theo số thứ tự (1., 2., 3., ...)
         // Tìm tất cả các vị trí có pattern "số. " không nằm trong ngoặc
         const numberedMatches = [];
         let depth = 0;
-        
+
         for (let i = 0; i < text.length; i++) {
             const char = text[i];
-            
+
             if (char === '(' || char === '（') {
                 depth++;
             } else if (char === ')' || char === '）') {
@@ -6271,7 +6252,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                 }
             }
         }
-        
+
         // Nếu có ít nhất 2 số thứ tự, tách theo chúng
         if (numberedMatches.length >= 2) {
             for (let i = 0; i < numberedMatches.length; i++) {
@@ -6283,7 +6264,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                 }
             }
         }
-        
+
         // Nếu chưa tách được, thử các cách khác
         if (meanings.length <= 1) {
             if (text.includes('\n')) {
@@ -6300,12 +6281,12 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                 meanings = [text];
             }
         }
-        
+
         // Nếu chỉ có 1 nghĩa, trả về nguyên bản
         if (meanings.length <= 1) {
             return text;
         }
-        
+
         // Format với ký hiệu số
         return meanings.map((meaning, index) => {
             const symbol = numberSymbols[index] || `${index + 1}.`;
@@ -6345,79 +6326,79 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     // Generate multiple choice options - dùng useRef để lock options cho mỗi card
     const optionsRef = useRef({});
     const currentCardId = currentCard?.id;
-    
+
     useEffect(() => {
         if (!currentCard || currentPhase !== 'multipleChoice') {
             setMultipleChoiceOptions([]);
             return;
         }
-        
+
         // Chỉ tạo options mới nếu chưa có cho card này
         if (!optionsRef.current[currentCardId]) {
             const correctAnswer = currentCard.front;
             const currentPos = currentCard.pos;
-            
+
             // Lấy tất cả từ hợp lệ
             const allValidCards = allCards
-                .filter(card => 
-                    card.id !== currentCard.id && 
-                    card.front && 
+                .filter(card =>
+                    card.id !== currentCard.id &&
+                    card.front &&
                     card.front.trim() !== '' &&
                     normalizeAnswer(card.front) !== normalizeAnswer(correctAnswer)
                 );
-            
+
             // Ưu tiên 1: Từ cùng loại (POS)
-            const samePosCards = currentPos 
+            const samePosCards = currentPos
                 ? allValidCards.filter(card => card.pos === currentPos)
                 : [];
-            
+
             // Ưu tiên 2: Từ có độ dài tương tự
             const correctLength = correctAnswer.length;
-            const similarLengthCards = allValidCards.filter(card => 
+            const similarLengthCards = allValidCards.filter(card =>
                 Math.abs(card.front.length - correctLength) <= 2
             );
-            
+
             // Kết hợp candidates
             let candidates = [];
-            
+
             // Lấy từ cùng POS trước
             if (samePosCards.length > 0) {
                 candidates.push(...samePosCards.slice(0, 3));
             }
-            
+
             // Nếu chưa đủ, lấy từ độ dài tương tự
             if (candidates.length < 3) {
-                const remaining = similarLengthCards.filter(card => 
+                const remaining = similarLengthCards.filter(card =>
                     !candidates.find(c => c.id === card.id)
                 );
                 candidates.push(...remaining.slice(0, 3 - candidates.length));
             }
-            
+
             // Nếu vẫn chưa đủ, lấy ngẫu nhiên
             if (candidates.length < 3) {
-                const remaining = allValidCards.filter(card => 
+                const remaining = allValidCards.filter(card =>
                     !candidates.find(c => c.id === card.id)
                 );
                 candidates.push(...remaining.slice(0, 3 - candidates.length));
             }
-            
+
             // Trộn và lấy 3 từ
             const shuffledCandidates = shuffleArray(candidates);
             const wrongOptions = shuffledCandidates
                 .slice(0, 3)
                 .map(card => card.front)
                 .filter((front, index, self) => self.findIndex(f => normalizeAnswer(f) === normalizeAnswer(front)) === index);
-            
+
             // Nếu không đủ 3, thêm placeholder
             while (wrongOptions.length < 3) {
                 wrongOptions.push('...');
             }
-            
+
             // Trộn ngẫu nhiên tất cả options và lưu vào ref
             const options = [correctAnswer, ...wrongOptions];
             optionsRef.current[currentCardId] = shuffleArray([...options]);
         }
-        
+
         // Set options từ ref
         setMultipleChoiceOptions(optionsRef.current[currentCardId] || []);
     }, [currentCardId, currentPhase, currentCard, allCards]);
@@ -6425,18 +6406,18 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     // Handle multiple choice answer
     const handleMultipleChoiceAnswer = async (selectedOption) => {
         if (isProcessing || isRevealed) return;
-        
+
         setIsProcessing(true);
         setSelectedAnswer(selectedOption);
         const isCorrect = normalizeAnswer(selectedOption) === normalizeAnswer(currentCard.front); // So sánh với front (tiếng Nhật)
         setFeedback(isCorrect ? 'correct' : 'incorrect');
         setIsRevealed(true);
-        
+
         playAudio(currentCard.audioBase64, currentCard.front);
-        
+
         // Update card SRS
         await onUpdateCard(currentCard.id, isCorrect, 'back');
-        
+
         // Cập nhật learning/reviewing lists - từ sai sẽ được thêm vào learning để hiện lại ở batch tiếp theo
         if (isCorrect) {
             // Khi hoàn thành multiple choice (đúng): loại bỏ khỏi learning list
@@ -6452,7 +6433,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                 learning: [...prev.learning.filter(c => c.id !== currentCard.id), currentCard]
             }));
         }
-        
+
         setTimeout(() => {
             setIsProcessing(false);
             if (currentQuestionIndex < currentBatch.length - 1) {
@@ -6479,7 +6460,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         if (isProcessing || !inputValue.trim()) return;
 
         const userAnswer = normalizeAnswer(inputValue);
-        
+
         // Extract Kanji and Kana from format "Kanji（Kana）" or "Kanji(Kana)"
         // Nhận diện cả ngoặc Nhật （）và ngoặc Việt Nam ()
         const rawFront = currentCard.front;
@@ -6490,7 +6471,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         const normalizedKanji = normalizeAnswer(kanjiPart);
         const normalizedKana = normalizeAnswer(kanaPart);
         const normalizedFull = normalizeAnswer(rawFront);
-        
+
         // Correct if matches either Kanji part OR Kana part (if exists) OR the full string (legacy fallback)
         let isCorrect = userAnswer === normalizedKanji || (kanaPart && userAnswer === normalizedKana) || userAnswer === normalizedFull;
 
@@ -6532,7 +6513,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
 
         setTimeout(() => {
             setIsProcessing(false);
-            
+
             if (currentQuestionIndex < currentBatch.length - 1) {
                 setCurrentQuestionIndex(currentQuestionIndex + 1);
                 setInputValue('');
@@ -6548,19 +6529,19 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     // Function to create next batch
     const createNextBatch = () => {
         // Lấy tất cả từ chưa hoàn thành (chưa có trong completedCards)
-        const remainingNoSrs = studySessionData.allNoSrsCards.filter(card => 
+        const remainingNoSrs = studySessionData.allNoSrsCards.filter(card =>
             !completedCards.has(card.id)
         );
-        
+
         // Phân loại theo ưu tiên: Learning > New > Reviewing
-        const learning = studySessionData.learning.filter(card => 
+        const learning = studySessionData.learning.filter(card =>
             remainingNoSrs.some(c => c.id === card.id)
         );
-        const newCards = remainingNoSrs.filter(card => 
+        const newCards = remainingNoSrs.filter(card =>
             !learning.some(c => c.id === card.id) &&
             !studySessionData.reviewing.some(c => c.id === card.id)
         );
-        const reviewing = studySessionData.reviewing.filter(card => 
+        const reviewing = studySessionData.reviewing.filter(card =>
             remainingNoSrs.some(c => c.id === card.id) &&
             !learning.some(c => c.id === card.id)
         );
@@ -6575,10 +6556,10 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                 learningIds.forEach(id => newSet.delete(id));
                 return newSet;
             });
-            
+
             // Tạo batch mới từ learning list
             const nextBatch = shuffleArray([...studySessionData.learning]).slice(0, Math.min(5, studySessionData.learning.length));
-            
+
             setStudySessionData(prev => ({
                 ...prev,
                 currentBatch: nextBatch,
@@ -6591,7 +6572,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             setFeedback(null);
             return;
         }
-        
+
         if (remainingNoSrs.length === 0) {
             onCompleteStudy();
             return;
@@ -6635,7 +6616,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         return null;
     }
 
-    const progress = currentPhase === 'multipleChoice' 
+    const progress = currentPhase === 'multipleChoice'
         ? ((currentQuestionIndex + 1) / currentBatch.length) * 50
         : 50 + ((currentQuestionIndex + 1) / currentBatch.length) * 50;
 
@@ -6648,7 +6629,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             <div className="space-y-2 md:space-y-4 flex-shrink-0">
                 <div className="flex justify-between items-center text-xs md:text-sm font-medium text-gray-500 dark:text-gray-400">
                     <span className="flex items-center">
-                        <GraduationCap className="w-3 h-3 md:w-4 md:h-4 mr-0.5 md:mr-1 text-teal-500 dark:text-teal-400"/> 
+                        <GraduationCap className="w-3 h-3 md:w-4 md:h-4 mr-0.5 md:mr-1 text-teal-500 dark:text-teal-400" />
                         Học - {currentPhase === 'multipleChoice' ? 'Trắc nghiệm' : 'Tự luận'} - Batch {studySessionData.batchIndex + 1}
                     </span>
                     <span>{currentQuestionIndex + 1} / {currentBatch.length} <span className="text-teal-600 dark:text-teal-400">(Còn {remainingCards}/{totalCards})</span></span>
@@ -6669,7 +6650,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                             </div>
                             <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">Chọn từ vựng tiếng Nhật đúng:</p>
                         </div>
-                        
+
                         <div className="grid grid-cols-1 gap-2 md:gap-3">
                             {multipleChoiceOptions.map((option, idx) => (
                                 <button
@@ -6702,7 +6683,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                 {formatMultipleMeanings(currentCard.back)}
                             </div>
                         </div>
-                        
+
                         <div className="relative">
                             <input
                                 ref={inputRef}
@@ -6741,12 +6722,10 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                         </div>
 
                         {isRevealed && (
-                            <div className={`p-4 md:p-5 rounded-xl md:rounded-2xl border ${
-                                feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800'
-                            }`}>
-                                <p className={`font-bold text-base md:text-xl text-center ${
-                                    feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'
+                            <div className={`p-4 md:p-5 rounded-xl md:rounded-2xl border ${feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800'
                                 }`}>
+                                <p className={`font-bold text-base md:text-xl text-center ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'
+                                    }`}>
                                     {feedback === 'correct' ? '✓ Chính xác!' : `✗ Đáp án đúng: ${currentCard.front}`}
                                 </p>
                             </div>
@@ -6766,14 +6745,14 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                         Kiểm tra
                     </button>
                 )}
-                
+
                 {currentPhase === 'typing' && isRevealed && (
                     <button
                         onClick={async () => {
                             if (isProcessing) return;
-                            
+
                             setIsProcessing(true);
-                            
+
                             if (currentQuestionIndex < currentBatch.length - 1) {
                                 setCurrentQuestionIndex(currentQuestionIndex + 1);
                                 setInputValue('');
@@ -6805,84 +6784,84 @@ const HelpScreen = ({ onBack, isFirstTime, onConfirmFirstTime }) => {
         <div className="space-y-8">
             <div className="border-b border-gray-100 dark:border-gray-700 pb-4">
                 <h2 className="text-2xl font-black text-gray-800 dark:text-gray-100 flex items-center">
-                    <HelpCircle className="w-6 h-6 mr-2 text-indigo-600 dark:text-indigo-400"/> Hướng dẫn nhanh
+                    <HelpCircle className="w-6 h-6 mr-2 text-indigo-600 dark:text-indigo-400" /> Hướng dẫn nhanh
                 </h2>
                 <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Làm chủ QuizKi trong 3 phút</p>
             </div>
 
             {/* Mẹo thêm từ vựng */}
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-2xl border border-blue-100 dark:border-blue-800 space-y-3">
-                 <h3 className="font-bold text-blue-800 dark:text-blue-300 flex items-center text-lg">
+                <h3 className="font-bold text-blue-800 dark:text-blue-300 flex items-center text-lg">
                     <Plus className="w-5 h-5 mr-2" /> Thêm Từ Vựng Hiệu Quả
-                 </h3>
-                 <ul className="space-y-3 text-blue-900 dark:text-blue-200 text-sm font-medium">
-                     <li className="flex items-start">
-                         <Brain className="w-4 h-4 mr-2 mt-0.5 text-blue-500 shrink-0"/>
-                         <span>Với từ nhiều nghĩa, hãy <b>chọn Kanji chính xác</b> rồi mới dùng AI để lấy nghĩa chuẩn nhất.</span>
-                     </li>
-                     <li className="flex items-start">
-                         <Filter className="w-4 h-4 mr-2 mt-0.5 text-blue-500 shrink-0"/>
-                         <span><b>Từ đồng nghĩa:</b> Nếu thấy gợi ý không quen thuộc, hãy xoá bớt để tránh bị quá tải kiến thức.</span>
-                     </li>
-                     <li className="flex items-start">
-                         <Target className="w-4 h-4 mr-2 mt-0.5 text-blue-500 shrink-0"/>
-                         <span><b>Mới bắt đầu:</b> Chỉ nên học khoảng <b>15 từ/ngày</b>. Đừng quá tham lam kẻo dễ bị "ngộp" và nản chí.</span>
-                     </li>
-                 </ul>
+                </h3>
+                <ul className="space-y-3 text-blue-900 dark:text-blue-200 text-sm font-medium">
+                    <li className="flex items-start">
+                        <Brain className="w-4 h-4 mr-2 mt-0.5 text-blue-500 shrink-0" />
+                        <span>Với từ nhiều nghĩa, hãy <b>chọn Kanji chính xác</b> rồi mới dùng AI để lấy nghĩa chuẩn nhất.</span>
+                    </li>
+                    <li className="flex items-start">
+                        <Filter className="w-4 h-4 mr-2 mt-0.5 text-blue-500 shrink-0" />
+                        <span><b>Từ đồng nghĩa:</b> Nếu thấy gợi ý không quen thuộc, hãy xoá bớt để tránh bị quá tải kiến thức.</span>
+                    </li>
+                    <li className="flex items-start">
+                        <Target className="w-4 h-4 mr-2 mt-0.5 text-blue-500 shrink-0" />
+                        <span><b>Mới bắt đầu:</b> Chỉ nên học khoảng <b>15 từ/ngày</b>. Đừng quá tham lam kẻo dễ bị "ngộp" và nản chí.</span>
+                    </li>
+                </ul>
             </div>
 
-             {/* Mẹo học tập */}
-             <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-6 rounded-2xl border border-amber-100 dark:border-amber-800 space-y-3">
-                 <h3 className="font-bold text-amber-800 dark:text-amber-300 flex items-center text-lg">
+            {/* Mẹo học tập */}
+            <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-6 rounded-2xl border border-amber-100 dark:border-amber-800 space-y-3">
+                <h3 className="font-bold text-amber-800 dark:text-amber-300 flex items-center text-lg">
                     <Zap className="w-5 h-5 mr-2" /> Mẹo Học Tập Siêu Tốc
-                 </h3>
-                 <ul className="space-y-3 text-amber-900 dark:text-amber-200 text-sm font-medium">
-                     <li className="flex items-start">
-                         <Repeat2 className="w-4 h-4 mr-2 mt-0.5 text-amber-500 shrink-0"/>
-                         <span>Bắt đầu ôn tập với chế độ <b>Ý nghĩa</b> trước để nắm từ gốc.</span>
-                     </li>
-                     <li className="flex items-start">
-                         <Keyboard className="w-4 h-4 mr-2 mt-0.5 text-amber-500 shrink-0"/>
-                         <span>Nếu quên, cứ ấn <b>Enter</b> để xem đáp án, sau đó <b>nhập lại từ đúng</b> để nhớ dai hơn.</span>
-                     </li>
-                     <li className="flex items-start">
-                         <Ear className="w-4 h-4 mr-2 mt-0.5 text-amber-500 shrink-0"/>
-                         <span><b>Đa giác quan:</b> Nghe audio, đọc to thành tiếng và nhìn kỹ Kanji.</span>
-                     </li>
-                     <li className="flex items-start">
-                         <Lightbulb className="w-4 h-4 mr-2 mt-0.5 text-amber-500 shrink-0"/>
-                         <span>Gặp từ khó? Hãy liên tưởng đến <b>từ cùng âm tiếng Việt</b> hoặc tự bịa ra một câu chuyện thú vị cho nó!</span>
-                     </li>
-                 </ul>
+                </h3>
+                <ul className="space-y-3 text-amber-900 dark:text-amber-200 text-sm font-medium">
+                    <li className="flex items-start">
+                        <Repeat2 className="w-4 h-4 mr-2 mt-0.5 text-amber-500 shrink-0" />
+                        <span>Bắt đầu ôn tập với chế độ <b>Ý nghĩa</b> trước để nắm từ gốc.</span>
+                    </li>
+                    <li className="flex items-start">
+                        <Keyboard className="w-4 h-4 mr-2 mt-0.5 text-amber-500 shrink-0" />
+                        <span>Nếu quên, cứ ấn <b>Enter</b> để xem đáp án, sau đó <b>nhập lại từ đúng</b> để nhớ dai hơn.</span>
+                    </li>
+                    <li className="flex items-start">
+                        <Ear className="w-4 h-4 mr-2 mt-0.5 text-amber-500 shrink-0" />
+                        <span><b>Đa giác quan:</b> Nghe audio, đọc to thành tiếng và nhìn kỹ Kanji.</span>
+                    </li>
+                    <li className="flex items-start">
+                        <Lightbulb className="w-4 h-4 mr-2 mt-0.5 text-amber-500 shrink-0" />
+                        <span>Gặp từ khó? Hãy liên tưởng đến <b>từ cùng âm tiếng Việt</b> hoặc tự bịa ra một câu chuyện thú vị cho nó!</span>
+                    </li>
+                </ul>
             </div>
 
             {/* Quy tắc SRS (Thu gọn) */}
             <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-3">
-                 <h3 className="font-bold text-gray-700 dark:text-gray-300 text-sm uppercase tracking-wide">Cơ chế SRS (Lặp lại ngắt quãng)</h3>
-                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
-                     <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600 flex items-center">
+                <h3 className="font-bold text-gray-700 dark:text-gray-300 text-sm uppercase tracking-wide">Cơ chế SRS (Lặp lại ngắt quãng)</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
+                    <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600 flex items-center">
                         <span className="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400 flex items-center justify-center font-bold mr-3 text-xs">1</span>
                         <span className="text-gray-600 dark:text-gray-300">Trả lời <b>Đúng</b> → Ôn lại ngày mai.</span>
-                     </div>
-                     <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600 flex items-center">
+                    </div>
+                    <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600 flex items-center">
                         <span className="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold mr-3 text-xs">2</span>
                         <span className="text-gray-600 dark:text-gray-300">Đúng liên tiếp → Giãn cách (3, 7, 30 ngày...).</span>
-                     </div>
-                     <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-xl border border-red-100 dark:border-red-800 flex items-center">
+                    </div>
+                    <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-xl border border-red-100 dark:border-red-800 flex items-center">
                         <span className="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 flex items-center justify-center font-bold mr-3 text-xs">!</span>
                         <span className="text-red-700 dark:text-red-400 font-medium">Trả lời <b>Sai</b> → Phải ôn lại ngay hôm nay.</span>
-                     </div>
-                 </div>
+                    </div>
+                </div>
             </div>
 
-            {isFirstTime ? ( <button onClick={handleClick} disabled={isLoading} className="w-full py-4 bg-indigo-600 dark:bg-indigo-500 text-white rounded-xl font-bold shadow-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 hover:-translate-y-1 transition-all">{isLoading ? <Loader2 className="animate-spin w-5 h-5 mx-auto"/> : "Đã hiểu, Bắt đầu ngay!"}</button> ) 
-            : ( <button onClick={onBack} className="w-full py-4 border border-gray-200 dark:border-gray-700 rounded-xl font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">Quay lại trang chủ</button> )}
+            {isFirstTime ? (<button onClick={handleClick} disabled={isLoading} className="w-full py-4 bg-indigo-600 dark:bg-indigo-500 text-white rounded-xl font-bold shadow-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 hover:-translate-y-1 transition-all">{isLoading ? <Loader2 className="animate-spin w-5 h-5 mx-auto" /> : "Đã hiểu, Bắt đầu ngay!"}</button>)
+                : (<button onClick={onBack} className="w-full py-4 border border-gray-200 dark:border-gray-700 rounded-xl font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800">Quay lại trang chủ</button>)}
         </div>
     );
 };
 
 const ImportScreen = ({ onImport, onBack }) => {
-     // ... (Logic giữ nguyên)
+    // ... (Logic giữ nguyên)
     const [isLoading, setIsLoading] = useState(false);
     const [fileName, setFileName] = useState('');
     const [message, setMessage] = useState('');
@@ -6895,9 +6874,9 @@ const ImportScreen = ({ onImport, onBack }) => {
         setFileName(file.name);
         setIsLoading(true);
         setMessage('');
-        
+
         const reader = new FileReader();
-        reader.onload = async (event) => { 
+        reader.onload = async (event) => {
             try {
                 const csvText = event.target.result;
                 const lines = csvText.split('\n');
@@ -6905,26 +6884,26 @@ const ImportScreen = ({ onImport, onBack }) => {
                 let validCount = 0;
                 let invalidCount = 0;
                 lines.forEach((line, index) => {
-                    if (index === 0) return; 
+                    if (index === 0) return;
                     const trimmedLine = line.trim();
-                    if (!trimmedLine) return; 
+                    if (!trimmedLine) return;
                     const fields = trimmedLine.split('\t').map(field => field ? field.replace(/^"|"$/g, '').replace(/""/g, '"').trim() : '');
                     if (fields.length < 2 || !fields[0] || !fields[1]) { invalidCount++; return; }
                     const card = { front: fields[0], back: fields[1], synonym: fields[2] || '', example: fields[3] || '', exampleMeaning: fields[4] || '', nuance: fields[5] || '', createdAtRaw: fields[6] || '' };
                     // ... Logic parse fields SRS (Giữ nguyên)
-                    if (fields.length >= 15) { 
+                    if (fields.length >= 15) {
                         let srsIndex = 7;
                         card.intervalIndex_back = parseInt(fields[srsIndex++]) || -1; card.correctStreak_back = parseInt(fields[srsIndex++]) || 0; card.nextReview_back_timestamp = parseInt(fields[srsIndex++]) || Date.now();
-                        card.intervalIndex_synonym = parseInt(fields[srsIndex++]) || -999; card.correctStreak_synonym = parseInt(fields[srsIndex++]) || 0; card.nextReview_synonym_timestamp = parseInt(fields[srsIndex++]) || new Date(9999,0,1).getTime();
-                        card.intervalIndex_example = parseInt(fields[srsIndex++]) || -999; card.correctStreak_example = parseInt(fields[srsIndex++]) || 0; card.nextReview_example_timestamp = parseInt(fields[srsIndex++]) || new Date(9999,0,1).getTime();
+                        card.intervalIndex_synonym = parseInt(fields[srsIndex++]) || -999; card.correctStreak_synonym = parseInt(fields[srsIndex++]) || 0; card.nextReview_synonym_timestamp = parseInt(fields[srsIndex++]) || new Date(9999, 0, 1).getTime();
+                        card.intervalIndex_example = parseInt(fields[srsIndex++]) || -999; card.correctStreak_example = parseInt(fields[srsIndex++]) || 0; card.nextReview_example_timestamp = parseInt(fields[srsIndex++]) || new Date(9999, 0, 1).getTime();
                         if (fields[16]) card.audioBase64 = fields[16]; if (fields[17]) card.imageBase64 = fields[17]; if (fields[18]) card.pos = fields[18]; if (fields[19]) card.level = fields[19]; if (fields[20]) card.sinoVietnamese = fields[20]; if (fields[21]) card.synonymSinoVietnamese = fields[21];
                     } else { card.intervalIndex_back = -1; card.nextReview_back_timestamp = Date.now(); }
                     cardsToImport.push(card); validCount++;
                 });
-                
+
                 if (cardsToImport.length > 0) {
-                    await onImport(cardsToImport); 
-                    const messageText = invalidCount > 0 
+                    await onImport(cardsToImport);
+                    const messageText = invalidCount > 0
                         ? `Thành công: ${validCount} thẻ. ${invalidCount} dòng lỗi đã bỏ qua.`
                         : `Thành công: ${validCount} thẻ.`;
                     setMessage(messageText);
@@ -6939,14 +6918,14 @@ const ImportScreen = ({ onImport, onBack }) => {
             <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 pb-4 border-b border-gray-200 dark:border-gray-700">Nhập Dữ Liệu</h2>
             <div className="border-2 border-dashed border-indigo-200 dark:border-indigo-800 rounded-3xl bg-indigo-50/50 dark:bg-indigo-900/20 p-10 flex flex-col items-center justify-center text-center hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-colors">
                 <div className="w-16 h-16 bg-white dark:bg-gray-700 rounded-full flex items-center justify-center shadow-sm mb-4">
-                    <Upload className="w-8 h-8 text-indigo-500 dark:text-indigo-400"/>
+                    <Upload className="w-8 h-8 text-indigo-500 dark:text-indigo-400" />
                 </div>
                 <label className="cursor-pointer">
                     <span className="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-all inline-block">Chọn File .TSV</span>
-                    <input type="file" className="hidden" accept=".tsv,.txt" onChange={handleFileParse} disabled={isLoading}/>
+                    <input type="file" className="hidden" accept=".tsv,.txt" onChange={handleFileParse} disabled={isLoading} />
                 </label>
                 {fileName && <p className="mt-4 text-sm font-medium text-gray-600 dark:text-gray-300">{fileName}</p>}
-                {isLoading && <Loader2 className="animate-spin mt-4 text-indigo-500 dark:text-indigo-400"/>}
+                {isLoading && <Loader2 className="animate-spin mt-4 text-indigo-500 dark:text-indigo-400" />}
                 {message && <p className="mt-4 text-sm font-bold text-emerald-600 dark:text-emerald-400">{message}</p>}
             </div>
             <button onClick={onBack} className="w-full py-4 text-gray-500 dark:text-gray-400 font-medium hover:text-gray-800 dark:hover:text-gray-200">Quay lại</button>
@@ -6962,7 +6941,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
     const barChartRef = useRef(null);
     const [pieChartSize, setPieChartSize] = useState({ width: 0, height: 250 });
     const [barChartSize, setBarChartSize] = useState({ width: 0, height: 200 });
-    
+
     useEffect(() => {
         const updatePieSize = () => {
             if (pieChartRef.current) {
@@ -6980,18 +6959,18 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                 }
             }
         };
-        
+
         // Delay để đảm bảo DOM đã render
         const timer = setTimeout(() => {
             updatePieSize();
             updateBarSize();
         }, 100);
-        
+
         window.addEventListener('resize', () => {
             updatePieSize();
             updateBarSize();
         });
-        
+
         return () => {
             clearTimeout(timer);
             window.removeEventListener('resize', updatePieSize);
@@ -7006,7 +6985,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
     // 1. Streak Calculation
     const streak = useMemo(() => {
         if (!dailyActivityLogs || dailyActivityLogs.length === 0) return 0;
-        
+
         // Logs are assumed to be sorted by date (ID) ascending in App component
         // Need to check backwards from today
         const todayStr = new Date().toISOString().split('T')[0];
@@ -7015,15 +6994,15 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
 
         // Find today's log or yesterday's log to start streak
         // Reverse array for easier backward checking
-        const reversedLogs = [...dailyActivityLogs].reverse(); 
-        
+        const reversedLogs = [...dailyActivityLogs].reverse();
+
         // Check if streak is active (has entry today or yesterday)
         const lastLog = reversedLogs[0];
         if (!lastLog) return 0;
-        
+
         let currentStreak = 0;
         let checkDate = new Date();
-        
+
         // If last log is not today, check if it's yesterday. If not even yesterday, streak broken.
         if (lastLog.id !== todayStr && lastLog.id !== yesterdayStr) {
             return 0;
@@ -7031,19 +7010,19 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
 
         // If last log is today, start counting. If yesterday, start counting from yesterday.
         if (lastLog.id === todayStr) {
-             // checkDate is already today
+            // checkDate is already today
         } else {
-             checkDate.setDate(checkDate.getDate() - 1); // Start checking from yesterday
+            checkDate.setDate(checkDate.getDate() - 1); // Start checking from yesterday
         }
 
         for (const log of reversedLogs) {
-             const checkDateStr = checkDate.toISOString().split('T')[0];
-             if (log.id === checkDateStr && log.newWordsAdded > 0) {
-                 currentStreak++;
-                 checkDate.setDate(checkDate.getDate() - 1); // Go back 1 day
-             } else {
-                 break; // Streak broken or date gap
-             }
+            const checkDateStr = checkDate.toISOString().split('T')[0];
+            if (log.id === checkDateStr && log.newWordsAdded > 0) {
+                currentStreak++;
+                checkDate.setDate(checkDate.getDate() - 1); // Go back 1 day
+            } else {
+                break; // Streak broken or date gap
+            }
         }
         return currentStreak;
     }, [dailyActivityLogs]);
@@ -7053,7 +7032,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
         const today = new Date();
         const sevenDaysAgo = new Date(today);
         sevenDaysAgo.setDate(today.getDate() - 7);
-        
+
         // Filter cards created after sevenDaysAgo
         return allCards.filter(c => c.createdAt >= sevenDaysAgo).length;
     }, [allCards]);
@@ -7071,11 +7050,11 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
         });
     }, [allCards]);
 
-    const pieData = [ 
-        { name: 'Mới', value: newCards, fill: '#94a3b8' }, 
-        { name: 'Ngắn hạn', value: shortTerm, fill: '#f59e0b' }, 
-        { name: 'Trung hạn', value: midTerm, fill: '#10b981' }, 
-        { name: 'Dài hạn', value: longTerm, fill: '#22c55e' }, 
+    const pieData = [
+        { name: 'Mới', value: newCards, fill: '#94a3b8' },
+        { name: 'Ngắn hạn', value: shortTerm, fill: '#f59e0b' },
+        { name: 'Trung hạn', value: midTerm, fill: '#10b981' },
+        { name: 'Dài hạn', value: longTerm, fill: '#22c55e' },
     ].filter(e => e.value > 0);
 
     // Debug: Log data để kiểm tra
@@ -7093,11 +7072,11 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
     return (
         <div className="space-y-3 md:space-y-8">
             <h2 className="text-lg md:text-2xl font-bold text-gray-800 dark:text-gray-100 pb-2 md:pb-4 border-b dark:border-gray-700">Thống Kê Chi Tiết</h2>
-            
+
             {/* Top Row: Summary Cards - 2 columns on mobile */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
-                 <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-indigo-600 dark:to-purple-700 p-2 md:p-3 rounded-lg md:rounded-xl text-white shadow-lg space-y-0.5 md:space-y-1">
-                     <div className="flex justify-between items-start">
+                <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-indigo-600 dark:to-purple-700 p-2 md:p-3 rounded-lg md:rounded-xl text-white shadow-lg space-y-0.5 md:space-y-1">
+                    <div className="flex justify-between items-start">
                         <div>
                             <p className="text-[9px] md:text-xs uppercase tracking-wide opacity-80">Mục tiêu mỗi ngày</p>
                             <div className="flex items-end gap-1 md:gap-2 mt-0.5 md:mt-1">
@@ -7111,74 +7090,74 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                                 <span className="text-[9px] md:text-xs opacity-90">từ/ngày</span>
                             </div>
                         </div>
-                        <Target className="w-4 h-4 md:w-5 md:h-5 text-indigo-200 dark:text-indigo-300 flex-shrink-0"/>
-                     </div>
-                     <button
+                        <Target className="w-4 h-4 md:w-5 md:h-5 text-indigo-200 dark:text-indigo-300 flex-shrink-0" />
+                    </div>
+                    <button
                         onClick={handleSaveGoal}
                         className="mt-1 md:mt-2 inline-flex items-center px-2 md:px-3 py-1 md:py-1.5 text-[9px] md:text-xs font-semibold rounded-md md:rounded-lg bg-white/10 dark:bg-white/20 hover:bg-white/20 dark:hover:bg-white/30 transition-colors"
-                     >
+                    >
                         <Save className="w-2.5 h-2.5 md:w-3 md:h-3 mr-0.5 md:mr-1" /> Lưu mục tiêu
-                     </button>
+                    </button>
                 </div>
-                <MemoryStatCard 
-                    title="Trong tuần" 
-                    count={wordsAddedThisWeek} 
-                    icon={TrendingUp} 
-                    color={{bg:'bg-gradient-to-br from-sky-50 to-sky-100 dark:from-sky-900/30 dark:to-sky-800/30',border:'border border-sky-100 dark:border-sky-800',text:'text-sky-600 dark:text-sky-400',iconBg:'bg-white/80 dark:bg-gray-800/80'}} 
-                    subtext="từ vựng mới" 
+                <MemoryStatCard
+                    title="Trong tuần"
+                    count={wordsAddedThisWeek}
+                    icon={TrendingUp}
+                    color={{ bg: 'bg-gradient-to-br from-sky-50 to-sky-100 dark:from-sky-900/30 dark:to-sky-800/30', border: 'border border-sky-100 dark:border-sky-800', text: 'text-sky-600 dark:text-sky-400', iconBg: 'bg-white/80 dark:bg-gray-800/80' }}
+                    subtext="từ vựng mới"
                 />
-                <MemoryStatCard 
-                    title="Chuỗi ngày" 
-                    count={streak} 
-                    icon={Flame} 
-                    color={{bg:'bg-gradient-to-br from-orange-50 to-amber-100 dark:from-orange-900/30 dark:to-amber-900/30',border:'border border-amber-100 dark:border-amber-900/30',text:'text-orange-600 dark:text-orange-400',iconBg:'bg-white/80 dark:bg-gray-800/80'}} 
-                    subtext="liên tục" 
+                <MemoryStatCard
+                    title="Chuỗi ngày"
+                    count={streak}
+                    icon={Flame}
+                    color={{ bg: 'bg-gradient-to-br from-orange-50 to-amber-100 dark:from-orange-900/30 dark:to-amber-900/30', border: 'border border-amber-100 dark:border-amber-900/30', text: 'text-orange-600 dark:text-orange-400', iconBg: 'bg-white/80 dark:bg-gray-800/80' }}
+                    subtext="liên tục"
                 />
-                <MemoryStatCard 
-                    title="Tổng số" 
-                    count={totalCards} 
-                    icon={List} 
-                    color={{bg:'bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800/30 dark:to-slate-700/30',border:'border border-slate-100 dark:border-slate-700',text:'text-slate-700 dark:text-slate-300',iconBg:'bg-white/80 dark:bg-gray-800/80'}} 
+                <MemoryStatCard
+                    title="Tổng số"
+                    count={totalCards}
+                    icon={List}
+                    color={{ bg: 'bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800/30 dark:to-slate-700/30', border: 'border border-slate-100 dark:border-slate-700', text: 'text-slate-700 dark:text-slate-300', iconBg: 'bg-white/80 dark:bg-gray-800/80' }}
                 />
             </div>
 
             {/* Middle Row: Charts */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4">
                 {/* Pie Chart: Memory Retention */}
-                 <div className="bg-white dark:bg-gray-800 p-2 md:p-4 rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                <div className="bg-white dark:bg-gray-800 p-2 md:p-4 rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
                     <h3 className="text-xs md:text-base font-bold text-gray-700 dark:text-gray-200 mb-1.5 md:mb-2">Ghi nhớ Từ vựng</h3>
-                        {pieData.length > 0 ? (
+                    {pieData.length > 0 ? (
                         <div ref={pieChartRef} className="chart-container">
                             {pieChartSize.width > 0 ? (
                                 <ResponsiveContainer width={pieChartSize.width} height={pieChartSize.height}>
-                                <PieChart margin={{ top: 50, right: 0, bottom: 0, left: 0}}>
-                                    <Pie 
-                                        data={pieData} 
-                                        cx="50%" 
-                                        cy="35%" 
-                                        innerRadius={60} 
-                                        outerRadius={90} 
-                                        paddingAngle={5} 
-                                        dataKey="value"
-                                        label={false}
-                                    >
-                                        {pieData.map((entry, index) => (
-                                            <Cell key={`cell-${index}`} fill={entry.fill} />
-                                        ))}
-                                    </Pie>
-                                    <Tooltip/>
-                                    <Legend 
-                                        verticalAlign="bottom" 
-                                        align="center"
-                                        wrapperStyle={{fontSize: '12px', fontWeight: '500', marginTop: '0px'}} 
-                                        iconSize={12}
-                                    />
-                                </PieChart>
-                            </ResponsiveContainer>
+                                    <PieChart margin={{ top: 50, right: 0, bottom: 0, left: 0 }}>
+                                        <Pie
+                                            data={pieData}
+                                            cx="50%"
+                                            cy="35%"
+                                            innerRadius={60}
+                                            outerRadius={90}
+                                            paddingAngle={5}
+                                            dataKey="value"
+                                            label={false}
+                                        >
+                                            {pieData.map((entry, index) => (
+                                                <Cell key={`cell-${index}`} fill={entry.fill} />
+                                            ))}
+                                        </Pie>
+                                        <Tooltip />
+                                        <Legend
+                                            verticalAlign="bottom"
+                                            align="center"
+                                            wrapperStyle={{ fontSize: '12px', fontWeight: '500', marginTop: '0px' }}
+                                            iconSize={12}
+                                        />
+                                    </PieChart>
+                                </ResponsiveContainer>
                             ) : (
                                 <div className="w-full h-full flex items-center justify-center">
                                     <span className="text-gray-400 text-xs">Đang tải...</span>
-                    </div>
+                                </div>
                             )}
                         </div>
                     ) : (
@@ -7186,50 +7165,50 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                             <span className="text-gray-400 text-xs md:text-sm">Chưa có dữ liệu</span>
                         </div>
                     )}
-                 </div>
+                </div>
 
-                 {/* Bar Chart: JLPT Progress */}
-                 <div className="bg-white dark:bg-gray-800 p-2 md:p-4 rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                {/* Bar Chart: JLPT Progress */}
+                <div className="bg-white dark:bg-gray-800 p-2 md:p-4 rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
                     <h3 className="text-xs md:text-base font-bold text-gray-700 dark:text-gray-200 mb-1.5 md:mb-2">Tiến độ theo Cấp độ JLPT</h3>
                     {jlptData && jlptData.length > 0 ? (
                         <div ref={barChartRef} className="chart-container">
                             {barChartSize.width > 0 ? (
                                 <ResponsiveContainer width={barChartSize.width} height={barChartSize.height}>
-                                    <BarChart data={jlptData} layout="vertical" margin={{top: 5, right: 10, left: 15, bottom: 5}}>
-                                <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-                                <XAxis type="number" hide/>
-                                    <YAxis dataKey="name" type="category" width={20} tick={{fontSize: 10, fontWeight: 'bold'}}/>
-                                <Tooltip cursor={{fill: 'transparent'}} content={({ active, payload }) => {
-                                    if (active && payload && payload.length) {
-                                        const d = payload[0].payload;
-                                        return (
-                                                <div className="bg-white dark:bg-gray-800 p-1.5 md:p-2 border border-gray-100 dark:border-gray-700 shadow-lg rounded-md md:rounded-lg text-[10px] md:text-xs text-gray-900 dark:text-gray-100">
-                                                <p className="font-bold">{d.name}</p>
-                                                <p>Đã có: {d.count}</p>
-                                                <p>Yêu cầu: {d.target}</p>
-                                                <p>Tiến độ: {Math.round((d.count/d.target)*100)}%</p>
-                                            </div>
-                                        );
-                                    }
-                                    return null;
-                                }}/>
-                                    <Bar dataKey="count" barSize={15} radius={[0, 4, 4, 0]}>
-                                    {jlptData.map((entry, index) => (
-                                        <Cell key={`cell-${index}`} fill={
-                                            index === 0 ? '#10b981' : 
-                                            index === 1 ? '#0d9488' : 
-                                            index === 2 ? '#0ea5e9' : 
-                                            index === 3 ? '#8b5cf6' : 
-                                            '#f43f5e'
-                                        } />
-                                    ))}
-                                </Bar>
-                            </BarChart>
-                        </ResponsiveContainer>
+                                    <BarChart data={jlptData} layout="vertical" margin={{ top: 5, right: 10, left: 15, bottom: 5 }}>
+                                        <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+                                        <XAxis type="number" hide />
+                                        <YAxis dataKey="name" type="category" width={20} tick={{ fontSize: 10, fontWeight: 'bold' }} />
+                                        <Tooltip cursor={{ fill: 'transparent' }} content={({ active, payload }) => {
+                                            if (active && payload && payload.length) {
+                                                const d = payload[0].payload;
+                                                return (
+                                                    <div className="bg-white dark:bg-gray-800 p-1.5 md:p-2 border border-gray-100 dark:border-gray-700 shadow-lg rounded-md md:rounded-lg text-[10px] md:text-xs text-gray-900 dark:text-gray-100">
+                                                        <p className="font-bold">{d.name}</p>
+                                                        <p>Đã có: {d.count}</p>
+                                                        <p>Yêu cầu: {d.target}</p>
+                                                        <p>Tiến độ: {Math.round((d.count / d.target) * 100)}%</p>
+                                                    </div>
+                                                );
+                                            }
+                                            return null;
+                                        }} />
+                                        <Bar dataKey="count" barSize={15} radius={[0, 4, 4, 0]}>
+                                            {jlptData.map((entry, index) => (
+                                                <Cell key={`cell-${index}`} fill={
+                                                    index === 0 ? '#10b981' :
+                                                        index === 1 ? '#0d9488' :
+                                                            index === 2 ? '#0ea5e9' :
+                                                                index === 3 ? '#8b5cf6' :
+                                                                    '#f43f5e'
+                                                } />
+                                            ))}
+                                        </Bar>
+                                    </BarChart>
+                                </ResponsiveContainer>
                             ) : (
                                 <div className="w-full h-full flex items-center justify-center">
                                     <span className="text-gray-400 text-xs">Đang tải...</span>
-                    </div>
+                                </div>
                             )}
                         </div>
                     ) : (
@@ -7238,7 +7217,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                         </div>
                     )}
                     <p className="text-[9px] md:text-xs text-gray-400 mt-1 md:mt-2 text-center">*Số lượng yêu cầu chỉ mang tính chất tham khảo</p>
-                 </div>
+                </div>
             </div>
 
             <button onClick={onBack} className="w-full py-2 md:py-3 border border-gray-200 rounded-lg md:rounded-xl hover:bg-gray-50 font-medium text-sm md:text-base text-gray-600">Quay lại</button>
@@ -7333,7 +7312,7 @@ const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteU
 
             // Cập nhật bảng xếp hạng công khai
             const statsRef = doc(db, publicStatsPath, editingUser.userId);
-            await updateDoc(statsRef, { displayName: name, isApproved: editApproved === true }).catch(() => {});
+            await updateDoc(statsRef, { displayName: name, isApproved: editApproved === true }).catch(() => { });
 
             // Cập nhật UI local
             setFriendStats(prev =>
@@ -7357,70 +7336,68 @@ const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteU
             <div className="bg-white dark:bg-gray-800 rounded-xl md:rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
                 <div className="overflow-x-auto overflow-y-visible -mx-2 md:mx-0 px-2 md:px-0">
                     <table className="w-full min-w-[600px]">
-                    <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-100 dark:border-gray-600">
-                        <tr>
+                        <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-100 dark:border-gray-600">
+                            <tr>
                                 <th className="px-3 md:px-6 py-2 md:py-4 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">Hạng</th>
                                 <th className="px-3 md:px-6 py-2 md:py-4 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">Thành viên</th>
-                                <th className="px-2 md:px-4 py-2 md:py-4 text-center text-[10px] md:text-xs font-bold text-amber-600 dark:text-amber-400 uppercase">Ngắn</th> 
+                                <th className="px-2 md:px-4 py-2 md:py-4 text-center text-[10px] md:text-xs font-bold text-amber-600 dark:text-amber-400 uppercase">Ngắn</th>
                                 <th className="px-2 md:px-4 py-2 md:py-4 text-center text-[10px] md:text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Trung</th>
-                                <th className="px-2 md:px-4 py-2 md:py-4 text-center text-[10px] md:text-xs font-bold text-green-700 dark:text-green-400 uppercase">Dài</th> 
+                                <th className="px-2 md:px-4 py-2 md:py-4 text-center text-[10px] md:text-xs font-bold text-green-700 dark:text-green-400 uppercase">Dài</th>
                                 <th className="px-3 md:px-6 py-2 md:py-4 text-right text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">Tổng từ</th>
                                 {isAdmin && <th className="px-2 md:px-4 py-2 md:py-4 text-right text-[10px] md:text-xs font-bold text-red-500 dark:text-red-400 uppercase">Admin</th>}
-                        </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-50 dark:divide-gray-700">
-                        {friendStats.map((u, i) => (
-                            <tr key={u.userId} className={u.userId === currentUserId ? 'bg-indigo-50/50 dark:bg-indigo-900/20' : ''}>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-50 dark:divide-gray-700">
+                            {friendStats.map((u, i) => (
+                                <tr key={u.userId} className={u.userId === currentUserId ? 'bg-indigo-50/50 dark:bg-indigo-900/20' : ''}>
                                     <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm font-bold text-gray-400 dark:text-gray-500">#{i + 1}</td>
                                     <td className={`px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm font-bold ${u.userId === currentUserId ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-700 dark:text-gray-300'}`}>
                                         <div className="flex items-center gap-1.5 md:gap-2">
                                             <span className="truncate max-w-[120px] md:max-w-none">{u.displayName} {u.userId === currentUserId && '(Bạn)'}</span>
-                                        {isAdmin && (
-                                                <span className={`px-1.5 md:px-2 py-0.5 text-[9px] md:text-[10px] font-semibold rounded-full border flex-shrink-0 ${
-                                                u.isApproved
-                                                    ? 'bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-100 dark:border-emerald-800'
-                                                    : 'bg-yellow-50 dark:bg-yellow-900/30 text-amber-700 dark:text-amber-300 border-amber-100 dark:border-amber-800'
-                                            }`}>
-                                                {u.isApproved ? 'Đã duyệt' : 'Chờ duyệt'}
-                                            </span>
-                                        )}
-                                    </div>
-                                </td>
+                                            {isAdmin && (
+                                                <span className={`px-1.5 md:px-2 py-0.5 text-[9px] md:text-[10px] font-semibold rounded-full border flex-shrink-0 ${u.isApproved
+                                                        ? 'bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-100 dark:border-emerald-800'
+                                                        : 'bg-yellow-50 dark:bg-yellow-900/30 text-amber-700 dark:text-amber-300 border-amber-100 dark:border-amber-800'
+                                                    }`}>
+                                                    {u.isApproved ? 'Đã duyệt' : 'Chờ duyệt'}
+                                                </span>
+                                            )}
+                                        </div>
+                                    </td>
                                     <td className="px-2 md:px-4 py-2 md:py-4 text-center text-xs md:text-sm font-medium text-amber-600 dark:text-amber-400">{u.shortTerm || 0}</td>
                                     <td className="px-2 md:px-4 py-2 md:py-4 text-center text-xs md:text-sm font-medium text-emerald-600 dark:text-emerald-400">{u.midTerm || 0}</td>
                                     <td className="px-2 md:px-4 py-2 md:py-4 text-center text-xs md:text-sm font-medium text-green-700 dark:text-green-400">{u.longTerm || 0}</td>
                                     <td className="px-3 md:px-6 py-2 md:py-4 text-right text-xs md:text-sm font-bold text-emerald-600 dark:text-emerald-400">{u.totalCards}</td>
-                                {isAdmin && (
+                                    {isAdmin && (
                                         <td className="px-2 md:px-4 py-2 md:py-4 text-right space-x-1 md:space-x-2">
-                                        <button
-                                            type="button"
-                                            onClick={() => handleOpenEdit(u)}
+                                            <button
+                                                type="button"
+                                                onClick={() => handleOpenEdit(u)}
                                                 className="px-2 md:px-3 py-1 md:py-1.5 text-[10px] md:text-xs font-semibold rounded-md md:rounded-lg border border-indigo-200 dark:border-indigo-700 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 whitespace-nowrap transition-colors"
-                                        >
-                                            Sửa
-                                        </button>
-                                        <button
-                                            type="button"
-                                            onClick={() => {
-                                                if (u.userId === currentUserId) return;
-                                                if (window.confirm(`Bạn có chắc muốn xoá toàn bộ dữ liệu của ${u.displayName || 'người dùng này'}?`)) {
-                                                    onAdminDeleteUserData(u.userId);
-                                                }
-                                            }}
-                                                className={`px-2 md:px-3 py-1 md:py-1.5 text-[10px] md:text-xs font-semibold rounded-md md:rounded-lg border whitespace-nowrap transition-colors ${
-                                                u.userId === currentUserId
-                                                    ? 'border-gray-200 dark:border-gray-700 text-gray-300 dark:text-gray-600 cursor-not-allowed'
-                                                    : 'border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30'
-                                            }`}
-                                        >
-                                            Xoá dữ liệu
-                                        </button>
-                                    </td>
-                                )}
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                                            >
+                                                Sửa
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    if (u.userId === currentUserId) return;
+                                                    if (window.confirm(`Bạn có chắc muốn xoá toàn bộ dữ liệu của ${u.displayName || 'người dùng này'}?`)) {
+                                                        onAdminDeleteUserData(u.userId);
+                                                    }
+                                                }}
+                                                className={`px-2 md:px-3 py-1 md:py-1.5 text-[10px] md:text-xs font-semibold rounded-md md:rounded-lg border whitespace-nowrap transition-colors ${u.userId === currentUserId
+                                                        ? 'border-gray-200 dark:border-gray-700 text-gray-300 dark:text-gray-600 cursor-not-allowed'
+                                                        : 'border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30'
+                                                    }`}
+                                            >
+                                                Xoá dữ liệu
+                                            </button>
+                                        </td>
+                                    )}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
             </div>
             {isAdmin && editingUser && (
@@ -7440,18 +7417,18 @@ const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteU
                         </div>
                         <div className="space-y-2">
                             <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300">Mục tiêu/ngày</label>
-                        <div className="flex items-center gap-2 pt-1">
-                            <input
-                                id="edit-approved"
-                                type="checkbox"
-                                checked={editApproved}
-                                onChange={(e) => setEditApproved(e.target.checked)}
-                                className="w-4 h-4 text-indigo-600 dark:text-indigo-400 border-gray-300 dark:border-gray-600 rounded"
-                            />
-                            <label htmlFor="edit-approved" className="text-xs text-gray-600 dark:text-gray-400">
-                                Cho phép tài khoản này sử dụng app (Admin duyệt)
-                            </label>
-                        </div>
+                            <div className="flex items-center gap-2 pt-1">
+                                <input
+                                    id="edit-approved"
+                                    type="checkbox"
+                                    checked={editApproved}
+                                    onChange={(e) => setEditApproved(e.target.checked)}
+                                    className="w-4 h-4 text-indigo-600 dark:text-indigo-400 border-gray-300 dark:border-gray-600 rounded"
+                                />
+                                <label htmlFor="edit-approved" className="text-xs text-gray-600 dark:text-gray-400">
+                                    Cho phép tài khoản này sử dụng app (Admin duyệt)
+                                </label>
+                            </div>
                             <input
                                 type="number"
                                 min={1}
@@ -7508,7 +7485,7 @@ const TestScreen = ({ allCards, onBack }) => {
 
     // Generate questions based on test type
     const generateQuestions = (mode, type, count = 10, level = 'all') => {
-        let cardsWithContext = allCards.filter(card => 
+        let cardsWithContext = allCards.filter(card =>
             card.example && card.example.trim() !== '' &&
             card.back && card.back.trim() !== ''
         );
@@ -7525,7 +7502,7 @@ const TestScreen = ({ allCards, onBack }) => {
 
         const shuffled = cardsWithContext.sort(() => Math.random() - 0.5);
         const selectedCards = shuffled.slice(0, Math.min(count, shuffled.length));
-        
+
         let generatedQuestions = [];
 
         if (mode === 'kanji') {
@@ -7536,7 +7513,7 @@ const TestScreen = ({ allCards, onBack }) => {
                     const correctAnswer = extractHiragana(card.front);
                     const wrongOptions = generateWrongHiragana(card.front, allCards, 3);
                     const options = shuffleArray([correctAnswer, ...wrongOptions]);
-                    
+
                     return {
                         question: `Cách đọc của "___BOLD___${kanjiOnly}___BOLD___" là:`,
                         context: card.example || '',
@@ -7554,10 +7531,10 @@ const TestScreen = ({ allCards, onBack }) => {
                     const correctAnswer = kanjiOnly;
                     const wrongOptions = generateWrongKanji(card, allCards, 3);
                     const options = shuffleArray([correctAnswer, ...wrongOptions]);
-                    
+
                     // Thay thế Kanji bằng Hiragana trong câu context
                     const contextWithHiragana = card.example.replace(kanjiOnly, hiragana);
-                    
+
                     return {
                         question: `Kanji của "___BOLD___${hiragana}___BOLD___" là:`,
                         context: contextWithHiragana || '',
@@ -7576,7 +7553,7 @@ const TestScreen = ({ allCards, onBack }) => {
                     const correctAnswer = card.front;
                     const wrongOptions = generateSimilarVocab(card, allCards, 3);
                     const options = shuffleArray([correctAnswer, ...wrongOptions]);
-                    
+
                     return {
                         question: `Chọn từ phù hợp để điền vào chỗ trống:`,
                         context: blankSentence,
@@ -7594,7 +7571,7 @@ const TestScreen = ({ allCards, onBack }) => {
                         const correctAnswer = card.synonym.split(',')[0].trim();
                         const wrongOptions = generateWrongSynonyms(card, allCards, 3);
                         const options = shuffleArray([correctAnswer, ...wrongOptions]);
-                        
+
                         return {
                             question: `Từ đồng nghĩa với "___BOLD___${card.front}___BOLD___" là:`,
                             context: '', // Không hiển thị nghĩa tiếng Việt ngay
@@ -7621,17 +7598,17 @@ const TestScreen = ({ allCards, onBack }) => {
 
     const generateWrongHiragana = (correctWord, allCards, count) => {
         const correctHira = extractHiragana(correctWord);
-        const samePosCards = allCards.filter(c => 
+        const samePosCards = allCards.filter(c =>
             c.pos === allCards.find(card => card.front === correctWord)?.pos &&
             c.front !== correctWord &&
             extractHiragana(c.front) !== correctHira
         );
-        
+
         const options = samePosCards
             .sort(() => Math.random() - 0.5)
             .slice(0, count)
             .map(c => extractHiragana(c.front));
-        
+
         while (options.length < count) {
             const randomCard = allCards[Math.floor(Math.random() * allCards.length)];
             const hira = extractHiragana(randomCard.front);
@@ -7639,23 +7616,23 @@ const TestScreen = ({ allCards, onBack }) => {
                 options.push(hira);
             }
         }
-        
+
         return options;
     };
 
     const generateWrongKanji = (correctCard, allCards, count) => {
         const correctKanji = correctCard.front.split('（')[0];
-        const samePosCards = allCards.filter(c => 
+        const samePosCards = allCards.filter(c =>
             c.pos === correctCard.pos &&
             c.front !== correctCard.front &&
             c.front.split('（')[0] !== correctKanji
         );
-        
+
         const options = samePosCards
             .sort(() => Math.random() - 0.5)
             .slice(0, count)
             .map(c => c.front.split('（')[0]);
-        
+
         while (options.length < count) {
             const randomCard = allCards[Math.floor(Math.random() * allCards.length)];
             const kanji = randomCard.front.split('（')[0];
@@ -7663,35 +7640,35 @@ const TestScreen = ({ allCards, onBack }) => {
                 options.push(kanji);
             }
         }
-        
+
         return options;
     };
 
     const generateSimilarVocab = (correctCard, allCards, count) => {
         const correctWord = correctCard.front;
-        
+
         // Ưu tiên từ cùng POS
-        const samePosCards = allCards.filter(c => 
+        const samePosCards = allCards.filter(c =>
             c.pos === correctCard.pos &&
             c.front !== correctWord &&
             c.example && c.example.trim() !== ''
         );
-        
+
         let options = samePosCards
             .sort(() => Math.random() - 0.5)
             .slice(0, count)
             .map(c => c.front);
-        
+
         // Nếu không đủ, lấy từ có độ dài tương tự
         if (options.length < count) {
             const correctLength = correctWord.length;
-            const similarLengthCards = allCards.filter(c => 
+            const similarLengthCards = allCards.filter(c =>
                 Math.abs(c.front.length - correctLength) <= 2 &&
                 c.front !== correctWord &&
                 !options.includes(c.front) &&
                 c.example && c.example.trim() !== ''
             );
-            
+
             options = options.concat(
                 similarLengthCards
                     .sort(() => Math.random() - 0.5)
@@ -7699,7 +7676,7 @@ const TestScreen = ({ allCards, onBack }) => {
                     .map(c => c.front)
             );
         }
-        
+
         // Nếu vẫn không đủ, lấy random
         while (options.length < count) {
             const randomCard = allCards[Math.floor(Math.random() * allCards.length)];
@@ -7707,25 +7684,25 @@ const TestScreen = ({ allCards, onBack }) => {
                 options.push(randomCard.front);
             }
         }
-        
+
         return options;
     };
 
     const generateWrongSynonyms = (correctCard, allCards, count) => {
         const correctSynonym = correctCard.synonym?.split(',')[0].trim();
-        
+
         // Ưu tiên từ cùng POS
-        const samePosCards = allCards.filter(c => 
+        const samePosCards = allCards.filter(c =>
             c.pos === correctCard.pos &&
             c.front !== correctCard.front &&
             c.synonym && c.synonym.trim() !== ''
         );
-        
+
         let options = samePosCards
             .sort(() => Math.random() - 0.5)
             .slice(0, count)
             .map(c => c.synonym.split(',')[0].trim());
-        
+
         // Nếu không đủ, lấy từ random có synonym
         while (options.length < count) {
             const randomCard = allCards[Math.floor(Math.random() * allCards.length)];
@@ -7734,7 +7711,7 @@ const TestScreen = ({ allCards, onBack }) => {
                 options.push(syn);
             }
         }
-        
+
         return options;
     };
 
@@ -7751,7 +7728,7 @@ const TestScreen = ({ allCards, onBack }) => {
     const handleStartTest = () => {
         const qs = generateQuestions(testMode, testType, questionCount, selectedLevel);
         if (qs.length === 0) return;
-        
+
         setQuestions(qs);
         setShowConfig(false);
         setCurrentQuestionIndex(0);
@@ -7764,17 +7741,17 @@ const TestScreen = ({ allCards, onBack }) => {
 
     const handleAnswerSelect = (answer) => {
         if (isAnswered) return;
-        
+
         setSelectedAnswer(answer);
         setIsAnswered(true);
-        
+
         const currentQuestion = questions[currentQuestionIndex];
         const isCorrect = answer === currentQuestion.correctAnswer;
-        
+
         if (isCorrect) {
             setScore(score + 1);
         }
-        
+
         setUserAnswers([...userAnswers, {
             question: currentQuestion.question,
             context: currentQuestion.context,
@@ -7815,7 +7792,7 @@ const TestScreen = ({ allCards, onBack }) => {
     // Helper function to render bold text
     const renderBoldText = (text) => {
         if (!text) return text;
-        
+
         const parts = text.split('___BOLD___');
         return parts.map((part, idx) => {
             if (idx % 2 === 1) {
@@ -7829,15 +7806,14 @@ const TestScreen = ({ allCards, onBack }) => {
     if (showResult) {
         const percentage = Math.round((score / questions.length) * 100);
         const passed = percentage >= 70;
-        
+
         return (
             <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
                 <div className="max-w-3xl mx-auto">
                     <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-6 md:p-8">
                         <div className="text-center mb-8">
-                            <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full mb-4 ${
-                                passed ? 'bg-green-100 dark:bg-green-900/50' : 'bg-red-100 dark:bg-red-900/50'
-                            }`}>
+                            <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full mb-4 ${passed ? 'bg-green-100 dark:bg-green-900/50' : 'bg-red-100 dark:bg-red-900/50'
+                                }`}>
                                 {passed ? (
                                     <CheckCircle className="w-10 h-10 text-green-600 dark:text-green-400" />
                                 ) : (
@@ -7856,11 +7832,10 @@ const TestScreen = ({ allCards, onBack }) => {
                         <div className="space-y-4 mb-6">
                             <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">Chi tiết câu trả lời:</h3>
                             {userAnswers.map((answer, idx) => (
-                                <div key={idx} className={`p-4 rounded-xl border-2 ${
-                                    answer.isCorrect 
-                                        ? 'border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20' 
+                                <div key={idx} className={`p-4 rounded-xl border-2 ${answer.isCorrect
+                                        ? 'border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20'
                                         : 'border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20'
-                                }`}>
+                                    }`}>
                                     <div className="flex items-start justify-between mb-2">
                                         <span className="font-bold text-gray-700 dark:text-gray-300">Câu {idx + 1}:</span>
                                         {answer.isCorrect ? (
@@ -7920,7 +7895,7 @@ const TestScreen = ({ allCards, onBack }) => {
     // Render question screen
     if (testMode && questions.length > 0) {
         const currentQuestion = questions[currentQuestionIndex];
-        
+
         return (
             <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
                 <div className="max-w-3xl mx-auto">
@@ -7941,7 +7916,7 @@ const TestScreen = ({ allCards, onBack }) => {
                                 <span>Điểm: {score}</span>
                             </div>
                             <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div 
+                                <div
                                     className="bg-indigo-600 dark:bg-indigo-500 h-2 rounded-full transition-all duration-300"
                                     style={{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }}
                                 />
@@ -7967,21 +7942,20 @@ const TestScreen = ({ allCards, onBack }) => {
                                 const isCorrect = option === currentQuestion.correctAnswer;
                                 const showCorrect = isAnswered && isCorrect;
                                 const showWrong = isAnswered && isSelected && !isCorrect;
-                                
+
                                 return (
                                     <button
                                         key={idx}
                                         onClick={() => handleAnswerSelect(option)}
                                         disabled={isAnswered}
-                                        className={`w-full p-4 rounded-xl text-left font-medium transition-all ${
-                                            showCorrect 
+                                        className={`w-full p-4 rounded-xl text-left font-medium transition-all ${showCorrect
                                                 ? 'bg-green-100 dark:bg-green-900/30 border-2 border-green-500 dark:border-green-600 text-green-800 dark:text-green-300'
                                                 : showWrong
-                                                ? 'bg-red-100 dark:bg-red-900/30 border-2 border-red-500 dark:border-red-600 text-red-800 dark:text-red-300'
-                                                : isSelected
-                                                ? 'bg-indigo-100 dark:bg-indigo-900/30 border-2 border-indigo-500 dark:border-indigo-600 text-gray-900 dark:text-gray-100'
-                                                : 'bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 text-gray-900 dark:text-gray-100'
-                                        } ${isAnswered ? 'cursor-default' : 'cursor-pointer'}`}
+                                                    ? 'bg-red-100 dark:bg-red-900/30 border-2 border-red-500 dark:border-red-600 text-red-800 dark:text-red-300'
+                                                    : isSelected
+                                                        ? 'bg-indigo-100 dark:bg-indigo-900/30 border-2 border-indigo-500 dark:border-indigo-600 text-gray-900 dark:text-gray-100'
+                                                        : 'bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 text-gray-900 dark:text-gray-100'
+                                            } ${isAnswered ? 'cursor-default' : 'cursor-pointer'}`}
                                     >
                                         <div className="flex items-center justify-between">
                                             <span>{option}</span>
@@ -7995,11 +7969,10 @@ const TestScreen = ({ allCards, onBack }) => {
 
                         {/* Explanation */}
                         {isAnswered && (
-                            <div className={`p-4 rounded-xl mb-6 ${
-                                selectedAnswer === currentQuestion.correctAnswer
+                            <div className={`p-4 rounded-xl mb-6 ${selectedAnswer === currentQuestion.correctAnswer
                                     ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800'
                                     : 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800'
-                            }`}>
+                                }`}>
                                 <p className="text-sm font-semibold mb-1 dark:text-gray-200">
                                     {selectedAnswer === currentQuestion.correctAnswer ? '✓ Chính xác!' : '✗ Chưa đúng'}
                                 </p>
@@ -8011,11 +7984,10 @@ const TestScreen = ({ allCards, onBack }) => {
                         <button
                             onClick={handleNextQuestion}
                             disabled={!isAnswered}
-                            className={`w-full py-3 rounded-xl font-bold transition ${
-                                isAnswered
+                            className={`w-full py-3 rounded-xl font-bold transition ${isAnswered
                                     ? 'bg-indigo-600 dark:bg-indigo-500 text-white hover:bg-indigo-700 dark:hover:bg-indigo-600'
                                     : 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-                            }`}
+                                }`}
                         >
                             {currentQuestionIndex < questions.length - 1 ? 'Câu tiếp theo' : 'Xem kết quả'}
                         </button>
@@ -8048,11 +8020,10 @@ const TestScreen = ({ allCards, onBack }) => {
                                     <button
                                         key={level}
                                         onClick={() => setSelectedLevel(level)}
-                                        className={`py-2 px-4 rounded-xl font-bold transition ${
-                                            selectedLevel === level
+                                        className={`py-2 px-4 rounded-xl font-bold transition ${selectedLevel === level
                                                 ? 'bg-indigo-600 dark:bg-indigo-500 text-white'
                                                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-                                        }`}
+                                            }`}
                                     >
                                         {level === 'all' ? 'Tất cả' : level}
                                     </button>
