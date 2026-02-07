@@ -1,7 +1,6 @@
 import React from 'react';
 import {
-    Calendar, Clock, BookOpen, Users, MessageSquare,
-    Layers
+    Calendar, Clock, BookOpen, Users, MessageSquare
 } from 'lucide-react';
 
 const HomeScreen = ({
@@ -67,7 +66,7 @@ const HomeScreen = ({
 
     const handleStartReview = (mode) => {
         setReviewMode(mode);
-        onStartReview('all');
+        onStartReview(mode, 'all');
     };
 
     return (
@@ -85,8 +84,7 @@ const HomeScreen = ({
 
             {/* Tổng quan (thẻ) */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-                <h3 className="text-sm font-bold text-gray-600 dark:text-gray-300 mb-4 flex items-center gap-2">
-                    <Layers className="w-4 h-4" />
+                <h3 className="text-sm font-bold text-gray-600 dark:text-gray-300 mb-4">
                     Tổng quan (thẻ)
                 </h3>
                 <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
@@ -131,8 +129,8 @@ const HomeScreen = ({
                         onClick={() => handleStartReview('mixed')}
                         disabled={dueCards === 0}
                         className={`w-full py-3 rounded-xl font-bold transition-all ${dueCards > 0
-                                ? 'bg-white text-orange-500 hover:bg-orange-50'
-                                : 'bg-white/30 text-white/70 cursor-not-allowed'
+                            ? 'bg-white text-orange-500 hover:bg-orange-50'
+                            : 'bg-white/30 text-white/70 cursor-not-allowed'
                             }`}
                     >
                         Ôn tập tất cả
@@ -179,8 +177,8 @@ const HomeScreen = ({
                             onClick={() => handleStartReview('back')}
                             disabled={dueCards === 0}
                             className={`w-full py-2.5 rounded-xl font-bold transition-all ${dueCards > 0
-                                    ? 'bg-indigo-500 hover:bg-indigo-600 text-white'
-                                    : 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
+                                ? 'bg-indigo-500 hover:bg-indigo-600 text-white'
+                                : 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
                                 }`}
                         >
                             Bắt đầu Ý nghĩa
@@ -200,8 +198,8 @@ const HomeScreen = ({
                             onClick={() => handleStartReview('synonym')}
                             disabled={dueCards === 0}
                             className={`w-full py-2.5 rounded-xl font-bold transition-all ${dueCards > 0
-                                    ? 'bg-emerald-500 hover:bg-emerald-600 text-white'
-                                    : 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
+                                ? 'bg-emerald-500 hover:bg-emerald-600 text-white'
+                                : 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
                                 }`}
                         >
                             Bắt đầu Đồng nghĩa
@@ -221,8 +219,8 @@ const HomeScreen = ({
                             onClick={() => handleStartReview('example')}
                             disabled={dueCards === 0}
                             className={`w-full py-2.5 rounded-xl font-bold transition-all ${dueCards > 0
-                                    ? 'bg-amber-500 hover:bg-amber-600 text-white'
-                                    : 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
+                                ? 'bg-amber-500 hover:bg-amber-600 text-white'
+                                : 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
                                 }`}
                         >
                             Bắt đầu Ngữ cảnh

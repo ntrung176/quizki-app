@@ -51,13 +51,8 @@ export const pcmToWav = (pcm16, sampleRate = 24000) => {
 // Global audio object reference
 let currentAudioObj = null;
 
-// Play Audio - CHỈ phát audioBase64 từ Gemini TTS, không dùng Browser TTS/Google Translate
-export const playAudio = (base64Data) => {
-    if (!base64Data) {
-        console.warn('playAudio: No base64Data provided');
-        return;
-    }
-
+// Play Audio - với fallback sử dụng Web Speech API
+export const playAudio = (base64Data, text = '') => {
     // Dừng audio đang phát (nếu có)
     if (currentAudioObj) {
         try {
@@ -70,43 +65,82 @@ export const playAudio = (base64Data) => {
         currentAudioObj = null;
     }
 
-    try {
-        // Phân biệt: nếu là base64 PCM raw từ Gemini TTS thì convert sang WAV
-        // Nếu là base64 audio chuẩn (mp3, wav có header) thì dùng trực tiếp
-        // Kiểm tra header: Data URI hoặc header audio file thực sự
-        if (base64Data.startsWith('data:audio') || base64Data.startsWith('UklGR') || base64Data.startsWith('SUQz') || base64Data.startsWith('//uQ') || base64Data.startsWith('AAAA')) {
-            // Đây là audio file hoàn chỉnh (mp3, wav) - dùng trực tiếp
-            const audioSrc = base64Data.startsWith('data:audio')
-                ? base64Data
-                : `data:audio/mp3;base64,${base64Data}`;
-            currentAudioObj = new Audio(audioSrc);
-            currentAudioObj.onended = () => {
-                if (currentAudioObj) {
-                    currentAudioObj.remove?.();
-                }
-                currentAudioObj = null;
-            };
-            currentAudioObj.play().catch(e => console.error('Audio play error:', e));
-        } else {
-            // Đây là PCM raw từ Gemini TTS - cần convert sang WAV
-            const rawData = base64ToArrayBuffer(base64Data);
-            const pcm16 = new Int16Array(rawData);
-            const wavBuffer = pcmToWav(pcm16, 24000);
-            const blob = new Blob([wavBuffer], { type: 'audio/wav' });
-            const url = URL.createObjectURL(blob);
-            currentAudioObj = new Audio(url);
-            currentAudioObj.onended = () => {
-                URL.revokeObjectURL(url);
-                if (currentAudioObj) {
-                    currentAudioObj.remove?.();
-                }
-                currentAudioObj = null;
-            };
-            currentAudioObj.play().catch(e => console.error('Audio play error:', e));
-        }
-    } catch (e) {
-        console.error('playAudio error:', e);
+    // Dừng speech đang nói (nếu có)
+    if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
     }
+
+    // Nếu có base64Data, phát audio
+    if (base64Data) {
+        try {
+            if (base64Data.startsWith('data:audio') || base64Data.startsWith('UklGR') || base64Data.startsWith('SUQz') || base64Data.startsWith('//uQ') || base64Data.startsWith('AAAA')) {
+                const audioSrc = base64Data.startsWith('data:audio')
+                    ? base64Data
+                    : `data:audio/mp3;base64,${base64Data}`;
+                currentAudioObj = new Audio(audioSrc);
+                currentAudioObj.onended = () => {
+                    if (currentAudioObj) {
+                        currentAudioObj.remove?.();
+                    }
+                    currentAudioObj = null;
+                };
+                currentAudioObj.play().catch(e => {
+                    console.error('Audio play error:', e);
+                    // Fallback to TTS if audio fails
+                    speakWithTTS(text);
+                });
+            } else {
+                const rawData = base64ToArrayBuffer(base64Data);
+                const pcm16 = new Int16Array(rawData);
+                const wavBuffer = pcmToWav(pcm16, 24000);
+                const blob = new Blob([wavBuffer], { type: 'audio/wav' });
+                const url = URL.createObjectURL(blob);
+                currentAudioObj = new Audio(url);
+                currentAudioObj.onended = () => {
+                    URL.revokeObjectURL(url);
+                    if (currentAudioObj) {
+                        currentAudioObj.remove?.();
+                    }
+                    currentAudioObj = null;
+                };
+                currentAudioObj.play().catch(e => {
+                    console.error('Audio play error:', e);
+                    // Fallback to TTS if audio fails
+                    speakWithTTS(text);
+                });
+            }
+        } catch (e) {
+            console.error('playAudio error:', e);
+            // Fallback to TTS
+            speakWithTTS(text);
+        }
+    } else if (text) {
+        // Không có audio, dùng TTS
+        speakWithTTS(text);
+    }
+};
+
+// Fallback: Sử dụng Web Speech API để đọc text
+const speakWithTTS = (text) => {
+    if (!text || !window.speechSynthesis) return;
+
+    // Lấy phần từ vựng (không có furigana)
+    const cleanText = text.split('（')[0].split('(')[0].trim();
+    if (!cleanText) return;
+
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    utterance.lang = 'ja-JP';
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+
+    // Tìm giọng tiếng Nhật
+    const voices = window.speechSynthesis.getVoices();
+    const japaneseVoice = voices.find(v => v.lang.startsWith('ja'));
+    if (japaneseVoice) {
+        utterance.voice = japaneseVoice;
+    }
+
+    window.speechSynthesis.speak(utterance);
 };
 
 // Stop current audio

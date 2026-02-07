@@ -473,16 +473,16 @@ const App = () => {
                     level: data.level || '',
                     audioBase64: data.audioBase64 !== undefined ? data.audioBase64 : null,
                     imageBase64: data.imageBase64 || null,
-                    createdAt: data.createdAt ? data.createdAt.toDate() : today,
+                    createdAt: data.createdAt?.toDate ? data.createdAt.toDate() : (data.createdAt ? new Date(data.createdAt) : today),
                     intervalIndex_back: typeof data.intervalIndex_back === 'number' ? data.intervalIndex_back : -1,
                     correctStreak_back: typeof data.correctStreak_back === 'number' ? data.correctStreak_back : 0,
-                    nextReview_back: data.nextReview_back ? data.nextReview_back.toDate() : today,
+                    nextReview_back: data.nextReview_back?.toDate ? data.nextReview_back.toDate() : (data.nextReview_back ? new Date(data.nextReview_back) : today),
                     intervalIndex_synonym: typeof data.intervalIndex_synonym === 'number' ? data.intervalIndex_synonym : -1,
                     correctStreak_synonym: typeof data.correctStreak_synonym === 'number' ? data.correctStreak_synonym : 0,
-                    nextReview_synonym: data.nextReview_synonym ? data.nextReview_synonym.toDate() : today,
+                    nextReview_synonym: data.nextReview_synonym?.toDate ? data.nextReview_synonym.toDate() : (data.nextReview_synonym ? new Date(data.nextReview_synonym) : today),
                     intervalIndex_example: typeof data.intervalIndex_example === 'number' ? data.intervalIndex_example : -1,
                     correctStreak_example: typeof data.correctStreak_example === 'number' ? data.correctStreak_example : 0,
-                    nextReview_example: data.nextReview_example ? data.nextReview_example.toDate() : today,
+                    nextReview_example: data.nextReview_example?.toDate ? data.nextReview_example.toDate() : (data.nextReview_example ? new Date(data.nextReview_example) : today),
                 });
             });
             // Sort by createdAt desc by default initially
