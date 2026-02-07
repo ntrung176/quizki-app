@@ -318,7 +318,7 @@ const TestScreen = ({ allCards }) => {
         const parts = text.split('___BOLD___');
         return parts.map((part, idx) => {
             if (idx % 2 === 1) {
-                return <span key={idx} className="font-bold text-indigo-700 underline decoration-2">{part}</span>;
+                return <span key={idx} className="font-bold text-indigo-700 underline decoration-2 font-japanese">{part}</span>;
             }
             return part;
         });
@@ -480,7 +480,7 @@ const TestScreen = ({ allCards }) => {
                                             } ${isAnswered ? 'cursor-default' : 'cursor-pointer'}`}
                                     >
                                         <div className="flex items-center justify-between">
-                                            <span>{option}</span>
+                                            <span className="font-japanese">{option}</span>
                                             {showCorrect && <Check className="w-5 h-5" />}
                                             {showWrong && <X className="w-5 h-5" />}
                                         </div>

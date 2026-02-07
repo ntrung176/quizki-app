@@ -698,7 +698,7 @@ const ReviewScreen = ({
                                 <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl shadow-2xl p-6 flex flex-col items-center justify-center w-full h-full border-4 border-white hover:shadow-3xl transition-shadow overflow-hidden">
                                     <div className="text-center flex-1 flex flex-col justify-center w-full px-2">
                                         <p className="text-xs text-indigo-200 mb-3 font-medium uppercase tracking-wide">Từ vựng</p>
-                                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight break-words">{currentCard.front}</h3>
+                                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight break-words font-japanese">{currentCard.front}</h3>
                                         <div className="flex items-center justify-center gap-2 flex-wrap">
                                             {currentCard.level && (
                                                 <span className="inline-block px-2 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold rounded-full">
@@ -798,7 +798,7 @@ const ReviewScreen = ({
                             {cardReviewType === 'synonym' ? (
                                 <>
                                     {/* Synonym mode: Show synonym from card */}
-                                    <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed line-clamp-3">
+                                    <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed line-clamp-3 font-japanese">
                                         {currentCard.synonym || 'Không có từ đồng nghĩa'}
                                     </div>
                                     <div className="text-sm text-gray-400 mt-2">
@@ -808,7 +808,7 @@ const ReviewScreen = ({
                             ) : cardReviewType === 'example' ? (
                                 <>
                                     {/* Example mode: Show example sentence with masked word */}
-                                    <div className="text-lg md:text-xl font-medium text-white leading-relaxed line-clamp-4">
+                                    <div className="text-lg md:text-xl font-medium text-white leading-relaxed line-clamp-4 font-japanese">
                                         {promptInfo.text}
                                     </div>
                                     {promptInfo.meaning && (
@@ -827,7 +827,7 @@ const ReviewScreen = ({
                             ) : (
                                 <>
                                     {/* Meaning mode: Show word only, user inputs meaning */}
-                                    <div className="text-4xl md:text-5xl font-black text-white leading-relaxed">
+                                    <div className="text-4xl md:text-5xl font-black text-white leading-relaxed font-japanese">
                                         {currentCard.front.split('（')[0].split('(')[0]}
                                     </div>
                                 </>

@@ -2,7 +2,6 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ROUTES, ProtectedRoute, PublicOnlyRoute } from '../router';
 
-// Import screens
 import {
     HomeScreen,
     LoginScreen,
@@ -15,6 +14,7 @@ import {
     ListView,
     ReviewScreen,
     ReviewCompleteScreen,
+    KanjiScreen,
     StudyScreen,
     TestScreen
 } from './screens';
@@ -205,6 +205,15 @@ const AppRoutes = ({
                             onBack={() => { setEditingCard(null); setView('LIST'); }}
                             onGeminiAssist={handleGeminiAssist}
                         />
+                    </ProtectedRoute>
+                }
+            />
+
+            <Route
+                path={ROUTES.KANJI}
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                        <KanjiScreen isAdmin={isAdmin} />
                     </ProtectedRoute>
                 }
             />

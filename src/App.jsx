@@ -48,6 +48,7 @@ import {
     ListView,
     ReviewScreen,
     ReviewCompleteScreen,
+    KanjiScreen,
     StudyScreen,
     TestScreen
 } from './components/screens';
@@ -57,7 +58,6 @@ import { Sidebar } from './components/layout';
 
 // Import card components
 import {
-    ActionCard,
     MemoryStatCard,
     AddCardForm,
     EditCardForm
@@ -110,6 +110,7 @@ const App = () => {
             'LIST': ROUTES.VOCABULARY,
             'ADD_CARD': ROUTES.VOCABULARY_ADD,
             'REVIEW': ROUTES.REVIEW,
+            'KANJI': ROUTES.KANJI,
             'STUDY': ROUTES.STUDY,
             'TEST': ROUTES.TEST,
             'STATS': ROUTES.STATS,
@@ -132,6 +133,7 @@ const App = () => {
         if (path === ROUTES.VOCABULARY_ADD) return 'ADD_CARD';
         if (path.startsWith('/vocabulary/edit/')) return 'EDIT_CARD';
         if (path === ROUTES.REVIEW) return 'REVIEW';
+        if (path === ROUTES.KANJI) return 'KANJI';
         if (path === ROUTES.STUDY) return 'STUDY';
         if (path === ROUTES.TEST) return 'TEST';
         if (path === ROUTES.STATS) return 'STATS';
@@ -248,35 +250,43 @@ const App = () => {
             return;
         }
         try {
-            const userRoot = doc(db, `artifacts/${appId}/users/${targetUserId}`);
+            setNotification("Đang xóa dữ liệu người dùng...");
+
+            // Helper function to delete documents one by one (to avoid Transaction too big error)
+            const deleteOneByOne = async (collectionPath) => {
+                const snapshot = await getDocs(collection(db, collectionPath));
+                let deleted = 0;
+                for (const docSnap of snapshot.docs) {
+                    await deleteDoc(docSnap.ref);
+                    deleted++;
+                }
+                return deleted;
+            };
 
             // Xóa vocabulary
-            const vocabSnap = await getDocs(collection(db, `artifacts/${appId}/users/${targetUserId}/vocabulary`));
-            const vocabBatch = writeBatch(db);
-            vocabSnap.forEach(d => vocabBatch.delete(d.ref));
-            await vocabBatch.commit();
+            const vocabCount = await deleteOneByOne(`artifacts/${appId}/users/${targetUserId}/vocabulary`);
+            console.log(`Deleted ${vocabCount} vocabulary items`);
 
             // Xóa dailyActivity
-            const actSnap = await getDocs(collection(db, `artifacts/${appId}/users/${targetUserId}/dailyActivity`));
-            const actBatch = writeBatch(db);
-            actSnap.forEach(d => actBatch.delete(d.ref));
-            await actBatch.commit();
+            const actCount = await deleteOneByOne(`artifacts/${appId}/users/${targetUserId}/dailyActivity`);
+            console.log(`Deleted ${actCount} daily activity items`);
 
             // Xóa settings/profile
-            const profileDoc = doc(db, `artifacts/${appId}/users/${targetUserId}/settings/profile`);
-            await deleteDoc(profileDoc).catch(() => { });
+            const profileDocRef = doc(db, `artifacts/${appId}/users/${targetUserId}/settings/profile`);
+            await deleteDoc(profileDocRef).catch(e => console.log('Profile delete skipped:', e.message));
 
             // Xóa root doc (nếu có)
-            await deleteDoc(userRoot).catch(() => { });
+            const userRoot = doc(db, `artifacts/${appId}/users/${targetUserId}`);
+            await deleteDoc(userRoot).catch(e => console.log('User root delete skipped:', e.message));
 
             // Xóa luôn dữ liệu trên bảng xếp hạng công khai
             const statsDocRef = doc(db, publicStatsCollectionPath, targetUserId);
-            await deleteDoc(statsDocRef).catch(() => { });
+            await deleteDoc(statsDocRef).catch(e => console.log('Stats delete skipped:', e.message));
 
-            setNotification("Đã xoá toàn bộ dữ liệu của người dùng.");
+            setNotification(`Đã xoá toàn bộ dữ liệu của người dùng (${vocabCount} từ vựng, ${actCount} hoạt động).`);
         } catch (e) {
             console.error("Lỗi xoá dữ liệu người dùng bởi admin:", e);
-            setNotification("Lỗi khi xoá dữ liệu người dùng.");
+            setNotification(`Lỗi khi xoá dữ liệu người dùng: ${e.message}`);
         }
     }, [db, appId, isAdmin, publicStatsCollectionPath]);
 
@@ -2085,6 +2095,8 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                         setView('HOME');
                     }}
                 />;
+            case 'KANJI':
+                return <KanjiScreen isAdmin={isAdmin} />;
             case 'REVIEW':
                 if (reviewCards.length === 0) {
                     return <ReviewCompleteScreen onBack={() => setView('HOME')} />;

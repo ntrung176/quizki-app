@@ -9,6 +9,7 @@ export const ROUTES = {
     VOCABULARY_ADD: '/vocabulary/add',
     VOCABULARY_EDIT: '/vocabulary/edit/:id',
     REVIEW: '/review',
+    KANJI: '/kanji',
     STUDY: '/study',
     TEST: '/test',
     STATS: '/stats',

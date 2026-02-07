@@ -6,7 +6,7 @@ import { ROUTES } from '../../router';
 import {
     Home, BookOpen, BarChart3, Users, Settings, Plus,
     LogOut, Sun, Moon, Sparkles, ChevronRight, X, List,
-    Repeat2, FileCheck
+    Repeat2, FileCheck, Languages
 } from 'lucide-react';
 
 // Sidebar Component - New vertical navigation layout with React Router
@@ -21,7 +21,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName }) => {
         const path = location.pathname;
         if (path === '/' || path === ROUTES.HOME) return 'HOME';
         if (path === ROUTES.VOCABULARY || path.startsWith('/vocabulary')) return 'LIST';
-        if (path === ROUTES.REVIEW) return 'REVIEW';
+        if (path === ROUTES.KANJI) return 'KANJI';
         if (path === ROUTES.TEST) return 'TEST';
         if (path === ROUTES.STATS) return 'STATS';
         if (path === ROUTES.FRIENDS) return 'FRIENDS';
@@ -46,7 +46,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName }) => {
     const menuItems = [
         { id: 'HOME', icon: Home, label: 'Trang chủ', route: ROUTES.HOME },
         { id: 'LIST', icon: BookOpen, label: 'Từ vựng', route: ROUTES.VOCABULARY },
-        { id: 'REVIEW', icon: Repeat2, label: 'Ôn tập', route: ROUTES.REVIEW },
+        { id: 'KANJI', icon: Languages, label: 'Học Kanji', route: ROUTES.KANJI },
         { id: 'TEST', icon: FileCheck, label: 'Kiểm tra JLPT', route: ROUTES.TEST },
         { id: 'STATS', icon: BarChart3, label: 'Thống kê', route: ROUTES.STATS },
         { id: 'FRIENDS', icon: Users, label: 'Xếp hạng', route: ROUTES.FRIENDS },
@@ -55,13 +55,13 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName }) => {
 
     // Mobile header for small screens
     const MobileHeader = () => (
-        <header className="lg:hidden fixed top-0 left-0 right-0 bg-slate-900/95 backdrop-blur-xl border-b border-slate-700/50 z-50 h-14">
+        <header className="lg:hidden fixed top-0 left-0 right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-gray-200 dark:border-slate-700/50 z-50 h-14 shadow-sm dark:shadow-none">
             <div className="h-full px-4 flex items-center justify-between">
                 <Link to={ROUTES.HOME} className="flex items-center space-x-2">
                     <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-1.5 rounded-lg shadow-lg shadow-indigo-500/30">
                         <Sparkles className="w-5 h-5 text-white" />
                     </div>
-                    <span className="text-lg font-bold text-white">QuizKi</span>
+                    <span className="text-lg font-bold text-gray-900 dark:text-white">QuizKi</span>
                 </Link>
 
                 <div className="flex items-center space-x-2">
@@ -73,7 +73,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName }) => {
                     </Link>
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="p-2 text-gray-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
+                        className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
                     >
                         {isMobileMenuOpen ? <X className="w-5 h-5" /> : <List className="w-5 h-5" />}
                     </button>
@@ -82,7 +82,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName }) => {
 
             {/* Mobile menu dropdown */}
             {isMobileMenuOpen && (
-                <div className="absolute top-14 left-0 right-0 bg-slate-900/98 backdrop-blur-xl border-b border-slate-700/50 shadow-2xl">
+                <div className="absolute top-14 left-0 right-0 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl border-b border-gray-200 dark:border-slate-700/50 shadow-2xl">
                     <nav className="p-3 space-y-1">
                         {menuItems.map((item) => (
                             <Link
@@ -90,26 +90,26 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName }) => {
                                 to={item.route}
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${currentView === item.id
-                                    ? 'bg-indigo-600/20 text-indigo-400 border border-indigo-500/30'
-                                    : 'text-gray-400 hover:text-white hover:bg-slate-800/50'
+                                    ? 'bg-indigo-100 dark:bg-indigo-600/20 text-indigo-600 dark:text-indigo-400 border border-indigo-300 dark:border-indigo-500/30'
+                                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50'
                                     }`}
                             >
                                 <item.icon className="w-5 h-5" />
                                 <span className="font-medium">{item.label}</span>
                             </Link>
                         ))}
-                        <div className="border-t border-slate-700/50 my-2" />
+                        <div className="border-t border-gray-200 dark:border-slate-700/50 my-2" />
                         <div className="flex items-center justify-between px-4 py-2">
                             <button
                                 onClick={() => setIsDarkMode(prev => !prev)}
-                                className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
+                                className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                             >
                                 {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                                 <span>{isDarkMode ? 'Giao diện sáng' : 'Giao diện tối'}</span>
                             </button>
                             <button
                                 onClick={handleLogout}
-                                className="flex items-center space-x-2 text-red-400 hover:text-red-300 transition-colors"
+                                className="flex items-center space-x-2 text-red-500 dark:text-red-400 hover:text-red-600 dark:hover:text-red-300 transition-colors"
                             >
                                 <LogOut className="w-5 h-5" />
                                 <span>Đăng xuất</span>
@@ -123,9 +123,9 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName }) => {
 
     // Desktop sidebar
     const DesktopSidebar = () => (
-        <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 border-r border-slate-700/50`}>
+        <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} bg-white dark:bg-gradient-to-b dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 border-r border-gray-200 dark:border-slate-700/50 shadow-lg dark:shadow-none`}>
             {/* Logo */}
-            <div className="p-4 border-b border-slate-700/50">
+            <div className="p-4 border-b border-gray-200 dark:border-slate-700/50">
                 <Link
                     to={ROUTES.HOME}
                     className="flex items-center space-x-3 group"
@@ -134,7 +134,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName }) => {
                         <Sparkles className="w-6 h-6 text-white" />
                     </div>
                     {!isCollapsed && (
-                        <span className="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                        <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
                             QuizKi
                         </span>
                     )}
@@ -143,9 +143,9 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName }) => {
 
             {/* User info */}
             {!isCollapsed && displayName && (
-                <div className="px-4 py-3 border-b border-slate-700/50">
-                    <p className="text-xs text-slate-500 uppercase tracking-wider font-medium">Xin chào</p>
-                    <p className="text-sm font-semibold text-white truncate mt-0.5">{displayName}</p>
+                <div className="px-4 py-3 border-b border-gray-200 dark:border-slate-700/50">
+                    <p className="text-xs text-gray-500 dark:text-slate-500 uppercase tracking-wider font-medium">Xin chào</p>
+                    <p className="text-sm font-semibold text-gray-900 dark:text-white truncate mt-0.5">{displayName}</p>
                 </div>
             )}
 
@@ -156,15 +156,15 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName }) => {
                         key={item.id}
                         to={item.route}
                         className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2.5 rounded-xl transition-all duration-200 group relative ${currentView === item.id
-                            ? 'bg-gradient-to-r from-indigo-600/30 to-purple-600/20 text-white border border-indigo-500/30 shadow-lg shadow-indigo-500/10'
-                            : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+                            ? 'bg-indigo-100 dark:bg-gradient-to-r dark:from-indigo-600/30 dark:to-purple-600/20 text-indigo-700 dark:text-white border border-indigo-300 dark:border-indigo-500/30 shadow-md dark:shadow-lg dark:shadow-indigo-500/10'
+                            : 'text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50'
                             }`}
                         title={isCollapsed ? item.label : undefined}
                     >
                         {currentView === item.id && (
                             <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-indigo-500 rounded-r-full" />
                         )}
-                        <item.icon className={`w-5 h-5 ${currentView === item.id ? 'text-indigo-400' : 'group-hover:text-indigo-400'} transition-colors`} />
+                        <item.icon className={`w-5 h-5 ${currentView === item.id ? 'text-indigo-600 dark:text-indigo-400' : 'group-hover:text-indigo-500 dark:group-hover:text-indigo-400'} transition-colors`} />
                         {!isCollapsed && (
                             <span className="font-medium">{item.label}</span>
                         )}
@@ -186,11 +186,11 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName }) => {
             </nav>
 
             {/* Bottom section */}
-            <div className="p-3 border-t border-slate-700/50 space-y-1">
+            <div className="p-3 border-t border-gray-200 dark:border-slate-700/50 space-y-1">
                 {/* Collapse toggle */}
                 <button
                     onClick={() => setIsCollapsed(!isCollapsed)}
-                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all`}
+                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2 rounded-lg text-gray-500 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50 transition-all`}
                 >
                     <ChevronRight className={`w-5 h-5 transition-transform duration-300 ${isCollapsed ? '' : 'rotate-180'}`} />
                     {!isCollapsed && <span className="text-sm">Thu gọn</span>}
@@ -199,7 +199,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName }) => {
                 {/* Dark mode toggle */}
                 <button
                     onClick={() => setIsDarkMode(prev => !prev)}
-                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all`}
+                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2 rounded-lg text-gray-500 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50 transition-all`}
                     title={isCollapsed ? (isDarkMode ? 'Giao diện sáng' : 'Giao diện tối') : undefined}
                 >
                     {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
@@ -209,7 +209,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName }) => {
                 {/* Logout */}
                 <button
                     onClick={handleLogout}
-                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2 rounded-lg text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-all`}
+                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2 rounded-lg text-gray-500 dark:text-slate-400 hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 transition-all`}
                     title={isCollapsed ? 'Đăng xuất' : undefined}
                 >
                     <LogOut className="w-5 h-5" />

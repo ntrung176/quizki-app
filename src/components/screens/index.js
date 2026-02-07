@@ -9,5 +9,6 @@ export { default as StatsScreen } from './StatsScreen';
 export { default as FriendsScreen } from './FriendsScreen';
 export { default as ListView } from './ListView';
 export { default as ReviewScreen, ReviewCompleteScreen } from './ReviewScreen';
+export { default as KanjiScreen } from './KanjiScreen';
 export { default as StudyScreen } from './StudyScreen';
 export { default as TestScreen } from './TestScreen';

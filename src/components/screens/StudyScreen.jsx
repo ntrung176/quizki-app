@@ -444,7 +444,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                         ${isProcessing || isRevealed ? 'cursor-not-allowed' : 'cursor-pointer hover:scale-105'}
                                     `}
                                 >
-                                    {option}
+                                    <span className="font-japanese">{option}</span>
                                 </button>
                             ))}
                         </div>
@@ -499,7 +499,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                 }`}>
                                 <p className={`font-bold text-base md:text-xl text-center ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'
                                     }`}>
-                                    {feedback === 'correct' ? '✓ Chính xác!' : `✗ Đáp án đúng: ${currentCard.front}`}
+                                    {feedback === 'correct' ? '✓ Chính xác!' : <>✗ Đáp án đúng: <span className="font-japanese">{currentCard.front}</span></>}
                                 </p>
                             </div>
                         )}
