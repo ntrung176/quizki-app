@@ -231,6 +231,16 @@ const App = () => {
         return !!adminEmailEnv && !!currentEmail && currentEmail === adminEmailEnv;
     }, [authReady, userId]);
 
+    // Toggle body class for review mode (hide scrollbar)
+    useEffect(() => {
+        if (view === 'REVIEW') {
+            document.body.classList.add('review-mode');
+        } else {
+            document.body.classList.remove('review-mode');
+        }
+        return () => document.body.classList.remove('review-mode');
+    }, [view]);
+
     const handleAdminDeleteUserData = useCallback(async (targetUserId) => {
         if (!db || !appId || !targetUserId) return;
         if (!isAdmin) {
@@ -2261,11 +2271,11 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
             )}
 
             {/* Main content area - responsive for sidebar */}
-            <main className="lg:ml-64 min-h-screen pt-14 lg:pt-0">
-                <div className="w-full max-w-xl xl:max-w-2xl mx-auto px-6 md:px-10 lg:px-16 py-8 md:py-10 lg:py-12">
+            <main className={`lg:ml-64 min-h-screen pt-14 lg:pt-0 ${view === 'REVIEW' ? 'bg-transparent' : ''}`}>
+                <div className={`${view === 'REVIEW' ? 'w-full h-screen flex items-center justify-center bg-transparent' : 'w-full max-w-lg xl:max-w-xl mx-auto px-8 md:px-12 lg:px-20 py-4 md:py-6 lg:py-8'}`}>
                     {/* Main content container - transparent */}
-                    <div className={`${view === 'REVIEW' ? 'overflow-hidden' : ''}`}>
-                        <div className={view === 'REVIEW' ? 'overflow-hidden' : ''}>
+                    <div className={`${view === 'REVIEW' ? 'bg-transparent' : ''}`}>
+                        <div className={view === 'REVIEW' ? 'bg-transparent' : ''}>
                             {renderContent()}
                         </div>
 

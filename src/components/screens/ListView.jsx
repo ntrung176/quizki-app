@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback, useDeferredValue } from 'react';
 import {
     List, Search, Upload, Download, ArrowDown, GraduationCap, Tag, Volume2,
-    X, Edit, Trash2
+    X, Edit, Trash2, Loader2
 } from 'lucide-react';
 import { JLPT_LEVELS, POS_TYPES, getPosLabel, getPosColor, getLevelColor } from '../../config/constants';
 import { SearchInput } from '../ui';
@@ -16,6 +16,11 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
     const [searchTerm, setSearchTerm] = useState(savedFilters?.searchTerm || '');
     const deferredSearchTerm = useDeferredValue(searchTerm);
     const [inputValue, setInputValue] = useState('');
+
+    // Progressive loading - show first 50 items immediately, load more on scroll
+    const [displayedCount, setDisplayedCount] = useState(50);
+    const [isLoadingMore, setIsLoadingMore] = useState(false);
+    const tableContainerRef = useRef(null);
 
     const handleSearchChange = useCallback((value) => {
         setSearchTerm(value);
@@ -118,9 +123,56 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
         return result;
     }, [preprocessedCards, filterLevel, filterPos, filterAudio, sortOrder, deferredSearchTerm]);
 
+    // Reset displayedCount when filters change
+    useEffect(() => {
+        setDisplayedCount(50);
+    }, [filterLevel, filterPos, filterAudio, sortOrder, deferredSearchTerm]);
+
+    // Get displayed cards (progressive loading)
+    const displayedCards = useMemo(() => {
+        return filteredCards.slice(0, displayedCount);
+    }, [filteredCards, displayedCount]);
+
+    // Load more on scroll
+    const handleScroll = useCallback(() => {
+        const scrollY = window.scrollY || window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        const documentHeight = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight
+        );
+
+        if (scrollY + windowHeight >= documentHeight - 800 && displayedCount < filteredCards.length && !isLoadingMore) {
+            setIsLoadingMore(true);
+            requestAnimationFrame(() => {
+                setDisplayedCount(prev => Math.min(prev + 50, filteredCards.length));
+                setIsLoadingMore(false);
+            });
+        }
+    }, [displayedCount, filteredCards.length, isLoadingMore]);
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        document.addEventListener('scroll', handleScroll, { passive: true });
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            document.removeEventListener('scroll', handleScroll);
+        };
+    }, [handleScroll]);
+
+    // Manual load more function
+    const loadMore = useCallback(() => {
+        setDisplayedCount(prev => Math.min(prev + 100, filteredCards.length));
+    }, [filteredCards.length]);
+
     // Scroll to card after returning from edit
     useEffect(() => {
         if (scrollToCardId) {
+            // Ensure card is in displayed list
+            const cardIndex = filteredCards.findIndex(c => c.id === scrollToCardId);
+            if (cardIndex >= displayedCount) {
+                setDisplayedCount(cardIndex + 10);
+            }
             setTimeout(() => {
                 const element = document.querySelector(`[data-card-id="${scrollToCardId}"]`);
                 if (element) {
@@ -135,7 +187,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
         } else {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    }, [scrollToCardId, filteredCards, onScrollComplete]);
+    }, [scrollToCardId, filteredCards, onScrollComplete, displayedCount]);
 
     return (
         <div className="h-full flex flex-col space-y-2 md:space-y-6">
@@ -234,16 +286,16 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
                         <table className="w-full divide-y divide-gray-100 dark:divide-gray-700 table-fixed">
                             <thead className="bg-gray-50 dark:bg-gray-700">
                                 <tr>
-                                    <th className="w-24 md:w-32 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Từ vựng</th>
+                                    <th className="w-32 md:w-44 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Từ vựng</th>
                                     <th className="w-16 md:w-20 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Tags</th>
-                                    <th className="w-10 md:w-12 px-2 md:px-4 py-2 md:py-3 text-center text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">🔊</th>
-                                    <th className="px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Nghĩa</th>
-                                    <th className="w-20 md:w-24 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">SRS</th>
-                                    <th className="w-16 md:w-20 px-2 md:px-4 py-2 md:py-3 text-right text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider"></th>
+                                    <th className="w-12 md:w-14 px-1 md:px-2 py-2 md:py-3 text-center text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">🔊</th>
+                                    <th className="w-24 md:w-32 px-2 md:px-4 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Nghĩa</th>
+                                    <th className="w-16 md:w-20 px-1 md:px-2 py-2 md:py-3 text-left text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">SRS</th>
+                                    <th className="w-24 md:w-28 px-1 md:px-2 py-2 md:py-3 text-center text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-50 dark:divide-gray-700">
-                                {filteredCards.map((card) => (
+                                {displayedCards.map((card) => (
                                     <tr key={card.id} data-card-id={card.id} className="hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10 transition-colors group">
                                         <td className="px-2 md:px-4 py-2 md:py-3">
                                             <div className="font-bold text-gray-800 dark:text-gray-200 text-xs md:text-sm truncate" title={card.front}>{card.front}</div>
@@ -256,14 +308,32 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
                                             </div>
                                         </td>
                                         <td className="px-2 md:px-4 py-2 md:py-3 text-center">
-                                            <button onClick={() => onPlayAudio(card.audioBase64, card.front)} className={`p-1.5 md:p-2 rounded-full hover:bg-indigo-100 ${card.audioBase64 ? 'text-indigo-500' : 'text-gray-300 dark:text-gray-600'}`}><Volume2 className="w-3 h-3 md:w-4 md:h-4" /></button>
+                                            <button
+                                                onClick={() => onPlayAudio(card.audioBase64, card.front)}
+                                                className={`p-2 md:p-2.5 rounded-full hover:bg-indigo-100 dark:hover:bg-indigo-900/30 transition-colors ${card.audioBase64 ? 'text-indigo-500 dark:text-indigo-400' : 'text-gray-300 dark:text-gray-600'}`}
+                                                title={card.audioBase64 ? 'Phát âm thanh' : 'Chưa có âm thanh'}
+                                            >
+                                                <Volume2 className="w-4 h-4 md:w-5 md:h-5" />
+                                            </button>
                                         </td>
-                                        <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-600 dark:text-gray-300 truncate" title={card.back}>{card.back}</td>
+                                        <td className="w-24 md:w-32 px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-600 dark:text-gray-300 truncate" title={card.back}>{card.back}</td>
                                         <SrsStatusCell intervalIndex={card.intervalIndex_back} nextReview={card.nextReview_back} hasData={true} />
-                                        <td className="px-2 md:px-4 py-2 md:py-3 text-right">
-                                            <div className="flex justify-end gap-0.5 md:gap-1 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
-                                                <button onClick={() => onNavigateToEdit(card, { filterLevel, filterPos, filterAudio, sortOrder, searchTerm })} className="p-1.5 md:p-2 rounded-lg text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30"><Edit className="w-3 h-3 md:w-4 md:h-4" /></button>
-                                                <button onClick={() => onDeleteCard(card.id, card.front)} className="p-1.5 md:p-2 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30"><Trash2 className="w-3 h-3 md:w-4 md:h-4" /></button>
+                                        <td className="w-24 md:w-28 px-1 md:px-2 py-2 md:py-3 text-center">
+                                            <div className="flex justify-center gap-1 md:gap-2">
+                                                <button
+                                                    onClick={() => onNavigateToEdit(card, { filterLevel, filterPos, filterAudio, sortOrder, searchTerm })}
+                                                    className="p-2 md:p-2.5 rounded-lg text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors"
+                                                    title="Chỉnh sửa"
+                                                >
+                                                    <Edit className="w-4 h-4 md:w-5 md:h-5" />
+                                                </button>
+                                                <button
+                                                    onClick={() => onDeleteCard(card.id, card.front)}
+                                                    className="p-2 md:p-2.5 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 transition-colors"
+                                                    title="Xóa"
+                                                >
+                                                    <Trash2 className="w-4 h-4 md:w-5 md:h-5" />
+                                                </button>
                                             </div>
                                         </td>
                                     </tr>
@@ -271,6 +341,30 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
                             </tbody>
                         </table>
                     </div>
+
+                    {/* Loading more indicator */}
+                    {displayedCount < filteredCards.length && (
+                        <div className="py-4 text-center border-t border-gray-100 dark:border-gray-700 space-y-3">
+                            {isLoadingMore ? (
+                                <div className="flex items-center justify-center gap-2 text-gray-400">
+                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                    <span className="text-xs">Đang tải thêm...</span>
+                                </div>
+                            ) : (
+                                <>
+                                    <p className="text-xs text-gray-400">
+                                        Đang hiển thị {displayedCount} / {filteredCards.length} từ vựng
+                                    </p>
+                                    <button
+                                        onClick={loadMore}
+                                        className="px-4 py-2 text-xs font-medium text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors"
+                                    >
+                                        Tải thêm 100 từ vựng
+                                    </button>
+                                </>
+                            )}
+                        </div>
+                    )}
                 </div>
             </div>
 

@@ -70,61 +70,62 @@ const HomeScreen = ({
     };
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-4">
             {/* Header - Thống kê học tập */}
-            <div className="space-y-2">
-                <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100">
+            <div className="space-y-1">
+                <h1 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100">
                     Thống kê học tập
                 </h1>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-xs text-gray-600 dark:text-gray-400">
                     Theo dõi tiến độ và kế hoạch ôn tập của bạn,
                     theo các báo cáo 21 ngày ôn tập kiến thức sẽ được nạp vào trí nhớ dài hạn
                 </p>
             </div>
 
             {/* Tổng quan (thẻ) */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-                <h3 className="text-sm font-bold text-gray-600 dark:text-gray-300 mb-4">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-3 md:p-4 border border-gray-200 dark:border-gray-700 shadow-sm">
+                <h3 className="text-xs font-bold text-gray-600 dark:text-gray-300 mb-3 flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-[10px]">📊</span>
                     Tổng quan (thẻ)
                 </h3>
-                <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
-                    <div className="text-center">
-                        <div className="text-2xl md:text-3xl font-bold text-red-500">{dueCards}</div>
-                        <div className="text-[10px] md:text-xs text-gray-500 dark:text-gray-400">Cần ôn</div>
+                <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
+                    <div className="text-center p-2 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800/30">
+                        <div className="text-xl md:text-2xl font-bold text-red-500">{dueCards}</div>
+                        <div className="text-[9px] md:text-[10px] font-medium text-red-600 dark:text-red-400">🔴 Cần ôn</div>
                     </div>
-                    <div className="text-center">
-                        <div className="text-2xl md:text-3xl font-bold text-emerald-500">{newCards}</div>
-                        <div className="text-[10px] md:text-xs text-gray-500 dark:text-gray-400">Mới thêm</div>
+                    <div className="text-center p-2 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800/30">
+                        <div className="text-xl md:text-2xl font-bold text-emerald-500">{newCards}</div>
+                        <div className="text-[9px] md:text-[10px] font-medium text-emerald-600 dark:text-emerald-400">🟢 Mới thêm</div>
                     </div>
-                    <div className="text-center">
-                        <div className="text-2xl md:text-3xl font-bold text-amber-500">{learningCards}</div>
-                        <div className="text-[10px] md:text-xs text-gray-500 dark:text-gray-400">Đang học</div>
+                    <div className="text-center p-2 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-800/30">
+                        <div className="text-xl md:text-2xl font-bold text-amber-500">{learningCards}</div>
+                        <div className="text-[9px] md:text-[10px] font-medium text-amber-600 dark:text-amber-400">🟡 Đang học</div>
                     </div>
-                    <div className="text-center">
-                        <div className="text-2xl md:text-3xl font-bold text-blue-500">{shortTermCards}</div>
-                        <div className="text-[10px] md:text-xs text-gray-500 dark:text-gray-400">Ngắn hạn</div>
+                    <div className="text-center p-2 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/30">
+                        <div className="text-xl md:text-2xl font-bold text-blue-500">{shortTermCards}</div>
+                        <div className="text-[9px] md:text-[10px] font-medium text-blue-600 dark:text-blue-400">🔵 Ngắn hạn</div>
                     </div>
-                    <div className="text-center">
-                        <div className="text-2xl md:text-3xl font-bold text-green-600">{masteredCards}</div>
-                        <div className="text-[10px] md:text-xs text-gray-500 dark:text-gray-400">Dài hạn</div>
+                    <div className="text-center p-2 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-100 dark:border-green-800/30">
+                        <div className="text-xl md:text-2xl font-bold text-green-600">{masteredCards}</div>
+                        <div className="text-[9px] md:text-[10px] font-medium text-green-600 dark:text-green-400">💚 Dài hạn</div>
                     </div>
-                    <div className="text-center">
-                        <div className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">{learnedCards}</div>
-                        <div className="text-[10px] md:text-xs text-gray-500 dark:text-gray-400">Đã học</div>
+                    <div className="text-center p-2 rounded-lg bg-gray-100 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600">
+                        <div className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white">{learnedCards}</div>
+                        <div className="text-[9px] md:text-[10px] font-medium text-gray-600 dark:text-gray-300">📚 Đã học</div>
                     </div>
                 </div>
             </div>
 
             {/* Cards: Hôm nay + Lượt tiếp theo */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {/* Hôm nay - màu cam */}
-                <div className="bg-gradient-to-br from-orange-400 to-orange-500 rounded-2xl p-6 text-white shadow-lg">
-                    <div className="flex items-center gap-2 mb-4">
-                        <Calendar className="w-5 h-5" />
-                        <span className="font-bold">Hôm nay</span>
+                <div className="bg-gradient-to-br from-orange-400 to-orange-500 rounded-xl p-4 text-white shadow-lg">
+                    <div className="flex items-center gap-2 mb-2">
+                        <Calendar className="w-4 h-4" />
+                        <span className="font-bold text-sm">Hôm nay</span>
                     </div>
-                    <div className="text-5xl md:text-6xl font-bold mb-2">{dueCards}</div>
-                    <p className="text-orange-100 mb-6">thẻ cần ôn tập</p>
+                    <div className="text-4xl md:text-5xl font-bold mb-1">{dueCards}</div>
+                    <p className="text-orange-100 text-sm mb-4">thẻ cần ôn tập</p>
                     <button
                         onClick={() => handleStartReview('mixed')}
                         disabled={dueCards === 0}
@@ -138,39 +139,39 @@ const HomeScreen = ({
                 </div>
 
                 {/* Lượt tiếp theo - màu xanh */}
-                <div className="bg-gradient-to-br from-blue-400 to-blue-500 rounded-2xl p-6 text-white shadow-lg">
-                    <div className="flex items-center gap-2 mb-4">
-                        <Clock className="w-5 h-5" />
-                        <span className="font-bold">Lượt tiếp theo</span>
+                <div className="bg-gradient-to-br from-blue-400 to-blue-500 rounded-xl p-4 text-white shadow-lg">
+                    <div className="flex items-center gap-2 mb-2">
+                        <Clock className="w-4 h-4" />
+                        <span className="font-bold text-sm">Lượt tiếp theo</span>
                     </div>
                     {nextReviewTime ? (
                         <>
-                            <p className="text-blue-100 mb-1">Sau khi hoàn thành {dueCards} thẻ, bạn có</p>
-                            <div className="text-5xl md:text-6xl font-bold mb-2 italic">{nextReviewTime}</div>
-                            <p className="text-blue-100">nghỉ ngơi cho đến lượt ôn tập tiếp theo</p>
+                            <p className="text-blue-100 text-xs mb-1">Sau khi hoàn thành {dueCards} thẻ, bạn có</p>
+                            <div className="text-4xl md:text-5xl font-bold mb-1 italic">{nextReviewTime}</div>
+                            <p className="text-blue-100 text-xs">nghỉ ngơi cho đến lượt ôn tập tiếp theo</p>
                         </>
                     ) : (
                         <>
-                            <div className="text-3xl md:text-4xl font-bold mb-2">Không có</div>
-                            <p className="text-blue-100">thẻ nào đang chờ ôn tập</p>
+                            <div className="text-2xl md:text-3xl font-bold mb-1">Không có</div>
+                            <p className="text-blue-100 text-xs">thẻ nào đang chờ ôn tập</p>
                         </>
                     )}
                 </div>
             </div>
 
             {/* Chọn chế độ ôn tập */}
-            <div className="space-y-4">
-                <h2 className="text-lg md:text-xl font-bold text-gray-800 dark:text-gray-100">
+            <div className="space-y-3">
+                <h2 className="text-base md:text-lg font-bold text-gray-800 dark:text-gray-100">
                     Chọn chế độ ôn tập
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     {/* Ý nghĩa */}
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-200 dark:border-gray-700 shadow-sm">
-                        <div className="flex items-center gap-2 mb-3">
-                            <BookOpen className="w-5 h-5 text-indigo-500" />
-                            <span className="font-bold text-gray-800 dark:text-white">Ý nghĩa</span>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm">
+                        <div className="flex items-center gap-2 mb-2">
+                            <BookOpen className="w-4 h-4 text-indigo-500" />
+                            <span className="font-bold text-sm text-gray-800 dark:text-white">Ý nghĩa</span>
                         </div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
                             Xem từ vựng và nhớ lại ý nghĩa. Chế độ cơ bản nhất để học từ mới.
                         </p>
                         <button
@@ -186,12 +187,12 @@ const HomeScreen = ({
                     </div>
 
                     {/* Đồng nghĩa */}
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-200 dark:border-gray-700 shadow-sm">
-                        <div className="flex items-center gap-2 mb-3">
-                            <Users className="w-5 h-5 text-emerald-500" />
-                            <span className="font-bold text-gray-800 dark:text-white">Đồng nghĩa</span>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm">
+                        <div className="flex items-center gap-2 mb-2">
+                            <Users className="w-4 h-4 text-emerald-500" />
+                            <span className="font-bold text-sm text-gray-800 dark:text-white">Đồng nghĩa</span>
                         </div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
                             Ôn tập từ đồng nghĩa để mở rộng vốn từ và diễn đạt đa dạng hơn.
                         </p>
                         <button
@@ -207,12 +208,12 @@ const HomeScreen = ({
                     </div>
 
                     {/* Ngữ cảnh */}
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-200 dark:border-gray-700 shadow-sm">
-                        <div className="flex items-center gap-2 mb-3">
-                            <MessageSquare className="w-5 h-5 text-amber-500" />
-                            <span className="font-bold text-gray-800 dark:text-white">Ngữ cảnh</span>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm">
+                        <div className="flex items-center gap-2 mb-2">
+                            <MessageSquare className="w-4 h-4 text-amber-500" />
+                            <span className="font-bold text-sm text-gray-800 dark:text-white">Ngữ cảnh</span>
                         </div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
                             Học từ qua ví dụ thực tế. Hiểu cách sử dụng từ trong câu.
                         </p>
                         <button

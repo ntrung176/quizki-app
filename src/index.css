@@ -3,27 +3,82 @@
 
 @custom-variant dark (&:is(.dark, .dark *));
 
+/* Override Tailwind preflight background */
+@layer base {
+  html {
+    background-color: #e8f4fc !important;
+    background-image:
+      linear-gradient(#d0e8f5 1px, transparent 1px),
+      linear-gradient(90deg, #d0e8f5 1px, transparent 1px) !important;
+    background-size: 20px 20px !important;
+  }
+
+  html.dark {
+    background-color: #1e293b !important;
+    background-image:
+      linear-gradient(#334155 1px, transparent 1px),
+      linear-gradient(90deg, #334155 1px, transparent 1px) !important;
+    background-size: 20px 20px !important;
+  }
+
+  #root,
+  main,
+  main>div,
+  main>div>div,
+  main>div>div>div {
+    background-color: transparent !important;
+    background: transparent !important;
+  }
+}
+
+/* Background pattern - shows only in empty areas */
+body {
+  background-color: #e8f4fc;
+  background-image:
+    linear-gradient(#cce4f0 1px, transparent 1px),
+    linear-gradient(90deg, #cce4f0 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+html.dark body {
+  background-color: #1e293b;
+  background-image:
+    linear-gradient(#334155 1px, transparent 1px),
+    linear-gradient(90deg, #334155 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Ensure main has visible pattern area */
+main {
+  min-height: 100vh;
+}
+
+/* Hide scrollbar in review mode */
+body.review-mode {
+  overflow: hidden;
+}
+
 html {
   height: 100%;
   height: -webkit-fill-available;
   overflow-x: hidden;
   color-scheme: light;
   /* Light blue notebook grid pattern */
-  background-color: #e8f4fc;
+  background-color: #e8f4fc !important;
   background-image:
     linear-gradient(#d0e8f5 1px, transparent 1px),
-    linear-gradient(90deg, #d0e8f5 1px, transparent 1px);
-  background-size: 20px 20px;
+    linear-gradient(90deg, #d0e8f5 1px, transparent 1px) !important;
+  background-size: 20px 20px !important;
 }
 
 html.dark {
   color-scheme: dark;
   /* Dark mode notebook grid pattern */
-  background-color: #1e293b;
+  background-color: #1e293b !important;
   background-image:
     linear-gradient(#334155 1px, transparent 1px),
-    linear-gradient(90deg, #334155 1px, transparent 1px);
-  background-size: 20px 20px;
+    linear-gradient(90deg, #334155 1px, transparent 1px) !important;
+  background-size: 20px 20px !important;
 }
 
 /* Exclude background-color and color from transitions for instant dark mode switch */
@@ -40,7 +95,7 @@ body {
   position: relative;
   width: 100%;
   max-width: 100vw;
-  background-color: transparent;
+  background: transparent !important;
   /* Ensure inputs are focusable on mobile */
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
@@ -70,7 +125,7 @@ textarea {
 }
 
 body.dark {
-  background-color: transparent;
+  background: transparent !important;
 }
 
 #root {
@@ -79,6 +134,19 @@ body.dark {
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
+  background: transparent !important;
+}
+
+main {
+  background: transparent !important;
+}
+
+main>div {
+  background: transparent !important;
+}
+
+main>div>div {
+  background: transparent !important;
 }
 
 /* Prevent horizontal scroll */
