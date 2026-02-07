@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Upload, Loader2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Upload, Loader2, ArrowLeft } from 'lucide-react';
+import { ROUTES } from '../../router';
 
-const ImportScreen = ({ onImport, onBack }) => {
+const ImportScreen = ({ onImport }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [fileName, setFileName] = useState('');
     const [message, setMessage] = useState('');
@@ -96,9 +98,20 @@ const ImportScreen = ({ onImport, onBack }) => {
 
     return (
         <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 pb-4 border-b border-gray-200 dark:border-gray-700">
-                Nhập Dữ Liệu
-            </h2>
+            {/* Header with back button */}
+            <div className="flex items-center gap-4 pb-4 border-b border-gray-200 dark:border-gray-700">
+                <Link
+                    to={ROUTES.VOCABULARY}
+                    className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300"
+                    title="Quay lại danh sách từ vựng"
+                >
+                    <ArrowLeft className="w-5 h-5" />
+                </Link>
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                    Nhập Dữ Liệu
+                </h2>
+            </div>
+
             <div className="border-2 border-dashed border-indigo-200 dark:border-indigo-800 rounded-3xl bg-indigo-50/50 dark:bg-indigo-900/20 p-10 flex flex-col items-center justify-center text-center hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-colors">
                 <div className="w-16 h-16 bg-white dark:bg-gray-700 rounded-full flex items-center justify-center shadow-sm mb-4">
                     <Upload className="w-8 h-8 text-indigo-500 dark:text-indigo-400" />
@@ -119,12 +132,13 @@ const ImportScreen = ({ onImport, onBack }) => {
                 {isLoading && <Loader2 className="animate-spin mt-4 text-indigo-500 dark:text-indigo-400" />}
                 {message && <p className="mt-4 text-sm font-bold text-emerald-600 dark:text-emerald-400">{message}</p>}
             </div>
-            <button
-                onClick={onBack}
-                className="w-full py-4 text-gray-500 dark:text-gray-400 font-medium hover:text-gray-800 dark:hover:text-gray-200"
+
+            <Link
+                to={ROUTES.VOCABULARY}
+                className="block w-full py-4 text-center text-gray-500 dark:text-gray-400 font-medium hover:text-gray-800 dark:hover:text-gray-200"
             >
-                Quay lại
-            </button>
+                Quay lại danh sách từ vựng
+            </Link>
         </div>
     );
 };

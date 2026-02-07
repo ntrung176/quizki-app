@@ -20,7 +20,7 @@
     "react-error-boundary": "^6.0.0",
     "react-firebase-hooks": "^5.1.1",
     "react-hook-form": "^7.69.0",
-    "react-router-dom": "^7.11.0",
+    "react-router-dom": "^7.13.0",
     "react-virtualized-auto-sizer": "^2.0.0",
     "react-window": "^2.2.3",
     "recharts": "^3.6.0",

@@ -1,11 +1,15 @@
 import './App.css';
 import React, { useState, useEffect, useCallback, useMemo, useRef, useTransition, useDeferredValue } from 'react';
+import { useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { useDebounce } from 'use-debounce';
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail, updatePassword, sendEmailVerification } from 'firebase/auth';
 import { getFirestore, doc, setDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, getDocs, where, writeBatch, increment } from 'firebase/firestore';
 import { Loader2, Plus, Repeat2, Home, CheckCircle, XCircle, Volume2, Send, BookOpen, Clock, HeartHandshake, List, Calendar, Trash2, Mic, FileText, MessageSquare, HelpCircle, Upload, Wand2, BarChart3, Users, PieChart as PieChartIcon, Target, Save, Edit, Zap, Eye, EyeOff, AlertTriangle, Check, VolumeX, Image as ImageIcon, X, Music, FileAudio, Tag, Sparkles, Filter, ArrowDown, ArrowUp, GraduationCap, Search, Languages, RefreshCw, Settings, ChevronRight, Wrench, LayoutGrid, Flame, TrendingUp, Lightbulb, Brain, Ear, Keyboard, MousePointerClick, Layers, RotateCw, Lock, LogOut, FileCheck, Moon, Sun } from 'lucide-react';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
+
+// Route configuration
+import { ROUTES, getEditRoute } from './router';
 
 // Import from refactored modules
 import {
@@ -91,9 +95,61 @@ try {
 
 
 const App = () => {
+    // React Router hooks
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    // Helper function to navigate using route names (backward compatible with setView)
+    const navigateTo = useCallback((viewName) => {
+        const routeMap = {
+            'HOME': ROUTES.HOME,
+            'LOGIN': ROUTES.LOGIN,
+            'PAYMENT': ROUTES.PAYMENT,
+            'ACCOUNT': ROUTES.ACCOUNT,
+            'HELP': ROUTES.HELP,
+            'LIST': ROUTES.VOCABULARY,
+            'ADD_CARD': ROUTES.VOCABULARY_ADD,
+            'REVIEW': ROUTES.REVIEW,
+            'STUDY': ROUTES.STUDY,
+            'TEST': ROUTES.TEST,
+            'STATS': ROUTES.STATS,
+            'FRIENDS': ROUTES.FRIENDS,
+            'IMPORT': ROUTES.IMPORT,
+        };
+        const route = routeMap[viewName] || ROUTES.HOME;
+        navigate(route);
+    }, [navigate]);
+
+    // Get current view from location for backward compatibility
+    const getCurrentView = useCallback(() => {
+        const path = location.pathname;
+        if (path === ROUTES.HOME || path === '/') return 'HOME';
+        if (path === ROUTES.LOGIN) return 'LOGIN';
+        if (path === ROUTES.PAYMENT) return 'PAYMENT';
+        if (path === ROUTES.ACCOUNT) return 'ACCOUNT';
+        if (path === ROUTES.HELP) return 'HELP';
+        if (path === ROUTES.VOCABULARY) return 'LIST';
+        if (path === ROUTES.VOCABULARY_ADD) return 'ADD_CARD';
+        if (path.startsWith('/vocabulary/edit/')) return 'EDIT_CARD';
+        if (path === ROUTES.REVIEW) return 'REVIEW';
+        if (path === ROUTES.STUDY) return 'STUDY';
+        if (path === ROUTES.TEST) return 'TEST';
+        if (path === ROUTES.STATS) return 'STATS';
+        if (path === ROUTES.FRIENDS) return 'FRIENDS';
+        if (path === ROUTES.IMPORT) return 'IMPORT';
+        return 'HOME';
+    }, [location.pathname]);
+
+    // Current view derived from URL
+    const view = getCurrentView();
+
+    // Legacy setView function for backward compatibility
+    const setView = useCallback((viewName) => {
+        navigateTo(viewName);
+    }, [navigateTo]);
+
     const [authReady, setAuthReady] = useState(false);
     const [userId, setUserId] = useState(null);
-    const [view, setView] = useState('HOME');
     const [reviewMode, setReviewMode] = useState('back');
     const [savedFilters, setSavedFilters] = useState(null); // Lưu filter state khi edit
     const [allCards, setAllCards] = useState([]);
@@ -276,47 +332,32 @@ const App = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []); // Chạy một lần khi mount để khởi tạo, isDarkMode đã được capture từ initial state
 
-    // Quản lý dark mode khi state thay đổi
+    // Quản lý dark mode khi state thay đổi - INSTANT switch
     useEffect(() => {
         // Lưu vào localStorage
         localStorage.setItem('darkMode', isDarkMode.toString());
 
-        // Áp dụng/xóa class dark trên documentElement
+        // Áp dụng/xóa class dark trên documentElement - NGAY LẬP TỨC
         const htmlElement = document.documentElement;
         const bodyElement = document.body;
         const rootElement = document.getElementById('root');
 
-        // Sử dụng requestAnimationFrame để đảm bảo DOM đã sẵn sàng
-        requestAnimationFrame(() => {
-            if (isDarkMode) {
-                htmlElement.classList.add('dark');
-                bodyElement.classList.add('dark');
-                if (rootElement) rootElement.classList.add('dark');
-            } else {
-                // Force remove class dark
-                htmlElement.classList.remove('dark');
-                bodyElement.classList.remove('dark');
-                if (rootElement) rootElement.classList.remove('dark');
+        if (isDarkMode) {
+            htmlElement.classList.add('dark');
+            bodyElement.classList.add('dark');
+            if (rootElement) rootElement.classList.add('dark');
+        } else {
+            // Force remove class dark
+            htmlElement.classList.remove('dark');
+            bodyElement.classList.remove('dark');
+            if (rootElement) rootElement.classList.remove('dark');
 
-                // Đảm bảo remove hoàn toàn bằng cách replace className
-                if (htmlElement.className.includes('dark')) {
-                    htmlElement.className = htmlElement.className.replace(/\bdark\b/g, '').trim();
-                }
-                if (bodyElement.className.includes('dark')) {
-                    bodyElement.className = bodyElement.className.replace(/\bdark\b/g, '').trim();
-                }
-
-                // XÓA inline styles thay vì set - để CSS tự xử lý
-                htmlElement.style.removeProperty('background-color');
-                bodyElement.style.removeProperty('background-color');
-                htmlElement.style.removeProperty('color-scheme');
-                bodyElement.style.removeProperty('color-scheme');
-            }
-
-            // Force reflow và repaint
-            void htmlElement.offsetHeight;
-            void bodyElement.offsetHeight;
-        });
+            // XÓA inline styles
+            htmlElement.style.removeProperty('background-color');
+            bodyElement.style.removeProperty('background-color');
+            htmlElement.style.removeProperty('color-scheme');
+            bodyElement.style.removeProperty('color-scheme');
+        }
     }, [isDarkMode]);
 
     useEffect(() => {
@@ -1523,7 +1564,8 @@ const App = () => {
             setSavedFilters(currentFilters);
         }
         setEditingCard(card);
-        setView('EDIT_CARD');
+        // Navigate to edit URL with card ID
+        navigate(getEditRoute(card.id));
     };
 
     const handleSaveChanges = async ({ cardId, front, back, synonym, example, exampleMeaning, nuance, pos, level, imageBase64, audioBase64, sinoVietnamese, synonymSinoVietnamese }) => {
@@ -2005,13 +2047,13 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                 />;
             case 'EDIT_CARD':
                 if (!editingCard) {
-                    setView('LIST');
+                    navigate(ROUTES.VOCABULARY);
                     return null;
                 }
                 return <EditCardForm
                     card={editingCard}
                     onSave={handleSaveChanges}
-                    onBack={() => { setEditingCard(null); setView('LIST'); }} // Giữ filter khi quay lại
+                    onBack={() => { setEditingCard(null); navigate(ROUTES.VOCABULARY); }} // Giữ filter khi quay lại
                     onGeminiAssist={handleGeminiAssist}
                 />;
             case 'STUDY':
@@ -2070,7 +2112,6 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
             case 'TEST':
                 return <TestScreen
                     allCards={allCards}
-                    onBack={() => setView('HOME')}
                 />;
             case 'LIST':
                 return <ListView
@@ -2079,7 +2120,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     onPlayAudio={playAudio}
                     onExport={() => handleExport(allCards)}
                     onNavigateToEdit={handleNavigateToEdit}
-
+                    onNavigateToImport={() => setView('IMPORT')}
                     scrollToCardId={scrollToCardIdRef.current}
                     onScrollComplete={() => { scrollToCardIdRef.current = null; }}
                     savedFilters={savedFilters}
@@ -2088,12 +2129,10 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
             case 'IMPORT':
                 return <ImportScreen
                     onImport={handleBatchImport}
-                    onBack={() => setView('HOME')}
                 />;
             case 'HELP':
                 return <HelpScreen
                     isFirstTime={false}
-                    onBack={() => setView('HOME')}
                 />;
             case 'STATS':
                 return <StatsScreen
@@ -2153,8 +2192,6 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
         <div className="min-h-screen bg-gradient-to-br from-gray-100 via-gray-50 to-indigo-50 dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950 font-sans selection:bg-indigo-100 dark:selection:bg-indigo-900 selection:text-indigo-800 dark:selection:text-indigo-200">
             {/* Sidebar for navigation */}
             <Sidebar
-                currentView={view}
-                setView={setView}
                 isDarkMode={isDarkMode}
                 setIsDarkMode={setIsDarkMode}
                 displayName={profile?.displayName}
@@ -2224,10 +2261,10 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
             )}
 
             {/* Main content area - responsive for sidebar */}
-            <main className="lg:ml-64 min-h-screen pt-14 lg:pt-0 transition-all duration-300">
-                <div className="w-full max-w-5xl xl:max-w-6xl mx-auto px-3 md:px-6 lg:px-8 py-4 md:py-6 lg:py-8">
-                    {/* Main content container */}
-                    <div className={`bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl shadow-xl shadow-indigo-100/30 dark:shadow-indigo-900/10 rounded-2xl md:rounded-3xl border border-white/50 dark:border-gray-700/50 ${view === 'HOME' || view === 'STATS' ? 'p-4 md:p-5 lg:p-6' : 'p-4 md:p-6 lg:p-8'} transition-all duration-300 ${view === 'REVIEW' ? 'overflow-hidden' : ''}`}>
+            <main className="lg:ml-64 min-h-screen pt-14 lg:pt-0">
+                <div className="w-full max-w-xl xl:max-w-2xl mx-auto px-6 md:px-10 lg:px-16 py-8 md:py-10 lg:py-12">
+                    {/* Main content container - transparent */}
+                    <div className={`${view === 'REVIEW' ? 'overflow-hidden' : ''}`}>
                         <div className={view === 'REVIEW' ? 'overflow-hidden' : ''}>
                             {renderContent()}
                         </div>
@@ -2243,11 +2280,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                             </div>
                         )}
 
-                        {/* Footer */}
-                        <div className="mt-auto pt-4 md:pt-6 border-t border-gray-100 dark:border-gray-700 text-xs text-gray-400 dark:text-gray-500 text-center flex flex-col items-center gap-1">
-                            <span>QuizKi V2.0</span>
-                            <span className="font-mono bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded text-[10px] text-gray-300 dark:text-gray-600">UID: {userId?.substring(0, 8)}...</span>
-                        </div>
+
                     </div>
                 </div>
             </main>

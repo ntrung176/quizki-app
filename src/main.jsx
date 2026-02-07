@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import AppErrorBoundary from './components/ErrorBoundary.jsx'
@@ -13,7 +14,7 @@ function sendToAnalytics(metric) {
   if (import.meta.env.DEV) {
     console.log('[Web Vitals]', metric.name, metric.value, metric.id);
   }
-  
+
   // TODO: Send to analytics service in production
   // Example: gtag('event', metric.name, { ... });
   // Or send to your backend: fetch('/api/analytics', { method: 'POST', body: JSON.stringify(metric) });
@@ -30,8 +31,11 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AppErrorBoundary>
       <QueryProvider>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </QueryProvider>
     </AppErrorBoundary>
   </StrictMode>,
 )
+

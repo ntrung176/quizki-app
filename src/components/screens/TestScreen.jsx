@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
     FileCheck, X, Check, CheckCircle, XCircle, ChevronRight,
-    Languages, BookOpen, Wrench
+    Languages, BookOpen, Wrench, Home
 } from 'lucide-react';
 import { shuffleArray } from '../../utils/textProcessing';
+import { ROUTES } from '../../router';
 
-const TestScreen = ({ allCards, onBack }) => {
+const TestScreen = ({ allCards }) => {
     const [testMode, setTestMode] = useState(null);
     const [testType, setTestType] = useState(null);
     const [showConfig, setShowConfig] = useState(false);
@@ -399,12 +401,12 @@ const TestScreen = ({ allCards, onBack }) => {
                             >
                                 Làm bài khác
                             </button>
-                            <button
-                                onClick={onBack}
-                                className="flex-1 py-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition"
+                            <Link
+                                to={ROUTES.HOME}
+                                className="flex-1 py-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition text-center font-medium"
                             >
                                 Về trang chủ
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -595,9 +597,9 @@ const TestScreen = ({ allCards, onBack }) => {
                             <FileCheck className="w-8 h-8 mr-3 text-indigo-600 dark:text-indigo-400" />
                             Luyện Thi JLPT
                         </h1>
-                        <button onClick={onBack} className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
-                            <X className="w-6 h-6" />
-                        </button>
+                        <Link to={ROUTES.HOME} className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                            <Home className="w-6 h-6" />
+                        </Link>
                     </div>
 
                     <p className="text-gray-600 dark:text-gray-400 mb-8 text-center">

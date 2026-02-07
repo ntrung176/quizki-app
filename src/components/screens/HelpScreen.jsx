@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
     HelpCircle, Plus, Brain, Filter, Target, Zap, Repeat2,
-    Keyboard, Ear, Lightbulb, Loader2
+    Keyboard, Ear, Lightbulb, Loader2, ArrowLeft
 } from 'lucide-react';
+import { ROUTES } from '../../router';
 
-const HelpScreen = ({ onBack, isFirstTime, onConfirmFirstTime }) => {
+const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
     const [isLoading, setIsLoading] = useState(false);
 
     const handleClick = async () => {
@@ -14,11 +16,23 @@ const HelpScreen = ({ onBack, isFirstTime, onConfirmFirstTime }) => {
 
     return (
         <div className="space-y-8">
-            <div className="border-b border-gray-100 dark:border-gray-700 pb-4">
-                <h2 className="text-2xl font-black text-gray-800 dark:text-gray-100 flex items-center">
-                    <HelpCircle className="w-6 h-6 mr-2 text-indigo-600 dark:text-indigo-400" /> Hướng dẫn nhanh
-                </h2>
-                <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Làm chủ QuizKi trong 3 phút</p>
+            {/* Header with back button */}
+            <div className="flex items-center gap-4 border-b border-gray-100 dark:border-gray-700 pb-4">
+                {!isFirstTime && (
+                    <Link
+                        to={ROUTES.HOME}
+                        className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300"
+                        title="Về trang chủ"
+                    >
+                        <ArrowLeft className="w-5 h-5" />
+                    </Link>
+                )}
+                <div>
+                    <h2 className="text-2xl font-black text-gray-800 dark:text-gray-100 flex items-center">
+                        <HelpCircle className="w-6 h-6 mr-2 text-indigo-600 dark:text-indigo-400" /> Hướng dẫn nhanh
+                    </h2>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Làm chủ QuizKi trong 3 phút</p>
+                </div>
             </div>
 
             {/* Mẹo thêm từ vựng */}
@@ -95,12 +109,12 @@ const HelpScreen = ({ onBack, isFirstTime, onConfirmFirstTime }) => {
                     {isLoading ? <Loader2 className="animate-spin w-5 h-5 mx-auto" /> : "Đã hiểu, Bắt đầu ngay!"}
                 </button>
             ) : (
-                <button
-                    onClick={onBack}
-                    className="w-full py-4 border border-gray-200 dark:border-gray-700 rounded-xl font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
+                <Link
+                    to={ROUTES.HOME}
+                    className="block w-full py-4 border border-gray-200 dark:border-gray-700 rounded-xl font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 text-center"
                 >
                     Quay lại trang chủ
-                </button>
+                </Link>
             )}
         </div>
     );

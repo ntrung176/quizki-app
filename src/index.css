@@ -8,12 +8,27 @@ html {
   height: -webkit-fill-available;
   overflow-x: hidden;
   color-scheme: light;
-  background-color: #f3f4f6;
+  /* Light blue notebook grid pattern */
+  background-color: #e8f4fc;
+  background-image:
+    linear-gradient(#d0e8f5 1px, transparent 1px),
+    linear-gradient(90deg, #d0e8f5 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 html.dark {
   color-scheme: dark;
-  background-color: #111827;
+  /* Dark mode notebook grid pattern */
+  background-color: #1e293b;
+  background-image:
+    linear-gradient(#334155 1px, transparent 1px),
+    linear-gradient(90deg, #334155 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Exclude background-color and color from transitions for instant dark mode switch */
+* {
+  transition-property: transform, opacity, box-shadow, border-color !important;
 }
 
 body {
@@ -25,8 +40,7 @@ body {
   position: relative;
   width: 100%;
   max-width: 100vw;
-  transition: background-color 0.3s ease;
-  background-color: #f3f4f6;
+  background-color: transparent;
   /* Ensure inputs are focusable on mobile */
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
@@ -45,16 +59,18 @@ textarea {
 
 /* Prevent zoom on input focus on iOS */
 @media screen and (max-width: 768px) {
+
   input[type="text"],
   input[type="number"],
   textarea,
   select {
-    font-size: 16px !important; /* Prevents zoom on iOS */
+    font-size: 16px !important;
+    /* Prevents zoom on iOS */
   }
 }
 
 body.dark {
-  background-color: #111827;
+  background-color: transparent;
 }
 
 #root {
@@ -72,42 +88,56 @@ body.dark {
 
 /* Prevent zoom on input focus on iOS */
 @supports (-webkit-touch-callout: none) {
-  input, textarea, select {
+
+  input,
+  textarea,
+  select {
     font-size: 16px !important;
   }
 }
 
 /* Prevent viewport shift when keyboard appears on mobile */
 @media screen and (max-width: 768px) {
+
   /* Use visual viewport height instead of window height */
   html {
     height: 100vh;
-    height: 100dvh; /* Dynamic viewport height */
+    height: 100dvh;
+    /* Dynamic viewport height */
   }
-  
+
   body {
     height: 100vh;
     height: 100dvh;
     position: relative;
   }
-  
+
   #root {
     height: 100vh;
     height: 100dvh;
     position: relative;
   }
-  
+
   /* Prevent input from causing viewport shift */
-  input:focus, textarea:focus {
+  input:focus,
+  textarea:focus {
     scroll-margin-top: 0;
   }
 }
 
 /* Thêm animation fade-in nếu cần */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards;
 }
