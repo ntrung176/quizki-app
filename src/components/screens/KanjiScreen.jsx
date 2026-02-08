@@ -4,6 +4,7 @@ import { Search, Grid, PenTool, Download, BookOpen, Map, Globe, Layers, X, Plus,
 import { db } from '../../config/firebase';
 import { collection, getDocs, addDoc, deleteDoc, doc, query, where, writeBatch } from 'firebase/firestore';
 import { getKanjiDecomposition } from '../../data/kanjiDecomposition';
+import { RADICALS_214, KANJI_TREE, getDecompositionTree, isBasicRadical, getRadicalInfo } from '../../data/radicals214';
 
 // JLPT Levels
 const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
@@ -43,6 +44,10 @@ const KanjiScreen = ({ isAdmin = false }) => {
     const [bulkSelectMode, setBulkSelectMode] = useState(false);
     const [selectedKanjiIds, setSelectedKanjiIds] = useState([]);
     const [selectedVocabIds, setSelectedVocabIds] = useState([]);
+    const [diagramZoom, setDiagramZoom] = useState(1); // Zoom level for decomposition diagram
+    const [diagramPan, setDiagramPan] = useState({ x: 0, y: 0 }); // Pan position
+    const [isDragging, setIsDragging] = useState(false);
+    const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 
     // Form states
     const [newKanji, setNewKanji] = useState({
@@ -55,21 +60,26 @@ const KanjiScreen = ({ isAdmin = false }) => {
     const [jsonKanjiInput, setJsonKanjiInput] = useState('');
     const [jsonVocabInput, setJsonVocabInput] = useState('');
 
-    // Load data from Firebase
+    // Load data from Firebase (shared data for all users)
     useEffect(() => {
         const loadData = async () => {
             try {
-                // Load Kanji
+                console.log('Loading kanji data from Firebase...');
+
+                // Load Kanji (shared collection - no userId filter)
                 const kanjiSnap = await getDocs(collection(db, 'kanji'));
                 const kanjiData = kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+                console.log('Loaded kanji:', kanjiData.length, 'items');
                 setKanjiList(kanjiData);
 
-                // Load Vocab
+                // Load Vocab (shared collection - no userId filter)
                 const vocabSnap = await getDocs(collection(db, 'kanjiVocab'));
                 const vocabData = vocabSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+                console.log('Loaded vocab:', vocabData.length, 'items');
                 setVocabList(vocabData);
             } catch (e) {
                 console.error('Error loading kanji data:', e);
+                alert('Lỗi tải dữ liệu Kanji. Vui lòng kiểm tra kết nối hoặc Firebase Rules.');
             } finally {
                 setLoading(false);
             }
@@ -106,7 +116,12 @@ const KanjiScreen = ({ isAdmin = false }) => {
 
                 // Start animation after a short delay
                 setTimeout(() => {
-                    writerRef.current?.animateCharacter();
+                    writerRef.current?.animateCharacter({
+                        onComplete: () => {
+                            // Show character after animation completes
+                            writerRef.current?.showCharacter();
+                        }
+                    });
                 }, 100);
             } catch (error) {
                 console.error('HanziWriter error:', error);
@@ -167,51 +182,74 @@ const KanjiScreen = ({ isAdmin = false }) => {
 
     // Initialize HanziWriter in detail modal
     useEffect(() => {
-        if (selectedKanji && showDetailModal && detailWriterContainerRef.current) {
-            // Wait for DOM to be ready
-            const timer = setTimeout(() => {
-                if (!detailWriterContainerRef.current) return;
+        if (!selectedKanji || !showDetailModal) return;
 
-                // Clear previous writer
-                detailWriterContainerRef.current.innerHTML = '';
+        let attempts = 0;
+        const maxAttempts = 10;
+        let timer = null;
+        let animationTimer = null;
 
-                // Get container size
-                const containerSize = Math.min(
-                    detailWriterContainerRef.current.offsetWidth || 250,
-                    detailWriterContainerRef.current.offsetHeight || 250
-                ) * 0.75;
+        const initWriter = () => {
+            attempts++;
 
-                try {
-                    detailWriterRef.current = HanziWriter.create(detailWriterContainerRef.current, selectedKanji, {
-                        width: containerSize,
-                        height: containerSize,
-                        padding: 5,
-                        showOutline: true,
-                        strokeAnimationSpeed: 0.8,
-                        delayBetweenStrokes: 400,
-                        strokeColor: '#0891b2', // cyan-600
-                        outlineColor: '#cbd5e1', // slate-300
-                        drawingColor: '#0891b2',
-                        showCharacter: false,
+            // Check if container exists
+            if (!detailWriterContainerRef.current) {
+                if (attempts < maxAttempts) {
+                    timer = setTimeout(initWriter, 100);
+                }
+                return;
+            }
+
+            // Skip if writer already exists for this kanji
+            if (detailWriterRef.current) return;
+
+            // Clear previous content
+            detailWriterContainerRef.current.innerHTML = '';
+
+            // Get container size
+            const containerSize = Math.min(
+                detailWriterContainerRef.current.offsetWidth || 250,
+                detailWriterContainerRef.current.offsetHeight || 250
+            ) * 0.75;
+
+            try {
+                detailWriterRef.current = HanziWriter.create(detailWriterContainerRef.current, selectedKanji, {
+                    width: containerSize,
+                    height: containerSize,
+                    padding: 5,
+                    showOutline: true,
+                    strokeAnimationSpeed: 0.8,
+                    delayBetweenStrokes: 400,
+                    strokeColor: '#0891b2', // cyan-600
+                    outlineColor: '#cbd5e1', // slate-300
+                    drawingColor: '#0891b2',
+                    showCharacter: false,
+                });
+
+                // Start animation
+                animationTimer = setTimeout(() => {
+                    detailWriterRef.current?.animateCharacter({
+                        onComplete: () => {
+                            detailWriterRef.current?.showCharacter();
+                        }
                     });
-
-                    // Start animation
-                    setTimeout(() => {
-                        detailWriterRef.current?.animateCharacter();
-                    }, 200);
-                } catch (error) {
-                    console.error('Detail HanziWriter error:', error);
+                }, 200);
+            } catch (error) {
+                console.error('Detail HanziWriter error:', error);
+                if (detailWriterContainerRef.current) {
                     detailWriterContainerRef.current.innerHTML = `<span class="text-[120px] font-bold text-cyan-600 dark:text-cyan-400 font-japanese">${selectedKanji}</span>`;
                 }
-            }, 100);
+            }
+        };
 
-            return () => {
-                clearTimeout(timer);
-                if (detailWriterRef.current) {
-                    detailWriterRef.current = null;
-                }
-            };
-        }
+        // Start trying to initialize
+        timer = setTimeout(initWriter, 50);
+
+        return () => {
+            if (timer) clearTimeout(timer);
+            if (animationTimer) clearTimeout(animationTimer);
+            detailWriterRef.current = null;
+        };
     }, [selectedKanji, showDetailModal]);
 
     // Get kanji for current level (from Firebase)
@@ -571,8 +609,8 @@ const KanjiScreen = ({ isAdmin = false }) => {
         setShowEditVocabModal(true);
     };
 
-    // Kanji Detail Modal
-    const KanjiDetailModal = () => {
+    // Kanji Detail Modal - memoized to prevent recreation on every render
+    const KanjiDetailModal = useCallback(() => {
         if (!selectedKanji) return null;
         const detail = getKanjiDetail(selectedKanji);
         const vocab = getVocabForKanji(selectedKanji);
@@ -595,8 +633,9 @@ const KanjiScreen = ({ isAdmin = false }) => {
                         {/* Left: Kanji Display with Animation */}
                         <div className="space-y-4">
                             <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 aspect-square flex items-center justify-center relative shadow-xl overflow-hidden">
-                                {/* HanziWriter Container */}
+                                {/* HanziWriter Container - key prevents remounting */}
                                 <div
+                                    key={`hanzi-writer-${selectedKanji}`}
                                     ref={detailWriterContainerRef}
                                     className="w-full h-full flex items-center justify-center"
                                 />
@@ -609,7 +648,13 @@ const KanjiScreen = ({ isAdmin = false }) => {
                                 </div>
                                 {/* Replay Button */}
                                 <button
-                                    onClick={() => detailWriterRef.current?.animateCharacter()}
+                                    onClick={() => {
+                                        detailWriterRef.current?.animateCharacter({
+                                            onComplete: () => {
+                                                detailWriterRef.current?.showCharacter();
+                                            }
+                                        });
+                                    }}
                                     className="absolute bottom-3 right-3 p-2 bg-cyan-500 hover:bg-cyan-400 rounded-full text-white shadow-lg transition-all hover:scale-110"
                                     title="Xem lại animation"
                                 >
@@ -664,117 +709,261 @@ const KanjiScreen = ({ isAdmin = false }) => {
                                     <Layers className="w-4 h-4" />
                                     Sơ đồ chiết tự
                                 </h4>
-                                <div className="relative h-56 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 rounded-xl border border-gray-200 dark:border-slate-700">
+                                <div className="relative bg-slate-900 rounded-xl border border-slate-700 overflow-hidden" style={{ height: '420px' }}>
                                     {loadingApiData ? (
                                         <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="animate-spin w-8 h-8 border-4 border-cyan-500 border-t-transparent rounded-full"></div>
+                                            <div className="animate-spin w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full"></div>
                                         </div>
-                                    ) : (
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="relative w-full h-full">
-                                                {/* Center - Main Kanji */}
-                                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center text-3xl font-bold text-white shadow-lg shadow-cyan-500/40 font-japanese">
-                                                    {selectedKanji}
-                                                </div>
+                                    ) : (() => {
+                                        // Parse radical string
+                                        const parseRadicals = (str) => {
+                                            if (!str) return [];
+                                            const withoutParens = str.replace(/[（(][^)）]*[)）]/g, '');
+                                            return withoutParens.split(/[,，、\s]+/).map(s => s.trim()).filter(s => s.length > 0);
+                                        };
 
-                                                {/* Radical - Main component */}
-                                                {kanjiApiData?.radical && (
-                                                    <div
-                                                        className="absolute w-14 h-14 rounded-full bg-gradient-to-br from-orange-400 to-orange-500 flex flex-col items-center justify-center text-white shadow-lg cursor-pointer hover:scale-110 transition-transform"
-                                                        style={{ top: '15%', left: '50%', transform: 'translateX(-50%)' }}
-                                                        title={`Bộ thủ: ${kanjiApiData.radical}`}
-                                                    >
-                                                        <span className="text-xl font-bold font-japanese">{kanjiApiData.radical}</span>
-                                                        <span className="text-[8px] opacity-80">bộ thủ</span>
-                                                    </div>
-                                                )}
+                                        // Build recursive decomposition tree
+                                        const buildTree = (char, depth = 0, maxDepth = 4, visited = new Set()) => {
+                                            if (depth >= maxDepth || visited.has(char)) return { char, children: [] };
+                                            visited.add(char);
+                                            let children = [];
+                                            const kanjiData = kanjiList.find(k => k.character === char);
+                                            if (kanjiData?.radical) {
+                                                children = parseRadicals(kanjiData.radical);
+                                            }
+                                            if (children.length === 0) {
+                                                const treeData = KANJI_TREE[char];
+                                                if (treeData?.components?.length > 0) {
+                                                    children = treeData.components;
+                                                }
+                                            }
+                                            return {
+                                                char,
+                                                children: children.map(c => buildTree(c, depth + 1, maxDepth, new Set(visited)))
+                                            };
+                                        };
 
-                                                {/* Components */}
-                                                {(kanjiApiData?.components || []).slice(0, 6).map((comp, i) => {
-                                                    if (comp === selectedKanji || comp === kanjiApiData?.radical) return null;
-                                                    const positions = [
-                                                        { top: '70%', left: '25%' },
-                                                        { top: '70%', left: '75%' },
-                                                        { top: '35%', left: '15%' },
-                                                        { top: '35%', left: '85%' },
-                                                        { top: '50%', left: '10%' },
-                                                        { top: '50%', left: '90%' },
-                                                    ];
-                                                    const pos = positions[i] || positions[0];
-                                                    const colors = [
-                                                        'from-purple-400 to-purple-500',
-                                                        'from-emerald-400 to-emerald-500',
-                                                        'from-pink-400 to-pink-500',
-                                                        'from-blue-400 to-blue-500',
-                                                        'from-amber-400 to-amber-500',
-                                                        'from-teal-400 to-teal-500',
-                                                    ];
-                                                    return (
-                                                        <div
-                                                            key={i}
-                                                            className={`absolute w-11 h-11 rounded-full bg-gradient-to-br ${colors[i % colors.length]} flex items-center justify-center text-lg font-bold text-white cursor-pointer hover:scale-110 transition-transform shadow-md font-japanese`}
-                                                            style={{ top: pos.top, left: pos.left, transform: 'translate(-50%, -50%)' }}
-                                                            onClick={() => {
-                                                                // Check if component is a kanji we have
-                                                                const hasKanji = kanjiList.some(k => k.character === comp);
-                                                                if (hasKanji) setSelectedKanji(comp);
-                                                            }}
-                                                            title={`Thành phần: ${comp}`}
-                                                        >
-                                                            {comp}
-                                                        </div>
-                                                    );
-                                                })}
+                                        const tree = buildTree(selectedKanji, 0, 4);
+                                        const nodes = [];
+                                        const lines = [];
 
-                                                {/* Lines connecting components */}
-                                                <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: -1 }}>
-                                                    {(kanjiApiData?.components || []).slice(0, 6).map((comp, i) => {
-                                                        if (comp === selectedKanji || comp === kanjiApiData?.radical) return null;
-                                                        const positions = [
-                                                            { x: 25, y: 70 },
-                                                            { x: 75, y: 70 },
-                                                            { x: 15, y: 35 },
-                                                            { x: 85, y: 35 },
-                                                            { x: 10, y: 50 },
-                                                            { x: 90, y: 50 },
-                                                        ];
-                                                        const pos = positions[i] || positions[0];
-                                                        return (
-                                                            <line
-                                                                key={i}
-                                                                x1="50%"
-                                                                y1="50%"
-                                                                x2={`${pos.x}%`}
-                                                                y2={`${pos.y}%`}
-                                                                stroke="currentColor"
+                                        // Use pixel-based layout for better control over spacing
+                                        const containerWidth = 600;
+                                        const containerHeight = 400;
+                                        const centerX = containerWidth / 2;
+                                        const centerY = containerHeight / 2;
+
+                                        // Improved layout with fixed pixel spacing
+                                        const layoutTree = (node, x, y, level, parentX = null, parentY = null, angleStart = Math.PI, angleSpan = Math.PI * 1.2) => {
+                                            nodes.push({ char: node.char, x, y, level, isRoot: level === 0 });
+                                            if (parentX !== null && parentY !== null) {
+                                                lines.push({ x1: x, y1: y, x2: parentX, y2: parentY });
+                                            }
+                                            const childCount = node.children.length;
+                                            if (childCount > 0) {
+                                                // Fixed pixel radius - much larger to avoid overlap
+                                                const radius = level === 0 ? 120 : (level === 1 ? 80 : 50);
+                                                const childAngleSpan = angleSpan / Math.max(childCount, 1);
+
+                                                node.children.forEach((child, i) => {
+                                                    const angle = angleStart + childAngleSpan * (i - (childCount - 1) / 2);
+                                                    const childX = x + Math.cos(angle) * radius;
+                                                    const childY = y + Math.sin(angle) * radius;
+                                                    layoutTree(child, childX, childY, level + 1, x, y, angle, childAngleSpan * 0.8);
+                                                });
+                                            }
+                                        };
+
+                                        layoutTree(tree, centerX, centerY, 0);
+
+                                        // Find kanji that use this kanji
+                                        const kanjiFromTree = Object.entries(KANJI_TREE)
+                                            .filter(([k, v]) => v.components?.includes(selectedKanji) && k !== selectedKanji)
+                                            .map(([k]) => k);
+                                        const kanjiFromFirebase = kanjiList
+                                            .filter(k => {
+                                                if (k.character === selectedKanji) return false;
+                                                if (kanjiFromTree.includes(k.character)) return false;
+                                                return parseRadicals(k.radical).includes(selectedKanji);
+                                            })
+                                            .map(k => k.character);
+                                        const kanjiUsingThis = [...kanjiFromTree, ...kanjiFromFirebase].slice(0, 3);
+
+                                        // Add result nodes to the right
+                                        kanjiUsingThis.forEach((k, i) => {
+                                            const totalResults = kanjiUsingThis.length;
+                                            const angleSpan = Math.PI * 0.5;
+                                            const baseAngle = -angleSpan / 2;
+                                            const angle = totalResults === 1 ? 0 : baseAngle + (angleSpan / (totalResults - 1)) * i;
+                                            const radius = 130;
+                                            const x = centerX + Math.cos(angle) * radius;
+                                            const y = centerY + Math.sin(angle) * radius;
+                                            nodes.push({ char: k, x, y, level: -1, isResult: true });
+                                            lines.push({ x1: centerX, y1: centerY, x2: x, y2: y, isResult: true });
+                                        });
+
+                                        return (
+                                            <div
+                                                className={`absolute inset-0 overflow-hidden ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+                                                onWheel={(e) => {
+                                                    e.preventDefault();
+                                                    const delta = e.deltaY > 0 ? -0.15 : 0.15;
+                                                    setDiagramZoom(prev => Math.min(Math.max(prev + delta, 0.4), 3));
+                                                }}
+                                                onMouseDown={(e) => {
+                                                    if (e.button !== 0) return;
+                                                    setIsDragging(true);
+                                                    setDragStart({ x: e.clientX - diagramPan.x, y: e.clientY - diagramPan.y });
+                                                }}
+                                                onMouseMove={(e) => {
+                                                    if (!isDragging) return;
+                                                    setDiagramPan({
+                                                        x: e.clientX - dragStart.x,
+                                                        y: e.clientY - dragStart.y
+                                                    });
+                                                }}
+                                                onMouseUp={() => setIsDragging(false)}
+                                                onMouseLeave={() => setIsDragging(false)}
+                                            >
+                                                {/* CSS Animation for arrows */}
+                                                <style>{`
+                                                    @keyframes flowArrow {
+                                                        0% { stroke-dashoffset: 12; }
+                                                        100% { stroke-dashoffset: 0; }
+                                                    }
+                                                    .animated-line {
+                                                        stroke-dasharray: 6, 6;
+                                                        animation: flowArrow 0.6s linear infinite;
+                                                    }
+                                                    @keyframes glow {
+                                                        0%, 100% { box-shadow: 0 0 20px rgba(255,255,255,0.3); }
+                                                        50% { box-shadow: 0 0 30px rgba(255,255,255,0.5); }
+                                                    }
+                                                    .glow-node {
+                                                        animation: glow 2s ease-in-out infinite;
+                                                    }
+                                                `}</style>
+
+                                                {/* Zoomable & Pannable content */}
+                                                <div
+                                                    className="absolute"
+                                                    style={{
+                                                        width: containerWidth,
+                                                        height: containerHeight,
+                                                        left: '50%',
+                                                        top: '50%',
+                                                        transform: `translate(calc(-50% + ${diagramPan.x}px), calc(-50% + ${diagramPan.y}px)) scale(${diagramZoom})`,
+                                                        transition: isDragging ? 'none' : 'transform 0.15s ease-out'
+                                                    }}
+                                                >
+
+                                                    {/* SVG for lines */}
+                                                    <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
+                                                        <defs>
+                                                            <marker id="arrowWhite" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                                                <polygon points="0 0, 8 3, 0 6" fill="#ffffff" />
+                                                            </marker>
+                                                            <marker id="arrowCyan" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                                                <polygon points="0 0, 8 3, 0 6" fill="#22d3ee" />
+                                                            </marker>
+                                                        </defs>
+
+                                                        {/* All lines */}
+                                                        {lines.map((line, i) => (
+                                                            <line key={`line-${i}`}
+                                                                x1={line.x1} y1={line.y1}
+                                                                x2={line.x2} y2={line.y2}
+                                                                stroke={line.isResult ? "#22d3ee" : "#9ca3af"}
                                                                 strokeWidth="2"
-                                                                strokeDasharray="4"
-                                                                className="text-gray-300 dark:text-slate-600"
+                                                                className="animated-line"
+                                                                markerEnd={line.isResult ? "url(#arrowCyan)" : "url(#arrowWhite)"}
                                                             />
+                                                        ))}
+                                                    </svg>
+
+                                                    {/* Render component nodes (orange) */}
+                                                    {nodes.filter(n => !n.isRoot && !n.isResult).map((node, i) => {
+                                                        const size = node.level === 1 ? 48 : (node.level === 2 ? 40 : 32);
+                                                        const fontSize = node.level === 1 ? 20 : (node.level === 2 ? 16 : 14);
+
+                                                        return (
+                                                            <div key={`node-${i}`}
+                                                                className="absolute bg-orange-500 rounded-full flex items-center justify-center font-bold text-white cursor-pointer hover:bg-orange-400 hover:scale-110 transition-all font-japanese"
+                                                                style={{
+                                                                    top: node.y,
+                                                                    left: node.x,
+                                                                    width: size,
+                                                                    height: size,
+                                                                    fontSize: fontSize,
+                                                                    transform: 'translate(-50%, -50%)',
+                                                                    zIndex: 10 - node.level
+                                                                }}
+                                                                onClick={() => {
+                                                                    const hasKanji = kanjiList.some(k => k.character === node.char);
+                                                                    if (hasKanji) {
+                                                                        setSelectedKanji(node.char);
+                                                                        setDiagramPan({ x: 0, y: 0 });
+                                                                        setDiagramZoom(1);
+                                                                    }
+                                                                }}
+                                                                title={node.char}
+                                                            >
+                                                                {node.char}
+                                                            </div>
                                                         );
                                                     })}
-                                                    {kanjiApiData?.radical && (
-                                                        <line
-                                                            x1="50%"
-                                                            y1="50%"
-                                                            x2="50%"
-                                                            y2="15%"
-                                                            stroke="currentColor"
-                                                            strokeWidth="2"
-                                                            className="text-orange-300 dark:text-orange-600"
-                                                        />
-                                                    )}
-                                                </svg>
 
-                                                {/* No data message */}
-                                                {!kanjiApiData?.components?.length && !kanjiApiData?.radical && (
-                                                    <div className="absolute inset-0 flex items-center justify-center text-gray-400 dark:text-gray-500 text-sm">
-                                                        Không có dữ liệu chiết tự
-                                                    </div>
-                                                )}
+                                                    {/* Root node (white/light gray) - center */}
+                                                    {nodes.filter(n => n.isRoot).map((node, i) => (
+                                                        <div key={`root-${i}`}
+                                                            className="absolute bg-gray-100 rounded-full flex items-center justify-center font-bold text-slate-800 font-japanese glow-node"
+                                                            style={{
+                                                                top: node.y,
+                                                                left: node.x,
+                                                                width: 56,
+                                                                height: 56,
+                                                                fontSize: 24,
+                                                                transform: 'translate(-50%, -50%)',
+                                                                zIndex: 15
+                                                            }}
+                                                            title={node.char}
+                                                        >
+                                                            {node.char}
+                                                        </div>
+                                                    ))}
+
+                                                    {/* Result nodes (cyan) */}
+                                                    {nodes.filter(n => n.isResult).map((node, i) => {
+                                                        const kanjiData = kanjiList.find(kj => kj.character === node.char);
+                                                        return (
+                                                            <div key={`result-${i}`}
+                                                                className="absolute bg-cyan-400 rounded-full flex items-center justify-center font-bold text-white cursor-pointer hover:bg-cyan-300 hover:scale-110 transition-all font-japanese"
+                                                                style={{
+                                                                    top: node.y,
+                                                                    left: node.x,
+                                                                    width: 48,
+                                                                    height: 48,
+                                                                    fontSize: 20,
+                                                                    transform: 'translate(-50%, -50%)',
+                                                                    zIndex: 10
+                                                                }}
+                                                                onClick={() => {
+                                                                    if (kanjiData) {
+                                                                        setSelectedKanji(node.char);
+                                                                        setDiagramPan({ x: 0, y: 0 });
+                                                                        setDiagramZoom(1);
+                                                                    }
+                                                                }}
+                                                                title={node.char}
+                                                            >
+                                                                {node.char}
+                                                            </div>
+                                                        );
+                                                    })}
+                                                </div>
                                             </div>
-                                        </div>
-                                    )}
+                                        );
+                                    })()}
                                 </div>
                             </div>
                         </div>
@@ -841,7 +1030,25 @@ const KanjiScreen = ({ isAdmin = false }) => {
                 </div>
             </div>
         );
-    };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [selectedKanji, kanjiList, vocabList, kanjiApiData, isAdmin, diagramZoom, diagramPan, isDragging, dragStart]);
+
+    // Loading screen
+    if (loading) {
+        return (
+            <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:bg-slate-900 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 flex items-center justify-center">
+                <div className="text-center space-y-4">
+                    <div className="relative">
+                        <div className="w-20 h-20 border-4 border-cyan-200 dark:border-slate-700 rounded-full animate-pulse"></div>
+                        <div className="absolute inset-0 w-20 h-20 border-4 border-transparent border-t-cyan-500 rounded-full animate-spin"></div>
+                        <span className="absolute inset-0 flex items-center justify-center text-3xl font-japanese text-cyan-600 dark:text-cyan-400">漢</span>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-400 font-medium">Đang tải dữ liệu Kanji...</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">Lần đầu có thể mất vài giây</p>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:bg-slate-900 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 text-gray-900 dark:text-white">
@@ -1056,7 +1263,7 @@ const KanjiScreen = ({ isAdmin = false }) => {
             </div>
 
             {/* Detail Modal */}
-            {showDetailModal && <KanjiDetailModal />}
+            {showDetailModal && KanjiDetailModal()}
 
             {/* Add Kanji Modal */}
             {showAddKanjiModal && (

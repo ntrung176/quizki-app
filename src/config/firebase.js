@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, enableIndexedDbPersistence } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
 // --- Cấu hình Firebase ---
@@ -21,6 +21,15 @@ try {
     app = initializeApp(firebaseConfig);
     db = getFirestore(app);
     auth = getAuth(app);
+
+    // Enable offline persistence for faster loading
+    enableIndexedDbPersistence(db).catch((err) => {
+        if (err.code === 'failed-precondition') {
+            console.warn('Persistence failed: Multiple tabs open');
+        } else if (err.code === 'unimplemented') {
+            console.warn('Persistence not supported by browser');
+        }
+    });
 } catch (e) {
     console.error("Lỗi khởi tạo Firebase:", e);
 }
