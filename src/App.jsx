@@ -2283,11 +2283,11 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
             )}
 
             {/* Main content area - responsive for sidebar */}
-            <main className={`lg:ml-64 min-h-screen pt-14 lg:pt-0 ${view === 'REVIEW' ? 'bg-transparent' : ''}`}>
-                <div className={`${view === 'REVIEW' ? 'w-full h-screen flex items-center justify-center bg-transparent' : 'w-full max-w-lg xl:max-w-xl mx-auto px-8 md:px-12 lg:px-20 py-4 md:py-6 lg:py-8'}`}>
+            <main className={`lg:ml-64 min-h-screen pt-14 lg:pt-0 ${view === 'REVIEW' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
+                <div className={`${view === 'REVIEW' ? 'w-full h-screen flex items-center justify-center bg-transparent' : view === 'KANJI' ? 'w-full min-h-screen' : 'w-full max-w-lg xl:max-w-xl mx-auto px-8 md:px-12 lg:px-20 py-4 md:py-6 lg:py-8'}`}>
                     {/* Main content container - transparent */}
-                    <div className={`${view === 'REVIEW' ? 'bg-transparent' : ''}`}>
-                        <div className={view === 'REVIEW' ? 'bg-transparent' : ''}>
+                    <div className={`${view === 'REVIEW' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
+                        <div className={view === 'REVIEW' || view === 'KANJI' ? 'bg-transparent' : ''}>
                             {renderContent()}
                         </div>
 
