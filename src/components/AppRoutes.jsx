@@ -4,6 +4,7 @@ import { ROUTES, ProtectedRoute, PublicOnlyRoute } from '../router';
 
 import {
     HomeScreen,
+    SRSVocabScreen,
     LoginScreen,
     AccountScreen,
     HelpScreen,
@@ -14,6 +15,8 @@ import {
     ReviewScreen,
     ReviewCompleteScreen,
     KanjiScreen,
+    KanjiStudyScreen,
+    KanjiReviewScreen,
     StudyScreen,
     TestScreen,
     AdminScreen,
@@ -22,14 +25,13 @@ import {
 
 // Import card components
 import {
-    AddCardForm,
-    EditCardForm
+    AddCardForm
 } from './cards';
+
 
 const AppRoutes = ({
     // Auth state
     isAuthenticated,
-    isApproved,
     isLoading,
 
     // User data
@@ -76,7 +78,7 @@ const AppRoutes = ({
     handleBatchSaveNext,
     handleBatchSkip,
     handleExport,
-    handleNavigateToEdit,
+    handleImportTSV,
     handleUpdateGoal,
     handleAdminDeleteUserData,
     handleUpdateProfileName,
@@ -124,11 +126,27 @@ const AppRoutes = ({
 
 
             {/* Protected routes - require both auth and approval */}
+
+            {/* Trang chủ mới - Landing page */}
             <Route
                 path={ROUTES.HOME}
                 element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <HomeScreen
+                            displayName={profile?.displayName}
+                            totalCards={allCards?.length || 0}
+                            allCards={allCards}
+                        />
+                    </ProtectedRoute>
+                }
+            />
+
+            {/* Ôn tập từ vựng - SRSVocabScreen at /srsvocab */}
+            <Route
+                path={ROUTES.VOCABULARY}
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <SRSVocabScreen
                             displayName={profile?.displayName}
                             dueCounts={dueCounts}
                             totalCards={allCards?.length || 0}
@@ -146,16 +164,19 @@ const AppRoutes = ({
                 }
             />
 
+            {/* Danh sách từ vựng - ListView at /vocabulary */}
             <Route
-                path={ROUTES.VOCABULARY}
+                path={ROUTES.VOCABULARY_LIST}
                 element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <ListView
                             allCards={allCards}
                             onDeleteCard={handleDeleteCard}
                             onPlayAudio={playAudio}
                             onExport={() => handleExport(allCards)}
-                            onNavigateToEdit={handleNavigateToEdit}
+                            onImportTSV={handleImportTSV}
+                            onSaveChanges={handleSaveChanges}
+                            onGeminiAssist={handleGeminiAssist}
                             scrollToCardId={scrollToCardIdRef?.current}
                             onScrollComplete={() => { if (scrollToCardIdRef) scrollToCardIdRef.current = null; }}
                             savedFilters={savedFilters}
@@ -168,7 +189,7 @@ const AppRoutes = ({
             <Route
                 path={ROUTES.VOCABULARY_ADD}
                 element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <AddCardForm
                             onSave={handleSaveNewCard}
                             onBack={() => setView('LIST')}
@@ -185,24 +206,32 @@ const AppRoutes = ({
                 }
             />
 
+
+            {/* Học Kanji - Study roadmap screen */}
             <Route
-                path={ROUTES.VOCABULARY_EDIT}
+                path={ROUTES.KANJI_STUDY}
                 element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
-                        <EditCardForm
-                            card={editingCard}
-                            onSave={handleSaveChanges}
-                            onBack={() => { setEditingCard(null); setView('LIST'); }}
-                            onGeminiAssist={handleGeminiAssist}
-                        />
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <KanjiStudyScreen />
                     </ProtectedRoute>
                 }
             />
 
+            {/* Ôn tập Kanji - Review statistics screen */}
+            <Route
+                path={ROUTES.KANJI_REVIEW}
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <KanjiReviewScreen />
+                    </ProtectedRoute>
+                }
+            />
+
+            {/* Danh sách Kanji */}
             <Route
                 path={ROUTES.KANJI}
                 element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <KanjiScreen isAdmin={isAdmin} />
                     </ProtectedRoute>
                 }
@@ -211,7 +240,7 @@ const AppRoutes = ({
             <Route
                 path={ROUTES.REVIEW}
                 element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
                         {reviewCards?.length === 0 ? (
                             <ReviewCompleteScreen onBack={() => setView('HOME')} />
                         ) : (
@@ -247,7 +276,7 @@ const AppRoutes = ({
             <Route
                 path={ROUTES.STUDY}
                 element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <StudyScreen
                             studySessionData={studySessionData}
                             setStudySessionData={setStudySessionData}
@@ -273,7 +302,7 @@ const AppRoutes = ({
             <Route
                 path={ROUTES.TEST}
                 element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <TestScreen
                             allCards={allCards}
                             onBack={() => setView('HOME')}
@@ -285,7 +314,7 @@ const AppRoutes = ({
             <Route
                 path={ROUTES.STATS}
                 element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <StatsScreen
                             memoryStats={memoryStats}
                             totalCards={allCards?.length || 0}
@@ -302,11 +331,10 @@ const AppRoutes = ({
             <Route
                 path={ROUTES.FRIENDS}
                 element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <FriendsScreen
                             publicStatsPath={publicStatsCollectionPath}
                             currentUserId={userId}
-                            isAdmin={isAdmin}
                             onBack={() => setView('HOME')}
                         />
                     </ProtectedRoute>
@@ -316,7 +344,7 @@ const AppRoutes = ({
             <Route
                 path={ROUTES.ACCOUNT}
                 element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <AccountScreen
                             profile={profile}
                             publicStatsPath={publicStatsCollectionPath}
@@ -332,7 +360,7 @@ const AppRoutes = ({
             <Route
                 path={ROUTES.HELP}
                 element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <HelpScreen
                             isFirstTime={false}
                             onBack={() => setView('HOME')}
@@ -344,7 +372,7 @@ const AppRoutes = ({
             <Route
                 path={ROUTES.IMPORT}
                 element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <ImportScreen
                             onImport={handleBatchImport}
                             onBack={() => setView('HOME')}
@@ -357,7 +385,7 @@ const AppRoutes = ({
             <Route
                 path={ROUTES.ADMIN}
                 element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
                         {isAdmin ? (
                             <AdminScreen
                                 publicStatsPath={publicStatsCollectionPath}
@@ -375,7 +403,7 @@ const AppRoutes = ({
             <Route
                 path={ROUTES.FLASHCARD}
                 element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
                         {flashcardCards && flashcardCards.length > 0 ? (
                             <FlashcardScreen
                                 cards={flashcardCards}

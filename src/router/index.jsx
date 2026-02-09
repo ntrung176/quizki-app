@@ -7,12 +7,19 @@ export const ROUTES = {
     LOGIN: '/login',
     ACCOUNT: '/account',
     HELP: '/help',
-    VOCABULARY: '/vocabulary',
-    VOCABULARY_ADD: '/vocabulary/add',
+    // Vocabulary routes
+    VOCABULARY: '/srsvocab',         // Ôn tập từ vựng (trang chủ cũ)
+    VOCABULARY_LIST: '/vocabulary',   // Danh sách từ vựng
+    VOCABULARY_ADD: '/addvocab',      // Thêm từ vựng mới (tách riêng)
     VOCABULARY_EDIT: '/vocabulary/edit/:id',
+    // Kanji routes
+    KANJI_STUDY: '/kanji-study',      // Học Kanji (lộ trình)
+    KANJI_REVIEW: '/kanji-review',    // Ôn tập Kanji (mới)
+    KANJI_LIST: '/kanji',             // Danh sách Kanji
+    KANJI: '/kanji',                  // Alias for compatibility
+    // Other routes
     REVIEW: '/review',
     FLASHCARD: '/flashcard',
-    KANJI: '/kanji',
     STUDY: '/study',
     TEST: '/test',
     STATS: '/stats',
@@ -28,8 +35,7 @@ export const getEditRoute = (cardId) => `/vocabulary/edit/${cardId}`;
 export { useNavigate, useParams, useLocation, Navigate, Link };
 
 // Protected Route component - requires authentication only
-// isApproved is kept as prop for potential future use but not checked for routing
-export const ProtectedRoute = ({ children, isAuthenticated, isApproved }) => {
+export const ProtectedRoute = ({ children, isAuthenticated }) => {
     if (!isAuthenticated) {
         return <Navigate to={ROUTES.LOGIN} replace />;
     }

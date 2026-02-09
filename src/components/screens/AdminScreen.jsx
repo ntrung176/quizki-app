@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { collection, query, onSnapshot, doc, getDoc, setDoc, deleteDoc, getDocs, where } from 'firebase/firestore';
+import { collection, query, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 import {
-    Users, Search, Shield, ShieldCheck, ShieldX, Trash2, Edit, Save, X,
-    BarChart3, UserCheck, UserX, Clock, Calendar, Filter, ChevronDown, ChevronUp,
-    AlertTriangle, CheckCircle, Loader2, RefreshCw
+    Users, Search, Shield, Trash2, BarChart3, Clock,
+    AlertTriangle, CheckCircle, Loader2
 } from 'lucide-react';
 
 // Application ID for Firebase paths
@@ -15,13 +14,9 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
     const [users, setUsers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
-    const [filterStatus, setFilterStatus] = useState('all'); // all, approved, pending
-    const [sortBy, setSortBy] = useState('totalCards'); // totalCards, displayName, createdAt
+    const [sortBy, setSortBy] = useState('totalCards'); // totalCards, displayName
     const [sortOrder, setSortOrder] = useState('desc');
     const [selectedUser, setSelectedUser] = useState(null);
-    const [isEditing, setIsEditing] = useState(false);
-    const [editForm, setEditForm] = useState({});
-    const [saving, setSaving] = useState(false);
     const [notification, setNotification] = useState(null);
     const [confirmDelete, setConfirmDelete] = useState(null);
     const [deleting, setDeleting] = useState(false);
@@ -44,15 +39,13 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
     // Stats calculations
     const stats = useMemo(() => {
         const total = users.length;
-        const approved = users.filter(u => u.isApproved === true).length;
-        const pending = users.filter(u => u.isApproved !== true).length;
         const totalCards = users.reduce((sum, u) => sum + (u.totalCards || 0), 0);
         const activeToday = users.filter(u => {
             if (!u.lastActive) return false;
             const today = new Date().setHours(0, 0, 0, 0);
             return u.lastActive >= today;
         }).length;
-        return { total, approved, pending, totalCards, activeToday };
+        return { total, totalCards, activeToday };
     }, [users]);
 
     // Filtered and sorted users
@@ -68,13 +61,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
             );
         }
 
-        // Status filter
-        if (filterStatus === 'approved') {
-            result = result.filter(u => u.isApproved === true);
-        } else if (filterStatus === 'pending') {
-            result = result.filter(u => u.isApproved !== true);
-        }
-
         // Sort
         result.sort((a, b) => {
             let aVal, bVal;
@@ -82,10 +68,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
                 case 'displayName':
                     aVal = (a.displayName || '').toLowerCase();
                     bVal = (b.displayName || '').toLowerCase();
-                    break;
-                case 'createdAt':
-                    aVal = a.createdAt || 0;
-                    bVal = b.createdAt || 0;
                     break;
                 default:
                     aVal = a.totalCards || 0;
@@ -98,118 +80,11 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
         });
 
         return result;
-    }, [users, searchQuery, filterStatus, sortBy, sortOrder]);
+    }, [users, searchQuery, sortBy, sortOrder]);
 
     // Open user details
-    const handleSelectUser = async (user) => {
+    const handleSelectUser = (user) => {
         setSelectedUser(user);
-        setIsEditing(false);
-        setEditForm({
-            displayName: user.displayName || '',
-            isApproved: user.isApproved === true,
-            dailyGoal: ''
-        });
-
-        // Load full profile
-        if (db && appId) {
-            try {
-                const profileRef = doc(db, `artifacts/${appId}/users/${user.userId}/settings/profile`);
-                const snap = await getDoc(profileRef);
-                if (snap.exists()) {
-                    const data = snap.data();
-                    setEditForm(prev => ({
-                        ...prev,
-                        dailyGoal: data.dailyGoal ? String(data.dailyGoal) : ''
-                    }));
-                }
-            } catch (e) {
-                console.error('Error loading profile:', e);
-            }
-        }
-    };
-
-    // Save user changes
-    const handleSave = async () => {
-        if (!db || !appId || !selectedUser) return;
-
-        const name = editForm.displayName.trim();
-        if (!name) {
-            setNotification({ type: 'error', message: 'Tên hiển thị không được để trống.' });
-            return;
-        }
-
-        setSaving(true);
-        try {
-            // Check duplicate name
-            const q = query(collection(db, publicStatsPath), where('displayName', '==', name));
-            const snap = await getDocs(q);
-            const conflict = snap.docs.find(d => d.id !== selectedUser.userId);
-            if (conflict) {
-                setNotification({ type: 'error', message: 'Tên hiển thị đã được sử dụng.' });
-                setSaving(false);
-                return;
-            }
-
-            // Update profile
-            const profileRef = doc(db, `artifacts/${appId}/users/${selectedUser.userId}/settings/profile`);
-            const updates = {
-                displayName: name,
-                isApproved: editForm.isApproved === true
-            };
-            const goalNum = editForm.dailyGoal ? Number(editForm.dailyGoal) : null;
-            if (!isNaN(goalNum) && goalNum > 0) {
-                updates.dailyGoal = goalNum;
-            }
-            await setDoc(profileRef, updates, { merge: true });
-
-            // Update public stats
-            const statsRef = doc(db, publicStatsPath, selectedUser.userId);
-            await setDoc(statsRef, {
-                displayName: name,
-                isApproved: editForm.isApproved === true
-            }, { merge: true });
-
-            // Update local state
-            setUsers(prev => prev.map(u =>
-                u.userId === selectedUser.userId
-                    ? { ...u, displayName: name, isApproved: editForm.isApproved }
-                    : u
-            ));
-            setSelectedUser(prev => ({ ...prev, displayName: name, isApproved: editForm.isApproved }));
-            setIsEditing(false);
-            setNotification({ type: 'success', message: 'Đã lưu thay đổi.' });
-        } catch (e) {
-            console.error('Error saving:', e);
-            setNotification({ type: 'error', message: 'Lỗi khi lưu: ' + e.message });
-        } finally {
-            setSaving(false);
-        }
-    };
-
-    // Quick approve/unapprove
-    const handleQuickApprove = async (user, approve) => {
-        if (!db || !appId) return;
-        try {
-            const profileRef = doc(db, `artifacts/${appId}/users/${user.userId}/settings/profile`);
-            await setDoc(profileRef, { isApproved: approve }, { merge: true });
-
-            const statsRef = doc(db, publicStatsPath, user.userId);
-            await setDoc(statsRef, { isApproved: approve }, { merge: true });
-
-            setUsers(prev => prev.map(u =>
-                u.userId === user.userId ? { ...u, isApproved: approve } : u
-            ));
-            if (selectedUser?.userId === user.userId) {
-                setSelectedUser(prev => ({ ...prev, isApproved: approve }));
-            }
-            setNotification({
-                type: 'success',
-                message: approve ? `Đã duyệt ${user.displayName}` : `Đã hủy duyệt ${user.displayName}`
-            });
-        } catch (e) {
-            console.error('Error:', e);
-            setNotification({ type: 'error', message: 'Lỗi: ' + e.message });
-        }
     };
 
     // Delete user
@@ -267,7 +142,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
             </div>
 
             {/* Stats Cards */}
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+            <div className="grid grid-cols-3 gap-3">
                 <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
@@ -276,28 +151,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
                         <div>
                             <p className="text-2xl font-bold text-gray-800 dark:text-white">{stats.total}</p>
                             <p className="text-xs text-gray-500">Tổng người dùng</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                            <UserCheck className="w-5 h-5 text-green-600 dark:text-green-400" />
-                        </div>
-                        <div>
-                            <p className="text-2xl font-bold text-green-600">{stats.approved}</p>
-                            <p className="text-xs text-gray-500">Đã duyệt</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
-                            <UserX className="w-5 h-5 text-amber-600 dark:text-amber-400" />
-                        </div>
-                        <div>
-                            <p className="text-2xl font-bold text-amber-600">{stats.pending}</p>
-                            <p className="text-xs text-gray-500">Chờ duyệt</p>
                         </div>
                     </div>
                 </div>
@@ -339,17 +192,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
                             className="w-full pl-10 pr-4 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none"
                         />
                     </div>
-
-                    {/* Status Filter */}
-                    <select
-                        value={filterStatus}
-                        onChange={(e) => setFilterStatus(e.target.value)}
-                        className="px-4 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none"
-                    >
-                        <option value="all">Tất cả trạng thái</option>
-                        <option value="approved">Đã duyệt</option>
-                        <option value="pending">Chờ duyệt</option>
-                    </select>
 
                     {/* Sort */}
                     <select
@@ -396,8 +238,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
                                     >
                                         <div className="flex items-center justify-between">
                                             <div className="flex items-center gap-3">
-                                                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold ${user.isApproved ? 'bg-green-500' : 'bg-amber-500'
-                                                    }`}>
+                                                <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold bg-indigo-500">
                                                     {(user.displayName || '?')[0].toUpperCase()}
                                                 </div>
                                                 <div>
@@ -414,17 +255,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div className="flex items-center gap-2">
-                                                {user.isApproved ? (
-                                                    <span className="text-xs bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 px-2 py-1 rounded-full flex items-center gap-1">
-                                                        <ShieldCheck className="w-3 h-3" /> Đã duyệt
-                                                    </span>
-                                                ) : (
-                                                    <span className="text-xs bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 px-2 py-1 rounded-full flex items-center gap-1">
-                                                        <Clock className="w-3 h-3" /> Chờ duyệt
-                                                    </span>
-                                                )}
-                                            </div>
                                         </div>
                                     </div>
                                 ))}
@@ -438,27 +268,16 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
                     {selectedUser ? (
                         <div className="p-4 space-y-4">
                             {/* User Header */}
-                            <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-3">
-                                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg ${selectedUser.isApproved ? 'bg-green-500' : 'bg-amber-500'
-                                        }`}>
-                                        {(selectedUser.displayName || '?')[0].toUpperCase()}
-                                    </div>
-                                    <div>
-                                        <p className="font-bold text-gray-800 dark:text-white">
-                                            {selectedUser.displayName || 'Chưa đặt tên'}
-                                        </p>
-                                        <p className="text-xs text-gray-500 font-mono">{selectedUser.userId?.slice(0, 20)}...</p>
-                                    </div>
+                            <div className="flex items-center gap-3">
+                                <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg bg-indigo-500">
+                                    {(selectedUser.displayName || '?')[0].toUpperCase()}
                                 </div>
-                                {!isEditing && (
-                                    <button
-                                        onClick={() => setIsEditing(true)}
-                                        className="p-2 text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-lg transition-colors"
-                                    >
-                                        <Edit className="w-4 h-4" />
-                                    </button>
-                                )}
+                                <div>
+                                    <p className="font-bold text-gray-800 dark:text-white">
+                                        {selectedUser.displayName || 'Chưa đặt tên'}
+                                    </p>
+                                    <p className="text-xs text-gray-500 font-mono">{selectedUser.userId?.slice(0, 20)}...</p>
+                                </div>
                             </div>
 
                             {/* Stats */}
@@ -473,83 +292,15 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
                                 </div>
                             </div>
 
-                            {/* Edit Form */}
-                            {isEditing ? (
-                                <div className="space-y-3 pt-2 border-t border-gray-100 dark:border-gray-700">
-                                    <div>
-                                        <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Tên hiển thị</label>
-                                        <input
-                                            type="text"
-                                            value={editForm.displayName}
-                                            onChange={(e) => setEditForm({ ...editForm, displayName: e.target.value })}
-                                            className="w-full px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Mục tiêu hàng ngày</label>
-                                        <input
-                                            type="number"
-                                            value={editForm.dailyGoal}
-                                            onChange={(e) => setEditForm({ ...editForm, dailyGoal: e.target.value })}
-                                            placeholder="VD: 15"
-                                            className="w-full px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="flex items-center gap-2 cursor-pointer">
-                                            <input
-                                                type="checkbox"
-                                                checked={editForm.isApproved}
-                                                onChange={(e) => setEditForm({ ...editForm, isApproved: e.target.checked })}
-                                                className="w-4 h-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                            />
-                                            <span className="text-sm text-gray-700 dark:text-gray-300">Đã duyệt sử dụng</span>
-                                        </label>
-                                    </div>
-                                    <div className="flex gap-2 pt-2">
-                                        <button
-                                            onClick={() => setIsEditing(false)}
-                                            className="flex-1 px-3 py-2 text-sm font-medium text-gray-600 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors"
-                                        >
-                                            Hủy
-                                        </button>
-                                        <button
-                                            onClick={handleSave}
-                                            disabled={saving}
-                                            className="flex-1 px-3 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors disabled:opacity-50 flex items-center justify-center gap-1"
-                                        >
-                                            {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                                            Lưu
-                                        </button>
-                                    </div>
-                                </div>
-                            ) : (
-                                /* Quick Actions */
-                                <div className="space-y-2 pt-2 border-t border-gray-100 dark:border-gray-700">
-                                    <p className="text-xs font-medium text-gray-500 uppercase">Hành động nhanh</p>
-                                    {selectedUser.isApproved ? (
-                                        <button
-                                            onClick={() => handleQuickApprove(selectedUser, false)}
-                                            className="w-full px-3 py-2 text-sm font-medium text-amber-600 bg-amber-50 dark:bg-amber-900/20 hover:bg-amber-100 dark:hover:bg-amber-900/30 rounded-lg transition-colors flex items-center justify-center gap-2"
-                                        >
-                                            <ShieldX className="w-4 h-4" /> Hủy duyệt
-                                        </button>
-                                    ) : (
-                                        <button
-                                            onClick={() => handleQuickApprove(selectedUser, true)}
-                                            className="w-full px-3 py-2 text-sm font-medium text-green-600 bg-green-50 dark:bg-green-900/20 hover:bg-green-100 dark:hover:bg-green-900/30 rounded-lg transition-colors flex items-center justify-center gap-2"
-                                        >
-                                            <ShieldCheck className="w-4 h-4" /> Duyệt người dùng
-                                        </button>
-                                    )}
-                                    {selectedUser.userId !== currentUserId && (
-                                        <button
-                                            onClick={() => setConfirmDelete(selectedUser)}
-                                            className="w-full px-3 py-2 text-sm font-medium text-red-600 bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-lg transition-colors flex items-center justify-center gap-2"
-                                        >
-                                            <Trash2 className="w-4 h-4" /> Xóa dữ liệu người dùng
-                                        </button>
-                                    )}
+                            {/* Delete Action */}
+                            {selectedUser.userId !== currentUserId && (
+                                <div className="pt-2 border-t border-gray-100 dark:border-gray-700">
+                                    <button
+                                        onClick={() => setConfirmDelete(selectedUser)}
+                                        className="w-full px-3 py-2 text-sm font-medium text-red-600 bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-lg transition-colors flex items-center justify-center gap-2"
+                                    >
+                                        <Trash2 className="w-4 h-4" /> Xóa dữ liệu người dùng
+                                    </button>
                                 </div>
                             )}
                         </div>

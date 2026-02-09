@@ -5,22 +5,36 @@ import { playAudio } from '../../utils/audio';
 import { compressImage } from '../../utils/image';
 
 const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
-    const [front, setFront] = useState(card.front);
-    const [back, setBack] = useState(card.back);
-    const [synonym, setSynonym] = useState(card.synonym);
-    const [example, setExample] = useState(card.example);
-    const [exampleMeaning, setExampleMeaning] = useState(card.exampleMeaning);
-    const [nuance, setNuance] = useState(card.nuance);
-    const [pos, setPos] = useState(card.pos || '');
-    const [level, setLevel] = useState(card.level || '');
-    const [sinoVietnamese, setSinoVietnamese] = useState(card.sinoVietnamese || '');
-    const [synonymSinoVietnamese, setSynonymSinoVietnamese] = useState(card.synonymSinoVietnamese || '');
-    const [imagePreview, setImagePreview] = useState(card.imageBase64 || null);
-    const [customAudio, setCustomAudio] = useState(card.audioBase64 || '');
+    // All hooks must be called before any conditional return
+    const [front, setFront] = useState(card?.front || '');
+    const [back, setBack] = useState(card?.back || '');
+    const [synonym, setSynonym] = useState(card?.synonym || '');
+    const [example, setExample] = useState(card?.example || '');
+    const [exampleMeaning, setExampleMeaning] = useState(card?.exampleMeaning || '');
+    const [nuance, setNuance] = useState(card?.nuance || '');
+    const [pos, setPos] = useState(card?.pos || '');
+    const [level, setLevel] = useState(card?.level || '');
+    const [sinoVietnamese, setSinoVietnamese] = useState(card?.sinoVietnamese || '');
+    const [synonymSinoVietnamese, setSynonymSinoVietnamese] = useState(card?.synonymSinoVietnamese || '');
+    const [imagePreview, setImagePreview] = useState(card?.imageBase64 || null);
+    const [customAudio, setCustomAudio] = useState(card?.audioBase64 || '');
     const [showAudioInput, setShowAudioInput] = useState(false);
     const [_isSaving, setIsSaving] = useState(false); // eslint-disable-line no-unused-vars
     const [isAiLoading, setIsAiLoading] = useState(false);
     const frontInputRef = useRef(null);
+
+    // Show loading if card is not yet loaded
+    if (!card) {
+        return (
+            <div className="flex items-center justify-center py-20">
+                <div className="text-center space-y-3">
+                    <Loader2 className="w-8 h-8 animate-spin mx-auto text-indigo-500" />
+                    <p className="text-gray-500 text-sm">Đang tải thẻ...</p>
+                </div>
+            </div>
+        );
+    }
+
 
     const handleImageChange = async (e) => {
         const file = e.target.files[0];

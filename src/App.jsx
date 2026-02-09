@@ -394,14 +394,12 @@ const App = () => {
         }
 
         // Khôi phục profile từ sessionStorage nếu có
-        // LƯU Ý: Không tin tưởng isApproved từ cache, luôn đợi onSnapshot confirm
         const cachedProfileKey = `profile_${userId}`;
         const cachedProfile = sessionStorage.getItem(cachedProfileKey);
         if (cachedProfile) {
             try {
                 const parsedProfile = JSON.parse(cachedProfile);
-                // Chỉ dùng cache cho data không quan trọng, isApproved sẽ được onSnapshot cập nhật
-                setProfile({ ...parsedProfile, isApproved: undefined }); // Force wait for Firebase
+                setProfile(parsedProfile);
                 // Không set isProfileLoading = false ở đây, đợi onSnapshot
             } catch (e) {
                 console.error('Lỗi parse cached profile:', e);
@@ -424,8 +422,7 @@ const App = () => {
                     const newProfile = {
                         displayName: defaultName,
                         dailyGoal: defaultGoal,
-                        hasSeenHelp: true,
-                        isApproved: true // Người dùng được duyệt tự động, admin có thể huỷ kích hoạt sau
+                        hasSeenHelp: true
                     };
                     await setDoc(doc(db, settingsDocPath), newProfile);
                     setProfile(newProfile);
@@ -927,6 +924,148 @@ const App = () => {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+    };
+
+    // Import TSV file
+    const handleImportTSV = async (file) => {
+        if (!file || !vocabCollectionPath) {
+            setNotification('Không thể nhập file');
+            return;
+        }
+
+        try {
+            const text = await file.text();
+            const lines = text.split('\n').filter(line => line.trim());
+
+            if (lines.length < 2) {
+                setNotification('File không có dữ liệu');
+                return;
+            }
+
+            // Parse header
+            const headers = lines[0].split('\t').map(h => h.trim().replace(/"/g, ''));
+
+            // Expected headers mapping
+            const headerMap = {
+                'Front': 'front',
+                'Back': 'back',
+                'Synonym': 'synonym',
+                'Example': 'example',
+                'ExampleMeaning': 'exampleMeaning',
+                'Nuance': 'nuance',
+                'CreatedAt': 'createdAt',
+                'intervalIndex_back': 'intervalIndex_back',
+                'correctStreak_back': 'correctStreak_back',
+                'nextReview_back_timestamp': 'nextReview_back',
+                'intervalIndex_synonym': 'intervalIndex_synonym',
+                'correctStreak_synonym': 'correctStreak_synonym',
+                'nextReview_synonym_timestamp': 'nextReview_synonym',
+                'intervalIndex_example': 'intervalIndex_example',
+                'correctStreak_example': 'correctStreak_example',
+                'nextReview_example_timestamp': 'nextReview_example',
+                'AudioBase64': 'audioBase64',
+                'ImageBase64': 'imageBase64',
+                'POS': 'pos',
+                'Level': 'level',
+                'SinoVietnamese': 'sinoVietnamese',
+                'SynonymSinoVietnamese': 'synonymSinoVietnamese'
+            };
+
+            // Parse rows
+            const cards = [];
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i];
+                if (!line.trim()) continue;
+
+                // Parse TSV with quoted fields
+                const values = [];
+                let current = '';
+                let inQuotes = false;
+
+                for (let j = 0; j < line.length; j++) {
+                    const char = line[j];
+                    if (char === '"') {
+                        if (inQuotes && line[j + 1] === '"') {
+                            current += '"';
+                            j++;
+                        } else {
+                            inQuotes = !inQuotes;
+                        }
+                    } else if (char === '\t' && !inQuotes) {
+                        values.push(current);
+                        current = '';
+                    } else {
+                        current += char;
+                    }
+                }
+                values.push(current);
+
+                // Create card object
+                const card = {};
+                headers.forEach((header, index) => {
+                    const fieldName = headerMap[header];
+                    if (fieldName && values[index] !== undefined) {
+                        let value = values[index];
+
+                        // Handle special fields
+                        if (fieldName === 'createdAt') {
+                            card[fieldName] = value ? new Date(value) : new Date();
+                        } else if (fieldName.includes('intervalIndex')) {
+                            card[fieldName] = parseInt(value) || -1;
+                        } else if (fieldName.includes('correctStreak')) {
+                            card[fieldName] = parseInt(value) || 0;
+                        } else if (fieldName.includes('nextReview')) {
+                            const timestamp = parseInt(value);
+                            card[fieldName] = timestamp ? new Date(timestamp) : new Date();
+                        } else {
+                            card[fieldName] = value || '';
+                        }
+                    }
+                });
+
+                // Validate required fields
+                if (card.front && card.back) {
+                    cards.push(card);
+                }
+            }
+
+            if (cards.length === 0) {
+                setNotification('Không tìm thấy từ vựng hợp lệ trong file');
+                return;
+            }
+
+            // Import cards to Firestore
+            let imported = 0;
+            let skipped = 0;
+
+            for (const card of cards) {
+                // Check if card already exists (by front)
+                const exists = allCards.some(c => c.front === card.front);
+
+                if (exists) {
+                    skipped++;
+                    continue;
+                }
+
+                // Add to Firestore
+                await addDoc(collection(db, vocabCollectionPath), {
+                    ...card,
+                    createdAt: card.createdAt || serverTimestamp()
+                });
+                imported++;
+            }
+
+            // Update daily activity
+            if (imported > 0) {
+                await updateDailyActivity(imported);
+            }
+
+            setNotification(`Đã nhập ${imported} từ vựng${skipped > 0 ? `, bỏ qua ${skipped} từ trùng lặp` : ''}`);
+
+        } catch (error) {
+            console.error('Import TSV error:', error);
+            setNotification('Lỗi khi nhập file: ' + error.message);
+        }
     };
 
 
@@ -1598,7 +1737,8 @@ const App = () => {
 
     // Load editingCard from URL parameter when navigating to edit route
     useEffect(() => {
-        if (view === 'EDIT_CARD') {
+        // Check if we're on the edit route by looking at the pathname
+        if (location.pathname.includes('/vocabulary/edit/')) {
             // Extract card ID from URL
             const pathParts = location.pathname.split('/');
             const cardId = pathParts[pathParts.length - 1];
@@ -1619,7 +1759,7 @@ const App = () => {
                 }
             }
         }
-    }, [view, editingCard, allCards, location.pathname, navigate]);
+    }, [editingCard, allCards, location.pathname, navigate]);
 
     const handleNavigateToEdit = (card, currentFilters) => {
         // Lưu cardId để scroll đến sau khi quay lại
@@ -2024,7 +2164,6 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     shortTerm: memoryStats.shortTerm,
                     midTerm: memoryStats.midTerm,
                     longTerm: memoryStats.longTerm,
-                    isApproved: profile.isApproved === true,
                     lastUpdated: serverTimestamp()
                 };
                 await setDoc(statsDocRef, publicData, { merge: true }).catch(err => {
@@ -2223,7 +2362,6 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                 return <FriendsScreen
                     publicStatsPath={publicStatsCollectionPath}
                     currentUserId={userId}
-                    isAdmin={isAdmin}
                     onBack={() => setView('HOME')}
                 />;
             case 'ACCOUNT':
@@ -2354,7 +2492,6 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                         <div className={view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' || view === 'KANJI' ? 'bg-transparent' : ''}>
                             <AppRoutes
                                 isAuthenticated={!!userId}
-                                isApproved={profile?.isApproved}
                                 isLoading={isLoading}
                                 userId={userId}
                                 profile={profile}
@@ -2392,6 +2529,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                                 handleBatchSaveNext={handleBatchSaveNext}
                                 handleBatchSkip={handleBatchSkip}
                                 handleExport={handleExport}
+                                handleImportTSV={handleImportTSV}
                                 handleNavigateToEdit={handleNavigateToEdit}
                                 handleUpdateGoal={handleUpdateGoal}
                                 handleAdminDeleteUserData={handleAdminDeleteUserData}

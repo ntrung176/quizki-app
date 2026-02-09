@@ -2,30 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { collection, query, onSnapshot } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 
-const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onBack }) => {
+const FriendsScreen = ({ publicStatsPath, currentUserId, onBack }) => {
     const [friendStats, setFriendStats] = useState([]);
     const [_isLoading, setIsLoading] = useState(true); // eslint-disable-line no-unused-vars
-
-    // If current user is admin, use their userId to filter out admin from leaderboard
-    const adminUserId = isAdmin ? currentUserId : null;
 
     useEffect(() => {
         if (!db || !publicStatsPath) return;
         const q = query(collection(db, publicStatsPath));
         const unsubscribe = onSnapshot(q, (s) => {
             const l = s.docs.map(d => ({ ...d.data(), odId: d.id }));
-            // Filter out admin from leaderboard and sort by totalCards
-            const filtered = l.filter(u => {
-                // Hide admin from leaderboard by userId
-                if (adminUserId && u.userId === adminUserId) return false;
-                return true;
-            });
-            filtered.sort((a, b) => (b.totalCards || 0) - (a.totalCards || 0));
-            setFriendStats(filtered);
+            l.sort((a, b) => (b.totalCards || 0) - (a.totalCards || 0));
+            setFriendStats(l);
             setIsLoading(false);
         });
         return () => unsubscribe();
-    }, [publicStatsPath, adminUserId]);
+    }, [publicStatsPath]);
 
     return (
         <div className="space-y-3 md:space-y-6">
