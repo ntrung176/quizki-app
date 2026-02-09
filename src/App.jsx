@@ -68,6 +68,9 @@ import {
 // Import UI components
 import { SearchInput, SrsStatusCell } from './components/ui';
 
+// Import routing component
+import AppRoutes from './components/AppRoutes';
+
 
 // --- Cấu hình và Tiện ích Firebase ---
 const firebaseConfig = {
@@ -1411,6 +1414,15 @@ const App = () => {
 
     const handleDeleteCard = async (cardId, cardFront) => {
         if (!vocabCollectionPath || !cardId) return;
+
+        // Add confirmation dialog
+        const confirmed = window.confirm(`Bạn có chắc chắn muốn xóa thẻ "${cardFront}"?`);
+        if (!confirmed) return;
+
+        // Optimistic UI update - remove from local state immediately
+        setAllCards(prevCards => prevCards.filter(card => card.id !== cardId));
+        setNotification(`Đang xoá thẻ: ${cardFront}...`);
+
         try {
             await deleteDoc(doc(db, vocabCollectionPath, cardId));
             setReviewCards(prevCards => prevCards.filter(card => card.id !== cardId));
@@ -1421,6 +1433,9 @@ const App = () => {
             setNotification(`Đã xoá thẻ: ${cardFront}`);
         } catch (e) {
             console.error("Lỗi khi xoá thẻ:", e);
+            setNotification(`Lỗi khi xoá thẻ: ${e.message}`);
+            // Reload cards from Firebase on error to restore state
+            // The onSnapshot listener will automatically restore the card
         }
     };
 
@@ -1584,6 +1599,31 @@ const App = () => {
         prevViewRef.current = view;
     }, [view]);
 
+    // Load editingCard from URL parameter when navigating to edit route
+    useEffect(() => {
+        if (view === 'EDIT_CARD') {
+            // Extract card ID from URL
+            const pathParts = location.pathname.split('/');
+            const cardId = pathParts[pathParts.length - 1];
+
+            if (cardId && allCards.length > 0) {
+                // Check if we need to load or update the editingCard
+                // Load if: no editingCard OR editingCard.id doesn't match URL card ID
+                if (!editingCard || editingCard.id !== cardId) {
+                    // Find the card in allCards
+                    const card = allCards.find(c => c.id === cardId);
+                    if (card) {
+                        setEditingCard(card);
+                    } else {
+                        // Card not found, redirect to vocabulary list
+                        setNotification('Không tìm thấy thẻ này');
+                        navigate(ROUTES.VOCABULARY);
+                    }
+                }
+            }
+        }
+    }, [view, editingCard, allCards, location.pathname, navigate]);
+
     const handleNavigateToEdit = (card, currentFilters) => {
         // Lưu cardId để scroll đến sau khi quay lại
         scrollToCardIdRef.current = card.id;
@@ -1591,7 +1631,8 @@ const App = () => {
         if (currentFilters) {
             setSavedFilters(currentFilters);
         }
-        setEditingCard(card);
+        // DON'T set editingCard here - let the useEffect handle it from URL
+        // This avoids race conditions between state updates and navigation
         // Navigate to edit URL with card ID
         navigate(getEditRoute(card.id));
     };
@@ -2062,8 +2103,15 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                 />;
             case 'EDIT_CARD':
                 if (!editingCard) {
-                    navigate(ROUTES.VOCABULARY);
-                    return null;
+                    // Show loading while useEffect loads the card from URL
+                    return (
+                        <div className="flex items-center justify-center min-h-[400px]">
+                            <div className="text-center">
+                                <Loader2 className="animate-spin text-indigo-600 dark:text-indigo-400 w-8 h-8 mx-auto mb-4" />
+                                <p className="text-gray-500 dark:text-gray-400">Đang tải thẻ...</p>
+                            </div>
+                        </div>
+                    );
                 }
                 return <EditCardForm
                     card={editingCard}
@@ -2308,7 +2356,66 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     {/* Main content container - transparent */}
                     <div className={`${view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
                         <div className={view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' || view === 'KANJI' ? 'bg-transparent' : ''}>
-                            {renderContent()}
+                            <AppRoutes
+                                isAuthenticated={!!userId}
+                                isApproved={profile?.isApproved === true}
+                                isLoading={isLoading}
+                                userId={userId}
+                                profile={profile}
+                                allCards={allCards}
+                                reviewCards={reviewCards}
+                                reviewMode={reviewMode}
+                                editingCard={editingCard}
+                                dueCounts={dueCounts}
+                                memoryStats={memoryStats}
+                                dailyActivityLogs={dailyActivityLogs}
+                                studySessionData={studySessionData}
+                                savedFilters={savedFilters}
+                                scrollToCardId={scrollToCardIdRef?.current}
+                                flashcardCards={flashcardCards}
+                                vocabCollectionPath={vocabCollectionPath}
+                                publicStatsCollectionPath={publicStatsCollectionPath}
+                                isAdmin={isAdmin}
+                                isDarkMode={isDarkMode}
+                                setView={setView}
+                                setEditingCard={setEditingCard}
+                                setStudySessionData={setStudySessionData}
+                                setReviewCards={setReviewCards}
+                                setReviewMode={setReviewMode}
+                                setSavedFilters={setSavedFilters}
+                                setNotification={setNotification}
+                                setIsDarkMode={setIsDarkMode}
+                                setFlashcardCards={setFlashcardCards}
+                                prepareReviewCards={prepareReviewCards}
+                                handleUpdateCard={handleUpdateCard}
+                                handleDeleteCard={handleDeleteCard}
+                                handleSaveNewCard={handleAddCard}
+                                handleSaveChanges={handleSaveChanges}
+                                handleGeminiAssist={handleGeminiAssist}
+                                handleBatchImport={handleBatchImport}
+                                handleBatchSaveNext={handleBatchSaveNext}
+                                handleBatchSkip={handleBatchSkip}
+                                handleExport={handleExport}
+                                handleNavigateToEdit={handleNavigateToEdit}
+                                handleUpdateGoal={handleUpdateGoal}
+                                handleAdminDeleteUserData={handleAdminDeleteUserData}
+                                handleUpdateProfileName={async (newName) => {
+                                    if (!settingsDocPath) return;
+                                    await updateDoc(doc(db, settingsDocPath), { displayName: newName });
+                                    setProfile(prev => prev ? { ...prev, displayName: newName } : prev);
+                                }}
+                                handleChangePassword={async (newPassword) => {
+                                    if (!auth || !auth.currentUser) throw new Error('Chưa đăng nhập.');
+                                    await updatePassword(auth.currentUser, newPassword);
+                                }}
+                                batchMode={batchVocabList.length > 0 && currentBatchIndex < batchVocabList.length}
+                                currentBatchIndex={currentBatchIndex}
+                                batchVocabList={batchVocabList}
+                                setShowBatchImportModal={setShowBatchImportModal}
+                                scrollToCardIdRef={scrollToCardIdRef}
+                                playAudio={playAudio}
+                                shuffleArray={shuffleArray}
+                            />
                         </div>
 
                         {/* Notification */}

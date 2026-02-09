@@ -447,20 +447,20 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             {/* Answer Area */}
             <div className="w-full space-y-3">
                 {currentPhase === 'multipleChoice' ? (
-                    <div className="grid grid-cols-1 gap-2">
+                    <div className="grid grid-cols-2 gap-2">
                         {multipleChoiceOptions.map((option, idx) => (
                             <button
                                 key={idx}
                                 onClick={() => handleMultipleChoiceAnswer(option)}
                                 disabled={isProcessing || isRevealed}
-                                className={`p-3 md:p-4 rounded-xl font-bold text-base transition-all text-left border-2
+                                className={`p-3 md:p-4 rounded-xl font-bold text-sm md:text-base transition-all text-center border-2
                                     ${selectedAnswer === option
                                         ? feedback === 'correct'
                                             ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'
                                             : 'bg-red-500 dark:bg-red-600 text-white shadow-lg border-red-600 dark:border-red-700'
                                         : isRevealed && normalizeAnswer(option) === normalizeAnswer(currentCard.front)
                                             ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'
-                                            : 'bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 border-gray-200 dark:border-gray-600'
+                                            : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:bg-teal-50 dark:hover:bg-teal-900/30 hover:border-teal-400'
                                     }
                                     ${isProcessing || isRevealed ? 'cursor-not-allowed' : 'cursor-pointer hover:scale-[1.02]'}
                                 `}

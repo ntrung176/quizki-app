@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { RotateCw, ChevronLeft, ChevronRight, Volume2, Home } from 'lucide-react';
-import { POS_TYPES } from '../../config/constants';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { playAudio } from '../../utils/audio';
 
 const FlashcardScreen = ({ cards: initialCards, onComplete }) => {
@@ -97,20 +96,45 @@ const FlashcardScreen = ({ cards: initialCards, onComplete }) => {
         const currentTouch = e.targetTouches[0].clientX;
         setTouchEnd(currentTouch);
         const diff = currentTouch - touchStart;
-        setSwipeOffset(Math.max(-150, Math.min(150, diff)));
+        const maxOffset = 200;
+        setSwipeOffset(Math.max(-maxOffset, Math.min(maxOffset, diff)));
     };
 
     const onTouchEnd = () => {
-        if (!touchStart || !touchEnd) {
+        if (!touchStart) {
+            setTouchStart(null);
+            setTouchEnd(null);
+            setSwipeOffset(0);
+            return;
+        }
+
+        if (!touchEnd) {
+            setTouchStart(null);
+            setTouchEnd(null);
             setSwipeOffset(0);
             return;
         }
 
         const distance = touchStart - touchEnd;
-        if (distance > minSwipeDistance) {
-            goToNext();
-        } else if (distance < -minSwipeDistance) {
-            goToPrevious();
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe && currentIndex < cards.length - 1) {
+            setSlideDirection('left');
+            setTimeout(() => {
+                setCurrentIndex(currentIndex + 1);
+                setSlideDirection('right');
+                setTimeout(() => setSlideDirection(''), 300);
+            }, 150);
+        } else if (isRightSwipe && currentIndex > 0) {
+            setSlideDirection('right');
+            setTimeout(() => {
+                setCurrentIndex(currentIndex - 1);
+                setSlideDirection('left');
+                setTimeout(() => setSlideDirection(''), 300);
+            }, 150);
+        } else if (currentIndex >= cards.length - 1 && isLeftSwipe) {
+            onComplete();
         }
 
         setTouchStart(null);
@@ -127,173 +151,116 @@ const FlashcardScreen = ({ cards: initialCards, onComplete }) => {
     }
 
     return (
-        <div className="w-full max-w-2xl mx-auto flex flex-col items-center justify-center min-h-[70vh] p-4">
-            {/* Header */}
-            <div className="w-full flex items-center justify-between mb-6">
-                <button
-                    onClick={onComplete}
-                    className="flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
-                >
-                    <Home className="w-5 h-5" />
-                    <span className="text-sm font-medium">Trang chủ</span>
-                </button>
-                <div className="text-sm font-medium text-gray-600 dark:text-gray-400">
-                    {currentIndex + 1} / {cards.length}
+        <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3 p-4 border-2 border-indigo-400/30 rounded-2xl">
+            {/* Progress bar */}
+            <div className="w-full space-y-1 flex-shrink-0">
+                <div className="flex justify-center items-center text-xs font-medium text-gray-500 dark:text-gray-400">
+                    <span>{currentIndex + 1} / {cards.length}</span>
+                </div>
+                <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                    <div className="h-full bg-indigo-500 progress-bar rounded-full" style={{ width: `${progress}%` }}></div>
                 </div>
             </div>
 
-            {/* Progress bar */}
-            <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full mb-8 overflow-hidden">
-                <div
-                    className="h-full bg-gradient-to-r from-violet-500 to-purple-600 transition-all duration-300 rounded-full"
-                    style={{ width: `${progress}%` }}
-                />
-            </div>
+            {/* Flashcard Area - Minimal Design */}
+            <div className="w-full relative group perspective flex-shrink-0 overflow-hidden">
+                <div className="perspective-1000 w-full mx-auto relative" style={{ minHeight: '300px' }}>
+                    <div
+                        className={`flip-card-container transform-style-3d cursor-pointer relative card-slide ${isFlipped ? 'rotate-y-180' : ''} ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
+                        onClick={() => {
+                            if (Math.abs(swipeOffset) < 10) {
+                                handleFlip();
+                            }
+                        }}
+                        onTouchStart={onTouchStart}
+                        onTouchMove={onTouchMove}
+                        onTouchEnd={onTouchEnd}
+                        style={{
+                            width: '100%',
+                            height: '400px',
+                            transform: swipeOffset ? `translateX(${swipeOffset}px)` : undefined,
+                            transition: swipeOffset ? 'none' : (slideDirection ? 'transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.3s ease' : 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)'),
+                            touchAction: 'pan-y',
+                        }}
+                    >
+                        {/* Front side - Japanese with colored hiragana */}
+                        <div className="flip-card-front backface-hidden absolute inset-0 w-full h-full">
+                            <div className="bg-slate-700 dark:bg-slate-800 rounded-2xl shadow-2xl p-6 flex flex-col items-center justify-center w-full h-full border-2 border-slate-600 dark:border-slate-700 hover:shadow-3xl transition-shadow overflow-hidden">
+                                <div className="text-center flex-1 flex flex-col justify-center w-full px-2">
+                                    {(() => {
+                                        // Parse front to separate kanji and hiragana
+                                        const kanjiMatch = currentCard.front.match(/^([^（(]+)/);
+                                        const hiraganaMatch = currentCard.front.match(/[（(]([^）)]+)[）)]/);
+                                        const kanji = kanjiMatch ? kanjiMatch[1] : currentCard.front;
+                                        const hiragana = hiraganaMatch ? hiraganaMatch[1] : null;
 
-            {/* Flashcard */}
-            <div
-                className="w-full perspective-1000 cursor-pointer"
-                style={{ height: '400px', maxWidth: '500px' }}
-            >
-                <div
-                    className={`relative w-full h-full transform-style-3d transition-transform duration-500 ${isFlipped ? 'rotate-y-180' : ''}`}
-                    onClick={() => Math.abs(swipeOffset) < 10 && handleFlip()}
-                    onTouchStart={onTouchStart}
-                    onTouchMove={onTouchMove}
-                    onTouchEnd={onTouchEnd}
-                    style={{
-                        transform: swipeOffset ? `translateX(${swipeOffset}px) ${isFlipped ? 'rotateY(180deg)' : ''}` : undefined,
-                        transition: swipeOffset ? 'none' : undefined,
-                    }}
-                >
-                    {/* Front - Word */}
-                    <div className={`absolute inset-0 backface-hidden rounded-3xl shadow-2xl overflow-hidden
-                        ${slideDirection === 'left' ? 'animate-slide-out-left' : slideDirection === 'right' ? 'animate-slide-out-right' : ''}`}>
-                        <div className="w-full h-full bg-gradient-to-br from-violet-500 via-purple-500 to-indigo-600 p-8 flex flex-col">
-                            {/* Top badges */}
-                            <div className="flex items-center justify-between mb-4">
-                                <div className="flex items-center gap-2">
-                                    {currentCard.level && (
-                                        <span className="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold rounded-full">
-                                            {currentCard.level}
-                                        </span>
-                                    )}
-                                    {currentCard.pos && (
-                                        <span className="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full">
-                                            {POS_TYPES[currentCard.pos]?.label || currentCard.pos}
-                                        </span>
-                                    )}
+                                        return (
+                                            <div className="space-y-2">
+                                                <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight break-words font-japanese">
+                                                    {kanji}
+                                                </h3>
+                                                {hiragana && (
+                                                    <p className="text-xl md:text-2xl font-medium text-cyan-300 leading-tight font-japanese">
+                                                        {hiragana}
+                                                    </p>
+                                                )}
+                                            </div>
+                                        );
+                                    })()}
                                 </div>
-                                <button
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        playAudio(currentCard.audioBase64, currentCard.front);
-                                    }}
-                                    className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
-                                >
-                                    <Volume2 className="w-5 h-5 text-white" />
-                                </button>
-                            </div>
-
-                            {/* Main word */}
-                            <div className="flex-1 flex flex-col items-center justify-center">
-                                <p className="text-white/60 text-sm mb-4 uppercase tracking-widest">Từ vựng</p>
-                                <h2 className="text-5xl md:text-6xl font-bold text-white text-center font-japanese leading-tight">
-                                    {currentCard.front}
-                                </h2>
-                            </div>
-
-                            {/* Flip hint */}
-                            <div className="flex items-center justify-center gap-2 text-white/40 text-sm">
-                                <RotateCw className="w-4 h-4" />
-                                <span>Click hoặc nhấn Space để lật</span>
                             </div>
                         </div>
-                    </div>
 
-                    {/* Back - Meaning */}
-                    <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-3xl shadow-2xl overflow-hidden">
-                        <div className="w-full h-full bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-600 p-8 flex flex-col overflow-y-auto">
-                            {/* Top section */}
-                            <div className="flex items-center justify-between mb-4">
-                                <span className="text-white/60 text-sm uppercase tracking-widest">Ý nghĩa</span>
-                                <button
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        playAudio(currentCard.audioBase64, currentCard.front);
-                                    }}
-                                    className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
-                                >
-                                    <Volume2 className="w-5 h-5 text-white" />
-                                </button>
-                            </div>
-
-                            {/* Main meaning */}
-                            <div className="flex-1 flex flex-col items-center justify-center">
-                                <div className="text-3xl md:text-4xl font-bold text-white text-center leading-relaxed whitespace-pre-line">
-                                    {formatMultipleMeanings(currentCard.back)}
-                                </div>
-                            </div>
-
-                            {/* Additional info */}
-                            <div className="space-y-3 mt-4 pt-4 border-t border-white/20">
-                                {currentCard.sinoVietnamese && (
-                                    <p className="text-white/80 text-sm text-center">
-                                        <span className="font-semibold">Hán Việt:</span> {currentCard.sinoVietnamese}
-                                    </p>
-                                )}
-                                {currentCard.synonym && (
-                                    <p className="text-white/80 text-sm text-center">
-                                        <span className="font-semibold">Đồng nghĩa:</span> {currentCard.synonym}
-                                    </p>
-                                )}
-                                {currentCard.example && (
-                                    <div className="text-center">
-                                        <p className="text-white/90 text-sm italic">"{currentCard.example}"</p>
-                                        {currentCard.exampleMeaning && (
-                                            <p className="text-white/70 text-xs mt-1">{currentCard.exampleMeaning}</p>
-                                        )}
+                        {/* Back side - Vietnamese with Sino-Vietnamese */}
+                        <div className="flip-card-back backface-hidden absolute inset-0 w-full h-full rotate-y-180">
+                            <div className="bg-slate-700 dark:bg-slate-800 rounded-2xl shadow-2xl p-6 w-full h-full border-2 border-slate-600 dark:border-slate-700 hover:shadow-3xl transition-shadow flex flex-col overflow-y-auto">
+                                <div className="flex-1 flex flex-col items-center justify-center text-center space-y-4">
+                                    {/* Vietnamese meaning */}
+                                    <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed break-words px-2 whitespace-pre-line">
+                                        {formatMultipleMeanings(currentCard.back)}
                                     </div>
-                                )}
-                            </div>
 
-                            {/* Flip hint */}
-                            <div className="flex items-center justify-center gap-2 text-white/40 text-sm mt-4">
-                                <RotateCw className="w-4 h-4" />
-                                <span>Click hoặc nhấn Space để lật</span>
+                                    {/* Sino-Vietnamese */}
+                                    {currentCard.sinoVietnamese && (
+                                        <div className="pt-3 border-t border-slate-600">
+                                            <p className="text-sm text-slate-400 mb-1">Âm Hán Việt</p>
+                                            <p className="text-lg md:text-xl font-medium text-yellow-300">
+                                                {currentCard.sinoVietnamese}
+                                            </p>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <p className="text-center text-[10px] md:text-xs text-gray-500 mt-3 flex items-center justify-center gap-1">
+                        Click để lật | Space: Lật | ← →: Chuyển thẻ | Trượt trái/phải: Chuyển thẻ
+                    </p>
                 </div>
             </div>
 
             {/* Navigation buttons */}
-            <div className="flex items-center justify-center gap-6 mt-8">
+            <div className="flex items-center justify-center gap-4 mt-2 flex-shrink-0">
                 <button
                     onClick={goToPrevious}
                     disabled={currentIndex === 0}
-                    className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all
+                    className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all text-sm
                         ${currentIndex === 0
                             ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
-                            : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-lg hover:shadow-xl'}`}
+                            : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-md hover:shadow-lg'}`}
                 >
-                    <ChevronLeft className="w-5 h-5" />
+                    <ChevronLeft className="w-4 h-4" />
                     Trước
                 </button>
 
                 <button
                     onClick={goToNext}
-                    className="flex items-center gap-2 px-6 py-3 rounded-xl font-medium bg-violet-500 hover:bg-violet-600 text-white shadow-lg hover:shadow-xl transition-all"
+                    className="flex items-center gap-2 px-4 py-2 rounded-xl font-medium bg-indigo-500 hover:bg-indigo-600 text-white shadow-md hover:shadow-lg transition-all text-sm"
                 >
                     {currentIndex === cards.length - 1 ? 'Hoàn thành' : 'Tiếp'}
-                    <ChevronRight className="w-5 h-5" />
+                    <ChevronRight className="w-4 h-4" />
                 </button>
             </div>
-
-            {/* Instructions */}
-            <p className="text-gray-500 dark:text-gray-400 text-xs text-center mt-6">
-                ← → để chuyển thẻ • Space để lật • Vuốt trái/phải trên điện thoại
-            </p>
         </div>
     );
 };
