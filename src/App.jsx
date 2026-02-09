@@ -387,14 +387,15 @@ const App = () => {
         }
 
         // Khôi phục profile từ sessionStorage nếu có
+        // LƯU Ý: Không tin tưởng isApproved từ cache, luôn đợi onSnapshot confirm
         const cachedProfileKey = `profile_${userId}`;
         const cachedProfile = sessionStorage.getItem(cachedProfileKey);
         if (cachedProfile) {
             try {
                 const parsedProfile = JSON.parse(cachedProfile);
-                setProfile(parsedProfile);
-                setIsProfileLoading(false);
-                setIsLoading(false);
+                // Chỉ dùng cache cho data không quan trọng, isApproved sẽ được onSnapshot cập nhật
+                setProfile({ ...parsedProfile, isApproved: undefined }); // Force wait for Firebase
+                // Không set isProfileLoading = false ở đây, đợi onSnapshot
             } catch (e) {
                 console.error('Lỗi parse cached profile:', e);
             }
@@ -2027,20 +2028,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
         );
     }
 
-    // Nếu chưa được admin duyệt, hiển thị màn thanh toán/kích hoạt
-    if (!isAdmin && profile && profile.isApproved !== true) {
-        return (
-            <PaymentScreen
-                displayName={profile.displayName}
-                onPaidClick={() => {
-                    // Popup sẽ được hiển thị trong PaymentScreen component
-                }}
-                onLogout={async () => {
-                    if (auth) await signOut(auth);
-                }}
-            />
-        );
-    }
+    // Đã bỏ PaymentScreen - người dùng vào app trực tiếp sau đăng nhập
 
     const renderContent = () => {
         switch (view) {
@@ -2284,7 +2272,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
 
             {/* Main content area - responsive for sidebar */}
             <main className={`lg:ml-64 min-h-screen pt-14 lg:pt-0 ${view === 'REVIEW' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
-                <div className={`${view === 'REVIEW' ? 'w-full h-screen flex items-center justify-center bg-transparent' : view === 'KANJI' ? 'w-full min-h-screen' : 'w-full max-w-lg xl:max-w-xl mx-auto px-8 md:px-12 lg:px-20 py-4 md:py-6 lg:py-8'}`}>
+                <div className={`${view === 'REVIEW' ? 'w-full h-screen flex items-center justify-center bg-transparent' : view === 'KANJI' ? 'w-full min-h-screen' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6'}`}>
                     {/* Main content container - transparent */}
                     <div className={`${view === 'REVIEW' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
                         <div className={view === 'REVIEW' || view === 'KANJI' ? 'bg-transparent' : ''}>

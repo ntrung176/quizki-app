@@ -262,8 +262,6 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                     <p className="text-[9px] md:text-xs text-gray-400 mt-1 md:mt-2 text-center">*Số lượng yêu cầu chỉ mang tính chất tham khảo</p>
                 </div>
             </div>
-
-            <button onClick={onBack} className="w-full py-2 md:py-3 border border-gray-200 rounded-lg md:rounded-xl hover:bg-gray-50 font-medium text-sm md:text-base text-gray-600">Quay lại</button>
         </div>
     );
 };

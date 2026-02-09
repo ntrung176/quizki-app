@@ -201,16 +201,6 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack,
                     )}
                 </div>
             </div>
-
-            <div className="pt-4 border-t border-gray-100 dark:border-gray-700 flex justify-end">
-                <button
-                    type="button"
-                    onClick={onBack}
-                    className="px-4 py-2 text-sm font-medium rounded-xl text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                >
-                    Quay lại
-                </button>
-            </div>
         </div>
     );
 };

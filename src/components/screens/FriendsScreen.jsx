@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, query, onSnapshot, doc, getDoc, updateDoc, where, getDocs } from 'firebase/firestore';
+import { collection, query, onSnapshot, doc, getDoc, updateDoc, setDoc, where, getDocs } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 
 // Application ID for Firebase paths
@@ -86,11 +86,11 @@ const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteU
             if (!isNaN(goalNum) && goalNum && goalNum > 0) {
                 updates.dailyGoal = goalNum;
             }
-            await updateDoc(profileRef, updates);
+            await setDoc(profileRef, updates, { merge: true });
 
             // Update public stats
             const statsRef = doc(db, publicStatsPath, editingUser.userId);
-            await updateDoc(statsRef, { displayName: name, isApproved: editApproved === true }).catch(() => { });
+            await setDoc(statsRef, { displayName: name, isApproved: editApproved === true }, { merge: true }).catch(() => { });
 
             // Update local UI
             setFriendStats(prev =>
@@ -242,7 +242,6 @@ const FriendsScreen = ({ publicStatsPath, currentUserId, isAdmin, onAdminDeleteU
                     </div>
                 </div>
             )}
-            <button onClick={onBack} className="w-full py-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 mt-4 text-gray-600 dark:text-gray-900 dark:bg-white font-medium">Quay lại</button>
         </div>
     );
 };

@@ -163,8 +163,9 @@ main>div>div {
   background: transparent !important;
 }
 
-/* Prevent horizontal scroll */
-* {
+/* Prevent images and videos from causing horizontal scroll */
+img,
+video {
   max-width: 100%;
 }
 
@@ -222,4 +223,134 @@ main>div>div {
 
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* ===== STANDARDIZED UI COMPONENTS ===== */
+
+/* Card container styles */
+.card {
+  background: white;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+html.dark .card {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+/* Section spacing */
+.section-spacing {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Typography scales */
+.text-heading {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.text-subheading {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.text-body {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.text-caption {
+  font-size: 0.625rem;
+  line-height: 1.4;
+  color: #6b7280;
+}
+
+html.dark .text-caption {
+  color: #9ca3af;
+}
+
+/* Button base styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #4f46e5, #7c3aed);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(to right, #4338ca, #6d28d9);
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #e5e7eb;
+}
+
+html.dark .btn-secondary {
+  background: #374151;
+  color: #d1d5db;
+  border-color: #4b5563;
+}
+
+html.dark .btn-secondary:hover:not(:disabled) {
+  background: #4b5563;
+}
+
+/* Input styles */
+.input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+html.dark .input {
+  background: #374151;
+  border-color: #4b5563;
+  color: #f3f4f6;
+}
+
+html.dark .input:focus {
+  border-color: #818cf8;
+  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.1);
 }
