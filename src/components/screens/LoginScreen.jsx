@@ -73,7 +73,7 @@ const LoginScreen = () => {
                         displayName: defaultName,
                         dailyGoal: 10,
                         hasSeenHelp: true,
-                        isApproved: false,
+                        isApproved: true, // Người dùng được duyệt tự động, admin có thể huỷ kích hoạt sau
                         createdAt: serverTimestamp()
                     }, { merge: true });
                 }
@@ -142,7 +142,7 @@ const LoginScreen = () => {
                         displayName: defaultName,
                         dailyGoal: 10,
                         hasSeenHelp: true,
-                        isApproved: false, // Vẫn cần admin duyệt
+                        isApproved: true, // Người dùng được duyệt tự động, admin có thể huỷ kích hoạt sau
                         createdAt: serverTimestamp()
                     }, { merge: true });
                 }

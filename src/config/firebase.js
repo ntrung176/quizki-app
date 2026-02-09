@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, enableIndexedDbPersistence } from 'firebase/firestore';
+import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
 // --- Cấu hình Firebase ---
@@ -19,19 +19,18 @@ let auth;
 
 try {
     app = initializeApp(firebaseConfig);
-    db = getFirestore(app);
-    auth = getAuth(app);
 
-    // Enable offline persistence for faster loading
-    enableIndexedDbPersistence(db).catch((err) => {
-        if (err.code === 'failed-precondition') {
-            console.warn('Persistence failed: Multiple tabs open');
-        } else if (err.code === 'unimplemented') {
-            console.warn('Persistence not supported by browser');
-        }
+    // Use new Firestore cache API (replaces deprecated enableIndexedDbPersistence)
+    db = initializeFirestore(app, {
+        localCache: persistentLocalCache({
+            tabManager: persistentMultipleTabManager()
+        })
     });
+
+    auth = getAuth(app);
 } catch (e) {
     console.error("Lỗi khởi tạo Firebase:", e);
 }
 
 export { app, db, auth };
+

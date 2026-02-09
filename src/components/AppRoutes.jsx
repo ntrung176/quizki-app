@@ -5,7 +5,6 @@ import { ROUTES, ProtectedRoute, PublicOnlyRoute } from '../router';
 import {
     HomeScreen,
     LoginScreen,
-    PaymentScreen,
     AccountScreen,
     HelpScreen,
     ImportScreen,
@@ -122,21 +121,7 @@ const AppRoutes = ({
                 }
             />
 
-            {/* Payment/Waiting for approval - requires auth but not approval */}
-            <Route
-                path={ROUTES.PAYMENT}
-                element={
-                    isAuthenticated ? (
-                        <PaymentScreen
-                            displayName={profile?.displayName}
-                            onPaidClick={() => { }}
-                            onLogout={() => { }}
-                        />
-                    ) : (
-                        <Navigate to={ROUTES.LOGIN} replace />
-                    )
-                }
-            />
+
 
             {/* Protected routes - require both auth and approval */}
             <Route
@@ -322,7 +307,6 @@ const AppRoutes = ({
                             publicStatsPath={publicStatsCollectionPath}
                             currentUserId={userId}
                             isAdmin={isAdmin}
-                            onAdminDeleteUserData={handleAdminDeleteUserData}
                             onBack={() => setView('HOME')}
                         />
                     </ProtectedRoute>

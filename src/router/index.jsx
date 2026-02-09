@@ -5,7 +5,6 @@ import { Navigate, useNavigate, useParams, useLocation, Link } from 'react-route
 export const ROUTES = {
     HOME: '/',
     LOGIN: '/login',
-    PAYMENT: '/payment',
     ACCOUNT: '/account',
     HELP: '/help',
     VOCABULARY: '/vocabulary',
@@ -28,14 +27,11 @@ export const getEditRoute = (cardId) => `/vocabulary/edit/${cardId}`;
 // Re-export react-router-dom hooks and components for convenience
 export { useNavigate, useParams, useLocation, Navigate, Link };
 
-// Protected Route component - requires authentication and approval
+// Protected Route component - requires authentication only
+// isApproved is kept as prop for potential future use but not checked for routing
 export const ProtectedRoute = ({ children, isAuthenticated, isApproved }) => {
     if (!isAuthenticated) {
         return <Navigate to={ROUTES.LOGIN} replace />;
-    }
-
-    if (!isApproved) {
-        return <Navigate to={ROUTES.PAYMENT} replace />;
     }
 
     return children;

@@ -38,7 +38,6 @@ import { compressImage } from './utils/image';
 import {
     HomeScreen,
     LoginScreen,
-    PaymentScreen,
     AccountScreen,
     ProfileScreen,
     HelpScreen,
@@ -109,7 +108,6 @@ const App = () => {
         const routeMap = {
             'HOME': ROUTES.HOME,
             'LOGIN': ROUTES.LOGIN,
-            'PAYMENT': ROUTES.PAYMENT,
             'ACCOUNT': ROUTES.ACCOUNT,
             'HELP': ROUTES.HELP,
             'LIST': ROUTES.VOCABULARY,
@@ -133,7 +131,6 @@ const App = () => {
         const path = location.pathname;
         if (path === ROUTES.HOME || path === '/') return 'HOME';
         if (path === ROUTES.LOGIN) return 'LOGIN';
-        if (path === ROUTES.PAYMENT) return 'PAYMENT';
         if (path === ROUTES.ACCOUNT) return 'ACCOUNT';
         if (path === ROUTES.HELP) return 'HELP';
         if (path === ROUTES.VOCABULARY) return 'LIST';
@@ -428,7 +425,7 @@ const App = () => {
                         displayName: defaultName,
                         dailyGoal: defaultGoal,
                         hasSeenHelp: true,
-                        isApproved: false // yêu cầu admin duyệt trước khi dùng app
+                        isApproved: true // Người dùng được duyệt tự động, admin có thể huỷ kích hoạt sau
                     };
                     await setDoc(doc(db, settingsDocPath), newProfile);
                     setProfile(newProfile);
@@ -2227,7 +2224,6 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     publicStatsPath={publicStatsCollectionPath}
                     currentUserId={userId}
                     isAdmin={isAdmin}
-                    onAdminDeleteUserData={handleAdminDeleteUserData}
                     onBack={() => setView('HOME')}
                 />;
             case 'ACCOUNT':
@@ -2358,7 +2354,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                         <div className={view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' || view === 'KANJI' ? 'bg-transparent' : ''}>
                             <AppRoutes
                                 isAuthenticated={!!userId}
-                                isApproved={profile?.isApproved === true}
+                                isApproved={profile?.isApproved}
                                 isLoading={isLoading}
                                 userId={userId}
                                 profile={profile}
