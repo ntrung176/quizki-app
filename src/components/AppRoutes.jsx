@@ -16,7 +16,9 @@ import {
     ReviewCompleteScreen,
     KanjiScreen,
     StudyScreen,
-    TestScreen
+    TestScreen,
+    AdminScreen,
+    FlashcardScreen
 } from './screens';
 
 // Import card components
@@ -44,6 +46,7 @@ const AppRoutes = ({
     studySessionData,
     savedFilters,
     scrollToCardId,
+    flashcardCards,
 
     // Paths
     vocabCollectionPath,
@@ -62,6 +65,7 @@ const AppRoutes = ({
     setSavedFilters,
     setNotification,
     setIsDarkMode,
+    setFlashcardCards,
 
     prepareReviewCards,
     handleUpdateCard,
@@ -151,6 +155,7 @@ const AppRoutes = ({
                             setView={setView}
                             onStartReview={prepareReviewCards}
                             onNavigate={setView}
+                            setFlashcardCards={setFlashcardCards}
                         />
                     </ProtectedRoute>
                 }
@@ -360,6 +365,44 @@ const AppRoutes = ({
                             onImport={handleBatchImport}
                             onBack={() => setView('HOME')}
                         />
+                    </ProtectedRoute>
+                }
+            />
+
+            {/* Admin route - only for admins */}
+            <Route
+                path={ROUTES.ADMIN}
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                        {isAdmin ? (
+                            <AdminScreen
+                                publicStatsPath={publicStatsCollectionPath}
+                                currentUserId={userId}
+                                onAdminDeleteUserData={handleAdminDeleteUserData}
+                            />
+                        ) : (
+                            <Navigate to={ROUTES.HOME} replace />
+                        )}
+                    </ProtectedRoute>
+                }
+            />
+
+            {/* Flashcard route */}
+            <Route
+                path={ROUTES.FLASHCARD}
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated} isApproved={isApproved}>
+                        {flashcardCards && flashcardCards.length > 0 ? (
+                            <FlashcardScreen
+                                cards={flashcardCards}
+                                onComplete={() => {
+                                    setFlashcardCards([]);
+                                    setView('HOME');
+                                }}
+                            />
+                        ) : (
+                            <Navigate to={ROUTES.HOME} replace />
+                        )}
                     </ProtectedRoute>
                 }
             />

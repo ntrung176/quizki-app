@@ -400,64 +400,77 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     const totalCards = studySessionData.allNoSrsCards.length;
 
     return (
-        <div className="w-full max-w-xl lg:max-w-2xl mx-auto h-full flex flex-col space-y-2 md:space-y-3">
-            {/* Header & Progress */}
-            <div className="space-y-2 md:space-y-4 flex-shrink-0">
-                <div className="flex justify-between items-center text-xs md:text-sm font-medium text-gray-500 dark:text-gray-400">
-                    <span className="flex items-center">
-                        <GraduationCap className="w-3 h-3 md:w-4 md:h-4 mr-0.5 md:mr-1 text-teal-500 dark:text-teal-400" />
-                        Học - {currentPhase === 'multipleChoice' ? 'Trắc nghiệm' : 'Tự luận'} - Batch {studySessionData.batchIndex + 1}
+        <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3 p-4 border-2 border-teal-400/30 rounded-2xl">
+            {/* Progress bar */}
+            <div className="w-full space-y-1 flex-shrink-0">
+                <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
+                    <span className="flex items-center gap-1">
+                        <GraduationCap className="w-3 h-3 text-teal-500" />
+                        {currentPhase === 'multipleChoice' ? 'Trắc nghiệm' : 'Tự luận'} - Batch {studySessionData.batchIndex + 1}
                     </span>
-                    <span>{currentQuestionIndex + 1} / {currentBatch.length} <span className="text-teal-600 dark:text-teal-400">(Còn {remainingCards}/{totalCards})</span></span>
+                    <span>{currentQuestionIndex + 1} / {currentBatch.length}</span>
                 </div>
-                <div className="h-1.5 md:h-2 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-teal-500 dark:bg-teal-400 progress-bar" style={{ width: `${progress}%` }}></div>
+                <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                    <div className="h-full bg-teal-500 progress-bar rounded-full" style={{ width: `${progress}%` }}></div>
+                </div>
+                <div className="text-xs text-right text-teal-600 dark:text-teal-400">
+                    Còn {remainingCards}/{totalCards} từ mới
                 </div>
             </div>
 
-            {/* Question Area */}
-            <div className="flex-1 flex flex-col items-center justify-center space-y-4 md:space-y-6">
-                {currentPhase === 'multipleChoice' ? (
-                    <div className="w-full bg-white dark:bg-gray-800 rounded-xl md:rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 p-4 md:p-8 space-y-4 md:space-y-6">
-                        <div className="text-center">
-                            <div className="text-2xl md:text-4xl font-extrabold text-gray-800 dark:text-gray-100 mb-4 leading-relaxed whitespace-pre-line">
-                                {formatMultipleMeanings(currentCard.back)}
-                            </div>
-                            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">Chọn từ vựng tiếng Nhật đúng:</p>
-                        </div>
+            {/* Main Card Area */}
+            <div className="w-full bg-slate-800 dark:bg-slate-900 rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center relative overflow-hidden min-h-[280px] border-2 border-teal-500/50">
+                {/* Header with mode label */}
+                <div className="w-full flex justify-between items-center absolute top-4 left-0 px-4">
+                    <div className="flex items-center gap-2">
+                        <span className="text-teal-500 text-xl">🎓</span>
+                        <span className="text-white font-bold text-sm">
+                            {currentPhase === 'multipleChoice' ? 'Chọn đáp án đúng' : 'Nhập từ vựng'}
+                        </span>
+                    </div>
+                </div>
 
-                        <div className="grid grid-cols-1 gap-2 md:gap-3">
-                            {multipleChoiceOptions.map((option, idx) => (
-                                <button
-                                    key={idx}
-                                    onClick={() => handleMultipleChoiceAnswer(option)}
-                                    disabled={isProcessing || isRevealed}
-                                    className={`p-3 md:p-4 rounded-lg md:rounded-xl font-bold text-sm md:text-base transition-all text-left border-2
-                                        ${selectedAnswer === option
-                                            ? feedback === 'correct'
-                                                ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'
-                                                : 'bg-red-500 dark:bg-red-600 text-white shadow-lg border-red-600 dark:border-red-700'
-                                            : isRevealed && normalizeAnswer(option) === normalizeAnswer(currentCard.front)
-                                                ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'
-                                                : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 border-gray-300 dark:border-gray-600'
-                                        }
-                                        ${isProcessing || isRevealed ? 'cursor-not-allowed' : 'cursor-pointer hover:scale-105'}
-                                    `}
-                                >
-                                    <span className="font-japanese">{option}</span>
-                                </button>
-                            ))}
-                        </div>
+                {/* Question Display */}
+                <div className="py-8 w-full">
+                    <p className="text-xs text-gray-400 uppercase tracking-wide mb-2">Ý nghĩa</p>
+                    <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed whitespace-pre-line">
+                        {formatMultipleMeanings(currentCard.back)}
+                    </div>
+                    {currentCard.sinoVietnamese && (
+                        <p className="text-sm text-gray-400 mt-2">
+                            <span className="font-semibold">Hán Việt:</span> {currentCard.sinoVietnamese}
+                        </p>
+                    )}
+                </div>
+            </div>
+
+            {/* Answer Area */}
+            <div className="w-full space-y-3">
+                {currentPhase === 'multipleChoice' ? (
+                    <div className="grid grid-cols-1 gap-2">
+                        {multipleChoiceOptions.map((option, idx) => (
+                            <button
+                                key={idx}
+                                onClick={() => handleMultipleChoiceAnswer(option)}
+                                disabled={isProcessing || isRevealed}
+                                className={`p-3 md:p-4 rounded-xl font-bold text-base transition-all text-left border-2
+                                    ${selectedAnswer === option
+                                        ? feedback === 'correct'
+                                            ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'
+                                            : 'bg-red-500 dark:bg-red-600 text-white shadow-lg border-red-600 dark:border-red-700'
+                                        : isRevealed && normalizeAnswer(option) === normalizeAnswer(currentCard.front)
+                                            ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'
+                                            : 'bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 border-gray-200 dark:border-gray-600'
+                                    }
+                                    ${isProcessing || isRevealed ? 'cursor-not-allowed' : 'cursor-pointer hover:scale-[1.02]'}
+                                `}
+                            >
+                                <span className="font-japanese">{option}</span>
+                            </button>
+                        ))}
                     </div>
                 ) : (
-                    <div className="w-full bg-white dark:bg-gray-800 rounded-xl md:rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 p-4 md:p-8 space-y-4 md:space-y-6">
-                        <div className="text-center">
-                            <h3 className="text-xl md:text-2xl font-bold text-gray-700 dark:text-gray-300 mb-2">Từ vựng tiếng Nhật là gì?</h3>
-                            <div className="text-3xl md:text-5xl font-extrabold text-gray-800 dark:text-gray-100 mb-4 leading-relaxed whitespace-pre-line">
-                                {formatMultipleMeanings(currentCard.back)}
-                            </div>
-                        </div>
-
+                    <div className="space-y-3">
                         <div className="relative">
                             <input
                                 ref={inputRef}
@@ -482,12 +495,12 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                     }
                                 }}
                                 disabled={isRevealed || isProcessing}
-                                className={`w-full px-4 md:px-6 py-3 md:py-4 text-lg md:text-2xl font-semibold rounded-xl md:rounded-2xl border-2 transition-all outline-none shadow-md text-center touch-manipulation
+                                className={`w-full px-4 py-3 text-lg font-semibold rounded-xl border-2 transition-all outline-none shadow-md text-center
                                     ${feedback === 'correct'
                                         ? 'border-green-400 dark:border-green-600 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300'
                                         : feedback === 'incorrect'
                                             ? 'border-red-400 dark:border-red-600 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300'
-                                            : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:border-teal-500 dark:focus:border-teal-400 focus:ring-4 focus:ring-teal-500/10 dark:focus:ring-teal-500/20'
+                                            : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:border-teal-500 dark:focus:border-teal-400 focus:ring-4 focus:ring-teal-500/10'
                                     }
                                 `}
                                 placeholder="Nhập từ vựng tiếng Nhật..."
@@ -495,35 +508,30 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                         </div>
 
                         {isRevealed && (
-                            <div className={`p-4 md:p-5 rounded-xl md:rounded-2xl border ${feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800'
-                                }`}>
-                                <p className={`font-bold text-base md:text-xl text-center ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'
-                                    }`}>
-                                    {feedback === 'correct' ? '✓ Chính xác!' : <>✗ Đáp án đúng: <span className="font-japanese">{currentCard.front}</span></>}
+                            <div className={`p-4 rounded-xl border ${feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800'}`}>
+                                <p className={`font-bold text-base text-center ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'}`}>
+                                    {feedback === 'correct' ? '✓ Chính xác!' : <><span className="font-japanese">✗ Đáp án đúng: {currentCard.front}</span></>}
                                 </p>
                             </div>
                         )}
+
+                        {!isRevealed && (
+                            <button
+                                onClick={handleTypingAnswer}
+                                disabled={isProcessing || !inputValue.trim()}
+                                className="w-full py-3 rounded-xl font-bold text-base shadow-lg transition-all flex items-center justify-center bg-teal-600 text-white hover:bg-teal-700 disabled:bg-gray-300 disabled:text-gray-500 disabled:shadow-none"
+                            >
+                                Kiểm tra
+                            </button>
+                        )}
                     </div>
                 )}
-            </div>
 
-            {/* Actions */}
-            <div className="space-y-2 md:space-y-4 flex-shrink-0 pb-4 md:pb-0">
-                {currentPhase === 'typing' && !isRevealed && (
-                    <button
-                        onClick={handleTypingAnswer}
-                        disabled={isProcessing || !inputValue.trim()}
-                        className="w-full py-3 md:py-4 rounded-lg md:rounded-xl font-bold text-base md:text-lg shadow-lg transition-all flex items-center justify-center bg-teal-600 text-white hover:bg-teal-700 disabled:bg-gray-300 disabled:text-gray-500 disabled:shadow-none"
-                    >
-                        Kiểm tra
-                    </button>
-                )}
-
+                {/* Next button for typing phase when revealed */}
                 {currentPhase === 'typing' && isRevealed && (
                     <button
                         onClick={async () => {
                             if (isProcessing) return;
-
                             setIsProcessing(true);
 
                             if (currentQuestionIndex < currentBatch.length - 1) {
@@ -538,7 +546,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                             }
                         }}
                         disabled={isProcessing}
-                        className="w-full py-3 md:py-4 rounded-lg md:rounded-xl font-bold text-base md:text-lg shadow-lg transition-all flex items-center justify-center bg-teal-600 text-white hover:bg-teal-700 disabled:bg-gray-300 disabled:text-gray-500"
+                        className="w-full py-3 rounded-xl font-bold text-base shadow-lg transition-all flex items-center justify-center bg-teal-600 text-white hover:bg-teal-700 disabled:bg-gray-300 disabled:text-gray-500"
                     >
                         {currentQuestionIndex < currentBatch.length - 1 ? 'Tiếp theo →' : 'Batch tiếp theo →'}
                     </button>
@@ -549,3 +557,4 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
 };
 
 export default StudyScreen;
+

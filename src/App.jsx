@@ -50,7 +50,9 @@ import {
     ReviewCompleteScreen,
     KanjiScreen,
     StudyScreen,
-    TestScreen
+    TestScreen,
+    AdminScreen,
+    FlashcardScreen
 } from './components/screens';
 
 // Import layout components
@@ -110,12 +112,14 @@ const App = () => {
             'LIST': ROUTES.VOCABULARY,
             'ADD_CARD': ROUTES.VOCABULARY_ADD,
             'REVIEW': ROUTES.REVIEW,
+            'FLASHCARD': ROUTES.FLASHCARD,
             'KANJI': ROUTES.KANJI,
             'STUDY': ROUTES.STUDY,
             'TEST': ROUTES.TEST,
             'STATS': ROUTES.STATS,
             'FRIENDS': ROUTES.FRIENDS,
             'IMPORT': ROUTES.IMPORT,
+            'ADMIN': ROUTES.ADMIN,
         };
         const route = routeMap[viewName] || ROUTES.HOME;
         navigate(route);
@@ -133,12 +137,14 @@ const App = () => {
         if (path === ROUTES.VOCABULARY_ADD) return 'ADD_CARD';
         if (path.startsWith('/vocabulary/edit/')) return 'EDIT_CARD';
         if (path === ROUTES.REVIEW) return 'REVIEW';
+        if (path === ROUTES.FLASHCARD) return 'FLASHCARD';
         if (path === ROUTES.KANJI) return 'KANJI';
         if (path === ROUTES.STUDY) return 'STUDY';
         if (path === ROUTES.TEST) return 'TEST';
         if (path === ROUTES.STATS) return 'STATS';
         if (path === ROUTES.FRIENDS) return 'FRIENDS';
         if (path === ROUTES.IMPORT) return 'IMPORT';
+        if (path === ROUTES.ADMIN) return 'ADMIN';
         return 'HOME';
     }, [location.pathname]);
 
@@ -207,6 +213,7 @@ const App = () => {
         batchIndex: 0,
         allNoSrsCards: [] // Tất cả từ chưa có SRS
     });
+    const [flashcardCards, setFlashcardCards] = useState([]);
 
     const vocabCollectionPath = useMemo(() => {
         if (!userId) return null;
@@ -2083,6 +2090,19 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                         setView('HOME');
                     }}
                 />;
+            case 'FLASHCARD':
+                console.log('FLASHCARD case, flashcardCards:', flashcardCards.length);
+                if (flashcardCards.length === 0) {
+                    console.log('No flashcard cards, showing complete screen');
+                    return <ReviewCompleteScreen onBack={() => setView('HOME')} />;
+                }
+                return <FlashcardScreen
+                    cards={flashcardCards}
+                    onComplete={() => {
+                        setFlashcardCards([]);
+                        setView('HOME');
+                    }}
+                />;
             case 'KANJI':
                 return <KanjiScreen isAdmin={isAdmin} />;
             case 'REVIEW':
@@ -2180,6 +2200,16 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     }}
                     onBack={() => setView('HOME')}
                 />;
+            case 'ADMIN':
+                if (!isAdmin) {
+                    setView('HOME');
+                    return null;
+                }
+                return <AdminScreen
+                    publicStatsPath={publicStatsCollectionPath}
+                    currentUserId={userId}
+                    onAdminDeleteUserData={handleAdminDeleteUserData}
+                />;
             case 'HOME':
             default:
                 return <HomeScreen
@@ -2194,6 +2224,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     setView={setView}
                     onStartReview={prepareReviewCards}
                     onNavigate={setView}
+                    setFlashcardCards={setFlashcardCards}
                 />;
         }
     };
@@ -2205,6 +2236,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                 isDarkMode={isDarkMode}
                 setIsDarkMode={setIsDarkMode}
                 displayName={profile?.displayName}
+                isAdmin={isAdmin}
             />
 
             {/* Modal nhập từ vựng hàng loạt */}
@@ -2271,11 +2303,11 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
             )}
 
             {/* Main content area - responsive for sidebar */}
-            <main className={`lg:ml-64 min-h-screen pt-14 lg:pt-0 ${view === 'REVIEW' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
-                <div className={`${view === 'REVIEW' ? 'w-full h-screen flex items-center justify-center bg-transparent' : view === 'KANJI' ? 'w-full min-h-screen' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6'}`}>
+            <main className={`lg:ml-64 min-h-screen pt-14 lg:pt-0 ${view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
+                <div className={`${view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' ? 'w-full h-screen flex items-center justify-center bg-transparent' : view === 'KANJI' ? 'w-full min-h-screen' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6'}`}>
                     {/* Main content container - transparent */}
-                    <div className={`${view === 'REVIEW' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
-                        <div className={view === 'REVIEW' || view === 'KANJI' ? 'bg-transparent' : ''}>
+                    <div className={`${view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
+                        <div className={view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' || view === 'KANJI' ? 'bg-transparent' : ''}>
                             {renderContent()}
                         </div>
 

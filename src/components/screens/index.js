@@ -12,3 +12,5 @@ export { default as ReviewScreen, ReviewCompleteScreen } from './ReviewScreen';
 export { default as KanjiScreen } from './KanjiScreen';
 export { default as StudyScreen } from './StudyScreen';
 export { default as TestScreen } from './TestScreen';
+export { default as AdminScreen } from './AdminScreen';
+export { default as FlashcardScreen } from './FlashcardScreen';

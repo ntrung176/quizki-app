@@ -1,16 +1,25 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
-    Calendar, Clock, BookOpen, Users, MessageSquare
+    Calendar, Clock, BookOpen, Users, MessageSquare, GraduationCap, Layers, Plus
 } from 'lucide-react';
+import { shuffleArray } from '../../utils/textProcessing';
+import { ROUTES } from '../../router';
 
 const HomeScreen = ({
     displayName,
     dueCounts,
     totalCards,
     allCards,
+    studySessionData,
+    setStudySessionData,
     setReviewMode,
     onStartReview,
+    setView,
+    onNavigate,
+    setFlashcardCards,
 }) => {
+    const navigate = useNavigate();
     // Tính toán các số liệu thống kê
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -37,6 +46,18 @@ const HomeScreen = ({
 
     // Tổng đã học qua (không còn là thẻ mới)
     const learnedCards = allCards.filter(card => card.intervalIndex_back >= 0).length;
+
+    // Đếm số từ có synonym (cho chế độ Đồng nghĩa)
+    const synonymCards = allCards.filter(card =>
+        card.synonym && card.synonym.trim() !== '' &&
+        card.nextReview_back && card.nextReview_back <= Date.now()
+    ).length;
+
+    // Đếm số từ có example (cho chế độ Ngữ cảnh)
+    const exampleCards = allCards.filter(card =>
+        card.example && card.example.trim() !== '' &&
+        card.nextReview_back && card.nextReview_back <= Date.now()
+    ).length;
 
     // Tính thời gian đến lượt ôn tập tiếp theo
     const getNextReviewTime = () => {
@@ -67,6 +88,42 @@ const HomeScreen = ({
     const handleStartReview = (mode) => {
         setReviewMode(mode);
         onStartReview(mode, 'all');
+    };
+
+    // Bắt đầu học từ mới (từ chưa có SRS)
+    const handleStartStudy = () => {
+        const noSrsCards = allCards.filter(c => c.intervalIndex_back === -1);
+        if (noSrsCards.length === 0) return;
+
+        const shuffledCards = shuffleArray([...noSrsCards]);
+        const firstBatch = shuffledCards.slice(0, Math.min(5, shuffledCards.length));
+
+        setStudySessionData({
+            learning: [],
+            new: shuffledCards,
+            reviewing: [],
+            currentBatch: firstBatch,
+            currentPhase: 'multipleChoice',
+            batchIndex: 0,
+            allNoSrsCards: shuffledCards
+        });
+        setView('STUDY');
+    };
+
+    // Bắt đầu flashcard (chỉ cho từ mới)
+    const handleStartFlashcard = () => {
+        console.log('handleStartFlashcard called', { newCards, allCardsLength: allCards.length });
+        if (newCards === 0) {
+            console.log('No new cards, returning');
+            return;
+        }
+        const noSrsCards = allCards.filter(c => c.intervalIndex_back === -1);
+        console.log('noSrsCards found:', noSrsCards.length);
+        const shuffledCards = shuffleArray([...noSrsCards]);
+        console.log('Setting flashcardCards:', shuffledCards.length);
+        setFlashcardCards(shuffledCards);
+        console.log('Navigating to FLASHCARD route');
+        navigate(ROUTES.FLASHCARD);
     };
 
     return (
@@ -159,6 +216,62 @@ const HomeScreen = ({
                 </div>
             </div>
 
+            {/* Chế độ học */}
+            <div className="space-y-3">
+                <h2 className="text-base md:text-lg font-bold text-gray-800 dark:text-gray-100">
+                    Chế độ học
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {/* Flashcard - bên trái */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
+                        <div className="flex items-center gap-2 mb-2">
+                            <Layers className="w-4 h-4 text-violet-500" />
+                            <span className="font-bold text-sm text-gray-800 dark:text-white">Flashcard</span>
+                            <span className="ml-auto text-xs px-2 py-0.5 bg-violet-100 dark:bg-violet-900/50 text-violet-600 dark:text-violet-400 rounded-full font-medium">
+                                {newCards} từ mới
+                            </span>
+                        </div>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3 flex-1">
+                            Lật thẻ flashcard để học từ vựng mới. Xem mặt trước và lật để kiểm tra nghĩa.
+                        </p>
+                        <button
+                            onClick={handleStartFlashcard}
+                            disabled={newCards === 0}
+                            className={`w-full py-2.5 rounded-xl font-bold transition-all mt-auto ${newCards > 0
+                                ? 'bg-violet-500 hover:bg-violet-600 text-white'
+                                : 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
+                                }`}
+                        >
+                            Lật Flashcard
+                        </button>
+                    </div>
+
+                    {/* Học từ mới - bên phải */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
+                        <div className="flex items-center gap-2 mb-2">
+                            <GraduationCap className="w-4 h-4 text-teal-500" />
+                            <span className="font-bold text-sm text-gray-800 dark:text-white">Học từ mới</span>
+                            <span className="ml-auto text-xs px-2 py-0.5 bg-teal-100 dark:bg-teal-900/50 text-teal-600 dark:text-teal-400 rounded-full font-medium">
+                                {newCards} từ
+                            </span>
+                        </div>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3 flex-1">
+                            Học từ vựng mới bằng trắc nghiệm 4 đáp án. Giao diện giống chế độ kiểm tra.
+                        </p>
+                        <button
+                            onClick={handleStartStudy}
+                            disabled={newCards === 0}
+                            className={`w-full py-2.5 rounded-xl font-bold transition-all mt-auto ${newCards > 0
+                                ? 'bg-teal-500 hover:bg-teal-600 text-white'
+                                : 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
+                                }`}
+                        >
+                            Bắt đầu học
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             {/* Chọn chế độ ôn tập */}
             <div className="space-y-3">
                 <h2 className="text-base md:text-lg font-bold text-gray-800 dark:text-gray-100">
@@ -166,18 +279,21 @@ const HomeScreen = ({
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     {/* Ý nghĩa */}
-                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm">
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
                         <div className="flex items-center gap-2 mb-2">
                             <BookOpen className="w-4 h-4 text-indigo-500" />
                             <span className="font-bold text-sm text-gray-800 dark:text-white">Ý nghĩa</span>
+                            <span className="ml-auto text-xs px-2 py-0.5 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-full font-medium">
+                                {dueCards} từ
+                            </span>
                         </div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
-                            Xem từ vựng và nhớ lại ý nghĩa. Chế độ cơ bản nhất để học từ mới.
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3 flex-1">
+                            Xem từ vựng và nhớ lại ý nghĩa. Chế độ cơ bản nhất để ôn tập.
                         </p>
                         <button
                             onClick={() => handleStartReview('back')}
                             disabled={dueCards === 0}
-                            className={`w-full py-2.5 rounded-xl font-bold transition-all ${dueCards > 0
+                            className={`w-full py-2.5 rounded-xl font-bold transition-all mt-auto ${dueCards > 0
                                 ? 'bg-indigo-500 hover:bg-indigo-600 text-white'
                                 : 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
                                 }`}
@@ -187,18 +303,21 @@ const HomeScreen = ({
                     </div>
 
                     {/* Đồng nghĩa */}
-                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm">
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
                         <div className="flex items-center gap-2 mb-2">
                             <Users className="w-4 h-4 text-emerald-500" />
                             <span className="font-bold text-sm text-gray-800 dark:text-white">Đồng nghĩa</span>
+                            <span className="ml-auto text-xs px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 rounded-full font-medium">
+                                {synonymCards} từ
+                            </span>
                         </div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3 flex-1">
                             Ôn tập từ đồng nghĩa để mở rộng vốn từ và diễn đạt đa dạng hơn.
                         </p>
                         <button
                             onClick={() => handleStartReview('synonym')}
-                            disabled={dueCards === 0}
-                            className={`w-full py-2.5 rounded-xl font-bold transition-all ${dueCards > 0
+                            disabled={synonymCards === 0}
+                            className={`w-full py-2.5 rounded-xl font-bold transition-all mt-auto ${synonymCards > 0
                                 ? 'bg-emerald-500 hover:bg-emerald-600 text-white'
                                 : 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
                                 }`}
@@ -208,18 +327,21 @@ const HomeScreen = ({
                     </div>
 
                     {/* Ngữ cảnh */}
-                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm">
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
                         <div className="flex items-center gap-2 mb-2">
                             <MessageSquare className="w-4 h-4 text-amber-500" />
                             <span className="font-bold text-sm text-gray-800 dark:text-white">Ngữ cảnh</span>
+                            <span className="ml-auto text-xs px-2 py-0.5 bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 rounded-full font-medium">
+                                {exampleCards} từ
+                            </span>
                         </div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
-                            Học từ qua ví dụ thực tế. Hiểu cách sử dụng từ trong câu.
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3 flex-1">
+                            Ôn tập từ qua ví dụ thực tế. Hiểu cách sử dụng từ trong câu.
                         </p>
                         <button
                             onClick={() => handleStartReview('example')}
-                            disabled={dueCards === 0}
-                            className={`w-full py-2.5 rounded-xl font-bold transition-all ${dueCards > 0
+                            disabled={exampleCards === 0}
+                            className={`w-full py-2.5 rounded-xl font-bold transition-all mt-auto ${exampleCards > 0
                                 ? 'bg-amber-500 hover:bg-amber-600 text-white'
                                 : 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
                                 }`}

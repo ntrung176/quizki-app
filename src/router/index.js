@@ -9,12 +9,14 @@ export const ROUTES = {
     VOCABULARY_ADD: '/vocabulary/add',
     VOCABULARY_EDIT: '/vocabulary/edit/:id',
     REVIEW: '/review',
+    FLASHCARD: '/flashcard',
     KANJI: '/kanji',
     STUDY: '/study',
     TEST: '/test',
     STATS: '/stats',
     FRIENDS: '/friends',
     IMPORT: '/import',
+    ADMIN: '/admin',
 };
 
 // Helper function to generate edit route with ID

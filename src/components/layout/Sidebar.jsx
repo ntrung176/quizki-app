@@ -6,11 +6,11 @@ import { ROUTES } from '../../router';
 import {
     Home, BookOpen, BarChart3, Users, Settings, Plus,
     LogOut, Sun, Moon, Sparkles, ChevronRight, X, List,
-    Repeat2, FileCheck, Languages
+    Repeat2, FileCheck, Languages, Shield
 } from 'lucide-react';
 
 // Sidebar Component - New vertical navigation layout with React Router
-const Sidebar = ({ isDarkMode, setIsDarkMode, displayName }) => {
+const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const [isCollapsed, setIsCollapsed] = useState(false);
@@ -27,6 +27,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName }) => {
         if (path === ROUTES.FRIENDS) return 'FRIENDS';
         if (path === ROUTES.ACCOUNT) return 'ACCOUNT';
         if (path === ROUTES.VOCABULARY_ADD) return 'ADD_CARD';
+        if (path === ROUTES.ADMIN) return 'ADMIN';
         return 'HOME';
     };
 
@@ -51,6 +52,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName }) => {
         { id: 'STATS', icon: BarChart3, label: 'Thống kê', route: ROUTES.STATS },
         { id: 'FRIENDS', icon: Users, label: 'Xếp hạng', route: ROUTES.FRIENDS },
         { id: 'ACCOUNT', icon: Settings, label: 'Cài đặt', route: ROUTES.ACCOUNT },
+        ...(isAdmin ? [{ id: 'ADMIN', icon: Shield, label: 'Quản lý Admin', route: ROUTES.ADMIN }] : []),
     ];
 
     // Mobile header for small screens

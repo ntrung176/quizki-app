@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import HanziWriter from 'hanzi-writer';
-import { Search, Grid, PenTool, Download, BookOpen, Map, Globe, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Play, Upload, FileJson, Edit, Check } from 'lucide-react';
+import { Search, Grid, PenTool, Download, BookOpen, Map, Globe, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Play, Upload, FileJson, Edit, Check, Copy } from 'lucide-react';
 import { db } from '../../config/firebase';
 import { collection, getDocs, addDoc, deleteDoc, doc, query, where, writeBatch } from 'firebase/firestore';
 import { getKanjiDecomposition } from '../../data/kanjiDecomposition';
@@ -39,6 +39,10 @@ const KanjiScreen = ({ isAdmin = false }) => {
     // Kanji API data (radical, components, stroke count)
     const [kanjiApiData, setKanjiApiData] = useState(null);
     const [loadingApiData, setLoadingApiData] = useState(false);
+
+    // Search dropdown state
+    const [showSearchResults, setShowSearchResults] = useState(false);
+    const searchInputRef = useRef(null);
 
     // Bulk selection states
     const [bulkSelectMode, setBulkSelectMode] = useState(false);
@@ -267,6 +271,26 @@ const KanjiScreen = ({ isAdmin = false }) => {
         }
         return filtered;
     }, [selectedLevel, kanjiList, searchQuery]);
+
+    // Search results for dropdown (search across ALL kanji regardless of level)
+    const searchResults = useMemo(() => {
+        if (!searchQuery.trim()) return [];
+        const query = searchQuery.toLowerCase().trim();
+        return kanjiList.filter(k =>
+            k.character === query ||
+            k.character.includes(query) ||
+            k.sinoViet?.toLowerCase().includes(query) ||
+            k.meaning?.toLowerCase().includes(query)
+        ).slice(0, 10); // Limit to 10 results
+    }, [kanjiList, searchQuery]);
+
+    // Handle selecting a kanji from search results
+    const handleSelectSearchResult = (kanji) => {
+        setSelectedKanji(kanji.character);
+        setSelectedLevel(kanji.level); // Switch to the kanji's level
+        setShowSearchResults(false);
+        setSearchQuery('');
+    };
 
     // Get filtered vocab list with id for bulk operations
     const filteredVocabList = useMemo(() => {
@@ -1037,14 +1061,9 @@ const KanjiScreen = ({ isAdmin = false }) => {
     if (loading) {
         return (
             <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:bg-slate-900 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 flex items-center justify-center">
-                <div className="text-center space-y-4">
-                    <div className="relative">
-                        <div className="w-20 h-20 border-4 border-cyan-200 dark:border-slate-700 rounded-full animate-pulse"></div>
-                        <div className="absolute inset-0 w-20 h-20 border-4 border-transparent border-t-cyan-500 rounded-full animate-spin"></div>
-                        <span className="absolute inset-0 flex items-center justify-center text-3xl font-japanese text-cyan-600 dark:text-cyan-400">漢</span>
-                    </div>
-                    <p className="text-gray-600 dark:text-gray-400 font-medium">Đang tải dữ liệu Kanji...</p>
-                    <p className="text-xs text-gray-400 dark:text-gray-500">Lần đầu có thể mất vài giây</p>
+                <div className="text-center space-y-3">
+                    <div className="w-10 h-10 border-4 border-cyan-200 dark:border-slate-700 border-t-cyan-500 rounded-full animate-spin mx-auto"></div>
+                    <p className="text-gray-600 dark:text-gray-400 font-medium text-sm">Đang tải dữ liệu Kanji...</p>
                 </div>
             </div>
         );
@@ -1057,17 +1076,69 @@ const KanjiScreen = ({ isAdmin = false }) => {
                 <div className="w-full lg:w-80 flex-shrink-0 space-y-4">
                     <h1 className="text-2xl font-bold text-cyan-600 dark:text-cyan-400 font-japanese">鑒 Học Kanji</h1>
 
-                    {/* Search */}
-                    <div className="relative">
+                    {/* Search with dropdown */}
+                    <div className="relative" ref={searchInputRef}>
                         <input
                             type="text"
                             value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            placeholder="Tìm kiếm kanji..."
+                            onChange={(e) => {
+                                setSearchQuery(e.target.value);
+                                setShowSearchResults(true);
+                            }}
+                            onFocus={() => setShowSearchResults(true)}
+                            placeholder="Tìm bằng Kanji hoặc âm Hán Việt..."
                             className="w-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
                         />
                         <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+
+                        {/* Search Results Dropdown */}
+                        {showSearchResults && searchQuery.trim() && searchResults.length > 0 && (
+                            <div className="absolute z-50 w-full mt-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-lg shadow-xl max-h-80 overflow-y-auto">
+                                <div className="p-2 text-xs text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-slate-700">
+                                    Tìm thấy {searchResults.length} kết quả
+                                </div>
+                                {searchResults.map((kanji, idx) => (
+                                    <button
+                                        key={kanji.id || idx}
+                                        onClick={() => handleSelectSearchResult(kanji)}
+                                        className="w-full px-4 py-3 flex items-center gap-3 hover:bg-cyan-50 dark:hover:bg-slate-700 transition-colors text-left border-b border-gray-50 dark:border-slate-700 last:border-b-0"
+                                    >
+                                        <span className="text-2xl font-japanese text-cyan-600 dark:text-cyan-400 w-10 text-center">
+                                            {kanji.character}
+                                        </span>
+                                        <div className="flex-1 min-w-0">
+                                            <div className="flex items-center gap-2">
+                                                <span className="font-medium text-gray-800 dark:text-white">
+                                                    {kanji.sinoViet || '---'}
+                                                </span>
+                                                <span className="text-xs px-1.5 py-0.5 bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400 rounded">
+                                                    {kanji.level}
+                                                </span>
+                                            </div>
+                                            <div className="text-sm text-gray-500 dark:text-gray-400 truncate">
+                                                {kanji.meaning}
+                                            </div>
+                                        </div>
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+
+                        {/* No results message */}
+                        {showSearchResults && searchQuery.trim() && searchResults.length === 0 && (
+                            <div className="absolute z-50 w-full mt-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-lg shadow-xl p-4 text-center text-gray-500 dark:text-gray-400">
+                                Không tìm thấy kanji nào
+                            </div>
+                        )}
                     </div>
+
+                    {/* Click outside to close dropdown */}
+                    {showSearchResults && (
+                        <div
+                            className="fixed inset-0 z-40"
+                            onClick={() => setShowSearchResults(false)}
+                        />
+                    )}
 
                     {/* Kanji Preview with Stroke Animation */}
                     <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl aspect-square flex flex-col items-center justify-center shadow-lg relative overflow-hidden">
@@ -1319,7 +1390,7 @@ const KanjiScreen = ({ isAdmin = false }) => {
             {/* Import Kanji JSON Modal */}
             {showImportKanjiModal && (
                 <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 w-[420px] max-w-[90vw] space-y-3 shadow-2xl">
+                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 w-[480px] max-w-[90vw] space-y-3 shadow-2xl">
                         <div className="flex justify-between items-center">
                             <h3 className="text-lg font-bold flex items-center gap-2 text-gray-900 dark:text-white">
                                 <FileJson className="w-5 h-5 text-cyan-500 dark:text-cyan-400" /> Import Kanji
@@ -1329,42 +1400,30 @@ const KanjiScreen = ({ isAdmin = false }) => {
 
                         <div className="bg-gray-100 dark:bg-slate-700/50 rounded-lg p-3 text-xs border border-gray-200 dark:border-slate-600">
                             <div className="flex justify-between items-center mb-2">
-                                <p className="text-gray-700 dark:text-gray-300 font-medium">📋 JSON mẫu:</p>
+                                <p className="text-gray-700 dark:text-gray-300 font-medium">📝 JSON mẫu:</p>
                                 <button
                                     onClick={() => {
-                                        const sampleJson = `[
-  {
-    "character": "水",
-    "sinoViet": "THỦY",
-    "meaning": "Nước",
-    "onyomi": "スイ",
-    "kunyomi": "みず",
-    "level": "N5",
-    "radical": "水",
-    "mnemonic": "Hình dòng nước chảy"
-  }
-]`;
+                                        const sampleJson = `[{"character":"夏","sinoViet":"HẠ","meaning":"Mùa hè","onyomi":"カ","kunyomi":"なつ","level":"N4","radical":"自(Tự), 夂(Truy)","mnemonic":"Còn lại Mình 自 ta Sau 夂 Mùa Hạ 夏."}]`;
                                         navigator.clipboard.writeText(sampleJson);
                                         setImportStatus('📋 Đã copy JSON mẫu!');
                                         setTimeout(() => setImportStatus(''), 2000);
                                     }}
-                                    className="px-2 py-1 bg-cyan-500 hover:bg-cyan-400 text-white text-[10px] rounded font-medium flex items-center gap-1"
+                                    className="flex items-center gap-1 px-2 py-1 text-[10px] bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400 rounded hover:bg-cyan-200 dark:hover:bg-cyan-800/50 transition-colors font-medium"
                                 >
-                                    📋 Copy
+                                    <Copy className="w-3 h-3" /> Copy mẫu
                                 </button>
                             </div>
-                            <pre className="text-[10px] text-cyan-600 dark:text-cyan-400 overflow-x-auto whitespace-pre-wrap bg-white/50 dark:bg-slate-800/50 rounded p-2">{`[
-  {
-    "character": "水",
-    "sinoViet": "THỦY",
-    "meaning": "Nước",
-    "onyomi": "スイ",
-    "kunyomi": "みず",
-    "level": "N5",
-    "radical": "水",
-    "mnemonic": "Hình dòng nước chảy"
-  }
-]`}</pre>
+                            <pre className="text-[10px] text-cyan-600 dark:text-cyan-400 overflow-x-auto whitespace-pre-wrap bg-white/50 dark:bg-slate-800/50 rounded p-2">{`{
+  "character": "夏",
+  "sinoViet": "HẠ",
+  "meaning": "Mùa hè",
+  "onyomi": "カ",
+  "kunyomi": "なつ",
+  "level": "N4",
+  "radical": "自(Tự), 夂(Truy)",
+  "mnemonic": "Còn lại Mình 自 ta Sau 夂 Mùa Hạ 夏."
+}`}</pre>
+                            <p className="text-gray-500 dark:text-gray-400 text-[10px] mt-2">* Các trường bắt buộc: character, level. Các trường khác tùy chọn.</p>
                         </div>
 
                         <textarea
@@ -1394,7 +1453,7 @@ const KanjiScreen = ({ isAdmin = false }) => {
             {/* Import Vocab JSON Modal */}
             {showImportVocabModal && (
                 <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 w-[420px] max-w-[90vw] space-y-3 shadow-2xl">
+                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 w-[480px] max-w-[90vw] space-y-3 shadow-2xl">
                         <div className="flex justify-between items-center">
                             <h3 className="text-lg font-bold flex items-center gap-2 text-gray-900 dark:text-white">
                                 <FileJson className="w-5 h-5 text-purple-500 dark:text-purple-400" /> Import Từ vựng
@@ -1402,10 +1461,29 @@ const KanjiScreen = ({ isAdmin = false }) => {
                             <button onClick={() => { setShowImportVocabModal(false); setImportStatus(''); }} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-5 h-5" /></button>
                         </div>
 
-                        <div className="bg-gray-100 dark:bg-slate-700/50 rounded-lg p-2 text-xs border border-gray-200 dark:border-slate-600">
-                            <p className="text-gray-700 dark:text-gray-300 mb-1">📝 Format:</p>
-                            <pre className="text-[10px] text-purple-600 dark:text-purple-400 overflow-x-auto">{`[{"word":"水道","reading":"すいどう","meaning":"Đường nước","level":"N4"}]`}</pre>
-                            <p className="text-gray-500 dark:text-gray-400 text-[10px] mt-1">* Tự động liên kết với Kanji</p>
+                        <div className="bg-gray-100 dark:bg-slate-700/50 rounded-lg p-3 text-xs border border-gray-200 dark:border-slate-600">
+                            <div className="flex justify-between items-center mb-2">
+                                <p className="text-gray-700 dark:text-gray-300 font-medium">📝 JSON mẫu:</p>
+                                <button
+                                    onClick={() => {
+                                        const sampleJson = `[{"word":"夏休み","reading":"なつやすみ","meaning":"Nghỉ hè","level":"N4","sinoViet":"Hạ hưu"}]`;
+                                        navigator.clipboard.writeText(sampleJson);
+                                        setImportStatus('📋 Đã copy JSON mẫu!');
+                                        setTimeout(() => setImportStatus(''), 2000);
+                                    }}
+                                    className="flex items-center gap-1 px-2 py-1 text-[10px] bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 rounded hover:bg-purple-200 dark:hover:bg-purple-800/50 transition-colors font-medium"
+                                >
+                                    <Copy className="w-3 h-3" /> Copy mẫu
+                                </button>
+                            </div>
+                            <pre className="text-[10px] text-purple-600 dark:text-purple-400 overflow-x-auto whitespace-pre-wrap bg-white/50 dark:bg-slate-800/50 rounded p-2">{`{
+  "word": "夏休み",
+  "reading": "なつやすみ",
+  "meaning": "Nghỉ hè",
+  "level": "N4",
+  "sinoViet": "Hạ hưu"
+}`}</pre>
+                            <p className="text-gray-500 dark:text-gray-400 text-[10px] mt-2">* Tự động liên kết với Kanji. Trường bắt buộc: word, level.</p>
                         </div>
 
                         <textarea
@@ -1416,7 +1494,7 @@ const KanjiScreen = ({ isAdmin = false }) => {
                         />
 
                         {importStatus && (
-                            <p className={`text-center text-sm font-medium ${importStatus.includes('✅') ? 'text-emerald-600 dark:text-emerald-400' : importStatus.includes('❌') ? 'text-red-600 dark:text-red-400' : 'text-gray-500 dark:text-gray-400'}`}>
+                            <p className={`text-center text-sm font-medium ${importStatus.includes('✅') ? 'text-emerald-600 dark:text-emerald-400' : importStatus.includes('❌') ? 'text-red-600 dark:text-red-400' : 'text-purple-600 dark:text-purple-400'}`}>
                                 {importStatus}
                             </p>
                         )}
