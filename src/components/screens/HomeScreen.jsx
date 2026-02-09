@@ -74,19 +74,65 @@ const HomeScreen = ({
         return 'Chào buổi tối';
     };
 
-    // Get motivational quote
+    // Get motivational quote - 30 quotes rotating daily
     const quotes = [
         '継続は力なり - Kiên trì là sức mạnh',
         '千里の道も一歩から - Ngàn dặm bắt đầu từ một bước',
         '七転び八起き - Ngã bảy lần, đứng dậy tám lần',
         '石の上にも三年 - Kiên nhẫn sẽ thành công',
+        '努力は必ず報われる - Nỗ lực sẽ được đền đáp',
+        '一日一歩 - Mỗi ngày một bước tiến',
+        '夢を追いかけろ - Hãy theo đuổi ước mơ',
+        '失敗は成功のもと - Thất bại là mẹ thành công',
+        '今日できることを明日に延ばすな - Việc hôm nay chớ để ngày mai',
+        '自分を信じろ - Hãy tin vào chính mình',
+        '諦めなければ夢は叶う - Đừng bỏ cuộc, ước mơ sẽ thành hiện thực',
+        '小さな積み重ねが大きな力になる - Tích tiểu thành đại',
+        '今この瞬間を大切に - Trân trọng từng khoảnh khắc',
+        '挑戦することが成長への道 - Thử thách là con đường trưởng thành',
+        '学ぶことに終わりはない - Học tập không có điểm dừng',
+        '一歩一歩前へ進め - Từng bước tiến về phía trước',
+        '困難は人を強くする - Khó khăn khiến con người mạnh mẽ hơn',
+        '笑顔で頑張ろう - Hãy cố gắng với nụ cười',
+        '可能性は無限大 - Khả năng là vô hạn',
+        '今日の努力、明日の成果 - Nỗ lực hôm nay, thành quả ngày mai',
+        '勉強は未来への投資 - Học tập là đầu tư cho tương lai',
+        '毎日少しずつ上手になる - Mỗi ngày giỏi hơn một chút',
+        '言葉は世界への扉 - Ngôn ngữ là cánh cửa đến thế giới',
+        '夢は逃げない - Ước mơ không bỏ chạy',
+        '自分のペースで進もう - Tiến bước theo nhịp điệu của riêng mình',
+        '今日も頑張れ - Hôm nay cũng cố lên nhé',
+        '成功は準備と機会の出会いだ - Thành công là sự giao thoa của chuẩn bị và cơ hội',
+        '知識は力なり - Kiến thức là sức mạnh',
+        '練習は裏切らない - Luyện tập không bao giờ phản bội',
+        '一期一会 - Mỗi cuộc gặp gỡ là duy nhất',
     ];
     const todayQuote = quotes[new Date().getDate() % quotes.length];
 
+    // Learning tips - 15 tips rotating daily
+    const learningTips = [
+        'Học đều đặn mỗi ngày 15-30 phút hiệu quả hơn học dồn một lần. Hãy ôn tập ngay khi có thẻ đến hạn!',
+        'Sử dụng phương pháp lặp lại ngắt quãng (SRS) giúp ghi nhớ lâu dài hơn 90% so với học thuộc lòng.',
+        'Nghe nhạc hoặc podcast tiếng Nhật khi rảnh giúp làm quen với ngữ điệu và từ vựng mới.',
+        'Viết tay từ vựng và Kanji giúp não bộ ghi nhớ sâu hơn so với chỉ nhìn và đọc.',
+        'Học từ vựng theo chủ đề giúp liên kết các từ với nhau, dễ nhớ và sử dụng hơn.',
+        'Đặt mục tiêu nhỏ mỗi ngày: 10 từ mới hoặc 5 Kanji. Tích lũy dần sẽ tạo nên kết quả lớn!',
+        'Xem anime hoặc drama có phụ đề tiếng Nhật để học cách người bản xứ sử dụng ngôn ngữ.',
+        'Nói to khi học giúp cải thiện phát âm và ghi nhớ tốt hơn. Đừng ngại luyện tập một mình!',
+        'Ôn tập vào buổi sáng sớm hoặc trước khi ngủ là thời điểm não bộ ghi nhớ tốt nhất.',
+        'Tạo câu ví dụ với từ mới giúp hiểu cách dùng từ trong ngữ cảnh thực tế.',
+        'Sử dụng flashcard hai mặt: một mặt tiếng Nhật, một mặt tiếng Việt để luyện cả hai chiều.',
+        'Học cùng bạn bè hoặc nhóm học tập giúp duy trì động lực và có người sửa lỗi.',
+        'Đừng sợ mắc lỗi! Mỗi lỗi sai là một cơ hội học hỏi và cải thiện.',
+        'Nghỉ ngơi đủ giấc giúp não bộ củng cố kiến thức đã học trong ngày.',
+        'Thưởng cho bản thân khi đạt mục tiêu nhỏ để duy trì động lực học tập dài hạn.',
+    ];
+    const todayTip = learningTips[new Date().getDate() % learningTips.length];
+
     return (
         <div className="space-y-4 max-w-4xl mx-auto">
-            {/* Hero Section - Softer gradient */}
-            <div className="relative overflow-hidden bg-gradient-to-br from-slate-700 via-slate-600 to-slate-500 rounded-2xl p-6 md:p-8 text-white">
+            {/* Hero Section - Beautiful teal gradient */}
+            <div className="relative overflow-hidden bg-gradient-to-br from-teal-600 via-cyan-600 to-sky-600 rounded-2xl p-6 md:p-8 text-white">
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                 <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"></div>
@@ -270,8 +316,7 @@ const HomeScreen = ({
                     <div>
                         <h3 className="font-bold text-slate-700 dark:text-slate-200 mb-1">💡 Mẹo học tập</h3>
                         <p className="text-sm text-slate-600 dark:text-slate-400">
-                            Học đều đặn mỗi ngày 15-30 phút hiệu quả hơn học dồn một lần.
-                            Hãy ôn tập ngay khi có thẻ đến hạn để tối ưu trí nhớ!
+                            {todayTip}
                         </p>
                     </div>
                 </div>
