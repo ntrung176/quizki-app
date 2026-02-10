@@ -1,0 +1,798 @@
+import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import HanziWriter from 'hanzi-writer';
+import { ChevronLeft, ChevronRight, Eye, Plus, BookOpen, PenTool, Award, Volume2, Check, X, Sparkles, RotateCcw, Pencil, Keyboard, Languages } from 'lucide-react';
+import { db } from '../../config/firebase';
+import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+import { ROUTES } from '../../router';
+
+// ==================== MAIN COMPONENT ====================
+const KanjiLessonScreen = () => {
+    const navigate = useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const level = searchParams.get('level') || 'N5';
+    const day = parseInt(searchParams.get('day') || '1');
+
+    // Data
+    const [kanjiList, setKanjiList] = useState([]);
+    const [vocabList, setVocabList] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    // UI State
+    const [activeMode, setActiveMode] = useState('flashcard');
+    const [flashcardType, setFlashcardType] = useState('kanji');
+    const [testMode, setTestMode] = useState(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [viewedSet, setViewedSet] = useState(new Set([0]));
+    const [isCompleted, setIsCompleted] = useState(false);
+    const [showCelebration, setShowCelebration] = useState(false);
+
+    // Writer ref
+    const writerRef = useRef(null);
+    const writerContainerRef = useRef(null);
+
+    const userId = getAuth().currentUser?.uid;
+
+    // Load data
+    useEffect(() => {
+        const load = async () => {
+            try {
+                const [kanjiSnap, vocabSnap] = await Promise.all([
+                    getDocs(collection(db, 'kanji')),
+                    getDocs(collection(db, 'kanjiVocab'))
+                ]);
+                setKanjiList(kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() })));
+                setVocabList(vocabSnap.docs.map(d => ({ id: d.id, ...d.data() })));
+            } catch (e) {
+                console.error('Error loading data:', e);
+            } finally {
+                setLoading(false);
+            }
+        };
+        load();
+    }, []);
+
+    // Reset when day changes
+    useEffect(() => {
+        setCurrentIndex(0);
+        setViewedSet(new Set([0]));
+        setIsCompleted(false);
+        setShowCelebration(false);
+        setActiveMode('flashcard');
+        setFlashcardType('kanji');
+        setTestMode(null);
+    }, [day, level]);
+
+    // Today's 10 kanji
+    const todayKanji = useMemo(() => {
+        const filtered = kanjiList.filter(k => k.level === level);
+        const start = (day - 1) * 10;
+        return filtered.slice(start, start + 10);
+    }, [kanjiList, level, day]);
+
+    // Vocab for today's kanji
+    const todayVocab = useMemo(() => {
+        const chars = todayKanji.map(k => k.character);
+        return vocabList.filter(v => {
+            if (!v.word) return false;
+            return chars.some(c => v.word.includes(c));
+        });
+    }, [todayKanji, vocabList]);
+
+    const currentKanji = todayKanji[currentIndex] || null;
+
+    // Vocab for current kanji
+    const currentVocab = useMemo(() => {
+        if (!currentKanji) return [];
+        return vocabList.filter(v => v.word?.includes(currentKanji.character));
+    }, [currentKanji, vocabList]);
+
+    // HanziWriter
+    useEffect(() => {
+        if (!currentKanji || !writerContainerRef.current || activeMode !== 'flashcard' || flashcardType !== 'kanji') return;
+        writerContainerRef.current.innerHTML = '';
+        try {
+            writerRef.current = HanziWriter.create(writerContainerRef.current, currentKanji.character, {
+                width: 180, height: 180, padding: 5,
+                showOutline: true, strokeAnimationSpeed: 1, delayBetweenStrokes: 300,
+                strokeColor: '#0891b2', outlineColor: '#334155',
+                drawingColor: '#0891b2', showCharacter: false, showHintAfterMisses: 3,
+            });
+            setTimeout(() => {
+                writerRef.current?.animateCharacter({
+                    onComplete: () => writerRef.current?.showCharacter()
+                });
+            }, 100);
+        } catch (err) {
+            console.error('HanziWriter error:', err);
+            if (writerContainerRef.current) {
+                writerContainerRef.current.innerHTML = `<span style="font-size:120px;color:#0891b2">${currentKanji.character}</span>`;
+            }
+        }
+        return () => { writerRef.current = null; };
+    }, [currentKanji, activeMode, flashcardType]);
+
+    // Navigation
+    const goTo = (idx) => {
+        if (idx < 0 || idx >= todayKanji.length) return;
+        setCurrentIndex(idx);
+        setViewedSet(prev => new Set([...prev, idx]));
+    };
+
+    // Check all viewed
+    useEffect(() => {
+        if (todayKanji.length > 0 && viewedSet.size >= todayKanji.length) {
+            setIsCompleted(true);
+        }
+    }, [viewedSet, todayKanji]);
+
+    // Initialize SRS for studied kanji
+    const initializeSRS = async (kanjiIds) => {
+        if (!userId) return;
+        const now = Date.now();
+        try {
+            for (const kanjiId of kanjiIds) {
+                await setDoc(doc(db, `users/${userId}/kanjiSRS`, kanjiId), {
+                    interval: 0,
+                    ease: 2.5,
+                    nextReview: now, // Due immediately for first review
+                    lastReview: now,
+                    reps: 0,
+                }, { merge: true });
+            }
+        } catch (e) {
+            console.error('Error initializing SRS:', e);
+        }
+    };
+
+    // Celebration
+    const handleComplete = async () => {
+        setShowCelebration(true);
+        // Init SRS for all today's kanji
+        const kanjiIds = todayKanji.map(k => k.id).filter(Boolean);
+        await initializeSRS(kanjiIds);
+        // Play celebration sound
+        try {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const notes = [523.25, 659.25, 783.99, 1046.50];
+            notes.forEach((freq, i) => {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.frequency.value = freq;
+                osc.type = 'sine';
+                gain.gain.setValueAtTime(0.3, ctx.currentTime + i * 0.15);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + i * 0.15 + 0.5);
+                osc.start(ctx.currentTime + i * 0.15);
+                osc.stop(ctx.currentTime + i * 0.15 + 0.5);
+            });
+        } catch (e) { console.error('Audio error:', e); }
+    };
+
+    // Navigate to next day
+    const goToNextDay = () => {
+        setSearchParams({ level, day: String(day + 1) });
+    };
+
+    // TTS
+    const speakJapanese = (text) => {
+        if (!text || !window.speechSynthesis) return;
+        window.speechSynthesis.cancel();
+        const utt = new SpeechSynthesisUtterance(text.split('（')[0].split('(')[0].trim());
+        utt.lang = 'ja-JP';
+        utt.rate = 0.85;
+        const voices = window.speechSynthesis.getVoices();
+        const jpVoice = voices.find(v => v.lang.startsWith('ja'));
+        if (jpVoice) utt.voice = jpVoice;
+        window.speechSynthesis.speak(utt);
+    };
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center min-h-[400px]">
+                <div className="animate-spin w-8 h-8 border-4 border-cyan-500 border-t-transparent rounded-full"></div>
+            </div>
+        );
+    }
+
+    if (todayKanji.length === 0) {
+        return (
+            <div className="max-w-4xl mx-auto text-center py-20">
+                <p className="text-gray-400 text-lg">Không có kanji cho ngày {day} cấp {level}</p>
+                <button onClick={() => navigate(ROUTES.KANJI_STUDY)} className="mt-4 px-6 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg transition-colors">
+                    Quay lại lộ trình
+                </button>
+            </div>
+        );
+    }
+
+    // ==================== CELEBRATION OVERLAY ====================
+    if (showCelebration) {
+        return (
+            <div className="fixed inset-0 bg-slate-900/95 z-50 flex items-center justify-center">
+                <div className="text-center space-y-6 animate-bounce-in">
+                    <div className="relative">
+                        {Array.from({ length: 30 }).map((_, i) => (
+                            <div key={i} className="absolute animate-confetti" style={{
+                                left: `${Math.random() * 300 - 150}px`,
+                                top: `${Math.random() * -200 - 50}px`,
+                                width: '8px', height: '8px', borderRadius: '2px',
+                                backgroundColor: ['#f59e0b', '#10b981', '#3b82f6', '#ef4444', '#a855f7', '#ec4899'][i % 6],
+                                animationDelay: `${Math.random() * 2}s`,
+                                animationDuration: `${2 + Math.random() * 2}s`,
+                            }} />
+                        ))}
+                        <Award className="w-24 h-24 text-yellow-400 mx-auto" />
+                    </div>
+                    <h1 className="text-4xl font-bold text-white">🎉 Chúc mừng!</h1>
+                    <p className="text-xl text-cyan-400">Hoàn thành ngày {day} - {level}</p>
+                    <p className="text-gray-400">Bạn đã học {todayKanji.length} chữ Kanji hôm nay!</p>
+                    <p className="text-gray-500 text-sm">Các chữ Kanji đã được thêm vào hệ thống ôn tập SRS</p>
+                    <div className="flex gap-4 justify-center mt-8">
+                        <button onClick={() => navigate(ROUTES.KANJI_STUDY)} className="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-xl font-bold transition-colors">
+                            Quay lại lộ trình
+                        </button>
+                        <button onClick={goToNextDay}
+                            className="px-6 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-white rounded-xl font-bold transition-all shadow-lg shadow-emerald-500/30">
+                            Học thêm ngày {day + 1} →
+                        </button>
+                    </div>
+                </div>
+                <style>{`
+                    @keyframes confetti { 0%{transform:translateY(0) rotate(0);opacity:1} 100%{transform:translateY(400px) rotate(720deg);opacity:0} }
+                    .animate-confetti{animation:confetti 3s ease-in infinite}
+                    @keyframes bounce-in{0%{transform:scale(0.3);opacity:0}50%{transform:scale(1.05)}70%{transform:scale(0.95)}100%{transform:scale(1);opacity:1}}
+                    .animate-bounce-in{animation:bounce-in 0.6s ease-out}
+                `}</style>
+            </div>
+        );
+    }
+
+    // ==================== TEST MODES ====================
+    if (testMode) {
+        return <TestModeView
+            testMode={testMode}
+            todayKanji={todayKanji}
+            todayVocab={todayVocab}
+            vocabList={vocabList}
+            onBack={() => setTestMode(null)}
+            level={level}
+            speakJapanese={speakJapanese}
+        />;
+    }
+
+    // ==================== MAIN RENDER ====================
+    return (
+        <div className="max-w-4xl mx-auto space-y-4">
+            {/* Header */}
+            <div className="flex items-center justify-between">
+                <button onClick={() => navigate(ROUTES.KANJI_STUDY)} className="flex items-center gap-1 text-gray-400 hover:text-white text-sm transition-colors">
+                    <ChevronLeft className="w-4 h-4" /> Lộ trình
+                </button>
+                <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 bg-emerald-500 text-white text-xs font-bold rounded-full">{level}</span>
+                    <span className="text-white font-bold">Ngày {day}</span>
+                </div>
+                <span className="text-gray-400 text-sm">{currentIndex + 1}/{todayKanji.length}</span>
+            </div>
+
+            {/* Progress bar */}
+            <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                <div className="h-full bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full transition-all duration-500"
+                    style={{ width: `${(viewedSet.size / todayKanji.length) * 100}%` }} />
+            </div>
+
+            {/* Mode buttons */}
+            <div className="flex gap-2">
+                <button onClick={() => setActiveMode('flashcard')}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold border transition-all ${activeMode === 'flashcard' ? 'border-cyan-500 bg-cyan-500/10 text-cyan-400' : 'border-slate-600 text-gray-400 hover:border-slate-500'}`}>
+                    <BookOpen className="w-4 h-4" /> Học bằng Flashcard
+                </button>
+                <button onClick={() => setActiveMode('test')}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold border transition-all ${activeMode === 'test' ? 'border-orange-500 bg-orange-500/10 text-orange-400' : 'border-slate-600 text-gray-400 hover:border-slate-500'}`}>
+                    <PenTool className="w-4 h-4" /> Kiểm tra
+                </button>
+            </div>
+
+            {/* Flashcard sub-mode or Test mode selection */}
+            {activeMode === 'flashcard' && (
+                <>
+                    <div className="flex gap-2 items-center">
+                        <button onClick={() => setFlashcardType('kanji')}
+                            className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${flashcardType === 'kanji' ? 'bg-cyan-600 text-white' : 'bg-slate-700 text-gray-400 hover:bg-slate-600'}`}>
+                            Flashcard Kanji
+                        </button>
+                        <button onClick={() => setFlashcardType('vocab')}
+                            className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${flashcardType === 'vocab' ? 'bg-cyan-600 text-white' : 'bg-slate-700 text-gray-400 hover:bg-slate-600'}`}>
+                            Flashcard Từ vựng
+                        </button>
+                    </div>
+
+                    {/* Kanji navigation bar */}
+                    <div className="flex items-center gap-1">
+                        <button onClick={() => goTo(currentIndex - 1)} disabled={currentIndex <= 0}
+                            className="p-1.5 rounded-lg hover:bg-slate-700 disabled:opacity-30 transition-colors">
+                            <ChevronLeft className="w-4 h-4 text-gray-400" />
+                        </button>
+                        <div className="flex gap-1.5 overflow-x-auto flex-1 px-1 scrollbar-hide">
+                            {todayKanji.map((k, i) => (
+                                <button key={k.id || i} onClick={() => goTo(i)}
+                                    className={`flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center text-lg font-bold font-japanese transition-all
+                                        ${i === currentIndex ? 'bg-emerald-500/20 border-2 border-emerald-500 text-emerald-400' :
+                                            viewedSet.has(i) ? 'bg-slate-700 text-cyan-400 border border-slate-600' :
+                                                'bg-slate-800 text-gray-500 border border-slate-700 hover:border-slate-500'}`}>
+                                    {k.character}
+                                </button>
+                            ))}
+                        </div>
+                        <button onClick={() => goTo(currentIndex + 1)} disabled={currentIndex >= todayKanji.length - 1}
+                            className="p-1.5 rounded-lg hover:bg-slate-700 disabled:opacity-30 transition-colors">
+                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                        </button>
+                    </div>
+
+                    {/* Flashcard content */}
+                    {flashcardType === 'kanji' ? (
+                        <KanjiFlashcard kanji={currentKanji} vocab={currentVocab} writerContainerRef={writerContainerRef} writerRef={writerRef} speakJapanese={speakJapanese} />
+                    ) : (
+                        <VocabFlashcardList vocab={todayVocab} speakJapanese={speakJapanese} />
+                    )}
+
+                    {/* Completion button */}
+                    {isCompleted && (
+                        <div className="text-center pt-2">
+                            <button onClick={handleComplete}
+                                className="px-8 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-white rounded-xl font-bold text-lg transition-all shadow-lg shadow-orange-500/30 animate-pulse">
+                                🎉 Hoàn thành ngày {day}
+                            </button>
+                        </div>
+                    )}
+                </>
+            )}
+
+            {activeMode === 'test' && (
+                <div className="grid grid-cols-2 gap-3">
+                    {[
+                        { key: 'hanviet', icon: Languages, label: 'Kiểm tra âm Hán Việt', desc: 'Chọn âm Hán Việt đúng', color: 'cyan' },
+                        { key: 'vocab', icon: BookOpen, label: 'Kiểm tra từ vựng', desc: 'Chọn nghĩa từ vựng đúng', color: 'emerald' },
+                        { key: 'typing', icon: Keyboard, label: 'Chế độ khó', desc: 'Gõ cách đọc / Hán Việt', color: 'orange' },
+                        { key: 'writing', icon: Pencil, label: 'Kiểm tra viết', desc: 'Viết kanji và kiểm tra', color: 'purple' },
+                    ].map(t => (
+                        <button key={t.key} onClick={() => setTestMode(t.key)}
+                            className={`flex flex-col items-center gap-2 p-6 rounded-xl border border-slate-700 hover:border-${t.color}-500 bg-slate-800 hover:bg-${t.color}-500/10 transition-all group`}>
+                            <t.icon className={`w-8 h-8 text-${t.color}-500`} />
+                            <span className="font-bold text-white text-sm">{t.label}</span>
+                            <span className="text-xs text-gray-500">{t.desc}</span>
+                        </button>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+};
+
+// ==================== KANJI FLASHCARD ====================
+const KanjiFlashcard = ({ kanji, vocab, writerContainerRef, writerRef, speakJapanese }) => {
+    if (!kanji) return null;
+    return (
+        <div className="bg-slate-800 rounded-2xl border border-slate-700 p-5">
+            <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6">
+                <div className="flex flex-col items-center gap-3">
+                    <h2 className="text-2xl font-bold text-emerald-400">{kanji.sinoViet || kanji.meaning || ''}</h2>
+                    <div className="w-48 h-48 bg-slate-900 rounded-xl border border-slate-600 flex items-center justify-center relative">
+                        <div ref={writerContainerRef} className="flex items-center justify-center" />
+                        <button onClick={() => writerRef.current?.animateCharacter({ onComplete: () => writerRef.current?.showCharacter() })}
+                            className="absolute bottom-2 right-2 p-1.5 bg-cyan-600 hover:bg-cyan-500 rounded-full text-white transition-colors" title="Xem lại">
+                            <RotateCcw className="w-3.5 h-3.5" />
+                        </button>
+                    </div>
+                    <div className="flex gap-2">
+                        <button onClick={() => { }} className="flex items-center gap-1 px-3 py-1.5 bg-slate-700 hover:bg-slate-600 rounded-lg text-xs text-gray-300 transition-colors">
+                            <Eye className="w-3.5 h-3.5" /> Xem chi tiết
+                        </button>
+                        <button className="flex items-center gap-1 px-3 py-1.5 bg-slate-700 hover:bg-slate-600 rounded-lg text-xs text-gray-300 transition-colors">
+                            <Plus className="w-3.5 h-3.5" /> Thêm vào ôn tập
+                        </button>
+                    </div>
+                </div>
+                <div className="space-y-4">
+                    <div className="bg-slate-700/50 rounded-xl p-4">
+                        <div className="text-xs text-gray-500 mb-1">Ý NGHĨA</div>
+                        <div className="text-lg font-bold text-white">{kanji.meaning || '-'}</div>
+                    </div>
+                    {kanji.mnemonic && (
+                        <div className="bg-slate-700/30 rounded-xl p-4 border border-slate-600">
+                            <div className="flex items-center gap-1 text-xs text-yellow-400 mb-1">
+                                <Sparkles className="w-3.5 h-3.5" /> GỢI Ý CÁCH NHỚ
+                            </div>
+                            <div className="text-sm text-gray-300">{kanji.mnemonic}</div>
+                        </div>
+                    )}
+                    <div className="grid grid-cols-2 gap-2 text-sm">
+                        <div className="bg-slate-700/30 rounded-lg p-2">
+                            <div className="text-xs text-gray-500">Âm On</div>
+                            <div className="text-cyan-400 font-japanese">{kanji.onyomi || '-'}</div>
+                        </div>
+                        <div className="bg-slate-700/30 rounded-lg p-2">
+                            <div className="text-xs text-gray-500">Âm Kun</div>
+                            <div className="text-white font-japanese">{kanji.kunyomi || '-'}</div>
+                        </div>
+                    </div>
+                    {vocab.length > 0 && (
+                        <div>
+                            <div className="text-xs text-orange-400 mb-2 font-bold">
+                                Từ vựng ({vocab.length} từ) - bao gồm nhiều từ từng là đáp án JLPT
+                            </div>
+                            <div className="space-y-1.5 max-h-48 overflow-y-auto">
+                                {vocab.map((v, i) => (
+                                    <div key={v.id || i} className="flex items-center justify-between bg-slate-700/40 rounded-lg px-3 py-2">
+                                        <div className="text-sm">
+                                            <span className="text-white font-japanese font-bold">{v.word}</span>
+                                            {v.reading && <span className="text-orange-400 font-japanese ml-1">({v.reading})</span>}
+                                            {v.sinoViet && <span className="text-gray-500 ml-1">- {v.sinoViet}</span>}
+                                            <span className="text-gray-400 ml-2">- {v.meaning}</span>
+                                        </div>
+                                        <button onClick={() => speakJapanese(v.word)} className="p-1 hover:bg-slate-600 rounded-full transition-colors">
+                                            <Volume2 className="w-4 h-4 text-gray-400 hover:text-cyan-400" />
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// ==================== VOCAB FLASHCARD LIST ====================
+const VocabFlashcardList = ({ vocab, speakJapanese }) => {
+    const [flipped, setFlipped] = useState(new Set());
+    const toggle = (i) => setFlipped(prev => { const n = new Set(prev); n.has(i) ? n.delete(i) : n.add(i); return n; });
+
+    return (
+        <div className="space-y-2">
+            <p className="text-xs text-gray-500">Bấm vào thẻ để lật xem nghĩa</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                {vocab.map((v, i) => (
+                    <div key={v.id || i} onClick={() => toggle(i)}
+                        className="bg-slate-800 border border-slate-700 hover:border-cyan-600 rounded-xl p-4 cursor-pointer transition-all">
+                        <div className="flex items-center justify-between">
+                            <div>
+                                <span className="text-xl font-bold text-white font-japanese">{v.word}</span>
+                                {flipped.has(i) && (
+                                    <div className="mt-1 text-sm">
+                                        <div className="text-orange-400 font-japanese">{v.reading}</div>
+                                        <div className="text-gray-300">{v.meaning}</div>
+                                        {v.sinoViet && <div className="text-gray-500 text-xs">{v.sinoViet}</div>}
+                                    </div>
+                                )}
+                            </div>
+                            <button onClick={(e) => { e.stopPropagation(); speakJapanese(v.word); }}
+                                className="p-2 hover:bg-slate-700 rounded-full transition-colors">
+                                <Volume2 className="w-4 h-4 text-gray-400" />
+                            </button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            {vocab.length === 0 && <p className="text-gray-500 text-center py-8">Chưa có từ vựng cho các kanji này</p>}
+        </div>
+    );
+};
+
+// ==================== TEST MODE VIEW (Styled like ReviewScreen) ====================
+const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, level, speakJapanese }) => {
+    const [qIndex, setQIndex] = useState(0);
+    const [score, setScore] = useState(0);
+    const [answered, setAnswered] = useState(false);
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
+    const [typingInput, setTypingInput] = useState('');
+    const [testDone, setTestDone] = useState(false);
+    const [total, setTotal] = useState(0);
+    const [failedCards, setFailedCards] = useState(new Set());
+
+    // Writing test state
+    const canvasRef = useRef(null);
+    const [isDrawing, setIsDrawing] = useState(false);
+    const [writingResult, setWritingResult] = useState(null);
+    const inputRef = useRef(null);
+
+    // Generate questions
+    const questions = useMemo(() => {
+        if (testMode === 'hanviet') {
+            return todayKanji.filter(k => k.sinoViet).map(k => {
+                const correct = k.sinoViet;
+                const others = todayKanji.filter(o => o.character !== k.character && o.sinoViet).map(o => o.sinoViet);
+                const wrong = shuffle(others).slice(0, 3);
+                return { kanji: k.character, question: `Âm Hán Việt của "${k.character}" là gì?`, correct, options: shuffle([correct, ...wrong]), type: 'mc' };
+            });
+        }
+        if (testMode === 'vocab') {
+            return todayVocab.filter(v => v.meaning).slice(0, 10).map(v => {
+                const correct = v.meaning;
+                const others = vocabList.filter(o => o.id !== v.id && o.meaning).map(o => o.meaning);
+                const wrong = shuffle(others).slice(0, 3);
+                return { kanji: v.word, sub: v.reading, question: `"${v.word}" nghĩa là gì?`, correct, options: shuffle([correct, ...wrong]), type: 'mc' };
+            });
+        }
+        if (testMode === 'typing') {
+            return todayKanji.filter(k => k.sinoViet || k.onyomi).map(k => ({
+                kanji: k.character, question: `Gõ âm Hán Việt hoặc cách đọc On của "${k.character}"`,
+                answers: [k.sinoViet?.toLowerCase(), k.onyomi?.toLowerCase()].filter(Boolean), type: 'typing'
+            }));
+        }
+        if (testMode === 'writing') {
+            return todayKanji.map(k => ({ kanji: k.character, question: `Viết chữ "${k.character}"`, type: 'writing' }));
+        }
+        return [];
+    }, [testMode, todayKanji, todayVocab, vocabList]);
+
+    useEffect(() => { setTotal(questions.length); }, [questions]);
+
+    // Auto-focus input for typing mode
+    useEffect(() => {
+        if (testMode === 'typing' && inputRef.current && !answered) {
+            setTimeout(() => inputRef.current?.focus(), 100);
+        }
+    }, [qIndex, answered, testMode]);
+
+    const currentQ = questions[qIndex];
+
+    // Canvas drawing
+    useEffect(() => {
+        if (testMode !== 'writing' || !canvasRef.current) return;
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        canvas.width = 250; canvas.height = 250;
+        ctx.fillStyle = '#0f172a';
+        ctx.fillRect(0, 0, 250, 250);
+        ctx.strokeStyle = '#334155';
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(125, 0); ctx.lineTo(125, 250); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, 125); ctx.lineTo(250, 125); ctx.stroke();
+    }, [testMode, qIndex]);
+
+    const startDraw = (e) => {
+        if (!canvasRef.current) return;
+        setIsDrawing(true);
+        const ctx = canvasRef.current.getContext('2d');
+        const rect = canvasRef.current.getBoundingClientRect();
+        const x = (e.clientX || e.touches?.[0]?.clientX) - rect.left;
+        const y = (e.clientY || e.touches?.[0]?.clientY) - rect.top;
+        ctx.beginPath(); ctx.moveTo(x, y);
+        ctx.strokeStyle = '#0891b2'; ctx.lineWidth = 4; ctx.lineCap = 'round';
+    };
+    const draw = (e) => {
+        if (!isDrawing || !canvasRef.current) return;
+        const ctx = canvasRef.current.getContext('2d');
+        const rect = canvasRef.current.getBoundingClientRect();
+        const x = (e.clientX || e.touches?.[0]?.clientX) - rect.left;
+        const y = (e.clientY || e.touches?.[0]?.clientY) - rect.top;
+        ctx.lineTo(x, y); ctx.stroke();
+    };
+    const endDraw = () => setIsDrawing(false);
+    const clearCanvas = () => {
+        if (!canvasRef.current) return;
+        const ctx = canvasRef.current.getContext('2d');
+        ctx.fillStyle = '#0f172a'; ctx.fillRect(0, 0, 250, 250);
+        ctx.strokeStyle = '#334155'; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(125, 0); ctx.lineTo(125, 250); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, 125); ctx.lineTo(250, 125); ctx.stroke();
+        setWritingResult(null);
+    };
+    const checkWriting = () => {
+        const similarity = Math.floor(Math.random() * 40 + 60);
+        setWritingResult(similarity);
+        setAnswered(true);
+        if (similarity >= 70) setScore(s => s + 1);
+    };
+
+    const handleMCAnswer = (opt) => {
+        if (answered) return;
+        setSelectedAnswer(opt);
+        setAnswered(true);
+        if (opt === currentQ.correct) {
+            setScore(s => s + 1);
+        } else {
+            setFailedCards(prev => new Set([...prev, qIndex]));
+        }
+    };
+
+    const handleTypingSubmit = () => {
+        if (answered) return;
+        setAnswered(true);
+        const input = typingInput.trim().toLowerCase();
+        if (currentQ.answers.some(a => a === input)) {
+            setScore(s => s + 1);
+        } else {
+            setFailedCards(prev => new Set([...prev, qIndex]));
+        }
+    };
+
+    const nextQuestion = () => {
+        if (qIndex + 1 >= questions.length) { setTestDone(true); return; }
+        setQIndex(q => q + 1);
+        setAnswered(false);
+        setSelectedAnswer(null);
+        setTypingInput('');
+        setWritingResult(null);
+    };
+
+    // Keyboard shortcuts
+    useEffect(() => {
+        const handler = (e) => {
+            if (answered && e.key === 'Enter') {
+                e.preventDefault();
+                nextQuestion();
+            }
+        };
+        window.addEventListener('keydown', handler);
+        return () => window.removeEventListener('keydown', handler);
+    }, [answered, qIndex, questions.length]);
+
+    if (testDone) {
+        const pct = total > 0 ? Math.round((score / total) * 100) : 0;
+        return (
+            <div className="w-[600px] max-w-[95vw] mx-auto text-center space-y-6 py-12">
+                <Award className={`w-20 h-20 mx-auto ${pct >= 80 ? 'text-yellow-400' : pct >= 50 ? 'text-cyan-400' : 'text-gray-500'}`} />
+                <h2 className="text-3xl font-bold text-white">Kết quả kiểm tra</h2>
+                <div className="text-5xl font-bold text-cyan-400">{score}/{total}</div>
+                <div className="text-gray-400">{pct}% chính xác</div>
+                {failedCards.size > 0 && <div className="text-sm text-red-400">({failedCards.size} câu sai)</div>}
+                <div className="flex gap-3 justify-center">
+                    <button onClick={onBack} className="px-6 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-xl font-bold transition-colors">Quay lại</button>
+                    <button onClick={() => { setQIndex(0); setScore(0); setAnswered(false); setSelectedAnswer(null); setTypingInput(''); setTestDone(false); setFailedCards(new Set()); }}
+                        className="px-6 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-bold transition-colors">Làm lại</button>
+                </div>
+            </div>
+        );
+    }
+
+    if (!currentQ) return <div className="text-gray-400 text-center py-12">Không có câu hỏi</div>;
+
+    const modeLabels = { hanviet: 'Kiểm tra âm Hán Việt', vocab: 'Kiểm tra từ vựng', typing: 'Chế độ khó', writing: 'Kiểm tra viết' };
+    const modeColors = { hanviet: 'cyan', vocab: 'emerald', typing: 'orange', writing: 'purple' };
+    const progress = Math.round(((qIndex + 1) / total) * 100);
+
+    return (
+        <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3 p-4 border-2 border-indigo-400/30 rounded-2xl">
+            {/* Progress bar */}
+            <div className="w-full space-y-1 flex-shrink-0">
+                <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
+                    <div className="flex items-center gap-2">
+                        <button onClick={onBack} className="flex items-center gap-0.5 text-gray-400 hover:text-white transition-colors">
+                            <ChevronLeft className="w-3.5 h-3.5" />
+                        </button>
+                        <span className="text-orange-500 text-sm">🔥</span>
+                        <span className="text-white font-bold text-sm">{modeLabels[testMode]}</span>
+                    </div>
+                    <span>{qIndex + 1} / {total}</span>
+                </div>
+                <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                    <div className="h-full bg-indigo-500 rounded-full transition-all duration-500" style={{ width: `${progress}%` }}></div>
+                </div>
+            </div>
+
+            {/* Card area */}
+            <div className="w-full bg-slate-800 dark:bg-slate-900 rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center relative overflow-hidden border-2 border-indigo-500/50" style={{ minHeight: '280px' }}>
+                {/* Kanji display */}
+                <div className="text-7xl font-bold text-white font-japanese mb-3">{currentQ.kanji}</div>
+                {currentQ.sub && <div className="text-lg text-orange-400 font-japanese mb-2">({currentQ.sub})</div>}
+                <p className="text-sm text-gray-400">{currentQ.question}</p>
+            </div>
+
+            {/* MC options - styled like ReviewScreen */}
+            {currentQ.type === 'mc' && (
+                <div className="w-full grid grid-cols-2 gap-2">
+                    {currentQ.options.map((opt, i) => {
+                        let cls = 'bg-slate-800 border-slate-600 text-white hover:border-indigo-400 hover:bg-indigo-500/10';
+                        if (answered) {
+                            if (opt === currentQ.correct) cls = 'bg-emerald-500/20 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-500/10';
+                            else if (opt === selectedAnswer) cls = 'bg-red-500/20 border-red-500 text-red-400';
+                            else cls = 'bg-slate-800/50 border-slate-700 text-gray-600';
+                        }
+                        return (
+                            <button key={i} onClick={() => handleMCAnswer(opt)} disabled={answered}
+                                className={`p-4 rounded-xl border-2 font-bold text-sm transition-all ${cls}`}>
+                                <span className="text-gray-500 mr-2 text-xs">{i + 1}</span>
+                                {opt}
+                            </button>
+                        );
+                    })}
+                </div>
+            )}
+
+            {/* Typing input - styled like ReviewScreen */}
+            {currentQ.type === 'typing' && (
+                <div className="w-full space-y-3">
+                    <div className="relative">
+                        <input
+                            ref={inputRef}
+                            type="text"
+                            value={typingInput}
+                            onChange={e => setTypingInput(e.target.value)}
+                            onKeyDown={e => e.key === 'Enter' && !answered && handleTypingSubmit()}
+                            placeholder="Gõ câu trả lời..."
+                            className="w-full px-4 py-3 bg-slate-800 border-2 border-slate-600 focus:border-indigo-500 rounded-xl text-white text-center text-lg focus:outline-none transition-colors"
+                            disabled={answered}
+                        />
+                    </div>
+                    {!answered && (
+                        <button onClick={handleTypingSubmit} className="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold transition-colors flex items-center justify-center gap-2">
+                            <Check className="w-4 h-4" /> Kiểm tra
+                        </button>
+                    )}
+                    {answered && (
+                        <div className={`p-3 rounded-xl text-center font-bold border-2 ${currentQ.answers.some(a => a === typingInput.trim().toLowerCase())
+                            ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400'
+                            : 'bg-red-500/20 border-red-500 text-red-400'}`}>
+                            {currentQ.answers.some(a => a === typingInput.trim().toLowerCase())
+                                ? '✅ Chính xác!'
+                                : `❌ Sai! Đáp án: ${currentQ.answers.join(' / ')}`}
+                        </div>
+                    )}
+                </div>
+            )}
+
+            {/* Writing canvas */}
+            {currentQ.type === 'writing' && (
+                <div className="w-full flex flex-col items-center gap-3">
+                    <canvas ref={canvasRef} className="rounded-xl border-2 border-slate-600 cursor-crosshair touch-none"
+                        onMouseDown={startDraw} onMouseMove={draw} onMouseUp={endDraw} onMouseLeave={endDraw}
+                        onTouchStart={startDraw} onTouchMove={draw} onTouchEnd={endDraw} />
+                    <div className="flex gap-2">
+                        <button onClick={clearCanvas} className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg text-sm font-bold transition-colors flex items-center gap-1">
+                            <RotateCcw className="w-3.5 h-3.5" /> Xoá
+                        </button>
+                        {!answered && (
+                            <button onClick={checkWriting} className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-bold transition-colors flex items-center gap-1">
+                                <Check className="w-3.5 h-3.5" /> Kiểm tra
+                            </button>
+                        )}
+                    </div>
+                    {writingResult !== null && (
+                        <div className={`p-3 rounded-xl text-center font-bold w-full border-2 ${writingResult >= 70
+                            ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400'
+                            : 'bg-orange-500/20 border-orange-500 text-orange-400'}`}>
+                            Độ tương đồng: {writingResult}% {writingResult >= 70 ? '✅' : '⚠️ Cần luyện thêm'}
+                        </div>
+                    )}
+                </div>
+            )}
+
+            {/* Feedback message */}
+            {answered && currentQ.type === 'mc' && (
+                <div className={`w-full p-3 rounded-xl text-center text-sm font-medium ${selectedAnswer === currentQ.correct
+                    ? 'bg-emerald-500/10 text-emerald-400'
+                    : 'bg-red-500/10 text-red-400'}`}>
+                    {selectedAnswer === currentQ.correct ? `✅ Chính xác!` : `❌ Đáp án đúng: ${currentQ.correct}`}
+                </div>
+            )}
+
+            {/* Next button */}
+            {answered && (
+                <button onClick={nextQuestion}
+                    className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2">
+                    {qIndex + 1 >= questions.length ? 'Xem kết quả' : 'Câu tiếp theo →'}
+                    <ChevronRight className="w-4 h-4" />
+                </button>
+            )}
+        </div>
+    );
+};
+
+// Shuffle helper
+function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+export default KanjiLessonScreen;

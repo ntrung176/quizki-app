@@ -80,8 +80,7 @@ const KanjiStudyScreen = () => {
     };
 
     const handleStartStudy = () => {
-        // Navigate to kanji detail/quiz for today's kanji
-        navigate(ROUTES.KANJI_LIST);
+        navigate(`${ROUTES.KANJI_STUDY}/lesson?level=${selectedLevel}&day=${currentDay}`);
     };
 
     if (loading) {
@@ -238,7 +237,7 @@ const KanjiStudyScreen = () => {
                         todayKanji.map((kanji, index) => (
                             <button
                                 key={kanji.id || index}
-                                onClick={() => navigate(ROUTES.KANJI_LIST)}
+                                onClick={handleStartStudy}
                                 className="aspect-square flex items-center justify-center bg-gray-100 dark:bg-gray-700 hover:bg-emerald-500/20 dark:hover:bg-emerald-500/20 border border-gray-200 dark:border-gray-600 hover:border-emerald-500 rounded-lg transition-all group"
                             >
                                 <span className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white group-hover:text-emerald-500 font-japanese">

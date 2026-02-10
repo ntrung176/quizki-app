@@ -14,6 +14,7 @@ export const ROUTES = {
     VOCABULARY_EDIT: '/vocabulary/edit/:id',
     // Kanji routes
     KANJI_STUDY: '/kanji-study',      // Học Kanji (lộ trình)
+    KANJI_LESSON: '/kanji-study/lesson', // Bài học Kanji (flashcard + test)
     KANJI_REVIEW: '/kanji-review',    // Ôn tập Kanji (mới)
     KANJI_LIST: '/kanji',             // Danh sách Kanji
     KANJI: '/kanji',                  // Alias for compatibility

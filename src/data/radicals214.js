@@ -451,7 +451,7 @@ export const RADICAL_DECOMPOSITION = {
     '辵': { components: ['彳', '止'], meaning: 'đi' },
     '辶': { components: ['丶', '乙'], meaning: 'đi (trái)' },
     '邑': { components: ['口', '巴'], meaning: 'làng' },
-    '酉': { components: ['一', '口', '丨', '一', '一'], meaning: 'rượu' },
+    '酉': { components: [], meaning: 'rượu' },
     '釆': { components: ['丿', '米'], meaning: 'phân biệt' },
     '里': { components: ['田', '土'], meaning: 'làng' },
 

@@ -16,6 +16,7 @@ import {
     ReviewCompleteScreen,
     KanjiScreen,
     KanjiStudyScreen,
+    KanjiLessonScreen,
     KanjiReviewScreen,
     StudyScreen,
     TestScreen,
@@ -213,6 +214,16 @@ const AppRoutes = ({
                 element={
                     <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <KanjiStudyScreen />
+                    </ProtectedRoute>
+                }
+            />
+
+            {/* Bài học Kanji - Lesson screen (flashcard + test) */}
+            <Route
+                path={ROUTES.KANJI_LESSON}
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <KanjiLessonScreen />
                     </ProtectedRoute>
                 }
             />

@@ -2,8 +2,8 @@ import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import HanziWriter from 'hanzi-writer';
 import { Search, Grid, PenTool, Download, BookOpen, Map, Globe, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Play, Upload, FileJson, Edit, Check, Copy } from 'lucide-react';
 import { db } from '../../config/firebase';
-import { collection, getDocs, addDoc, deleteDoc, doc, query, where, writeBatch } from 'firebase/firestore';
-import { getKanjiDecomposition } from '../../data/kanjiDecomposition';
+import { collection, getDocs, addDoc, deleteDoc, doc, query, where, writeBatch, updateDoc } from 'firebase/firestore';
+
 import { RADICALS_214, KANJI_TREE, getDecompositionTree, isBasicRadical, getRadicalInfo } from '../../data/radicals214';
 
 // JLPT Levels
@@ -156,25 +156,26 @@ const KanjiScreen = ({ isAdmin = false }) => {
                     apiData = await response.json();
                 }
 
-                // Lấy decomposition data từ local file
-                const decomposition = getKanjiDecomposition(selectedKanji);
+                // Lấy radical/components từ Firebase data và radicals214
+                const kanjiData = kanjiList.find(k => k.character === selectedKanji);
+                const treeData = KANJI_TREE[selectedKanji];
 
                 // Kết hợp dữ liệu
                 setKanjiApiData({
                     ...apiData,
-                    // Sử dụng local data cho radical và components
-                    radical: decomposition?.radical || null,
-                    components: decomposition?.components || [],
-                    componentMeaning: decomposition?.meaning || null,
+                    radical: kanjiData?.radical || treeData?.radical || null,
+                    components: treeData?.components || [],
+                    componentMeaning: kanjiData?.meaning || null,
                 });
             } catch (error) {
                 console.error('Kanjiapi error:', error);
                 // Nếu API fail, vẫn sử dụng local data
-                const decomposition = getKanjiDecomposition(selectedKanji);
+                const kanjiData = kanjiList.find(k => k.character === selectedKanji);
+                const treeData = KANJI_TREE[selectedKanji];
                 setKanjiApiData({
-                    radical: decomposition?.radical || null,
-                    components: decomposition?.components || [],
-                    componentMeaning: decomposition?.meaning || null,
+                    radical: kanjiData?.radical || treeData?.radical || null,
+                    components: treeData?.components || [],
+                    componentMeaning: kanjiData?.meaning || null,
                 });
             } finally {
                 setLoadingApiData(false);
@@ -557,22 +558,23 @@ const KanjiScreen = ({ isAdmin = false }) => {
     const handleEditKanji = async () => {
         if (!editingKanji || !editingKanji.id) return;
         try {
-            const { updateDoc } = await import('firebase/firestore');
             await updateDoc(doc(db, 'kanji', editingKanji.id), {
-                character: editingKanji.character,
-                meaning: editingKanji.meaning,
-                onyomi: editingKanji.onyomi,
-                kunyomi: editingKanji.kunyomi,
-                level: editingKanji.level,
-                strokeCount: editingKanji.strokeCount,
-                sinoViet: editingKanji.sinoViet,
-                mnemonic: editingKanji.mnemonic
+                character: editingKanji.character || '',
+                meaning: editingKanji.meaning || '',
+                onyomi: editingKanji.onyomi || '',
+                kunyomi: editingKanji.kunyomi || '',
+                level: editingKanji.level || 'N5',
+                strokeCount: editingKanji.strokeCount || '',
+                sinoViet: editingKanji.sinoViet || '',
+                mnemonic: editingKanji.mnemonic || '',
+                radical: editingKanji.radical || '',
             });
             setKanjiList(kanjiList.map(k => k.id === editingKanji.id ? editingKanji : k));
             setShowEditKanjiModal(false);
             setEditingKanji(null);
         } catch (e) {
             console.error('Error editing kanji:', e);
+            alert('Lỗi khi lưu kanji: ' + e.message);
         }
     };
 
@@ -591,7 +593,6 @@ const KanjiScreen = ({ isAdmin = false }) => {
     const handleEditVocab = async () => {
         if (!editingVocab || !editingVocab.id) return;
         try {
-            const { updateDoc } = await import('firebase/firestore');
             const kanjiChars = editingVocab.word.match(/[\u4e00-\u9faf]/g) || [];
             await updateDoc(doc(db, 'kanjiVocab', editingVocab.id), {
                 word: editingVocab.word,
@@ -607,6 +608,7 @@ const KanjiScreen = ({ isAdmin = false }) => {
             setEditingVocab(null);
         } catch (e) {
             console.error('Error editing vocab:', e);
+            alert('Lỗi khi lưu từ vựng: ' + e.message);
         }
     };
 
