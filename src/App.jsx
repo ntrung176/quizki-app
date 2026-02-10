@@ -930,7 +930,7 @@ const App = () => {
         document.body.removeChild(link);
     };
 
-    // Import TSV file
+    // Import TSV file (background import - non-blocking)
     const handleImportTSV = async (file) => {
         if (!file || !vocabCollectionPath) {
             setNotification('Không thể nhập file');
@@ -1038,33 +1038,44 @@ const App = () => {
                 return;
             }
 
-            // Import cards to Firestore
-            let imported = 0;
-            let skipped = 0;
+            // Show immediate feedback - import starts in background
+            setNotification(`⏳ Đang nhập ${cards.length} từ vựng ở nền... Bạn có thể tiếp tục thao tác.`);
 
-            for (const card of cards) {
-                // Check if card already exists (by front)
-                const exists = allCards.some(c => c.front === card.front);
+            // Run imports in background (non-blocking)
+            const importInBackground = async () => {
+                let imported = 0;
+                let skipped = 0;
 
-                if (exists) {
-                    skipped++;
-                    continue;
+                for (const card of cards) {
+                    // Check if card already exists (by front)
+                    const exists = allCards.some(c => c.front === card.front);
+
+                    if (exists) {
+                        skipped++;
+                        continue;
+                    }
+
+                    // Add to Firestore
+                    await addDoc(collection(db, vocabCollectionPath), {
+                        ...card,
+                        createdAt: card.createdAt || serverTimestamp()
+                    });
+                    imported++;
                 }
 
-                // Add to Firestore
-                await addDoc(collection(db, vocabCollectionPath), {
-                    ...card,
-                    createdAt: card.createdAt || serverTimestamp()
-                });
-                imported++;
-            }
+                // Update daily activity
+                if (imported > 0) {
+                    await updateDailyActivity(imported);
+                }
 
-            // Update daily activity
-            if (imported > 0) {
-                await updateDailyActivity(imported);
-            }
+                setNotification(`✅ Đã nhập xong ${imported} từ vựng${skipped > 0 ? `, bỏ qua ${skipped} từ trùng lặp` : ''}`);
+            };
 
-            setNotification(`Đã nhập ${imported} từ vựng${skipped > 0 ? `, bỏ qua ${skipped} từ trùng lặp` : ''}`);
+            // Fire and forget - don't await
+            importInBackground().catch(error => {
+                console.error('Background import error:', error);
+                setNotification('❌ Lỗi khi nhập file: ' + error.message);
+            });
 
         } catch (error) {
             console.error('Import TSV error:', error);

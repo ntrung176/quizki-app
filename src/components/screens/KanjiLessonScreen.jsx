@@ -27,6 +27,13 @@ const KanjiLessonScreen = () => {
     const [viewedSet, setViewedSet] = useState(new Set([0]));
     const [isCompleted, setIsCompleted] = useState(false);
     const [showCelebration, setShowCelebration] = useState(false);
+    const [srsAddedSet, setSrsAddedSet] = useState(new Set());
+    const [toastMessage, setToastMessage] = useState(null);
+
+    const showToast = (msg) => {
+        setToastMessage(msg);
+        setTimeout(() => setToastMessage(null), 2000);
+    };
 
     // Writer ref
     const writerRef = useRef(null);
@@ -362,11 +369,16 @@ const KanjiLessonScreen = () => {
                         <div className="flex gap-1.5 overflow-x-auto flex-1 px-1 scrollbar-hide">
                             {todayKanji.map((k, i) => (
                                 <button key={k.id || i} onClick={() => goTo(i)}
-                                    className={`flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center text-lg font-bold font-japanese transition-all
+                                    className={`flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center text-lg font-bold font-japanese transition-all relative
                                         ${i === currentIndex ? 'bg-emerald-500/20 border-2 border-emerald-500 text-emerald-400' :
                                             viewedSet.has(i) ? 'bg-indigo-50 dark:bg-slate-700 text-cyan-400 border border-indigo-200 dark:border-slate-600' :
                                                 'bg-white dark:bg-slate-800 text-gray-500 border border-gray-300 dark:border-slate-700 hover:border-gray-400 dark:hover:border-slate-500'}`}>
                                     {k.character}
+                                    {srsAddedSet.has(k.id) && (
+                                        <span className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full flex items-center justify-center">
+                                            <Check className="w-2.5 h-2.5 text-white" />
+                                        </span>
+                                    )}
                                 </button>
                             ))}
                         </div>
@@ -378,7 +390,7 @@ const KanjiLessonScreen = () => {
 
                     {/* Flashcard content */}
                     {flashcardType === 'kanji' ? (
-                        <KanjiFlashcard kanji={currentKanji} vocab={currentVocab} writerContainerRef={writerContainerRef} writerRef={writerRef} speakJapanese={speakJapanese} navigate={navigate} userId={userId} />
+                        <KanjiFlashcard kanji={currentKanji} vocab={currentVocab} writerContainerRef={writerContainerRef} writerRef={writerRef} speakJapanese={speakJapanese} navigate={navigate} userId={userId} srsAddedSet={srsAddedSet} setSrsAddedSet={setSrsAddedSet} showToast={showToast} />
                     ) : (
                         <VocabFlashcardList vocab={todayVocab} speakJapanese={speakJapanese} />
                     )}
@@ -393,6 +405,15 @@ const KanjiLessonScreen = () => {
                         </div>
                     )}
                 </>
+            )}
+
+            {/* Toast notification */}
+            {toastMessage && (
+                <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 animate-bounce-in">
+                    <div className="px-5 py-3 bg-emerald-500 text-white rounded-xl font-bold text-sm shadow-lg shadow-emerald-500/30 flex items-center gap-2">
+                        <Check className="w-4 h-4" /> {toastMessage}
+                    </div>
+                </div>
             )}
 
             {activeMode === 'test' && (
@@ -417,18 +438,21 @@ const KanjiLessonScreen = () => {
 };
 
 // ==================== KANJI FLASHCARD ====================
-const KanjiFlashcard = ({ kanji, vocab, writerContainerRef, writerRef, speakJapanese, navigate, userId }) => {
-    const [addedToSRS, setAddedToSRS] = useState(false);
+const KanjiFlashcard = ({ kanji, vocab, writerContainerRef, writerRef, speakJapanese, navigate, userId, srsAddedSet, setSrsAddedSet, showToast }) => {
 
     const handleAddToSRS = async () => {
         if (!kanji?.id || !userId) return;
+        if (srsAddedSet.has(kanji.id)) {
+            showToast(`${kanji.character} đã có trong danh sách ôn tập`);
+            return;
+        }
         try {
             const now = Date.now();
             await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanji.id), {
                 interval: 0, ease: 2.5, nextReview: now, lastReview: now, reps: 0,
             }, { merge: true });
-            setAddedToSRS(true);
-            setTimeout(() => setAddedToSRS(false), 2000);
+            setSrsAddedSet(prev => new Set([...prev, kanji.id]));
+            showToast(`✅ Đã thêm ${kanji.character} vào ôn tập`);
         } catch (e) {
             console.error('Error adding to SRS:', e);
         }
@@ -453,8 +477,8 @@ const KanjiFlashcard = ({ kanji, vocab, writerContainerRef, writerRef, speakJapa
                             <Eye className="w-3.5 h-3.5" /> Xem chi tiết
                         </button>
                         <button onClick={handleAddToSRS}
-                            className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs transition-colors ${addedToSRS ? 'bg-emerald-600 text-white' : 'bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-600 dark:text-gray-300'}`}>
-                            {addedToSRS ? <><Check className="w-3.5 h-3.5" /> Đã thêm!</> : <><Plus className="w-3.5 h-3.5" /> Thêm vào ôn tập</>}
+                            className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs transition-colors bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-600 dark:text-gray-300">
+                            <Plus className="w-3.5 h-3.5" /> Thêm vào ôn tập
                         </button>
                     </div>
                 </div>
@@ -747,6 +771,16 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         setWritingResult(similarity);
         setAnswered(true);
         if (similarity >= 40) setScore(s => s + 1);
+
+        // Draw the correct kanji faintly on the canvas as overlay
+        const overlayCtx = canvas.getContext('2d');
+        overlayCtx.globalAlpha = 0.2;
+        overlayCtx.fillStyle = '#10b981';
+        overlayCtx.font = `bold ${Math.floor(W * 0.72)}px 'Noto Sans JP', 'Yu Gothic', serif`;
+        overlayCtx.textAlign = 'center';
+        overlayCtx.textBaseline = 'middle';
+        overlayCtx.fillText(currentQ.actualChar, W / 2, H / 2 + 5);
+        overlayCtx.globalAlpha = 1.0;
     };
 
     const handleMCAnswer = (opt) => {
@@ -936,20 +970,12 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                             )}
                         </div>
                         {writingResult !== null && (
-                            <>
-                                <div className={`p-3 rounded-xl text-center font-bold w-full border-2 ${writingResult >= 40
-                                    ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400'
-                                    : 'bg-orange-500/20 border-orange-500 text-orange-400'}`}>
-                                    Độ tương đồng: {writingResult}% {writingResult >= 40 ? '✅ Đạt!' : '⚠️ Cần luyện thêm'}
-                                </div>
-                                {/* Show correct kanji for comparison */}
-                                <div className="w-full flex flex-col items-center gap-1 mt-2">
-                                    <div className="text-xs text-gray-500">Chữ Kanji đúng:</div>
-                                    <div className="text-8xl font-bold text-gray-300 dark:text-gray-600 font-japanese opacity-60">
-                                        {currentQ.actualChar}
-                                    </div>
-                                </div>
-                            </>
+                            <div className={`p-3 rounded-xl text-center font-bold w-full border-2 ${writingResult >= 40
+                                ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400'
+                                : 'bg-orange-500/20 border-orange-500 text-orange-400'}`}>
+                                Độ tương đồng: {writingResult}% {writingResult >= 40 ? '✅ Đạt!' : '⚠️ Cần luyện thêm'}
+                                <div className="text-xs font-normal mt-1 opacity-70">Chữ đúng đã hiện mờ trên canvas</div>
+                            </div>
                         )}
                     </div>
                 )}
