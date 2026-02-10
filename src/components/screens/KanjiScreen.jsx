@@ -104,52 +104,63 @@ const KanjiScreen = ({ isAdmin = false }) => {
 
     // Initialize HanziWriter when selectedKanji changes
     useEffect(() => {
-        if (selectedKanji && writerContainerRef.current) {
-            // Clear previous writer
-            writerContainerRef.current.innerHTML = '';
+        if (!selectedKanji || !writerContainerRef.current) return;
+        writerContainerRef.current.innerHTML = '';
+        let cancelled = false;
 
-            // Get container size
-            const containerSize = Math.min(
-                writerContainerRef.current.offsetWidth || 200,
-                writerContainerRef.current.offsetHeight || 200
-            ) * 0.85;
+        const containerSize = Math.min(
+            writerContainerRef.current.offsetWidth || 200,
+            writerContainerRef.current.offsetHeight || 200
+        ) * 0.85;
 
-            try {
-                writerRef.current = HanziWriter.create(writerContainerRef.current, selectedKanji, {
-                    width: containerSize,
-                    height: containerSize,
-                    padding: 5,
-                    showOutline: true,
-                    strokeAnimationSpeed: 1,
-                    delayBetweenStrokes: 300,
-                    strokeColor: '#0891b2', // cyan-600
-                    outlineColor: '#e2e8f0', // slate-200
-                    drawingColor: '#0891b2',
-                    showCharacter: false,
-                    showHintAfterMisses: 3,
-                });
-
-                // Start animation after a short delay
-                setTimeout(() => {
-                    writerRef.current?.animateCharacter({
-                        onComplete: () => {
-                            // Show character after animation completes
-                            writerRef.current?.showCharacter();
-                        }
-                    });
-                }, 100);
-            } catch (error) {
-                console.error('HanziWriter error:', error);
-                // Fallback: show character as text if animation fails
-                writerContainerRef.current.innerHTML = `<span class="text-8xl font-bold text-cyan-600 dark:text-cyan-400 font-japanese">${selectedKanji}</span>`;
+        const showFallback = () => {
+            if (!cancelled && writerContainerRef.current) {
+                writerContainerRef.current.innerHTML = `<span style="font-size:${Math.floor(containerSize * 0.6)}px;color:#0891b2;font-family:'Noto Sans JP','Yu Gothic',serif;line-height:1">${selectedKanji}</span>`;
             }
-        }
+        };
+
+        HanziWriter.loadCharacterData(selectedKanji)
+            .then((charData) => {
+                if (cancelled || !writerContainerRef.current) return;
+                if (!charData || !charData.strokes || charData.strokes.length === 0) {
+                    showFallback();
+                    return;
+                }
+                try {
+                    writerRef.current = HanziWriter.create(writerContainerRef.current, selectedKanji, {
+                        width: containerSize,
+                        height: containerSize,
+                        padding: 5,
+                        showOutline: true,
+                        strokeAnimationSpeed: 1,
+                        delayBetweenStrokes: 300,
+                        strokeColor: '#0891b2',
+                        outlineColor: '#e2e8f0',
+                        drawingColor: '#0891b2',
+                        showCharacter: false,
+                        showHintAfterMisses: 3,
+                        charDataLoader: () => charData,
+                    });
+                    setTimeout(() => {
+                        if (!cancelled) {
+                            writerRef.current?.animateCharacter({
+                                onComplete: () => writerRef.current?.showCharacter()
+                            });
+                        }
+                    }, 100);
+                } catch (error) {
+                    console.error('HanziWriter error:', error);
+                    showFallback();
+                }
+            })
+            .catch((err) => {
+                console.warn('HanziWriter data not found for:', selectedKanji, err);
+                showFallback();
+            });
 
         return () => {
-            // Cleanup
-            if (writerRef.current) {
-                writerRef.current = null;
-            }
+            cancelled = true;
+            writerRef.current = null;
         };
     }, [selectedKanji]);
 
@@ -200,13 +211,20 @@ const KanjiScreen = ({ isAdmin = false }) => {
     useEffect(() => {
         if (!selectedKanji || !showDetailModal) return;
 
+        let cancelled = false;
         let attempts = 0;
         const maxAttempts = 10;
         let timer = null;
-        let animationTimer = null;
+
+        const showFallback = (container) => {
+            if (!cancelled && container) {
+                container.innerHTML = `<span style="font-size:120px;color:#0891b2;font-family:'Noto Sans JP','Yu Gothic',serif;line-height:1">${selectedKanji}</span>`;
+            }
+        };
 
         const initWriter = () => {
             attempts++;
+            if (cancelled) return;
 
             // Check if container exists
             if (!detailWriterContainerRef.current) {
@@ -228,42 +246,52 @@ const KanjiScreen = ({ isAdmin = false }) => {
                 detailWriterContainerRef.current.offsetHeight || 250
             ) * 0.75;
 
-            try {
-                detailWriterRef.current = HanziWriter.create(detailWriterContainerRef.current, selectedKanji, {
-                    width: containerSize,
-                    height: containerSize,
-                    padding: 5,
-                    showOutline: true,
-                    strokeAnimationSpeed: 0.8,
-                    delayBetweenStrokes: 400,
-                    strokeColor: '#0891b2', // cyan-600
-                    outlineColor: '#cbd5e1', // slate-300
-                    drawingColor: '#0891b2',
-                    showCharacter: false,
+            // Pre-check character data availability
+            HanziWriter.loadCharacterData(selectedKanji)
+                .then((charData) => {
+                    if (cancelled || !detailWriterContainerRef.current) return;
+                    if (!charData || !charData.strokes || charData.strokes.length === 0) {
+                        showFallback(detailWriterContainerRef.current);
+                        return;
+                    }
+                    try {
+                        detailWriterRef.current = HanziWriter.create(detailWriterContainerRef.current, selectedKanji, {
+                            width: containerSize,
+                            height: containerSize,
+                            padding: 5,
+                            showOutline: true,
+                            strokeAnimationSpeed: 0.8,
+                            delayBetweenStrokes: 400,
+                            strokeColor: '#0891b2',
+                            outlineColor: '#cbd5e1',
+                            drawingColor: '#0891b2',
+                            showCharacter: false,
+                            charDataLoader: () => charData,
+                        });
+                        setTimeout(() => {
+                            if (!cancelled) {
+                                detailWriterRef.current?.animateCharacter({
+                                    onComplete: () => detailWriterRef.current?.showCharacter()
+                                });
+                            }
+                        }, 200);
+                    } catch (error) {
+                        console.error('Detail HanziWriter error:', error);
+                        showFallback(detailWriterContainerRef.current);
+                    }
+                })
+                .catch((err) => {
+                    console.warn('Detail HanziWriter data not found for:', selectedKanji, err);
+                    showFallback(detailWriterContainerRef.current);
                 });
-
-                // Start animation
-                animationTimer = setTimeout(() => {
-                    detailWriterRef.current?.animateCharacter({
-                        onComplete: () => {
-                            detailWriterRef.current?.showCharacter();
-                        }
-                    });
-                }, 200);
-            } catch (error) {
-                console.error('Detail HanziWriter error:', error);
-                if (detailWriterContainerRef.current) {
-                    detailWriterContainerRef.current.innerHTML = `<span class="text-[120px] font-bold text-cyan-600 dark:text-cyan-400 font-japanese">${selectedKanji}</span>`;
-                }
-            }
         };
 
         // Start trying to initialize
         timer = setTimeout(initWriter, 50);
 
         return () => {
+            cancelled = true;
             if (timer) clearTimeout(timer);
-            if (animationTimer) clearTimeout(animationTimer);
             detailWriterRef.current = null;
         };
     }, [selectedKanji, showDetailModal]);

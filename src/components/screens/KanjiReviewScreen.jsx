@@ -290,115 +290,117 @@ const KanjiReviewScreen = () => {
         const progress = Math.round(((currentReviewIndex + 1) / reviewQueue.length) * 100);
 
         return (
-            <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3 p-4 border-2 border-indigo-400/30 rounded-2xl">
-                {/* Progress bar */}
-                <div className="w-full space-y-1 flex-shrink-0">
-                    <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
-                        <span>{currentReviewIndex + 1} / {reviewQueue.length}</span>
+            <div className="min-h-[calc(100vh-120px)] flex items-center justify-center">
+                <div className="w-[600px] max-w-[95vw] flex flex-col justify-center items-center space-y-3 p-4 border-2 border-indigo-400/30 rounded-2xl">
+                    {/* Progress bar */}
+                    <div className="w-full space-y-1 flex-shrink-0">
+                        <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
+                            <span>{currentReviewIndex + 1} / {reviewQueue.length}</span>
+                        </div>
+                        <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                            <div className="h-full bg-indigo-500 rounded-full transition-all duration-500" style={{ width: `${progress}%` }}></div>
+                        </div>
                     </div>
-                    <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                        <div className="h-full bg-indigo-500 rounded-full transition-all duration-500" style={{ width: `${progress}%` }}></div>
-                    </div>
-                </div>
 
-                {/* Flashcard with flip animation */}
-                <div
-                    className="w-full cursor-pointer"
-                    style={{ perspective: '1000px' }}
-                    onClick={() => setIsFlipped(f => !f)}
-                >
+                    {/* Flashcard with flip animation */}
                     <div
-                        style={{
-                            position: 'relative',
-                            width: '100%',
-                            height: '340px',
-                            transformStyle: 'preserve-3d',
-                            transition: 'transform 0.5s ease',
-                            transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
-                        }}
+                        className="w-full cursor-pointer"
+                        style={{ perspective: '1000px' }}
+                        onClick={() => setIsFlipped(f => !f)}
                     >
-                        {/* Front: Only Kanji character */}
                         <div
-                            className="bg-slate-800 dark:bg-slate-900 rounded-2xl border-2 border-indigo-500/50 shadow-xl"
                             style={{
-                                position: 'absolute',
-                                top: 0, left: 0, width: '100%', height: '100%',
-                                backfaceVisibility: 'hidden',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                justifyContent: 'center',
+                                position: 'relative',
+                                width: '100%',
+                                height: '340px',
+                                transformStyle: 'preserve-3d',
+                                transition: 'transform 0.5s ease',
+                                transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
                             }}
                         >
-                            <div className="text-[140px] leading-none font-bold text-white select-none font-japanese">
-                                {currentCard.character}
+                            {/* Front: Only Kanji character */}
+                            <div
+                                className="bg-white dark:bg-slate-900 rounded-2xl border-2 border-indigo-500/50 shadow-xl"
+                                style={{
+                                    position: 'absolute',
+                                    top: 0, left: 0, width: '100%', height: '100%',
+                                    backfaceVisibility: 'hidden',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                <div className="text-[140px] leading-none font-bold text-gray-900 dark:text-white select-none font-japanese">
+                                    {currentCard.character}
+                                </div>
+                                <div className="absolute bottom-4 left-0 right-0 text-center text-xs text-gray-500">
+                                    Nhấn để lật thẻ
+                                </div>
                             </div>
-                            <div className="absolute bottom-4 left-0 right-0 text-center text-xs text-gray-500">
-                                Nhấn để lật thẻ
-                            </div>
-                        </div>
 
-                        {/* Back: Âm hán, Ý nghĩa, Câu chuyện - NO kanji, NO labels */}
-                        <div
-                            className="bg-slate-800 dark:bg-slate-900 rounded-2xl border-2 border-indigo-500/50 shadow-xl"
-                            style={{
-                                position: 'absolute',
-                                top: 0, left: 0, width: '100%', height: '100%',
-                                backfaceVisibility: 'hidden',
-                                transform: 'rotateY(180deg)',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                padding: '24px',
-                                overflowY: 'auto',
-                            }}
-                        >
-                            <div className="text-center space-y-3 w-full">
-                                <div className="text-3xl font-bold text-emerald-400">{currentCard.sinoViet || '—'}</div>
-                                <div className="text-xl text-cyan-300 font-medium">{currentCard.meaning || '—'}</div>
-                                {currentCard.mnemonic && (
-                                    <div className="text-sm text-gray-300 bg-slate-700/50 rounded-lg p-3 leading-relaxed mt-2">
-                                        {currentCard.mnemonic}
-                                    </div>
-                                )}
-                            </div>
-                            <div className="absolute bottom-4 left-0 right-0 text-center text-xs text-gray-500">
-                                Nhấn để lật thẻ
+                            {/* Back: Âm hán, Ý nghĩa, Câu chuyện - NO kanji, NO labels */}
+                            <div
+                                className="bg-white dark:bg-slate-900 rounded-2xl border-2 border-indigo-500/50 shadow-xl"
+                                style={{
+                                    position: 'absolute',
+                                    top: 0, left: 0, width: '100%', height: '100%',
+                                    backfaceVisibility: 'hidden',
+                                    transform: 'rotateY(180deg)',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    padding: '24px',
+                                    overflowY: 'auto',
+                                }}
+                            >
+                                <div className="text-center space-y-3 w-full">
+                                    <div className="text-3xl font-bold text-emerald-400">{currentCard.sinoViet || '—'}</div>
+                                    <div className="text-xl text-cyan-300 font-medium">{currentCard.meaning || '—'}</div>
+                                    {currentCard.mnemonic && (
+                                        <div className="text-sm text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-slate-700/50 rounded-lg p-3 leading-relaxed mt-2">
+                                            {currentCard.mnemonic}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="absolute bottom-4 left-0 right-0 text-center text-xs text-gray-500">
+                                    Nhấn để lật thẻ
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                {/* Rating buttons - ALWAYS visible */}
-                <div className="grid grid-cols-4 gap-2 w-full">
-                    <button onClick={(e) => { e.stopPropagation(); handleRating('again'); }}
-                        className="py-3 rounded-xl bg-red-900/60 hover:bg-red-800/80 border border-red-700 text-center transition-all">
-                        <div className="font-bold text-red-400 text-sm">Quên rồi</div>
-                        <div className="text-xs text-red-400/70">{intervals.again}</div>
-                    </button>
-                    <button onClick={(e) => { e.stopPropagation(); handleRating('hard'); }}
-                        className="py-3 rounded-xl bg-orange-900/50 hover:bg-orange-800/70 border border-orange-700 text-center transition-all">
-                        <div className="font-bold text-orange-400 text-sm">Khó</div>
-                        <div className="text-xs text-orange-400/70">{intervals.hard}</div>
-                    </button>
-                    <button onClick={(e) => { e.stopPropagation(); handleRating('good'); }}
-                        className="py-3 rounded-xl bg-emerald-900/50 hover:bg-emerald-800/70 border border-emerald-700 text-center transition-all">
-                        <div className="font-bold text-emerald-400 text-sm">Tốt</div>
-                        <div className="text-xs text-emerald-400/70">{intervals.good}</div>
-                    </button>
-                    <button onClick={(e) => { e.stopPropagation(); handleRating('easy'); }}
-                        className="py-3 rounded-xl bg-blue-900/50 hover:bg-blue-800/70 border border-blue-700 text-center transition-all">
-                        <div className="font-bold text-blue-400 text-sm">Dễ</div>
-                        <div className="text-xs text-blue-400/70">{intervals.easy}</div>
-                    </button>
-                </div>
+                    {/* Rating buttons - ALWAYS visible */}
+                    <div className="grid grid-cols-4 gap-2 w-full">
+                        <button onClick={(e) => { e.stopPropagation(); handleRating('again'); }}
+                            className="py-3 rounded-xl bg-red-100 dark:bg-red-900/60 hover:bg-red-200 dark:hover:bg-red-800/80 border border-red-300 dark:border-red-700 text-center transition-all">
+                            <div className="font-bold text-red-400 text-sm">Quên rồi</div>
+                            <div className="text-xs text-red-400/70">{intervals.again}</div>
+                        </button>
+                        <button onClick={(e) => { e.stopPropagation(); handleRating('hard'); }}
+                            className="py-3 rounded-xl bg-orange-100 dark:bg-orange-900/50 hover:bg-orange-200 dark:hover:bg-orange-800/70 border border-orange-300 dark:border-orange-700 text-center transition-all">
+                            <div className="font-bold text-orange-400 text-sm">Khó</div>
+                            <div className="text-xs text-orange-400/70">{intervals.hard}</div>
+                        </button>
+                        <button onClick={(e) => { e.stopPropagation(); handleRating('good'); }}
+                            className="py-3 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 hover:bg-emerald-200 dark:hover:bg-emerald-800/70 border border-emerald-300 dark:border-emerald-700 text-center transition-all">
+                            <div className="font-bold text-emerald-400 text-sm">Tốt</div>
+                            <div className="text-xs text-emerald-400/70">{intervals.good}</div>
+                        </button>
+                        <button onClick={(e) => { e.stopPropagation(); handleRating('easy'); }}
+                            className="py-3 rounded-xl bg-blue-100 dark:bg-blue-900/50 hover:bg-blue-200 dark:hover:bg-blue-800/70 border border-blue-300 dark:border-blue-700 text-center transition-all">
+                            <div className="font-bold text-blue-400 text-sm">Dễ</div>
+                            <div className="text-xs text-blue-400/70">{intervals.easy}</div>
+                        </button>
+                    </div>
 
-                {/* Keyboard hint */}
-                <div className="text-center text-xs text-gray-500">
-                    <span>⌨ Nhấn</span> <kbd className="px-1.5 py-0.5 bg-slate-700 rounded text-gray-400 mx-1">Space</kbd>
-                    <span>để lật, bấm</span> <kbd className="px-1.5 py-0.5 bg-slate-700 rounded text-gray-400 mx-1">1-4</kbd>
-                    <span>để đánh giá</span>
+                    {/* Keyboard hint */}
+                    <div className="text-center text-xs text-gray-500">
+                        <span>⌨ Nhấn</span> <kbd className="px-1.5 py-0.5 bg-gray-200 dark:bg-slate-700 rounded text-gray-500 dark:text-gray-400 mx-1">Space</kbd>
+                        <span>để lật, bấm</span> <kbd className="px-1.5 py-0.5 bg-gray-200 dark:bg-slate-700 rounded text-gray-500 dark:text-gray-400 mx-1">1-4</kbd>
+                        <span>để đánh giá</span>
+                    </div>
                 </div>
             </div>
         );
@@ -438,33 +440,33 @@ const KanjiReviewScreen = () => {
             </div>
 
             {/* Overview Stats */}
-            <div className="bg-gray-800 rounded-xl p-5 border border-gray-700">
-                <h3 className="text-sm font-medium text-gray-400 mb-4 flex items-center gap-2">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4 flex items-center gap-2">
                     <Target className="w-4 h-4" /> Tổng quan (thẻ)
                 </h3>
                 <div className="grid grid-cols-3 md:grid-cols-6 gap-4 text-center">
-                    <div className="p-3 bg-gray-700/50 rounded-lg">
+                    <div className="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
                         <div className="text-2xl font-bold text-cyan-400">{stats.dueToday}</div>
                         <div className="text-xs text-gray-500 mt-1">Cần ôn</div>
                     </div>
-                    <div className="p-3 bg-gray-700/50 rounded-lg">
+                    <div className="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
                         <div className="text-2xl font-bold text-emerald-400">{stats.newCards}</div>
                         <div className="text-xs text-gray-500 mt-1">Mới thêm</div>
                     </div>
-                    <div className="p-3 bg-gray-700/50 rounded-lg">
-                        <div className="text-2xl font-bold text-gray-300">{stats.learning}</div>
+                    <div className="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <div className="text-2xl font-bold text-gray-700 dark:text-gray-300">{stats.learning}</div>
                         <div className="text-xs text-gray-500 mt-1">Đang học</div>
                     </div>
-                    <div className="p-3 bg-gray-700/50 rounded-lg">
-                        <div className="text-2xl font-bold text-gray-300">{stats.shortTerm}</div>
+                    <div className="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <div className="text-2xl font-bold text-gray-700 dark:text-gray-300">{stats.shortTerm}</div>
                         <div className="text-xs text-gray-500 mt-1">Ngắn hạn</div>
                     </div>
-                    <div className="p-3 bg-gray-700/50 rounded-lg">
+                    <div className="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
                         <div className="text-2xl font-bold text-emerald-400">{stats.longTerm}</div>
                         <div className="text-xs text-gray-500 mt-1">Dài hạn</div>
                     </div>
-                    <div className="p-3 bg-gray-700/50 rounded-lg">
-                        <div className="text-2xl font-bold text-gray-300">{stats.totalReviewed}</div>
+                    <div className="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
+                        <div className="text-2xl font-bold text-gray-700 dark:text-gray-300">{stats.totalReviewed}</div>
                         <div className="text-xs text-gray-500 mt-1">Tổng đã học</div>
                     </div>
                 </div>
@@ -499,8 +501,8 @@ const KanjiReviewScreen = () => {
             </div>
 
             {/* Activity Heatmap */}
-            <div className="bg-gray-800 rounded-xl p-5 border border-gray-700">
-                <h3 className="text-sm font-medium text-gray-300 mb-4 flex items-center gap-2">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4 flex items-center gap-2">
                     <Flame className="w-4 h-4 text-orange-400" />
                     {stats.totalReviewed} lượt ôn tập trong 365 ngày qua
                 </h3>
@@ -512,7 +514,7 @@ const KanjiReviewScreen = () => {
                                     const dataIndex = weekIndex * 7 + dayIndex;
                                     const activity = activityData[dataIndex];
                                     const level = activity?.level || 0;
-                                    const colors = ['bg-gray-700', 'bg-emerald-900', 'bg-emerald-700', 'bg-emerald-500', 'bg-emerald-400'];
+                                    const colors = ['bg-gray-200 dark:bg-gray-700', 'bg-emerald-200 dark:bg-emerald-900', 'bg-emerald-400 dark:bg-emerald-700', 'bg-emerald-500', 'bg-emerald-400'];
                                     return (
                                         <div key={dayIndex} className={`w-3 h-3 rounded-sm ${colors[level]}`}
                                             title={activity?.date?.toLocaleDateString()} />
@@ -525,7 +527,7 @@ const KanjiReviewScreen = () => {
                 <div className="flex items-center justify-end gap-2 mt-4 text-xs text-gray-500">
                     <span>Ít</span>
                     <div className="flex gap-1">
-                        {['bg-gray-700', 'bg-emerald-900', 'bg-emerald-700', 'bg-emerald-500', 'bg-emerald-400'].map((c, i) => (
+                        {['bg-gray-200 dark:bg-gray-700', 'bg-emerald-200 dark:bg-emerald-900', 'bg-emerald-400 dark:bg-emerald-700', 'bg-emerald-500', 'bg-emerald-400'].map((c, i) => (
                             <div key={i} className={`w-3 h-3 rounded-sm ${c}`}></div>
                         ))}
                     </div>
