@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import HanziWriter from 'hanzi-writer';
 import { ChevronLeft, ChevronRight, Eye, Plus, BookOpen, PenTool, Award, Volume2, Check, X, Sparkles, RotateCcw, Pencil, Keyboard, Languages } from 'lucide-react';
-import { db } from '../../config/firebase';
+import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
@@ -133,7 +133,7 @@ const KanjiLessonScreen = () => {
         const now = Date.now();
         try {
             for (const kanjiId of kanjiIds) {
-                await setDoc(doc(db, `users/${userId}/kanjiSRS`, kanjiId), {
+                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanjiId), {
                     interval: 0,
                     ease: 2.5,
                     nextReview: now, // Due immediately for first review
@@ -335,7 +335,7 @@ const KanjiLessonScreen = () => {
 
                     {/* Flashcard content */}
                     {flashcardType === 'kanji' ? (
-                        <KanjiFlashcard kanji={currentKanji} vocab={currentVocab} writerContainerRef={writerContainerRef} writerRef={writerRef} speakJapanese={speakJapanese} />
+                        <KanjiFlashcard kanji={currentKanji} vocab={currentVocab} writerContainerRef={writerContainerRef} writerRef={writerRef} speakJapanese={speakJapanese} navigate={navigate} userId={userId} />
                     ) : (
                         <VocabFlashcardList vocab={todayVocab} speakJapanese={speakJapanese} />
                     )}
@@ -374,7 +374,23 @@ const KanjiLessonScreen = () => {
 };
 
 // ==================== KANJI FLASHCARD ====================
-const KanjiFlashcard = ({ kanji, vocab, writerContainerRef, writerRef, speakJapanese }) => {
+const KanjiFlashcard = ({ kanji, vocab, writerContainerRef, writerRef, speakJapanese, navigate, userId }) => {
+    const [addedToSRS, setAddedToSRS] = useState(false);
+
+    const handleAddToSRS = async () => {
+        if (!kanji?.id || !userId) return;
+        try {
+            const now = Date.now();
+            await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanji.id), {
+                interval: 0, ease: 2.5, nextReview: now, lastReview: now, reps: 0,
+            }, { merge: true });
+            setAddedToSRS(true);
+            setTimeout(() => setAddedToSRS(false), 2000);
+        } catch (e) {
+            console.error('Error adding to SRS:', e);
+        }
+    };
+
     if (!kanji) return null;
     return (
         <div className="bg-slate-800 rounded-2xl border border-slate-700 p-5">
@@ -389,11 +405,13 @@ const KanjiFlashcard = ({ kanji, vocab, writerContainerRef, writerRef, speakJapa
                         </button>
                     </div>
                     <div className="flex gap-2">
-                        <button onClick={() => { }} className="flex items-center gap-1 px-3 py-1.5 bg-slate-700 hover:bg-slate-600 rounded-lg text-xs text-gray-300 transition-colors">
+                        <button onClick={() => navigate(`/kanji?char=${encodeURIComponent(kanji.character)}`)}
+                            className="flex items-center gap-1 px-3 py-1.5 bg-slate-700 hover:bg-slate-600 rounded-lg text-xs text-gray-300 transition-colors">
                             <Eye className="w-3.5 h-3.5" /> Xem chi tiết
                         </button>
-                        <button className="flex items-center gap-1 px-3 py-1.5 bg-slate-700 hover:bg-slate-600 rounded-lg text-xs text-gray-300 transition-colors">
-                            <Plus className="w-3.5 h-3.5" /> Thêm vào ôn tập
+                        <button onClick={handleAddToSRS}
+                            className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs transition-colors ${addedToSRS ? 'bg-emerald-600 text-white' : 'bg-slate-700 hover:bg-slate-600 text-gray-300'}`}>
+                            {addedToSRS ? <><Check className="w-3.5 h-3.5" /> Đã thêm!</> : <><Plus className="w-3.5 h-3.5" /> Thêm vào ôn tập</>}
                         </button>
                     </div>
                 </div>
@@ -526,7 +544,11 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
             }));
         }
         if (testMode === 'writing') {
-            return todayKanji.map(k => ({ kanji: k.character, question: `Viết chữ "${k.character}"`, type: 'writing' }));
+            return todayKanji.filter(k => k.sinoViet).map(k => ({
+                kanji: k.sinoViet, actualChar: k.character,
+                question: `Viết chữ Kanji có âm Hán Việt "${k.sinoViet}"`,
+                meaning: k.meaning || '', type: 'writing'
+            }));
         }
         return [];
     }, [testMode, todayKanji, todayVocab, vocabList]);
@@ -584,11 +606,68 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         ctx.beginPath(); ctx.moveTo(0, 125); ctx.lineTo(250, 125); ctx.stroke();
         setWritingResult(null);
     };
+    // Real pixel-based similarity check using HanziWriter reference canvas
     const checkWriting = () => {
-        const similarity = Math.floor(Math.random() * 40 + 60);
+        if (!canvasRef.current) return;
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const pixels = imageData.data;
+
+        // Count drawn pixels (non-background, non-guideline)
+        let drawnPixels = 0;
+        const totalPixels = canvas.width * canvas.height;
+        for (let i = 0; i < pixels.length; i += 4) {
+            const r = pixels[i], g = pixels[i + 1], b = pixels[i + 2];
+            // Background is #0f172a (15,23,42), guidelines are #334155 (51,65,85)
+            // Drawn strokes are #0891b2 (8,145,178)
+            const isBg = (r < 60 && g < 75 && b < 100);
+            if (!isBg) drawnPixels++;
+        }
+
+        // If barely anything drawn, score 0
+        const drawRatio = drawnPixels / totalPixels;
+        if (drawRatio < 0.02) {
+            setWritingResult(0);
+            setAnswered(true);
+            return;
+        }
+
+        // Generate reference by rendering the actual character on a hidden canvas
+        const refCanvas = document.createElement('canvas');
+        refCanvas.width = 250; refCanvas.height = 250;
+        const refCtx = refCanvas.getContext('2d');
+        refCtx.fillStyle = '#0f172a';
+        refCtx.fillRect(0, 0, 250, 250);
+        refCtx.fillStyle = '#0891b2';
+        refCtx.font = 'bold 180px serif';
+        refCtx.textAlign = 'center';
+        refCtx.textBaseline = 'middle';
+        refCtx.fillText(currentQ.actualChar, 125, 135);
+
+        const refData = refCtx.getImageData(0, 0, 250, 250).data;
+
+        // Compare: check overlap between drawn and reference
+        let overlap = 0, refStrokePixels = 0, drawnTotal = 0;
+        for (let i = 0; i < pixels.length; i += 4) {
+            const r1 = pixels[i], g1 = pixels[i + 1], b1 = pixels[i + 2];
+            const r2 = refData[i], g2 = refData[i + 1], b2 = refData[i + 2];
+            const isDrawn = !(r1 < 60 && g1 < 75 && b1 < 100);
+            const isRef = !(r2 < 60 && g2 < 75 && b2 < 100);
+            if (isRef) refStrokePixels++;
+            if (isDrawn) drawnTotal++;
+            if (isDrawn && isRef) overlap++;
+        }
+
+        // Score = overlap accuracy weighted by coverage
+        const precision = drawnTotal > 0 ? overlap / drawnTotal : 0;
+        const recall = refStrokePixels > 0 ? overlap / refStrokePixels : 0;
+        const f1 = (precision + recall) > 0 ? (2 * precision * recall) / (precision + recall) : 0;
+        const similarity = Math.min(100, Math.round(f1 * 100));
+
         setWritingResult(similarity);
         setAnswered(true);
-        if (similarity >= 70) setScore(s => s + 1);
+        if (similarity >= 50) setScore(s => s + 1);
     };
 
     const handleMCAnswer = (opt) => {
@@ -637,7 +716,7 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
     if (testDone) {
         const pct = total > 0 ? Math.round((score / total) * 100) : 0;
         return (
-            <div className="w-[600px] max-w-[95vw] mx-auto text-center space-y-6 py-12">
+            <div className="w-[600px] max-w-[95vw] mx-auto text-center space-y-6 py-12 min-h-[60vh] flex flex-col items-center justify-center">
                 <Award className={`w-20 h-20 mx-auto ${pct >= 80 ? 'text-yellow-400' : pct >= 50 ? 'text-cyan-400' : 'text-gray-500'}`} />
                 <h2 className="text-3xl font-bold text-white">Kết quả kiểm tra</h2>
                 <div className="text-5xl font-bold text-cyan-400">{score}/{total}</div>
@@ -659,7 +738,7 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
     const progress = Math.round(((qIndex + 1) / total) * 100);
 
     return (
-        <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3 p-4 border-2 border-indigo-400/30 rounded-2xl">
+        <div className="w-[600px] max-w-[95vw] mx-auto flex flex-col justify-center items-center space-y-3 p-4 border-2 border-indigo-400/30 rounded-2xl min-h-[70vh]" style={{ marginTop: 'auto', marginBottom: 'auto' }}>
             {/* Progress bar */}
             <div className="w-full space-y-1 flex-shrink-0">
                 <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
@@ -679,10 +758,20 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
 
             {/* Card area */}
             <div className="w-full bg-slate-800 dark:bg-slate-900 rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center relative overflow-hidden border-2 border-indigo-500/50" style={{ minHeight: '280px' }}>
-                {/* Kanji display */}
-                <div className="text-7xl font-bold text-white font-japanese mb-3">{currentQ.kanji}</div>
-                {currentQ.sub && <div className="text-lg text-orange-400 font-japanese mb-2">({currentQ.sub})</div>}
-                <p className="text-sm text-gray-400">{currentQ.question}</p>
+                {/* Display: for writing mode show sinoViet hint only, for others show kanji */}
+                {currentQ.type === 'writing' ? (
+                    <>
+                        <div className="text-3xl font-bold text-emerald-400 mb-2">{currentQ.kanji}</div>
+                        {currentQ.meaning && <div className="text-lg text-gray-400 mb-2">{currentQ.meaning}</div>}
+                        <p className="text-sm text-gray-500">{currentQ.question}</p>
+                    </>
+                ) : (
+                    <>
+                        <div className="text-7xl font-bold text-white font-japanese mb-3">{currentQ.kanji}</div>
+                        {currentQ.sub && <div className="text-lg text-orange-400 font-japanese mb-2">({currentQ.sub})</div>}
+                        <p className="text-sm text-gray-400">{currentQ.question}</p>
+                    </>
+                )}
             </div>
 
             {/* MC options - styled like ReviewScreen */}

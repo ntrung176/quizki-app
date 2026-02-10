@@ -146,7 +146,6 @@ const KanjiStudyScreen = () => {
             <div className="grid grid-cols-5 gap-2">
                 {Object.entries(JLPT_CONFIG).map(([level, config]) => {
                     const levelData = kanjiList.filter(k => k.level === level);
-                    const days = Math.ceil(levelData.length / 10) || config.totalDays;
                     const isSelected = selectedLevel === level;
 
                     return (
@@ -159,11 +158,8 @@ const KanjiStudyScreen = () => {
                                 {config.label}
                             </div>
                             <div className="text-[10px] text-gray-500 dark:text-gray-400">
-                                {levelData.length} chữ - {days} ngày
+                                {levelData.length} chữ
                             </div>
-                            {isSelected && config.sublabel && (
-                                <div className="text-[10px] text-emerald-500 mt-0.5">{userProgress.daysCompleted}/{days} ngày</div>
-                            )}
                         </button>
                     );
                 })}

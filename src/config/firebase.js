@@ -32,5 +32,8 @@ try {
     console.error("Lỗi khởi tạo Firebase:", e);
 }
 
-export { app, db, auth };
+// appId dùng chung cho đường dẫn Firestore (artifacts/${appId}/...)
+const appId = import.meta.env.VITE_FIREBASE_APP_ID;
+
+export { app, db, auth, appId };
 

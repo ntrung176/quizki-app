@@ -1,13 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { collection, query, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
-import { db } from '../../config/firebase';
+import { collection, query, onSnapshot, doc, deleteDoc, getDocs } from 'firebase/firestore';
+import { db, appId } from '../../config/firebase';
 import {
     Users, Search, Shield, Trash2, BarChart3, Clock,
-    AlertTriangle, CheckCircle, Loader2
+    AlertTriangle, CheckCircle, Loader2, Languages, BookOpen
 } from 'lucide-react';
-
-// Application ID for Firebase paths
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'quizki-app';
 
 const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) => {
     // State
@@ -20,6 +17,8 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
     const [notification, setNotification] = useState(null);
     const [confirmDelete, setConfirmDelete] = useState(null);
     const [deleting, setDeleting] = useState(false);
+    const [deleteType, setDeleteType] = useState('all'); // 'all' | 'kanji'
+    const [userKanjiStats, setUserKanjiStats] = useState({}); // userId -> { total, learning, mastered }
 
     // Load users
     useEffect(() => {
@@ -35,6 +34,31 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
         });
         return () => unsubscribe();
     }, [publicStatsPath]);
+
+    // Load kanji SRS stats for selected user
+    useEffect(() => {
+        if (!selectedUser) return;
+        const loadKanjiStats = async () => {
+            try {
+                const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${selectedUser.userId}/kanjiSRS`));
+                const now = Date.now();
+                let total = 0, learning = 0, mastered = 0;
+                srsSnap.docs.forEach(d => {
+                    total++;
+                    const data = d.data();
+                    if (data.interval >= 1440 * 21) mastered++; // > 21 days
+                    else learning++;
+                });
+                setUserKanjiStats(prev => ({
+                    ...prev,
+                    [selectedUser.userId]: { total, learning, mastered }
+                }));
+            } catch (e) {
+                console.error('Error loading kanji stats:', e);
+            }
+        };
+        loadKanjiStats();
+    }, [selectedUser]);
 
     // Stats calculations
     const stats = useMemo(() => {
@@ -87,23 +111,42 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
         setSelectedUser(user);
     };
 
-    // Delete user
+    // Delete user data
     const handleDelete = async () => {
-        if (!confirmDelete || !onAdminDeleteUserData) return;
+        if (!confirmDelete) return;
         setDeleting(true);
         try {
-            await onAdminDeleteUserData(confirmDelete.userId);
-            setUsers(prev => prev.filter(u => u.userId !== confirmDelete.userId));
-            if (selectedUser?.userId === confirmDelete.userId) {
-                setSelectedUser(null);
+            if (deleteType === 'kanji') {
+                // Delete only kanji SRS data
+                const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${confirmDelete.userId}/kanjiSRS`));
+                let deleted = 0;
+                for (const docSnap of srsSnap.docs) {
+                    await deleteDoc(docSnap.ref);
+                    deleted++;
+                }
+                setUserKanjiStats(prev => ({
+                    ...prev,
+                    [confirmDelete.userId]: { total: 0, learning: 0, mastered: 0 }
+                }));
+                setNotification({ type: 'success', message: `Đã xóa ${deleted} dữ liệu Kanji SRS của ${confirmDelete.displayName}` });
+            } else {
+                // Delete all user data
+                if (onAdminDeleteUserData) {
+                    await onAdminDeleteUserData(confirmDelete.userId);
+                }
+                setUsers(prev => prev.filter(u => u.userId !== confirmDelete.userId));
+                if (selectedUser?.userId === confirmDelete.userId) {
+                    setSelectedUser(null);
+                }
+                setNotification({ type: 'success', message: `Đã xóa toàn bộ dữ liệu ${confirmDelete.displayName}` });
             }
-            setNotification({ type: 'success', message: `Đã xóa dữ liệu ${confirmDelete.displayName}` });
         } catch (e) {
             console.error('Error deleting:', e);
             setNotification({ type: 'error', message: 'Lỗi khi xóa: ' + e.message });
         } finally {
             setDeleting(false);
             setConfirmDelete(null);
+            setDeleteType('all');
         }
     };
 
@@ -126,6 +169,8 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
         );
     }
 
+    const kanjiStats = selectedUser ? userKanjiStats[selectedUser.userId] : null;
+
     return (
         <div className="space-y-6">
             {/* Header */}
@@ -136,7 +181,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
                         Quản lý Admin
                     </h1>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                        Quản lý người dùng và hệ thống
+                        Quản lý người dùng, dữ liệu từ vựng và Kanji SRS
                     </p>
                 </div>
             </div>
@@ -280,26 +325,66 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
                                 </div>
                             </div>
 
-                            {/* Stats */}
-                            <div className="grid grid-cols-2 gap-2">
-                                <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                                    <p className="text-lg font-bold text-gray-800 dark:text-white">{selectedUser.totalCards || 0}</p>
-                                    <p className="text-xs text-gray-500">Flashcard</p>
-                                </div>
-                                <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                                    <p className="text-lg font-bold text-gray-800 dark:text-white">{selectedUser.masteredCount || 0}</p>
-                                    <p className="text-xs text-gray-500">Đã thuộc</p>
+                            {/* Vocabulary Stats */}
+                            <div>
+                                <h4 className="text-xs font-bold text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1">
+                                    <BookOpen className="w-3.5 h-3.5" /> TỪ VỰNG
+                                </h4>
+                                <div className="grid grid-cols-2 gap-2">
+                                    <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                                        <p className="text-lg font-bold text-gray-800 dark:text-white">{selectedUser.totalCards || 0}</p>
+                                        <p className="text-xs text-gray-500">Flashcard</p>
+                                    </div>
+                                    <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                                        <p className="text-lg font-bold text-gray-800 dark:text-white">{selectedUser.masteredCount || 0}</p>
+                                        <p className="text-xs text-gray-500">Đã thuộc</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            {/* Delete Action */}
+                            {/* Kanji SRS Stats */}
+                            <div>
+                                <h4 className="text-xs font-bold text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1">
+                                    <Languages className="w-3.5 h-3.5" /> KANJI SRS
+                                </h4>
+                                {kanjiStats ? (
+                                    <div className="grid grid-cols-3 gap-2">
+                                        <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
+                                            <p className="text-lg font-bold text-emerald-600">{kanjiStats.total}</p>
+                                            <p className="text-xs text-gray-500">Tổng</p>
+                                        </div>
+                                        <div className="p-3 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
+                                            <p className="text-lg font-bold text-amber-600">{kanjiStats.learning}</p>
+                                            <p className="text-xs text-gray-500">Đang học</p>
+                                        </div>
+                                        <div className="p-3 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg">
+                                            <p className="text-lg font-bold text-cyan-600">{kanjiStats.mastered}</p>
+                                            <p className="text-xs text-gray-500">Thành thạo</p>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-center">
+                                        <Loader2 className="w-4 h-4 animate-spin mx-auto text-gray-400" />
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Delete Actions */}
                             {selectedUser.userId !== currentUserId && (
-                                <div className="pt-2 border-t border-gray-100 dark:border-gray-700">
+                                <div className="pt-2 border-t border-gray-100 dark:border-gray-700 space-y-2">
+                                    {/* Delete Kanji SRS only */}
                                     <button
-                                        onClick={() => setConfirmDelete(selectedUser)}
+                                        onClick={() => { setDeleteType('kanji'); setConfirmDelete(selectedUser); }}
+                                        className="w-full px-3 py-2 text-sm font-medium text-orange-600 bg-orange-50 dark:bg-orange-900/20 hover:bg-orange-100 dark:hover:bg-orange-900/30 rounded-lg transition-colors flex items-center justify-center gap-2"
+                                    >
+                                        <Languages className="w-4 h-4" /> Xóa dữ liệu Kanji SRS
+                                    </button>
+                                    {/* Delete all user data */}
+                                    <button
+                                        onClick={() => { setDeleteType('all'); setConfirmDelete(selectedUser); }}
                                         className="w-full px-3 py-2 text-sm font-medium text-red-600 bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-lg transition-colors flex items-center justify-center gap-2"
                                     >
-                                        <Trash2 className="w-4 h-4" /> Xóa dữ liệu người dùng
+                                        <Trash2 className="w-4 h-4" /> Xóa toàn bộ dữ liệu
                                     </button>
                                 </div>
                             )}
@@ -318,18 +403,21 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
                 <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
                     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-sm w-full p-6 space-y-4">
                         <div className="text-center">
-                            <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <AlertTriangle className="w-6 h-6 text-red-600" />
+                            <div className={`w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 ${deleteType === 'kanji' ? 'bg-orange-100 dark:bg-orange-900/30' : 'bg-red-100 dark:bg-red-900/30'}`}>
+                                <AlertTriangle className={`w-6 h-6 ${deleteType === 'kanji' ? 'text-orange-600' : 'text-red-600'}`} />
                             </div>
                             <h3 className="text-lg font-bold text-gray-800 dark:text-white">Xác nhận xóa</h3>
                             <p className="text-sm text-gray-500 mt-2">
-                                Bạn có chắc muốn xóa toàn bộ dữ liệu của <strong>{confirmDelete.displayName}</strong>?
-                                Hành động này không thể hoàn tác.
+                                {deleteType === 'kanji'
+                                    ? <>Bạn có chắc muốn xóa <strong>dữ liệu Kanji SRS</strong> của <strong>{confirmDelete.displayName}</strong>?</>
+                                    : <>Bạn có chắc muốn xóa <strong>toàn bộ dữ liệu</strong> của <strong>{confirmDelete.displayName}</strong>?</>
+                                }
+                                <br />Hành động này không thể hoàn tác.
                             </p>
                         </div>
                         <div className="flex gap-3">
                             <button
-                                onClick={() => setConfirmDelete(null)}
+                                onClick={() => { setConfirmDelete(null); setDeleteType('all'); }}
                                 disabled={deleting}
                                 className="flex-1 px-4 py-2 text-sm font-medium text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
                             >
@@ -338,7 +426,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData }) 
                             <button
                                 onClick={handleDelete}
                                 disabled={deleting}
-                                className="flex-1 px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors flex items-center justify-center gap-1"
+                                className={`flex-1 px-4 py-2 text-sm font-medium text-white rounded-lg transition-colors flex items-center justify-center gap-1 ${deleteType === 'kanji' ? 'bg-orange-600 hover:bg-orange-700' : 'bg-red-600 hover:bg-red-700'}`}
                             >
                                 {deleting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
                                 Xóa

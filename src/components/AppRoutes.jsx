@@ -334,6 +334,7 @@ const AppRoutes = ({
                             dailyActivityLogs={dailyActivityLogs}
                             onUpdateGoal={handleUpdateGoal}
                             onBack={() => setView('HOME')}
+                            userId={userId}
                         />
                     </ProtectedRoute>
                 }

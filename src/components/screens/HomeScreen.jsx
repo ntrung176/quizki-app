@@ -1,5 +1,7 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { collection, getDocs, onSnapshot, query } from 'firebase/firestore';
+import { db, appId } from '../../config/firebase';
 import {
     BookOpen, Languages, Target, Flame, Trophy, Clock,
     ArrowRight, Sparkles, TrendingUp, Zap, Star, Calendar
@@ -10,8 +12,29 @@ const HomeScreen = ({
     displayName,
     totalCards,
     allCards = [],
+    userId,
 }) => {
     const navigate = useNavigate();
+    const [kanjiSrsStats, setKanjiSrsStats] = useState({ total: 0, learning: 0, mastered: 0, dueCount: 0 });
+
+    // Fetch kanji SRS stats
+    useEffect(() => {
+        if (!userId || !db) return;
+        const q = query(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
+        const unsub = onSnapshot(q, (snap) => {
+            let total = 0, learning = 0, mastered = 0, dueCount = 0;
+            const now = Date.now();
+            snap.docs.forEach(d => {
+                total++;
+                const data = d.data();
+                if (data.reps >= 5) mastered++;
+                else learning++;
+                if (data.nextReview && data.nextReview <= now) dueCount++;
+            });
+            setKanjiSrsStats({ total, learning, mastered, dueCount });
+        }, () => { });
+        return () => unsub();
+    }, [userId]);
 
     // Calculate stats
     const stats = useMemo(() => {
@@ -28,14 +51,13 @@ const HomeScreen = ({
     // Quick action cards - using softer colors
     const quickActions = [
         {
-            id: 'vocab',
-            title: 'Ôn tập từ vựng',
-            subtitle: `${stats.dueCards} thẻ cần ôn`,
-            icon: BookOpen,
-            color: 'from-sky-500 to-blue-600',
-            shadowColor: 'shadow-sky-500/20',
-            route: ROUTES.VOCABULARY,
-            badge: stats.dueCards > 0 ? stats.dueCards : null,
+            id: 'add',
+            title: 'Thêm từ vựng',
+            subtitle: 'Mở rộng vốn từ',
+            icon: Sparkles,
+            color: 'from-cyan-500 to-teal-500',
+            shadowColor: 'shadow-cyan-500/20',
+            route: ROUTES.VOCABULARY_ADD,
         },
         {
             id: 'kanji',
@@ -47,22 +69,24 @@ const HomeScreen = ({
             route: ROUTES.KANJI_STUDY,
         },
         {
-            id: 'test',
-            title: 'Luyện thi JLPT',
-            subtitle: 'Kiểm tra năng lực',
+            id: 'vocab-review',
+            title: 'Ôn Tập Từ Vựng',
+            subtitle: `${stats.dueCards} thẻ cần ôn`,
+            icon: BookOpen,
+            color: 'from-sky-500 to-blue-600',
+            shadowColor: 'shadow-sky-500/20',
+            route: ROUTES.VOCABULARY,
+            badge: stats.dueCards > 0 ? stats.dueCards : null,
+        },
+        {
+            id: 'kanji-review',
+            title: 'Ôn Tập Kanji',
+            subtitle: `${kanjiSrsStats.dueCount} kanji cần ôn`,
             icon: Target,
             color: 'from-amber-500 to-orange-500',
             shadowColor: 'shadow-amber-500/20',
-            route: ROUTES.TEST,
-        },
-        {
-            id: 'add',
-            title: 'Thêm từ mới',
-            subtitle: 'Mở rộng vốn từ',
-            icon: Sparkles,
-            color: 'from-cyan-500 to-teal-500',
-            shadowColor: 'shadow-cyan-500/20',
-            route: ROUTES.VOCABULARY_ADD,
+            route: ROUTES.KANJI_REVIEW,
+            badge: kanjiSrsStats.dueCount > 0 ? kanjiSrsStats.dueCount : null,
         },
     ];
 
@@ -129,6 +153,10 @@ const HomeScreen = ({
     ];
     const todayTip = learningTips[new Date().getDate() % learningTips.length];
 
+    // Progress calculations for roadmap
+    const vocabProgress = stats.totalCards > 0 ? Math.round((stats.masteredCards / stats.totalCards) * 100) : 0;
+    const kanjiProgress = kanjiSrsStats.total > 0 ? Math.round((kanjiSrsStats.mastered / kanjiSrsStats.total) * 100) : 0;
+
     return (
         <div className="space-y-4 max-w-4xl mx-auto">
             {/* Hero Section - Beautiful teal gradient */}
@@ -161,6 +189,10 @@ const HomeScreen = ({
                             <Trophy className="w-4 h-4 text-amber-400" />
                             <span className="text-sm font-medium">{stats.masteredCards} từ đã thuộc</span>
                         </div>
+                        <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                            <Languages className="w-4 h-4 text-emerald-400" />
+                            <span className="text-sm font-medium">{kanjiSrsStats.mastered} kanji đã thuộc</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -172,31 +204,31 @@ const HomeScreen = ({
                         <Clock className="w-5 h-5 text-red-500" />
                     </div>
                     <div className="text-2xl font-bold text-gray-800 dark:text-white">{stats.dueCards}</div>
-                    <div className="text-xs text-gray-500">Cần ôn hôm nay</div>
+                    <div className="text-xs text-gray-500">Từ vựng cần ôn</div>
                 </div>
 
                 <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 text-center">
-                    <div className="w-10 h-10 bg-emerald-50 dark:bg-emerald-900/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <Zap className="w-5 h-5 text-emerald-500" />
+                    <div className="w-10 h-10 bg-amber-50 dark:bg-amber-900/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <Target className="w-5 h-5 text-amber-500" />
                     </div>
-                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{stats.newCards}</div>
-                    <div className="text-xs text-gray-500">Từ mới chờ học</div>
+                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{kanjiSrsStats.dueCount}</div>
+                    <div className="text-xs text-gray-500">Kanji cần ôn</div>
                 </div>
 
                 <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 text-center">
                     <div className="w-10 h-10 bg-sky-50 dark:bg-sky-900/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <Star className="w-5 h-5 text-sky-500" />
+                        <BookOpen className="w-5 h-5 text-sky-500" />
                     </div>
-                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{stats.masteredCards}</div>
-                    <div className="text-xs text-gray-500">Đã thành thạo</div>
+                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{stats.totalCards}</div>
+                    <div className="text-xs text-gray-500">Tổng từ vựng</div>
                 </div>
 
                 <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 text-center">
-                    <div className="w-10 h-10 bg-slate-100 dark:bg-slate-700/50 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <TrendingUp className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+                    <div className="w-10 h-10 bg-emerald-50 dark:bg-emerald-900/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <Languages className="w-5 h-5 text-emerald-500" />
                     </div>
-                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{stats.totalCards}</div>
-                    <div className="text-xs text-gray-500">Tổng số thẻ</div>
+                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{kanjiSrsStats.total}</div>
+                    <div className="text-xs text-gray-500">Tổng Kanji</div>
                 </div>
             </div>
 
@@ -256,13 +288,18 @@ const HomeScreen = ({
                         <div className="flex-1">
                             <div className="flex justify-between mb-1">
                                 <span className="text-sm font-medium text-gray-800 dark:text-white">Từ vựng</span>
-                                <span className="text-xs text-gray-500">{stats.masteredCards}/{stats.totalCards}</span>
+                                <span className="text-xs text-gray-500">{stats.masteredCards}/{stats.totalCards} ({vocabProgress}%)</span>
                             </div>
                             <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                                 <div
                                     className="h-full bg-gradient-to-r from-sky-500 to-blue-500 rounded-full transition-all duration-500"
-                                    style={{ width: `${stats.totalCards > 0 ? (stats.masteredCards / stats.totalCards * 100) : 0}%` }}
+                                    style={{ width: `${vocabProgress}%` }}
                                 />
+                            </div>
+                            <div className="flex gap-4 mt-1 text-xs text-gray-400">
+                                <span>📚 Tổng: <strong className="text-gray-600 dark:text-gray-300">{stats.totalCards}</strong></span>
+                                <span>✅ Thuộc: <strong className="text-emerald-500">{stats.masteredCards}</strong></span>
+                                <span>🆕 Mới: <strong className="text-amber-500">{stats.newCards}</strong></span>
                             </div>
                         </div>
                     </div>
@@ -274,36 +311,24 @@ const HomeScreen = ({
                         </div>
                         <div className="flex-1">
                             <div className="flex justify-between mb-1">
-                                <span className="text-sm font-medium text-gray-800 dark:text-white">Kanji N5</span>
-                                <span className="text-xs text-gray-500">20/103</span>
+                                <span className="text-sm font-medium text-gray-800 dark:text-white">Kanji</span>
+                                <span className="text-xs text-gray-500">{kanjiSrsStats.mastered}/{kanjiSrsStats.total} ({kanjiProgress}%)</span>
                             </div>
                             <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                                 <div
-                                    className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full"
-                                    style={{ width: '19%' }}
+                                    className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full transition-all duration-500"
+                                    style={{ width: `${kanjiProgress}%` }}
                                 />
+                            </div>
+                            <div className="flex gap-4 mt-1 text-xs text-gray-400">
+                                <span>📝 Tổng: <strong className="text-gray-600 dark:text-gray-300">{kanjiSrsStats.total}</strong></span>
+                                <span>✅ Thạo: <strong className="text-emerald-500">{kanjiSrsStats.mastered}</strong></span>
+                                <span>📖 Đang học: <strong className="text-amber-500">{kanjiSrsStats.learning}</strong></span>
                             </div>
                         </div>
                     </div>
 
-                    {/* JLPT Progress */}
-                    <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-amber-50 dark:bg-amber-900/20 rounded-xl flex items-center justify-center">
-                            <Target className="w-6 h-6 text-amber-500" />
-                        </div>
-                        <div className="flex-1">
-                            <div className="flex justify-between mb-1">
-                                <span className="text-sm font-medium text-gray-800 dark:text-white">JLPT N5</span>
-                                <span className="text-xs text-gray-500">Đang học</span>
-                            </div>
-                            <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                                <div
-                                    className="h-full bg-gradient-to-r from-amber-500 to-orange-400 rounded-full"
-                                    style={{ width: '35%' }}
-                                />
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
 

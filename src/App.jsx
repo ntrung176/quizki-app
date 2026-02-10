@@ -278,6 +278,10 @@ const App = () => {
             const actCount = await deleteOneByOne(`artifacts/${appId}/users/${targetUserId}/dailyActivity`);
             console.log(`Deleted ${actCount} daily activity items`);
 
+            // Xóa kanji SRS data
+            const kanjiSrsCount = await deleteOneByOne(`artifacts/${appId}/users/${targetUserId}/kanjiSRS`);
+            console.log(`Deleted ${kanjiSrsCount} kanji SRS items`);
+
             // Xóa settings/profile
             const profileDocRef = doc(db, `artifacts/${appId}/users/${targetUserId}/settings/profile`);
             await deleteDoc(profileDocRef).catch(e => console.log('Profile delete skipped:', e.message));
@@ -290,7 +294,7 @@ const App = () => {
             const statsDocRef = doc(db, publicStatsCollectionPath, targetUserId);
             await deleteDoc(statsDocRef).catch(e => console.log('Stats delete skipped:', e.message));
 
-            setNotification(`Đã xoá toàn bộ dữ liệu của người dùng (${vocabCount} từ vựng, ${actCount} hoạt động).`);
+            setNotification(`Đã xoá toàn bộ dữ liệu của người dùng (${vocabCount} từ vựng, ${actCount} hoạt động, ${kanjiSrsCount} kanji SRS).`);
         } catch (e) {
             console.error("Lỗi xoá dữ liệu người dùng bởi admin:", e);
             setNotification(`Lỗi khi xoá dữ liệu người dùng: ${e.message}`);
@@ -2357,6 +2361,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     dailyActivityLogs={dailyActivityLogs}
                     onUpdateGoal={handleUpdateGoal}
                     onBack={() => setView('HOME')}
+                    userId={userId}
                 />;
             case 'FRIENDS':
                 return <FriendsScreen
@@ -2399,6 +2404,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     dueCounts={dueCounts}
                     totalCards={allCards.length}
                     allCards={allCards}
+                    userId={userId}
                     studySessionData={studySessionData}
                     setStudySessionData={setStudySessionData}
                     setNotification={setNotification}

@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import HanziWriter from 'hanzi-writer';
 import { Search, Grid, PenTool, Download, BookOpen, Map, Globe, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Play, Upload, FileJson, Edit, Check, Copy } from 'lucide-react';
 import { db } from '../../config/firebase';
@@ -10,6 +11,7 @@ import { RADICALS_214, KANJI_TREE, getDecompositionTree, isBasicRadical, getRadi
 const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
 
 const KanjiScreen = ({ isAdmin = false }) => {
+    const [searchParams] = useSearchParams();
     const [selectedLevel, setSelectedLevel] = useState('N5');
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedKanji, setSelectedKanji] = useState(null);
@@ -90,6 +92,15 @@ const KanjiScreen = ({ isAdmin = false }) => {
         };
         loadData();
     }, []);
+
+    // Auto-open detail if ?char= param is present
+    useEffect(() => {
+        const charParam = searchParams.get('char');
+        if (charParam && kanjiList.length > 0 && !loading) {
+            setSelectedKanji(charParam);
+            setShowDetailModal(true);
+        }
+    }, [searchParams, kanjiList, loading]);
 
     // Initialize HanziWriter when selectedKanji changes
     useEffect(() => {

@@ -1,33 +1,32 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import HanziWriter from 'hanzi-writer';
 import { Calendar, Clock, Target, Flame, ChevronLeft, ExternalLink, RotateCcw } from 'lucide-react';
-import { db } from '../../config/firebase';
+import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, updateDoc, getDoc, setDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
 
-// ==================== SRS LOGIC (Anki-like) ====================
-const SRS_INTERVALS = {
-    again: 1,        // 1 phút
-    hard: 6,         // 6 phút
-    good: 1440,      // 1 ngày (phút)
-    easy: 5760,      // 4 ngày (phút)
-};
+// ==================== SRS LOGIC (Anki-like with learning steps) ====================
+const getNextInterval = (currentInterval, ease, rating, reps) => {
+    // Learning phase (new or first learning step)
+    if (reps <= 1) {
+        switch (rating) {
+            case 'again': return 1;           // 1 phút (reset)
+            case 'hard': return 6;            // 6 phút
+            case 'good': return reps === 0 ? 10 : 1440;  // Bước 1: 10 phút, Bước 2: 1 ngày (tốt nghiệp)
+            case 'easy': return 5760;         // 4 ngày (bỏ qua learning, tốt nghiệp luôn)
+            default: return 10;
+        }
+    }
 
-const SRS_MULTIPLIERS = {
-    again: 0,
-    hard: 1.2,
-    good: 2.5,
-    easy: 3.5,
-};
-
-const getNextInterval = (currentInterval, ease, rating) => {
-    if (rating === 'again') return SRS_INTERVALS.again;
-    if (rating === 'hard') return Math.max(SRS_INTERVALS.hard, Math.round(currentInterval * 1.2));
-    if (rating === 'good') return Math.max(SRS_INTERVALS.good, Math.round(currentInterval * ease));
-    if (rating === 'easy') return Math.max(SRS_INTERVALS.easy, Math.round(currentInterval * ease * 1.3));
-    return SRS_INTERVALS.good;
+    // Review phase (graduated cards - SM-2 algorithm)
+    switch (rating) {
+        case 'again': return 10;              // 10 phút (quay lại learning)
+        case 'hard': return Math.max(1440, Math.round(currentInterval * 1.2));
+        case 'good': return Math.max(1440, Math.round(currentInterval * ease));
+        case 'easy': return Math.max(5760, Math.round(currentInterval * ease * 1.3));
+        default: return 1440;
+    }
 };
 
 const getNewEase = (currentEase, rating) => {
@@ -56,10 +55,6 @@ const KanjiReviewScreen = () => {
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
 
-    // Writer
-    const writerRef = useRef(null);
-    const writerContainerRef = useRef(null);
-
     const userId = getAuth().currentUser?.uid;
 
     // Load data
@@ -72,7 +67,7 @@ const KanjiReviewScreen = () => {
 
                 // Load SRS data
                 if (userId) {
-                    const srsSnap = await getDocs(collection(db, `users/${userId}/kanjiSRS`));
+                    const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
                     const srs = {};
                     srsSnap.docs.forEach(d => { srs[d.id] = d.data(); });
                     setSrsData(srs);
@@ -91,16 +86,18 @@ const KanjiReviewScreen = () => {
         const now = Date.now();
         return kanjiList.filter(k => {
             const srs = srsData[k.id];
-            if (!srs) return false; // Only review kanji that have been studied
+            if (!srs) return false;
             const nextReview = srs.nextReview || 0;
             return nextReview <= now;
         });
     }, [kanjiList, srsData]);
 
-    // Stats
+    // Stats - accurate calculations from SRS data
     const stats = useMemo(() => {
         const now = Date.now();
         let newCount = 0, learning = 0, shortTerm = 0, longTerm = 0;
+        const reviewDays = new Set();
+
         kanjiList.forEach(k => {
             const srs = srsData[k.id];
             if (!srs) { newCount++; return; }
@@ -109,6 +106,54 @@ const KanjiReviewScreen = () => {
             else if (interval < 1440 * 7) shortTerm++;
             else longTerm++;
         });
+
+        // Calculate unique days studied and streak from lastReview data
+        Object.values(srsData).forEach(srs => {
+            if (srs.lastReview) {
+                const d = new Date(srs.lastReview);
+                const key = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+                reviewDays.add(key);
+            }
+        });
+
+        // Calculate streak (consecutive days ending today or yesterday)
+        let streak = 0;
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        let checkDate = new Date(today);
+
+        // First check today
+        const todayKey = `${checkDate.getFullYear()}-${checkDate.getMonth()}-${checkDate.getDate()}`;
+        if (!reviewDays.has(todayKey)) {
+            // Check yesterday as starting point
+            checkDate.setDate(checkDate.getDate() - 1);
+            const yesterdayKey = `${checkDate.getFullYear()}-${checkDate.getMonth()}-${checkDate.getDate()}`;
+            if (!reviewDays.has(yesterdayKey)) {
+                streak = 0;
+            } else {
+                streak = 1;
+                checkDate.setDate(checkDate.getDate() - 1);
+            }
+        } else {
+            streak = 1;
+            checkDate.setDate(checkDate.getDate() - 1);
+        }
+
+        // Count consecutive previous days
+        if (streak > 0) {
+            while (true) {
+                const key = `${checkDate.getFullYear()}-${checkDate.getMonth()}-${checkDate.getDate()}`;
+                if (reviewDays.has(key)) {
+                    streak++;
+                    checkDate.setDate(checkDate.getDate() - 1);
+                } else {
+                    break;
+                }
+            }
+        }
+
+        const kanjiLearned = Object.keys(srsData).length;
+
         return {
             dueToday: dueKanji.length,
             newCards: newCount,
@@ -116,6 +161,9 @@ const KanjiReviewScreen = () => {
             shortTerm,
             longTerm,
             totalReviewed: kanjiList.length - newCount,
+            daysStudied: reviewDays.size,
+            kanjiLearned,
+            streak,
         };
     }, [kanjiList, srsData, dueKanji]);
 
@@ -150,7 +198,6 @@ const KanjiReviewScreen = () => {
         for (let i = 364; i >= 0; i--) {
             const date = new Date(today);
             date.setDate(date.getDate() - i);
-            // Count reviews on that day from SRS data
             const dayStart = new Date(date); dayStart.setHours(0, 0, 0, 0);
             const dayEnd = new Date(date); dayEnd.setHours(23, 59, 59, 999);
             let count = 0;
@@ -175,30 +222,12 @@ const KanjiReviewScreen = () => {
     // Current review card
     const currentCard = reviewQueue[currentReviewIndex] || null;
 
-    // HanziWriter for review
-    useEffect(() => {
-        if (!currentCard || !writerContainerRef.current || !reviewMode) return;
-        writerContainerRef.current.innerHTML = '';
-        try {
-            writerRef.current = HanziWriter.create(writerContainerRef.current, currentCard.character, {
-                width: 200, height: 200, padding: 5,
-                showOutline: true, strokeAnimationSpeed: 1, delayBetweenStrokes: 300,
-                strokeColor: '#e2e8f0', outlineColor: '#334155',
-                showCharacter: true,
-            });
-        } catch (err) {
-            if (writerContainerRef.current) {
-                writerContainerRef.current.innerHTML = `<span style="font-size:120px;color:#e2e8f0">${currentCard.character}</span>`;
-            }
-        }
-        return () => { writerRef.current = null; };
-    }, [currentCard, reviewMode]);
-
     // Handle SRS rating
     const handleRating = async (rating) => {
         if (!currentCard || !userId) return;
         const srs = srsData[currentCard.id] || { interval: 0, ease: 2.5, nextReview: 0, reps: 0 };
-        const newInterval = getNextInterval(srs.interval || 0, srs.ease || 2.5, rating);
+        const currentReps = srs.reps || 0;
+        const newInterval = getNextInterval(srs.interval || 0, srs.ease || 2.5, rating, currentReps);
         const newEase = getNewEase(srs.ease || 2.5, rating);
         const now = Date.now();
         const newSrs = {
@@ -206,11 +235,11 @@ const KanjiReviewScreen = () => {
             ease: newEase,
             nextReview: now + newInterval * 60000,
             lastReview: now,
-            reps: (srs.reps || 0) + 1,
+            reps: currentReps + 1,
         };
 
         try {
-            await setDoc(doc(db, `users/${userId}/kanjiSRS`, currentCard.id), newSrs);
+            await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, currentCard.id), newSrs);
             setSrsData(prev => ({ ...prev, [currentCard.id]: newSrs }));
         } catch (e) {
             console.error('Error updating SRS:', e);
@@ -230,16 +259,14 @@ const KanjiReviewScreen = () => {
         if (!reviewMode) return;
         const handler = (e) => {
             if (e.key === ' ') { e.preventDefault(); setIsFlipped(f => !f); }
-            if (isFlipped) {
-                if (e.key === '1') handleRating('again');
-                if (e.key === '2') handleRating('hard');
-                if (e.key === '3') handleRating('good');
-                if (e.key === '4') handleRating('easy');
-            }
+            if (e.key === '1') handleRating('again');
+            if (e.key === '2') handleRating('hard');
+            if (e.key === '3') handleRating('good');
+            if (e.key === '4') handleRating('easy');
         };
         window.addEventListener('keydown', handler);
         return () => window.removeEventListener('keydown', handler);
-    }, [reviewMode, isFlipped, currentCard, currentReviewIndex]);
+    }, [reviewMode, currentCard, currentReviewIndex]);
 
     if (loading) {
         return (
@@ -251,89 +278,128 @@ const KanjiReviewScreen = () => {
 
     // ==================== REVIEW MODE ====================
     if (reviewMode && currentCard) {
-        const srs = srsData[currentCard.id] || { interval: 0, ease: 2.5 };
+        const srs = srsData[currentCard.id] || { interval: 0, ease: 2.5, reps: 0 };
+        const currentReps = srs.reps || 0;
         const intervals = {
-            again: formatInterval(SRS_INTERVALS.again),
-            hard: formatInterval(getNextInterval(srs.interval || 0, srs.ease || 2.5, 'hard')),
-            good: formatInterval(getNextInterval(srs.interval || 0, srs.ease || 2.5, 'good')),
-            easy: formatInterval(getNextInterval(srs.interval || 0, srs.ease || 2.5, 'easy')),
+            again: formatInterval(getNextInterval(srs.interval || 0, srs.ease || 2.5, 'again', currentReps)),
+            hard: formatInterval(getNextInterval(srs.interval || 0, srs.ease || 2.5, 'hard', currentReps)),
+            good: formatInterval(getNextInterval(srs.interval || 0, srs.ease || 2.5, 'good', currentReps)),
+            easy: formatInterval(getNextInterval(srs.interval || 0, srs.ease || 2.5, 'easy', currentReps)),
         };
 
+        const progress = Math.round(((currentReviewIndex + 1) / reviewQueue.length) * 100);
+
         return (
-            <div className="max-w-xl mx-auto flex flex-col items-center space-y-4 p-4">
-                {/* Card */}
-                <div
-                    className="w-full bg-slate-800 rounded-2xl border-2 border-indigo-500/30 shadow-xl relative overflow-hidden cursor-pointer"
-                    style={{ minHeight: '360px' }}
-                    onClick={() => setIsFlipped(f => !f)}
-                >
-                    {/* Xem chi tiết */}
-                    <button
-                        onClick={(e) => { e.stopPropagation(); navigate(ROUTES.KANJI_LIST); }}
-                        className="absolute top-4 left-4 flex items-center gap-1 text-gray-400 hover:text-white text-xs transition-colors z-10"
-                    >
-                        <ExternalLink className="w-3.5 h-3.5" /> Xem chi tiết
-                    </button>
-
-                    <div className="flex items-center justify-center w-full h-full" style={{ minHeight: '360px' }}>
-                        {!isFlipped ? (
-                            /* Front: Kanji character */
-                            <div className="flex items-center justify-center">
-                                <div ref={writerContainerRef} className="flex items-center justify-center" />
-                            </div>
-                        ) : (
-                            /* Back: Info */
-                            <div className="text-center space-y-3 p-6">
-                                <div className="text-6xl font-bold text-white font-japanese">{currentCard.character}</div>
-                                <div className="text-2xl font-bold text-emerald-400">{currentCard.sinoViet || ''}</div>
-                                <div className="text-lg text-gray-300">{currentCard.meaning || ''}</div>
-                                <div className="flex gap-4 justify-center text-sm">
-                                    <div><span className="text-gray-500">On:</span> <span className="text-cyan-400 font-japanese">{currentCard.onyomi || '-'}</span></div>
-                                    <div><span className="text-gray-500">Kun:</span> <span className="text-white font-japanese">{currentCard.kunyomi || '-'}</span></div>
-                                </div>
-                                {currentCard.mnemonic && (
-                                    <div className="text-xs text-gray-400 bg-slate-700/50 rounded-lg p-2 mt-2">{currentCard.mnemonic}</div>
-                                )}
-                            </div>
-                        )}
+            <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3 p-4 border-2 border-indigo-400/30 rounded-2xl">
+                {/* Progress bar */}
+                <div className="w-full space-y-1 flex-shrink-0">
+                    <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
+                        <span>{currentReviewIndex + 1} / {reviewQueue.length}</span>
                     </div>
-
-                    {/* Hint */}
-                    <div className="absolute bottom-4 left-0 right-0 text-center text-xs text-gray-500">
-                        <span>⌨ Nhấn</span> <kbd className="px-1.5 py-0.5 bg-slate-700 rounded text-gray-400 mx-1">Space</kbd>
-                        <span>để lật, bấm</span> <kbd className="px-1.5 py-0.5 bg-slate-700 rounded text-gray-400 mx-1">1-4</kbd>
-                        <span>để đánh giá</span>
+                    <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                        <div className="h-full bg-indigo-500 rounded-full transition-all duration-500" style={{ width: `${progress}%` }}></div>
                     </div>
                 </div>
 
-                {/* Progress */}
-                <div className="text-sm text-gray-400">{currentReviewIndex + 1} / {reviewQueue.length}</div>
+                {/* Flashcard with flip animation */}
+                <div
+                    className="w-full cursor-pointer"
+                    style={{ perspective: '1000px' }}
+                    onClick={() => setIsFlipped(f => !f)}
+                >
+                    <div
+                        style={{
+                            position: 'relative',
+                            width: '100%',
+                            height: '340px',
+                            transformStyle: 'preserve-3d',
+                            transition: 'transform 0.5s ease',
+                            transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                        }}
+                    >
+                        {/* Front: Only Kanji character */}
+                        <div
+                            className="bg-slate-800 dark:bg-slate-900 rounded-2xl border-2 border-indigo-500/50 shadow-xl"
+                            style={{
+                                position: 'absolute',
+                                top: 0, left: 0, width: '100%', height: '100%',
+                                backfaceVisibility: 'hidden',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <div className="text-[140px] leading-none font-bold text-white select-none font-japanese">
+                                {currentCard.character}
+                            </div>
+                            <div className="absolute bottom-4 left-0 right-0 text-center text-xs text-gray-500">
+                                Nhấn để lật thẻ
+                            </div>
+                        </div>
 
-                {/* Rating buttons - show only when flipped */}
-                {isFlipped && (
-                    <div className="grid grid-cols-4 gap-2 w-full">
-                        <button onClick={() => handleRating('again')}
-                            className="py-3 rounded-xl bg-red-900/60 hover:bg-red-800/80 border border-red-700 text-center transition-all">
-                            <div className="font-bold text-red-400 text-sm">Quên rồi</div>
-                            <div className="text-xs text-red-400/70">{intervals.again}</div>
-                        </button>
-                        <button onClick={() => handleRating('hard')}
-                            className="py-3 rounded-xl bg-orange-900/50 hover:bg-orange-800/70 border border-orange-700 text-center transition-all">
-                            <div className="font-bold text-orange-400 text-sm">Khó</div>
-                            <div className="text-xs text-orange-400/70">{intervals.hard}</div>
-                        </button>
-                        <button onClick={() => handleRating('good')}
-                            className="py-3 rounded-xl bg-emerald-900/50 hover:bg-emerald-800/70 border border-emerald-700 text-center transition-all">
-                            <div className="font-bold text-emerald-400 text-sm">Tốt</div>
-                            <div className="text-xs text-emerald-400/70">{intervals.good}</div>
-                        </button>
-                        <button onClick={() => handleRating('easy')}
-                            className="py-3 rounded-xl bg-blue-900/50 hover:bg-blue-800/70 border border-blue-700 text-center transition-all">
-                            <div className="font-bold text-blue-400 text-sm">Dễ</div>
-                            <div className="text-xs text-blue-400/70">{intervals.easy}</div>
-                        </button>
+                        {/* Back: Âm hán, Ý nghĩa, Câu chuyện - NO kanji, NO labels */}
+                        <div
+                            className="bg-slate-800 dark:bg-slate-900 rounded-2xl border-2 border-indigo-500/50 shadow-xl"
+                            style={{
+                                position: 'absolute',
+                                top: 0, left: 0, width: '100%', height: '100%',
+                                backfaceVisibility: 'hidden',
+                                transform: 'rotateY(180deg)',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                padding: '24px',
+                                overflowY: 'auto',
+                            }}
+                        >
+                            <div className="text-center space-y-3 w-full">
+                                <div className="text-3xl font-bold text-emerald-400">{currentCard.sinoViet || '—'}</div>
+                                <div className="text-xl text-cyan-300 font-medium">{currentCard.meaning || '—'}</div>
+                                {currentCard.mnemonic && (
+                                    <div className="text-sm text-gray-300 bg-slate-700/50 rounded-lg p-3 leading-relaxed mt-2">
+                                        {currentCard.mnemonic}
+                                    </div>
+                                )}
+                            </div>
+                            <div className="absolute bottom-4 left-0 right-0 text-center text-xs text-gray-500">
+                                Nhấn để lật thẻ
+                            </div>
+                        </div>
                     </div>
-                )}
+                </div>
+
+                {/* Rating buttons - ALWAYS visible */}
+                <div className="grid grid-cols-4 gap-2 w-full">
+                    <button onClick={(e) => { e.stopPropagation(); handleRating('again'); }}
+                        className="py-3 rounded-xl bg-red-900/60 hover:bg-red-800/80 border border-red-700 text-center transition-all">
+                        <div className="font-bold text-red-400 text-sm">Quên rồi</div>
+                        <div className="text-xs text-red-400/70">{intervals.again}</div>
+                    </button>
+                    <button onClick={(e) => { e.stopPropagation(); handleRating('hard'); }}
+                        className="py-3 rounded-xl bg-orange-900/50 hover:bg-orange-800/70 border border-orange-700 text-center transition-all">
+                        <div className="font-bold text-orange-400 text-sm">Khó</div>
+                        <div className="text-xs text-orange-400/70">{intervals.hard}</div>
+                    </button>
+                    <button onClick={(e) => { e.stopPropagation(); handleRating('good'); }}
+                        className="py-3 rounded-xl bg-emerald-900/50 hover:bg-emerald-800/70 border border-emerald-700 text-center transition-all">
+                        <div className="font-bold text-emerald-400 text-sm">Tốt</div>
+                        <div className="text-xs text-emerald-400/70">{intervals.good}</div>
+                    </button>
+                    <button onClick={(e) => { e.stopPropagation(); handleRating('easy'); }}
+                        className="py-3 rounded-xl bg-blue-900/50 hover:bg-blue-800/70 border border-blue-700 text-center transition-all">
+                        <div className="font-bold text-blue-400 text-sm">Dễ</div>
+                        <div className="text-xs text-blue-400/70">{intervals.easy}</div>
+                    </button>
+                </div>
+
+                {/* Keyboard hint */}
+                <div className="text-center text-xs text-gray-500">
+                    <span>⌨ Nhấn</span> <kbd className="px-1.5 py-0.5 bg-slate-700 rounded text-gray-400 mx-1">Space</kbd>
+                    <span>để lật, bấm</span> <kbd className="px-1.5 py-0.5 bg-slate-700 rounded text-gray-400 mx-1">1-4</kbd>
+                    <span>để đánh giá</span>
+                </div>
             </div>
         );
     }
@@ -342,8 +408,33 @@ const KanjiReviewScreen = () => {
     return (
         <div className="space-y-6 max-w-5xl mx-auto">
             <div className="space-y-1">
-                <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Thống kê học tập Kanji</h1>
+                <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Ôn tập Kanji</h1>
                 <p className="text-sm text-gray-500 dark:text-gray-400">Theo dõi tiến độ ôn tập và phân bố thẻ</p>
+            </div>
+
+            {/* Key Stats: Days Studied, Kanji Learned, Streak */}
+            <div className="grid grid-cols-3 gap-3">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 text-center">
+                    <div className="flex items-center justify-center gap-2 text-emerald-500 mb-2">
+                        <Calendar className="w-5 h-5" />
+                    </div>
+                    <div className="text-3xl font-bold text-gray-800 dark:text-white">{stats.daysStudied}</div>
+                    <div className="text-xs text-gray-500 mt-1">Ngày đã học</div>
+                </div>
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 text-center">
+                    <div className="flex items-center justify-center gap-2 text-cyan-500 mb-2">
+                        <Target className="w-5 h-5" />
+                    </div>
+                    <div className="text-3xl font-bold text-gray-800 dark:text-white">{stats.kanjiLearned}</div>
+                    <div className="text-xs text-gray-500 mt-1">Kanji đã học</div>
+                </div>
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 text-center">
+                    <div className="flex items-center justify-center gap-2 text-orange-500 mb-2">
+                        <Flame className="w-5 h-5" />
+                    </div>
+                    <div className="text-3xl font-bold text-gray-800 dark:text-white">{stats.streak}</div>
+                    <div className="text-xs text-gray-500 mt-1">Ngày liên tiếp</div>
+                </div>
             </div>
 
             {/* Overview Stats */}
