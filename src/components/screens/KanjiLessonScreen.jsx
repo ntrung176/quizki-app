@@ -178,6 +178,17 @@ const KanjiLessonScreen = () => {
         // Init SRS for all today's kanji
         const kanjiIds = todayKanji.map(k => k.id).filter(Boolean);
         await initializeSRS(kanjiIds);
+        // Save day completion progress
+        if (userId) {
+            try {
+                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiProgress`, `${level}_day${day}`), {
+                    level,
+                    day,
+                    completedAt: Date.now(),
+                    kanjiCount: todayKanji.length,
+                }, { merge: true });
+            } catch (e) { console.error('Error saving progress:', e); }
+        }
         // Play celebration sound
         try {
             const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -256,14 +267,20 @@ const KanjiLessonScreen = () => {
                     <p className="text-xl text-cyan-400">Hoàn thành ngày {day} - {level}</p>
                     <p className="text-gray-400">Bạn đã học {todayKanji.length} chữ Kanji hôm nay!</p>
                     <p className="text-gray-500 text-sm">Các chữ Kanji đã được thêm vào hệ thống ôn tập SRS</p>
-                    <div className="flex gap-4 justify-center mt-8">
-                        <button onClick={() => navigate(ROUTES.KANJI_STUDY)} className="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-xl font-bold transition-colors">
-                            Quay lại lộ trình
+                    <div className="flex flex-col gap-3 justify-center mt-8 w-full max-w-sm mx-auto">
+                        <button onClick={() => { setShowCelebration(false); setActiveMode('test'); }}
+                            className="w-full px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 text-white rounded-xl font-bold transition-all shadow-lg shadow-orange-500/30 flex items-center justify-center gap-2">
+                            <PenTool className="w-5 h-5" /> Kiểm tra ngay
                         </button>
-                        <button onClick={goToNextDay}
-                            className="px-6 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-white rounded-xl font-bold transition-all shadow-lg shadow-emerald-500/30">
-                            Học thêm ngày {day + 1} →
-                        </button>
+                        <div className="flex gap-3">
+                            <button onClick={() => navigate(ROUTES.KANJI_STUDY)} className="flex-1 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-xl font-bold transition-colors">
+                                Quay lại lộ trình
+                            </button>
+                            <button onClick={goToNextDay}
+                                className="flex-1 px-6 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-white rounded-xl font-bold transition-all shadow-lg shadow-emerald-500/30">
+                                Ngày {day + 1} →
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <style>{`
@@ -632,90 +649,136 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         ctx.beginPath(); ctx.moveTo(0, 125); ctx.lineTo(250, 125); ctx.stroke();
         setWritingResult(null);
     };
-    // Real pixel-based similarity check using HanziWriter reference canvas
+    // Improved writing check: grid-based region overlap for more lenient scoring
     const checkWriting = () => {
         if (!canvasRef.current) return;
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         const pixels = imageData.data;
+        const W = canvas.width, H = canvas.height;
 
-        // Count drawn pixels (non-background, non-guideline)
+        const isDrawnPixel = (r, g, b) => !(r < 60 && g < 75 && b < 100);
+
+        // Count drawn pixels
         let drawnPixels = 0;
-        const totalPixels = canvas.width * canvas.height;
         for (let i = 0; i < pixels.length; i += 4) {
-            const r = pixels[i], g = pixels[i + 1], b = pixels[i + 2];
-            // Background is #0f172a (15,23,42), guidelines are #334155 (51,65,85)
-            // Drawn strokes are #0891b2 (8,145,178)
-            const isBg = (r < 60 && g < 75 && b < 100);
-            if (!isBg) drawnPixels++;
+            if (isDrawnPixel(pixels[i], pixels[i + 1], pixels[i + 2])) drawnPixels++;
+        }
+        if (drawnPixels / (W * H) < 0.01) {
+            setWritingResult(0); setAnswered(true); return;
         }
 
-        // If barely anything drawn, score 0
-        const drawRatio = drawnPixels / totalPixels;
-        if (drawRatio < 0.02) {
-            setWritingResult(0);
-            setAnswered(true);
-            return;
-        }
-
-        // Generate reference by rendering the actual character on a hidden canvas
+        // Generate reference character
         const refCanvas = document.createElement('canvas');
-        refCanvas.width = 250; refCanvas.height = 250;
+        refCanvas.width = W; refCanvas.height = H;
         const refCtx = refCanvas.getContext('2d');
-        refCtx.fillStyle = '#0f172a';
-        refCtx.fillRect(0, 0, 250, 250);
+        refCtx.fillStyle = '#0f172a'; refCtx.fillRect(0, 0, W, H);
         refCtx.fillStyle = '#0891b2';
-        refCtx.font = 'bold 180px serif';
-        refCtx.textAlign = 'center';
-        refCtx.textBaseline = 'middle';
-        refCtx.fillText(currentQ.actualChar, 125, 135);
+        refCtx.font = `bold ${Math.floor(W * 0.72)}px 'Noto Sans JP', 'Yu Gothic', serif`;
+        refCtx.textAlign = 'center'; refCtx.textBaseline = 'middle';
+        refCtx.fillText(currentQ.actualChar, W / 2, H / 2 + 5);
+        const refData = refCtx.getImageData(0, 0, W, H).data;
 
-        const refData = refCtx.getImageData(0, 0, 250, 250).data;
+        // Grid-based comparison: divide into NxN grid cells
+        const GRID = 8;
+        const cellW = Math.floor(W / GRID), cellH = Math.floor(H / GRID);
+        let matchedCells = 0, totalRefCells = 0;
 
-        // Compare: check overlap between drawn and reference
-        let overlap = 0, refStrokePixels = 0, drawnTotal = 0;
-        for (let i = 0; i < pixels.length; i += 4) {
-            const r1 = pixels[i], g1 = pixels[i + 1], b1 = pixels[i + 2];
-            const r2 = refData[i], g2 = refData[i + 1], b2 = refData[i + 2];
-            const isDrawn = !(r1 < 60 && g1 < 75 && b1 < 100);
-            const isRef = !(r2 < 60 && g2 < 75 && b2 < 100);
-            if (isRef) refStrokePixels++;
-            if (isDrawn) drawnTotal++;
-            if (isDrawn && isRef) overlap++;
+        for (let gy = 0; gy < GRID; gy++) {
+            for (let gx = 0; gx < GRID; gx++) {
+                let cellDrawn = 0, cellRef = 0;
+                for (let y = gy * cellH; y < (gy + 1) * cellH; y++) {
+                    for (let x = gx * cellW; x < (gx + 1) * cellW; x++) {
+                        const idx = (y * W + x) * 4;
+                        if (isDrawnPixel(pixels[idx], pixels[idx + 1], pixels[idx + 2])) cellDrawn++;
+                        if (isDrawnPixel(refData[idx], refData[idx + 1], refData[idx + 2])) cellRef++;
+                    }
+                }
+                const threshold = cellW * cellH * 0.05;
+                const hasRef = cellRef > threshold;
+                const hasDrawn = cellDrawn > threshold;
+                if (hasRef) {
+                    totalRefCells++;
+                    if (hasDrawn) matchedCells++;
+                }
+            }
         }
 
-        // Score = overlap accuracy weighted by coverage
+        // Also do pixel overlap for refinement
+        let overlap = 0, refTotal = 0, drawnTotal = 0;
+        // Use dilated comparison (nearby pixels count as match)
+        const dilateR = 6; // px tolerance
+        for (let y = 0; y < H; y++) {
+            for (let x = 0; x < W; x++) {
+                const idx = (y * W + x) * 4;
+                const drawn = isDrawnPixel(pixels[idx], pixels[idx + 1], pixels[idx + 2]);
+                const ref = isDrawnPixel(refData[idx], refData[idx + 1], refData[idx + 2]);
+                if (ref) refTotal++;
+                if (drawn) drawnTotal++;
+                if (drawn && ref) { overlap++; continue; }
+                // Check nearby pixels for tolerance
+                if (drawn) {
+                    let nearRef = false;
+                    for (let dy = -dilateR; dy <= dilateR && !nearRef; dy += 2) {
+                        for (let dx = -dilateR; dx <= dilateR && !nearRef; dx += 2) {
+                            const nx = x + dx, ny = y + dy;
+                            if (nx >= 0 && nx < W && ny >= 0 && ny < H) {
+                                const nIdx = (ny * W + nx) * 4;
+                                if (isDrawnPixel(refData[nIdx], refData[nIdx + 1], refData[nIdx + 2])) nearRef = true;
+                            }
+                        }
+                    }
+                    if (nearRef) overlap++;
+                }
+            }
+        }
+
+        const gridScore = totalRefCells > 0 ? matchedCells / totalRefCells : 0;
         const precision = drawnTotal > 0 ? overlap / drawnTotal : 0;
-        const recall = refStrokePixels > 0 ? overlap / refStrokePixels : 0;
-        const f1 = (precision + recall) > 0 ? (2 * precision * recall) / (precision + recall) : 0;
-        const similarity = Math.min(100, Math.round(f1 * 100));
+        const recall = refTotal > 0 ? overlap / refTotal : 0;
+        const pixelScore = (precision + recall) > 0 ? (2 * precision * recall) / (precision + recall) : 0;
+
+        // Combined: 60% grid-based (lenient) + 40% pixel F1 (detail)
+        const rawScore = gridScore * 0.6 + pixelScore * 0.4;
+        // Boost: scale 0.3-1.0 range to 0-100
+        const similarity = Math.min(100, Math.max(0, Math.round(((rawScore - 0.15) / 0.7) * 100)));
 
         setWritingResult(similarity);
         setAnswered(true);
-        if (similarity >= 50) setScore(s => s + 1);
+        if (similarity >= 40) setScore(s => s + 1);
     };
 
     const handleMCAnswer = (opt) => {
         if (answered) return;
         setSelectedAnswer(opt);
         setAnswered(true);
-        if (opt === currentQ.correct) {
+        const isCorrect = opt === currentQ.correct;
+        if (isCorrect) {
             setScore(s => s + 1);
         } else {
             setFailedCards(prev => new Set([...prev, qIndex]));
         }
+        // Auto-advance after delay
+        setTimeout(() => {
+            nextQuestion();
+        }, isCorrect ? 1200 : 2000);
     };
 
     const handleTypingSubmit = () => {
         if (answered) return;
         setAnswered(true);
         const input = typingInput.trim().toLowerCase();
-        if (currentQ.answers.some(a => a === input)) {
+        const isCorrect = currentQ.answers.some(a => a === input);
+        if (isCorrect) {
             setScore(s => s + 1);
         } else {
             setFailedCards(prev => new Set([...prev, qIndex]));
         }
+        // Auto-advance after delay
+        setTimeout(() => {
+            nextQuestion();
+        }, isCorrect ? 1500 : 2500);
     };
 
     const nextQuestion = () => {
@@ -727,17 +790,17 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         setWritingResult(null);
     };
 
-    // Keyboard shortcuts
+    // Keyboard shortcut: Enter to advance only in writing mode
     useEffect(() => {
         const handler = (e) => {
-            if (answered && e.key === 'Enter') {
+            if (answered && currentQ?.type === 'writing' && e.key === 'Enter') {
                 e.preventDefault();
                 nextQuestion();
             }
         };
         window.addEventListener('keydown', handler);
         return () => window.removeEventListener('keydown', handler);
-    }, [answered, qIndex, questions.length]);
+    }, [answered, qIndex, questions.length, currentQ]);
 
     if (testDone) {
         const pct = total > 0 ? Math.round((score / total) * 100) : 0;
@@ -873,11 +936,20 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                             )}
                         </div>
                         {writingResult !== null && (
-                            <div className={`p-3 rounded-xl text-center font-bold w-full border-2 ${writingResult >= 70
-                                ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400'
-                                : 'bg-orange-500/20 border-orange-500 text-orange-400'}`}>
-                                Độ tương đồng: {writingResult}% {writingResult >= 70 ? '✅' : '⚠️ Cần luyện thêm'}
-                            </div>
+                            <>
+                                <div className={`p-3 rounded-xl text-center font-bold w-full border-2 ${writingResult >= 40
+                                    ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400'
+                                    : 'bg-orange-500/20 border-orange-500 text-orange-400'}`}>
+                                    Độ tương đồng: {writingResult}% {writingResult >= 40 ? '✅ Đạt!' : '⚠️ Cần luyện thêm'}
+                                </div>
+                                {/* Show correct kanji for comparison */}
+                                <div className="w-full flex flex-col items-center gap-1 mt-2">
+                                    <div className="text-xs text-gray-500">Chữ Kanji đúng:</div>
+                                    <div className="text-8xl font-bold text-gray-300 dark:text-gray-600 font-japanese opacity-60">
+                                        {currentQ.actualChar}
+                                    </div>
+                                </div>
+                            </>
                         )}
                     </div>
                 )}
@@ -891,8 +963,8 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                     </div>
                 )}
 
-                {/* Next button */}
-                {answered && (
+                {/* Next button - only for writing mode */}
+                {answered && currentQ.type === 'writing' && (
                     <button onClick={nextQuestion}
                         className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2">
                         {qIndex + 1 >= questions.length ? 'Xem kết quả' : 'Câu tiếp theo →'}

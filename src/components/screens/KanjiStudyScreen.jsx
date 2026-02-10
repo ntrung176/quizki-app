@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Calendar, Target, Flame, TrendingUp, ChevronLeft, ChevronRight, BookOpen } from 'lucide-react';
-import { db } from '../../config/firebase';
+import { Calendar, Target, Flame, TrendingUp, ChevronLeft, ChevronRight, BookOpen, CheckCircle } from 'lucide-react';
+import { db, appId } from '../../config/firebase';
 import { collection, getDocs } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
 
 // JLPT Levels configuration
@@ -20,27 +21,39 @@ const KanjiStudyScreen = () => {
     const [currentDay, setCurrentDay] = useState(1);
     const [kanjiList, setKanjiList] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [userProgress, setUserProgress] = useState({
-        daysCompleted: 2,
-        kanjiLearned: 20,
-        streak: 1,
-    });
+    const [completedDays, setCompletedDays] = useState({});
 
-    // Load kanji from Firebase
+    const userId = getAuth().currentUser?.uid;
+
+    // Load kanji and progress from Firebase
     useEffect(() => {
-        const loadKanji = async () => {
+        const loadData = async () => {
             try {
                 const kanjiSnap = await getDocs(collection(db, 'kanji'));
                 const kanjiData = kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() }));
                 setKanjiList(kanjiData);
+
+                // Load user progress
+                if (userId) {
+                    try {
+                        const progressSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiProgress`));
+                        const progress = {};
+                        progressSnap.docs.forEach(d => {
+                            const data = d.data();
+                            const key = `${data.level}_${data.day}`;
+                            progress[key] = data;
+                        });
+                        setCompletedDays(progress);
+                    } catch (e) { console.error('Error loading progress:', e); }
+                }
             } catch (e) {
                 console.error('Error loading kanji:', e);
             } finally {
                 setLoading(false);
             }
         };
-        loadKanji();
-    }, []);
+        loadData();
+    }, [userId]);
 
     // Get kanji for selected level
     const levelKanji = useMemo(() => {
@@ -58,18 +71,45 @@ const KanjiStudyScreen = () => {
         return levelKanji.slice(startIndex, startIndex + 10);
     }, [levelKanji, currentDay]);
 
+    // Check if a specific day is completed
+    const isDayCompleted = (lvl, d) => {
+        return !!completedDays[`${lvl}_${d}`];
+    };
+
+    // Count completed days for selected level
+    const completedDaysCount = useMemo(() => {
+        let count = 0;
+        for (let d = 1; d <= totalDays; d++) {
+            if (isDayCompleted(selectedLevel, d)) count++;
+        }
+        return count;
+    }, [completedDays, selectedLevel, totalDays]);
+
     // Calculate stats
     const stats = useMemo(() => {
         const totalKanji = levelKanji.length;
-        const progress = totalKanji > 0 ? Math.round((userProgress.kanjiLearned / totalKanji) * 100) : 0;
+        const kanjiLearned = completedDaysCount * 10;
+        const progress = totalKanji > 0 ? Math.round((kanjiLearned / totalKanji) * 100) : 0;
         return {
-            daysProgress: `${userProgress.daysCompleted}/${totalDays}`,
-            kanjiLearned: userProgress.kanjiLearned,
-            streak: userProgress.streak,
+            daysProgress: `${completedDaysCount}/${totalDays}`,
+            kanjiLearned: Math.min(kanjiLearned, totalKanji),
+            streak: completedDaysCount,
             progressPercent: `${progress}%`,
             totalKanji,
         };
-    }, [levelKanji, userProgress, totalDays]);
+    }, [levelKanji, completedDaysCount, totalDays]);
+
+    // Auto-set current day to next uncompleted day
+    useEffect(() => {
+        for (let d = 1; d <= totalDays; d++) {
+            if (!isDayCompleted(selectedLevel, d)) {
+                setCurrentDay(d);
+                return;
+            }
+        }
+        // All days completed, stay on last
+        setCurrentDay(totalDays);
+    }, [selectedLevel, completedDays, totalDays]);
 
     // Level selector colors
     const getLevelStyle = (level, isSelected) => {
@@ -234,15 +274,17 @@ const KanjiStudyScreen = () => {
                             <button
                                 key={kanji.id || index}
                                 onClick={handleStartStudy}
-                                className="aspect-square flex items-center justify-center bg-gray-100 dark:bg-gray-700 hover:bg-emerald-500/20 dark:hover:bg-emerald-500/20 border border-gray-200 dark:border-gray-600 hover:border-emerald-500 rounded-lg transition-all group"
+                                className="aspect-square flex items-center justify-center bg-gray-100 dark:bg-gray-700 hover:bg-emerald-500/20 dark:hover:bg-emerald-500/20 border border-gray-200 dark:border-gray-600 hover:border-emerald-500 rounded-lg transition-all group relative"
                             >
                                 <span className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white group-hover:text-emerald-500 font-japanese">
                                     {kanji.character}
                                 </span>
+                                {isDayCompleted(selectedLevel, currentDay) && (
+                                    <CheckCircle className="absolute top-0.5 right-0.5 w-3.5 h-3.5 text-emerald-500" />
+                                )}
                             </button>
                         ))
                     ) : (
-                        // Placeholder for empty day
                         Array.from({ length: 10 }).map((_, index) => (
                             <div
                                 key={index}
@@ -253,6 +295,14 @@ const KanjiStudyScreen = () => {
                         ))
                     )}
                 </div>
+
+                {/* Day completion status */}
+                {isDayCompleted(selectedLevel, currentDay) && (
+                    <div className="mt-3 flex items-center gap-2 text-emerald-500 text-sm font-medium">
+                        <CheckCircle className="w-4 h-4" />
+                        <span>Đã hoàn thành ngày này</span>
+                    </div>
+                )}
             </div>
         </div>
     );
