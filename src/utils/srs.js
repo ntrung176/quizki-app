@@ -1,19 +1,16 @@
-import { SRS_INTERVALS } from '../config/constants';
+import { SRS_INTERVALS, formatIntervalMinutes } from '../config/constants';
 
-// Get next review date based on SRS interval index
+// Get next review date based on SRS interval index (now in minutes)
 export const getNextReviewDate = (intervalIndex) => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    const now = Date.now();
 
     if (intervalIndex < 0 || intervalIndex >= SRS_INTERVALS.length) {
         // Nếu index vượt quá, sử dụng mức cao nhất
         const maxInterval = SRS_INTERVALS[SRS_INTERVALS.length - 1];
-        today.setDate(today.getDate() + maxInterval);
-        return today.getTime();
+        return now + maxInterval * 60000;
     }
 
-    today.setDate(today.getDate() + SRS_INTERVALS[intervalIndex]);
-    return today.getTime();
+    return now + SRS_INTERVALS[intervalIndex] * 60000;
 };
 
 // Get SRS progress text
@@ -27,11 +24,9 @@ export const getSrsProgressText = (intervalIndex) => {
     return 'Mới';
 };
 
-// Check if card is due for review
+// Check if card is due for review (now compares timestamps directly)
 export const isCardDue = (nextReviewTimestamp) => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    return nextReviewTimestamp <= today.getTime();
+    return nextReviewTimestamp <= Date.now();
 };
 
 // Calculate correct interval based on timestamp
@@ -43,10 +38,10 @@ export const calculateCorrectInterval = (interval, nextReviewTimestamp) => {
     // Fallback: estimate from next review date
     if (nextReviewTimestamp) {
         const now = Date.now();
-        const daysUntilReview = Math.floor((nextReviewTimestamp - now) / (1000 * 60 * 60 * 24));
+        const minutesUntilReview = Math.floor((nextReviewTimestamp - now) / 60000);
 
         for (let i = SRS_INTERVALS.length - 1; i >= 0; i--) {
-            if (daysUntilReview >= SRS_INTERVALS[i]) {
+            if (minutesUntilReview >= SRS_INTERVALS[i]) {
                 return i;
             }
         }
@@ -93,4 +88,28 @@ export const getSrsBadgeColor = (intervalIndex) => {
         return 'bg-emerald-100 text-emerald-700 border-emerald-200';
     }
     return 'bg-gray-100 text-gray-600 border-gray-200';
+};
+
+// Format thời gian đếm ngược: nếu < 24 giờ thì hiện HH:MM:SS, nếu >= 1 ngày thì hiện "X ngày"
+export const formatCountdown = (targetTimestamp) => {
+    const diff = targetTimestamp - Date.now();
+    if (diff <= 0) return null; // Đã đến hạn
+
+    const totalSeconds = Math.floor(diff / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+
+    if (days >= 1) {
+        return { text: `${days} ngày`, isCountdown: false };
+    }
+
+    // Dưới 24 giờ: hiện bộ đếm ngược HH:MM:SS
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    const pad = (n) => String(n).padStart(2, '0');
+    return {
+        text: `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`,
+        isCountdown: true
+    };
 };

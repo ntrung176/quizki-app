@@ -27,6 +27,7 @@ export const ROUTES = {
     FRIENDS: '/friends',
     IMPORT: '/import',
     ADMIN: '/admin',
+    BOOKS: '/books',
 };
 
 // Helper function to generate edit route with ID

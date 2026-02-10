@@ -5,6 +5,7 @@ import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, updateDoc, getDoc, setDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
+import { formatCountdown } from '../../utils/srs';
 
 // ==================== SRS LOGIC (Anki-like with learning steps) ====================
 const getNextInterval = (currentInterval, ease, rating, reps) => {
@@ -167,17 +168,43 @@ const KanjiReviewScreen = () => {
         };
     }, [kanjiList, srsData, dueKanji]);
 
-    // Next review time
-    const nextReviewTime = useMemo(() => {
-        const now = Date.now();
-        let earliest = Infinity;
-        Object.values(srsData).forEach(srs => {
-            const next = srs.nextReview || 0;
-            if (next > now && next < earliest) earliest = next;
-        });
-        if (earliest === Infinity) return null;
-        const diffMin = Math.round((earliest - now) / 60000);
-        return formatInterval(diffMin);
+    // Next review time - live countdown
+    const [nextReviewText, setNextReviewText] = useState(null);
+    const [isNextReviewCountdown, setIsNextReviewCountdown] = useState(false);
+
+    useEffect(() => {
+        const getEarliestReview = () => {
+            const now = Date.now();
+            let earliest = Infinity;
+            Object.values(srsData).forEach(srs => {
+                const next = srs.nextReview || 0;
+                if (next > now && next < earliest) earliest = next;
+            });
+            return earliest === Infinity ? null : earliest;
+        };
+
+        const updateCountdown = () => {
+            const earliest = getEarliestReview();
+            if (!earliest) {
+                setNextReviewText(null);
+                setIsNextReviewCountdown(false);
+                return;
+            }
+
+            const result = formatCountdown(earliest);
+            if (!result) {
+                setNextReviewText(null);
+                setIsNextReviewCountdown(false);
+                return;
+            }
+
+            setNextReviewText(result.text);
+            setIsNextReviewCountdown(result.isCountdown);
+        };
+
+        updateCountdown();
+        const interval = setInterval(updateCountdown, 1000);
+        return () => clearInterval(interval);
     }, [srsData]);
 
     // Card distribution
@@ -495,8 +522,8 @@ const KanjiReviewScreen = () => {
                         <span className="font-bold">Lượt tiếp theo</span>
                     </div>
                     <p className="text-blue-100 text-sm mb-1">Sau khi hoàn thành, bạn có</p>
-                    <div className="text-5xl font-bold mb-2">{nextReviewTime || '∞'}</div>
-                    <p className="text-blue-100">nghỉ ngơi cho đến lượt ôn tập tiếp theo</p>
+                    <div className={`font-bold mb-2 ${isNextReviewCountdown ? 'text-3xl md:text-4xl font-mono tracking-wider' : 'text-5xl'}`}>{nextReviewText || '∞'}</div>
+                    <p className="text-blue-100">{isNextReviewCountdown ? 'đếm ngược đến lượt ôn tập tiếp theo' : 'nghỉ ngơi cho đến lượt ôn tập tiếp theo'}</p>
                 </div>
             </div>
 

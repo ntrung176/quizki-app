@@ -21,7 +21,8 @@ import {
     StudyScreen,
     TestScreen,
     AdminScreen,
-    FlashcardScreen
+    FlashcardScreen,
+    BookScreen
 } from './screens';
 
 // Import card components
@@ -243,7 +244,12 @@ const AppRoutes = ({
                 path={ROUTES.KANJI}
                 element={
                     <ProtectedRoute isAuthenticated={isAuthenticated}>
-                        <KanjiScreen isAdmin={isAdmin} />
+                        <KanjiScreen
+                            isAdmin={isAdmin}
+                            onAddVocabToSRS={handleSaveNewCard}
+                            onGeminiAssist={handleGeminiAssist}
+                            allUserCards={allCards}
+                        />
                     </ProtectedRoute>
                 }
             />
@@ -427,6 +433,22 @@ const AppRoutes = ({
                         ) : (
                             <Navigate to={ROUTES.HOME} replace />
                         )}
+                    </ProtectedRoute>
+                }
+            />
+
+
+            {/* Học theo sách */}
+            <Route
+                path={ROUTES.BOOKS}
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <BookScreen
+                            isAdmin={isAdmin}
+                            onAddVocabToSRS={handleSaveNewCard}
+                            onGeminiAssist={handleGeminiAssist}
+                            allUserCards={allCards}
+                        />
                     </ProtectedRoute>
                 }
             />

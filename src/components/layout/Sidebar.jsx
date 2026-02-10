@@ -31,6 +31,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
         if (path === ROUTES.FRIENDS) return 'FRIENDS';
         if (path === ROUTES.ACCOUNT) return 'ACCOUNT';
         if (path === ROUTES.VOCABULARY_ADD) return 'ADD_CARD';
+        if (path === ROUTES.BOOKS) return 'BOOKS_LIST';
         if (path === ROUTES.ADMIN) return 'ADMIN';
         return 'HOME';
     };
@@ -68,6 +69,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
                 { id: 'ADD_CARD', label: 'Thêm từ vựng mới', route: ROUTES.VOCABULARY_ADD },
                 { id: 'VOCAB_REVIEW', label: 'Ôn tập từ vựng', route: ROUTES.VOCABULARY },
                 { id: 'VOCAB_LIST', label: 'Danh sách từ vựng', route: ROUTES.VOCABULARY_LIST },
+                { id: 'BOOKS_LIST', label: 'Học theo sách', route: ROUTES.BOOKS },
             ]
         },
         {

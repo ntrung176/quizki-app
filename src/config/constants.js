@@ -20,13 +20,15 @@ export const JLPT_LEVELS = [
     { value: 'N1', label: 'N1', color: 'bg-rose-100 text-rose-700 border-rose-200', target: 10000 }
 ];
 
-// --- Cấu hình SRS (Tính bằng ngày) ---
+// --- Cấu hình SRS Anki-like (Tính bằng phút) ---
+// Giống hệ thống Kanji SRS, sử dụng phút thay vì ngày
 export const SRS_INTERVALS = [
-    1, // Index 0: Sau 1 ngày (Cấp độ 1)
-    3, // Index 1: Sau 3 ngày (Cấp độ 2)
-    7, // Index 2: Sau 7 ngày (Cấp độ 3) -> Đủ điều kiện Flashcard
-    30, // Index 3: Sau 30 ngày (Cấp độ 4)
-    90 // Index 4: Sau 90 ngày (Cấp độ 5)
+    10,     // Index 0: 10 phút (Bước học 1)
+    1440,   // Index 1: 1 ngày = 1440 phút (Tốt nghiệp learning)
+    4320,   // Index 2: 3 ngày
+    10080,  // Index 3: 7 ngày
+    43200,  // Index 4: 30 ngày
+    129600  // Index 5: 90 ngày
 ];
 
 // Helper functions
@@ -36,6 +38,14 @@ export const getPosColor = (posKey) => POS_TYPES[posKey]?.color || 'bg-gray-100 
 export const getLevelColor = (levelValue) => {
     const level = JLPT_LEVELS.find(l => l.value === levelValue);
     return level ? level.color : 'bg-gray-100 text-gray-700 border-gray-200';
+};
+
+// Format interval phút sang text đọc được
+export const formatIntervalMinutes = (minutes) => {
+    if (minutes < 60) return `${minutes} phút`;
+    if (minutes < 1440) return `${Math.round(minutes / 60)} giờ`;
+    if (minutes < 43200) return `${Math.round(minutes / 1440)} ngày`;
+    return `${Math.round(minutes / 43200)} tháng`;
 };
 
 // Danh sách hậu tố ngữ pháp cho động từ (ưu tiên từ dài đến ngắn)

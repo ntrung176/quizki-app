@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
     Calendar, Clock, BookOpen, Users, MessageSquare, GraduationCap, Layers, Plus
 } from 'lucide-react';
 import { shuffleArray } from '../../utils/textProcessing';
 import { ROUTES } from '../../router';
+import { formatCountdown } from '../../utils/srs';
 
 const SRSVocabScreen = ({
     displayName,
@@ -20,9 +21,8 @@ const SRSVocabScreen = ({
     setFlashcardCards,
 }) => {
     const navigate = useNavigate();
-    // Tính toán các số liệu thống kê
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    const [countdownText, setCountdownText] = useState(null);
+    const [isCountdown, setIsCountdown] = useState(false);
 
     // Cần ôn (thẻ đến hạn)
     const dueCards = allCards.filter(card => {
@@ -59,31 +59,44 @@ const SRSVocabScreen = ({
         card.nextReview_back && card.nextReview_back <= Date.now()
     ).length;
 
-    // Tính thời gian đến lượt ôn tập tiếp theo
-    const getNextReviewTime = () => {
+    // Tìm thời gian ôn tập tiếp theo
+    const getNextReviewTimestamp = () => {
         const futureCards = allCards
             .filter(card => card.nextReview_back && card.nextReview_back > Date.now())
             .sort((a, b) => a.nextReview_back - b.nextReview_back);
 
         if (futureCards.length === 0) return null;
-
-        const nextTime = futureCards[0].nextReview_back;
-        const diff = nextTime - Date.now();
-
-        const hours = Math.floor(diff / (1000 * 60 * 60));
-        const days = Math.floor(hours / 24);
-
-        if (days >= 1) {
-            return `${days} ngày`;
-        } else if (hours >= 1) {
-            return `${hours} giờ`;
-        } else {
-            const minutes = Math.floor(diff / (1000 * 60));
-            return `${minutes} phút`;
-        }
+        return futureCards[0].nextReview_back;
     };
 
-    const nextReviewTime = getNextReviewTime();
+    // Live countdown timer - cập nhật mỗi giây khi < 24h
+    useEffect(() => {
+        const updateCountdown = () => {
+            const nextTimestamp = getNextReviewTimestamp();
+            if (!nextTimestamp) {
+                setCountdownText(null);
+                setIsCountdown(false);
+                return;
+            }
+
+            const result = formatCountdown(nextTimestamp);
+            if (!result) {
+                // Đã đến hạn
+                setCountdownText(null);
+                setIsCountdown(false);
+                return;
+            }
+
+            setCountdownText(result.text);
+            setIsCountdown(result.isCountdown);
+        };
+
+        updateCountdown();
+
+        // Cập nhật mỗi giây
+        const interval = setInterval(updateCountdown, 1000);
+        return () => clearInterval(interval);
+    }, [allCards]);
 
     const handleStartReview = (mode) => {
         setReviewMode(mode);
@@ -195,17 +208,24 @@ const SRSVocabScreen = ({
                     </button>
                 </div>
 
-                {/* Lượt tiếp theo - màu xanh */}
+                {/* Lượt tiếp theo - màu xanh + countdown */}
                 <div className="bg-gradient-to-br from-blue-400 to-blue-500 rounded-xl p-4 text-white shadow-lg">
                     <div className="flex items-center gap-2 mb-2">
                         <Clock className="w-4 h-4" />
                         <span className="font-bold text-sm">Lượt tiếp theo</span>
                     </div>
-                    {nextReviewTime ? (
+                    {countdownText ? (
                         <>
                             <p className="text-blue-100 text-xs mb-1">Sau khi hoàn thành {dueCards} thẻ, bạn có</p>
-                            <div className="text-4xl md:text-5xl font-bold mb-1 italic">{nextReviewTime}</div>
-                            <p className="text-blue-100 text-xs">nghỉ ngơi cho đến lượt ôn tập tiếp theo</p>
+                            <div className={`font-bold mb-1 ${isCountdown
+                                ? 'text-3xl md:text-4xl font-mono tracking-wider'
+                                : 'text-4xl md:text-5xl italic'
+                                }`}>
+                                {countdownText}
+                            </div>
+                            <p className="text-blue-100 text-xs">
+                                {isCountdown ? 'đếm ngược đến lượt ôn tập tiếp theo' : 'nghỉ ngơi cho đến lượt ôn tập tiếp theo'}
+                            </p>
                         </>
                     ) : (
                         <>

@@ -607,13 +607,12 @@ const App = () => {
     }, [authReady, activityCollectionPath, userId]);
 
     const dueCounts = useMemo(() => {
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
+        const now = new Date();
 
         // Logic mới: Tất cả 3 phần dùng chung nextReview_back
         // Một từ được coi là "due" nếu nextReview_back <= today VÀ có ít nhất một phần chưa hoàn thành
         const mixed = allCards.filter(card => {
-            const isDue = card.nextReview_back <= today;
+            const isDue = card.nextReview_back <= now;
             if (!isDue) return false;
 
             // Kiểm tra xem có phần nào chưa hoàn thành không (streak < 1)
@@ -627,7 +626,7 @@ const App = () => {
 
         // Back: các từ đã đến chu kỳ VÀ chưa hoàn thành phần back (streak < 1)
         const back = allCards.filter(card => {
-            const isDue = card.nextReview_back <= today;
+            const isDue = card.nextReview_back <= now;
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
             return isDue && backStreak < 1;
         }).length;
@@ -635,7 +634,7 @@ const App = () => {
         // Synonym: các từ đã đến chu kỳ, có synonym VÀ chưa hoàn thành phần synonym (streak < 1)
         const synonym = allCards.filter(card => {
             if (!card.synonym || card.synonym.trim() === '') return false;
-            const isDue = card.nextReview_back <= today;
+            const isDue = card.nextReview_back <= now;
             const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
             const result = isDue && synonymStreak < 1;
             return result;
@@ -644,7 +643,7 @@ const App = () => {
         // Example: các từ đã đến chu kỳ, có example VÀ chưa hoàn thành phần example (streak < 1)
         const example = allCards.filter(card => {
             if (!card.example || card.example.trim() === '') return false;
-            const isDue = card.nextReview_back <= today;
+            const isDue = card.nextReview_back <= now;
             const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
             const result = isDue && exampleStreak < 1;
             return result;
@@ -666,7 +665,7 @@ const App = () => {
             card.intervalIndex_back !== -1 && card.intervalIndex_back !== undefined && card.intervalIndex_back >= 0
         );
         const oldMixed = oldCards.filter(card => {
-            const isDue = card.nextReview_back <= today;
+            const isDue = card.nextReview_back <= now;
             if (!isDue) return false;
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
             const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
@@ -674,19 +673,19 @@ const App = () => {
             return backStreak < 1 || (card.synonym && synonymStreak < 1) || (card.example && exampleStreak < 1);
         }).length;
         const oldBack = oldCards.filter(card => {
-            const isDue = card.nextReview_back <= today;
+            const isDue = card.nextReview_back <= now;
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
             return isDue && backStreak < 1;
         }).length;
         const oldSynonym = oldCards.filter(card => {
             if (!card.synonym || card.synonym.trim() === '') return false;
-            const isDue = card.nextReview_back <= today;
+            const isDue = card.nextReview_back <= now;
             const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
             return isDue && synonymStreak < 1;
         }).length;
         const oldExample = oldCards.filter(card => {
             if (!card.example || card.example.trim() === '') return false;
-            const isDue = card.nextReview_back <= today;
+            const isDue = card.nextReview_back <= now;
             const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
             return isDue && exampleStreak < 1;
         }).length;
@@ -703,7 +702,7 @@ const App = () => {
         // Grammar cards
         const grammarCards = allCards.filter(card => card.pos === 'grammar');
         const grammarMixed = grammarCards.filter(card => {
-            const isDue = card.nextReview_back <= today;
+            const isDue = card.nextReview_back <= now;
             if (!isDue && card.intervalIndex_back >= 0) return false;
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
             const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
@@ -711,21 +710,21 @@ const App = () => {
             return backStreak < 1 || (card.synonym && synonymStreak < 1) || (card.example && exampleStreak < 1);
         }).length;
         const grammarBack = grammarCards.filter(card => {
-            const isDue = card.nextReview_back <= today;
+            const isDue = card.nextReview_back <= now;
             if (!isDue && card.intervalIndex_back >= 0) return false;
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
             return backStreak < 1;
         }).length;
         const grammarSynonym = grammarCards.filter(card => {
             if (!card.synonym || card.synonym.trim() === '') return false;
-            const isDue = card.nextReview_back <= today;
+            const isDue = card.nextReview_back <= now;
             if (!isDue && card.intervalIndex_back >= 0) return false;
             const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
             return synonymStreak < 1;
         }).length;
         const grammarExample = grammarCards.filter(card => {
             if (!card.example || card.example.trim() === '') return false;
-            const isDue = card.nextReview_back <= today;
+            const isDue = card.nextReview_back <= now;
             if (!isDue && card.intervalIndex_back >= 0) return false;
             const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
             return exampleStreak < 1;
@@ -743,7 +742,6 @@ const App = () => {
 
     const prepareReviewCards = useCallback((mode = 'back', category = 'all') => {
         const today = new Date();
-        today.setHours(0, 0, 0, 0);
         let dueCards = [];
 
         // Filter theo category trước
@@ -1674,12 +1672,8 @@ const App = () => {
 
         const allRequiredPartsCompleted = completedCount >= requiredCount;
 
-        // Tính ngày hôm nay và ngày mai
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-
-        const tomorrow = new Date(today);
-        tomorrow.setDate(tomorrow.getDate() + 1);
+        // Tính thời gian hiện tại
+        const now = Date.now();
 
         if (allRequiredPartsCompleted) {
             // Cả 3 phần đều hoàn thành: tăng interval và tính nextReview mới
@@ -1712,10 +1706,10 @@ const App = () => {
             const currentNextReview = cardData.nextReview_back?.toDate ? cardData.nextReview_back.toDate() : null;
 
             if (!currentNextReview || currentInterval < 0) {
-                // Từ mới: set nextReview = today để nó vẫn xuất hiện trong danh sách due
-                updateData.nextReview_back = today;
-                if (hasSynonym) updateData.nextReview_synonym = today;
-                if (hasExample) updateData.nextReview_example = today;
+                // Từ mới: set nextReview = now để nó vẫn xuất hiện trong danh sách due
+                updateData.nextReview_back = now;
+                if (hasSynonym) updateData.nextReview_synonym = now;
+                if (hasExample) updateData.nextReview_example = now;
             }
             // Nếu từ đã có nextReview: KHÔNG cập nhật, giữ nguyên chu kỳ cũ
 
@@ -2303,7 +2297,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     }}
                 />;
             case 'KANJI':
-                return <KanjiScreen isAdmin={isAdmin} />;
+                return <KanjiScreen isAdmin={isAdmin} onAddVocabToSRS={handleSaveNewCard} onGeminiAssist={handleGeminiAssist} allUserCards={allCards} />;
             case 'REVIEW':
                 if (reviewCards.length === 0) {
                     return <ReviewCompleteScreen onBack={() => setView('HOME')} />;

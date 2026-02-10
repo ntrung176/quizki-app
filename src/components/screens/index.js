@@ -17,3 +17,4 @@ export { default as StudyScreen } from './StudyScreen';
 export { default as TestScreen } from './TestScreen';
 export { default as AdminScreen } from './AdminScreen';
 export { default as FlashcardScreen } from './FlashcardScreen';
+export { default as BookScreen } from './BookScreen';

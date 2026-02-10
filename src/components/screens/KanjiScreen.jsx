@@ -10,7 +10,7 @@ import { RADICALS_214, KANJI_TREE, getDecompositionTree, isBasicRadical, getRadi
 // JLPT Levels
 const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
 
-const KanjiScreen = ({ isAdmin = false }) => {
+const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserCards = [] }) => {
     const [searchParams] = useSearchParams();
     const [selectedLevel, setSelectedLevel] = useState('N5');
     const [searchQuery, setSearchQuery] = useState('');
@@ -54,6 +54,8 @@ const KanjiScreen = ({ isAdmin = false }) => {
     const [diagramPan, setDiagramPan] = useState({ x: 0, y: 0 }); // Pan position
     const [isDragging, setIsDragging] = useState(false);
     const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+    const [addingVocabId, setAddingVocabId] = useState(null); // Track which vocab is being added
+    const [addedVocabIds, setAddedVocabIds] = useState(new Set()); // Track successfully added vocab
 
     // Form states
     const [newKanji, setNewKanji] = useState({
@@ -674,6 +676,61 @@ const KanjiScreen = ({ isAdmin = false }) => {
         setShowEditVocabModal(true);
     };
 
+    // Add vocabulary to user's personal SRS list
+    const handleAddVocabToSRS = async (vocab) => {
+        if (!onAddVocabToSRS || !vocab) return;
+
+        // Check if already in user's vocab list
+        const normalizedWord = vocab.word.split('（')[0].split('(')[0].trim();
+        const alreadyExists = allUserCards.some(card => {
+            const cardFront = card.front.split('（')[0].split('(')[0].trim();
+            return cardFront === normalizedWord;
+        });
+
+        if (alreadyExists) {
+            setAddedVocabIds(prev => new Set([...prev, vocab.id]));
+            return;
+        }
+
+        setAddingVocabId(vocab.id);
+
+        try {
+            // Use Gemini AI to enrich the vocabulary data
+            let aiData = null;
+            if (onGeminiAssist) {
+                try {
+                    aiData = await onGeminiAssist(vocab.word);
+                } catch (e) {
+                    console.warn('Gemini assist failed, using basic data:', e);
+                }
+            }
+
+            const cardData = {
+                front: vocab.word || '',
+                back: aiData?.back || vocab.meaning || '',
+                synonym: aiData?.synonym || '',
+                example: aiData?.example || '',
+                exampleMeaning: aiData?.exampleMeaning || '',
+                nuance: aiData?.nuance || '',
+                pos: aiData?.pos || '',
+                level: vocab.level || '',
+                sinoVietnamese: aiData?.sinoVietnamese || vocab.sinoViet || '',
+                synonymSinoVietnamese: aiData?.synonymSinoVietnamese || '',
+                imageBase64: null,
+                audioBase64: null,
+                action: 'stay',
+            };
+
+            await onAddVocabToSRS(cardData);
+            setAddedVocabIds(prev => new Set([...prev, vocab.id]));
+        } catch (e) {
+            console.error('Error adding vocab to SRS:', e);
+            alert('Lỗi khi thêm từ vựng vào danh sách ôn tập: ' + e.message);
+        } finally {
+            setAddingVocabId(null);
+        }
+    };
+
     // Kanji Detail Modal - memoized to prevent recreation on every render
     const KanjiDetailModal = useCallback(() => {
         if (!selectedKanji) return null;
@@ -1052,6 +1109,26 @@ const KanjiScreen = ({ isAdmin = false }) => {
                                             <span className="text-gray-900 dark:text-white ml-2">{v.meaning}</span>
                                         </div>
                                         <div className="flex items-center gap-1 ml-2">
+                                            {/* Add to SRS button */}
+                                            {onAddVocabToSRS && (
+                                                addedVocabIds.has(v.id) || allUserCards.some(c => c.front.split('（')[0].split('(')[0].trim() === v.word.split('（')[0].split('(')[0].trim()) ? (
+                                                    <span className="p-1.5 text-emerald-500" title="Đã có trong danh sách">
+                                                        <Check className="w-3.5 h-3.5" />
+                                                    </span>
+                                                ) : addingVocabId === v.id ? (
+                                                    <span className="p-1.5">
+                                                        <div className="w-3.5 h-3.5 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
+                                                    </span>
+                                                ) : (
+                                                    <button
+                                                        onClick={() => handleAddVocabToSRS(v)}
+                                                        className="p-1.5 text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+                                                        title="Thêm vào danh sách ôn tập"
+                                                    >
+                                                        <Plus className="w-3.5 h-3.5" />
+                                                    </button>
+                                                )
+                                            )}
                                             <button className="p-2 text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                                                 <Play className="w-4 h-4" />
                                             </button>
