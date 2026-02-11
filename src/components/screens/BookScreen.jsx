@@ -258,20 +258,19 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
 
         setAddingVocabIndex(index);
         try {
-            let aiData = null;
-            if (onGeminiAssist) {
-                try { aiData = await onGeminiAssist(word); } catch (e) { console.warn('AI failed:', e); }
-            }
+            // handleAddCard (onAddVocabToSRS) sẽ tự động tra shared DB → Gemini AI
+            // Chỉ cần truyền dữ liệu có sẵn từ sách làm fallback
             await onAddVocabToSRS({
                 front: word,
-                back: aiData?.back || vocab.meaning || vocab.back || '',
-                synonym: aiData?.synonym || '',
-                example: aiData?.example || vocab.example || '',
-                exampleMeaning: aiData?.exampleMeaning || vocab.exampleMeaning || '',
-                nuance: aiData?.nuance || '',
-                pos: aiData?.pos || '',
-                level: '', sinoVietnamese: aiData?.sinoVietnamese || vocab.sinoVietnamese || '',
-                synonymSinoVietnamese: aiData?.synonymSinoVietnamese || '',
+                back: vocab.meaning || vocab.back || '',
+                synonym: vocab.synonym || '',
+                example: vocab.example || '',
+                exampleMeaning: vocab.exampleMeaning || '',
+                nuance: vocab.nuance || vocab.note || '',
+                pos: vocab.pos || '',
+                level: vocab.level || '',
+                sinoVietnamese: vocab.sinoVietnamese || '',
+                synonymSinoVietnamese: '',
                 imageBase64: null, audioBase64: null, action: 'stay',
             });
             setAddedVocabSet(prev => new Set([...prev, index]));
@@ -557,38 +556,62 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                 const word = v.word || v.front || '';
                                 const inList = isVocabInUserList(v) || addedVocabSet.has(i);
                                 return (
-                                    <div key={i} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 hover:border-sky-300 dark:hover:border-sky-600 transition-colors">
-                                        <div className="flex items-start justify-between gap-3">
-                                            <div className="flex-1 min-w-0">
-                                                <div className="flex items-center gap-2 mb-1">
-                                                    <span className="text-lg font-bold text-gray-900 dark:text-white">{word}</span>
-                                                    {v.sinoVietnamese && <span className="text-xs text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 px-1.5 py-0.5 rounded font-medium">{v.sinoVietnamese}</span>}
-                                                    <span className="text-xs text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-700 px-1.5 py-0.5 rounded">#{i + 1}</span>
-                                                </div>
-                                                <p className="text-sm text-sky-600 dark:text-sky-400 mb-1">{v.meaning || v.back || ''}</p>
-                                                {v.example && (
-                                                    <div className="mt-2 pl-3 border-l-2 border-gray-200 dark:border-gray-600">
-                                                        <p className="text-sm text-gray-700 dark:text-gray-300">{v.example}</p>
-                                                        {v.exampleMeaning && <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{v.exampleMeaning}</p>}
+                                    <div key={i} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-sky-300 dark:hover:border-sky-600 transition-colors overflow-hidden">
+                                        <div className="flex">
+                                            {/* INDEX column */}
+                                            <div className="w-10 shrink-0 bg-gray-50 dark:bg-gray-700/50 flex flex-col items-center justify-center border-r border-gray-100 dark:border-gray-700">
+                                                <span className="text-xs font-bold text-gray-400 dark:text-gray-500">{i + 1}</span>
+                                            </div>
+
+                                            {/* LEFT: Từ vựng + nghĩa */}
+                                            <div className="w-2/5 p-4 border-r border-gray-100 dark:border-gray-700 flex flex-col">
+                                                <div className="flex-1 flex flex-col justify-center">
+                                                    <p className="text-xl font-bold text-gray-900 dark:text-white leading-tight">{word}</p>
+                                                    {v.sinoVietnamese && (
+                                                        <p className="text-xs text-amber-600 dark:text-amber-400 font-medium mt-1">{v.sinoVietnamese}</p>
+                                                    )}
+                                                    <div className="flex items-center gap-1 mt-1.5 flex-wrap">
+                                                        {v.pos && <span className="text-[10px] text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20 px-1.5 py-0.5 rounded">{v.pos}</span>}
+                                                        {v.level && <span className="text-[10px] text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 px-1.5 py-0.5 rounded">{v.level}</span>}
                                                     </div>
+                                                    <p className="text-sm text-sky-600 dark:text-sky-400 mt-2 font-medium">{v.meaning || v.back || ''}</p>
+                                                </div>
+                                            </div>
+
+                                            {/* RIGHT: Ví dụ + nghĩa ví dụ */}
+                                            <div className="flex-1 p-4 flex flex-col justify-center">
+                                                {v.example ? (
+                                                    <div>
+                                                        <p className="text-sm text-gray-800 dark:text-gray-200 leading-relaxed">{v.example}</p>
+                                                        {v.exampleMeaning && (
+                                                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1.5 italic">{v.exampleMeaning}</p>
+                                                        )}
+                                                    </div>
+                                                ) : (
+                                                    <p className="text-xs text-gray-300 dark:text-gray-600 italic">Chưa có ví dụ</p>
+                                                )}
+                                                {(v.nuance || v.note) && (
+                                                    <p className="text-xs text-orange-500 dark:text-orange-400 mt-2 italic">💡 {v.nuance || v.note}</p>
                                                 )}
                                             </div>
-                                            <div className="flex items-center gap-1 shrink-0">
+
+                                            {/* ACTION buttons */}
+                                            <div className="shrink-0 flex flex-col items-center justify-center gap-0.5 px-2 border-l border-gray-100 dark:border-gray-700">
                                                 {onAddVocabToSRS && (
                                                     inList ? (
-                                                        <span className="p-2 text-emerald-500" title="Đã có trong danh sách"><Check className="w-4 h-4" /></span>
+                                                        <span className="p-1.5 text-emerald-500" title="Đã có trong SRS"><Check className="w-4 h-4" /></span>
                                                     ) : addingVocabIndex === i ? (
-                                                        <span className="p-2"><div className="w-4 h-4 border-2 border-sky-500 border-t-transparent rounded-full animate-spin"></div></span>
+                                                        <span className="p-1.5"><div className="w-4 h-4 border-2 border-sky-500 border-t-transparent rounded-full animate-spin"></div></span>
                                                     ) : (
                                                         <button onClick={() => handleAddToSRS(v, i)}
-                                                            className="p-2 text-gray-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors" title="Thêm vào SRS">
+                                                            className="p-1.5 text-gray-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors" title="Thêm vào SRS">
                                                             <Plus className="w-4 h-4" />
                                                         </button>
                                                     )
                                                 )}
                                                 {isAdmin && (
                                                     <button onClick={() => handleDeleteVocab(i)}
-                                                        className="p-2 text-gray-300 hover:text-red-500 transition-colors" title="Xóa">
+                                                        className="p-1.5 text-gray-300 hover:text-red-500 transition-colors" title="Xóa">
                                                         <Trash2 className="w-3.5 h-3.5" />
                                                     </button>
                                                 )}
@@ -698,6 +721,11 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                             word: "食べる（たべる）",
                                             meaning: "Ăn",
                                             sinoVietnamese: "THỰC",
+                                            pos: "verb",
+                                            level: "N5",
+                                            synonym: "食事する, 食う",
+                                            nuance: "Dùng cho việc ăn nói chung",
+                                            note: "",
                                             example: "毎日朝ごはんを食べます。",
                                             exampleMeaning: "Mỗi ngày tôi ăn sáng."
                                         },
@@ -705,6 +733,11 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                             word: "飲む（のむ）",
                                             meaning: "Uống",
                                             sinoVietnamese: "ẤM",
+                                            pos: "verb",
+                                            level: "N5",
+                                            synonym: "",
+                                            nuance: "Dùng cho đồ uống, thuốc",
+                                            note: "",
                                             example: "水を飲みます。",
                                             exampleMeaning: "Tôi uống nước."
                                         }
@@ -721,6 +754,11 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     "word": "食べる（たべる）",
     "meaning": "Ăn",
     "sinoVietnamese": "THỰC",
+    "pos": "verb",
+    "level": "N5",
+    "synonym": "食事する, 食う",
+    "nuance": "Dùng cho việc ăn nói chung",
+    "note": "ghi chú thêm",
     "example": "毎日朝ごはんを食べます。",
     "exampleMeaning": "Mỗi ngày tôi ăn sáng."
   }
@@ -733,7 +771,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                         <textarea value={jsonInput} onChange={e => setJsonInput(e.target.value)}
                             rows={10} placeholder="Dán JSON từ vựng vào đây..."
                             className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white font-mono text-xs focus:ring-2 focus:ring-sky-500 outline-none" />
-                        <p className="text-[10px] text-gray-400 mt-1">Các trường: word, meaning, sinoVietnamese (âm hán việt), example, exampleMeaning</p>
+                        <p className="text-[10px] text-gray-400 mt-1">Các trường: word, meaning, sinoVietnamese, pos (từ loại), level (cấp độ), synonym (đồng nghĩa), nuance (sắc thái), note (ghi chú), example, exampleMeaning</p>
                     </div>
                 </div>
             </FormModal>

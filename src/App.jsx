@@ -1169,10 +1169,97 @@ const App = () => {
         };
     };
 
+    // ==================== SHARED VOCABULARY ====================
+    const SHARED_VOCAB_COLLECTION = 'sharedVocabulary';
+
+    // Tìm từ vựng trong kho dữ liệu chung
+    const findSharedVocab = async (word) => {
+        try {
+            const normalized = word.split('（')[0].split('(')[0].trim();
+            // Tìm bằng doc ID (normalized word)
+            const docRef = doc(db, SHARED_VOCAB_COLLECTION, normalized);
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+                return { id: docSnap.id, ...docSnap.data() };
+            }
+            return null;
+        } catch (e) {
+            console.warn('Error finding shared vocab:', e);
+            return null;
+        }
+    };
+
+    // Lưu từ vựng vào kho dữ liệu chung
+    const saveSharedVocab = async (word, data) => {
+        try {
+            const normalized = word.split('（')[0].split('(')[0].trim();
+            const docRef = doc(db, SHARED_VOCAB_COLLECTION, normalized);
+            await setDoc(docRef, {
+                front: data.front || data.frontWithFurigana || word,
+                back: data.back || data.meaning || '',
+                synonym: data.synonym || '',
+                sinoVietnamese: data.sinoVietnamese || '',
+                synonymSinoVietnamese: data.synonymSinoVietnamese || '',
+                example: data.example || '',
+                exampleMeaning: data.exampleMeaning || '',
+                nuance: data.nuance || '',
+                pos: data.pos || '',
+                level: data.level || '',
+                updatedAt: Date.now(),
+            }, { merge: true });
+        } catch (e) {
+            console.warn('Error saving shared vocab:', e);
+        }
+    };
+
+    // Lấy dữ liệu từ vựng: ưu tiên shared DB → fallback (dữ liệu đã có)
+    const getVocabData = async (word, fallbackData = {}) => {
+        // 1. Kiểm tra kho dữ liệu chung
+        const shared = await findSharedVocab(word);
+        if (shared) {
+            console.log('📚 Found shared vocab for:', word);
+            return {
+                front: shared.front || word,
+                back: shared.back || fallbackData.meaning || fallbackData.back || '',
+                synonym: shared.synonym || '',
+                sinoVietnamese: shared.sinoVietnamese || fallbackData.sinoVietnamese || '',
+                synonymSinoVietnamese: shared.synonymSinoVietnamese || '',
+                example: shared.example || fallbackData.example || '',
+                exampleMeaning: shared.exampleMeaning || fallbackData.exampleMeaning || '',
+                nuance: shared.nuance || fallbackData.nuance || fallbackData.note || '',
+                pos: shared.pos || fallbackData.pos || '',
+                level: shared.level || fallbackData.level || '',
+                _source: 'shared',
+            };
+        }
+
+        // 2. Dùng dữ liệu đã truyền vào (fallback) — không gọi AI
+        const result = {
+            front: word,
+            back: fallbackData.meaning || fallbackData.back || '',
+            synonym: '',
+            sinoVietnamese: fallbackData.sinoVietnamese || '',
+            synonymSinoVietnamese: '',
+            example: fallbackData.example || '',
+            exampleMeaning: fallbackData.exampleMeaning || '',
+            nuance: fallbackData.nuance || fallbackData.note || '',
+            pos: fallbackData.pos || '',
+            level: fallbackData.level || '',
+            _source: 'fallback',
+        };
+
+        // 3. Lưu vào kho dữ liệu chung cho lần sau
+        if (fallbackData.meaning || fallbackData.back) {
+            await saveSharedVocab(word, result);
+        }
+
+        return result;
+    };
+
     const handleAddCard = async ({ front, back, synonym, example, exampleMeaning, nuance, pos, level, action, imageBase64, audioBase64, sinoVietnamese, synonymSinoVietnamese }) => {
         if (!vocabCollectionPath) return false;
 
-        // Kiểm tra trùng lặp với database
+        // Kiểm tra trùng lặp với database của user
         const normalizedFront = front.split('（')[0].split('(')[0].trim();
         const isDuplicate = allCards.some(card => {
             const cardFront = card.front.split('（')[0].split('(')[0].trim();
@@ -1184,7 +1271,21 @@ const App = () => {
             return false;
         }
 
-        const newCardData = createCardObject(front, back, synonym, example, exampleMeaning, nuance, {}, null, imageBase64, audioBase64, pos, level, sinoVietnamese, synonymSinoVietnamese);
+        // Luôn tra shared DB để bổ sung dữ liệu thiếu (synonym, furigana, v.v.)
+        const vocabData = await getVocabData(front, { meaning: back, example, exampleMeaning, nuance, pos, level, sinoVietnamese });
+
+        let finalFront = vocabData.front || front;
+        let finalBack = back || vocabData.back || '';
+        let finalSynonym = synonym || vocabData.synonym || '';
+        let finalExample = example || vocabData.example || '';
+        let finalExampleMeaning = exampleMeaning || vocabData.exampleMeaning || '';
+        let finalNuance = nuance || vocabData.nuance || '';
+        let finalPos = pos || vocabData.pos || '';
+        let finalLevel = level || vocabData.level || '';
+        let finalSinoVietnamese = sinoVietnamese || vocabData.sinoVietnamese || '';
+        let finalSynonymSinoVietnamese = synonymSinoVietnamese || vocabData.synonymSinoVietnamese || '';
+
+        const newCardData = createCardObject(finalFront, finalBack, finalSynonym, finalExample, finalExampleMeaning, finalNuance, {}, null, imageBase64, audioBase64, finalPos, finalLevel, finalSinoVietnamese, finalSynonymSinoVietnamese);
 
         let cardRef;
 
@@ -1207,23 +1308,23 @@ const App = () => {
             if (!audioBase64 || (typeof audioBase64 === 'string' && audioBase64.trim() === '')) {
                 (async () => {
                     try {
-                        const speechText = getSpeechText(front);
+                        const speechText = getSpeechText(finalFront);
                         if (!speechText || speechText.trim() === '') {
-                            console.log("Không có text để tạo âm thanh cho:", front);
+                            console.log("Không có text để tạo âm thanh cho:", finalFront);
                             return;
                         }
 
-                        console.log("Bắt đầu tạo âm thanh cho:", front);
+                        console.log("Bắt đầu tạo âm thanh cho:", finalFront);
                         const fetchedAudioBase64 = await fetchTtsBase64(speechText);
 
                         if (fetchedAudioBase64 && cardRef) {
                             await updateDoc(cardRef, { audioBase64: fetchedAudioBase64 });
-                            console.log("Đã tạo âm thanh thành công cho:", front);
+                            console.log("Đã tạo âm thanh thành công cho:", finalFront);
                         } else {
-                            console.warn("Không thể tạo âm thanh cho:", front, "- fetchTtsBase64 trả về null");
+                            console.warn("Không thể tạo âm thanh cho:", finalFront, "- fetchTtsBase64 trả về null");
                         }
                     } catch (e) {
-                        console.error("Lỗi tạo âm thanh (nền) cho:", front, e);
+                        console.error("Lỗi tạo âm thanh (nền) cho:", finalFront, e);
                     }
                 })();
             }

@@ -45,4 +45,17 @@ export default defineConfig({
     },
     chunkSizeWarningLimit: 900, // nới nhẹ ngưỡng cảnh báo
   },
+  server: {
+    proxy: {
+      '/api/jotoba': {
+        target: 'https://jotoba.de',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/jotoba/, '/api'),
+      },
+      '/resource/audio': {
+        target: 'https://jotoba.de',
+        changeOrigin: true,
+      },
+    },
+  },
 })

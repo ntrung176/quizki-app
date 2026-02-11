@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
     FileCheck, X, Check, CheckCircle, XCircle, ChevronRight,
@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { shuffleArray } from '../../utils/textProcessing';
 import { ROUTES } from '../../router';
+import { celebrateCorrectAnswer, flashCorrect, launchFanfare } from '../../utils/celebrations';
 
 const TestScreen = ({ allCards }) => {
     const [testMode, setTestMode] = useState(null);
@@ -261,7 +262,7 @@ const TestScreen = ({ allCards }) => {
         setShowResult(false);
     };
 
-    const handleAnswerSelect = (answer) => {
+    const handleAnswerSelect = (answer, event) => {
         if (isAnswered) return;
 
         setSelectedAnswer(answer);
@@ -272,6 +273,8 @@ const TestScreen = ({ allCards }) => {
 
         if (isCorrect) {
             setScore(score + 1);
+            celebrateCorrectAnswer(event);
+            flashCorrect();
         }
 
         setUserAnswers([...userAnswers, {
@@ -323,6 +326,13 @@ const TestScreen = ({ allCards }) => {
             return part;
         });
     };
+
+    // Trigger fanfare on result screen
+    useEffect(() => {
+        if (showResult && score / questions.length >= 0.7) {
+            launchFanfare();
+        }
+    }, [showResult]);
 
     // Render result screen
     if (showResult) {
@@ -468,7 +478,7 @@ const TestScreen = ({ allCards }) => {
                                 return (
                                     <button
                                         key={idx}
-                                        onClick={() => handleAnswerSelect(option)}
+                                        onClick={(e) => handleAnswerSelect(option, e)}
                                         disabled={isAnswered}
                                         className={`w-full p-4 rounded-xl text-left font-medium transition-all ${showCorrect
                                             ? 'bg-green-100 dark:bg-green-900/30 border-2 border-green-500 dark:border-green-600 text-green-800 dark:text-green-300'

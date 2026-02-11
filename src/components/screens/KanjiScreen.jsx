@@ -4,6 +4,8 @@ import HanziWriter from 'hanzi-writer';
 import { Search, Grid, PenTool, Download, BookOpen, Map, Globe, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Play, Upload, FileJson, Edit, Check, Copy } from 'lucide-react';
 import { db } from '../../config/firebase';
 import { collection, getDocs, addDoc, deleteDoc, doc, query, where, writeBatch, updateDoc } from 'firebase/firestore';
+import { playAudio } from '../../utils/audio';
+import { fetchJotobaWordData, playJotobaAudio, accentNumberToPitchParts } from '../../utils/pitchAccent';
 
 import { RADICALS_214, KANJI_TREE, getDecompositionTree, isBasicRadical, getRadicalInfo } from '../../data/radicals214';
 
@@ -56,6 +58,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
     const [addingVocabId, setAddingVocabId] = useState(null); // Track which vocab is being added
     const [addedVocabIds, setAddedVocabIds] = useState(new Set()); // Track successfully added vocab
+    const [pitchAccentData, setPitchAccentData] = useState({}); // word -> pitch parts array
+    const [addingAllVocab, setAddingAllVocab] = useState(false);
 
     // Form states
     const [newKanji, setNewKanji] = useState({
@@ -63,7 +67,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         level: 'N5', sinoViet: '', mnemonic: '', radical: ''
     });
     const [newVocab, setNewVocab] = useState({
-        word: '', reading: '', meaning: '', level: 'N5', source: 'Mimikara'
+        word: '', reading: '', meaning: '', level: 'N5', source: 'Mimikara',
+        sinoViet: '', pos: '', synonym: '', example: '', exampleMeaning: '', nuance: ''
     });
     const [jsonKanjiInput, setJsonKanjiInput] = useState('');
     const [jsonVocabInput, setJsonVocabInput] = useState('');
@@ -403,7 +408,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             const vocabData = { ...newVocab, kanjiList: kanjiChars };
             const docRef = await addDoc(collection(db, 'kanjiVocab'), vocabData);
             setVocabList([...vocabList, { ...vocabData, id: docRef.id }]);
-            setNewVocab({ word: '', reading: '', meaning: '', level: 'N5', source: 'Mimikara' });
+            setNewVocab({ word: '', reading: '', meaning: '', level: 'N5', source: 'Mimikara', sinoViet: '', pos: '', synonym: '', example: '', exampleMeaning: '', nuance: '' });
             setShowAddVocabModal(false);
         } catch (e) {
             console.error('Error adding vocab:', e);
@@ -562,15 +567,29 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 }
 
                 const kanjiChars = word.match(/[\u4e00-\u9faf]/g) || [];
+                const vocabLevel = item.level || item.jlpt || selectedLevel || 'N5';
+
+                // Chỉ liên kết với kanji cùng cấp độ
+                const sameLevelKanjiChars = kanjiList
+                    .filter(k => k.level === vocabLevel)
+                    .map(k => k.character);
+                const linkedKanji = kanjiChars.filter(c => sameLevelKanjiChars.includes(c));
 
                 const vocabData = {
                     word: word,
                     reading: item.reading || item.doc || item.hiragana || '',
                     meaning: item.meaning || item.nghia || '',
-                    level: item.level || item.jlpt || 'N5',
+                    level: vocabLevel,
                     source: item.source || item.nguon || 'Mimikara',
                     sinoViet: item.sinoViet || item.hanViet || '',
-                    kanjiList: kanjiChars
+                    pos: item.pos || '',
+                    synonym: item.synonym || '',
+                    example: item.example || '',
+                    exampleMeaning: item.exampleMeaning || '',
+                    nuance: item.nuance || '',
+                    accent: item.accent || '',
+                    specialReading: item.specialReading || false,
+                    kanjiList: linkedKanji
                 };
 
                 const docRef = await addDoc(collection(db, 'kanjiVocab'), vocabData);
@@ -695,27 +714,18 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         setAddingVocabId(vocab.id);
 
         try {
-            // Use Gemini AI to enrich the vocabulary data
-            let aiData = null;
-            if (onGeminiAssist) {
-                try {
-                    aiData = await onGeminiAssist(vocab.word);
-                } catch (e) {
-                    console.warn('Gemini assist failed, using basic data:', e);
-                }
-            }
-
+            // Dùng dữ liệu có sẵn, handleAddCard sẽ tự tra shared DB
             const cardData = {
                 front: vocab.word || '',
-                back: aiData?.back || vocab.meaning || '',
-                synonym: aiData?.synonym || '',
-                example: aiData?.example || '',
-                exampleMeaning: aiData?.exampleMeaning || '',
-                nuance: aiData?.nuance || '',
-                pos: aiData?.pos || '',
+                back: vocab.meaning || '',
+                synonym: vocab.synonym || '',
+                example: vocab.example || '',
+                exampleMeaning: vocab.exampleMeaning || '',
+                nuance: vocab.nuance || '',
+                pos: vocab.pos || '',
                 level: vocab.level || '',
-                sinoVietnamese: aiData?.sinoVietnamese || vocab.sinoViet || '',
-                synonymSinoVietnamese: aiData?.synonymSinoVietnamese || '',
+                sinoVietnamese: vocab.sinoViet || '',
+                synonymSinoVietnamese: '',
                 imageBase64: null,
                 audioBase64: null,
                 action: 'stay',
@@ -730,6 +740,66 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             setAddingVocabId(null);
         }
     };
+
+    // Add ALL vocab for a kanji to SRS
+    const handleAddAllVocabToSRS = async (vocabItems) => {
+        if (!onAddVocabToSRS || !vocabItems?.length) return;
+        setAddingAllVocab(true);
+        try {
+            for (const v of vocabItems) {
+                const normalizedWord = v.word.split('（')[0].split('(')[0].trim();
+                const alreadyExists = allUserCards.some(card => {
+                    const cardFront = card.front.split('（')[0].split('(')[0].trim();
+                    return cardFront === normalizedWord;
+                });
+                if (alreadyExists || addedVocabIds.has(v.id)) continue;
+                await handleAddVocabToSRS(v);
+            }
+        } catch (e) {
+            console.error('Error adding all vocab to SRS:', e);
+        } finally {
+            setAddingAllVocab(false);
+        }
+    };
+
+    // Auto-fetch pitch accent + audio data from Jotoba when detail modal opens
+    useEffect(() => {
+        if (!showDetailModal || !selectedKanji) return;
+
+        const vocab = getVocabForKanji(selectedKanji);
+        if (vocab.length === 0) return;
+
+        // Only fetch for words we don't already have pitch data for
+        const wordsToFetch = vocab.filter(v => !pitchAccentData[v.word] && v.word);
+        if (wordsToFetch.length === 0) return;
+
+        let cancelled = false;
+
+        const fetchAll = async () => {
+            const newData = { ...pitchAccentData };
+            for (const v of wordsToFetch) {
+                if (cancelled) break;
+                try {
+                    const jotobaData = await fetchJotobaWordData(v.word);
+                    if (jotobaData?.pitch && !cancelled) {
+                        newData[v.word] = jotobaData.pitch;
+                    }
+                } catch (e) {
+                    // Silently fail for individual words
+                }
+                // Small delay between requests to be nice to the API
+                if (wordsToFetch.length > 3) {
+                    await new Promise(r => setTimeout(r, 150));
+                }
+            }
+            if (!cancelled) {
+                setPitchAccentData(newData);
+            }
+        };
+
+        fetchAll();
+        return () => { cancelled = true; };
+    }, [showDetailModal, selectedKanji]);
 
     // Kanji Detail Modal - memoized to prevent recreation on every render
     const KanjiDetailModal = useCallback(() => {
@@ -1094,65 +1164,215 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         <div className="space-y-4 bg-white dark:bg-slate-800/30 rounded-xl p-4 border border-gray-100 dark:border-slate-700">
                             <div className="flex justify-between items-center">
                                 <h3 className="text-orange-500 dark:text-orange-400 font-medium">Từ vựng trong (Mimikara, Tango)</h3>
-                                <button className="text-cyan-600 dark:text-cyan-400 text-sm hover:underline">Flashcard →</button>
+                                <div className="flex items-center gap-2">
+                                    {onAddVocabToSRS && vocab.length > 0 && (
+                                        <button
+                                            onClick={() => handleAddAllVocabToSRS(vocab)}
+                                            disabled={addingAllVocab}
+                                            className="flex items-center gap-1 px-2 py-1 text-xs bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 rounded-lg hover:bg-cyan-200 dark:hover:bg-cyan-800/40 transition-colors font-medium disabled:opacity-50"
+                                        >
+                                            {addingAllVocab ? (
+                                                <><div className="w-3 h-3 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin"></div> Đang thêm...</>
+                                            ) : (
+                                                <><Plus className="w-3 h-3" /> Thêm tất cả</>
+                                            )}
+                                        </button>
+                                    )}
+                                    <button className="text-cyan-600 dark:text-cyan-400 text-sm hover:underline">Flashcard →</button>
+                                </div>
                             </div>
 
-                            <div className="space-y-2 max-h-[300px] overflow-y-auto">
-                                {vocab.length > 0 ? vocab.map((v, i) => (
-                                    <div key={i} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-slate-800 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors">
-                                        <div className="flex-1 min-w-0">
-                                            <span className="text-orange-500 dark:text-orange-400 font-japanese">{v.word}</span>
-                                            <span className="text-gray-500 dark:text-gray-400 ml-2 font-japanese">({v.reading})</span>
-                                            <span className="text-gray-400 ml-2">-</span>
-                                            <span className="text-cyan-600 dark:text-cyan-400 ml-2">{v.sinoViet || ''}</span>
-                                            <span className="text-gray-400 ml-2">-</span>
-                                            <span className="text-gray-900 dark:text-white ml-2">{v.meaning}</span>
+                            <div className="space-y-1 max-h-[400px] overflow-y-auto">
+                                {vocab.length > 0 ? vocab.map((v, i) => {
+                                    // Determine if this is a special reading (jukujikun)
+                                    const isSpecialReading = v.specialReading || false;
+                                    // Get pitch data: from API cache first, then from stored accent number
+                                    const apiPitch = pitchAccentData[v.word];
+                                    const storedPitch = v.accent !== undefined && v.accent !== '' ? accentNumberToPitchParts(v.reading, v.accent) : null;
+                                    const pitchParts = apiPitch || storedPitch; // API data takes priority
+
+                                    // Render word - keep original orange color
+                                    const renderWord = () => {
+                                        if (isSpecialReading) {
+                                            return <span className="text-blue-400 font-japanese font-bold">{v.word}</span>;
+                                        }
+                                        return <span className="text-orange-400 font-japanese font-bold">{v.word}</span>;
+                                    };
+
+                                    // Render reading with pitch accent lines and blue highlight
+                                    const renderReading = () => {
+                                        if (!v.reading) return null;
+
+                                        if (isSpecialReading) {
+                                            return <span className="text-blue-400 font-japanese">{v.reading}</span>;
+                                        }
+
+                                        // Find which part of the reading corresponds to the selected kanji
+                                        const kanjiDetail = kanjiList.find(k => k.character === selectedKanji);
+                                        const kanjiReadings = [];
+                                        if (kanjiDetail) {
+                                            // Collect all possible readings (on + kun, cleaned)
+                                            if (kanjiDetail.onyomi) {
+                                                kanjiDetail.onyomi.split(/[、,]/).forEach(r => {
+                                                    const clean = r.trim().replace(/[-\.。]/g, '');
+                                                    if (clean) kanjiReadings.push(clean);
+                                                });
+                                            }
+                                            if (kanjiDetail.kunyomi) {
+                                                kanjiDetail.kunyomi.split(/[、,]/).forEach(r => {
+                                                    const clean = r.trim().split('.')[0].replace(/[-。]/g, '');
+                                                    if (clean) kanjiReadings.push(clean);
+                                                });
+                                            }
+                                        }
+
+                                        // Find the matching reading portion in the vocab reading
+                                        let highlightStart = -1;
+                                        let highlightEnd = -1;
+                                        const readingChars = [...v.reading];
+
+                                        // Convert katakana readings to hiragana for comparison
+                                        const toHiragana = (str) => str.replace(/[\u30A1-\u30F6]/g, ch =>
+                                            String.fromCharCode(ch.charCodeAt(0) - 0x60)
+                                        );
+
+                                        for (const kr of kanjiReadings) {
+                                            const hiraReading = toHiragana(kr);
+                                            const readingStr = v.reading;
+                                            const idx = readingStr.indexOf(hiraReading);
+                                            if (idx !== -1) {
+                                                // Convert string index to character index
+                                                const beforeStr = readingStr.substring(0, idx);
+                                                highlightStart = [...beforeStr].length;
+                                                highlightEnd = highlightStart + [...hiraReading].length;
+                                                break;
+                                            }
+                                        }
+
+                                        // With pitch accent data
+                                        if (pitchParts && pitchParts.length > 0) {
+                                            // Flatten pitch parts into per-character high/low
+                                            const charPitchMap = [];
+                                            for (const pp of pitchParts) {
+                                                const partChars = [...pp.part];
+                                                for (const c of partChars) {
+                                                    charPitchMap.push({ char: c, high: pp.high });
+                                                }
+                                            }
+
+                                            return (
+                                                <span className="font-japanese inline-flex items-end gap-0">
+                                                    {readingChars.map((char, ci) => {
+                                                        const pm = charPitchMap[ci];
+                                                        const isHigh = pm ? pm.high : false;
+                                                        const nextHigh = ci + 1 < charPitchMap.length ? charPitchMap[ci + 1]?.high : isHigh;
+                                                        const showDrop = isHigh && !nextHigh && ci < readingChars.length - 1;
+                                                        const showRise = !isHigh && nextHigh && ci < readingChars.length - 1;
+                                                        const isHighlighted = highlightStart >= 0 && ci >= highlightStart && ci < highlightEnd;
+
+                                                        return (
+                                                            <span key={ci} className="relative inline-block" style={{ marginRight: '0px' }}>
+                                                                {/* Orange accent bar on top */}
+                                                                <span
+                                                                    className="block"
+                                                                    style={{
+                                                                        borderTop: isHigh ? '2.5px solid #f97316' : '2.5px solid transparent',
+                                                                        paddingTop: '1px',
+                                                                        paddingLeft: '1px',
+                                                                        paddingRight: '1px',
+                                                                    }}
+                                                                >
+                                                                    <span className={isHighlighted ? 'text-blue-400' : 'text-gray-400'}>{char}</span>
+                                                                </span>
+                                                                {/* Drop indicator (vertical bar going down) */}
+                                                                {showDrop && (
+                                                                    <span className="absolute -right-[1px] top-0 w-[2.5px] bg-orange-500" style={{ height: '100%' }}></span>
+                                                                )}
+                                                                {/* Rise indicator (vertical bar going up) */}
+                                                                {showRise && (
+                                                                    <span className="absolute -right-[1px] top-0 w-[2.5px] bg-orange-500" style={{ height: '100%' }}></span>
+                                                                )}
+                                                            </span>
+                                                        );
+                                                    })}
+                                                </span>
+                                            );
+                                        }
+
+                                        // No pitch data - just render with blue highlight
+                                        return (
+                                            <span className="font-japanese">
+                                                {readingChars.map((char, ci) => {
+                                                    const isHighlighted = highlightStart >= 0 && ci >= highlightStart && ci < highlightEnd;
+                                                    return (
+                                                        <span key={ci} className={isHighlighted ? 'text-blue-400' : 'text-gray-400'}>{char}</span>
+                                                    );
+                                                })}
+                                            </span>
+                                        );
+                                    };
+
+                                    return (
+                                        <div key={i} className="flex items-center justify-between p-2.5 bg-slate-800/80 dark:bg-slate-800 rounded-lg hover:bg-slate-700/80 dark:hover:bg-slate-700 transition-colors border border-slate-700/50">
+                                            <div className="flex-1 min-w-0 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-sm">
+                                                {renderWord()}
+                                                <span className="text-gray-500">（</span>{renderReading()}<span className="text-gray-500">）</span>
+                                                <span className="text-gray-600">–</span>
+                                                <span className="text-cyan-500 font-medium uppercase text-xs">{v.sinoViet || ''}</span>
+                                                <span className="text-gray-600">–</span>
+                                                <span className="text-gray-200">{v.meaning}</span>
+                                            </div>
+                                            <div className="flex items-center gap-0.5 ml-2 flex-shrink-0">
+                                                {/* Speaker button - plays Jotoba audio */}
+                                                <button
+                                                    onClick={(e) => { e.stopPropagation(); playJotobaAudio(v.word); }}
+                                                    className="p-1.5 text-gray-500 hover:text-cyan-400 transition-colors rounded-md hover:bg-slate-600/50"
+                                                    title="Nghe phát âm (Jotoba)"
+                                                >
+                                                    <Volume2 className="w-3.5 h-3.5" />
+                                                </button>
+                                                {/* Add to SRS button */}
+                                                {onAddVocabToSRS && (
+                                                    addedVocabIds.has(v.id) || allUserCards.some(c => c.front.split('（')[0].split('(')[0].trim() === v.word.split('（')[0].split('(')[0].trim()) ? (
+                                                        <span className="p-1.5 text-emerald-500" title="Đã có trong danh sách">
+                                                            <Check className="w-3.5 h-3.5" />
+                                                        </span>
+                                                    ) : addingVocabId === v.id ? (
+                                                        <span className="p-1.5">
+                                                            <div className="w-3.5 h-3.5 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
+                                                        </span>
+                                                    ) : (
+                                                        <button
+                                                            onClick={() => handleAddVocabToSRS(v)}
+                                                            className="p-1.5 text-gray-500 hover:text-cyan-400 transition-colors rounded-md hover:bg-slate-600/50"
+                                                            title="Thêm vào danh sách ôn tập"
+                                                        >
+                                                            <Plus className="w-3.5 h-3.5" />
+                                                        </button>
+                                                    )
+                                                )}
+                                                {isAdmin && v.id && (
+                                                    <>
+                                                        <button
+                                                            onClick={() => openEditVocab(v)}
+                                                            className="p-1.5 text-gray-500 hover:text-cyan-400 transition-colors rounded-md hover:bg-slate-600/50"
+                                                            title="Chỉnh sửa"
+                                                        >
+                                                            <Edit className="w-3.5 h-3.5" />
+                                                        </button>
+                                                        <button
+                                                            onClick={() => handleDeleteVocab(v.id)}
+                                                            className="p-1.5 text-gray-500 hover:text-red-400 transition-colors rounded-md hover:bg-slate-600/50"
+                                                            title="Xóa"
+                                                        >
+                                                            <Trash2 className="w-3.5 h-3.5" />
+                                                        </button>
+                                                    </>
+                                                )}
+                                            </div>
                                         </div>
-                                        <div className="flex items-center gap-1 ml-2">
-                                            {/* Add to SRS button */}
-                                            {onAddVocabToSRS && (
-                                                addedVocabIds.has(v.id) || allUserCards.some(c => c.front.split('（')[0].split('(')[0].trim() === v.word.split('（')[0].split('(')[0].trim()) ? (
-                                                    <span className="p-1.5 text-emerald-500" title="Đã có trong danh sách">
-                                                        <Check className="w-3.5 h-3.5" />
-                                                    </span>
-                                                ) : addingVocabId === v.id ? (
-                                                    <span className="p-1.5">
-                                                        <div className="w-3.5 h-3.5 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
-                                                    </span>
-                                                ) : (
-                                                    <button
-                                                        onClick={() => handleAddVocabToSRS(v)}
-                                                        className="p-1.5 text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
-                                                        title="Thêm vào danh sách ôn tập"
-                                                    >
-                                                        <Plus className="w-3.5 h-3.5" />
-                                                    </button>
-                                                )
-                                            )}
-                                            <button className="p-2 text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-                                                <Play className="w-4 h-4" />
-                                            </button>
-                                            {isAdmin && v.id && (
-                                                <>
-                                                    <button
-                                                        onClick={() => openEditVocab(v)}
-                                                        className="p-1.5 text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
-                                                        title="Chỉnh sửa"
-                                                    >
-                                                        <Edit className="w-3.5 h-3.5" />
-                                                    </button>
-                                                    <button
-                                                        onClick={() => handleDeleteVocab(v.id)}
-                                                        className="p-1.5 text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors"
-                                                        title="Xóa"
-                                                    >
-                                                        <Trash2 className="w-3.5 h-3.5" />
-                                                    </button>
-                                                </>
-                                            )}
-                                        </div>
-                                    </div>
-                                )) : (
+                                    );
+                                }) : (
                                     <p className="text-gray-400 dark:text-gray-500 text-center py-4">Chưa có từ vựng</p>
                                 )}
                             </div>
@@ -1173,7 +1393,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             </div>
         );
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [selectedKanji, kanjiList, vocabList, kanjiApiData, isAdmin, diagramZoom, diagramPan, isDragging, dragStart]);
+    }, [selectedKanji, kanjiList, vocabList, kanjiApiData, isAdmin, diagramZoom, diagramPan, isDragging, dragStart, pitchAccentData, addedVocabIds, addingVocabId]);
 
     // Loading screen
     if (loading) {
@@ -1283,12 +1503,6 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                     {/* Admin buttons */}
                     {isAdmin && (
                         <div className="space-y-2">
-                            <button onClick={() => setShowAddKanjiModal(true)} className="w-full py-2 bg-emerald-600 hover:bg-emerald-500 rounded-lg font-medium flex items-center justify-center gap-2 text-white">
-                                <Plus className="w-4 h-4" /> Thêm Kanji
-                            </button>
-                            <button onClick={() => setShowAddVocabModal(true)} className="w-full py-2 bg-orange-600 hover:bg-orange-500 rounded-lg font-medium flex items-center justify-center gap-2 text-white">
-                                <Plus className="w-4 h-4" /> Thêm Từ vựng
-                            </button>
                             <div className="grid grid-cols-2 gap-2">
                                 <button onClick={() => setShowImportKanjiModal(true)} className="py-2 bg-cyan-700 hover:bg-cyan-600 rounded-lg font-medium flex items-center justify-center gap-1 text-sm text-white">
                                     <FileJson className="w-4 h-4" /> Import Kanji
@@ -1343,32 +1557,44 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
 
                     {/* Bulk Select Controls */}
                     {bulkSelectMode && isAdmin && (
-                        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-3 flex flex-wrap items-center gap-3">
-                            <div className="flex items-center gap-2">
-                                <input
-                                    type="checkbox"
-                                    checked={selectedKanjiIds.length === filteredKanjiList.length && filteredKanjiList.length > 0}
-                                    onChange={selectAllKanji}
-                                    className="w-4 h-4 rounded border-gray-300"
-                                />
-                                <span className="text-sm text-gray-700 dark:text-gray-300">Chọn tất cả Kanji ({selectedKanjiIds.length}/{filteredKanjiList.length})</span>
+                        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-3 space-y-2">
+                            <div className="flex flex-wrap items-center gap-3">
+                                <div className="flex items-center gap-2">
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedKanjiIds.length === filteredKanjiList.length && filteredKanjiList.length > 0}
+                                        onChange={selectAllKanji}
+                                        className="w-4 h-4 rounded border-gray-300"
+                                    />
+                                    <span className="text-sm text-gray-700 dark:text-gray-300">Chọn tất cả Kanji ({selectedKanjiIds.length}/{filteredKanjiList.length})</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedVocabIds.length === filteredVocabList.length && filteredVocabList.length > 0}
+                                        onChange={selectAllVocab}
+                                        className="w-4 h-4 rounded border-gray-300"
+                                    />
+                                    <span className="text-sm text-gray-700 dark:text-gray-300">Chọn tất cả Vocab ({selectedVocabIds.length}/{filteredVocabList.length})</span>
+                                </div>
+                                {selectedKanjiIds.length > 0 && (
+                                    <span className="text-xs text-orange-600 dark:text-orange-400">
+                                        💡 Chọn kanji để xem từ vựng liên quan
+                                    </span>
+                                )}
                             </div>
-                            {selectedKanjiIds.length > 0 && (
-                                <span className="text-xs text-orange-600 dark:text-orange-400">
-                                    💡 Chọn kanji để xem từ vựng liên quan
-                                </span>
-                            )}
-                            <div className="flex-1" />
-                            {selectedKanjiIds.length > 0 && (
-                                <button onClick={handleBulkDeleteKanji} className="px-3 py-1.5 bg-red-600 hover:bg-red-500 text-white rounded-lg text-sm font-medium flex items-center gap-1">
-                                    <Trash2 className="w-4 h-4" /> Xóa {selectedKanjiIds.length} Kanji
-                                </button>
-                            )}
-                            {selectedVocabIds.length > 0 && (
-                                <button onClick={handleBulkDeleteVocab} className="px-3 py-1.5 bg-orange-600 hover:bg-orange-500 text-white rounded-lg text-sm font-medium flex items-center gap-1">
-                                    <Trash2 className="w-4 h-4" /> Xóa {selectedVocabIds.length} Vocab
-                                </button>
-                            )}
+                            <div className="flex flex-wrap items-center gap-2">
+                                {selectedKanjiIds.length > 0 && (
+                                    <button onClick={handleBulkDeleteKanji} className="px-3 py-1.5 bg-red-600 hover:bg-red-500 text-white rounded-lg text-sm font-medium flex items-center gap-1">
+                                        <Trash2 className="w-4 h-4" /> Xóa {selectedKanjiIds.length} Kanji
+                                    </button>
+                                )}
+                                {selectedVocabIds.length > 0 && (
+                                    <button onClick={handleBulkDeleteVocab} className="px-3 py-1.5 bg-orange-600 hover:bg-orange-500 text-white rounded-lg text-sm font-medium flex items-center gap-1">
+                                        <Trash2 className="w-4 h-4" /> Xóa {selectedVocabIds.length} Vocab
+                                    </button>
+                                )}
+                            </div>
                         </div>
                     )}
 
@@ -1408,9 +1634,24 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
 
                                     return relatedVocab.length > 0 && (
                                         <>
-                                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 mb-2">
-                                                Từ vựng chứa kanji đã chọn ({relatedVocab.length}):
-                                            </p>
+                                            <div className="flex items-center justify-between mt-4 mb-2">
+                                                <p className="text-xs text-gray-500 dark:text-gray-400">
+                                                    Từ vựng chứa kanji đã chọn ({relatedVocab.length}):
+                                                </p>
+                                                <button
+                                                    onClick={() => {
+                                                        const relatedIds = relatedVocab.map(v => v.id);
+                                                        const allSelected = relatedIds.every(id => selectedVocabIds.includes(id));
+                                                        setSelectedVocabIds(prev => allSelected
+                                                            ? prev.filter(id => !relatedIds.includes(id))
+                                                            : [...new Set([...prev, ...relatedIds])]
+                                                        );
+                                                    }}
+                                                    className="text-xs px-2 py-0.5 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-lg hover:bg-orange-200 dark:hover:bg-orange-800/40 font-medium"
+                                                >
+                                                    {relatedVocab.every(v => selectedVocabIds.includes(v.id)) ? 'Bỏ chọn tất cả' : 'Chọn tất cả'}
+                                                </button>
+                                            </div>
                                             <div className="space-y-1 max-h-60 overflow-auto">
                                                 {relatedVocab.map(vocab => (
                                                     <div
@@ -1484,19 +1725,38 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             {/* Add Vocab Modal */}
             {showAddVocabModal && (
                 <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 w-[320px] max-w-[90vw] space-y-3 shadow-2xl">
+                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 w-[400px] max-w-[90vw] max-h-[90vh] overflow-y-auto space-y-3 shadow-2xl">
                         <div className="flex justify-between items-center">
                             <h3 className="text-lg font-bold text-gray-900 dark:text-white">Thêm Từ vựng</h3>
                             <button onClick={() => setShowAddVocabModal(false)} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-5 h-5" /></button>
                         </div>
                         <input value={newVocab.word} onChange={e => setNewVocab({ ...newVocab, word: e.target.value })} placeholder="Từ vựng (例: 水道)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-base text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
                         <input value={newVocab.reading} onChange={e => setNewVocab({ ...newVocab, reading: e.target.value })} placeholder="Cách đọc (例: すいどう)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                        <input value={newVocab.sinoViet || ''} onChange={e => setNewVocab({ ...newVocab, sinoViet: e.target.value })} placeholder="Âm Hán Việt" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                        <input value={newVocab.meaning} onChange={e => setNewVocab({ ...newVocab, meaning: e.target.value })} placeholder="Nghĩa" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                        <input value={newVocab.sinoViet || ''} onChange={e => setNewVocab({ ...newVocab, sinoViet: e.target.value })} placeholder="Âm Hán Việt (例: THỦY ĐẠO)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                        <input value={newVocab.meaning} onChange={e => setNewVocab({ ...newVocab, meaning: e.target.value })} placeholder="Nghĩa (例: Đường ống nước)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
                         <div className="grid grid-cols-2 gap-2">
                             <select value={newVocab.level} onChange={e => setNewVocab({ ...newVocab, level: e.target.value })} className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600">
                                 {JLPT_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
                             </select>
+                            <select value={newVocab.pos || ''} onChange={e => setNewVocab({ ...newVocab, pos: e.target.value })} className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600">
+                                <option value="">Từ loại</option>
+                                <option value="noun">Danh từ</option>
+                                <option value="verb">Động từ</option>
+                                <option value="suru_verb">Danh động từ</option>
+                                <option value="adj_i">Tính từ -i</option>
+                                <option value="adj_na">Tính từ -na</option>
+                                <option value="adverb">Trạng từ</option>
+                                <option value="conjunction">Liên từ</option>
+                                <option value="grammar">Ngữ pháp</option>
+                                <option value="phrase">Cụm từ</option>
+                                <option value="other">Khác</option>
+                            </select>
+                        </div>
+                        <input value={newVocab.synonym || ''} onChange={e => setNewVocab({ ...newVocab, synonym: e.target.value })} placeholder="Đồng nghĩa (例: 上水)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                        <input value={newVocab.example || ''} onChange={e => setNewVocab({ ...newVocab, example: e.target.value })} placeholder="Ví dụ (例: 水道の水を飲みます。)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                        <input value={newVocab.exampleMeaning || ''} onChange={e => setNewVocab({ ...newVocab, exampleMeaning: e.target.value })} placeholder="Nghĩa ví dụ (例: Tôi uống nước máy.)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                        <input value={newVocab.nuance || ''} onChange={e => setNewVocab({ ...newVocab, nuance: e.target.value })} placeholder="Sắc thái / Ghi chú" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                        <div className="grid grid-cols-2 gap-2">
                             <input value={newVocab.source || ''} onChange={e => setNewVocab({ ...newVocab, source: e.target.value })} placeholder="Nguồn" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
                         </div>
                         <p className="text-xs text-gray-500 dark:text-gray-400">* Tự động liên kết với Kanji trong từ</p>
@@ -1584,7 +1844,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                 <p className="text-gray-700 dark:text-gray-300 font-medium">📝 JSON mẫu:</p>
                                 <button
                                     onClick={() => {
-                                        const sampleJson = `[{"word":"夏休み","reading":"なつやすみ","meaning":"Nghỉ hè","level":"N4","sinoViet":"Hạ hưu"}]`;
+                                        const sampleJson = `[{"word":"夏休み","reading":"なつやすみ","meaning":"Nghỉ hè","level":"N4","sinoViet":"Hạ hưu","pos":"noun","synonym":"","example":"夏休みは楽しいです。","exampleMeaning":"Kỳ nghỉ hè vui lắm.","nuance":"","accent":"3","specialReading":false}]`;
                                         navigator.clipboard.writeText(sampleJson);
                                         setImportStatus('📋 Đã copy JSON mẫu!');
                                         setTimeout(() => setImportStatus(''), 2000);
@@ -1599,9 +1859,16 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
   "reading": "なつやすみ",
   "meaning": "Nghỉ hè",
   "level": "N4",
-  "sinoViet": "Hạ hưu"
+  "sinoViet": "Hạ hưu",
+  "pos": "noun",
+  "accent": "3",
+  "specialReading": false,
+  "synonym": "",
+  "example": "夏休みは楽しいです。",
+  "exampleMeaning": "Kỳ nghỉ hè vui lắm.",
+  "nuance": ""
 }`}</pre>
-                            <p className="text-gray-500 dark:text-gray-400 text-[10px] mt-2">* Tự động liên kết với Kanji. Trường bắt buộc: word, level.</p>
+                            <p className="text-gray-500 dark:text-gray-400 text-[10px] mt-2">* accent: số vị trí accent (0=heiban, 1=atamadaka...). specialReading: true = đọc đặc biệt (全青色). Tự động liên kết với Kanji cùng cấp độ.</p>
                         </div>
 
                         <textarea

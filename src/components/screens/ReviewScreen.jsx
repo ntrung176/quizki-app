@@ -11,6 +11,7 @@ import {
     maskWordInExample,
     buildAdjNaAcceptedAnswers
 } from '../../utils/textProcessing';
+import { flashCorrect, launchConfetti, launchFanfare } from '../../utils/celebrations';
 
 // Helper function to detect mobile devices
 const isMobileDevice = () => {
@@ -512,6 +513,7 @@ const ReviewScreen = ({
                 setMessage(`Chính xác! ${displayFront} - Đã hoàn thành!`);
                 setIsRevealed(true);
                 setIsLocked(false);
+                flashCorrect();
                 playAudio(currentCard.audioBase64, currentCard.front);
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 await moveToNextCard(true);
@@ -521,6 +523,7 @@ const ReviewScreen = ({
                 setMessage(`Chính xác! ${displayFront}`);
                 setIsRevealed(true);
                 setIsLocked(false);
+                flashCorrect();
                 playAudio(currentCard.audioBase64, currentCard.front);
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 await moveToNextCard(true);
@@ -1090,21 +1093,27 @@ const ReviewScreen = ({
     );
 };
 
-export const ReviewCompleteScreen = ({ onBack }) => (
-    <div className="flex flex-col items-center justify-center p-10 text-center space-y-6 animate-fade-in">
-        <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-2 shadow-inner">
-            <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-200 animate-bounce">
-                <Check className="w-8 h-8 text-white" strokeWidth={4} />
+export const ReviewCompleteScreen = ({ onBack }) => {
+    useEffect(() => {
+        launchFanfare();
+    }, []);
+
+    return (
+        <div className="flex flex-col items-center justify-center p-10 text-center space-y-6 animate-fade-in">
+            <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-2 shadow-inner">
+                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-200 animate-bounce">
+                    <Check className="w-8 h-8 text-white" strokeWidth={4} />
+                </div>
             </div>
+            <div>
+                <h2 className="text-3xl font-black text-gray-800 mb-2">Tuyệt vời!</h2>
+                <p className="text-gray-500 font-medium">Bạn đã hoàn thành phiên ôn tập này.</p>
+            </div>
+            <button onClick={onBack} className="px-8 py-3 bg-gray-900 text-white font-bold rounded-xl shadow-xl hover:bg-gray-800 hover:-translate-y-1 transition-all">
+                Về Trang chủ
+            </button>
         </div>
-        <div>
-            <h2 className="text-3xl font-black text-gray-800 mb-2">Tuyệt vời!</h2>
-            <p className="text-gray-500 font-medium">Bạn đã hoàn thành phiên ôn tập này.</p>
-        </div>
-        <button onClick={onBack} className="px-8 py-3 bg-gray-900 text-white font-bold rounded-xl shadow-xl hover:bg-gray-800 hover:-translate-y-1 transition-all">
-            Về Trang chủ
-        </button>
-    </div>
-);
+    );
+};
 
 export default ReviewScreen;

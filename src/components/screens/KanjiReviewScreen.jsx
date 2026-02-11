@@ -96,20 +96,26 @@ const KanjiReviewScreen = () => {
     // Stats - accurate calculations from SRS data
     const stats = useMemo(() => {
         const now = Date.now();
-        let newCount = 0, learning = 0, shortTerm = 0, longTerm = 0;
+        let hasNoSRS = 0, learning = 0, shortTerm = 0, longTerm = 0;
+        let totalReps = 0;
         const reviewDays = new Set();
 
-        kanjiList.forEach(k => {
-            const srs = srsData[k.id];
-            if (!srs) { newCount++; return; }
-            const interval = srs.interval || 0;
-            if (interval < 60) learning++;
-            else if (interval < 1440 * 7) shortTerm++;
-            else longTerm++;
-        });
-
-        // Calculate unique days studied and streak from lastReview data
+        // Tính từ SRS data (chỉ kanji user đã thêm vào ôn tập)
         Object.values(srsData).forEach(srs => {
+            const interval = srs.interval || 0;
+            const reps = srs.reps || 0;
+            totalReps += reps;
+
+            if (reps === 0 && interval === 0) {
+                hasNoSRS++; // Mới thêm, chưa ôn lần nào
+            } else if (interval < 60) {
+                learning++;
+            } else if (interval < 1440 * 7) {
+                shortTerm++;
+            } else {
+                longTerm++;
+            }
+
             if (srs.lastReview) {
                 const d = new Date(srs.lastReview);
                 const key = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
@@ -126,7 +132,6 @@ const KanjiReviewScreen = () => {
         // First check today
         const todayKey = `${checkDate.getFullYear()}-${checkDate.getMonth()}-${checkDate.getDate()}`;
         if (!reviewDays.has(todayKey)) {
-            // Check yesterday as starting point
             checkDate.setDate(checkDate.getDate() - 1);
             const yesterdayKey = `${checkDate.getFullYear()}-${checkDate.getMonth()}-${checkDate.getDate()}`;
             if (!reviewDays.has(yesterdayKey)) {
@@ -157,11 +162,12 @@ const KanjiReviewScreen = () => {
 
         return {
             dueToday: dueKanji.length,
-            newCards: newCount,
-            learning,
-            shortTerm,
-            longTerm,
-            totalReviewed: kanjiList.length - newCount,
+            newCards: hasNoSRS,         // Mới thêm vào SRS, chưa ôn lần nào
+            learning,                   // interval < 1 giờ
+            shortTerm,                  // interval < 1 tuần
+            longTerm,                   // interval >= 1 tuần
+            totalReps,                  // Tổng lượt ôn tập thực tế
+            totalReviewed: kanjiLearned - hasNoSRS, // Kanji đã ôn ít nhất 1 lần
             daysStudied: reviewDays.size,
             kanjiLearned,
             streak,
@@ -207,16 +213,16 @@ const KanjiReviewScreen = () => {
         return () => clearInterval(interval);
     }, [srsData]);
 
-    // Card distribution
+    // Card distribution (chỉ tính kanji trong SRS của user)
     const cardDistribution = useMemo(() => {
-        const total = kanjiList.length || 1;
+        const total = stats.kanjiLearned || 1;
         return [
-            { label: 'Thẻ mới', count: stats.newCards, percent: (stats.newCards / total) * 100, color: 'bg-gray-500' },
+            { label: 'Mới thêm (chưa ôn)', count: stats.newCards, percent: (stats.newCards / total) * 100, color: 'bg-gray-500' },
             { label: 'Đang học', count: stats.learning, percent: (stats.learning / total) * 100, color: 'bg-yellow-500' },
             { label: 'Mới thuộc (ngắn hạn)', count: stats.shortTerm, percent: (stats.shortTerm / total) * 100, color: 'bg-orange-500' },
             { label: 'Đã thuộc (dài hạn)', count: stats.longTerm, percent: (stats.longTerm / total) * 100, color: 'bg-green-500' },
         ];
-    }, [stats, kanjiList]);
+    }, [stats]);
 
     // Activity heatmap
     const activityData = useMemo(() => {
@@ -478,7 +484,7 @@ const KanjiReviewScreen = () => {
                     </div>
                     <div className="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
                         <div className="text-2xl font-bold text-emerald-400">{stats.newCards}</div>
-                        <div className="text-xs text-gray-500 mt-1">Mới thêm</div>
+                        <div className="text-xs text-gray-500 mt-1">Chưa ôn</div>
                     </div>
                     <div className="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
                         <div className="text-2xl font-bold text-gray-700 dark:text-gray-300">{stats.learning}</div>
@@ -493,8 +499,8 @@ const KanjiReviewScreen = () => {
                         <div className="text-xs text-gray-500 mt-1">Dài hạn</div>
                     </div>
                     <div className="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
-                        <div className="text-2xl font-bold text-gray-700 dark:text-gray-300">{stats.totalReviewed}</div>
-                        <div className="text-xs text-gray-500 mt-1">Tổng đã học</div>
+                        <div className="text-2xl font-bold text-gray-700 dark:text-gray-300">{stats.totalReps}</div>
+                        <div className="text-xs text-gray-500 mt-1">Tổng lượt ôn</div>
                     </div>
                 </div>
             </div>
@@ -531,7 +537,7 @@ const KanjiReviewScreen = () => {
             <div className="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700">
                 <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4 flex items-center gap-2">
                     <Flame className="w-4 h-4 text-orange-400" />
-                    {stats.totalReviewed} lượt ôn tập trong 365 ngày qua
+                    {stats.totalReps} lượt ôn tập trong 365 ngày qua
                 </h3>
                 <div className="overflow-x-auto">
                     <div className="flex gap-1 min-w-max">
