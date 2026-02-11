@@ -1,16 +1,37 @@
 import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import HanziWriter from 'hanzi-writer';
-import { Search, Grid, PenTool, Download, BookOpen, Map, Globe, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Play, Upload, FileJson, Edit, Check, Copy } from 'lucide-react';
+import { Search, Grid, PenTool, Download, BookOpen, Map, Globe, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Play, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw } from 'lucide-react';
 import { db } from '../../config/firebase';
 import { collection, getDocs, addDoc, deleteDoc, doc, query, where, writeBatch, updateDoc } from 'firebase/firestore';
 import { playAudio } from '../../utils/audio';
 import { fetchJotobaWordData, playJotobaAudio, accentNumberToPitchParts } from '../../utils/pitchAccent';
+import { renderKanjiStrokes, renderStrokeGuide } from '../../utils/kanjiStroke';
 
 import { RADICALS_214, KANJI_TREE, getDecompositionTree, isBasicRadical, getRadicalInfo } from '../../data/radicals214';
+import { JOTOBA_KANJI_DATA, getJotobaKanjiByLevel, getJotobaKanjiChars, getJotobaKanjiData } from '../../data/jotobaKanjiData';
 
 // JLPT Levels
 const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
+
+// Colors for each JLPT level (grid buttons)
+const LEVEL_COLORS = {
+    N5: { bg: 'bg-emerald-500 dark:bg-emerald-600/80', hover: 'hover:bg-emerald-600 dark:hover:bg-emerald-500', text: 'text-white' },
+    N4: { bg: 'bg-sky-500 dark:bg-sky-600/80', hover: 'hover:bg-sky-600 dark:hover:bg-sky-500', text: 'text-white' },
+    N3: { bg: 'bg-violet-500 dark:bg-violet-600/80', hover: 'hover:bg-violet-600 dark:hover:bg-violet-500', text: 'text-white' },
+    N2: { bg: 'bg-amber-500 dark:bg-amber-600/80', hover: 'hover:bg-amber-600 dark:hover:bg-amber-500', text: 'text-white' },
+    N1: { bg: 'bg-rose-500 dark:bg-rose-600/80', hover: 'hover:bg-rose-600 dark:hover:bg-rose-500', text: 'text-white' },
+    'Bộ thủ': { bg: 'bg-orange-500 dark:bg-orange-600/80', hover: 'hover:bg-orange-600 dark:hover:bg-orange-500', text: 'text-white' },
+};
+
+// Tab colors for level selector
+const LEVEL_TAB_COLORS = {
+    N5: 'bg-emerald-500 text-white shadow-md shadow-emerald-200 dark:shadow-emerald-900/50',
+    N4: 'bg-sky-500 text-white shadow-md shadow-sky-200 dark:shadow-sky-900/50',
+    N3: 'bg-violet-500 text-white shadow-md shadow-violet-200 dark:shadow-violet-900/50',
+    N2: 'bg-amber-500 text-white shadow-md shadow-amber-200 dark:shadow-amber-900/50',
+    N1: 'bg-rose-500 text-white shadow-md shadow-rose-900/50',
+    'Bộ thủ': 'bg-orange-500 text-white shadow-md shadow-orange-200 dark:shadow-orange-900/50',
+};
 
 const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserCards = [] }) => {
     const [searchParams] = useSearchParams();
@@ -29,18 +50,27 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     const [importStatus, setImportStatus] = useState('');
     const [isImporting, setIsImporting] = useState(false);
 
+    // Vocab Categories
+    const [vocabCategories, setVocabCategories] = useState([]);
+    const [showCategoryModal, setShowCategoryModal] = useState(false);
+    const [newCategoryName, setNewCategoryName] = useState('');
+    const [importCategory, setImportCategory] = useState(''); // Category selected for import
+
     // Firebase data
     const [kanjiList, setKanjiList] = useState([]);
     const [vocabList, setVocabList] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    // Hanzi Writer ref
-    const writerRef = useRef(null);
-    const writerContainerRef = useRef(null);
-    const detailWriterRef = useRef(null);
-    const detailWriterContainerRef = useRef(null);
+    // KanjiVG stroke animation controllers
+    const sidebarStrokeCtrl = useRef(null);
+    const detailStrokeCtrl = useRef(null);
 
-    // Kanji API data (radical, components, stroke count)
+    // Refs
+    const writerContainerRef = useRef(null);
+    const detailWriterContainerRef = useRef(null);
+    const strokeGuideRef = useRef(null);
+
+    // Kanji API data (from Jotoba)
     const [kanjiApiData, setKanjiApiData] = useState(null);
     const [loadingApiData, setLoadingApiData] = useState(false);
 
@@ -68,7 +98,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     });
     const [newVocab, setNewVocab] = useState({
         word: '', reading: '', meaning: '', level: 'N5', source: 'Mimikara',
-        sinoViet: '', pos: '', synonym: '', example: '', exampleMeaning: '', nuance: ''
+        sinoViet: '', pos: '', synonym: '', example: '', exampleMeaning: '', nuance: '', category: ''
     });
     const [jsonKanjiInput, setJsonKanjiInput] = useState('');
     const [jsonVocabInput, setJsonVocabInput] = useState('');
@@ -90,6 +120,12 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 const vocabData = vocabSnap.docs.map(d => ({ id: d.id, ...d.data() }));
                 console.log('Loaded vocab:', vocabData.length, 'items');
                 setVocabList(vocabData);
+
+                // Load Vocab Categories
+                const catSnap = await getDocs(collection(db, 'vocabCategories'));
+                const catData = catSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+                console.log('Loaded vocab categories:', catData.length, 'items');
+                setVocabCategories(catData);
             } catch (e) {
                 console.error('Error loading kanji data:', e);
                 alert('Lỗi tải dữ liệu Kanji. Vui lòng kiểm tra kết nối hoặc Firebase Rules.');
@@ -109,226 +145,166 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         }
     }, [searchParams, kanjiList, loading]);
 
-    // Initialize HanziWriter when selectedKanji changes
+    // Fetch Kanji API data + set up data when kanji is selected
+    useEffect(() => {
+        if (!selectedKanji) return;
+        setLoadingApiData(true);
+
+        // Use Jotoba static data + local data
+        const jData = getJotobaKanjiData(selectedKanji);
+        const kanjiData = kanjiList.find(k => k.character === selectedKanji);
+        const treeData = KANJI_TREE[selectedKanji];
+
+        setKanjiApiData({
+            stroke_count: jData?.stroke_count || null,
+            jlpt: jData?.jlpt || null,
+            onyomi: jData?.onyomi || [],
+            kunyomi: jData?.kunyomi || [],
+            meanings: jData?.meanings || [],
+            parts: jData?.parts || [],
+            components: treeData?.components || [],
+            componentMeaning: kanjiData?.meaning || null,
+        });
+        setLoadingApiData(false);
+    }, [selectedKanji]);
+
+    // Sidebar kanji preview stroke animation
     useEffect(() => {
         if (!selectedKanji || !writerContainerRef.current) return;
-        writerContainerRef.current.innerHTML = '';
         let cancelled = false;
 
-        const containerSize = Math.min(
-            writerContainerRef.current.offsetWidth || 200,
-            writerContainerRef.current.offsetHeight || 200
-        ) * 0.85;
+        // Stop previous animation
+        if (sidebarStrokeCtrl.current) {
+            sidebarStrokeCtrl.current.stop();
+            sidebarStrokeCtrl.current = null;
+        }
 
-        const showFallback = () => {
-            if (!cancelled && writerContainerRef.current) {
-                writerContainerRef.current.innerHTML = `<span style="font-size:${Math.floor(containerSize * 0.6)}px;color:#0891b2;font-family:'Noto Sans JP','Yu Gothic',serif;line-height:1">${selectedKanji}</span>`;
-            }
-        };
+        const container = writerContainerRef.current;
 
-        HanziWriter.loadCharacterData(selectedKanji)
-            .then((charData) => {
-                if (cancelled || !writerContainerRef.current) return;
-                if (!charData || !charData.strokes || charData.strokes.length === 0) {
-                    showFallback();
-                    return;
-                }
-                try {
-                    writerRef.current = HanziWriter.create(writerContainerRef.current, selectedKanji, {
-                        width: containerSize,
-                        height: containerSize,
-                        padding: 5,
-                        showOutline: true,
-                        strokeAnimationSpeed: 1,
-                        delayBetweenStrokes: 300,
-                        strokeColor: '#0891b2',
-                        outlineColor: '#e2e8f0',
-                        drawingColor: '#0891b2',
-                        showCharacter: false,
-                        showHintAfterMisses: 3,
-                        charDataLoader: () => charData,
-                    });
-                    setTimeout(() => {
-                        if (!cancelled) {
-                            writerRef.current?.animateCharacter({
-                                onComplete: () => writerRef.current?.showCharacter()
-                            });
-                        }
-                    }, 100);
-                } catch (error) {
-                    console.error('HanziWriter error:', error);
-                    showFallback();
-                }
-            })
-            .catch((err) => {
-                console.warn('HanziWriter data not found for:', selectedKanji, err);
-                showFallback();
-            });
+        renderKanjiStrokes(container, selectedKanji, {
+            strokeColor: '#0891b2',
+            guideColor: '#94a3b8',
+            ghostColor: '#334155',
+            strokeWidth: 3,
+            animDuration: 0.4,
+            delayBetween: 0.1,
+            fillContainer: true,
+        }).then(ctrl => {
+            if (!cancelled) sidebarStrokeCtrl.current = ctrl;
+        });
 
-        return () => {
-            cancelled = true;
-            writerRef.current = null;
-        };
+        return () => { cancelled = true; };
     }, [selectedKanji]);
 
-    // Fetch Kanji API data when kanji is selected
+    // Detail modal stroke animation + stroke guide
     useEffect(() => {
-        const fetchKanjiApiData = async () => {
-            if (!selectedKanji) return;
-
-            setLoadingApiData(true);
-            try {
-                // Fetch từ kanjiapi.dev cho stroke_count và readings
-                const response = await fetch(`https://kanjiapi.dev/v1/kanji/${encodeURIComponent(selectedKanji)}`);
-                let apiData = null;
-                if (response.ok) {
-                    apiData = await response.json();
-                }
-
-                // Lấy radical/components từ Firebase data và radicals214
-                const kanjiData = kanjiList.find(k => k.character === selectedKanji);
-                const treeData = KANJI_TREE[selectedKanji];
-
-                // Kết hợp dữ liệu
-                setKanjiApiData({
-                    ...apiData,
-                    radical: kanjiData?.radical || treeData?.radical || null,
-                    components: treeData?.components || [],
-                    componentMeaning: kanjiData?.meaning || null,
-                });
-            } catch (error) {
-                console.error('Kanjiapi error:', error);
-                // Nếu API fail, vẫn sử dụng local data
-                const kanjiData = kanjiList.find(k => k.character === selectedKanji);
-                const treeData = KANJI_TREE[selectedKanji];
-                setKanjiApiData({
-                    radical: kanjiData?.radical || treeData?.radical || null,
-                    components: treeData?.components || [],
-                    componentMeaning: kanjiData?.meaning || null,
-                });
-            } finally {
-                setLoadingApiData(false);
-            }
-        };
-
-        fetchKanjiApiData();
-    }, [selectedKanji]);
-
-    // Initialize HanziWriter in detail modal
-    useEffect(() => {
-        if (!selectedKanji || !showDetailModal) return;
-
+        if (!selectedKanji || !showDetailModal || !detailWriterContainerRef.current) return;
         let cancelled = false;
-        let attempts = 0;
-        const maxAttempts = 10;
-        let timer = null;
 
-        const showFallback = (container) => {
-            if (!cancelled && container) {
-                container.innerHTML = `<span style="font-size:120px;color:#0891b2;font-family:'Noto Sans JP','Yu Gothic',serif;line-height:1">${selectedKanji}</span>`;
-            }
-        };
+        // Stop previous
+        if (detailStrokeCtrl.current) {
+            detailStrokeCtrl.current.stop();
+            detailStrokeCtrl.current = null;
+        }
 
-        const initWriter = () => {
-            attempts++;
+        const container = detailWriterContainerRef.current;
+        // Wait a tick for layout
+        const timer = setTimeout(() => {
             if (cancelled) return;
 
-            // Check if container exists
-            if (!detailWriterContainerRef.current) {
-                if (attempts < maxAttempts) {
-                    timer = setTimeout(initWriter, 100);
-                }
-                return;
-            }
+            // Main animation - fill container
+            renderKanjiStrokes(container, selectedKanji, {
+                strokeColor: '#0891b2',
+                guideColor: '#94a3b8',
+                ghostColor: '#334155',
+                strokeWidth: 3.5,
+                animDuration: 0.5,
+                delayBetween: 0.15,
+                fillContainer: true,
+            }).then(ctrl => {
+                if (!cancelled) detailStrokeCtrl.current = ctrl;
+            });
 
-            // Skip if writer already exists for this kanji
-            if (detailWriterRef.current) return;
-
-            // Clear previous content
-            detailWriterContainerRef.current.innerHTML = '';
-
-            // Get container size
-            const containerSize = Math.min(
-                detailWriterContainerRef.current.offsetWidth || 250,
-                detailWriterContainerRef.current.offsetHeight || 250
-            ) * 0.75;
-
-            // Pre-check character data availability
-            HanziWriter.loadCharacterData(selectedKanji)
-                .then((charData) => {
-                    if (cancelled || !detailWriterContainerRef.current) return;
-                    if (!charData || !charData.strokes || charData.strokes.length === 0) {
-                        showFallback(detailWriterContainerRef.current);
-                        return;
-                    }
-                    try {
-                        detailWriterRef.current = HanziWriter.create(detailWriterContainerRef.current, selectedKanji, {
-                            width: containerSize,
-                            height: containerSize,
-                            padding: 5,
-                            showOutline: true,
-                            strokeAnimationSpeed: 0.8,
-                            delayBetweenStrokes: 400,
-                            strokeColor: '#0891b2',
-                            outlineColor: '#cbd5e1',
-                            drawingColor: '#0891b2',
-                            showCharacter: false,
-                            charDataLoader: () => charData,
-                        });
-                        setTimeout(() => {
-                            if (!cancelled) {
-                                detailWriterRef.current?.animateCharacter({
-                                    onComplete: () => detailWriterRef.current?.showCharacter()
-                                });
-                            }
-                        }, 200);
-                    } catch (error) {
-                        console.error('Detail HanziWriter error:', error);
-                        showFallback(detailWriterContainerRef.current);
-                    }
-                })
-                .catch((err) => {
-                    console.warn('Detail HanziWriter data not found for:', selectedKanji, err);
-                    showFallback(detailWriterContainerRef.current);
+            // Stroke order guide strip
+            if (strokeGuideRef.current) {
+                renderStrokeGuide(strokeGuideRef.current, selectedKanji, {
+                    frameSize: 65,
                 });
-        };
+            }
+        }, 100);
 
-        // Start trying to initialize
-        timer = setTimeout(initWriter, 50);
-
-        return () => {
-            cancelled = true;
-            if (timer) clearTimeout(timer);
-            detailWriterRef.current = null;
-        };
+        return () => { cancelled = true; clearTimeout(timer); };
     }, [selectedKanji, showDetailModal]);
 
-    // Get kanji for current level (from Firebase)
+    // Get kanji for current level: merge Jotoba static data + Firebase data
     const currentKanjiList = useMemo(() => {
-        const firebaseKanji = kanjiList.filter(k => k.level === selectedLevel).map(k => k.character);
-        if (!searchQuery.trim()) return firebaseKanji;
-        return firebaseKanji.filter(k => k.includes(searchQuery));
+        if (selectedLevel === 'Bộ thủ') {
+            // Return all 214 radicals as characters
+            return Object.keys(RADICALS_214);
+        }
+        // Start with all Jotoba kanji for this level (comprehensive JLPT list)
+        const jotobaChars = getJotobaKanjiChars(selectedLevel);
+        // Add any Firebase kanji not in Jotoba
+        const firebaseChars = kanjiList.filter(k => k.level === selectedLevel).map(k => k.character);
+        const mergedSet = new Set([...jotobaChars, ...firebaseChars]);
+        const merged = [...mergedSet];
+        if (!searchQuery.trim()) return merged;
+        // Filter by search query
+        const query = searchQuery.toLowerCase().trim();
+        return merged.filter(k => {
+            if (k.includes(query)) return true;
+            const jData = getJotobaKanjiData(k);
+            const fData = kanjiList.find(f => f.character === k);
+            if (jData?.meanings?.some(m => m.toLowerCase().includes(query))) return true;
+            if (fData?.meaning?.toLowerCase().includes(query)) return true;
+            if (fData?.sinoViet?.toLowerCase().includes(query)) return true;
+            return false;
+        });
     }, [selectedLevel, kanjiList, searchQuery]);
 
-    // Get filtered kanji list with id for bulk operations
+    // Get filtered kanji list with id for bulk operations (Firebase items only - need IDs for delete/edit)
     const filteredKanjiList = useMemo(() => {
+        if (selectedLevel === 'Bộ thủ') return []; // No bulk ops for radicals
         let filtered = kanjiList.filter(k => k.level === selectedLevel);
         if (searchQuery.trim()) {
-            filtered = filtered.filter(k => k.character.includes(searchQuery) || k.meaning?.includes(searchQuery) || k.sinoViet?.toLowerCase().includes(searchQuery.toLowerCase()));
+            const query = searchQuery.toLowerCase().trim();
+            filtered = filtered.filter(k => k.character.includes(query) || k.meaning?.toLowerCase().includes(query) || k.sinoViet?.toLowerCase().includes(query));
         }
         return filtered;
     }, [selectedLevel, kanjiList, searchQuery]);
 
-    // Search results for dropdown (search across ALL kanji regardless of level)
+    // Search results for dropdown (search across ALL kanji: Firebase + Jotoba)
     const searchResults = useMemo(() => {
         if (!searchQuery.trim()) return [];
         const query = searchQuery.toLowerCase().trim();
-        return kanjiList.filter(k =>
+        // Search Firebase kanji first
+        const fbResults = kanjiList.filter(k =>
             k.character === query ||
             k.character.includes(query) ||
             k.sinoViet?.toLowerCase().includes(query) ||
             k.meaning?.toLowerCase().includes(query)
-        ).slice(0, 10); // Limit to 10 results
+        );
+        // Also search Jotoba static data for kanji not in Firebase
+        const fbChars = new Set(fbResults.map(k => k.character));
+        const jotobaResults = Object.values(JOTOBA_KANJI_DATA)
+            .filter(k => !fbChars.has(k.literal))
+            .filter(k =>
+                k.literal === query ||
+                k.literal.includes(query) ||
+                k.meanings?.some(m => m.toLowerCase().includes(query)) ||
+                k.onyomi?.some(o => o.includes(query)) ||
+                k.kunyomi?.some(o => o.includes(query))
+            )
+            .map(k => ({
+                character: k.literal,
+                meaning: k.meanings?.join(', ') || '',
+                onyomi: k.onyomi?.join('、') || '',
+                kunyomi: k.kunyomi?.join('、') || '',
+                level: k.level,
+                sinoViet: '',
+                _fromJotoba: true
+            }));
+        return [...fbResults, ...jotobaResults].slice(0, 15); // Limit to 15 results
     }, [kanjiList, searchQuery]);
 
     // Handle selecting a kanji from search results
@@ -348,11 +324,39 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         return filtered;
     }, [selectedLevel, vocabList, searchQuery]);
 
-    // Get kanji detail
+    // Get kanji detail (Firebase first, then Jotoba static data as fallback)
     const getKanjiDetail = (char) => {
-        return kanjiList.find(k => k.character === char) || {
-            character: char, meaning: 'Chưa có thông tin', onyomi: '', kunyomi: '',
-            level: selectedLevel, strokeCount: '', sinoViet: '', mnemonic: ''
+        const fbData = kanjiList.find(k => k.character === char);
+        const jData = getJotobaKanjiData(char);
+
+        if (fbData) {
+            // Merge: Firebase data + Jotoba fills gaps
+            return {
+                ...fbData,
+                sinoViet: fbData.sinoViet || jData?.sinoViet || '',
+                meaning: fbData.meaning || jData?.meaningVi || jData?.meanings?.join(', ') || '',
+                meaningVi: jData?.meaningVi || fbData.meaning || '',
+            };
+        }
+        // Fallback to Jotoba static data
+        if (jData) {
+            return {
+                character: jData.literal,
+                meaning: jData.meaningVi || jData.meanings?.join(', ') || '',
+                meaningVi: jData.meaningVi || '',
+                sinoViet: jData.sinoViet || '',
+                onyomi: jData.onyomi?.join('、') || '',
+                kunyomi: jData.kunyomi?.join('、') || '',
+                level: jData.level || selectedLevel,
+                strokeCount: jData.stroke_count || '',
+                mnemonic: '',
+                parts: jData.parts || [],
+                _fromJotoba: true
+            };
+        }
+        return {
+            character: char, meaning: 'Chưa có thông tin', meaningVi: '', sinoViet: '',
+            onyomi: '', kunyomi: '', level: selectedLevel, strokeCount: '', mnemonic: ''
         };
     };
 
@@ -391,6 +395,106 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         }
     };
 
+    // Sync ALL Jotoba kanji data to Firebase
+    const handleSyncJotobaToFirebase = async () => {
+        if (!window.confirm('Đồng bộ toàn bộ dữ liệu Kanji từ Jotoba vào Firebase?\nKanji mới sẽ được thêm, kanji đã có sẽ được cập nhật fields còn thiếu.\nDữ liệu đã chỉnh sửa sẽ KHÔNG bị ghi đè.')) return;
+
+        setIsImporting(true);
+        setImportStatus('Đang đồng bộ...');
+
+        try {
+            const allJotobaKanji = Object.values(JOTOBA_KANJI_DATA);
+            const existingChars = {};
+            kanjiList.forEach(k => { if (k.character) existingChars[k.character] = k; });
+
+            let newCount = 0;
+            let updateCount = 0;
+            const newItems = [];
+            const BATCH_SIZE = 400;
+
+            // Separate new and existing
+            const toCreate = [];
+            const toUpdate = [];
+
+            for (const jk of allJotobaKanji) {
+                const existing = existingChars[jk.literal];
+                if (existing) {
+                    const updates = {};
+                    if (!existing.sinoViet && jk.sinoViet) updates.sinoViet = jk.sinoViet;
+                    if (!existing.meaningVi && jk.meaningVi) updates.meaningVi = jk.meaningVi;
+                    if ((!existing.meaning || existing.meaning === 'Chưa có thông tin') && jk.meaningVi) updates.meaning = jk.meaningVi;
+                    if (!existing.strokeCount && jk.stroke_count) updates.strokeCount = String(jk.stroke_count);
+                    if (!existing.onyomi && jk.onyomi?.length) updates.onyomi = jk.onyomi.join('、');
+                    if (!existing.kunyomi && jk.kunyomi?.length) updates.kunyomi = jk.kunyomi.join('、');
+                    if (Object.keys(updates).length > 0) {
+                        toUpdate.push({ id: existing.id, updates });
+                    }
+                } else {
+                    toCreate.push({
+                        character: jk.literal,
+                        meaning: jk.meaningVi || jk.meanings?.join(', ') || '',
+                        meaningVi: jk.meaningVi || '',
+                        sinoViet: jk.sinoViet || '',
+                        onyomi: jk.onyomi?.join('、') || '',
+                        kunyomi: jk.kunyomi?.join('、') || '',
+                        level: jk.level || 'N5',
+                        strokeCount: String(jk.stroke_count || ''),
+                        mnemonic: '',
+                        parts: (jk.parts || []).join('、'),
+                    });
+                }
+            }
+
+            setImportStatus(`Tạo ${toCreate.length} mới, cập nhật ${toUpdate.length}...`);
+
+            // Batch create
+            for (let i = 0; i < toCreate.length; i += BATCH_SIZE) {
+                const batch = writeBatch(db);
+                const chunk = toCreate.slice(i, i + BATCH_SIZE);
+                for (const kanji of chunk) {
+                    const docRef = doc(collection(db, 'kanji'));
+                    batch.set(docRef, kanji);
+                    newItems.push({ ...kanji, id: docRef.id });
+                }
+                await batch.commit();
+                newCount += chunk.length;
+                setImportStatus(`Tạo mới: ${newCount}/${toCreate.length}...`);
+            }
+
+            // Batch update
+            for (let i = 0; i < toUpdate.length; i += BATCH_SIZE) {
+                const batch = writeBatch(db);
+                const chunk = toUpdate.slice(i, i + BATCH_SIZE);
+                for (const item of chunk) {
+                    batch.update(doc(db, 'kanji', item.id), item.updates);
+                }
+                await batch.commit();
+                updateCount += chunk.length;
+                setImportStatus(`Cập nhật: ${updateCount}/${toUpdate.length}...`);
+            }
+
+            // Update local state
+            setKanjiList(prev => {
+                const updated = [...prev];
+                // Apply updates to existing items
+                for (const item of toUpdate) {
+                    const idx = updated.findIndex(k => k.id === item.id);
+                    if (idx >= 0) updated[idx] = { ...updated[idx], ...item.updates };
+                }
+                // Add new items
+                return [...updated, ...newItems];
+            });
+
+            setImportStatus(`✅ Đồng bộ xong! Tạo mới: ${newCount}, Cập nhật: ${updateCount}`);
+            setTimeout(() => setImportStatus(''), 5000);
+        } catch (e) {
+            console.error('Sync error:', e);
+            setImportStatus(`❌ Lỗi: ${e.message}`);
+        } finally {
+            setIsImporting(false);
+        }
+    };
+
     // Add Vocab (check duplicate)
     const handleAddVocab = async () => {
         if (!newVocab.word) return;
@@ -408,10 +512,43 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             const vocabData = { ...newVocab, kanjiList: kanjiChars };
             const docRef = await addDoc(collection(db, 'kanjiVocab'), vocabData);
             setVocabList([...vocabList, { ...vocabData, id: docRef.id }]);
-            setNewVocab({ word: '', reading: '', meaning: '', level: 'N5', source: 'Mimikara', sinoViet: '', pos: '', synonym: '', example: '', exampleMeaning: '', nuance: '' });
+            setNewVocab({ word: '', reading: '', meaning: '', level: 'N5', source: 'Mimikara', sinoViet: '', pos: '', synonym: '', example: '', exampleMeaning: '', nuance: '', category: '' });
             setShowAddVocabModal(false);
         } catch (e) {
             console.error('Error adding vocab:', e);
+        }
+    };
+
+    // Add Vocab Category
+    const handleAddCategory = async () => {
+        if (!newCategoryName.trim()) return;
+        const trimmed = newCategoryName.trim();
+        // Check duplicate
+        if (vocabCategories.some(c => c.name === trimmed)) {
+            alert(`Phân loại "${trimmed}" đã tồn tại!`);
+            return;
+        }
+        try {
+            const docRef = await addDoc(collection(db, 'vocabCategories'), {
+                name: trimmed,
+                createdAt: new Date().toISOString()
+            });
+            setVocabCategories([...vocabCategories, { id: docRef.id, name: trimmed }]);
+            setNewCategoryName('');
+        } catch (e) {
+            console.error('Error adding category:', e);
+            alert('Lỗi khi thêm phân loại: ' + e.message);
+        }
+    };
+
+    // Delete Vocab Category
+    const handleDeleteCategory = async (catId) => {
+        if (!window.confirm('Bạn có chắc muốn xóa phân loại này?')) return;
+        try {
+            await deleteDoc(doc(db, 'vocabCategories', catId));
+            setVocabCategories(vocabCategories.filter(c => c.id !== catId));
+        } catch (e) {
+            console.error('Error deleting category:', e);
         }
     };
 
@@ -589,6 +726,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                     nuance: item.nuance || '',
                     accent: item.accent || '',
                     specialReading: item.specialReading || false,
+                    category: item.category || importCategory || '',
                     kanjiList: linkedKanji
                 };
 
@@ -614,26 +752,35 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         }
     };
 
-    // Edit Kanji
+    // Edit Kanji (update existing or create new from Jotoba data)
     const handleEditKanji = async () => {
-        if (!editingKanji || !editingKanji.id) return;
+        if (!editingKanji) return;
+        const kanjiDoc = {
+            character: editingKanji.character || '',
+            meaning: editingKanji.meaning || '',
+            onyomi: editingKanji.onyomi || '',
+            kunyomi: editingKanji.kunyomi || '',
+            level: editingKanji.level || 'N5',
+            strokeCount: editingKanji.strokeCount || '',
+            sinoViet: editingKanji.sinoViet || '',
+            mnemonic: editingKanji.mnemonic || '',
+            radical: editingKanji.radical || '',
+            parts: editingKanji.parts || '',
+        };
         try {
-            await updateDoc(doc(db, 'kanji', editingKanji.id), {
-                character: editingKanji.character || '',
-                meaning: editingKanji.meaning || '',
-                onyomi: editingKanji.onyomi || '',
-                kunyomi: editingKanji.kunyomi || '',
-                level: editingKanji.level || 'N5',
-                strokeCount: editingKanji.strokeCount || '',
-                sinoViet: editingKanji.sinoViet || '',
-                mnemonic: editingKanji.mnemonic || '',
-                radical: editingKanji.radical || '',
-            });
-            setKanjiList(kanjiList.map(k => k.id === editingKanji.id ? editingKanji : k));
+            if (editingKanji.id) {
+                // Update existing
+                await updateDoc(doc(db, 'kanji', editingKanji.id), kanjiDoc);
+                setKanjiList(kanjiList.map(k => k.id === editingKanji.id ? { ...editingKanji, ...kanjiDoc } : k));
+            } else {
+                // Create new (from Jotoba data that admin customized)
+                const docRef = await addDoc(collection(db, 'kanji'), kanjiDoc);
+                setKanjiList([...kanjiList, { ...kanjiDoc, id: docRef.id }]);
+            }
             setShowEditKanjiModal(false);
             setEditingKanji(null);
         } catch (e) {
-            console.error('Error editing kanji:', e);
+            console.error('Error saving kanji:', e);
             alert('Lỗi khi lưu kanji: ' + e.message);
         }
     };
@@ -661,6 +808,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 level: editingVocab.level,
                 source: editingVocab.source,
                 sinoViet: editingVocab.sinoViet,
+                category: editingVocab.category || '',
                 kanjiList: kanjiChars
             });
             setVocabList(vocabList.map(v => v.id === editingVocab.id ? { ...editingVocab, kanjiList: kanjiChars } : v));
@@ -825,75 +973,110 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         {/* Left: Kanji Display with Animation */}
                         <div className="space-y-4">
                             <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 aspect-square flex items-center justify-center relative shadow-xl overflow-hidden">
-                                {/* HanziWriter Container - key prevents remounting */}
+                                {/* KanjiVG Stroke Animation Container */}
                                 <div
-                                    key={`hanzi-writer-${selectedKanji}`}
+                                    key={`kanji-display-${selectedKanji}`}
                                     ref={detailWriterContainerRef}
                                     className="w-full h-full flex items-center justify-center"
                                 />
-                                {/* Grid Overlay */}
-                                <div className="absolute inset-6 grid grid-cols-2 grid-rows-2 pointer-events-none">
-                                    <div className="border-r border-b border-gray-200 dark:border-slate-700/50 border-dashed"></div>
-                                    <div className="border-b border-gray-200 dark:border-slate-700/50 border-dashed"></div>
-                                    <div className="border-r border-gray-200 dark:border-slate-700/50 border-dashed"></div>
-                                    <div></div>
-                                </div>
                                 {/* Replay Button */}
                                 <button
-                                    onClick={() => {
-                                        detailWriterRef.current?.animateCharacter({
-                                            onComplete: () => {
-                                                detailWriterRef.current?.showCharacter();
-                                            }
-                                        });
-                                    }}
+                                    onClick={() => detailStrokeCtrl.current?.replay()}
                                     className="absolute bottom-3 right-3 p-2 bg-cyan-500 hover:bg-cyan-400 rounded-full text-white shadow-lg transition-all hover:scale-110"
-                                    title="Xem lại animation"
+                                    title="Xem lại nét vẽ"
                                 >
-                                    <Play className="w-5 h-5" />
+                                    <RotateCcw className="w-5 h-5" />
                                 </button>
                                 {/* Stroke Count Badge */}
                                 <div className="absolute top-3 right-3 bg-orange-500 text-white text-sm font-bold px-2 py-1 rounded-lg shadow">
                                     {kanjiApiData?.stroke_count || detail.strokeCount || '?'} nét
                                 </div>
                             </div>
+                            {/* Stroke Order Guide Strip (Jotoba Style) */}
+                            <div className="bg-slate-800 dark:bg-slate-900 rounded-xl p-2 shadow-lg border border-slate-700">
+                                <p className="text-xs text-slate-400 mb-1.5 px-1 font-medium">Hướng dẫn nét viết</p>
+                                <div
+                                    ref={strokeGuideRef}
+                                    className="flex gap-0.5 overflow-x-auto pb-1 scrollbar-thin"
+                                    style={{ scrollbarWidth: 'thin' }}
+                                />
+                            </div>
                         </div>
-
                         {/* Center: Kanji Info */}
                         <div className="space-y-4">
                             <div className="flex items-center gap-3">
                                 <span className="text-4xl font-bold text-gray-900 dark:text-white font-japanese">{selectedKanji}</span>
                                 <span className="text-2xl text-gray-400">-</span>
-                                <span className="text-2xl font-bold text-cyan-600 dark:text-cyan-400">{detail.sinoViet || 'CHI'}</span>
-                                {isAdmin && detail.id && (
+                                <span className="text-2xl font-bold text-cyan-600 dark:text-cyan-400">{detail.sinoViet || ''}</span>
+                                {isAdmin && (
                                     <div className="ml-auto flex gap-2">
                                         <button
-                                            onClick={() => openEditKanji(detail)}
+                                            onClick={() => {
+                                                // Open edit for any kanji - pre-fill from Jotoba if not in Firebase
+                                                const jData = getJotobaKanjiData(selectedKanji);
+                                                const editData = detail.id ? detail : {
+                                                    character: selectedKanji,
+                                                    meaning: jData?.meaningVi || jData?.meanings?.join(', ') || '',
+                                                    onyomi: jData?.onyomi?.join('、') || '',
+                                                    kunyomi: jData?.kunyomi?.join('、') || '',
+                                                    level: jData?.level || selectedLevel,
+                                                    sinoViet: jData?.sinoViet || '',
+                                                    mnemonic: '',
+                                                    radical: '',
+                                                    parts: jData?.parts?.join('、') || '',
+                                                };
+                                                openEditKanji(editData);
+                                            }}
                                             className="p-2 text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 bg-gray-100 dark:bg-slate-700 rounded-lg transition-colors"
                                             title="Chỉnh sửa kanji"
                                         >
                                             <Edit className="w-4 h-4" />
                                         </button>
-                                        <button
-                                            onClick={() => { handleDeleteKanji(detail.id); setShowDetailModal(false); }}
-                                            className="p-2 text-gray-400 hover:text-red-500 dark:hover:text-red-400 bg-gray-100 dark:bg-slate-700 rounded-lg transition-colors"
-                                            title="Xóa kanji"
-                                        >
-                                            <Trash2 className="w-4 h-4" />
-                                        </button>
+                                        {detail.id && (
+                                            <button
+                                                onClick={() => { handleDeleteKanji(detail.id); setShowDetailModal(false); }}
+                                                className="p-2 text-gray-400 hover:text-red-500 dark:hover:text-red-400 bg-gray-100 dark:bg-slate-700 rounded-lg transition-colors"
+                                                title="Xóa kanji"
+                                            >
+                                                <Trash2 className="w-4 h-4" />
+                                            </button>
+                                        )}
                                     </div>
                                 )}
                             </div>
 
-                            <div className="space-y-2 text-sm bg-white dark:bg-slate-800/50 rounded-xl p-4 border border-gray-100 dark:border-slate-700">
-                                <p><span className="text-cyan-600 dark:text-cyan-400">→ Quy tắc chuyển âm</span></p>
-                                <p><span className="text-gray-500 dark:text-gray-400">Ý nghĩa:</span> <span className="text-orange-500 dark:text-orange-400 font-medium">{detail.meaning || '-'}</span></p>
-                                <p><span className="text-gray-500 dark:text-gray-400">Trình độ JLPT:</span> <span className="text-gray-900 dark:text-white font-medium">{detail.level || '-'}</span></p>
-                                <p><span className="text-gray-500 dark:text-gray-400">Số nét:</span> <span className="text-gray-900 dark:text-white font-bold">{kanjiApiData?.stroke_count || detail.strokeCount || '?'}</span></p>
-                                <p><span className="text-gray-500 dark:text-gray-400">Bộ thủ:</span> <span className="text-orange-500 dark:text-orange-400 font-japanese">{detail.radical || kanjiApiData?.radical || '?'}</span></p>
-                                <p><span className="text-gray-500 dark:text-gray-400">Âm Kun:</span> <span className="text-gray-900 dark:text-white font-japanese">{detail.kunyomi || '-'}</span></p>
-                                <p><span className="text-gray-500 dark:text-gray-400">Âm On:</span> <span className="text-cyan-600 dark:text-cyan-400 font-japanese">{detail.onyomi || '-'}</span></p>
-                                <p><span className="text-gray-500 dark:text-gray-400">Ghi ý cách nhớ:</span> <span className="text-gray-900 dark:text-white">{detail.mnemonic || 'Chưa có ghi chú'}</span></p>
+                            <div className="space-y-2.5 text-sm bg-white dark:bg-slate-800/50 rounded-xl p-4 border border-gray-100 dark:border-slate-700">
+                                {/* Vietnamese meaning - primary */}
+                                <p><span className="text-gray-500 dark:text-gray-400">Ý nghĩa:</span> <span className="text-orange-500 dark:text-orange-400 font-medium text-base">{detail.meaning || getJotobaKanjiData(selectedKanji)?.meaningVi || '-'}</span></p>
+                                <p><span className="text-gray-500 dark:text-gray-400">Trình độ JLPT:</span> <span className="text-gray-900 dark:text-white font-medium">{detail.level || (kanjiApiData?.jlpt ? `N${kanjiApiData.jlpt}` : '-')}</span></p>
+                                <p><span className="text-gray-500 dark:text-gray-400">Số nét:</span> <span className="text-gray-900 dark:text-white font-bold">{kanjiApiData?.stroke_count || detail.strokeCount || getJotobaKanjiData(selectedKanji)?.stroke_count || '?'}</span></p>
+                                <p><span className="text-gray-500 dark:text-gray-400">Âm Kun:</span> <span className="text-gray-900 dark:text-white font-japanese">{detail.kunyomi || (kanjiApiData?.kunyomi?.join('、')) || getJotobaKanjiData(selectedKanji)?.kunyomi?.join('、') || '-'}</span></p>
+                                <p><span className="text-gray-500 dark:text-gray-400">Âm On:</span> <span className="text-cyan-600 dark:text-cyan-400 font-japanese">{detail.onyomi || (kanjiApiData?.onyomi?.join('、')) || getJotobaKanjiData(selectedKanji)?.onyomi?.join('、') || '-'}</span></p>
+                                {/* Parts / Thành phần chiết tự */}
+                                {(() => {
+                                    const parts = kanjiApiData?.parts || detail.parts || getJotobaKanjiData(selectedKanji)?.parts || [];
+                                    if (parts.length === 0) return null;
+                                    const partsArr = typeof parts === 'string' ? parts.split(/[,，、]/).filter(Boolean) : parts;
+                                    return (
+                                        <div>
+                                            <span className="text-gray-500 dark:text-gray-400">Thành phần:</span>
+                                            <div className="flex flex-wrap gap-1.5 mt-1">
+                                                {partsArr.map((p, i) => (
+                                                    <button
+                                                        key={i}
+                                                        onClick={() => { setSelectedKanji(p); setDiagramPan({ x: 0, y: 0 }); setDiagramZoom(1); }}
+                                                        className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg text-base font-japanese hover:bg-purple-200 dark:hover:bg-purple-800/50 transition-colors cursor-pointer"
+                                                    >
+                                                        {p}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    );
+                                })()}
+                                {detail.mnemonic && (
+                                    <p className="pt-1 border-t border-gray-100 dark:border-slate-700"><span className="text-gray-500 dark:text-gray-400">💡 Cách nhớ:</span> <span className="text-gray-900 dark:text-white">{detail.mnemonic}</span></p>
+                                )}
                             </div>
                             {/* Component Breakdown Diagram - Sơ đồ chiết tự */}
                             <div className="mt-6">
@@ -919,14 +1102,26 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             if (depth >= maxDepth || visited.has(char)) return { char, children: [] };
                                             visited.add(char);
                                             let children = [];
+                                            // 1. Firebase data (radical or parts field)
                                             const kanjiData = kanjiList.find(k => k.character === char);
-                                            if (kanjiData?.radical) {
+                                            if (kanjiData?.parts) {
+                                                children = parseRadicals(kanjiData.parts);
+                                            } else if (kanjiData?.radical) {
                                                 children = parseRadicals(kanjiData.radical);
                                             }
+                                            // 2. KANJI_TREE data
                                             if (children.length === 0) {
                                                 const treeData = KANJI_TREE[char];
                                                 if (treeData?.components?.length > 0) {
                                                     children = treeData.components;
+                                                }
+                                            }
+                                            // 3. Jotoba static parts data
+                                            if (children.length === 0) {
+                                                const jData = getJotobaKanjiData(char);
+                                                if (jData?.parts?.length > 0) {
+                                                    // Filter out self-reference
+                                                    children = jData.parts.filter(p => p !== char);
                                                 }
                                             }
                                             return {
@@ -1160,11 +1355,23 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             </div>
                         </div>
 
-                        {/* Right: Vocabulary */}
+                        {/* Right: Vocabulary - grouped by category */}
                         <div className="space-y-4 bg-white dark:bg-slate-800/30 rounded-xl p-4 border border-gray-100 dark:border-slate-700">
+                            {/* Header with Add All and Category Management */}
                             <div className="flex justify-between items-center">
-                                <h3 className="text-orange-500 dark:text-orange-400 font-medium">Từ vựng trong (Mimikara, Tango)</h3>
+                                <h3 className="text-orange-500 dark:text-orange-400 font-medium flex items-center gap-1.5">
+                                    <Tag className="w-4 h-4" /> Từ vựng ({vocab.length})
+                                </h3>
                                 <div className="flex items-center gap-2">
+                                    {isAdmin && (
+                                        <button
+                                            onClick={() => setShowCategoryModal(true)}
+                                            className="flex items-center gap-1 px-2 py-1 text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-800/40 transition-colors font-medium"
+                                            title="Quản lý phân loại"
+                                        >
+                                            <FolderPlus className="w-3 h-3" /> Phân loại
+                                        </button>
+                                    )}
                                     {onAddVocabToSRS && vocab.length > 0 && (
                                         <button
                                             onClick={() => handleAddAllVocabToSRS(vocab)}
@@ -1178,20 +1385,37 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             )}
                                         </button>
                                     )}
-                                    <button className="text-cyan-600 dark:text-cyan-400 text-sm hover:underline">Flashcard →</button>
                                 </div>
                             </div>
 
-                            <div className="space-y-1 max-h-[400px] overflow-y-auto">
-                                {vocab.length > 0 ? vocab.map((v, i) => {
-                                    // Determine if this is a special reading (jukujikun)
+                            {/* Render vocab grouped by category */}
+                            {(() => {
+                                // Group vocab by category
+                                const grouped = {};
+                                const uncategorized = [];
+                                for (const v of vocab) {
+                                    const cat = v.category || '';
+                                    if (!cat) {
+                                        uncategorized.push(v);
+                                    } else {
+                                        if (!grouped[cat]) grouped[cat] = [];
+                                        grouped[cat].push(v);
+                                    }
+                                }
+
+                                // Get all category names (from Firebase categories + any found in vocab)
+                                const allCatNames = new Set([
+                                    ...vocabCategories.map(c => c.name),
+                                    ...Object.keys(grouped)
+                                ]);
+
+                                // Render a single vocab item
+                                const renderVocabItem = (v, i) => {
                                     const isSpecialReading = v.specialReading || false;
-                                    // Get pitch data: from API cache first, then from stored accent number
                                     const apiPitch = pitchAccentData[v.word];
                                     const storedPitch = v.accent !== undefined && v.accent !== '' ? accentNumberToPitchParts(v.reading, v.accent) : null;
-                                    const pitchParts = apiPitch || storedPitch; // API data takes priority
+                                    const pitchParts = apiPitch || storedPitch;
 
-                                    // Render word - keep original orange color
                                     const renderWord = () => {
                                         if (isSpecialReading) {
                                             return <span className="text-blue-400 font-japanese font-bold">{v.word}</span>;
@@ -1199,19 +1423,15 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                         return <span className="text-orange-400 font-japanese font-bold">{v.word}</span>;
                                     };
 
-                                    // Render reading with pitch accent lines and blue highlight
                                     const renderReading = () => {
                                         if (!v.reading) return null;
-
                                         if (isSpecialReading) {
                                             return <span className="text-blue-400 font-japanese">{v.reading}</span>;
                                         }
 
-                                        // Find which part of the reading corresponds to the selected kanji
                                         const kanjiDetail = kanjiList.find(k => k.character === selectedKanji);
                                         const kanjiReadings = [];
                                         if (kanjiDetail) {
-                                            // Collect all possible readings (on + kun, cleaned)
                                             if (kanjiDetail.onyomi) {
                                                 kanjiDetail.onyomi.split(/[、,]/).forEach(r => {
                                                     const clean = r.trim().replace(/[-\.。]/g, '');
@@ -1226,12 +1446,10 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             }
                                         }
 
-                                        // Find the matching reading portion in the vocab reading
                                         let highlightStart = -1;
                                         let highlightEnd = -1;
                                         const readingChars = [...v.reading];
 
-                                        // Convert katakana readings to hiragana for comparison
                                         const toHiragana = (str) => str.replace(/[\u30A1-\u30F6]/g, ch =>
                                             String.fromCharCode(ch.charCodeAt(0) - 0x60)
                                         );
@@ -1241,7 +1459,6 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             const readingStr = v.reading;
                                             const idx = readingStr.indexOf(hiraReading);
                                             if (idx !== -1) {
-                                                // Convert string index to character index
                                                 const beforeStr = readingStr.substring(0, idx);
                                                 highlightStart = [...beforeStr].length;
                                                 highlightEnd = highlightStart + [...hiraReading].length;
@@ -1249,9 +1466,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             }
                                         }
 
-                                        // With pitch accent data
                                         if (pitchParts && pitchParts.length > 0) {
-                                            // Flatten pitch parts into per-character high/low
                                             const charPitchMap = [];
                                             for (const pp of pitchParts) {
                                                 const partChars = [...pp.part];
@@ -1272,7 +1487,6 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
 
                                                         return (
                                                             <span key={ci} className="relative inline-block" style={{ marginRight: '0px' }}>
-                                                                {/* Orange accent bar on top */}
                                                                 <span
                                                                     className="block"
                                                                     style={{
@@ -1284,11 +1498,9 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                                 >
                                                                     <span className={isHighlighted ? 'text-blue-400' : 'text-gray-400'}>{char}</span>
                                                                 </span>
-                                                                {/* Drop indicator (vertical bar going down) */}
                                                                 {showDrop && (
                                                                     <span className="absolute -right-[1px] top-0 w-[2.5px] bg-orange-500" style={{ height: '100%' }}></span>
                                                                 )}
-                                                                {/* Rise indicator (vertical bar going up) */}
                                                                 {showRise && (
                                                                     <span className="absolute -right-[1px] top-0 w-[2.5px] bg-orange-500" style={{ height: '100%' }}></span>
                                                                 )}
@@ -1299,7 +1511,6 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             );
                                         }
 
-                                        // No pitch data - just render with blue highlight
                                         return (
                                             <span className="font-japanese">
                                                 {readingChars.map((char, ci) => {
@@ -1313,7 +1524,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     };
 
                                     return (
-                                        <div key={i} className="flex items-center justify-between p-2.5 bg-slate-800/80 dark:bg-slate-800 rounded-lg hover:bg-slate-700/80 dark:hover:bg-slate-700 transition-colors border border-slate-700/50">
+                                        <div key={`vocab-${v.id || i}`} className="flex items-center justify-between p-2.5 bg-slate-800/80 dark:bg-slate-800 rounded-lg hover:bg-slate-700/80 dark:hover:bg-slate-700 transition-colors border border-slate-700/50">
                                             <div className="flex-1 min-w-0 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-sm">
                                                 {renderWord()}
                                                 <span className="text-gray-500">（</span>{renderReading()}<span className="text-gray-500">）</span>
@@ -1323,7 +1534,6 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                 <span className="text-gray-200">{v.meaning}</span>
                                             </div>
                                             <div className="flex items-center gap-0.5 ml-2 flex-shrink-0">
-                                                {/* Speaker button - plays Jotoba audio */}
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); playJotobaAudio(v.word); }}
                                                     className="p-1.5 text-gray-500 hover:text-cyan-400 transition-colors rounded-md hover:bg-slate-600/50"
@@ -1331,7 +1541,6 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                 >
                                                     <Volume2 className="w-3.5 h-3.5" />
                                                 </button>
-                                                {/* Add to SRS button */}
                                                 {onAddVocabToSRS && (
                                                     addedVocabIds.has(v.id) || allUserCards.some(c => c.front.split('（')[0].split('(')[0].trim() === v.word.split('（')[0].split('(')[0].trim()) ? (
                                                         <span className="p-1.5 text-emerald-500" title="Đã có trong danh sách">
@@ -1372,15 +1581,65 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             </div>
                                         </div>
                                     );
-                                }) : (
-                                    <p className="text-gray-400 dark:text-gray-500 text-center py-4">Chưa có từ vựng</p>
-                                )}
-                            </div>
+                                };
 
-                            <h3 className="text-orange-500 dark:text-orange-400 font-medium mt-6">Từ vựng trong đề JLPT</h3>
-                            <div className="space-y-2">
-                                <p className="text-gray-400 dark:text-gray-500 text-center py-4">Chưa có từ vựng</p>
-                            </div>
+                                // If no vocab at all
+                                if (vocab.length === 0) {
+                                    return <p className="text-gray-400 dark:text-gray-500 text-center py-4">Chưa có từ vựng</p>;
+                                }
+
+                                // Render each category section
+                                const categoryColors = [
+                                    { text: 'text-orange-500 dark:text-orange-400', tag: 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400' },
+                                    { text: 'text-purple-500 dark:text-purple-400', tag: 'bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400' },
+                                    { text: 'text-emerald-500 dark:text-emerald-400', tag: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400' },
+                                    { text: 'text-blue-500 dark:text-blue-400', tag: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' },
+                                    { text: 'text-pink-500 dark:text-pink-400', tag: 'bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400' },
+                                    { text: 'text-amber-500 dark:text-amber-400', tag: 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400' },
+                                ];
+
+                                const sortedCatNames = [...allCatNames].sort();
+                                let colorIndex = 0;
+
+                                return (
+                                    <div className="space-y-4 max-h-[500px] overflow-y-auto">
+                                        {sortedCatNames.map(catName => {
+                                            const items = grouped[catName] || [];
+                                            if (items.length === 0) return null;
+                                            const color = categoryColors[colorIndex % categoryColors.length];
+                                            colorIndex++;
+                                            return (
+                                                <div key={catName}>
+                                                    <div className="flex items-center gap-2 mb-2">
+                                                        <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${color.tag}`}>
+                                                            {catName}
+                                                        </span>
+                                                        <span className="text-xs text-gray-500 dark:text-gray-400">({items.length})</span>
+                                                    </div>
+                                                    <div className="space-y-1">
+                                                        {items.map((v, i) => renderVocabItem(v, i))}
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+
+                                        {/* Uncategorized vocab */}
+                                        {uncategorized.length > 0 && (
+                                            <div>
+                                                <div className="flex items-center gap-2 mb-2">
+                                                    <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700/50 text-gray-500 dark:text-gray-400">
+                                                        Chưa phân loại
+                                                    </span>
+                                                    <span className="text-xs text-gray-500 dark:text-gray-400">({uncategorized.length})</span>
+                                                </div>
+                                                <div className="space-y-1">
+                                                    {uncategorized.map((v, i) => renderVocabItem(v, i))}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })()}
 
                             {isAdmin && (
                                 <button onClick={() => setShowAddVocabModal(true)} className="w-full mt-4 py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg font-medium flex items-center justify-center gap-2">
@@ -1393,7 +1652,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             </div>
         );
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [selectedKanji, kanjiList, vocabList, kanjiApiData, isAdmin, diagramZoom, diagramPan, isDragging, dragStart, pitchAccentData, addedVocabIds, addingVocabId]);
+    }, [selectedKanji, kanjiList, vocabList, kanjiApiData, isAdmin, diagramZoom, diagramPan, isDragging, dragStart, pitchAccentData, addedVocabIds, addingVocabId, vocabCategories]);
 
     // Loading screen
     if (loading) {
@@ -1488,11 +1747,11 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     className="w-full h-full flex items-center justify-center"
                                 />
                                 <button
-                                    onClick={() => writerRef.current?.animateCharacter()}
+                                    onClick={() => sidebarStrokeCtrl.current?.replay()}
                                     className="absolute bottom-2 right-2 p-2 bg-cyan-500 hover:bg-cyan-400 rounded-full text-white shadow-lg transition-all hover:scale-110"
                                     title="Xem lại animation"
                                 >
-                                    <Play className="w-4 h-4" />
+                                    <RotateCcw className="w-4 h-4" />
                                 </button>
                             </>
                         ) : (
@@ -1528,8 +1787,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                     {/* Stats */}
                     <div className="grid grid-cols-2 gap-2">
                         <div className="bg-white dark:bg-slate-800 rounded-lg p-3 shadow-sm border border-gray-100 dark:border-slate-700">
-                            <div className="text-xl font-bold text-cyan-600 dark:text-cyan-400">{kanjiList.length}</div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">Kanji</div>
+                            <div className="text-xl font-bold text-cyan-600 dark:text-cyan-400">{currentKanjiList.length}</div>
+                            <div className="text-xs text-gray-500 dark:text-gray-400">Kanji ({selectedLevel})</div>
                         </div>
                         <div className="bg-white dark:bg-slate-800 rounded-lg p-3 shadow-sm border border-gray-100 dark:border-slate-700">
                             <div className="text-lg font-bold text-cyan-600 dark:text-cyan-400">Sơ đồ</div>
@@ -1544,11 +1803,11 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
 
                     {/* Level Tabs */}
                     <div className="flex flex-wrap gap-2">
-                        {JLPT_LEVELS.map(level => (
+                        {[...JLPT_LEVELS, 'Bộ thủ'].map(level => (
                             <button
                                 key={level}
                                 onClick={() => setSelectedLevel(level)}
-                                className={`px-4 py-2 rounded-lg font-medium text-sm transition-colors ${selectedLevel === level ? 'bg-cyan-500 text-white shadow-md' : 'bg-white dark:bg-slate-800 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-700'}`}
+                                className={`px-4 py-2 rounded-lg font-medium text-sm transition-all ${selectedLevel === level ? LEVEL_TAB_COLORS[level] : 'bg-white dark:bg-slate-800 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-700'}`}
                             >
                                 {level}
                             </button>
@@ -1609,7 +1868,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                         <div
                                             key={kanji.id}
                                             onClick={() => toggleKanjiSelection(kanji.id)}
-                                            className={`relative aspect-square flex items-center justify-center text-xl font-bold rounded-lg cursor-pointer transition-all ${selectedKanjiIds.includes(kanji.id) ? 'bg-red-500 text-white ring-2 ring-red-300' : 'bg-emerald-500 dark:bg-emerald-600/80 text-white hover:bg-emerald-600'}`}
+                                            className={`relative aspect-square flex items-center justify-center text-xl font-bold rounded-lg cursor-pointer transition-all ${selectedKanjiIds.includes(kanji.id) ? 'bg-red-500 text-white ring-2 ring-red-300' : `${LEVEL_COLORS[selectedLevel]?.bg || 'bg-emerald-500 dark:bg-emerald-600/80'} text-white ${LEVEL_COLORS[selectedLevel]?.hover || 'hover:bg-emerald-600'}`}`}
                                         >
                                             <span className="font-japanese">{kanji.character}</span>
                                             {selectedKanjiIds.includes(kanji.id) && (
@@ -1674,18 +1933,61 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     );
                                 })()}
                             </div>
+                        ) : selectedLevel === 'Bộ thủ' ? (
+                            /* Bộ thủ (Radicals) mode - show radicals grid with info */
+                            <div>
+                                <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">214 bộ thủ Kangxi ({currentKanjiList.length} bộ)</p>
+                                {(() => {
+                                    // Group radicals by stroke count
+                                    const grouped = {};
+                                    currentKanjiList.forEach(radical => {
+                                        const info = RADICALS_214[radical];
+                                        const strokes = info?.strokes || 0;
+                                        if (!grouped[strokes]) grouped[strokes] = [];
+                                        grouped[strokes].push(radical);
+                                    });
+                                    return Object.entries(grouped).sort(([a], [b]) => Number(a) - Number(b)).map(([strokes, radicals]) => (
+                                        <div key={strokes} className="mb-4">
+                                            <p className="text-xs font-bold text-orange-500 dark:text-orange-400 mb-1.5 border-b border-orange-200 dark:border-orange-800/50 pb-1">{strokes} nét ({radicals.length})</p>
+                                            <div className="grid grid-cols-5 sm:grid-cols-7 md:grid-cols-9 lg:grid-cols-11 gap-1.5">
+                                                {radicals.map((radical, i) => {
+                                                    const info = RADICALS_214[radical];
+                                                    return (
+                                                        <button
+                                                            key={`${radical}-${i}`}
+                                                            onClick={() => { setSelectedKanji(radical); setShowDetailModal(true); }}
+                                                            className={`group relative aspect-square flex flex-col items-center justify-center rounded-lg transition-all ${selectedKanji === radical ? 'bg-orange-500 text-white scale-105 shadow-lg' : 'bg-orange-500 dark:bg-orange-600/80 text-white hover:bg-orange-600 dark:hover:bg-orange-500 hover:scale-105 shadow-md'}`}
+                                                            title={`${info?.name || ''} - ${info?.meaning || ''}`}
+                                                        >
+                                                            <span className="font-japanese text-lg leading-none">{radical}</span>
+                                                            <span className="text-[8px] opacity-70 leading-tight mt-0.5 truncate max-w-full px-0.5">{info?.name || ''}</span>
+                                                        </button>
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+                                    ));
+                                })()}
+                            </div>
                         ) : (
-                            /* Normal mode - show grid */
+                            /* Normal mode - show grid with per-level colors */
                             <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-11 gap-1">
-                                {currentKanjiList.map((kanji, i) => (
-                                    <button
-                                        key={`${kanji}-${i}`}
-                                        onClick={() => { setSelectedKanji(kanji); setShowDetailModal(true); }}
-                                        className={`aspect-square flex items-center justify-center text-xl font-bold rounded-lg transition-all ${selectedKanji === kanji ? 'bg-cyan-500 text-white scale-105 shadow-lg' : 'bg-emerald-500 dark:bg-emerald-600/80 text-white hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:scale-105 shadow-md'}`}
-                                    >
-                                        <span className="font-japanese">{kanji}</span>
-                                    </button>
-                                ))}
+                                {currentKanjiList.map((kanji, i) => {
+                                    const colors = LEVEL_COLORS[selectedLevel] || LEVEL_COLORS.N5;
+                                    const jData = getJotobaKanjiData(kanji);
+                                    const fbData = kanjiList.find(k => k.character === kanji);
+                                    const meaningTip = fbData?.meaning || jData?.meaningVi || '';
+                                    return (
+                                        <button
+                                            key={`${kanji}-${i}`}
+                                            onClick={() => { setSelectedKanji(kanji); setShowDetailModal(true); }}
+                                            className={`aspect-square flex items-center justify-center text-xl font-bold rounded-lg transition-all ${selectedKanji === kanji ? 'bg-cyan-500 text-white scale-105 shadow-lg' : `${colors.bg} ${colors.text} ${colors.hover} hover:scale-105 shadow-md`}`}
+                                            title={meaningTip}
+                                        >
+                                            <span className="font-japanese">{kanji}</span>
+                                        </button>
+                                    );
+                                })}
                             </div>
                         )}
                     </div>
@@ -1758,6 +2060,10 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         <input value={newVocab.nuance || ''} onChange={e => setNewVocab({ ...newVocab, nuance: e.target.value })} placeholder="Sắc thái / Ghi chú" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
                         <div className="grid grid-cols-2 gap-2">
                             <input value={newVocab.source || ''} onChange={e => setNewVocab({ ...newVocab, source: e.target.value })} placeholder="Nguồn" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                            <select value={newVocab.category || ''} onChange={e => setNewVocab({ ...newVocab, category: e.target.value })} className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600">
+                                <option value="">-- Phân loại --</option>
+                                {vocabCategories.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
+                            </select>
                         </div>
                         <p className="text-xs text-gray-500 dark:text-gray-400">* Tự động liên kết với Kanji trong từ</p>
                         <button onClick={handleAddVocab} className="w-full py-2 bg-orange-600 hover:bg-orange-500 rounded-lg font-bold text-white text-sm">Lưu Từ vựng</button>
@@ -1824,6 +2130,23 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         >
                             {isImporting ? 'Đang nhập...' : <><Upload className="w-4 h-4" /> Import</>}
                         </button>
+
+                        {/* Divider */}
+                        <div className="flex items-center gap-3">
+                            <div className="flex-1 h-px bg-gray-200 dark:bg-slate-600"></div>
+                            <span className="text-xs text-gray-400">hoặc</span>
+                            <div className="flex-1 h-px bg-gray-200 dark:bg-slate-600"></div>
+                        </div>
+
+                        {/* Sync ALL Jotoba kanji */}
+                        <button
+                            onClick={handleSyncJotobaToFirebase}
+                            disabled={isImporting}
+                            className="w-full py-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 disabled:from-gray-300 disabled:to-gray-300 dark:disabled:from-slate-600 dark:disabled:to-slate-600 disabled:cursor-not-allowed rounded-lg font-bold flex items-center justify-center gap-2 text-white text-sm"
+                        >
+                            {isImporting ? importStatus : <><RefreshCw className="w-4 h-4" /> Đồng bộ toàn bộ Kanji Jotoba → Firebase</>}
+                        </button>
+                        <p className="text-[10px] text-gray-400 text-center">Thêm 2211 kanji JLPT N5→N1 vào database (không ghi đè dữ liệu đã chỉnh sửa)</p>
                     </div>
                 </div>
             )}
@@ -1871,6 +2194,19 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             <p className="text-gray-500 dark:text-gray-400 text-[10px] mt-2">* accent: số vị trí accent (0=heiban, 1=atamadaka...). specialReading: true = đọc đặc biệt (全青色). Tự động liên kết với Kanji cùng cấp độ.</p>
                         </div>
 
+                        {/* Category selector for import */}
+                        <div className="flex items-center gap-2">
+                            <label className="text-sm text-gray-700 dark:text-gray-300 font-medium whitespace-nowrap">🏷️ Phân loại:</label>
+                            <select
+                                value={importCategory}
+                                onChange={e => setImportCategory(e.target.value)}
+                                className="flex-1 bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                            >
+                                <option value="">-- Không phân loại --</option>
+                                {vocabCategories.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
+                            </select>
+                        </div>
+
                         <textarea
                             value={jsonVocabInput}
                             onChange={e => setJsonVocabInput(e.target.value)}
@@ -1901,7 +2237,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                     <div className="bg-white dark:bg-slate-800 rounded-xl p-6 w-full max-w-md max-h-[90vh] overflow-auto space-y-4 shadow-2xl">
                         <div className="flex justify-between items-center">
                             <h3 className="text-xl font-bold flex items-center gap-2 text-gray-900 dark:text-white">
-                                <Edit className="w-5 h-5 text-cyan-500 dark:text-cyan-400" /> Chỉnh sửa Kanji
+                                <Edit className="w-5 h-5 text-cyan-500 dark:text-cyan-400" /> {editingKanji.id ? 'Chỉnh sửa' : 'Thêm/Sửa'} Kanji
                             </h3>
                             <button onClick={() => { setShowEditKanjiModal(false); setEditingKanji(null); }} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-6 h-6" /></button>
                         </div>
@@ -1910,6 +2246,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             onChange={e => setEditingKanji({ ...editingKanji, character: e.target.value })}
                             placeholder="Kanji"
                             className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-2xl text-center text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                            readOnly={!!editingKanji.id || !!editingKanji._fromJotoba}
                         />
                         <input
                             value={editingKanji.sinoViet || ''}
@@ -1920,7 +2257,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         <input
                             value={editingKanji.meaning || ''}
                             onChange={e => setEditingKanji({ ...editingKanji, meaning: e.target.value })}
-                            placeholder="Nghĩa"
+                            placeholder="Nghĩa (tiếng Việt)"
                             className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
                         />
                         <div className="grid grid-cols-2 gap-2">
@@ -1953,10 +2290,10 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             />
                         </div>
                         <input
-                            value={editingKanji.radical || ''}
-                            onChange={e => setEditingKanji({ ...editingKanji, radical: e.target.value })}
-                            placeholder="Bộ thủ"
-                            className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                            value={editingKanji.parts || ''}
+                            onChange={e => setEditingKanji({ ...editingKanji, parts: e.target.value })}
+                            placeholder="Thành phần chiết tự (cách nhau bằng 、)"
+                            className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white font-japanese border border-gray-200 dark:border-slate-600"
                         />
                         <textarea
                             value={editingKanji.mnemonic || ''}
@@ -1965,7 +2302,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 resize-none h-20 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
                         />
                         <button onClick={handleEditKanji} className="w-full py-3 bg-cyan-600 hover:bg-cyan-500 rounded-lg font-bold flex items-center justify-center gap-2 text-white">
-                            <Save className="w-5 h-5" /> Lưu thay đổi
+                            <Save className="w-5 h-5" /> {editingKanji.id ? 'Lưu thay đổi' : 'Lưu vào Firebase'}
                         </button>
                     </div>
                 </div>
@@ -2020,9 +2357,88 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                 className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
                             />
                         </div>
+                        <select
+                            value={editingVocab.category || ''}
+                            onChange={e => setEditingVocab({ ...editingVocab, category: e.target.value })}
+                            className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                        >
+                            <option value="">-- Phân loại --</option>
+                            {vocabCategories.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
+                        </select>
                         <button onClick={handleEditVocab} className="w-full py-3 bg-orange-600 hover:bg-orange-500 rounded-lg font-bold flex items-center justify-center gap-2 text-white">
                             <Save className="w-5 h-5" /> Lưu thay đổi
                         </button>
+                    </div>
+                </div>
+            )}
+
+            {/* Category Management Modal */}
+            {showCategoryModal && (
+                <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
+                    <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[400px] max-w-[90vw] space-y-4 shadow-2xl">
+                        <div className="flex justify-between items-center">
+                            <h3 className="text-lg font-bold flex items-center gap-2 text-gray-900 dark:text-white">
+                                <FolderPlus className="w-5 h-5 text-purple-500 dark:text-purple-400" /> Quản lý phân loại từ vựng
+                            </h3>
+                            <button onClick={() => setShowCategoryModal(false)} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-5 h-5" /></button>
+                        </div>
+
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                            Tạo các phân loại để nhóm từ vựng (ví dụ: "Mimikara N3", "Tango N3", "Đề JLPT N3").
+                        </p>
+
+                        {/* Add new category */}
+                        <div className="flex items-center gap-2">
+                            <input
+                                value={newCategoryName}
+                                onChange={e => setNewCategoryName(e.target.value)}
+                                onKeyDown={e => e.key === 'Enter' && handleAddCategory()}
+                                placeholder="Tên phân loại mới..."
+                                className="flex-1 bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                            />
+                            <button
+                                onClick={handleAddCategory}
+                                disabled={!newCategoryName.trim()}
+                                className="px-4 py-2 bg-purple-600 hover:bg-purple-500 disabled:bg-gray-300 dark:disabled:bg-slate-600 disabled:cursor-not-allowed text-white rounded-lg font-medium text-sm flex items-center gap-1 transition-colors"
+                            >
+                                <Plus className="w-4 h-4" /> Thêm
+                            </button>
+                        </div>
+
+                        {/* Category list */}
+                        <div className="space-y-2 max-h-[300px] overflow-y-auto">
+                            {vocabCategories.length === 0 ? (
+                                <p className="text-center text-gray-400 dark:text-gray-500 py-4 text-sm">Chưa có phân loại nào</p>
+                            ) : (
+                                vocabCategories.map((cat, idx) => {
+                                    const catVocabCount = vocabList.filter(v => v.category === cat.name).length;
+                                    const colors = [
+                                        'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-orange-200 dark:border-orange-800',
+                                        'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800',
+                                        'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800',
+                                        'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800',
+                                        'bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 border-pink-200 dark:border-pink-800',
+                                        'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800',
+                                    ];
+                                    return (
+                                        <div key={cat.id} className={`flex items-center justify-between p-3 rounded-lg border ${colors[idx % colors.length]} transition-all`}>
+                                            <div className="flex items-center gap-2">
+                                                <Tag className="w-4 h-4" />
+                                                <span className="font-medium text-sm">{cat.name}</span>
+                                                <span className="text-xs opacity-70">({catVocabCount} từ)</span>
+                                            </div>
+                                            <button
+                                                onClick={() => handleDeleteCategory(cat.id)}
+                                                className="p-1 hover:bg-red-200 dark:hover:bg-red-900/50 rounded-md transition-colors"
+                                                title="Xóa phân loại"
+                                            >
+                                                <Trash2 className="w-4 h-4 text-red-500" />
+                                            </button>
+                                        </div>
+                                    );
+                                })
+                            )}
+                        </div>
                     </div>
                 </div>
             )}
