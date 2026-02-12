@@ -28,9 +28,10 @@ const create404Plugin = () => ({
 // - Hoặc dùng relative paths: base = './' (hoạt động với mọi cấu hình, khuyến nghị)
 export default defineConfig({
   plugins: [react(), create404Plugin()],
-  // Sử dụng relative paths để hoạt động với mọi cấu hình GitHub Pages
-  // Nếu vẫn bị lỗi 404, thử đổi thành '/Quizki/' hoặc '/quizki-app/' tùy theo tên repo
-  base: './',
+  // Sử dụng absolute paths vì app dùng custom domain (quizki.id.vn) tại root
+  // Relative paths ('./') gây lỗi 404 khi GitHub Pages serve 404.html cho SPA routes
+  // (vd: /kanji -> 404.html -> ./assets/... -> /kanji/assets/... -> 404!)
+  base: '/',
   build: {
     rollupOptions: {
       output: {
