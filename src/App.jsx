@@ -110,11 +110,11 @@ const App = () => {
             'LOGIN': ROUTES.LOGIN,
             'ACCOUNT': ROUTES.ACCOUNT,
             'HELP': ROUTES.HELP,
-            'LIST': ROUTES.VOCABULARY,
-            'ADD_CARD': ROUTES.VOCABULARY_ADD,
+            'LIST': ROUTES.VOCAB_REVIEW,
+            'ADD_CARD': ROUTES.VOCAB_ADD,
             'REVIEW': ROUTES.REVIEW,
             'FLASHCARD': ROUTES.FLASHCARD,
-            'KANJI': ROUTES.KANJI,
+            'KANJI': ROUTES.KANJI_LIST,
             'STUDY': ROUTES.STUDY,
             'TEST': ROUTES.TEST,
             'STATS': ROUTES.STATS,
@@ -133,12 +133,12 @@ const App = () => {
         if (path === ROUTES.LOGIN) return 'LOGIN';
         if (path === ROUTES.ACCOUNT) return 'ACCOUNT';
         if (path === ROUTES.HELP) return 'HELP';
-        if (path === ROUTES.VOCABULARY) return 'LIST';
-        if (path === ROUTES.VOCABULARY_ADD) return 'ADD_CARD';
-        if (path.startsWith('/vocabulary/edit/')) return 'EDIT_CARD';
+        if (path === ROUTES.VOCAB_REVIEW) return 'LIST';
+        if (path === ROUTES.VOCAB_ADD) return 'ADD_CARD';
+        if (path.startsWith('/vocab/edit/')) return 'EDIT_CARD';
         if (path === ROUTES.REVIEW) return 'REVIEW';
         if (path === ROUTES.FLASHCARD) return 'FLASHCARD';
-        if (path === ROUTES.KANJI) return 'KANJI';
+        if (path === ROUTES.KANJI_LIST) return 'KANJI';
         if (path === ROUTES.STUDY) return 'STUDY';
         if (path === ROUTES.TEST) return 'TEST';
         if (path === ROUTES.STATS) return 'STATS';
@@ -1256,7 +1256,7 @@ const App = () => {
         return result;
     };
 
-    const handleAddCard = async ({ front, back, synonym, example, exampleMeaning, nuance, pos, level, action, imageBase64, audioBase64, sinoVietnamese, synonymSinoVietnamese }) => {
+    const handleAddCard = async ({ front, back, synonym, example, exampleMeaning, nuance, pos, level, action, imageBase64, audioBase64, sinoVietnamese, synonymSinoVietnamese, folderId }) => {
         if (!vocabCollectionPath) return false;
 
         // Kiểm tra trùng lặp với database của user
@@ -1295,6 +1295,17 @@ const App = () => {
 
             setNotification(`Đã thêm thẻ mới: ${newCardData.front}`);
             await updateDailyActivity(1);
+
+            // Save folder assignment if selected
+            if (folderId && cardRef) {
+                try {
+                    const savedFolders = JSON.parse(localStorage.getItem('vocab_card_folders') || '{}');
+                    savedFolders[cardRef.id] = folderId;
+                    localStorage.setItem('vocab_card_folders', JSON.stringify(savedFolders));
+                } catch (e) {
+                    console.error('Lỗi lưu thư mục cho thẻ:', e);
+                }
+            }
 
             // Nếu đang trong batch mode, chuyển sang từ tiếp theo thay vì về HOME
             // (Logic này đã được xử lý trong nút lưu của AddCardForm)
@@ -1864,7 +1875,7 @@ const App = () => {
                     } else {
                         // Card not found, redirect to vocabulary list
                         setNotification('Không tìm thấy thẻ này');
-                        navigate(ROUTES.VOCABULARY);
+                        navigate(ROUTES.VOCAB_REVIEW);
                     }
                 }
             }
@@ -2362,7 +2373,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                 return <EditCardForm
                     card={editingCard}
                     onSave={handleSaveChanges}
-                    onBack={() => { setEditingCard(null); navigate(ROUTES.VOCABULARY); }} // Giữ filter khi quay lại
+                    onBack={() => { setEditingCard(null); navigate(ROUTES.VOCAB_REVIEW); }} // Giữ filter khi quay lại
                     onGeminiAssist={handleGeminiAssist}
                 />;
             case 'STUDY':

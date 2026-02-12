@@ -21,16 +21,17 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
     const getCurrentView = () => {
         const path = location.pathname;
         if (path === '/' || path === ROUTES.HOME) return 'HOME';
-        if (path === ROUTES.VOCABULARY) return 'VOCAB_REVIEW';
-        if (path === ROUTES.VOCABULARY_LIST || path.startsWith('/vocabulary')) return 'VOCAB_LIST';
+        if (path === ROUTES.VOCAB_REVIEW) return 'VOCAB_REVIEW';
+        if (path === ROUTES.VOCAB_LIST || path.startsWith('/vocab/list') || path.startsWith('/vocab/edit')) return 'VOCAB_LIST';
+        if (path === ROUTES.VOCAB_ADD) return 'VOCAB_ADD';
         if (path === ROUTES.KANJI_STUDY) return 'KANJI_STUDY';
         if (path === ROUTES.KANJI_REVIEW) return 'KANJI_REVIEW';
-        if (path === ROUTES.KANJI_LIST || path === ROUTES.KANJI) return 'KANJI_LIST';
+        if (path === ROUTES.KANJI_SAVED) return 'KANJI_SAVED';
+        if (path === ROUTES.KANJI_LIST) return 'KANJI_LIST';
         if (path === ROUTES.TEST) return 'TEST';
         if (path === ROUTES.STATS) return 'STATS';
         if (path === ROUTES.FRIENDS) return 'FRIENDS';
         if (path === ROUTES.ACCOUNT) return 'ACCOUNT';
-        if (path === ROUTES.VOCABULARY_ADD) return 'ADD_CARD';
         if (path === ROUTES.BOOKS) return 'BOOKS_LIST';
         if (path === ROUTES.ADMIN) return 'ADMIN';
         return 'HOME';
@@ -66,9 +67,9 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
             label: 'Học Từ Vựng',
             hasSubmenu: true,
             children: [
-                { id: 'ADD_CARD', label: 'Thêm từ vựng mới', route: ROUTES.VOCABULARY_ADD },
-                { id: 'VOCAB_REVIEW', label: 'Ôn tập từ vựng', route: ROUTES.VOCABULARY },
-                { id: 'VOCAB_LIST', label: 'Danh sách từ vựng', route: ROUTES.VOCABULARY_LIST },
+                { id: 'VOCAB_ADD', label: 'Thêm từ vựng mới', route: ROUTES.VOCAB_ADD },
+                { id: 'VOCAB_REVIEW', label: 'Ôn tập từ vựng', route: ROUTES.VOCAB_REVIEW },
+                { id: 'VOCAB_LIST', label: 'Danh sách từ vựng', route: ROUTES.VOCAB_LIST },
                 { id: 'BOOKS_LIST', label: 'Học theo sách', route: ROUTES.BOOKS },
             ]
         },
@@ -80,6 +81,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
             children: [
                 { id: 'KANJI_STUDY', label: 'Học Kanji', route: ROUTES.KANJI_STUDY },
                 { id: 'KANJI_REVIEW', label: 'Ôn tập Kanji', route: ROUTES.KANJI_REVIEW },
+                { id: 'KANJI_SAVED', label: 'Kanji đã lưu', route: ROUTES.KANJI_SAVED },
                 { id: 'KANJI_LIST', label: 'Danh sách Kanji', route: ROUTES.KANJI_LIST },
             ]
         },
@@ -102,7 +104,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
     const MobileHeader = () => (
         <header className="lg:hidden fixed top-0 left-0 right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-gray-200 dark:border-slate-700/50 z-50 h-14 shadow-sm dark:shadow-none">
             <div className="h-full px-4 flex items-center justify-between">
-                <Link to={ROUTES.VOCABULARY} className="flex items-center space-x-2">
+                <Link to={ROUTES.VOCAB_REVIEW} className="flex items-center space-x-2">
                     <div className="bg-gradient-to-br from-slate-600 to-slate-700 p-1.5 rounded-lg shadow-lg shadow-slate-500/30">
                         <Sparkles className="w-5 h-5 text-white" />
                     </div>
@@ -111,7 +113,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
 
                 <div className="flex items-center space-x-2">
                     <Link
-                        to={ROUTES.VOCABULARY_ADD}
+                        to={ROUTES.VOCAB_ADD}
                         className="p-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg transition-colors"
                     >
                         <Plus className="w-5 h-5" />
@@ -208,7 +210,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
             {/* Logo */}
             <div className="p-4 border-b border-gray-200 dark:border-slate-700/50">
                 <Link
-                    to={ROUTES.VOCABULARY}
+                    to={ROUTES.VOCAB_REVIEW}
                     className="flex items-center space-x-3 group"
                 >
                     <div className="bg-gradient-to-br from-slate-600 to-slate-700 p-2 rounded-xl shadow-lg shadow-slate-500/30 group-hover:shadow-slate-500/50 transition-all duration-300">

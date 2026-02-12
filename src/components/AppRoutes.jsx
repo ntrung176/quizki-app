@@ -18,6 +18,7 @@ import {
     KanjiStudyScreen,
     KanjiLessonScreen,
     KanjiReviewScreen,
+    KanjiSRSListScreen,
     StudyScreen,
     TestScreen,
     AdminScreen,
@@ -143,9 +144,9 @@ const AppRoutes = ({
                 }
             />
 
-            {/* Ôn tập từ vựng - SRSVocabScreen at /srsvocab */}
+            {/* Ôn tập từ vựng - SRSVocabScreen */}
             <Route
-                path={ROUTES.VOCABULARY}
+                path={ROUTES.VOCAB_REVIEW}
                 element={
                     <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <SRSVocabScreen
@@ -166,9 +167,9 @@ const AppRoutes = ({
                 }
             />
 
-            {/* Danh sách từ vựng - ListView at /vocabulary */}
+            {/* Danh sách từ vựng - ListView */}
             <Route
-                path={ROUTES.VOCABULARY_LIST}
+                path={ROUTES.VOCAB_LIST}
                 element={
                     <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <ListView
@@ -189,7 +190,7 @@ const AppRoutes = ({
             />
 
             <Route
-                path={ROUTES.VOCABULARY_ADD}
+                path={ROUTES.VOCAB_ADD}
                 element={
                     <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <AddCardForm
@@ -239,9 +240,19 @@ const AppRoutes = ({
                 }
             />
 
+            {/* Danh sách Kanji đã lưu - SRS management */}
+            <Route
+                path={ROUTES.KANJI_SAVED}
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <KanjiSRSListScreen />
+                    </ProtectedRoute>
+                }
+            />
+
             {/* Danh sách Kanji */}
             <Route
-                path={ROUTES.KANJI}
+                path={ROUTES.KANJI_LIST}
                 element={
                     <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <KanjiScreen

@@ -101,7 +101,7 @@ const ImportScreen = ({ onImport }) => {
             {/* Header with back button */}
             <div className="flex items-center gap-4 pb-4 border-b border-gray-200 dark:border-gray-700">
                 <Link
-                    to={ROUTES.VOCABULARY}
+                    to={ROUTES.VOCAB_REVIEW}
                     className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300"
                     title="Quay lại danh sách từ vựng"
                 >
@@ -134,7 +134,7 @@ const ImportScreen = ({ onImport }) => {
             </div>
 
             <Link
-                to={ROUTES.VOCABULARY}
+                to={ROUTES.VOCAB_REVIEW}
                 className="block w-full py-4 text-center text-gray-500 dark:text-gray-400 font-medium hover:text-gray-800 dark:hover:text-gray-200"
             >
                 Quay lại danh sách từ vựng

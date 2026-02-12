@@ -5,7 +5,8 @@ import { db } from '../../config/firebase';
 import { collection, getDocs, addDoc, deleteDoc, doc, query, where, writeBatch, updateDoc } from 'firebase/firestore';
 import { playAudio } from '../../utils/audio';
 import { fetchJotobaWordData, playJotobaAudio, accentNumberToPitchParts } from '../../utils/pitchAccent';
-import { renderKanjiStrokes, renderStrokeGuide } from '../../utils/kanjiStroke';
+import HanziWriter from 'hanzi-writer';
+import { renderStrokeGuide } from '../../utils/kanjiStroke';
 
 import { RADICALS_214, KANJI_TREE, getDecompositionTree, isBasicRadical, getRadicalInfo } from '../../data/radicals214';
 import { JOTOBA_KANJI_DATA, getJotobaKanjiByLevel, getJotobaKanjiChars, getJotobaKanjiData } from '../../data/jotobaKanjiData';
@@ -168,64 +169,118 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         setLoadingApiData(false);
     }, [selectedKanji]);
 
-    // Sidebar kanji preview stroke animation
+    // Sidebar kanji preview stroke animation (HanziWriter)
     useEffect(() => {
         if (!selectedKanji || !writerContainerRef.current) return;
         let cancelled = false;
+        let animTimer = null;
 
-        // Stop previous animation
+        // Cancel previous writer animation
         if (sidebarStrokeCtrl.current) {
-            sidebarStrokeCtrl.current.stop();
+            try { sidebarStrokeCtrl.current.cancelQuiz?.(); } catch (_) { }
+            try { sidebarStrokeCtrl.current.hideCharacter?.(); } catch (_) { }
             sidebarStrokeCtrl.current = null;
         }
 
         const container = writerContainerRef.current;
+        container.innerHTML = '';
+        const size = Math.min(container.clientWidth, container.clientHeight) || 120;
 
-        renderKanjiStrokes(container, selectedKanji, {
-            strokeColor: '#0891b2',
-            guideColor: '#94a3b8',
-            ghostColor: '#334155',
-            strokeWidth: 3,
-            animDuration: 0.4,
-            delayBetween: 0.1,
-            fillContainer: true,
-        }).then(ctrl => {
-            if (!cancelled) sidebarStrokeCtrl.current = ctrl;
-        });
+        const showFallback = () => {
+            if (!cancelled && container) {
+                container.innerHTML = `<span style="font-size:${Math.floor(size * 0.8)}px;color:#0891b2;font-family:'Noto Serif JP','Yu Mincho','Hiragino Mincho ProN',serif;line-height:1;user-select:none">${selectedKanji}</span>`;
+            }
+        };
 
-        return () => { cancelled = true; };
+        HanziWriter.loadCharacterData(selectedKanji)
+            .then((charData) => {
+                if (cancelled || !container) return;
+                if (!charData || !charData.strokes || charData.strokes.length === 0) {
+                    showFallback();
+                    return;
+                }
+                try {
+                    const writer = HanziWriter.create(container, selectedKanji, {
+                        width: size, height: size, padding: 5,
+                        showOutline: true, strokeAnimationSpeed: 1, delayBetweenStrokes: 300,
+                        strokeColor: '#0891b2', outlineColor: '#334155',
+                        drawingColor: '#0891b2', showCharacter: false,
+                        charDataLoader: () => charData,
+                    });
+                    sidebarStrokeCtrl.current = writer;
+                    animTimer = setTimeout(() => {
+                        if (!cancelled) {
+                            writer.animateCharacter();
+                        }
+                    }, 100);
+                } catch (err) {
+                    console.error('HanziWriter sidebar error:', err);
+                    showFallback();
+                }
+            })
+            .catch(() => showFallback());
+
+        return () => {
+            cancelled = true;
+            if (animTimer) clearTimeout(animTimer);
+        };
     }, [selectedKanji]);
 
-    // Detail modal stroke animation + stroke guide
+    // Detail modal stroke animation + stroke guide (HanziWriter)
     useEffect(() => {
         if (!selectedKanji || !showDetailModal || !detailWriterContainerRef.current) return;
         let cancelled = false;
+        let animTimer = null;
 
-        // Stop previous
+        // Cancel previous writer animation
         if (detailStrokeCtrl.current) {
-            detailStrokeCtrl.current.stop();
+            try { detailStrokeCtrl.current.cancelQuiz?.(); } catch (_) { }
+            try { detailStrokeCtrl.current.hideCharacter?.(); } catch (_) { }
             detailStrokeCtrl.current = null;
         }
 
         const container = detailWriterContainerRef.current;
-        // Wait a tick for layout
+        container.innerHTML = '';
+
         const timer = setTimeout(() => {
             if (cancelled) return;
+            const size = Math.min(container.clientWidth, container.clientHeight) || 200;
 
-            // Main animation - fill container
-            renderKanjiStrokes(container, selectedKanji, {
-                strokeColor: '#0891b2',
-                guideColor: '#94a3b8',
-                ghostColor: '#334155',
-                strokeWidth: 3.5,
-                animDuration: 0.5,
-                delayBetween: 0.15,
-                fillContainer: true,
-            }).then(ctrl => {
-                if (!cancelled) detailStrokeCtrl.current = ctrl;
-            });
+            const showFallback = () => {
+                if (!cancelled && container) {
+                    container.innerHTML = `<span style="font-size:${Math.floor(size * 0.8)}px;color:#0891b2;font-family:'Noto Serif JP','Yu Mincho','Hiragino Mincho ProN',serif;line-height:1;user-select:none">${selectedKanji}</span>`;
+                }
+            };
 
-            // Stroke order guide strip
+            HanziWriter.loadCharacterData(selectedKanji)
+                .then((charData) => {
+                    if (cancelled || !container) return;
+                    if (!charData || !charData.strokes || charData.strokes.length === 0) {
+                        showFallback();
+                        return;
+                    }
+                    try {
+                        const writer = HanziWriter.create(container, selectedKanji, {
+                            width: size, height: size, padding: 5,
+                            showOutline: true, strokeAnimationSpeed: 1, delayBetweenStrokes: 300,
+                            strokeColor: '#0891b2', outlineColor: '#334155',
+                            drawingColor: '#0891b2', showCharacter: false,
+                            charDataLoader: () => charData,
+                        });
+                        detailStrokeCtrl.current = writer;
+                        animTimer = setTimeout(() => {
+                            if (!cancelled) {
+                                writer.animateCharacter();
+                            }
+                        }, 100);
+                    } catch (err) {
+                        console.error('HanziWriter detail error:', err);
+                        showFallback();
+                    }
+                })
+                .catch(() => showFallback());
+
+            // Stroke order guide strip (still uses kanjiStroke.js)
             if (strokeGuideRef.current) {
                 renderStrokeGuide(strokeGuideRef.current, selectedKanji, {
                     frameSize: 65,
@@ -233,10 +288,14 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             }
         }, 100);
 
-        return () => { cancelled = true; clearTimeout(timer); };
+        return () => {
+            cancelled = true;
+            clearTimeout(timer);
+            if (animTimer) clearTimeout(animTimer);
+        };
     }, [selectedKanji, showDetailModal]);
 
-    // Get kanji for current level: merge Jotoba static data + Firebase data
+    // Get kanji for current level: merge Jotoba static data + Firebase data, sorted by stroke count
     const currentKanjiList = useMemo(() => {
         if (selectedLevel === 'Bộ thủ') {
             // Return all 214 radicals as characters
@@ -247,7 +306,23 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         // Add any Firebase kanji not in Jotoba
         const firebaseChars = kanjiList.filter(k => k.level === selectedLevel).map(k => k.character);
         const mergedSet = new Set([...jotobaChars, ...firebaseChars]);
-        const merged = [...mergedSet];
+        let merged = [...mergedSet];
+
+        // Sort by stroke count (simple → complex)
+        merged.sort((a, b) => {
+            const jA = getJotobaKanjiData(a);
+            const jB = getJotobaKanjiData(b);
+            const fA = kanjiList.find(k => k.character === a);
+            const fB = kanjiList.find(k => k.character === b);
+            const strokeA = jA?.stroke_count || fA?.strokeCount || 999;
+            const strokeB = jB?.stroke_count || fB?.strokeCount || 999;
+            if (strokeA !== strokeB) return strokeA - strokeB;
+            // Secondary sort: frequency (lower = more common)
+            const freqA = jA?.frequency || 9999;
+            const freqB = jB?.frequency || 9999;
+            return freqA - freqB;
+        });
+
         if (!searchQuery.trim()) return merged;
         // Filter by search query
         const query = searchQuery.toLowerCase().trim();
@@ -258,6 +333,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             if (jData?.meanings?.some(m => m.toLowerCase().includes(query))) return true;
             if (fData?.meaning?.toLowerCase().includes(query)) return true;
             if (fData?.sinoViet?.toLowerCase().includes(query)) return true;
+            if (jData?.sinoViet?.toLowerCase().includes(query)) return true;
             return false;
         });
     }, [selectedLevel, kanjiList, searchQuery]);
@@ -274,43 +350,91 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     }, [selectedLevel, kanjiList, searchQuery]);
 
     // Search results for dropdown (search across ALL kanji: Firebase + Jotoba)
+    // Priority: 1. sinoViet match  2. meaning match  3. Japanese reading match
     const searchResults = useMemo(() => {
         if (!searchQuery.trim()) return [];
         const query = searchQuery.toLowerCase().trim();
-        // Search Firebase kanji first
-        const fbResults = kanjiList.filter(k =>
-            k.character === query ||
-            k.character.includes(query) ||
-            k.sinoViet?.toLowerCase().includes(query) ||
-            k.meaning?.toLowerCase().includes(query)
-        );
-        // Also search Jotoba static data for kanji not in Firebase
-        const fbChars = new Set(fbResults.map(k => k.character));
-        const jotobaResults = Object.values(JOTOBA_KANJI_DATA)
-            .filter(k => !fbChars.has(k.literal))
-            .filter(k =>
-                k.literal === query ||
-                k.literal.includes(query) ||
-                k.meanings?.some(m => m.toLowerCase().includes(query)) ||
-                k.onyomi?.some(o => o.includes(query)) ||
-                k.kunyomi?.some(o => o.includes(query))
-            )
-            .map(k => ({
-                character: k.literal,
-                meaning: k.meanings?.join(', ') || '',
-                onyomi: k.onyomi?.join('、') || '',
-                kunyomi: k.kunyomi?.join('、') || '',
-                level: k.level,
-                sinoViet: '',
-                _fromJotoba: true
-            }));
-        return [...fbResults, ...jotobaResults].slice(0, 15); // Limit to 15 results
+
+        // Build comprehensive results from both sources
+        const allResults = [];
+        const seenChars = new Set();
+
+        // Helper: compute match priority score (lower = higher priority)
+        const getMatchScore = (char, sinoViet, meaning, meanings, onyomi, kunyomi) => {
+            // Exact sinoViet match
+            if (sinoViet?.toLowerCase() === query) return 0;
+            // sinoViet starts with query
+            if (sinoViet?.toLowerCase().startsWith(query)) return 1;
+            // sinoViet contains query
+            if (sinoViet?.toLowerCase().includes(query)) return 2;
+            // Exact character match
+            if (char === query) return 3;
+            // Meaning exact match
+            if (meaning?.toLowerCase() === query) return 4;
+            // Meaning/meanings contain query
+            if (meaning?.toLowerCase().includes(query)) return 5;
+            if (meanings?.some(m => m.toLowerCase().includes(query))) return 5;
+            // Japanese readings match
+            if (onyomi?.some(o => o.includes(query))) return 6;
+            if (kunyomi?.some(o => o.includes(query))) return 6;
+            // Character contains query
+            if (char.includes(query)) return 7;
+            return 99;
+        };
+
+        // Search Firebase kanji
+        for (const k of kanjiList) {
+            const score = getMatchScore(k.character, k.sinoViet, k.meaning, null, null, null);
+            if (score < 99) {
+                seenChars.add(k.character);
+                allResults.push({ ...k, _score: score });
+            }
+        }
+
+        // Search Jotoba static data
+        for (const k of Object.values(JOTOBA_KANJI_DATA)) {
+            if (seenChars.has(k.literal)) {
+                // Update score if Jotoba data gives better match (e.g. sinoViet)
+                const score = getMatchScore(k.literal, k.sinoViet, k.meaningVi, k.meanings, k.onyomi, k.kunyomi);
+                const existing = allResults.find(r => r.character === k.literal);
+                if (existing && score < existing._score) {
+                    existing._score = score;
+                    existing.sinoViet = existing.sinoViet || k.sinoViet || '';
+                }
+                continue;
+            }
+            const score = getMatchScore(k.literal, k.sinoViet, k.meaningVi, k.meanings, k.onyomi, k.kunyomi);
+            if (score < 99) {
+                seenChars.add(k.literal);
+                allResults.push({
+                    character: k.literal,
+                    meaning: k.meaningVi || k.meanings?.join(', ') || '',
+                    onyomi: k.onyomi?.join('、') || '',
+                    kunyomi: k.kunyomi?.join('、') || '',
+                    level: k.level,
+                    sinoViet: k.sinoViet || '',
+                    _fromJotoba: true,
+                    _score: score,
+                });
+            }
+        }
+
+        // Sort by priority score, then by stroke count
+        allResults.sort((a, b) => {
+            if (a._score !== b._score) return a._score - b._score;
+            const strokeA = getJotobaKanjiData(a.character)?.stroke_count || 999;
+            const strokeB = getJotobaKanjiData(b.character)?.stroke_count || 999;
+            return strokeA - strokeB;
+        });
+
+        return allResults.slice(0, 20);
     }, [kanjiList, searchQuery]);
 
-    // Handle selecting a kanji from search results
+    // Handle selecting a kanji from search results → open detail modal directly
     const handleSelectSearchResult = (kanji) => {
         setSelectedKanji(kanji.character);
         setSelectedLevel(kanji.level); // Switch to the kanji's level
+        setShowDetailModal(true); // Open detail modal directly
         setShowSearchResults(false);
         setSearchQuery('');
     };

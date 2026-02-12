@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Plus, Wand2, Loader2, Image as ImageIcon, Music, FileAudio, Check, X } from 'lucide-react';
+import { Plus, Wand2, Loader2, Image as ImageIcon, Music, FileAudio, Check, X, Folder } from 'lucide-react';
 import { JLPT_LEVELS, POS_TYPES } from '../../config/constants';
 import { playAudio } from '../../utils/audio';
 import { compressImage } from '../../utils/image';
@@ -37,6 +37,18 @@ const AddCardForm = ({
     const [isSaving, setIsSaving] = useState(false);
     const [isAiLoading, setIsAiLoading] = useState(false);
     const frontInputRef = useRef(null);
+
+    // Folder selection
+    const [selectedFolderId, setSelectedFolderId] = useState('');
+    const [availableFolders, setAvailableFolders] = useState([]);
+
+    // Load folders from localStorage
+    useEffect(() => {
+        try {
+            const saved = localStorage.getItem('vocab_folders');
+            if (saved) setAvailableFolders(JSON.parse(saved));
+        } catch (e) { console.error('Error loading folders:', e); }
+    }, []);
 
     // Load data from editingCard if available (for batch mode)
     useEffect(() => {
@@ -94,7 +106,8 @@ const AddCardForm = ({
             front, back, synonym, example, exampleMeaning, nuance, pos, level,
             sinoVietnamese, synonymSinoVietnamese, action,
             imageBase64: imagePreview,
-            audioBase64: customAudio.trim() !== '' ? customAudio.trim() : null
+            audioBase64: customAudio.trim() !== '' ? customAudio.trim() : null,
+            folderId: selectedFolderId || null
         });
         setIsSaving(false);
         if (success && action === 'continue') {
@@ -236,6 +249,25 @@ const AddCardForm = ({
                             </div>
                         </div>
 
+                        {/* Folder Selector */}
+                        {availableFolders.length > 0 && (
+                            <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-xl border border-gray-100 dark:border-gray-700 space-y-2">
+                                <label className="block text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-1">
+                                    <Folder className="w-3.5 h-3.5" /> Thư mục
+                                </label>
+                                <select
+                                    value={selectedFolderId}
+                                    onChange={(e) => setSelectedFolderId(e.target.value)}
+                                    className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-sm font-medium text-gray-700 dark:text-gray-100"
+                                >
+                                    <option value="">📂 Chưa phân loại</option>
+                                    {availableFolders.map(f => (
+                                        <option key={f.id} value={f.id}>📁 {f.name}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        )}
+
                         <div className="space-y-1">
                             <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                                 Ý nghĩa (Việt): <span className="text-rose-500 dark:text-rose-400">*</span>
@@ -370,12 +402,14 @@ const AddCardForm = ({
                                 front, back, synonym, example, exampleMeaning, nuance, pos, level,
                                 sinoVietnamese, synonymSinoVietnamese, action: 'continue',
                                 imageBase64: imagePreview,
-                                audioBase64: customAudio.trim() !== '' ? customAudio.trim() : null
+                                audioBase64: customAudio.trim() !== '' ? customAudio.trim() : null,
+                                folderId: selectedFolderId || null
                             });
                             if (success) {
                                 setFront(''); setBack(''); setSynonym(''); setExample(''); setExampleMeaning('');
                                 setNuance(''); setPos(''); setLevel(''); setSinoVietnamese(''); setSynonymSinoVietnamese('');
                                 setImagePreview(null); setCustomAudio(''); setShowAudioInput(false);
+                                // Keep selectedFolderId for next card in batch
                                 await onBatchNext();
                             }
                         } else {

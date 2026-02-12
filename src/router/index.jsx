@@ -2,27 +2,34 @@ import React from 'react';
 import { Navigate, useNavigate, useParams, useLocation, Link } from 'react-router-dom';
 
 // Route configuration - centralized route definitions
+// Convention: /<feature>/<action> (e.g. /vocab/list, /kanji/review)
 export const ROUTES = {
+    // General
     HOME: '/',
     LOGIN: '/login',
     ACCOUNT: '/account',
     HELP: '/help',
-    // Vocabulary routes
-    VOCABULARY: '/srsvocab',         // Ôn tập từ vựng (trang chủ cũ)
-    VOCABULARY_LIST: '/vocabulary',   // Danh sách từ vựng
-    VOCABULARY_ADD: '/addvocab',      // Thêm từ vựng mới (tách riêng)
-    VOCABULARY_EDIT: '/vocabulary/edit/:id',
-    // Kanji routes
-    KANJI_STUDY: '/kanji-study',      // Học Kanji (lộ trình)
-    KANJI_LESSON: '/kanji-study/lesson', // Bài học Kanji (flashcard + test)
-    KANJI_REVIEW: '/kanji-review',    // Ôn tập Kanji (mới)
-    KANJI_LIST: '/kanji',             // Danh sách Kanji
-    KANJI: '/kanji',                  // Alias for compatibility
-    // Other routes
+
+    // Vocabulary: /vocab/*
+    VOCAB_REVIEW: '/vocab/review',       // Ôn tập từ vựng (SRS flashcard)
+    VOCAB_LIST: '/vocab/list',           // Danh sách từ vựng
+    VOCAB_ADD: '/vocab/add',             // Thêm từ vựng mới
+    VOCAB_EDIT: '/vocab/edit/:id',       // Chỉnh sửa từ vựng
+
+    // Kanji: /kanji/*
+    KANJI_STUDY: '/kanji/study',         // Học Kanji (lộ trình)
+    KANJI_LESSON: '/kanji/study/lesson', // Bài học Kanji (flashcard + test)
+    KANJI_REVIEW: '/kanji/review',       // Ôn tập Kanji (SRS)
+    KANJI_SAVED: '/kanji/saved',         // Danh sách Kanji đã lưu
+    KANJI_LIST: '/kanji/list',           // Danh sách Kanji (tra cứu)
+
+    // Study & Test
     REVIEW: '/review',
     FLASHCARD: '/flashcard',
     STUDY: '/study',
     TEST: '/test',
+
+    // Social & Data
     STATS: '/stats',
     FRIENDS: '/friends',
     IMPORT: '/import',
@@ -31,7 +38,7 @@ export const ROUTES = {
 };
 
 // Helper function to generate edit route with ID
-export const getEditRoute = (cardId) => `/vocabulary/edit/${cardId}`;
+export const getEditRoute = (cardId) => `/vocab/edit/${cardId}`;
 
 // Re-export react-router-dom hooks and components for convenience
 export { useNavigate, useParams, useLocation, Navigate, Link };

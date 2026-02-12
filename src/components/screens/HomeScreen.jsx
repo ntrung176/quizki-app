@@ -57,7 +57,7 @@ const HomeScreen = ({
             icon: Sparkles,
             color: 'from-cyan-500 to-teal-500',
             shadowColor: 'shadow-cyan-500/20',
-            route: ROUTES.VOCABULARY_ADD,
+            route: ROUTES.VOCAB_ADD,
         },
         {
             id: 'kanji',
@@ -75,7 +75,7 @@ const HomeScreen = ({
             icon: BookOpen,
             color: 'from-sky-500 to-blue-600',
             shadowColor: 'shadow-sky-500/20',
-            route: ROUTES.VOCABULARY,
+            route: ROUTES.VOCAB_REVIEW,
             badge: stats.dueCards > 0 ? stats.dueCards : null,
         },
         {

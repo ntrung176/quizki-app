@@ -125,8 +125,11 @@ const KanjiStudyScreen = () => {
 
     if (loading) {
         return (
-            <div className="flex items-center justify-center min-h-[400px]">
-                <div className="animate-spin w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full"></div>
+            <div className="flex items-center justify-center min-h-[calc(100vh-120px)]">
+                <div className="text-center space-y-3">
+                    <div className="animate-spin w-10 h-10 border-4 border-cyan-500 border-t-transparent rounded-full mx-auto"></div>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Đang tải lộ trình...</p>
+                </div>
             </div>
         );
     }

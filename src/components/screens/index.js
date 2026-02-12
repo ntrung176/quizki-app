@@ -13,6 +13,7 @@ export { default as KanjiScreen } from './KanjiScreen';
 export { default as KanjiStudyScreen } from './KanjiStudyScreen';
 export { default as KanjiLessonScreen } from './KanjiLessonScreen';
 export { default as KanjiReviewScreen } from './KanjiReviewScreen';
+export { default as KanjiSRSListScreen } from './KanjiSRSListScreen';
 export { default as StudyScreen } from './StudyScreen';
 export { default as TestScreen } from './TestScreen';
 export { default as AdminScreen } from './AdminScreen';

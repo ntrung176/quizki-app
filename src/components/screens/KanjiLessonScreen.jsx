@@ -29,6 +29,7 @@ const KanjiLessonScreen = () => {
     const [showCelebration, setShowCelebration] = useState(false);
     const [srsAddedSet, setSrsAddedSet] = useState(new Set());
     const [toastMessage, setToastMessage] = useState(null);
+    const [showSrsConfirm, setShowSrsConfirm] = useState(false); // SRS confirmation modal
 
     const showToast = (msg) => {
         setToastMessage(msg);
@@ -95,19 +96,27 @@ const KanjiLessonScreen = () => {
         return vocabList.filter(v => v.word?.includes(currentKanji.character));
     }, [currentKanji, vocabList]);
 
-    // HanziWriter
+    // HanziWriter stroke animation
     useEffect(() => {
         if (!currentKanji || !writerContainerRef.current || activeMode !== 'flashcard' || flashcardType !== 'kanji') return;
-        writerContainerRef.current.innerHTML = '';
         let cancelled = false;
+        let animTimer = null;
+
+        // Cancel previous writer animation
+        if (writerRef.current) {
+            try { writerRef.current.cancelQuiz?.(); } catch (_) { }
+            try { writerRef.current.hideCharacter?.(); } catch (_) { }
+            writerRef.current = null;
+        }
+
+        writerContainerRef.current.innerHTML = '';
 
         const showFallback = () => {
             if (!cancelled && writerContainerRef.current) {
-                writerContainerRef.current.innerHTML = `<span class="fallback-char" style="font-size:120px;color:#0891b2;font-family:'Noto Sans JP','Yu Gothic',serif;line-height:1">${currentKanji.character}</span>`;
+                writerContainerRef.current.innerHTML = `<span class="fallback-char" style="font-size:120px;color:#0891b2;font-family:'Noto Serif JP','Yu Mincho','Hiragino Mincho ProN',serif;line-height:1">${currentKanji.character}</span>`;
             }
         };
 
-        // Pre-check: load character data first, then create writer only if data exists
         HanziWriter.loadCharacterData(currentKanji.character)
             .then((charData) => {
                 if (cancelled || !writerContainerRef.current) return;
@@ -121,13 +130,11 @@ const KanjiLessonScreen = () => {
                         showOutline: true, strokeAnimationSpeed: 1, delayBetweenStrokes: 300,
                         strokeColor: '#0891b2', outlineColor: '#334155',
                         drawingColor: '#0891b2', showCharacter: false, showHintAfterMisses: 3,
-                        charDataLoader: () => charData, // Use pre-loaded data, no second fetch
+                        charDataLoader: () => charData,
                     });
-                    setTimeout(() => {
+                    animTimer = setTimeout(() => {
                         if (!cancelled) {
-                            writerRef.current?.animateCharacter({
-                                onComplete: () => writerRef.current?.showCharacter()
-                            });
+                            writerRef.current?.animateCharacter();
                         }
                     }, 100);
                 } catch (err) {
@@ -142,6 +149,7 @@ const KanjiLessonScreen = () => {
 
         return () => {
             cancelled = true;
+            if (animTimer) clearTimeout(animTimer);
             writerRef.current = null;
         };
     }, [currentKanji, activeMode, flashcardType]);
@@ -179,12 +187,41 @@ const KanjiLessonScreen = () => {
         }
     };
 
+    // Handle the "Complete day" button click
+    const handleCompleteClick = () => {
+        // If user has manually added some (but not all) kanji, ask for confirmation
+        const allKanjiIds = todayKanji.map(k => k.id).filter(Boolean);
+        const addedCount = allKanjiIds.filter(id => srsAddedSet.has(id)).length;
+
+        if (addedCount > 0 && addedCount < allKanjiIds.length) {
+            // Some kanji were manually added, ask what to do
+            setShowSrsConfirm(true);
+        } else {
+            // No manual additions or all already added -> add all
+            handleComplete('all');
+        }
+    };
+
     // Celebration
-    const handleComplete = async () => {
+    const handleComplete = async (srsMode = 'all') => {
+        setShowSrsConfirm(false);
         setShowCelebration(true);
-        // Init SRS for all today's kanji
-        const kanjiIds = todayKanji.map(k => k.id).filter(Boolean);
-        await initializeSRS(kanjiIds);
+
+        // Determine which kanji to add to SRS
+        const allKanjiIds = todayKanji.map(k => k.id).filter(Boolean);
+        let kanjiIdsToAdd;
+        if (srsMode === 'added-only') {
+            // Only add the ones user already manually added
+            kanjiIdsToAdd = allKanjiIds.filter(id => srsAddedSet.has(id));
+        } else {
+            // Add all kanji
+            kanjiIdsToAdd = allKanjiIds;
+        }
+
+        if (kanjiIdsToAdd.length > 0) {
+            await initializeSRS(kanjiIdsToAdd);
+        }
+
         // Save day completion progress
         if (userId) {
             try {
@@ -193,6 +230,7 @@ const KanjiLessonScreen = () => {
                     day,
                     completedAt: Date.now(),
                     kanjiCount: todayKanji.length,
+                    srsCount: kanjiIdsToAdd.length,
                 }, { merge: true });
             } catch (e) { console.error('Error saving progress:', e); }
         }
@@ -398,7 +436,7 @@ const KanjiLessonScreen = () => {
                     {/* Completion button */}
                     {isCompleted && (
                         <div className="text-center pt-2">
-                            <button onClick={handleComplete}
+                            <button onClick={handleCompleteClick}
                                 className="px-8 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-white rounded-xl font-bold text-lg transition-all shadow-lg shadow-orange-500/30 animate-pulse">
                                 🎉 Hoàn thành ngày {day}
                             </button>
@@ -407,14 +445,68 @@ const KanjiLessonScreen = () => {
                 </>
             )}
 
-            {/* Toast notification */}
-            {toastMessage && (
-                <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 animate-bounce-in">
-                    <div className="px-5 py-3 bg-emerald-500 text-white rounded-xl font-bold text-sm shadow-lg shadow-emerald-500/30 flex items-center gap-2">
-                        <Check className="w-4 h-4" /> {toastMessage}
+            {/* SRS Confirmation Modal */}
+            {showSrsConfirm && (() => {
+                const allKanjiIds = todayKanji.map(k => k.id).filter(Boolean);
+                const addedCount = allKanjiIds.filter(id => srsAddedSet.has(id)).length;
+                const notAddedCount = allKanjiIds.length - addedCount;
+                const addedKanjiChars = todayKanji.filter(k => srsAddedSet.has(k.id)).map(k => k.character);
+                const notAddedKanjiChars = todayKanji.filter(k => k.id && !srsAddedSet.has(k.id)).map(k => k.character);
+
+                return (
+                    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700 p-6 max-w-md w-full shadow-2xl animate-bounce-in">
+                            <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2">Thêm Kanji vào ôn tập SRS</h3>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                Bạn đã thêm <span className="text-emerald-500 font-bold">{addedCount}/{allKanjiIds.length}</span> chữ Kanji vào danh sách ôn tập.
+                            </p>
+
+                            {/* Show which kanji were added */}
+                            <div className="mb-3">
+                                <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Đã thêm:</div>
+                                <div className="flex flex-wrap gap-1.5">
+                                    {addedKanjiChars.map(c => (
+                                        <span key={c} className="w-9 h-9 flex items-center justify-center bg-emerald-500/15 border border-emerald-500/40 text-emerald-500 rounded-lg text-lg font-bold font-japanese">{c}</span>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="mb-5">
+                                <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Chưa thêm:</div>
+                                <div className="flex flex-wrap gap-1.5">
+                                    {notAddedKanjiChars.map(c => (
+                                        <span key={c} className="w-9 h-9 flex items-center justify-center bg-gray-100 dark:bg-slate-700 border border-gray-300 dark:border-slate-600 text-gray-500 dark:text-gray-400 rounded-lg text-lg font-bold font-japanese">{c}</span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 font-medium">Bạn muốn thêm những Kanji nào vào hệ thống ôn tập?</p>
+
+                            <div className="flex flex-col gap-2">
+                                <button
+                                    onClick={() => handleComplete('all')}
+                                    className="w-full px-4 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-white rounded-xl font-bold text-sm transition-all shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2"
+                                >
+                                    <BookOpen className="w-4 h-4" />
+                                    Thêm tất cả {allKanjiIds.length} chữ Kanji
+                                </button>
+                                <button
+                                    onClick={() => handleComplete('added-only')}
+                                    className="w-full px-4 py-3 bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-700 dark:text-gray-300 rounded-xl font-bold text-sm transition-all border border-gray-200 dark:border-slate-600 flex items-center justify-center gap-2"
+                                >
+                                    <Check className="w-4 h-4" />
+                                    Chỉ thêm {addedCount} chữ đã chọn
+                                </button>
+                                <button
+                                    onClick={() => setShowSrsConfirm(false)}
+                                    className="w-full px-4 py-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-xs transition-colors"
+                                >
+                                    Hủy
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            )}
+                );
+            })()}
 
             {activeMode === 'test' && (
                 <div className="grid grid-cols-2 gap-3">
@@ -431,6 +523,15 @@ const KanjiLessonScreen = () => {
                             <span className="text-xs text-gray-500">{t.desc}</span>
                         </button>
                     ))}
+                </div>
+            )}
+
+            {/* Toast notification */}
+            {toastMessage && (
+                <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 animate-bounce-in">
+                    <div className="px-5 py-3 bg-emerald-500 text-white rounded-xl font-bold text-sm shadow-lg shadow-emerald-500/30 flex items-center gap-2">
+                        <Check className="w-4 h-4" /> {toastMessage}
+                    </div>
                 </div>
             )}
         </div>
@@ -466,7 +567,7 @@ const KanjiFlashcard = ({ kanji, vocab, writerContainerRef, writerRef, speakJapa
                     <h2 className="text-2xl font-bold text-emerald-400">{kanji.sinoViet || kanji.meaning || ''}</h2>
                     <div className="w-48 h-48 bg-gray-100 dark:bg-slate-900 rounded-xl border border-gray-300 dark:border-slate-600 flex items-center justify-center relative">
                         <div ref={writerContainerRef} className="flex items-center justify-center" />
-                        <button onClick={() => writerRef.current?.animateCharacter({ onComplete: () => writerRef.current?.showCharacter() })}
+                        <button onClick={() => { writerRef.current?.hideCharacter(); writerRef.current?.animateCharacter(); }}
                             className="absolute bottom-2 right-2 p-1.5 bg-cyan-600 hover:bg-cyan-500 rounded-full text-white transition-colors" title="Xem lại">
                             <RotateCcw className="w-3.5 h-3.5" />
                         </button>
