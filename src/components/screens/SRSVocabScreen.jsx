@@ -6,6 +6,7 @@ import {
 import { shuffleArray } from '../../utils/textProcessing';
 import { ROUTES } from '../../router';
 import { formatCountdown } from '../../utils/srs';
+import OnboardingTour from '../ui/OnboardingTour';
 
 const SRSVocabScreen = ({
     displayName,
@@ -371,6 +372,9 @@ const SRSVocabScreen = ({
                     </div>
                 </div>
             </div>
+
+            {/* Onboarding Tour */}
+            <OnboardingTour section="vocabReview" />
         </div>
     );
 };

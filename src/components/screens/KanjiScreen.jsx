@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useParams, useNavigate } from 'react-router-dom';
 import { Search, Grid, PenTool, Download, BookOpen, Map, Globe, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Play, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw } from 'lucide-react';
 import { db } from '../../config/firebase';
 import { collection, getDocs, addDoc, deleteDoc, doc, query, where, writeBatch, updateDoc } from 'firebase/firestore';
@@ -36,6 +36,8 @@ const LEVEL_TAB_COLORS = {
 
 const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserCards = [] }) => {
     const [searchParams] = useSearchParams();
+    const params = useParams();
+    const navigate = useNavigate();
     const [selectedLevel, setSelectedLevel] = useState('N5');
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedKanji, setSelectedKanji] = useState(null);
@@ -78,6 +80,93 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     // Search dropdown state
     const [showSearchResults, setShowSearchResults] = useState(false);
     const searchInputRef = useRef(null);
+
+    // Handwriting search state
+    const [handwritingSuggestions, setHandwritingSuggestions] = useState([]);
+    const [selectedStrokeCount, setSelectedStrokeCount] = useState(0); // 0 = auto
+    const handwritingStrokesRef = useRef([]); // stores [[xs, ys], ...] for each stroke
+    const currentStrokeRef = useRef({ xs: [], ys: [] });
+    const recognitionTimeoutRef = useRef(null);
+
+    // Helper function to navigate to kanji detail with path params
+    const openKanjiDetail = useCallback((char) => {
+        navigate(`/kanji/list/${char}`);
+        setSelectedKanji(char);
+        setShowDetailModal(true);
+    }, [navigate]);
+
+    // Google handwriting recognition
+    const recognizeHandwriting = useCallback(async (strokes, canvasWidth, canvasHeight) => {
+        if (!strokes || strokes.length === 0) return;
+        try {
+            // Format ink data for Google Input Tools API
+            const ink = strokes.map(s => [s.xs, s.ys]);
+            const payload = JSON.stringify({
+                options: 'enable_pre_space',
+                requests: [{
+                    writing_guide: { writing_area_width: canvasWidth, writing_area_height: canvasHeight },
+                    ink: ink,
+                    language: 'ja'
+                }]
+            });
+            const resp = await fetch('https://inputtools.google.com/request?itc=ja-t-i0-handwrit&app=translate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: payload
+            });
+            const data = await resp.json();
+            if (data && data[0] === 'SUCCESS' && data[1] && data[1][0]) {
+                const candidates = data[1][0][1] || [];
+                // Map to our kanji objects
+                const suggestions = candidates
+                    .filter(char => char.length === 1) // single characters only
+                    .map((char, idx) => {
+                        const kanjiDoc = kanjiList.find(k => k.character === char);
+                        const jData = getJotobaKanjiData(char);
+                        return {
+                            id: kanjiDoc?.id || `hw_${idx}`,
+                            character: char,
+                            meaning: kanjiDoc?.meaning || jData?.meaningVi || jData?.meanings?.join(', ') || '',
+                            sinoViet: kanjiDoc?.sinoViet || jData?.sinoViet || '',
+                            strokes: jData?.stroke_count || 0,
+                            level: kanjiDoc?.level || jData?.level || '',
+                            inDatabase: !!kanjiDoc
+                        };
+                    })
+                    .slice(0, 24);
+                console.log('Google HW Recognition:', suggestions.map(s => s.character).join(''));
+                setHandwritingSuggestions(suggestions);
+            }
+        } catch (err) {
+            console.warn('Google handwriting API failed, falling back to local:', err.message);
+            // Fallback: basic pixel analysis
+            const canvas = document.getElementById('handwriting-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            let totalPixels = 0;
+            for (let i = 3; i < imageData.data.length; i += 4) {
+                if (imageData.data[i] > 128) totalPixels++;
+            }
+            const estimatedStrokes = Math.max(1, Math.min(30, Math.round(totalPixels / 650)));
+            const targetStrokes = selectedStrokeCount > 0 ? selectedStrokeCount : estimatedStrokes;
+            const suggestions = kanjiList
+                .map(k => {
+                    const jData = getJotobaKanjiData(k.character);
+                    const sc = jData?.stroke_count || 0;
+                    const diff = Math.abs(sc - targetStrokes);
+                    let score = 100 - diff * 10;
+                    if (diff === 0) score += 50;
+                    else if (diff <= 1) score += 20;
+                    else if (diff <= 2) score += 10;
+                    return { ...k, score, strokes: sc };
+                })
+                .filter(k => k.score > 0)
+                .sort((a, b) => b.score - a.score)
+                .slice(0, 24);
+            setHandwritingSuggestions(suggestions);
+        }
+    }, [kanjiList, selectedStrokeCount]);
 
     // Bulk selection states
     const [bulkSelectMode, setBulkSelectMode] = useState(false);
@@ -137,14 +226,15 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         loadData();
     }, []);
 
-    // Auto-open detail if ?char= param is present
+    // Auto-open detail if :char param or ?char= param is present
     useEffect(() => {
-        const charParam = searchParams.get('char');
+        // Priority: path param > query param
+        const charParam = params.char || searchParams.get('char');
         if (charParam && kanjiList.length > 0 && !loading) {
             setSelectedKanji(charParam);
             setShowDetailModal(true);
         }
-    }, [searchParams, kanjiList, loading]);
+    }, [params.char, searchParams, kanjiList, loading]);
 
     // Fetch Kanji API data + set up data when kanji is selected
     useEffect(() => {
@@ -1085,7 +1175,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 <div className="min-h-screen p-4 lg:p-8 bg-gradient-to-br from-indigo-50/95 via-white/95 to-purple-50/95 dark:from-slate-900/95 dark:via-slate-900/95 dark:to-slate-900/95">
                     {/* Header */}
                     <div className="flex justify-between items-center mb-6">
-                        <button onClick={() => setShowDetailModal(false)} className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                        <button onClick={() => { setShowDetailModal(false); navigate('/kanji/list'); }} className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
                             <ArrowLeft className="w-5 h-5" /> Quay lại
                         </button>
                         <div className="flex gap-2">
@@ -1117,8 +1207,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                 </div>
                             </div>
                             {/* Stroke Order Guide Strip (Jotoba Style) */}
-                            <div className="bg-slate-800 dark:bg-slate-900 rounded-xl p-2 shadow-lg border border-slate-700">
-                                <p className="text-xs text-slate-400 mb-1.5 px-1 font-medium">Hướng dẫn nét viết</p>
+                            <div className="bg-gray-100 dark:bg-slate-900 rounded-xl p-2 shadow-lg border border-gray-200 dark:border-slate-700">
+                                <p className="text-xs text-gray-500 dark:text-slate-400 mb-1.5 px-1 font-medium">Hướng dẫn nét viết</p>
                                 <div
                                     ref={strokeGuideRef}
                                     className="flex gap-0.5 overflow-x-auto pb-1 scrollbar-thin"
@@ -1158,7 +1248,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                         </button>
                                         {detail.id && (
                                             <button
-                                                onClick={() => { handleDeleteKanji(detail.id); setShowDetailModal(false); }}
+                                                onClick={() => { handleDeleteKanji(detail.id); setShowDetailModal(false); navigate('/kanji/list'); }}
                                                 className="p-2 text-gray-400 hover:text-red-500 dark:hover:text-red-400 bg-gray-100 dark:bg-slate-700 rounded-lg transition-colors"
                                                 title="Xóa kanji"
                                             >
@@ -1208,7 +1298,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     <Layers className="w-4 h-4" />
                                     Sơ đồ chiết tự
                                 </h4>
-                                <div className="relative bg-slate-900 rounded-xl border border-slate-700 overflow-hidden" style={{ height: '420px' }}>
+                                <div className="relative bg-white dark:bg-slate-900 rounded-xl border border-gray-200 dark:border-slate-700 overflow-hidden" style={{ height: '420px' }}>
                                     {loadingApiData ? (
                                         <div className="absolute inset-0 flex items-center justify-center">
                                             <div className="animate-spin w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full"></div>
@@ -1221,7 +1311,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             return withoutParens.split(/[,，、\s]+/).map(s => s.trim()).filter(s => s.length > 0);
                                         };
 
-                                        // Build recursive decomposition tree
+                                        // Build full decomposition tree
                                         const buildTree = (char, depth = 0, maxDepth = 4, visited = new Set()) => {
                                             if (depth >= maxDepth || visited.has(char)) return { char, children: [] };
                                             visited.add(char);
@@ -1244,7 +1334,6 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             if (children.length === 0) {
                                                 const jData = getJotobaKanjiData(char);
                                                 if (jData?.parts?.length > 0) {
-                                                    // Filter out self-reference
                                                     children = jData.parts.filter(p => p !== char);
                                                 }
                                             }
@@ -1287,18 +1376,32 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
 
                                         layoutTree(tree, centerX, centerY, 0);
 
-                                        // Find kanji that use this kanji
+                                        // Find kanji that use this kanji as a component (comprehensive search)
                                         const kanjiFromTree = Object.entries(KANJI_TREE)
                                             .filter(([k, v]) => v.components?.includes(selectedKanji) && k !== selectedKanji)
                                             .map(([k]) => k);
+
                                         const kanjiFromFirebase = kanjiList
                                             .filter(k => {
                                                 if (k.character === selectedKanji) return false;
                                                 if (kanjiFromTree.includes(k.character)) return false;
-                                                return parseRadicals(k.radical).includes(selectedKanji);
+                                                const radicals = parseRadicals(k.radical || '');
+                                                const parts = parseRadicals(k.parts || '');
+                                                return radicals.includes(selectedKanji) || parts.includes(selectedKanji);
                                             })
                                             .map(k => k.character);
-                                        const kanjiUsingThis = [...kanjiFromTree, ...kanjiFromFirebase].slice(0, 3);
+
+                                        // Also search in Jotoba static data
+                                        const kanjiFromJotoba = Object.values(JOTOBA_KANJI_DATA)
+                                            .filter(jk => {
+                                                if (jk.literal === selectedKanji) return false;
+                                                if (kanjiFromTree.includes(jk.literal)) return false;
+                                                if (kanjiFromFirebase.includes(jk.literal)) return false;
+                                                return jk.parts?.includes(selectedKanji);
+                                            })
+                                            .map(jk => jk.literal);
+
+                                        const kanjiUsingThis = [...kanjiFromTree, ...kanjiFromFirebase, ...kanjiFromJotoba].slice(0, 5);
 
                                         // Add result nodes to the right
                                         kanjiUsingThis.forEach((k, i) => {
@@ -1371,8 +1474,9 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                     {/* SVG for lines */}
                                                     <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
                                                         <defs>
-                                                            <marker id="arrowWhite" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-                                                                <polygon points="0 0, 8 3, 0 6" fill="#ffffff" />
+                                                            {/* Markers for light mode */}
+                                                            <marker id="arrowGray" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                                                <polygon points="0 0, 8 3, 0 6" fill="#9ca3af" />
                                                             </marker>
                                                             <marker id="arrowCyan" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
                                                                 <polygon points="0 0, 8 3, 0 6" fill="#22d3ee" />
@@ -1387,19 +1491,19 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                                 stroke={line.isResult ? "#22d3ee" : "#9ca3af"}
                                                                 strokeWidth="2"
                                                                 className="animated-line"
-                                                                markerEnd={line.isResult ? "url(#arrowCyan)" : "url(#arrowWhite)"}
+                                                                markerEnd={line.isResult ? "url(#arrowCyan)" : "url(#arrowGray)"}
                                                             />
                                                         ))}
                                                     </svg>
 
-                                                    {/* Render component nodes (orange) */}
-                                                    {nodes.filter(n => !n.isRoot && !n.isResult).map((node, i) => {
+                                                    {/* Render component nodes (orange) - only show actual components, not root */}
+                                                    {nodes.filter(n => !n.isRoot && !n.isResult && n.char !== selectedKanji).map((node, i) => {
                                                         const size = node.level === 1 ? 48 : (node.level === 2 ? 40 : 32);
                                                         const fontSize = node.level === 1 ? 20 : (node.level === 2 ? 16 : 14);
 
                                                         return (
                                                             <div key={`node-${i}`}
-                                                                className="absolute bg-orange-500 rounded-full flex items-center justify-center font-bold text-white cursor-pointer hover:bg-orange-400 hover:scale-110 transition-all font-japanese"
+                                                                className="absolute bg-orange-500 hover:bg-orange-400 rounded-full flex items-center justify-center font-bold text-white cursor-pointer hover:scale-110 transition-all font-japanese ring-2 ring-orange-300/50 hover:ring-orange-200"
                                                                 style={{
                                                                     top: node.y,
                                                                     left: node.x,
@@ -1410,14 +1514,14 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                                     zIndex: 10 - node.level
                                                                 }}
                                                                 onClick={() => {
-                                                                    const hasKanji = kanjiList.some(k => k.character === node.char);
-                                                                    if (hasKanji) {
-                                                                        setSelectedKanji(node.char);
-                                                                        setDiagramPan({ x: 0, y: 0 });
-                                                                        setDiagramZoom(1);
-                                                                    }
+                                                                    // Switch to this component as the new root kanji
+                                                                    // This will show its decomposition + kanji that use it
+                                                                    navigate(`/kanji/list/${node.char}`);
+                                                                    setSelectedKanji(node.char);
+                                                                    setDiagramPan({ x: 0, y: 0 });
+                                                                    setDiagramZoom(1);
                                                                 }}
-                                                                title={node.char}
+                                                                title={`Bấm để xem chiết tự ${node.char}`}
                                                             >
                                                                 {node.char}
                                                             </div>
@@ -1427,7 +1531,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                     {/* Root node (white/light gray) - center */}
                                                     {nodes.filter(n => n.isRoot).map((node, i) => (
                                                         <div key={`root-${i}`}
-                                                            className="absolute bg-gray-100 rounded-full flex items-center justify-center font-bold text-slate-800 font-japanese glow-node"
+                                                            className="absolute bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center font-bold text-slate-800 dark:text-white font-japanese glow-node"
                                                             style={{
                                                                 top: node.y,
                                                                 left: node.x,
@@ -1460,6 +1564,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                                 }}
                                                                 onClick={() => {
                                                                     if (kanjiData) {
+                                                                        navigate(`/kanji/list/${node.char}`);
                                                                         setSelectedKanji(node.char);
                                                                         setDiagramPan({ x: 0, y: 0 });
                                                                         setDiagramZoom(1);
@@ -1648,19 +1753,19 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     };
 
                                     return (
-                                        <div key={`vocab-${v.id || i}`} className="flex items-center justify-between p-2.5 bg-slate-800/80 dark:bg-slate-800 rounded-lg hover:bg-slate-700/80 dark:hover:bg-slate-700 transition-colors border border-slate-700/50">
+                                        <div key={`vocab-${v.id || i}`} className="flex items-center justify-between p-2.5 bg-gray-50 dark:bg-slate-800/80 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700/80 transition-colors border border-gray-200 dark:border-slate-700/50">
                                             <div className="flex-1 min-w-0 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-sm">
                                                 {renderWord()}
-                                                <span className="text-gray-500">（</span>{renderReading()}<span className="text-gray-500">）</span>
-                                                <span className="text-gray-600">–</span>
-                                                <span className="text-cyan-500 font-medium uppercase text-xs">{v.sinoViet || ''}</span>
-                                                <span className="text-gray-600">–</span>
-                                                <span className="text-gray-200">{v.meaning}</span>
+                                                <span className="text-gray-400 dark:text-gray-500">（</span>{renderReading()}<span className="text-gray-400 dark:text-gray-500">）</span>
+                                                <span className="text-gray-400 dark:text-gray-600">–</span>
+                                                <span className="text-cyan-600 dark:text-cyan-500 font-medium uppercase text-xs">{v.sinoViet || ''}</span>
+                                                <span className="text-gray-400 dark:text-gray-600">–</span>
+                                                <span className="text-gray-700 dark:text-gray-200">{v.meaning}</span>
                                             </div>
                                             <div className="flex items-center gap-0.5 ml-2 flex-shrink-0">
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); playJotobaAudio(v.word); }}
-                                                    className="p-1.5 text-gray-500 hover:text-cyan-400 transition-colors rounded-md hover:bg-slate-600/50"
+                                                    className="p-1.5 text-gray-500 hover:text-cyan-400 transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-slate-600/50"
                                                     title="Nghe phát âm (Jotoba)"
                                                 >
                                                     <Volume2 className="w-3.5 h-3.5" />
@@ -1677,7 +1782,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                     ) : (
                                                         <button
                                                             onClick={() => handleAddVocabToSRS(v)}
-                                                            className="p-1.5 text-gray-500 hover:text-cyan-400 transition-colors rounded-md hover:bg-slate-600/50"
+                                                            className="p-1.5 text-gray-500 hover:text-cyan-400 transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-slate-600/50"
                                                             title="Thêm vào danh sách ôn tập"
                                                         >
                                                             <Plus className="w-3.5 h-3.5" />
@@ -1688,14 +1793,14 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                     <>
                                                         <button
                                                             onClick={() => openEditVocab(v)}
-                                                            className="p-1.5 text-gray-500 hover:text-cyan-400 transition-colors rounded-md hover:bg-slate-600/50"
+                                                            className="p-1.5 text-gray-500 hover:text-cyan-400 transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-slate-600/50"
                                                             title="Chỉnh sửa"
                                                         >
                                                             <Edit className="w-3.5 h-3.5" />
                                                         </button>
                                                         <button
                                                             onClick={() => handleDeleteVocab(v.id)}
-                                                            className="p-1.5 text-gray-500 hover:text-red-400 transition-colors rounded-md hover:bg-slate-600/50"
+                                                            className="p-1.5 text-gray-500 hover:text-red-400 transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-slate-600/50"
                                                             title="Xóa"
                                                         >
                                                             <Trash2 className="w-3.5 h-3.5" />
@@ -1821,7 +1926,11 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                 {searchResults.map((kanji, idx) => (
                                     <button
                                         key={kanji.id || idx}
-                                        onClick={() => handleSelectSearchResult(kanji)}
+                                        onClick={() => {
+                                            openKanjiDetail(kanji.character);
+                                            setSearchQuery('');
+                                            setShowSearchResults(false);
+                                        }}
                                         className="w-full px-4 py-3 flex items-center gap-3 hover:bg-cyan-50 dark:hover:bg-slate-700 transition-colors text-left border-b border-gray-50 dark:border-slate-700 last:border-b-0"
                                     >
                                         <span className="text-2xl font-japanese text-cyan-600 dark:text-cyan-400 w-10 text-center">
@@ -1861,25 +1970,176 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         />
                     )}
 
-                    {/* Kanji Preview with Stroke Animation */}
-                    <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl aspect-square flex flex-col items-center justify-center shadow-lg relative overflow-hidden">
-                        {selectedKanji ? (
-                            <>
-                                <div
-                                    ref={writerContainerRef}
-                                    id="kanji-writer-container"
-                                    className="w-full h-full flex items-center justify-center"
-                                />
+                    {/* Kanji Handwriting Search Canvas */}
+                    <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl flex flex-col shadow-lg relative">
+                        <div className="p-3 border-b border-gray-200 dark:border-slate-700 flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-600 dark:text-gray-400">Vẽ Kanji để tìm kiếm</span>
+                            <div className="flex items-center gap-1">
+                                {handwritingStrokesRef.current.length > 0 && (
+                                    <span className="text-[10px] text-gray-400 mr-1">{handwritingStrokesRef.current.length} nét</span>
+                                )}
                                 <button
-                                    onClick={() => sidebarStrokeCtrl.current?.replay()}
-                                    className="absolute bottom-2 right-2 p-2 bg-cyan-500 hover:bg-cyan-400 rounded-full text-white shadow-lg transition-all hover:scale-110"
-                                    title="Xem lại animation"
+                                    onClick={() => {
+                                        const canvas = document.getElementById('handwriting-canvas');
+                                        if (canvas) {
+                                            const ctx = canvas.getContext('2d');
+                                            ctx.clearRect(0, 0, canvas.width, canvas.height);
+                                        }
+                                        handwritingStrokesRef.current = [];
+                                        currentStrokeRef.current = { xs: [], ys: [] };
+                                        if (recognitionTimeoutRef.current) clearTimeout(recognitionTimeoutRef.current);
+                                        setHandwritingSuggestions([]);
+                                        setSelectedStrokeCount(0);
+                                    }}
+                                    className="p-1.5 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg transition-colors"
+                                    title="Xóa và vẽ lại"
                                 >
-                                    <RotateCcw className="w-4 h-4" />
+                                    <RotateCcw className="w-4 h-4 text-gray-500 dark:text-gray-400" />
                                 </button>
-                            </>
-                        ) : (
-                            <PenTool className="w-16 h-16 text-gray-300 dark:text-gray-600" />
+                            </div>
+                        </div>
+                        <div className="relative h-80">
+                            <canvas
+                                id="handwriting-canvas"
+                                width="280"
+                                height="280"
+                                className="w-full h-full cursor-crosshair touch-none"
+                                style={{ touchAction: 'none' }}
+                                onMouseDown={(e) => {
+                                    const canvas = e.currentTarget;
+                                    const rect = canvas.getBoundingClientRect();
+                                    const x = (e.clientX - rect.left) * (canvas.width / rect.width);
+                                    const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+                                    const ctx = canvas.getContext('2d');
+                                    ctx.beginPath();
+                                    ctx.moveTo(x, y);
+                                    canvas.dataset.drawing = 'true';
+                                    currentStrokeRef.current = { xs: [Math.round(x)], ys: [Math.round(y)] };
+                                }}
+                                onMouseMove={(e) => {
+                                    const canvas = e.currentTarget;
+                                    if (canvas.dataset.drawing !== 'true') return;
+                                    const rect = canvas.getBoundingClientRect();
+                                    const x = (e.clientX - rect.left) * (canvas.width / rect.width);
+                                    const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+                                    const ctx = canvas.getContext('2d');
+                                    ctx.lineTo(x, y);
+                                    ctx.strokeStyle = document.documentElement.classList.contains('dark') ? '#fff' : '#000';
+                                    ctx.lineWidth = 4;
+                                    ctx.lineCap = 'round';
+                                    ctx.lineJoin = 'round';
+                                    ctx.stroke();
+                                    currentStrokeRef.current.xs.push(Math.round(x));
+                                    currentStrokeRef.current.ys.push(Math.round(y));
+                                }}
+                                onMouseUp={(e) => {
+                                    const canvas = e.currentTarget;
+                                    canvas.dataset.drawing = 'false';
+                                    // Save completed stroke
+                                    if (currentStrokeRef.current.xs.length > 1) {
+                                        handwritingStrokesRef.current = [...handwritingStrokesRef.current, { ...currentStrokeRef.current }];
+                                        currentStrokeRef.current = { xs: [], ys: [] };
+                                        // Debounced API call
+                                        if (recognitionTimeoutRef.current) clearTimeout(recognitionTimeoutRef.current);
+                                        recognitionTimeoutRef.current = setTimeout(() => {
+                                            recognizeHandwriting(handwritingStrokesRef.current, canvas.width, canvas.height);
+                                        }, 300);
+                                    }
+                                }}
+                                onMouseLeave={(e) => {
+                                    const canvas = e.currentTarget;
+                                    if (canvas.dataset.drawing === 'true') {
+                                        canvas.dataset.drawing = 'false';
+                                        if (currentStrokeRef.current.xs.length > 1) {
+                                            handwritingStrokesRef.current = [...handwritingStrokesRef.current, { ...currentStrokeRef.current }];
+                                            currentStrokeRef.current = { xs: [], ys: [] };
+                                            if (recognitionTimeoutRef.current) clearTimeout(recognitionTimeoutRef.current);
+                                            recognitionTimeoutRef.current = setTimeout(() => {
+                                                recognizeHandwriting(handwritingStrokesRef.current, canvas.width, canvas.height);
+                                            }, 300);
+                                        }
+                                    }
+                                }}
+                                onTouchStart={(e) => {
+                                    e.preventDefault();
+                                    const canvas = e.currentTarget;
+                                    const rect = canvas.getBoundingClientRect();
+                                    const touch = e.touches[0];
+                                    const x = (touch.clientX - rect.left) * (canvas.width / rect.width);
+                                    const y = (touch.clientY - rect.top) * (canvas.height / rect.height);
+                                    const ctx = canvas.getContext('2d');
+                                    ctx.beginPath();
+                                    ctx.moveTo(x, y);
+                                    canvas.dataset.drawing = 'true';
+                                    currentStrokeRef.current = { xs: [Math.round(x)], ys: [Math.round(y)] };
+                                }}
+                                onTouchMove={(e) => {
+                                    e.preventDefault();
+                                    const canvas = e.currentTarget;
+                                    if (canvas.dataset.drawing !== 'true') return;
+                                    const rect = canvas.getBoundingClientRect();
+                                    const touch = e.touches[0];
+                                    const x = (touch.clientX - rect.left) * (canvas.width / rect.width);
+                                    const y = (touch.clientY - rect.top) * (canvas.height / rect.height);
+                                    const ctx = canvas.getContext('2d');
+                                    ctx.lineTo(x, y);
+                                    ctx.strokeStyle = document.documentElement.classList.contains('dark') ? '#fff' : '#000';
+                                    ctx.lineWidth = 4;
+                                    ctx.lineCap = 'round';
+                                    ctx.lineJoin = 'round';
+                                    ctx.stroke();
+                                    currentStrokeRef.current.xs.push(Math.round(x));
+                                    currentStrokeRef.current.ys.push(Math.round(y));
+                                }}
+                                onTouchEnd={(e) => {
+                                    const canvas = e.currentTarget;
+                                    canvas.dataset.drawing = 'false';
+                                    if (currentStrokeRef.current.xs.length > 1) {
+                                        handwritingStrokesRef.current = [...handwritingStrokesRef.current, { ...currentStrokeRef.current }];
+                                        currentStrokeRef.current = { xs: [], ys: [] };
+                                        if (recognitionTimeoutRef.current) clearTimeout(recognitionTimeoutRef.current);
+                                        recognitionTimeoutRef.current = setTimeout(() => {
+                                            recognizeHandwriting(handwritingStrokesRef.current, canvas.width, canvas.height);
+                                        }, 300);
+                                    }
+                                }}
+                            />
+                        </div>
+                        {/* Handwriting Suggestions */}
+                        {handwritingSuggestions.length > 0 && (
+                            <div className="border-t border-gray-200 dark:border-slate-700 p-3 bg-gray-50 dark:bg-slate-900/50 max-h-48 overflow-y-auto">
+                                <div className="text-xs text-gray-500 dark:text-gray-400 mb-2 px-1 flex items-center justify-between">
+                                    <span>Chọn kanji phù hợp:</span>
+                                    <span className="text-[10px]">{handwritingSuggestions.length} kết quả</span>
+                                </div>
+                                <div className="grid grid-cols-8 gap-1.5">
+                                    {handwritingSuggestions.map((kanji, idx) => (
+                                        <button
+                                            key={kanji.id || idx}
+                                            onClick={() => {
+                                                openKanjiDetail(kanji.character);
+                                                const canvas = document.getElementById('handwriting-canvas');
+                                                if (canvas) {
+                                                    const ctx = canvas.getContext('2d');
+                                                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                                                }
+                                                handwritingStrokesRef.current = [];
+                                                setHandwritingSuggestions([]);
+                                            }}
+                                            className={`aspect-square hover:bg-cyan-50 dark:hover:bg-cyan-900/30 border rounded-lg flex flex-col items-center justify-center text-base font-japanese hover:border-cyan-400 dark:hover:border-cyan-500 transition-all hover:scale-110 relative group ${kanji.inDatabase === false ? 'bg-gray-50 dark:bg-slate-700 border-gray-200 dark:border-slate-600 text-gray-500' : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-600 text-gray-800 dark:text-white'}`}
+                                            title={`${kanji.character} - ${kanji.sinoViet || ''} ${kanji.meaning || ''} (${kanji.strokes || '?'} nét)`}
+                                        >
+                                            <span className="text-lg">{kanji.character}</span>
+                                            <span className="text-[9px] text-gray-400 dark:text-gray-500 absolute bottom-0.5 right-0.5 opacity-60 group-hover:opacity-100">
+                                                {kanji.strokes || ''}
+                                            </span>
+                                            {kanji.inDatabase === false && (
+                                                <span className="absolute top-0 left-0.5 text-[7px] text-orange-400">●</span>
+                                            )}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
                         )}
                     </div>
 
@@ -2079,7 +2339,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                     return (
                                                         <button
                                                             key={`${radical}-${i}`}
-                                                            onClick={() => { setSelectedKanji(radical); setShowDetailModal(true); }}
+                                                            onClick={() => openKanjiDetail(radical)}
                                                             className={`group relative aspect-square flex flex-col items-center justify-center rounded-lg transition-all ${selectedKanji === radical ? 'bg-orange-500 text-white scale-105 shadow-lg' : 'bg-orange-500 dark:bg-orange-600/80 text-white hover:bg-orange-600 dark:hover:bg-orange-500 hover:scale-105 shadow-md'}`}
                                                             title={`${info?.name || ''} - ${info?.meaning || ''}`}
                                                         >
@@ -2104,7 +2364,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     return (
                                         <button
                                             key={`${kanji}-${i}`}
-                                            onClick={() => { setSelectedKanji(kanji); setShowDetailModal(true); }}
+                                            onClick={() => openKanjiDetail(kanji)}
                                             className={`aspect-square flex items-center justify-center text-xl font-bold rounded-lg transition-all ${selectedKanji === kanji ? 'bg-cyan-500 text-white scale-105 shadow-lg' : `${colors.bg} ${colors.text} ${colors.hover} hover:scale-105 shadow-md`}`}
                                             title={meaningTip}
                                         >

@@ -2,16 +2,20 @@ import React from 'react';
 import { Clock, CheckCircle, AlertCircle } from 'lucide-react';
 import { getSrsProgressText } from '../../utils/srs';
 
-// SrsStatusCell - displays SRS status for a vocabulary card (as a table cell)
-const SrsStatusCell = ({ intervalIndex, nextReview, hasData }) => {
+// SrsStatusCell - displays SRS status for a vocabulary card
+// Use asDiv={true} when rendering outside a <table> (e.g. in flex/grid layouts)
+const SrsStatusCell = ({ intervalIndex, nextReview, hasData, asDiv = false }) => {
+    const Wrapper = asDiv ? 'div' : 'td';
+    const wrapperClass = asDiv ? '' : 'px-2 md:px-4 py-2 md:py-3';
+
     if (!hasData) {
         return (
-            <td className="px-2 md:px-4 py-2 md:py-3">
+            <Wrapper className={wrapperClass}>
                 <div className="flex items-center gap-1.5 text-gray-400 dark:text-gray-500">
                     <AlertCircle className="w-3.5 h-3.5" />
                     <span className="text-[10px] md:text-xs">Chưa ôn</span>
                 </div>
-            </td>
+            </Wrapper>
         );
     }
 
@@ -34,7 +38,7 @@ const SrsStatusCell = ({ intervalIndex, nextReview, hasData }) => {
     }
 
     return (
-        <td className="px-2 md:px-4 py-2 md:py-3">
+        <Wrapper className={wrapperClass}>
             <div className="flex flex-col gap-1">
                 <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md ${bgClass}`}>
                     {intervalIndex >= 4 ? (
@@ -52,7 +56,7 @@ const SrsStatusCell = ({ intervalIndex, nextReview, hasData }) => {
                     </span>
                 )}
             </div>
-        </td>
+        </Wrapper>
     );
 };
 

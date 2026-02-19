@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, Trash2, ChevronLeft, BookOpen, Clock, CheckCircle, AlertCircle, Filter, X, Eye } from 'lucide-react';
+import { Search, Trash2, ChevronLeft, ChevronRight, BookOpen, Clock, CheckCircle, AlertCircle, Filter, X, Eye, Folder, FolderPlus, FolderOpen, Edit, Plus, List } from 'lucide-react';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -57,6 +57,27 @@ const KanjiSRSListScreen = () => {
     const [deleting, setDeleting] = useState(false);
     const [showConfirmDelete, setShowConfirmDelete] = useState(false);
 
+    // Folder management — with parentId for nesting
+    const [folders, setFolders] = useState(() => {
+        const saved = localStorage.getItem('kanji_srs_folders');
+        return saved ? JSON.parse(saved) : [];
+    });
+    const [kanjiCardFolders, setKanjiCardFolders] = useState(() => {
+        const saved = localStorage.getItem('kanji_srs_card_folders');
+        return saved ? JSON.parse(saved) : {};
+    });
+    const [filterFolder, setFilterFolder] = useState('all');
+    const [showFolderManager, setShowFolderManager] = useState(false);
+    const [showMoveModal, setShowMoveModal] = useState(null);
+    const [showBatchMoveModal, setShowBatchMoveModal] = useState(false);
+    const [newFolderName, setNewFolderName] = useState('');
+    const [editingFolderId, setEditingFolderId] = useState(null);
+    const [editingFolderName, setEditingFolderName] = useState('');
+    // Folder browse state
+    const [currentFolder, setCurrentFolder] = useState(null);
+    const [showNewSubFolderInput, setShowNewSubFolderInput] = useState(false);
+    const [newSubFolderInput, setNewSubFolderInput] = useState('');
+
     const userId = getAuth().currentUser?.uid;
 
     // Load data
@@ -82,6 +103,92 @@ const KanjiSRSListScreen = () => {
         load();
     }, [userId]);
 
+    // Save folders to localStorage
+    useEffect(() => {
+        localStorage.setItem('kanji_srs_folders', JSON.stringify(folders));
+    }, [folders]);
+    useEffect(() => {
+        localStorage.setItem('kanji_srs_card_folders', JSON.stringify(kanjiCardFolders));
+    }, [kanjiCardFolders]);
+
+    // Folder CRUD — with parentId for nesting
+    const createFolder = useCallback((name, parentId = null) => {
+        if (!name.trim()) return;
+        setFolders(prev => [...prev, { id: `kfolder_${Date.now()}`, name: name.trim(), parentId }]);
+    }, []);
+    const renameFolder = useCallback((id, newName) => {
+        if (!newName.trim()) return;
+        setFolders(prev => prev.map(f => f.id === id ? { ...f, name: newName.trim() } : f));
+    }, []);
+    // Get all descendant folder IDs
+    const getDescendantIds = useCallback((parentId, allFolders) => {
+        const children = allFolders.filter(f => f.parentId === parentId);
+        let ids = children.map(f => f.id);
+        children.forEach(c => { ids = [...ids, ...getDescendantIds(c.id, allFolders)]; });
+        return ids;
+    }, []);
+    const deleteFolder = useCallback((id) => {
+        setFolders(prev => {
+            const idsToDelete = [id, ...getDescendantIds(id, prev)];
+            return prev.filter(f => !idsToDelete.includes(f.id));
+        });
+        setKanjiCardFolders(prev => {
+            const next = { ...prev };
+            const idsToDelete = [id, ...getDescendantIds(id, folders)];
+            Object.keys(next).forEach(cid => { if (idsToDelete.includes(next[cid])) delete next[cid]; });
+            return next;
+        });
+        if (filterFolder === id) setFilterFolder('all');
+        if (currentFolder === id) setCurrentFolder(null);
+    }, [filterFolder, currentFolder, folders, getDescendantIds]);
+    const moveKanjiToFolder = useCallback((kanjiId, folderId) => {
+        setKanjiCardFolders(prev => {
+            const next = { ...prev };
+            if (folderId === 'none') delete next[kanjiId];
+            else next[kanjiId] = folderId;
+            return next;
+        });
+        setShowMoveModal(null);
+    }, []);
+    const batchMoveToFolder = useCallback((folderId) => {
+        setKanjiCardFolders(prev => {
+            const next = { ...prev };
+            selectedIds.forEach(id => {
+                if (folderId === 'none') delete next[id];
+                else next[id] = folderId;
+            });
+            return next;
+        });
+        setShowBatchMoveModal(false);
+        setSelectedIds(new Set());
+    }, [selectedIds]);
+    const getFolderName = useCallback((kanjiId) => {
+        const folderId = kanjiCardFolders[kanjiId];
+        if (!folderId) return null;
+        const folder = folders.find(f => f.id === folderId);
+        return folder?.name || null;
+    }, [kanjiCardFolders, folders]);
+
+    // Nested folder helpers
+    const getRecursiveCardCount = useCallback((folderId) => {
+        let count = Object.values(kanjiCardFolders).filter(fId => fId === folderId).length;
+        const children = folders.filter(f => f.parentId === folderId);
+        children.forEach(c => { count += getRecursiveCardCount(c.id); });
+        return count;
+    }, [folders, kanjiCardFolders]);
+
+    const getFolderPath = useCallback((folderId) => {
+        const path = [];
+        let current = folderId;
+        while (current) {
+            const f = folders.find(f => f.id === current);
+            if (!f) break;
+            path.unshift({ id: f.id, name: f.name });
+            current = f.parentId || null;
+        }
+        return path;
+    }, [folders]);
+
     // Merge kanji data with SRS info
     const kanjiWithSRS = useMemo(() => {
         const srsKanjiIds = Object.keys(srsData);
@@ -105,6 +212,92 @@ const KanjiSRSListScreen = () => {
         }).filter(k => k.character !== '?');
     }, [kanjiList, srsData]);
 
+    // JLPT default folder counts
+    const jlptFolderCounts = useMemo(() => {
+        const counts = {};
+        JLPT_LEVELS.forEach(level => {
+            counts[level] = kanjiWithSRS.filter(k => k.level === level).length;
+        });
+        return counts;
+    }, [kanjiWithSRS]);
+
+    // Root custom folders with counts
+    const rootCustomFolders = useMemo(() => {
+        return folders.filter(f => !f.parentId).map(f => ({
+            ...f,
+            count: getRecursiveCardCount(f.id),
+            subFolderCount: folders.filter(sf => sf.parentId === f.id).length
+        }));
+    }, [folders, kanjiCardFolders, getRecursiveCardCount]);
+
+    // Sub-folders of current folder
+    const currentSubFolders = useMemo(() => {
+        if (!currentFolder || currentFolder.startsWith('jlpt_')) return [];
+        return folders
+            .filter(f => f.parentId === currentFolder)
+            .map(f => ({ ...f, count: getRecursiveCardCount(f.id), subFolderCount: folders.filter(sf => sf.parentId === f.id).length }));
+    }, [currentFolder, folders, getRecursiveCardCount]);
+
+    // Unfiled kanji count
+    const unfiledKanjiCount = useMemo(() => {
+        return kanjiWithSRS.filter(k => !kanjiCardFolders[k.id]).length;
+    }, [kanjiWithSRS, kanjiCardFolders]);
+
+    // Is folder browse mode active? (root or inside folder with sub-folders, no search/filter)
+    const isInFolderBrowseMode = useMemo(() => {
+        if (searchQuery.trim() !== '' || filterLevel !== 'all' || filterStatus !== 'all' || filterFolder !== 'all') return false;
+        if (currentFolder === null) return true;
+        if (currentFolder.startsWith('jlpt_')) return false; // JLPT folders go to card list
+        if (currentFolder === '__all__' || currentFolder === 'unfiled') return false;
+        const hasSubFolders = folders.some(f => f.parentId === currentFolder);
+        return hasSubFolders;
+    }, [currentFolder, searchQuery, filterLevel, filterStatus, filterFolder, folders]);
+
+    // Current folder name for breadcrumb
+    const currentFolderName = useMemo(() => {
+        if (!currentFolder) return null;
+        if (currentFolder === '__all__') return 'Tất cả Kanji';
+        if (currentFolder === 'unfiled') return 'Chưa phân loại';
+        if (currentFolder.startsWith('jlpt_')) return currentFolder.replace('jlpt_', '');
+        const f = folders.find(f => f.id === currentFolder);
+        return f?.name || 'Thư mục';
+    }, [currentFolder, folders]);
+
+    // Cards in current folder
+    const currentFolderKanji = useMemo(() => {
+        if (!currentFolder) return [];
+        if (currentFolder === '__all__') return [...kanjiWithSRS];
+        if (currentFolder === 'unfiled') return kanjiWithSRS.filter(k => !kanjiCardFolders[k.id]);
+        if (currentFolder.startsWith('jlpt_')) {
+            const level = currentFolder.replace('jlpt_', '');
+            return kanjiWithSRS.filter(k => k.level === level);
+        }
+        return kanjiWithSRS.filter(k => kanjiCardFolders[k.id] === currentFolder);
+    }, [currentFolder, kanjiWithSRS, kanjiCardFolders]);
+
+    // Open folder
+    const openFolder = useCallback((folderId) => {
+        setCurrentFolder(folderId);
+        setSelectedIds(new Set());
+        setShowNewSubFolderInput(false);
+    }, []);
+
+    // Go back
+    const goBackToFolders = useCallback(() => {
+        if (currentFolder && !currentFolder.startsWith('jlpt_') && currentFolder !== '__all__' && currentFolder !== 'unfiled') {
+            const current = folders.find(f => f.id === currentFolder);
+            if (current?.parentId) {
+                setCurrentFolder(current.parentId);
+            } else {
+                setCurrentFolder(null);
+            }
+        } else {
+            setCurrentFolder(null);
+        }
+        setSelectedIds(new Set());
+        setShowNewSubFolderInput(false);
+    }, [currentFolder, folders]);
+
     // Filter and search
     const filteredKanji = useMemo(() => {
         let result = [...kanjiWithSRS];
@@ -117,6 +310,15 @@ const KanjiSRSListScreen = () => {
         // Filter by status
         if (filterStatus !== 'all') {
             result = result.filter(k => k.srsStatus.label === filterStatus);
+        }
+
+        // Filter by folder
+        if (filterFolder !== 'all') {
+            if (filterFolder === 'none') {
+                result = result.filter(k => !kanjiCardFolders[k.id]);
+            } else {
+                result = result.filter(k => kanjiCardFolders[k.id] === filterFolder);
+            }
         }
 
         // Search
@@ -138,7 +340,7 @@ const KanjiSRSListScreen = () => {
         });
 
         return result;
-    }, [kanjiWithSRS, filterLevel, filterStatus, searchQuery]);
+    }, [kanjiWithSRS, filterLevel, filterStatus, searchQuery, filterFolder, kanjiCardFolders]);
 
     // Group by level for display
     const groupedByLevel = useMemo(() => {
@@ -205,7 +407,7 @@ const KanjiSRSListScreen = () => {
 
     // Navigate to kanji detail
     const openKanjiDetail = (character) => {
-        navigate(`${ROUTES.KANJI_LIST}?char=${encodeURIComponent(character)}`);
+        navigate(`${ROUTES.KANJI_LIST}/${character}`);
     };
 
     if (loading) {
@@ -232,12 +434,20 @@ const KanjiSRSListScreen = () => {
                         Quản lý danh sách Kanji trong hệ thống ôn tập
                     </p>
                 </div>
-                <button
-                    onClick={() => navigate(ROUTES.KANJI_REVIEW)}
-                    className="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg text-sm font-medium transition-colors"
-                >
-                    Ôn tập Kanji
-                </button>
+                <div className="flex gap-2">
+                    <button
+                        onClick={() => setShowFolderManager(true)}
+                        className="px-3 py-2 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-cyan-300 dark:hover:border-cyan-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5"
+                    >
+                        <FolderPlus className="w-4 h-4" /> Thư mục
+                    </button>
+                    <button
+                        onClick={() => navigate(ROUTES.KANJI_REVIEW)}
+                        className="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg text-sm font-medium transition-colors"
+                    >
+                        Ôn tập Kanji
+                    </button>
+                </div>
             </div>
 
             {/* Stats Cards */}
@@ -312,6 +522,31 @@ const KanjiSRSListScreen = () => {
                             {status}
                         </button>
                     ))}
+
+                    <span className="text-gray-300 dark:text-gray-600">|</span>
+
+                    {/* Folder filter */}
+                    <button
+                        onClick={() => setFilterFolder('all')}
+                        className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${filterFolder === 'all' ? 'bg-indigo-500 text-white' : 'bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600'}`}
+                    >
+                        Tất cả thư mục
+                    </button>
+                    <button
+                        onClick={() => setFilterFolder(filterFolder === 'none' ? 'all' : 'none')}
+                        className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${filterFolder === 'none' ? 'bg-gray-600 text-white' : 'bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600'}`}
+                    >
+                        Chưa phân loại
+                    </button>
+                    {folders.map(f => (
+                        <button
+                            key={f.id}
+                            onClick={() => setFilterFolder(filterFolder === f.id ? 'all' : f.id)}
+                            className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${filterFolder === f.id ? 'bg-indigo-500 text-white' : 'bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600'}`}
+                        >
+                            {f.name}
+                        </button>
+                    ))}
                 </div>
             </div>
 
@@ -329,171 +564,308 @@ const KanjiSRSListScreen = () => {
                             Bỏ chọn tất cả
                         </button>
                     </div>
-                    <button
-                        onClick={() => setShowConfirmDelete(true)}
-                        className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white rounded-lg text-sm font-medium flex items-center gap-2 transition-colors"
-                    >
-                        <Trash2 className="w-4 h-4" />
-                        Xóa khỏi danh sách
-                    </button>
+                    <div className="flex items-center gap-2">
+                        <button
+                            onClick={() => folders.length > 0 ? setShowBatchMoveModal(true) : setShowFolderManager(true)}
+                            className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium flex items-center gap-1.5 transition-colors"
+                        >
+                            <Folder className="w-4 h-4" /> Chuyển thư mục
+                        </button>
+                        <button
+                            onClick={() => setShowConfirmDelete(true)}
+                            className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white rounded-lg text-sm font-medium flex items-center gap-2 transition-colors"
+                        >
+                            <Trash2 className="w-4 h-4" />
+                            Xóa khỏi danh sách
+                        </button>
+                    </div>
                 </div>
             )}
 
-            {/* Kanji List by Level */}
+            {/* ====== MAIN CONTENT ====== */}
             {kanjiWithSRS.length === 0 ? (
                 <div className="text-center py-16 space-y-4">
                     <BookOpen className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto" />
-                    <h3 className="text-lg font-medium text-gray-500 dark:text-gray-400">Chưa có Kanji nào</h3>
+                    <h3 className="text-lg font-medium text-gray-500 dark:text-gray-400">Ch&#432;a c&#243; Kanji n&#224;o</h3>
                     <p className="text-sm text-gray-400 dark:text-gray-500">
-                        Hãy vào mục <strong>Học Kanji</strong> để thêm kanji vào danh sách ôn tập
+                        H&#227;y v&#224;o m&#7909;c <strong>H&#7885;c Kanji</strong> &#273;&#7875; th&#234;m kanji v&#224;o danh s&#225;ch &#244;n t&#7853;p
                     </p>
-                    <button
-                        onClick={() => navigate(ROUTES.KANJI_STUDY)}
-                        className="px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-medium transition-colors"
-                    >
-                        Bắt đầu học Kanji
+                    <button onClick={() => navigate(ROUTES.KANJI_STUDY)}
+                        className="px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-medium transition-colors">
+                        B&#7855;t &#273;&#7847;u h&#7885;c Kanji
                     </button>
                 </div>
-            ) : filteredKanji.length === 0 ? (
-                <div className="text-center py-12 space-y-3">
-                    <Search className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto" />
-                    <p className="text-gray-500 dark:text-gray-400">Không tìm thấy kanji nào phù hợp</p>
-                </div>
-            ) : (
-                <div className="space-y-6">
-                    {/* Select all button */}
-                    <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-500 dark:text-gray-400">
-                            {filteredKanji.length} kanji
+            ) : isInFolderBrowseMode ? (
+                /* ====== FOLDER BROWSE MODE ====== */
+                <div className="space-y-4">
+                    {/* Breadcrumb when inside a custom folder */}
+                    {currentFolder !== null && (
+                        <div className="flex items-center gap-1.5 text-sm flex-wrap">
+                            <button onClick={() => setCurrentFolder(null)}
+                                className="flex items-center gap-1 text-cyan-600 dark:text-cyan-400 hover:underline font-medium">
+                                <ChevronLeft className="w-4 h-4" /> Th&#432; m&#7909;c g&#7889;c
+                            </button>
+                            {getFolderPath(currentFolder).map((seg, i, arr) => (
+                                <React.Fragment key={seg.id}>
+                                    <span className="text-gray-400">/</span>
+                                    {i < arr.length - 1 ? (
+                                        <button onClick={() => openFolder(seg.id)} className="text-cyan-600 dark:text-cyan-400 hover:underline font-medium">{seg.name}</button>
+                                    ) : (
+                                        <span className="font-medium text-gray-700 dark:text-gray-300 flex items-center gap-1">
+                                            <Folder className="w-3.5 h-3.5 text-amber-500" /> {seg.name}
+                                        </span>
+                                    )}
+                                </React.Fragment>
+                            ))}
+                        </div>
+                    )}
+
+                    {/* Info bar */}
+                    <div className="flex items-center gap-2">
+                        <span className="text-sm text-gray-500 dark:text-gray-400 flex-1">
+                            {currentFolder === null
+                                ? `${kanjiWithSRS.length} Kanji \u00b7 ${rootCustomFolders.length} th\u01b0 m\u1ee5c t\u00f9y ch\u1ec9nh`
+                                : `${currentSubFolders.length} th\u01b0 m\u1ee5c con \u00b7 ${currentFolderKanji.length} kanji`
+                            }
                         </span>
-                        <button
-                            onClick={selectAllVisible}
-                            className="text-xs text-cyan-600 dark:text-cyan-400 hover:underline font-medium"
-                        >
-                            {filteredKanji.every(k => selectedIds.has(k.id)) ? 'Bỏ chọn tất cả' : 'Chọn tất cả'}
-                        </button>
+                        {currentFolder !== null && (
+                            showNewSubFolderInput ? (
+                                <div className="flex gap-1.5 items-center">
+                                    <input type="text" value={newSubFolderInput}
+                                        onChange={(e) => setNewSubFolderInput(e.target.value)}
+                                        onKeyDown={(e) => {
+                                            if (e.key === 'Enter' && newSubFolderInput.trim()) {
+                                                createFolder(newSubFolderInput.trim(), currentFolder);
+                                                setNewSubFolderInput(''); setShowNewSubFolderInput(false);
+                                            }
+                                            if (e.key === 'Escape') setShowNewSubFolderInput(false);
+                                        }}
+                                        autoFocus placeholder="T\u00ean th\u01b0 m\u1ee5c con..."
+                                        className="px-2 py-1 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:ring-1 focus:ring-cyan-500 w-40"
+                                    />
+                                    <button onClick={() => {
+                                        if (newSubFolderInput.trim()) { createFolder(newSubFolderInput.trim(), currentFolder); setNewSubFolderInput(''); setShowNewSubFolderInput(false); }
+                                    }} className="px-2 py-1 bg-emerald-600 text-white rounded text-xs font-medium"><Plus className="w-3.5 h-3.5" /></button>
+                                    <button onClick={() => setShowNewSubFolderInput(false)} className="text-gray-400 hover:text-gray-600"><X className="w-3.5 h-3.5" /></button>
+                                </div>
+                            ) : (
+                                <button onClick={() => setShowNewSubFolderInput(true)}
+                                    className="px-3 py-1.5 text-xs font-medium rounded-lg bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors flex items-center gap-1">
+                                    <FolderPlus className="w-3.5 h-3.5" /> Th\u01b0 m\u1ee5c con
+                                </button>
+                            )
+                        )}
                     </div>
 
-                    {JLPT_LEVELS.map(level => {
-                        const group = groupedByLevel[level];
-                        if (!group || group.length === 0) return null;
-                        const levelColor = LEVEL_COLORS[level];
-
-                        return (
-                            <div key={level}>
-                                {/* Level header */}
-                                <div className="flex items-center gap-2 mb-3">
-                                    <span className={`px-3 py-1 ${levelColor.bg} text-white text-sm font-bold rounded-lg`}>
-                                        {level}
-                                    </span>
-                                    <span className="text-sm text-gray-500 dark:text-gray-400">
-                                        {group.length} kanji
-                                    </span>
-                                    <div className="flex-1 h-px bg-gray-200 dark:bg-slate-700"></div>
+                    {/* Folder Grid */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                        {/* At root: show "All kanji" tile */}
+                        {currentFolder === null && (
+                            <button onClick={() => openFolder('__all__')}
+                                className="flex flex-col items-center gap-2 p-5 rounded-xl bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900/30 dark:to-cyan-800/20 border-2 border-cyan-200 dark:border-cyan-700 hover:border-cyan-400 dark:hover:border-cyan-500 hover:shadow-lg transition-all cursor-pointer group">
+                                <div className="w-14 h-14 rounded-xl bg-cyan-500/10 dark:bg-cyan-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <List className="w-7 h-7 text-cyan-500" />
                                 </div>
+                                <span className="text-sm font-bold text-cyan-700 dark:text-cyan-300">T&#7845;t c&#7843; Kanji</span>
+                                <span className="text-xs text-cyan-500 dark:text-cyan-400 font-medium">{kanjiWithSRS.length}</span>
+                            </button>
+                        )}
 
-                                {/* Kanji grid */}
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                                    {group.map(kanji => {
-                                        const isSelected = selectedIds.has(kanji.id);
-                                        const StatusIcon = kanji.srsStatus.icon;
+                        {/* At root: JLPT N5-N1 tiles */}
+                        {currentFolder === null && JLPT_LEVELS.map(level => {
+                            const colors = LEVEL_COLORS[level];
+                            const count = jlptFolderCounts[level];
+                            if (count === 0) return null;
+                            return (
+                                <button key={level} onClick={() => openFolder(`jlpt_${level}`)}
+                                    className={`flex flex-col items-center gap-2 p-5 rounded-xl border-2 border-gray-200 dark:border-slate-700 hover:shadow-lg transition-all cursor-pointer group ${colors.light} hover:border-opacity-80`}>
+                                    <div className={`w-14 h-14 rounded-xl ${colors.bg} bg-opacity-10 dark:bg-opacity-20 flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                                        <span className={`text-2xl font-bold ${colors.text}`}>{level}</span>
+                                    </div>
+                                    <span className={`text-sm font-bold ${colors.text}`}>{level}</span>
+                                    <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">{count} kanji</span>
+                                </button>
+                            );
+                        })}
 
-                                        return (
-                                            <div
-                                                key={kanji.id}
-                                                className={`group relative flex items-center gap-3 p-3 rounded-xl border transition-all cursor-pointer ${isSelected
-                                                    ? 'bg-red-50 dark:bg-red-900/20 border-red-300 dark:border-red-700 ring-1 ring-red-300'
-                                                    : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-cyan-300 dark:hover:border-cyan-600 hover:shadow-md'
-                                                    }`}
-                                            >
-                                                {/* Checkbox */}
-                                                <div
-                                                    onClick={(e) => { e.stopPropagation(); toggleSelect(kanji.id); }}
-                                                    className="flex-shrink-0"
-                                                >
-                                                    <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${isSelected
-                                                        ? 'bg-red-500 border-red-500 text-white'
-                                                        : 'border-gray-300 dark:border-slate-600 group-hover:border-cyan-400'
-                                                        }`}>
-                                                        {isSelected && <span className="text-xs">✓</span>}
-                                                    </div>
-                                                </div>
-
-                                                {/* Kanji character */}
-                                                <div
-                                                    onClick={() => openKanjiDetail(kanji.character)}
-                                                    className="flex items-center gap-3 flex-1 min-w-0"
-                                                >
-                                                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center text-2xl font-bold font-japanese ${levelColor.light} ${levelColor.text}`}>
-                                                        {kanji.character}
-                                                    </div>
-                                                    <div className="flex-1 min-w-0">
-                                                        <div className="flex items-center gap-2">
-                                                            <span className="font-bold text-cyan-600 dark:text-cyan-400 text-sm">
-                                                                {kanji.sinoViet || '---'}
-                                                            </span>
-                                                            <span className="text-xs text-gray-400">{kanji.strokeCount} nét</span>
-                                                        </div>
-                                                        <div className="text-xs text-gray-500 dark:text-gray-400 truncate">
-                                                            {kanji.meaning}
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                {/* SRS Status */}
-                                                <div className="flex flex-col items-end gap-1 flex-shrink-0">
-                                                    <span className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full ${kanji.srsStatus.bg} ${kanji.srsStatus.color}`}>
-                                                        <StatusIcon className="w-3 h-3" />
-                                                        {kanji.srsStatus.label}
-                                                    </span>
-                                                    {kanji.nextReview > 0 && kanji.reps > 0 && (
-                                                        <span className="text-[10px] text-gray-400">
-                                                            {(kanji.nextReview || 0) <= Date.now() ? 'Ngay bây giờ' : formatNextReview(kanji.nextReview)}
-                                                        </span>
-                                                    )}
-                                                </div>
-
-                                                {/* Quick view button */}
-                                                <button
-                                                    onClick={() => openKanjiDetail(kanji.character)}
-                                                    className="opacity-0 group-hover:opacity-100 absolute top-1 right-1 p-1 text-gray-400 hover:text-cyan-500 transition-all"
-                                                    title="Xem chi tiết"
-                                                >
-                                                    <Eye className="w-3.5 h-3.5" />
-                                                </button>
-                                            </div>
-                                        );
-                                    })}
+                        {/* Custom folder tiles (root or sub-folders) */}
+                        {(currentFolder === null ? rootCustomFolders : currentSubFolders).map(f => (
+                            <button key={f.id} onClick={() => openFolder(f.id)}
+                                className="flex flex-col items-center gap-2 p-5 rounded-xl bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 hover:border-cyan-400 dark:hover:border-cyan-500 hover:shadow-lg transition-all cursor-pointer group">
+                                <div className="w-14 h-14 rounded-xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <Folder className="w-7 h-7 text-amber-500" />
                                 </div>
-                            </div>
-                        );
-                    })}
+                                <span className="text-sm font-bold text-gray-700 dark:text-gray-200 truncate max-w-full">{f.name}</span>
+                                <div className="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500 font-medium">
+                                    <span>{f.count} kanji</span>
+                                    {f.subFolderCount > 0 && <span>&#183; {f.subFolderCount} th&#432; m&#7909;c</span>}
+                                </div>
+                            </button>
+                        ))}
 
-                    {/* Show ungrouped kanji (level = '?') */}
-                    {groupedByLevel['?'] && groupedByLevel['?'].length > 0 && (
-                        <div>
-                            <div className="flex items-center gap-2 mb-3">
-                                <span className="px-3 py-1 bg-gray-500 text-white text-sm font-bold rounded-lg">Khác</span>
-                                <span className="text-sm text-gray-500">{groupedByLevel['?'].length} kanji</span>
+                    </div>
+
+                    {/* Cards directly in this custom folder (if it has sub-folders AND cards) */}
+                    {currentFolder !== null && currentFolderKanji.length > 0 && (
+                        <>
+                            <div className="flex items-center gap-2">
+                                <div className="flex-1 h-px bg-gray-200 dark:bg-slate-700"></div>
+                                <span className="text-xs text-gray-400 font-medium">Kanji trong th&#432; m&#7909;c n&#224;y ({currentFolderKanji.length})</span>
                                 <div className="flex-1 h-px bg-gray-200 dark:bg-slate-700"></div>
                             </div>
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                                {groupedByLevel['?'].map(kanji => (
-                                    <div
-                                        key={kanji.id}
-                                        onClick={() => openKanjiDetail(kanji.character)}
-                                        className="flex items-center gap-3 p-3 rounded-xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-cyan-300 hover:shadow-md transition-all cursor-pointer"
-                                    >
-                                        <div className="w-12 h-12 rounded-lg flex items-center justify-center text-2xl font-bold font-japanese bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
-                                            {kanji.character}
+                                {currentFolderKanji.map(kanji => {
+                                    const isSelected = selectedIds.has(kanji.id);
+                                    const levelColor = LEVEL_COLORS[kanji.level] || { bg: 'bg-gray-500', text: 'text-gray-500', light: 'bg-gray-50 dark:bg-gray-900/20' };
+                                    return (
+                                        <div key={kanji.id}
+                                            onClick={() => toggleSelect(kanji.id)}
+                                            className={`flex items-center gap-2 p-2.5 rounded-lg border cursor-pointer transition-all ${isSelected
+                                                ? 'bg-red-50 dark:bg-red-900/20 border-red-300 dark:border-red-700'
+                                                : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-cyan-300'}`}>
+                                            <div className={`w-4 h-4 rounded border-2 flex items-center justify-center flex-shrink-0 ${isSelected ? 'bg-red-500 border-red-500 text-white' : 'border-gray-300 dark:border-slate-600'}`}>
+                                                {isSelected && <span className="text-[10px]">&#10003;</span>}
+                                            </div>
+                                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-xl font-bold font-japanese ${levelColor.light} ${levelColor.text}`}>
+                                                {kanji.character}
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                                <span className="font-bold text-cyan-600 dark:text-cyan-400 text-sm">{kanji.sinoViet || '---'}</span>
+                                                <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{kanji.meaning}</div>
+                                            </div>
                                         </div>
-                                        <div className="flex-1 min-w-0">
-                                            <span className="font-bold text-cyan-600 text-sm">{kanji.sinoViet || '---'}</span>
-                                            <div className="text-xs text-gray-500 truncate">{kanji.meaning}</div>
+                                    );
+                                })}
+                            </div>
+                        </>
+                    )}
+
+                    {/* Empty folder */}
+                    {currentFolder !== null && currentSubFolders.length === 0 && currentFolderKanji.length === 0 && (
+                        <div className="text-center py-12 space-y-3">
+                            <Folder className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto" />
+                            <p className="text-gray-500 dark:text-gray-400">Th&#432; m&#7909;c n&#224;y tr&#7889;ng</p>
+                            <p className="text-sm text-gray-400">T&#7841;o th&#432; m&#7909;c con ho&#7863;c chuy&#7875;n kanji v&#224;o &#273;&#226;y</p>
+                        </div>
+                    )}
+                </div>
+            ) : (
+                /* ====== KANJI LIST MODE (inside JLPT folder, custom leaf folder, search/filter active) ====== */
+                <div className="space-y-4">
+                    {/* Breadcrumb */}
+                    {currentFolder !== null && (
+                        <div className="flex items-center gap-2 text-sm">
+                            <button onClick={goBackToFolders}
+                                className="flex items-center gap-1 text-cyan-600 dark:text-cyan-400 hover:underline font-medium">
+                                <ChevronLeft className="w-4 h-4" /> Th&#432; m&#7909;c
+                            </button>
+                            <span className="text-gray-400">/</span>
+                            {currentFolder.startsWith('jlpt_') ? (
+                                <span className={`font-medium ${LEVEL_COLORS[currentFolder.replace('jlpt_', '')]?.text || 'text-gray-700'} flex items-center gap-1`}>
+                                    {currentFolderName}
+                                </span>
+                            ) : (
+                                <>
+                                    {getFolderPath(currentFolder).map((seg, i, arr) => (
+                                        <React.Fragment key={seg.id}>
+                                            {i > 0 && <span className="text-gray-400">/</span>}
+                                            {i < arr.length - 1 ? (
+                                                <button onClick={() => openFolder(seg.id)} className="text-cyan-600 dark:text-cyan-400 hover:underline font-medium">{seg.name}</button>
+                                            ) : (
+                                                <span className="font-medium text-gray-700 dark:text-gray-300 flex items-center gap-1">
+                                                    <Folder className="w-3.5 h-3.5 text-amber-500" /> {seg.name}
+                                                </span>
+                                            )}
+                                        </React.Fragment>
+                                    ))}
+                                </>
+                            )}
+                            <span className="text-xs text-gray-400 ml-2">
+                                {currentFolder ? currentFolderKanji.length : filteredKanji.length} kanji
+                            </span>
+                        </div>
+                    )}
+
+                    {/* Select all */}
+                    <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-500 dark:text-gray-400">
+                            {currentFolder ? currentFolderKanji.length : filteredKanji.length} kanji
+                        </span>
+                        <button onClick={selectAllVisible}
+                            className="text-xs text-cyan-600 dark:text-cyan-400 hover:underline font-medium">
+                            {(currentFolder ? currentFolderKanji : filteredKanji).every(k => selectedIds.has(k.id)) ? 'B&#7887; ch&#7885;n t&#7845;t c&#7843;' : 'Ch&#7885;n t&#7845;t c&#7843;'}
+                        </button>
+                    </div>
+
+                    {/* Kanji grid */}
+                    {(currentFolder ? currentFolderKanji : filteredKanji).length === 0 ? (
+                        <div className="text-center py-12 space-y-3">
+                            <Search className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto" />
+                            <p className="text-gray-500 dark:text-gray-400">Kh&#244;ng t&#236;m th&#7845;y kanji n&#224;o</p>
+                            {currentFolder && (
+                                <button onClick={goBackToFolders} className="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg text-sm font-medium">
+                                    Quay l&#7841;i th&#432; m&#7909;c
+                                </button>
+                            )}
+                        </div>
+                    ) : (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                            {(currentFolder ? currentFolderKanji : filteredKanji).map(kanji => {
+                                const isSelected = selectedIds.has(kanji.id);
+                                const StatusIcon = kanji.srsStatus.icon;
+                                const levelColor = LEVEL_COLORS[kanji.level] || { bg: 'bg-gray-500', text: 'text-gray-500', light: 'bg-gray-50 dark:bg-gray-900/20' };
+                                return (
+                                    <div key={kanji.id}
+                                        className={`group relative flex items-center gap-3 p-3 rounded-xl border transition-all cursor-pointer ${isSelected
+                                            ? 'bg-red-50 dark:bg-red-900/20 border-red-300 dark:border-red-700 ring-1 ring-red-300'
+                                            : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-cyan-300 dark:hover:border-cyan-600 hover:shadow-md'}`}>
+                                        <div onClick={(e) => { e.stopPropagation(); toggleSelect(kanji.id); }} className="flex-shrink-0">
+                                            <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${isSelected ? 'bg-red-500 border-red-500 text-white' : 'border-gray-300 dark:border-slate-600 group-hover:border-cyan-400'}`}>
+                                                {isSelected && <span className="text-xs">&#10003;</span>}
+                                            </div>
+                                        </div>
+                                        <div onClick={() => openKanjiDetail(kanji.character)} className="flex items-center gap-3 flex-1 min-w-0">
+                                            <div className={`w-12 h-12 rounded-lg flex items-center justify-center text-2xl font-bold font-japanese ${levelColor.light} ${levelColor.text}`}>
+                                                {kanji.character}
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                                <div className="flex items-center gap-2">
+                                                    <span className="font-bold text-cyan-600 dark:text-cyan-400 text-sm">{kanji.sinoViet || '---'}</span>
+                                                    <span className="text-xs text-gray-400">{kanji.strokeCount} n&#233;t</span>
+                                                </div>
+                                                <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{kanji.meaning}</div>
+                                                {getFolderName(kanji.id) && (
+                                                    <div className="flex items-center gap-1 mt-0.5">
+                                                        <Folder className="w-3 h-3 text-indigo-400" />
+                                                        <span className="text-[10px] text-indigo-500 dark:text-indigo-400 font-medium">{getFolderName(kanji.id)}</span>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                        <div className="flex flex-col items-end gap-1 flex-shrink-0">
+                                            <span className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full ${kanji.srsStatus.bg} ${kanji.srsStatus.color}`}>
+                                                <StatusIcon className="w-3 h-3" />
+                                                {kanji.srsStatus.label}
+                                            </span>
+                                            {kanji.nextReview > 0 && kanji.reps > 0 && (
+                                                <span className="text-[10px] text-gray-400">
+                                                    {(kanji.nextReview || 0) <= Date.now() ? 'Ngay b\u00e2y gi\u1edd' : formatNextReview(kanji.nextReview)}
+                                                </span>
+                                            )}
+                                        </div>
+                                        <div className="opacity-0 group-hover:opacity-100 absolute top-1 right-1 flex gap-0.5 transition-all bg-white/80 dark:bg-slate-800/80 rounded-lg p-0.5 backdrop-blur-sm">
+                                            <button onClick={(e) => { e.stopPropagation(); setShowMoveModal(kanji.id); }}
+                                                className="p-1 text-gray-400 hover:text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded transition-colors" title="Chuy&#7875;n th&#432; m&#7909;c">
+                                                <Folder className="w-3.5 h-3.5" />
+                                            </button>
+                                            <button onClick={() => openKanjiDetail(kanji.character)}
+                                                className="p-1 text-gray-400 hover:text-cyan-500 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 rounded transition-colors" title="Xem chi ti&#7871;t">
+                                                <Eye className="w-3.5 h-3.5" />
+                                            </button>
                                         </div>
                                     </div>
-                                ))}
-                            </div>
+                                );
+                            })}
                         </div>
                     )}
                 </div>
@@ -565,6 +937,158 @@ const KanjiSRSListScreen = () => {
                     </div>
                 </div>
             )}
+
+            {/* Batch Move to Folder Modal */}
+            {showBatchMoveModal && (() => {
+                const buildTree = (parentId = null, depth = 0) => {
+                    return folders.filter(f => (f.parentId || null) === parentId)
+                        .flatMap(f => [{ ...f, depth }, ...buildTree(f.id, depth + 1)]);
+                };
+                const flatTree = buildTree();
+                return (
+                    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
+                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[350px] max-w-[90vw] shadow-2xl space-y-3">
+                            <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                                <Folder className="w-5 h-5 text-indigo-500" /> Chuy&#7875;n {selectedIds.size} kanji v&#224;o th&#432; m&#7909;c
+                            </h3>
+                            <div className="max-h-[300px] overflow-y-auto space-y-0.5">
+                                <button onClick={() => batchMoveToFolder('none')}
+                                    className="w-full text-left flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors">
+                                    <Folder className="w-4 h-4 text-gray-400" />
+                                    <span className="text-sm text-gray-500 italic">Ch&#432;a ph&#226;n lo&#7841;i</span>
+                                </button>
+                                {flatTree.map(f => (
+                                    <button key={f.id} onClick={() => batchMoveToFolder(f.id)}
+                                        className="w-full text-left flex items-center gap-2 p-2.5 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
+                                        style={{ paddingLeft: `${12 + f.depth * 20}px` }}>
+                                        {f.depth > 0 && <span className="text-gray-300 text-xs">&#9492;</span>}
+                                        <Folder className={`w-4 h-4 ${f.depth > 0 ? 'text-amber-400' : 'text-indigo-400'}`} />
+                                        <span className="text-sm text-gray-700 dark:text-gray-300">{f.name}</span>
+                                    </button>
+                                ))}
+                                {folders.length === 0 && (
+                                    <p className="text-center text-sm text-gray-400 py-4">Ch&#432;a c&#243; th&#432; m&#7909;c n&#224;o</p>
+                                )}
+                            </div>
+                            <button onClick={() => setShowBatchMoveModal(false)} className="w-full py-2 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">
+                                &#272;&#243;ng
+                            </button>
+                        </div>
+                    </div>
+                );
+            })()}
+
+            {/* Move Single Kanji to Folder Modal */}
+            {showMoveModal && (() => {
+                const buildTree = (parentId = null, depth = 0) => {
+                    return folders.filter(f => (f.parentId || null) === parentId)
+                        .flatMap(f => [{ ...f, depth }, ...buildTree(f.id, depth + 1)]);
+                };
+                const flatTree = buildTree();
+                return (
+                    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
+                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[350px] max-w-[90vw] shadow-2xl space-y-3">
+                            <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                                <Folder className="w-5 h-5 text-indigo-500" /> Chuy&#7875;n v&#224;o th&#432; m&#7909;c
+                            </h3>
+                            <div className="max-h-[300px] overflow-y-auto space-y-0.5">
+                                <button onClick={() => moveKanjiToFolder(showMoveModal, 'none')}
+                                    className={`w-full text-left flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors ${!kanjiCardFolders[showMoveModal] ? 'bg-indigo-50 dark:bg-indigo-900/20' : ''}`}>
+                                    <Folder className="w-4 h-4 text-gray-400" />
+                                    <span className="text-sm text-gray-500 italic">Ch&#432;a ph&#224;n lo&#7841;i</span>
+                                </button>
+                                {flatTree.map(f => (
+                                    <button key={f.id} onClick={() => moveKanjiToFolder(showMoveModal, f.id)}
+                                        className={`w-full text-left flex items-center gap-2 p-2.5 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors ${kanjiCardFolders[showMoveModal] === f.id ? 'bg-indigo-50 dark:bg-indigo-900/20' : ''}`}
+                                        style={{ paddingLeft: `${12 + f.depth * 20}px` }}>
+                                        {f.depth > 0 && <span className="text-gray-300 text-xs">&#9492;</span>}
+                                        <Folder className={`w-4 h-4 ${f.depth > 0 ? 'text-amber-400' : 'text-indigo-400'}`} />
+                                        <span className="text-sm text-gray-700 dark:text-gray-300 flex-1">{f.name}</span>
+                                        {kanjiCardFolders[showMoveModal] === f.id && <span className="text-xs text-indigo-500 ml-auto">&#10003; Hi&#7879;n t&#7841;i</span>}
+                                    </button>
+                                ))}
+                            </div>
+                            <button onClick={() => setShowMoveModal(null)} className="w-full py-2 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">
+                                &#272;&#243;ng
+                            </button>
+                        </div>
+                    </div>
+                );
+            })()}
+
+            {/* Folder Manager Modal */}
+            {showFolderManager && (() => {
+                // Build hierarchical tree
+                const buildTree = (parentId = null, depth = 0) => {
+                    return folders
+                        .filter(f => (f.parentId || null) === parentId)
+                        .flatMap(f => [{ ...f, depth }, ...buildTree(f.id, depth + 1)]);
+                };
+                const flatTree = buildTree();
+                return (
+                    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
+                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[450px] max-w-[90vw] shadow-2xl space-y-4">
+                            <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                                <FolderPlus className="w-5 h-5 text-cyan-500" /> Qu&#7843;n l&#253; th&#43; m&#7909;c Kanji
+                            </h3>
+                            {/* Create new root folder */}
+                            <div className="flex gap-2">
+                                <input type="text" value={newFolderName}
+                                    onChange={(e) => setNewFolderName(e.target.value)}
+                                    onKeyDown={(e) => { if (e.key === 'Enter' && newFolderName.trim()) { createFolder(newFolderName); setNewFolderName(''); } }}
+                                    placeholder="T&#234;n th&#43; m&#7909;c m&#7899;i..."
+                                    className="flex-1 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                                />
+                                <button onClick={() => { if (newFolderName.trim()) { createFolder(newFolderName); setNewFolderName(''); } }}
+                                    className="px-3 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg text-sm font-medium transition-colors">
+                                    <Plus className="w-4 h-4" />
+                                </button>
+                            </div>
+                            {/* Folder tree */}
+                            <div className="max-h-[350px] overflow-y-auto space-y-0.5">
+                                {flatTree.length === 0 ? (
+                                    <p className="text-center text-sm text-gray-400 py-4">Ch&#43;a c&#243; th&#43; m&#7909;c n&#224;o</p>
+                                ) : flatTree.map(f => {
+                                    const count = getRecursiveCardCount(f.id);
+                                    return (
+                                        <div key={f.id} className="flex items-center gap-1.5 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 group"
+                                            style={{ paddingLeft: `${8 + f.depth * 20}px` }}>
+                                            {f.depth > 0 && <span className="text-gray-300 dark:text-gray-600 text-xs">&#9492;</span>}
+                                            <Folder className={`w-4 h-4 flex-shrink-0 ${f.depth > 0 ? 'text-amber-400' : 'text-indigo-500'}`} />
+                                            {editingFolderId === f.id ? (
+                                                <input type="text" value={editingFolderName}
+                                                    onChange={(e) => setEditingFolderName(e.target.value)}
+                                                    onBlur={() => { renameFolder(f.id, editingFolderName); setEditingFolderId(null); }}
+                                                    onKeyDown={(e) => { if (e.key === 'Enter') { renameFolder(f.id, editingFolderName); setEditingFolderId(null); } }}
+                                                    className="flex-1 bg-white dark:bg-slate-600 border border-cyan-400 rounded px-2 py-1 text-sm text-gray-900 dark:text-white focus:ring-1 focus:ring-cyan-500"
+                                                    autoFocus />
+                                            ) : (
+                                                <span className="flex-1 text-sm text-gray-700 dark:text-gray-300 truncate">{f.name}</span>
+                                            )}
+                                            <span className="text-xs text-gray-400 mr-0.5">{count}</span>
+                                            <button onClick={() => { setEditingFolderId(f.id); setEditingFolderName(f.name); }}
+                                                className="p-1 text-gray-400 hover:text-cyan-500 opacity-0 group-hover:opacity-100 transition-all" title="&#272;&#7893;i t&#234;n">
+                                                <Edit className="w-3.5 h-3.5" />
+                                            </button>
+                                            <button onClick={() => createFolder('Th&#43; m&#7909;c con', f.id)}
+                                                className="p-1 text-gray-400 hover:text-emerald-500 opacity-0 group-hover:opacity-100 transition-all" title="T&#7841;o th&#43; m&#7909;c con">
+                                                <FolderPlus className="w-3.5 h-3.5" />
+                                            </button>
+                                            <button onClick={() => { if (window.confirm(`X&#243;a th&#43; m&#7909;c "${f.name}"?`)) deleteFolder(f.id); }}
+                                                className="p-1 text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all" title="X&#243;a">
+                                                <Trash2 className="w-3.5 h-3.5" />
+                                            </button>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                            <button onClick={() => setShowFolderManager(false)} className="w-full py-2 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">
+                                &#272;&#243;ng
+                            </button>
+                        </div>
+                    </div>
+                );
+            })()}
         </div>
     );
 };

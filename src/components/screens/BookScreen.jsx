@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
     BookOpen, Plus, Trash2, Edit, ChevronRight, ChevronLeft, Check, X,
-    Upload, FolderPlus, FileText, List, Search, ArrowLeft, Image, Save, Layers, Copy, Clipboard
+    Upload, FolderPlus, FileText, List, Search, ArrowLeft, Image, Save, Layers, Copy, Clipboard, Folder
 } from 'lucide-react';
 import { db } from '../../config/firebase';
 import {
@@ -72,6 +72,10 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     const [addingVocabIndex, setAddingVocabIndex] = useState(null);
     const [addedVocabSet, setAddedVocabSet] = useState(new Set());
 
+    // Folder selection for SRS
+    const [availableFolders, setAvailableFolders] = useState([]);
+    const [selectedFolderId, setSelectedFolderId] = useState('');
+
     // Table of contents
     const [showTOC, setShowTOC] = useState(true);
 
@@ -80,6 +84,11 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     // ==================== LOAD DATA ====================
     useEffect(() => {
         loadAllData();
+        // Load vocab folders from localStorage
+        try {
+            const saved = localStorage.getItem('vocab_folders');
+            if (saved) setAvailableFolders(JSON.parse(saved));
+        } catch (e) { console.error('Error loading folders:', e); }
     }, []);
 
     const loadAllData = async () => {
@@ -258,8 +267,6 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
 
         setAddingVocabIndex(index);
         try {
-            // handleAddCard (onAddVocabToSRS) sẽ tự động tra shared DB → Gemini AI
-            // Chỉ cần truyền dữ liệu có sẵn từ sách làm fallback
             await onAddVocabToSRS({
                 front: word,
                 back: vocab.meaning || vocab.back || '',
@@ -272,6 +279,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                 sinoVietnamese: vocab.sinoVietnamese || '',
                 synonymSinoVietnamese: '',
                 imageBase64: null, audioBase64: null, action: 'stay',
+                folderId: selectedFolderId || null,
             });
             setAddedVocabSet(prev => new Set([...prev, index]));
         } catch (e) { console.error('Error adding to SRS:', e); }
@@ -528,7 +536,23 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                             <h1 className="text-lg font-bold text-gray-900 dark:text-white">{currentLesson?.name}</h1>
                             <p className="text-sm text-gray-500 dark:text-gray-400">{vocab.length} từ vựng</p>
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 flex-wrap">
+                            {/* Folder selector for SRS */}
+                            {onAddVocabToSRS && availableFolders.length > 0 && (
+                                <div className="flex items-center gap-1.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-xl px-2 py-1.5">
+                                    <Folder className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                                    <select
+                                        value={selectedFolderId}
+                                        onChange={e => setSelectedFolderId(e.target.value)}
+                                        className="text-xs bg-transparent text-gray-700 dark:text-gray-200 outline-none cursor-pointer"
+                                    >
+                                        <option value="">📂 Chưa phân loại</option>
+                                        {availableFolders.map(f => (
+                                            <option key={f.id} value={f.id}>📁 {f.name}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                            )}
                             {onAddVocabToSRS && vocab.length > 0 && (
                                 <button onClick={handleAddAllToSRS}
                                     className="flex items-center gap-1.5 px-3 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl text-sm font-medium transition-colors">

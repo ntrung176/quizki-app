@@ -23,11 +23,11 @@ export const ROUTES = {
     KANJI_SAVED: '/kanji/saved',         // Danh sách Kanji đã lưu
     KANJI_LIST: '/kanji/list',           // Danh sách Kanji (tra cứu)
 
-    // Study & Test
-    REVIEW: '/review',
-    FLASHCARD: '/flashcard',
-    STUDY: '/study',
-    TEST: '/test',
+    // Study & Test (under vocab/review/*)
+    REVIEW: '/vocab/review/quiz',
+    FLASHCARD: '/vocab/review/flashcard',
+    STUDY: '/vocab/review/study',
+    TEST: '/vocab/review/test',
 
     // Social & Data
     STATS: '/stats',
@@ -35,6 +35,7 @@ export const ROUTES = {
     IMPORT: '/import',
     ADMIN: '/admin',
     BOOKS: '/books',
+    SETTINGS: '/settings',
 };
 
 // Helper function to generate edit route with ID

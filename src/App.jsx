@@ -121,6 +121,7 @@ const App = () => {
             'FRIENDS': ROUTES.FRIENDS,
             'IMPORT': ROUTES.IMPORT,
             'ADMIN': ROUTES.ADMIN,
+            'SETTINGS': ROUTES.SETTINGS,
         };
         const route = routeMap[viewName] || ROUTES.HOME;
         navigate(route);
@@ -138,13 +139,19 @@ const App = () => {
         if (path.startsWith('/vocab/edit/')) return 'EDIT_CARD';
         if (path === ROUTES.REVIEW) return 'REVIEW';
         if (path === ROUTES.FLASHCARD) return 'FLASHCARD';
-        if (path === ROUTES.KANJI_LIST) return 'KANJI';
+        if (path === ROUTES.KANJI_LIST || path.startsWith(ROUTES.KANJI_LIST + '/')) return 'KANJI';
+        if (path === ROUTES.KANJI_STUDY) return 'KANJI_STUDY';
+        if (path === ROUTES.KANJI_LESSON) return 'KANJI_LESSON';
+        if (path === ROUTES.KANJI_REVIEW) return 'KANJI_REVIEW';
+        if (path === ROUTES.KANJI_SAVED) return 'KANJI_SAVED';
         if (path === ROUTES.STUDY) return 'STUDY';
         if (path === ROUTES.TEST) return 'TEST';
         if (path === ROUTES.STATS) return 'STATS';
         if (path === ROUTES.FRIENDS) return 'FRIENDS';
         if (path === ROUTES.IMPORT) return 'IMPORT';
         if (path === ROUTES.ADMIN) return 'ADMIN';
+        if (path === ROUTES.BOOKS) return 'BOOKS';
+        if (path === ROUTES.SETTINGS) return 'SETTINGS';
         return 'HOME';
     }, [location.pathname]);
 
@@ -1988,6 +1995,37 @@ const App = () => {
         return () => clearTimeout(t);
     }, [notification]);
 
+    // --- Handle Update Profile Name ---
+    const handleUpdateProfileName = async (newName) => {
+        if (!auth?.currentUser) throw new Error('Chưa đăng nhập');
+        try {
+            const { updateProfile: firebaseUpdateProfile } = await import('firebase/auth');
+            await firebaseUpdateProfile(auth.currentUser, { displayName: newName });
+            // Also update Firestore profile
+            if (settingsDocPath) {
+                await updateDoc(doc(db, settingsDocPath), { displayName: newName });
+            }
+            setProfile(prev => ({ ...prev, displayName: newName }));
+            setNotification('Đã cập nhật tên hiển thị!');
+        } catch (e) {
+            console.error('Lỗi cập nhật tên:', e);
+            throw e;
+        }
+    };
+
+    // --- Handle Change Password ---
+    const handleChangePassword = async (newPassword) => {
+        if (!auth?.currentUser) throw new Error('Chưa đăng nhập');
+        try {
+            const { updatePassword } = await import('firebase/auth');
+            await updatePassword(auth.currentUser, newPassword);
+            setNotification('Đã đổi mật khẩu thành công!');
+        } catch (e) {
+            console.error('Lỗi đổi mật khẩu:', e);
+            throw e;
+        }
+    };
+
     // --- Helper: Lấy danh sách API keys ---
     const getGeminiApiKeys = () => {
         // Ưu tiên dùng keys từ state (có thể được cấu hình từ UI)
@@ -2633,6 +2671,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                                 publicStatsCollectionPath={publicStatsCollectionPath}
                                 isAdmin={isAdmin}
                                 isDarkMode={isDarkMode}
+                                currentUserEmail={auth?.currentUser?.email}
                                 setView={setView}
                                 setEditingCard={setEditingCard}
                                 setStudySessionData={setStudySessionData}
@@ -2656,15 +2695,8 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                                 handleNavigateToEdit={handleNavigateToEdit}
                                 handleUpdateGoal={handleUpdateGoal}
                                 handleAdminDeleteUserData={handleAdminDeleteUserData}
-                                handleUpdateProfileName={async (newName) => {
-                                    if (!settingsDocPath) return;
-                                    await updateDoc(doc(db, settingsDocPath), { displayName: newName });
-                                    setProfile(prev => prev ? { ...prev, displayName: newName } : prev);
-                                }}
-                                handleChangePassword={async (newPassword) => {
-                                    if (!auth || !auth.currentUser) throw new Error('Chưa đăng nhập.');
-                                    await updatePassword(auth.currentUser, newPassword);
-                                }}
+                                handleUpdateProfileName={handleUpdateProfileName}
+                                handleChangePassword={handleChangePassword}
                                 batchMode={batchVocabList.length > 0 && currentBatchIndex < batchVocabList.length}
                                 currentBatchIndex={currentBatchIndex}
                                 batchVocabList={batchVocabList}

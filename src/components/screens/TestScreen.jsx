@@ -6,7 +6,8 @@ import {
 } from 'lucide-react';
 import { shuffleArray } from '../../utils/textProcessing';
 import { ROUTES } from '../../router';
-import { celebrateCorrectAnswer, flashCorrect, launchFanfare } from '../../utils/celebrations';
+import { celebrateCorrectAnswer, flashCorrect, launchFanfare, launchConfetti } from '../../utils/celebrations';
+import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
 
 const TestScreen = ({ allCards }) => {
     const [testMode, setTestMode] = useState(null);
@@ -275,6 +276,9 @@ const TestScreen = ({ allCards }) => {
             setScore(score + 1);
             celebrateCorrectAnswer(event);
             flashCorrect();
+            playCorrectSound();
+        } else {
+            playIncorrectSound();
         }
 
         setUserAnswers([...userAnswers, {
@@ -331,6 +335,8 @@ const TestScreen = ({ allCards }) => {
     useEffect(() => {
         if (showResult && score / questions.length >= 0.7) {
             launchFanfare();
+            launchFireworks();
+            playCompletionFanfare();
         }
     }, [showResult]);
 
@@ -412,10 +418,10 @@ const TestScreen = ({ allCards }) => {
                                 Làm bài khác
                             </button>
                             <Link
-                                to={ROUTES.HOME}
+                                to={ROUTES.VOCAB_REVIEW}
                                 className="flex-1 py-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition text-center font-medium"
                             >
-                                Về trang chủ
+                                Về trang ôn tập
                             </Link>
                         </div>
                     </div>
@@ -607,7 +613,7 @@ const TestScreen = ({ allCards }) => {
                             <FileCheck className="w-8 h-8 mr-3 text-indigo-600 dark:text-indigo-400" />
                             Luyện Thi JLPT
                         </h1>
-                        <Link to={ROUTES.HOME} className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                        <Link to={ROUTES.VOCAB_REVIEW} className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
                             <Home className="w-6 h-6" />
                         </Link>
                     </div>

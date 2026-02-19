@@ -11,7 +11,8 @@ import {
     maskWordInExample,
     buildAdjNaAcceptedAnswers
 } from '../../utils/textProcessing';
-import { flashCorrect, launchConfetti, launchFanfare } from '../../utils/celebrations';
+import { flashCorrect, launchConfetti, launchFanfare, launchSparkles, celebrateCorrectAnswer } from '../../utils/celebrations';
+import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
 
 // Helper function to detect mobile devices
 const isMobileDevice = () => {
@@ -514,6 +515,8 @@ const ReviewScreen = ({
                 setIsRevealed(true);
                 setIsLocked(false);
                 flashCorrect();
+                playCorrectSound();
+                celebrateCorrectAnswer();
                 playAudio(currentCard.audioBase64, currentCard.front);
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 await moveToNextCard(true);
@@ -524,6 +527,8 @@ const ReviewScreen = ({
                 setIsRevealed(true);
                 setIsLocked(false);
                 flashCorrect();
+                playCorrectSound();
+                celebrateCorrectAnswer();
                 playAudio(currentCard.audioBase64, currentCard.front);
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 await moveToNextCard(true);
@@ -535,6 +540,7 @@ const ReviewScreen = ({
             setMessage(`Đáp án đúng: ${displayFront}${nuanceText}. Hãy làm lại!`);
             setIsRevealed(true);
             setIsLocked(true);
+            playIncorrectSound();
             playAudio(currentCard.audioBase64, currentCard.front);
 
             setCards(prevCards => {
@@ -912,7 +918,7 @@ const ReviewScreen = ({
                                         setFailedCards(prev => new Set([...prev, cardKey]));
                                         setFeedback('incorrect');
                                         setMessage(`Đáp án đúng: ${displayFront}`);
-                                        playAudio(currentCard.audioBase64);
+                                        playAudio(currentCard.audioBase64, currentCard.front);
 
                                         setCards(prevCards => {
                                             return prevCards.map(card => {
@@ -935,7 +941,7 @@ const ReviewScreen = ({
                                     }
 
                                     setIsRevealed(true);
-                                    playAudio(currentCard.audioBase64);
+                                    playAudio(currentCard.audioBase64, currentCard.front);
                                     await new Promise(resolve => setTimeout(resolve, 1000));
                                     await moveToNextCard(isCorrect);
                                 }}
@@ -1096,22 +1102,27 @@ const ReviewScreen = ({
 export const ReviewCompleteScreen = ({ onBack }) => {
     useEffect(() => {
         launchFanfare();
+        launchFireworks();
+        playCompletionFanfare();
     }, []);
 
     return (
         <div className="flex flex-col items-center justify-center p-10 text-center space-y-6 animate-fade-in">
-            <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-2 shadow-inner">
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-200 animate-bounce">
-                    <Check className="w-8 h-8 text-white" strokeWidth={4} />
+            <div className="w-28 h-28 bg-gradient-to-br from-emerald-100 to-green-200 dark:from-emerald-900/30 dark:to-green-900/30 rounded-full flex items-center justify-center mb-2 shadow-inner">
+                <div className="w-20 h-20 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-200 dark:shadow-green-900/50 animate-bounce">
+                    <Check className="w-10 h-10 text-white" strokeWidth={4} />
                 </div>
             </div>
             <div>
-                <h2 className="text-3xl font-black text-gray-800 mb-2">Tuyệt vời!</h2>
-                <p className="text-gray-500 font-medium">Bạn đã hoàn thành phiên ôn tập này.</p>
+                <h2 className="text-4xl font-black text-gray-800 dark:text-gray-100 mb-3">🎊 Tuyệt vời! 🎊</h2>
+                <p className="text-gray-500 dark:text-gray-400 font-medium text-lg">Bạn đã hoàn thành phiên ôn tập này.</p>
+                <p className="text-gray-400 dark:text-gray-500 text-sm mt-2">Hãy tiếp tục cố gắng nhé!</p>
             </div>
-            <button onClick={onBack} className="px-8 py-3 bg-gray-900 text-white font-bold rounded-xl shadow-xl hover:bg-gray-800 hover:-translate-y-1 transition-all">
-                Về Trang chủ
-            </button>
+            <div className="flex gap-3">
+                <button onClick={onBack} className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white font-bold rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
+                    Quay lại Ôn tập
+                </button>
+            </div>
         </div>
     );
 };

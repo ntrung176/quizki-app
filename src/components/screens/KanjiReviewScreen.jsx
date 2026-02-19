@@ -6,6 +6,8 @@ import { collection, getDocs, doc, updateDoc, getDoc, setDoc } from 'firebase/fi
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
 import { formatCountdown } from '../../utils/srs';
+import { flashCorrect, launchConfetti, launchFanfare } from '../../utils/celebrations';
+import { playCorrectSound, playIncorrectSound, playCompletionFanfare, launchFireworks } from '../../utils/soundEffects';
 
 // ==================== SRS LOGIC (Anki-like with learning steps) ====================
 const getNextInterval = (currentInterval, ease, rating, reps) => {
@@ -280,9 +282,20 @@ const KanjiReviewScreen = () => {
 
         // Next card
         if (currentReviewIndex + 1 < reviewQueue.length) {
+            // Visual + audio feedback based on rating
+            if (rating === 'good' || rating === 'easy') {
+                flashCorrect();
+                playCorrectSound();
+            } else if (rating === 'again') {
+                playIncorrectSound();
+            }
             setCurrentReviewIndex(prev => prev + 1);
             setIsFlipped(false);
         } else {
+            // Completed all reviews
+            launchFanfare();
+            launchFireworks();
+            playCompletionFanfare();
             setReviewMode(false);
         }
     };

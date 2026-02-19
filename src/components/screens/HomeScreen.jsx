@@ -7,6 +7,7 @@ import {
     ArrowRight, Sparkles, TrendingUp, Zap, Star, Calendar
 } from 'lucide-react';
 import { ROUTES } from '../../router';
+import OnboardingTour from '../ui/OnboardingTour';
 
 const HomeScreen = ({
     displayName,
@@ -346,6 +347,9 @@ const HomeScreen = ({
                     </div>
                 </div>
             </div>
+
+            {/* Onboarding Tour for new users */}
+            <OnboardingTour section="home" />
         </div>
     );
 };

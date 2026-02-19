@@ -32,6 +32,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
         if (path === ROUTES.STATS) return 'STATS';
         if (path === ROUTES.FRIENDS) return 'FRIENDS';
         if (path === ROUTES.ACCOUNT) return 'ACCOUNT';
+        if (path === ROUTES.SETTINGS) return 'SETTINGS';
         if (path === ROUTES.BOOKS) return 'BOOKS_LIST';
         if (path === ROUTES.ADMIN) return 'ADMIN';
         return 'HOME';
@@ -88,7 +89,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
         { id: 'TEST', icon: FileCheck, label: 'Kiểm tra JLPT', route: ROUTES.TEST },
         { id: 'STATS', icon: BarChart3, label: 'Thống kê', route: ROUTES.STATS },
         { id: 'FRIENDS', icon: Users, label: 'Xếp hạng', route: ROUTES.FRIENDS },
-        { id: 'ACCOUNT', icon: Settings, label: 'Cài đặt', route: ROUTES.ACCOUNT },
+        { id: 'SETTINGS', icon: Settings, label: 'Cài đặt', route: ROUTES.SETTINGS },
         ...(isAdmin ? [{ id: 'ADMIN', icon: Shield, label: 'Quản lý Admin', route: ROUTES.ADMIN }] : []),
     ];
 

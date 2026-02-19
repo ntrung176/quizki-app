@@ -23,7 +23,8 @@ import {
     TestScreen,
     AdminScreen,
     FlashcardScreen,
-    BookScreen
+    BookScreen,
+    SettingsScreen
 } from './screens';
 
 // Import card components
@@ -59,6 +60,9 @@ const AppRoutes = ({
     // Flags
     isAdmin,
     isDarkMode,
+
+    // Auth info
+    currentUserEmail,
 
     // Handlers
     setView,
@@ -265,12 +269,27 @@ const AppRoutes = ({
                 }
             />
 
+            {/* Kanji detail with character in URL path */}
+            <Route
+                path={`${ROUTES.KANJI_LIST}/:char`}
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <KanjiScreen
+                            isAdmin={isAdmin}
+                            onAddVocabToSRS={handleSaveNewCard}
+                            onGeminiAssist={handleGeminiAssist}
+                            allUserCards={allCards}
+                        />
+                    </ProtectedRoute>
+                }
+            />
+
             <Route
                 path={ROUTES.REVIEW}
                 element={
                     <ProtectedRoute isAuthenticated={isAuthenticated}>
                         {reviewCards?.length === 0 ? (
-                            <ReviewCompleteScreen onBack={() => setView('HOME')} />
+                            <ReviewCompleteScreen onBack={() => setView('LIST')} />
                         ) : (
                             <ReviewScreen
                                 cards={reviewCards}
@@ -292,7 +311,7 @@ const AppRoutes = ({
                                         setReviewMode('mixed');
                                     } else {
                                         setReviewCards([]);
-                                        setView('HOME');
+                                        setView('LIST');
                                     }
                                 }}
                             />
@@ -320,7 +339,7 @@ const AppRoutes = ({
                                     batchIndex: 0,
                                     allNoSrsCards: []
                                 });
-                                setView('HOME');
+                                setView('LIST');
                             }}
                         />
                     </ProtectedRoute>
@@ -333,7 +352,7 @@ const AppRoutes = ({
                     <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <TestScreen
                             allCards={allCards}
-                            onBack={() => setView('HOME')}
+                            onBack={() => setView('LIST')}
                         />
                     </ProtectedRoute>
                 }
@@ -438,11 +457,11 @@ const AppRoutes = ({
                                 cards={flashcardCards}
                                 onComplete={() => {
                                     setFlashcardCards([]);
-                                    setView('HOME');
+                                    setView('LIST');
                                 }}
                             />
                         ) : (
-                            <Navigate to={ROUTES.HOME} replace />
+                            <Navigate to={ROUTES.VOCAB_REVIEW} replace />
                         )}
                     </ProtectedRoute>
                 }
@@ -459,6 +478,24 @@ const AppRoutes = ({
                             onAddVocabToSRS={handleSaveNewCard}
                             onGeminiAssist={handleGeminiAssist}
                             allUserCards={allCards}
+                        />
+                    </ProtectedRoute>
+                }
+            />
+
+            {/* Cài đặt */}
+            <Route
+                path={ROUTES.SETTINGS}
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <SettingsScreen
+                            profile={profile}
+                            isDarkMode={isDarkMode}
+                            setIsDarkMode={setIsDarkMode}
+                            userId={userId}
+                            isAdmin={isAdmin}
+                            onUpdateProfileName={handleUpdateProfileName}
+                            onChangePassword={handleChangePassword}
                         />
                     </ProtectedRoute>
                 }

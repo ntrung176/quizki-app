@@ -6,6 +6,7 @@ import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
+import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
 
 // ==================== MAIN COMPONENT ====================
 const KanjiLessonScreen = () => {
@@ -235,22 +236,8 @@ const KanjiLessonScreen = () => {
             } catch (e) { console.error('Error saving progress:', e); }
         }
         // Play celebration sound
-        try {
-            const ctx = new (window.AudioContext || window.webkitAudioContext)();
-            const notes = [523.25, 659.25, 783.99, 1046.50];
-            notes.forEach((freq, i) => {
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.frequency.value = freq;
-                osc.type = 'sine';
-                gain.gain.setValueAtTime(0.3, ctx.currentTime + i * 0.15);
-                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + i * 0.15 + 0.5);
-                osc.start(ctx.currentTime + i * 0.15);
-                osc.stop(ctx.currentTime + i * 0.15 + 0.5);
-            });
-        } catch (e) { console.error('Audio error:', e); }
+        launchFireworks();
+        playCompletionFanfare();
     };
 
     // Navigate to next day
@@ -318,7 +305,7 @@ const KanjiLessonScreen = () => {
                             <PenTool className="w-5 h-5" /> Kiểm tra ngay
                         </button>
                         <div className="flex gap-3">
-                            <button onClick={() => navigate(ROUTES.KANJI_STUDY)} className="flex-1 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-xl font-bold transition-colors">
+                            <button onClick={() => navigate(ROUTES.KANJI_STUDY)} className="flex-1 px-6 py-3 bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 text-gray-800 dark:text-white rounded-xl font-bold transition-colors">
                                 Quay lại lộ trình
                             </button>
                             <button onClick={goToNextDay}
@@ -367,7 +354,7 @@ const KanjiLessonScreen = () => {
             </div>
 
             {/* Progress bar */}
-            <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+            <div className="w-full h-2 bg-gray-200 dark:bg-slate-700 rounded-full overflow-hidden">
                 <div className="h-full bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full transition-all duration-500"
                     style={{ width: `${(viewedSet.size / todayKanji.length) * 100}%` }} />
             </div>
@@ -389,11 +376,11 @@ const KanjiLessonScreen = () => {
                 <>
                     <div className="flex gap-2 items-center">
                         <button onClick={() => setFlashcardType('kanji')}
-                            className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${flashcardType === 'kanji' ? 'bg-cyan-600 text-white' : 'bg-slate-700 text-gray-400 hover:bg-slate-600'}`}>
+                            className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${flashcardType === 'kanji' ? 'bg-cyan-600 text-white' : 'bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-slate-600'}`}>
                             Flashcard Kanji
                         </button>
                         <button onClick={() => setFlashcardType('vocab')}
-                            className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${flashcardType === 'vocab' ? 'bg-cyan-600 text-white' : 'bg-slate-700 text-gray-400 hover:bg-slate-600'}`}>
+                            className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${flashcardType === 'vocab' ? 'bg-cyan-600 text-white' : 'bg-gray-200 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-slate-600'}`}>
                             Flashcard Từ vựng
                         </button>
                     </div>
@@ -401,7 +388,7 @@ const KanjiLessonScreen = () => {
                     {/* Kanji navigation bar */}
                     <div className="flex items-center gap-1">
                         <button onClick={() => goTo(currentIndex - 1)} disabled={currentIndex <= 0}
-                            className="p-1.5 rounded-lg hover:bg-slate-700 disabled:opacity-30 transition-colors">
+                            className="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-700 disabled:opacity-30 transition-colors">
                             <ChevronLeft className="w-4 h-4 text-gray-400" />
                         </button>
                         <div className="flex gap-1.5 overflow-x-auto flex-1 px-1 scrollbar-hide">
@@ -421,7 +408,7 @@ const KanjiLessonScreen = () => {
                             ))}
                         </div>
                         <button onClick={() => goTo(currentIndex + 1)} disabled={currentIndex >= todayKanji.length - 1}
-                            className="p-1.5 rounded-lg hover:bg-slate-700 disabled:opacity-30 transition-colors">
+                            className="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-700 disabled:opacity-30 transition-colors">
                             <ChevronRight className="w-4 h-4 text-gray-400" />
                         </button>
                     </div>
@@ -573,7 +560,7 @@ const KanjiFlashcard = ({ kanji, vocab, writerContainerRef, writerRef, speakJapa
                         </button>
                     </div>
                     <div className="flex gap-2">
-                        <button onClick={() => navigate(`/kanji?char=${encodeURIComponent(kanji.character)}`)}
+                        <button onClick={() => window.open(`/kanji/list/${kanji.character}`, '_blank')}
                             className="flex items-center gap-1 px-3 py-1.5 bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 rounded-lg text-xs text-gray-600 dark:text-gray-300 transition-colors">
                             <Eye className="w-3.5 h-3.5" /> Xem chi tiết
                         </button>
@@ -658,7 +645,7 @@ const VocabFlashcardList = ({ vocab, speakJapanese }) => {
                                 )}
                             </div>
                             <button onClick={(e) => { e.stopPropagation(); speakJapanese(v.word); }}
-                                className="p-2 hover:bg-slate-700 rounded-full transition-colors">
+                                className="p-2 hover:bg-gray-200 dark:hover:bg-slate-700 rounded-full transition-colors">
                                 <Volume2 className="w-4 h-4 text-gray-400" />
                             </button>
                         </div>
@@ -685,6 +672,10 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
     const canvasRef = useRef(null);
     const [isDrawing, setIsDrawing] = useState(false);
     const [writingResult, setWritingResult] = useState(null);
+    const [writingRecognized, setWritingRecognized] = useState(''); // what Google recognized
+    const [writingChecking, setWritingChecking] = useState(false); // loading state
+    const writingStrokesRef = useRef([]); // [[{xs,ys}], ...]
+    const currentWritingStrokeRef = useRef({ xs: [], ys: [] });
     const inputRef = useRef(null);
 
     // Generate questions
@@ -746,25 +737,42 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         ctx.beginPath(); ctx.moveTo(0, 125); ctx.lineTo(250, 125); ctx.stroke();
     }, [testMode, qIndex]);
 
-    const startDraw = (e) => {
-        if (!canvasRef.current) return;
-        setIsDrawing(true);
-        const ctx = canvasRef.current.getContext('2d');
+    const getCanvasCoords = (e) => {
+        if (!canvasRef.current) return { x: 0, y: 0 };
         const rect = canvasRef.current.getBoundingClientRect();
-        const x = (e.clientX || e.touches?.[0]?.clientX) - rect.left;
-        const y = (e.clientY || e.touches?.[0]?.clientY) - rect.top;
+        const clientX = e.clientX || e.touches?.[0]?.clientX || 0;
+        const clientY = e.clientY || e.touches?.[0]?.clientY || 0;
+        const scaleX = canvasRef.current.width / rect.width;
+        const scaleY = canvasRef.current.height / rect.height;
+        return { x: (clientX - rect.left) * scaleX, y: (clientY - rect.top) * scaleY };
+    };
+    const startDraw = (e) => {
+        if (!canvasRef.current || writingChecking) return;
+        if (e.touches) e.preventDefault();
+        setIsDrawing(true);
+        const { x, y } = getCanvasCoords(e);
+        const ctx = canvasRef.current.getContext('2d');
         ctx.beginPath(); ctx.moveTo(x, y);
-        ctx.strokeStyle = '#0891b2'; ctx.lineWidth = 4; ctx.lineCap = 'round';
+        ctx.strokeStyle = '#0891b2'; ctx.lineWidth = 4; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        currentWritingStrokeRef.current = { xs: [Math.round(x)], ys: [Math.round(y)] };
     };
     const draw = (e) => {
         if (!isDrawing || !canvasRef.current) return;
+        if (e.touches) e.preventDefault();
+        const { x, y } = getCanvasCoords(e);
         const ctx = canvasRef.current.getContext('2d');
-        const rect = canvasRef.current.getBoundingClientRect();
-        const x = (e.clientX || e.touches?.[0]?.clientX) - rect.left;
-        const y = (e.clientY || e.touches?.[0]?.clientY) - rect.top;
         ctx.lineTo(x, y); ctx.stroke();
+        currentWritingStrokeRef.current.xs.push(Math.round(x));
+        currentWritingStrokeRef.current.ys.push(Math.round(y));
     };
-    const endDraw = () => setIsDrawing(false);
+    const endDraw = () => {
+        if (!isDrawing) return;
+        setIsDrawing(false);
+        if (currentWritingStrokeRef.current.xs.length > 1) {
+            writingStrokesRef.current = [...writingStrokesRef.current, { ...currentWritingStrokeRef.current }];
+            currentWritingStrokeRef.current = { xs: [], ys: [] };
+        }
+    };
     const clearCanvas = () => {
         if (!canvasRef.current) return;
         const ctx = canvasRef.current.getContext('2d');
@@ -772,115 +780,79 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         ctx.strokeStyle = '#334155'; ctx.lineWidth = 1;
         ctx.beginPath(); ctx.moveTo(125, 0); ctx.lineTo(125, 250); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(0, 125); ctx.lineTo(250, 125); ctx.stroke();
+        writingStrokesRef.current = [];
+        currentWritingStrokeRef.current = { xs: [], ys: [] };
         setWritingResult(null);
+        setWritingRecognized('');
+        setWritingChecking(false);
     };
-    // Improved writing check: grid-based region overlap for more lenient scoring
-    const checkWriting = () => {
-        if (!canvasRef.current) return;
+    // Google Handwriting Recognition check
+    const checkWriting = async () => {
+        if (!canvasRef.current || writingStrokesRef.current.length === 0) {
+            setWritingResult(0); setWritingRecognized(''); return;
+        }
+        setWritingChecking(true);
         const canvas = canvasRef.current;
-        const ctx = canvas.getContext('2d');
-        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const pixels = imageData.data;
         const W = canvas.width, H = canvas.height;
-
-        const isDrawnPixel = (r, g, b) => !(r < 60 && g < 75 && b < 100);
-
-        // Count drawn pixels
-        let drawnPixels = 0;
-        for (let i = 0; i < pixels.length; i += 4) {
-            if (isDrawnPixel(pixels[i], pixels[i + 1], pixels[i + 2])) drawnPixels++;
-        }
-        if (drawnPixels / (W * H) < 0.01) {
-            setWritingResult(0); setAnswered(true); return;
-        }
-
-        // Generate reference character
-        const refCanvas = document.createElement('canvas');
-        refCanvas.width = W; refCanvas.height = H;
-        const refCtx = refCanvas.getContext('2d');
-        refCtx.fillStyle = '#0f172a'; refCtx.fillRect(0, 0, W, H);
-        refCtx.fillStyle = '#0891b2';
-        refCtx.font = `bold ${Math.floor(W * 0.72)}px 'Noto Sans JP', 'Yu Gothic', serif`;
-        refCtx.textAlign = 'center'; refCtx.textBaseline = 'middle';
-        refCtx.fillText(currentQ.actualChar, W / 2, H / 2 + 5);
-        const refData = refCtx.getImageData(0, 0, W, H).data;
-
-        // Grid-based comparison: divide into NxN grid cells
-        const GRID = 8;
-        const cellW = Math.floor(W / GRID), cellH = Math.floor(H / GRID);
-        let matchedCells = 0, totalRefCells = 0;
-
-        for (let gy = 0; gy < GRID; gy++) {
-            for (let gx = 0; gx < GRID; gx++) {
-                let cellDrawn = 0, cellRef = 0;
-                for (let y = gy * cellH; y < (gy + 1) * cellH; y++) {
-                    for (let x = gx * cellW; x < (gx + 1) * cellW; x++) {
-                        const idx = (y * W + x) * 4;
-                        if (isDrawnPixel(pixels[idx], pixels[idx + 1], pixels[idx + 2])) cellDrawn++;
-                        if (isDrawnPixel(refData[idx], refData[idx + 1], refData[idx + 2])) cellRef++;
+        const target = currentQ.actualChar;
+        try {
+            const ink = writingStrokesRef.current.map(s => [s.xs, s.ys]);
+            const payload = JSON.stringify({
+                options: 'enable_pre_space',
+                requests: [{
+                    writing_guide: { writing_area_width: W, writing_area_height: H },
+                    ink: ink,
+                    language: 'ja'
+                }]
+            });
+            const resp = await fetch('https://inputtools.google.com/request?itc=ja-t-i0-handwrit&app=translate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: payload
+            });
+            const data = await resp.json();
+            if (data && data[0] === 'SUCCESS' && data[1] && data[1][0]) {
+                const candidates = (data[1][0][1] || []).filter(c => c.length === 1);
+                const topChar = candidates[0] || '';
+                setWritingRecognized(topChar);
+                const rank = candidates.indexOf(target);
+                let similarity = 0;
+                if (rank === 0) similarity = 100;
+                else if (rank === 1) similarity = 85;
+                else if (rank === 2) similarity = 70;
+                else if (rank >= 3 && rank <= 5) similarity = 55;
+                else if (rank >= 6 && rank <= 9) similarity = 40;
+                else similarity = 0; // not found in top candidates
+                console.log(`Writing check: target=${target}, top=${topChar}, rank=${rank}, score=${similarity}%, candidates=${candidates.slice(0, 10).join('')}`);
+                setWritingResult(similarity);
+                // Pass threshold: 70%
+                if (similarity >= 70) {
+                    playCorrectSound();
+                    setAnswered(true);
+                    setScore(s => s + 1);
+                } else {
+                    // Don't setAnswered - let user retry
+                    if (similarity === 0) {
+                        playIncorrectSound();
+                        setFailedCards(prev => new Set([...prev, qIndex]));
                     }
                 }
-                const threshold = cellW * cellH * 0.05;
-                const hasRef = cellRef > threshold;
-                const hasDrawn = cellDrawn > threshold;
-                if (hasRef) {
-                    totalRefCells++;
-                    if (hasDrawn) matchedCells++;
-                }
+            } else {
+                setWritingResult(0); setWritingRecognized('');
             }
+        } catch (err) {
+            console.warn('Google handwriting API failed:', err.message);
+            setWritingResult(null); setWritingRecognized('⚠');
         }
-
-        // Also do pixel overlap for refinement
-        let overlap = 0, refTotal = 0, drawnTotal = 0;
-        // Use dilated comparison (nearby pixels count as match)
-        const dilateR = 6; // px tolerance
-        for (let y = 0; y < H; y++) {
-            for (let x = 0; x < W; x++) {
-                const idx = (y * W + x) * 4;
-                const drawn = isDrawnPixel(pixels[idx], pixels[idx + 1], pixels[idx + 2]);
-                const ref = isDrawnPixel(refData[idx], refData[idx + 1], refData[idx + 2]);
-                if (ref) refTotal++;
-                if (drawn) drawnTotal++;
-                if (drawn && ref) { overlap++; continue; }
-                // Check nearby pixels for tolerance
-                if (drawn) {
-                    let nearRef = false;
-                    for (let dy = -dilateR; dy <= dilateR && !nearRef; dy += 2) {
-                        for (let dx = -dilateR; dx <= dilateR && !nearRef; dx += 2) {
-                            const nx = x + dx, ny = y + dy;
-                            if (nx >= 0 && nx < W && ny >= 0 && ny < H) {
-                                const nIdx = (ny * W + nx) * 4;
-                                if (isDrawnPixel(refData[nIdx], refData[nIdx + 1], refData[nIdx + 2])) nearRef = true;
-                            }
-                        }
-                    }
-                    if (nearRef) overlap++;
-                }
-            }
-        }
-
-        const gridScore = totalRefCells > 0 ? matchedCells / totalRefCells : 0;
-        const precision = drawnTotal > 0 ? overlap / drawnTotal : 0;
-        const recall = refTotal > 0 ? overlap / refTotal : 0;
-        const pixelScore = (precision + recall) > 0 ? (2 * precision * recall) / (precision + recall) : 0;
-
-        // Combined: 60% grid-based (lenient) + 40% pixel F1 (detail)
-        const rawScore = gridScore * 0.6 + pixelScore * 0.4;
-        // Boost: scale 0.3-1.0 range to 0-100
-        const similarity = Math.min(100, Math.max(0, Math.round(((rawScore - 0.15) / 0.7) * 100)));
-
-        setWritingResult(similarity);
-        setAnswered(true);
-        if (similarity >= 40) setScore(s => s + 1);
-
-        // Draw the correct kanji faintly on the canvas as overlay
+        setWritingChecking(false);
+        // Show the correct kanji faintly on canvas
         const overlayCtx = canvas.getContext('2d');
-        overlayCtx.globalAlpha = 0.2;
+        overlayCtx.globalAlpha = 0.15;
         overlayCtx.fillStyle = '#10b981';
         overlayCtx.font = `bold ${Math.floor(W * 0.72)}px 'Noto Sans JP', 'Yu Gothic', serif`;
         overlayCtx.textAlign = 'center';
         overlayCtx.textBaseline = 'middle';
-        overlayCtx.fillText(currentQ.actualChar, W / 2, H / 2 + 5);
+        overlayCtx.fillText(target, W / 2, H / 2 + 5);
         overlayCtx.globalAlpha = 1.0;
     };
 
@@ -890,8 +862,10 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         setAnswered(true);
         const isCorrect = opt === currentQ.correct;
         if (isCorrect) {
+            playCorrectSound();
             setScore(s => s + 1);
         } else {
+            playIncorrectSound();
             setFailedCards(prev => new Set([...prev, qIndex]));
         }
         // Auto-advance after delay
@@ -906,8 +880,10 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         const input = typingInput.trim().toLowerCase();
         const isCorrect = currentQ.answers.some(a => a === input);
         if (isCorrect) {
+            playCorrectSound();
             setScore(s => s + 1);
         } else {
+            playIncorrectSound();
             setFailedCards(prev => new Set([...prev, qIndex]));
         }
         // Auto-advance after delay
@@ -923,6 +899,10 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         setSelectedAnswer(null);
         setTypingInput('');
         setWritingResult(null);
+        setWritingRecognized('');
+        setWritingChecking(false);
+        writingStrokesRef.current = [];
+        currentWritingStrokeRef.current = { xs: [], ys: [] };
     };
 
     // Keyboard shortcut: Enter to advance only in writing mode
@@ -1058,6 +1038,7 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                 {currentQ.type === 'writing' && (
                     <div className="w-full flex flex-col items-center gap-3">
                         <canvas ref={canvasRef} className="rounded-xl border-2 border-slate-600 cursor-crosshair touch-none"
+                            style={{ touchAction: 'none' }}
                             onMouseDown={startDraw} onMouseMove={draw} onMouseUp={endDraw} onMouseLeave={endDraw}
                             onTouchStart={startDraw} onTouchMove={draw} onTouchEnd={endDraw} />
                         <div className="flex gap-2">
@@ -1065,18 +1046,53 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                                 <RotateCcw className="w-3.5 h-3.5" /> Xoá
                             </button>
                             {!answered && (
-                                <button onClick={checkWriting} className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-bold transition-colors flex items-center gap-1">
-                                    <Check className="w-3.5 h-3.5" /> Kiểm tra
+                                <button onClick={checkWriting} disabled={writingChecking}
+                                    className={`px-4 py-2 text-white rounded-lg text-sm font-bold transition-colors flex items-center gap-1 ${writingChecking ? 'bg-indigo-400 cursor-wait' : 'bg-indigo-600 hover:bg-indigo-500'}`}>
+                                    {writingChecking ? (
+                                        <React.Fragment>
+                                            <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Đang chấm...
+                                        </React.Fragment>
+                                    ) : (
+                                        <React.Fragment>
+                                            <Check className="w-3.5 h-3.5" /> Kiểm tra
+                                        </React.Fragment>
+                                    )}
                                 </button>
                             )}
                         </div>
+                        {/* Recognition result */}
                         {writingResult !== null && (
-                            <div className={`p-3 rounded-xl text-center font-bold w-full border-2 ${writingResult >= 40
+                            <div className={`p-3 rounded-xl text-center font-bold w-full border-2 ${writingResult >= 70
                                 ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400'
-                                : 'bg-orange-500/20 border-orange-500 text-orange-400'}`}>
-                                Độ tương đồng: {writingResult}% {writingResult >= 40 ? '✅ Đạt!' : '⚠️ Cần luyện thêm'}
-                                <div className="text-xs font-normal mt-1 opacity-70">Chữ đúng đã hiện mờ trên canvas</div>
+                                : writingResult >= 40
+                                    ? 'bg-yellow-500/20 border-yellow-500 text-yellow-400'
+                                    : 'bg-red-500/20 border-red-500 text-red-400'
+                                }`}>
+                                <div className="flex items-center justify-center gap-3">
+                                    <span className="text-2xl font-japanese">{writingRecognized || '?'}</span>
+                                    <div>
+                                        <div>Độ chính xác: {writingResult}%</div>
+                                        <div className="text-xs font-normal mt-0.5 opacity-80">
+                                            {writingResult >= 70
+                                                ? '✅ Chính xác! Bạn viết rất tốt'
+                                                : writingResult >= 40
+                                                    ? `⚠️ Gần đúng — hệ thống nhận dạng: "${writingRecognized}", đáp án: "${currentQ.actualChar}"`
+                                                    : `❌ Sai — hệ thống nhận dạng: "${writingRecognized}", đáp án: "${currentQ.actualChar}"`
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                {!answered && writingResult < 70 && (
+                                    <div className="mt-2 text-xs font-normal opacity-70">Nhấn "Xoá" để vẽ lại, hoặc nhấn "Bỏ qua" để qua câu tiếp theo</div>
+                                )}
                             </div>
+                        )}
+                        {/* Skip button when failed */}
+                        {!answered && writingResult !== null && writingResult < 70 && (
+                            <button onClick={() => { setAnswered(true); setFailedCards(prev => new Set([...prev, qIndex])); }}
+                                className="w-full py-2.5 bg-gray-600 hover:bg-gray-500 text-white rounded-xl text-sm font-medium transition-colors flex items-center justify-center gap-1">
+                                Bỏ qua câu này →
+                            </button>
                         )}
                     </div>
                 )}

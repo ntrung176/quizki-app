@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { GraduationCap } from 'lucide-react';
 import { playAudio } from '../../utils/audio';
 import { shuffleArray, buildAdjNaAcceptedAnswers } from '../../utils/textProcessing';
+import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
 
 // Helper function to detect mobile devices
 const isMobileDevice = () => {
@@ -219,12 +220,14 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         await onUpdateCard(currentCard.id, isCorrect, 'back');
 
         if (isCorrect) {
+            playCorrectSound();
             setStudySessionData(prev => ({
                 ...prev,
                 learning: prev.learning.filter(c => c.id !== currentCard.id),
                 reviewing: [...prev.reviewing.filter(c => c.id !== currentCard.id), currentCard]
             }));
         } else {
+            playIncorrectSound();
             setStudySessionData(prev => ({
                 ...prev,
                 learning: [...prev.learning.filter(c => c.id !== currentCard.id), currentCard]
@@ -285,6 +288,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         await onUpdateCard(currentCard.id, isCorrect, 'back');
 
         if (isCorrect) {
+            playCorrectSound();
             setStudySessionData(prev => ({
                 ...prev,
                 learning: prev.learning.filter(c => c.id !== currentCard.id),
@@ -292,6 +296,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             }));
             setCompletedCards(prev => new Set([...prev, currentCard.id]));
         } else {
+            playIncorrectSound();
             setStudySessionData(prev => ({
                 ...prev,
                 learning: [...prev.learning.filter(c => c.id !== currentCard.id), currentCard]
@@ -354,6 +359,8 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         }
 
         if (remainingNoSrs.length === 0) {
+            launchFireworks();
+            playCompletionFanfare();
             onCompleteStudy();
             return;
         }
@@ -372,6 +379,8 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         }
 
         if (nextBatch.length === 0) {
+            launchFireworks();
+            playCompletionFanfare();
             onCompleteStudy();
         } else {
             setStudySessionData(prev => ({
