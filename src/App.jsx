@@ -22,7 +22,7 @@ import {
 } from './config/constants';
 
 import { playAudio, pcmToWav, base64ToArrayBuffer } from './utils/audio';
-import { getNextReviewDate, getSrsProgressText } from './utils/srs';
+import { getNextReviewDate, getSrsProgressText, processSrsUpdate, DEFAULT_EASE, calculateCorrectInterval } from './utils/srs';
 import {
     shuffleArray,
     maskWordInExample,
@@ -519,6 +519,8 @@ const App = () => {
                     intervalIndex_example: typeof data.intervalIndex_example === 'number' ? data.intervalIndex_example : -1,
                     correctStreak_example: typeof data.correctStreak_example === 'number' ? data.correctStreak_example : 0,
                     nextReview_example: data.nextReview_example?.toDate ? data.nextReview_example.toDate() : (data.nextReview_example ? new Date(data.nextReview_example) : today),
+                    easeFactor: typeof data.easeFactor === 'number' ? data.easeFactor : DEFAULT_EASE,
+                    totalReps: typeof data.totalReps === 'number' ? data.totalReps : 0,
                 });
             });
             // Sort by createdAt desc by default initially
@@ -616,11 +618,14 @@ const App = () => {
     const dueCounts = useMemo(() => {
         const now = new Date();
 
-        // Logic mới: Tất cả 3 phần dùng chung nextReview_back
-        // Một từ được coi là "due" nếu nextReview_back <= today VÀ có ít nhất một phần chưa hoàn thành
+        // Logic mới: bao gồm cả thẻ mới (intervalIndex_back === -1) VÀ thẻ đến hạn
+        const isCardAvailable = (card) => {
+            if (card.intervalIndex_back === -1) return true; // Thẻ mới luôn sẵn sàng
+            return card.nextReview_back <= now;
+        };
+
         const mixed = allCards.filter(card => {
-            const isDue = card.nextReview_back <= now;
-            if (!isDue) return false;
+            if (!isCardAvailable(card)) return false;
 
             // Kiểm tra xem có phần nào chưa hoàn thành không (streak < 1)
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
@@ -631,29 +636,27 @@ const App = () => {
             return backStreak < 1 || (card.synonym && card.synonym.trim() !== '' && synonymStreak < 1) || (card.example && card.example.trim() !== '' && exampleStreak < 1);
         }).length;
 
-        // Back: các từ đã đến chu kỳ VÀ chưa hoàn thành phần back (streak < 1)
+        // Back: các từ sẵn sàng VÀ chưa hoàn thành phần back (streak < 1)
         const back = allCards.filter(card => {
-            const isDue = card.nextReview_back <= now;
+            if (!isCardAvailable(card)) return false;
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
-            return isDue && backStreak < 1;
+            return backStreak < 1;
         }).length;
 
-        // Synonym: các từ đã đến chu kỳ, có synonym VÀ chưa hoàn thành phần synonym (streak < 1)
+        // Synonym: các từ sẵn sàng, có synonym VÀ chưa hoàn thành phần synonym (streak < 1)
         const synonym = allCards.filter(card => {
             if (!card.synonym || card.synonym.trim() === '') return false;
-            const isDue = card.nextReview_back <= now;
+            if (!isCardAvailable(card)) return false;
             const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
-            const result = isDue && synonymStreak < 1;
-            return result;
+            return synonymStreak < 1;
         }).length;
 
-        // Example: các từ đã đến chu kỳ, có example VÀ chưa hoàn thành phần example (streak < 1)
+        // Example: các từ sẵn sàng, có example VÀ chưa hoàn thành phần example (streak < 1)
         const example = allCards.filter(card => {
             if (!card.example || card.example.trim() === '') return false;
-            const isDue = card.nextReview_back <= now;
+            if (!isCardAvailable(card)) return false;
             const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
-            const result = isDue && exampleStreak < 1;
-            return result;
+            return exampleStreak < 1;
         }).length;
 
         // Flashcard: Luôn hiển thị số từ chưa có SRS (không phụ thuộc filter)
@@ -1173,6 +1176,8 @@ const App = () => {
             intervalIndex_example: intervalIndex_example,
             correctStreak_example: correctStreak_example,
             nextReview_example: nextReview_example,
+            easeFactor: DEFAULT_EASE,
+            totalReps: 0,
         };
     };
 
@@ -1707,7 +1712,7 @@ const App = () => {
         }
     };
 
-    const handleUpdateCard = async (cardId, isCorrect, cardReviewType) => {
+    const handleUpdateCard = async (cardId, isCorrect, cardReviewType, activityType = 'review') => {
         if (!vocabCollectionPath) return;
 
         const cardRef = doc(db, vocabCollectionPath, cardId);
@@ -1722,119 +1727,25 @@ const App = () => {
         if (!cardSnap.exists()) return;
         const cardData = cardSnap.data();
 
-        // Tất cả 3 phần dùng chung intervalIndex_back và nextReview_back
-        let currentInterval = typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1;
-        if (currentInterval === -999) currentInterval = -1;
+        // Chuẩn hóa dữ liệu trước khi xử lý
+        let normalizedInterval = typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1;
+        if (normalizedInterval === -999) normalizedInterval = -1;
 
-        // Lấy streak của các phần
-        const backStreak = typeof cardData.correctStreak_back === 'number' ? cardData.correctStreak_back : 0;
-        const synonymStreak = typeof cardData.correctStreak_synonym === 'number' ? cardData.correctStreak_synonym : 0;
-        const exampleStreak = typeof cardData.correctStreak_example === 'number' ? cardData.correctStreak_example : 0;
-
-        const hasSynonym = cardData.synonym && cardData.synonym.trim() !== '';
-        const hasExample = cardData.example && cardData.example.trim() !== '';
-
-        const updateData = {
-            lastReviewed: serverTimestamp(),
+        const normalizedCardData = {
+            ...cardData,
+            intervalIndex_back: normalizedInterval,
+            easeFactor: typeof cardData.easeFactor === 'number' ? cardData.easeFactor : DEFAULT_EASE,
+            totalReps: typeof cardData.totalReps === 'number' ? cardData.totalReps : 0,
+            correctStreak_back: typeof cardData.correctStreak_back === 'number' ? cardData.correctStreak_back : 0,
+            correctStreak_synonym: typeof cardData.correctStreak_synonym === 'number' ? cardData.correctStreak_synonym : 0,
+            correctStreak_example: typeof cardData.correctStreak_example === 'number' ? cardData.correctStreak_example : 0,
         };
 
-        // Cập nhật streak của phần được ôn tập
-        let newBackStreak = backStreak;
-        let newSynonymStreak = synonymStreak;
-        let newExampleStreak = exampleStreak;
+        // Sử dụng SRS engine mới để tính toán
+        const updateData = processSrsUpdate(normalizedCardData, isCorrect, cardReviewType, activityType);
 
-        if (isCorrect) {
-            // Tăng streak của phần được ôn tập
-            if (cardReviewType === 'back') {
-                newBackStreak = backStreak + 1;
-            } else if (cardReviewType === 'synonym') {
-                newSynonymStreak = synonymStreak + 1;
-            } else if (cardReviewType === 'example') {
-                newExampleStreak = exampleStreak + 1;
-            }
-        } else {
-            // Sai: reset streak của phần đó về 0
-            if (cardReviewType === 'back') {
-                newBackStreak = 0;
-            } else if (cardReviewType === 'synonym') {
-                newSynonymStreak = 0;
-            } else if (cardReviewType === 'example') {
-                newExampleStreak = 0;
-            }
-        }
-
-        updateData.correctStreak_back = newBackStreak;
-        if (hasSynonym) updateData.correctStreak_synonym = newSynonymStreak;
-        if (hasExample) updateData.correctStreak_example = newExampleStreak;
-
-        // Kiểm tra xem cả 3 phần đã hoàn thành chưa (streak >= 1)
-        // CHỈ ĐẾM CÁC PHẦN TỒN TẠI
-        const backCompleted = newBackStreak >= 1;
-        const synonymCompleted = hasSynonym && newSynonymStreak >= 1; // Chỉ đếm nếu CÓ synonym
-        const exampleCompleted = hasExample && newExampleStreak >= 1; // Chỉ đếm nếu CÓ example
-
-        // Tính số phần đã hoàn thành và số phần cần thiết
-        let completedCount = 0;
-        let requiredCount = 1; // Back luôn bắt buộc
-
-        if (backCompleted) completedCount++;
-
-        if (hasSynonym) {
-            requiredCount++;
-            if (synonymCompleted) completedCount++;
-        }
-
-        if (hasExample) {
-            requiredCount++;
-            if (exampleCompleted) completedCount++;
-        }
-
-        const allRequiredPartsCompleted = completedCount >= requiredCount;
-
-        // Tính thời gian hiện tại
-        const now = Date.now();
-
-        if (allRequiredPartsCompleted) {
-            // Cả 3 phần đều hoàn thành: tăng interval và tính nextReview mới
-            const newInterval = currentInterval < 0 ? 0 : Math.min(currentInterval + 1, SRS_INTERVALS.length - 1);
-            const nextReviewDate = getNextReviewDate(newInterval);
-
-            updateData.intervalIndex_back = newInterval;
-            updateData.nextReview_back = nextReviewDate;
-
-            // Đồng bộ interval và nextReview cho synonym và example (dùng chung)
-            if (hasSynonym) {
-                updateData.intervalIndex_synonym = newInterval;
-                updateData.nextReview_synonym = nextReviewDate;
-            }
-            if (hasExample) {
-                updateData.intervalIndex_example = newInterval;
-                updateData.nextReview_example = nextReviewDate;
-            }
-
-            // Reset streaks về 0 sau khi hoàn thành một chu kỳ
-            updateData.correctStreak_back = 0;
-            if (hasSynonym) updateData.correctStreak_synonym = 0;
-            if (hasExample) updateData.correctStreak_example = 0;
-        } else {
-            // Chưa hoàn thành đủ 3 phần: KHÔNG THAY ĐỔI nextReview
-            // Để từ vẫn xuất hiện trong danh sách "cần ôn" cho đến khi hoàn thành đủ 3 phần
-            // CHỈ cập nhật nextReview khi hoàn thành ĐỦ 3 phần (ở block if trên)
-
-            // Nếu là từ mới chưa có nextReview, set về hôm nay để nó vẫn xuất hiện
-            const currentNextReview = cardData.nextReview_back?.toDate ? cardData.nextReview_back.toDate() : null;
-
-            if (!currentNextReview || currentInterval < 0) {
-                // Từ mới: set nextReview = now để nó vẫn xuất hiện trong danh sách due
-                updateData.nextReview_back = now;
-                if (hasSynonym) updateData.nextReview_synonym = now;
-                if (hasExample) updateData.nextReview_example = now;
-            }
-            // Nếu từ đã có nextReview: KHÔNG cập nhật, giữ nguyên chu kỳ cũ
-
-            // Giữ nguyên interval hiện tại (không tăng)
-            // Không cần cập nhật intervalIndex vì vẫn giữ nguyên giá trị cũ
-        }
+        // Thay lastReviewed bằng serverTimestamp cho Firestore
+        updateData.lastReviewed = serverTimestamp();
 
         try {
             await updateDoc(cardRef, updateData);

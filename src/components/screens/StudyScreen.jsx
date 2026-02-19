@@ -217,7 +217,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
 
         playAudio(currentCard.audioBase64, currentCard.front);
 
-        await onUpdateCard(currentCard.id, isCorrect, 'back');
+        await onUpdateCard(currentCard.id, isCorrect, 'back', 'study');
 
         if (isCorrect) {
             playCorrectSound();
@@ -285,7 +285,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         setIsRevealed(true);
         playAudio(currentCard.audioBase64, currentCard.front);
 
-        await onUpdateCard(currentCard.id, isCorrect, 'back');
+        await onUpdateCard(currentCard.id, isCorrect, 'back', 'study');
 
         if (isCorrect) {
             playCorrectSound();
@@ -441,6 +441,16 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
 
                 {/* Question Display */}
                 <div className="py-8 w-full">
+                    {/* Image display */}
+                    {currentCard.imageBase64 && (
+                        <div className="flex justify-center mb-3">
+                            <img
+                                src={currentCard.imageBase64}
+                                alt={currentCard.front}
+                                className="max-h-20 max-w-[60%] rounded-lg object-contain border border-slate-500/30"
+                            />
+                        </div>
+                    )}
                     <p className="text-xs text-gray-400 uppercase tracking-wide mb-2">Ý nghĩa</p>
                     <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed whitespace-pre-line">
                         {formatMultipleMeanings(currentCard.back)}

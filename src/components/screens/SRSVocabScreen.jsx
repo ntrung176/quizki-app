@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 import { shuffleArray } from '../../utils/textProcessing';
 import { ROUTES } from '../../router';
-import { formatCountdown } from '../../utils/srs';
+import { formatCountdown, getDifficultyLabel, DEFAULT_EASE } from '../../utils/srs';
 import OnboardingTour from '../ui/OnboardingTour';
 
 const SRSVocabScreen = ({
@@ -25,8 +25,11 @@ const SRSVocabScreen = ({
     const [countdownText, setCountdownText] = useState(null);
     const [isCountdown, setIsCountdown] = useState(false);
 
-    // Cần ôn (thẻ đến hạn)
+    // Cần ôn (thẻ đến hạn HOẶC thẻ mới)
     const dueCards = allCards.filter(card => {
+        // Thẻ mới (chưa có SRS) luôn cần ôn
+        if (card.intervalIndex_back === -1) return true;
+        // Thẻ đã có SRS: kiểm tra nextReview
         const nextReview = card.nextReview_back;
         return nextReview && nextReview <= Date.now();
     }).length;
@@ -49,15 +52,21 @@ const SRSVocabScreen = ({
     const learnedCards = allCards.filter(card => card.intervalIndex_back >= 0).length;
 
     // Đếm số từ có synonym (cho chế độ Đồng nghĩa)
+    // Bao gồm cả từ mới (intervalIndex_back === -1) VÀ từ đã đến hạn ôn tập
     const synonymCards = allCards.filter(card =>
-        card.synonym && card.synonym.trim() !== '' &&
-        card.nextReview_back && card.nextReview_back <= Date.now()
+        card.synonym && card.synonym.trim() !== '' && (
+            card.intervalIndex_back === -1 ||
+            (card.nextReview_back && card.nextReview_back <= Date.now())
+        )
     ).length;
 
     // Đếm số từ có example (cho chế độ Ngữ cảnh)
+    // Bao gồm cả từ mới (intervalIndex_back === -1) VÀ từ đã đến hạn ôn tập
     const exampleCards = allCards.filter(card =>
-        card.example && card.example.trim() !== '' &&
-        card.nextReview_back && card.nextReview_back <= Date.now()
+        card.example && card.example.trim() !== '' && (
+            card.intervalIndex_back === -1 ||
+            (card.nextReview_back && card.nextReview_back <= Date.now())
+        )
     ).length;
 
     // Tìm thời gian ôn tập tiếp theo
@@ -186,6 +195,61 @@ const SRSVocabScreen = ({
                     </div>
                 </div>
             </div>
+
+            {/* Phân bố độ khó */}
+            {learnedCards > 0 && (() => {
+                const cardsWithEase = allCards.filter(c => c.intervalIndex_back >= 0);
+                const easy = cardsWithEase.filter(c => (c.easeFactor || DEFAULT_EASE) >= 2.5).length;
+                const normal = cardsWithEase.filter(c => {
+                    const e = c.easeFactor || DEFAULT_EASE;
+                    return e >= 2.0 && e < 2.5;
+                }).length;
+                const hard = cardsWithEase.filter(c => {
+                    const e = c.easeFactor || DEFAULT_EASE;
+                    return e >= 1.5 && e < 2.0;
+                }).length;
+                const veryHard = cardsWithEase.filter(c => (c.easeFactor || DEFAULT_EASE) < 1.5).length;
+                const total = cardsWithEase.length || 1;
+
+                return (
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-3 md:p-4 border border-gray-200 dark:border-gray-700 shadow-sm">
+                        <h3 className="text-xs font-bold text-gray-600 dark:text-gray-300 mb-3 flex items-center gap-2">
+                            <span className="w-5 h-5 rounded-full bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center text-[10px]">🧠</span>
+                            Phân bố độ khó
+                        </h3>
+                        <div className="space-y-1.5">
+                            <div className="flex items-center gap-2">
+                                <span className="text-[10px] w-14 text-emerald-600 dark:text-emerald-400 font-medium">🟢 Dễ</span>
+                                <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div className="h-full bg-emerald-500 rounded-full transition-all" style={{ width: `${(easy / total) * 100}%` }} />
+                                </div>
+                                <span className="text-[10px] text-gray-500 w-8 text-right">{easy}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <span className="text-[10px] w-14 text-gray-500 font-medium">⚪ T.bình</span>
+                                <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div className="h-full bg-gray-400 rounded-full transition-all" style={{ width: `${(normal / total) * 100}%` }} />
+                                </div>
+                                <span className="text-[10px] text-gray-500 w-8 text-right">{normal}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <span className="text-[10px] w-14 text-orange-500 font-medium">🟡 Khó</span>
+                                <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div className="h-full bg-orange-500 rounded-full transition-all" style={{ width: `${(hard / total) * 100}%` }} />
+                                </div>
+                                <span className="text-[10px] text-gray-500 w-8 text-right">{hard}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <span className="text-[10px] w-14 text-red-500 font-medium">🔴 R.khó</span>
+                                <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div className="h-full bg-red-500 rounded-full transition-all" style={{ width: `${(veryHard / total) * 100}%` }} />
+                                </div>
+                                <span className="text-[10px] text-gray-500 w-8 text-right">{veryHard}</span>
+                            </div>
+                        </div>
+                    </div>
+                );
+            })()}
 
             {/* Cards: Hôm nay + Lượt tiếp theo */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">

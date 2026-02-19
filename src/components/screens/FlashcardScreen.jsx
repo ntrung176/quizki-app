@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { RotateCcw, Check, X, Undo2, Trophy, RefreshCw } from 'lucide-react';
 import { playAudio } from '../../utils/audio';
 
-const FlashcardScreen = ({ cards: initialCards, onComplete }) => {
+const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard }) => {
     const [allCards] = useState(initialCards);
     const [currentDeck, setCurrentDeck] = useState(initialCards);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -60,6 +60,11 @@ const FlashcardScreen = ({ cards: initialCards, onComplete }) => {
 
         setKnownCards(prev => [...prev, currentCard]);
 
+        // Cập nhật SRS: flashcard_known (nhớ)
+        if (onUpdateCard && currentCard.id) {
+            onUpdateCard(currentCard.id, true, 'back', 'flashcard_known');
+        }
+
         setTimeout(() => {
             setSlideDirection('left');
             setTimeout(() => {
@@ -72,7 +77,7 @@ const FlashcardScreen = ({ cards: initialCards, onComplete }) => {
                 setSlideDirection('');
             }, 200);
         }, 300);
-    }, [isFlipped, currentCard, currentIndex, currentDeck.length, buttonPressed]);
+    }, [isFlipped, currentCard, currentIndex, currentDeck.length, buttonPressed, onUpdateCard]);
 
     // Mark card as unknown
     const handleUnknown = useCallback(() => {
@@ -89,6 +94,11 @@ const FlashcardScreen = ({ cards: initialCards, onComplete }) => {
 
         setUnknownCards(prev => [...prev, currentCard]);
 
+        // Cập nhật SRS: flashcard_unknown (chưa nhớ)
+        if (onUpdateCard && currentCard.id) {
+            onUpdateCard(currentCard.id, false, 'back', 'flashcard_unknown');
+        }
+
         setTimeout(() => {
             setSlideDirection('left');
             setTimeout(() => {
@@ -101,7 +111,7 @@ const FlashcardScreen = ({ cards: initialCards, onComplete }) => {
                 setSlideDirection('');
             }, 200);
         }, 300);
-    }, [isFlipped, currentCard, currentIndex, currentDeck.length, buttonPressed]);
+    }, [isFlipped, currentCard, currentIndex, currentDeck.length, buttonPressed, onUpdateCard]);
 
     // Check if round is complete
     const checkCompletion = useCallback(() => {
@@ -297,8 +307,8 @@ const FlashcardScreen = ({ cards: initialCards, onComplete }) => {
                     <button
                         onClick={onComplete}
                         className={`w-full py-3 rounded-xl font-bold text-base transition-all flex items-center justify-center gap-2 ${allDone
-                                ? 'bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white shadow-lg hover:shadow-xl'
-                                : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700'
+                            ? 'bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white shadow-lg hover:shadow-xl'
+                            : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700'
                             }`}
                     >
                         {allDone ? (
@@ -399,6 +409,17 @@ const FlashcardScreen = ({ cards: initialCards, onComplete }) => {
                         <div className="flip-card-back backface-hidden absolute inset-0 w-full h-full rotate-y-180">
                             <div className="bg-slate-700 dark:bg-slate-800 rounded-2xl shadow-2xl p-6 w-full h-full border-2 border-slate-600 dark:border-slate-700 hover:shadow-3xl transition-shadow flex flex-col overflow-y-auto">
                                 <div className="flex-1 flex flex-col items-center justify-center text-center space-y-4">
+                                    {/* Image */}
+                                    {currentCard.imageBase64 && (
+                                        <div className="w-full flex justify-center">
+                                            <img
+                                                src={currentCard.imageBase64}
+                                                alt={currentCard.front}
+                                                className="max-h-24 max-w-full rounded-lg object-contain border border-slate-500/30"
+                                            />
+                                        </div>
+                                    )}
+
                                     {/* Vietnamese meaning */}
                                     <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed break-words px-2 whitespace-pre-line">
                                         {formatMultipleMeanings(currentCard.back)}
@@ -441,10 +462,10 @@ const FlashcardScreen = ({ cards: initialCards, onComplete }) => {
                     onClick={handleUnknown}
                     disabled={!isFlipped || !!buttonPressed}
                     className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-base transition-all ${!isFlipped || buttonPressed
-                            ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
-                            : buttonPressed === 'unknown'
-                                ? 'bg-red-600 text-white scale-95'
-                                : 'bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-800/60 border-2 border-red-300 dark:border-red-700 hover:scale-[1.02] shadow-md'
+                        ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
+                        : buttonPressed === 'unknown'
+                            ? 'bg-red-600 text-white scale-95'
+                            : 'bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-800/60 border-2 border-red-300 dark:border-red-700 hover:scale-[1.02] shadow-md'
                         }`}
                 >
                     <X className="w-5 h-5" />
@@ -456,10 +477,10 @@ const FlashcardScreen = ({ cards: initialCards, onComplete }) => {
                     onClick={handleKnown}
                     disabled={!isFlipped || !!buttonPressed}
                     className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-base transition-all ${!isFlipped || buttonPressed
-                            ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
-                            : buttonPressed === 'known'
-                                ? 'bg-green-600 text-white scale-95'
-                                : 'bg-green-100 dark:bg-green-900/40 text-green-600 dark:text-green-400 hover:bg-green-200 dark:hover:bg-green-800/60 border-2 border-green-300 dark:border-green-700 hover:scale-[1.02] shadow-md'
+                        ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
+                        : buttonPressed === 'known'
+                            ? 'bg-green-600 text-white scale-95'
+                            : 'bg-green-100 dark:bg-green-900/40 text-green-600 dark:text-green-400 hover:bg-green-200 dark:hover:bg-green-800/60 border-2 border-green-300 dark:border-green-700 hover:scale-[1.02] shadow-md'
                         }`}
                 >
                     <Check className="w-5 h-5" />
@@ -471,8 +492,8 @@ const FlashcardScreen = ({ cards: initialCards, onComplete }) => {
                     onClick={handleUndo}
                     disabled={history.length === 0}
                     className={`p-3.5 rounded-xl transition-all ${history.length === 0
-                            ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
-                            : 'bg-yellow-100 dark:bg-yellow-900/40 text-yellow-600 dark:text-yellow-400 hover:bg-yellow-200 dark:hover:bg-yellow-800/60 border-2 border-yellow-300 dark:border-yellow-700 hover:scale-[1.05] shadow-md'
+                        ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
+                        : 'bg-yellow-100 dark:bg-yellow-900/40 text-yellow-600 dark:text-yellow-400 hover:bg-yellow-200 dark:hover:bg-yellow-800/60 border-2 border-yellow-300 dark:border-yellow-700 hover:scale-[1.05] shadow-md'
                         }`}
                     title="Hoàn tác (Ctrl+Z)"
                 >

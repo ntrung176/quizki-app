@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Plus, Wand2, Loader2, Image as ImageIcon, Music, FileAudio, Check, X, Folder, Copy, FileJson, PenTool, ClipboardCheck } from 'lucide-react';
+import { Plus, Wand2, Loader2, Image as ImageIcon, Music, FileAudio, Check, X, Folder, Copy, FileJson, PenTool, ClipboardCheck, Search } from 'lucide-react';
 import { JLPT_LEVELS, POS_TYPES } from '../../config/constants';
 import { playAudio } from '../../utils/audio';
 import { compressImage } from '../../utils/image';
 import OnboardingTour from '../ui/OnboardingTour';
+import ImageSearchModal from '../ui/ImageSearchModal';
 
 // Helper function to detect mobile devices
 const isMobileDevice = () => {
@@ -75,6 +76,7 @@ const AddCardForm = ({
     const [jsonImporting, setJsonImporting] = useState(false);
     const [jsonImportResult, setJsonImportResult] = useState(null);
     const [copiedSample, setCopiedSample] = useState(false);
+    const [showImageSearch, setShowImageSearch] = useState(false);
 
     // Folder selection
     const [selectedFolderId, setSelectedFolderId] = useState('');
@@ -440,13 +442,22 @@ const AddCardForm = ({
                                 {/* Image Upload */}
                                 <div className="flex items-start space-x-4">
                                     <div className="flex-1">
-                                        <label htmlFor="image-upload" className="flex flex-col items-center justify-center w-full h-24 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-xl cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
-                                            <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                                                <ImageIcon className="w-6 h-6 text-gray-400 dark:text-gray-500 mb-1" />
+                                        <label htmlFor="image-upload" className="flex flex-col items-center justify-center w-full h-20 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-xl cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                                            <div className="flex flex-col items-center justify-center pt-3 pb-3">
+                                                <ImageIcon className="w-5 h-5 text-gray-400 dark:text-gray-500 mb-1" />
                                                 <p className="text-xs text-gray-500 dark:text-gray-400">Tải ảnh minh họa</p>
                                             </div>
                                             <input id="image-upload" type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
                                         </label>
+                                        {/* Pixabay search button */}
+                                        <button
+                                            type="button"
+                                            onClick={() => setShowImageSearch(true)}
+                                            className="w-full mt-1.5 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors border border-indigo-200 dark:border-indigo-800"
+                                        >
+                                            <Search className="w-3 h-3" />
+                                            Tìm ảnh online
+                                        </button>
                                     </div>
                                     {imagePreview && (
                                         <div className="relative w-24 h-24 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-600 shadow-sm group">
@@ -457,6 +468,14 @@ const AddCardForm = ({
                                         </div>
                                     )}
                                 </div>
+
+                                {/* Image Search Modal */}
+                                <ImageSearchModal
+                                    isOpen={showImageSearch}
+                                    onClose={() => setShowImageSearch(false)}
+                                    onSelectImage={(base64) => setImagePreview(base64)}
+                                    defaultQuery={front ? front.split('（')[0].split('(')[0].trim() : ''}
+                                />
 
                                 {/* Audio Upload */}
                                 <div className="pt-2 border-t border-gray-100 dark:border-gray-700">

@@ -731,6 +731,16 @@ const ReviewScreen = ({
                             <div className="flip-card-back backface-hidden absolute inset-0 w-full h-full rotate-y-180">
                                 <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl shadow-2xl p-6 w-full h-full border-4 border-white hover:shadow-3xl transition-shadow flex flex-col overflow-y-auto">
                                     <div className="flex-1 flex flex-col items-center justify-center text-center">
+                                        {/* Image display */}
+                                        {currentCard.imageBase64 && (
+                                            <div className="mb-2">
+                                                <img
+                                                    src={currentCard.imageBase64}
+                                                    alt={currentCard.front}
+                                                    className="max-h-16 max-w-full rounded-lg object-contain border border-white/20"
+                                                />
+                                            </div>
+                                        )}
                                         <p className="text-xs text-emerald-200 mb-2 font-medium uppercase tracking-wide">Ý nghĩa</p>
                                         <div className="text-3xl md:text-4xl font-extrabold text-white leading-relaxed break-words px-2 whitespace-pre-line">
                                             {formatMultipleMeanings(currentCard.back)}
@@ -804,6 +814,16 @@ const ReviewScreen = ({
 
                         {/* Word display - changes based on inputMode and cardReviewType */}
                         <div className="py-4">
+                            {/* Image display for cards with images */}
+                            {currentCard.imageBase64 && (
+                                <div className="flex justify-center mb-3">
+                                    <img
+                                        src={currentCard.imageBase64}
+                                        alt={currentCard.front}
+                                        className="max-h-16 max-w-[50%] rounded-lg object-contain border border-slate-500/30 opacity-80"
+                                    />
+                                </div>
+                            )}
                             {cardReviewType === 'synonym' ? (
                                 <>
                                     {/* Synonym mode: Show synonym from card */}

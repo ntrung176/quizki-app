@@ -455,6 +455,7 @@ const AppRoutes = ({
                         {flashcardCards && flashcardCards.length > 0 ? (
                             <FlashcardScreen
                                 cards={flashcardCards}
+                                onUpdateCard={handleUpdateCard}
                                 onComplete={() => {
                                     setFlashcardCards([]);
                                     setView('LIST');
