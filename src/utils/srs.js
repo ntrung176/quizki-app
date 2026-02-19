@@ -218,10 +218,19 @@ export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType =
     const hasSynonym = cardData.synonym && cardData.synonym.trim() !== '';
     const hasExample = cardData.example && cardData.example.trim() !== '';
 
+    // === TRACKING: đếm tổng số lần đúng/sai ===
+    const prevCorrectCount = typeof cardData.correctCount === 'number' ? cardData.correctCount : 0;
+    const prevIncorrectCount = typeof cardData.incorrectCount === 'number' ? cardData.incorrectCount : 0;
+    if (isCorrect) {
+        updateData.correctCount = prevCorrectCount + 1;
+    } else {
+        updateData.incorrectCount = prevIncorrectCount + 1;
+    }
+
     // Xác định rating
     const rating = evaluateRating(isCorrect, activityType);
 
-    // Xác định activity weight 
+    // Xác định activity weight
     let activityWeight = ACTIVITY_WEIGHTS.review_back;
     if (activityType === 'flashcard_known' || activityType === 'flashcard_unknown') {
         activityWeight = ACTIVITY_WEIGHTS.flashcard;
@@ -237,7 +246,19 @@ export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType =
     const newEase = calculateNewEase(currentEase, rating, activityWeight);
     updateData.easeFactor = newEase;
 
-    // Cập nhật streak
+    // ===== FLASHCARD / STUDY: chỉ ảnh hưởng ease, KHÔNG thay đổi streak hay interval =====
+    const isFlashcardOrStudy = activityType === 'flashcard_known' || activityType === 'flashcard_unknown' || activityType === 'study';
+
+    if (isFlashcardOrStudy) {
+        // Flashcard/Study chỉ cập nhật ease factor + tracking
+        // KHÔNG thay đổi streak, interval, hay nextReview
+        console.log(`[SRS] ${activityType}: chỉ cập nhật ease ${currentEase} → ${newEase}`);
+        return updateData;
+    }
+
+    // ===== REVIEW MODE: cập nhật streak và xét hoàn thành chu kỳ =====
+
+    // Cập nhật streak của phần được ôn tập
     let newBackStreak = backStreak;
     let newSynonymStreak = synonymStreak;
     let newExampleStreak = exampleStreak;
@@ -256,33 +277,27 @@ export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType =
     if (hasSynonym) updateData.correctStreak_synonym = newSynonymStreak;
     if (hasExample) updateData.correctStreak_example = newExampleStreak;
 
-    // Kiểm tra hoàn thành chu kỳ
+    // Kiểm tra hoàn thành chu kỳ (tất cả phần đều streak >= 1)
     const backCompleted = newBackStreak >= 1;
-    const synonymCompleted = hasSynonym && newSynonymStreak >= 1;
-    const exampleCompleted = hasExample && newExampleStreak >= 1;
+    const synonymCompleted = !hasSynonym || newSynonymStreak >= 1; // Nếu không có synonym thì coi là hoàn thành
+    const exampleCompleted = !hasExample || newExampleStreak >= 1;
 
-    let completedCount = 0;
-    let requiredCount = 1;
-
-    if (backCompleted) completedCount++;
-    if (hasSynonym) {
-        requiredCount++;
-        if (synonymCompleted) completedCount++;
-    }
-    if (hasExample) {
-        requiredCount++;
-        if (exampleCompleted) completedCount++;
-    }
-
-    const allCompleted = completedCount >= requiredCount;
+    const allCompleted = backCompleted && synonymCompleted && exampleCompleted;
 
     if (allCompleted) {
-        // Tất cả phần đều hoàn thành - tăng interval
-        const { newInterval, newIntervalMinutes } = calculateNextInterval(
-            currentInterval, newEase, RATING.GOOD, 1.0, reps
-        );
+        // Tất cả phần đều hoàn thành → tăng interval LÊN 1 BẬC
+        const newInterval = currentInterval < 0 ? 0 : Math.min(currentInterval + 1, SRS_INTERVALS.length - 1);
+        const baseMinutes = SRS_INTERVALS[newInterval];
 
-        const nextReviewDate = now + newIntervalMinutes * 60000;
+        // === EASE-BASED SCALING ===
+        // ease 2.5 (default) → hệ số 1.0
+        // ease 1.3 (rất khó) → hệ số ~0.52 (interval ngắn hơn nhiều)
+        // ease 3.0 (dễ) → hệ số 1.2 (interval dài hơn)
+        const easeMultiplier = Math.max(0.4, newEase / DEFAULT_EASE);
+        const adjustedMinutes = Math.round(baseMinutes * easeMultiplier);
+        const nextReviewDate = now + adjustedMinutes * 60000;
+
+        console.log(`[SRS] Hoàn thành chu kỳ! interval ${currentInterval} → ${newInterval} | base:${baseMinutes}min × ease:${easeMultiplier.toFixed(2)} = ${adjustedMinutes}min`);
 
         updateData.intervalIndex_back = newInterval;
         updateData.nextReview_back = nextReviewDate;
@@ -297,56 +312,33 @@ export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType =
             updateData.nextReview_example = nextReviewDate;
         }
 
-        // Reset streaks
+        // Reset streaks sau khi hoàn thành
         updateData.correctStreak_back = 0;
         if (hasSynonym) updateData.correctStreak_synonym = 0;
         if (hasExample) updateData.correctStreak_example = 0;
     } else {
-        // Chưa hoàn thành đủ - xử lý flashcard/study (ảnh hưởng nhẹ)
-        if (activityType === 'flashcard_known' || activityType === 'flashcard_unknown' || activityType === 'study') {
-            // Flashcard/Study chỉ ảnh hưởng ease factor, không thay đổi interval
-            // ease đã được cập nhật ở trên
-            if (currentInterval < 0 && isCorrect) {
-                // Thẻ mới + đúng từ study/flashcard => khởi tạo SRS
-                updateData.intervalIndex_back = 0; // Bắt đầu learning
-                updateData.nextReview_back = now + LEARNING_STEPS[LEARNING_STEPS.length - 1] * 60000; // 10 phút
-                if (hasSynonym) {
-                    updateData.intervalIndex_synonym = 0;
-                    updateData.nextReview_synonym = now + LEARNING_STEPS[LEARNING_STEPS.length - 1] * 60000;
-                }
-                if (hasExample) {
-                    updateData.intervalIndex_example = 0;
-                    updateData.nextReview_example = now + LEARNING_STEPS[LEARNING_STEPS.length - 1] * 60000;
-                }
-            }
+        // Chưa hoàn thành → giữ thẻ ở trạng thái "due" (nextReview = now)
+        // Đảm bảo thẻ vẫn xuất hiện để ôn các phần còn lại
+        updateData.nextReview_back = now;
+        if (hasSynonym) updateData.nextReview_synonym = now;
+        if (hasExample) updateData.nextReview_example = now;
+
+        // Nếu thẻ mới, set intervalIndex = 0 (đang trong learning)
+        if (currentInterval < 0) {
+            updateData.intervalIndex_back = 0;
+            if (hasSynonym) updateData.intervalIndex_synonym = 0;
+            if (hasExample) updateData.intervalIndex_example = 0;
         }
 
-        // Nếu là thẻ mới và ôn review: set nextReview = now
-        const currentNextReview = cardData.nextReview_back;
-        if (!currentNextReview || currentInterval < 0) {
-            if (activityType === 'review') {
-                updateData.nextReview_back = now;
-                if (hasSynonym) updateData.nextReview_synonym = now;
-                if (hasExample) updateData.nextReview_example = now;
-            }
-        }
-
-        // Nếu sai trong review và đang graduated => giảm interval
-        if (!isCorrect && activityType === 'review' && currentInterval > 0) {
-            const { newInterval, newIntervalMinutes } = calculateNextInterval(
-                currentInterval, newEase, RATING.AGAIN, 1.0, reps
-            );
+        // Nếu sai trong review và đang graduated → giảm interval
+        if (!isCorrect && currentInterval > 0) {
+            const newInterval = Math.max(0, currentInterval - 1);
             updateData.intervalIndex_back = newInterval;
-            updateData.nextReview_back = now + newIntervalMinutes * 60000;
-            if (hasSynonym) {
-                updateData.intervalIndex_synonym = newInterval;
-                updateData.nextReview_synonym = now + newIntervalMinutes * 60000;
-            }
-            if (hasExample) {
-                updateData.intervalIndex_example = newInterval;
-                updateData.nextReview_example = now + newIntervalMinutes * 60000;
-            }
+            if (hasSynonym) updateData.intervalIndex_synonym = newInterval;
+            if (hasExample) updateData.intervalIndex_example = newInterval;
         }
+
+        console.log(`[SRS] Chưa hoàn thành chu kỳ. back:${newBackStreak} syn:${newSynonymStreak} ex:${newExampleStreak}`);
     }
 
     return updateData;

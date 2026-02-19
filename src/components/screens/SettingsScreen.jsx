@@ -4,7 +4,7 @@ import {
     Settings, User, Volume2, VolumeX, Music, Sun, Moon,
     MessageSquare, Send, ArrowLeft, Save, Check, X,
     Clock, CheckCircle, XCircle, ChevronRight, Palette,
-    Bell, Shield, Info, Trash2, Upload, Play, Pause, Image as ImageIcon, Key
+    Bell, Shield, Info, Trash2, Upload, Play, Pause
 } from 'lucide-react';
 import { ROUTES } from '../../router';
 import {
@@ -15,7 +15,6 @@ import {
 } from '../../utils/soundEffects';
 import { collection, addDoc, getDocs, deleteDoc, query, orderBy, serverTimestamp, doc, updateDoc } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
-import { getPixabayApiKey, setPixabayApiKey, isPixabayConfigured } from '../../utils/imageSearch';
 
 const SETTINGS_KEY = 'quizki-settings';
 
@@ -70,10 +69,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
     const [selectedTrack, setSelectedTrackState] = useState(() => getSelectedTrackId());
     const [bgmTracks, setBgmTracks] = useState(() => getAllBgmTracks());
     const [uploadingBgm, setUploadingBgm] = useState(false);
-
-    // Pixabay API key state
-    const [pixabayKey, setPixabayKey] = useState(() => getPixabayApiKey());
-    const [pixabaySaved, setPixabaySaved] = useState(false);
 
     // Feedback state
     const [feedbackText, setFeedbackText] = useState('');
@@ -556,48 +551,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                 {isDarkMode && <Check className="w-4 h-4 text-indigo-500" />}
                             </button>
                         </div>
-                    </div>
-
-                    {/* Pixabay API Key */}
-                    <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
-                        <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                            <ImageIcon className="w-4 h-4" /> Tìm hình ảnh (Pixabay)
-                        </h3>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
-                            Đăng ký API key miễn phí tại{' '}
-                            <a href="https://pixabay.com/api/docs/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 underline font-medium">pixabay.com/api/docs</a>
-                            {' '}để tìm hình ảnh minh họa cho từ vựng.
-                        </p>
-                        <div className="flex gap-2">
-                            <div className="flex-1 relative">
-                                <Key className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                                <input
-                                    type="text"
-                                    value={pixabayKey}
-                                    onChange={(e) => { setPixabayKey(e.target.value); setPixabaySaved(false); }}
-                                    className="w-full pl-9 pr-3 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 text-sm"
-                                    placeholder="Nhập Pixabay API Key..."
-                                />
-                            </div>
-                            <button
-                                onClick={() => {
-                                    setPixabayApiKey(pixabayKey.trim());
-                                    setPixabaySaved(true);
-                                    setTimeout(() => setPixabaySaved(false), 3000);
-                                }}
-                                disabled={!pixabayKey.trim()}
-                                className="px-4 py-2.5 bg-indigo-600 dark:bg-indigo-500 text-white rounded-xl font-bold text-sm hover:bg-indigo-700 dark:hover:bg-indigo-600 disabled:opacity-50 transition-all flex items-center gap-1.5"
-                            >
-                                {pixabaySaved ? <Check className="w-4 h-4" /> : <Save className="w-4 h-4" />}
-                                {pixabaySaved ? 'Đã lưu!' : 'Lưu'}
-                            </button>
-                        </div>
-                        {isPixabayConfigured() && (
-                            <div className="flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400">
-                                <Check className="w-3 h-3" />
-                                <span>API Key đã được cấu hình</span>
-                            </div>
-                        )}
                     </div>
                 </div>
             )}

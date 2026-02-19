@@ -187,7 +187,7 @@ const AppRoutes = ({
                             scrollToCardId={scrollToCardIdRef?.current}
                             onScrollComplete={() => { if (scrollToCardIdRef) scrollToCardIdRef.current = null; }}
                             savedFilters={savedFilters}
-                            onFiltersChange={(filters) => setSavedFilters(filters)}
+                            onFiltersChange={setSavedFilters}
                         />
                     </ProtectedRoute>
                 }
@@ -289,7 +289,7 @@ const AppRoutes = ({
                 element={
                     <ProtectedRoute isAuthenticated={isAuthenticated}>
                         {reviewCards?.length === 0 ? (
-                            <ReviewCompleteScreen onBack={() => setView('LIST')} />
+                            <ReviewCompleteScreen onBack={() => setView('LIST')} allCards={allCards} />
                         ) : (
                             <ReviewScreen
                                 cards={reviewCards}

@@ -2,34 +2,60 @@
 // Free API with unlimited requests, CC0 license images
 // Docs: https://pixabay.com/api/docs/
 
-const PIXABAY_API_KEY = ''; // Users need to get their own key from https://pixabay.com/api/docs/
+// Đọc API key từ biến môi trường (VITE_ prefix cho Vite)
+const PIXABAY_API_KEY = import.meta.env.VITE_PIXABAY_API_KEY || '';
+
+/**
+ * Tách phần Kanji/từ chính từ chuỗi có furigana
+ * Ví dụ: "食べる（たべる）" => "食べる"
+ * @param {string} text 
+ * @returns {string}
+ */
+const extractMainWord = (text) => {
+    if (!text) return '';
+    return text.split('（')[0].split('(')[0].trim();
+};
+
+/**
+ * Chuẩn bị từ khóa tìm kiếm
+ * Pixabay hỗ trợ tiếng Nhật trực tiếp, không cần dịch
+ * @param {string} query - Từ khóa gốc (tiếng Nhật, Anh, Việt đều okay)
+ * @returns {string} Từ khóa đã xử lý
+ */
+export const prepareSearchQuery = (query) => {
+    if (!query || !query.trim()) return '';
+    return extractMainWord(query);
+};
 
 /**
  * Search for images on Pixabay
- * @param {string} query - Search query (English recommended for best results)
+ * Pixabay hỗ trợ đa ngôn ngữ bao gồm tiếng Nhật - tìm trực tiếp giống trên web
+ * @param {string} query - Search query (hỗ trợ tiếng Nhật, Anh, Việt...)
  * @param {Object} options - Search options
- * @param {number} options.perPage - Results per page (3-200, default 20)
+ * @param {number} options.perPage - Results per page (3-200, default 12)
  * @param {number} options.page - Page number (default 1)
  * @param {string} options.imageType - 'all', 'photo', 'illustration', 'vector'
  * @param {string} options.orientation - 'all', 'horizontal', 'vertical'
  * @param {boolean} options.safesearch - Safe search (default true)
+ * @param {string} options.lang - Language code (default 'ja' for Japanese)
  * @returns {Promise<{images: Array, total: number}>}
  */
 export const searchImages = async (query, options = {}) => {
-    const apiKey = PIXABAY_API_KEY || localStorage.getItem('pixabay_api_key') || '';
+    const apiKey = PIXABAY_API_KEY;
 
     if (!apiKey) {
-        throw new Error('Pixabay API key is required. Get one at https://pixabay.com/api/docs/');
+        throw new Error('Pixabay API key chưa được cấu hình. Vui lòng thêm VITE_PIXABAY_API_KEY vào file .env');
     }
 
     const params = new URLSearchParams({
         key: apiKey,
-        q: encodeURIComponent(query),
+        q: query.trim(),
         per_page: options.perPage || 12,
         page: options.page || 1,
         image_type: options.imageType || 'photo',
         orientation: options.orientation || 'all',
         safesearch: options.safesearch !== false ? 'true' : 'false',
+        lang: options.lang || 'ja', // Mặc định tiếng Nhật
         min_width: 200,
         min_height: 200,
     });
@@ -110,21 +136,5 @@ export const imageUrlToBase64 = async (imageUrl, maxWidth = 300, quality = 0.7) 
  * @returns {boolean}
  */
 export const isPixabayConfigured = () => {
-    return !!(PIXABAY_API_KEY || localStorage.getItem('pixabay_api_key'));
-};
-
-/**
- * Set Pixabay API key in localStorage
- * @param {string} key
- */
-export const setPixabayApiKey = (key) => {
-    localStorage.setItem('pixabay_api_key', key);
-};
-
-/**
- * Get Pixabay API key
- * @returns {string}
- */
-export const getPixabayApiKey = () => {
-    return PIXABAY_API_KEY || localStorage.getItem('pixabay_api_key') || '';
+    return !!PIXABAY_API_KEY;
 };

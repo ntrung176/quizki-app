@@ -475,6 +475,7 @@ const AddCardForm = ({
                                     onClose={() => setShowImageSearch(false)}
                                     onSelectImage={(base64) => setImagePreview(base64)}
                                     defaultQuery={front ? front.split('（')[0].split('(')[0].trim() : ''}
+                                    meaningVi={back || ''}
                                 />
 
                                 {/* Audio Upload */}

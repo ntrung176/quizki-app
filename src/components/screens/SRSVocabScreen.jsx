@@ -25,8 +25,10 @@ const SRSVocabScreen = ({
     const [countdownText, setCountdownText] = useState(null);
     const [isCountdown, setIsCountdown] = useState(false);
 
-    // Cần ôn (thẻ đến hạn HOẶC thẻ mới)
+    // Cần ôn (thẻ đến hạn HOẶC thẻ mới) VÀ chưa hoàn thành ý nghĩa (streak_back < 1)
     const dueCards = allCards.filter(card => {
+        const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
+        if (backStreak >= 1) return false; // Đã hoàn thành phần ý nghĩa rồi
         // Thẻ mới (chưa có SRS) luôn cần ôn
         if (card.intervalIndex_back === -1) return true;
         // Thẻ đã có SRS: kiểm tra nextReview
@@ -51,28 +53,31 @@ const SRSVocabScreen = ({
     // Tổng đã học qua (không còn là thẻ mới)
     const learnedCards = allCards.filter(card => card.intervalIndex_back >= 0).length;
 
-    // Đếm số từ có synonym (cho chế độ Đồng nghĩa)
-    // Bao gồm cả từ mới (intervalIndex_back === -1) VÀ từ đã đến hạn ôn tập
-    const synonymCards = allCards.filter(card =>
-        card.synonym && card.synonym.trim() !== '' && (
-            card.intervalIndex_back === -1 ||
-            (card.nextReview_back && card.nextReview_back <= Date.now())
-        )
-    ).length;
+    // Đếm số từ có synonym VÀ chưa hoàn thành phần đồng nghĩa (streak < 1)
+    const synonymCards = allCards.filter(card => {
+        if (!card.synonym || card.synonym.trim() === '') return false;
+        const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
+        if (synonymStreak >= 1) return false; // Đã hoàn thành
+        return card.intervalIndex_back === -1 ||
+            (card.nextReview_back && card.nextReview_back <= Date.now());
+    }).length;
 
-    // Đếm số từ có example (cho chế độ Ngữ cảnh)
-    // Bao gồm cả từ mới (intervalIndex_back === -1) VÀ từ đã đến hạn ôn tập
-    const exampleCards = allCards.filter(card =>
-        card.example && card.example.trim() !== '' && (
-            card.intervalIndex_back === -1 ||
-            (card.nextReview_back && card.nextReview_back <= Date.now())
-        )
-    ).length;
+    // Đếm số từ có example VÀ chưa hoàn thành phần ngữ cảnh (streak < 1)
+    const exampleCards = allCards.filter(card => {
+        if (!card.example || card.example.trim() === '') return false;
+        const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
+        if (exampleStreak >= 1) return false; // Đã hoàn thành
+        return card.intervalIndex_back === -1 ||
+            (card.nextReview_back && card.nextReview_back <= Date.now());
+    }).length;
 
-    // Tìm thời gian ôn tập tiếp theo
+    // Tìm thời gian ôn tập tiếp theo (CHỈ từ thẻ đã học, KHÔNG tính thẻ mới)
     const getNextReviewTimestamp = () => {
         const futureCards = allCards
-            .filter(card => card.nextReview_back && card.nextReview_back > Date.now())
+            .filter(card =>
+                card.intervalIndex_back >= 0 && // Chỉ thẻ đã học (không phải thẻ mới)
+                card.nextReview_back && card.nextReview_back > Date.now()
+            )
             .sort((a, b) => a.nextReview_back - b.nextReview_back);
 
         if (futureCards.length === 0) return null;
@@ -246,6 +251,53 @@ const SRSVocabScreen = ({
                                 </div>
                                 <span className="text-[10px] text-gray-500 w-8 text-right">{veryHard}</span>
                             </div>
+                        </div>
+                    </div>
+                );
+            })()}
+
+            {/* Chỉ số chính xác */}
+            {(() => {
+                const totalCorrect = allCards.reduce((sum, c) => sum + (c.correctCount || 0), 0);
+                const totalIncorrect = allCards.reduce((sum, c) => sum + (c.incorrectCount || 0), 0);
+                const totalAttempts = totalCorrect + totalIncorrect;
+                if (totalAttempts === 0) return null;
+                const accuracyPercent = Math.round((totalCorrect / totalAttempts) * 100);
+                // Từ đúng lần đầu: correctCount >= 1 && incorrectCount === 0
+                const firstTimeCorrect = allCards.filter(c => (c.correctCount || 0) >= 1 && (c.incorrectCount || 0) === 0).length;
+                const cardsWithAttempts = allCards.filter(c => (c.correctCount || 0) + (c.incorrectCount || 0) > 0).length;
+
+                return (
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-3 md:p-4 border border-gray-200 dark:border-gray-700 shadow-sm">
+                        <h3 className="text-xs font-bold text-gray-600 dark:text-gray-300 mb-3 flex items-center gap-2">
+                            <span className="w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-[10px]">🎯</span>
+                            Chỉ số chính xác
+                        </h3>
+                        <div className="grid grid-cols-4 gap-2 mb-3">
+                            <div className="text-center p-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-900/20">
+                                <div className="text-lg font-bold text-emerald-500">{totalCorrect}</div>
+                                <div className="text-[8px] text-emerald-600 dark:text-emerald-400">Đúng</div>
+                            </div>
+                            <div className="text-center p-1.5 rounded-lg bg-red-50 dark:bg-red-900/20">
+                                <div className="text-lg font-bold text-red-500">{totalIncorrect}</div>
+                                <div className="text-[8px] text-red-600 dark:text-red-400">Sai</div>
+                            </div>
+                            <div className="text-center p-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-900/20">
+                                <div className="text-lg font-bold text-indigo-500">{accuracyPercent}%</div>
+                                <div className="text-[8px] text-indigo-600 dark:text-indigo-400">Tỉ lệ</div>
+                            </div>
+                            <div className="text-center p-1.5 rounded-lg bg-amber-50 dark:bg-amber-900/20">
+                                <div className="text-lg font-bold text-amber-500">{firstTimeCorrect}/{cardsWithAttempts}</div>
+                                <div className="text-[8px] text-amber-600 dark:text-amber-400">Đúng lần 1</div>
+                            </div>
+                        </div>
+                        {/* Accuracy bar */}
+                        <div className="flex items-center gap-2">
+                            <span className="text-[10px] w-8 text-emerald-500 font-medium">✓</span>
+                            <div className="flex-1 h-3 bg-red-200 dark:bg-red-900/30 rounded-full overflow-hidden">
+                                <div className="h-full bg-emerald-500 rounded-full transition-all" style={{ width: `${accuracyPercent}%` }} />
+                            </div>
+                            <span className="text-[10px] w-8 text-red-500 font-medium text-right">✗</span>
                         </div>
                     </div>
                 );

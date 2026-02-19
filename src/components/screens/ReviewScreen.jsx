@@ -12,7 +12,7 @@ import {
     buildAdjNaAcceptedAnswers
 } from '../../utils/textProcessing';
 import { flashCorrect, launchConfetti, launchFanfare, launchSparkles, celebrateCorrectAnswer } from '../../utils/celebrations';
-import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
+import { playCorrectSound, playIncorrectSound, launchFireworks } from '../../utils/soundEffects';
 
 // Helper function to detect mobile devices
 const isMobileDevice = () => {
@@ -889,7 +889,14 @@ const ReviewScreen = ({
                                 const isSelected = selectedAnswer === option;
                                 let buttonClass = "px-3 py-3 text-sm font-bold rounded-xl transition-all border-2 text-center ";
 
-                                if (isSelected) {
+                                if (feedback && isSelected && feedback === 'correct') {
+                                    buttonClass += "bg-emerald-500 text-white border-emerald-600 shadow-md";
+                                } else if (feedback && isSelected && feedback === 'incorrect') {
+                                    buttonClass += "bg-red-500 text-white border-red-600 shadow-md";
+                                } else if (feedback && option === currentCard.front) {
+                                    // Highlight đáp án đúng khi sai
+                                    buttonClass += "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-500";
+                                } else if (isSelected) {
                                     buttonClass += "bg-indigo-500 text-white border-indigo-600 shadow-md";
                                 } else {
                                     buttonClass += "bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:border-indigo-400";
@@ -898,12 +905,63 @@ const ReviewScreen = ({
                                 return (
                                     <button
                                         key={index}
-                                        onClick={() => {
-                                            if (!isRevealed && !isProcessing) {
-                                                setSelectedAnswer(option);
+                                        onClick={async () => {
+                                            if (isRevealed || isProcessing || feedback) return;
+                                            setSelectedAnswer(option);
+
+                                            // Auto-submit ngay khi click
+                                            const isCorrect = option === currentCard.front;
+                                            const cardKey = `${currentCard.id}-${cardReviewType}`;
+                                            const hasFailedBefore = failedCards.has(cardKey);
+
+                                            setIsProcessing(true);
+
+                                            if (isCorrect) {
+                                                if (hasFailedBefore) {
+                                                    setFailedCards(prev => {
+                                                        const newSet = new Set(prev);
+                                                        newSet.delete(cardKey);
+                                                        return newSet;
+                                                    });
+                                                    setFeedback('correct');
+                                                    setMessage(`Chính xác! ${displayFront} - Đã hoàn thành!`);
+                                                } else {
+                                                    setFeedback('correct');
+                                                    setMessage(`Chính xác! ${displayFront}`);
+                                                }
+                                                flashCorrect();
+                                                playCorrectSound();
+                                                celebrateCorrectAnswer();
+                                            } else {
+                                                setFailedCards(prev => new Set([...prev, cardKey]));
+                                                setFeedback('incorrect');
+                                                setMessage(`Đáp án đúng: ${displayFront}`);
+                                                playIncorrectSound();
+
+                                                setCards(prevCards => {
+                                                    return prevCards.map(card => {
+                                                        if (card.id === currentCard.id) {
+                                                            const updatedCard = { ...card };
+                                                            if (cardReviewType === 'synonym') {
+                                                                updatedCard.correctStreak_synonym = 0;
+                                                            } else if (cardReviewType === 'example') {
+                                                                updatedCard.correctStreak_example = 0;
+                                                            }
+                                                            return updatedCard;
+                                                        }
+                                                        return card;
+                                                    });
+                                                });
+
+                                                await onUpdateCard(currentCard.id, false, cardReviewType);
                                             }
+
+                                            setIsRevealed(true);
+                                            playAudio(currentCard.audioBase64, currentCard.front);
+                                            await new Promise(resolve => setTimeout(resolve, 1000));
+                                            await moveToNextCard(isCorrect);
                                         }}
-                                        disabled={isRevealed || isProcessing}
+                                        disabled={isRevealed || isProcessing || !!feedback}
                                         className={buttonClass}
                                     >
                                         {option}
@@ -911,66 +969,6 @@ const ReviewScreen = ({
                                 );
                             })}
                         </div>
-                        {selectedAnswer && !isRevealed && (
-                            <button
-                                onClick={async () => {
-                                    if (isProcessing) return;
-                                    const isCorrect = selectedAnswer === currentCard.front;
-                                    const cardKey = `${currentCard.id}-${cardReviewType}`;
-                                    const hasFailedBefore = failedCards.has(cardKey);
-
-                                    setIsProcessing(true);
-
-                                    if (isCorrect) {
-                                        if (hasFailedBefore) {
-                                            setFailedCards(prev => {
-                                                const newSet = new Set(prev);
-                                                newSet.delete(cardKey);
-                                                return newSet;
-                                            });
-                                            setFeedback('correct');
-                                            setMessage(`Chính xác! ${displayFront} - Đã hoàn thành!`);
-                                        } else {
-                                            setFeedback('correct');
-                                            setMessage(`Chính xác! ${displayFront}`);
-                                        }
-                                    } else {
-                                        setFailedCards(prev => new Set([...prev, cardKey]));
-                                        setFeedback('incorrect');
-                                        setMessage(`Đáp án đúng: ${displayFront}`);
-                                        playAudio(currentCard.audioBase64, currentCard.front);
-
-                                        setCards(prevCards => {
-                                            return prevCards.map(card => {
-                                                if (card.id === currentCard.id) {
-                                                    const updatedCard = { ...card };
-                                                    if (cardReviewType === 'back') {
-                                                        updatedCard.correctStreak_back = 0;
-                                                    } else if (cardReviewType === 'synonym') {
-                                                        updatedCard.correctStreak_synonym = 0;
-                                                    } else if (cardReviewType === 'example') {
-                                                        updatedCard.correctStreak_example = 0;
-                                                    }
-                                                    return updatedCard;
-                                                }
-                                                return card;
-                                            });
-                                        });
-
-                                        await onUpdateCard(currentCard.id, false, cardReviewType);
-                                    }
-
-                                    setIsRevealed(true);
-                                    playAudio(currentCard.audioBase64, currentCard.front);
-                                    await new Promise(resolve => setTimeout(resolve, 1000));
-                                    await moveToNextCard(isCorrect);
-                                }}
-                                disabled={isProcessing}
-                                className="w-full py-3 md:py-4 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg md:rounded-xl font-bold text-base md:text-lg shadow-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-all"
-                            >
-                                Xác nhận
-                            </button>
-                        )}
                     </div>
                 )}
 
@@ -1119,29 +1117,74 @@ const ReviewScreen = ({
     );
 };
 
-export const ReviewCompleteScreen = ({ onBack }) => {
+export const ReviewCompleteScreen = ({ onBack, allCards }) => {
+    const [cycleText, setCycleText] = useState('⏳ Đang tính toán chu kì...');
+    const [showCycle, setShowCycle] = useState(false);
+
     useEffect(() => {
         launchFanfare();
         launchFireworks();
-        playCompletionFanfare();
+        // Không gọi playCompletionFanfare() vì launchFanfare() đã phát âm thanh rồi
+
+        // Hiển thị thời gian ôn tập tiếp theo sau 1.5 giây
+        const timer = setTimeout(() => {
+            if (allCards && allCards.length > 0) {
+                const now = Date.now();
+                const futureCards = allCards
+                    .filter(c => c.intervalIndex_back >= 0 && c.nextReview_back && c.nextReview_back > now)
+                    .sort((a, b) => a.nextReview_back - b.nextReview_back);
+
+                if (futureCards.length > 0) {
+                    const nextTime = futureCards[0].nextReview_back;
+                    const diffMs = nextTime - now;
+                    const diffMin = Math.floor(diffMs / 60000);
+                    const diffHour = Math.floor(diffMin / 60);
+                    const diffDay = Math.floor(diffHour / 24);
+
+                    let timeText;
+                    if (diffDay >= 1) {
+                        timeText = `${diffDay} ngày`;
+                    } else if (diffHour >= 1) {
+                        timeText = `${diffHour} giờ ${diffMin % 60} phút`;
+                    } else {
+                        timeText = `${diffMin} phút`;
+                    }
+                    setCycleText(`✅ Bạn sẽ ôn tập lại sau ${timeText}. Hẹn gặp lại! 👋`);
+                } else {
+                    setCycleText('✅ Không còn thẻ nào đang chờ ôn tập.');
+                }
+            } else {
+                setCycleText('✅ Hoàn thành!');
+            }
+            setShowCycle(true);
+        }, 1500);
+
+        return () => clearTimeout(timer);
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center p-10 text-center space-y-6 animate-fade-in">
-            <div className="w-28 h-28 bg-gradient-to-br from-emerald-100 to-green-200 dark:from-emerald-900/30 dark:to-green-900/30 rounded-full flex items-center justify-center mb-2 shadow-inner">
-                <div className="w-20 h-20 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-200 dark:shadow-green-900/50 animate-bounce">
-                    <Check className="w-10 h-10 text-white" strokeWidth={4} />
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm animate-fade-in">
+            <div className="flex flex-col items-center justify-center text-center space-y-6 p-6 max-w-md">
+                <div className="w-28 h-28 bg-gradient-to-br from-emerald-100 to-green-200 dark:from-emerald-900/30 dark:to-green-900/30 rounded-full flex items-center justify-center mb-2 shadow-inner">
+                    <div className="w-20 h-20 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-200 dark:shadow-green-900/50 animate-bounce">
+                        <Check className="w-10 h-10 text-white" strokeWidth={4} />
+                    </div>
                 </div>
-            </div>
-            <div>
-                <h2 className="text-4xl font-black text-gray-800 dark:text-gray-100 mb-3">🎊 Tuyệt vời! 🎊</h2>
-                <p className="text-gray-500 dark:text-gray-400 font-medium text-lg">Bạn đã hoàn thành phiên ôn tập này.</p>
-                <p className="text-gray-400 dark:text-gray-500 text-sm mt-2">Hãy tiếp tục cố gắng nhé!</p>
-            </div>
-            <div className="flex gap-3">
-                <button onClick={onBack} className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white font-bold rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
-                    Quay lại Ôn tập
-                </button>
+                <div>
+                    <h2 className="text-4xl font-black text-gray-800 dark:text-gray-100 mb-3">🎊 Tuyệt vời! 🎊</h2>
+                    <p className="text-gray-500 dark:text-gray-400 font-medium text-lg">Bạn đã hoàn thành phiên ôn tập này.</p>
+                    <div className={`mt-3 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-500 ${showCycle
+                        ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-700'
+                        : 'bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 animate-pulse'
+                        }`}>
+                        {cycleText}
+                    </div>
+                </div>
+                <div className="flex gap-3">
+                    <button onClick={onBack} className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white font-bold rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
+                        Quay lại Ôn tập
+                    </button>
+                </div>
             </div>
         </div>
     );

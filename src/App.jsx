@@ -521,8 +521,56 @@ const App = () => {
                     nextReview_example: data.nextReview_example?.toDate ? data.nextReview_example.toDate() : (data.nextReview_example ? new Date(data.nextReview_example) : today),
                     easeFactor: typeof data.easeFactor === 'number' ? data.easeFactor : DEFAULT_EASE,
                     totalReps: typeof data.totalReps === 'number' ? data.totalReps : 0,
+                    correctCount: typeof data.correctCount === 'number' ? data.correctCount : 0,
+                    incorrectCount: typeof data.incorrectCount === 'number' ? data.incorrectCount : 0,
                 });
             });
+
+            // Auto-fix: Reset thẻ bị hỏng SRS (intervalIndex > 0 nhưng chưa ôn tập lần nào)
+            const cardsToFix = cards.filter(card =>
+                card.intervalIndex_back > 0 && card.totalReps === 0
+            );
+            if (cardsToFix.length > 0) {
+                console.warn(`[SRS Auto-fix] Phát hiện ${cardsToFix.length} thẻ bị hỏng SRS. Đang reset...`);
+                cardsToFix.forEach(async (card) => {
+                    try {
+                        const cardRef = doc(db, vocabCollectionPath, card.id);
+                        await updateDoc(cardRef, {
+                            intervalIndex_back: -1,
+                            correctStreak_back: 0,
+                            nextReview_back: null,
+                            intervalIndex_synonym: -1,
+                            correctStreak_synonym: 0,
+                            nextReview_synonym: null,
+                            intervalIndex_example: -1,
+                            correctStreak_example: 0,
+                            nextReview_example: null,
+                            easeFactor: DEFAULT_EASE,
+                            totalReps: 0,
+                        });
+                        console.log(`[SRS Auto-fix] Reset thẻ "${card.front}" thành công`);
+                    } catch (e) {
+                        console.error(`[SRS Auto-fix] Lỗi reset thẻ "${card.front}":`, e);
+                    }
+                });
+                // Cập nhật local state ngay
+                cards.forEach(card => {
+                    if (card.intervalIndex_back > 0 && card.totalReps === 0) {
+                        card.intervalIndex_back = -1;
+                        card.correctStreak_back = 0;
+                        card.nextReview_back = today;
+                        card.intervalIndex_synonym = -1;
+                        card.correctStreak_synonym = 0;
+                        card.nextReview_synonym = today;
+                        card.intervalIndex_example = -1;
+                        card.correctStreak_example = 0;
+                        card.nextReview_example = today;
+                        card.easeFactor = DEFAULT_EASE;
+                        card.totalReps = 0;
+                    }
+                });
+            }
+
             // Sort by createdAt desc by default initially
             cards.sort((a, b) => b.createdAt - a.createdAt);
             setAllCards(cards);
@@ -783,92 +831,75 @@ const App = () => {
             dueCards = shuffleArray(dueCards);
 
         } else if (mode === 'mixed') {
-            // Logic mới: Tất cả 3 phần dùng chung nextReview_back
-            // Đối với từ mới (chưa có SRS): không cần kiểm tra nextReview_back hay streak
-            if (isNewCategory) {
-                const dueBackCards = filteredCards.map(card => ({ ...card, reviewType: 'back' }));
-                const dueSynonymCards = filteredCards
-                    .filter(card => card.synonym && card.synonym.trim() !== '')
-                    .map(card => ({ ...card, reviewType: 'synonym' }));
-                const dueExampleCards = filteredCards
-                    .filter(card => card.example && card.example.trim() !== '')
-                    .map(card => ({ ...card, reviewType: 'example' }));
-                dueCards = shuffleArray([...dueBackCards, ...dueSynonymCards, ...dueExampleCards]);
-            } else {
-                // Từ cũ hoặc grammar: kiểm tra nextReview_back và streak
-                const dueBackCards = filteredCards
-                    .filter(card => {
-                        if (card.nextReview_back > today) return false;
-                        const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
-                        return backStreak < 1;
-                    })
-                    .map(card => ({ ...card, reviewType: 'back' }));
+            // Mixed mode: bao gồm cả thẻ mới VÀ thẻ đến hạn
+            const isNew = (card) => card.intervalIndex_back === -1 || card.intervalIndex_back === undefined;
 
-                const dueSynonymCards = filteredCards
-                    .filter(card => {
-                        if (!card.synonym || card.synonym.trim() === '') return false;
-                        if (card.nextReview_back > today) return false;
-                        const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
-                        return synonymStreak < 1;
-                    })
-                    .map(card => ({ ...card, reviewType: 'synonym' }));
+            const dueBackCards = filteredCards
+                .filter(card => {
+                    if (isNew(card)) return true; // Thẻ mới luôn bao gồm
+                    if (card.nextReview_back > today) return false;
+                    const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
+                    return backStreak < 1;
+                })
+                .map(card => ({ ...card, reviewType: 'back' }));
 
-                const dueExampleCards = filteredCards
-                    .filter(card => {
-                        if (!card.example || card.example.trim() === '') return false;
-                        if (card.nextReview_back > today) return false;
-                        const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
-                        return exampleStreak < 1;
-                    })
-                    .map(card => ({ ...card, reviewType: 'example' }));
+            const dueSynonymCards = filteredCards
+                .filter(card => {
+                    if (!card.synonym || card.synonym.trim() === '') return false;
+                    if (isNew(card)) return true;
+                    if (card.nextReview_back > today) return false;
+                    const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
+                    return synonymStreak < 1;
+                })
+                .map(card => ({ ...card, reviewType: 'synonym' }));
 
-                dueCards = shuffleArray([...dueBackCards, ...dueSynonymCards, ...dueExampleCards]);
-            }
+            const dueExampleCards = filteredCards
+                .filter(card => {
+                    if (!card.example || card.example.trim() === '') return false;
+                    if (isNew(card)) return true;
+                    if (card.nextReview_back > today) return false;
+                    const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
+                    return exampleStreak < 1;
+                })
+                .map(card => ({ ...card, reviewType: 'example' }));
+
+            dueCards = shuffleArray([...dueBackCards, ...dueSynonymCards, ...dueExampleCards]);
 
         } else if (mode === 'back') {
-            // Back: các từ đã đến chu kỳ và chưa hoàn thành (streak < 1)
-            if (isNewCategory) {
-                // Từ mới: tất cả đều có thể ôn
-                dueCards = filteredCards;
-            } else {
-                // Từ cũ hoặc grammar: kiểm tra nextReview_back và streak
-                dueCards = filteredCards
-                    .filter(card => {
-                        if (card.nextReview_back > today) return false;
-                        const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
-                        return backStreak < 1;
-                    });
-            }
+            // Back: thẻ mới (intervalIndex_back === -1) HOẶC thẻ đến hạn (nextReview <= now) + chưa hoàn thành
+            dueCards = filteredCards
+                .filter(card => {
+                    // Thẻ mới luôn được bao gồm
+                    if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined) return true;
+                    // Thẻ cũ: kiểm tra nextReview và streak
+                    if (card.nextReview_back > today) return false;
+                    const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
+                    return backStreak < 1;
+                });
         } else if (mode === 'synonym') {
-            // Synonym: các từ đã đến chu kỳ, có synonym và chưa hoàn thành (streak < 1)
-            if (isNewCategory) {
-                // Từ mới: chỉ cần có synonym
-                dueCards = filteredCards.filter(card => card.synonym && card.synonym.trim() !== '');
-            } else {
-                // Từ cũ hoặc grammar: kiểm tra nextReview_back và streak
-                dueCards = filteredCards
-                    .filter(card => {
-                        if (!card.synonym || card.synonym.trim() === '') return false;
-                        if (card.nextReview_back > today) return false;
-                        const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
-                        return synonymStreak < 1;
-                    });
-            }
+            // Synonym: thẻ mới có synonym HOẶC thẻ đến hạn + chưa hoàn thành synonym
+            dueCards = filteredCards
+                .filter(card => {
+                    if (!card.synonym || card.synonym.trim() === '') return false;
+                    // Thẻ mới luôn được bao gồm
+                    if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined) return true;
+                    // Thẻ cũ: kiểm tra nextReview và streak
+                    if (card.nextReview_back > today) return false;
+                    const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
+                    return synonymStreak < 1;
+                });
         } else if (mode === 'example') {
-            // Example: các từ đã đến chu kỳ, có example và chưa hoàn thành (streak < 1)
-            if (isNewCategory) {
-                // Từ mới: chỉ cần có example
-                dueCards = filteredCards.filter(card => card.example && card.example.trim() !== '');
-            } else {
-                // Từ cũ hoặc grammar: kiểm tra nextReview_back và streak
-                dueCards = filteredCards
-                    .filter(card => {
-                        if (!card.example || card.example.trim() === '') return false;
-                        if (card.nextReview_back > today) return false;
-                        const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
-                        return exampleStreak < 1;
-                    });
-            }
+            // Example: thẻ mới có example HOẶC thẻ đến hạn + chưa hoàn thành example
+            dueCards = filteredCards
+                .filter(card => {
+                    if (!card.example || card.example.trim() === '') return false;
+                    // Thẻ mới luôn được bao gồm
+                    if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined) return true;
+                    // Thẻ cũ: kiểm tra nextReview và streak
+                    if (card.nextReview_back > today) return false;
+                    const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
+                    return exampleStreak < 1;
+                });
         }
 
         if (dueCards.length > 0) {
@@ -2144,10 +2175,10 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
     /*
     const handleAutoSinoVietnameseBatch = async (cardsToProcess) => {
         if (!cardsToProcess || cardsToProcess.length === 0) return;
-
+    
         // Lọc: Chỉ xử lý các từ có chứa Kanji (Sử dụng Regex range cho Kanji)
         const cardsWithKanji = cardsToProcess.filter(card => /[\u4e00-\u9faf]/.test(card.front));
-
+    
         if (cardsWithKanji.length === 0) {
             setNotification("Không tìm thấy từ vựng nào chứa Kanji cần cập nhật Hán Việt.");
             return;
@@ -2165,7 +2196,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
         
         const delay = (ms) => new Promise(res => setTimeout(res, ms));
         let successCount = 0;
-
+    
         for (const card of cardsWithKanji) {
              try {
                 const text = card.front;
@@ -2174,7 +2205,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                 const payload = {
                         contents: [{ parts: [{ text: prompt }] }]
                 };
-
+    
                 // Sử dụng hàm retry tự động
                 const result = await callGeminiApiWithRetry(payload);
                     let sino = result.candidates?.[0]?.content?.parts?.[0]?.text || '';
@@ -2187,7 +2218,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     }
                 
                 await delay(1000);
-
+    
              } catch(e) {
                  console.error("Lỗi lấy âm Hán Việt:", e);
              }

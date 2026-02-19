@@ -143,17 +143,17 @@ export function showCelebrationBanner(text = '🎊 Tuyệt vời! 🎊') {
         style.id = 'celebration-banner-keyframes';
         style.textContent = `
             @keyframes bannerSlideIn {
-                0% { transform: translateY(-100px) scale(0.5); opacity: 0; }
-                50% { transform: translateY(10px) scale(1.05); opacity: 1; }
-                70% { transform: translateY(-5px) scale(0.98); }
-                100% { transform: translateY(0) scale(1); opacity: 1; }
+                0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+                50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+                70% { transform: translate(-50%, -50%) scale(0.98); }
+                100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
             }
             @keyframes bannerGlow {
                 0%, 100% { box-shadow: 0 0 20px rgba(253, 203, 110, 0.3); }
                 50% { box-shadow: 0 0 40px rgba(253, 203, 110, 0.6), 0 0 60px rgba(253, 203, 110, 0.2); }
             }
             @keyframes bannerFade {
-                to { transform: translateY(-30px); opacity: 0; }
+                to { transform: translate(-50%, -80%) scale(0.9); opacity: 0; }
             }
         `;
         document.head.appendChild(style);
@@ -162,9 +162,9 @@ export function showCelebrationBanner(text = '🎊 Tuyệt vời! 🎊') {
     const banner = document.createElement('div');
     banner.style.cssText = `
         position: fixed;
-        top: 80px;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
         z-index: 99998;
         padding: 16px 40px;
         border-radius: 20px;
