@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { RotateCcw, Check, X, Undo2, Trophy, RefreshCw } from 'lucide-react';
-import { playAudio } from '../../utils/audio';
+import { RotateCcw, Check, X, Undo2, Trophy, RefreshCw, Volume2 } from 'lucide-react';
+import { playAudio, speakJapanese } from '../../utils/audio';
 
 const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard }) => {
     const [allCards] = useState(initialCards);
@@ -42,8 +42,9 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard }) => {
     const handleFlip = useCallback(() => {
         const newFlippedState = !isFlipped;
         setIsFlipped(newFlippedState);
-        if (newFlippedState && currentCard?.audioBase64) {
-            playAudio(currentCard.audioBase64);
+        if (newFlippedState && currentCard) {
+            // Phát âm khi lật: dùng audioBase64 nếu có, không thì fallback Web Speech API
+            speakJapanese(currentCard.front, currentCard.audioBase64);
         }
     }, [isFlipped, currentCard]);
 
@@ -410,6 +411,19 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard }) => {
                         {/* Back side - Vietnamese with Sino-Vietnamese */}
                         <div className="flip-card-back backface-hidden absolute inset-0 w-full h-full rotate-y-180">
                             <div className="bg-slate-700 dark:bg-slate-800 rounded-2xl shadow-2xl p-6 w-full h-full border-2 border-slate-600 dark:border-slate-700 hover:shadow-3xl transition-shadow flex flex-col overflow-y-auto">
+                                {/* Speaker button */}
+                                <div className="flex justify-end mb-2">
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            speakJapanese(currentCard.front, currentCard.audioBase64);
+                                        }}
+                                        className="p-2 rounded-full bg-slate-600 hover:bg-indigo-500 text-white transition-all hover:scale-110"
+                                        title="Nghe phát âm"
+                                    >
+                                        <Volume2 className="w-4 h-4" />
+                                    </button>
+                                </div>
                                 <div className="flex-1 flex flex-col items-center justify-center text-center space-y-4">
                                     {/* Image */}
                                     {currentCard.imageBase64 && (

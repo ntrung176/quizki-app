@@ -6,7 +6,7 @@ export { default as ProfileScreen } from './ProfileScreen';
 export { default as HelpScreen } from './HelpScreen';
 export { default as ImportScreen } from './ImportScreen';
 export { default as StatsScreen } from './StatsScreen';
-export { default as FriendsScreen } from './FriendsScreen';
+
 export { default as ListView } from './ListView';
 export { default as ReviewScreen, ReviewCompleteScreen } from './ReviewScreen';
 export { default as KanjiScreen } from './KanjiScreen';

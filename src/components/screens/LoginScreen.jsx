@@ -73,7 +73,8 @@ const LoginScreen = () => {
                         displayName: defaultName,
                         dailyGoal: 10,
                         hasSeenHelp: true,
-                        createdAt: serverTimestamp()
+                        createdAt: serverTimestamp(),
+                        email: email.trim()
                     }, { merge: true });
                 }
                 await signOut(auth);
@@ -141,7 +142,12 @@ const LoginScreen = () => {
                         displayName: defaultName,
                         dailyGoal: 10,
                         hasSeenHelp: true,
-                        createdAt: serverTimestamp()
+                        createdAt: serverTimestamp(),
+                        email: user.email || ''
+                    }, { merge: true });
+                } else if (!profileSnap.data()?.email) {
+                    await setDoc(profileRef, {
+                        email: user.email || ''
                     }, { merge: true });
                 }
             }

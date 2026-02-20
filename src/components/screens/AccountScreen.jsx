@@ -62,14 +62,20 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack,
             return;
         }
         try {
-            await onChangePassword(newPassword);
+            await onChangePassword(currentPassword, newPassword);
             setMessage('Đã cập nhật mật khẩu. Lần sau hãy dùng mật khẩu mới để đăng nhập.');
             setCurrentPassword('');
             setNewPassword('');
             setConfirmNewPassword('');
         } catch (e) {
             console.error('Lỗi đổi mật khẩu:', e);
-            setError('Không thể đổi mật khẩu. Có thể bạn cần đăng nhập lại gần đây hoặc mật khẩu hiện tại không đúng.');
+            if (e.code === 'auth/wrong-password' || e.code === 'auth/invalid-credential') {
+                setError('Mật khẩu hiện tại không đúng.');
+            } else if (e.code === 'auth/requires-recent-login') {
+                setError('Vì lý do bảo mật, bạn cần đăng xuất và đăng nhập lại trước khi tạo/đổi mật khẩu.');
+            } else {
+                setError('Không thể đổi mật khẩu: ' + (e.message || 'Lỗi không xác định'));
+            }
         }
     };
 

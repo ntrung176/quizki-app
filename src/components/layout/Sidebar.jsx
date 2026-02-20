@@ -6,7 +6,8 @@ import { ROUTES } from '../../router';
 import {
     Home, BookOpen, BarChart3, Users, Settings, Plus,
     LogOut, Sun, Moon, Sparkles, ChevronRight, X, List,
-    Repeat2, FileCheck, Languages, Shield, ChevronDown
+    Repeat2, FileCheck, Languages, Shield, ChevronDown,
+    Trophy, Heart, Gamepad2
 } from 'lucide-react';
 
 // Sidebar Component - Navigation with submenu support
@@ -15,7 +16,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
     const location = useLocation();
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [expandedMenus, setExpandedMenus] = useState(['VOCAB', 'KANJI']); // Keep expanded by default
+    const [expandedMenus, setExpandedMenus] = useState(['VOCAB', 'KANJI', 'HUB']); // Keep expanded by default
 
     // Get current view from URL path
     const getCurrentView = () => {
@@ -30,7 +31,8 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
         if (path === ROUTES.KANJI_LIST) return 'KANJI_LIST';
         if (path === ROUTES.TEST) return 'TEST';
         if (path === ROUTES.STATS) return 'STATS';
-        if (path === ROUTES.FRIENDS) return 'FRIENDS';
+        if (path === ROUTES.LEADERBOARD) return 'LEADERBOARD';
+        if (path === ROUTES.PET) return 'PET';
         if (path === ROUTES.ACCOUNT) return 'ACCOUNT';
         if (path === ROUTES.SETTINGS) return 'SETTINGS';
         if (path === ROUTES.BOOKS) return 'BOOKS_LIST';
@@ -87,8 +89,17 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
             ]
         },
         { id: 'TEST', icon: FileCheck, label: 'Kiểm tra JLPT', route: ROUTES.TEST },
-        { id: 'STATS', icon: BarChart3, label: 'Thống kê', route: ROUTES.STATS },
-        { id: 'FRIENDS', icon: Users, label: 'Xếp hạng', route: ROUTES.FRIENDS },
+        {
+            id: 'HUB',
+            icon: Gamepad2,
+            label: 'Trung tâm',
+            hasSubmenu: true,
+            children: [
+                { id: 'STATS', label: 'Thống kê', route: ROUTES.STATS },
+                { id: 'LEADERBOARD', label: 'Bảng xếp hạng', route: ROUTES.LEADERBOARD },
+                { id: 'PET', label: 'Thú cưng', route: ROUTES.PET },
+            ]
+        },
         { id: 'SETTINGS', icon: Settings, label: 'Cài đặt', route: ROUTES.SETTINGS },
         ...(isAdmin ? [{ id: 'ADMIN', icon: Shield, label: 'Quản lý Admin', route: ROUTES.ADMIN }] : []),
     ];

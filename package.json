@@ -11,9 +11,11 @@
     "init-tailwind": "tailwindcss init -p"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
     "@tanstack/react-query": "^5.90.12",
     "@tanstack/react-query-devtools": "^5.91.1",
-    "firebase": "^12.6.0",
+    "firebase": "^12.9.0",
     "hanzi-writer": "^3.7.3",
     "lucide-react": "^0.561.0",
     "react": "^19.2.0",
@@ -25,6 +27,7 @@
     "react-virtualized-auto-sizer": "^2.0.0",
     "react-window": "^2.2.3",
     "recharts": "^3.6.0",
+    "three": "^0.183.1",
     "use-debounce": "^10.0.6",
     "web-vitals": "^5.1.0",
     "zustand": "^5.0.9"

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { GraduationCap } from 'lucide-react';
-import { playAudio } from '../../utils/audio';
+import { speakJapanese } from '../../utils/audio';
 import { shuffleArray, buildAdjNaAcceptedAnswers } from '../../utils/textProcessing';
 import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
 
@@ -217,7 +217,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         setFeedback(isCorrect ? 'correct' : 'incorrect');
         setIsRevealed(true);
 
-        playAudio(currentCard.audioBase64, currentCard.front);
+        speakJapanese(currentCard.front, currentCard.audioBase64);
 
         await onUpdateCard(currentCard.id, isCorrect, 'back', 'study', Date.now() - cardShownTimeRef.current);
 
@@ -285,7 +285,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         setIsProcessing(true);
         setFeedback(isCorrect ? 'correct' : 'incorrect');
         setIsRevealed(true);
-        playAudio(currentCard.audioBase64, currentCard.front);
+        speakJapanese(currentCard.front, currentCard.audioBase64);
 
         await onUpdateCard(currentCard.id, isCorrect, 'back', 'study', Date.now() - cardShownTimeRef.current);
 

@@ -51,6 +51,35 @@ export const pcmToWav = (pcm16, sampleRate = 24000) => {
 // Global audio object reference
 let currentAudioObj = null;
 
+// Cache for Japanese voices (loaded once)
+let cachedJapaneseVoice = null;
+let voicesLoaded = false;
+
+// Preload Japanese voice
+const loadJapaneseVoice = () => {
+    if (voicesLoaded) return cachedJapaneseVoice;
+
+    const voices = window.speechSynthesis?.getVoices() || [];
+    // Ưu tiên: Google Japanese > Microsoft Japanese > any ja voice
+    cachedJapaneseVoice = voices.find(v => v.lang === 'ja-JP' && v.name.includes('Google'))
+        || voices.find(v => v.lang === 'ja-JP' && v.name.includes('Microsoft'))
+        || voices.find(v => v.lang === 'ja-JP')
+        || voices.find(v => v.lang.startsWith('ja'));
+
+    if (voices.length > 0) voicesLoaded = true;
+    return cachedJapaneseVoice;
+};
+
+// Ensure voices are loaded (some browsers load async)
+if (window.speechSynthesis) {
+    window.speechSynthesis.onvoiceschanged = () => {
+        voicesLoaded = false;
+        loadJapaneseVoice();
+    };
+    // Initial load attempt
+    loadJapaneseVoice();
+}
+
 // Play Audio - với fallback sử dụng Web Speech API
 export const playAudio = (base64Data, text = '') => {
     // Dừng audio đang phát (nếu có)
@@ -120,7 +149,7 @@ export const playAudio = (base64Data, text = '') => {
     }
 };
 
-// Fallback: Sử dụng Web Speech API để đọc text
+// Fallback: Sử dụng Web Speech API để đọc text tiếng Nhật
 const speakWithTTS = (text) => {
     if (!text || !window.speechSynthesis) return;
 
@@ -133,9 +162,8 @@ const speakWithTTS = (text) => {
     utterance.rate = 0.9;
     utterance.pitch = 1;
 
-    // Tìm giọng tiếng Nhật
-    const voices = window.speechSynthesis.getVoices();
-    const japaneseVoice = voices.find(v => v.lang.startsWith('ja'));
+    // Tìm giọng tiếng Nhật (dùng cached voice)
+    const japaneseVoice = loadJapaneseVoice();
     if (japaneseVoice) {
         utterance.voice = japaneseVoice;
     }
@@ -143,8 +171,36 @@ const speakWithTTS = (text) => {
     window.speechSynthesis.speak(utterance);
 };
 
+/**
+ * speakJapanese - Hàm tiện ích phát âm tiếng Nhật
+ * Ưu tiên đọc hiragana/katakana (trong ngoặc) để tránh đọc sai kanji
+ * 
+ * @param {string} text - Từ vựng tiếng Nhật cần phát âm (có thể chứa furigana: "食べる（たべる）")
+ * @param {string|null} audioBase64 - Dữ liệu audio base64 đã lưu sẵn (optional, legacy)
+ */
+export const speakJapanese = (text, audioBase64 = null) => {
+    if (!text && !audioBase64) return;
+
+    // Nếu có audioBase64 lưu sẵn, dùng nó (legacy support)
+    if (audioBase64) {
+        playAudio(audioBase64, text || '');
+        return;
+    }
+
+    // Ưu tiên đọc phần hiragana/katakana trong ngoặc để tránh sai phát âm kanji
+    const readingMatch = text.match(/[（(]([^）)]+)[）)]/);
+    const textToSpeak = readingMatch ? readingMatch[1] : text.split('（')[0].split('(')[0].trim();
+
+    if (textToSpeak) {
+        playAudio(null, textToSpeak);
+    }
+};
+
 // Stop current audio
 export const stopAudio = () => {
+    if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+    }
     if (currentAudioObj) {
         try {
             currentAudioObj.pause();

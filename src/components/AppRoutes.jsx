@@ -10,7 +10,6 @@ import {
     HelpScreen,
     ImportScreen,
     StatsScreen,
-    FriendsScreen,
     ListView,
     ReviewScreen,
     ReviewCompleteScreen,
@@ -371,19 +370,48 @@ const AppRoutes = ({
                             onUpdateGoal={handleUpdateGoal}
                             onBack={() => setView('HOME')}
                             userId={userId}
+                            publicStatsPath={publicStatsCollectionPath}
+                            initialTab="stats"
                         />
                     </ProtectedRoute>
                 }
             />
 
             <Route
-                path={ROUTES.FRIENDS}
+                path={ROUTES.LEADERBOARD}
                 element={
                     <ProtectedRoute isAuthenticated={isAuthenticated}>
-                        <FriendsScreen
-                            publicStatsPath={publicStatsCollectionPath}
-                            currentUserId={userId}
+                        <StatsScreen
+                            memoryStats={memoryStats}
+                            totalCards={allCards?.length || 0}
+                            profile={profile}
+                            allCards={allCards}
+                            dailyActivityLogs={dailyActivityLogs}
+                            onUpdateGoal={handleUpdateGoal}
                             onBack={() => setView('HOME')}
+                            userId={userId}
+                            publicStatsPath={publicStatsCollectionPath}
+                            initialTab="leaderboard"
+                        />
+                    </ProtectedRoute>
+                }
+            />
+
+            <Route
+                path={ROUTES.PET}
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <StatsScreen
+                            memoryStats={memoryStats}
+                            totalCards={allCards?.length || 0}
+                            profile={profile}
+                            allCards={allCards}
+                            dailyActivityLogs={dailyActivityLogs}
+                            onUpdateGoal={handleUpdateGoal}
+                            onBack={() => setView('HOME')}
+                            userId={userId}
+                            publicStatsPath={publicStatsCollectionPath}
+                            initialTab="pet"
                         />
                     </ProtectedRoute>
                 }

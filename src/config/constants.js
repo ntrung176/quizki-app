@@ -13,11 +13,11 @@ export const POS_TYPES = {
 
 // --- Cấu hình Cấp độ JLPT & Chỉ tiêu (Ước lượng) ---
 export const JLPT_LEVELS = [
-    { value: 'N5', label: 'N5', color: 'bg-emerald-100 text-emerald-700 border-emerald-200', target: 800 },
-    { value: 'N4', label: 'N4', color: 'bg-teal-100 text-teal-700 border-teal-200', target: 1500 },
-    { value: 'N3', label: 'N3', color: 'bg-blue-100 text-blue-700 border-blue-200', target: 3000 },
-    { value: 'N2', label: 'N2', color: 'bg-violet-100 text-violet-700 border-violet-200', target: 6000 },
-    { value: 'N1', label: 'N1', color: 'bg-rose-100 text-rose-700 border-rose-200', target: 10000 }
+    { value: 'N5', label: 'N5', color: 'bg-emerald-100 text-emerald-700 border-emerald-200', target: 800, kanjiTarget: 80 },
+    { value: 'N4', label: 'N4', color: 'bg-teal-100 text-teal-700 border-teal-200', target: 1500, kanjiTarget: 170 },
+    { value: 'N3', label: 'N3', color: 'bg-blue-100 text-blue-700 border-blue-200', target: 3000, kanjiTarget: 370 },
+    { value: 'N2', label: 'N2', color: 'bg-violet-100 text-violet-700 border-violet-200', target: 6000, kanjiTarget: 620 },
+    { value: 'N1', label: 'N1', color: 'bg-rose-100 text-rose-700 border-rose-200', target: 10000, kanjiTarget: 1000 }
 ];
 
 // --- Cấu hình SRS Dynamic Multiplier (Tính bằng phút) ---

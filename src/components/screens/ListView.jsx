@@ -344,7 +344,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
     const [editingCard, setEditingCard] = useState(null);
     const [filterLevel, setFilterLevel] = useState(savedFilters?.filterLevel || 'all');
     const [filterPos, setFilterPos] = useState(savedFilters?.filterPos || 'all');
-    const [filterAudio, setFilterAudio] = useState(savedFilters?.filterAudio || 'all');
     const [filterFolder, setFilterFolder] = useState(savedFilters?.filterFolder || 'all');
     const [sortOrder, setSortOrder] = useState(savedFilters?.sortOrder || 'newest');
     const [searchTerm, setSearchTerm] = useState(savedFilters?.searchTerm || '');
@@ -532,7 +531,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
             previousSavedFiltersRef.current = savedFilters;
             setFilterLevel(savedFilters.filterLevel || 'all');
             setFilterPos(savedFilters.filterPos || 'all');
-            setFilterAudio(savedFilters.filterAudio || 'all');
             setFilterFolder(savedFilters.filterFolder || 'all');
             setSortOrder(savedFilters.sortOrder || 'newest');
             setSearchTerm(savedFilters.searchTerm || '');
@@ -542,13 +540,12 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
 
     useEffect(() => {
         if (isRestoringRef.current || !onFiltersChange) return;
-        onFiltersChange({ filterLevel, filterPos, filterAudio, filterFolder, sortOrder, searchTerm });
-    }, [filterLevel, filterPos, filterAudio, filterFolder, sortOrder, searchTerm, onFiltersChange]);
+        onFiltersChange({ filterLevel, filterPos, filterFolder, sortOrder, searchTerm });
+    }, [filterLevel, filterPos, filterFolder, sortOrder, searchTerm, onFiltersChange]);
 
     const resetFilters = useCallback(() => {
         setFilterLevel('all');
         setFilterPos('all');
-        setFilterAudio('all');
         setFilterFolder('all');
         setSortOrder('newest');
         setSearchTerm('');
@@ -577,7 +574,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
     // Folder browse mode: we're at root or inside a folder, no search/filter active
     const isInFolderBrowseMode = useMemo(() => {
         if (folders.length === 0) return false;
-        if (filterLevel !== 'all' || filterPos !== 'all' || filterAudio !== 'all' || filterFolder !== 'all' || deferredSearchTerm.trim() !== '') return false;
+        if (filterLevel !== 'all' || filterPos !== 'all' || filterFolder !== 'all' || deferredSearchTerm.trim() !== '') return false;
         // At root level
         if (currentFolder === null) return true;
         // Inside a real folder that has sub-folders — stay in browse mode
@@ -586,19 +583,18 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
             if (hasSubFolders) return true;
         }
         return false;
-    }, [folders, currentFolder, filterLevel, filterPos, filterAudio, filterFolder, deferredSearchTerm]);
+    }, [folders, currentFolder, filterLevel, filterPos, filterFolder, deferredSearchTerm]);
 
     const filteredCards = useMemo(() => {
         const searchTermLower = deferredSearchTerm.trim().toLowerCase();
         const hasSearch = searchTermLower.length > 0;
         const hasLevelFilter = filterLevel !== 'all';
         const hasPosFilter = filterPos !== 'all';
-        const hasAudioFilter = filterAudio !== 'all';
         const hasFolderFilter = filterFolder !== 'all';
 
         // When inside a specific folder via folder browse mode, filter by that folder
         const effectiveFolderFilter = currentFolder !== null ? currentFolder : (hasFolderFilter ? filterFolder : null);
-        const hasAnyFilter = hasSearch || hasLevelFilter || hasPosFilter || hasAudioFilter || hasFolderFilter;
+        const hasAnyFilter = hasSearch || hasLevelFilter || hasPosFilter || hasFolderFilter;
 
         let result;
         if (!hasAnyFilter) {
@@ -610,10 +606,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
                 if (hasSearch && !card._searchableText.includes(searchTermLower)) continue;
                 if (hasLevelFilter && card.level !== filterLevel) continue;
                 if (hasPosFilter && card.pos !== filterPos) continue;
-                if (hasAudioFilter) {
-                    if (filterAudio === 'with' && (!card.audioBase64 || card.audioBase64.trim() === '')) continue;
-                    if (filterAudio === 'without' && card.audioBase64 && card.audioBase64.trim() !== '') continue;
-                }
                 if (hasFolderFilter) {
                     if (filterFolder === 'unfiled' && cardFolders[card.id]) continue;
                     if (filterFolder !== 'unfiled' && cardFolders[card.id] !== filterFolder) continue;
@@ -639,9 +631,9 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
             result.sort((a, b) => a._timestamp - b._timestamp);
         }
         return result;
-    }, [preprocessedCards, filterLevel, filterPos, filterAudio, filterFolder, sortOrder, deferredSearchTerm, cardFolders, currentFolder, isInFolderBrowseMode]);
+    }, [preprocessedCards, filterLevel, filterPos, filterFolder, sortOrder, deferredSearchTerm, cardFolders, currentFolder, isInFolderBrowseMode]);
 
-    useEffect(() => { setDisplayedCount(50); }, [filterLevel, filterPos, filterAudio, filterFolder, sortOrder, deferredSearchTerm]);
+    useEffect(() => { setDisplayedCount(50); }, [filterLevel, filterPos, filterFolder, sortOrder, deferredSearchTerm]);
 
     const displayedCards = useMemo(() => filteredCards.slice(0, displayedCount), [filteredCards, displayedCount]);
 
@@ -700,11 +692,10 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
     // Stats
     const stats = useMemo(() => {
         const total = allCards.length;
-        const hasAudio = allCards.filter(c => c.audioBase64 && c.audioBase64.trim() !== '').length;
         const now = new Date();
         const dueCards = allCards.filter(c => c.nextReview_back && c.nextReview_back <= now).length;
         const newCards = allCards.filter(c => c.intervalIndex_back === -1).length;
-        return { total, hasAudio, dueCards, newCards };
+        return { total, dueCards, newCards };
     }, [allCards]);
 
     // Get folder name for a card
@@ -715,7 +706,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
         return folder?.name || null;
     }, [cardFolders, folders]);
 
-    const hasActiveFilters = filterLevel !== 'all' || filterPos !== 'all' || filterAudio !== 'all' || filterFolder !== 'all' || searchTerm.trim() !== '' || currentFolder !== null;
+    const hasActiveFilters = filterLevel !== 'all' || filterPos !== 'all' || filterFolder !== 'all' || searchTerm.trim() !== '' || currentFolder !== null;
 
     // Get name of current folder for breadcrumb
     const currentFolderName = useMemo(() => {
@@ -911,8 +902,8 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
                     <div className="text-xs text-gray-500 dark:text-gray-400">Chưa học</div>
                 </div>
                 <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm">
-                    <div className="text-2xl font-bold text-emerald-500">{stats.hasAudio}</div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">Có âm thanh</div>
+                    <div className="text-2xl font-bold text-emerald-500">{stats.total > 0 ? Math.round(((stats.total - stats.newCards) / stats.total) * 100) : 0}%</div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400">Đã học</div>
                 </div>
             </div>
 
@@ -968,13 +959,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
                         <option value="oldest">Cũ nhất</option>
                     </select>
 
-                    {/* Audio filter */}
-                    <select value={filterAudio} onChange={(e) => setFilterAudio(e.target.value)}
-                        className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
-                        <option value="all">Âm thanh</option>
-                        <option value="with">Có</option>
-                        <option value="without">Chưa có</option>
-                    </select>
+
 
                     {/* Folder filter */}
                     {folders.length > 0 && (

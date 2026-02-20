@@ -30,8 +30,9 @@ export const ROUTES = {
     TEST: '/vocab/review/test',
 
     // Social & Data
-    STATS: '/stats',
-    FRIENDS: '/friends',
+    STATS: '/hub/stats',
+    LEADERBOARD: '/hub/leaderboard',
+    PET: '/hub/pet',
     IMPORT: '/import',
     ADMIN: '/admin',
     BOOKS: '/books',

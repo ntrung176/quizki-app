@@ -31,7 +31,7 @@ import {
     buildAdjNaAcceptedAnswers,
     isMobileDevice
 } from './utils/textProcessing';
-import { fetchTtsBase64, generateVocabWithAI, getAllGeminiApiKeysFromEnv } from './utils/gemini';
+import { generateVocabWithAI, getAllGeminiApiKeysFromEnv } from './utils/gemini';
 import { compressImage } from './utils/image';
 
 // Import screens
@@ -43,7 +43,6 @@ import {
     HelpScreen,
     ImportScreen,
     StatsScreen,
-    FriendsScreen,
     ListView,
     ReviewScreen,
     ReviewCompleteScreen,
@@ -118,7 +117,8 @@ const App = () => {
             'STUDY': ROUTES.STUDY,
             'TEST': ROUTES.TEST,
             'STATS': ROUTES.STATS,
-            'FRIENDS': ROUTES.FRIENDS,
+            'LEADERBOARD': ROUTES.LEADERBOARD,
+            'PET': ROUTES.PET,
             'IMPORT': ROUTES.IMPORT,
             'ADMIN': ROUTES.ADMIN,
             'SETTINGS': ROUTES.SETTINGS,
@@ -147,7 +147,8 @@ const App = () => {
         if (path === ROUTES.STUDY) return 'STUDY';
         if (path === ROUTES.TEST) return 'TEST';
         if (path === ROUTES.STATS) return 'STATS';
-        if (path === ROUTES.FRIENDS) return 'FRIENDS';
+        if (path === ROUTES.LEADERBOARD) return 'LEADERBOARD';
+        if (path === ROUTES.PET) return 'PET';
         if (path === ROUTES.IMPORT) return 'IMPORT';
         if (path === ROUTES.ADMIN) return 'ADMIN';
         if (path === ROUTES.BOOKS) return 'BOOKS';
@@ -420,6 +421,9 @@ const App = () => {
         const unsubscribe = onSnapshot(doc(db, settingsDocPath), async (docSnap) => {
             if (docSnap.exists()) {
                 const profileData = docSnap.data();
+                if (!profileData.email && auth?.currentUser?.email) {
+                    profileData.email = auth.currentUser.email;
+                }
                 setProfile(profileData);
                 // Lưu vào sessionStorage
                 sessionStorage.setItem(cachedProfileKey, JSON.stringify(profileData));
@@ -433,7 +437,8 @@ const App = () => {
                     const newProfile = {
                         displayName: defaultName,
                         dailyGoal: defaultGoal,
-                        hasSeenHelp: true
+                        hasSeenHelp: true,
+                        email: auth?.currentUser?.email || ''
                     };
                     await setDoc(doc(db, settingsDocPath), newProfile);
                     setProfile(newProfile);
@@ -1359,30 +1364,7 @@ const App = () => {
                 }
             }
 
-            // Tạo âm thanh nếu chưa có
-            if (!audioBase64 || (typeof audioBase64 === 'string' && audioBase64.trim() === '')) {
-                (async () => {
-                    try {
-                        const speechText = getSpeechText(finalFront);
-                        if (!speechText || speechText.trim() === '') {
-                            console.log("Không có text để tạo âm thanh cho:", finalFront);
-                            return;
-                        }
 
-                        console.log("Bắt đầu tạo âm thanh cho:", finalFront);
-                        const fetchedAudioBase64 = await fetchTtsBase64(speechText);
-
-                        if (fetchedAudioBase64 && cardRef) {
-                            await updateDoc(cardRef, { audioBase64: fetchedAudioBase64 });
-                            console.log("Đã tạo âm thanh thành công cho:", finalFront);
-                        } else {
-                            console.warn("Không thể tạo âm thanh cho:", finalFront, "- fetchTtsBase64 trả về null");
-                        }
-                    } catch (e) {
-                        console.error("Lỗi tạo âm thanh (nền) cho:", finalFront, e);
-                    }
-                })();
-            }
 
             return true;
 
@@ -1893,38 +1875,28 @@ const App = () => {
             setView('LIST');
             // Scroll đến card sẽ được xử lý trong ListView component 
 
-            // Tạo lại audio nếu front thay đổi và:
-            // - audioBase64 là undefined (không truyền vào, giữ nguyên audio cũ) HOẶC
-            // - audioBase64 là null (đã xóa audio) HOẶC  
-            // - không có audio ban đầu
-            const shouldRegenerateAudio = oldSpeechText !== newSpeechText &&
-                (audioBase64 === undefined || audioBase64 === null || !oldCard.audioBase64);
 
-            if (shouldRegenerateAudio) {
-                (async () => {
-                    try {
-                        const newAudioBase64 = await fetchTtsBase64(newSpeechText);
-                        if (newAudioBase64) {
-                            await updateDoc(doc(db, vocabCollectionPath, cardId), { audioBase64: newAudioBase64 });
-                        }
-                    } catch (e) {
-                        console.error("Lỗi tạo lại âm thanh:", e);
-                    }
-                })();
-            }
         } catch (e) {
             console.error("Lỗi khi cập nhật thẻ:", e);
             setNotification("Lỗi khi cập nhật thẻ.");
         }
     };
 
-    const handleUpdateGoal = async (newGoal) => {
-        if (!settingsDocPath || isNaN(newGoal) || newGoal <= 0) {
-            setNotification("Mục tiêu phải là một số dương.");
+    const handleUpdateGoal = async (goalData) => {
+        if (!settingsDocPath) {
+            setNotification("Lỗi: Không tìm thấy cấu hình người dùng.");
             return;
         }
         try {
-            await updateDoc(doc(db, settingsDocPath), { dailyGoal: Number(newGoal) });
+            // Hỗ trợ cả format cũ (number) và mới (object)
+            if (typeof goalData === 'object') {
+                const updateFields = {};
+                if (goalData.vocabGoal !== undefined) updateFields.dailyGoal = Number(goalData.vocabGoal);
+                if (goalData.kanjiGoal !== undefined) updateFields.dailyKanjiGoal = Number(goalData.kanjiGoal);
+                await updateDoc(doc(db, settingsDocPath), updateFields);
+            } else {
+                await updateDoc(doc(db, settingsDocPath), { dailyGoal: Number(goalData) });
+            }
             setNotification("Đã cập nhật mục tiêu!");
         } catch (e) {
             console.error("Lỗi cập nhật mục tiêu:", e);
@@ -1958,10 +1930,14 @@ const App = () => {
     };
 
     // --- Handle Change Password ---
-    const handleChangePassword = async (newPassword) => {
+    const handleChangePassword = async (oldPassword, newPassword) => {
         if (!auth?.currentUser) throw new Error('Chưa đăng nhập');
         try {
-            const { updatePassword } = await import('firebase/auth');
+            const { updatePassword, EmailAuthProvider, reauthenticateWithCredential } = await import('firebase/auth');
+            if (oldPassword) {
+                const credential = EmailAuthProvider.credential(auth.currentUser.email, oldPassword);
+                await reauthenticateWithCredential(auth.currentUser, credential);
+            }
             await updatePassword(auth.currentUser, newPassword);
             setNotification('Đã đổi mật khẩu thành công!');
         } catch (e) {
@@ -2267,6 +2243,7 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     shortTerm: memoryStats.shortTerm,
                     midTerm: memoryStats.midTerm,
                     longTerm: memoryStats.longTerm,
+                    mastered: allCards.filter(c => c.intervalIndex_back >= 4).length,
                     lastUpdated: serverTimestamp()
                 };
                 await setDoc(statsDocRef, publicData, { merge: true }).catch(err => {
@@ -2452,6 +2429,8 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     isFirstTime={false}
                 />;
             case 'STATS':
+            case 'LEADERBOARD':
+            case 'PET':
                 return <StatsScreen
                     memoryStats={memoryStats}
                     totalCards={allCards.length}
@@ -2461,12 +2440,8 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                     onUpdateGoal={handleUpdateGoal}
                     onBack={() => setView('HOME')}
                     userId={userId}
-                />;
-            case 'FRIENDS':
-                return <FriendsScreen
                     publicStatsPath={publicStatsCollectionPath}
-                    currentUserId={userId}
-                    onBack={() => setView('HOME')}
+                    initialTab={view === 'LEADERBOARD' ? 'leaderboard' : view === 'PET' ? 'pet' : 'stats'}
                 />;
             case 'ACCOUNT':
                 return <AccountScreen

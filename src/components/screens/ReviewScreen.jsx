@@ -4,7 +4,7 @@ import {
     ChevronRight, Check, X, Lightbulb
 } from 'lucide-react';
 import { POS_TYPES, getPosLabel, getPosColor, getLevelColor } from '../../config/constants';
-import { playAudio } from '../../utils/audio';
+import { playAudio, speakJapanese } from '../../utils/audio';
 import {
     shuffleArray,
     getWordForMasking,
@@ -180,8 +180,8 @@ const ReviewScreen = ({
             if (e.key === ' ' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
                 setIsFlipped(prev => {
                     const newFlippedState = !prev;
-                    if (newFlippedState && currentCard && currentCard.audioBase64) {
-                        playAudio(currentCard.audioBase64);
+                    if (newFlippedState && currentCard) {
+                        speakJapanese(currentCard.front, currentCard.audioBase64);
                     }
                     return newFlippedState;
                 });
@@ -522,7 +522,7 @@ const ReviewScreen = ({
                 flashCorrect();
                 playCorrectSound();
                 celebrateCorrectAnswer();
-                playAudio(currentCard.audioBase64, currentCard.front);
+                speakJapanese(currentCard.front, currentCard.audioBase64);
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 await moveToNextCard(true);
             } else {
@@ -534,7 +534,7 @@ const ReviewScreen = ({
                 flashCorrect();
                 playCorrectSound();
                 celebrateCorrectAnswer();
-                playAudio(currentCard.audioBase64, currentCard.front);
+                speakJapanese(currentCard.front, currentCard.audioBase64);
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 await moveToNextCard(true);
             }
@@ -546,7 +546,7 @@ const ReviewScreen = ({
             setIsRevealed(true);
             setIsLocked(true);
             playIncorrectSound();
-            playAudio(currentCard.audioBase64, currentCard.front);
+            speakJapanese(currentCard.front, currentCard.audioBase64);
 
             setCards(prevCards => {
                 return prevCards.map(card => {
@@ -649,7 +649,7 @@ const ReviewScreen = ({
                 const isCorrect = userAnswer === normalizedKanji || (kanaPart && userAnswer === normalizedKana) || userAnswer === normalizeAnswer(rawFront);
 
                 if (isCorrect) {
-                    playAudio(currentCard.audioBase64, currentCard.front);
+                    speakJapanese(currentCard.front, currentCard.audioBase64);
                     setIsProcessing(true);
                     moveToNextCard(false);
                 } else {
@@ -691,8 +691,8 @@ const ReviewScreen = ({
                                 if (Math.abs(swipeOffset) < 10) {
                                     const newFlippedState = !isFlipped;
                                     setIsFlipped(newFlippedState);
-                                    if (newFlippedState && currentCard && currentCard.audioBase64) {
-                                        playAudio(currentCard.audioBase64);
+                                    if (newFlippedState && currentCard) {
+                                        speakJapanese(currentCard.front, currentCard.audioBase64);
                                     }
                                 }
                             }}
@@ -962,7 +962,7 @@ const ReviewScreen = ({
                                             }
 
                                             setIsRevealed(true);
-                                            playAudio(currentCard.audioBase64, currentCard.front);
+                                            speakJapanese(currentCard.front, currentCard.audioBase64);
                                             await new Promise(resolve => setTimeout(resolve, 1000));
                                             await moveToNextCard(isCorrect);
                                         }}
