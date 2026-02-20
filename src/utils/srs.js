@@ -1,4 +1,4 @@
-import { SRS_INTERVALS, formatIntervalMinutes } from '../config/constants';
+import { SRS_INTERVALS, GRADUATION_INTERVAL, MASTERED_THRESHOLD, MAX_INTERVAL, formatIntervalMinutes } from '../config/constants';
 
 // ==================== SRS ENGINE v2 ====================
 // Hệ thống SRS nâng cao với:
@@ -164,27 +164,35 @@ export const calculateNextInterval = (currentInterval, ease, rating, activityWei
  * @param {boolean} isCorrect - Đúng hay sai
  * @param {string} activityType - Loại hoạt động: 'flashcard_known', 'flashcard_unknown', 'study', 'review'
  * @param {number} attempts - Số lần thử (nếu trả lời sai rồi sửa lại)
+ * @param {number} responseTimeMs - Thời gian trả lời (ms) - dùng cho implicit EASY
  * @returns {number} Rating (0-3)
  */
-export const evaluateRating = (isCorrect, activityType, attempts = 1) => {
+export const evaluateRating = (isCorrect, activityType, attempts = 1, responseTimeMs = null) => {
     if (!isCorrect) return RATING.AGAIN;
+
+    // Ngưỡng thời gian "nhanh" để đánh giá EASY (3 giây)
+    const FAST_THRESHOLD_MS = 3000;
+    const isFastResponse = responseTimeMs !== null && responseTimeMs > 0 && responseTimeMs < FAST_THRESHOLD_MS;
 
     switch (activityType) {
         case 'flashcard_known':
             // Bấm "Đã thuộc" trong flashcard
-            return RATING.GOOD;
+            return isFastResponse ? RATING.EASY : RATING.GOOD;
         case 'flashcard_unknown':
             // Bấm "Chưa thuộc" trong flashcard
             return RATING.AGAIN;
         case 'study':
             // Chế độ học - trắc nghiệm
+            if (attempts === 1 && isFastResponse) return RATING.EASY;
             if (attempts === 1) return RATING.GOOD;
             return RATING.HARD; // Cần nhiều lần thử
         case 'review':
-            // Ôn tập - nhập đáp án
+            // Ôn tập - nhập đáp án / trắc nghiệm
+            if (attempts === 1 && isFastResponse) return RATING.EASY;
             if (attempts === 1) return RATING.GOOD;
             return RATING.HARD;
         default:
+            if (isCorrect && isFastResponse) return RATING.EASY;
             return isCorrect ? RATING.GOOD : RATING.AGAIN;
     }
 };
@@ -195,9 +203,10 @@ export const evaluateRating = (isCorrect, activityType, attempts = 1) => {
  * @param {boolean} isCorrect - Kết quả
  * @param {string} reviewType - 'back' | 'synonym' | 'example'
  * @param {string} activityType - 'flashcard_known' | 'flashcard_unknown' | 'study' | 'review'
+ * @param {number} responseTimeMs - Thời gian trả lời (ms) - dùng cho implicit EASY
  * @returns {Object} Dữ liệu cập nhật
  */
-export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType = 'review') => {
+export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType = 'review', responseTimeMs = null) => {
     const now = Date.now();
     const updateData = {
         lastReviewed: now,
@@ -227,8 +236,10 @@ export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType =
         updateData.incorrectCount = prevIncorrectCount + 1;
     }
 
-    // Xác định rating
-    const rating = evaluateRating(isCorrect, activityType);
+    // Xác định rating (implicit EASY nếu trả lời nhanh < 3 giây)
+    const rating = evaluateRating(isCorrect, activityType, 1, responseTimeMs);
+    const ratingNames = ['AGAIN', 'HARD', 'GOOD', 'EASY'];
+    console.log(`[SRS] Rating: ${ratingNames[rating]} | responseTime: ${responseTimeMs ? (responseTimeMs / 1000).toFixed(1) + 's' : 'N/A'}`);
 
     // Xác định activity weight
     let activityWeight = ACTIVITY_WEIGHTS.review_back;
@@ -285,57 +296,87 @@ export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType =
     const allCompleted = backCompleted && synonymCompleted && exampleCompleted;
 
     if (allCompleted) {
-        // Tất cả phần đều hoàn thành → tăng interval LÊN 1 BẬC
-        const newInterval = currentInterval < 0 ? 0 : Math.min(currentInterval + 1, SRS_INTERVALS.length - 1);
-        const baseMinutes = SRS_INTERVALS[newInterval];
+        // ===== DYNAMIC MULTIPLIER SRS ENGINE =====
+        let newIntervalIndex;
+        let nextIntervalMinutes;
 
-        // === EASE-BASED SCALING ===
-        // ease 2.5 (default) → hệ số 1.0
-        // ease 1.3 (rất khó) → hệ số ~0.52 (interval ngắn hơn nhiều)
-        // ease 3.0 (dễ) → hệ số 1.2 (interval dài hơn)
-        const easeMultiplier = Math.max(0.4, newEase / DEFAULT_EASE);
-        const adjustedMinutes = Math.round(baseMinutes * easeMultiplier);
-        const nextReviewDate = now + adjustedMinutes * 60000;
+        if (currentInterval < 0) {
+            // Thẻ mới → Bước học 1: 10 phút
+            newIntervalIndex = 0;
+            nextIntervalMinutes = SRS_INTERVALS[0]; // 10 phút
+        } else if (currentInterval === 0) {
+            // Bước học 1 → Bước học 2: 1 ngày
+            newIntervalIndex = 1;
+            nextIntervalMinutes = SRS_INTERVALS[1]; // 1440 phút = 1 ngày
+        } else if (currentInterval === 1) {
+            // Tốt nghiệp learning → First graduated review: 3 ngày
+            newIntervalIndex = 2;
+            nextIntervalMinutes = GRADUATION_INTERVAL; // 4320 phút = 3 ngày
+        } else {
+            // === GRADUATED: Dynamic Multiplier ===
+            // Interval mới = interval cũ × ease factor
+            newIntervalIndex = currentInterval + 1;
+            const lastInterval = typeof cardData.currentInterval_back === 'number' && cardData.currentInterval_back > 0
+                ? cardData.currentInterval_back
+                : GRADUATION_INTERVAL;
+            nextIntervalMinutes = Math.round(lastInterval * newEase);
+            // Giới hạn tối đa 365 ngày
+            nextIntervalMinutes = Math.min(nextIntervalMinutes, MAX_INTERVAL);
+        }
 
-        console.log(`[SRS] Hoàn thành chu kỳ! interval ${currentInterval} → ${newInterval} | base:${baseMinutes}min × ease:${easeMultiplier.toFixed(2)} = ${adjustedMinutes}min`);
+        const nextReviewDate = now + nextIntervalMinutes * 60000;
 
-        updateData.intervalIndex_back = newInterval;
+        console.log(`[SRS] ✅ Hoàn thành chu kỳ! index ${currentInterval} → ${newIntervalIndex} | interval: ${nextIntervalMinutes}min (${(nextIntervalMinutes / 1440).toFixed(1)} ngày) | ease: ${newEase.toFixed(2)}`);
+
+        updateData.intervalIndex_back = newIntervalIndex;
         updateData.nextReview_back = nextReviewDate;
+        updateData.currentInterval_back = nextIntervalMinutes;
         updateData.totalReps = reps + 1;
 
         if (hasSynonym) {
-            updateData.intervalIndex_synonym = newInterval;
+            updateData.intervalIndex_synonym = newIntervalIndex;
             updateData.nextReview_synonym = nextReviewDate;
         }
         if (hasExample) {
-            updateData.intervalIndex_example = newInterval;
+            updateData.intervalIndex_example = newIntervalIndex;
             updateData.nextReview_example = nextReviewDate;
         }
 
-        // Reset streaks sau khi hoàn thành
+        // Reset streaks sau khi hoàn thành chu kỳ
         updateData.correctStreak_back = 0;
         if (hasSynonym) updateData.correctStreak_synonym = 0;
         if (hasExample) updateData.correctStreak_example = 0;
     } else {
         // Chưa hoàn thành → giữ thẻ ở trạng thái "due" (nextReview = now)
-        // Đảm bảo thẻ vẫn xuất hiện để ôn các phần còn lại
         updateData.nextReview_back = now;
         if (hasSynonym) updateData.nextReview_synonym = now;
         if (hasExample) updateData.nextReview_example = now;
 
-        // Nếu thẻ mới, set intervalIndex = 0 (đang trong learning)
+        // Nếu thẻ mới, bắt đầu learning
         if (currentInterval < 0) {
             updateData.intervalIndex_back = 0;
             if (hasSynonym) updateData.intervalIndex_synonym = 0;
             if (hasExample) updateData.intervalIndex_example = 0;
         }
 
-        // Nếu sai trong review và đang graduated → giảm interval
-        if (!isCorrect && currentInterval > 0) {
-            const newInterval = Math.max(0, currentInterval - 1);
-            updateData.intervalIndex_back = newInterval;
-            if (hasSynonym) updateData.intervalIndex_synonym = newInterval;
-            if (hasExample) updateData.intervalIndex_example = newInterval;
+        // Sai khi đang graduated (index >= 2) → Lapse penalty
+        if (!isCorrect && currentInterval >= 2) {
+            const lastInterval = typeof cardData.currentInterval_back === 'number' && cardData.currentInterval_back > 0
+                ? cardData.currentInterval_back
+                : GRADUATION_INTERVAL;
+            // Lapse: giảm 50% interval, không thấp hơn graduation interval
+            const lapsedInterval = Math.max(GRADUATION_INTERVAL, Math.round(lastInterval * 0.5));
+            updateData.currentInterval_back = lapsedInterval;
+            const lapseIndex = Math.max(2, currentInterval - 1);
+            updateData.intervalIndex_back = lapseIndex;
+            if (hasSynonym) updateData.intervalIndex_synonym = lapseIndex;
+            if (hasExample) updateData.intervalIndex_example = lapseIndex;
+            console.log(`[SRS] ⚠️ Lapse! interval giảm: ${lastInterval} → ${lapsedInterval}min`);
+        } else if (!isCorrect && currentInterval === 1) {
+            // Sai khi đang learning step 2 → về learning step 1
+            updateData.intervalIndex_back = 0;
+            if (hasSynonym) updateData.intervalIndex_synonym = 0;
+            if (hasExample) updateData.intervalIndex_example = 0;
         }
 
         console.log(`[SRS] Chưa hoàn thành chu kỳ. back:${newBackStreak} syn:${newSynonymStreak} ex:${newExampleStreak}`);
@@ -360,14 +401,20 @@ export const getNextReviewDate = (intervalIndex) => {
 };
 
 // Get SRS progress text - with ease info
-export const getSrsProgressText = (intervalIndex, ease) => {
+export const getSrsProgressText = (intervalIndex, ease, currentInterval) => {
     let text = '';
     if (intervalIndex === -1) text = 'Mới';
     else if (intervalIndex === 0) text = 'Học 1';
     else if (intervalIndex === 1) text = 'Học 2';
-    else if (intervalIndex === 2) text = 'SRS 1';
-    else if (intervalIndex === 3) text = 'SRS 2';
-    else if (intervalIndex >= 4) text = 'Thuộc';
+    else if (intervalIndex >= 2) {
+        // Graduated phase: kiểm tra actual interval
+        const effectiveInterval = currentInterval || (intervalIndex < SRS_INTERVALS.length ? SRS_INTERVALS[intervalIndex] : 0);
+        if (effectiveInterval >= MASTERED_THRESHOLD) {
+            text = 'Thuộc';
+        } else {
+            text = `SRS ${intervalIndex - 1}`;
+        }
+    }
     else text = 'Mới';
 
     // Thêm indicator độ khó
@@ -406,42 +453,40 @@ export const calculateCorrectInterval = (interval, nextReviewTimestamp) => {
     return 0;
 };
 
-// Get SRS color based on interval index
-export const getSrsColor = (intervalIndex) => {
+// Get SRS color based on interval index and actual interval
+export const getSrsColor = (intervalIndex, currentInterval) => {
     if (intervalIndex === -1 || intervalIndex === undefined) {
         return 'text-gray-400';
     }
     if (intervalIndex === 0 || intervalIndex === 1) {
         return 'text-orange-500';
     }
-    if (intervalIndex === 2) {
-        return 'text-blue-500';
-    }
-    if (intervalIndex === 3) {
-        return 'text-purple-500';
-    }
-    if (intervalIndex >= 4) {
+    // Graduated: check actual interval for mastered status
+    const effectiveInterval = currentInterval || (intervalIndex < SRS_INTERVALS.length ? SRS_INTERVALS[intervalIndex] : 0);
+    if (effectiveInterval >= MASTERED_THRESHOLD) {
         return 'text-emerald-500';
+    }
+    if (intervalIndex >= 2) {
+        return 'text-blue-500';
     }
     return 'text-gray-400';
 };
 
 // Get SRS badge color
-export const getSrsBadgeColor = (intervalIndex) => {
+export const getSrsBadgeColor = (intervalIndex, currentInterval) => {
     if (intervalIndex === -1 || intervalIndex === undefined) {
         return 'bg-gray-100 text-gray-600 border-gray-200';
     }
     if (intervalIndex === 0 || intervalIndex === 1) {
         return 'bg-orange-100 text-orange-700 border-orange-200';
     }
-    if (intervalIndex === 2) {
-        return 'bg-blue-100 text-blue-700 border-blue-200';
-    }
-    if (intervalIndex === 3) {
-        return 'bg-purple-100 text-purple-700 border-purple-200';
-    }
-    if (intervalIndex >= 4) {
+    // Graduated: check actual interval for mastered status
+    const effectiveInterval = currentInterval || (intervalIndex < SRS_INTERVALS.length ? SRS_INTERVALS[intervalIndex] : 0);
+    if (effectiveInterval >= MASTERED_THRESHOLD) {
         return 'bg-emerald-100 text-emerald-700 border-emerald-200';
+    }
+    if (intervalIndex >= 2) {
+        return 'bg-blue-100 text-blue-700 border-blue-200';
     }
     return 'bg-gray-100 text-gray-600 border-gray-200';
 };

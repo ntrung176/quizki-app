@@ -20,6 +20,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     const [multipleChoiceOptions, setMultipleChoiceOptions] = useState([]);
     const inputRef = useRef(null);
     const optionsRef = useRef({});
+    const cardShownTimeRef = useRef(Date.now()); // Track thời gian hiển thị card
 
     const currentBatch = studySessionData.currentBatch || [];
     const currentPhase = studySessionData.currentPhase || 'multipleChoice';
@@ -129,6 +130,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                 setTimeout(() => inputRef.current?.focus(), 100);
             }
         }
+        cardShownTimeRef.current = Date.now(); // Reset timer khi đổi câu
     }, [currentPhase, currentQuestionIndex]);
 
     // Reset completedCards when starting new batch
@@ -217,7 +219,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
 
         playAudio(currentCard.audioBase64, currentCard.front);
 
-        await onUpdateCard(currentCard.id, isCorrect, 'back', 'study');
+        await onUpdateCard(currentCard.id, isCorrect, 'back', 'study', Date.now() - cardShownTimeRef.current);
 
         if (isCorrect) {
             playCorrectSound();
@@ -285,7 +287,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         setIsRevealed(true);
         playAudio(currentCard.audioBase64, currentCard.front);
 
-        await onUpdateCard(currentCard.id, isCorrect, 'back', 'study');
+        await onUpdateCard(currentCard.id, isCorrect, 'back', 'study', Date.now() - cardShownTimeRef.current);
 
         if (isCorrect) {
             playCorrectSound();

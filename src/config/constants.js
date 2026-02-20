@@ -20,16 +20,26 @@ export const JLPT_LEVELS = [
     { value: 'N1', label: 'N1', color: 'bg-rose-100 text-rose-700 border-rose-200', target: 10000 }
 ];
 
-// --- Cấu hình SRS Anki-like (Tính bằng phút) ---
-// Giống hệ thống Kanji SRS, sử dụng phút thay vì ngày
+// --- Cấu hình SRS Dynamic Multiplier (Tính bằng phút) ---
+// Learning phase: các bước cố định để nạp trí nhớ ngắn hạn
+// Graduated phase: interval = lastInterval × easeFactor (tăng trưởng luỹ kế)
 export const SRS_INTERVALS = [
-    10,     // Index 0: 10 phút (Bước học 1)
-    1440,   // Index 1: 1 ngày = 1440 phút (Tốt nghiệp learning)
-    4320,   // Index 2: 3 ngày
-    10080,  // Index 3: 7 ngày
-    43200,  // Index 4: 30 ngày
-    129600  // Index 5: 90 ngày
+    10,     // Index 0: 10 phút (Bước học 1 - Learning)
+    1440,   // Index 1: 1 ngày = 1440 phút (Bước học 2 - Learning)
+    4320,   // Index 2: 3 ngày (Legacy - giờ dùng GRADUATION_INTERVAL)
+    10080,  // Index 3: 7 ngày (Legacy - giờ dùng Dynamic Multiplier)
+    43200,  // Index 4: 30 ngày (Legacy)
+    129600  // Index 5: 90 ngày (Legacy)
 ];
+
+// Interval đầu tiên sau khi tốt nghiệp learning phase (3 ngày)
+export const GRADUATION_INTERVAL = 4320; // 3 ngày = 4320 phút
+
+// Ngưỡng "Đã thuộc" (Mastered) - dựa trên actual interval, không phải index
+export const MASTERED_THRESHOLD = 43200; // 30 ngày = 43200 phút
+
+// Interval tối đa (365 ngày)
+export const MAX_INTERVAL = 525600; // 365 ngày = 525600 phút
 
 // Helper functions
 export const getPosLabel = (posKey) => POS_TYPES[posKey]?.label || posKey;

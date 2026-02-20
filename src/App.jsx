@@ -521,6 +521,7 @@ const App = () => {
                     nextReview_example: data.nextReview_example?.toDate ? data.nextReview_example.toDate() : (data.nextReview_example ? new Date(data.nextReview_example) : today),
                     easeFactor: typeof data.easeFactor === 'number' ? data.easeFactor : DEFAULT_EASE,
                     totalReps: typeof data.totalReps === 'number' ? data.totalReps : 0,
+                    currentInterval_back: typeof data.currentInterval_back === 'number' ? data.currentInterval_back : 0,
                     correctCount: typeof data.correctCount === 'number' ? data.correctCount : 0,
                     incorrectCount: typeof data.incorrectCount === 'number' ? data.incorrectCount : 0,
                 });
@@ -1743,7 +1744,7 @@ const App = () => {
         }
     };
 
-    const handleUpdateCard = async (cardId, isCorrect, cardReviewType, activityType = 'review') => {
+    const handleUpdateCard = async (cardId, isCorrect, cardReviewType, activityType = 'review', responseTimeMs = null) => {
         if (!vocabCollectionPath) return;
 
         const cardRef = doc(db, vocabCollectionPath, cardId);
@@ -1767,13 +1768,14 @@ const App = () => {
             intervalIndex_back: normalizedInterval,
             easeFactor: typeof cardData.easeFactor === 'number' ? cardData.easeFactor : DEFAULT_EASE,
             totalReps: typeof cardData.totalReps === 'number' ? cardData.totalReps : 0,
+            currentInterval_back: typeof cardData.currentInterval_back === 'number' ? cardData.currentInterval_back : 0,
             correctStreak_back: typeof cardData.correctStreak_back === 'number' ? cardData.correctStreak_back : 0,
             correctStreak_synonym: typeof cardData.correctStreak_synonym === 'number' ? cardData.correctStreak_synonym : 0,
             correctStreak_example: typeof cardData.correctStreak_example === 'number' ? cardData.correctStreak_example : 0,
         };
 
         // Sử dụng SRS engine mới để tính toán
-        const updateData = processSrsUpdate(normalizedCardData, isCorrect, cardReviewType, activityType);
+        const updateData = processSrsUpdate(normalizedCardData, isCorrect, cardReviewType, activityType, responseTimeMs);
 
         // Thay lastReviewed bằng serverTimestamp cho Firestore
         updateData.lastReviewed = serverTimestamp();

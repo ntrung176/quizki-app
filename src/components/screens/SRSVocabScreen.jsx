@@ -6,6 +6,7 @@ import {
 import { shuffleArray } from '../../utils/textProcessing';
 import { ROUTES } from '../../router';
 import { formatCountdown, getDifficultyLabel, DEFAULT_EASE } from '../../utils/srs';
+import { SRS_INTERVALS, MASTERED_THRESHOLD } from '../../config/constants';
 import OnboardingTour from '../ui/OnboardingTour';
 
 const SRSVocabScreen = ({
@@ -36,19 +37,33 @@ const SRSVocabScreen = ({
         return nextReview && nextReview <= Date.now();
     }).length;
 
+    // Helper: lấy actual interval (backward compatible)
+    const getEffectiveInterval = (card) => {
+        if (typeof card.currentInterval_back === 'number' && card.currentInterval_back > 0) {
+            return card.currentInterval_back;
+        }
+        // Backward compatibility: suy ra từ intervalIndex nếu chưa có currentInterval_back
+        if (card.intervalIndex_back >= 0 && card.intervalIndex_back < SRS_INTERVALS.length) {
+            return SRS_INTERVALS[card.intervalIndex_back];
+        }
+        return 0;
+    };
+
     // Mới thêm (chưa học lần nào, intervalIndex = -1)
     const newCards = allCards.filter(card => card.intervalIndex_back === -1).length;
 
-    // Đang học (intervalIndex = 0, mới học lần đầu)
-    const learningCards = allCards.filter(card => card.intervalIndex_back === 0).length;
+    // Đang học (intervalIndex = 0 hoặc 1, learning phase)
+    const learningCards = allCards.filter(card => card.intervalIndex_back === 0 || card.intervalIndex_back === 1).length;
 
-    // Mới thuộc (ngắn hạn, intervalIndex từ 1-3)
+    // Ngắn hạn (graduated nhưng chưa mastered: index >= 2 && actual interval < 30 ngày)
     const shortTermCards = allCards.filter(card =>
-        card.intervalIndex_back >= 1 && card.intervalIndex_back <= 3
+        card.intervalIndex_back >= 2 && getEffectiveInterval(card) < MASTERED_THRESHOLD
     ).length;
 
-    // Đã thuộc (dài hạn, intervalIndex >= 4)
-    const masteredCards = allCards.filter(card => card.intervalIndex_back >= 4).length;
+    // Đã thuộc (actual interval >= 30 ngày)
+    const masteredCards = allCards.filter(card =>
+        getEffectiveInterval(card) >= MASTERED_THRESHOLD
+    ).length;
 
     // Tổng đã học qua (không còn là thẻ mới)
     const learnedCards = allCards.filter(card => card.intervalIndex_back >= 0).length;

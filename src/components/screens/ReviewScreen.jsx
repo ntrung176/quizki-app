@@ -49,6 +49,7 @@ const ReviewScreen = ({
     const isCompletingRef = useRef(false);
     const failedCardsRef = useRef(failedCards);
     const optionsRef = useRef({});
+    const cardShownTimeRef = useRef(Date.now()); // Track thời gian hiển thị card
 
     // Update cards when initialCards change
     useEffect(() => {
@@ -95,7 +96,11 @@ const ReviewScreen = ({
         setMultipleChoiceOptions([]);
         setSwipeOffset(0);
         setHintCount(0); // Reset hint when changing card
+        cardShownTimeRef.current = Date.now(); // Reset timer khi đổi card
     }, [currentIndex]);
+
+    // Helper: tính thời gian phản hồi (ms)
+    const getResponseTime = () => Date.now() - cardShownTimeRef.current;
 
     // Normalize answer function
     const normalizeAnswer = useCallback((text) => {
@@ -560,13 +565,13 @@ const ReviewScreen = ({
                 });
             });
 
-            await onUpdateCard(currentCard.id, false, cardReviewType);
+            await onUpdateCard(currentCard.id, false, cardReviewType, 'review', getResponseTime());
         }
     };
 
     const moveToNextCard = async (shouldUpdateStreak) => {
         if (shouldUpdateStreak) {
-            await onUpdateCard(currentCard.id, true, cardReviewType);
+            await onUpdateCard(currentCard.id, true, cardReviewType, 'review', getResponseTime());
 
             setCards(prevCards => {
                 return prevCards.map(card => {
@@ -953,7 +958,7 @@ const ReviewScreen = ({
                                                     });
                                                 });
 
-                                                await onUpdateCard(currentCard.id, false, cardReviewType);
+                                                await onUpdateCard(currentCard.id, false, cardReviewType, 'review', getResponseTime());
                                             }
 
                                             setIsRevealed(true);

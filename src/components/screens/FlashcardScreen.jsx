@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { RotateCcw, Check, X, Undo2, Trophy, RefreshCw } from 'lucide-react';
 import { playAudio } from '../../utils/audio';
 
@@ -17,6 +17,7 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard }) => {
     const [touchEnd, setTouchEnd] = useState(null);
     const [swipeOffset, setSwipeOffset] = useState(0);
     const [buttonPressed, setButtonPressed] = useState(null); // 'known' | 'unknown' | null
+    const cardShownTimeRef = useRef(Date.now()); // Track thời gian hiển thị card
 
     const currentCard = currentDeck[currentIndex];
     const progress = currentDeck.length > 0 ? Math.round(((currentIndex) / currentDeck.length) * 100) : 100;
@@ -27,6 +28,7 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard }) => {
         setSlideDirection('');
         setSwipeOffset(0);
         setButtonPressed(null);
+        cardShownTimeRef.current = Date.now(); // Reset timer khi đổi card
     }, [currentIndex, round]);
 
     // Format multiple meanings
@@ -62,7 +64,7 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard }) => {
 
         // Cập nhật SRS: flashcard_known (nhớ)
         if (onUpdateCard && currentCard.id) {
-            onUpdateCard(currentCard.id, true, 'back', 'flashcard_known');
+            onUpdateCard(currentCard.id, true, 'back', 'flashcard_known', Date.now() - cardShownTimeRef.current);
         }
 
         setTimeout(() => {
@@ -96,7 +98,7 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard }) => {
 
         // Cập nhật SRS: flashcard_unknown (chưa nhớ)
         if (onUpdateCard && currentCard.id) {
-            onUpdateCard(currentCard.id, false, 'back', 'flashcard_unknown');
+            onUpdateCard(currentCard.id, false, 'back', 'flashcard_unknown', Date.now() - cardShownTimeRef.current);
         }
 
         setTimeout(() => {
