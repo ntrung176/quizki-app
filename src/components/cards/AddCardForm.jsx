@@ -63,8 +63,6 @@ const AddCardForm = ({
     const [sinoVietnamese, setSinoVietnamese] = useState('');
     const [synonymSinoVietnamese, setSynonymSinoVietnamese] = useState('');
     const [imagePreview, setImagePreview] = useState(null);
-    const [customAudio, setCustomAudio] = useState('');
-    const [showAudioInput, setShowAudioInput] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
     const [isAiLoading, setIsAiLoading] = useState(false);
     const frontInputRef = useRef(null);
@@ -104,7 +102,6 @@ const AddCardForm = ({
             setSinoVietnamese(initialEditingCard.sinoVietnamese || '');
             setSynonymSinoVietnamese(initialEditingCard.synonymSinoVietnamese || '');
             setImagePreview(initialEditingCard.imageBase64 || null);
-            setCustomAudio(initialEditingCard.audioBase64 || '');
         }
     }, [initialEditingCard]);
 
@@ -123,22 +120,6 @@ const AddCardForm = ({
 
     const handleRemoveImage = () => { setImagePreview(null); };
 
-    const handleAudioFileChange = (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-        if (!file.type.match(/audio\/(wav|mpeg|mp3)/) && !file.name.match(/\.(wav|mp3)$/i)) {
-            alert("Vui lòng chỉ tải lên file định dạng .wav hoặc .mp3");
-            return;
-        }
-        const reader = new FileReader();
-        reader.onload = (event) => {
-            const result = event.target.result;
-            const base64String = result.split(',')[1];
-            setCustomAudio(base64String);
-        };
-        reader.readAsDataURL(file);
-    };
-
     const handleSave = async (action) => {
         if (!front.trim() || !back.trim()) return;
         setIsSaving(true);
@@ -146,14 +127,14 @@ const AddCardForm = ({
             front, back, synonym, example, exampleMeaning, nuance, pos, level,
             sinoVietnamese, synonymSinoVietnamese, action,
             imageBase64: imagePreview,
-            audioBase64: customAudio.trim() !== '' ? customAudio.trim() : null,
+            audioBase64: null,
             folderId: selectedFolderId || null
         });
         setIsSaving(false);
         if (success && action === 'continue') {
             setFront(''); setBack(''); setSynonym(''); setExample(''); setExampleMeaning('');
             setNuance(''); setPos(''); setLevel(''); setSinoVietnamese(''); setSynonymSinoVietnamese('');
-            setImagePreview(null); setCustomAudio(''); setShowAudioInput(false);
+            setImagePreview(null);
             if (frontInputRef.current && !isMobileDevice()) {
                 frontInputRef.current.focus();
             }
@@ -478,32 +459,6 @@ const AddCardForm = ({
                                     meaningVi={back || ''}
                                 />
 
-                                {/* Audio Upload */}
-                                <div className="pt-2 border-t border-gray-100 dark:border-gray-700">
-                                    <button type="button" onClick={() => setShowAudioInput(!showAudioInput)}
-                                        className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-medium flex items-center">
-                                        <Music className="w-4 h-4 mr-1" />
-                                        {showAudioInput ? 'Ẩn Audio' : 'Tùy chỉnh Audio (Mặc định tự động)'}
-                                    </button>
-                                    {showAudioInput && (
-                                        <div className="mt-2 bg-gray-50 dark:bg-gray-700 p-3 rounded-xl border border-gray-200 dark:border-gray-600">
-                                            <div className="flex items-center space-x-2">
-                                                <label htmlFor="audio-upload" className="cursor-pointer flex items-center px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm">
-                                                    <FileAudio className="w-4 h-4 mr-2 text-indigo-500 dark:text-indigo-400" />
-                                                    {customAudio ? "Đổi file" : "Chọn .wav/.mp3"}
-                                                </label>
-                                                <input id="audio-upload" type="file" accept=".wav,.mp3,audio/wav,audio/mpeg" onChange={handleAudioFileChange} className="hidden" />
-                                                {customAudio && <span className="text-xs text-emerald-600 dark:text-emerald-400 font-bold flex items-center"><Check className="w-3 h-3 mr-1" /> Xong</span>}
-                                            </div>
-                                            {customAudio && (
-                                                <div className="flex justify-between items-center mt-2">
-                                                    <button type="button" onClick={() => playAudio(customAudio)} className="text-xs text-indigo-600 dark:text-indigo-400 font-medium hover:underline">Nghe thử</button>
-                                                    <button type="button" onClick={() => setCustomAudio('')} className="text-xs text-red-500 dark:text-red-400 hover:text-red-600 dark:hover:text-red-300">Xóa</button>
-                                                </div>
-                                            )}
-                                        </div>
-                                    )}
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -526,13 +481,13 @@ const AddCardForm = ({
                                         front, back, synonym, example, exampleMeaning, nuance, pos, level,
                                         sinoVietnamese, synonymSinoVietnamese, action: 'continue',
                                         imageBase64: imagePreview,
-                                        audioBase64: customAudio.trim() !== '' ? customAudio.trim() : null,
+                                        audioBase64: null,
                                         folderId: selectedFolderId || null
                                     });
                                     if (success) {
                                         setFront(''); setBack(''); setSynonym(''); setExample(''); setExampleMeaning('');
                                         setNuance(''); setPos(''); setLevel(''); setSinoVietnamese(''); setSynonymSinoVietnamese('');
-                                        setImagePreview(null); setCustomAudio(''); setShowAudioInput(false);
+                                        setImagePreview(null);
                                         await onBatchNext();
                                     }
                                 } else {

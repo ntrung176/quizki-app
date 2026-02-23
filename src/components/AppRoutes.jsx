@@ -23,7 +23,9 @@ import {
     AdminScreen,
     FlashcardScreen,
     BookScreen,
-    SettingsScreen
+    SettingsScreen,
+    JLPTTestScreen,
+    JLPTAdminScreen
 } from './screens';
 
 // Import card components
@@ -526,6 +528,30 @@ const AppRoutes = ({
                             onUpdateProfileName={handleUpdateProfileName}
                             onChangePassword={handleChangePassword}
                         />
+                    </ProtectedRoute>
+                }
+            />
+
+            {/* JLPT Test */}
+            <Route
+                path={ROUTES.JLPT_TEST}
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <JLPTTestScreen isAdmin={isAdmin} />
+                    </ProtectedRoute>
+                }
+            />
+
+            {/* JLPT Admin - only for admins */}
+            <Route
+                path={ROUTES.JLPT_ADMIN}
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        {isAdmin ? (
+                            <JLPTAdminScreen userId={userId} />
+                        ) : (
+                            <Navigate to={ROUTES.JLPT_TEST} replace />
+                        )}
                     </ProtectedRoute>
                 }
             />

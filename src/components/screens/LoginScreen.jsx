@@ -136,7 +136,6 @@ const LoginScreen = () => {
                 const profileSnap = await getDoc(profileRef);
 
                 if (!profileSnap.exists()) {
-                    // Create new profile for Google user
                     const defaultName = user.displayName || user.email?.split('@')[0] || 'Người học';
                     await setDoc(profileRef, {
                         displayName: defaultName,
@@ -151,7 +150,6 @@ const LoginScreen = () => {
                     }, { merge: true });
                 }
             }
-            // Google sign-in successful - user is now logged in
         } catch (e) {
             console.error('Lỗi đăng nhập Google:', e);
             let msg = '';

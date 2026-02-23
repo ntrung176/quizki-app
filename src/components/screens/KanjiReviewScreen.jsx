@@ -179,35 +179,48 @@ const KanjiReviewScreen = () => {
     // Next review time - live countdown
     const [nextReviewText, setNextReviewText] = useState(null);
     const [isNextReviewCountdown, setIsNextReviewCountdown] = useState(false);
+    const [nextRoundCount, setNextRoundCount] = useState(0);
 
     useEffect(() => {
-        const getEarliestReview = () => {
+        const getNextReviewInfo = () => {
             const now = Date.now();
             let earliest = Infinity;
+            const futureEntries = [];
             Object.values(srsData).forEach(srs => {
                 const next = srs.nextReview || 0;
-                if (next > now && next < earliest) earliest = next;
+                if (next > now) {
+                    futureEntries.push(next);
+                    if (next < earliest) earliest = next;
+                }
             });
-            return earliest === Infinity ? null : earliest;
+            if (earliest === Infinity) return null;
+            // Count cards due at the same minute as the earliest
+            const earliestMinute = new Date(earliest);
+            earliestMinute.setSeconds(59, 999);
+            const count = futureEntries.filter(t => t <= earliestMinute.getTime()).length;
+            return { timestamp: earliest, count };
         };
 
         const updateCountdown = () => {
-            const earliest = getEarliestReview();
-            if (!earliest) {
+            const info = getNextReviewInfo();
+            if (!info) {
                 setNextReviewText(null);
                 setIsNextReviewCountdown(false);
+                setNextRoundCount(0);
                 return;
             }
 
-            const result = formatCountdown(earliest);
+            const result = formatCountdown(info.timestamp);
             if (!result) {
                 setNextReviewText(null);
                 setIsNextReviewCountdown(false);
+                setNextRoundCount(0);
                 return;
             }
 
             setNextReviewText(result.text);
             setIsNextReviewCountdown(result.isCountdown);
+            setNextRoundCount(info.count);
         };
 
         updateCountdown();
@@ -546,6 +559,12 @@ const KanjiReviewScreen = () => {
                     <p className="text-blue-100 text-sm mb-1">Sau khi hoàn thành, bạn có</p>
                     <div className={`font-bold mb-2 ${isNextReviewCountdown ? 'text-3xl md:text-4xl font-mono tracking-wider' : 'text-5xl'}`}>{nextReviewText || '∞'}</div>
                     <p className="text-blue-100">{isNextReviewCountdown ? 'đếm ngược đến lượt ôn tập tiếp theo' : 'nghỉ ngơi cho đến lượt ôn tập tiếp theo'}</p>
+                    {nextRoundCount > 0 && (
+                        <div className="mt-2 bg-white/20 rounded-lg px-3 py-1.5 inline-flex items-center gap-1.5">
+                            <span className="text-sm font-bold">{nextRoundCount}</span>
+                            <span className="text-xs text-blue-100">thẻ sẽ đến hạn</span>
+                        </div>
+                    )}
                 </div>
             </div>
 

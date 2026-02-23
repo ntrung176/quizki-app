@@ -1281,12 +1281,9 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
                                         {/* Audio + content */}
                                         <div className="flex items-center gap-2 flex-1 min-w-0">
                                             <button
-                                                onClick={(e) => { e.stopPropagation(); onPlayAudio(card.audioBase64, card.front); }}
-                                                className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${card.audioBase64
-                                                    ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-500 hover:bg-indigo-100'
-                                                    : 'bg-gray-50 dark:bg-slate-700 text-gray-300 dark:text-gray-600'
-                                                    }`}
-                                                title={card.audioBase64 ? 'Phát âm thanh' : 'Chưa có âm thanh'}
+                                                onClick={(e) => { e.stopPropagation(); onPlayAudio(null, card.front); }}
+                                                className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors bg-indigo-50 dark:bg-indigo-900/30 text-indigo-500 hover:bg-indigo-100"
+                                                title="Phát âm thanh"
                                             >
                                                 <Volume2 className="w-3.5 h-3.5" />
                                             </button>

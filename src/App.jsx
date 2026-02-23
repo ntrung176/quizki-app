@@ -532,50 +532,7 @@ const App = () => {
                 });
             });
 
-            // Auto-fix: Reset thẻ bị hỏng SRS (intervalIndex > 0 nhưng chưa ôn tập lần nào)
-            const cardsToFix = cards.filter(card =>
-                card.intervalIndex_back > 0 && card.totalReps === 0
-            );
-            if (cardsToFix.length > 0) {
-                console.warn(`[SRS Auto-fix] Phát hiện ${cardsToFix.length} thẻ bị hỏng SRS. Đang reset...`);
-                cardsToFix.forEach(async (card) => {
-                    try {
-                        const cardRef = doc(db, vocabCollectionPath, card.id);
-                        await updateDoc(cardRef, {
-                            intervalIndex_back: -1,
-                            correctStreak_back: 0,
-                            nextReview_back: null,
-                            intervalIndex_synonym: -1,
-                            correctStreak_synonym: 0,
-                            nextReview_synonym: null,
-                            intervalIndex_example: -1,
-                            correctStreak_example: 0,
-                            nextReview_example: null,
-                            easeFactor: DEFAULT_EASE,
-                            totalReps: 0,
-                        });
-                        console.log(`[SRS Auto-fix] Reset thẻ "${card.front}" thành công`);
-                    } catch (e) {
-                        console.error(`[SRS Auto-fix] Lỗi reset thẻ "${card.front}":`, e);
-                    }
-                });
-                // Cập nhật local state ngay
-                cards.forEach(card => {
-                    if (card.intervalIndex_back > 0 && card.totalReps === 0) {
-                        card.intervalIndex_back = -1;
-                        card.correctStreak_back = 0;
-                        card.nextReview_back = today;
-                        card.intervalIndex_synonym = -1;
-                        card.correctStreak_synonym = 0;
-                        card.nextReview_synonym = today;
-                        card.intervalIndex_example = -1;
-                        card.correctStreak_example = 0;
-                        card.nextReview_example = today;
-                        card.easeFactor = DEFAULT_EASE;
-                        card.totalReps = 0;
-                    }
-                });
-            }
+
 
             // Sort by createdAt desc by default initially
             cards.sort((a, b) => b.createdAt - a.createdAt);
@@ -929,6 +886,7 @@ const App = () => {
             "intervalIndex_back", "correctStreak_back", "nextReview_back_timestamp",
             "intervalIndex_synonym", "correctStreak_synonym", "nextReview_synonym_timestamp",
             "intervalIndex_example", "correctStreak_example", "nextReview_example_timestamp",
+            "easeFactor", "totalReps", "correctCount", "incorrectCount", "currentInterval_back",
             "AudioBase64", "ImageBase64", "POS", "Level", "SinoVietnamese", "SynonymSinoVietnamese"
         ];
 
@@ -949,6 +907,11 @@ const App = () => {
             card.intervalIndex_example || -999,
             card.correctStreak_example || 0,
             card.nextReview_example ? card.nextReview_example.getTime() : new Date(9999, 0, 1).getTime(),
+            card.easeFactor || 2.5,
+            card.totalReps || 0,
+            card.correctCount || 0,
+            card.incorrectCount || 0,
+            card.currentInterval_back || 0,
             card.audioBase64 || "",
             card.imageBase64 || "",
             card.pos || "",
@@ -1012,7 +975,11 @@ const App = () => {
                 'intervalIndex_example': 'intervalIndex_example',
                 'correctStreak_example': 'correctStreak_example',
                 'nextReview_example_timestamp': 'nextReview_example',
-                'AudioBase64': 'audioBase64',
+                'easeFactor': 'easeFactor',
+                'totalReps': 'totalReps',
+                'correctCount': 'correctCount',
+                'incorrectCount': 'incorrectCount',
+                'currentInterval_back': 'currentInterval_back',
                 'ImageBase64': 'imageBase64',
                 'POS': 'pos',
                 'Level': 'level',

@@ -30,6 +30,8 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
         if (path === ROUTES.KANJI_SAVED) return 'KANJI_SAVED';
         if (path === ROUTES.KANJI_LIST) return 'KANJI_LIST';
         if (path === ROUTES.TEST) return 'TEST';
+        if (path === ROUTES.JLPT_TEST) return 'JLPT_TEST';
+        if (path === ROUTES.JLPT_ADMIN) return 'JLPT_ADMIN';
         if (path === ROUTES.STATS) return 'STATS';
         if (path === ROUTES.LEADERBOARD) return 'LEADERBOARD';
         if (path === ROUTES.PET) return 'PET';
@@ -88,7 +90,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
                 { id: 'KANJI_LIST', label: 'Danh sách Kanji', route: ROUTES.KANJI_LIST },
             ]
         },
-        { id: 'TEST', icon: FileCheck, label: 'Kiểm tra JLPT', route: ROUTES.TEST },
+        { id: 'JLPT_TEST', icon: FileCheck, label: 'Luyện thi JLPT', route: ROUTES.JLPT_TEST },
         {
             id: 'HUB',
             icon: Gamepad2,

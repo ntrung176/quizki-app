@@ -29,6 +29,10 @@ export const ROUTES = {
     STUDY: '/vocab/review/study',
     TEST: '/vocab/review/test',
 
+    // JLPT Test
+    JLPT_TEST: '/jlpt/test',
+    JLPT_ADMIN: '/jlpt/admin',
+
     // Social & Data
     STATS: '/hub/stats',
     LEADERBOARD: '/hub/leaderboard',

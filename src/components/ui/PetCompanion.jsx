@@ -3,6 +3,20 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, useAnimations, OrbitControls, Sparkles, Float, Stars, Environment, ContactShadows, Billboard, Text } from '@react-three/drei';
 import * as THREE from 'three';
 
+// Suppress THREE.js deprecation warnings from R3F internals (THREE.Clock, etc.)
+const _origWarn = console.warn;
+console.warn = (...args) => {
+    const msg = typeof args[0] === 'string' ? args[0] : '';
+    if (
+        msg.includes('THREE.THREE.Clock') ||
+        msg.includes('PCFSoftShadowMap') ||
+        msg.includes('should be greater than 0') ||
+        msg.includes('BloomFilterError') ||
+        msg.includes('Cross-Origin-Opener-Policy')
+    ) return;
+    _origWarn.apply(console, args);
+};
+
 // ==================== PET COMMANDS ====================
 const PET_COMMANDS = [
     { id: 'idle', label: '🧘 Thư giãn', description: 'Thư giãn', duration: 0 },
@@ -159,11 +173,13 @@ const FoxGLBModel = ({ modelPath, action, stage, streak }) => {
 
     const { actions } = useAnimations(animations, groupRef);
 
-    // Log animations on first load (for debugging)
+    // Log animations on first load (only in dev, and only if there ARE animations)
     useEffect(() => {
         if (actions) {
             const names = Object.keys(actions);
-            console.log(`[Pet] ${modelPath} animations:`, names);
+            if (names.length > 0 && import.meta.env.DEV) {
+                console.log(`[Pet] ${modelPath} animations:`, names);
+            }
         }
     }, [actions, modelPath]);
 
@@ -362,7 +378,6 @@ const FoxGLBModel = ({ modelPath, action, stage, streak }) => {
 
 // Preload
 useGLTF.preload('/models/DragonEgg.glb');
-useGLTF.preload('/models/Fox.glb');
 useGLTF.preload('/models/FoxSpirit.glb');
 useGLTF.preload('/models/WhiteKitsune.glb');
 
@@ -441,7 +456,7 @@ const PetCompanion = ({ petLevel = 0, streak = 0, petXP = 0, xpPercent = 0, xpPr
             <div className={`w-full rounded-2xl overflow-hidden relative bg-gradient-to-b ${petStage.bg}`}
                 style={{ height: 280, boxShadow: 'inset 0 0 50px rgba(0,0,0,0.5)' }}
             >
-                <Canvas camera={{ position: [1.5, 0.6, 2], fov: 42 }} shadows>
+                <Canvas camera={{ position: [1.5, 0.6, 2], fov: 42 }} shadows={{ type: THREE.PCFShadowMap }}>
                     <ambientLight intensity={0.6} />
                     <directionalLight position={[5, 5, 5]} intensity={1.5} castShadow shadow-mapSize-width={1024} shadow-mapSize-height={1024} />
                     <pointLight position={[-3, 2, -3]} color={petStage.accentColor} intensity={0.6} />

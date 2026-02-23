@@ -20,3 +20,5 @@ export { default as AdminScreen } from './AdminScreen';
 export { default as FlashcardScreen } from './FlashcardScreen';
 export { default as BookScreen } from './BookScreen';
 export { default as SettingsScreen } from './SettingsScreen';
+export { default as JLPTTestScreen } from './JLPTTestScreen';
+export { default as JLPTAdminScreen } from './JLPTAdminScreen';

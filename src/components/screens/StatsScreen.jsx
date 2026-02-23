@@ -401,7 +401,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                             <Award className="w-4 h-4 text-purple-500" /> Tiến độ theo cấp độ JLPT
                         </h3>
                         <div style={{ width: '100%', height: 200 }}>
-                            <ResponsiveContainer width="100%" height="100%">
+                            <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                                 <BarChart data={jlptVocabData} margin={{ top: 5, right: 10, left: -10, bottom: 5 }}>
                                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb30" />
                                     <XAxis dataKey="name" tick={{ fontSize: 11, fontWeight: 'bold' }} />
@@ -449,7 +449,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                             <Calendar className="w-4 h-4 text-indigo-500" /> Hoạt động 14 ngày gần đây
                         </h3>
                         <div style={{ width: '100%', height: 180 }}>
-                            <ResponsiveContainer width="100%" height="100%">
+                            <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                                 <AreaChart data={dailyChartData} margin={{ top: 5, right: 5, left: -20, bottom: 0 }}>
                                     <defs>
                                         <linearGradient id="colorWords" x1="0" y1="0" x2="0" y2="1">
@@ -513,7 +513,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                             <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-2">Ghi nhớ Từ vựng</h3>
                             {pieData.length > 0 ? (
                                 <div style={{ width: '100%', height: 220 }}>
-                                    <ResponsiveContainer width="100%" height="100%">
+                                    <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                                         <PieChart>
                                             <Pie data={pieData} cx="50%" cy="45%" innerRadius={50} outerRadius={75} paddingAngle={5} dataKey="value">
                                                 {pieData.map((entry, index) => (

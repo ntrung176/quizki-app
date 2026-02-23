@@ -87,7 +87,7 @@ const SRSVocabScreen = ({
     }).length;
 
     // Tìm thời gian ôn tập tiếp theo (CHỈ từ thẻ đã học, KHÔNG tính thẻ mới)
-    const getNextReviewTimestamp = () => {
+    const getNextReviewInfo = () => {
         const futureCards = allCards
             .filter(card =>
                 card.intervalIndex_back >= 0 && // Chỉ thẻ đã học (không phải thẻ mới)
@@ -96,29 +96,41 @@ const SRSVocabScreen = ({
             .sort((a, b) => a.nextReview_back - b.nextReview_back);
 
         if (futureCards.length === 0) return null;
-        return futureCards[0].nextReview_back;
+
+        const nextTimestamp = futureCards[0].nextReview_back;
+        // Đếm tất cả thẻ đến hạn trong cùng lượt (cùng phút)
+        const nextMinute = new Date(nextTimestamp);
+        nextMinute.setSeconds(59, 999);
+        const nextRoundCount = futureCards.filter(c => c.nextReview_back <= nextMinute.getTime()).length;
+
+        return { timestamp: nextTimestamp, count: nextRoundCount };
     };
+
+    const [nextRoundCount, setNextRoundCount] = useState(0);
 
     // Live countdown timer - cập nhật mỗi giây khi < 24h
     useEffect(() => {
         const updateCountdown = () => {
-            const nextTimestamp = getNextReviewTimestamp();
-            if (!nextTimestamp) {
+            const info = getNextReviewInfo();
+            if (!info) {
                 setCountdownText(null);
                 setIsCountdown(false);
+                setNextRoundCount(0);
                 return;
             }
 
-            const result = formatCountdown(nextTimestamp);
+            const result = formatCountdown(info.timestamp);
             if (!result) {
                 // Đã đến hạn
                 setCountdownText(null);
                 setIsCountdown(false);
+                setNextRoundCount(0);
                 return;
             }
 
             setCountdownText(result.text);
             setIsCountdown(result.isCountdown);
+            setNextRoundCount(info.count);
         };
 
         updateCountdown();
@@ -358,6 +370,10 @@ const SRSVocabScreen = ({
                             <p className="text-blue-100 text-xs">
                                 {isCountdown ? 'đếm ngược đến lượt ôn tập tiếp theo' : 'nghỉ ngơi cho đến lượt ôn tập tiếp theo'}
                             </p>
+                            <div className="mt-2 bg-white/20 rounded-lg px-3 py-1.5 inline-flex items-center gap-1.5">
+                                <span className="text-sm font-bold">{nextRoundCount}</span>
+                                <span className="text-xs text-blue-100">thẻ sẽ đến hạn</span>
+                            </div>
                         </>
                     ) : (
                         <>

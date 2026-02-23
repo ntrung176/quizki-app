@@ -47,6 +47,9 @@ export default defineConfig({
     chunkSizeWarningLimit: 900, // nới nhẹ ngưỡng cảnh báo
   },
   server: {
+    headers: {
+      'Cross-Origin-Opener-Policy': 'same-origin-allow-popups',
+    },
     proxy: {
       '/api/jotoba': {
         target: 'https://jotoba.de',

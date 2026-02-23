@@ -17,8 +17,6 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
     const [sinoVietnamese, setSinoVietnamese] = useState(card?.sinoVietnamese || '');
     const [synonymSinoVietnamese, setSynonymSinoVietnamese] = useState(card?.synonymSinoVietnamese || '');
     const [imagePreview, setImagePreview] = useState(card?.imageBase64 || null);
-    const [customAudio, setCustomAudio] = useState(card?.audioBase64 || '');
-    const [showAudioInput, setShowAudioInput] = useState(false);
     const [_isSaving, setIsSaving] = useState(false); // eslint-disable-line no-unused-vars
     const [isAiLoading, setIsAiLoading] = useState(false);
     const frontInputRef = useRef(null);
@@ -50,29 +48,15 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
 
     const handleRemoveImage = () => { setImagePreview(null); };
 
-    const handleAudioFileChange = (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = (event) => {
-            const res = event.target.result;
-            setCustomAudio(res.split(',')[1]);
-        };
-        reader.readAsDataURL(file);
-    };
-
     const handleSave = async () => {
         if (!front.trim() || !back.trim()) return;
         setIsSaving(true);
-        const hasOriginalAudio = card.audioBase64 && card.audioBase64.trim() !== '';
-        const hasNewAudio = customAudio.trim() !== '';
-        const audioToSave = hasNewAudio ? customAudio.trim() : (hasOriginalAudio ? undefined : null);
         await onSave({
             cardId: card.id,
             front, back, synonym, example, exampleMeaning, nuance, pos, level,
             sinoVietnamese, synonymSinoVietnamese,
             imageBase64: imagePreview,
-            audioBase64: audioToSave
+            audioBase64: null
         });
         setIsSaving(false);
     };
@@ -194,36 +178,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
                             )}
                         </div>
 
-                        {/* Audio Part */}
-                        <div className="pt-2 border-t border-gray-100 dark:border-gray-700">
-                            <button type="button" onClick={() => setShowAudioInput(!showAudioInput)}
-                                className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-medium flex items-center w-full justify-between">
-                                <div className="flex items-center"><Music className="w-4 h-4 mr-2" /> {customAudio ? "Đã có Audio tuỳ chỉnh" : "Thêm Audio tuỳ chỉnh"}</div>
-                                <span className="text-xs text-gray-400 dark:text-gray-500">{showAudioInput ? '▲' : '▼'}</span>
-                            </button>
 
-                            {showAudioInput && (
-                                <div className="mt-3 bg-gray-50 dark:bg-gray-700 p-3 rounded-xl border border-gray-200 dark:border-gray-600 animate-fade-in">
-                                    <div className="flex items-center justify-between mb-2">
-                                        <label htmlFor="audio-edit" className="cursor-pointer px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm">
-                                            {customAudio ? "Chọn file khác" : "Chọn file .mp3/wav"}
-                                        </label>
-                                        <input id="audio-edit" type="file" accept=".wav,.mp3,audio/wav,audio/mpeg" onChange={handleAudioFileChange} className="hidden" />
-                                    </div>
-
-                                    {customAudio && (
-                                        <div className="flex items-center justify-between bg-white dark:bg-gray-800 p-2 rounded-lg border border-gray-100 dark:border-gray-700">
-                                            <span className="text-xs text-emerald-600 dark:text-emerald-400 font-bold flex items-center"><Check className="w-3 h-3 mr-1" /> Đã lưu</span>
-                                            <div className="flex gap-2">
-                                                <button type="button" onClick={() => playAudio(customAudio)} className="p-1 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded"><Volume2 className="w-4 h-4" /></button>
-                                                <button type="button" onClick={() => setCustomAudio('')} className="p-1 text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 rounded"><Trash2 className="w-4 h-4" /></button>
-                                            </div>
-                                        </div>
-                                    )}
-                                    {!customAudio && <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-1 text-center">Nếu trống, hệ thống sẽ tự tạo audio từ văn bản.</p>}
-                                </div>
-                            )}
-                        </div>
                     </div>
                 </div>
             </div>
