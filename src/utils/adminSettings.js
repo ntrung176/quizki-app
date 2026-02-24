@@ -45,16 +45,20 @@ export const subscribeAdminConfig = (callback) => {
         const ref = doc(db, getAdminSettingsPath(), ADMIN_CONFIG_DOC);
         return onSnapshot(ref, (snap) => {
             if (snap.exists()) {
-                callback({ ...DEFAULT_ADMIN_CONFIG, ...snap.data() });
+                const config = { ...DEFAULT_ADMIN_CONFIG, ...snap.data() };
+                console.log('✅ Admin config loaded:', { aiEnabled: config.aiEnabled, aiAllowAll: config.aiAllowAll, aiAllowedUsers: config.aiAllowedUsers?.length || 0, moderators: config.moderators?.length || 0 });
+                callback(config);
             } else {
+                console.log('ℹ️ Admin config not found, using defaults');
                 callback({ ...DEFAULT_ADMIN_CONFIG });
             }
         }, (error) => {
-            console.error('Error subscribing to admin config:', error);
+            console.error('❌ Error subscribing to admin config:', error.code, error.message);
+            console.warn('⚠️ Falling back to default admin config. If this is a permissions error, update Firestore rules to allow reading artifacts/{appId}/settings/*');
             callback({ ...DEFAULT_ADMIN_CONFIG });
         });
     } catch (e) {
-        console.error('Error setting up admin config subscription:', e);
+        console.error('❌ Error setting up admin config subscription:', e);
         callback({ ...DEFAULT_ADMIN_CONFIG });
         return () => { };
     }

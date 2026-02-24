@@ -260,7 +260,9 @@ const App = () => {
 
     // Check if current user can use AI features
     const canUserUseAI = useMemo(() => {
-        return checkCanUseAI(adminConfig, userId, isAdmin);
+        const result = checkCanUseAI(adminConfig, userId, isAdmin);
+        console.log('🔑 canUserUseAI:', result, '| userId:', userId, '| isAdmin:', isAdmin, '| aiEnabled:', adminConfig?.aiEnabled, '| aiAllowAll:', adminConfig?.aiAllowAll, '| inAllowedList:', adminConfig?.aiAllowedUsers?.includes(userId));
+        return result;
     }, [adminConfig, userId, isAdmin]);
 
     // Check if current user has admin privileges (admin or moderator)
