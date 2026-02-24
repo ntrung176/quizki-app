@@ -111,10 +111,12 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist }) => {
                                 <div className="flex gap-2">
                                     <input type="text" value={front} onChange={(e) => setFront(e.target.value)}
                                         className="flex-1 px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 text-gray-900 dark:text-gray-100" />
-                                    <button type="button" onClick={handleAiAssist}
-                                        className="px-3 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 rounded-lg font-bold hover:bg-indigo-200 dark:hover:bg-indigo-900/50">
-                                        {isAiLoading ? <Loader2 className="animate-spin w-5 h-5" /> : "AI"}
-                                    </button>
+                                    {onGeminiAssist && (
+                                        <button type="button" onClick={handleAiAssist}
+                                            className="px-3 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 rounded-lg font-bold hover:bg-indigo-200 dark:hover:bg-indigo-900/50">
+                                            {isAiLoading ? <Loader2 className="animate-spin w-5 h-5" /> : "AI"}
+                                        </button>
+                                    )}
                                 </div>
                             </div>
                             <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-xl space-y-3">

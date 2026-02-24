@@ -52,9 +52,12 @@ const TestScreen = ({ allCards }) => {
                     const wrongOptions = generateWrongHiragana(card.front, allCards, 3);
                     const options = shuffleArray([correctAnswer, ...wrongOptions]);
 
+                    // Use first example line for context if multiple
+                    const firstExample = (card.example || '').split('\n')[0].trim();
+
                     return {
                         question: `Cách đọc của "___BOLD___${kanjiOnly}___BOLD___" là:`,
-                        context: card.example || '',
+                        context: firstExample,
                         options: options,
                         correctAnswer: correctAnswer,
                         explanation: card.back,
@@ -69,7 +72,9 @@ const TestScreen = ({ allCards }) => {
                     const wrongOptions = generateWrongKanji(card, allCards, 3);
                     const options = shuffleArray([correctAnswer, ...wrongOptions]);
 
-                    const contextWithHiragana = card.example.replace(kanjiOnly, hiragana);
+                    // Use first example line for context if multiple
+                    const firstExample = (card.example || '').split('\n')[0].trim();
+                    const contextWithHiragana = firstExample.replace(kanjiOnly, hiragana);
 
                     return {
                         question: `Kanji của "___BOLD___${hiragana}___BOLD___" là:`,
@@ -83,19 +88,25 @@ const TestScreen = ({ allCards }) => {
             }
         } else if (mode === 'vocab') {
             if (type === 3) {
-                generatedQuestions = selectedCards.map(card => {
-                    const blankSentence = card.example.replace(card.front.split('（')[0], '＿＿＿');
-                    const correctAnswer = card.front;
-                    const wrongOptions = generateSimilarVocab(card, allCards, 3);
-                    const options = shuffleArray([correctAnswer, ...wrongOptions]);
+                generatedQuestions = selectedCards.flatMap(card => {
+                    // Split examples by newline - each line becomes an independent question
+                    const examples = card.example.split('\n').map(e => e.trim()).filter(e => e);
+                    const exampleMeanings = (card.exampleMeaning || card.back || '').split('\n').map(e => e.trim());
 
-                    return {
-                        question: `Chọn từ phù hợp để điền vào chỗ trống:`,
-                        context: blankSentence,
-                        options: options,
-                        correctAnswer: correctAnswer,
-                        explanation: card.exampleMeaning || card.back
-                    };
+                    return examples.map((exampleLine, idx) => {
+                        const blankSentence = exampleLine.replace(card.front.split('（')[0], '＿＿＿');
+                        const correctAnswer = card.front;
+                        const wrongOptions = generateSimilarVocab(card, allCards, 3);
+                        const options = shuffleArray([correctAnswer, ...wrongOptions]);
+
+                        return {
+                            question: `Chọn từ phù hợp để điền vào chỗ trống:`,
+                            context: blankSentence,
+                            options: options,
+                            correctAnswer: correctAnswer,
+                            explanation: exampleMeanings[idx] || card.back
+                        };
+                    });
                 });
             } else if (type === 4) {
                 generatedQuestions = selectedCards

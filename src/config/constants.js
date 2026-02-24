@@ -2,13 +2,29 @@
 export const POS_TYPES = {
     noun: { label: 'Danh từ', color: 'bg-blue-100 text-blue-700 border-blue-200' },
     verb: { label: 'Động từ', color: 'bg-red-100 text-red-700 border-red-200' },
+    suru_verb: { label: 'Danh động từ', color: 'bg-rose-100 text-rose-700 border-rose-200' },
     'adj-i': { label: 'Tính từ -い', color: 'bg-yellow-100 text-yellow-700 border-yellow-200' },
     'adj-na': { label: 'Tính từ -な', color: 'bg-orange-100 text-orange-700 border-orange-200' },
     adverb: { label: 'Trạng từ', color: 'bg-purple-100 text-purple-700 border-purple-200' },
     conjunction: { label: 'Liên từ', color: 'bg-pink-100 text-pink-700 border-pink-200' },
     particle: { label: 'Trợ từ', color: 'bg-cyan-100 text-cyan-700 border-cyan-200' },
+    grammar: { label: 'Ngữ pháp', color: 'bg-indigo-100 text-indigo-700 border-indigo-200' },
     phrase: { label: 'Cụm từ', color: 'bg-teal-100 text-teal-700 border-teal-200' },
     other: { label: 'Khác', color: 'bg-gray-100 text-gray-700 border-gray-200' }
+};
+
+// Alias map: AI có thể trả về dạng khác (adj_i thay vì adj-i)
+const POS_ALIASES = {
+    'adj_i': 'adj-i',
+    'adj_na': 'adj-na',
+    'adj-na': 'adj-na',
+    'adj-i': 'adj-i',
+};
+
+// Chuẩn hóa pos key từ AI output
+export const normalizePosKey = (posKey) => {
+    if (!posKey) return '';
+    return POS_ALIASES[posKey] || posKey;
 };
 
 // --- Cấu hình Cấp độ JLPT & Chỉ tiêu (Ước lượng) ---

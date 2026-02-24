@@ -1,25 +1,20 @@
 // --- Gemini AI API utilities ---
+// BACKWARD COMPATIBILITY: Module này giữ lại để tương thích ngược.
+// Logic chính đã chuyển sang aiProvider.js (hỗ trợ Gemini + Groq + OpenRouter)
 
-// Helper: Lấy tất cả API keys từ env (VITE_GEMINI_API_KEY_1, VITE_GEMINI_API_KEY_2, ..., VITE_GEMINI_API_KEY_N)
-export const getAllGeminiApiKeysFromEnv = () => {
-    const keys = [];
-    let i = 1;
-    while (true) {
-        const key = import.meta.env[`VITE_GEMINI_API_KEY_${i}`];
-        if (key) {
-            keys.push(key);
-            i++;
-        } else {
-            break;
-        }
-    }
-    return keys;
-};
+import { aiAssistVocab, callAI, parseJsonFromAI, getGeminiKeys } from './aiProvider';
 
+// Re-export cho tương thích ngược
+export const getAllGeminiApiKeysFromEnv = getGeminiKeys;
+
+// Danh sách model ưu tiên (thử lần lượt nếu model trước bị hết quota)
+const GEMINI_MODELS = ['gemini-2.0-flash-lite', 'gemini-2.0-flash', 'gemini-1.5-flash'];
 
 // Call Gemini API with retry logic for text generation
-export const callGeminiApiWithRetry = async (payload, model = 'gemini-2.5-flash-preview-09-2025', apiKeys = null, keyIndex = 0) => {
+// GIỮ LẠI để tương thích với code cũ trong App.jsx (batch classification, etc.)
+export const callGeminiApiWithRetry = async (payload, model = 'gemini-2.0-flash-lite', apiKeys = null, keyIndex = 0, _triedModels = null) => {
     const keys = apiKeys || getAllGeminiApiKeysFromEnv();
+    const triedModels = _triedModels || new Set();
 
     if (keys.length === 0) {
         throw new Error('Không có API key được cấu hình cho Gemini');
@@ -41,9 +36,19 @@ export const callGeminiApiWithRetry = async (payload, model = 'gemini-2.5-flash-
             // If rate limited and more keys available, try next key
             if ((response.status === 429 || response.status === 503) && keyIndex < keys.length - 1) {
                 console.log(`Gemini API key ${keyIndex + 1} rate limited, trying key ${keyIndex + 2}...`);
-                // Wait a bit before retry
                 await new Promise(resolve => setTimeout(resolve, 500));
-                return callGeminiApiWithRetry(payload, model, keys, keyIndex + 1);
+                return callGeminiApiWithRetry(payload, model, keys, keyIndex + 1, triedModels);
+            }
+
+            // All keys exhausted for this model - try fallback model
+            if ((response.status === 429 || response.status === 503)) {
+                triedModels.add(model);
+                const fallbackModel = GEMINI_MODELS.find(m => !triedModels.has(m));
+                if (fallbackModel) {
+                    console.log(`All keys exhausted for ${model}, trying fallback model: ${fallbackModel}...`);
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    return callGeminiApiWithRetry(payload, fallbackModel, keys, 0, triedModels);
+                }
             }
 
             throw new Error(`Lỗi API Gemini ${response.status}: ${errorText}`);
@@ -55,81 +60,14 @@ export const callGeminiApiWithRetry = async (payload, model = 'gemini-2.5-flash-
         if (keyIndex < keys.length - 1 && !error.message?.includes('Lỗi API Gemini')) {
             console.log(`Gemini API key ${keyIndex + 1} failed, trying key ${keyIndex + 2}...`);
             await new Promise(resolve => setTimeout(resolve, 500));
-            return callGeminiApiWithRetry(payload, model, keys, keyIndex + 1);
+            return callGeminiApiWithRetry(payload, model, keys, keyIndex + 1, triedModels);
         }
         throw error;
     }
 };
 
-// Gemini AI Assist - Get vocabulary information
-export const geminiAssist = async (frontText, contextPos = '', contextLevel = '') => {
-    if (!frontText || frontText.trim() === '') {
-        return null;
-    }
-
-    const prompt = `Bạn là một trợ lý học tiếng Nhật. Cho từ vựng tiếng Nhật sau: "${frontText}"
-${contextPos ? `Từ loại gợi ý: ${contextPos}` : ''}
-${contextLevel ? `Level gợi ý: ${contextLevel}` : ''}
-
-Hãy phân tích và cung cấp thông tin theo format JSON sau (KHÔNG markdown, chỉ JSON thuần):
-{
-    "reading": "Cách đọc hiragana của từ (nếu có kanji)",
-    "meaning": "Nghĩa tiếng Việt chính xác, súc tích",
-    "example": "Câu ví dụ tiếng Nhật sử dụng từ này",
-    "exampleMeaning": "Nghĩa tiếng Việt của câu ví dụ",
-    "pos": "Từ loại (noun/verb/adj-i/adj-na/adverb/conjunction/particle/phrase/other)",
-    "level": "Level JLPT ước tính (N5/N4/N3/N2/N1)",
-    "synonym": "Từ đồng nghĩa tiếng Nhật (nếu có)",
-    "nuance": "Sắc thái, ngữ cảnh sử dụng",
-    "sinoVietnamese": "Âm Hán Việt (nếu có kanji)"
-}`;
-
-    const payload = {
-        contents: [{
-            parts: [{ text: prompt }]
-        }],
-        generationConfig: {
-            temperature: 0.3,
-            maxOutputTokens: 1024
-        }
-    };
-
-    try {
-        const result = await callGeminiApiWithRetry(payload);
-        const responseText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
-
-        if (!responseText) {
-            return null;
-        }
-
-        // Parse JSON from response
-        let jsonStr = responseText.trim();
-
-        // Remove markdown code blocks if present
-        if (jsonStr.startsWith('```json')) {
-            jsonStr = jsonStr.slice(7);
-        }
-        if (jsonStr.startsWith('```')) {
-            jsonStr = jsonStr.slice(3);
-        }
-        if (jsonStr.endsWith('```')) {
-            jsonStr = jsonStr.slice(0, -3);
-        }
-
-        jsonStr = jsonStr.trim();
-
-        try {
-            const data = JSON.parse(jsonStr);
-            return data;
-        } catch (parseError) {
-            console.error('Error parsing Gemini response:', parseError);
-            return null;
-        }
-    } catch (error) {
-        console.error('Gemini assist error:', error);
-        throw error;
-    }
-};
+// Gemini AI Assist - DÙNG UNIFIED PROVIDER (hỗ trợ Groq + OpenRouter + Gemini)
+export const geminiAssist = aiAssistVocab;
 
 // Alias for backward compatibility
-export const generateVocabWithAI = geminiAssist;
+export const generateVocabWithAI = aiAssistVocab;

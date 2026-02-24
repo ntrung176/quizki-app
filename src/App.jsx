@@ -18,7 +18,8 @@ import {
     SRS_INTERVALS,
     getPosLabel,
     getPosColor,
-    getLevelColor
+    getLevelColor,
+    normalizePosKey
 } from './config/constants';
 
 import { playAudio, pcmToWav, base64ToArrayBuffer } from './utils/audio';
@@ -32,6 +33,8 @@ import {
     isMobileDevice
 } from './utils/textProcessing';
 import { generateVocabWithAI, getAllGeminiApiKeysFromEnv } from './utils/gemini';
+import { callAI, parseJsonFromAI, getAIProviderInfo } from './utils/aiProvider';
+import { subscribeAdminConfig, canUseAI as checkCanUseAI, hasAdminPrivileges } from './utils/adminSettings';
 import { compressImage } from './utils/image';
 
 // Import screens
@@ -242,11 +245,28 @@ const App = () => {
 
     const isAdmin = useMemo(() => {
         const rawEnv = import.meta.env.VITE_ADMIN_EMAIL || '';
-        // Loại bỏ khoảng trắng + dấu nháy bao quanh (nếu vô tình thêm trong .env)
         const adminEmailEnv = rawEnv.trim().replace(/^['"]|['"]$/g, '').toLowerCase();
         const currentEmail = (auth?.currentUser?.email || '').trim().toLowerCase();
         return !!adminEmailEnv && !!currentEmail && currentEmail === adminEmailEnv;
     }, [authReady, userId]);
+
+    // Admin config from Firestore (AI permissions, provider selection, moderators)
+    const [adminConfig, setAdminConfig] = useState(null);
+
+    useEffect(() => {
+        const unsubscribe = subscribeAdminConfig(setAdminConfig);
+        return () => { if (unsubscribe) unsubscribe(); };
+    }, []);
+
+    // Check if current user can use AI features
+    const canUserUseAI = useMemo(() => {
+        return checkCanUseAI(adminConfig, userId, isAdmin);
+    }, [adminConfig, userId, isAdmin]);
+
+    // Check if current user has admin privileges (admin or moderator)
+    const userHasAdminPrivileges = useMemo(() => {
+        return hasAdminPrivileges(adminConfig, userId, isAdmin);
+    }, [adminConfig, userId, isAdmin]);
 
     // Toggle body class for review mode (hide scrollbar)
     useEffect(() => {
@@ -1923,9 +1943,12 @@ const App = () => {
         return getAllGeminiApiKeysFromEnv();
     };
 
-    // --- Helper: Gọi Gemini API với retry logic tự động chuyển key ---
-    const callGeminiApiWithRetry = async (payload, model = 'gemini-2.5-flash-preview-09-2025') => {
+    // --- Helper: Gọi Gemini API với retry logic tự động chuyển key + fallback model ---
+    const GEMINI_MODELS_FALLBACK = ['gemini-2.0-flash-lite', 'gemini-2.0-flash', 'gemini-1.5-flash'];
+
+    const callGeminiApiWithRetry = async (payload, model = 'gemini-2.0-flash-lite', _triedModels = null) => {
         const apiKeys = getGeminiApiKeys();
+        const triedModels = _triedModels || new Set();
 
         if (apiKeys.length === 0) {
             setNotification("Chưa cấu hình khóa API Gemini. Vui lòng thêm VITE_GEMINI_API_KEY_1, VITE_GEMINI_API_KEY_2, ... vào file .env hoặc cấu hình trong Settings.");
@@ -1933,6 +1956,7 @@ const App = () => {
         }
 
         let lastError = null;
+        let allKeysRateLimited = true;
 
         // Thử từng key một
         for (let i = 0; i < apiKeys.length; i++) {
@@ -1948,28 +1972,27 @@ const App = () => {
 
                 if (response.ok) {
                     const result = await response.json();
-                    // Nếu thành công, trả về kết quả
                     return result;
                 }
 
-                // Đọc body lỗi để xác định loại lỗi
                 let errorBody = "";
                 try {
                     errorBody = await response.text();
-                    console.error(`Gemini error với key ${i + 1}/${apiKeys.length}:`, errorBody);
+                    console.error(`Gemini error với key ${i + 1}/${apiKeys.length} (${model}):`, errorBody);
                 } catch (err) {
-                    // Ignore error when reading error body
                     console.error('Error reading error response:', err);
                 }
 
                 // Các lỗi có thể retry với key khác: 401, 403, 429
-                const retryableErrors = [401, 403, 429];
+                const retryableErrors = [401, 403, 429, 503];
                 if (retryableErrors.includes(response.status)) {
                     lastError = new Error(`Lỗi API Gemini với key ${i + 1}: ${response.status} ${response.statusText}`);
-                    // Tiếp tục vòng lặp để thử key tiếp theo
+                    if (response.status !== 429 && response.status !== 503) {
+                        allKeysRateLimited = false;
+                    }
                     continue;
                 } else {
-                    // Lỗi khác (400, 500, ...) không nên retry
+                    allKeysRateLimited = false;
                     if (response.status === 400) {
                         setNotification(`Lỗi yêu cầu không hợp lệ (400). Vui lòng kiểm tra lại dữ liệu đầu vào.`);
                     } else {
@@ -1978,29 +2001,40 @@ const App = () => {
                     throw new Error(`Lỗi API Gemini: ${response.status} ${response.statusText} ${errorBody}`);
                 }
             } catch (e) {
-                // Lỗi network hoặc parse
                 if (e.message && e.message.includes("Lỗi API Gemini")) {
-                    throw e; // Re-throw lỗi không retry được
+                    throw e;
                 }
                 console.error(`Lỗi network với key ${i + 1}:`, e);
                 lastError = e;
-                // Tiếp tục thử key tiếp theo nếu còn
+                allKeysRateLimited = false;
                 if (i < apiKeys.length - 1) {
                     continue;
                 }
             }
         }
 
-        // Tất cả keys đều thất bại
+        // Tất cả keys bị rate limit → thử fallback model
+        if (allKeysRateLimited && lastError) {
+            triedModels.add(model);
+            const fallbackModel = GEMINI_MODELS_FALLBACK.find(m => !triedModels.has(m));
+            if (fallbackModel) {
+                console.log(`⚡ Tất cả keys hết quota cho ${model}, thử model: ${fallbackModel}...`);
+                setNotification(`Đang thử model ${fallbackModel}...`);
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                return callGeminiApiWithRetry(payload, fallbackModel, triedModels);
+            }
+        }
+
+        // Tất cả keys + models đều thất bại
         if (lastError) {
-            setNotification(`Tất cả ${apiKeys.length} API key đều thất bại. Vui lòng kiểm tra lại các keys hoặc thử lại sau.`);
+            setNotification(`Tất cả ${apiKeys.length} API key đều hết quota. Vui lòng chờ vài phút rồi thử lại.`);
             throw lastError;
         }
 
         throw new Error("Không thể gọi API Gemini với bất kỳ key nào");
     };
 
-    // --- GEMINI AI ASSISTANT ---
+    // --- UNIFIED AI ASSISTANT (hỗ trợ Gemini + Groq + OpenRouter) ---
     const handleGeminiAssist = async (frontText, contextPos = '', contextLevel = '') => {
         if (!frontText) return null;
 
@@ -2009,72 +2043,82 @@ const App = () => {
         if (contextPos) contextInfo += `, Từ loại: ${contextPos}`;
         if (contextLevel) contextInfo += `, Cấp độ: ${contextLevel}`;
 
-        // Prompt yêu cầu trả về JSON, không dùng responseSchema để tránh kén model
-        const systemPrompt = `Bạn là trợ lý từ điển Nhật-Việt. Người dùng đang tìm kiếm thông tin cho từ vựng: "${frontText}"${contextInfo}.
+        const prompt = `Bạn là trợ lý từ điển Nhật-Việt chuyên nghiệp. Người dùng đang tìm kiếm thông tin cho từ vựng: "${frontText}"${contextInfo}.
 Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo đúng schema sau:
 {
-  "frontWithFurigana": "鍵をかける（かぎをかける）",
-  "meaning": "khóa cửa; khóa lại",
+  "frontWithFurigana": "食べる（たべる）",
+  "meaning": "ăn",
   "pos": "verb",
   "level": "N5",
-  "sinoVietnamese": "Thực",
-  "synonym": "食事する, 食う",
-  "synonymSinoVietnamese": "Thực sự, Cự",
-  "example": "私は毎日ご飯を食べる。",
+  "sinoVietnamese": "THỰC",
+  "synonym": "食う",
+  "synonymSinoVietnamese": "THỰC",
+  "example": "毎日ご飯を食べます。",
   "exampleMeaning": "Tôi ăn cơm mỗi ngày.",
-  "nuance": "Dùng phổ biến trong cả văn nói và văn viết."
+  "nuance": "Động từ ăn thông dụng nhất, dùng được trong mọi tình huống từ giao tiếp hàng ngày đến văn viết trang trọng. Khác với 食う（くう）mang sắc thái thô, nam tính."
 }
-QUAN TRỌNG về định dạng trường "meaning":
-- Nếu có NHIỀU nghĩa CHÍNH, hãy ngăn cách bằng dấu chấm phẩy ";".
-- Các nghĩa gần nhau / đồng nghĩa trong CÙNG một nghĩa chính thì ngăn cách bằng dấu phẩy ",".
-Ví dụ: ご馳走 → "Bữa ăn ngon, món ăn thịnh soạn; Sự chiêu đãi, khao."
-QUAN TRỌNG về từ loại (pos): 
-- Sử dụng các giá trị: "noun" (Danh từ), "verb" (Động từ), "suru_verb" (Danh động từ - các từ kết thúc bằng する như 勉強する, 約束する, 掃除する), "adj_i" (Tính từ -i), "adj_na" (Tính từ -na), "adverb" (Trạng từ), "conjunction" (Liên từ), "grammar" (Ngữ pháp), "phrase" (Cụm từ), "other" (Khác).
-- Đặc biệt chú ý: Nếu từ kết thúc bằng "する" (する動詞) hoặc có thể dùng như động từ nhưng gốc là danh từ + する, hãy phân loại là "suru_verb" (Danh động từ).
-QUAN TRỌNG: frontWithFurigana PHẢI dùng dấu ngoặc Nhật （）để bao quanh phần phiên âm hiragana, theo format: [từ vựng]（[phiên âm]）. Ví dụ: 鍵をかける（かぎをかける）. Không được dùng dấu ngoặc thường ().
-Không được trả về markdown, không được dùng \`\`\`, không được trả lời thêm bất cứ chữ nào ngoài JSON.`;
 
-        const payload = {
-            contents: [
-                {
-                    role: "user",
-                    parts: [{ text: systemPrompt }]
-                }
-            ]
-        };
+=== QUY TẮC BẮT BUỘC ===
+
+1. TRƯỜNG "frontWithFurigana":
+- Nếu từ có Kanji: viết Kanji rồi thêm cách đọc hiragana trong dấu ngoặc Nhật （）. Ví dụ: 食べる（たべる）, 勉強（べんきょう）, 走る（はしる）
+- Nếu từ chỉ có hiragana/katakana: giữ nguyên, KHÔNG thêm gì. Ví dụ: やっぱり, テレビ
+- BẮT BUỘC dùng dấu ngoặc Nhật （）, KHÔNG dùng dấu ngoặc thường ()
+
+2. TRƯỜNG "meaning":
+- Nghĩa tiếng Việt NGẮN GỌN. Nếu có nhiều nghĩa KHÁC NHAU RÕ RỆT thì đánh số: "1. ăn 2. sống (bằng nghề gì đó)"
+- KHÔNG lấy các nghĩa gần giống nhau. Nếu chỉ có 1 nghĩa thì KHÔNG đánh số.
+
+3. TRƯỜNG "example" và "exampleMeaning":
+- Nếu từ có NHIỀU nghĩa khác nhau: cho MỖI NGHĨA 1 câu ví dụ, đánh số trước mỗi câu, cách nhau bằng \\n
+  Ví dụ example: "1. 彼はまだ甘い。\\n2. このケーキは甘い。"
+  Ví dụ exampleMeaning: "1. Anh ấy còn non nớt/ngây thơ.\\n2. Cái bánh này ngọt."
+- Nếu từ chỉ có 1 nghĩa: CHỈ cho 1 câu ví dụ duy nhất, KHÔNG đánh số.
+- "exampleMeaning" PHẢI có SỐ DÒNG BẰNG "example".
+
+4. TRƯỜNG "sinoVietnamese" (Âm Hán Việt):
+- BẮT BUỘC điền nếu từ có Kanji. Viết IN HOA âm Hán Việt của TỪNG Kanji, cách nhau bằng dấu cách.
+- Ví dụ: 勉強 → "MIỄN CƯỜNG", 食べる → "THỰC", 学校 → "HỌC HIỆU", 先生 → "TIÊN SINH", 図書館 → "ĐỒ THƯ QUÁN"
+- CHỈ lấy âm Hán Việt của phần KANJI, bỏ qua phần hiragana (okurigana).
+- Nếu KHÔNG có Kanji thì để trống "".
+
+5. TRƯỜNG "nuance" (Sắc thái, ngữ cảnh sử dụng):
+- PHẢI giải thích CHI TIẾT, DỄ HIỂU về bối cảnh sử dụng từ vựng.
+- Bao gồm: tình huống sử dụng, mức độ trang trọng (formal/informal), đối tượng giao tiếp, so sánh với từ tương tự nếu có.
+- Ví dụ TỐT: "Dùng trong giao tiếp hàng ngày, mức độ lịch sự trung bình. Trong văn viết trang trọng nên dùng 召し上がる. Khác với 食う mang sắc thái thô tục, chỉ nam giới dùng."
+- Ví dụ XẤU (quá ngắn): "Dùng phổ biến."
+
+6. TRƯỜNG "pos" (Từ loại):
+- Sử dụng: "noun", "verb", "suru_verb", "adj_i", "adj_na", "adverb", "conjunction", "grammar", "phrase", "other"
+
+Không được trả về markdown, không được dùng backtick, không được trả lời thêm bất cứ chữ nào ngoài JSON.`;
 
         try {
-            // Sử dụng hàm retry tự động
-            const result = await callGeminiApiWithRetry(payload);
-            // Debug Gemini response
-            // console.log("Gemini raw result:", result);
+            // Kiểm tra quyền AI
+            if (!canUserUseAI) {
+                setNotification('Bạn chưa được cấp quyền sử dụng AI. Liên hệ admin để được cấp quyền.');
+                return null;
+            }
 
-            const candidate = result.candidates?.[0];
+            const providerInfo = getAIProviderInfo();
+            console.log(`🤖 AI Providers: ${providerInfo.summary}`);
 
-            if (candidate && candidate.content?.parts?.[0]?.text) {
-                const rawText = candidate.content.parts[0].text.trim();
+            // Sử dụng provider admin chỉ định (nếu có)
+            const forcedProvider = adminConfig?.aiProvider || 'auto';
+            const responseText = await callAI(prompt, forcedProvider);
+            const parsedJson = parseJsonFromAI(responseText);
 
-                // Nếu Gemini lỡ trả về JSON kèm ``` hoặc text thừa, cố gắng cắt lấy phần JSON
-                const jsonMatch = rawText.match(/\{[\s\S]*\}/);
-                const jsonText = jsonMatch ? jsonMatch[0] : rawText;
-
-                try {
-                    const parsedJson = JSON.parse(jsonText);
-                    return parsedJson;
-                } catch (parseErr) {
-                    console.error("Lỗi parse JSON từ Gemini:", parseErr, "rawText:", rawText);
-                    setNotification("Gemini trả về dữ liệu không phải JSON hợp lệ. Thử lại với từ khác hoặc thử lại sau ít phút.");
-                    return null;
-                }
+            if (parsedJson) {
+                // Chuẩn hóa pos key (AI có thể trả adj_i thay vì adj-i)
+                if (parsedJson.pos) parsedJson.pos = normalizePosKey(parsedJson.pos);
+                return parsedJson;
             } else {
-                setNotification("Gemini trả về dữ liệu trống hoặc không đúng cấu trúc. Hãy thử lại sau ít phút.");
-                throw new Error("Phản hồi JSON không hợp lệ");
+                setNotification("AI trả về dữ liệu không phải JSON hợp lệ. Thử lại.");
+                return null;
             }
         } catch (e) {
-            console.error("Lỗi Gemini Assist:", e);
-            if (!e.message?.includes("Lỗi API Gemini")) {
-                setNotification("Không gọi được Gemini. Hãy kiểm tra kết nối mạng, API key hoặc thử lại sau ít phút.");
-            }
+            console.error("Lỗi AI Assist:", e);
+            setNotification(e.message || "Không gọi được AI. Kiểm tra API key hoặc thử lại sau.");
             return null;
         }
     };
@@ -2557,6 +2601,9 @@ Không được trả về markdown, không được dùng \`\`\`, không đư�
                                 publicStatsCollectionPath={publicStatsCollectionPath}
                                 isAdmin={isAdmin}
                                 isDarkMode={isDarkMode}
+                                adminConfig={adminConfig}
+                                canUserUseAI={canUserUseAI}
+                                userHasAdminPrivileges={userHasAdminPrivileges}
                                 currentUserEmail={auth?.currentUser?.email}
                                 setView={setView}
                                 setEditingCard={setEditingCard}

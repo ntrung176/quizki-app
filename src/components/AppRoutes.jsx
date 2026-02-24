@@ -61,6 +61,9 @@ const AppRoutes = ({
     // Flags
     isAdmin,
     isDarkMode,
+    adminConfig,
+    canUserUseAI,
+    userHasAdminPrivileges,
 
     // Auth info
     currentUserEmail,
@@ -184,7 +187,7 @@ const AppRoutes = ({
                             onExport={() => handleExport(allCards)}
                             onImportTSV={handleImportTSV}
                             onSaveChanges={handleSaveChanges}
-                            onGeminiAssist={handleGeminiAssist}
+                            onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
                             scrollToCardId={scrollToCardIdRef?.current}
                             onScrollComplete={() => { if (scrollToCardIdRef) scrollToCardIdRef.current = null; }}
                             savedFilters={savedFilters}
@@ -201,7 +204,7 @@ const AppRoutes = ({
                         <AddCardForm
                             onSave={handleSaveNewCard}
                             onBack={() => setView('LIST')}
-                            onGeminiAssist={handleGeminiAssist}
+                            onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
                             batchMode={batchMode}
                             currentBatchIndex={currentBatchIndex}
                             totalBatchCount={batchVocabList?.length || 0}
@@ -263,7 +266,7 @@ const AppRoutes = ({
                         <KanjiScreen
                             isAdmin={isAdmin}
                             onAddVocabToSRS={handleSaveNewCard}
-                            onGeminiAssist={handleGeminiAssist}
+                            onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
                             allUserCards={allCards}
                         />
                     </ProtectedRoute>
@@ -278,7 +281,7 @@ const AppRoutes = ({
                         <KanjiScreen
                             isAdmin={isAdmin}
                             onAddVocabToSRS={handleSaveNewCard}
-                            onGeminiAssist={handleGeminiAssist}
+                            onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
                             allUserCards={allCards}
                         />
                     </ProtectedRoute>
@@ -469,6 +472,8 @@ const AppRoutes = ({
                                 publicStatsPath={publicStatsCollectionPath}
                                 currentUserId={userId}
                                 onAdminDeleteUserData={handleAdminDeleteUserData}
+                                adminConfig={adminConfig}
+                                isAdmin={isAdmin}
                             />
                         ) : (
                             <Navigate to={ROUTES.HOME} replace />
@@ -507,7 +512,7 @@ const AppRoutes = ({
                         <BookScreen
                             isAdmin={isAdmin}
                             onAddVocabToSRS={handleSaveNewCard}
-                            onGeminiAssist={handleGeminiAssist}
+                            onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
                             allUserCards={allCards}
                         />
                     </ProtectedRoute>

@@ -442,8 +442,13 @@ const ReviewScreen = ({
                 return { label: 'Từ đồng nghĩa', text: currentCard.synonym, image: currentCard.imageBase64, icon: MessageSquare, color: 'text-blue-600' };
             case 'example': {
                 const wordToMask = getWordForMasking(currentCard.front);
-                const maskedExample = maskWordInExample(wordToMask, currentCard.example, currentCard.pos);
-                return { label: 'Điền từ còn thiếu', text: maskedExample, meaning: currentCard.exampleMeaning || null, image: currentCard.imageBase64, icon: FileText, color: 'text-purple-600' };
+                // Use first example line if multiple examples exist
+                const exampleLines = (currentCard.example || '').split('\n').filter(e => e.trim());
+                const exampleMeaningLines = (currentCard.exampleMeaning || '').split('\n').filter(e => e.trim());
+                const firstExample = exampleLines[0] || currentCard.example;
+                const firstExampleMeaning = exampleMeaningLines[0] || currentCard.exampleMeaning || null;
+                const maskedExample = maskWordInExample(wordToMask, firstExample, currentCard.pos);
+                return { label: 'Điền từ còn thiếu', text: maskedExample, meaning: firstExampleMeaning, image: currentCard.imageBase64, icon: FileText, color: 'text-purple-600' };
             }
             default:
                 return { label: 'Ý nghĩa (Mặt sau)', text: formatMultipleMeanings(currentCard.back), image: currentCard.imageBase64, icon: Repeat2, color: 'text-emerald-600' };
@@ -765,11 +770,11 @@ const ReviewScreen = ({
                                         )}
                                         {currentCard.example && (
                                             <div className="pt-1.5 border-t border-white/20">
-                                                <p className="text-white/90 text-[10px] italic leading-relaxed">
+                                                <p className="text-white/90 text-[10px] italic leading-relaxed whitespace-pre-line">
                                                     "{currentCard.example}"
                                                 </p>
                                                 {currentCard.exampleMeaning && (
-                                                    <p className="text-emerald-100 text-[9px] mt-1 leading-relaxed">
+                                                    <p className="text-emerald-100 text-[9px] mt-1 leading-relaxed whitespace-pre-line">
                                                         {currentCard.exampleMeaning}
                                                     </p>
                                                 )}
