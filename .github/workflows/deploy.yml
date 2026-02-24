@@ -38,6 +38,8 @@ jobs:
       VITE_GEMINI_API_KEY_9: ${{ secrets.GEMINI_API_KEY_9 }}
       VITE_GEMINI_API_KEY_10: ${{ secrets.GEMINI_API_KEY_10 }}
       VITE_ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+      VITE_GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      VITE_OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
