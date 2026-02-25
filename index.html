@@ -1,29 +1,40 @@
 <!doctype html>
-<html lang="en" style="background-color: #e8f4fc; background-image: linear-gradient(#d0e8f5 1px, transparent 1px), linear-gradient(90deg, #d0e8f5 1px, transparent 1px); background-size: 20px 20px;">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/quizki-icon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
-    <title>QuizKi v2.0</title>
-    <script>
-      // Đồng bộ dark mode ngay từ đầu để tránh flash
-      (function() {
-        const html = document.documentElement;
-        const saved = localStorage.getItem('darkMode');
-        
-        if (saved === 'true') {
-          html.classList.add('dark');
-          html.style.colorScheme = 'dark';
-        } else {
-          // Mặc định hoặc 'false' -> light mode
-          html.classList.remove('dark');
-          html.style.colorScheme = 'light';
-        }
-      })();
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<html lang="en"
+  style="background-color: #e8f4fc; background-image: linear-gradient(#d0e8f5 1px, transparent 1px), linear-gradient(90deg, #d0e8f5 1px, transparent 1px); background-size: 20px 20px;">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/quizki-icon.svg" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+  <title>QuizKi v2.0</title>
+  <script>
+    // Đồng bộ dark mode ngay từ đầu để tránh flash
+    (function () {
+      const html = document.documentElement;
+      const saved = localStorage.getItem('darkMode');
+
+      if (saved === 'true') {
+        html.classList.add('dark');
+        html.style.colorScheme = 'dark';
+      } else {
+        // Mặc định hoặc 'false' -> light mode
+        html.classList.remove('dark');
+        html.style.colorScheme = 'light';
+      }
+    })();
+  </script>
+</head>
+
+<body>
+  <!-- Hidden static links for Google Bot Crawler -->
+  <div style="display: none;" aria-hidden="true">
+    <a href="/privacy.html">Chính sách bảo mật (Privacy Policy)</a>
+    <a href="/terms.html">Điều khoản dịch vụ (Terms of Service)</a>
+  </div>
+
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
