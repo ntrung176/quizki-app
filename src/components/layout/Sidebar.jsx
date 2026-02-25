@@ -32,9 +32,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
         if (path === ROUTES.TEST) return 'TEST';
         if (path === ROUTES.JLPT_TEST) return 'JLPT_TEST';
         if (path === ROUTES.JLPT_ADMIN) return 'JLPT_ADMIN';
-        if (path === ROUTES.STATS) return 'STATS';
-        if (path === ROUTES.LEADERBOARD) return 'LEADERBOARD';
-        if (path === ROUTES.PET) return 'PET';
+        if (path === ROUTES.HUB || path.startsWith('/hub')) return 'HUB';
         if (path === ROUTES.ACCOUNT) return 'ACCOUNT';
         if (path === ROUTES.SETTINGS) return 'SETTINGS';
         if (path === ROUTES.FEEDBACK) return 'FEEDBACK';
@@ -92,17 +90,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
             ]
         },
         { id: 'JLPT_TEST', icon: FileCheck, label: 'Luyện thi JLPT', route: ROUTES.JLPT_TEST },
-        {
-            id: 'HUB',
-            icon: Gamepad2,
-            label: 'Trung tâm',
-            hasSubmenu: true,
-            children: [
-                { id: 'STATS', label: 'Thống kê', route: ROUTES.STATS },
-                { id: 'LEADERBOARD', label: 'Bảng xếp hạng', route: ROUTES.LEADERBOARD },
-                { id: 'PET', label: 'Thú cưng', route: ROUTES.PET },
-            ]
-        },
+        { id: 'HUB', icon: Gamepad2, label: 'Trung tâm', route: ROUTES.HUB },
         { id: 'SETTINGS', icon: Settings, label: 'Cài đặt', route: ROUTES.SETTINGS },
         { id: 'FEEDBACK', icon: MessageSquare, label: 'Phản hồi', route: ROUTES.FEEDBACK },
         ...(isAdmin ? [{ id: 'ADMIN', icon: Shield, label: 'Quản lý Admin', route: ROUTES.ADMIN }] : []),

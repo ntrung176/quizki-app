@@ -36,9 +36,7 @@ export const ROUTES = {
     JLPT_ADMIN: '/jlpt/admin',
 
     // Social & Data
-    STATS: '/hub/stats',
-    LEADERBOARD: '/hub/leaderboard',
-    PET: '/hub/pet',
+    HUB: '/hub',
     IMPORT: '/import',
     ADMIN: '/admin',
     BOOKS: '/books',

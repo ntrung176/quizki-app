@@ -293,7 +293,7 @@ const AddCardForm = ({
     };
 
     return (
-        <div className="space-y-5">
+        <div className="space-y-3">
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div>
@@ -309,7 +309,7 @@ const AddCardForm = ({
 
             {/* Tab Switcher */}
             {!batchMode && (
-                <div className="flex rounded-2xl bg-gray-100 dark:bg-gray-800/80 p-1.5 gap-1">
+                <div className="flex rounded-xl bg-gray-100 dark:bg-gray-800/80 p-1 gap-1">
                     <button
                         onClick={() => setActiveTab('manual')}
                         className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-sm font-bold transition-all duration-300 ${activeTab === 'manual'
@@ -335,12 +335,12 @@ const AddCardForm = ({
 
             {/* ============ MANUAL TAB ============ */}
             {(activeTab === 'manual' || batchMode) && (
-                <div className="space-y-4">
+                <div className="space-y-3">
                     {/* === SECTION 1: Từ vựng chính + AI === */}
-                    <div className="relative bg-gradient-to-br from-indigo-50 via-white to-violet-50 dark:from-gray-800 dark:via-gray-800/90 dark:to-gray-800 p-5 rounded-2xl border border-indigo-100 dark:border-gray-700 shadow-sm">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-indigo-100/50 dark:from-indigo-900/20 to-transparent rounded-bl-full pointer-events-none" />
+                    <div className="relative bg-gradient-to-br from-indigo-50 via-white to-violet-50 dark:from-gray-800 dark:via-gray-800/90 dark:to-gray-800 p-4 rounded-xl border border-indigo-100 dark:border-gray-700 shadow-sm">
+                        <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-indigo-100/50 dark:from-indigo-900/20 to-transparent rounded-bl-full pointer-events-none" />
 
-                        <div className="flex items-center gap-2 mb-4">
+                        <div className="flex items-center gap-2 mb-3">
                             <div className="w-7 h-7 rounded-lg bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center">
                                 <BookOpen className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
                             </div>
@@ -397,7 +397,7 @@ const AddCardForm = ({
                         />
 
                         {/* Classification: Level + POS side by side */}
-                        <div className="grid grid-cols-2 gap-3 mb-3">
+                        <div className="grid grid-cols-2 gap-2 mb-2">
                             <div>
                                 <label className="block text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1.5 ml-1">Cấp độ JLPT</label>
                                 <div className="flex gap-1">
@@ -435,7 +435,7 @@ const AddCardForm = ({
                         </div>
 
                         {/* Hán Việt + Synonym row */}
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-2 gap-2">
                             <FloatingInput
                                 id="sinoVietnamese"
                                 label="Hán Việt"
@@ -455,8 +455,8 @@ const AddCardForm = ({
                     </div>
 
                     {/* === SECTION 2: Ví dụ & Ngữ cảnh === */}
-                    <div className="bg-white dark:bg-gray-800/80 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
-                        <div className="flex items-center gap-2 mb-4">
+                    <div className="bg-white dark:bg-gray-800/80 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <div className="flex items-center gap-2 mb-3">
                             <div className="w-7 h-7 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center">
                                 <MessageSquare className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                             </div>
@@ -464,7 +464,7 @@ const AddCardForm = ({
                             <span className="text-[10px] text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full">Tuỳ chọn</span>
                         </div>
 
-                        <div className="space-y-3">
+                        <div className="space-y-2">
                             <FloatingTextarea
                                 id="example"
                                 label="Câu ví dụ tiếng Nhật"
@@ -514,11 +514,11 @@ const AddCardForm = ({
                     </div>
 
                     {/* === SECTION 3: Media (collapsible) === */}
-                    <div className="bg-white dark:bg-gray-800/80 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden">
+                    <div className="bg-white dark:bg-gray-800/80 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden">
                         <button
                             type="button"
                             onClick={() => setShowAdvanced(!showAdvanced)}
-                            className="w-full flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+                            className="w-full flex items-center justify-between p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
                         >
                             <div className="flex items-center gap-2">
                                 <div className="w-7 h-7 rounded-lg bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center">
@@ -582,7 +582,7 @@ const AddCardForm = ({
                     )}
 
                     {/* === ACTION BUTTONS === */}
-                    <div className="flex flex-col sm:flex-row gap-2.5">
+                    <div className="flex flex-col sm:flex-row gap-2">
                         <button
                             type="button"
                             onClick={async () => {

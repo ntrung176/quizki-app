@@ -375,7 +375,7 @@ const AppRoutes = ({
             />
 
             <Route
-                path={ROUTES.STATS}
+                path={ROUTES.HUB}
                 element={
                     <ProtectedRoute isAuthenticated={isAuthenticated}>
                         <StatsScreen
@@ -389,46 +389,6 @@ const AppRoutes = ({
                             userId={userId}
                             publicStatsPath={publicStatsCollectionPath}
                             initialTab="stats"
-                        />
-                    </ProtectedRoute>
-                }
-            />
-
-            <Route
-                path={ROUTES.LEADERBOARD}
-                element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated}>
-                        <StatsScreen
-                            memoryStats={memoryStats}
-                            totalCards={allCards?.length || 0}
-                            profile={profile}
-                            allCards={allCards}
-                            dailyActivityLogs={dailyActivityLogs}
-                            onUpdateGoal={handleUpdateGoal}
-                            onBack={() => setView('HOME')}
-                            userId={userId}
-                            publicStatsPath={publicStatsCollectionPath}
-                            initialTab="leaderboard"
-                        />
-                    </ProtectedRoute>
-                }
-            />
-
-            <Route
-                path={ROUTES.PET}
-                element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated}>
-                        <StatsScreen
-                            memoryStats={memoryStats}
-                            totalCards={allCards?.length || 0}
-                            profile={profile}
-                            allCards={allCards}
-                            dailyActivityLogs={dailyActivityLogs}
-                            onUpdateGoal={handleUpdateGoal}
-                            onBack={() => setView('HOME')}
-                            userId={userId}
-                            publicStatsPath={publicStatsCollectionPath}
-                            initialTab="pet"
                         />
                     </ProtectedRoute>
                 }

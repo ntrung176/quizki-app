@@ -27,14 +27,20 @@
 </head>
 
 <body>
-  <!-- Hidden static links for Google Bot Crawler -->
-  <div style="display: none;" aria-hidden="true">
-    <a href="/privacy.html">Chính sách bảo mật (Privacy Policy)</a>
-    <a href="/terms.html">Điều khoản dịch vụ (Terms of Service)</a>
-  </div>
-
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+
+  <!-- Fallback for non-JS crawlers (Google OAuth bot, SEO bots) -->
+  <noscript>
+    <div style="font-family:sans-serif;max-width:600px;margin:40px auto;padding:20px;text-align:center;">
+      <h1>QuizKi - Học từ vựng thông minh</h1>
+      <p>Nền tảng học từ vựng và Kanji tiếng Nhật với AI và Spaced Repetition.</p>
+      <p>Vui lòng bật JavaScript để sử dụng ứng dụng.</p>
+      <hr style="margin:20px 0;">
+      <a href="/privacy.html">Chính sách bảo mật (Privacy Policy)</a> |
+      <a href="/terms.html">Điều khoản dịch vụ (Terms of Service)</a>
+    </div>
+  </noscript>
 </body>
 
 </html>

@@ -120,9 +120,7 @@ const App = () => {
             'KANJI': ROUTES.KANJI_LIST,
             'STUDY': ROUTES.STUDY,
             'TEST': ROUTES.TEST,
-            'STATS': ROUTES.STATS,
-            'LEADERBOARD': ROUTES.LEADERBOARD,
-            'PET': ROUTES.PET,
+            'HUB': ROUTES.HUB,
             'IMPORT': ROUTES.IMPORT,
             'ADMIN': ROUTES.ADMIN,
             'SETTINGS': ROUTES.SETTINGS,
@@ -150,9 +148,7 @@ const App = () => {
         if (path === ROUTES.KANJI_SAVED) return 'KANJI_SAVED';
         if (path === ROUTES.STUDY) return 'STUDY';
         if (path === ROUTES.TEST) return 'TEST';
-        if (path === ROUTES.STATS) return 'STATS';
-        if (path === ROUTES.LEADERBOARD) return 'LEADERBOARD';
-        if (path === ROUTES.PET) return 'PET';
+        if (path === ROUTES.HUB || path.startsWith('/hub')) return 'HUB';
         if (path === ROUTES.IMPORT) return 'IMPORT';
         if (path === ROUTES.ADMIN) return 'ADMIN';
         if (path === ROUTES.BOOKS) return 'BOOKS';
@@ -2500,9 +2496,7 @@ Không được trả về markdown, không được dùng backtick, không đư
                 return <HelpScreen
                     isFirstTime={false}
                 />;
-            case 'STATS':
-            case 'LEADERBOARD':
-            case 'PET':
+            case 'HUB':
                 return <StatsScreen
                     memoryStats={memoryStats}
                     totalCards={allCards.length}
@@ -2513,7 +2507,7 @@ Không được trả về markdown, không được dùng backtick, không đư
                     onBack={() => setView('HOME')}
                     userId={userId}
                     publicStatsPath={publicStatsCollectionPath}
-                    initialTab={view === 'LEADERBOARD' ? 'leaderboard' : view === 'PET' ? 'pet' : 'stats'}
+                    initialTab="stats"
                 />;
             case 'ACCOUNT':
                 return <AccountScreen
@@ -2706,7 +2700,7 @@ Không được trả về markdown, không được dùng backtick, không đư
                         </div>
 
                         {/* Notification */}
-                        {notification && (view === 'HOME' || view === 'STATS' || view === 'ADD_CARD' || view === 'LIST') && (
+                        {notification && (view === 'HOME' || view === 'HUB' || view === 'ADD_CARD' || view === 'LIST') && (
                             <div className={`mt-4 md:mt-6 p-3 md:p-4 rounded-xl text-center text-sm font-medium animate-fade-in flex items-center justify-center space-x-2
                                 ${notification.includes('Lỗi') || notification.includes('có trong')
                                     ? 'bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 border border-red-100 dark:border-red-800'

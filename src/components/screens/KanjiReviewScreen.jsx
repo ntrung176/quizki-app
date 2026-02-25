@@ -470,43 +470,43 @@ const KanjiReviewScreen = () => {
 
     // ==================== STATS SCREEN ====================
     return (
-        <div className="space-y-6 max-w-5xl mx-auto">
+        <div className="space-y-3 max-w-4xl mx-auto">
             <div className="space-y-1">
                 <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Ôn tập Kanji</h1>
                 <p className="text-sm text-gray-500 dark:text-gray-400">Theo dõi tiến độ ôn tập và phân bố thẻ</p>
             </div>
 
             {/* Key Stats: Days Studied, Kanji Learned, Streak */}
-            <div className="grid grid-cols-3 gap-3">
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 text-center">
-                    <div className="flex items-center justify-center gap-2 text-emerald-500 mb-2">
-                        <Calendar className="w-5 h-5" />
+            <div className="grid grid-cols-3 gap-2">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200 dark:border-gray-700 text-center">
+                    <div className="flex items-center justify-center gap-1.5 text-emerald-500 mb-1">
+                        <Calendar className="w-4 h-4" />
                     </div>
-                    <div className="text-3xl font-bold text-gray-800 dark:text-white">{stats.daysStudied}</div>
-                    <div className="text-xs text-gray-500 mt-1">Ngày đã học</div>
+                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{stats.daysStudied}</div>
+                    <div className="text-[10px] md:text-xs text-gray-500 mt-0.5">Ngày đã học</div>
                 </div>
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 text-center">
-                    <div className="flex items-center justify-center gap-2 text-cyan-500 mb-2">
-                        <Target className="w-5 h-5" />
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200 dark:border-gray-700 text-center">
+                    <div className="flex items-center justify-center gap-1.5 text-cyan-500 mb-1">
+                        <Target className="w-4 h-4" />
                     </div>
-                    <div className="text-3xl font-bold text-gray-800 dark:text-white">{stats.kanjiLearned}</div>
-                    <div className="text-xs text-gray-500 mt-1">Kanji đã học</div>
+                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{stats.kanjiLearned}</div>
+                    <div className="text-[10px] md:text-xs text-gray-500 mt-0.5">Kanji đã học</div>
                 </div>
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 text-center">
-                    <div className="flex items-center justify-center gap-2 text-orange-500 mb-2">
-                        <Flame className="w-5 h-5" />
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200 dark:border-gray-700 text-center">
+                    <div className="flex items-center justify-center gap-1.5 text-orange-500 mb-1">
+                        <Flame className="w-4 h-4" />
                     </div>
-                    <div className="text-3xl font-bold text-gray-800 dark:text-white">{stats.streak}</div>
-                    <div className="text-xs text-gray-500 mt-1">Ngày liên tiếp</div>
+                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{stats.streak}</div>
+                    <div className="text-[10px] md:text-xs text-gray-500 mt-0.5">Ngày liên tiếp</div>
                 </div>
             </div>
 
             {/* Overview Stats */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700">
-                <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4 flex items-center gap-2">
-                    <Target className="w-4 h-4" /> Tổng quan (thẻ)
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-3 md:p-4 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-sm font-bold text-gray-600 dark:text-gray-300 mb-3 flex items-center gap-2">
+                    <Target className="w-4 h-4 text-emerald-500" /> Tổng quan
                 </h3>
-                <div className="grid grid-cols-3 md:grid-cols-6 gap-4 text-center">
+                <div className="grid grid-cols-3 md:grid-cols-6 gap-2 text-center">
                     <div className="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
                         <div className="text-2xl font-bold text-cyan-400">{stats.dueToday}</div>
                         <div className="text-xs text-gray-500 mt-1">Cần ôn</div>
@@ -535,90 +535,93 @@ const KanjiReviewScreen = () => {
             </div>
 
             {/* Today & Next Review */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-gradient-to-br from-orange-400 to-orange-500 rounded-xl p-6 text-white shadow-lg">
-                    <div className="flex items-center gap-2 mb-2">
-                        <Calendar className="w-5 h-5" />
-                        <span className="font-bold">Hôm nay</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="bg-gradient-to-br from-orange-400 to-orange-500 rounded-xl p-4 text-white shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div className="flex items-center gap-2 mb-1">
+                            <Calendar className="w-4 h-4 text-orange-100" />
+                            <span className="font-bold text-sm">Hôm nay</span>
+                        </div>
+                        <div className="text-4xl font-bold mb-1">{stats.dueToday} <span className="text-sm font-normal text-orange-100 mb-2">thẻ cần ôn</span></div>
                     </div>
-                    <div className="text-5xl font-bold mb-2">{stats.dueToday}</div>
-                    <p className="text-orange-100 mb-4">thẻ cần ôn tập</p>
                     <button
                         onClick={startReview}
                         disabled={stats.dueToday === 0}
-                        className="w-full py-3 bg-white/20 hover:bg-white/30 disabled:opacity-50 disabled:cursor-not-allowed rounded-xl text-base font-bold transition-colors border border-white/30"
+                        className="w-full mt-2 py-2.5 bg-white/20 hover:bg-white/30 disabled:opacity-50 disabled:cursor-not-allowed rounded-xl text-sm font-bold transition-colors border border-white/30"
                     >
-                        {stats.dueToday > 0 ? 'Ôn tập ngay' : 'Không có thẻ cần ôn'}
+                        {stats.dueToday > 0 ? 'Ôn tập ngay' : 'Thảnh thơi'}
                     </button>
                 </div>
-                <div className="bg-gradient-to-br from-blue-400 to-blue-500 rounded-xl p-6 text-white shadow-lg">
-                    <div className="flex items-center gap-2 mb-2">
-                        <Clock className="w-5 h-5" />
-                        <span className="font-bold">Lượt tiếp theo</span>
+                <div className="bg-gradient-to-br from-blue-400 to-blue-500 rounded-xl p-4 text-white shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div className="flex items-center gap-2 mb-1">
+                            <Clock className="w-4 h-4 text-blue-100" />
+                            <span className="font-bold text-sm">Lượt tiếp theo</span>
+                        </div>
+                        <div className={`font-bold mb-1 ${isNextReviewCountdown ? 'text-2xl md:text-3xl font-mono tracking-wider' : 'text-3xl'}`}>{nextReviewText || '∞'}</div>
+                        <p className="text-blue-100 text-xs">{isNextReviewCountdown ? 'Đếm ngược...' : 'Nghỉ ngơi...'}</p>
                     </div>
-                    <p className="text-blue-100 text-sm mb-1">Sau khi hoàn thành, bạn có</p>
-                    <div className={`font-bold mb-2 ${isNextReviewCountdown ? 'text-3xl md:text-4xl font-mono tracking-wider' : 'text-5xl'}`}>{nextReviewText || '∞'}</div>
-                    <p className="text-blue-100">{isNextReviewCountdown ? 'đếm ngược đến lượt ôn tập tiếp theo' : 'nghỉ ngơi cho đến lượt ôn tập tiếp theo'}</p>
                     {nextRoundCount > 0 && (
-                        <div className="mt-2 bg-white/20 rounded-lg px-3 py-1.5 inline-flex items-center gap-1.5">
-                            <span className="text-sm font-bold">{nextRoundCount}</span>
-                            <span className="text-xs text-blue-100">thẻ sẽ đến hạn</span>
+                        <div className="mt-2 bg-white/20 rounded-lg px-2.5 py-1.5 inline-flex items-center gap-1.5 self-start">
+                            <span className="text-xs font-bold">{nextRoundCount}</span>
+                            <span className="text-[10px] text-blue-100">thẻ sẽ đến hạn</span>
                         </div>
                     )}
                 </div>
             </div>
 
-            {/* Activity Heatmap */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700">
-                <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4 flex items-center gap-2">
-                    <Flame className="w-4 h-4 text-orange-400" />
-                    {stats.totalReps} lượt ôn tập trong 365 ngày qua
-                </h3>
-                <div className="overflow-x-auto">
-                    <div className="flex gap-1 min-w-max">
-                        {Array.from({ length: 52 }).map((_, weekIndex) => (
-                            <div key={weekIndex} className="flex flex-col gap-1">
-                                {Array.from({ length: 7 }).map((_, dayIndex) => {
-                                    const dataIndex = weekIndex * 7 + dayIndex;
-                                    const activity = activityData[dataIndex];
-                                    const level = activity?.level || 0;
-                                    const colors = ['bg-gray-200 dark:bg-gray-700', 'bg-emerald-200 dark:bg-emerald-900', 'bg-emerald-400 dark:bg-emerald-700', 'bg-emerald-500', 'bg-emerald-400'];
-                                    return (
-                                        <div key={dayIndex} className={`w-3 h-3 rounded-sm ${colors[level]}`}
-                                            title={activity?.date?.toLocaleDateString()} />
-                                    );
-                                })}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <div className="flex items-center justify-end gap-2 mt-4 text-xs text-gray-500">
-                    <span>Ít</span>
-                    <div className="flex gap-1">
-                        {['bg-gray-200 dark:bg-gray-700', 'bg-emerald-200 dark:bg-emerald-900', 'bg-emerald-400 dark:bg-emerald-700', 'bg-emerald-500', 'bg-emerald-400'].map((c, i) => (
-                            <div key={i} className={`w-3 h-3 rounded-sm ${c}`}></div>
-                        ))}
-                    </div>
-                    <span>Nhiều</span>
-                </div>
-            </div>
-
-            {/* Card Distribution */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-                <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-5">Phân bố thẻ</h3>
-                <div className="space-y-5">
-                    {cardDistribution.map((item, index) => (
-                        <div key={index}>
-                            <div className="flex justify-between text-sm mb-2">
-                                <span className="text-gray-600 dark:text-gray-400">{item.label} ({item.count})</span>
-                                <span className="text-gray-500 font-medium">{item.percent.toFixed(1)}%</span>
-                            </div>
-                            <div className="h-2.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                                <div className={`h-full ${item.color} rounded-full transition-all duration-500`}
-                                    style={{ width: `${item.percent}%` }} />
-                            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {/* Activity Heatmap */}
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
+                    <h3 className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
+                        <Flame className="w-4 h-4 text-orange-400" /> Lượt ôn ({stats.totalReps})
+                    </h3>
+                    <div className="overflow-x-auto">
+                        <div className="flex gap-1 min-w-max">
+                            {Array.from({ length: 52 }).map((_, weekIndex) => (
+                                <div key={weekIndex} className="flex flex-col gap-1">
+                                    {Array.from({ length: 7 }).map((_, dayIndex) => {
+                                        const dataIndex = weekIndex * 7 + dayIndex;
+                                        const activity = activityData[dataIndex];
+                                        const level = activity?.level || 0;
+                                        const colors = ['bg-gray-200 dark:bg-gray-700', 'bg-emerald-200 dark:bg-emerald-900', 'bg-emerald-400 dark:bg-emerald-700', 'bg-emerald-500', 'bg-emerald-400'];
+                                        return (
+                                            <div key={dayIndex} className={`w-3 h-3 rounded-sm ${colors[level]}`}
+                                                title={activity?.date?.toLocaleDateString()} />
+                                        );
+                                    })}
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
+                    <div className="flex items-center justify-end gap-1.5 mt-3 text-[10px] text-gray-500">
+                        <span>Ít</span>
+                        <div className="flex gap-1">
+                            {['bg-gray-200 dark:bg-gray-700', 'bg-emerald-200 dark:bg-emerald-900', 'bg-emerald-400 dark:bg-emerald-700', 'bg-emerald-500', 'bg-emerald-400'].map((c, i) => (
+                                <div key={i} className={`w-2.5 h-2.5 rounded-sm ${c}`}></div>
+                            ))}
+                        </div>
+                        <span>Nhiều</span>
+                    </div>
+                </div>
+
+                {/* Card Distribution */}
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
+                    <h3 className="text-sm font-bold text-gray-800 dark:text-white mb-3">Phân bố thẻ</h3>
+                    <div className="space-y-3">
+                        {cardDistribution.map((item, index) => (
+                            <div key={index}>
+                                <div className="flex justify-between text-sm mb-2">
+                                    <span className="text-gray-600 dark:text-gray-400">{item.label} ({item.count})</span>
+                                    <span className="text-gray-500 font-medium">{item.percent.toFixed(1)}%</span>
+                                </div>
+                                <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div className={`h-full ${item.color} rounded-full transition-all duration-500`}
+                                        style={{ width: `${item.percent}%` }} />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

@@ -305,6 +305,14 @@ Hãy phân tích và trả về DUY NHẤT một JSON hợp lệ (KHÔNG markdow
 
 === QUY TẮC BẮT BUỘC ===
 
+0. NHẬN DIỆN CỤM TỪ / THÀNH NGỮ (QUAN TRỌNG NHẤT):
+- Nếu người dùng nhập CỤM TỪ có chứa trợ từ (を、に、が、で、と...) hoặc nhiều từ ghép nhau (VD: 迷惑をかける、気にする、手を出す、目を通す、腹が立つ), thì ĐÂY LÀ MỘT CỤM TỪ / THÀNH NGỮ, KHÔNG PHẢI TỪ ĐƠN.
+- pos BẮT BUỘC là "phrase".
+- reading: GIỮ NGUYÊN CẢ CỤM đọc bằng hiragana. VD: 迷惑をかける → "めいわくをかける".
+- meaning: Nghĩa CỦA CẢ CỤM, KHÔNG phải nghĩa từng từ riêng lẻ. VD: 迷惑をかける = "gây phiền hà; làm phiền".
+- sinoVietnamese: Chỉ lấy phần Kanji trong cụm. VD: 迷惑をかける → "MÊ HOẶC".
+- example: Câu ví dụ PHẢI chứa nguyên cả cụm.
+
 1. TRƯỜNG "reading": CHỈ điền cách đọc hiragana nếu từ có Kanji. Không có Kanji thì để trống "".
 
 2. TRƯỜNG "meaning": Nghĩa ngắn gọn. Nếu có nhiều nghĩa KHÁC NHAU HOÀN TOÀN thì ngăn cách bằng dấu ";". Ví dụ: "ăn; sống (bằng nghề)". TUYỆT ĐỐI KHÔNG liệt kê nghĩa gần giống nhau.
