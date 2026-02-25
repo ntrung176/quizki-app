@@ -58,6 +58,7 @@ import {
 
 // Import layout components
 import { Sidebar } from './components/layout';
+import OnboardingTour from './components/ui/OnboardingTour';
 
 // Import card components
 import {
@@ -2561,6 +2562,9 @@ Không được trả về markdown, không được dùng backtick, không đư
                 displayName={profile?.displayName}
                 isAdmin={isAdmin}
             />
+
+            {/* Onboarding tour for new users */}
+            {userId && <OnboardingTour userId={userId} />}
 
             {/* Modal nhập từ vựng hàng loạt */}
             {showBatchImportModal && (

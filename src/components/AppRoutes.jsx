@@ -26,7 +26,9 @@ import {
     SettingsScreen,
     FeedbackScreen,
     JLPTTestScreen,
-    JLPTAdminScreen
+    JLPTAdminScreen,
+    PrivacyScreen,
+    TermsScreen
 } from './screens';
 
 // Import card components
@@ -136,7 +138,9 @@ const AppRoutes = ({
                 }
             />
 
-
+            {/* Legal public routes */}
+            <Route path={ROUTES.PRIVACY} element={<PrivacyScreen />} />
+            <Route path={ROUTES.TERMS} element={<TermsScreen />} />
 
             {/* Protected routes - require both auth and approval */}
 
@@ -144,13 +148,15 @@ const AppRoutes = ({
             <Route
                 path={ROUTES.HOME}
                 element={
-                    <ProtectedRoute isAuthenticated={isAuthenticated}>
+                    isAuthenticated ? (
                         <HomeScreen
                             displayName={profile?.displayName}
                             totalCards={allCards?.length || 0}
                             allCards={allCards}
                         />
-                    </ProtectedRoute>
+                    ) : (
+                        <LoginScreen />
+                    )
                 }
             />
 

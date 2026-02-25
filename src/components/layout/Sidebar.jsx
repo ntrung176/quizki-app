@@ -251,7 +251,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
             {/* Navigation */}
             <nav className="flex-1 p-3 space-y-1 overflow-y-auto sidebar-scroll">
                 {menuItems.map((item) => (
-                    <div key={item.id}>
+                    <div key={item.id} data-tour-id={item.id}>
                         {item.hasSubmenu ? (
                             <>
                                 <button

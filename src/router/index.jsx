@@ -9,6 +9,8 @@ export const ROUTES = {
     LOGIN: '/login',
     ACCOUNT: '/account',
     HELP: '/help',
+    PRIVACY: '/privacy',
+    TERMS: '/terms',
 
     // Vocabulary: /vocab/*
     VOCAB_REVIEW: '/vocab/review',       // Ôn tập từ vựng (SRS flashcard)

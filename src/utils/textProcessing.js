@@ -34,6 +34,21 @@ export const getWordForMasking = (text) => {
     return cleanedText;
 };
 
+// Get the hiragana reading from front text like "勉強する（べんきょうする）"
+// Returns the kana part for N5 fallback masking
+export const getReadingForMasking = (text) => {
+    if (!text) return '';
+    const match = text.match(/[（(]([^）)]+)[）)]/);
+    if (!match) return '';
+    let reading = match[1].trim();
+    // Clean up: lấy phần đầu nếu có ・ hoặc /
+    if (reading.includes('・')) reading = reading.split('・')[0].trim();
+    if (reading.includes('/')) reading = reading.split('/')[0].trim();
+    // Loại bỏ する nếu có ở cuối
+    if (reading.endsWith('する')) reading = reading.slice(0, -2);
+    return reading;
+};
+
 // Xử lý masking cho động từ với logic hậu tố ngữ pháp
 export const maskVerbInExample = (targetWord, exampleSentence) => {
     if (!targetWord || !exampleSentence) return exampleSentence;
@@ -150,7 +165,8 @@ export const maskAdjNaInExample = (targetWord, exampleSentence) => {
 };
 
 // Xử lý masking cho câu ví dụ dựa trên từ loại
-export const maskWordInExample = (targetWord, exampleSentence, pos) => {
+// reading: phần hiragana để fallback khi câu ví dụ viết bằng kana (đặc biệt N5)
+export const maskWordInExample = (targetWord, exampleSentence, pos, reading = '') => {
     if (!targetWord || !exampleSentence) return exampleSentence;
 
     const blank = '_____';
@@ -167,23 +183,69 @@ export const maskWordInExample = (targetWord, exampleSentence, pos) => {
         return null;
     };
 
-    // Thử match chính xác trước
+    // Thử match chính xác trước (kanji)
     const exactMatch = maskExact100(normalizedTarget, exampleSentence, blank);
     if (exactMatch) return exactMatch;
 
-    // Xử lý theo từ loại
+    // Xử lý theo từ loại (kanji)
+    let result = exampleSentence;
     switch (pos) {
         case 'verb':
-            return maskVerbInExample(targetWord, exampleSentence);
+            result = maskVerbInExample(targetWord, exampleSentence);
+            break;
         case 'adj-na':
-            return maskAdjNaInExample(targetWord, exampleSentence);
+            result = maskAdjNaInExample(targetWord, exampleSentence);
+            break;
         default:
-            // Fallback cho các từ loại khác: tìm từ gốc
             if (exampleSentence.includes(normalizedTarget)) {
-                return exampleSentence.replace(normalizedTarget, blank);
+                result = exampleSentence.replace(normalizedTarget, blank);
             }
-            return exampleSentence;
+            break;
     }
+
+    // Nếu đã mask thành công bằng kanji, trả về
+    if (result !== exampleSentence) return result;
+
+    // === FALLBACK: thử dùng reading (hiragana) ===
+    // Đặc biệt hữu ích cho từ vựng N5 - câu ví dụ viết bằng hiragana
+    const kanaReading = reading || getReadingForMasking(targetWord);
+    if (kanaReading && kanaReading !== normalizedTarget) {
+        // Thử match chính xác bằng kana
+        const kanaExact = maskExact100(kanaReading, exampleSentence, blank);
+        if (kanaExact) return kanaExact;
+
+        // Thử biến thể verb/adj bằng kana
+        switch (pos) {
+            case 'verb':
+                result = maskVerbInExample(kanaReading, exampleSentence);
+                if (result !== exampleSentence) return result;
+                break;
+            case 'adj-na':
+                result = maskAdjNaInExample(kanaReading, exampleSentence);
+                if (result !== exampleSentence) return result;
+                break;
+            default:
+                if (exampleSentence.includes(kanaReading)) {
+                    return exampleSentence.replace(kanaReading, blank);
+                }
+                break;
+        }
+
+        // Thử match kana + hậu tố ngữ pháp thông dụng
+        const commonSuffixes = ['します', 'する', 'した', 'して', 'しない', 'しよう',
+            'です', 'だ', 'な', 'に', 'で', 'い', 'く', 'かった', 'くない',
+            'ます', 'ました', 'ません', 'ましょう', 'ない', 'なかった',
+            'る', 'た', 'て', 'ている', 'ていた', 'れる', 'られる',
+            'く', 'くて', 'かった', 'くない'];
+        for (const suffix of commonSuffixes) {
+            const pattern = kanaReading + suffix;
+            if (exampleSentence.includes(pattern)) {
+                return exampleSentence.replace(pattern, blank);
+            }
+        }
+    }
+
+    return exampleSentence;
 };
 
 // Với tính từ -na: chấp nhận đáp án có/không có "な"

@@ -2,12 +2,13 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
     BookOpen, Plus, Trash2, Edit, ChevronRight, ChevronLeft, Check, X,
-    Upload, FolderPlus, FileText, List, Search, ArrowLeft, Image, Save, Layers, Copy, Clipboard, Folder
+    Upload, FolderPlus, FileText, List, Search, ArrowLeft, Image, Save, Layers, Copy, Clipboard, Folder, Scissors
 } from 'lucide-react';
 import { db } from '../../config/firebase';
 import {
     collection, getDocs, addDoc, deleteDoc, doc, updateDoc, writeBatch, setDoc
 } from 'firebase/firestore';
+import AudioTrimmer from '../ui/AudioTrimmer';
 
 // ==================== REUSABLE COMPONENTS (outside BookScreen to prevent re-mount) ====================
 const FormModal = ({ show, onClose, title, onSave, children }) => {
@@ -78,6 +79,9 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
 
     // Table of contents
     const [showTOC, setShowTOC] = useState(true);
+
+    // Audio trimmer
+    const [showAudioTrimmer, setShowAudioTrimmer] = useState(false);
 
     const COLLECTION = 'bookGroups';
 
@@ -252,6 +256,22 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
         newVocab.splice(vocabIndex, 1);
         await updateDoc(lessonRef, { vocab: newVocab });
         loadAllData();
+    };
+
+    // ==================== SAVE AUDIO CLIP ====================
+    const handleSaveAudioClip = async (vocabIndex, base64Audio, vocab) => {
+        if (!lessonId || !currentLesson) return;
+        try {
+            const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
+            const newVocab = [...(currentLesson.vocab || [])];
+            if (newVocab[vocabIndex]) {
+                newVocab[vocabIndex] = { ...newVocab[vocabIndex], audioBase64: base64Audio };
+                await updateDoc(lessonRef, { vocab: newVocab });
+                loadAllData();
+            }
+        } catch (e) {
+            console.error('Error saving audio clip:', e);
+        }
     };
 
     // ==================== ADD VOCAB TO SRS ====================
@@ -565,8 +585,26 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                     <Upload className="w-4 h-4" /> Import JSON
                                 </button>
                             )}
+                            {isAdmin && vocab.length > 0 && (
+                                <button onClick={() => setShowAudioTrimmer(prev => !prev)}
+                                    className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-medium transition-colors ${showAudioTrimmer
+                                        ? 'bg-violet-600 text-white'
+                                        : 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 hover:bg-violet-200 dark:hover:bg-violet-900/50'
+                                        }`}>
+                                    <Scissors className="w-4 h-4" /> Cắt Audio
+                                </button>
+                            )}
                         </div>
                     </div>
+
+                    {/* Audio Trimmer Tool */}
+                    {showAudioTrimmer && isAdmin && vocab.length > 0 && (
+                        <AudioTrimmer
+                            vocabList={vocab}
+                            onSaveClip={handleSaveAudioClip}
+                            onClose={() => setShowAudioTrimmer(false)}
+                        />
+                    )}
 
                     {vocab.length === 0 ? (
                         <div className="text-center py-12 text-gray-400">

@@ -8,6 +8,7 @@ import { playAudio, speakJapanese } from '../../utils/audio';
 import {
     shuffleArray,
     getWordForMasking,
+    getReadingForMasking,
     maskWordInExample,
     buildAdjNaAcceptedAnswers
 } from '../../utils/textProcessing';
@@ -442,12 +443,13 @@ const ReviewScreen = ({
                 return { label: 'Từ đồng nghĩa', text: currentCard.synonym, image: currentCard.imageBase64, icon: MessageSquare, color: 'text-blue-600' };
             case 'example': {
                 const wordToMask = getWordForMasking(currentCard.front);
+                const readingForMask = getReadingForMasking(currentCard.front);
                 // Use first example line if multiple examples exist
                 const exampleLines = (currentCard.example || '').split('\n').filter(e => e.trim());
                 const exampleMeaningLines = (currentCard.exampleMeaning || '').split('\n').filter(e => e.trim());
                 const firstExample = exampleLines[0] || currentCard.example;
                 const firstExampleMeaning = exampleMeaningLines[0] || currentCard.exampleMeaning || null;
-                const maskedExample = maskWordInExample(wordToMask, firstExample, currentCard.pos);
+                const maskedExample = maskWordInExample(wordToMask, firstExample, currentCard.pos, readingForMask);
                 return { label: 'Điền từ còn thiếu', text: maskedExample, meaning: firstExampleMeaning, image: currentCard.imageBase64, icon: FileText, color: 'text-purple-600' };
             }
             default:

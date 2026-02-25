@@ -1,17 +1,15 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { X, ChevronRight, ChevronLeft, Sparkles, BookOpen, Plus, Brain, BarChart3, Layout, Settings, HelpCircle } from 'lucide-react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { ChevronRight, ChevronLeft, X, Sparkles } from 'lucide-react';
 
-const ONBOARDING_KEY = 'quizki-onboarding-seen';
+const ONBOARDING_KEY = 'quizki-onboarding-done';
 
-// Check if onboarding has been seen for a specific section
+// Check / mark helpers (export for settings reset)
 export const hasSeenOnboarding = (section) => {
     try {
         const seen = JSON.parse(localStorage.getItem(ONBOARDING_KEY) || '{}');
         return !!seen[section];
     } catch { return false; }
 };
-
-// Mark onboarding as seen for a section
 export const markOnboardingSeen = (section) => {
     try {
         const seen = JSON.parse(localStorage.getItem(ONBOARDING_KEY) || '{}');
@@ -19,268 +17,225 @@ export const markOnboardingSeen = (section) => {
         localStorage.setItem(ONBOARDING_KEY, JSON.stringify(seen));
     } catch { }
 };
-
-// Reset all onboarding
 export const resetAllOnboarding = () => {
     localStorage.removeItem(ONBOARDING_KEY);
 };
 
-// ==================== Onboarding Steps Data ====================
-const ONBOARDING_DATA = {
-    home: {
-        title: 'Chào mừng đến QuizKi! 🎉',
-        steps: [
-            {
-                icon: Layout,
-                title: 'Trang chủ',
-                description: 'Đây là trang chính, nơi bạn có thể xem tổng quan tiến độ học tập và truy cập nhanh các chức năng.',
-                color: 'from-indigo-500 to-purple-600',
-            },
-            {
-                icon: Plus,
-                title: 'Thêm từ vựng',
-                description: 'Bắt đầu bằng việc thêm từ vựng mới. Bạn có thể nhập thủ công hoặc dán danh sách JSON.',
-                color: 'from-emerald-500 to-teal-600',
-            },
-            {
-                icon: Brain,
-                title: 'Ôn tập thông minh',
-                description: 'Hệ thống SRS sẽ tự động nhắc bạn ôn tập đúng lúc. Trả lời đúng → khoảng cách tăng, sai → ôn lại ngay.',
-                color: 'from-amber-500 to-orange-600',
-            },
-            {
-                icon: BarChart3,
-                title: 'Theo dõi tiến độ',
-                description: 'Xem thống kê chi tiết về quá trình học tập, số từ đã master, và chuỗi học liên tục.',
-                color: 'from-rose-500 to-pink-600',
-            },
-        ],
+// ==================== Tour steps targeting sidebar data-tour-id ====================
+const TOUR_STEPS = [
+    {
+        target: '[data-tour-id="HOME"]',
+        title: '🏠 Trang chủ',
+        desc: 'Xem tổng quan tiến độ học tập, thống kê và truy cập nhanh các chức năng chính của ứng dụng.',
     },
-    vocabAdd: {
-        title: 'Thêm từ vựng 📝',
-        steps: [
-            {
-                icon: Plus,
-                title: 'Thêm thủ công',
-                description: 'Nhập từ vựng (Nhật), nghĩa (Việt), và bấm AI Hỗ trợ để tự động điền thông tin chi tiết.',
-                color: 'from-blue-500 to-indigo-600',
-            },
-            {
-                icon: BookOpen,
-                title: 'Thêm bằng JSON',
-                description: 'Dán danh sách JSON để thêm nhiều từ cùng lúc. Copy JSON mẫu để bắt đầu nhanh hơn.',
-                color: 'from-emerald-500 to-teal-600',
-            },
-        ],
+    {
+        target: '[data-tour-id="VOCAB"]',
+        title: '📖 Học Từ Vựng',
+        desc: 'Thêm từ mới, ôn tập từ vựng theo SRS (lặp lại ngắt quãng thông minh), xem & quản lý danh sách từ vựng, và học theo sách giáo khoa.',
     },
-    vocabReview: {
-        title: 'Ôn tập từ vựng 🔥',
-        steps: [
-            {
-                icon: Brain,
-                title: 'Các chế độ ôn tập',
-                description: 'Bạn có thể ôn theo cách đọc, đồng nghĩa, hoặc ngữ cảnh. Chế độ hỗn hợp sẽ trộn tất cả.',
-                color: 'from-orange-500 to-amber-600',
-            },
-            {
-                icon: Sparkles,
-                title: 'Nhập đáp án',
-                description: 'Nhập đáp án rồi bấm Enter. Nếu sai, nhập lại từ đúng để ghi nhớ sâu hơn.',
-                color: 'from-violet-500 to-purple-600',
-            },
-        ],
+    {
+        target: '[data-tour-id="KANJI"]',
+        title: '🈶 Học Kanji',
+        desc: 'Học Kanji theo lộ trình JLPT (N5→N1), ôn tập Kanji bằng SRS, xem Kanji đã lưu và tra cứu hơn 2500 chữ Kanji với nét viết.',
     },
-    kanjiStudy: {
-        title: 'Học Kanji ✍️',
-        steps: [
-            {
-                icon: BookOpen,
-                title: 'Lộ trình học',
-                description: 'Kanji được chia theo cấp độ JLPT. Bắt đầu từ N5 và tiến dần lên.',
-                color: 'from-red-500 to-rose-600',
-            },
-            {
-                icon: Brain,
-                title: 'Bài kiểm tra',
-                description: 'Sau khi học, làm bài kiểm tra để ghi nhớ. Bao gồm nhận diện nghĩa, cách đọc, và viết Kanji.',
-                color: 'from-teal-500 to-cyan-600',
-            },
-        ],
+    {
+        target: '[data-tour-id="JLPT_TEST"]',
+        title: '📝 Luyện thi JLPT',
+        desc: 'Làm bài thi JLPT mô phỏng thực tế với đầy đủ phần từ vựng, ngữ pháp, đọc hiểu. Hỗ trợ từ N5 đến N1.',
     },
-    settings: {
-        title: 'Cài đặt ⚙️',
-        steps: [
-            {
-                icon: Settings,
-                title: 'Tùy chỉnh',
-                description: 'Điều chỉnh âm lượng hiệu ứng, nhạc nền, chế độ sáng/tối theo sở thích.',
-                color: 'from-gray-500 to-slate-600',
-            },
-            {
-                icon: HelpCircle,
-                title: 'Phản hồi',
-                description: 'Gửi phản hồi, báo lỗi hoặc đề xuất tính năng mới cho ứng dụng.',
-                color: 'from-indigo-500 to-blue-600',
-            },
-        ],
+    {
+        target: '[data-tour-id="HUB"]',
+        title: '🎮 Trung tâm',
+        desc: 'Xem thống kê chi tiết, bảng xếp hạng thi đua với bạn bè, và chăm sóc thú cưng ảo — phần thưởng cho việc học chăm chỉ!',
     },
-};
+    {
+        target: '[data-tour-id="SETTINGS"]',
+        title: '⚙️ Cài đặt',
+        desc: 'Quản lý tài khoản, đổi tên hiển thị, chọn giao diện sáng/tối, điều chỉnh âm thanh hiệu ứng và nhạc nền.',
+    },
+    {
+        target: '[data-tour-id="FEEDBACK"]',
+        title: '💬 Phản hồi',
+        desc: 'Gửi báo lỗi, đề xuất tính năng mới hoặc góp ý. Mọi phản hồi đều được đọc và xử lý!',
+    },
+];
 
-// ==================== Onboarding Modal Component ====================
-const OnboardingTour = ({ section, onComplete }) => {
-    const [currentStep, setCurrentStep] = useState(0);
-    const [isVisible, setIsVisible] = useState(false);
+// ==================== Main Component ====================
+const OnboardingTour = ({ userId }) => {
+    const [isActive, setIsActive] = useState(false);
+    const [step, setStep] = useState(0);
+    const [pos, setPos] = useState({ top: 0, left: 0 });
+    const [highlightRect, setHighlightRect] = useState(null);
+    const tooltipRef = useRef(null);
 
-    const data = ONBOARDING_DATA[section];
-    if (!data) return null;
+    // Activate for first-time users
+    useEffect(() => {
+        if (!userId) return;
+        if (!hasSeenOnboarding(`tour-v2-${userId}`)) {
+            const t = setTimeout(() => setIsActive(true), 800);
+            return () => clearTimeout(t);
+        }
+    }, [userId]);
+
+    // Position tooltip near target
+    const reposition = useCallback(() => {
+        if (!isActive || step >= TOUR_STEPS.length) return;
+        const el = document.querySelector(TOUR_STEPS[step].target);
+        if (!el) return;
+
+        const rect = el.getBoundingClientRect();
+        setHighlightRect({
+            top: rect.top - 3, left: rect.left - 3,
+            width: rect.width + 6, height: rect.height + 6,
+        });
+
+        const tt = tooltipRef.current;
+        const ttH = tt?.offsetHeight || 180;
+        const ttW = tt?.offsetWidth || 340;
+
+        // Default: right side of the target
+        let top = rect.top + rect.height / 2 - ttH / 2;
+        let left = rect.right + 14;
+
+        // Clamp vertical
+        if (top + ttH > window.innerHeight - 16) top = window.innerHeight - ttH - 16;
+        if (top < 16) top = 16;
+
+        // If off-screen right → position below
+        if (left + ttW > window.innerWidth - 16) {
+            left = Math.max(16, rect.left);
+            top = rect.bottom + 12;
+        }
+
+        setPos({ top, left });
+    }, [isActive, step]);
 
     useEffect(() => {
-        if (!hasSeenOnboarding(section)) {
-            // Small delay so page renders first
-            const timer = setTimeout(() => setIsVisible(true), 500);
-            return () => clearTimeout(timer);
-        }
-    }, [section]);
+        reposition();
+        const id = requestAnimationFrame(reposition);
+        window.addEventListener('resize', reposition);
+        window.addEventListener('scroll', reposition, true);
+        return () => {
+            cancelAnimationFrame(id);
+            window.removeEventListener('resize', reposition);
+            window.removeEventListener('scroll', reposition, true);
+        };
+    }, [reposition]);
 
-    const handleNext = () => {
-        if (currentStep < data.steps.length - 1) {
-            setCurrentStep(prev => prev + 1);
-        } else {
-            handleComplete();
-        }
-    };
+    const finish = useCallback(() => {
+        setIsActive(false);
+        if (userId) markOnboardingSeen(`tour-v2-${userId}`);
+    }, [userId]);
 
-    const handlePrev = () => {
-        if (currentStep > 0) setCurrentStep(prev => prev - 1);
-    };
+    const next = () => step < TOUR_STEPS.length - 1 ? setStep(s => s + 1) : finish();
+    const prev = () => step > 0 && setStep(s => s - 1);
 
-    const handleComplete = () => {
-        markOnboardingSeen(section);
-        setIsVisible(false);
-        onComplete?.();
-    };
+    if (!isActive || step >= TOUR_STEPS.length) return null;
 
-    const handleSkip = () => {
-        markOnboardingSeen(section);
-        setIsVisible(false);
-        onComplete?.();
-    };
-
-    if (!isVisible) return null;
-
-    const step = data.steps[currentStep];
-    const StepIcon = step.icon;
-    const progress = ((currentStep + 1) / data.steps.length) * 100;
+    const s = TOUR_STEPS[step];
 
     return (
-        <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4">
-            {/* Backdrop */}
+        <>
+            {/* Highlight ring — no dim overlay */}
+            {highlightRect && (
+                <div
+                    className="fixed rounded-xl pointer-events-none transition-all duration-300 ease-out"
+                    style={{
+                        ...highlightRect,
+                        zIndex: 10000,
+                        boxShadow: '0 0 0 3px rgba(99,102,241,0.7), 0 0 16px 4px rgba(99,102,241,0.25)',
+                    }}
+                />
+            )}
+
+            {/* Tooltip */}
             <div
-                className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-fade-in"
-                onClick={handleSkip}
-            />
-
-            {/* Modal */}
-            <div className="relative bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-md w-full overflow-hidden animate-scale-in"
-                style={{ animation: 'scaleIn 0.3s ease-out' }}
+                ref={tooltipRef}
+                className="fixed w-80 z-[10001] animate-fade-in"
+                style={{ top: pos.top, left: pos.left }}
             >
-                {/* Header gradient */}
-                <div className={`bg-gradient-to-r ${step.color} p-6 pb-12 relative`}>
-                    <button
-                        onClick={handleSkip}
-                        className="absolute top-3 right-3 p-1.5 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors"
-                    >
-                        <X className="w-4 h-4" />
-                    </button>
-                    <p className="text-white/80 text-xs font-medium uppercase tracking-wider mb-2">
-                        {data.title}
-                    </p>
-                    <h3 className="text-white text-xl font-black">{step.title}</h3>
-                </div>
-
-                {/* Icon circle */}
-                <div className="flex justify-center -mt-8 relative z-10">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-xl ring-4 ring-white dark:ring-gray-800`}>
-                        <StepIcon className="w-8 h-8 text-white" />
-                    </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6 pt-4 text-center space-y-4">
-                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        {step.description}
-                    </p>
-
-                    {/* Progress dots */}
-                    <div className="flex justify-center gap-2">
-                        {data.steps.map((_, i) => (
-                            <div
-                                key={i}
-                                className={`h-1.5 rounded-full transition-all ${i === currentStep
-                                        ? 'w-6 bg-indigo-500'
-                                        : i < currentStep
-                                            ? 'w-1.5 bg-indigo-300'
-                                            : 'w-1.5 bg-gray-200 dark:bg-gray-600'
-                                    }`}
-                            />
-                        ))}
-                    </div>
-
-                    {/* Progress bar */}
-                    <div className="h-1 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+                <div className="bg-slate-800/95 dark:bg-slate-900/95 backdrop-blur-xl text-white rounded-2xl shadow-2xl shadow-black/40 border border-slate-600/40 overflow-hidden">
+                    {/* Arrow left */}
+                    {highlightRect && pos.left > (highlightRect.left + highlightRect.width) && (
                         <div
-                            className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-300"
-                            style={{ width: `${progress}%` }}
-                        />
-                    </div>
-
-                    {/* Navigation buttons */}
-                    <div className="flex gap-3 pt-2">
-                        {currentStep > 0 && (
-                            <button
-                                onClick={handlePrev}
-                                className="flex-1 py-2.5 px-4 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-600 transition-all flex items-center justify-center gap-1"
-                            >
-                                <ChevronLeft className="w-4 h-4" /> Quay lại
-                            </button>
-                        )}
-                        <button
-                            onClick={handleNext}
-                            className={`flex-1 py-2.5 px-4 bg-gradient-to-r ${step.color} text-white rounded-xl font-bold text-sm hover:opacity-90 transition-all flex items-center justify-center gap-1 shadow-lg`}
+                            className="absolute -left-2 top-1/2 -translate-y-1/2"
+                            style={{ zIndex: 1 }}
                         >
-                            {currentStep < data.steps.length - 1 ? (
-                                <>Tiếp theo <ChevronRight className="w-4 h-4" /></>
-                            ) : (
-                                <>Bắt đầu! <Sparkles className="w-4 h-4" /></>
-                            )}
-                        </button>
+                            <div className="w-0 h-0 border-t-[8px] border-b-[8px] border-r-[8px] border-transparent border-r-slate-800/95 dark:border-r-slate-900/95" />
+                        </div>
+                    )}
+
+                    {/* Content */}
+                    <div className="p-5 pb-3">
+                        <div className="flex items-start gap-3">
+                            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/30">
+                                <Sparkles className="w-5 h-5 text-white" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                                <h3 className="text-[15px] font-bold text-white leading-tight">{s.title}</h3>
+                                <p className="text-[13px] text-slate-300 mt-1.5 leading-relaxed">{s.desc}</p>
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Skip link */}
-                    <button
-                        onClick={handleSkip}
-                        className="text-xs text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
-                    >
-                        Bỏ qua hướng dẫn
-                    </button>
+                    {/* Footer */}
+                    <div className="px-5 pb-4 pt-1 flex items-center justify-between">
+                        {/* Dots */}
+                        <div className="flex items-center gap-1.5">
+                            {TOUR_STEPS.map((_, i) => (
+                                <button
+                                    key={i}
+                                    onClick={() => setStep(i)}
+                                    className={`h-2 rounded-full transition-all duration-200 ${i === step ? 'bg-indigo-500 w-5' :
+                                            i < step ? 'bg-indigo-400/50 w-2' :
+                                                'bg-slate-600 w-2'
+                                        }`}
+                                />
+                            ))}
+                        </div>
+
+                        {/* Buttons */}
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={finish}
+                                className="text-[11px] text-slate-400 hover:text-white transition-colors px-2 py-1"
+                            >
+                                Bỏ qua
+                            </button>
+                            {step > 0 && (
+                                <button
+                                    onClick={prev}
+                                    className="p-1.5 rounded-lg bg-slate-700 hover:bg-slate-600 text-white transition-colors"
+                                >
+                                    <ChevronLeft className="w-4 h-4" />
+                                </button>
+                            )}
+                            <button
+                                onClick={next}
+                                className="flex items-center gap-1 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-bold transition-colors shadow-lg shadow-indigo-600/30"
+                            >
+                                {step === TOUR_STEPS.length - 1 ? (
+                                    <>Hoàn thành <Sparkles className="w-3.5 h-3.5" /></>
+                                ) : (
+                                    <>Tiếp theo <ChevronRight className="w-3.5 h-3.5" /></>
+                                )}
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            {/* Inject animation keyframes */}
+            {/* Inline animation */}
             <style>{`
-                @keyframes scaleIn {
-                    0% { transform: scale(0.8); opacity: 0; }
-                    100% { transform: scale(1); opacity: 1; }
-                }
                 .animate-fade-in {
-                    animation: fadeIn 0.3s ease-out;
+                    animation: tourFadeIn 0.25s ease-out;
                 }
-                @keyframes fadeIn {
-                    0% { opacity: 0; }
-                    100% { opacity: 1; }
+                @keyframes tourFadeIn {
+                    from { opacity: 0; transform: translateY(6px); }
+                    to   { opacity: 1; transform: translateY(0); }
                 }
             `}</style>
-        </div>
+        </>
     );
 };
 

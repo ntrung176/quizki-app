@@ -23,4 +23,6 @@ export { default as SettingsScreen } from './SettingsScreen';
 export { default as FeedbackScreen } from './FeedbackScreen';
 export { default as JLPTTestScreen } from './JLPTTestScreen';
 export { default as JLPTAdminScreen } from './JLPTAdminScreen';
+export { default as PrivacyScreen } from './PrivacyScreen';
+export { default as TermsScreen } from './TermsScreen';
 
