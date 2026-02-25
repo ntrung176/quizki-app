@@ -307,6 +307,7 @@ Hãy phân tích và trả về DUY NHẤT một JSON hợp lệ (KHÔNG markdow
 3. TRƯỜNG "example" và "exampleMeaning":
 - MẶC ĐỊNH CHỈ 1 CÂU VÍ DỤ DUY NHẤT.
 - CHỈ KHI có nhiều nghĩa KHÁC BIỆT (đã ngăn cách bằng ;) thì mới viết thêm ví dụ cho từng nghĩa.
+- QUAN TRỌNG: MỌI VÍ DỤ BẮT BUỘC PHẢI DÙNG TỪ VỰNG GỐC: "${frontText}". TUYỆT ĐỐI không dùng từ đồng nghĩa.
 - Không đánh số. Các câu cách nhau bằng \\\\n. VD: "彼はまだ甘い。\\\\nこのケーキは甘い。" và "Anh ấy còn non nớt.\\\\nCái bánh này ngọt."
 - Số dòng exampleMeaning PHẢI BẰNG example.
 
@@ -318,8 +319,9 @@ VD: 流行→"LƯU HÀNH", 行→"HÀNH" hoặc "HẠNG" tùy nghĩa. Bỏ qua h
 VD TỐT: "Dùng giao tiếp hàng ngày, lịch sự trung bình. Khác với 食う mang sắc thái thô."
 VD XẤU: "Dùng phổ biến."
 
-6. "pos": noun/verb/suru_verb/adj_i/adj_na/adverb/conjunction/particle/phrase/other
-7. "level": N5/N4/N3/N2/N1`;
+6. TRƯỜNG "pos": CHỈ CHỌN: "noun", "verb", "suru_verb", "adj_i", "adj_na", "adverb", "conjunction", "particle", "grammar", "phrase", "other".
+7. TRƯỜNG "level": CHỈ CHỌN: "N5", "N4", "N3", "N2", "N1". Nếu khó quá hoặc không rõ, để trống "". KHÔNG ghi "N0".
+8. TRƯỜNG "synonym": Nếu có thật trong tiếng Nhật thì điền, hoặc để "". TUYỆT ĐỐI không bịa từ.`;
 };
 
 

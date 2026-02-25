@@ -2063,9 +2063,11 @@ Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo
 === QUY TẮC BẮT BUỘC ===
 
 1. TRƯỜNG "frontWithFurigana":
-- Nếu từ có Kanji: viết Kanji rồi thêm cách đọc hiragana trong dấu ngoặc Nhật （）. Ví dụ: 食べる（たべる）, 勉強（べんきょう）, 走る（はしる）
-- Nếu từ chỉ có hiragana/katakana: giữ nguyên, KHÔNG thêm gì. Ví dụ: やっぱり, テレビ
-- BẮT BUỘC dùng dấu ngoặc Nhật （）, KHÔNG dùng dấu ngoặc thường ()
+- Nếu từ là động từ hoặc tính từ đang bị chia (vd: 食べます, 食べた, 高かった), BẮT BUỘC trả về NGUYÊN DẠNG / THỂ TỪ ĐIỂN (vd: 食べる, 高い).
+- Nếu từ có Kanji: viết Kanji rồi thêm cách đọc hiragana vào trong dấu ngoặc Nhật （）. Ví dụ: 食べる（たべる）
+- Nếu từ chỉ có hiragana/katakana: giữ nguyên. Ví dụ: やっぱり
+- TUYỆT ĐỐI KHÔNG để Kanji vào bên trong ngoặc: Sai: （食べる）, Sai: 食べる(食べる). Đúng: 食べる（たべる）.
+- BẮT BUỘC dùng ngoặc Nhật full-width （）, KHÔNG dùng ngoặc đơn thường ().
 
 2. TRƯỜNG "meaning":
 - Nghĩa tiếng Việt NGẮN GỌN. Nếu có nhiều nghĩa KHÁC NHAU HOÀN TOÀN thì ngăn cách các nghĩa bằng dấu chấm phẩy ";". Ví dụ: "ăn; sống (bằng nghề)"
@@ -2074,6 +2076,7 @@ Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo
 3. TRƯỜNG "example" và "exampleMeaning":
 - MẶC ĐỊNH CHỈ TẠO 1 CÂU VÍ DỤ DUY NHẤT. 
 - CHỈ KHI TỪ CÓ NHIỀU NGHĨA KHÁC BIỆT HOÀN TOÀN (đã ngăn cách bằng dấu ; ở trên), mới tạo thêm câu ví dụ cho từng nghĩa đó.
+- QUAN TRỌNG: TRONG MỌI TRƯỜNG HỢP, TẤT CẢ CÁC CÂU VÍ DỤ BẮT BUỘC PHẢI DÙNG CHÍNH XÁC TỪ VỰNG: "${frontText}". TUYỆT ĐỐI KHÔNG dùng từ đồng nghĩa hoặc từ khác thay thế trong ví dụ.
 - Ngăn cách các câu ví dụ bằng ký tự \\n.
   Ví dụ example: "彼はまだ甘い。\nこのケーキは甘い。"
   Ví dụ exampleMeaning: "Anh ấy còn non nớt.\nCái bánh này ngọt."
@@ -2093,7 +2096,17 @@ Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo
 - Ví dụ XẤU (quá ngắn): "Dùng phổ biến."
 
 6. TRƯỜNG "pos" (Từ loại):
-- Sử dụng: "noun", "verb", "suru_verb", "adj_i", "adj_na", "adverb", "conjunction", "grammar", "phrase", "other"
+- CHỈ ĐƯỢC CHỌN 1 TRONG CÁC GIÁ TRỊ SAU, viết y hệt (không viết hoa, không chỉnh sửa):
+  "noun", "verb", "suru_verb", "adj_i", "adj_na", "adverb", "conjunction", "particle", "grammar", "phrase", "other".
+- Tuyệt đối không tự bịa ra từ loại mới.
+
+7. TRƯỜNG "synonym" và "synonymSinoVietnamese":
+- Nếu có từ đồng nghĩa THẬT SỰ TỒN TẠI trong tiếng Nhật và phù hợp ngữ cảnh, hãy điền vào. 
+- Nếu không có, bắt buộc để chuỗi rỗng "". TUYỆT ĐỐI không bịa từ, không giải thích dài dòng ở đây.
+
+8. TRƯỜNG "level" (JLPT):
+- CHỈ ĐƯỢC CHỌN: "N5", "N4", "N3", "N2", "N1". 
+- Nếu không thuộc cấp độ nào hoặc mức độ quá khó/đặc biệt, hãy để chuỗi rỗng "". KHÔNG ghi "N0", "Unknown".
 
 Không được trả về markdown, không được dùng backtick, không được trả lời thêm bất cứ chữ nào ngoài JSON.`;
 
