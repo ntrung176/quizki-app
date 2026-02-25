@@ -177,56 +177,56 @@ const LoginScreen = () => {
             <div className="flex-1 flex flex-col lg:flex-row shadow-lg">
 
                 {/* Left Side: Landing / Features */}
-                <div className="flex-1 bg-gradient-to-br from-indigo-700 via-purple-700 to-pink-600 p-8 lg:p-16 flex flex-col justify-center relative overflow-hidden text-white min-h-[50vh] lg:min-h-screen rounded-b-3xl lg:rounded-b-none lg:rounded-r-3xl z-10">
+                <div className="flex-1 bg-gradient-to-br from-indigo-700 via-purple-700 to-pink-600 p-6 lg:p-10 flex flex-col justify-center relative overflow-hidden text-white lg:min-h-[calc(100vh-64px)] rounded-b-3xl lg:rounded-b-none lg:rounded-r-3xl z-10">
                     {/* Decorative Background */}
                     <div className="absolute top-10 left-10 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
                     <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-400/20 rounded-full blur-3xl" />
 
                     <div className="relative z-10 max-w-xl mx-auto lg:mx-0 pr-0 lg:pr-8">
                         {/* Logo */}
-                        <div className="flex items-center gap-3 mb-8">
-                            <div className="w-12 h-12 bg-white rounded-xl shadow-lg flex items-center justify-center">
-                                <Sparkles className="w-7 h-7 text-indigo-600" />
+                        <div className="flex items-center gap-3 mb-6">
+                            <div className="w-10 h-10 bg-white rounded-xl shadow-lg flex items-center justify-center">
+                                <Sparkles className="w-6 h-6 text-indigo-600" />
                             </div>
-                            <span className="text-3xl font-extrabold tracking-tight">QuizKi</span>
+                            <span className="text-2xl font-extrabold tracking-tight">QuizKi</span>
                         </div>
 
                         {/* Tagline */}
-                        <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                        <h1 className="text-3xl lg:text-4xl font-bold leading-tight mb-4">
                             Nền tảng học ngữ pháp và từ vựng thông minh.
                         </h1>
-                        <p className="text-lg text-indigo-100 mb-10 leading-relaxed">
+                        <p className="text-base text-indigo-100 mb-8 leading-relaxed max-w-md">
                             Áp dụng phương pháp lặp lại ngắt quãng (Spaced Repetition System) kết hợp cùng AI giúp bạn làm chủ ngôn ngữ nhanh chóng, nhớ lâu hơn và tiết kiệm thời gian.
                         </p>
 
                         {/* Features List */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="flex gap-4">
-                                <div className="mt-1 bg-white/20 p-2 rounded-lg backdrop-blur-sm self-start"><BrainCircuit className="w-5 h-5 text-white" /></div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="flex gap-3">
+                                <div className="mt-1 bg-white/20 p-1.5 rounded-lg backdrop-blur-sm self-start"><BrainCircuit className="w-4 h-4 text-white" /></div>
                                 <div>
-                                    <h3 className="font-bold text-lg">AI Thông minh</h3>
-                                    <p className="text-indigo-100 text-sm mt-1">Gợi ý từ vựng, tự động tạo câu ví dụ và giải thích ngữ cảnh.</p>
+                                    <h3 className="font-bold text-base">AI Thông minh</h3>
+                                    <p className="text-indigo-100 text-xs mt-1">Gợi ý từ vựng, tự động tạo câu ví dụ và giải thích ngữ cảnh.</p>
                                 </div>
                             </div>
-                            <div className="flex gap-4">
-                                <div className="mt-1 bg-white/20 p-2 rounded-lg backdrop-blur-sm self-start"><BookOpen className="w-5 h-5 text-white" /></div>
+                            <div className="flex gap-3">
+                                <div className="mt-1 bg-white/20 p-1.5 rounded-lg backdrop-blur-sm self-start"><BookOpen className="w-4 h-4 text-white" /></div>
                                 <div>
-                                    <h3 className="font-bold text-lg">Ôn tập SRS</h3>
-                                    <p className="text-indigo-100 text-sm mt-1">Tối ưu hóa thời gian hiển thị thẻ flashcard khi bạn sắp quên.</p>
+                                    <h3 className="font-bold text-base">Ôn tập SRS</h3>
+                                    <p className="text-indigo-100 text-xs mt-1">Tối ưu hóa thời gian hiển thị thẻ flashcard khi bạn sắp quên.</p>
                                 </div>
                             </div>
-                            <div className="flex gap-4">
-                                <div className="mt-1 bg-white/20 p-2 rounded-lg backdrop-blur-sm self-start"><Gamepad2 className="w-5 h-5 text-white" /></div>
+                            <div className="flex gap-3">
+                                <div className="mt-1 bg-white/20 p-1.5 rounded-lg backdrop-blur-sm self-start"><Gamepad2 className="w-4 h-4 text-white" /></div>
                                 <div>
-                                    <h3 className="font-bold text-lg">Gamification</h3>
-                                    <p className="text-indigo-100 text-sm mt-1">Đua top bảng xếp hạng, nuôi thú cưng ảo từ điểm kinh nghiệm.</p>
+                                    <h3 className="font-bold text-base">Gamification</h3>
+                                    <p className="text-indigo-100 text-xs mt-1">Đua top bảng xếp hạng, nuôi thú cưng ảo từ điểm kinh nghiệm.</p>
                                 </div>
                             </div>
-                            <div className="flex gap-4">
-                                <div className="mt-1 bg-white/20 p-2 rounded-lg backdrop-blur-sm self-start"><TrendingUp className="w-5 h-5 text-white" /></div>
+                            <div className="flex gap-3">
+                                <div className="mt-1 bg-white/20 p-1.5 rounded-lg backdrop-blur-sm self-start"><TrendingUp className="w-4 h-4 text-white" /></div>
                                 <div>
-                                    <h3 className="font-bold text-lg">Kho dữ liệu JLPT</h3>
-                                    <p className="text-indigo-100 text-sm mt-1">Hệ thống bài thi mô phỏng JLPT N5-N1 giúp bạn luyện tập thực chiến.</p>
+                                    <h3 className="font-bold text-base">Kho dữ liệu JLPT</h3>
+                                    <p className="text-indigo-100 text-xs mt-1">Hệ thống bài thi mô phỏng JLPT N5-N1 giúp bạn luyện tập thực chiến.</p>
                                 </div>
                             </div>
                         </div>
@@ -234,8 +234,8 @@ const LoginScreen = () => {
                 </div>
 
                 {/* Right Side: Auth Form */}
-                <div className="w-full lg:w-[480px] xl:w-[540px] flex flex-col justify-center p-6 sm:p-12 lg:p-16 bg-white min-h-[50vh] lg:min-h-screen self-center lg:self-stretch items-center">
-                    <div className="w-full max-w-sm mx-auto space-y-7">
+                <div className="w-full lg:w-[480px] xl:w-[500px] flex flex-col justify-center p-6 sm:p-10 lg:p-12 bg-white lg:min-h-[calc(100vh-64px)] self-center lg:self-stretch items-center">
+                    <div className="w-full max-w-sm mx-auto space-y-6">
                         {/* Mobile Logo Hidden on Desktop */}
                         <div className="lg:hidden text-center mb-8">
                             <div className="inline-flex w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl items-center justify-center shadow-md mb-3">
@@ -245,8 +245,8 @@ const LoginScreen = () => {
                         </div>
 
                         <div>
-                            <h2 className="text-2xl font-bold text-slate-800">{mode === 'login' ? 'Đăng nhập vào tài khoản' : 'Bắt đầu hành trình mới'}</h2>
-                            <p className="text-slate-500 mt-1 text-sm">{mode === 'login' ? 'Vui lòng nhập email và mật khẩu để tiếp tục.' : 'Đăng ký tài khoản miễn phí ngay hôm nay.'}</p>
+                            <h2 className="text-xl font-bold text-slate-800">{mode === 'login' ? 'Đăng nhập vào tài khoản' : 'Bắt đầu hành trình mới'}</h2>
+                            <p className="text-slate-500 mt-1 text-xs">{mode === 'login' ? 'Vui lòng nhập email và mật khẩu để tiếp tục.' : 'Đăng ký tài khoản miễn phí ngay hôm nay.'}</p>
                         </div>
 
                         {/* Mode Toggle */}
@@ -274,14 +274,14 @@ const LoginScreen = () => {
                         </div>
 
                         {/* Form */}
-                        <form onSubmit={handleSubmit} className="space-y-4">
+                        <form onSubmit={handleSubmit} className="space-y-3.5">
                             <div>
                                 <label className="block text-sm font-medium text-slate-700 mb-1.5">Email</label>
                                 <input
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-slate-900 placeholder-slate-400 outline-none transition-all"
+                                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-sm text-slate-900 placeholder-slate-400 outline-none transition-all"
                                     placeholder="you@example.com"
                                     required
                                 />
@@ -294,7 +294,7 @@ const LoginScreen = () => {
                                         type={showPassword ? 'text' : 'password'}
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
-                                        className="w-full px-4 py-2.5 pr-10 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-slate-900 placeholder-slate-400 outline-none transition-all"
+                                        className="w-full px-3 py-2 pr-10 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-sm text-slate-900 placeholder-slate-400 outline-none transition-all"
                                         placeholder="Tối thiểu 6 ký tự"
                                         required
                                     />
@@ -317,7 +317,7 @@ const LoginScreen = () => {
                                             type={showConfirmPassword ? 'text' : 'password'}
                                             value={confirmPassword}
                                             onChange={(e) => setConfirmPassword(e.target.value)}
-                                            className="w-full px-4 py-2.5 pr-10 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-slate-900 placeholder-slate-400 outline-none transition-all"
+                                            className="w-full px-3 py-2 pr-10 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-sm text-slate-900 placeholder-slate-400 outline-none transition-all"
                                             placeholder="Nhập lại mật khẩu"
                                             required
                                         />
@@ -402,8 +402,8 @@ const LoginScreen = () => {
             </div>
 
             {/* Footer with Links required by Google OAuth Verification */}
-            <footer className="w-full bg-slate-900 py-6 text-center z-10">
-                <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-slate-400 max-w-4xl mx-auto px-6">
+            <footer className="w-full bg-slate-900 py-4 text-center z-20">
+                <div className="flex flex-wrap justify-center items-center gap-6 text-xs text-slate-400 max-w-4xl mx-auto px-6">
                     <span className="font-semibold text-slate-300">© 2024 QuizKi App</span>
                     <Link to="/privacy" className="hover:text-white transition-colors underline underline-offset-4">Chính sách bảo mật (Privacy Policy)</Link>
                     <Link to="/terms" className="hover:text-white transition-colors underline underline-offset-4">Điều khoản dịch vụ (Terms of Service)</Link>
