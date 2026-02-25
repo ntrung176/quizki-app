@@ -117,7 +117,7 @@ const AddCardForm = ({
     editingCard: initialEditingCard = null,
     onOpenBatchImport
 }) => {
-    const [activeTab, setActiveTab] = useState('json');
+    const [activeTab, setActiveTab] = useState('manual');
     const [front, setFront] = useState('');
     const [back, setBack] = useState('');
     const [synonym, setSynonym] = useState('');
@@ -298,6 +298,16 @@ const AddCardForm = ({
             {!batchMode && (
                 <div className="flex rounded-2xl bg-gray-100 dark:bg-gray-800/80 p-1.5 gap-1">
                     <button
+                        onClick={() => setActiveTab('manual')}
+                        className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-sm font-bold transition-all duration-300 ${activeTab === 'manual'
+                            ? 'bg-white dark:bg-gray-700 text-indigo-600 dark:text-indigo-400 shadow-md shadow-indigo-100 dark:shadow-none'
+                            : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300'
+                            }`}
+                    >
+                        <Wand2 className="w-4 h-4" />
+                        Thêm từ vựng AI
+                    </button>
+                    <button
                         onClick={() => setActiveTab('json')}
                         className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-sm font-bold transition-all duration-300 ${activeTab === 'json'
                             ? 'bg-white dark:bg-gray-700 text-indigo-600 dark:text-indigo-400 shadow-md shadow-indigo-100 dark:shadow-none'
@@ -306,16 +316,6 @@ const AddCardForm = ({
                     >
                         <FileJson className="w-4 h-4" />
                         JSON Import
-                    </button>
-                    <button
-                        onClick={() => setActiveTab('manual')}
-                        className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-sm font-bold transition-all duration-300 ${activeTab === 'manual'
-                            ? 'bg-white dark:bg-gray-700 text-indigo-600 dark:text-indigo-400 shadow-md shadow-indigo-100 dark:shadow-none'
-                            : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300'
-                            }`}
-                    >
-                        <PenTool className="w-4 h-4" />
-                        Thêm Thủ Công
                     </button>
                 </div>
             )}
