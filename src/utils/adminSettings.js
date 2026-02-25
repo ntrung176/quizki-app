@@ -175,5 +175,5 @@ export const AI_PROVIDER_OPTIONS = [
     { value: 'auto', label: 'Tự động (thử tất cả)', description: 'Groq → Gemini → OpenRouter' },
     { value: 'groq', label: 'Groq (Llama 3.3)', description: 'Nhanh, miễn phí, chất lượng cao' },
     { value: 'gemini', label: 'Google Gemini', description: 'Flash Lite / Flash / 1.5 Flash' },
-    { value: 'openrouter', label: 'OpenRouter', description: 'Free models (Llama, Gemma, Qwen)' },
+    { value: 'openrouter', label: 'OpenRouter (Trả phí)', description: 'Claude 3.5 Sonnet / GPT-4o (Đề xuất cho AI Tiếng Nhật)' },
 ];

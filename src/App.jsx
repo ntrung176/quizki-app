@@ -2074,18 +2074,16 @@ Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo
 - TUYỆT ĐỐI KHÔNG liệt kê các nghĩa gần giống nhau.
 
 3. TRƯỜNG "example" và "exampleMeaning":
-- MẶC ĐỊNH CHỈ TẠO 1 CÂU VÍ DỤ DUY NHẤT. 
-- CHỈ KHI TỪ CÓ NHIỀU NGHĨA KHÁC BIỆT HOÀN TOÀN (đã ngăn cách bằng dấu ; ở trên), mới tạo thêm câu ví dụ cho từng nghĩa đó.
-- QUAN TRỌNG: TRONG MỌI TRƯỜNG HỢP, TẤT CẢ CÁC CÂU VÍ DỤ BẮT BUỘC PHẢI DÙNG CHÍNH XÁC TỪ VỰNG: "${frontText}". TUYỆT ĐỐI KHÔNG dùng từ đồng nghĩa hoặc từ khác thay thế trong ví dụ.
-- Ngăn cách các câu ví dụ bằng ký tự \\n.
-  Ví dụ example: "彼はまだ甘い。\nこのケーキは甘い。"
-  Ví dụ exampleMeaning: "Anh ấy còn non nớt.\nCái bánh này ngọt."
-- KHÔNG CẦN đánh số đánh dấu ở ví dụ. Số dòng "exampleMeaning" PHẢI BẰNG "example".
+- LUÔN LUÔN CHỈ TẠO ĐÚNG 1 CÂU VÍ DỤ DUY NHẤT. TUYỆT ĐỐI KHÔNG TẠO 2 CÂU TRỞ LÊN dù từ có bao nhiêu nghĩa.
+- Người dùng sẽ TỰ chọn tạo thêm ví dụ sau, AI KHÔNG được tự ý tạo nhiều hơn 1 câu.
+- Câu ví dụ BẮT BUỘC PHẢI DÙNG CHÍNH XÁC TỪ VỰNG: "${frontText}". TUYỆT ĐỐI KHÔNG dùng từ đồng nghĩa.
+- KHÔNG đánh số. "exampleMeaning" cũng CHỈ 1 dòng duy nhất.
+- ĐẶC BIỆT CHO CẤP ĐỘ N5: Nếu từ vựng thuộc cấp N5, câu ví dụ PHẢI đơn giản, VIẾT BẰNG HIRAGANA/KATAKANA là chủ yếu, TRÁNH dùng Kanji khó. Chỉ dùng Kanji rất cơ bản mà người mới học biết (như 私、人、日、大、小). VD tốt: "まいにち にほんごを べんきょうします。" VD xấu (quá nhiều kanji): "毎日日本語を勉強します。"
 
 4. TRƯỜNG "sinoVietnamese" (Âm Hán Việt):
 - BẮT BUỘC điền nếu từ có Kanji. Viết IN HOA âm Hán Việt của TỪNG Kanji, cách nhau bằng dấu cách.
-- QUAN TRỌNG: CHỈ CHỌN ÂM HÁN VIỆT PHỔ BIẾN NHẤT hoặc ĐÚNG NHẤT với nghĩa của từ trong ngữ cảnh này. Nếu Kanji có nhiều âm, phải chọn âm chính xác.
-- Ví dụ: 勉強 → "MIỄN CƯỜNG", 食べる → "THỰC", 流行 → "LƯU HÀNH", 行 → "HÀNH" (hoặc "HẠNG" tùy nghĩa).
+- QUAN TRỌNG: PHÂN TÍCH TỪNG CHỮ KANJI MỘT ĐỂ LẤY ÂM HÁN VIỆT. TUYỆT ĐỐI KHÔNG ĐƯỢC CHẾ ÂM. Ví dụ: 奥様 gồm "奥" (ÁO/Úc) và "様" (DẠNG) → "ÁO DẠNG" (không được bịa thành ÁO THỪA). 
+- CHỈ CHỌN ÂM HÁN VIỆT PHỔ BIẾN NHẤT hoặc ĐÚNG NHẤT với nghĩa. Ví dụ: 流行 → "LƯU HÀNH", 行 → "HÀNH" (hoặc "HẠNG" tùy nghĩa).
 - CHỈ lấy âm Hán Việt của phần KANJI, bỏ qua phần hiragana (okurigana). VD: 新しい → "TÂN".
 - Nếu KHÔNG có Kanji thì để trống "".
 
@@ -2101,8 +2099,10 @@ Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo
 - Tuyệt đối không tự bịa ra từ loại mới.
 
 7. TRƯỜNG "synonym" và "synonymSinoVietnamese":
-- Nếu có từ đồng nghĩa THẬT SỰ TỒN TẠI trong tiếng Nhật và phù hợp ngữ cảnh, hãy điền vào. 
-- Nếu không có, bắt buộc để chuỗi rỗng "". TUYỆT ĐỐI không bịa từ, không giải thích dài dòng ở đây.
+- Nếu có từ đồng nghĩa THẬT SỰ TỒN TẠI trong tiếng Nhật và phù hợp ngữ cảnh, hãy điền vào. CÓ THỂ ĐIỀN NHIỀU TỪ ĐỒNG NGHĨA cách nhau bằng dấu phẩy (,).
+- QUAN TRỌNG: Từ đồng nghĩa PHẢI thuộc cấp độ JLPT TƯƠNG ĐƯƠNG HOẶC DỄ HƠN từ vựng gốc (VD: từ gốc N3 thì từ đồng nghĩa phải là N3, N4, N5). TUYỆT ĐỐI không dùng từ khó hơn (như N1, N2) vì người học chưa biết.
+- ĐẶC BIỆT: Nếu từ vựng thuộc cấp N5, KHÔNG TẠO từ đồng nghĩa. BẮT BUỘC để chuỗi rỗng "". Người mới học chưa cần từ đồng nghĩa.
+- Nếu không có từ đồng nghĩa phù hợp quy tắc trên, bắt buộc để chuỗi rỗng "". TUYỆT ĐỐI không bịa từ.
 
 8. TRƯỜNG "level" (JLPT):
 - CHỈ ĐƯỢC CHỌN: "N5", "N4", "N3", "N2", "N1". 
@@ -2128,6 +2128,17 @@ Không được trả về markdown, không được dùng backtick, không đư
             if (parsedJson) {
                 // Chuẩn hóa pos key (AI có thể trả adj_i thay vì adj-i)
                 if (parsedJson.pos) parsedJson.pos = normalizePosKey(parsedJson.pos);
+
+                // Ghi đè âm Hán Việt bằng bảng tra cứu cứng (ưu tiên hơn AI)
+                try {
+                    const { getSinoVietnamese } = await import('./utils/aiProvider');
+                    const lookupHV = getSinoVietnamese(frontText);
+                    if (lookupHV) {
+                        console.log(`📘 Hán Việt lookup: "${frontText}" → "${lookupHV}" (AI: "${parsedJson.sinoVietnamese || ''}")`);
+                        parsedJson.sinoVietnamese = lookupHV;
+                    }
+                } catch (e) { console.warn('Lookup Hán Việt error:', e); }
+
                 return parsedJson;
             } else {
                 setNotification("AI trả về dữ liệu không phải JSON hợp lệ. Thử lại.");
@@ -2136,6 +2147,28 @@ Không được trả về markdown, không được dùng backtick, không đư
         } catch (e) {
             console.error("Lỗi AI Assist:", e);
             setNotification(e.message || "Không gọi được AI. Kiểm tra API key hoặc thử lại sau.");
+            return null;
+        }
+    };
+
+    const handleGenerateMoreExample = async (frontText, targetMeaning) => {
+        if (!frontText || !targetMeaning) return null;
+        try {
+            if (!canUserUseAI) {
+                setNotification('Bạn chưa được cấp quyền sử dụng AI. Liên hệ admin để được cấp quyền.');
+                return null;
+            }
+            const { generateMoreExamplePrompt } = await import('./utils/aiProvider');
+            const prompt = generateMoreExamplePrompt(frontText, targetMeaning);
+            const forcedProvider = adminConfig?.aiProvider || 'auto';
+            const responseText = await callAI(prompt, forcedProvider);
+            const parsedJson = parseJsonFromAI(responseText);
+            if (parsedJson) return parsedJson;
+            setNotification("AI trả về dữ liệu không hợp lệ. Thử lại.");
+            return null;
+        } catch (e) {
+            console.error("Lỗi tạo thêm ví dụ AI:", e);
+            setNotification("Không thể tạo thêm ví dụ. Thử lại sau.");
             return null;
         }
     };
@@ -2637,6 +2670,7 @@ Không được trả về markdown, không được dùng backtick, không đư
                                 handleSaveNewCard={handleAddCard}
                                 handleSaveChanges={handleSaveChanges}
                                 handleGeminiAssist={handleGeminiAssist}
+                                handleGenerateMoreExample={handleGenerateMoreExample}
                                 handleBatchImport={handleBatchImport}
                                 handleBatchSaveNext={handleBatchSaveNext}
                                 handleBatchSkip={handleBatchSkip}

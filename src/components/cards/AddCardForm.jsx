@@ -115,7 +115,8 @@ const AddCardForm = ({
     onBatchNext,
     onBatchSkip,
     editingCard: initialEditingCard = null,
-    onOpenBatchImport
+    onOpenBatchImport,
+    onGenerateMoreExample
 }) => {
     const [activeTab, setActiveTab] = useState('manual');
     const [front, setFront] = useState('');
@@ -131,6 +132,7 @@ const AddCardForm = ({
     const [imagePreview, setImagePreview] = useState(null);
     const [isSaving, setIsSaving] = useState(false);
     const [isAiLoading, setIsAiLoading] = useState(false);
+    const [isGeneratingExample, setIsGeneratingExample] = useState(false);
     const [showAdvanced, setShowAdvanced] = useState(false);
     const frontInputRef = useRef(null);
 
@@ -230,6 +232,17 @@ const AddCardForm = ({
             e.preventDefault();
             handleAiAssist(e);
         }
+    };
+
+    const handleGenerateExampleForMeaning = async (meaning) => {
+        if (!onGenerateMoreExample || !front || !meaning) return;
+        setIsGeneratingExample(true);
+        const aiData = await onGenerateMoreExample(front, meaning);
+        if (aiData && aiData.example && aiData.exampleMeaning) {
+            setExample(prev => prev ? `${prev}\n${aiData.example}` : aiData.example);
+            setExampleMeaning(prev => prev ? `${prev}\n${aiData.exampleMeaning}` : aiData.exampleMeaning);
+        }
+        setIsGeneratingExample(false);
     };
 
     const validateJson = (text) => {
@@ -475,6 +488,29 @@ const AddCardForm = ({
                                 rows={2}
                             />
                         </div>
+
+                        {/* Extra examples generator */}
+                        {onGenerateMoreExample && back.includes(';') && (
+                            <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-700/50">
+                                <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">Từ này có nhiều nghĩa. Chọn để AI tạo thêm ví dụ:</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {back.split(';').map(m => m.trim()).filter(Boolean).map((meaning, idx) => (
+                                        <button
+                                            key={idx}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                handleGenerateExampleForMeaning(meaning);
+                                            }}
+                                            disabled={isGeneratingExample}
+                                            className="px-3 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-medium hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors disabled:opacity-50 flex items-center gap-1.5 border border-indigo-100 dark:border-indigo-800/30 shadow-sm"
+                                        >
+                                            {isGeneratingExample ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Wand2 className="w-3.5 h-3.5" />}
+                                            {meaning}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     {/* === SECTION 3: Media (collapsible) === */}

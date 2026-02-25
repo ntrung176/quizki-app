@@ -7,7 +7,7 @@ import {
     Home, BookOpen, BarChart3, Users, Settings, Plus,
     LogOut, Sun, Moon, Sparkles, ChevronRight, X, List,
     Repeat2, FileCheck, Languages, Shield, ChevronDown,
-    Trophy, Heart, Gamepad2
+    Trophy, Heart, Gamepad2, MessageSquare
 } from 'lucide-react';
 
 // Sidebar Component - Navigation with submenu support
@@ -37,6 +37,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
         if (path === ROUTES.PET) return 'PET';
         if (path === ROUTES.ACCOUNT) return 'ACCOUNT';
         if (path === ROUTES.SETTINGS) return 'SETTINGS';
+        if (path === ROUTES.FEEDBACK) return 'FEEDBACK';
         if (path === ROUTES.BOOKS) return 'BOOKS_LIST';
         if (path === ROUTES.ADMIN) return 'ADMIN';
         return 'HOME';
@@ -103,6 +104,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
             ]
         },
         { id: 'SETTINGS', icon: Settings, label: 'Cài đặt', route: ROUTES.SETTINGS },
+        { id: 'FEEDBACK', icon: MessageSquare, label: 'Phản hồi', route: ROUTES.FEEDBACK },
         ...(isAdmin ? [{ id: 'ADMIN', icon: Shield, label: 'Quản lý Admin', route: ROUTES.ADMIN }] : []),
     ];
 

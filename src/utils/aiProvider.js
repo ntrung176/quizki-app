@@ -2,6 +2,11 @@
 // Hỗ trợ nhiều AI providers: Gemini, Groq, OpenRouter
 // Tự động detect keys từ .env và fallback giữa các providers
 
+// ============== KANJI → HÁN VIỆT LOOKUP ==============
+// Re-export từ module tra cứu 2201 kanji (N5-N1)
+export { getSinoVietnamese } from './kanjiHVLookup';
+
+
 // ============== KEY MANAGEMENT ==============
 
 // Lấy tất cả Gemini keys
@@ -108,9 +113,9 @@ const PROVIDERS = {
         extractText: (result) => result?.choices?.[0]?.message?.content || null
     },
     openrouter: {
-        name: 'OpenRouter',
-        // Free models trên OpenRouter (không cần credit card)
-        models: ['meta-llama/llama-3.1-8b-instruct:free', 'google/gemma-2-9b-it:free', 'qwen/qwen-2-7b-instruct:free'],
+        name: 'OpenRouter (Claude 3.5 / GPT-4o)',
+        // Ưu tiên dòng trả phí cấu hình cao (Claude và GPT) cho tiếng Nhật
+        models: ['anthropic/claude-3.5-sonnet', 'openai/gpt-4o', 'meta-llama/llama-3.1-8b-instruct:free'],
         getKeys: getOpenRouterKeys,
         buildRequest: (prompt, model, apiKey) => ({
             url: 'https://openrouter.ai/api/v1/chat/completions',
@@ -305,14 +310,13 @@ Hãy phân tích và trả về DUY NHẤT một JSON hợp lệ (KHÔNG markdow
 2. TRƯỜNG "meaning": Nghĩa ngắn gọn. Nếu có nhiều nghĩa KHÁC NHAU HOÀN TOÀN thì ngăn cách bằng dấu ";". Ví dụ: "ăn; sống (bằng nghề)". TUYỆT ĐỐI KHÔNG liệt kê nghĩa gần giống nhau.
 
 3. TRƯỜNG "example" và "exampleMeaning":
-- MẶC ĐỊNH CHỈ 1 CÂU VÍ DỤ DUY NHẤT.
-- CHỈ KHI có nhiều nghĩa KHÁC BIỆT (đã ngăn cách bằng ;) thì mới viết thêm ví dụ cho từng nghĩa.
-- QUAN TRỌNG: MỌI VÍ DỤ BẮT BUỘC PHẢI DÙNG TỪ VỰNG GỐC: "${frontText}". TUYỆT ĐỐI không dùng từ đồng nghĩa.
-- Không đánh số. Các câu cách nhau bằng \\\\n. VD: "彼はまだ甘い。\\\\nこのケーキは甘い。" và "Anh ấy còn non nớt.\\\\nCái bánh này ngọt."
-- Số dòng exampleMeaning PHẢI BẰNG example.
+- LUÔN LUÔN CHỈ TẠO ĐÚNG 1 CÂU VÍ DỤ DUY NHẤT. TUYỆT ĐỐI KHÔNG TẠO 2 CÂU TRỞ LÊN.
+- Câu ví dụ BẮT BUỘC PHẢI DÙNG TỪ VỰNG GỐC: "${frontText}". TUYỆT ĐỐI không dùng từ đồng nghĩa.
+- KHÔNG đánh số. "exampleMeaning" cũng CHỈ 1 dòng duy nhất.
+- ĐẶC BIỆT CẤP N5: Nếu từ N5, câu ví dụ PHẢI đơn giản, chủ yếu viết hiragana/katakana, TRÁNH kanji khó.
 
 4. TRƯỜNG "sinoVietnamese": BẮT BUỘC nếu có Kanji. Viết IN HOA từng Kanji, cách dấu cách.
-QUAN TRỌNG: CHỈ CHỌN ÂM HÁN VIỆT PHỔ BIẾN NHẤT hoặc ĐÚNG NHẤT với nghĩa của từ trong ngữ cảnh này.
+QUAN TRỌNG: PHÂN TÍCH TỪNG CHỮ KANJI MỘT ĐỂ LẤY ÂM HÁN VIỆT. TUYỆT ĐỐI KHÔNG BỊA ÂM. Ví dụ: 奥様 gồm "奥" (ÁO) và "様" (DẠNG) → "ÁO DẠNG".
 VD: 流行→"LƯU HÀNH", 行→"HÀNH" hoặc "HẠNG" tùy nghĩa. Bỏ qua hiragana: 新しい→"TÂN". Không có Kanji thì "".
 
 5. TRƯỜNG "nuance": Giải thích CHI TIẾT bối cảnh sử dụng, mức độ trang trọng, so sánh với từ tương tự.
@@ -321,7 +325,22 @@ VD XẤU: "Dùng phổ biến."
 
 6. TRƯỜNG "pos": CHỈ CHỌN: "noun", "verb", "suru_verb", "adj_i", "adj_na", "adverb", "conjunction", "particle", "grammar", "phrase", "other".
 7. TRƯỜNG "level": CHỈ CHỌN: "N5", "N4", "N3", "N2", "N1". Nếu khó quá hoặc không rõ, để trống "". KHÔNG ghi "N0".
-8. TRƯỜNG "synonym": Nếu có thật trong tiếng Nhật thì điền, hoặc để "". TUYỆT ĐỐI không bịa từ.`;
+8. TRƯỜNG "synonym": Nếu có thực và cùng cấp/dễ hơn JLPT từ gốc. CÓ THỂ LẤY NHIỀU TỪ cách nhau bằng phẩy. Nếu từ gốc N5 thì KHÔNG TẠO từ đồng nghĩa, để "". TUYỆT ĐỐI không bịa từ.`;
+};
+
+export const generateMoreExamplePrompt = (frontText, targetMeaning) => {
+    return `Bạn là trợ lý từ điển Nhật-Việt. Người học muốn có THÊM MỘT câu ví dụ cho từ vựng "${frontText}" với NGHĨA tương đương: "${targetMeaning}".
+    
+Hãy phân tích và trả về DUY NHẤT một JSON hợp lệ (KHÔNG markdown, KHÔNG backtick) theo schema:
+{
+    "example": "1 câu ví dụ tiếng Nhật mới",
+    "exampleMeaning": "Nghĩa của câu ví dụ đó"
+}
+
+QUY TẮC:
+1. TRONG MỌI TRƯỜNG HỢP, ví dụ BẮT BUỘC phải chứa từ "${frontText}". TUYỆT ĐỐI không dùng từ đồng nghĩa khác để thay thế.
+2. Câu ví dụ phải tự nhiên, thông dụng trong tiếng Nhật.
+3. Không đánh số ở đầu. Chỉ trả về 1 câu ví dụ duy nhất.`;
 };
 
 
@@ -331,7 +350,18 @@ export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '
 
     const prompt = generateVocabPrompt(frontText, contextPos, contextLevel);
     const responseText = await callAI(prompt);
-    return parseJsonFromAI(responseText);
+    const result = parseJsonFromAI(responseText);
+
+    // Ghi đè âm Hán Việt bằng bảng tra cứu cứng (ưu tiên hơn AI)
+    if (result) {
+        const lookupHV = getSinoVietnamese(frontText);
+        if (lookupHV) {
+            console.log(`📘 Hán Việt lookup: "${frontText}" → "${lookupHV}" (AI: "${result.sinoVietnamese || ''}")`);
+            result.sinoVietnamese = lookupHV;
+        }
+    }
+
+    return result;
 };
 
 // ============== INFO ==============

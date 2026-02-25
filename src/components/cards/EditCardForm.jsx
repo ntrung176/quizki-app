@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react';
-import { Loader2, Image as ImageIcon, Music, Volume2, Trash2, Check, X } from 'lucide-react';
+import { Loader2, Image as ImageIcon, Music, Volume2, Trash2, Check, X, Wand2 } from 'lucide-react';
 import { JLPT_LEVELS, POS_TYPES } from '../../config/constants';
 import { playAudio } from '../../utils/audio';
 import { compressImage } from '../../utils/image';
 
-const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
+const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExample }) => {
     // All hooks must be called before any conditional return
     const [front, setFront] = useState(card?.front || '');
     const [back, setBack] = useState(card?.back || '');
@@ -19,6 +19,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
     const [imagePreview, setImagePreview] = useState(card?.imageBase64 || null);
     const [_isSaving, setIsSaving] = useState(false); // eslint-disable-line no-unused-vars
     const [isAiLoading, setIsAiLoading] = useState(false);
+    const [isGeneratingExample, setIsGeneratingExample] = useState(false);
     const frontInputRef = useRef(null);
 
     // Show loading if card is not yet loaded
@@ -86,6 +87,17 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
             e.preventDefault();
             handleAiAssist(e);
         }
+    };
+
+    const handleGenerateExampleForMeaning = async (meaning) => {
+        if (!onGenerateMoreExample || !front || !meaning) return;
+        setIsGeneratingExample(true);
+        const aiData = await onGenerateMoreExample(front, meaning);
+        if (aiData && aiData.example && aiData.exampleMeaning) {
+            setExample(prev => prev ? `${prev}\n${aiData.example}` : aiData.example);
+            setExampleMeaning(prev => prev ? `${prev}\n${aiData.exampleMeaning}` : aiData.exampleMeaning);
+        }
+        setIsGeneratingExample(false);
     };
 
     return (
@@ -160,6 +172,29 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist }) => {
                         <textarea value={example} onChange={(e) => setExample(e.target.value)} rows="2" placeholder="Ví dụ (Nhật)" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
                         <textarea value={exampleMeaning} onChange={(e) => setExampleMeaning(e.target.value)} rows="2" placeholder="Nghĩa ví dụ" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
                         <textarea value={nuance} onChange={(e) => setNuance(e.target.value)} rows="3" placeholder="Ghi chú" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
+
+                        {/* Extra examples generator */}
+                        {onGenerateMoreExample && back.includes(';') && (
+                            <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-700/50">
+                                <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">Từ này có nhiều nghĩa. Chọn để AI tạo thêm ví dụ:</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {back.split(';').map(m => m.trim()).filter(Boolean).map((meaning, idx) => (
+                                        <button
+                                            key={idx}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                handleGenerateExampleForMeaning(meaning);
+                                            }}
+                                            disabled={isGeneratingExample}
+                                            className="px-3 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-medium hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors disabled:opacity-50 flex items-center gap-1.5 border border-indigo-100 dark:border-indigo-800/30 shadow-sm"
+                                        >
+                                            {isGeneratingExample ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Wand2 className="w-3.5 h-3.5" />}
+                                            {meaning}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     {/* Media Edit */}

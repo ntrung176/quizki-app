@@ -24,6 +24,7 @@ import {
     FlashcardScreen,
     BookScreen,
     SettingsScreen,
+    FeedbackScreen,
     JLPTTestScreen,
     JLPTAdminScreen
 } from './screens';
@@ -85,6 +86,7 @@ const AppRoutes = ({
     handleSaveNewCard,
     handleSaveChanges,
     handleGeminiAssist,
+    handleGenerateMoreExample,
     handleBatchImport,
     handleBatchSaveNext,
     handleBatchSkip,
@@ -188,6 +190,7 @@ const AppRoutes = ({
                             onImportTSV={handleImportTSV}
                             onSaveChanges={handleSaveChanges}
                             onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
+                            onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
                             scrollToCardId={scrollToCardIdRef?.current}
                             onScrollComplete={() => { if (scrollToCardIdRef) scrollToCardIdRef.current = null; }}
                             savedFilters={savedFilters}
@@ -205,6 +208,7 @@ const AppRoutes = ({
                             onSave={handleSaveNewCard}
                             onBack={() => setView('LIST')}
                             onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
+                            onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
                             batchMode={batchMode}
                             currentBatchIndex={currentBatchIndex}
                             totalBatchCount={batchVocabList?.length || 0}
@@ -267,6 +271,7 @@ const AppRoutes = ({
                             isAdmin={isAdmin}
                             onAddVocabToSRS={handleSaveNewCard}
                             onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
+                            onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
                             allUserCards={allCards}
                         />
                     </ProtectedRoute>
@@ -282,6 +287,7 @@ const AppRoutes = ({
                             isAdmin={isAdmin}
                             onAddVocabToSRS={handleSaveNewCard}
                             onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
+                            onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
                             allUserCards={allCards}
                         />
                     </ProtectedRoute>
@@ -513,6 +519,7 @@ const AppRoutes = ({
                             isAdmin={isAdmin}
                             onAddVocabToSRS={handleSaveNewCard}
                             onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
+                            onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
                             allUserCards={allCards}
                         />
                     </ProtectedRoute>
@@ -532,6 +539,20 @@ const AppRoutes = ({
                             isAdmin={isAdmin}
                             onUpdateProfileName={handleUpdateProfileName}
                             onChangePassword={handleChangePassword}
+                        />
+                    </ProtectedRoute>
+                }
+            />
+
+            {/* Phản hồi */}
+            <Route
+                path={ROUTES.FEEDBACK}
+                element={
+                    <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <FeedbackScreen
+                            userId={userId}
+                            profile={profile}
+                            isAdmin={isAdmin}
                         />
                     </ProtectedRoute>
                 }

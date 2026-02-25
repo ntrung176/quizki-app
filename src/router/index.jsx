@@ -41,6 +41,7 @@ export const ROUTES = {
     ADMIN: '/admin',
     BOOKS: '/books',
     SETTINGS: '/settings',
+    FEEDBACK: '/feedback',
 };
 
 // Helper function to generate edit route with ID
