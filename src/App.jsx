@@ -2068,20 +2068,22 @@ Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo
 - BẮT BUỘC dùng dấu ngoặc Nhật （）, KHÔNG dùng dấu ngoặc thường ()
 
 2. TRƯỜNG "meaning":
-- Nghĩa tiếng Việt NGẮN GỌN. Nếu có nhiều nghĩa KHÁC NHAU RÕ RỆT thì đánh số: "1. ăn 2. sống (bằng nghề gì đó)"
-- KHÔNG lấy các nghĩa gần giống nhau. Nếu chỉ có 1 nghĩa thì KHÔNG đánh số.
+- Nghĩa tiếng Việt NGẮN GỌN. Nếu có nhiều nghĩa KHÁC NHAU HOÀN TOÀN thì ngăn cách các nghĩa bằng dấu chấm phẩy ";". Ví dụ: "ăn; sống (bằng nghề)"
+- TUYỆT ĐỐI KHÔNG liệt kê các nghĩa gần giống nhau.
 
 3. TRƯỜNG "example" và "exampleMeaning":
-- Nếu từ có NHIỀU nghĩa khác nhau: cho MỖI NGHĨA 1 câu ví dụ, đánh số trước mỗi câu, cách nhau bằng \\n
-  Ví dụ example: "1. 彼はまだ甘い。\\n2. このケーキは甘い。"
-  Ví dụ exampleMeaning: "1. Anh ấy còn non nớt/ngây thơ.\\n2. Cái bánh này ngọt."
-- Nếu từ chỉ có 1 nghĩa: CHỈ cho 1 câu ví dụ duy nhất, KHÔNG đánh số.
-- "exampleMeaning" PHẢI có SỐ DÒNG BẰNG "example".
+- MẶC ĐỊNH CHỈ TẠO 1 CÂU VÍ DỤ DUY NHẤT. 
+- CHỈ KHI TỪ CÓ NHIỀU NGHĨA KHÁC BIỆT HOÀN TOÀN (đã ngăn cách bằng dấu ; ở trên), mới tạo thêm câu ví dụ cho từng nghĩa đó.
+- Ngăn cách các câu ví dụ bằng ký tự \\n.
+  Ví dụ example: "彼はまだ甘い。\nこのケーキは甘い。"
+  Ví dụ exampleMeaning: "Anh ấy còn non nớt.\nCái bánh này ngọt."
+- KHÔNG CẦN đánh số đánh dấu ở ví dụ. Số dòng "exampleMeaning" PHẢI BẰNG "example".
 
 4. TRƯỜNG "sinoVietnamese" (Âm Hán Việt):
 - BẮT BUỘC điền nếu từ có Kanji. Viết IN HOA âm Hán Việt của TỪNG Kanji, cách nhau bằng dấu cách.
-- Ví dụ: 勉強 → "MIỄN CƯỜNG", 食べる → "THỰC", 学校 → "HỌC HIỆU", 先生 → "TIÊN SINH", 図書館 → "ĐỒ THƯ QUÁN"
-- CHỈ lấy âm Hán Việt của phần KANJI, bỏ qua phần hiragana (okurigana).
+- QUAN TRỌNG: CHỈ CHỌN ÂM HÁN VIỆT PHỔ BIẾN NHẤT hoặc ĐÚNG NHẤT với nghĩa của từ trong ngữ cảnh này. Nếu Kanji có nhiều âm, phải chọn âm chính xác.
+- Ví dụ: 勉強 → "MIỄN CƯỜNG", 食べる → "THỰC", 流行 → "LƯU HÀNH", 行 → "HÀNH" (hoặc "HẠNG" tùy nghĩa).
+- CHỈ lấy âm Hán Việt của phần KANJI, bỏ qua phần hiragana (okurigana). VD: 新しい → "TÂN".
 - Nếu KHÔNG có Kanji thì để trống "".
 
 5. TRƯỜNG "nuance" (Sắc thái, ngữ cảnh sử dụng):

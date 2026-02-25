@@ -302,14 +302,17 @@ Hãy phân tích và trả về DUY NHẤT một JSON hợp lệ (KHÔNG markdow
 
 1. TRƯỜNG "reading": CHỈ điền cách đọc hiragana nếu từ có Kanji. Không có Kanji thì để trống "".
 
-2. TRƯỜNG "meaning": Nghĩa ngắn gọn. Nhiều nghĩa khác nhau thì đánh số "1. nghĩa A 2. nghĩa B". Chỉ 1 nghĩa thì KHÔNG đánh số.
+2. TRƯỜNG "meaning": Nghĩa ngắn gọn. Nếu có nhiều nghĩa KHÁC NHAU HOÀN TOÀN thì ngăn cách bằng dấu ";". Ví dụ: "ăn; sống (bằng nghề)". TUYỆT ĐỐI KHÔNG liệt kê nghĩa gần giống nhau.
 
 3. TRƯỜNG "example" và "exampleMeaning":
-- Nhiều nghĩa: đánh số, cách nhau \\\\n. VD: "1. 彼はまだ甘い。\\\\n2. このケーキは甘い。" và "1. Anh ấy còn non nớt.\\\\n2. Cái bánh này ngọt."
-- 1 nghĩa: CHỈ 1 câu, KHÔNG đánh số. Số dòng exampleMeaning PHẢI BẰNG example.
+- MẶC ĐỊNH CHỈ 1 CÂU VÍ DỤ DUY NHẤT.
+- CHỈ KHI có nhiều nghĩa KHÁC BIỆT (đã ngăn cách bằng ;) thì mới viết thêm ví dụ cho từng nghĩa.
+- Không đánh số. Các câu cách nhau bằng \\\\n. VD: "彼はまだ甘い。\\\\nこのケーキは甘い。" và "Anh ấy còn non nớt.\\\\nCái bánh này ngọt."
+- Số dòng exampleMeaning PHẢI BẰNG example.
 
 4. TRƯỜNG "sinoVietnamese": BẮT BUỘC nếu có Kanji. Viết IN HOA từng Kanji, cách dấu cách.
-VD: 勉強→"MIỄN CƯỜNG", 食べる→"THỰC", 学校→"HỌC HIỆU", 図書館→"ĐỒ THƯ QUÁN". Không Kanji thì "".
+QUAN TRỌNG: CHỈ CHỌN ÂM HÁN VIỆT PHỔ BIẾN NHẤT hoặc ĐÚNG NHẤT với nghĩa của từ trong ngữ cảnh này.
+VD: 流行→"LƯU HÀNH", 行→"HÀNH" hoặc "HẠNG" tùy nghĩa. Bỏ qua hiragana: 新しい→"TÂN". Không có Kanji thì "".
 
 5. TRƯỜNG "nuance": Giải thích CHI TIẾT bối cảnh sử dụng, mức độ trang trọng, so sánh với từ tương tự.
 VD TỐT: "Dùng giao tiếp hàng ngày, lịch sự trung bình. Khác với 食う mang sắc thái thô."
@@ -342,7 +345,7 @@ export const getAIProviderInfo = () => {
         })),
         totalKeys: providers.reduce((sum, p) => sum + PROVIDERS[p].getKeys().length, 0),
         summary: providers.length > 0
-            ? `${ providers.map(p => `${PROVIDERS[p].name}(${PROVIDERS[p].getKeys().length} keys)`).join(', ') } `
+            ? `${providers.map(p => `${PROVIDERS[p].name}(${PROVIDERS[p].getKeys().length} keys)`).join(', ')} `
             : 'Chưa cấu hình AI provider nào'
     };
 };
