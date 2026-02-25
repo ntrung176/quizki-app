@@ -2063,10 +2063,19 @@ Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo
 
 === QUY TẮC BẮT BUỘC ===
 
+0. NHẬN DIỆN CỤM TỪ / THÀNH NGỮ (QUAN TRỌNG NHẤT):
+- Nếu người dùng nhập CỤM TỪ có chứa trợ từ (を、に、が、で、と...) hoặc nhiều từ ghép nhau (VD: 迷惑をかける、気にする、手を出す、目を通す、腹が立つ), thì ĐÂY LÀ MỘT CỤM TỪ / THÀNH NGỮ, KHÔNG PHẢI TỪ ĐƠN.
+- pos BẮT BUỘC là "phrase".
+- frontWithFurigana: GIỮ NGUYÊN CẢ CỤM, thêm furigana cho từng kanji riêng biệt. VD: 迷惑をかける（めいわくをかける）, 気にする（きにする）.
+- meaning: Nghĩa CỦA CẢ CỤM, KHÔNG phải nghĩa từng từ riêng lẻ. VD: 迷惑をかける = "gây phiền hà; làm phiền" (KHÔNG phải "rắc rối" + "treo").
+- sinoVietnamese: Chỉ lấy phần Kanji trong cụm. VD: 迷惑をかける → "MÊ HOẶC".
+- example: Câu ví dụ PHẢI chứa nguyên cả cụm.
+
 1. TRƯỜNG "frontWithFurigana":
 - Nếu từ là động từ hoặc tính từ đang bị chia (vd: 食べます, 食べた, 高かった), BẮT BUỘC trả về NGUYÊN DẠNG / THỂ TỪ ĐIỂN (vd: 食べる, 高い).
 - Nếu từ có Kanji: viết Kanji rồi thêm cách đọc hiragana vào trong dấu ngoặc Nhật （）. Ví dụ: 食べる（たべる）
 - Nếu từ chỉ có hiragana/katakana: giữ nguyên. Ví dụ: やっぱり
+- LƯU Ý ĐẶC BIỆT: Nếu người dùng có nhập kèm hiragana định hướng cách đọc (VD: 開く(あく) hoặc 空(から)), BẮT BUỘC phải tôn trọng làm theo cách đọc đó thay vì lấy cách phổ biến nhất.
 - TUYỆT ĐỐI KHÔNG để Kanji vào bên trong ngoặc: Sai: （食べる）, Sai: 食べる(食べる). Đúng: 食べる（たべる）.
 - BẮT BUỘC dùng ngoặc Nhật full-width （）, KHÔNG dùng ngoặc đơn thường ().
 
@@ -2077,7 +2086,7 @@ Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo
 3. TRƯỜNG "example" và "exampleMeaning":
 - LUÔN LUÔN CHỈ TẠO ĐÚNG 1 CÂU VÍ DỤ DUY NHẤT. TUYỆT ĐỐI KHÔNG TẠO 2 CÂU TRỞ LÊN dù từ có bao nhiêu nghĩa.
 - Người dùng sẽ TỰ chọn tạo thêm ví dụ sau, AI KHÔNG được tự ý tạo nhiều hơn 1 câu.
-- Câu ví dụ BẮT BUỘC PHẢI DÙNG CHÍNH XÁC TỪ VỰNG: "${frontText}". TUYỆT ĐỐI KHÔNG dùng từ đồng nghĩa.
+- Câu ví dụ BẮT BUỘC PHẢI DÙNG TỪ VỰNG GỐC: "${frontText}", NHƯNG CÓ THỂ CHIA THÌ/THỂ ĐỘNG TỪ (VD: ~ます, ~た, ~て) để câu tự nhiên nhất.
 - KHÔNG đánh số. "exampleMeaning" cũng CHỈ 1 dòng duy nhất.
 - ĐẶC BIỆT CHO CẤP ĐỘ N5: Nếu từ vựng thuộc cấp N5, câu ví dụ PHẢI đơn giản, VIẾT BẰNG HIRAGANA/KATAKANA là chủ yếu, TRÁNH dùng Kanji khó. Chỉ dùng Kanji rất cơ bản mà người mới học biết (như 私、人、日、大、小). VD tốt: "まいにち にほんごを べんきょうします。" VD xấu (quá nhiều kanji): "毎日日本語を勉強します。"
 
@@ -2090,7 +2099,8 @@ Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo
 
 5. TRƯỜNG "nuance" (Sắc thái, ngữ cảnh sử dụng):
 - PHẢI giải thích CHI TIẾT, DỄ HIỂU về bối cảnh sử dụng từ vựng.
-- Bao gồm: tình huống sử dụng, mức độ trang trọng (formal/informal), đối tượng giao tiếp, so sánh với từ tương tự nếu có.
+- NẾU LÀ ĐỘNG TỪ: BẮT BUỘC chú thích rõ đây là Tự động từ (TĐT - thường đi với が/に) hay Tha động từ (ThaĐT - thường đi với を). Ghi rõ TĐT/ThaĐT tương ứng nếu có (Ví dụ: Tha động từ. Tự động từ tương ứng là 始まる).
+- NẾU LÀ TỪ NGOẠI LAI (Katakana): Ghi chú rõ từ gốc trong ngôn ngữ mẹ đẻ (Ví dụ: Từ gốc tiếng Anh "part-time").
 - Ví dụ TỐT: "Dùng trong giao tiếp hàng ngày, mức độ lịch sự trung bình. Trong văn viết trang trọng nên dùng 召し上がる. Khác với 食う mang sắc thái thô tục, chỉ nam giới dùng."
 - Ví dụ XẤU (quá ngắn): "Dùng phổ biến."
 
@@ -2103,7 +2113,7 @@ Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo
 - Nếu có từ đồng nghĩa THẬT SỰ TỒN TẠI trong tiếng Nhật và phù hợp ngữ cảnh, hãy điền vào. CÓ THỂ ĐIỀN NHIỀU TỪ ĐỒNG NGHĨA cách nhau bằng dấu phẩy (,).
 - QUAN TRỌNG: Từ đồng nghĩa PHẢI thuộc cấp độ JLPT TƯƠNG ĐƯƠNG HOẶC DỄ HƠN từ vựng gốc (VD: từ gốc N3 thì từ đồng nghĩa phải là N3, N4, N5). TUYỆT ĐỐI không dùng từ khó hơn (như N1, N2) vì người học chưa biết.
 - ĐẶC BIỆT: Nếu từ vựng thuộc cấp N5, KHÔNG TẠO từ đồng nghĩa. BẮT BUỘC để chuỗi rỗng "". Người mới học chưa cần từ đồng nghĩa.
-- Nếu không có từ đồng nghĩa phù hợp quy tắc trên, bắt buộc để chuỗi rỗng "". TUYỆT ĐỐI không bịa từ.
+- LƯU Ý synonymSinoVietnamese: Nếu các từ ở mục synonym CÓ KANJI, BẮT BUỘC điền âm Hán Việt tương ứng cách nhau bằng phẩy. Nếu hoàn toàn không có Kanji thì để "".
 
 8. TRƯỜNG "level" (JLPT):
 - CHỈ ĐƯỢC CHỌN: "N5", "N4", "N3", "N2", "N1". 
