@@ -1,14 +1,12 @@
 /**
  * SePay Payment Integration
  * 
- * Luồng thanh toán:
- * 1. User chọn gói → tạo mã đơn hàng unique
- * 2. Hiện QR chuyển khoản với nội dung = mã đơn hàng
- * 3. Polling SePay API mỗi 5s để kiểm tra giao dịch
- * 4. Khi tìm thấy giao dịch khớp mã + số tiền → tự động cộng credits
+ * Dev: Vite proxy (/api/sepay → my.sepay.vn/userapi)
+ * Prod: Cloudflare Worker proxy (VITE_SEPAY_PROXY_URL)
  */
 
 const isDev = import.meta.env.DEV;
+const SEPAY_PROXY_URL = import.meta.env.VITE_SEPAY_PROXY_URL || '';
 
 // Lấy SePay token: ưu tiên admin config, fallback .env
 export const getSepayToken = (adminConfig) => {
@@ -25,7 +23,7 @@ export const generateOrderCode = (userId) => {
 };
 
 /**
- * Tạo link QR VietQR cho chuyển khoản
+ * Tạo link QR VietQR
  */
 export const generateVietQR = (bankId, accountNo, accountName, amount, content) => {
     const params = new URLSearchParams({
@@ -38,27 +36,30 @@ export const generateVietQR = (bankId, accountNo, accountName, amount, content) 
 
 /**
  * Kiểm tra giao dịch qua SePay API
- * Dev: Vite proxy /api/sepay → my.sepay.vn/userapi
- * Production: corsproxy.io bypass CORS
  */
 export const checkPaymentStatus = async (sepayToken, orderCode, expectedAmount) => {
     if (!sepayToken) {
-        console.warn('SePay token not configured');
+        console.warn('❌ SePay token not configured');
         return null;
     }
 
     try {
-        const queryPath = `transactions/list?transaction_content=${encodeURIComponent(orderCode)}&amount_in=${expectedAmount}&limit=1`;
+        const today = new Date().toISOString().split('T')[0];
+        const queryPath = `transactions/list?amount_in=${expectedAmount}&limit=20&from_date=${today}`;
 
         let url;
         if (isDev) {
+            // Dev: Vite proxy
             url = `/api/sepay/${queryPath}`;
+        } else if (SEPAY_PROXY_URL) {
+            // Production: Cloudflare Worker proxy
+            url = `${SEPAY_PROXY_URL}/${queryPath}`;
         } else {
-            // Production: dùng corsproxy.io để bypass CORS
-            url = `https://corsproxy.io/?${encodeURIComponent(`https://my.sepay.vn/userapi/${queryPath}`)}`;
+            console.error('❌ No SEPAY_PROXY_URL configured for production');
+            return null;
         }
 
-        console.log(`🔍 SePay check [${isDev ? 'DEV' : 'PROD'}]: ${orderCode}`);
+        console.log(`🔍 SePay poll [${isDev ? 'DEV' : 'PROD'}]: ${orderCode} | amount=${expectedAmount}`);
 
         const response = await fetch(url, {
             headers: {
@@ -69,50 +70,66 @@ export const checkPaymentStatus = async (sepayToken, orderCode, expectedAmount) 
 
         if (!response.ok) {
             const errText = await response.text().catch(() => '');
-            console.error(`SePay API error ${response.status}:`, errText);
+            console.error(`❌ SePay error ${response.status}:`, errText.substring(0, 200));
             return null;
         }
 
         const data = await response.json();
-        console.log('SePay response:', data);
-
         const transactions = data.transactions || [];
+        console.log(`📊 SePay: ${transactions.length} giao dịch khớp amount=${expectedAmount}`);
+
         if (transactions.length > 0) {
-            const tx = transactions[0];
-            if (tx.amount_in >= expectedAmount &&
-                tx.transaction_content &&
-                tx.transaction_content.toUpperCase().includes(orderCode.toUpperCase())) {
-                console.log('✅ Payment matched!', tx);
+            // Match 1: Tìm giao dịch có nội dung CK chứa mã đơn hàng
+            for (const tx of transactions) {
+                const content = (tx.transaction_content || '').toUpperCase();
+                const code = orderCode.toUpperCase();
+                console.log(`  📝 TX #${tx.id}: "${tx.transaction_content}" | ${tx.amount_in}đ`);
+
+                if (content.includes(code)) {
+                    console.log('✅ Matched by content!');
+                    return {
+                        success: true,
+                        transactionId: tx.id,
+                        referenceNumber: tx.reference_number,
+                        amount: tx.amount_in,
+                        content: tx.transaction_content,
+                        date: tx.transaction_date
+                    };
+                }
+            }
+
+            // Match 2: Giao dịch mới nhất trong 10 phút, đúng số tiền
+            const recentTx = transactions[0];
+            const txTime = new Date(recentTx.transaction_date);
+            const now = new Date();
+            const diffMin = (now - txTime) / 60000;
+
+            if (diffMin <= 10 && recentTx.amount_in >= expectedAmount) {
+                console.log(`✅ Matched by amount+time (${diffMin.toFixed(1)} min ago)!`);
                 return {
                     success: true,
-                    transactionId: tx.id,
-                    referenceNumber: tx.reference_number,
-                    amount: tx.amount_in,
-                    content: tx.transaction_content,
-                    date: tx.transaction_date
+                    transactionId: recentTx.id,
+                    referenceNumber: recentTx.reference_number,
+                    amount: recentTx.amount_in,
+                    content: recentTx.transaction_content,
+                    date: recentTx.transaction_date
                 };
             }
         }
 
         return { success: false };
     } catch (e) {
-        console.error('SePay check payment error:', e);
+        console.error('❌ SePay error:', e);
         return null;
     }
 };
 
-/**
- * Default bank info
- */
 export const DEFAULT_BANK_INFO = {
     bankId: 'MB',
     accountNo: '0123456789',
     accountName: 'NGUYEN TRUNG'
 };
 
-/**
- * Bank list for VietQR
- */
 export const BANK_LIST = [
     { id: 'MB', name: 'MB Bank' },
     { id: 'VCB', name: 'Vietcombank' },

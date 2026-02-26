@@ -42,6 +42,7 @@ jobs:
       VITE_OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
       VITE_PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
       VITE_SEPAY_API_KEY: ${{ secrets.SEPAY_API_KEY }}
+      VITE_SEPAY_PROXY_URL: ${{ secrets.SEPAY_PROXY_URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

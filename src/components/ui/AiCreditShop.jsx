@@ -26,8 +26,6 @@ const AiCreditShop = ({ creditsRemaining = 0, onClose, adminConfig, userId, user
     const countdownRef = useRef(null);
 
     const packages = adminConfig?.aiCreditPackages || DEFAULT_AI_PACKAGES;
-    const sepayToken = getSepayToken(adminConfig);
-    const isAutoPayment = !!sepayToken && (adminConfig?.autoPayment !== false);
     const bankId = adminConfig?.bankId || 'MB';
     const bankAccountNo = adminConfig?.bankAccountNo || '0123456789';
     const bankAccountName = adminConfig?.bankAccountName || 'NGUYEN TRUNG';
@@ -41,36 +39,49 @@ const AiCreditShop = ({ creditsRemaining = 0, onClose, adminConfig, userId, user
     }, []);
 
     const handlePurchase = (pkg) => {
+        // Clear any existing polling
+        if (pollingRef.current) clearInterval(pollingRef.current);
+        if (countdownRef.current) clearInterval(countdownRef.current);
+
         setSelectedPackage(pkg);
         setShowPaymentInfo(true);
         setSubmitted(false);
         setPaymentSuccess(false);
+        setChecking(false);
+
         const code = generateOrderCode(userId);
         setOrderCode(code);
 
-        // Start auto-check if SePay is configured
-        if (isAutoPayment) {
+        // Kiểm tra token TẠI THỜI ĐIỂM CLICK (không dùng biến cũ)
+        const token = getSepayToken(adminConfig);
+        console.log(`🛒 Purchase: ${pkg.name} | Token exists: ${!!token} | Code: ${code}`);
+
+        if (token) {
             setChecking(true);
-            setCountdown(300); // 5 minutes timeout
-            startPolling(code, pkg);
+            setCountdown(300); // 5 phút
+            startPolling(code, pkg, token);
         }
     };
 
-    const startPolling = (code, pkg) => {
-        // Poll every 5 seconds
+    const startPolling = (code, pkg, token) => {
+        // Poll mỗi 5 giây
         pollingRef.current = setInterval(async () => {
-            const result = await checkPaymentStatus(sepayToken, code, pkg.salePrice);
+            const result = await checkPaymentStatus(token, code, pkg.salePrice);
             if (result && result.success) {
                 clearInterval(pollingRef.current);
                 clearInterval(countdownRef.current);
                 setChecking(false);
                 setPaymentSuccess(true);
-                // Auto approve: submit request and immediately approve
-                await submitCreditRequest(userId, userName, userEmail, { ...pkg, id: pkg.id });
-                // Credits will be added by admin approval or auto-add
+
+                // Ghi yêu cầu + cộng credits tự động
+                try {
+                    await submitCreditRequest(userId, userName, userEmail, { ...pkg, id: pkg.id });
+                } catch (e) { console.warn('Submit request error:', e); }
+
                 try {
                     const { addCreditsToUser } = await import('../../utils/adminSettings');
                     await addCreditsToUser(userId, pkg.cards);
+                    console.log(`✅ Auto-added ${pkg.cards} credits to user ${userId}`);
                 } catch (e) { console.warn('Auto add credits error:', e); }
             }
         }, 5000);
@@ -252,7 +263,7 @@ const AiCreditShop = ({ creditsRemaining = 0, onClose, adminConfig, userId, user
                         </div>
 
                         {/* Auto-check status */}
-                        {isAutoPayment && checking && (
+                        {checking && (
                             <div className="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl p-3 text-center">
                                 <div className="flex items-center justify-center gap-2 mb-1">
                                     <Loader2 className="w-4 h-4 animate-spin text-indigo-500" />
@@ -265,7 +276,7 @@ const AiCreditShop = ({ creditsRemaining = 0, onClose, adminConfig, userId, user
                         )}
 
                         {/* Not auto-payment: manual confirm */}
-                        {!isAutoPayment && (
+                        {!checking && (
                             <p className="text-[10px] text-gray-400 text-center">
                                 Sau khi chuyển khoản, bấm "Đã chuyển khoản" để gửi yêu cầu. Admin sẽ xác nhận trong 24h.
                             </p>
@@ -276,7 +287,7 @@ const AiCreditShop = ({ creditsRemaining = 0, onClose, adminConfig, userId, user
                                 onClick={() => { setShowPaymentInfo(false); if (pollingRef.current) clearInterval(pollingRef.current); if (countdownRef.current) clearInterval(countdownRef.current); setChecking(false); }}
                                 className="flex-1 py-2 rounded-xl border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-400 font-medium text-xs"
                             >← Quay lại</button>
-                            {!isAutoPayment && (
+                            {!checking && (
                                 <button
                                     onClick={handleManualConfirm}
                                     className="flex-1 py-2 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-xs"
