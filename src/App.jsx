@@ -2059,7 +2059,11 @@ Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo
 
 === QUY TẮC BẮT BUỘC ===
 
-0. NHẬN DIỆN CỤM TỪ / THÀNH NGỮ (QUAN TRỌNG NHẤT):
+0. TUÂN THỦ NGHIÊM NGẶT LOẠI TỪ & CẤP ĐỘ ĐÃ CHỌN (TỐI QUAN TRỌNG):
+- Nếu Người dùng có đính kèm "Từ loại" ở ngữ cảnh đầu vào (VD: grammar, noun, verb...): BẮT BUỘC trường 'pos', cách giải thích nghĩa, và câu ví dụ PHẢI thể hiện đúng chức năng của loại từ đó (VD: Yêu cầu "grammar" thì PHẢI giải thích như một TRỌNG ĐIỂM NGỮ PHÁP).
+- Nếu Người dùng có đính kèm "Cấp độ" (VD: N3, N4...): BẮT BUỘC trường 'level' phải đúng y hệt như yêu cầu và nội dung kiến thức phải được giải thích ở cấp độ đó.
+
+0.1. NHẬN DIỆN CỤM TỪ / THÀNH NGỮ:
 - Nếu người dùng nhập CỤM TỪ có chứa trợ từ (を、に、が、で、と...) hoặc nhiều từ ghép nhau (VD: 迷惑をかける、気にする、手を出す、目を通す、腹が立つ), thì ĐÂY LÀ MỘT CỤM TỪ / THÀNH NGỮ, KHÔNG PHẢI TỪ ĐƠN.
 - pos BẮT BUỘC là "phrase".
 - frontWithFurigana: GIỮ NGUYÊN CẢ CỤM, thêm furigana cho từng kanji riêng biệt. VD: 迷惑をかける（めいわくをかける）, 気にする（きにする）.
@@ -2101,7 +2105,8 @@ Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo
 - Ví dụ XẤU (quá ngắn): "Dùng phổ biến."
 
 6. TRƯỜNG "pos" (Từ loại):
-- CHỈ ĐƯỢC CHỌN 1 TRONG CÁC GIÁ TRỊ SAU, viết y hệt (không viết hoa, không chỉnh sửa):
+- NẾU người dùng đã chọn từ loại ở ngữ cảnh, BẮT BUỘC DÙNG LẠI TỪ LOẠI ĐÓ.
+- Nếu không, CHỈ ĐƯỢC CHỌN 1 TRONG CÁC GIÁ TRỊ SAU, viết y hệt (không viết hoa, không chỉnh sửa):
   "noun", "verb", "suru_verb", "adj_i", "adj_na", "adverb", "conjunction", "particle", "grammar", "phrase", "other".
 - Tuyệt đối không tự bịa ra từ loại mới.
 
@@ -2112,7 +2117,8 @@ Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo
 - LƯU Ý synonymSinoVietnamese: Nếu các từ ở mục synonym CÓ KANJI, BẮT BUỘC điền âm Hán Việt tương ứng cách nhau bằng phẩy. Nếu hoàn toàn không có Kanji thì để "".
 
 8. TRƯỜNG "level" (JLPT):
-- CHỈ ĐƯỢC CHỌN: "N5", "N4", "N3", "N2", "N1". 
+- NẾU người dùng đã chọn cấp độ N ở ngữ cảnh, BẮT BUỘC TRẢ VỀ CẤP ĐỘ ĐÓ.
+- Nếu không, CHỈ ĐƯỢC CHỌN: "N5", "N4", "N3", "N2", "N1". 
 - Nếu không thuộc cấp độ nào hoặc mức độ quá khó/đặc biệt, hãy để chuỗi rỗng "". KHÔNG ghi "N0", "Unknown".
 
 Không được trả về markdown, không được dùng backtick, không được trả lời thêm bất cứ chữ nào ngoài JSON.`;
