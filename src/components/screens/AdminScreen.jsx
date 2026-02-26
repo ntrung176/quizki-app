@@ -5,9 +5,10 @@ import {
     Users, Search, Shield, Trash2, BarChart3, Clock,
     AlertTriangle, CheckCircle, Loader2, Languages, BookOpen,
     Sparkles, Bot, UserCheck, UserX, ToggleLeft, ToggleRight,
-    ChevronDown, ChevronUp, Settings, Crown, ShieldCheck
+    ChevronDown, ChevronUp, Settings, Crown, ShieldCheck,
+    CreditCard, Plus, Check, X as XIcon, Edit
 } from 'lucide-react';
-import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, addModerator, removeModerator, grantAIAccess, revokeAIAccess } from '../../utils/adminSettings';
+import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, addModerator, removeModerator, grantAIAccess, revokeAIAccess, subscribeCreditRequests, approveCreditRequest, rejectCreditRequest, addCreditsToUser, DEFAULT_AI_PACKAGES } from '../../utils/adminSettings';
 
 const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, adminConfig, isAdmin }) => {
     // State
@@ -22,8 +23,12 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const [deleting, setDeleting] = useState(false);
     const [deleteType, setDeleteType] = useState('all');
     const [userKanjiStats, setUserKanjiStats] = useState({});
-    const [activeSection, setActiveSection] = useState('users'); // 'users' | 'ai' | 'moderators'
+    const [activeSection, setActiveSection] = useState('users');
     const [savingConfig, setSavingConfig] = useState(false);
+    const [creditRequests, setCreditRequests] = useState([]);
+    const [manualCreditUserId, setManualCreditUserId] = useState('');
+    const [manualCreditAmount, setManualCreditAmount] = useState('');
+    const [editingPackages, setEditingPackages] = useState(null);
 
     // Load users
     useEffect(() => {
@@ -200,6 +205,12 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         }
     }, [notification]);
 
+    // Load credit requests
+    useEffect(() => {
+        const unsub = subscribeCreditRequests(setCreditRequests);
+        return () => { if (unsub) unsub(); };
+    }, []);
+
     if (isLoading) {
         return (
             <div className="flex items-center justify-center py-20">
@@ -211,13 +222,57 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         );
     }
 
+
+
     const kanjiStats = selectedUser ? userKanjiStats[selectedUser.userId] : null;
+
+    const formatVND = (n) => new Intl.NumberFormat('vi-VN').format(n) + 'đ';
+
+    const handleApproveRequest = async (req) => {
+        setSavingConfig(true);
+        const ok = await approveCreditRequest(req.id, req.userId, req.credits, currentUserId);
+        if (ok) setNotification({ type: 'success', message: `Đã cộng ${req.credits} credits cho ${req.userName}` });
+        else setNotification({ type: 'error', message: 'Lỗi khi duyệt' });
+        setSavingConfig(false);
+    };
+
+    const handleRejectRequest = async (req) => {
+        setSavingConfig(true);
+        const ok = await rejectCreditRequest(req.id, currentUserId);
+        if (ok) setNotification({ type: 'success', message: `Đã từ chối yêu cầu của ${req.userName}` });
+        else setNotification({ type: 'error', message: 'Lỗi' });
+        setSavingConfig(false);
+    };
+
+    const handleManualAddCredits = async () => {
+        if (!manualCreditUserId || !manualCreditAmount || isNaN(manualCreditAmount)) return;
+        setSavingConfig(true);
+        const ok = await addCreditsToUser(manualCreditUserId, parseInt(manualCreditAmount));
+        const user = users.find(u => u.userId === manualCreditUserId);
+        if (ok) {
+            setNotification({ type: 'success', message: `Đã cộng ${manualCreditAmount} credits cho ${user?.displayName || manualCreditUserId}` });
+            setManualCreditAmount('');
+        } else setNotification({ type: 'error', message: 'Lỗi' });
+        setSavingConfig(false);
+    };
+
+    const handleSavePackages = async () => {
+        if (!editingPackages) return;
+        setSavingConfig(true);
+        const ok = await updateAdminConfig({ aiCreditPackages: editingPackages }, currentUserId);
+        if (ok) {
+            setNotification({ type: 'success', message: 'Đã cập nhật giá gói thẽ' });
+            setEditingPackages(null);
+        } else setNotification({ type: 'error', message: 'Lỗi' });
+        setSavingConfig(false);
+    };
 
     // Section tabs
     const sections = [
         { id: 'users', label: 'Người dùng', icon: Users },
-        { id: 'ai', label: 'Cài đặt AI', icon: Bot },
-        { id: 'moderators', label: 'Quản trị viên', icon: ShieldCheck },
+        { id: 'ai', label: 'AI', icon: Bot },
+        { id: 'credits', label: 'Credits', icon: CreditCard },
+        { id: 'moderators', label: 'QTV', icon: ShieldCheck },
     ];
 
     return (
@@ -501,54 +556,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             {/* ==================== AI SETTINGS SECTION ==================== */}
             {activeSection === 'ai' && (
                 <div className="space-y-4">
-                    {/* AI Global Toggle */}
-                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-lg bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center">
-                                    <Sparkles className="w-5 h-5 text-violet-600 dark:text-violet-400" />
-                                </div>
-                                <div>
-                                    <p className="font-bold text-gray-800 dark:text-white">Tính năng AI</p>
-                                    <p className="text-xs text-gray-500 dark:text-gray-400">Bật/tắt tính năng AI tạo từ vựng tự động</p>
-                                </div>
-                            </div>
-                            <button
-                                onClick={handleToggleAI}
-                                disabled={savingConfig}
-                                className={`relative w-14 h-7 rounded-full transition-colors duration-300 cursor-pointer ${adminConfig?.aiEnabled ? 'bg-emerald-500' : 'bg-gray-300 dark:bg-gray-600'}`}
-                            >
-                                <div className={`absolute top-0.5 w-6 h-6 bg-white rounded-full shadow-md transition-all duration-300 ${adminConfig?.aiEnabled ? 'translate-x-7 left-0.5' : 'translate-x-0 left-0.5'}`} />
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* AI Allow All Users */}
-                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                                    <Users className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                                </div>
-                                <div>
-                                    <p className="font-bold text-gray-800 dark:text-white">Cho phép tất cả người dùng</p>
-                                    <p className="text-xs text-gray-500 dark:text-gray-400">
-                                        {adminConfig?.aiAllowAll
-                                            ? 'Tất cả đều có thể sử dụng AI'
-                                            : 'Chỉ người được cấp quyền mới có thể sử dụng AI'}
-                                    </p>
-                                </div>
-                            </div>
-                            <button
-                                onClick={handleToggleAIAllowAll}
-                                disabled={savingConfig || !adminConfig?.aiEnabled}
-                                className={`relative w-14 h-7 rounded-full transition-colors duration-300 cursor-pointer ${!adminConfig?.aiEnabled ? 'bg-gray-200 dark:bg-gray-700 opacity-50' : adminConfig?.aiAllowAll ? 'bg-emerald-500' : 'bg-gray-300 dark:bg-gray-600'}`}
-                            >
-                                <div className={`absolute top-0.5 w-6 h-6 bg-white rounded-full shadow-md transition-all duration-300 ${adminConfig?.aiAllowAll && adminConfig?.aiEnabled ? 'translate-x-7 left-0.5' : 'translate-x-0 left-0.5'}`} />
-                            </button>
-                        </div>
-                    </div>
-
                     {/* AI Provider Selection */}
                     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
                         <div className="flex items-center gap-3 mb-4">
@@ -565,11 +572,11 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 <button
                                     key={opt.value}
                                     onClick={() => handleChangeProvider(opt.value)}
-                                    disabled={savingConfig || !adminConfig?.aiEnabled}
+                                    disabled={savingConfig}
                                     className={`p-3 rounded-xl border-2 text-left transition-all ${adminConfig?.aiProvider === opt.value || (!adminConfig?.aiProvider && opt.value === 'auto')
                                         ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 ring-2 ring-indigo-200 dark:ring-indigo-800'
                                         : 'border-gray-200 dark:border-gray-600 hover:border-indigo-300 dark:hover:border-indigo-700'
-                                        } ${!adminConfig?.aiEnabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                        }`}
                                 >
                                     <p className="font-bold text-sm text-gray-800 dark:text-white">{opt.label}</p>
                                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{opt.description}</p>
@@ -577,12 +584,12 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                             ))}
                         </div>
 
-                        {/* OpenRouter Model Selection (Only show if provider is openrouter or auto) */}
-                        {(adminConfig?.aiProvider === 'openrouter' || adminConfig?.aiProvider === 'auto' || !adminConfig?.aiProvider) && adminConfig?.aiEnabled && (
+                        {/* OpenRouter Model Selection */}
+                        {(adminConfig?.aiProvider === 'openrouter' || adminConfig?.aiProvider === 'auto' || !adminConfig?.aiProvider) && (
                             <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-                                <p className="font-bold text-sm text-gray-800 dark:text-white mb-2">Mô hình OpenRouter ưu tiên</p>
+                                <p className="font-bold text-sm text-gray-800 dark:text-white mb-2">Mô hình OpenRouter</p>
                                 <select
-                                    value={adminConfig?.openRouterModel || 'anthropic/claude-3.5-sonnet'}
+                                    value={adminConfig?.openRouterModel || 'google/gemini-2.5-flash'}
                                     onChange={(e) => handleChangeOpenRouterModel(e.target.value)}
                                     className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-xl outline-none text-sm dark:text-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
                                 >
@@ -594,45 +601,12 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                         )}
                     </div>
 
-                    {/* AI Allowed Users List */}
-                    {!adminConfig?.aiAllowAll && (
-                        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
-                            <h3 className="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
-                                <UserCheck className="w-4 h-4 text-emerald-500" />
-                                Người dùng được cấp quyền AI ({adminConfig?.aiAllowedUsers?.length || 0})
-                            </h3>
-                            {(!adminConfig?.aiAllowedUsers || adminConfig.aiAllowedUsers.length === 0) ? (
-                                <p className="text-sm text-gray-400 dark:text-gray-500 italic">
-                                    Chưa có ai. Chọn người dùng ở tab "Người dùng" để cấp quyền.
-                                </p>
-                            ) : (
-                                <div className="space-y-2">
-                                    {adminConfig.aiAllowedUsers.map(uid => {
-                                        const user = users.find(u => u.userId === uid);
-                                        return (
-                                            <div key={uid} className="flex items-center justify-between p-2.5 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                                                <div className="flex items-center gap-2">
-                                                    <div className="w-7 h-7 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-bold">
-                                                        {(user?.displayName || '?')[0].toUpperCase()}
-                                                    </div>
-                                                    <span className="text-sm font-medium text-gray-800 dark:text-white">
-                                                        {user?.displayName || uid.slice(0, 15) + '...'}
-                                                    </span>
-                                                </div>
-                                                <button
-                                                    onClick={() => handleToggleAIAccess(uid, user?.displayName || uid)}
-                                                    disabled={savingConfig}
-                                                    className="text-xs text-red-500 hover:text-red-700 font-medium"
-                                                >
-                                                    Thu hồi
-                                                </button>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            )}
-                        </div>
-                    )}
+                    {/* Info note */}
+                    <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+                        <p className="text-sm text-blue-700 dark:text-blue-300">
+                            <strong>💡 Lưu ý:</strong> AI được kiểm soát bằng hệ thống credits. Tất cả người dùng có thể dùng AI trong giới hạn lượt. Quản lý credits ở tab <strong>Credits</strong>.
+                        </p>
+                    </div>
                 </div>
             )}
 
@@ -760,6 +734,219 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                     </div>
                 </div>
             )}
+
+            {/* ==================== CREDITS SECTION ==================== */}
+            {activeSection === 'credits' && (
+                <div className="space-y-4">
+                    {/* Pending Requests */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+                        <h3 className="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                            <CreditCard className="w-4 h-4 text-indigo-500" />
+                            Yêu cầu nạp thẻ ({creditRequests.filter(r => r.status === 'pending').length} chờ duyệt)
+                        </h3>
+                        {creditRequests.filter(r => r.status === 'pending').length === 0 ? (
+                            <p className="text-sm text-gray-400 italic">Không có yêu cầu nào đang chờ.</p>
+                        ) : (
+                            <div className="space-y-2">
+                                {creditRequests.filter(r => r.status === 'pending').map(req => (
+                                    <div key={req.id} className="flex items-center justify-between p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl">
+                                        <div>
+                                            <p className="font-bold text-sm text-gray-800 dark:text-white">{req.userName || req.userId?.slice(0, 10)}</p>
+                                            <p className="text-xs text-gray-500">{req.userEmail}</p>
+                                            <p className="text-xs text-amber-600 dark:text-amber-400 font-medium mt-0.5">
+                                                Gói {req.packageName} • {req.credits?.toLocaleString()} thẻ • {formatVND(req.amount || 0)}
+                                            </p>
+                                        </div>
+                                        <div className="flex gap-2">
+                                            <button
+                                                onClick={() => handleApproveRequest(req)}
+                                                disabled={savingConfig}
+                                                className="p-2 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition-colors"
+                                                title="Duyệt & cộng credits"
+                                            >
+                                                <Check className="w-4 h-4" />
+                                            </button>
+                                            <button
+                                                onClick={() => handleRejectRequest(req)}
+                                                disabled={savingConfig}
+                                                className="p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+                                                title="Từ chối"
+                                            >
+                                                <XIcon className="w-4 h-4" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        {/* Recently processed */}
+                        {creditRequests.filter(r => r.status !== 'pending').length > 0 && (
+                            <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-700">
+                                <p className="text-xs font-bold text-gray-500 mb-2">Đã xử lý gần đây:</p>
+                                <div className="space-y-1">
+                                    {creditRequests.filter(r => r.status !== 'pending').slice(0, 5).map(req => (
+                                        <div key={req.id} className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-xs">
+                                            <span className="text-gray-600 dark:text-gray-400">{req.userName || req.userId?.slice(0, 10)} • {req.packageName} • {req.credits?.toLocaleString()} thẻ</span>
+                                            <span className={`font-bold ${req.status === 'approved' ? 'text-emerald-500' : 'text-red-500'}`}>
+                                                {req.status === 'approved' ? '✓ Duyệt' : '✗ Từ chối'}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Manual Add Credits */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+                        <h3 className="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                            <Plus className="w-4 h-4 text-emerald-500" />
+                            Cộng credits thủ công
+                        </h3>
+                        <div className="flex gap-2">
+                            <select
+                                value={manualCreditUserId}
+                                onChange={(e) => setManualCreditUserId(e.target.value)}
+                                className="flex-1 px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
+                            >
+                                <option value="">Chọn người dùng</option>
+                                {users.map(u => (
+                                    <option key={u.userId} value={u.userId}>{u.displayName || u.userId?.slice(0, 15)}</option>
+                                ))}
+                            </select>
+                            <input
+                                type="number"
+                                value={manualCreditAmount}
+                                onChange={(e) => setManualCreditAmount(e.target.value)}
+                                placeholder="Số credits"
+                                className="w-28 px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
+                            />
+                            <button
+                                onClick={handleManualAddCredits}
+                                disabled={savingConfig || !manualCreditUserId || !manualCreditAmount}
+                                className="px-4 py-2 bg-emerald-500 text-white font-bold text-sm rounded-lg hover:bg-emerald-600 disabled:opacity-50 transition-colors"
+                            >
+                                Cộng
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Edit Packages */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+                        <div className="flex items-center justify-between mb-3">
+                            <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2">
+                                <Edit className="w-4 h-4 text-indigo-500" />
+                                Cấu hình gói thẻ bán
+                            </h3>
+                            {!editingPackages ? (
+                                <button
+                                    onClick={() => setEditingPackages(adminConfig?.aiCreditPackages || DEFAULT_AI_PACKAGES)}
+                                    className="text-xs text-indigo-500 hover:text-indigo-700 font-bold"
+                                >Chỉnh sửa</button>
+                            ) : (
+                                <div className="flex gap-2">
+                                    <button onClick={() => setEditingPackages(null)} className="text-xs text-gray-400 hover:text-gray-600">Hủy</button>
+                                    <button onClick={handleSavePackages} disabled={savingConfig} className="text-xs text-emerald-500 hover:text-emerald-700 font-bold">Lưu</button>
+                                </div>
+                            )}
+                        </div>
+                        <div className="space-y-2">
+                            {(editingPackages || adminConfig?.aiCreditPackages || DEFAULT_AI_PACKAGES).map((pkg, i) => (
+                                <div key={pkg.id} className="grid grid-cols-5 gap-2 items-center text-sm">
+                                    <span className="font-medium text-gray-700 dark:text-gray-300 text-xs">{pkg.name}</span>
+                                    <input
+                                        type="number" value={pkg.cards}
+                                        disabled={!editingPackages}
+                                        onChange={(e) => { const p = [...editingPackages]; p[i] = { ...p[i], cards: parseInt(e.target.value) || 0 }; setEditingPackages(p); }}
+                                        className="px-2 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none disabled:opacity-60"
+                                        placeholder="Thẻ"
+                                    />
+                                    <input
+                                        type="number" value={pkg.originalPrice}
+                                        disabled={!editingPackages}
+                                        onChange={(e) => { const p = [...editingPackages]; p[i] = { ...p[i], originalPrice: parseInt(e.target.value) || 0 }; setEditingPackages(p); }}
+                                        className="px-2 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none disabled:opacity-60"
+                                        placeholder="Giá gốc"
+                                    />
+                                    <input
+                                        type="number" value={pkg.salePrice}
+                                        disabled={!editingPackages}
+                                        onChange={(e) => { const p = [...editingPackages]; p[i] = { ...p[i], salePrice: parseInt(e.target.value) || 0 }; setEditingPackages(p); }}
+                                        className="px-2 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none disabled:opacity-60"
+                                        placeholder="Giá sale"
+                                    />
+                                    <span className="text-xs text-gray-400">-{Math.round((1 - pkg.salePrice / (pkg.originalPrice || 1)) * 100)}%</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* SePay Payment Config */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+                        <h3 className="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                            <CreditCard className="w-4 h-4 text-purple-500" />
+                            Cấu hình thanh toán (SePay)
+                        </h3>
+                        <div className="space-y-3">
+                            <div className="grid grid-cols-2 gap-2">
+                                <div>
+                                    <label className="text-[10px] font-bold text-gray-500 uppercase">Mã ngân hàng</label>
+                                    <input
+                                        type="text"
+                                        defaultValue={adminConfig?.bankId || 'MB'}
+                                        onBlur={(e) => updateAdminConfig({ bankId: e.target.value }, currentUserId)}
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
+                                        placeholder="MB, VCB, TCB..."
+                                    />
+                                </div>
+                                <div>
+                                    <label className="text-[10px] font-bold text-gray-500 uppercase">Số tài khoản</label>
+                                    <input
+                                        type="text"
+                                        defaultValue={adminConfig?.bankAccountNo || '0123456789'}
+                                        onBlur={(e) => updateAdminConfig({ bankAccountNo: e.target.value }, currentUserId)}
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <label className="text-[10px] font-bold text-gray-500 uppercase">Tên tài khoản</label>
+                                <input
+                                    type="text"
+                                    defaultValue={adminConfig?.bankAccountName || 'NGUYEN TRUNG'}
+                                    onBlur={(e) => updateAdminConfig({ bankAccountName: e.target.value }, currentUserId)}
+                                    className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
+                                />
+                            </div>
+                            <div>
+                                <label className="text-[10px] font-bold text-gray-500 uppercase">SePay API Token</label>
+                                <input
+                                    type="password"
+                                    defaultValue={adminConfig?.sepayToken || ''}
+                                    onBlur={(e) => updateAdminConfig({ sepayToken: e.target.value }, currentUserId)}
+                                    className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
+                                    placeholder="Nhập API Token từ my.sepay.vn"
+                                />
+                                <p className="text-[10px] text-gray-400 mt-1">Lấy token tại <a href="https://my.sepay.vn/api-tokens" target="_blank" rel="noopener noreferrer" className="text-indigo-500 underline">my.sepay.vn/api-tokens</a></p>
+                            </div>
+                            <div className="flex items-center justify-between p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                                <div>
+                                    <p className="font-bold text-sm text-gray-800 dark:text-white">Tự động xác nhận</p>
+                                    <p className="text-[10px] text-gray-500">Khi có SePay token, hệ thống tự kiểm tra & cộng credits</p>
+                                </div>
+                                <button
+                                    onClick={() => updateAdminConfig({ autoPayment: !adminConfig?.autoPayment }, currentUserId)}
+                                    className={`relative w-12 h-6 rounded-full transition-colors ${adminConfig?.autoPayment ? 'bg-emerald-500' : 'bg-gray-300 dark:bg-gray-600'}`}
+                                >
+                                    <div className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow-md transition-all ${adminConfig?.autoPayment ? 'translate-x-6 left-0.5' : 'translate-x-0 left-0.5'}`} />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
 
             {/* Notification Toast */}
             {notification && (

@@ -71,6 +71,10 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist }) => {
     const handleAiAssist = async (e) => {
         e.preventDefault();
         if (!front.trim()) return;
+        if (!level) {
+            alert('Vui lòng chọn cấp độ JLPT (N5~N1) trước khi dùng AI tạo từ vựng.');
+            return;
+        }
         setIsAiLoading(true);
         const aiData = await onGeminiAssist(front, pos, level);
         if (aiData) {

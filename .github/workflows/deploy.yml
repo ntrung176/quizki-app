@@ -41,6 +41,7 @@ jobs:
       VITE_GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       VITE_OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
       VITE_PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+      VITE_SEPAY_API_KEY: ${{ secrets.SEPAY_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

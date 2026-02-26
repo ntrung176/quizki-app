@@ -60,6 +60,11 @@ export default defineConfig({
         target: 'https://jotoba.de',
         changeOrigin: true,
       },
+      '/api/sepay': {
+        target: 'https://my.sepay.vn',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/sepay/, '/userapi'),
+      },
     },
   },
 })

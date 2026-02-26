@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Copy, FileJson, PenTool, ClipboardCheck, Search, BookOpen, Languages, MessageSquare, Tag, Sparkles, ChevronDown } from 'lucide-react';
+import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Copy, FileJson, PenTool, ClipboardCheck, Search, BookOpen, Languages, MessageSquare, Tag, Sparkles, ChevronDown, ShoppingCart } from 'lucide-react';
 import { JLPT_LEVELS, POS_TYPES } from '../../config/constants';
 import { compressImage } from '../../utils/image';
 import OnboardingTour from '../ui/OnboardingTour';
@@ -116,7 +116,9 @@ const AddCardForm = ({
     onBatchSkip,
     editingCard: initialEditingCard = null,
     onOpenBatchImport,
-    onGenerateMoreExample
+    onGenerateMoreExample,
+    aiCreditsRemaining,
+    onOpenShop
 }) => {
     const [activeTab, setActiveTab] = useState('manual');
     const [front, setFront] = useState('');
@@ -208,6 +210,10 @@ const AddCardForm = ({
         e.preventDefault();
         if (!front.trim()) {
             if (frontInputRef.current && !isMobileDevice()) frontInputRef.current.focus();
+            return;
+        }
+        if (!level) {
+            alert('Vui lòng chọn cấp độ JLPT (N5~N1) trước khi dùng AI tạo từ vựng.');
             return;
         }
         setIsAiLoading(true);
@@ -302,9 +308,14 @@ const AddCardForm = ({
                     </h2>
                     <p className="text-gray-400 dark:text-gray-500 text-sm mt-0.5">Xây dựng kho tàng kiến thức của bạn</p>
                 </div>
-                <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50">
-                    <Plus className="w-5 h-5 text-white" />
-                </div>
+                <button
+                    type="button"
+                    onClick={onOpenShop}
+                    className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 hover:shadow-xl hover:scale-105 transition-all cursor-pointer"
+                    title="Mua thêm lượt AI"
+                >
+                    <ShoppingCart className="w-5 h-5 text-white" />
+                </button>
             </div>
 
             {/* Tab Switcher */}

@@ -255,12 +255,10 @@ const App = () => {
         return () => { if (unsubscribe) unsubscribe(); };
     }, []);
 
-    // Check if current user can use AI features
+    // AI giờ kiểm soát bằng credits → tất cả user đều được dùng
     const canUserUseAI = useMemo(() => {
-        const result = checkCanUseAI(adminConfig, userId, isAdmin);
-        console.log('🔑 canUserUseAI:', result, '| userId:', userId, '| isAdmin:', isAdmin, '| aiEnabled:', adminConfig?.aiEnabled, '| aiAllowAll:', adminConfig?.aiAllowAll, '| inAllowedList:', adminConfig?.aiAllowedUsers?.includes(userId));
-        return result;
-    }, [adminConfig, userId, isAdmin]);
+        return !!userId;
+    }, [userId]);
 
     // Check if current user has admin privileges (admin or moderator)
     const userHasAdminPrivileges = useMemo(() => {
@@ -443,6 +441,13 @@ const App = () => {
                 if (!profileData.email && auth?.currentUser?.email) {
                     profileData.email = auth.currentUser.email;
                 }
+                // Khởi tạo AI credits cho user cũ chưa có trường này
+                if (profileData.aiCreditsRemaining === undefined || profileData.aiCreditsRemaining === null) {
+                    profileData.aiCreditsRemaining = 100;
+                    try {
+                        await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: 100 });
+                    } catch (e) { console.warn('Init AI credits for existing user:', e); }
+                }
                 setProfile(profileData);
                 // Lưu vào sessionStorage
                 sessionStorage.setItem(cachedProfileKey, JSON.stringify(profileData));
@@ -457,7 +462,8 @@ const App = () => {
                         displayName: defaultName,
                         dailyGoal: defaultGoal,
                         hasSeenHelp: true,
-                        email: auth?.currentUser?.email || ''
+                        email: auth?.currentUser?.email || '',
+                        aiCreditsRemaining: 100
                     };
                     await setDoc(doc(db, settingsDocPath), newProfile);
                     setProfile(newProfile);
@@ -2042,86 +2048,22 @@ const App = () => {
         if (contextPos) contextInfo += `, Từ loại: ${contextPos}`;
         if (contextLevel) contextInfo += `, Cấp độ: ${contextLevel}`;
 
-        const prompt = `Bạn là trợ lý từ điển Nhật-Việt chuyên nghiệp. Người dùng đang tìm kiếm thông tin cho từ vựng: "${frontText}"${contextInfo}.
-Trả về **DUY NHẤT** một JSON hợp lệ, không kèm giải thích, theo đúng schema sau:
-{
-  "frontWithFurigana": "食べる（たべる）",
-  "meaning": "ăn",
-  "pos": "verb",
-  "level": "N5",
-  "sinoVietnamese": "THỰC",
-  "synonym": "食う",
-  "synonymSinoVietnamese": "THỰC",
-  "example": "毎日ご飯を食べます。",
-  "exampleMeaning": "Tôi ăn cơm mỗi ngày.",
-  "nuance": "Động từ ăn thông dụng nhất, dùng được trong mọi tình huống từ giao tiếp hàng ngày đến văn viết trang trọng. Khác với 食う（くう）mang sắc thái thô, nam tính."
-}
+        const prompt = `Trợ lý từ điển Nhật-Việt. Từ: "${frontText}"${contextInfo}.
+Trả về DUY NHẤT JSON hợp lệ, không markdown/backtick/giải thích.
 
-=== QUY TẮC BẮT BUỘC ===
+{"frontWithFurigana":"食べる（たべる）","meaning":"ăn","pos":"verb","level":"N5","sinoVietnamese":"THỰC","synonym":"食う","synonymSinoVietnamese":"THỰC","example":"毎日ご飯を食べます。","exampleMeaning":"Tôi ăn cơm mỗi ngày。","nuance":"Tha động từ。Thông dụng nhất, mọi ngữ cảnh。Khác 食う（くう）thô, nam tính。"}
 
-0. TUÂN THỦ NGHIÊM NGẶT LOẠI TỪ & CẤP ĐỘ ĐÃ CHỌN (TỐI QUAN TRỌNG):
-- Nếu Người dùng có đính kèm "Từ loại" ở ngữ cảnh đầu vào (VD: grammar, noun, verb...): BẮT BUỘC trường 'pos', cách giải thích nghĩa, và câu ví dụ PHẢI thể hiện đúng chức năng của loại từ đó (VD: Yêu cầu "grammar" thì PHẢI giải thích như một TRỌNG ĐIỂM NGỮ PHÁP).
-- Nếu Người dùng có đính kèm "Cấp độ" (VD: N3, N4...): BẮT BUỘC trường 'level' phải đúng y hệt như yêu cầu và nội dung kiến thức phải được giải thích ở cấp độ đó.
-
-0.1. NHẬN DIỆN CỤM TỪ / THÀNH NGỮ:
-- Nếu người dùng nhập CỤM TỪ có chứa trợ từ (を、に、が、で、と...) hoặc nhiều từ ghép nhau (VD: 迷惑をかける、気にする、手を出す、目を通す、腹が立つ), thì ĐÂY LÀ MỘT CỤM TỪ / THÀNH NGỮ, KHÔNG PHẢI TỪ ĐƠN.
-- pos BẮT BUỘC là "phrase".
-- frontWithFurigana: GIỮ NGUYÊN CẢ CỤM, thêm furigana cho từng kanji riêng biệt. VD: 迷惑をかける（めいわくをかける）, 気にする（きにする）.
-- meaning: Nghĩa CỦA CẢ CỤM, KHÔNG phải nghĩa từng từ riêng lẻ. VD: 迷惑をかける = "gây phiền hà; làm phiền" (KHÔNG phải "rắc rối" + "treo").
-- sinoVietnamese: Chỉ lấy phần Kanji trong cụm. VD: 迷惑をかける → "MÊ HOẶC".
-- example: Câu ví dụ PHẢI chứa nguyên cả cụm.
-
-1. TRƯỜNG "frontWithFurigana":
-- Nếu từ là động từ hoặc tính từ đang bị chia (vd: 食べます, 食べた, 高かった), BẮT BUỘC trả về NGUYÊN DẠNG / THỂ TỪ ĐIỂN (vd: 食べる, 高い).
-- Nếu từ có Kanji: viết Kanji rồi thêm cách đọc hiragana vào trong dấu ngoặc Nhật （）. Ví dụ: 食べる（たべる）
-- Nếu từ chỉ có hiragana/katakana: giữ nguyên. Ví dụ: やっぱり
-- LƯU Ý ĐẶC BIỆT: Nếu người dùng có nhập kèm hiragana định hướng cách đọc (VD: 開く(あく) hoặc 空(から)), BẮT BUỘC phải tôn trọng làm theo cách đọc đó thay vì lấy cách phổ biến nhất.
-- TUYỆT ĐỐI KHÔNG để Kanji vào bên trong ngoặc: Sai: （食べる）, Sai: 食べる(食べる). Đúng: 食べる（たべる）.
-- BẮT BUỘC dùng ngoặc Nhật full-width （）, KHÔNG dùng ngoặc đơn thường ().
-
-2. TRƯỜNG "meaning":
-- Nghĩa tiếng Việt NGẮN GỌN. Nếu có nhiều nghĩa KHÁC NHAU HOÀN TOÀN thì ngăn cách các nghĩa bằng dấu chấm phẩy ";". Ví dụ: "ăn; sống (bằng nghề)"
-- TUYỆT ĐỐI KHÔNG liệt kê các nghĩa gần giống nhau.
-
-3. TRƯỜNG "example" và "exampleMeaning":
-- LUÔN LUÔN CHỈ TẠO ĐÚNG 1 CÂU VÍ DỤ DUY NHẤT. TUYỆT ĐỐI KHÔNG TẠO 2 CÂU TRỞ LÊN dù từ có bao nhiêu nghĩa.
-- Người dùng sẽ TỰ chọn tạo thêm ví dụ sau, AI KHÔNG được tự ý tạo nhiều hơn 1 câu.
-- Câu ví dụ BẮT BUỘC PHẢI DÙNG TỪ VỰNG GỐC: "${frontText}", NHƯNG CÓ THỂ CHIA THÌ/THỂ ĐỘNG TỪ (VD: ~ます, ~た, ~て) để câu tự nhiên nhất.
-- KHÔNG đánh số. "exampleMeaning" cũng CHỈ 1 dòng duy nhất.
-- ĐẶC BIỆT CHO CẤP ĐỘ N5: Nếu từ vựng thuộc cấp N5, câu ví dụ PHẢI đơn giản, VIẾT BẰNG HIRAGANA/KATAKANA là chủ yếu, TRÁNH dùng Kanji khó. Chỉ dùng Kanji rất cơ bản mà người mới học biết (như 私、人、日、大、小). VD tốt: "まいにち にほんごを べんきょうします。" VD xấu (quá nhiều kanji): "毎日日本語を勉強します。"
-
-4. TRƯỜNG "sinoVietnamese" (Âm Hán Việt):
-- BẮT BUỘC điền nếu từ có Kanji. Viết IN HOA âm Hán Việt của TỪNG Kanji, cách nhau bằng dấu cách.
-- QUAN TRỌNG: PHÂN TÍCH TỪNG CHỮ KANJI MỘT ĐỂ LẤY ÂM HÁN VIỆT. TUYỆT ĐỐI KHÔNG ĐƯỢC CHẾ ÂM. Ví dụ: 奥様 gồm "奥" (ÁO/Úc) và "様" (DẠNG) → "ÁO DẠNG" (không được bịa thành ÁO THỪA). 
-- CHỈ CHỌN ÂM HÁN VIỆT PHỔ BIẾN NHẤT hoặc ĐÚNG NHẤT với nghĩa. Ví dụ: 流行 → "LƯU HÀNH", 行 → "HÀNH" (hoặc "HẠNG" tùy nghĩa).
-- CHỈ lấy âm Hán Việt của phần KANJI, bỏ qua phần hiragana (okurigana). VD: 新しい → "TÂN".
-- Nếu KHÔNG có Kanji thì để trống "".
-
-5. TRƯỜNG "nuance" (Sắc thái, ngữ cảnh sử dụng):
-- PHẢI giải thích CHI TIẾT, DỄ HIỂU về bối cảnh sử dụng từ vựng.
-- NẾU LÀ ĐỘNG TỪ: BẮT BUỘC chú thích rõ đây là Tự động từ (TĐT - thường đi với が/に) hay Tha động từ (ThaĐT - thường đi với を). Ghi rõ TĐT/ThaĐT tương ứng nếu có (Ví dụ: Tha động từ. Tự động từ tương ứng là 始まる).
-- NẾU LÀ TỪ NGOẠI LAI (Katakana): Ghi chú rõ từ gốc trong ngôn ngữ mẹ đẻ (Ví dụ: Từ gốc tiếng Anh "part-time").
-- Ví dụ TỐT: "Dùng trong giao tiếp hàng ngày, mức độ lịch sự trung bình. Trong văn viết trang trọng nên dùng 召し上がる. Khác với 食う mang sắc thái thô tục, chỉ nam giới dùng."
-- Ví dụ XẤU (quá ngắn): "Dùng phổ biến."
-
-6. TRƯỜNG "pos" (Từ loại):
-- NẾU người dùng đã chọn từ loại ở ngữ cảnh, BẮT BUỘC DÙNG LẠI TỪ LOẠI ĐÓ.
-- Nếu không, CHỈ ĐƯỢC CHỌN 1 TRONG CÁC GIÁ TRỊ SAU, viết y hệt (không viết hoa, không chỉnh sửa):
-  "noun", "verb", "suru_verb", "adj_i", "adj_na", "adverb", "conjunction", "particle", "grammar", "phrase", "other".
-- Tuyệt đối không tự bịa ra từ loại mới.
-
-7. TRƯỜNG "synonym" và "synonymSinoVietnamese":
-- Nếu có từ đồng nghĩa THẬT SỰ TỒN TẠI trong tiếng Nhật và phù hợp ngữ cảnh, hãy điền vào. CÓ THỂ ĐIỀN NHIỀU TỪ ĐỒNG NGHĨA cách nhau bằng dấu phẩy (,).
-- QUAN TRỌNG: Từ đồng nghĩa PHẢI thuộc cấp độ JLPT TƯƠNG ĐƯƠNG HOẶC DỄ HƠN từ vựng gốc (VD: từ gốc N3 thì từ đồng nghĩa phải là N3, N4, N5). TUYỆT ĐỐI không dùng từ khó hơn (như N1, N2) vì người học chưa biết.
-- ĐẶC BIỆT: Nếu từ vựng thuộc cấp N5, KHÔNG TẠO từ đồng nghĩa. BẮT BUỘC để chuỗi rỗng "". Người mới học chưa cần từ đồng nghĩa.
-- LƯU Ý synonymSinoVietnamese: Nếu các từ ở mục synonym CÓ KANJI, BẮT BUỘC điền âm Hán Việt tương ứng cách nhau bằng phẩy. Nếu hoàn toàn không có Kanji thì để "".
-
-8. TRƯỜNG "level" (JLPT):
-- NẾU người dùng đã chọn cấp độ N ở ngữ cảnh, BẮT BUỘC TRẢ VỀ CẤP ĐỘ ĐÓ.
-- Nếu không, CHỈ ĐƯỢC CHỌN: "N5", "N4", "N3", "N2", "N1". 
-- Nếu không thuộc cấp độ nào hoặc mức độ quá khó/đặc biệt, hãy để chuỗi rỗng "". KHÔNG ghi "N0", "Unknown".
-
-Không được trả về markdown, không được dùng backtick, không được trả lời thêm bất cứ chữ nào ngoài JSON.`;
+QUY TẮC:
+1. TUÂN THỦ Từ loại & Cấp độ đã chọn: pos/level/nội dung phải khớp ngữ cảnh. Grammar→giải thích như ngữ pháp.
+2. CỤM TỪ có trợ từ(を/に/が/で/と)→pos="phrase", giữ nguyên cụm, nghĩa cả cụm, sinoVietnamese chỉ Kanji.
+3. frontWithFurigana: Động/tính từ đã chia→trả NGUYÊN DẠNG. Kanji+furigana trong（）full-width. Tôn trọng cách đọc user nhập.
+4. meaning: Nghĩa Việt ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống.
+5. example/exampleMeaning: CHỈ 1 CÂU DUY NHẤT, dùng từ gốc (có thể chia thì). N5→viết hiragana chủ yếu, ít kanji.
+6. sinoVietnamese: IN HOA, từng Kanji riêng, chỉ phần Kanji (bỏ okurigana). Không có Kanji→"". KHÔNG bịa âm.
+7. nuance: Chi tiết ngữ cảnh. Động từ→ghi TĐT/ThaĐT + từ tương ứng. Katakana→ghi từ gốc. KHÔNG viết quá ngắn.
+8. pos: Dùng đúng từ loại user chọn, hoặc chọn từ: noun/verb/suru_verb/adj_i/adj_na/adverb/conjunction/particle/grammar/phrase/other.
+9. synonym/synonymSinoVietnamese: Có→điền (nhiều thì phẩy). Cấp JLPT ≤ từ gốc. N5→để "". synonymSinoVietnamese lấy HV của synonym.
+10. level: Dùng cấp user chọn, hoặc N5-N1. Không thuộc cấp nào→"".\n\nKhông trả lời gì ngoài JSON.`;
 
         try {
             // Kiểm tra quyền AI
@@ -2130,12 +2072,41 @@ Không được trả về markdown, không được dùng backtick, không đư
                 return null;
             }
 
+            // Kiểm tra AI credits (admin/mod không giới hạn)
+            const isUnlimited = isAdmin || adminConfig?.moderators?.includes(userId);
+            const currentCredits = profile?.aiCreditsRemaining;
+            if (!isUnlimited) {
+                if (currentCredits === undefined || currentCredits === null) {
+                    // User cũ chưa có trường credits → khởi tạo 100 credits
+                    try {
+                        await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: 100 });
+                        setProfile(prev => ({ ...prev, aiCreditsRemaining: 100 }));
+                    } catch (e) { console.warn('Init credits error:', e); }
+                } else if (currentCredits <= 0) {
+                    setNotification('Bạn đã hết lượt tạo từ vựng AI miễn phí. Vui lòng mua thêm gói thẻ để tiếp tục sử dụng.');
+                    return null;
+                }
+            }
+
             const providerInfo = getAIProviderInfo();
             console.log(`🤖 AI Providers: ${providerInfo.summary}`);
 
-            // Sử dụng provider admin chỉ định (nếu có)
-            const forcedProvider = adminConfig?.aiProvider || 'auto';
-            const forcedOpenRouterModel = adminConfig?.openRouterModel || null;
+            // Smart routing theo cấp độ JLPT:
+            // N5, N4 → Groq (nhanh, miễn phí, đủ tốt cho từ vựng cơ bản)
+            // N3, N2, N1 → OpenRouter Gemini Flash (chính xác hơn cho ngữ pháp/từ vựng nâng cao)
+            let forcedProvider = adminConfig?.aiProvider || 'auto';
+            let forcedOpenRouterModel = adminConfig?.openRouterModel || null;
+
+            const levelUpper = (contextLevel || '').toUpperCase().trim();
+            if (levelUpper === 'N5' || levelUpper === 'N4') {
+                forcedProvider = 'groq';
+                console.log(`📘 Cấp độ ${levelUpper} → Dùng Groq (nhanh, miễn phí)`);
+            } else if (levelUpper === 'N3' || levelUpper === 'N2' || levelUpper === 'N1') {
+                forcedProvider = 'openrouter';
+                forcedOpenRouterModel = 'google/gemini-2.5-flash';
+                console.log(`📕 Cấp độ ${levelUpper} → Dùng OpenRouter Gemini Flash (chính xác cao)`);
+            }
+
             const responseText = await callAI(prompt, forcedProvider, forcedOpenRouterModel);
             const parsedJson = parseJsonFromAI(responseText);
 
@@ -2152,6 +2123,16 @@ Không được trả về markdown, không được dùng backtick, không đư
                         parsedJson.sinoVietnamese = lookupHV;
                     }
                 } catch (e) { console.warn('Lookup Hán Việt error:', e); }
+
+                // Trừ 1 credit sau khi AI tạo thành công (admin/mod không trừ)
+                if (!isUnlimited && settingsDocPath) {
+                    try {
+                        const newCredits = Math.max(0, (profile?.aiCreditsRemaining || 0) - 1);
+                        await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: newCredits });
+                        setProfile(prev => ({ ...prev, aiCreditsRemaining: newCredits }));
+                        console.log(`💳 AI Credits: ${newCredits} còn lại`);
+                    } catch (e) { console.warn('Deduct credit error:', e); }
+                }
 
                 return parsedJson;
             } else {

@@ -1,22 +1,38 @@
 // --- Admin Settings & Permissions Utilities ---
-import { doc, getDoc, setDoc, updateDoc, onSnapshot } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc, onSnapshot, collection, addDoc, getDocs, deleteDoc, serverTimestamp, query, orderBy } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
 
 // Firestore path for admin settings
 const getAdminSettingsPath = () => `artifacts/${appId}/settings`;
 const ADMIN_CONFIG_DOC = 'adminConfig';
 
+// Default AI Credit packages (admin can customize)
+export const DEFAULT_AI_PACKAGES = [
+    { id: 'starter', name: 'Starter', cards: 500, originalPrice: 69000, salePrice: 39000 },
+    { id: 'popular', name: 'Popular', cards: 1000, originalPrice: 129000, salePrice: 59000 },
+    { id: 'best_value', name: 'Best Value', cards: 3000, originalPrice: 299000, salePrice: 99000 },
+    { id: 'ultimate', name: 'Ultimate', cards: 10000, originalPrice: 699000, salePrice: 199000 },
+];
+
 // Default admin config
 const DEFAULT_ADMIN_CONFIG = {
     // AI Settings
-    aiEnabled: true,                    // Global AI toggle
-    aiProvider: 'auto',                 // 'auto' | 'groq' | 'gemini' | 'openrouter'
-    openRouterModel: 'anthropic/claude-3.5-sonnet', // Default OpenRouter model
-    aiAllowedUsers: [],                 // List of userId allowed to use AI (empty = no one except admin/mod)
-    aiAllowAll: false,                  // If true, all users can use AI
+    aiEnabled: true,
+    aiProvider: 'auto',
+    openRouterModel: 'google/gemini-2.5-flash',
+    aiAllowedUsers: [],
+    aiAllowAll: false,
+    aiCreditPackages: DEFAULT_AI_PACKAGES,
+
+    // Payment Settings (SePay)
+    sepayToken: '',                     // SePay API Token
+    bankId: 'MB',                       // Mã ngân hàng VietQR
+    bankAccountNo: '0123456789',        // Số tài khoản
+    bankAccountName: 'NGUYEN TRUNG',    // Tên tài khoản
+    autoPayment: false,                 // Tự động xác nhận thanh toán qua SePay
 
     // Moderator list
-    moderators: [],                     // List of userId with moderator role
+    moderators: [],
 
     // Metadata
     updatedAt: null,
@@ -175,12 +191,96 @@ export const AI_PROVIDER_OPTIONS = [
     { value: 'auto', label: 'Tự động (thử tất cả)', description: 'Groq → Gemini → OpenRouter' },
     { value: 'groq', label: 'Groq (Llama 3.3)', description: 'Nhanh, miễn phí, chất lượng cao' },
     { value: 'gemini', label: 'Google Gemini', description: 'Flash Lite / Flash / 1.5 Flash' },
-    { value: 'openrouter', label: 'OpenRouter (Trả phí)', description: 'Claude 3.5 Sonnet / GPT-4o (Đề xuất cho AI Tiếng Nhật)' },
+    { value: 'openrouter', label: 'OpenRouter (Trả phí)', description: 'Gemini 2.5 Flash' },
 ];
 
 export const OPENROUTER_MODELS = [
-    { value: 'anthropic/claude-3.5-sonnet', label: 'Claude 3.5 Sonnet (Đề xuất)' },
-    { value: 'openai/gpt-4o', label: 'GPT-4o' },
     { value: 'google/gemini-2.5-flash', label: 'Gemini 2.5 Flash' },
-    { value: 'meta-llama/llama-3.1-8b-instruct:free', label: 'Llama 3.1 8B (Miễn phí)' }
 ];
+
+// ============== AI CREDIT REQUESTS ==============
+const getCreditRequestsPath = () => `artifacts/${appId}/creditRequests`;
+
+// User submits a credit purchase request
+export const submitCreditRequest = async (userId, userName, userEmail, packageInfo) => {
+    try {
+        const colRef = collection(db, getCreditRequestsPath());
+        await addDoc(colRef, {
+            userId,
+            userName: userName || '',
+            userEmail: userEmail || '',
+            packageId: packageInfo.id,
+            packageName: packageInfo.name,
+            credits: packageInfo.cards,
+            amount: packageInfo.salePrice,
+            status: 'pending', // 'pending' | 'approved' | 'rejected'
+            createdAt: serverTimestamp(),
+            processedAt: null,
+            processedBy: null
+        });
+        return true;
+    } catch (e) {
+        console.error('Submit credit request error:', e);
+        return false;
+    }
+};
+
+// Admin loads all pending credit requests
+export const subscribeCreditRequests = (callback) => {
+    try {
+        const colRef = collection(db, getCreditRequestsPath());
+        const q = query(colRef, orderBy('createdAt', 'desc'));
+        return onSnapshot(q, (snapshot) => {
+            const requests = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+            callback(requests);
+        });
+    } catch (e) {
+        console.error('Subscribe credit requests error:', e);
+        return null;
+    }
+};
+
+// Admin approves a credit request → add credits to user
+export const approveCreditRequest = async (requestId, userId, credits, adminUserId) => {
+    try {
+        // Update user profile credits
+        const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
+        const profileSnap = await getDoc(profileRef);
+        const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
+        await updateDoc(profileRef, { aiCreditsRemaining: currentCredits + credits });
+
+        // Mark request as approved
+        const reqRef = doc(db, getCreditRequestsPath(), requestId);
+        await updateDoc(reqRef, { status: 'approved', processedAt: serverTimestamp(), processedBy: adminUserId });
+        return true;
+    } catch (e) {
+        console.error('Approve credit request error:', e);
+        return false;
+    }
+};
+
+// Admin rejects a credit request
+export const rejectCreditRequest = async (requestId, adminUserId) => {
+    try {
+        const reqRef = doc(db, getCreditRequestsPath(), requestId);
+        await updateDoc(reqRef, { status: 'rejected', processedAt: serverTimestamp(), processedBy: adminUserId });
+        return true;
+    } catch (e) {
+        console.error('Reject credit request error:', e);
+        return false;
+    }
+};
+
+// Admin manually add credits to a user
+export const addCreditsToUser = async (userId, credits) => {
+    try {
+        const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
+        const profileSnap = await getDoc(profileRef);
+        const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
+        await updateDoc(profileRef, { aiCreditsRemaining: currentCredits + credits });
+        return true;
+    } catch (e) {
+        console.error('Add credits error:', e);
+        return false;
+    }
+};
