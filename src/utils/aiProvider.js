@@ -113,9 +113,8 @@ const PROVIDERS = {
         extractText: (result) => result?.choices?.[0]?.message?.content || null
     },
     openrouter: {
-        name: 'OpenRouter (Claude 3.5 / GPT-4o)',
-        // Ưu tiên dòng trả phí cấu hình cao (Claude và GPT) cho tiếng Nhật
-        models: ['anthropic/claude-3.5-sonnet', 'openai/gpt-4o', 'meta-llama/llama-3.1-8b-instruct:free'],
+        name: 'OpenRouter (Gemini 2.5 Flash)',
+        models: ['google/gemini-2.5-flash'],
         getKeys: getOpenRouterKeys,
         buildRequest: (prompt, model, apiKey) => ({
             url: 'https://openrouter.ai/api/v1/chat/completions',
@@ -343,18 +342,7 @@ VD XẤU: "Dùng phổ biến."
 };
 
 export const generateMoreExamplePrompt = (frontText, targetMeaning) => {
-    return `Bạn là trợ lý từ điển Nhật-Việt. Người học muốn có THÊM MỘT câu ví dụ cho từ vựng "${frontText}" với NGHĨA tương đương: "${targetMeaning}".
-    
-Hãy phân tích và trả về DUY NHẤT một JSON hợp lệ (KHÔNG markdown, KHÔNG backtick) theo schema:
-{
-    "example": "1 câu ví dụ tiếng Nhật mới",
-    "exampleMeaning": "Nghĩa của câu ví dụ đó"
-}
-
-QUY TẮC:
-1. TRONG MỌI TRƯỜNG HỢP, ví dụ BẮT BUỘC phải chứa từ "${frontText}". TUYỆT ĐỐI không dùng từ đồng nghĩa khác để thay thế.
-2. Câu ví dụ phải tự nhiên, thông dụng trong tiếng Nhật.
-3. Không đánh số ở đầu. Chỉ trả về 1 câu ví dụ duy nhất.`;
+    return `1 câu ví dụ JP cho "${frontText}" nghĩa "${targetMeaning}". JSON only:{"example":"câu JP chứa ${frontText}","exampleMeaning":"nghĩa VN"}`;
 };
 
 

@@ -2155,8 +2155,8 @@ QUY TẮC:
             }
             const { generateMoreExamplePrompt } = await import('./utils/aiProvider');
             const prompt = generateMoreExamplePrompt(frontText, targetMeaning);
-            const forcedProvider = adminConfig?.aiProvider || 'auto';
-            const responseText = await callAI(prompt, forcedProvider);
+            // Luôn dùng Gemini trực tiếp (tiết kiệm, không cần model đắt tiền cho task đơn giản)
+            const responseText = await callAI(prompt, 'gemini');
             const parsedJson = parseJsonFromAI(responseText);
             if (parsedJson) return parsedJson;
             setNotification("AI trả về dữ liệu không hợp lệ. Thử lại.");
