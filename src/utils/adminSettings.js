@@ -11,6 +11,7 @@ const DEFAULT_ADMIN_CONFIG = {
     // AI Settings
     aiEnabled: true,                    // Global AI toggle
     aiProvider: 'auto',                 // 'auto' | 'groq' | 'gemini' | 'openrouter'
+    openRouterModel: 'anthropic/claude-3.5-sonnet', // Default OpenRouter model
     aiAllowedUsers: [],                 // List of userId allowed to use AI (empty = no one except admin/mod)
     aiAllowAll: false,                  // If true, all users can use AI
 
@@ -170,10 +171,16 @@ export const revokeAIAccess = async (adminConfig, userId, updatedByUserId) => {
     }, updatedByUserId);
 };
 
-// ============== AI PROVIDER LABELS ==============
 export const AI_PROVIDER_OPTIONS = [
     { value: 'auto', label: 'Tự động (thử tất cả)', description: 'Groq → Gemini → OpenRouter' },
     { value: 'groq', label: 'Groq (Llama 3.3)', description: 'Nhanh, miễn phí, chất lượng cao' },
     { value: 'gemini', label: 'Google Gemini', description: 'Flash Lite / Flash / 1.5 Flash' },
     { value: 'openrouter', label: 'OpenRouter (Trả phí)', description: 'Claude 3.5 Sonnet / GPT-4o (Đề xuất cho AI Tiếng Nhật)' },
+];
+
+export const OPENROUTER_MODELS = [
+    { value: 'anthropic/claude-3.5-sonnet', label: 'Claude 3.5 Sonnet (Đề xuất)' },
+    { value: 'openai/gpt-4o', label: 'GPT-4o' },
+    { value: 'google/gemini-2.5-flash', label: 'Gemini 2.5 Flash' },
+    { value: 'meta-llama/llama-3.1-8b-instruct:free', label: 'Llama 3.1 8B (Miễn phí)' }
 ];

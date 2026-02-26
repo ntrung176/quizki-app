@@ -7,7 +7,7 @@ import {
     Sparkles, Bot, UserCheck, UserX, ToggleLeft, ToggleRight,
     ChevronDown, ChevronUp, Settings, Crown, ShieldCheck
 } from 'lucide-react';
-import { updateAdminConfig, AI_PROVIDER_OPTIONS, addModerator, removeModerator, grantAIAccess, revokeAIAccess } from '../../utils/adminSettings';
+import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, addModerator, removeModerator, grantAIAccess, revokeAIAccess } from '../../utils/adminSettings';
 
 const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, adminConfig, isAdmin }) => {
     // State
@@ -158,6 +158,14 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         setSavingConfig(true);
         const ok = await updateAdminConfig({ aiProvider: provider }, currentUserId);
         if (ok) setNotification({ type: 'success', message: `Đã chuyển AI provider sang ${AI_PROVIDER_OPTIONS.find(p => p.value === provider)?.label || provider}` });
+        else setNotification({ type: 'error', message: 'Lỗi khi cập nhật' });
+        setSavingConfig(false);
+    };
+
+    const handleChangeOpenRouterModel = async (model) => {
+        setSavingConfig(true);
+        const ok = await updateAdminConfig({ openRouterModel: model }, currentUserId);
+        if (ok) setNotification({ type: 'success', message: `Đã đổi model OpenRouter sang ${OPENROUTER_MODELS.find(m => m.value === model)?.label || model}` });
         else setNotification({ type: 'error', message: 'Lỗi khi cập nhật' });
         setSavingConfig(false);
     };
@@ -568,6 +576,22 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 </button>
                             ))}
                         </div>
+
+                        {/* OpenRouter Model Selection (Only show if provider is openrouter or auto) */}
+                        {(adminConfig?.aiProvider === 'openrouter' || adminConfig?.aiProvider === 'auto' || !adminConfig?.aiProvider) && adminConfig?.aiEnabled && (
+                            <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+                                <p className="font-bold text-sm text-gray-800 dark:text-white mb-2">Mô hình OpenRouter ưu tiên</p>
+                                <select
+                                    value={adminConfig?.openRouterModel || 'anthropic/claude-3.5-sonnet'}
+                                    onChange={(e) => handleChangeOpenRouterModel(e.target.value)}
+                                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-xl outline-none text-sm dark:text-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
+                                >
+                                    {OPENROUTER_MODELS.map(model => (
+                                        <option key={model.value} value={model.value}>{model.label}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        )}
                     </div>
 
                     {/* AI Allowed Users List */}

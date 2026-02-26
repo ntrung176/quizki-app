@@ -2135,7 +2135,8 @@ Không được trả về markdown, không được dùng backtick, không đư
 
             // Sử dụng provider admin chỉ định (nếu có)
             const forcedProvider = adminConfig?.aiProvider || 'auto';
-            const responseText = await callAI(prompt, forcedProvider);
+            const forcedOpenRouterModel = adminConfig?.openRouterModel || null;
+            const responseText = await callAI(prompt, forcedProvider, forcedOpenRouterModel);
             const parsedJson = parseJsonFromAI(responseText);
 
             if (parsedJson) {

@@ -145,14 +145,19 @@ const PROVIDERS = {
 // ============== CORE API CALL ==============
 
 // Gọi AI với một provider cụ thể, tự động retry qua các keys và models
-const callProviderWithRetry = async (provider, prompt, keyIndex = 0, modelIndex = 0) => {
+const callProviderWithRetry = async (provider, prompt, keyIndex = 0, modelIndex = 0, preferredModel = null) => {
     const config = PROVIDERS[provider];
     if (!config) throw new Error(`Unknown provider: ${provider}`);
 
     const keys = config.getKeys();
     if (keys.length === 0) return null; // Provider không có key → bỏ qua
 
-    const models = config.models;
+    let models = [...config.models];
+    // Ưu tiên mô hình OpenRouter được cấu hình
+    if (provider === 'openrouter' && preferredModel) {
+        models = [preferredModel, ...models.filter(m => m !== preferredModel)];
+    }
+
     const currentKey = keys[keyIndex];
     const currentModel = models[modelIndex];
 
@@ -176,20 +181,20 @@ const callProviderWithRetry = async (provider, prompt, keyIndex = 0, modelIndex 
         if ((status === 429 || status === 503) && keyIndex < keys.length - 1) {
             console.log(`⚠️ ${config.name} key ${keyIndex + 1} rate limited, thử key ${keyIndex + 2}...`);
             await new Promise(r => setTimeout(r, 500));
-            return callProviderWithRetry(provider, prompt, keyIndex + 1, modelIndex);
+            return callProviderWithRetry(provider, prompt, keyIndex + 1, modelIndex, preferredModel);
         }
 
         // Hết key cho model này → thử model tiếp theo
         if ((status === 429 || status === 503) && modelIndex < models.length - 1) {
             console.log(`⚠️ ${config.name} hết quota cho ${currentModel}, thử ${models[modelIndex + 1]}...`);
             await new Promise(r => setTimeout(r, 500));
-            return callProviderWithRetry(provider, prompt, 0, modelIndex + 1);
+            return callProviderWithRetry(provider, prompt, 0, modelIndex + 1, preferredModel);
         }
 
         // Model not found (404) → thử model tiếp theo
         if (status === 404 && modelIndex < models.length - 1) {
             console.log(`⚠️ ${config.name} model ${currentModel} không tồn tại, thử ${models[modelIndex + 1]}...`);
-            return callProviderWithRetry(provider, prompt, keyIndex, modelIndex + 1);
+            return callProviderWithRetry(provider, prompt, keyIndex, modelIndex + 1, preferredModel);
         }
 
         // Lỗi không retry được
@@ -201,7 +206,7 @@ const callProviderWithRetry = async (provider, prompt, keyIndex = 0, modelIndex 
         console.error(`❌ ${config.name} network error:`, error.message);
         // Network error → thử key tiếp
         if (keyIndex < keys.length - 1) {
-            return callProviderWithRetry(provider, prompt, keyIndex + 1, modelIndex);
+            return callProviderWithRetry(provider, prompt, keyIndex + 1, modelIndex, preferredModel);
         }
         return null;
     }
@@ -222,7 +227,7 @@ const getAvailableProviders = () => {
 };
 
 // Gọi AI thống nhất - tự động chọn provider hoặc dùng provider admin chỉ định
-export const callAI = async (prompt, forcedProvider = 'auto') => {
+export const callAI = async (prompt, forcedProvider = 'auto', forcedOpenRouterModel = null) => {
     let providers;
 
     if (forcedProvider && forcedProvider !== 'auto') {
@@ -247,7 +252,8 @@ export const callAI = async (prompt, forcedProvider = 'auto') => {
 
     for (const provider of providers) {
         try {
-            const result = await callProviderWithRetry(provider, prompt);
+            const preferredModel = provider === 'openrouter' ? forcedOpenRouterModel : null;
+            const result = await callProviderWithRetry(provider, prompt, 0, 0, preferredModel);
             if (result) return result;
             console.log(`⚠️ ${PROVIDERS[provider].name} không khả dụng, thử provider tiếp theo...`);
         } catch (e) {
