@@ -3,6 +3,7 @@ import { Loader2, Image as ImageIcon, Music, Volume2, Trash2, Check, X, Wand2 } 
 import { JLPT_LEVELS, POS_TYPES } from '../../config/constants';
 import { playAudio } from '../../utils/audio';
 import { compressImage } from '../../utils/image';
+import { showToast } from '../../utils/toast';
 
 const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExample }) => {
     // All hooks must be called before any conditional return
@@ -66,7 +67,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
         e.preventDefault();
         if (!front.trim()) return;
         if (!level) {
-            alert('Vui lòng chọn cấp độ JLPT (N5~N1) trước khi dùng AI tạo từ vựng.');
+            showToast('Vui lòng chọn cấp độ JLPT (N5~N1) trước khi dùng AI tạo từ vựng.', 'warning');
             return;
         }
         setIsAiLoading(true);
@@ -96,7 +97,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
     const handleGenerateExampleForMeaning = async (meaning) => {
         if (!onGenerateMoreExample || !front || !meaning) return;
         setIsGeneratingExample(true);
-        const aiData = await onGenerateMoreExample(front, meaning);
+        const aiData = await onGenerateMoreExample(front, meaning, level);
         if (aiData && aiData.example && aiData.exampleMeaning) {
             setExample(prev => prev ? `${prev}\n${aiData.example}` : aiData.example);
             setExampleMeaning(prev => prev ? `${prev}\n${aiData.exampleMeaning}` : aiData.exampleMeaning);

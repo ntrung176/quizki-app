@@ -9,6 +9,7 @@ import {
     collection, getDocs, addDoc, deleteDoc, doc, updateDoc, writeBatch, setDoc
 } from 'firebase/firestore';
 import AudioTrimmer from '../ui/AudioTrimmer';
+import { showToast } from '../../utils/toast';
 
 // ==================== REUSABLE COMPONENTS (outside BookScreen to prevent re-mount) ====================
 const FormModal = ({ show, onClose, title, onSave, children }) => {
@@ -213,12 +214,12 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
         if (!jsonInput.trim() || !lessonId) return;
         try {
             const vocabArray = JSON.parse(jsonInput.trim());
-            if (!Array.isArray(vocabArray)) { alert('JSON phải là mảng []'); return; }
+            if (!Array.isArray(vocabArray)) { showToast('JSON phải là mảng []', 'warning'); return; }
             const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
             const existing = currentLesson?.vocab || [];
             await updateDoc(lessonRef, { vocab: [...existing, ...vocabArray] });
             resetForm(); setShowJsonImport(false); loadAllData();
-        } catch (e) { alert('JSON không hợp lệ: ' + e.message); }
+        } catch (e) { showToast('JSON không hợp lệ: ' + e.message, 'error'); }
     };
 
     const handleDeleteGroup = async (gId) => {

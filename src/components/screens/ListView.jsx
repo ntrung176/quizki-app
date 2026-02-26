@@ -9,6 +9,7 @@ import { SearchInput } from '../ui';
 import { SrsStatusCell } from '../ui';
 import { playAudio } from '../../utils/audio';
 import { compressImage } from '../../utils/image';
+import { showToast } from '../../utils/toast';
 
 // ==================== Edit Modal Component ====================
 const EditCardModal = ({ card, onSave, onClose, onGeminiAssist }) => {
@@ -72,7 +73,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist }) => {
         e.preventDefault();
         if (!front.trim()) return;
         if (!level) {
-            alert('Vui lòng chọn cấp độ JLPT (N5~N1) trước khi dùng AI tạo từ vựng.');
+            showToast('Vui lòng chọn cấp độ JLPT (N5~N1) trước khi dùng AI tạo từ vựng.', 'warning');
             return;
         }
         setIsAiLoading(true);

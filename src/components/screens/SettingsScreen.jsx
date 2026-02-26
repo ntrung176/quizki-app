@@ -14,6 +14,7 @@ import {
 } from '../../utils/soundEffects';
 import { linkWithPopup, GoogleAuthProvider, unlink } from 'firebase/auth';
 import { auth } from '../../config/firebase';
+import { showToast } from '../../utils/toast';
 
 const SETTINGS_KEY = 'quizki-settings';
 
@@ -527,7 +528,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                                     const file = e.target.files?.[0];
                                                     if (!file) return;
                                                     if (file.size > 10 * 1024 * 1024) {
-                                                        alert('File quá lớn! Tối đa 10MB.');
+                                                        showToast('File quá lớn! Tối đa 10MB.', 'warning');
                                                         return;
                                                     }
                                                     setUploadingBgm(true);

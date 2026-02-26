@@ -8,6 +8,7 @@ import { shuffleArray } from '../../utils/textProcessing';
 import { ROUTES } from '../../router';
 import { celebrateCorrectAnswer, flashCorrect, launchFanfare, launchConfetti } from '../../utils/celebrations';
 import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
+import { showToast } from '../../utils/toast';
 
 const TestScreen = ({ allCards }) => {
     const [testMode, setTestMode] = useState(null);
@@ -35,7 +36,7 @@ const TestScreen = ({ allCards }) => {
         }
 
         if (cardsWithContext.length === 0) {
-            alert('Không có đủ dữ liệu để tạo câu hỏi. Vui lòng thêm ví dụ và nghĩa cho từ vựng hoặc chọn cấp độ khác.');
+            showToast('Không có đủ dữ liệu để tạo câu hỏi. Vui lòng thêm ví dụ và nghĩa cho từ vựng hoặc chọn cấp độ khác.', 'warning');
             return [];
         }
 
@@ -127,7 +128,7 @@ const TestScreen = ({ allCards }) => {
                     });
             }
         } else if (mode === 'grammar') {
-            alert('Tính năng Ngữ pháp đang được phát triển. Vui lòng thêm dữ liệu ngữ pháp.');
+            showToast('Tính năng Ngữ pháp đang được phát triển. Vui lòng thêm dữ liệu ngữ pháp.', 'info');
             return [];
         }
 

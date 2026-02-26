@@ -5,6 +5,7 @@ import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
+import { showToast } from '../../utils/toast';
 import { JOTOBA_KANJI_DATA, getJotobaKanjiData } from '../../data/jotobaKanjiData';
 
 const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
@@ -399,7 +400,7 @@ const KanjiSRSListScreen = () => {
             setShowConfirmDelete(false);
         } catch (e) {
             console.error('Error deleting SRS data:', e);
-            alert('Lỗi khi xóa: ' + e.message);
+            showToast('Lỗi khi xóa: ' + e.message, 'error');
         } finally {
             setDeleting(false);
         }

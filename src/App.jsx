@@ -2146,7 +2146,7 @@ QUY TẮC:
         }
     };
 
-    const handleGenerateMoreExample = async (frontText, targetMeaning) => {
+    const handleGenerateMoreExample = async (frontText, targetMeaning, level = '') => {
         if (!frontText || !targetMeaning) return null;
         try {
             if (!canUserUseAI) {
@@ -2155,8 +2155,18 @@ QUY TẮC:
             }
             const { generateMoreExamplePrompt } = await import('./utils/aiProvider');
             const prompt = generateMoreExamplePrompt(frontText, targetMeaning);
-            // Luôn dùng Gemini trực tiếp (tiết kiệm, không cần model đắt tiền cho task đơn giản)
-            const responseText = await callAI(prompt, 'gemini');
+
+            // N5, N4 → Groq (miễn phí, nhanh); N3, N2, N1 → OpenRouter Gemini (chính xác hơn)
+            const levelUpper = (level || '').toUpperCase();
+            let forcedProvider, forcedModel = null;
+            if (['N5', 'N4'].includes(levelUpper)) {
+                forcedProvider = 'groq';
+            } else {
+                forcedProvider = 'openrouter';
+                forcedModel = 'google/gemini-2.5-flash';
+            }
+
+            const responseText = await callAI(prompt, forcedProvider, forcedModel);
             const parsedJson = parseJsonFromAI(responseText);
             if (parsedJson) return parsedJson;
             setNotification("AI trả về dữ liệu không hợp lệ. Thử lại.");

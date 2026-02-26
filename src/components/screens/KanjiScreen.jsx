@@ -6,6 +6,7 @@ import { collection, getDocs, addDoc, deleteDoc, doc, query, where, writeBatch, 
 import { playAudio } from '../../utils/audio';
 import { fetchJotobaWordData, playJotobaAudio, accentNumberToPitchParts } from '../../utils/pitchAccent';
 import HanziWriter from 'hanzi-writer';
+import { showToast } from '../../utils/toast';
 import { renderStrokeGuide } from '../../utils/kanjiStroke';
 
 import { RADICALS_214, KANJI_TREE, getDecompositionTree, isBasicRadical, getRadicalInfo } from '../../data/radicals214';
@@ -218,7 +219,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 setVocabCategories(catData);
             } catch (e) {
                 console.error('Error loading kanji data:', e);
-                alert('Lỗi tải dữ liệu Kanji. Vui lòng kiểm tra kết nối hoặc Firebase Rules.');
+                showToast('Lỗi tải dữ liệu Kanji. Vui lòng kiểm tra kết nối hoặc Firebase Rules.', 'error');
             } finally {
                 setLoading(false);
             }
@@ -592,7 +593,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         // Check if kanji already exists
         const existingKanji = kanjiList.find(k => k.character === newKanji.character);
         if (existingKanji) {
-            alert(`Kanji "${newKanji.character}" đã tồn tại trong hệ thống!`);
+            showToast(`Kanji "${newKanji.character}" đã tồn tại trong hệ thống!`, 'warning');
             return;
         }
 
@@ -716,7 +717,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         // Check if vocab already exists
         const existingVocab = vocabList.find(v => v.word === newVocab.word);
         if (existingVocab) {
-            alert(`Từ vựng "${newVocab.word}" đã tồn tại trong hệ thống!`);
+            showToast(`Từ vựng "${newVocab.word}" đã tồn tại trong hệ thống!`, 'warning');
             return;
         }
 
@@ -739,7 +740,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         const trimmed = newCategoryName.trim();
         // Check duplicate
         if (vocabCategories.some(c => c.name === trimmed)) {
-            alert(`Phân loại "${trimmed}" đã tồn tại!`);
+            showToast(`Phân loại "${trimmed}" đã tồn tại!`, 'warning');
             return;
         }
         try {
@@ -751,7 +752,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             setNewCategoryName('');
         } catch (e) {
             console.error('Error adding category:', e);
-            alert('Lỗi khi thêm phân loại: ' + e.message);
+            showToast('Lỗi khi thêm phân loại: ' + e.message, 'error');
         }
     };
 
@@ -995,7 +996,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             setEditingKanji(null);
         } catch (e) {
             console.error('Error saving kanji:', e);
-            alert('Lỗi khi lưu kanji: ' + e.message);
+            showToast('Lỗi khi lưu kanji: ' + e.message, 'error');
         }
     };
 
@@ -1030,7 +1031,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             setEditingVocab(null);
         } catch (e) {
             console.error('Error editing vocab:', e);
-            alert('Lỗi khi lưu từ vựng: ' + e.message);
+            showToast('Lỗi khi lưu từ vựng: ' + e.message, 'error');
         }
     };
 
@@ -1097,7 +1098,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             setAddedVocabIds(prev => new Set([...prev, vocab.id]));
         } catch (e) {
             console.error('Error adding vocab to SRS:', e);
-            alert('Lỗi khi thêm từ vựng vào danh sách ôn tập: ' + e.message);
+            showToast('Lỗi khi thêm từ vựng vào danh sách ôn tập: ' + e.message, 'error');
         } finally {
             setAddingVocabId(null);
         }

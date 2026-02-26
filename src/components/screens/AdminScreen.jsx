@@ -919,29 +919,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                     className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
                                 />
                             </div>
-                            <div>
-                                <label className="text-[10px] font-bold text-gray-500 uppercase">SePay API Token</label>
-                                <input
-                                    type="password"
-                                    defaultValue={adminConfig?.sepayToken || ''}
-                                    onBlur={(e) => updateAdminConfig({ sepayToken: e.target.value }, currentUserId)}
-                                    className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
-                                    placeholder="Nhập API Token từ my.sepay.vn"
-                                />
-                                <p className="text-[10px] text-gray-400 mt-1">Lấy token tại <a href="https://my.sepay.vn/api-tokens" target="_blank" rel="noopener noreferrer" className="text-indigo-500 underline">my.sepay.vn/api-tokens</a></p>
-                            </div>
-                            <div className="flex items-center justify-between p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-                                <div>
-                                    <p className="font-bold text-sm text-gray-800 dark:text-white">Tự động xác nhận</p>
-                                    <p className="text-[10px] text-gray-500">Khi có SePay token, hệ thống tự kiểm tra & cộng credits</p>
-                                </div>
-                                <button
-                                    onClick={() => updateAdminConfig({ autoPayment: !adminConfig?.autoPayment }, currentUserId)}
-                                    className={`relative w-12 h-6 rounded-full transition-colors ${adminConfig?.autoPayment ? 'bg-emerald-500' : 'bg-gray-300 dark:bg-gray-600'}`}
-                                >
-                                    <div className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow-md transition-all ${adminConfig?.autoPayment ? 'translate-x-6 left-0.5' : 'translate-x-0 left-0.5'}`} />
-                                </button>
-                            </div>
+
                         </div>
                     </div>
                 </div>

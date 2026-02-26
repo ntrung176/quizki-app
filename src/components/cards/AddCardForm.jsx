@@ -4,6 +4,7 @@ import { JLPT_LEVELS, POS_TYPES } from '../../config/constants';
 import { compressImage } from '../../utils/image';
 import OnboardingTour from '../ui/OnboardingTour';
 import ImageSearchModal from '../ui/ImageSearchModal';
+import { showToast } from '../../utils/toast';
 
 const isMobileDevice = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
@@ -181,7 +182,7 @@ const AddCardForm = ({
                 setImagePreview(compressedBase64);
             } catch (error) {
                 console.error("Lỗi nén ảnh:", error);
-                alert("Không thể xử lý ảnh này.");
+                showToast("Không thể xử lý ảnh này.", 'error');
             }
         }
     };
@@ -213,7 +214,7 @@ const AddCardForm = ({
             return;
         }
         if (!level) {
-            alert('Vui lòng chọn cấp độ JLPT (N5~N1) trước khi dùng AI tạo từ vựng.');
+            showToast('Vui lòng chọn cấp độ JLPT (N5~N1) trước khi dùng AI tạo từ vựng.', 'warning');
             return;
         }
         setIsAiLoading(true);
@@ -243,7 +244,7 @@ const AddCardForm = ({
     const handleGenerateExampleForMeaning = async (meaning) => {
         if (!onGenerateMoreExample || !front || !meaning) return;
         setIsGeneratingExample(true);
-        const aiData = await onGenerateMoreExample(front, meaning);
+        const aiData = await onGenerateMoreExample(front, meaning, level);
         if (aiData && aiData.example && aiData.exampleMeaning) {
             setExample(prev => prev ? `${prev}\n${aiData.example}` : aiData.example);
             setExampleMeaning(prev => prev ? `${prev}\n${aiData.exampleMeaning}` : aiData.exampleMeaning);
