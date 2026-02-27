@@ -284,3 +284,169 @@ export const addCreditsToUser = async (userId, credits) => {
         return false;
     }
 };
+
+// ============== VOUCHER MANAGEMENT ==============
+const getVouchersPath = () => `artifacts/${appId}/vouchers`;
+
+/**
+ * Admin tạo voucher mới
+ * @param {Object} voucherData - { code, discountType, discountValue, maxUses, expiresAt, description }
+ * @param {string} adminUserId
+ */
+export const createVoucher = async (voucherData, adminUserId) => {
+    try {
+        const code = voucherData.code.trim().toUpperCase();
+        // Dùng code làm document ID để dễ lookup
+        const voucherRef = doc(db, getVouchersPath(), code);
+        const existing = await getDoc(voucherRef);
+        if (existing.exists()) {
+            return { success: false, error: 'Mã voucher đã tồn tại' };
+        }
+        await setDoc(voucherRef, {
+            code,
+            discountType: voucherData.discountType || 'percent', // 'percent' | 'fixed'
+            discountValue: Number(voucherData.discountValue) || 0, // % hoặc VND
+            maxUses: Number(voucherData.maxUses) || 0, // 0 = không giới hạn
+            usedCount: 0,
+            usedBy: [], // [{ userId, usedAt }]
+            expiresAt: voucherData.expiresAt || null, // timestamp hoặc null
+            description: voucherData.description || '',
+            active: true,
+            createdAt: serverTimestamp(),
+            createdBy: adminUserId,
+        });
+        return { success: true };
+    } catch (e) {
+        console.error('Create voucher error:', e);
+        return { success: false, error: e.message };
+    }
+};
+
+/**
+ * Admin subscribe danh sách voucher (realtime)
+ */
+export const subscribeVouchers = (callback) => {
+    try {
+        const colRef = collection(db, getVouchersPath());
+        const q = query(colRef, orderBy('createdAt', 'desc'));
+        return onSnapshot(q, (snapshot) => {
+            const vouchers = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+            callback(vouchers);
+        });
+    } catch (e) {
+        console.error('Subscribe vouchers error:', e);
+        return null;
+    }
+};
+
+/**
+ * Admin xóa voucher
+ */
+export const deleteVoucher = async (voucherCode) => {
+    try {
+        await deleteDoc(doc(db, getVouchersPath(), voucherCode));
+        return true;
+    } catch (e) {
+        console.error('Delete voucher error:', e);
+        return false;
+    }
+};
+
+/**
+ * Admin bật/tắt voucher
+ */
+export const toggleVoucher = async (voucherCode, active) => {
+    try {
+        await updateDoc(doc(db, getVouchersPath(), voucherCode), { active });
+        return true;
+    } catch (e) {
+        console.error('Toggle voucher error:', e);
+        return false;
+    }
+};
+
+/**
+ * User nhập mã voucher → validate và trả về thông tin giảm giá
+ * @param {string} code - Mã voucher
+ * @param {string} userId - ID người dùng
+ * @returns {{ valid, voucher, error }}
+ */
+export const validateVoucher = async (code, userId) => {
+    try {
+        const voucherCode = code.trim().toUpperCase();
+        if (!voucherCode) return { valid: false, error: 'Vui lòng nhập mã voucher' };
+
+        const voucherRef = doc(db, getVouchersPath(), voucherCode);
+        const snap = await getDoc(voucherRef);
+
+        if (!snap.exists()) {
+            return { valid: false, error: 'Mã voucher không tồn tại' };
+        }
+
+        const voucher = snap.data();
+
+        // Check active
+        if (!voucher.active) {
+            return { valid: false, error: 'Mã voucher đã hết hiệu lực' };
+        }
+
+        // Check expiry
+        if (voucher.expiresAt) {
+            const expiry = voucher.expiresAt.toDate ? voucher.expiresAt.toDate() : new Date(voucher.expiresAt);
+            if (new Date() > expiry) {
+                return { valid: false, error: 'Mã voucher đã hết hạn' };
+            }
+        }
+
+        // Check max uses
+        if (voucher.maxUses > 0 && voucher.usedCount >= voucher.maxUses) {
+            return { valid: false, error: 'Mã voucher đã hết lượt sử dụng' };
+        }
+
+        // Check if user already used
+        if (voucher.usedBy?.some(u => u.userId === userId)) {
+            return { valid: false, error: 'Bạn đã sử dụng mã voucher này rồi' };
+        }
+
+        return { valid: true, voucher: { ...voucher, code: voucherCode } };
+    } catch (e) {
+        console.error('Validate voucher error:', e);
+        return { valid: false, error: 'Lỗi kiểm tra voucher' };
+    }
+};
+
+/**
+ * Tính giá sau giảm
+ */
+export const calculateDiscountedPrice = (originalPrice, voucher) => {
+    if (!voucher) return originalPrice;
+    if (voucher.discountType === 'percent') {
+        const discount = Math.min(voucher.discountValue, 100);
+        return Math.max(0, Math.round(originalPrice * (1 - discount / 100)));
+    }
+    if (voucher.discountType === 'fixed') {
+        return Math.max(0, originalPrice - voucher.discountValue);
+    }
+    return originalPrice;
+};
+
+/**
+ * Ghi nhận sử dụng voucher (gọi khi thanh toán thành công)
+ */
+export const useVoucher = async (voucherCode, userId) => {
+    try {
+        const voucherRef = doc(db, getVouchersPath(), voucherCode);
+        const snap = await getDoc(voucherRef);
+        if (!snap.exists()) return false;
+
+        const data = snap.data();
+        await updateDoc(voucherRef, {
+            usedCount: (data.usedCount || 0) + 1,
+            usedBy: [...(data.usedBy || []), { userId, usedAt: new Date().toISOString() }],
+        });
+        return true;
+    } catch (e) {
+        console.error('Use voucher error:', e);
+        return false;
+    }
+};

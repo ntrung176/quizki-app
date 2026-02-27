@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ROUTES, ProtectedRoute, PublicOnlyRoute } from '../router';
-import AiCreditShop from './ui/AiCreditShop';
+import UpgradeScreen from './ui/AiCreditShop';
 
 import {
     HomeScreen,
@@ -112,11 +112,11 @@ const AppRoutes = ({
 
     // Audio
     playAudio,
+    handleSaveCardAudio,
 
     // Shuffle utility
     shuffleArray,
 }) => {
-    const [showAiShop, setShowAiShop] = React.useState(false);
     const aiCreditsRemaining = profile?.aiCreditsRemaining;
 
     // Loading state
@@ -198,6 +198,7 @@ const AppRoutes = ({
                                 allCards={allCards}
                                 onDeleteCard={handleDeleteCard}
                                 onPlayAudio={playAudio}
+                                onSaveCardAudio={handleSaveCardAudio}
                                 onExport={() => handleExport(allCards)}
                                 onImportTSV={handleImportTSV}
                                 onSaveChanges={handleSaveChanges}
@@ -229,7 +230,6 @@ const AppRoutes = ({
                                 editingCard={editingCard}
                                 onOpenBatchImport={() => setShowBatchImportModal(true)}
                                 aiCreditsRemaining={aiCreditsRemaining}
-                                onOpenShop={() => setShowAiShop(true)}
                             />
                         </ProtectedRoute>
                     }
@@ -321,6 +321,7 @@ const AppRoutes = ({
                                     allCards={allCards}
                                     onUpdateCard={handleUpdateCard}
                                     vocabCollectionPath={vocabCollectionPath}
+                                    onSaveCardAudio={handleSaveCardAudio}
                                     onCompleteReview={(failedCardsSet) => {
                                         if (failedCardsSet && failedCardsSet.size > 0) {
                                             const failedCardsList = [];
@@ -353,6 +354,7 @@ const AppRoutes = ({
                                 setStudySessionData={setStudySessionData}
                                 allCards={allCards}
                                 onUpdateCard={handleUpdateCard}
+                                onSaveCardAudio={handleSaveCardAudio}
                                 onCompleteStudy={() => {
                                     setStudySessionData({
                                         learning: [],
@@ -471,6 +473,7 @@ const AppRoutes = ({
                                 <FlashcardScreen
                                     cards={flashcardCards}
                                     onUpdateCard={handleUpdateCard}
+                                    onSaveCardAudio={handleSaveCardAudio}
                                     onComplete={() => {
                                         setFlashcardCards([]);
                                         setView('LIST');
@@ -555,24 +558,25 @@ const AppRoutes = ({
                         </ProtectedRoute>
                     }
                 />
+                {/* Nâng cấp */}
+                <Route
+                    path={ROUTES.UPGRADE}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <UpgradeScreen
+                                creditsRemaining={aiCreditsRemaining ?? 0}
+                                adminConfig={adminConfig}
+                                userId={userId}
+                                userName={profile?.displayName}
+                                userEmail={currentUserEmail}
+                            />
+                        </ProtectedRoute>
+                    }
+                />
 
                 {/* Catch all - redirect to home */}
                 <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
             </Routes>
-
-            {/* AI Credit Shop Modal */}
-            {
-                showAiShop && (
-                    <AiCreditShop
-                        creditsRemaining={aiCreditsRemaining ?? 0}
-                        onClose={() => setShowAiShop(false)}
-                        adminConfig={adminConfig}
-                        userId={userId}
-                        userName={profile?.displayName}
-                        userEmail={currentUserEmail}
-                    />
-                )
-            }
         </>
     );
 };

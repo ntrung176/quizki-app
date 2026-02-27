@@ -6,7 +6,7 @@ import {
 
 // ==================== Audio Trimmer Tool ====================
 // Allows admin to upload a long audio file (e.g. textbook lesson audio)
-// and trim clips for each vocabulary word.
+// and trim clips for each vocabulary word AND example sentence.
 const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
     const [audioFile, setAudioFile] = useState(null);
     const [audioUrl, setAudioUrl] = useState(null);
@@ -17,18 +17,22 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
     const [startTime, setStartTime] = useState(0);
     const [endTime, setEndTime] = useState(0);
     const [selectedVocabIndex, setSelectedVocabIndex] = useState(0);
+    const [clipType, setClipType] = useState('word'); // 'word' | 'example'
     const [zoom, setZoom] = useState(1);
     const [scrollOffset, setScrollOffset] = useState(0);
     const [isDragging, setIsDragging] = useState(null); // 'start' | 'end' | 'playhead' | null
-    const [savedClips, setSavedClips] = useState({}); // { vocabIndex: { start, end, base64 } }
+    const [savedClips, setSavedClips] = useState({}); // { "vocabIndex-word": { start, end, base64 }, "vocabIndex-example": {...} }
     const [isSaving, setIsSaving] = useState(false);
     const [waveformData, setWaveformData] = useState([]);
+    const [hasAdjustedSelection, setHasAdjustedSelection] = useState(false); // Track if user manually adjusted selection
 
     const audioRef = useRef(null);
     const canvasRef = useRef(null);
     const containerRef = useRef(null);
     const audioCtxRef = useRef(null);
     const animFrameRef = useRef(null);
+
+    const getClipKey = (index, type) => `${index}-${type}`;
 
     // Upload and decode audio
     const handleFileUpload = async (e) => {
@@ -93,7 +97,8 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
         // Selected region highlight
         const selStartX = ((startTime - visibleStart) / visibleDuration) * width;
         const selEndX = ((endTime - visibleStart) / visibleDuration) * width;
-        ctx.fillStyle = 'rgba(99, 102, 241, 0.15)';
+        const highlightColor = clipType === 'word' ? 'rgba(99, 102, 241, 0.15)' : 'rgba(245, 158, 11, 0.15)';
+        ctx.fillStyle = highlightColor;
         ctx.fillRect(Math.max(0, selStartX), 0, Math.min(width, selEndX) - Math.max(0, selStartX), height);
 
         // Waveform bars
@@ -114,7 +119,7 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
             // Color based on selection
             const time = visibleStart + (i / barsToShow) * visibleDuration;
             if (time >= startTime && time <= endTime) {
-                ctx.fillStyle = 'rgba(99, 102, 241, 0.8)';
+                ctx.fillStyle = clipType === 'word' ? 'rgba(99, 102, 241, 0.8)' : 'rgba(245, 158, 11, 0.8)';
             } else {
                 ctx.fillStyle = 'rgba(148, 163, 184, 0.4)';
             }
@@ -178,7 +183,7 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
             ctx.fillText(formatTime(t), x + 2, height - 4);
             ctx.fillRect(x, height - 14, 1, 4);
         }
-    }, [waveformData, duration, zoom, scrollOffset, startTime, endTime, currentTime]);
+    }, [waveformData, duration, zoom, scrollOffset, startTime, endTime, currentTime, clipType]);
 
     useEffect(() => {
         drawWaveform();
@@ -252,8 +257,10 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
 
         if (isDragging === 'start') {
             setStartTime(Math.min(time, endTime - 0.1));
+            setHasAdjustedSelection(true);
         } else if (isDragging === 'end') {
             setEndTime(Math.max(time, startTime + 0.1));
+            setHasAdjustedSelection(true);
         } else if (isDragging === 'playhead') {
             setCurrentTime(time);
             if (audioRef.current) audioRef.current.currentTime = time;
@@ -309,12 +316,12 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
     const scrollRight = () => setScrollOffset(o => Math.min(duration - duration / zoom, o + duration / zoom * 0.3));
 
     // Fine tune
-    const adjustStart = (delta) => setStartTime(t => Math.max(0, Math.min(t + delta, endTime - 0.05)));
-    const adjustEnd = (delta) => setEndTime(t => Math.max(startTime + 0.05, Math.min(t + delta, duration)));
+    const adjustStart = (delta) => { setStartTime(t => Math.max(0, Math.min(t + delta, endTime - 0.05))); setHasAdjustedSelection(true); };
+    const adjustEnd = (delta) => { setEndTime(t => Math.max(startTime + 0.05, Math.min(t + delta, duration))); setHasAdjustedSelection(true); };
 
     // Save clip as base64
     const saveClip = async () => {
-        if (!audioBuffer || startTime >= endTime) return;
+        if (!audioBuffer || startTime >= endTime || !hasAdjustedSelection) return;
         setIsSaving(true);
 
         try {
@@ -339,20 +346,44 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
             const wavBlob = audioBufferToWav(trimmedBuffer);
             const base64 = await blobToBase64(wavBlob);
 
-            // Save
+            // Save with clip type key
+            const key = getClipKey(selectedVocabIndex, clipType);
             const clip = { start: startTime, end: endTime, base64 };
-            setSavedClips(prev => ({ ...prev, [selectedVocabIndex]: clip }));
+            setSavedClips(prev => ({ ...prev, [key]: clip }));
 
-            // Notify parent
+            // Notify parent with clip type
             if (onSaveClip) {
-                onSaveClip(selectedVocabIndex, base64, vocabList[selectedVocabIndex]);
+                onSaveClip(selectedVocabIndex, base64, vocabList[selectedVocabIndex], clipType);
             }
 
-            // Auto-advance to next vocab
-            if (selectedVocabIndex < vocabList.length - 1) {
-                setSelectedVocabIndex(prev => prev + 1);
-                setStartTime(endTime);
-                setEndTime(Math.min(endTime + (endTime - startTime), duration));
+            // Reset adjusted flag before auto-advance
+            setHasAdjustedSelection(false);
+
+            // Auto-advance logic
+            if (clipType === 'word') {
+                // After saving word audio, switch to example mode if example exists
+                const currentVocab = vocabList[selectedVocabIndex];
+                if (currentVocab?.example) {
+                    setClipType('example');
+                    setStartTime(endTime);
+                    setEndTime(Math.min(endTime + (endTime - startTime) * 1.5, duration));
+                } else {
+                    // No example, advance to next vocab word
+                    if (selectedVocabIndex < vocabList.length - 1) {
+                        setSelectedVocabIndex(prev => prev + 1);
+                        setClipType('word');
+                        setStartTime(endTime);
+                        setEndTime(Math.min(endTime + (endTime - startTime), duration));
+                    }
+                }
+            } else {
+                // After saving example audio, advance to next vocab word
+                if (selectedVocabIndex < vocabList.length - 1) {
+                    setSelectedVocabIndex(prev => prev + 1);
+                    setClipType('word');
+                    setStartTime(endTime);
+                    setEndTime(Math.min(endTime + (endTime - startTime), duration));
+                }
             }
         } catch (err) {
             console.error('Error saving clip:', err);
@@ -415,13 +446,21 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
         reader.readAsDataURL(blob);
     });
 
+    // Play a saved clip preview
+    const playSavedClip = (key) => {
+        const clip = savedClips[key];
+        if (!clip?.base64) return;
+        const audio = new Audio(clip.base64);
+        audio.play().catch(err => console.error('Play error:', err));
+    };
+
     // No audio uploaded yet
     if (!audioUrl) {
         return (
             <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 space-y-4">
                 <div className="flex items-center justify-between">
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                        <Scissors className="w-5 h-5 text-violet-500" /> Cắt Audio Từ Vựng
+                        <Scissors className="w-5 h-5 text-violet-500" /> Cắt Audio Từ Vựng & Ví Dụ
                     </h3>
                     {onClose && (
                         <button onClick={onClose} className="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
@@ -430,7 +469,7 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
                     )}
                 </div>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                    Upload file audio dài của bài học để cắt ra từng đoạn cho mỗi từ vựng.
+                    Upload file audio dài của bài học để cắt ra từng đoạn cho mỗi từ vựng và câu ví dụ.
                 </p>
                 <label className="flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-2xl cursor-pointer hover:border-violet-400 dark:hover:border-violet-500 hover:bg-violet-50 dark:hover:bg-violet-900/10 transition-colors">
                     <Upload className="w-10 h-10 text-gray-300 dark:text-gray-600 mb-2" />
@@ -449,6 +488,9 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
 
     const currentVocab = vocabList[selectedVocabIndex];
     const clipDuration = endTime - startTime;
+    const wordClipKey = getClipKey(selectedVocabIndex, 'word');
+    const exampleClipKey = getClipKey(selectedVocabIndex, 'example');
+    const hasExample = !!(currentVocab?.example);
 
     return (
         <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
@@ -459,7 +501,7 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
             <div className="px-5 py-4 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
                 <div>
                     <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                        <Scissors className="w-5 h-5 text-violet-500" /> Cắt Audio Từ Vựng
+                        <Scissors className="w-5 h-5 text-violet-500" /> Cắt Audio Từ Vựng & Ví Dụ
                     </h3>
                     <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
                         {audioFile?.name} • {formatTime(duration)}
@@ -495,9 +537,19 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
                                 </span>
                             )}
                         </div>
-                        {savedClips[selectedVocabIndex] && (
-                            <span className="text-xs text-emerald-500 font-bold">✓ Đã cắt</span>
-                        )}
+                        {/* Clip status badges */}
+                        <div className="flex items-center gap-1.5">
+                            {savedClips[wordClipKey] && (
+                                <span className="text-[10px] text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 dark:text-emerald-400 px-1.5 py-0.5 rounded font-bold">
+                                    ✓ Từ
+                                </span>
+                            )}
+                            {savedClips[exampleClipKey] && (
+                                <span className="text-[10px] text-amber-600 bg-amber-50 dark:bg-amber-900/20 dark:text-amber-400 px-1.5 py-0.5 rounded font-bold">
+                                    ✓ VD
+                                </span>
+                            )}
+                        </div>
                     </div>
                     <div className="flex items-center gap-1">
                         <button
@@ -519,6 +571,61 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
                         </button>
                     </div>
                 </div>
+
+                {/* Clip Type Selector (Word vs Example) */}
+                <div className="flex items-center gap-2 mt-2.5">
+                    <button
+                        onClick={() => {
+                            setClipType('word');
+                            const key = getClipKey(selectedVocabIndex, 'word');
+                            if (savedClips[key]) {
+                                setStartTime(savedClips[key].start);
+                                setEndTime(savedClips[key].end);
+                            }
+                        }}
+                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${clipType === 'word'
+                            ? 'bg-indigo-500 text-white shadow-md shadow-indigo-500/30'
+                            : 'bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600'
+                            }`}
+                    >
+                        <Volume2 className="w-3.5 h-3.5" />
+                        🔤 Từ vựng
+                        {savedClips[wordClipKey] && <span className="text-emerald-300">✓</span>}
+                    </button>
+                    <button
+                        onClick={() => {
+                            if (!hasExample) return;
+                            setClipType('example');
+                            const key = getClipKey(selectedVocabIndex, 'example');
+                            if (savedClips[key]) {
+                                setStartTime(savedClips[key].start);
+                                setEndTime(savedClips[key].end);
+                            }
+                        }}
+                        disabled={!hasExample}
+                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${clipType === 'example'
+                            ? 'bg-amber-500 text-white shadow-md shadow-amber-500/30'
+                            : hasExample
+                                ? 'bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600'
+                                : 'bg-gray-50 dark:bg-gray-800 text-gray-300 dark:text-gray-600 cursor-not-allowed'
+                            }`}
+                    >
+                        <Volume2 className="w-3.5 h-3.5" />
+                        💬 Ví dụ
+                        {savedClips[exampleClipKey] && <span className="text-emerald-300">✓</span>}
+                        {!hasExample && <span className="text-[9px] opacity-60">(không có)</span>}
+                    </button>
+                </div>
+
+                {/* Show current clip target text */}
+                {clipType === 'example' && currentVocab?.example && (
+                    <div className="mt-2 px-3 py-2 bg-amber-50 dark:bg-amber-900/10 rounded-lg border border-amber-200 dark:border-amber-800/30">
+                        <p className="text-xs text-amber-700 dark:text-amber-400 font-medium">📝 {currentVocab.example}</p>
+                        {currentVocab.exampleMeaning && (
+                            <p className="text-[10px] text-amber-500 dark:text-amber-500/70 mt-0.5 italic">{currentVocab.exampleMeaning}</p>
+                        )}
+                    </div>
+                )}
             </div>
 
             {/* Waveform */}
@@ -538,7 +645,10 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
                     <div className="flex items-center gap-1.5">
                         <button
                             onClick={togglePlay}
-                            className="p-2 rounded-xl bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 hover:bg-violet-200 dark:hover:bg-violet-900/50 transition-colors"
+                            className={`p-2 rounded-xl transition-colors ${clipType === 'word'
+                                ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 hover:bg-violet-200 dark:hover:bg-violet-900/50'
+                                : 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 hover:bg-amber-200 dark:hover:bg-amber-900/50'
+                                }`}
                         >
                             {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
                         </button>
@@ -548,6 +658,13 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
                         >
                             <Square className="w-4 h-4" />
                         </button>
+                        {/* Clip type indicator */}
+                        <span className={`text-[10px] font-bold px-2 py-1 rounded-lg ${clipType === 'word'
+                            ? 'bg-indigo-100 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400'
+                            : 'bg-amber-100 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400'
+                            }`}>
+                            {clipType === 'word' ? '🔤 Từ vựng' : '💬 Ví dụ'}
+                        </span>
                     </div>
 
                     {/* Time display */}
@@ -597,46 +714,84 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
                 {/* Save button */}
                 <button
                     onClick={saveClip}
-                    disabled={isSaving || clipDuration < 0.1}
-                    className="w-full py-2.5 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white rounded-xl font-bold text-sm transition-all disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg shadow-violet-600/20"
+                    disabled={isSaving || clipDuration < 0.1 || !hasAdjustedSelection}
+                    className={`w-full py-2.5 text-white rounded-xl font-bold text-sm transition-all disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg ${clipType === 'word'
+                        ? 'bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 shadow-violet-600/20'
+                        : 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 shadow-amber-500/20'
+                        }`}
                 >
                     {isSaving ? (
                         <div className="animate-spin w-4 h-4 border-2 border-white/30 border-t-white rounded-full" />
                     ) : (
                         <Save className="w-4 h-4" />
                     )}
-                    Lưu đoạn audio cho "{currentVocab?.word || currentVocab?.front || `Từ ${selectedVocabIndex + 1}`}"
+                    {!hasAdjustedSelection
+                        ? 'Hãy chỉnh vùng cắt trước khi lưu'
+                        : `Lưu ${clipType === 'word' ? '🔤 từ vựng' : '💬 ví dụ'} cho "${currentVocab?.word || currentVocab?.front || `Từ ${selectedVocabIndex + 1}`}"`
+                    }
                 </button>
             </div>
 
             {/* Vocab list with clip status */}
             <div className="border-t border-gray-100 dark:border-gray-700 max-h-48 overflow-y-auto">
-                {vocabList.map((v, i) => (
-                    <button
-                        key={i}
-                        onClick={() => {
-                            setSelectedVocabIndex(i);
-                            if (savedClips[i]) {
-                                setStartTime(savedClips[i].start);
-                                setEndTime(savedClips[i].end);
-                            }
-                        }}
-                        className={`w-full flex items-center gap-3 px-5 py-2 text-left transition-colors ${i === selectedVocabIndex
+                {vocabList.map((v, i) => {
+                    const wKey = getClipKey(i, 'word');
+                    const eKey = getClipKey(i, 'example');
+                    const hasWordClip = !!savedClips[wKey];
+                    const hasExampleClip = !!savedClips[eKey];
+                    const vHasExample = !!(v.example);
+
+                    return (
+                        <button
+                            key={i}
+                            onClick={() => {
+                                setSelectedVocabIndex(i);
+                                setClipType('word');
+                                if (savedClips[wKey]) {
+                                    setStartTime(savedClips[wKey].start);
+                                    setEndTime(savedClips[wKey].end);
+                                }
+                            }}
+                            className={`w-full flex items-center gap-3 px-5 py-2 text-left transition-colors ${i === selectedVocabIndex
                                 ? 'bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-300'
                                 : 'hover:bg-gray-50 dark:hover:bg-gray-700/50 text-gray-600 dark:text-gray-400'
-                            }`}
-                    >
-                        <span className="w-6 h-6 rounded-md bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-[10px] font-bold shrink-0">
-                            {i + 1}
-                        </span>
-                        <span className="text-sm truncate flex-1">{v.word || v.front || `Từ ${i + 1}`}</span>
-                        {savedClips[i] ? (
-                            <span className="text-xs text-emerald-500 font-bold shrink-0">✓ {formatTime(savedClips[i].end - savedClips[i].start)}</span>
-                        ) : (
-                            <span className="text-xs text-gray-300 dark:text-gray-600 shrink-0">—</span>
-                        )}
-                    </button>
-                ))}
+                                }`}
+                        >
+                            <span className="w-6 h-6 rounded-md bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-[10px] font-bold shrink-0">
+                                {i + 1}
+                            </span>
+                            <span className="text-sm truncate flex-1">{v.word || v.front || `Từ ${i + 1}`}</span>
+                            <div className="flex items-center gap-1 shrink-0">
+                                {/* Word clip status */}
+                                {hasWordClip ? (
+                                    <span
+                                        className="text-[10px] text-emerald-500 font-bold bg-emerald-50 dark:bg-emerald-900/20 px-1.5 py-0.5 rounded cursor-pointer hover:bg-emerald-100 dark:hover:bg-emerald-900/40"
+                                        onClick={(e) => { e.stopPropagation(); playSavedClip(wKey); }}
+                                        title="Phát audio từ vựng"
+                                    >
+                                        🔤✓
+                                    </span>
+                                ) : (
+                                    <span className="text-[10px] text-gray-300 dark:text-gray-600">🔤—</span>
+                                )}
+                                {/* Example clip status */}
+                                {vHasExample && (
+                                    hasExampleClip ? (
+                                        <span
+                                            className="text-[10px] text-amber-500 font-bold bg-amber-50 dark:bg-amber-900/20 px-1.5 py-0.5 rounded cursor-pointer hover:bg-amber-100 dark:hover:bg-amber-900/40"
+                                            onClick={(e) => { e.stopPropagation(); playSavedClip(eKey); }}
+                                            title="Phát audio ví dụ"
+                                        >
+                                            💬✓
+                                        </span>
+                                    ) : (
+                                        <span className="text-[10px] text-gray-300 dark:text-gray-600">💬—</span>
+                                    )
+                                )}
+                            </div>
+                        </button>
+                    );
+                })}
             </div>
         </div>
     );

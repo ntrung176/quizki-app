@@ -327,6 +327,7 @@ Hãy phân tích và trả về DUY NHẤT một JSON hợp lệ (KHÔNG markdow
 - Câu ví dụ BẮT BUỘC PHẢI DÙNG TỪ VỰNG GỐC: "${frontText}". TUYỆT ĐỐI không dùng từ đồng nghĩa.
 - KHÔNG đánh số. "exampleMeaning" cũng CHỈ 1 dòng duy nhất.
 - ĐẶC BIỆT CẤP N5: Nếu từ N5, câu ví dụ PHẢI đơn giản, chủ yếu viết hiragana/katakana, TRÁNH kanji khó.
+- BẮT BUỘC: Trong câu ví dụ, mọi từ kanji PHẢI có furigana (hiragana) ngay sau trong dấu ngoặc tròn full-width （）. VD: "顔認証（かおにんしょう）システムは技術（ぎじゅつ）を使（つか）っている。" CHỈ bỏ qua furigana cho từ vựng gốc đang học nếu từ đó đã có furigana ở trường front.
 
 4. TRƯỜNG "sinoVietnamese": BẮT BUỘC nếu có Kanji. Viết IN HOA từng Kanji, cách dấu cách.
 QUAN TRỌNG: PHÂN TÍCH TỪNG CHỮ KANJI MỘT ĐỂ LẤY ÂM HÁN VIỆT. TUYỆT ĐỐI KHÔNG BỊA ÂM. Ví dụ: 奥様 gồm "奥" (ÁO) và "様" (DẠNG) → "ÁO DẠNG".

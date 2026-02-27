@@ -1,4 +1,5 @@
 // --- Audio utility functions ---
+// Hỗ trợ SpeechGen.io TTS (Nanami/Keita) với fallback Web Speech API
 
 // Convert base64 to ArrayBuffer
 export const base64ToArrayBuffer = (base64) => {
@@ -51,6 +52,133 @@ export const pcmToWav = (pcm16, sampleRate = 24000) => {
 // Global audio object reference
 let currentAudioObj = null;
 
+// ============== VOICE SETTINGS ==============
+
+const VOICE_STORAGE_KEY = 'quizki-tts-voice';
+
+// Available voices (SpeechGen.io Japanese voices)
+export const TTS_VOICES = {
+    mayu: { id: 'mayu', label: 'Mayu (Nữ)', speechgenName: 'Mayu', gender: 'Female' },
+    ryota: { id: 'ryota', label: 'Ryota (Nam)', speechgenName: 'Ryota', gender: 'Male' },
+};
+
+// Get current voice preference
+export const getTTSVoice = () => {
+    try {
+        return localStorage.getItem(VOICE_STORAGE_KEY) || 'mayu';
+    } catch {
+        return 'mayu';
+    }
+};
+
+// Set voice preference
+export const setTTSVoice = (voiceId) => {
+    try {
+        localStorage.setItem(VOICE_STORAGE_KEY, voiceId);
+    } catch { /* ignore */ }
+};
+
+// ============== SPEECHGEN TTS ==============
+
+// Cache cho audio URL đã tạo (trong session)
+const ttsCache = new Map();
+const MAX_CACHE_SIZE = 100;
+
+/**
+ * Gọi SpeechGen.io API qua Cloudflare Worker proxy
+ * Trả về {blobUrl, base64, voiceId} để có thể phát và lưu vào database
+ * @param {string} text - Text tiếng Nhật cần đọc
+ * @returns {Promise<{blobUrl: string, base64: string, voiceId: string}|null>}
+ */
+const speechgenTTS = async (text) => {
+    const token = import.meta.env.VITE_SPEECHGEN_TOKEN;
+    const email = import.meta.env.VITE_SPEECHGEN_EMAIL;
+    const proxyUrl = import.meta.env.VITE_SPEECHGEN_PROXY_URL;
+
+    if (!token || !email || !proxyUrl || !text) return null;
+
+    // Check cache (holds {blobUrl, base64, voiceId})
+    const voiceId = getTTSVoice();
+    const cacheKey = `${voiceId}:${text}`;
+    if (ttsCache.has(cacheKey)) {
+        return ttsCache.get(cacheKey);
+    }
+
+    const voice = TTS_VOICES[voiceId] || TTS_VOICES.mayu;
+
+    try {
+        // Step 1: Gọi SpeechGen API qua proxy để lấy URL file MP3
+        const response = await fetch(proxyUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                token,
+                email,
+                voice: voice.speechgenName,
+                text,
+                format: 'mp3',
+                speed: 0.9,
+                pitch: 0,
+                emotion: 'neutral',
+            }),
+        });
+
+        if (!response.ok) {
+            console.warn(`⚠️ SpeechGen API error (${response.status}), falling back to Web Speech`);
+            return null;
+        }
+
+        const data = await response.json();
+
+        if (data.status === 1 && data.file) {
+            // Step 2: Fetch audio file qua proxy /audio endpoint (bypass CORS trên file MP3)
+            const baseProxy = proxyUrl.replace(/\/+$/, ''); // Xóa trailing slash
+            const audioResponse = await fetch(`${baseProxy}/audio?url=${encodeURIComponent(data.file)}`);
+            if (!audioResponse.ok) {
+                console.warn('⚠️ SpeechGen audio fetch error:', audioResponse.status);
+                return null;
+            }
+
+            const audioBlob = await audioResponse.blob();
+            const blobUrl = URL.createObjectURL(audioBlob);
+
+            // Convert blob to base64 để lưu vào database
+            const base64 = await new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    // Lấy phần base64 sau prefix "data:audio/mpeg;base64,"
+                    const result = reader.result;
+                    const base64Data = result.split(',')[1] || result;
+                    resolve(base64Data);
+                };
+                reader.readAsDataURL(audioBlob);
+            });
+
+            const result = { blobUrl, base64, voiceId };
+
+            // Cache the result
+            if (ttsCache.size >= MAX_CACHE_SIZE) {
+                const firstKey = ttsCache.keys().next().value;
+                const oldResult = ttsCache.get(firstKey);
+                if (oldResult?.blobUrl) URL.revokeObjectURL(oldResult.blobUrl);
+                ttsCache.delete(firstKey);
+            }
+            ttsCache.set(cacheKey, result);
+            return result;
+        } else {
+            console.warn('⚠️ SpeechGen error:', data.error || data);
+            return null;
+        }
+    } catch (e) {
+        console.warn('⚠️ SpeechGen network error:', e.message);
+        return null;
+    }
+};
+
+// ============== FALLBACK: Web Speech API ==============
+
 // Cache for Japanese voices (loaded once)
 let cachedJapaneseVoice = null;
 let voicesLoaded = false;
@@ -80,77 +208,8 @@ if (window.speechSynthesis) {
     loadJapaneseVoice();
 }
 
-// Play Audio - với fallback sử dụng Web Speech API
-export const playAudio = (base64Data, text = '') => {
-    // Dừng audio đang phát (nếu có)
-    if (currentAudioObj) {
-        try {
-            currentAudioObj.pause();
-            currentAudioObj.currentTime = 0;
-            currentAudioObj.remove?.();
-        } catch (e) {
-            console.error('Error stopping previous audio:', e);
-        }
-        currentAudioObj = null;
-    }
-
-    // Dừng speech đang nói (nếu có)
-    if (window.speechSynthesis) {
-        window.speechSynthesis.cancel();
-    }
-
-    // Nếu có base64Data, phát audio
-    if (base64Data) {
-        try {
-            if (base64Data.startsWith('data:audio') || base64Data.startsWith('UklGR') || base64Data.startsWith('SUQz') || base64Data.startsWith('//uQ') || base64Data.startsWith('AAAA')) {
-                const audioSrc = base64Data.startsWith('data:audio')
-                    ? base64Data
-                    : `data:audio/mp3;base64,${base64Data}`;
-                currentAudioObj = new Audio(audioSrc);
-                currentAudioObj.onended = () => {
-                    if (currentAudioObj) {
-                        currentAudioObj.remove?.();
-                    }
-                    currentAudioObj = null;
-                };
-                currentAudioObj.play().catch(e => {
-                    console.error('Audio play error:', e);
-                    // Fallback to TTS if audio fails
-                    speakWithTTS(text);
-                });
-            } else {
-                const rawData = base64ToArrayBuffer(base64Data);
-                const pcm16 = new Int16Array(rawData);
-                const wavBuffer = pcmToWav(pcm16, 24000);
-                const blob = new Blob([wavBuffer], { type: 'audio/wav' });
-                const url = URL.createObjectURL(blob);
-                currentAudioObj = new Audio(url);
-                currentAudioObj.onended = () => {
-                    URL.revokeObjectURL(url);
-                    if (currentAudioObj) {
-                        currentAudioObj.remove?.();
-                    }
-                    currentAudioObj = null;
-                };
-                currentAudioObj.play().catch(e => {
-                    console.error('Audio play error:', e);
-                    // Fallback to TTS if audio fails
-                    speakWithTTS(text);
-                });
-            }
-        } catch (e) {
-            console.error('playAudio error:', e);
-            // Fallback to TTS
-            speakWithTTS(text);
-        }
-    } else if (text) {
-        // Không có audio, dùng TTS
-        speakWithTTS(text);
-    }
-};
-
 // Fallback: Sử dụng Web Speech API để đọc text tiếng Nhật
-const speakWithTTS = (text) => {
+const speakWithWebSpeech = (text) => {
     if (!text || !window.speechSynthesis) return;
 
     // Lấy phần từ vựng (không có furigana)
@@ -171,17 +230,138 @@ const speakWithTTS = (text) => {
     window.speechSynthesis.speak(utterance);
 };
 
+// ============== MAIN TTS FUNCTION ==============
+
+/**
+ * Phát âm text tiếng Nhật bằng SpeechGen TTS, fallback Web Speech
+ * @param {string} text - Text cần đọc
+ * @param {Function|null} onAudioGenerated - Callback khi TTS tạo audio mới: (base64, voiceId) => void
+ */
+const speakWithTTS = async (text, onAudioGenerated = null) => {
+    if (!text) return;
+
+    // Clean text: remove furigana in parentheses for TTS
+    const cleanText = text.split('（')[0].split('(')[0].trim();
+    if (!cleanText) return;
+
+    // Dừng speech cũ
+    if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+    }
+
+    // Thử SpeechGen TTS trước
+    const token = import.meta.env.VITE_SPEECHGEN_TOKEN;
+    const email = import.meta.env.VITE_SPEECHGEN_EMAIL;
+    const proxyUrl = import.meta.env.VITE_SPEECHGEN_PROXY_URL;
+
+    if (token && email && proxyUrl) {
+        try {
+            const result = await speechgenTTS(cleanText);
+            if (result && result.blobUrl) {
+                currentAudioObj = new Audio(result.blobUrl);
+                currentAudioObj.onended = () => {
+                    currentAudioObj = null;
+                };
+                currentAudioObj.play().catch(e => {
+                    console.warn('SpeechGen play error, falling back:', e);
+                    speakWithWebSpeech(text);
+                });
+
+                // Gọi callback để component lưu audio vào database
+                if (onAudioGenerated && result.base64) {
+                    onAudioGenerated(result.base64, result.voiceId);
+                }
+                return;
+            }
+        } catch (e) {
+            console.warn('SpeechGen TTS error, falling back:', e);
+        }
+    }
+
+    // Fallback to Web Speech API
+    speakWithWebSpeech(text);
+};
+
+// ============== PLAY AUDIO ==============
+
+// Play Audio - với fallback sử dụng SpeechGen TTS → Web Speech API
+export const playAudio = (base64Data, text = '', onAudioGenerated = null) => {
+    // Dừng audio đang phát (nếu có)
+    if (currentAudioObj) {
+        try {
+            currentAudioObj.pause();
+            currentAudioObj.currentTime = 0;
+            currentAudioObj.remove?.();
+        } catch (e) {
+            console.error('Error stopping previous audio:', e);
+        }
+        currentAudioObj = null;
+    }
+
+    // Dừng speech đang nói (nếu có)
+    if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+    }
+
+    // Nếu có base64Data, phát audio (đã lưu trước đó, không cần tạo mới)
+    if (base64Data) {
+        try {
+            if (base64Data.startsWith('data:audio') || base64Data.startsWith('UklGR') || base64Data.startsWith('SUQz') || base64Data.startsWith('//uQ') || base64Data.startsWith('AAAA')) {
+                const audioSrc = base64Data.startsWith('data:audio')
+                    ? base64Data
+                    : `data:audio/mp3;base64,${base64Data}`;
+                currentAudioObj = new Audio(audioSrc);
+                currentAudioObj.onended = () => {
+                    if (currentAudioObj) {
+                        currentAudioObj.remove?.();
+                    }
+                    currentAudioObj = null;
+                };
+                currentAudioObj.play().catch(e => {
+                    console.error('Audio play error:', e);
+                    speakWithTTS(text, onAudioGenerated);
+                });
+            } else {
+                const rawData = base64ToArrayBuffer(base64Data);
+                const pcm16 = new Int16Array(rawData);
+                const wavBuffer = pcmToWav(pcm16, 24000);
+                const blob = new Blob([wavBuffer], { type: 'audio/wav' });
+                const url = URL.createObjectURL(blob);
+                currentAudioObj = new Audio(url);
+                currentAudioObj.onended = () => {
+                    URL.revokeObjectURL(url);
+                    if (currentAudioObj) {
+                        currentAudioObj.remove?.();
+                    }
+                    currentAudioObj = null;
+                };
+                currentAudioObj.play().catch(e => {
+                    console.error('Audio play error:', e);
+                    speakWithTTS(text, onAudioGenerated);
+                });
+            }
+        } catch (e) {
+            console.error('playAudio error:', e);
+            speakWithTTS(text, onAudioGenerated);
+        }
+    } else if (text) {
+        // Không có audio → dùng TTS và lưu kết quả qua callback
+        speakWithTTS(text, onAudioGenerated);
+    }
+};
+
 /**
  * speakJapanese - Hàm tiện ích phát âm tiếng Nhật
  * Ưu tiên đọc hiragana/katakana (trong ngoặc) để tránh đọc sai kanji
  * 
  * @param {string} text - Từ vựng tiếng Nhật cần phát âm (có thể chứa furigana: "食べる（たべる）")
- * @param {string|null} audioBase64 - Dữ liệu audio base64 đã lưu sẵn (optional, legacy)
+ * @param {string|null} audioBase64 - Dữ liệu audio base64 đã lưu sẵn
+ * @param {Function|null} onAudioGenerated - Callback khi TTS tạo audio mới: (base64, voiceId) => void
  */
-export const speakJapanese = (text, audioBase64 = null) => {
+export const speakJapanese = (text, audioBase64 = null, onAudioGenerated = null) => {
     if (!text && !audioBase64) return;
 
-    // Nếu có audioBase64 lưu sẵn, dùng nó (legacy support)
+    // Nếu có audioBase64 lưu sẵn, dùng nó (không cần callback vì đã lưu rồi)
     if (audioBase64) {
         playAudio(audioBase64, text || '');
         return;
@@ -192,7 +372,7 @@ export const speakJapanese = (text, audioBase64 = null) => {
     const textToSpeak = readingMatch ? readingMatch[1] : text.split('（')[0].split('(')[0].trim();
 
     if (textToSpeak) {
-        playAudio(null, textToSpeak);
+        playAudio(null, textToSpeak, onAudioGenerated);
     }
 };
 

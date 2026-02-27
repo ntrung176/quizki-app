@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Copy, FileJson, PenTool, ClipboardCheck, Search, BookOpen, Languages, MessageSquare, Tag, Sparkles, ChevronDown, ShoppingCart } from 'lucide-react';
+import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Search, BookOpen, Languages, MessageSquare, Tag, Sparkles, ChevronDown, CreditCard } from 'lucide-react';
 import { JLPT_LEVELS, POS_TYPES } from '../../config/constants';
 import { compressImage } from '../../utils/image';
 import OnboardingTour from '../ui/OnboardingTour';
@@ -10,30 +10,6 @@ const isMobileDevice = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
 };
 
-const SAMPLE_JSON = `[
-  {
-    "front": "食べる（たべる）",
-    "back": "Ăn",
-    "sinoVietnamese": "Thực",
-    "synonym": "食事する",
-    "example": "私は毎日ご飯を食べる。",
-    "exampleMeaning": "Tôi ăn cơm mỗi ngày.",
-    "nuance": "Động từ phổ biến nhất để chỉ hành động ăn",
-    "pos": "verb",
-    "level": "N5"
-  },
-  {
-    "front": "飲む（のむ）",
-    "back": "Uống",
-    "sinoVietnamese": "Ẩm",
-    "synonym": "",
-    "example": "水を飲む。",
-    "exampleMeaning": "Uống nước.",
-    "nuance": "",
-    "pos": "verb",
-    "level": "N5"
-  }
-]`;
 
 // Reusable floating label input component
 const FloatingInput = ({ id, label, value, onChange, required, placeholder, icon: Icon, inputRef, onKeyDown, onFocus, className = '', type = 'text', ...props }) => {
@@ -119,7 +95,6 @@ const AddCardForm = ({
     onOpenBatchImport,
     onGenerateMoreExample,
     aiCreditsRemaining,
-    onOpenShop
 }) => {
     const [activeTab, setActiveTab] = useState('manual');
     const [front, setFront] = useState('');
@@ -138,14 +113,6 @@ const AddCardForm = ({
     const [isGeneratingExample, setIsGeneratingExample] = useState(false);
     const [showAdvanced, setShowAdvanced] = useState(false);
     const frontInputRef = useRef(null);
-
-    // JSON state
-    const [jsonInput, setJsonInput] = useState('');
-    const [jsonError, setJsonError] = useState('');
-    const [jsonParsed, setJsonParsed] = useState(null);
-    const [jsonImporting, setJsonImporting] = useState(false);
-    const [jsonImportResult, setJsonImportResult] = useState(null);
-    const [copiedSample, setCopiedSample] = useState(false);
     const [showImageSearch, setShowImageSearch] = useState(false);
 
     const [selectedFolderId, setSelectedFolderId] = useState('');
@@ -252,43 +219,7 @@ const AddCardForm = ({
         setIsGeneratingExample(false);
     };
 
-    const validateJson = (text) => {
-        if (!text.trim()) { setJsonError(''); setJsonParsed(null); return; }
-        try {
-            const parsed = JSON.parse(text);
-            const arr = Array.isArray(parsed) ? parsed : [parsed];
-            const valid = arr.every(item => item.front && item.back);
-            if (!valid) { setJsonError('Mỗi từ vựng phải có ít nhất trường "front" và "back"'); setJsonParsed(null); }
-            else { setJsonError(''); setJsonParsed(arr); }
-        } catch (e) { setJsonError(`JSON không hợp lệ: ${e.message}`); setJsonParsed(null); }
-    };
 
-    const handleJsonImport = async () => {
-        if (!jsonParsed || jsonParsed.length === 0) return;
-        setJsonImporting(true); setJsonImportResult(null);
-        let successCount = 0, failCount = 0;
-        for (const item of jsonParsed) {
-            try {
-                const success = await onSave({
-                    front: item.front || '', back: item.back || '', synonym: item.synonym || '',
-                    example: item.example || '', exampleMeaning: item.exampleMeaning || '',
-                    nuance: item.nuance || '', pos: item.pos || '', level: item.level || '',
-                    sinoVietnamese: item.sinoVietnamese || '', synonymSinoVietnamese: item.synonymSinoVietnamese || '',
-                    action: 'continue', imageBase64: null, audioBase64: null, folderId: selectedFolderId || null
-                });
-                if (success) successCount++; else failCount++;
-            } catch (e) { failCount++; }
-        }
-        setJsonImporting(false);
-        setJsonImportResult({ success: successCount, fail: failCount });
-        if (successCount > 0 && failCount === 0) { setJsonInput(''); setJsonParsed(null); }
-    };
-
-    const copySampleJson = () => {
-        navigator.clipboard.writeText(SAMPLE_JSON);
-        setCopiedSample(true);
-        setTimeout(() => setCopiedSample(false), 2000);
-    };
 
     // JLPT level colors
     const levelColors = {
@@ -309,41 +240,15 @@ const AddCardForm = ({
                     </h2>
                     <p className="text-gray-400 dark:text-gray-500 text-sm mt-0.5">Xây dựng kho tàng kiến thức của bạn</p>
                 </div>
-                <button
-                    type="button"
-                    onClick={onOpenShop}
-                    className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 hover:shadow-xl hover:scale-105 transition-all cursor-pointer"
-                    title="Mua thêm lượt AI"
-                >
-                    <ShoppingCart className="w-5 h-5 text-white" />
-                </button>
+                {aiCreditsRemaining !== undefined && aiCreditsRemaining !== null && (
+                    <div className="flex items-center gap-1.5 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 px-3 py-1.5 rounded-xl" title="Số lượt tạo AI còn lại">
+                        <CreditCard className="w-3.5 h-3.5 text-indigo-500" />
+                        <span className={`text-sm font-bold ${aiCreditsRemaining > 20 ? 'text-emerald-600 dark:text-emerald-400' : aiCreditsRemaining > 0 ? 'text-amber-600' : 'text-red-500'}`}>{aiCreditsRemaining}</span>
+                    </div>
+                )}
             </div>
 
-            {/* Tab Switcher */}
-            {!batchMode && (
-                <div className="flex rounded-xl bg-gray-100 dark:bg-gray-800/80 p-1 gap-1">
-                    <button
-                        onClick={() => setActiveTab('manual')}
-                        className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-sm font-bold transition-all duration-300 ${activeTab === 'manual'
-                            ? 'bg-white dark:bg-gray-700 text-indigo-600 dark:text-indigo-400 shadow-md shadow-indigo-100 dark:shadow-none'
-                            : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300'
-                            }`}
-                    >
-                        <Wand2 className="w-4 h-4" />
-                        Thêm từ vựng AI
-                    </button>
-                    <button
-                        onClick={() => setActiveTab('json')}
-                        className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-sm font-bold transition-all duration-300 ${activeTab === 'json'
-                            ? 'bg-white dark:bg-gray-700 text-indigo-600 dark:text-indigo-400 shadow-md shadow-indigo-100 dark:shadow-none'
-                            : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300'
-                            }`}
-                    >
-                        <FileJson className="w-4 h-4" />
-                        JSON Import
-                    </button>
-                </div>
-            )}
+
 
             {/* ============ MANUAL TAB ============ */}
             {(activeTab === 'manual' || batchMode) && (
@@ -651,105 +556,7 @@ const AddCardForm = ({
                 </div>
             )}
 
-            {/* ============ JSON TAB ============ */}
-            {activeTab === 'json' && !batchMode && (
-                <div className="space-y-4">
-                    {/* Sample JSON */}
-                    <div className="bg-white dark:bg-gray-800/80 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden">
-                        <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-50/50 dark:from-gray-700/50 dark:to-gray-800 border-b border-gray-100 dark:border-gray-700">
-                            <h3 className="text-sm font-bold text-gray-600 dark:text-gray-300 flex items-center gap-2">
-                                <FileJson className="w-4 h-4 text-indigo-500" />
-                                JSON mẫu
-                            </h3>
-                            <button
-                                onClick={copySampleJson}
-                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 ${copiedSample
-                                    ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 scale-105'
-                                    : 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 hover:bg-indigo-200 dark:hover:bg-indigo-900/50'
-                                    }`}
-                            >
-                                {copiedSample ? (
-                                    <><ClipboardCheck className="w-3.5 h-3.5" /> Đã copy!</>
-                                ) : (
-                                    <><Copy className="w-3.5 h-3.5" /> Copy mẫu</>
-                                )}
-                            </button>
-                        </div>
-                        <pre className="p-4 text-xs text-gray-600 dark:text-gray-400 overflow-x-auto bg-gray-50/50 dark:bg-gray-900/30 font-mono leading-relaxed max-h-52 overflow-y-auto">
-                            {SAMPLE_JSON}
-                        </pre>
-                    </div>
 
-                    {/* JSON Input */}
-                    <div className="bg-white dark:bg-gray-800/80 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden">
-                        <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-gray-50/50 dark:from-gray-700/50 dark:to-gray-800 border-b border-gray-100 dark:border-gray-700">
-                            <h3 className="text-sm font-bold text-gray-600 dark:text-gray-300">Nhập JSON từ vựng</h3>
-                            <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Dán JSON theo định dạng mẫu phía trên</p>
-                        </div>
-                        <div className="p-4">
-                            <textarea
-                                value={jsonInput}
-                                onChange={(e) => {
-                                    setJsonInput(e.target.value);
-                                    validateJson(e.target.value);
-                                    setJsonImportResult(null);
-                                }}
-                                rows="10"
-                                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900/50 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 dark:focus:border-indigo-400 transition-all text-sm font-mono text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 resize-y outline-none"
-                                placeholder={'Dán JSON vào đây...\n\nVí dụ:\n[\n  { "front": "食べる", "back": "Ăn" }\n]'}
-                            />
-
-                            {jsonError && (
-                                <div className="mt-2 p-2.5 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl flex items-start gap-2">
-                                    <X className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
-                                    <span className="text-xs text-red-600 dark:text-red-400">{jsonError}</span>
-                                </div>
-                            )}
-                            {jsonParsed && !jsonError && (
-                                <div className="mt-2 p-2.5 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl flex items-center gap-2">
-                                    <Check className="w-4 h-4 text-emerald-500" />
-                                    <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">JSON hợp lệ — {jsonParsed.length} từ vựng sẵn sàng nhập</span>
-                                </div>
-                            )}
-                            {jsonImportResult && (
-                                <div className={`mt-2 p-2.5 rounded-xl border flex items-center gap-2 ${jsonImportResult.fail === 0
-                                    ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800'
-                                    : 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800'
-                                    }`}>
-                                    <Check className="w-4 h-4 text-emerald-500" />
-                                    <span className="text-xs font-medium">
-                                        Đã thêm {jsonImportResult.success} từ vựng thành công
-                                        {jsonImportResult.fail > 0 && `, ${jsonImportResult.fail} thất bại`}
-                                    </span>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-
-                    {/* Action buttons */}
-                    <div className="flex gap-2.5">
-                        <button
-                            type="button"
-                            onClick={handleJsonImport}
-                            disabled={!jsonParsed || jsonParsed.length === 0 || jsonImporting}
-                            className="flex-1 flex items-center justify-center px-6 py-3 text-sm font-bold rounded-xl shadow-lg shadow-indigo-200 dark:shadow-indigo-900/40 text-white bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-500 dark:to-violet-500 hover:from-indigo-700 hover:to-violet-700 hover:-translate-y-0.5 hover:shadow-xl transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0"
-                        >
-                            {jsonImporting ? (
-                                <><Loader2 className="animate-spin w-5 h-5 mr-2" /> Đang nhập...</>
-                            ) : (
-                                <><Plus className="w-5 h-5 mr-2" /> Thêm {jsonParsed ? `${jsonParsed.length} từ vựng` : 'từ vựng'}</>
-                            )}
-                        </button>
-                        <button
-                            type="button"
-                            onClick={onBack}
-                            className="px-6 py-3 text-sm font-medium rounded-xl text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all"
-                        >
-                            Hủy
-                        </button>
-                    </div>
-                </div>
-            )}
 
             {/* Onboarding Tour */}
             <OnboardingTour section="vocabAdd" />

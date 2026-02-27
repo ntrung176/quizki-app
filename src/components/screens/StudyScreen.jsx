@@ -9,7 +9,7 @@ const isMobileDevice = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
 };
 
-const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdateCard, onCompleteStudy }) => {
+const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdateCard, onSaveCardAudio, onCompleteStudy }) => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [inputValue, setInputValue] = useState('');
@@ -133,6 +133,24 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         cardShownTimeRef.current = Date.now(); // Reset timer khi đổi câu
     }, [currentPhase, currentQuestionIndex]);
 
+    // Keyboard shortcuts for multiple choice (1-2-3-4)
+    useEffect(() => {
+        if (currentPhase !== 'multipleChoice' || isRevealed || isProcessing || multipleChoiceOptions.length === 0) return;
+
+        const handleMCKeyDown = (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            const keyNum = parseInt(e.key);
+            if (keyNum >= 1 && keyNum <= multipleChoiceOptions.length) {
+                e.preventDefault();
+                const buttons = document.querySelectorAll('[data-mc-option]');
+                if (buttons[keyNum - 1]) buttons[keyNum - 1].click();
+            }
+        };
+
+        window.addEventListener('keydown', handleMCKeyDown);
+        return () => window.removeEventListener('keydown', handleMCKeyDown);
+    }, [currentPhase, isRevealed, isProcessing, multipleChoiceOptions]);
+
     // Reset completedCards when starting new batch
     useEffect(() => {
         if (currentPhase === 'multipleChoice' && currentQuestionIndex === 0 && studySessionData.batchIndex > 0) {
@@ -217,7 +235,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         setFeedback(isCorrect ? 'correct' : 'incorrect');
         setIsRevealed(true);
 
-        speakJapanese(currentCard.front, currentCard.audioBase64);
+        speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
 
         await onUpdateCard(currentCard.id, isCorrect, 'back', 'study', Date.now() - cardShownTimeRef.current);
 
@@ -285,7 +303,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         setIsProcessing(true);
         setFeedback(isCorrect ? 'correct' : 'incorrect');
         setIsRevealed(true);
-        speakJapanese(currentCard.front, currentCard.audioBase64);
+        speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
 
         await onUpdateCard(currentCard.id, isCorrect, 'back', 'study', Date.now() - cardShownTimeRef.current);
 
@@ -468,28 +486,32 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             {/* Answer Area */}
             <div className="w-full space-y-3">
                 {currentPhase === 'multipleChoice' ? (
-                    <div className="grid grid-cols-2 gap-2">
-                        {multipleChoiceOptions.map((option, idx) => (
-                            <button
-                                key={idx}
-                                onClick={() => handleMultipleChoiceAnswer(option)}
-                                disabled={isProcessing || isRevealed}
-                                className={`p-3 md:p-4 rounded-xl font-bold text-sm md:text-base transition-all text-center border-2
+                    <>
+                        <div className="grid grid-cols-2 gap-2">
+                            {multipleChoiceOptions.map((option, idx) => (
+                                <button
+                                    key={idx}
+                                    data-mc-option={idx}
+                                    onClick={() => handleMultipleChoiceAnswer(option)}
+                                    disabled={isProcessing || isRevealed}
+                                    className={`p-3 md:p-4 rounded-xl font-bold text-sm md:text-base transition-all text-center border-2
                                     ${selectedAnswer === option
-                                        ? feedback === 'correct'
-                                            ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'
-                                            : 'bg-red-500 dark:bg-red-600 text-white shadow-lg border-red-600 dark:border-red-700'
-                                        : isRevealed && normalizeAnswer(option) === normalizeAnswer(currentCard.front)
-                                            ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'
-                                            : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:bg-teal-50 dark:hover:bg-teal-900/30 hover:border-teal-400'
-                                    }
+                                            ? feedback === 'correct'
+                                                ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'
+                                                : 'bg-red-500 dark:bg-red-600 text-white shadow-lg border-red-600 dark:border-red-700'
+                                            : isRevealed && normalizeAnswer(option) === normalizeAnswer(currentCard.front)
+                                                ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'
+                                                : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:bg-teal-50 dark:hover:bg-teal-900/30 hover:border-teal-400'
+                                        }
                                     ${isProcessing || isRevealed ? 'cursor-not-allowed' : 'cursor-pointer hover:scale-[1.02]'}
                                 `}
-                            >
-                                <span className="font-japanese">{option}</span>
-                            </button>
-                        ))}
-                    </div>
+                                >
+                                    <span className="font-japanese">{option}</span>
+                                </button>
+                            ))}
+                        </div>
+                        <p className="text-[10px] text-gray-400 dark:text-gray-500 text-center mt-1 opacity-70">⌨️ Dùng phím bàn phím để chọn nhanh</p>
+                    </>
                 ) : (
                     <div className="space-y-3">
                         <div className="relative">

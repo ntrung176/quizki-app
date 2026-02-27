@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
     BookOpen, Plus, Trash2, Edit, ChevronRight, ChevronLeft, Check, X,
-    Upload, FolderPlus, FileText, List, Search, ArrowLeft, Image, Save, Layers, Copy, Clipboard, Folder, Scissors
+    Upload, FolderPlus, FileText, List, Search, ArrowLeft, Image, Save, Layers, Copy, Clipboard, Folder, Scissors, Volume2
 } from 'lucide-react';
 import { db } from '../../config/firebase';
 import {
@@ -10,6 +10,8 @@ import {
 } from 'firebase/firestore';
 import AudioTrimmer from '../ui/AudioTrimmer';
 import { showToast } from '../../utils/toast';
+import { speakJapanese, playAudio } from '../../utils/audio';
+import FuriganaText from '../ui/FuriganaText';
 
 // ==================== REUSABLE COMPONENTS (outside BookScreen to prevent re-mount) ====================
 const FormModal = ({ show, onClose, title, onSave, children }) => {
@@ -260,18 +262,24 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     };
 
     // ==================== SAVE AUDIO CLIP ====================
-    const handleSaveAudioClip = async (vocabIndex, base64Audio, vocab) => {
+    const handleSaveAudioClip = async (vocabIndex, base64Audio, vocab, clipType = 'word') => {
         if (!lessonId || !currentLesson) return;
         try {
             const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
             const newVocab = [...(currentLesson.vocab || [])];
             if (newVocab[vocabIndex]) {
-                newVocab[vocabIndex] = { ...newVocab[vocabIndex], audioBase64: base64Audio };
+                if (clipType === 'example') {
+                    newVocab[vocabIndex] = { ...newVocab[vocabIndex], exampleAudioBase64: base64Audio };
+                } else {
+                    newVocab[vocabIndex] = { ...newVocab[vocabIndex], audioBase64: base64Audio };
+                }
                 await updateDoc(lessonRef, { vocab: newVocab });
+                showToast(`Đã lưu audio ${clipType === 'example' ? 'ví dụ' : 'từ vựng'} cho "${vocab?.word || vocab?.front || ''}"`, 'success');
                 loadAllData();
             }
         } catch (e) {
             console.error('Error saving audio clip:', e);
+            showToast('Lỗi lưu audio clip', 'error');
         }
     };
 
@@ -299,7 +307,10 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                 level: vocab.level || '',
                 sinoVietnamese: vocab.sinoVietnamese || '',
                 synonymSinoVietnamese: '',
-                imageBase64: null, audioBase64: null, action: 'stay',
+                imageBase64: null,
+                audioBase64: vocab.audioBase64 || null,
+                exampleAudioBase64: vocab.exampleAudioBase64 || null,
+                action: 'stay',
                 folderId: selectedFolderId || null,
             });
             setAddedVocabSet(prev => new Set([...prev, index]));
@@ -629,13 +640,34 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                             {/* LEFT: Từ vựng + nghĩa */}
                                             <div className="w-2/5 p-4 border-r border-gray-100 dark:border-gray-700 flex flex-col">
                                                 <div className="flex-1 flex flex-col justify-center">
-                                                    <p className="text-xl font-bold text-gray-900 dark:text-white leading-tight">{word}</p>
+                                                    <div className="flex items-center gap-2">
+                                                        <p className="text-xl font-bold text-gray-900 dark:text-white leading-tight">{word}</p>
+                                                        {/* Audio play button for word */}
+                                                        <button
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                if (v.audioBase64) {
+                                                                    playAudio(v.audioBase64, word);
+                                                                } else {
+                                                                    speakJapanese(word);
+                                                                }
+                                                            }}
+                                                            className={`p-1 rounded-lg transition-all hover:scale-110 shrink-0 ${v.audioBase64
+                                                                ? 'text-violet-500 hover:bg-violet-50 dark:hover:bg-violet-900/20 hover:text-violet-600'
+                                                                : 'text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-500'
+                                                                }`}
+                                                            title={v.audioBase64 ? 'Phát audio đã cắt' : 'Phát TTS'}
+                                                        >
+                                                            <Volume2 className="w-4 h-4" />
+                                                        </button>
+                                                    </div>
                                                     {v.sinoVietnamese && (
                                                         <p className="text-xs text-amber-600 dark:text-amber-400 font-medium mt-1">{v.sinoVietnamese}</p>
                                                     )}
                                                     <div className="flex items-center gap-1 mt-1.5 flex-wrap">
                                                         {v.pos && <span className="text-[10px] text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20 px-1.5 py-0.5 rounded">{v.pos}</span>}
                                                         {v.level && <span className="text-[10px] text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 px-1.5 py-0.5 rounded">{v.level}</span>}
+                                                        {v.audioBase64 && <span className="text-[10px] text-violet-500 bg-violet-50 dark:bg-violet-900/20 px-1.5 py-0.5 rounded font-medium">🔊 Audio</span>}
                                                     </div>
                                                     <p className="text-sm text-sky-600 dark:text-sky-400 mt-2 font-medium">{v.meaning || v.back || ''}</p>
                                                 </div>
@@ -645,9 +677,32 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                             <div className="flex-1 p-4 flex flex-col justify-center">
                                                 {v.example ? (
                                                     <div>
-                                                        <p className="text-sm text-gray-800 dark:text-gray-200 leading-relaxed">{v.example}</p>
+                                                        <div className="flex items-start gap-2">
+                                                            <p className="text-sm text-gray-800 dark:text-gray-200 leading-relaxed flex-1"><FuriganaText text={v.example} /></p>
+                                                            {/* Audio play button for example */}
+                                                            <button
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation();
+                                                                    if (v.exampleAudioBase64) {
+                                                                        playAudio(v.exampleAudioBase64, v.example);
+                                                                    } else {
+                                                                        speakJapanese(v.example);
+                                                                    }
+                                                                }}
+                                                                className={`p-1 rounded-lg transition-all hover:scale-110 shrink-0 mt-0.5 ${v.exampleAudioBase64
+                                                                    ? 'text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:text-amber-600'
+                                                                    : 'text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-500'
+                                                                    }`}
+                                                                title={v.exampleAudioBase64 ? 'Phát audio ví dụ đã cắt' : 'Phát TTS ví dụ'}
+                                                            >
+                                                                <Volume2 className="w-3.5 h-3.5" />
+                                                            </button>
+                                                        </div>
                                                         {v.exampleMeaning && (
                                                             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1.5 italic">{v.exampleMeaning}</p>
+                                                        )}
+                                                        {v.exampleAudioBase64 && (
+                                                            <span className="text-[10px] text-amber-500 bg-amber-50 dark:bg-amber-900/20 px-1.5 py-0.5 rounded font-medium mt-1 inline-block">🔊 Audio VD</span>
                                                         )}
                                                     </div>
                                                 ) : (

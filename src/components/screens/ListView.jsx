@@ -347,7 +347,7 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
 };
 
 // ==================== Main ListView Component ====================
-const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, onImportTSV, onSaveChanges, onGeminiAssist, onNavigateToImport, scrollToCardId, onScrollComplete, savedFilters, onFiltersChange }) => {
+const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAudio, onExport, onImportTSV, onSaveChanges, onGeminiAssist, onNavigateToImport, scrollToCardId, onScrollComplete, savedFilters, onFiltersChange }) => {
     const [editingCard, setEditingCard] = useState(null);
     const [filterLevel, setFilterLevel] = useState(savedFilters?.filterLevel || 'all');
     const [filterPos, setFilterPos] = useState(savedFilters?.filterPos || 'all');
@@ -1288,7 +1288,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onExport, on
                                         {/* Audio + content */}
                                         <div className="flex items-center gap-2 flex-1 min-w-0">
                                             <button
-                                                onClick={(e) => { e.stopPropagation(); onPlayAudio(null, card.front); }}
+                                                onClick={(e) => { e.stopPropagation(); onPlayAudio(card.audioBase64 || null, card.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null); }}
                                                 className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors bg-indigo-50 dark:bg-indigo-900/30 text-indigo-500 hover:bg-indigo-100"
                                                 title="Phát âm thanh"
                                             >

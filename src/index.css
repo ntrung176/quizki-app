@@ -7,6 +7,22 @@
   font-family: 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif !important;
 }
 
+/* Ruby / Furigana annotations */
+ruby.ruby-annotation {
+  ruby-align: center;
+}
+
+ruby.ruby-annotation rt {
+  font-size: 0.55em;
+  color: #8b5cf6;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+html.dark ruby.ruby-annotation rt {
+  color: #a78bfa;
+}
+
 /* Apply Mincho font to Japanese text elements */
 .japanese-text,
 .kanji-text,

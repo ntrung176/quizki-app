@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { RotateCcw, Check, X, Undo2, Trophy, RefreshCw, Volume2 } from 'lucide-react';
 import { playAudio, speakJapanese } from '../../utils/audio';
+import FuriganaText from '../ui/FuriganaText';
 
-const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard }) => {
+const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSaveCardAudio }) => {
     const [allCards] = useState(initialCards);
     const [currentDeck, setCurrentDeck] = useState(initialCards);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -44,7 +45,7 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard }) => {
         setIsFlipped(newFlippedState);
         if (newFlippedState && currentCard) {
             // Phát âm khi lật: dùng audioBase64 nếu có, không thì fallback Web Speech API
-            speakJapanese(currentCard.front, currentCard.audioBase64);
+            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
         }
     }, [isFlipped, currentCard]);
 
@@ -416,7 +417,7 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard }) => {
                                     <button
                                         onClick={(e) => {
                                             e.stopPropagation();
-                                            speakJapanese(currentCard.front, currentCard.audioBase64);
+                                            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
                                         }}
                                         className="p-2 rounded-full bg-slate-600 hover:bg-indigo-500 text-white transition-all hover:scale-110"
                                         title="Nghe phát âm"
@@ -455,7 +456,7 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard }) => {
                                     {currentCard.example && (
                                         <div className="pt-3 border-t border-slate-600 w-full">
                                             <p className="text-sm text-slate-400 italic font-japanese">
-                                                {currentCard.example}
+                                                <FuriganaText text={currentCard.example} />
                                             </p>
                                             {currentCard.exampleMeaning && (
                                                 <p className="text-xs text-slate-500 mt-1">

@@ -43,6 +43,9 @@ jobs:
       VITE_PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
       VITE_SEPAY_API_KEY: ${{ secrets.SEPAY_API_KEY }}
       VITE_SEPAY_PROXY_URL: ${{ secrets.SEPAY_PROXY_URL }}
+      VITE_SPEECHGEN_TOKEN: ${{ secrets.SPEECHGEN_TOKEN }}
+      VITE_SPEECHGEN_EMAIL: ${{ secrets.SPEECHGEN_EMAIL }}
+      VITE_SPEECHGEN_PROXY_URL: ${{ secrets.SPEECHGEN_PROXY_URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

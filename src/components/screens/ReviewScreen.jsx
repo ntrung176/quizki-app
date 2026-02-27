@@ -14,6 +14,7 @@ import {
 } from '../../utils/textProcessing';
 import { flashCorrect, launchConfetti, launchFanfare, launchSparkles, celebrateCorrectAnswer } from '../../utils/celebrations';
 import { playCorrectSound, playIncorrectSound, launchFireworks } from '../../utils/soundEffects';
+import FuriganaText from '../ui/FuriganaText';
 
 // Helper function to detect mobile devices
 const isMobileDevice = () => {
@@ -26,7 +27,8 @@ const ReviewScreen = ({
     allCards,
     onUpdateCard,
     onCompleteReview,
-    vocabCollectionPath
+    vocabCollectionPath,
+    onSaveCardAudio
 }) => {
     const [cards, setCards] = useState(initialCards);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -182,7 +184,7 @@ const ReviewScreen = ({
                 setIsFlipped(prev => {
                     const newFlippedState = !prev;
                     if (newFlippedState && currentCard) {
-                        speakJapanese(currentCard.front, currentCard.audioBase64);
+                        speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
                     }
                     return newFlippedState;
                 });
@@ -207,6 +209,28 @@ const ReviewScreen = ({
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [currentIndex, cards, reviewMode, handleCompleteReview, moveToPreviousCard, currentCard]);
+
+    // Keyboard shortcuts for multiple choice (1-2-3-4)
+    useEffect(() => {
+        if (!isMultipleChoice || isRevealed || isProcessing || feedback || multipleChoiceOptions.length === 0) return;
+
+        const handleMCKeyDown = (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            const keyNum = parseInt(e.key);
+            if (keyNum >= 1 && keyNum <= multipleChoiceOptions.length) {
+                e.preventDefault();
+                const option = multipleChoiceOptions[keyNum - 1];
+                if (option) {
+                    // Simulate click on the option button
+                    const buttons = document.querySelectorAll('[data-mc-option]');
+                    if (buttons[keyNum - 1]) buttons[keyNum - 1].click();
+                }
+            }
+        };
+
+        window.addEventListener('keydown', handleMCKeyDown);
+        return () => window.removeEventListener('keydown', handleMCKeyDown);
+    }, [isMultipleChoice, isRevealed, isProcessing, feedback, multipleChoiceOptions]);
 
 
     // Swipe handlers
@@ -529,7 +553,7 @@ const ReviewScreen = ({
                 flashCorrect();
                 playCorrectSound();
                 celebrateCorrectAnswer();
-                speakJapanese(currentCard.front, currentCard.audioBase64);
+                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 await moveToNextCard(true);
             } else {
@@ -541,7 +565,7 @@ const ReviewScreen = ({
                 flashCorrect();
                 playCorrectSound();
                 celebrateCorrectAnswer();
-                speakJapanese(currentCard.front, currentCard.audioBase64);
+                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 await moveToNextCard(true);
             }
@@ -553,7 +577,7 @@ const ReviewScreen = ({
             setIsRevealed(true);
             setIsLocked(true);
             playIncorrectSound();
-            speakJapanese(currentCard.front, currentCard.audioBase64);
+            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
 
             setCards(prevCards => {
                 return prevCards.map(card => {
@@ -656,7 +680,7 @@ const ReviewScreen = ({
                 const isCorrect = userAnswer === normalizedKanji || (kanaPart && userAnswer === normalizedKana) || userAnswer === normalizeAnswer(rawFront);
 
                 if (isCorrect) {
-                    speakJapanese(currentCard.front, currentCard.audioBase64);
+                    speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
                     setIsProcessing(true);
                     moveToNextCard(false);
                 } else {
@@ -699,7 +723,7 @@ const ReviewScreen = ({
                                     const newFlippedState = !isFlipped;
                                     setIsFlipped(newFlippedState);
                                     if (newFlippedState && currentCard) {
-                                        speakJapanese(currentCard.front, currentCard.audioBase64);
+                                        speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
                                     }
                                 }
                             }}
@@ -773,7 +797,7 @@ const ReviewScreen = ({
                                         {currentCard.example && (
                                             <div className="pt-1.5 border-t border-white/20">
                                                 <p className="text-white/90 text-[10px] italic leading-relaxed whitespace-pre-line">
-                                                    "{currentCard.example}"
+                                                    "<FuriganaText text={currentCard.example} />"
                                                 </p>
                                                 {currentCard.exampleMeaning && (
                                                     <p className="text-emerald-100 text-[9px] mt-1 leading-relaxed whitespace-pre-line">
@@ -850,7 +874,7 @@ const ReviewScreen = ({
                                 <>
                                     {/* Example mode: Show example sentence with masked word */}
                                     <div className="text-lg md:text-xl font-medium text-white leading-relaxed line-clamp-4 font-japanese">
-                                        {promptInfo.text}
+                                        <FuriganaText text={promptInfo.text} />
                                     </div>
                                     {promptInfo.meaning && (
                                         <div className="text-sm text-gray-400 mt-2 italic">
@@ -861,7 +885,7 @@ const ReviewScreen = ({
                             ) : inputMode === 'reading' ? (
                                 <>
                                     {/* Reading mode: Show meaning, user inputs word */}
-                                    <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed line-clamp-3">
+                                    <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed whitespace-pre-line">
                                         {formatMultipleMeanings(currentCard.back)}
                                     </div>
                                 </>
@@ -917,6 +941,7 @@ const ReviewScreen = ({
                                 return (
                                     <button
                                         key={index}
+                                        data-mc-option={index}
                                         onClick={async () => {
                                             if (isRevealed || isProcessing || feedback) return;
                                             setSelectedAnswer(option);
@@ -969,18 +994,19 @@ const ReviewScreen = ({
                                             }
 
                                             setIsRevealed(true);
-                                            speakJapanese(currentCard.front, currentCard.audioBase64);
+                                            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
                                             await new Promise(resolve => setTimeout(resolve, 1000));
                                             await moveToNextCard(isCorrect);
                                         }}
                                         disabled={isRevealed || isProcessing || !!feedback}
                                         className={buttonClass}
                                     >
-                                        {option}
+                                        <span className="font-japanese">{option}</span>
                                     </button>
                                 );
                             })}
                         </div>
+                        <p className="text-[10px] text-gray-400 dark:text-gray-500 text-center mt-1 opacity-70">⌨️ Dùng phím bàn phím để chọn nhanh</p>
                     </div>
                 )}
 

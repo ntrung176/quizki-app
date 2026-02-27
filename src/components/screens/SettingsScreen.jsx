@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import {
     Settings, User, Volume2, VolumeX, Music, Sun, Moon,
     ArrowLeft, Save, Check, X,
-    Palette, Bell, Shield, Info, Trash2, Upload, Play, Pause
+    Palette, Bell, Shield, Info, Trash2, Upload, Play, Pause, Mic
 } from 'lucide-react';
 import { ROUTES } from '../../router';
 import {
@@ -15,6 +15,7 @@ import {
 import { linkWithPopup, GoogleAuthProvider, unlink } from 'firebase/auth';
 import { auth } from '../../config/firebase';
 import { showToast } from '../../utils/toast';
+import { TTS_VOICES, getTTSVoice, setTTSVoice, speakJapanese } from '../../utils/audio';
 
 const SETTINGS_KEY = 'quizki-settings';
 
@@ -60,6 +61,10 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
     const [selectedTrack, setSelectedTrackState] = useState(() => getSelectedTrackId());
     const [bgmTracks, setBgmTracks] = useState(() => getAllBgmTracks());
     const [uploadingBgm, setUploadingBgm] = useState(false);
+
+    // TTS voice state
+    const [ttsVoice, setTtsVoiceState] = useState(() => getTTSVoice());
+    const [isPreviewingVoice, setIsPreviewingVoice] = useState(false);
 
     // Feedback state - removed, now in FeedbackScreen
 
@@ -561,6 +566,57 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                 )}
                             </div>
                         )}
+                    </div>
+
+                    {/* TTS Voice Selector */}
+                    <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
+                        <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
+                            <Mic className="w-4 h-4" /> Giọng đọc tiếng Nhật
+                        </h3>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                            Chọn giọng AI đọc từ vựng tiếng Nhật (SpeechGen.io)
+                        </p>
+                        <div className="grid grid-cols-2 gap-3">
+                            {Object.values(TTS_VOICES).map(voice => (
+                                <button
+                                    key={voice.id}
+                                    onClick={() => {
+                                        setTTSVoice(voice.id);
+                                        setTtsVoiceState(voice.id);
+                                    }}
+                                    className={`p-4 rounded-xl border-2 transition-all flex flex-col items-center gap-2 ${ttsVoice === voice.id
+                                        ? 'border-cyan-400 bg-cyan-50 dark:bg-cyan-900/20 shadow-lg shadow-cyan-100 dark:shadow-cyan-900/20'
+                                        : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500'
+                                        }`}
+                                >
+                                    <div className={`w-12 h-12 rounded-full flex items-center justify-center shadow-inner ${voice.gender === 'Female'
+                                        ? 'bg-gradient-to-br from-pink-400 to-rose-500'
+                                        : 'bg-gradient-to-br from-blue-400 to-indigo-500'
+                                        }`}>
+                                        <span className="text-xl text-white">{voice.gender === 'Female' ? '👩' : '👨'}</span>
+                                    </div>
+                                    <span className={`text-sm font-bold ${ttsVoice === voice.id ? 'text-cyan-700 dark:text-cyan-400' : 'text-gray-500 dark:text-gray-400'}`}>
+                                        {voice.label}
+                                    </span>
+                                    {ttsVoice === voice.id && <Check className="w-4 h-4 text-cyan-500" />}
+                                </button>
+                            ))}
+                        </div>
+                        <button
+                            onClick={() => {
+                                setIsPreviewingVoice(true);
+                                speakJapanese('こんにちは、私はあなたの日本語の先生です。');
+                                setTimeout(() => setIsPreviewingVoice(false), 3000);
+                            }}
+                            disabled={isPreviewingVoice}
+                            className="w-full py-2.5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl font-bold text-sm hover:from-cyan-600 hover:to-blue-600 disabled:opacity-50 transition-all flex items-center justify-center gap-2"
+                        >
+                            {isPreviewingVoice ? (
+                                <><div className="animate-spin w-4 h-4 border-2 border-white/30 border-t-white rounded-full" /> Đang phát...</>
+                            ) : (
+                                <><Play className="w-4 h-4" /> Nghe thử giọng đọc</>
+                            )}
+                        </button>
                     </div>
 
                     {/* Theme */}

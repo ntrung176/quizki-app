@@ -1297,7 +1297,7 @@ const App = () => {
         return result;
     };
 
-    const handleAddCard = async ({ front, back, synonym, example, exampleMeaning, nuance, pos, level, action, imageBase64, audioBase64, sinoVietnamese, synonymSinoVietnamese, folderId }) => {
+    const handleAddCard = async ({ front, back, synonym, example, exampleMeaning, nuance, pos, level, action, imageBase64, audioBase64, exampleAudioBase64, sinoVietnamese, synonymSinoVietnamese, folderId }) => {
         if (!vocabCollectionPath) return false;
 
         // Kiểm tra trùng lặp với database của user
@@ -1327,6 +1327,11 @@ const App = () => {
         let finalSynonymSinoVietnamese = synonymSinoVietnamese || vocabData.synonymSinoVietnamese || '';
 
         const newCardData = createCardObject(finalFront, finalBack, finalSynonym, finalExample, finalExampleMeaning, finalNuance, {}, null, imageBase64, audioBase64, finalPos, finalLevel, finalSinoVietnamese, finalSynonymSinoVietnamese);
+
+        // Add example audio if provided (from book audio trimmer)
+        if (exampleAudioBase64) {
+            newCardData.exampleAudioBase64 = exampleAudioBase64;
+        }
 
         let cardRef;
 
@@ -1691,6 +1696,20 @@ const App = () => {
         }
     };
 
+    // Lưu audio TTS đã tạo vào card trong Firestore
+    const handleSaveCardAudio = async (cardId, audioBase64, voiceId) => {
+        if (!vocabCollectionPath || !cardId || !audioBase64) return;
+        try {
+            await updateDoc(doc(db, vocabCollectionPath, cardId), {
+                audioBase64,
+                audioVoiceId: voiceId || null, // Lưu giọng đã dùng để tạo
+            });
+            console.log(`✅ Đã lưu audio (${voiceId}) cho card:`, cardId);
+        } catch (e) {
+            console.warn('⚠️ Lỗi lưu audio vào card:', e.message);
+        }
+    };
+
     const handleDeleteCard = async (cardId, cardFront) => {
         if (!vocabCollectionPath || !cardId) return;
 
@@ -2039,10 +2058,105 @@ const App = () => {
         throw new Error("Không thể gọi API Gemini với bất kỳ key nào");
     };
 
+    // --- SHARED VOCABULARY COLLECTION (dùng chung cho mọi user) ---
+    const sharedVocabPath = useMemo(() => `artifacts/${appId}/sharedVocab`, []);
+
+    // Tạo key chuẩn hóa cho shared vocab lookup (trim + lowercase cho nhất quán)
+    const getSharedVocabKey = (text) => {
+        if (!text) return '';
+        // Giữ nguyên ký tự Nhật, chỉ trim khoảng trắng
+        return text.trim().replace(/\s+/g, ' ');
+    };
+
+    // Tra cứu từ vựng trong shared DB
+    const lookupSharedVocab = async (frontText) => {
+        try {
+            const key = getSharedVocabKey(frontText);
+            if (!key) return null;
+            // Dùng key encode để tránh ký tự đặc biệt trong Firestore document ID
+            const encodedKey = encodeURIComponent(key);
+            const vocabRef = doc(db, sharedVocabPath, encodedKey);
+            const snap = await getDoc(vocabRef);
+            if (snap.exists()) {
+                console.log(`📚 Shared vocab HIT: "${frontText}" - Dùng dữ liệu có sẵn, không tốn credit`);
+                return snap.data();
+            }
+            console.log(`📚 Shared vocab MISS: "${frontText}" - Sẽ gọi AI`);
+            return null;
+        } catch (e) {
+            console.warn('Shared vocab lookup error:', e);
+            return null;
+        }
+    };
+
+    // Lưu từ vựng vào shared DB (sau khi AI tạo thành công)
+    const saveToSharedVocab = async (frontText, vocabData) => {
+        try {
+            const key = getSharedVocabKey(frontText);
+            if (!key) return;
+            const encodedKey = encodeURIComponent(key);
+            const vocabRef = doc(db, sharedVocabPath, encodedKey);
+            await setDoc(vocabRef, {
+                ...vocabData,
+                originalFront: frontText,
+                createdAt: serverTimestamp(),
+                lookupCount: 1,
+            }, { merge: true });
+            console.log(`💾 Saved to shared vocab: "${frontText}"`);
+        } catch (e) {
+            console.warn('Save shared vocab error:', e);
+        }
+    };
+
+    // Tăng số lần tra cứu cho từ vựng đã có
+    const incrementSharedVocabLookup = async (frontText) => {
+        try {
+            const key = getSharedVocabKey(frontText);
+            if (!key) return;
+            const encodedKey = encodeURIComponent(key);
+            const vocabRef = doc(db, sharedVocabPath, encodedKey);
+            await updateDoc(vocabRef, { lookupCount: increment(1) });
+        } catch (e) {
+            // Không cần xử lý lỗi, chỉ là counter
+        }
+    };
+
     // --- UNIFIED AI ASSISTANT (hỗ trợ Gemini + Groq + OpenRouter) ---
     const handleGeminiAssist = async (frontText, contextPos = '', contextLevel = '') => {
         if (!frontText) return null;
 
+        // === BƯỚC 1: Kiểm tra shared vocabulary database trước ===
+        try {
+            const cachedVocab = await lookupSharedVocab(frontText);
+            if (cachedVocab) {
+                // Tìm thấy trong DB chung → dùng luôn, không tốn credit
+                const result = { ...cachedVocab };
+                // Xóa metadata không cần thiết
+                delete result.originalFront;
+                delete result.createdAt;
+                delete result.lookupCount;
+
+                // Chuẩn hóa pos key
+                if (result.pos) result.pos = normalizePosKey(result.pos);
+
+                // Nếu user đã chọn pos/level cụ thể → ghi đè
+                if (contextPos && contextPos !== result.pos) {
+                    // User chỉ định từ loại khác → cần gọi AI mới
+                    console.log(`📚 Shared vocab có pos="${result.pos}" nhưng user chọn "${contextPos}" → gọi AI`);
+                } else if (contextLevel && contextLevel !== result.level) {
+                    // User chỉ định level khác → cần gọi AI mới
+                    console.log(`📚 Shared vocab có level="${result.level}" nhưng user chọn "${contextLevel}" → gọi AI`);
+                } else {
+                    // Tăng counter tra cứu (fire-and-forget)
+                    incrementSharedVocabLookup(frontText);
+                    return result;
+                }
+            }
+        } catch (e) {
+            console.warn('Shared vocab lookup error:', e);
+        }
+
+        // === BƯỚC 2: Không tìm thấy hoặc cần AI mới → tạo prompt ===
         // Tạo ngữ cảnh bổ sung cho AI
         let contextInfo = "";
         if (contextPos) contextInfo += `, Từ loại: ${contextPos}`;
@@ -2133,6 +2247,8 @@ QUY TẮC:
                         console.log(`💳 AI Credits: ${newCredits} còn lại`);
                     } catch (e) { console.warn('Deduct credit error:', e); }
                 }
+                // === BƯỚC 3: Lưu vào shared vocabulary DB (fire-and-forget) ===
+                saveToSharedVocab(frontText, parsedJson);
 
                 return parsedJson;
             } else {
@@ -2407,6 +2523,7 @@ QUY TẮC:
                     setStudySessionData={setStudySessionData}
                     allCards={allCards}
                     onUpdateCard={handleUpdateCard}
+                    onSaveCardAudio={handleSaveCardAudio}
                     onCompleteStudy={() => {
                         setStudySessionData({
                             learning: [],
@@ -2428,6 +2545,7 @@ QUY TẮC:
                 }
                 return <FlashcardScreen
                     cards={flashcardCards}
+                    onSaveCardAudio={handleSaveCardAudio}
                     onComplete={() => {
                         setFlashcardCards([]);
                         setView('HOME');
@@ -2445,6 +2563,7 @@ QUY TẮC:
                     allCards={allCards}
                     onUpdateCard={handleUpdateCard}
                     vocabCollectionPath={vocabCollectionPath}
+                    onSaveCardAudio={handleSaveCardAudio}
                     onCompleteReview={(failedCardsSet) => {
                         // Nếu có từ sai, tạo danh sách ôn lại
                         if (failedCardsSet && failedCardsSet.size > 0) {
@@ -2478,6 +2597,7 @@ QUY TẮC:
                     allCards={allCards}
                     onDeleteCard={handleDeleteCard}
                     onPlayAudio={playAudio}
+                    onSaveCardAudio={handleSaveCardAudio}
                     onExport={() => handleExport(allCards)}
                     onNavigateToEdit={handleNavigateToEdit}
                     onNavigateToImport={() => setView('IMPORT')}
@@ -2693,6 +2813,7 @@ QUY TẮC:
                                 setShowBatchImportModal={setShowBatchImportModal}
                                 scrollToCardIdRef={scrollToCardIdRef}
                                 playAudio={playAudio}
+                                handleSaveCardAudio={handleSaveCardAudio}
                                 shuffleArray={shuffleArray}
                             />
                         </div>
