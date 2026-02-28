@@ -17,22 +17,34 @@ const HomeScreen = ({
 }) => {
     const navigate = useNavigate();
     const [kanjiSrsStats, setKanjiSrsStats] = useState({ total: 0, learning: 0, mastered: 0, dueCount: 0 });
+    const [kanjiActivityDates, setKanjiActivityDates] = useState([]);
 
-    // Fetch kanji SRS stats
+    // Fetch kanji SRS stats + activity dates
     useEffect(() => {
         if (!userId || !db) return;
         const q = query(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
         const unsub = onSnapshot(q, (snap) => {
             let total = 0, learning = 0, mastered = 0, dueCount = 0;
             const now = Date.now();
+            const actDates = [];
+            const toDateStr = (ts) => {
+                if (!ts) return null;
+                const d = new Date(ts);
+                if (isNaN(d.getTime())) return null;
+                return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+            };
             snap.docs.forEach(d => {
                 total++;
                 const data = d.data();
                 if (data.reps >= 5) mastered++;
                 else learning++;
                 if (data.nextReview && data.nextReview <= now) dueCount++;
+                // Collect kanji review dates for streak calculation
+                const dateStr = toDateStr(data.lastReview);
+                if (dateStr) actDates.push(dateStr);
             });
             setKanjiSrsStats({ total, learning, mastered, dueCount });
+            setKanjiActivityDates(actDates);
         }, () => { });
         return () => unsub();
     }, [userId]);
@@ -44,10 +56,51 @@ const HomeScreen = ({
         ).length;
         const newCards = allCards.filter(card => card.intervalIndex_back === -1).length;
         const masteredCards = allCards.filter(card => card.intervalIndex_back >= 4).length;
-        const streak = 7; // Mock streak - would come from user data
+
+        // Tính streak thực tế dựa trên ngày hoạt động (tạo từ, ôn tập từ vựng)
+        const activityDates = new Set();
+        const toDateStr = (d) => {
+            if (!d) return null;
+            const date = d instanceof Date ? d : new Date(d);
+            if (isNaN(date.getTime())) return null;
+            return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+        };
+
+        allCards.forEach(card => {
+            // Ngày tạo từ vựng
+            const created = toDateStr(card.createdAt);
+            if (created) activityDates.add(created);
+
+            // Ngày ôn tập từ vựng
+            const reviewed = toDateStr(card.lastReviewed);
+            if (reviewed) activityDates.add(reviewed);
+        });
+
+        // Thêm ngày ôn tập Kanji từ kanjiSrsActivityDates (được tính bên dưới)
+        if (kanjiActivityDates.length > 0) {
+            kanjiActivityDates.forEach(d => activityDates.add(d));
+        }
+
+        // Đếm streak: đếm ngược từ hôm nay, mỗi ngày liên tiếp có hoạt động → +1
+        let streak = 0;
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        for (let i = 0; i < 365; i++) {
+            const checkDate = new Date(today);
+            checkDate.setDate(checkDate.getDate() - i);
+            const dateStr = toDateStr(checkDate);
+            if (activityDates.has(dateStr)) {
+                streak++;
+            } else {
+                // Nếu hôm nay chưa hoạt động, cho phép bỏ qua hôm nay (streak vẫn tính từ hôm qua)
+                if (i === 0) continue;
+                break;
+            }
+        }
 
         return { dueCards, newCards, masteredCards, streak, totalCards };
-    }, [allCards, totalCards]);
+    }, [allCards, totalCards, kanjiActivityDates]);
 
     // Quick action cards - using softer colors
     const quickActions = [

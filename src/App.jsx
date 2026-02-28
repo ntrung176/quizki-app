@@ -554,6 +554,7 @@ const App = () => {
                     currentInterval_back: typeof data.currentInterval_back === 'number' ? data.currentInterval_back : 0,
                     correctCount: typeof data.correctCount === 'number' ? data.correctCount : 0,
                     incorrectCount: typeof data.incorrectCount === 'number' ? data.incorrectCount : 0,
+                    lastReviewed: data.lastReviewed?.toDate ? data.lastReviewed.toDate() : (data.lastReviewed ? new Date(data.lastReviewed) : null),
                 });
             });
 
@@ -2205,21 +2206,11 @@ QUY TẮC:
             const providerInfo = getAIProviderInfo();
             console.log(`🤖 AI Providers: ${providerInfo.summary}`);
 
-            // Smart routing theo cấp độ JLPT:
-            // N5, N4 → Groq (nhanh, miễn phí, đủ tốt cho từ vựng cơ bản)
-            // N3, N2, N1 → OpenRouter Gemini Flash (chính xác hơn cho ngữ pháp/từ vựng nâng cao)
-            let forcedProvider = adminConfig?.aiProvider || 'auto';
-            let forcedOpenRouterModel = adminConfig?.openRouterModel || null;
-
-            const levelUpper = (contextLevel || '').toUpperCase().trim();
-            if (levelUpper === 'N5' || levelUpper === 'N4') {
-                forcedProvider = 'groq';
-                console.log(`📘 Cấp độ ${levelUpper} → Dùng Groq (nhanh, miễn phí)`);
-            } else if (levelUpper === 'N3' || levelUpper === 'N2' || levelUpper === 'N1') {
-                forcedProvider = 'openrouter';
-                forcedOpenRouterModel = 'google/gemini-2.5-flash';
-                console.log(`📕 Cấp độ ${levelUpper} → Dùng OpenRouter Gemini Flash (chính xác cao)`);
-            }
+            // Tất cả cấp độ JLPT (N5-N1) đều dùng OpenRouter Gemini 2.5 Flash
+            // AI sẽ tự phân loại cấp độ JLPT cho từ vựng
+            let forcedProvider = 'openrouter';
+            let forcedOpenRouterModel = 'google/gemini-2.5-flash';
+            console.log(`🤖 Dùng OpenRouter Gemini 2.5 Flash cho tất cả cấp độ`);
 
             const responseText = await callAI(prompt, forcedProvider, forcedOpenRouterModel);
             const parsedJson = parseJsonFromAI(responseText);
@@ -2272,15 +2263,9 @@ QUY TẮC:
             const { generateMoreExamplePrompt } = await import('./utils/aiProvider');
             const prompt = generateMoreExamplePrompt(frontText, targetMeaning);
 
-            // N5, N4 → Groq (miễn phí, nhanh); N3, N2, N1 → OpenRouter Gemini (chính xác hơn)
-            const levelUpper = (level || '').toUpperCase();
-            let forcedProvider, forcedModel = null;
-            if (['N5', 'N4'].includes(levelUpper)) {
-                forcedProvider = 'groq';
-            } else {
-                forcedProvider = 'openrouter';
-                forcedModel = 'google/gemini-2.5-flash';
-            }
+            // Tất cả cấp độ đều dùng OpenRouter Gemini 2.5 Flash
+            let forcedProvider = 'openrouter';
+            let forcedModel = 'google/gemini-2.5-flash';
 
             const responseText = await callAI(prompt, forcedProvider, forcedModel);
             const parsedJson = parseJsonFromAI(responseText);

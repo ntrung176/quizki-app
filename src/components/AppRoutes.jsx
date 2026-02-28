@@ -159,6 +159,7 @@ const AppRoutes = ({
                                 displayName={profile?.displayName}
                                 totalCards={allCards?.length || 0}
                                 allCards={allCards}
+                                userId={userId}
                             />
                         ) : (
                             <LoginScreen />

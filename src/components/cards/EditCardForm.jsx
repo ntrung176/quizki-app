@@ -66,10 +66,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
     const handleAiAssist = async (e) => {
         e.preventDefault();
         if (!front.trim()) return;
-        if (!level) {
-            showToast('Vui lòng chọn cấp độ JLPT (N5~N1) trước khi dùng AI tạo từ vựng.', 'warning');
-            return;
-        }
+        // AI sẽ tự động phân loại cấp độ JLPT, không cần user chọn trước
         setIsAiLoading(true);
         const aiData = await onGeminiAssist(front, pos, level);
         if (aiData) {
