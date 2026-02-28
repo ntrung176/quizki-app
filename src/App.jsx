@@ -2436,6 +2436,7 @@ QUY TẮC:
                 const publicData = {
                     userId: userId,
                     displayName: profile.displayName || 'Người dùng ẩn danh',
+                    email: auth?.currentUser?.email || '',
                     totalCards: allCards.length,
                     shortTerm: memoryStats.shortTerm,
                     midTerm: memoryStats.midTerm,

@@ -8,7 +8,7 @@ import {
     ChevronDown, ChevronUp, Settings, Crown, ShieldCheck,
     CreditCard, Plus, Check, X as XIcon, Edit, Ticket
 } from 'lucide-react';
-import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, addModerator, removeModerator, grantAIAccess, revokeAIAccess, subscribeCreditRequests, approveCreditRequest, rejectCreditRequest, addCreditsToUser, DEFAULT_AI_PACKAGES, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher } from '../../utils/adminSettings';
+import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, addModerator, removeModerator, grantAIAccess, revokeAIAccess, addCreditsToUser, DEFAULT_AI_PACKAGES, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher } from '../../utils/adminSettings';
 
 const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, adminConfig, isAdmin }) => {
     // State
@@ -25,9 +25,9 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const [userKanjiStats, setUserKanjiStats] = useState({});
     const [activeSection, setActiveSection] = useState('users');
     const [savingConfig, setSavingConfig] = useState(false);
-    const [creditRequests, setCreditRequests] = useState([]);
     const [manualCreditUserId, setManualCreditUserId] = useState('');
     const [manualCreditAmount, setManualCreditAmount] = useState('');
+    const [manualCreditEmailSearch, setManualCreditEmailSearch] = useState('');
     const [editingPackages, setEditingPackages] = useState(null);
 
     // Voucher state
@@ -93,7 +93,8 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             const q = searchQuery.toLowerCase();
             result = result.filter(u =>
                 (u.displayName || '').toLowerCase().includes(q) ||
-                (u.userId || '').toLowerCase().includes(q)
+                (u.userId || '').toLowerCase().includes(q) ||
+                (u.email || '').toLowerCase().includes(q)
             );
         }
         result.sort((a, b) => {
@@ -210,11 +211,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         }
     }, [notification]);
 
-    // Load credit requests
-    useEffect(() => {
-        const unsub = subscribeCreditRequests(setCreditRequests);
-        return () => { if (unsub) unsub(); };
-    }, []);
+
 
     // Load vouchers
     useEffect(() => {
@@ -239,21 +236,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
 
     const formatVND = (n) => new Intl.NumberFormat('vi-VN').format(n) + 'đ';
 
-    const handleApproveRequest = async (req) => {
-        setSavingConfig(true);
-        const ok = await approveCreditRequest(req.id, req.userId, req.credits, currentUserId);
-        if (ok) setNotification({ type: 'success', message: `Đã cộng ${req.credits} credits cho ${req.userName}` });
-        else setNotification({ type: 'error', message: 'Lỗi khi duyệt' });
-        setSavingConfig(false);
-    };
 
-    const handleRejectRequest = async (req) => {
-        setSavingConfig(true);
-        const ok = await rejectCreditRequest(req.id, currentUserId);
-        if (ok) setNotification({ type: 'success', message: `Đã từ chối yêu cầu của ${req.userName}` });
-        else setNotification({ type: 'error', message: 'Lỗi' });
-        setSavingConfig(false);
-    };
 
     const handleManualAddCredits = async () => {
         if (!manualCreditUserId || !manualCreditAmount || isNaN(manualCreditAmount)) return;
@@ -366,7 +349,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                                 <input
                                     type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
-                                    placeholder="Tìm kiếm theo tên hoặc ID..."
+                                    placeholder="Tìm kiếm theo tên, email hoặc ID..."
                                     className="w-full pl-10 pr-4 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none"
                                 />
                             </div>
@@ -750,95 +733,115 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             {/* ==================== CREDITS SECTION ==================== */}
             {activeSection === 'credits' && (
                 <div className="space-y-4">
-                    {/* Pending Requests */}
-                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
-                        <h3 className="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
-                            <CreditCard className="w-4 h-4 text-indigo-500" />
-                            Yêu cầu nạp thẻ ({creditRequests.filter(r => r.status === 'pending').length} chờ duyệt)
-                        </h3>
-                        {creditRequests.filter(r => r.status === 'pending').length === 0 ? (
-                            <p className="text-sm text-gray-400 italic">Không có yêu cầu nào đang chờ.</p>
-                        ) : (
-                            <div className="space-y-2">
-                                {creditRequests.filter(r => r.status === 'pending').map(req => (
-                                    <div key={req.id} className="flex items-center justify-between p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl">
-                                        <div>
-                                            <p className="font-bold text-sm text-gray-800 dark:text-white">{req.userName || req.userId?.slice(0, 10)}</p>
-                                            <p className="text-xs text-gray-500">{req.userEmail}</p>
-                                            <p className="text-xs text-amber-600 dark:text-amber-400 font-medium mt-0.5">
-                                                Gói {req.packageName} • {req.credits?.toLocaleString()} thẻ • {formatVND(req.amount || 0)}
-                                            </p>
-                                        </div>
-                                        <div className="flex gap-2">
-                                            <button
-                                                onClick={() => handleApproveRequest(req)}
-                                                disabled={savingConfig}
-                                                className="p-2 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition-colors"
-                                                title="Duyệt & cộng credits"
-                                            >
-                                                <Check className="w-4 h-4" />
-                                            </button>
-                                            <button
-                                                onClick={() => handleRejectRequest(req)}
-                                                disabled={savingConfig}
-                                                className="p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
-                                                title="Từ chối"
-                                            >
-                                                <XIcon className="w-4 h-4" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-
-                        {/* Recently processed */}
-                        {creditRequests.filter(r => r.status !== 'pending').length > 0 && (
-                            <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-700">
-                                <p className="text-xs font-bold text-gray-500 mb-2">Đã xử lý gần đây:</p>
-                                <div className="space-y-1">
-                                    {creditRequests.filter(r => r.status !== 'pending').slice(0, 5).map(req => (
-                                        <div key={req.id} className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-xs">
-                                            <span className="text-gray-600 dark:text-gray-400">{req.userName || req.userId?.slice(0, 10)} • {req.packageName} • {req.credits?.toLocaleString()} thẻ</span>
-                                            <span className={`font-bold ${req.status === 'approved' ? 'text-emerald-500' : 'text-red-500'}`}>
-                                                {req.status === 'approved' ? '✓ Duyệt' : '✗ Từ chối'}
-                                            </span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-                    </div>
-
                     {/* Manual Add Credits */}
                     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
                         <h3 className="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
                             <Plus className="w-4 h-4 text-emerald-500" />
                             Cộng credits thủ công
                         </h3>
+
+                        {/* Email search */}
+                        <div className="mb-3">
+                            <div className="relative">
+                                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                                <input
+                                    type="text"
+                                    value={manualCreditEmailSearch}
+                                    onChange={(e) => {
+                                        setManualCreditEmailSearch(e.target.value);
+                                        setManualCreditUserId('');
+                                    }}
+                                    placeholder="Tìm theo email người dùng..."
+                                    className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Search results */}
+                        {manualCreditEmailSearch.trim() && (
+                            <div className="mb-3 max-h-[200px] overflow-y-auto rounded-lg border border-gray-200 dark:border-gray-600">
+                                {(() => {
+                                    const q = manualCreditEmailSearch.toLowerCase().trim();
+                                    const matched = users.filter(u =>
+                                        (u.email || '').toLowerCase().includes(q) ||
+                                        (u.displayName || '').toLowerCase().includes(q)
+                                    );
+                                    if (matched.length === 0) {
+                                        return (
+                                            <div className="p-3 text-center text-sm text-gray-400 italic">
+                                                Không tìm thấy người dùng với email này
+                                            </div>
+                                        );
+                                    }
+                                    return matched.map(u => (
+                                        <div
+                                            key={u.userId}
+                                            onClick={() => {
+                                                setManualCreditUserId(u.userId);
+                                                setManualCreditEmailSearch(u.email || u.displayName || '');
+                                            }}
+                                            className={`flex items-center gap-3 p-3 cursor-pointer transition-colors ${manualCreditUserId === u.userId
+                                                ? 'bg-emerald-50 dark:bg-emerald-900/30 border-l-4 border-emerald-500'
+                                                : 'hover:bg-gray-50 dark:hover:bg-gray-700/50 border-l-4 border-transparent'
+                                                }`}
+                                        >
+                                            <div className="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                                                {(u.displayName || '?')[0].toUpperCase()}
+                                            </div>
+                                            <div className="min-w-0 flex-1">
+                                                <p className="font-medium text-sm text-gray-800 dark:text-white truncate">
+                                                    {u.displayName || 'Chưa đặt tên'}
+                                                </p>
+                                                <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                                                    {u.email || 'Không có email'}
+                                                </p>
+                                            </div>
+                                            {manualCreditUserId === u.userId && (
+                                                <Check className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                                            )}
+                                        </div>
+                                    ));
+                                })()}
+                            </div>
+                        )}
+
+                        {/* Selected user indicator */}
+                        {manualCreditUserId && (() => {
+                            const selectedUser = users.find(u => u.userId === manualCreditUserId);
+                            return selectedUser ? (
+                                <div className="mb-3 flex items-center gap-2 p-2.5 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg">
+                                    <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                                    <span className="text-sm font-medium text-emerald-700 dark:text-emerald-400">
+                                        Đã chọn: {selectedUser.displayName || 'Chưa đặt tên'}
+                                    </span>
+                                    <span className="text-xs text-emerald-600 dark:text-emerald-500">
+                                        ({selectedUser.email || 'N/A'})
+                                    </span>
+                                    <button
+                                        onClick={() => { setManualCreditUserId(''); setManualCreditEmailSearch(''); }}
+                                        className="ml-auto text-gray-400 hover:text-red-500 transition-colors"
+                                    >
+                                        <XIcon className="w-3.5 h-3.5" />
+                                    </button>
+                                </div>
+                            ) : null;
+                        })()}
+
+                        {/* Credits amount + button */}
                         <div className="flex gap-2">
-                            <select
-                                value={manualCreditUserId}
-                                onChange={(e) => setManualCreditUserId(e.target.value)}
-                                className="flex-1 px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
-                            >
-                                <option value="">Chọn người dùng</option>
-                                {users.map(u => (
-                                    <option key={u.userId} value={u.userId}>{u.displayName || u.userId?.slice(0, 15)}</option>
-                                ))}
-                            </select>
                             <input
                                 type="number"
                                 value={manualCreditAmount}
                                 onChange={(e) => setManualCreditAmount(e.target.value)}
                                 placeholder="Số credits"
-                                className="w-28 px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
+                                className="flex-1 px-3 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
                             />
                             <button
                                 onClick={handleManualAddCredits}
                                 disabled={savingConfig || !manualCreditUserId || !manualCreditAmount}
-                                className="px-4 py-2 bg-emerald-500 text-white font-bold text-sm rounded-lg hover:bg-emerald-600 disabled:opacity-50 transition-colors"
+                                className="px-5 py-2.5 bg-emerald-500 text-white font-bold text-sm rounded-lg hover:bg-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
                             >
+                                <Plus className="w-4 h-4" />
                                 Cộng
                             </button>
                         </div>
