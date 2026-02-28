@@ -22,7 +22,7 @@ import {
     normalizePosKey
 } from './config/constants';
 
-import { playAudio, pcmToWav, base64ToArrayBuffer } from './utils/audio';
+import { playAudio, pcmToWav, base64ToArrayBuffer, initSharedAudioCache } from './utils/audio';
 import { getNextReviewDate, getSrsProgressText, processSrsUpdate, DEFAULT_EASE, calculateCorrectInterval } from './utils/srs';
 import {
     shuffleArray,
@@ -2061,6 +2061,20 @@ const App = () => {
 
     // --- SHARED VOCABULARY COLLECTION (dùng chung cho mọi user) ---
     const sharedVocabPath = useMemo(() => `artifacts/${appId}/sharedVocab`, []);
+    // Flag: nếu gặp lỗi permission → tắt shared vocab cho session này
+    const sharedVocabDisabledRef = useRef(false);
+
+    // Inject Firestore deps vào audio module để shared audio cache hoạt động
+    useEffect(() => {
+        initSharedAudioCache({
+            db,
+            sharedVocabPath,
+            getDoc,
+            setDoc,
+            doc,
+            disabled: sharedVocabDisabledRef,
+        });
+    }, [sharedVocabPath]);
 
     // Tạo key chuẩn hóa cho shared vocab lookup (trim + lowercase cho nhất quán)
     const getSharedVocabKey = (text) => {
@@ -2071,10 +2085,11 @@ const App = () => {
 
     // Tra cứu từ vựng trong shared DB
     const lookupSharedVocab = async (frontText) => {
+        // Bỏ qua nếu shared vocab bị tắt (do lỗi permission)
+        if (sharedVocabDisabledRef.current) return null;
         try {
             const key = getSharedVocabKey(frontText);
             if (!key) return null;
-            // Dùng key encode để tránh ký tự đặc biệt trong Firestore document ID
             const encodedKey = encodeURIComponent(key);
             const vocabRef = doc(db, sharedVocabPath, encodedKey);
             const snap = await getDoc(vocabRef);
@@ -2085,13 +2100,21 @@ const App = () => {
             console.log(`📚 Shared vocab MISS: "${frontText}" - Sẽ gọi AI`);
             return null;
         } catch (e) {
-            console.warn('Shared vocab lookup error:', e);
+            // Nếu lỗi permission → tắt shared vocab cho session này
+            if (e?.code === 'permission-denied' || e?.message?.includes('permissions')) {
+                sharedVocabDisabledRef.current = true;
+                console.log('📚 Shared vocab không khả dụng (chưa cấu hình Firestore rules) → bỏ qua, luôn dùng AI');
+            } else {
+                console.warn('Shared vocab lookup error:', e);
+            }
             return null;
         }
     };
 
     // Lưu từ vựng vào shared DB (sau khi AI tạo thành công)
     const saveToSharedVocab = async (frontText, vocabData) => {
+        // Bỏ qua nếu shared vocab bị tắt (do lỗi permission)
+        if (sharedVocabDisabledRef.current) return;
         try {
             const key = getSharedVocabKey(frontText);
             if (!key) return;
@@ -2105,12 +2128,17 @@ const App = () => {
             }, { merge: true });
             console.log(`💾 Saved to shared vocab: "${frontText}"`);
         } catch (e) {
-            console.warn('Save shared vocab error:', e);
+            if (e?.code === 'permission-denied' || e?.message?.includes('permissions')) {
+                sharedVocabDisabledRef.current = true;
+            } else {
+                console.warn('Save shared vocab error:', e);
+            }
         }
     };
 
     // Tăng số lần tra cứu cho từ vựng đã có
     const incrementSharedVocabLookup = async (frontText) => {
+        if (sharedVocabDisabledRef.current) return;
         try {
             const key = getSharedVocabKey(frontText);
             if (!key) return;
@@ -2118,7 +2146,9 @@ const App = () => {
             const vocabRef = doc(db, sharedVocabPath, encodedKey);
             await updateDoc(vocabRef, { lookupCount: increment(1) });
         } catch (e) {
-            // Không cần xử lý lỗi, chỉ là counter
+            if (e?.code === 'permission-denied' || e?.message?.includes('permissions')) {
+                sharedVocabDisabledRef.current = true;
+            }
         }
     };
 

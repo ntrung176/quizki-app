@@ -26,9 +26,9 @@ const DEFAULT_ADMIN_CONFIG = {
 
     // Payment Settings (SePay)
     sepayToken: '',                     // SePay API Token
-    bankId: 'MB',                       // Mã ngân hàng VietQR
-    bankAccountNo: '0123456789',        // Số tài khoản
-    bankAccountName: 'NGUYEN TRUNG',    // Tên tài khoản
+    bankId: '',                         // Mã ngân hàng VietQR (VD: MB, VCB, TCB)
+    bankAccountNo: '',                  // Số tài khoản
+    bankAccountName: '',                // Tên tài khoản
     autoPayment: false,                 // Tự động xác nhận thanh toán qua SePay
 
     // Moderator list

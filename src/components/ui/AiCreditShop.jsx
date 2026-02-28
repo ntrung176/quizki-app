@@ -44,8 +44,11 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
 
     const packages = adminConfig?.aiCreditPackages || DEFAULT_AI_PACKAGES;
     const bankId = adminConfig?.bankId || 'MB';
-    const bankAccountNo = adminConfig?.bankAccountNo || '0123456789';
-    const bankAccountName = adminConfig?.bankAccountName || 'NGUYEN TRUNG';
+    const bankAccountNo = adminConfig?.bankAccountNo || '';
+    const bankAccountName = adminConfig?.bankAccountName || '';
+
+    // Debug: xem adminConfig có chứa bank info đúng không
+    console.log('💳 UpgradeScreen bank info:', { bankId, bankAccountNo, bankAccountName, rawConfig: { bankId: adminConfig?.bankId, bankAccountNo: adminConfig?.bankAccountNo, bankAccountName: adminConfig?.bankAccountName } });
 
     // Support channels (admin cấu hình)
     const supportChannels = {

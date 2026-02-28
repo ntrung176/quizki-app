@@ -906,8 +906,9 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                     <label className="text-[10px] font-bold text-gray-500 uppercase">Mã ngân hàng</label>
                                     <input
                                         type="text"
-                                        defaultValue={adminConfig?.bankId || 'MB'}
-                                        onBlur={(e) => updateAdminConfig({ bankId: e.target.value }, currentUserId)}
+                                        key={`bankId-${adminConfig?.bankId || ''}`}
+                                        defaultValue={adminConfig?.bankId || ''}
+                                        onBlur={(e) => { if (e.target.value.trim()) updateAdminConfig({ bankId: e.target.value.trim() }, currentUserId); }}
                                         className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
                                         placeholder="MB, VCB, TCB..."
                                     />
@@ -916,8 +917,9 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                     <label className="text-[10px] font-bold text-gray-500 uppercase">Số tài khoản</label>
                                     <input
                                         type="text"
-                                        defaultValue={adminConfig?.bankAccountNo || '0123456789'}
-                                        onBlur={(e) => updateAdminConfig({ bankAccountNo: e.target.value }, currentUserId)}
+                                        key={`bankAccountNo-${adminConfig?.bankAccountNo || ''}`}
+                                        defaultValue={adminConfig?.bankAccountNo || ''}
+                                        onBlur={(e) => { if (e.target.value.trim()) updateAdminConfig({ bankAccountNo: e.target.value.trim() }, currentUserId); }}
                                         className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
                                     />
                                 </div>
@@ -926,8 +928,9 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 <label className="text-[10px] font-bold text-gray-500 uppercase">Tên tài khoản</label>
                                 <input
                                     type="text"
-                                    defaultValue={adminConfig?.bankAccountName || 'NGUYEN TRUNG'}
-                                    onBlur={(e) => updateAdminConfig({ bankAccountName: e.target.value }, currentUserId)}
+                                    key={`bankAccountName-${adminConfig?.bankAccountName || ''}`}
+                                    defaultValue={adminConfig?.bankAccountName || ''}
+                                    onBlur={(e) => { if (e.target.value.trim()) updateAdminConfig({ bankAccountName: e.target.value.trim() }, currentUserId); }}
                                     className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
                                 />
                             </div>

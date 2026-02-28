@@ -84,8 +84,77 @@ export const setTTSVoice = (voiceId) => {
 const ttsCache = new Map();
 const MAX_CACHE_SIZE = 100;
 
+// --- Shared Vocab Audio Cache (Firestore) ---
+// Cho phép inject Firestore dependencies từ App.jsx
+let _sharedAudioDeps = null;
+
+/**
+ * Inject Firestore dependencies cho shared audio cache
+ * Gọi 1 lần từ App.jsx khi component mount
+ */
+export const initSharedAudioCache = (deps) => {
+    _sharedAudioDeps = deps;
+};
+
+/**
+ * Tra cứu audio trong shared vocab (theo giọng nam/nữ)
+ * @param {string} text - Text tiếng Nhật
+ * @param {string} gender - 'male' hoặc 'female'
+ * @returns {Promise<string|null>} base64 audio hoặc null
+ */
+const lookupSharedAudio = async (text, gender) => {
+    if (!_sharedAudioDeps || !text) return null;
+    try {
+        const { db, sharedVocabPath, getDoc, doc, disabled } = _sharedAudioDeps;
+        if (disabled?.current) return null;
+        const key = text.trim().replace(/\s+/g, ' ');
+        const encodedKey = encodeURIComponent(key);
+        const vocabRef = doc(db, sharedVocabPath, encodedKey);
+        const snap = await getDoc(vocabRef);
+        if (snap.exists()) {
+            const data = snap.data();
+            const audioField = gender === 'male' ? 'audioBase64_male' : 'audioBase64_female';
+            if (data[audioField]) {
+                console.log(`🔊 Shared audio HIT (${gender}): "${text}"`);
+                return data[audioField];
+            }
+        }
+        return null;
+    } catch (e) {
+        if (e?.code === 'permission-denied' || e?.message?.includes('permissions')) {
+            if (_sharedAudioDeps?.disabled) _sharedAudioDeps.disabled.current = true;
+        }
+        return null;
+    }
+};
+
+/**
+ * Lưu audio vào shared vocab (theo giọng nam/nữ)
+ * @param {string} text - Text tiếng Nhật
+ * @param {string} base64 - Audio base64
+ * @param {string} gender - 'male' hoặc 'female'
+ */
+const saveSharedAudio = async (text, base64, gender) => {
+    if (!_sharedAudioDeps || !text || !base64) return;
+    try {
+        const { db, sharedVocabPath, setDoc, doc, disabled } = _sharedAudioDeps;
+        if (disabled?.current) return;
+        const key = text.trim().replace(/\s+/g, ' ');
+        const encodedKey = encodeURIComponent(key);
+        const vocabRef = doc(db, sharedVocabPath, encodedKey);
+        const audioField = gender === 'male' ? 'audioBase64_male' : 'audioBase64_female';
+        await setDoc(vocabRef, { [audioField]: base64 }, { merge: true });
+        console.log(`💾 Saved shared audio (${gender}): "${text}"`);
+    } catch (e) {
+        if (e?.code === 'permission-denied' || e?.message?.includes('permissions')) {
+            if (_sharedAudioDeps?.disabled) _sharedAudioDeps.disabled.current = true;
+        }
+    }
+};
+
 /**
  * Gọi SpeechGen.io API qua Cloudflare Worker proxy
+ * Kiểm tra shared vocab audio cache trước → nếu có thì dùng, không tốn API call
  * Trả về {blobUrl, base64, voiceId} để có thể phát và lưu vào database
  * @param {string} text - Text tiếng Nhật cần đọc
  * @returns {Promise<{blobUrl: string, base64: string, voiceId: string}|null>}
@@ -97,7 +166,7 @@ const speechgenTTS = async (text) => {
 
     if (!token || !email || !proxyUrl || !text) return null;
 
-    // Check cache (holds {blobUrl, base64, voiceId})
+    // Check session cache (holds {blobUrl, base64, voiceId})
     const voiceId = getTTSVoice();
     const cacheKey = `${voiceId}:${text}`;
     if (ttsCache.has(cacheKey)) {
@@ -105,7 +174,31 @@ const speechgenTTS = async (text) => {
     }
 
     const voice = TTS_VOICES[voiceId] || TTS_VOICES.mayu;
+    const gender = voice.gender === 'Male' ? 'male' : 'female';
 
+    // === Bước 1: Kiểm tra shared vocab audio cache ===
+    const cachedAudio = await lookupSharedAudio(text, gender);
+    if (cachedAudio) {
+        // Có audio sẵn trong shared vocab → dùng luôn, không tốn SpeechGen API
+        const audioSrc = cachedAudio.startsWith('data:audio')
+            ? cachedAudio
+            : `data:audio/mp3;base64,${cachedAudio}`;
+        const audioBlob = await fetch(audioSrc).then(r => r.blob());
+        const blobUrl = URL.createObjectURL(audioBlob);
+        const result = { blobUrl, base64: cachedAudio, voiceId, fromSharedCache: true };
+
+        // Cache vào session
+        if (ttsCache.size >= MAX_CACHE_SIZE) {
+            const firstKey = ttsCache.keys().next().value;
+            const oldResult = ttsCache.get(firstKey);
+            if (oldResult?.blobUrl) URL.revokeObjectURL(oldResult.blobUrl);
+            ttsCache.delete(firstKey);
+        }
+        ttsCache.set(cacheKey, result);
+        return result;
+    }
+
+    // === Bước 2: Không có cache → gọi SpeechGen API ===
     try {
         // Step 1: Gọi SpeechGen API qua proxy để lấy URL file MP3
         const response = await fetch(proxyUrl, {
@@ -158,7 +251,7 @@ const speechgenTTS = async (text) => {
 
             const result = { blobUrl, base64, voiceId };
 
-            // Cache the result
+            // Cache vào session
             if (ttsCache.size >= MAX_CACHE_SIZE) {
                 const firstKey = ttsCache.keys().next().value;
                 const oldResult = ttsCache.get(firstKey);
@@ -166,6 +259,10 @@ const speechgenTTS = async (text) => {
                 ttsCache.delete(firstKey);
             }
             ttsCache.set(cacheKey, result);
+
+            // === Bước 3: Lưu audio vào shared vocab (fire-and-forget) ===
+            saveSharedAudio(text, base64, gender);
+
             return result;
         } else {
             console.warn('⚠️ SpeechGen error:', data.error || data);
