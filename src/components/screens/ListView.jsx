@@ -344,7 +344,7 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
 };
 
 // ==================== Main ListView Component ====================
-const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAudio, onExport, onImportTSV, onSaveChanges, onGeminiAssist, onNavigateToImport, scrollToCardId, onScrollComplete, savedFilters, onFiltersChange }) => {
+const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAudio, onExport, onSaveChanges, onGeminiAssist, onNavigateToImport, scrollToCardId, onScrollComplete, savedFilters, onFiltersChange }) => {
     const [editingCard, setEditingCard] = useState(null);
     const [filterLevel, setFilterLevel] = useState(savedFilters?.filterLevel || 'all');
     const [filterPos, setFilterPos] = useState(savedFilters?.filterPos || 'all');
@@ -1091,13 +1091,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                 <Download className="w-3.5 h-3.5" /> Nhập File
                             </button>
                         )}
-                        <input type="file" id="tsv-import-listview" accept=".tsv,.txt" className="hidden"
-                            onChange={(e) => { const file = e.target.files?.[0]; if (file && onImportTSV) { onImportTSV(file); e.target.value = ''; } }}
-                        />
-                        <button onClick={() => document.getElementById('tsv-import-listview')?.click()}
-                            className="px-3 py-1.5 text-xs font-medium rounded-lg bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-colors flex items-center gap-1">
-                            <Download className="w-3.5 h-3.5" /> TSV
-                        </button>
+
                     </div>
 
                     {/* Folder Grid */}
@@ -1234,13 +1228,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                 <Download className="w-3.5 h-3.5" /> Nhập File
                             </button>
                         )}
-                        <input type="file" id="tsv-import-listview" accept=".tsv,.txt" className="hidden"
-                            onChange={(e) => { const file = e.target.files?.[0]; if (file && onImportTSV) { onImportTSV(file); e.target.value = ''; } }}
-                        />
-                        <button onClick={() => document.getElementById('tsv-import-listview')?.click()}
-                            className="px-3 py-1.5 text-xs font-medium rounded-lg bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-colors flex items-center gap-1">
-                            <Download className="w-3.5 h-3.5" /> TSV
-                        </button>
+
                     </div>
 
                     {/* Vocabulary Cards Grid */}

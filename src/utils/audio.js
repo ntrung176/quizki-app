@@ -488,3 +488,27 @@ export const stopAudio = () => {
         currentAudioObj = null;
     }
 };
+
+/**
+ * Tạo audio TTS ngầm (không phát) — dùng cho background audio generation
+ * Kiểm tra shared cache → gọi SpeechGen API nếu cần
+ * @param {string} text - Text tiếng Nhật cần tạo audio
+ * @returns {Promise<{base64: string, voiceId: string}|null>}
+ */
+export const generateAudioSilent = async (text) => {
+    if (!text) return null;
+
+    // Clean text: remove furigana
+    const cleanText = text.split('（')[0].split('(')[0].trim();
+    if (!cleanText) return null;
+
+    try {
+        const result = await speechgenTTS(cleanText);
+        if (result && result.base64) {
+            return { base64: result.base64, voiceId: result.voiceId };
+        }
+    } catch (e) {
+        console.warn('generateAudioSilent error:', e.message);
+    }
+    return null;
+};

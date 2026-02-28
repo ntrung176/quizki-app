@@ -22,7 +22,7 @@ import {
     normalizePosKey
 } from './config/constants';
 
-import { playAudio, pcmToWav, base64ToArrayBuffer, initSharedAudioCache } from './utils/audio';
+import { playAudio, pcmToWav, base64ToArrayBuffer, initSharedAudioCache, generateAudioSilent, getTTSVoice } from './utils/audio';
 import { getNextReviewDate, getSrsProgressText, processSrsUpdate, DEFAULT_EASE, calculateCorrectInterval } from './utils/srs';
 import {
     shuffleArray,
@@ -1711,6 +1711,78 @@ const App = () => {
         }
     };
 
+    // ============== BACKGROUND AUDIO GENERATION ==============
+    // Tự động tạo audio ngầm cho tất cả từ vựng chưa có audio,
+    // hoặc có audio nhưng với giọng khác giọng hiện tại của người dùng
+    const bgAudioAbortRef = useRef(false);
+
+    useEffect(() => {
+        if (!authReady || !userId || !db || !vocabCollectionPath || allCards.length === 0) return;
+
+        // Đợi 10 giây sau khi app load xong để không ảnh hưởng trải nghiệm
+        const startDelay = setTimeout(async () => {
+            const currentVoice = getTTSVoice(); // 'mayu' hoặc 'ryota'
+
+            // Tìm các card chưa có audio hoặc có audio với giọng khác
+            const cardsNeedAudio = allCards.filter(card => {
+                if (!card.front) return false;
+                // Card chưa có audio
+                if (!card.audioBase64) return true;
+                // Card có audio nhưng với giọng khác giọng hiện tại
+                if (card.audioVoiceId && card.audioVoiceId !== currentVoice) return true;
+                return false;
+            });
+
+            if (cardsNeedAudio.length === 0) {
+                console.log('🔊 Tất cả từ vựng đã có audio');
+                return;
+            }
+
+            console.log(`🔊 Bắt đầu tạo audio ngầm cho ${cardsNeedAudio.length} từ vựng (giọng: ${currentVoice})...`);
+            bgAudioAbortRef.current = false;
+
+            let successCount = 0;
+            for (const card of cardsNeedAudio) {
+                // Kiểm tra nếu component bị unmount hoặc user logout
+                if (bgAudioAbortRef.current) {
+                    console.log('🔊 Dừng tạo audio ngầm (unmount/logout)');
+                    break;
+                }
+
+                try {
+                    const result = await generateAudioSilent(card.front);
+                    if (result && result.base64) {
+                        // Lưu vào Firestore
+                        await updateDoc(doc(db, vocabCollectionPath, card.id), {
+                            audioBase64: result.base64,
+                            audioVoiceId: result.voiceId || null,
+                        });
+                        successCount++;
+
+                        // Log tiến trình mỗi 10 từ
+                        if (successCount % 10 === 0) {
+                            console.log(`🔊 Đã tạo audio ngầm: ${successCount}/${cardsNeedAudio.length}`);
+                        }
+                    }
+                } catch (e) {
+                    console.warn(`⚠️ Lỗi tạo audio ngầm cho "${card.front}":`, e.message);
+                }
+
+                // Delay 2 giây giữa mỗi request để không quá tải API
+                await new Promise(r => setTimeout(r, 2000));
+            }
+
+            if (successCount > 0) {
+                console.log(`🔊 Hoàn tất tạo audio ngầm: ${successCount}/${cardsNeedAudio.length} từ vựng`);
+            }
+        }, 10000); // Đợi 10 giây
+
+        return () => {
+            clearTimeout(startDelay);
+            bgAudioAbortRef.current = true;
+        };
+    }, [authReady, userId, allCards.length, vocabCollectionPath]);
+
     const handleDeleteCard = async (cardId, cardFront) => {
         if (!vocabCollectionPath || !cardId) return;
 
@@ -2817,7 +2889,7 @@ QUY TẮC:
                                 handleBatchSaveNext={handleBatchSaveNext}
                                 handleBatchSkip={handleBatchSkip}
                                 handleExport={handleExport}
-                                handleImportTSV={handleImportTSV}
+
                                 handleNavigateToEdit={handleNavigateToEdit}
                                 handleUpdateGoal={handleUpdateGoal}
                                 handleAdminDeleteUserData={handleAdminDeleteUserData}

@@ -95,7 +95,7 @@ const AppRoutes = ({
     handleBatchSaveNext,
     handleBatchSkip,
     handleExport,
-    handleImportTSV,
+
     handleUpdateGoal,
     handleAdminDeleteUserData,
     handleUpdateProfileName,
@@ -201,7 +201,7 @@ const AppRoutes = ({
                                 onPlayAudio={playAudio}
                                 onSaveCardAudio={handleSaveCardAudio}
                                 onExport={() => handleExport(allCards)}
-                                onImportTSV={handleImportTSV}
+
                                 onSaveChanges={handleSaveChanges}
                                 onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
                                 onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
