@@ -291,59 +291,25 @@ export const parseJsonFromAI = (text) => {
 // ============== VOCAB GENERATION ==============
 
 export const generateVocabPrompt = (frontText, contextPos = '', contextLevel = '') => {
-    return `Bạn là một trợ lý từ điển Nhật-Việt chuyên nghiệp. Cho từ vựng tiếng Nhật sau: "${frontText}"
-${contextPos ? `Từ loại gợi ý: ${contextPos}` : ''}
-${contextLevel ? `Level gợi ý: ${contextLevel}` : ''}
+    return `Từ điển Nhật-Việt. Từ: "${frontText}"${contextPos ? ` (${contextPos})` : ''}${contextLevel ? ` [${contextLevel}]` : ''}
+JSON only, không markdown/backtick:
+{"reading":"hiragana","meaning":"nghĩa Việt","example":"câu VD có ＿＿＿＿ thay từ gốc","exampleMeaning":"nghĩa câu VD","pos":"từ loại","level":"JLPT","synonym":"đồng nghĩa","nuance":"sắc thái","sinoVietnamese":"HÁN VIỆT"}
 
-Hãy phân tích và trả về DUY NHẤT một JSON hợp lệ (KHÔNG markdown, KHÔNG backtick, chỉ JSON thuần):
-{
-    "reading": "cách đọc hiragana",
-    "meaning": "nghĩa tiếng Việt",
-    "example": "câu ví dụ tiếng Nhật",
-    "exampleMeaning": "nghĩa câu ví dụ",
-    "pos": "từ loại",
-    "level": "JLPT level",
-    "synonym": "từ đồng nghĩa",
-    "nuance": "sắc thái, bối cảnh sử dụng",
-    "sinoVietnamese": "âm Hán Việt"
-}
-
-=== QUY TẮC BẮT BUỘC ===
-
-0. NHẬN DIỆN CỤM TỪ / THÀNH NGỮ (QUAN TRỌNG NHẤT):
-- Nếu người dùng nhập CỤM TỪ có chứa trợ từ (を、に、が、で、と...) hoặc nhiều từ ghép nhau (VD: 迷惑をかける、気にする、手を出す、目を通す、腹が立つ), thì ĐÂY LÀ MỘT CỤM TỪ / THÀNH NGỮ, KHÔNG PHẢI TỪ ĐƠN.
-- pos BẮT BUỘC là "phrase".
-- reading: GIỮ NGUYÊN CẢ CỤM đọc bằng hiragana. VD: 迷惑をかける → "めいわくをかける".
-- meaning: Nghĩa CỦA CẢ CỤM, KHÔNG phải nghĩa từng từ riêng lẻ. VD: 迷惑をかける = "gây phiền hà; làm phiền".
-- sinoVietnamese: Chỉ lấy phần Kanji trong cụm. VD: 迷惑をかける → "MÊ HOẶC".
-- example: Câu ví dụ PHẢI chứa nguyên cả cụm.
-
-1. TRƯỜNG "reading": CHỈ điền cách đọc hiragana nếu từ có Kanji. Không có Kanji thì để trống "".
-
-2. TRƯỜNG "meaning": Nghĩa ngắn gọn. Nếu có nhiều nghĩa KHÁC NHAU HOÀN TOÀN thì ngăn cách bằng dấu ";". Ví dụ: "ăn; sống (bằng nghề)". TUYỆT ĐỐI KHÔNG liệt kê nghĩa gần giống nhau.
-
-3. TRƯỜNG "example" và "exampleMeaning":
-- LUÔN LUÔN CHỈ TẠO ĐÚNG 1 CÂU VÍ DỤ DUY NHẤT. TUYỆT ĐỐI KHÔNG TẠO 2 CÂU TRỞ LÊN.
-- Câu ví dụ BẮT BUỘC PHẢI DÙNG TỪ VỰNG GỐC: "${frontText}". TUYỆT ĐỐI không dùng từ đồng nghĩa.
-- KHÔNG đánh số. "exampleMeaning" cũng CHỈ 1 dòng duy nhất.
-- ĐẶC BIỆT CẤP N5: Nếu từ N5, câu ví dụ PHẢI đơn giản, chủ yếu viết hiragana/katakana, TRÁNH kanji khó.
-- BẮT BUỘC: Trong câu ví dụ, mọi từ kanji PHẢI có furigana (hiragana) ngay sau trong dấu ngoặc tròn full-width （）. VD: "顔認証（かおにんしょう）システムは技術（ぎじゅつ）を使（つか）っている。" CHỈ bỏ qua furigana cho từ vựng gốc đang học nếu từ đó đã có furigana ở trường front.
-
-4. TRƯỜNG "sinoVietnamese": BẮT BUỘC nếu có Kanji. Viết IN HOA từng Kanji, cách dấu cách.
-QUAN TRỌNG: PHÂN TÍCH TỪNG CHỮ KANJI MỘT ĐỂ LẤY ÂM HÁN VIỆT. TUYỆT ĐỐI KHÔNG BỊA ÂM. Ví dụ: 奥様 gồm "奥" (ÁO) và "様" (DẠNG) → "ÁO DẠNG".
-VD: 流行→"LƯU HÀNH", 行→"HÀNH" hoặc "HẠNG" tùy nghĩa. Bỏ qua hiragana: 新しい→"TÂN". Không có Kanji thì "".
-
-5. TRƯỜNG "nuance": Giải thích CHI TIẾT bối cảnh sử dụng, mức độ trang trọng, so sánh với từ tương tự.
-VD TỐT: "Dùng giao tiếp hàng ngày, lịch sự trung bình. Khác với 食う mang sắc thái thô."
-VD XẤU: "Dùng phổ biến."
-
-6. TRƯỜNG "pos": CHỈ CHỌN: "noun", "verb", "suru_verb", "adj_i", "adj_na", "adverb", "conjunction", "particle", "grammar", "phrase", "other".
-7. TRƯỜNG "level": CHỈ CHỌN: "N5", "N4", "N3", "N2", "N1". Nếu khó quá hoặc không rõ, để trống "". KHÔNG ghi "N0".
-8. TRƯỜNG "synonym": Nếu có thực và cùng cấp/dễ hơn JLPT từ gốc. CÓ THỂ LẤY NHIỀU TỪ cách nhau bằng phẩy. Nếu từ gốc N5 thì KHÔNG TẠO từ đồng nghĩa, để "". TUYỆT ĐỐI không bịa từ.`;
+QUY TẮC:
+- CỤM TỪ có trợ từ(を/に/が/で/と)→pos="phrase", reading=cả cụm hiragana, meaning=nghĩa cả cụm, sinoVietnamese=chỉ Kanji.
+- reading: Hiragana nếu có Kanji, "" nếu không. Động/tính từ đã chia→trả nguyên dạng.
+- meaning: Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống.
+- example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. KHÔNG viết furigana/ngoặc trong câu ví dụ. N5→câu đơn giản, không dùng kanji.
+- exampleMeaning: Nghĩa tiếng Việt đầy đủ của câu ví dụ (1 dòng).
+- sinoVietnamese: IN HOA từng Kanji, phân tích từng chữ. VD: 流行→"LƯU HÀNH". Không Kanji→"". KHÔNG bịa.
+- nuance: Chi tiết bối cảnh, so sánh từ tương tự. Động từ→TĐT/ThaĐT.
+- pos: noun/verb/suru_verb/adj_i/adj_na/adverb/conjunction/particle/grammar/phrase/other.
+- level: N5-N1, không rõ→"".
+- synonym: Cùng/dễ hơn JLPT từ gốc. N5→"". Không bịa.`;
 };
 
 export const generateMoreExamplePrompt = (frontText, targetMeaning) => {
-    return `1 câu ví dụ JP cho "${frontText}" nghĩa "${targetMeaning}". JSON only:{"example":"câu JP chứa ${frontText}","exampleMeaning":"nghĩa VN"}`;
+    return `1 câu ví dụ JP cho "${frontText}" nghĩa "${targetMeaning}". Thay "${frontText}" bằng ＿＿＿＿. KHÔNG furigana/ngoặc. JSON only:{"example":"câu JP có ＿＿＿＿","exampleMeaning":"nghĩa VN"}`;
 };
 
 

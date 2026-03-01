@@ -1,16 +1,15 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
     BookOpen, Plus, Trash2, Edit, ChevronRight, ChevronLeft, Check, X,
-    Upload, FolderPlus, FileText, List, Search, ArrowLeft, Image, Save, Layers, Copy, Clipboard, Folder, Scissors, Volume2
+    Upload, FolderPlus, FileText, List, Search, ArrowLeft, Image, Save, Layers, Copy, Clipboard, Folder, Volume2
 } from 'lucide-react';
 import { db } from '../../config/firebase';
 import {
-    collection, getDocs, addDoc, deleteDoc, doc, updateDoc, writeBatch, setDoc
+    collection, getDocs, addDoc, deleteDoc, doc, updateDoc, writeBatch, setDoc, getDoc
 } from 'firebase/firestore';
-import AudioTrimmer from '../ui/AudioTrimmer';
 import { showToast } from '../../utils/toast';
-import { speakJapanese, playAudio } from '../../utils/audio';
+import { speakJapanese, playAudio, generateAudioSilentWithVoice } from '../../utils/audio';
 import FuriganaText from '../ui/FuriganaText';
 
 // ==================== REUSABLE COMPONENTS (outside BookScreen to prevent re-mount) ====================
@@ -83,8 +82,9 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     // Table of contents
     const [showTOC, setShowTOC] = useState(true);
 
-    // Audio trimmer
-    const [showAudioTrimmer, setShowAudioTrimmer] = useState(false);
+    // Audio stored separately to avoid Firestore 1MB document limit
+    const [lessonAudioMap, setLessonAudioMap] = useState({});
+    const bgAudioAbortRef = useRef(false);
 
     const COLLECTION = 'bookGroups';
 
@@ -97,6 +97,30 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
             if (saved) setAvailableFolders(JSON.parse(saved));
         } catch (e) { console.error('Error loading folders:', e); }
     }, []);
+
+    // Load audio from subcollection when lesson changes
+    const loadLessonAudio = useCallback(async () => {
+        if (!groupId || !bookId || !chapterId || !lessonId) {
+            setLessonAudioMap({});
+            return;
+        }
+        try {
+            const audioColRef = collection(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId, 'vocabAudio');
+            const snap = await getDocs(audioColRef);
+            const audioMap = {};
+            snap.docs.forEach(d => {
+                audioMap[d.id] = d.data();
+            });
+            setLessonAudioMap(audioMap);
+        } catch (e) {
+            console.error('Error loading lesson audio:', e);
+            setLessonAudioMap({});
+        }
+    }, [groupId, bookId, chapterId, lessonId]);
+
+    useEffect(() => {
+        loadLessonAudio();
+    }, [loadLessonAudio]);
 
     const loadAllData = async () => {
         setLoading(true);
@@ -146,6 +170,21 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     const currentBook = useMemo(() => currentGroup?.books?.find(b => b.id === bookId), [currentGroup, bookId]);
     const currentChapter = useMemo(() => currentBook?.chapters?.find(c => c.id === chapterId), [currentBook, chapterId]);
     const currentLesson = useMemo(() => currentChapter?.lessons?.find(l => l.id === lessonId), [currentChapter, lessonId]);
+
+    // Merge vocab with audio from subcollection
+    const vocabWithAudio = useMemo(() => {
+        const vocab = currentLesson?.vocab || [];
+        if (Object.keys(lessonAudioMap).length === 0) return vocab;
+        return vocab.map((v, i) => {
+            const wordAudio = lessonAudioMap[`${i}_word`];
+            const exampleAudio = lessonAudioMap[`${i}_example`];
+            return {
+                ...v,
+                ...(wordAudio?.base64 ? { audioBase64: wordAudio.base64 } : {}),
+                ...(exampleAudio?.base64 ? { exampleAudioBase64: exampleAudio.base64 } : {}),
+            };
+        });
+    }, [currentLesson, lessonAudioMap]);
 
     const navigateTo = useCallback((params) => {
         const sp = new URLSearchParams();
@@ -261,27 +300,74 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
         loadAllData();
     };
 
-    // ==================== SAVE AUDIO CLIP ====================
-    const handleSaveAudioClip = async (vocabIndex, base64Audio, vocab, clipType = 'word') => {
-        if (!lessonId || !currentLesson) return;
-        try {
-            const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
-            const newVocab = [...(currentLesson.vocab || [])];
-            if (newVocab[vocabIndex]) {
-                if (clipType === 'example') {
-                    newVocab[vocabIndex] = { ...newVocab[vocabIndex], exampleAudioBase64: base64Audio };
-                } else {
-                    newVocab[vocabIndex] = { ...newVocab[vocabIndex], audioBase64: base64Audio };
+    // ==================== BACKGROUND AUDIO GENERATION ====================
+    // Tự động tạo audio ngầm cho từ vựng sách: word → giọng nam, example → giọng nữ
+    useEffect(() => {
+        if (!lessonId || !currentLesson?.vocab?.length || !groupId || !bookId || !chapterId) return;
+        bgAudioAbortRef.current = false;
+
+        const generateBookAudio = async () => {
+            const vocab = currentLesson.vocab;
+            const audioColPath = `${COLLECTION}/${groupId}/books/${bookId}/chapters/${chapterId}/lessons/${lessonId}/vocabAudio`;
+
+            for (let i = 0; i < vocab.length; i++) {
+                if (bgAudioAbortRef.current) return;
+                const v = vocab[i];
+                const word = v.word || v.front || '';
+                const example = v.example || '';
+
+                // Generate word audio (giọng nam - ryota)
+                const wordDocId = `${i}_word`;
+                if (word && !lessonAudioMap[wordDocId]) {
+                    try {
+                        const existingDoc = await getDoc(doc(db, audioColPath, wordDocId));
+                        if (!existingDoc.exists()) {
+                            const result = await generateAudioSilentWithVoice(word, 'ryota');
+                            if (result?.base64 && !bgAudioAbortRef.current) {
+                                await setDoc(doc(db, audioColPath, wordDocId), {
+                                    base64: result.base64, vocabIndex: i, clipType: 'word', updatedAt: Date.now()
+                                });
+                                console.log(`🔊 Book audio (word/nam): "${word}"`);
+                            }
+                            await new Promise(r => setTimeout(r, 2000));
+                        }
+                    } catch (e) { console.warn('Book audio word error:', e.message); }
                 }
-                await updateDoc(lessonRef, { vocab: newVocab });
-                showToast(`Đã lưu audio ${clipType === 'example' ? 'ví dụ' : 'từ vựng'} cho "${vocab?.word || vocab?.front || ''}"`, 'success');
-                loadAllData();
+
+                if (bgAudioAbortRef.current) return;
+
+                // Generate example audio (giọng nữ - mayu)
+                const exDocId = `${i}_example`;
+                if (example && !lessonAudioMap[exDocId]) {
+                    try {
+                        const existingDoc = await getDoc(doc(db, audioColPath, exDocId));
+                        if (!existingDoc.exists()) {
+                            // Thay ＿＿＿＿ bằng từ gốc để TTS đọc đầy đủ
+                            const cleanWord = word.split('（')[0].split('(')[0].trim();
+                            const cleanExample = example.replace(/＿+/g, cleanWord);
+                            const result = await generateAudioSilentWithVoice(cleanExample, 'mayu');
+                            if (result?.base64 && !bgAudioAbortRef.current) {
+                                await setDoc(doc(db, audioColPath, exDocId), {
+                                    base64: result.base64, vocabIndex: i, clipType: 'example', updatedAt: Date.now()
+                                });
+                                console.log(`🔊 Book audio (example/nữ): "${cleanExample.substring(0, 30)}..."`);
+                            }
+                            await new Promise(r => setTimeout(r, 2000));
+                        }
+                    } catch (e) { console.warn('Book audio example error:', e.message); }
+                }
             }
-        } catch (e) {
-            console.error('Error saving audio clip:', e);
-            showToast('Lỗi lưu audio clip', 'error');
-        }
-    };
+
+            // Reload audio map after generation
+            if (!bgAudioAbortRef.current) {
+                loadLessonAudio();
+            }
+        };
+
+        // Delay 3s before starting background generation
+        const timer = setTimeout(generateBookAudio, 3000);
+        return () => { bgAudioAbortRef.current = true; clearTimeout(timer); };
+    }, [lessonId, currentLesson?.vocab?.length]);
 
     // ==================== ADD VOCAB TO SRS ====================
     const handleAddToSRS = async (vocab, index) => {
@@ -319,10 +405,10 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     };
 
     const handleAddAllToSRS = async () => {
-        if (!currentLesson?.vocab?.length) return;
-        for (let i = 0; i < currentLesson.vocab.length; i++) {
+        if (!vocabWithAudio.length) return;
+        for (let i = 0; i < vocabWithAudio.length; i++) {
             if (!addedVocabSet.has(i)) {
-                await handleAddToSRS(currentLesson.vocab[i], i);
+                await handleAddToSRS(vocabWithAudio[i], i);
             }
         }
     };
@@ -559,7 +645,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
 
     // VIEW 4: Lesson vocabulary
     const LessonView = () => {
-        const vocab = currentLesson?.vocab || [];
+        const vocab = vocabWithAudio;
         return (
             <div className="flex gap-6">
                 <div className="flex-1 space-y-4">
@@ -614,7 +700,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                         <AudioTrimmer
                             vocabList={vocab}
                             onSaveClip={handleSaveAudioClip}
-                            onClose={() => setShowAudioTrimmer(false)}
+                            onClose={() => { setShowAudioTrimmer(false); loadLessonAudio(); }}
                         />
                     )}
 

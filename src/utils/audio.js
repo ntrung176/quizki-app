@@ -512,3 +512,33 @@ export const generateAudioSilent = async (text) => {
     }
     return null;
 };
+
+/**
+ * Tạo audio TTS ngầm với giọng chỉ định (không phụ thuộc user preference)
+ * Dùng cho book vocab: word → giọng nam (ryota), example → giọng nữ (mayu)
+ * @param {string} text - Text tiếng Nhật
+ * @param {string} voiceId - 'ryota' (nam) hoặc 'mayu' (nữ)
+ * @returns {Promise<{base64: string, voiceId: string}|null>}
+ */
+export const generateAudioSilentWithVoice = async (text, voiceId) => {
+    if (!text) return null;
+
+    // Clean text: remove furigana & blanks
+    const cleanText = text.replace(/＿+/g, '').split('（')[0].split('(')[0].trim();
+    if (!cleanText) return null;
+
+    // Temporarily set voice, generate, then restore
+    const originalVoice = getTTSVoice();
+    try {
+        setTTSVoice(voiceId);
+        const result = await speechgenTTS(cleanText);
+        setTTSVoice(originalVoice);
+        if (result && result.base64) {
+            return { base64: result.base64, voiceId };
+        }
+    } catch (e) {
+        setTTSVoice(originalVoice);
+        console.warn('generateAudioSilentWithVoice error:', e.message);
+    }
+    return null;
+};

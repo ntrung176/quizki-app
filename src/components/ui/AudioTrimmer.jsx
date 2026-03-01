@@ -319,6 +319,28 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
     const adjustStart = (delta) => { setStartTime(t => Math.max(0, Math.min(t + delta, endTime - 0.05))); setHasAdjustedSelection(true); };
     const adjustEnd = (delta) => { setEndTime(t => Math.max(startTime + 0.05, Math.min(t + delta, duration))); setHasAdjustedSelection(true); };
 
+    // Set start/end to current playhead position
+    const setStartToPlayhead = () => {
+        const t = audioRef.current?.currentTime ?? currentTime;
+        if (t < endTime - 0.05) { setStartTime(t); setHasAdjustedSelection(true); }
+    };
+    const setEndToPlayhead = () => {
+        const t = audioRef.current?.currentTime ?? currentTime;
+        if (t > startTime + 0.05) { setEndTime(t); setHasAdjustedSelection(true); }
+    };
+
+    // Keyboard shortcuts: [ = set start, ] = set end, Space = play/pause
+    useEffect(() => {
+        const handleKey = (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            if (e.key === '[') { e.preventDefault(); setStartToPlayhead(); }
+            else if (e.key === ']') { e.preventDefault(); setEndToPlayhead(); }
+            else if (e.key === ' ') { e.preventDefault(); togglePlay(); }
+        };
+        window.addEventListener('keydown', handleKey);
+        return () => window.removeEventListener('keydown', handleKey);
+    }, [currentTime, startTime, endTime, isPlaying]);
+
     // Save clip as base64
     const saveClip = async () => {
         if (!audioBuffer || startTime >= endTime || !hasAdjustedSelection) return;
@@ -699,17 +721,50 @@ const AudioTrimmer = ({ vocabList = [], onSaveClip, onClose }) => {
                         <span className="text-[10px] text-gray-400 uppercase tracking-wider font-bold w-14">Bắt đầu</span>
                         <button onClick={() => adjustStart(-1)} className="px-2 py-1 rounded bg-gray-100 dark:bg-gray-700 text-xs text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600">-1s</button>
                         <button onClick={() => adjustStart(-0.1)} className="px-2 py-1 rounded bg-gray-100 dark:bg-gray-700 text-xs text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600">-0.1s</button>
+                        <input
+                            type="number"
+                            value={startTime.toFixed(1)}
+                            step="0.1"
+                            min="0"
+                            max={endTime - 0.05}
+                            onChange={(e) => { const v = parseFloat(e.target.value); if (!isNaN(v) && v >= 0 && v < endTime - 0.05) { setStartTime(v); setHasAdjustedSelection(true); } }}
+                            className="w-16 px-1.5 py-1 rounded bg-gray-100 dark:bg-gray-700 text-xs text-emerald-600 dark:text-emerald-400 font-mono text-center outline-none focus:ring-1 focus:ring-emerald-400"
+                        />
                         <button onClick={() => adjustStart(0.1)} className="px-2 py-1 rounded bg-gray-100 dark:bg-gray-700 text-xs text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600">+0.1s</button>
                         <button onClick={() => adjustStart(1)} className="px-2 py-1 rounded bg-gray-100 dark:bg-gray-700 text-xs text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600">+1s</button>
+                        <button
+                            onClick={setStartToPlayhead}
+                            className="px-2 py-1 rounded bg-emerald-100 dark:bg-emerald-900/30 text-xs text-emerald-600 dark:text-emerald-400 hover:bg-emerald-200 dark:hover:bg-emerald-900/50 font-bold"
+                            title="Đặt điểm bắt đầu tại vị trí hiện tại (phím [)"
+                        >S▼</button>
                     </div>
                     <div className="flex items-center gap-1.5">
                         <span className="text-[10px] text-gray-400 uppercase tracking-wider font-bold w-14">Kết thúc</span>
                         <button onClick={() => adjustEnd(-1)} className="px-2 py-1 rounded bg-gray-100 dark:bg-gray-700 text-xs text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600">-1s</button>
                         <button onClick={() => adjustEnd(-0.1)} className="px-2 py-1 rounded bg-gray-100 dark:bg-gray-700 text-xs text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600">-0.1s</button>
+                        <input
+                            type="number"
+                            value={endTime.toFixed(1)}
+                            step="0.1"
+                            min={startTime + 0.05}
+                            max={duration}
+                            onChange={(e) => { const v = parseFloat(e.target.value); if (!isNaN(v) && v > startTime + 0.05 && v <= duration) { setEndTime(v); setHasAdjustedSelection(true); } }}
+                            className="w-16 px-1.5 py-1 rounded bg-gray-100 dark:bg-gray-700 text-xs text-red-500 dark:text-red-400 font-mono text-center outline-none focus:ring-1 focus:ring-red-400"
+                        />
                         <button onClick={() => adjustEnd(0.1)} className="px-2 py-1 rounded bg-gray-100 dark:bg-gray-700 text-xs text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600">+0.1s</button>
                         <button onClick={() => adjustEnd(1)} className="px-2 py-1 rounded bg-gray-100 dark:bg-gray-700 text-xs text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600">+1s</button>
+                        <button
+                            onClick={setEndToPlayhead}
+                            className="px-2 py-1 rounded bg-red-100 dark:bg-red-900/30 text-xs text-red-600 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-900/50 font-bold"
+                            title="Đặt điểm kết thúc tại vị trí hiện tại (phím ])"
+                        >E▼</button>
                     </div>
                 </div>
+
+                {/* Keyboard shortcut hints */}
+                <p className="text-[10px] text-gray-400 dark:text-gray-500 text-center">
+                    ⌨️ Space: Phát/Dừng • <kbd className="px-1 bg-gray-100 dark:bg-gray-700 rounded">[</kbd> Đặt Start • <kbd className="px-1 bg-gray-100 dark:bg-gray-700 rounded">]</kbd> Đặt End tại playhead
+                </p>
 
                 {/* Save button */}
                 <button

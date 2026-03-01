@@ -2265,22 +2265,21 @@ const App = () => {
         if (contextPos) contextInfo += `, Từ loại: ${contextPos}`;
         if (contextLevel) contextInfo += `, Cấp độ: ${contextLevel}`;
 
-        const prompt = `Trợ lý từ điển Nhật-Việt. Từ: "${frontText}"${contextInfo}.
-Trả về DUY NHẤT JSON hợp lệ, không markdown/backtick/giải thích.
-
-{"frontWithFurigana":"食べる（たべる）","meaning":"ăn","pos":"verb","level":"N5","sinoVietnamese":"THỰC","synonym":"食う","synonymSinoVietnamese":"THỰC","example":"毎日ご飯を食べます。","exampleMeaning":"Tôi ăn cơm mỗi ngày。","nuance":"Tha động từ。Thông dụng nhất, mọi ngữ cảnh。Khác 食う（くう）thô, nam tính。"}
+        const prompt = `Từ điển Nhật-Việt. Từ: "${frontText}"${contextInfo}.
+JSON only, không markdown/backtick:
+{"frontWithFurigana":"食べる（たべる）","meaning":"ăn","pos":"verb","level":"N5","sinoVietnamese":"THỰC","synonym":"食う","synonymSinoVietnamese":"THỰC","example":"毎日ご飯を＿＿＿＿。","exampleMeaning":"Tôi ăn cơm mỗi ngày。","nuance":"Tha động từ。Thông dụng nhất。Khác 食う thô, nam tính。"}
 
 QUY TẮC:
-1. TUÂN THỦ Từ loại & Cấp độ đã chọn: pos/level/nội dung phải khớp ngữ cảnh. Grammar→giải thích như ngữ pháp.
+1. pos/level phải khớp ngữ cảnh đã chọn. Grammar→giải thích như ngữ pháp.
 2. CỤM TỪ có trợ từ(を/に/が/で/と)→pos="phrase", giữ nguyên cụm, nghĩa cả cụm, sinoVietnamese chỉ Kanji.
-3. frontWithFurigana: Động/tính từ đã chia→trả NGUYÊN DẠNG. Kanji+furigana trong（）full-width. Tôn trọng cách đọc user nhập.
-4. meaning: Nghĩa Việt ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống.
-5. example/exampleMeaning: CHỈ 1 CÂU DUY NHẤT, dùng từ gốc (có thể chia thì). N5→viết hiragana chủ yếu, ít kanji.
-6. sinoVietnamese: IN HOA, từng Kanji riêng, chỉ phần Kanji (bỏ okurigana). Không có Kanji→"". KHÔNG bịa âm.
-7. nuance: Chi tiết ngữ cảnh. Động từ→ghi TĐT/ThaĐT + từ tương ứng. Katakana→ghi từ gốc. KHÔNG viết quá ngắn.
-8. pos: Dùng đúng từ loại user chọn, hoặc chọn từ: noun/verb/suru_verb/adj_i/adj_na/adverb/conjunction/particle/grammar/phrase/other.
-9. synonym/synonymSinoVietnamese: Có→điền (nhiều thì phẩy). Cấp JLPT ≤ từ gốc. N5→để "". synonymSinoVietnamese lấy HV của synonym.
-10. level: Dùng cấp user chọn, hoặc N5-N1. Không thuộc cấp nào→"".\n\nKhông trả lời gì ngoài JSON.`;
+3. frontWithFurigana: Nguyên dạng. CHỈ trường này mới có furigana trong（）full-width. Tôn trọng cách đọc user nhập.
+4. meaning: Ngắn gọn, nghĩa khác nhau ngăn ";".
+5. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. KHÔNG viết furigana/ngoặc trong câu ví dụ. N5→hiragana chủ yếu.
+6. sinoVietnamese: IN HOA từng Kanji, KHÔNG bịa âm. Không Kanji→"".
+7. nuance: Chi tiết. Động từ→TĐT/ThaĐT. Katakana→ghi từ gốc. KHÔNG quá ngắn.
+8. pos: noun/verb/suru_verb/adj_i/adj_na/adverb/conjunction/particle/grammar/phrase/other.
+9. synonym/synonymSinoVietnamese: Cấp JLPT ≤ từ gốc. N5→"". synonymSinoVietnamese=HV của synonym.
+10. level: N5-N1, không rõ→"".\n\nKhông trả lời gì ngoài JSON.`;
 
         try {
             // Kiểm tra quyền AI

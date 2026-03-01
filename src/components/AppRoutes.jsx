@@ -283,7 +283,7 @@ const AppRoutes = ({
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
                             <KanjiScreen
-                                isAdmin={isAdmin}
+                                isAdmin={userHasAdminPrivileges}
                                 onAddVocabToSRS={handleSaveNewCard}
                                 onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
                                 onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
@@ -299,7 +299,7 @@ const AppRoutes = ({
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
                             <KanjiScreen
-                                isAdmin={isAdmin}
+                                isAdmin={userHasAdminPrivileges}
                                 onAddVocabToSRS={handleSaveNewCard}
                                 onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
                                 onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
@@ -494,7 +494,7 @@ const AppRoutes = ({
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
                             <BookScreen
-                                isAdmin={isAdmin}
+                                isAdmin={userHasAdminPrivileges}
                                 onAddVocabToSRS={handleSaveNewCard}
                                 onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
                                 onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}

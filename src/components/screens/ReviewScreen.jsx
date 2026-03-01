@@ -881,6 +881,32 @@ const ReviewScreen = ({
                                             "{promptInfo.meaning}"
                                         </div>
                                     )}
+                                    {/* Show ALL additional examples if card has multiple */}
+                                    {(() => {
+                                        const exampleLines = (currentCard.example || '').split('\n').filter(e => e.trim());
+                                        const exampleMeaningLines = (currentCard.exampleMeaning || '').split('\n').filter(e => e.trim());
+                                        if (exampleLines.length <= 1) return null;
+                                        return (
+                                            <div className="mt-3 pt-3 border-t border-white/20 space-y-2 w-full">
+                                                {exampleLines.slice(1).map((ex, i) => (
+                                                    <div key={i} className="text-left">
+                                                        <p className="text-sm text-white/80 font-japanese">
+                                                            <FuriganaText text={(() => {
+                                                                const wordToMask = getWordForMasking(currentCard.front);
+                                                                const readingForMask = getReadingForMasking(currentCard.front);
+                                                                return maskWordInExample(wordToMask, ex, currentCard.pos, readingForMask);
+                                                            })()} />
+                                                        </p>
+                                                        {exampleMeaningLines[i + 1] && (
+                                                            <p className="text-xs text-gray-400 italic mt-0.5">
+                                                                "{exampleMeaningLines[i + 1]}"
+                                                            </p>
+                                                        )}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        );
+                                    })()}
                                 </>
                             ) : inputMode === 'reading' ? (
                                 <>
