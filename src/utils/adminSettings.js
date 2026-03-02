@@ -1,5 +1,5 @@
 // --- Admin Settings & Permissions Utilities ---
-import { doc, getDoc, setDoc, updateDoc, onSnapshot, collection, addDoc, getDocs, deleteDoc, serverTimestamp, query, orderBy } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc, onSnapshot, collection, addDoc, getDocs, deleteDoc, serverTimestamp, query, orderBy, increment, runTransaction } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
 
 // Firestore path for admin settings
@@ -271,17 +271,103 @@ export const rejectCreditRequest = async (requestId, adminUserId) => {
     }
 };
 
-// Admin manually add credits to a user
+// Admin manually add credits to a user (uses atomic increment)
 export const addCreditsToUser = async (userId, credits) => {
     try {
         const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
         const profileSnap = await getDoc(profileRef);
-        const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
-        await updateDoc(profileRef, { aiCreditsRemaining: currentCredits + credits });
+        if (profileSnap.exists()) {
+            await updateDoc(profileRef, { aiCreditsRemaining: increment(credits) });
+        } else {
+            await setDoc(profileRef, { aiCreditsRemaining: credits }, { merge: true });
+        }
         return true;
     } catch (e) {
         console.error('Add credits error:', e);
         return false;
+    }
+};
+
+// ============== PAYMENT SECURITY ==============
+const getProcessedTxPath = () => `artifacts/${appId}/processedTransactions`;
+
+/**
+ * Check if a transaction ID has already been processed (anti-replay)
+ * @param {string} transactionId - Unique transaction ID from SePay
+ * @returns {boolean} true if already processed
+ */
+export const isTransactionProcessed = async (transactionId) => {
+    if (!transactionId) return false;
+    try {
+        const txRef = doc(db, getProcessedTxPath(), String(transactionId));
+        const snap = await getDoc(txRef);
+        return snap.exists();
+    } catch (e) {
+        console.error('Check transaction error:', e);
+        return false; // Fail open but log
+    }
+};
+
+/**
+ * Mark a transaction as processed and atomically add credits
+ * Uses Firestore transaction to ensure atomicity (prevents double-spend)
+ * @param {string} transactionId - Unique SePay transaction ID
+ * @param {string} orderCode - Our order code
+ * @param {string} userId - User receiving credits
+ * @param {number} credits - Number of credits to add
+ * @param {number} amount - Payment amount in VND
+ * @returns {{ success: boolean, error?: string }}
+ */
+export const processPaymentSecurely = async (transactionId, orderCode, userId, credits, amount) => {
+    if (!transactionId || !orderCode || !userId || !credits) {
+        return { success: false, error: 'Missing required parameters' };
+    }
+
+    const txRef = doc(db, getProcessedTxPath(), String(transactionId));
+    const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
+
+    try {
+        const result = await runTransaction(db, async (transaction) => {
+            // Step 1: Check if this transaction was already processed
+            const txSnap = await transaction.get(txRef);
+            if (txSnap.exists()) {
+                throw new Error('DUPLICATE_TRANSACTION');
+            }
+
+            // Step 2: Read current credits
+            const profileSnap = await transaction.get(profileRef);
+            const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
+
+            // Step 3: Mark transaction as processed
+            transaction.set(txRef, {
+                transactionId: String(transactionId),
+                orderCode,
+                userId,
+                credits,
+                amount,
+                processedAt: new Date().toISOString(),
+                timestamp: Date.now(),
+            });
+
+            // Step 4: Update credits atomically
+            if (profileSnap.exists()) {
+                transaction.update(profileRef, { aiCreditsRemaining: currentCredits + credits });
+            } else {
+                transaction.set(profileRef, { aiCreditsRemaining: credits }, { merge: true });
+            }
+
+            return { newCredits: currentCredits + credits };
+        });
+
+        console.log(`✅ Payment processed securely: TX#${transactionId}, +${credits} credits`);
+        return { success: true, newCredits: result.newCredits };
+    } catch (e) {
+        if (e.message === 'DUPLICATE_TRANSACTION') {
+            console.warn(`⚠️ Duplicate transaction blocked: TX#${transactionId}`);
+            return { success: false, error: 'Giao dịch này đã được xử lý trước đó' };
+        }
+        console.error('Process payment error:', e);
+        return { success: false, error: e.message };
     }
 };
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Calendar, Clock, Target, Flame, ChevronLeft, ExternalLink, RotateCcw } from 'lucide-react';
+import { Calendar, Clock, Target, Flame, ChevronLeft, ExternalLink, RotateCcw, Zap, Award, BarChart3, Sparkles } from 'lucide-react';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, updateDoc, getDoc, setDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -11,20 +11,17 @@ import { playCorrectSound, playIncorrectSound, playCompletionFanfare, launchFire
 
 // ==================== SRS LOGIC (Anki-like with learning steps) ====================
 const getNextInterval = (currentInterval, ease, rating, reps) => {
-    // Learning phase (new or first learning step)
     if (reps <= 1) {
         switch (rating) {
-            case 'again': return 1;           // 1 phút (reset)
-            case 'hard': return 6;            // 6 phút
-            case 'good': return reps === 0 ? 10 : 1440;  // Bước 1: 10 phút, Bước 2: 1 ngày (tốt nghiệp)
-            case 'easy': return 5760;         // 4 ngày (bỏ qua learning, tốt nghiệp luôn)
+            case 'again': return 1;
+            case 'hard': return 6;
+            case 'good': return reps === 0 ? 10 : 1440;
+            case 'easy': return 5760;
             default: return 10;
         }
     }
-
-    // Review phase (graduated cards - SM-2 algorithm)
     switch (rating) {
-        case 'again': return 10;              // 10 phút (quay lại learning)
+        case 'again': return 10;
         case 'hard': return Math.max(1440, Math.round(currentInterval * 1.2));
         case 'good': return Math.max(1440, Math.round(currentInterval * ease));
         case 'easy': return Math.max(5760, Math.round(currentInterval * ease * 1.3));
@@ -60,15 +57,12 @@ const KanjiReviewScreen = () => {
 
     const userId = getAuth().currentUser?.uid;
 
-    // Load data
     useEffect(() => {
         const load = async () => {
             try {
                 const kanjiSnap = await getDocs(collection(db, 'kanji'));
                 const kanjiData = kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() }));
                 setKanjiList(kanjiData);
-
-                // Load SRS data
                 if (userId) {
                     const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
                     const srs = {};
@@ -84,99 +78,58 @@ const KanjiReviewScreen = () => {
         load();
     }, [userId]);
 
-    // Due kanji
     const dueKanji = useMemo(() => {
         const now = Date.now();
         return kanjiList.filter(k => {
             const srs = srsData[k.id];
             if (!srs) return false;
-            const nextReview = srs.nextReview || 0;
-            return nextReview <= now;
+            return (srs.nextReview || 0) <= now;
         });
     }, [kanjiList, srsData]);
 
-    // Stats - accurate calculations from SRS data
     const stats = useMemo(() => {
         const now = Date.now();
         let hasNoSRS = 0, learning = 0, shortTerm = 0, longTerm = 0;
         let totalReps = 0;
         const reviewDays = new Set();
 
-        // Tính từ SRS data (chỉ kanji user đã thêm vào ôn tập)
         Object.values(srsData).forEach(srs => {
             const interval = srs.interval || 0;
             const reps = srs.reps || 0;
             totalReps += reps;
-
-            if (reps === 0 && interval === 0) {
-                hasNoSRS++; // Mới thêm, chưa ôn lần nào
-            } else if (interval < 60) {
-                learning++;
-            } else if (interval < 1440 * 7) {
-                shortTerm++;
-            } else {
-                longTerm++;
-            }
-
+            if (reps === 0 && interval === 0) hasNoSRS++;
+            else if (interval < 60) learning++;
+            else if (interval < 1440 * 7) shortTerm++;
+            else longTerm++;
             if (srs.lastReview) {
                 const d = new Date(srs.lastReview);
-                const key = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
-                reviewDays.add(key);
+                reviewDays.add(`${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`);
             }
         });
 
-        // Calculate streak (consecutive days ending today or yesterday)
         let streak = 0;
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
+        const today = new Date(); today.setHours(0, 0, 0, 0);
         let checkDate = new Date(today);
-
-        // First check today
         const todayKey = `${checkDate.getFullYear()}-${checkDate.getMonth()}-${checkDate.getDate()}`;
         if (!reviewDays.has(todayKey)) {
             checkDate.setDate(checkDate.getDate() - 1);
             const yesterdayKey = `${checkDate.getFullYear()}-${checkDate.getMonth()}-${checkDate.getDate()}`;
-            if (!reviewDays.has(yesterdayKey)) {
-                streak = 0;
-            } else {
-                streak = 1;
-                checkDate.setDate(checkDate.getDate() - 1);
-            }
-        } else {
-            streak = 1;
-            checkDate.setDate(checkDate.getDate() - 1);
-        }
-
-        // Count consecutive previous days
+            if (reviewDays.has(yesterdayKey)) { streak = 1; checkDate.setDate(checkDate.getDate() - 1); }
+        } else { streak = 1; checkDate.setDate(checkDate.getDate() - 1); }
         if (streak > 0) {
             while (true) {
                 const key = `${checkDate.getFullYear()}-${checkDate.getMonth()}-${checkDate.getDate()}`;
-                if (reviewDays.has(key)) {
-                    streak++;
-                    checkDate.setDate(checkDate.getDate() - 1);
-                } else {
-                    break;
-                }
+                if (reviewDays.has(key)) { streak++; checkDate.setDate(checkDate.getDate() - 1); } else break;
             }
         }
 
-        const kanjiLearned = Object.keys(srsData).length;
-
         return {
-            dueToday: dueKanji.length,
-            newCards: hasNoSRS,         // Mới thêm vào SRS, chưa ôn lần nào
-            learning,                   // interval < 1 giờ
-            shortTerm,                  // interval < 1 tuần
-            longTerm,                   // interval >= 1 tuần
-            totalReps,                  // Tổng lượt ôn tập thực tế
-            totalReviewed: kanjiLearned - hasNoSRS, // Kanji đã ôn ít nhất 1 lần
-            daysStudied: reviewDays.size,
-            kanjiLearned,
-            streak,
+            dueToday: dueKanji.length, newCards: hasNoSRS, learning, shortTerm, longTerm,
+            totalReps, totalReviewed: Object.keys(srsData).length - hasNoSRS,
+            daysStudied: reviewDays.size, kanjiLearned: Object.keys(srsData).length, streak,
         };
     }, [kanjiList, srsData, dueKanji]);
 
-    // Next review time - live countdown
     const [nextReviewText, setNextReviewText] = useState(null);
     const [isNextReviewCountdown, setIsNextReviewCountdown] = useState(false);
     const [nextRoundCount, setNextRoundCount] = useState(0);
@@ -188,77 +141,50 @@ const KanjiReviewScreen = () => {
             const futureEntries = [];
             Object.values(srsData).forEach(srs => {
                 const next = srs.nextReview || 0;
-                if (next > now) {
-                    futureEntries.push(next);
-                    if (next < earliest) earliest = next;
-                }
+                if (next > now) { futureEntries.push(next); if (next < earliest) earliest = next; }
             });
             if (earliest === Infinity) return null;
-            // Count cards due at the same minute as the earliest
-            const earliestMinute = new Date(earliest);
-            earliestMinute.setSeconds(59, 999);
-            const count = futureEntries.filter(t => t <= earliestMinute.getTime()).length;
-            return { timestamp: earliest, count };
+            const earliestMinute = new Date(earliest); earliestMinute.setSeconds(59, 999);
+            return { timestamp: earliest, count: futureEntries.filter(t => t <= earliestMinute.getTime()).length };
         };
-
         const updateCountdown = () => {
             const info = getNextReviewInfo();
-            if (!info) {
-                setNextReviewText(null);
-                setIsNextReviewCountdown(false);
-                setNextRoundCount(0);
-                return;
-            }
-
+            if (!info) { setNextReviewText(null); setIsNextReviewCountdown(false); setNextRoundCount(0); return; }
             const result = formatCountdown(info.timestamp);
-            if (!result) {
-                setNextReviewText(null);
-                setIsNextReviewCountdown(false);
-                setNextRoundCount(0);
-                return;
-            }
-
-            setNextReviewText(result.text);
-            setIsNextReviewCountdown(result.isCountdown);
-            setNextRoundCount(info.count);
+            if (!result) { setNextReviewText(null); setIsNextReviewCountdown(false); setNextRoundCount(0); return; }
+            setNextReviewText(result.text); setIsNextReviewCountdown(result.isCountdown); setNextRoundCount(info.count);
         };
-
         updateCountdown();
         const interval = setInterval(updateCountdown, 1000);
         return () => clearInterval(interval);
     }, [srsData]);
 
-    // Card distribution (chỉ tính kanji trong SRS của user)
     const cardDistribution = useMemo(() => {
         const total = stats.kanjiLearned || 1;
         return [
-            { label: 'Mới thêm (chưa ôn)', count: stats.newCards, percent: (stats.newCards / total) * 100, color: 'bg-gray-500' },
-            { label: 'Đang học', count: stats.learning, percent: (stats.learning / total) * 100, color: 'bg-yellow-500' },
-            { label: 'Mới thuộc (ngắn hạn)', count: stats.shortTerm, percent: (stats.shortTerm / total) * 100, color: 'bg-orange-500' },
-            { label: 'Đã thuộc (dài hạn)', count: stats.longTerm, percent: (stats.longTerm / total) * 100, color: 'bg-green-500' },
+            { label: 'Mới thêm', count: stats.newCards, percent: (stats.newCards / total) * 100, color: 'from-gray-400 to-gray-500', bg: 'bg-gray-100 dark:bg-gray-800' },
+            { label: 'Đang học', count: stats.learning, percent: (stats.learning / total) * 100, color: 'from-amber-400 to-yellow-500', bg: 'bg-amber-50 dark:bg-amber-900/20' },
+            { label: 'Ngắn hạn', count: stats.shortTerm, percent: (stats.shortTerm / total) * 100, color: 'from-orange-400 to-orange-500', bg: 'bg-orange-50 dark:bg-orange-900/20' },
+            { label: 'Dài hạn', count: stats.longTerm, percent: (stats.longTerm / total) * 100, color: 'from-emerald-400 to-green-500', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
         ];
     }, [stats]);
 
-    // Activity heatmap
     const activityData = useMemo(() => {
         const days = [];
         const today = new Date();
         for (let i = 364; i >= 0; i--) {
-            const date = new Date(today);
-            date.setDate(date.getDate() - i);
+            const date = new Date(today); date.setDate(date.getDate() - i);
             const dayStart = new Date(date); dayStart.setHours(0, 0, 0, 0);
             const dayEnd = new Date(date); dayEnd.setHours(23, 59, 59, 999);
             let count = 0;
             Object.values(srsData).forEach(srs => {
                 if (srs.lastReview && srs.lastReview >= dayStart.getTime() && srs.lastReview <= dayEnd.getTime()) count++;
             });
-            const level = count === 0 ? 0 : count < 5 ? 1 : count < 10 ? 2 : count < 20 ? 3 : 4;
-            days.push({ date, level });
+            days.push({ date, level: count === 0 ? 0 : count < 5 ? 1 : count < 10 ? 2 : count < 20 ? 3 : 4 });
         }
         return days;
     }, [srsData]);
 
-    // Start review
     const startReview = () => {
         if (dueKanji.length === 0) return;
         setReviewQueue([...dueKanji]);
@@ -267,10 +193,8 @@ const KanjiReviewScreen = () => {
         setReviewMode(true);
     };
 
-    // Current review card
     const currentCard = reviewQueue[currentReviewIndex] || null;
 
-    // Handle SRS rating
     const handleRating = async (rating) => {
         if (!currentCard || !userId) return;
         const srs = srsData[currentCard.id] || { interval: 0, ease: 2.5, nextReview: 0, reps: 0 };
@@ -278,42 +202,22 @@ const KanjiReviewScreen = () => {
         const newInterval = getNextInterval(srs.interval || 0, srs.ease || 2.5, rating, currentReps);
         const newEase = getNewEase(srs.ease || 2.5, rating);
         const now = Date.now();
-        const newSrs = {
-            interval: newInterval,
-            ease: newEase,
-            nextReview: now + newInterval * 60000,
-            lastReview: now,
-            reps: currentReps + 1,
-        };
-
+        const newSrs = { interval: newInterval, ease: newEase, nextReview: now + newInterval * 60000, lastReview: now, reps: currentReps + 1 };
         try {
             await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, currentCard.id), newSrs);
             setSrsData(prev => ({ ...prev, [currentCard.id]: newSrs }));
-        } catch (e) {
-            console.error('Error updating SRS:', e);
-        }
-
-        // Next card
+        } catch (e) { console.error('Error updating SRS:', e); }
         if (currentReviewIndex + 1 < reviewQueue.length) {
-            // Visual + audio feedback based on rating
-            if (rating === 'good' || rating === 'easy') {
-                flashCorrect();
-                playCorrectSound();
-            } else if (rating === 'again') {
-                playIncorrectSound();
-            }
+            if (rating === 'good' || rating === 'easy') { flashCorrect(); playCorrectSound(); }
+            else if (rating === 'again') { playIncorrectSound(); }
             setCurrentReviewIndex(prev => prev + 1);
             setIsFlipped(false);
         } else {
-            // Completed all reviews
-            launchFanfare();
-            launchFireworks();
-            playCompletionFanfare();
+            launchFanfare(); launchFireworks(); playCompletionFanfare();
             setReviewMode(false);
         }
     };
 
-    // Keyboard shortcuts
     useEffect(() => {
         if (!reviewMode) return;
         const handler = (e) => {
@@ -330,9 +234,12 @@ const KanjiReviewScreen = () => {
     if (loading) {
         return (
             <div className="flex items-center justify-center min-h-[calc(100vh-120px)]">
-                <div className="text-center space-y-3">
-                    <div className="animate-spin w-10 h-10 border-4 border-cyan-500 border-t-transparent rounded-full mx-auto"></div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">Đang tải dữ liệu ôn tập...</p>
+                <div className="text-center space-y-4">
+                    <div className="relative w-16 h-16 mx-auto">
+                        <div className="absolute inset-0 border-4 border-indigo-200 dark:border-slate-700 rounded-full"></div>
+                        <div className="absolute inset-0 border-4 border-transparent border-t-indigo-500 rounded-full animate-spin"></div>
+                    </div>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Đang tải dữ liệu ôn tập...</p>
                 </div>
             </div>
         );
@@ -348,120 +255,69 @@ const KanjiReviewScreen = () => {
             good: formatInterval(getNextInterval(srs.interval || 0, srs.ease || 2.5, 'good', currentReps)),
             easy: formatInterval(getNextInterval(srs.interval || 0, srs.ease || 2.5, 'easy', currentReps)),
         };
-
         const progress = Math.round(((currentReviewIndex + 1) / reviewQueue.length) * 100);
 
         return (
-            <div className="min-h-[calc(100vh-120px)] flex items-center justify-center">
-                <div className="w-[600px] max-w-[95vw] flex flex-col justify-center items-center space-y-3 p-4 border-2 border-indigo-400/30 rounded-2xl">
-                    {/* Progress bar */}
-                    <div className="w-full space-y-1 flex-shrink-0">
+            <div className="min-h-[calc(100vh-120px)] flex items-center justify-center px-4">
+                <div className="w-[600px] max-w-full flex flex-col justify-center items-center space-y-4">
+                    {/* Progress */}
+                    <div className="w-full space-y-2">
                         <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
-                            <span>{currentReviewIndex + 1} / {reviewQueue.length}</span>
+                            <span className="flex items-center gap-1.5"><Target className="w-3.5 h-3.5" /> Ôn tập Kanji</span>
+                            <span className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-full font-bold">{currentReviewIndex + 1} / {reviewQueue.length}</span>
                         </div>
-                        <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                            <div className="h-full bg-indigo-500 rounded-full transition-all duration-500" style={{ width: `${progress}%` }}></div>
+                        <div className="h-2 w-full bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                            <div className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-700 ease-out" style={{ width: `${progress}%` }}></div>
                         </div>
                     </div>
 
-                    {/* Flashcard with flip animation */}
-                    <div
-                        className="w-full cursor-pointer"
-                        style={{ perspective: '1000px' }}
-                        onClick={() => setIsFlipped(f => !f)}
-                    >
-                        <div
-                            style={{
-                                position: 'relative',
-                                width: '100%',
-                                height: '340px',
-                                transformStyle: 'preserve-3d',
-                                transition: 'transform 0.5s ease',
-                                transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
-                            }}
-                        >
-                            {/* Front: Only Kanji character */}
-                            <div
-                                className="bg-white dark:bg-slate-900 rounded-2xl border-2 border-indigo-500/50 shadow-xl"
-                                style={{
-                                    position: 'absolute',
-                                    top: 0, left: 0, width: '100%', height: '100%',
-                                    backfaceVisibility: 'hidden',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                }}
-                            >
-                                <div className="text-[140px] leading-none font-bold text-gray-900 dark:text-white select-none font-japanese">
-                                    {currentCard.character}
-                                </div>
-                                <div className="absolute bottom-4 left-0 right-0 text-center text-xs text-gray-500">
-                                    Nhấn để lật thẻ
+                    {/* Flashcard */}
+                    <div className="w-full cursor-pointer" style={{ perspective: '1000px' }} onClick={() => setIsFlipped(f => !f)}>
+                        <div style={{ position: 'relative', width: '100%', height: '360px', transformStyle: 'preserve-3d', transition: 'transform 0.6s cubic-bezier(0.4,0,0.2,1)', transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
+                            {/* Front */}
+                            <div className="bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 rounded-3xl border border-gray-200 dark:border-slate-700 shadow-2xl shadow-gray-200/50 dark:shadow-black/30"
+                                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                                <div className="text-[140px] leading-none font-bold text-gray-800 dark:text-white select-none font-japanese">{currentCard.character}</div>
+                                <div className="absolute bottom-5 left-0 right-0 text-center">
+                                    <span className="text-xs text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-slate-700/50 px-3 py-1 rounded-full">Nhấn để lật thẻ</span>
                                 </div>
                             </div>
-
-                            {/* Back: Âm hán, Ý nghĩa, Câu chuyện - NO kanji, NO labels */}
-                            <div
-                                className="bg-white dark:bg-slate-900 rounded-2xl border-2 border-indigo-500/50 shadow-xl"
-                                style={{
-                                    position: 'absolute',
-                                    top: 0, left: 0, width: '100%', height: '100%',
-                                    backfaceVisibility: 'hidden',
-                                    transform: 'rotateY(180deg)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    padding: '24px',
-                                    overflowY: 'auto',
-                                }}
-                            >
-                                <div className="text-center space-y-3 w-full">
-                                    <div className="text-3xl font-bold text-emerald-400">{currentCard.sinoViet || '—'}</div>
-                                    <div className="text-xl text-cyan-300 font-medium">{currentCard.meaning || '—'}</div>
+                            {/* Back */}
+                            <div className="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-slate-800 dark:to-indigo-950/30 rounded-3xl border border-indigo-200 dark:border-indigo-800/50 shadow-2xl shadow-indigo-200/30 dark:shadow-black/30"
+                                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px', overflowY: 'auto' }}>
+                                <div className="text-center space-y-4 w-full">
+                                    <div className="text-4xl font-bold bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">{currentCard.sinoViet || '—'}</div>
+                                    <div className="text-xl text-cyan-600 dark:text-cyan-400 font-medium">{currentCard.meaning || '—'}</div>
                                     {currentCard.mnemonic && (
-                                        <div className="text-sm text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-slate-700/50 rounded-lg p-3 leading-relaxed mt-2">
-                                            {currentCard.mnemonic}
+                                        <div className="text-sm text-gray-600 dark:text-gray-300 bg-white/80 dark:bg-slate-700/60 backdrop-blur-sm rounded-xl p-4 leading-relaxed border border-gray-200/50 dark:border-slate-600/30">
+                                            💡 {currentCard.mnemonic}
                                         </div>
                                     )}
                                 </div>
-                                <div className="absolute bottom-4 left-0 right-0 text-center text-xs text-gray-500">
-                                    Nhấn để lật thẻ
-                                </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Rating buttons - ALWAYS visible */}
-                    <div className="grid grid-cols-4 gap-2 w-full">
-                        <button onClick={(e) => { e.stopPropagation(); handleRating('again'); }}
-                            className="py-3 rounded-xl bg-red-100 dark:bg-red-900/60 hover:bg-red-200 dark:hover:bg-red-800/80 border border-red-300 dark:border-red-700 text-center transition-all">
-                            <div className="font-bold text-red-400 text-sm">Quên rồi</div>
-                            <div className="text-xs text-red-400/70">{intervals.again}</div>
-                        </button>
-                        <button onClick={(e) => { e.stopPropagation(); handleRating('hard'); }}
-                            className="py-3 rounded-xl bg-orange-100 dark:bg-orange-900/50 hover:bg-orange-200 dark:hover:bg-orange-800/70 border border-orange-300 dark:border-orange-700 text-center transition-all">
-                            <div className="font-bold text-orange-400 text-sm">Khó</div>
-                            <div className="text-xs text-orange-400/70">{intervals.hard}</div>
-                        </button>
-                        <button onClick={(e) => { e.stopPropagation(); handleRating('good'); }}
-                            className="py-3 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 hover:bg-emerald-200 dark:hover:bg-emerald-800/70 border border-emerald-300 dark:border-emerald-700 text-center transition-all">
-                            <div className="font-bold text-emerald-400 text-sm">Tốt</div>
-                            <div className="text-xs text-emerald-400/70">{intervals.good}</div>
-                        </button>
-                        <button onClick={(e) => { e.stopPropagation(); handleRating('easy'); }}
-                            className="py-3 rounded-xl bg-blue-100 dark:bg-blue-900/50 hover:bg-blue-200 dark:hover:bg-blue-800/70 border border-blue-300 dark:border-blue-700 text-center transition-all">
-                            <div className="font-bold text-blue-400 text-sm">Dễ</div>
-                            <div className="text-xs text-blue-400/70">{intervals.easy}</div>
-                        </button>
+                    {/* Rating buttons */}
+                    <div className="grid grid-cols-4 gap-2.5 w-full">
+                        {[
+                            { key: 'again', label: 'Quên rồi', interval: intervals.again, gradient: 'from-red-500 to-rose-500', bg: 'bg-red-50 dark:bg-red-900/20', border: 'border-red-200 dark:border-red-800/50', text: 'text-red-600 dark:text-red-400', sub: 'text-red-400/70 dark:text-red-500/60' },
+                            { key: 'hard', label: 'Khó', interval: intervals.hard, gradient: 'from-orange-500 to-amber-500', bg: 'bg-orange-50 dark:bg-orange-900/20', border: 'border-orange-200 dark:border-orange-800/50', text: 'text-orange-600 dark:text-orange-400', sub: 'text-orange-400/70 dark:text-orange-500/60' },
+                            { key: 'good', label: 'Tốt', interval: intervals.good, gradient: 'from-emerald-500 to-green-500', bg: 'bg-emerald-50 dark:bg-emerald-900/20', border: 'border-emerald-200 dark:border-emerald-800/50', text: 'text-emerald-600 dark:text-emerald-400', sub: 'text-emerald-400/70 dark:text-emerald-500/60' },
+                            { key: 'easy', label: 'Dễ', interval: intervals.easy, gradient: 'from-blue-500 to-indigo-500', bg: 'bg-blue-50 dark:bg-blue-900/20', border: 'border-blue-200 dark:border-blue-800/50', text: 'text-blue-600 dark:text-blue-400', sub: 'text-blue-400/70 dark:text-blue-500/60' },
+                        ].map(btn => (
+                            <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
+                                className={`py-3.5 rounded-2xl ${btn.bg} ${btn.border} border text-center transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95`}>
+                                <div className={`font-bold ${btn.text} text-sm`}>{btn.label}</div>
+                                <div className={`text-[10px] ${btn.sub} mt-0.5`}>{btn.interval}</div>
+                            </button>
+                        ))}
                     </div>
 
                     {/* Keyboard hint */}
-                    <div className="text-center text-xs text-gray-500">
-                        <span>⌨ Nhấn</span> <kbd className="px-1.5 py-0.5 bg-gray-200 dark:bg-slate-700 rounded text-gray-500 dark:text-gray-400 mx-1">Space</kbd>
-                        <span>để lật, bấm</span> <kbd className="px-1.5 py-0.5 bg-gray-200 dark:bg-slate-700 rounded text-gray-500 dark:text-gray-400 mx-1">1-4</kbd>
-                        <span>để đánh giá</span>
+                    <div className="text-center text-[10px] text-gray-400 dark:text-gray-500">
+                        <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">Space</kbd> lật thẻ •
+                        <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">1-4</kbd> đánh giá
                     </div>
                 </div>
             </div>
@@ -470,135 +326,137 @@ const KanjiReviewScreen = () => {
 
     // ==================== STATS SCREEN ====================
     return (
-        <div className="space-y-3 max-w-4xl mx-auto">
-            <div className="space-y-1">
-                <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Ôn tập Kanji</h1>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Theo dõi tiến độ ôn tập và phân bố thẻ</p>
-            </div>
-
-            {/* Key Stats: Days Studied, Kanji Learned, Streak */}
-            <div className="grid grid-cols-3 gap-2">
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200 dark:border-gray-700 text-center">
-                    <div className="flex items-center justify-center gap-1.5 text-emerald-500 mb-1">
-                        <Calendar className="w-4 h-4" />
-                    </div>
-                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{stats.daysStudied}</div>
-                    <div className="text-[10px] md:text-xs text-gray-500 mt-0.5">Ngày đã học</div>
-                </div>
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200 dark:border-gray-700 text-center">
-                    <div className="flex items-center justify-center gap-1.5 text-cyan-500 mb-1">
-                        <Target className="w-4 h-4" />
-                    </div>
-                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{stats.kanjiLearned}</div>
-                    <div className="text-[10px] md:text-xs text-gray-500 mt-0.5">Kanji đã học</div>
-                </div>
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200 dark:border-gray-700 text-center">
-                    <div className="flex items-center justify-center gap-1.5 text-orange-500 mb-1">
-                        <Flame className="w-4 h-4" />
-                    </div>
-                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{stats.streak}</div>
-                    <div className="text-[10px] md:text-xs text-gray-500 mt-0.5">Ngày liên tiếp</div>
-                </div>
-            </div>
-
-            {/* Overview Stats */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-3 md:p-4 border border-gray-200 dark:border-gray-700">
-                <h3 className="text-sm font-bold text-gray-600 dark:text-gray-300 mb-3 flex items-center gap-2">
-                    <Target className="w-4 h-4 text-emerald-500" /> Tổng quan
-                </h3>
-                <div className="grid grid-cols-3 md:grid-cols-6 gap-2 text-center">
-                    <div className="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
-                        <div className="text-2xl font-bold text-cyan-400">{stats.dueToday}</div>
-                        <div className="text-xs text-gray-500 mt-1">Cần ôn</div>
-                    </div>
-                    <div className="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
-                        <div className="text-2xl font-bold text-emerald-400">{stats.newCards}</div>
-                        <div className="text-xs text-gray-500 mt-1">Chưa ôn</div>
-                    </div>
-                    <div className="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
-                        <div className="text-2xl font-bold text-gray-700 dark:text-gray-300">{stats.learning}</div>
-                        <div className="text-xs text-gray-500 mt-1">Đang học</div>
-                    </div>
-                    <div className="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
-                        <div className="text-2xl font-bold text-gray-700 dark:text-gray-300">{stats.shortTerm}</div>
-                        <div className="text-xs text-gray-500 mt-1">Ngắn hạn</div>
-                    </div>
-                    <div className="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
-                        <div className="text-2xl font-bold text-emerald-400">{stats.longTerm}</div>
-                        <div className="text-xs text-gray-500 mt-1">Dài hạn</div>
-                    </div>
-                    <div className="p-3 bg-gray-100 dark:bg-gray-700/50 rounded-lg">
-                        <div className="text-2xl font-bold text-gray-700 dark:text-gray-300">{stats.totalReps}</div>
-                        <div className="text-xs text-gray-500 mt-1">Tổng lượt ôn</div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Today & Next Review */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="bg-gradient-to-br from-orange-400 to-orange-500 rounded-xl p-4 text-white shadow-lg flex flex-col justify-between">
+        <div className="space-y-5 max-w-4xl mx-auto pb-8">
+            {/* Header */}
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-violet-600 via-indigo-600 to-blue-500 p-6 md:p-8 shadow-2xl">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
+                <div className="relative flex flex-col md:flex-row items-center justify-between gap-4">
                     <div>
-                        <div className="flex items-center gap-2 mb-1">
-                            <Calendar className="w-4 h-4 text-orange-100" />
-                            <span className="font-bold text-sm">Hôm nay</span>
+                        <div className="flex items-center gap-2 mb-2">
+                            <Award className="w-5 h-5 text-yellow-300" />
+                            <span className="text-white/80 text-sm font-medium">Ôn tập Kanji</span>
                         </div>
-                        <div className="text-4xl font-bold mb-1">{stats.dueToday} <span className="text-sm font-normal text-orange-100 mb-2">thẻ cần ôn</span></div>
+                        <h1 className="text-3xl md:text-4xl font-bold text-white mb-1">
+                            {stats.dueToday > 0 ? `${stats.dueToday} thẻ cần ôn` : 'Tuyệt vời! 🎉'}
+                        </h1>
+                        <p className="text-white/60 text-sm">
+                            {stats.dueToday > 0 ? 'Hãy hoàn thành bài ôn tập hôm nay' : 'Bạn đã hoàn thành ôn tập'}
+                        </p>
                     </div>
                     <button
                         onClick={startReview}
                         disabled={stats.dueToday === 0}
-                        className="w-full mt-2 py-2.5 bg-white/20 hover:bg-white/30 disabled:opacity-50 disabled:cursor-not-allowed rounded-xl text-sm font-bold transition-colors border border-white/30"
+                        className="flex items-center gap-2 px-7 py-3.5 bg-white/20 hover:bg-white/30 disabled:opacity-40 disabled:cursor-not-allowed rounded-2xl text-white font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg border border-white/20 backdrop-blur-sm"
                     >
-                        {stats.dueToday > 0 ? 'Ôn tập ngay' : 'Thảnh thơi'}
+                        <Zap className="w-5 h-5" />
+                        {stats.dueToday > 0 ? 'Ôn tập ngay' : 'Đã xong'}
                     </button>
                 </div>
-                <div className="bg-gradient-to-br from-blue-400 to-blue-500 rounded-xl p-4 text-white shadow-lg flex flex-col justify-between">
-                    <div>
-                        <div className="flex items-center gap-2 mb-1">
+            </div>
+
+            {/* Stats Cards */}
+            <div className="grid grid-cols-3 gap-3">
+                {[
+                    { icon: Calendar, label: 'Ngày đã học', value: stats.daysStudied, color: 'text-emerald-600 dark:text-emerald-400', iconBg: 'bg-emerald-100 dark:bg-emerald-900/40' },
+                    { icon: Target, label: 'Kanji đã học', value: stats.kanjiLearned, color: 'text-cyan-600 dark:text-cyan-400', iconBg: 'bg-cyan-100 dark:bg-cyan-900/40' },
+                    { icon: Flame, label: 'Ngày liên tiếp', value: stats.streak, color: 'text-orange-600 dark:text-orange-400', iconBg: 'bg-orange-100 dark:bg-orange-900/40' },
+                ].map((s, i) => (
+                    <div key={i} className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-4 border border-gray-100 dark:border-slate-700/50 shadow-sm hover:shadow-md transition-all duration-300 text-center group hover:scale-[1.02]">
+                        <div className={`w-10 h-10 rounded-xl ${s.iconBg} flex items-center justify-center mx-auto mb-2.5`}>
+                            <s.icon className={`w-5 h-5 ${s.color}`} />
+                        </div>
+                        <div className="text-2xl font-bold text-gray-900 dark:text-white">{s.value}</div>
+                        <div className="text-[10px] md:text-xs text-gray-500 dark:text-gray-400 mt-0.5">{s.label}</div>
+                    </div>
+                ))}
+            </div>
+
+            {/* Overview */}
+            <div className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 dark:border-slate-700/50 shadow-sm">
+                <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-4 flex items-center gap-2">
+                    <BarChart3 className="w-4 h-4 text-indigo-500" /> Tổng quan SRS
+                </h3>
+                <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
+                    {[
+                        { label: 'Cần ôn', value: stats.dueToday, color: 'text-cyan-500' },
+                        { label: 'Chưa ôn', value: stats.newCards, color: 'text-gray-500' },
+                        { label: 'Đang học', value: stats.learning, color: 'text-amber-500' },
+                        { label: 'Ngắn hạn', value: stats.shortTerm, color: 'text-orange-500' },
+                        { label: 'Dài hạn', value: stats.longTerm, color: 'text-emerald-500' },
+                        { label: 'Tổng lượt', value: stats.totalReps, color: 'text-indigo-500' },
+                    ].map((item, i) => (
+                        <div key={i} className="p-3 bg-gray-50 dark:bg-slate-700/50 rounded-xl text-center hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors">
+                            <div className={`text-xl md:text-2xl font-bold ${item.color}`}>{item.value}</div>
+                            <div className="text-[10px] text-gray-500 dark:text-gray-400 mt-1">{item.label}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Today Status & Next Review */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="relative overflow-hidden bg-gradient-to-br from-orange-500 to-rose-500 rounded-2xl p-5 text-white shadow-xl">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                    <div className="relative">
+                        <div className="flex items-center gap-2 mb-2">
+                            <Calendar className="w-4 h-4 text-orange-100" />
+                            <span className="font-bold text-sm">Hôm nay</span>
+                        </div>
+                        <div className="text-5xl font-bold mb-1">{stats.dueToday}</div>
+                        <p className="text-orange-100 text-sm mb-4">thẻ cần ôn</p>
+                        <button onClick={startReview} disabled={stats.dueToday === 0}
+                            className="w-full py-2.5 bg-white/20 hover:bg-white/30 disabled:opacity-40 disabled:cursor-not-allowed rounded-xl text-sm font-bold transition-all border border-white/20 backdrop-blur-sm">
+                            {stats.dueToday > 0 ? 'Ôn tập ngay' : 'Nghỉ ngơi 😴'}
+                        </button>
+                    </div>
+                </div>
+                <div className="relative overflow-hidden bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl p-5 text-white shadow-xl">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                    <div className="relative">
+                        <div className="flex items-center gap-2 mb-2">
                             <Clock className="w-4 h-4 text-blue-100" />
                             <span className="font-bold text-sm">Lượt tiếp theo</span>
                         </div>
-                        <div className={`font-bold mb-1 ${isNextReviewCountdown ? 'text-2xl md:text-3xl font-mono tracking-wider' : 'text-3xl'}`}>{nextReviewText || '∞'}</div>
-                        <p className="text-blue-100 text-xs">{isNextReviewCountdown ? 'Đếm ngược...' : 'Nghỉ ngơi...'}</p>
-                    </div>
-                    {nextRoundCount > 0 && (
-                        <div className="mt-2 bg-white/20 rounded-lg px-2.5 py-1.5 inline-flex items-center gap-1.5 self-start">
-                            <span className="text-xs font-bold">{nextRoundCount}</span>
-                            <span className="text-[10px] text-blue-100">thẻ sẽ đến hạn</span>
+                        <div className={`font-bold mb-1 ${isNextReviewCountdown ? 'text-3xl font-mono tracking-wider' : 'text-4xl'}`}>
+                            {nextReviewText || '∞'}
                         </div>
-                    )}
+                        <p className="text-blue-100 text-sm">{isNextReviewCountdown ? 'Đếm ngược...' : 'Nghỉ ngơi...'}</p>
+                        {nextRoundCount > 0 && (
+                            <div className="mt-3 bg-white/15 rounded-xl px-3 py-1.5 inline-flex items-center gap-1.5">
+                                <Sparkles className="w-3 h-3" />
+                                <span className="text-xs font-bold">{nextRoundCount} thẻ sẽ đến hạn</span>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {/* Activity Heatmap */}
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
-                    <h3 className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
-                        <Flame className="w-4 h-4 text-orange-400" /> Lượt ôn ({stats.totalReps})
+                <div className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 dark:border-slate-700/50 shadow-sm">
+                    <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-3 flex items-center gap-2">
+                        <Flame className="w-4 h-4 text-orange-500" /> Hoạt động ({stats.totalReps} lượt)
                     </h3>
                     <div className="overflow-x-auto">
-                        <div className="flex gap-1 min-w-max">
+                        <div className="flex gap-[3px] min-w-max">
                             {Array.from({ length: 52 }).map((_, weekIndex) => (
-                                <div key={weekIndex} className="flex flex-col gap-1">
+                                <div key={weekIndex} className="flex flex-col gap-[3px]">
                                     {Array.from({ length: 7 }).map((_, dayIndex) => {
                                         const dataIndex = weekIndex * 7 + dayIndex;
                                         const activity = activityData[dataIndex];
                                         const level = activity?.level || 0;
-                                        const colors = ['bg-gray-200 dark:bg-gray-700', 'bg-emerald-200 dark:bg-emerald-900', 'bg-emerald-400 dark:bg-emerald-700', 'bg-emerald-500', 'bg-emerald-400'];
-                                        return (
-                                            <div key={dayIndex} className={`w-3 h-3 rounded-sm ${colors[level]}`}
-                                                title={activity?.date?.toLocaleDateString()} />
-                                        );
+                                        const colors = ['bg-gray-100 dark:bg-slate-700', 'bg-emerald-200 dark:bg-emerald-800/60', 'bg-emerald-400 dark:bg-emerald-600', 'bg-emerald-500 dark:bg-emerald-500', 'bg-emerald-600 dark:bg-emerald-400'];
+                                        return <div key={dayIndex} className={`w-3 h-3 rounded-[3px] ${colors[level]} transition-colors`} title={activity?.date?.toLocaleDateString()} />;
                                     })}
                                 </div>
                             ))}
                         </div>
                     </div>
-                    <div className="flex items-center justify-end gap-1.5 mt-3 text-[10px] text-gray-500">
+                    <div className="flex items-center justify-end gap-1.5 mt-3 text-[10px] text-gray-400 dark:text-gray-500">
                         <span>Ít</span>
                         <div className="flex gap-1">
-                            {['bg-gray-200 dark:bg-gray-700', 'bg-emerald-200 dark:bg-emerald-900', 'bg-emerald-400 dark:bg-emerald-700', 'bg-emerald-500', 'bg-emerald-400'].map((c, i) => (
-                                <div key={i} className={`w-2.5 h-2.5 rounded-sm ${c}`}></div>
+                            {['bg-gray-100 dark:bg-slate-700', 'bg-emerald-200 dark:bg-emerald-800/60', 'bg-emerald-400 dark:bg-emerald-600', 'bg-emerald-500', 'bg-emerald-600 dark:bg-emerald-400'].map((c, i) => (
+                                <div key={i} className={`w-2.5 h-2.5 rounded-[2px] ${c}`}></div>
                             ))}
                         </div>
                         <span>Nhiều</span>
@@ -606,18 +464,18 @@ const KanjiReviewScreen = () => {
                 </div>
 
                 {/* Card Distribution */}
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
-                    <h3 className="text-sm font-bold text-gray-800 dark:text-white mb-3">Phân bố thẻ</h3>
-                    <div className="space-y-3">
+                <div className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 dark:border-slate-700/50 shadow-sm">
+                    <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-4">Phân bố thẻ</h3>
+                    <div className="space-y-3.5">
                         {cardDistribution.map((item, index) => (
                             <div key={index}>
-                                <div className="flex justify-between text-sm mb-2">
-                                    <span className="text-gray-600 dark:text-gray-400">{item.label} ({item.count})</span>
-                                    <span className="text-gray-500 font-medium">{item.percent.toFixed(1)}%</span>
+                                <div className="flex justify-between text-sm mb-1.5">
+                                    <span className="text-gray-600 dark:text-gray-400 font-medium">{item.label}</span>
+                                    <span className="text-gray-800 dark:text-gray-200 font-bold">{item.count} <span className="text-gray-400 font-normal text-xs">({item.percent.toFixed(0)}%)</span></span>
                                 </div>
-                                <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                                    <div className={`h-full ${item.color} rounded-full transition-all duration-500`}
-                                        style={{ width: `${item.percent}%` }} />
+                                <div className="h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                                    <div className={`h-full bg-gradient-to-r ${item.color} rounded-full transition-all duration-700 ease-out`}
+                                        style={{ width: `${Math.max(item.percent, 0.5)}%` }} />
                                 </div>
                             </div>
                         ))}

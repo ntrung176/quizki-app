@@ -84,7 +84,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
             label: 'Học Kanji',
             hasSubmenu: true,
             children: [
-                { id: 'KANJI_STUDY', label: 'Học Kanji', route: ROUTES.KANJI_STUDY },
+                { id: 'KANJI_STUDY', label: 'Thêm Kanji mới', route: ROUTES.KANJI_STUDY },
                 { id: 'KANJI_REVIEW', label: 'Ôn tập Kanji', route: ROUTES.KANJI_REVIEW },
                 { id: 'KANJI_SAVED', label: 'Kanji đã lưu', route: ROUTES.KANJI_SAVED },
                 { id: 'KANJI_LIST', label: 'Danh sách Kanji', route: ROUTES.KANJI_LIST },

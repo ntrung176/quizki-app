@@ -1,6 +1,6 @@
-import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
+﻿import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import { useSearchParams, useParams, useNavigate } from 'react-router-dom';
-import { Search, Grid, PenTool, Download, BookOpen, Map, Globe, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Play, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw } from 'lucide-react';
+import { Search, Grid, PenTool, Download, BookOpen, Map as MapIcon, Globe, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Play, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw } from 'lucide-react';
 import { db } from '../../config/firebase';
 import { collection, getDocs, addDoc, deleteDoc, doc, query, where, writeBatch, updateDoc } from 'firebase/firestore';
 import { playAudio } from '../../utils/audio';
@@ -80,6 +80,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
 
     // Search dropdown state
     const [showSearchResults, setShowSearchResults] = useState(false);
+    const [showHandwritingPopup, setShowHandwritingPopup] = useState(false);
     const searchInputRef = useRef(null);
 
     // Handwriting search state
@@ -122,7 +123,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 const suggestions = candidates
                     .filter(char => char.length === 1) // single characters only
                     .map((char, idx) => {
-                        const kanjiDoc = kanjiList.find(k => k.character === char);
+                        const kanjiDoc = kanjiMap.get(char);
                         const jData = getJotobaKanjiData(char);
                         return {
                             id: kanjiDoc?.id || `hw_${idx}`,
@@ -244,7 +245,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
 
         // Use Jotoba static data + local data
         const jData = getJotobaKanjiData(selectedKanji);
-        const kanjiData = kanjiList.find(k => k.character === selectedKanji);
+        const kanjiData = kanjiMap.get(selectedKanji);
         const treeData = KANJI_TREE[selectedKanji];
 
         setKanjiApiData({
@@ -386,48 +387,51 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         };
     }, [selectedKanji, showDetailModal]);
 
+    // Build a Map for O(1) kanji lookups (avoid repeated kanjiList.find() calls)
+    const kanjiMap = useMemo(() => {
+        const map = new Map();
+        kanjiList.forEach(k => { if (k.character) map.set(k.character, k); });
+        return map;
+    }, [kanjiList]);
+
     // Get kanji for current level: merge Jotoba static data + Firebase data, sorted by stroke count
     const currentKanjiList = useMemo(() => {
         if (selectedLevel === 'Bộ thủ') {
-            // Return all 214 radicals as characters
             return Object.keys(RADICALS_214);
         }
-        // Start with all Jotoba kanji for this level (comprehensive JLPT list)
         const jotobaChars = getJotobaKanjiChars(selectedLevel);
-        // Add any Firebase kanji not in Jotoba
-        const firebaseChars = kanjiList.filter(k => k.level === selectedLevel).map(k => k.character);
+        const firebaseChars = [];
+        kanjiMap.forEach((v, k) => { if (v.level === selectedLevel) firebaseChars.push(k); });
         const mergedSet = new Set([...jotobaChars, ...firebaseChars]);
         let merged = [...mergedSet];
 
-        // Sort by stroke count (simple → complex)
+        // Sort by stroke count (simple → complex) — using Map for O(1) lookups
         merged.sort((a, b) => {
             const jA = getJotobaKanjiData(a);
             const jB = getJotobaKanjiData(b);
-            const fA = kanjiList.find(k => k.character === a);
-            const fB = kanjiList.find(k => k.character === b);
-            const strokeA = jA?.stroke_count || fA?.strokeCount || 999;
-            const strokeB = jB?.stroke_count || fB?.strokeCount || 999;
+            const fA = kanjiMap.get(a);
+            const fB = kanjiMap.get(b);
+            const strokeA = jA?.stroke_count || parseInt(fA?.strokeCount) || 999;
+            const strokeB = jB?.stroke_count || parseInt(fB?.strokeCount) || 999;
             if (strokeA !== strokeB) return strokeA - strokeB;
-            // Secondary sort: frequency (lower = more common)
             const freqA = jA?.frequency || 9999;
             const freqB = jB?.frequency || 9999;
             return freqA - freqB;
         });
 
         if (!searchQuery.trim()) return merged;
-        // Filter by search query
         const query = searchQuery.toLowerCase().trim();
         return merged.filter(k => {
             if (k.includes(query)) return true;
             const jData = getJotobaKanjiData(k);
-            const fData = kanjiList.find(f => f.character === k);
+            const fData = kanjiMap.get(k);
             if (jData?.meanings?.some(m => m.toLowerCase().includes(query))) return true;
             if (fData?.meaning?.toLowerCase().includes(query)) return true;
             if (fData?.sinoViet?.toLowerCase().includes(query)) return true;
             if (jData?.sinoViet?.toLowerCase().includes(query)) return true;
             return false;
         });
-    }, [selectedLevel, kanjiList, searchQuery]);
+    }, [selectedLevel, kanjiMap, searchQuery]);
 
     // Get filtered kanji list with id for bulk operations (Firebase items only - need IDs for delete/edit)
     const filteredKanjiList = useMemo(() => {
@@ -541,7 +545,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
 
     // Get kanji detail (Firebase first, then Jotoba static data as fallback)
     const getKanjiDetail = (char) => {
-        const fbData = kanjiList.find(k => k.character === char);
+        const fbData = kanjiMap.get(char);
         const jData = getJotobaKanjiData(char);
 
         if (fbData) {
@@ -831,7 +835,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         }
     };
 
-    // Import Kanji from JSON
+    // Import Kanji from JSON (supports both creating new and updating existing)
     const handleImportKanjiJson = async () => {
         if (!jsonKanjiInput.trim()) return;
         setIsImporting(true);
@@ -841,47 +845,77 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             const data = JSON.parse(jsonKanjiInput);
             const kanjiArray = Array.isArray(data) ? data : [data];
 
-            let successCount = 0;
+            let createdCount = 0;
+            let updatedCount = 0;
             let skippedCount = 0;
             const newKanjiItems = [];
 
-            // Get existing kanji characters for duplicate check
-            const existingChars = kanjiList.map(k => k.character);
-
             for (const item of kanjiArray) {
-                if (!item.character) continue;
+                if (!item.character) { skippedCount++; continue; }
 
                 // Check if kanji already exists
-                if (existingChars.includes(item.character)) {
-                    skippedCount++;
-                    continue;
+                const existingKanji = kanjiList.find(k => k.character === item.character);
+
+                if (existingKanji) {
+                    // UPDATE existing kanji — only overwrite fields that are non-empty in JSON
+                    const updates = {};
+                    if (item.mnemonic || item.cachNho) updates.mnemonic = item.mnemonic || item.cachNho;
+                    if (item.meaning || item.nghia) updates.meaning = item.meaning || item.nghia;
+                    if (item.onyomi || item.on) updates.onyomi = item.onyomi || item.on;
+                    if (item.kunyomi || item.kun) updates.kunyomi = item.kunyomi || item.kun;
+                    if (item.level || item.jlpt) updates.level = item.level || item.jlpt;
+                    if (item.sinoViet || item.hanViet || item.hv) updates.sinoViet = item.sinoViet || item.hanViet || item.hv;
+                    if (item.radical || item.boThu) updates.radical = item.radical || item.boThu;
+
+                    if (Object.keys(updates).length > 0) {
+                        try {
+                            await updateDoc(doc(db, 'kanji', existingKanji.id), updates);
+                            // Update local state
+                            setKanjiList(prev => prev.map(k =>
+                                k.id === existingKanji.id ? { ...k, ...updates } : k
+                            ));
+                            updatedCount++;
+                        } catch (e) {
+                            console.warn(`Update kanji ${item.character} error:`, e);
+                            skippedCount++;
+                        }
+                    } else {
+                        skippedCount++; // No fields to update
+                    }
+                } else {
+                    // CREATE new kanji
+                    const kanjiData = {
+                        character: item.character || '',
+                        meaning: item.meaning || item.nghia || '',
+                        onyomi: item.onyomi || item.on || '',
+                        kunyomi: item.kunyomi || item.kun || '',
+                        level: item.level || item.jlpt || 'N5',
+                        sinoViet: item.sinoViet || item.hanViet || item.hv || '',
+                        mnemonic: item.mnemonic || item.cachNho || '',
+                        radical: item.radical || item.boThu || '',
+                    };
+
+                    const docRef = await addDoc(collection(db, 'kanji'), kanjiData);
+                    newKanjiItems.push({ ...kanjiData, id: docRef.id });
+                    createdCount++;
                 }
-
-                const kanjiData = {
-                    character: item.character || '',
-                    meaning: item.meaning || item.nghia || '',
-                    onyomi: item.onyomi || item.on || '',
-                    kunyomi: item.kunyomi || item.kun || '',
-                    level: item.level || item.jlpt || 'N5',
-                    sinoViet: item.sinoViet || item.hanViet || item.hv || '',
-                    mnemonic: item.mnemonic || item.cachNho || '',
-                    radical: item.radical || item.boThu || '',
-                };
-
-                const docRef = await addDoc(collection(db, 'kanji'), kanjiData);
-                newKanjiItems.push({ ...kanjiData, id: docRef.id });
-                existingChars.push(item.character); // Add to existing to prevent duplicates in same batch
-                successCount++;
             }
 
-            setKanjiList([...kanjiList, ...newKanjiItems]);
-            const skipMsg = skippedCount > 0 ? ` (bỏ qua ${skippedCount} trùng)` : '';
-            setImportStatus(`✅ Đã nhập ${successCount} kanji${skipMsg}!`);
+            if (newKanjiItems.length > 0) {
+                setKanjiList(prev => [...prev, ...newKanjiItems]);
+            }
+
+            const parts = [];
+            if (createdCount > 0) parts.push(`tạo mới ${createdCount}`);
+            if (updatedCount > 0) parts.push(`cập nhật ${updatedCount}`);
+            if (skippedCount > 0) parts.push(`bỏ qua ${skippedCount}`);
+            setImportStatus(`✅ Hoàn tất: ${parts.join(', ')}!`);
+
             setTimeout(() => {
                 setShowImportKanjiModal(false);
                 setJsonKanjiInput('');
                 setImportStatus('');
-            }, 2000);
+            }, 2500);
         } catch (e) {
             console.error('Error importing kanji:', e);
             setImportStatus(`❌ Lỗi: ${e.message}`);
@@ -1176,18 +1210,18 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 <div className="min-h-screen p-4 lg:p-8 bg-gradient-to-br from-indigo-50/95 via-white/95 to-purple-50/95 dark:from-slate-900/95 dark:via-slate-900/95 dark:to-slate-900/95">
                     {/* Header */}
                     <div className="flex justify-between items-center mb-6">
-                        <button onClick={() => { setShowDetailModal(false); navigate('/kanji/list'); }} className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
-                            <ArrowLeft className="w-5 h-5" /> Quay lại
+                        <button onClick={() => { setShowDetailModal(false); navigate('/kanji/list'); }} className="flex items-center gap-2 px-4 py-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-gray-200 dark:border-slate-700 rounded-xl text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:shadow-md transition-all">
+                            <ArrowLeft className="w-4 h-4" /> Quay lại
                         </button>
-                        <div className="flex gap-2">
-                            <input type="text" placeholder="Tìm kiếm..." className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-lg px-4 py-2 text-gray-900 dark:text-white text-sm shadow-sm" />
+                        <div className="text-sm text-gray-400 dark:text-gray-500 font-medium">
+                            Chi tiết Kanji
                         </div>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         {/* Left: Kanji Display with Animation */}
                         <div className="space-y-4">
-                            <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 aspect-square flex items-center justify-center relative shadow-xl overflow-hidden">
+                            <div className="bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 border border-gray-200/80 dark:border-slate-700/50 rounded-2xl p-6 aspect-square flex items-center justify-center relative shadow-2xl shadow-indigo-100/50 dark:shadow-black/30 overflow-hidden">
                                 {/* KanjiVG Stroke Animation Container */}
                                 <div
                                     key={`kanji-display-${selectedKanji}`}
@@ -1197,13 +1231,13 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                 {/* Replay Button */}
                                 <button
                                     onClick={() => detailStrokeCtrl.current?.replay()}
-                                    className="absolute bottom-3 right-3 p-2 bg-cyan-500 hover:bg-cyan-400 rounded-full text-white shadow-lg transition-all hover:scale-110"
+                                    className="absolute bottom-3 right-3 p-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-400 hover:to-purple-400 rounded-xl text-white shadow-lg shadow-indigo-500/30 transition-all hover:scale-110 hover:shadow-xl"
                                     title="Xem lại nét vẽ"
                                 >
-                                    <RotateCcw className="w-5 h-5" />
+                                    <RotateCcw className="w-4 h-4" />
                                 </button>
                                 {/* Stroke Count Badge */}
-                                <div className="absolute top-3 right-3 bg-orange-500 text-white text-sm font-bold px-2 py-1 rounded-lg shadow">
+                                <div className="absolute top-3 right-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-xs font-bold px-2.5 py-1 rounded-lg shadow-lg shadow-orange-500/30">
                                     {kanjiApiData?.stroke_count || detail.strokeCount || '?'} nét
                                 </div>
                             </div>
@@ -1293,296 +1327,105 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     <p className="pt-1 border-t border-gray-100 dark:border-slate-700"><span className="text-gray-500 dark:text-gray-400">💡 Cách nhớ:</span> <span className="text-gray-900 dark:text-white">{detail.mnemonic}</span></p>
                                 )}
                             </div>
-                            {/* Component Breakdown Diagram - Sơ đồ chiết tự */}
+                            {/* Radical Breakdown - Thành phần bộ thủ */}
                             <div className="mt-6">
                                 <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3 flex items-center gap-2">
                                     <Layers className="w-4 h-4" />
-                                    Sơ đồ chiết tự
+                                    Thành phần bộ thủ
                                 </h4>
-                                <div className="relative bg-white dark:bg-slate-900 rounded-xl border border-gray-200 dark:border-slate-700 overflow-hidden" style={{ height: '420px' }}>
+                                <div className="relative bg-gradient-to-br from-slate-50 to-indigo-50/50 dark:from-slate-900 dark:to-indigo-950/30 rounded-2xl border border-gray-200 dark:border-slate-700 overflow-hidden p-6" style={{ minHeight: '280px' }}>
                                     {loadingApiData ? (
                                         <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="animate-spin w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full"></div>
+                                            <div className="animate-spin w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full"></div>
                                         </div>
                                     ) : (() => {
-                                        // Parse radical string
-                                        const parseRadicals = (str) => {
+                                        const parseRads = (str) => {
                                             if (!str) return [];
                                             const withoutParens = str.replace(/[（(][^)）]*[)）]/g, '');
                                             return withoutParens.split(/[,，、\s]+/).map(s => s.trim()).filter(s => s.length > 0);
                                         };
+                                        const det = getKanjiDetail(selectedKanji);
+                                        const parts = kanjiApiData?.parts || det.parts || getJotobaKanjiData(selectedKanji)?.parts || [];
+                                        const partsArr = (typeof parts === 'string' ? parseRads(parts) : parts).filter(p => p !== selectedKanji);
 
-                                        // Build full decomposition tree
-                                        const buildTree = (char, depth = 0, maxDepth = 4, visited = new Set()) => {
-                                            if (depth >= maxDepth || visited.has(char)) return { char, children: [] };
-                                            visited.add(char);
-                                            let children = [];
-                                            // 1. Firebase data (radical or parts field)
-                                            const kanjiData = kanjiList.find(k => k.character === char);
-                                            if (kanjiData?.parts) {
-                                                children = parseRadicals(kanjiData.parts);
-                                            } else if (kanjiData?.radical) {
-                                                children = parseRadicals(kanjiData.radical);
-                                            }
-                                            // 2. KANJI_TREE data
-                                            if (children.length === 0) {
-                                                const treeData = KANJI_TREE[char];
-                                                if (treeData?.components?.length > 0) {
-                                                    children = treeData.components;
-                                                }
-                                            }
-                                            // 3. Jotoba static parts data
-                                            if (children.length === 0) {
-                                                const jData = getJotobaKanjiData(char);
-                                                if (jData?.parts?.length > 0) {
-                                                    children = jData.parts.filter(p => p !== char);
-                                                }
-                                            }
-                                            return {
-                                                char,
-                                                children: children.map(c => buildTree(c, depth + 1, maxDepth, new Set(visited)))
-                                            };
-                                        };
+                                        const resultKanji = [
+                                            ...Object.entries(KANJI_TREE)
+                                                .filter(([k, v]) => v.components?.includes(selectedKanji) && k !== selectedKanji)
+                                                .map(([k]) => k),
+                                            ...kanjiList
+                                                .filter(k => {
+                                                    if (k.character === selectedKanji) return false;
+                                                    const rads = parseRads(k.radical || '');
+                                                    const kParts = parseRads(k.parts || '');
+                                                    return rads.includes(selectedKanji) || kParts.includes(selectedKanji);
+                                                })
+                                                .map(k => k.character)
+                                        ].filter((v, i, a) => a.indexOf(v) === i).slice(0, 12);
 
-                                        const tree = buildTree(selectedKanji, 0, 4);
-                                        const nodes = [];
-                                        const lines = [];
-
-                                        // Use pixel-based layout for better control over spacing
-                                        const containerWidth = 600;
-                                        const containerHeight = 400;
-                                        const centerX = containerWidth / 2;
-                                        const centerY = containerHeight / 2;
-
-                                        // Improved layout with fixed pixel spacing
-                                        const layoutTree = (node, x, y, level, parentX = null, parentY = null, angleStart = Math.PI, angleSpan = Math.PI * 1.2) => {
-                                            nodes.push({ char: node.char, x, y, level, isRoot: level === 0 });
-                                            if (parentX !== null && parentY !== null) {
-                                                lines.push({ x1: x, y1: y, x2: parentX, y2: parentY });
-                                            }
-                                            const childCount = node.children.length;
-                                            if (childCount > 0) {
-                                                // Fixed pixel radius - much larger to avoid overlap
-                                                const radius = level === 0 ? 120 : (level === 1 ? 80 : 50);
-                                                const childAngleSpan = angleSpan / Math.max(childCount, 1);
-
-                                                node.children.forEach((child, i) => {
-                                                    const angle = angleStart + childAngleSpan * (i - (childCount - 1) / 2);
-                                                    const childX = x + Math.cos(angle) * radius;
-                                                    const childY = y + Math.sin(angle) * radius;
-                                                    layoutTree(child, childX, childY, level + 1, x, y, angle, childAngleSpan * 0.8);
-                                                });
-                                            }
-                                        };
-
-                                        layoutTree(tree, centerX, centerY, 0);
-
-                                        // Find kanji that use this kanji as a component (comprehensive search)
-                                        const kanjiFromTree = Object.entries(KANJI_TREE)
-                                            .filter(([k, v]) => v.components?.includes(selectedKanji) && k !== selectedKanji)
-                                            .map(([k]) => k);
-
-                                        const kanjiFromFirebase = kanjiList
-                                            .filter(k => {
-                                                if (k.character === selectedKanji) return false;
-                                                if (kanjiFromTree.includes(k.character)) return false;
-                                                const radicals = parseRadicals(k.radical || '');
-                                                const parts = parseRadicals(k.parts || '');
-                                                return radicals.includes(selectedKanji) || parts.includes(selectedKanji);
-                                            })
-                                            .map(k => k.character);
-
-                                        // Also search in Jotoba static data
-                                        const kanjiFromJotoba = Object.values(JOTOBA_KANJI_DATA)
-                                            .filter(jk => {
-                                                if (jk.literal === selectedKanji) return false;
-                                                if (kanjiFromTree.includes(jk.literal)) return false;
-                                                if (kanjiFromFirebase.includes(jk.literal)) return false;
-                                                return jk.parts?.includes(selectedKanji);
-                                            })
-                                            .map(jk => jk.literal);
-
-                                        const kanjiUsingThis = [...kanjiFromTree, ...kanjiFromFirebase, ...kanjiFromJotoba].slice(0, 5);
-
-                                        // Add result nodes to the right
-                                        kanjiUsingThis.forEach((k, i) => {
-                                            const totalResults = kanjiUsingThis.length;
-                                            const angleSpan = Math.PI * 0.5;
-                                            const baseAngle = -angleSpan / 2;
-                                            const angle = totalResults === 1 ? 0 : baseAngle + (angleSpan / (totalResults - 1)) * i;
-                                            const radius = 130;
-                                            const x = centerX + Math.cos(angle) * radius;
-                                            const y = centerY + Math.sin(angle) * radius;
-                                            nodes.push({ char: k, x, y, level: -1, isResult: true });
-                                            lines.push({ x1: centerX, y1: centerY, x2: x, y2: y, isResult: true });
-                                        });
+                                        if (partsArr.length === 0 && resultKanji.length === 0) {
+                                            return <p className="text-center text-gray-400 dark:text-gray-500 py-8">Không có dữ liệu thành phần</p>;
+                                        }
 
                                         return (
-                                            <div
-                                                className={`absolute inset-0 overflow-hidden ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
-                                                onWheel={(e) => {
-                                                    e.preventDefault();
-                                                    const delta = e.deltaY > 0 ? -0.15 : 0.15;
-                                                    setDiagramZoom(prev => Math.min(Math.max(prev + delta, 0.4), 3));
-                                                }}
-                                                onMouseDown={(e) => {
-                                                    if (e.button !== 0) return;
-                                                    setIsDragging(true);
-                                                    setDragStart({ x: e.clientX - diagramPan.x, y: e.clientY - diagramPan.y });
-                                                }}
-                                                onMouseMove={(e) => {
-                                                    if (!isDragging) return;
-                                                    setDiagramPan({
-                                                        x: e.clientX - dragStart.x,
-                                                        y: e.clientY - dragStart.y
-                                                    });
-                                                }}
-                                                onMouseUp={() => setIsDragging(false)}
-                                                onMouseLeave={() => setIsDragging(false)}
-                                            >
-                                                {/* CSS Animation for arrows */}
-                                                <style>{`
-                                                    @keyframes flowArrow {
-                                                        0% { stroke-dashoffset: 12; }
-                                                        100% { stroke-dashoffset: 0; }
-                                                    }
-                                                    .animated-line {
-                                                        stroke-dasharray: 6, 6;
-                                                        animation: flowArrow 0.6s linear infinite;
-                                                    }
-                                                    @keyframes glow {
-                                                        0%, 100% { box-shadow: 0 0 20px rgba(255,255,255,0.3); }
-                                                        50% { box-shadow: 0 0 30px rgba(255,255,255,0.5); }
-                                                    }
-                                                    .glow-node {
-                                                        animation: glow 2s ease-in-out infinite;
-                                                    }
-                                                `}</style>
-
-                                                {/* Zoomable & Pannable content */}
-                                                <div
-                                                    className="absolute"
-                                                    style={{
-                                                        width: containerWidth,
-                                                        height: containerHeight,
-                                                        left: '50%',
-                                                        top: '50%',
-                                                        transform: `translate(calc(-50% + ${diagramPan.x}px), calc(-50% + ${diagramPan.y}px)) scale(${diagramZoom})`,
-                                                        transition: isDragging ? 'none' : 'transform 0.15s ease-out'
-                                                    }}
-                                                >
-
-                                                    {/* SVG for lines */}
-                                                    <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
-                                                        <defs>
-                                                            {/* Markers for light mode */}
-                                                            <marker id="arrowGray" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-                                                                <polygon points="0 0, 8 3, 0 6" fill="#9ca3af" />
-                                                            </marker>
-                                                            <marker id="arrowCyan" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-                                                                <polygon points="0 0, 8 3, 0 6" fill="#22d3ee" />
-                                                            </marker>
-                                                        </defs>
-
-                                                        {/* All lines */}
-                                                        {lines.map((line, i) => (
-                                                            <line key={`line-${i}`}
-                                                                x1={line.x1} y1={line.y1}
-                                                                x2={line.x2} y2={line.y2}
-                                                                stroke={line.isResult ? "#22d3ee" : "#9ca3af"}
-                                                                strokeWidth="2"
-                                                                className="animated-line"
-                                                                markerEnd={line.isResult ? "url(#arrowCyan)" : "url(#arrowGray)"}
-                                                            />
-                                                        ))}
-                                                    </svg>
-
-                                                    {/* Render component nodes (orange) - only show actual components, not root */}
-                                                    {nodes.filter(n => !n.isRoot && !n.isResult && n.char !== selectedKanji).map((node, i) => {
-                                                        const size = node.level === 1 ? 48 : (node.level === 2 ? 40 : 32);
-                                                        const fontSize = node.level === 1 ? 20 : (node.level === 2 ? 16 : 14);
-
-                                                        return (
-                                                            <div key={`node-${i}`}
-                                                                className="absolute bg-orange-500 hover:bg-orange-400 rounded-full flex items-center justify-center font-bold text-white cursor-pointer hover:scale-110 transition-all font-japanese ring-2 ring-orange-300/50 hover:ring-orange-200"
-                                                                style={{
-                                                                    top: node.y,
-                                                                    left: node.x,
-                                                                    width: size,
-                                                                    height: size,
-                                                                    fontSize: fontSize,
-                                                                    transform: 'translate(-50%, -50%)',
-                                                                    zIndex: 10 - node.level
-                                                                }}
-                                                                onClick={() => {
-                                                                    // Switch to this component as the new root kanji
-                                                                    // This will show its decomposition + kanji that use it
-                                                                    navigate(`/kanji/list/${node.char}`);
-                                                                    setSelectedKanji(node.char);
-                                                                    setDiagramPan({ x: 0, y: 0 });
-                                                                    setDiagramZoom(1);
-                                                                }}
-                                                                title={`Bấm để xem chiết tự ${node.char}`}
-                                                            >
-                                                                {node.char}
-                                                            </div>
-                                                        );
-                                                    })}
-
-                                                    {/* Root node (white/light gray) - center */}
-                                                    {nodes.filter(n => n.isRoot).map((node, i) => (
-                                                        <div key={`root-${i}`}
-                                                            className="absolute bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center font-bold text-slate-800 dark:text-white font-japanese glow-node"
-                                                            style={{
-                                                                top: node.y,
-                                                                left: node.x,
-                                                                width: 56,
-                                                                height: 56,
-                                                                fontSize: 24,
-                                                                transform: 'translate(-50%, -50%)',
-                                                                zIndex: 15
-                                                            }}
-                                                            title={node.char}
-                                                        >
-                                                            {node.char}
+                                            <div className="flex flex-col items-center gap-4">
+                                                {partsArr.length > 0 && (
+                                                    <>
+                                                        <span className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-bold">Cấu tạo từ</span>
+                                                        <div className="flex items-center justify-center gap-3 flex-wrap">
+                                                            {partsArr.map((p, i) => (
+                                                                <button key={i} onClick={() => { navigate(`/kanji/list/${p}`); setSelectedKanji(p); }} className="group relative">
+                                                                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-100 to-violet-100 dark:from-purple-900/40 dark:to-violet-900/40 border-2 border-purple-200 dark:border-purple-700/50 flex items-center justify-center text-2xl font-japanese text-purple-700 dark:text-purple-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-200/50 dark:hover:shadow-purple-900/50 transition-all cursor-pointer">
+                                                                        {p}
+                                                                    </div>
+                                                                    <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[9px] text-purple-500 dark:text-purple-400 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                                                                        {kanjiMap.get(p)?.sinoViet || getJotobaKanjiData(p)?.sinoViet || ''}
+                                                                    </span>
+                                                                </button>
+                                                            ))}
                                                         </div>
-                                                    ))}
-
-                                                    {/* Result nodes (cyan) */}
-                                                    {nodes.filter(n => n.isResult).map((node, i) => {
-                                                        const kanjiData = kanjiList.find(kj => kj.character === node.char);
-                                                        return (
-                                                            <div key={`result-${i}`}
-                                                                className="absolute bg-cyan-400 rounded-full flex items-center justify-center font-bold text-white cursor-pointer hover:bg-cyan-300 hover:scale-110 transition-all font-japanese"
-                                                                style={{
-                                                                    top: node.y,
-                                                                    left: node.x,
-                                                                    width: 48,
-                                                                    height: 48,
-                                                                    fontSize: 20,
-                                                                    transform: 'translate(-50%, -50%)',
-                                                                    zIndex: 10
-                                                                }}
-                                                                onClick={() => {
-                                                                    if (kanjiData) {
-                                                                        navigate(`/kanji/list/${node.char}`);
-                                                                        setSelectedKanji(node.char);
-                                                                        setDiagramPan({ x: 0, y: 0 });
-                                                                        setDiagramZoom(1);
-                                                                    }
-                                                                }}
-                                                                title={node.char}
-                                                            >
-                                                                {node.char}
-                                                            </div>
-                                                        );
-                                                    })}
+                                                        <div className="flex items-center gap-2 text-gray-300 dark:text-gray-600">
+                                                            <div className="h-px w-8 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600"></div>
+                                                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+                                                            <div className="h-px w-8 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600"></div>
+                                                        </div>
+                                                    </>
+                                                )}
+                                                <div className="relative">
+                                                    <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-cyan-500 to-indigo-600 shadow-2xl shadow-cyan-500/30 dark:shadow-cyan-900/50 flex items-center justify-center">
+                                                        <span className="text-5xl font-japanese text-white font-bold drop-shadow-lg">{selectedKanji}</span>
+                                                    </div>
+                                                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-white dark:bg-slate-800 rounded-full text-xs font-bold text-cyan-600 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-800 shadow-sm whitespace-nowrap">
+                                                        {det.sinoViet || ''}
+                                                    </div>
                                                 </div>
+                                                {resultKanji.length > 0 && (
+                                                    <>
+                                                        <div className="flex items-center gap-2 text-gray-300 dark:text-gray-600 mt-2">
+                                                            <div className="h-px w-8 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600"></div>
+                                                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+                                                            <div className="h-px w-8 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600"></div>
+                                                        </div>
+                                                        <span className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-bold">Tạo thành</span>
+                                                        <div className="flex items-center justify-center gap-2 flex-wrap">
+                                                            {resultKanji.map((k, i) => (
+                                                                <button key={i} onClick={() => { navigate(`/kanji/list/${k}`); setSelectedKanji(k); }} className="group relative">
+                                                                    <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/40 dark:to-teal-900/40 border border-emerald-200 dark:border-emerald-700/50 flex items-center justify-center text-lg font-japanese text-emerald-700 dark:text-emerald-300 hover:scale-110 hover:shadow-lg transition-all cursor-pointer">
+                                                                        {k}
+                                                                    </div>
+                                                                    <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[8px] text-emerald-500 dark:text-emerald-400 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                                                                        {kanjiMap.get(k)?.sinoViet || ''}
+                                                                    </span>
+                                                                </button>
+                                                            ))}
+                                                        </div>
+                                                    </>
+                                                )}
                                             </div>
                                         );
                                     })()}
                                 </div>
                             </div>
+
                         </div>
 
                         {/* Right: Vocabulary - grouped by category */}
@@ -1659,7 +1502,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             return <span className="text-blue-400 font-japanese">{v.reading}</span>;
                                         }
 
-                                        const kanjiDetail = kanjiList.find(k => k.character === selectedKanji);
+                                        const kanjiDetail = kanjiMap.get(selectedKanji);
                                         const kanjiReadings = [];
                                         if (kanjiDetail) {
                                             if (kanjiDetail.onyomi) {
@@ -1898,307 +1741,215 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:bg-slate-900 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 text-gray-900 dark:text-white">
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6 px-8 lg:px-16 py-6">
-                {/* Left Sidebar */}
-                <div className="w-full lg:w-80 flex-shrink-0 space-y-4">
-                    <h1 className="text-2xl font-bold text-cyan-600 dark:text-cyan-400 font-japanese">鑒 Học Kanji</h1>
-
-                    {/* Search with dropdown */}
-                    <div className="relative" ref={searchInputRef}>
-                        <input
-                            type="text"
-                            value={searchQuery}
-                            onChange={(e) => {
-                                setSearchQuery(e.target.value);
-                                setShowSearchResults(true);
-                            }}
-                            onFocus={() => setShowSearchResults(true)}
-                            placeholder="Tìm bằng Kanji hoặc âm Hán Việt..."
-                            className="w-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
-                        />
-                        <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-
-                        {/* Search Results Dropdown */}
-                        {showSearchResults && searchQuery.trim() && searchResults.length > 0 && (
-                            <div className="absolute z-50 w-full mt-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-lg shadow-xl max-h-80 overflow-y-auto">
-                                <div className="p-2 text-xs text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-slate-700">
-                                    Tìm thấy {searchResults.length} kết quả
-                                </div>
-                                {searchResults.map((kanji, idx) => (
-                                    <button
-                                        key={kanji.id || idx}
-                                        onClick={() => {
-                                            openKanjiDetail(kanji.character);
-                                            setSearchQuery('');
-                                            setShowSearchResults(false);
-                                        }}
-                                        className="w-full px-4 py-3 flex items-center gap-3 hover:bg-cyan-50 dark:hover:bg-slate-700 transition-colors text-left border-b border-gray-50 dark:border-slate-700 last:border-b-0"
-                                    >
-                                        <span className="text-2xl font-japanese text-cyan-600 dark:text-cyan-400 w-10 text-center">
-                                            {kanji.character}
-                                        </span>
-                                        <div className="flex-1 min-w-0">
-                                            <div className="flex items-center gap-2">
-                                                <span className="font-medium text-gray-800 dark:text-white">
-                                                    {kanji.sinoViet || '---'}
-                                                </span>
-                                                <span className="text-xs px-1.5 py-0.5 bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400 rounded">
-                                                    {kanji.level}
-                                                </span>
-                                            </div>
-                                            <div className="text-sm text-gray-500 dark:text-gray-400 truncate">
-                                                {kanji.meaning}
-                                            </div>
-                                        </div>
-                                    </button>
-                                ))}
-                            </div>
-                        )}
-
-                        {/* No results message */}
-                        {showSearchResults && searchQuery.trim() && searchResults.length === 0 && (
-                            <div className="absolute z-50 w-full mt-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-lg shadow-xl p-4 text-center text-gray-500 dark:text-gray-400">
-                                Không tìm thấy kanji nào
-                            </div>
-                        )}
-                    </div>
-
-                    {/* Click outside to close dropdown */}
-                    {showSearchResults && (
-                        <div
-                            className="fixed inset-0 z-40"
-                            onClick={() => setShowSearchResults(false)}
-                        />
-                    )}
-
-                    {/* Kanji Handwriting Search Canvas */}
-                    <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl flex flex-col shadow-lg relative">
-                        <div className="p-3 border-b border-gray-200 dark:border-slate-700 flex items-center justify-between">
-                            <span className="text-sm font-medium text-gray-600 dark:text-gray-400">Vẽ Kanji để tìm kiếm</span>
-                            <div className="flex items-center gap-1">
-                                {handwritingStrokesRef.current.length > 0 && (
-                                    <span className="text-[10px] text-gray-400 mr-1">{handwritingStrokesRef.current.length} nét</span>
-                                )}
-                                <button
-                                    onClick={() => {
-                                        const canvas = document.getElementById('handwriting-canvas');
-                                        if (canvas) {
-                                            const ctx = canvas.getContext('2d');
-                                            ctx.clearRect(0, 0, canvas.width, canvas.height);
-                                        }
-                                        handwritingStrokesRef.current = [];
-                                        currentStrokeRef.current = { xs: [], ys: [] };
-                                        if (recognitionTimeoutRef.current) clearTimeout(recognitionTimeoutRef.current);
-                                        setHandwritingSuggestions([]);
-                                        setSelectedStrokeCount(0);
-                                    }}
-                                    className="p-1.5 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg transition-colors"
-                                    title="Xóa và vẽ lại"
-                                >
-                                    <RotateCcw className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                                </button>
-                            </div>
+            <div className="max-w-6xl mx-auto px-4 md:px-8 py-6 space-y-5">
+                {/* Hero Header */}
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-violet-600 via-indigo-600 to-blue-500 p-6 md:p-8 shadow-2xl">
+                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
+                    <div className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div>
+                            <h1 className="text-3xl md:text-4xl font-bold text-white mb-1">漢字 Danh sách Kanji</h1>
+                            <p className="text-white/60 text-sm">Khám phá và học Kanji theo trình độ JLPT</p>
                         </div>
-                        <div className="relative h-80">
-                            <canvas
-                                id="handwriting-canvas"
-                                width="280"
-                                height="280"
-                                className="w-full h-full cursor-crosshair touch-none"
-                                style={{ touchAction: 'none' }}
-                                onMouseDown={(e) => {
-                                    const canvas = e.currentTarget;
-                                    const rect = canvas.getBoundingClientRect();
-                                    const x = (e.clientX - rect.left) * (canvas.width / rect.width);
-                                    const y = (e.clientY - rect.top) * (canvas.height / rect.height);
-                                    const ctx = canvas.getContext('2d');
-                                    ctx.beginPath();
-                                    ctx.moveTo(x, y);
-                                    canvas.dataset.drawing = 'true';
-                                    currentStrokeRef.current = { xs: [Math.round(x)], ys: [Math.round(y)] };
-                                }}
-                                onMouseMove={(e) => {
-                                    const canvas = e.currentTarget;
-                                    if (canvas.dataset.drawing !== 'true') return;
-                                    const rect = canvas.getBoundingClientRect();
-                                    const x = (e.clientX - rect.left) * (canvas.width / rect.width);
-                                    const y = (e.clientY - rect.top) * (canvas.height / rect.height);
-                                    const ctx = canvas.getContext('2d');
-                                    ctx.lineTo(x, y);
-                                    ctx.strokeStyle = document.documentElement.classList.contains('dark') ? '#fff' : '#000';
-                                    ctx.lineWidth = 4;
-                                    ctx.lineCap = 'round';
-                                    ctx.lineJoin = 'round';
-                                    ctx.stroke();
-                                    currentStrokeRef.current.xs.push(Math.round(x));
-                                    currentStrokeRef.current.ys.push(Math.round(y));
-                                }}
-                                onMouseUp={(e) => {
-                                    const canvas = e.currentTarget;
-                                    canvas.dataset.drawing = 'false';
-                                    // Save completed stroke
-                                    if (currentStrokeRef.current.xs.length > 1) {
-                                        handwritingStrokesRef.current = [...handwritingStrokesRef.current, { ...currentStrokeRef.current }];
-                                        currentStrokeRef.current = { xs: [], ys: [] };
-                                        // Debounced API call
-                                        if (recognitionTimeoutRef.current) clearTimeout(recognitionTimeoutRef.current);
-                                        recognitionTimeoutRef.current = setTimeout(() => {
-                                            recognizeHandwriting(handwritingStrokesRef.current, canvas.width, canvas.height);
-                                        }, 300);
-                                    }
-                                }}
-                                onMouseLeave={(e) => {
-                                    const canvas = e.currentTarget;
-                                    if (canvas.dataset.drawing === 'true') {
-                                        canvas.dataset.drawing = 'false';
-                                        if (currentStrokeRef.current.xs.length > 1) {
-                                            handwritingStrokesRef.current = [...handwritingStrokesRef.current, { ...currentStrokeRef.current }];
-                                            currentStrokeRef.current = { xs: [], ys: [] };
-                                            if (recognitionTimeoutRef.current) clearTimeout(recognitionTimeoutRef.current);
-                                            recognitionTimeoutRef.current = setTimeout(() => {
-                                                recognizeHandwriting(handwritingStrokesRef.current, canvas.width, canvas.height);
-                                            }, 300);
-                                        }
-                                    }
-                                }}
-                                onTouchStart={(e) => {
-                                    e.preventDefault();
-                                    const canvas = e.currentTarget;
-                                    const rect = canvas.getBoundingClientRect();
-                                    const touch = e.touches[0];
-                                    const x = (touch.clientX - rect.left) * (canvas.width / rect.width);
-                                    const y = (touch.clientY - rect.top) * (canvas.height / rect.height);
-                                    const ctx = canvas.getContext('2d');
-                                    ctx.beginPath();
-                                    ctx.moveTo(x, y);
-                                    canvas.dataset.drawing = 'true';
-                                    currentStrokeRef.current = { xs: [Math.round(x)], ys: [Math.round(y)] };
-                                }}
-                                onTouchMove={(e) => {
-                                    e.preventDefault();
-                                    const canvas = e.currentTarget;
-                                    if (canvas.dataset.drawing !== 'true') return;
-                                    const rect = canvas.getBoundingClientRect();
-                                    const touch = e.touches[0];
-                                    const x = (touch.clientX - rect.left) * (canvas.width / rect.width);
-                                    const y = (touch.clientY - rect.top) * (canvas.height / rect.height);
-                                    const ctx = canvas.getContext('2d');
-                                    ctx.lineTo(x, y);
-                                    ctx.strokeStyle = document.documentElement.classList.contains('dark') ? '#fff' : '#000';
-                                    ctx.lineWidth = 4;
-                                    ctx.lineCap = 'round';
-                                    ctx.lineJoin = 'round';
-                                    ctx.stroke();
-                                    currentStrokeRef.current.xs.push(Math.round(x));
-                                    currentStrokeRef.current.ys.push(Math.round(y));
-                                }}
-                                onTouchEnd={(e) => {
-                                    const canvas = e.currentTarget;
-                                    canvas.dataset.drawing = 'false';
-                                    if (currentStrokeRef.current.xs.length > 1) {
-                                        handwritingStrokesRef.current = [...handwritingStrokesRef.current, { ...currentStrokeRef.current }];
-                                        currentStrokeRef.current = { xs: [], ys: [] };
-                                        if (recognitionTimeoutRef.current) clearTimeout(recognitionTimeoutRef.current);
-                                        recognitionTimeoutRef.current = setTimeout(() => {
-                                            recognizeHandwriting(handwritingStrokesRef.current, canvas.width, canvas.height);
-                                        }, 300);
-                                    }
-                                }}
-                            />
-                        </div>
-                        {/* Handwriting Suggestions */}
-                        {handwritingSuggestions.length > 0 && (
-                            <div className="border-t border-gray-200 dark:border-slate-700 p-3 bg-gray-50 dark:bg-slate-900/50 max-h-48 overflow-y-auto">
-                                <div className="text-xs text-gray-500 dark:text-gray-400 mb-2 px-1 flex items-center justify-between">
-                                    <span>Chọn kanji phù hợp:</span>
-                                    <span className="text-[10px]">{handwritingSuggestions.length} kết quả</span>
-                                </div>
-                                <div className="grid grid-cols-8 gap-1.5">
-                                    {handwritingSuggestions.map((kanji, idx) => (
-                                        <button
-                                            key={kanji.id || idx}
-                                            onClick={() => {
-                                                openKanjiDetail(kanji.character);
-                                                const canvas = document.getElementById('handwriting-canvas');
-                                                if (canvas) {
-                                                    const ctx = canvas.getContext('2d');
-                                                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                                                }
-                                                handwritingStrokesRef.current = [];
-                                                setHandwritingSuggestions([]);
-                                            }}
-                                            className={`aspect-square hover:bg-cyan-50 dark:hover:bg-cyan-900/30 border rounded-lg flex flex-col items-center justify-center text-base font-japanese hover:border-cyan-400 dark:hover:border-cyan-500 transition-all hover:scale-110 relative group ${kanji.inDatabase === false ? 'bg-gray-50 dark:bg-slate-700 border-gray-200 dark:border-slate-600 text-gray-500' : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-600 text-gray-800 dark:text-white'}`}
-                                            title={`${kanji.character} - ${kanji.sinoViet || ''} ${kanji.meaning || ''} (${kanji.strokes || '?'} nét)`}
-                                        >
-                                            <span className="text-lg">{kanji.character}</span>
-                                            <span className="text-[9px] text-gray-400 dark:text-gray-500 absolute bottom-0.5 right-0.5 opacity-60 group-hover:opacity-100">
-                                                {kanji.strokes || ''}
-                                            </span>
-                                            {kanji.inDatabase === false && (
-                                                <span className="absolute top-0 left-0.5 text-[7px] text-orange-400">●</span>
-                                            )}
-                                        </button>
-                                    ))}
-                                </div>
+                        <div className="flex items-center gap-3">
+                            <div className="bg-white/15 backdrop-blur-sm rounded-xl px-4 py-2 border border-white/20">
+                                <div className="text-2xl font-bold text-white">{currentKanjiList.length}</div>
+                                <div className="text-[10px] text-white/70">Kanji ({selectedLevel})</div>
                             </div>
-                        )}
-                    </div>
-
-                    {/* Admin buttons */}
-                    {isAdmin && (
-                        <div className="space-y-2">
-                            <div className="grid grid-cols-2 gap-2">
-                                <button onClick={() => setShowImportKanjiModal(true)} className="py-2 bg-cyan-700 hover:bg-cyan-600 rounded-lg font-medium flex items-center justify-center gap-1 text-sm text-white">
-                                    <FileJson className="w-4 h-4" /> Import Kanji
-                                </button>
-                                <button onClick={() => setShowImportVocabModal(true)} className="py-2 bg-purple-700 hover:bg-purple-600 rounded-lg font-medium flex items-center justify-center gap-1 text-sm text-white">
-                                    <FileJson className="w-4 h-4" /> Import Vocab
-                                </button>
+                            <div className="bg-white/15 backdrop-blur-sm rounded-xl px-4 py-2 border border-white/20">
+                                <div className="text-2xl font-bold text-white">{vocabList.length}</div>
+                                <div className="text-[10px] text-white/70">Từ vựng</div>
                             </div>
-                            {/* Bulk Select Mode Toggle */}
-                            <button
-                                onClick={() => {
-                                    setBulkSelectMode(!bulkSelectMode);
-                                    setSelectedKanjiIds([]);
-                                    setSelectedVocabIds([]);
-                                }}
-                                className={`w-full py-2 rounded-lg font-medium flex items-center justify-center gap-2 text-sm ${bulkSelectMode ? 'bg-red-600 hover:bg-red-500 text-white' : 'bg-gray-600 hover:bg-gray-500 text-white'}`}
-                            >
-                                {bulkSelectMode ? <><X className="w-4 h-4" /> Thoát chế độ chọn</> : <><Trash2 className="w-4 h-4" /> Xóa hàng loạt</>}
-                            </button>
-                        </div>
-                    )}
-
-                    {/* Stats */}
-                    <div className="grid grid-cols-2 gap-2">
-                        <div className="bg-white dark:bg-slate-800 rounded-lg p-3 shadow-sm border border-gray-100 dark:border-slate-700">
-                            <div className="text-xl font-bold text-cyan-600 dark:text-cyan-400">{currentKanjiList.length}</div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">Kanji ({selectedLevel})</div>
-                        </div>
-                        <div className="bg-white dark:bg-slate-800 rounded-lg p-3 shadow-sm border border-gray-100 dark:border-slate-700">
-                            <div className="text-lg font-bold text-cyan-600 dark:text-cyan-400">Sơ đồ</div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">Chiết tự</div>
                         </div>
                     </div>
                 </div>
 
-                {/* Right: Kanji Grid */}
-                <div className="flex-1 space-y-4">
-                    <h2 className="text-xl font-bold text-gray-800 dark:text-white">Khám phá Kanji theo trình độ</h2>
+                {/* Search + Level Tabs Row */}
+                <div className="flex flex-col md:flex-row gap-3">
+                    {/* Search */}
+                    <div className="relative flex-1" ref={searchInputRef}>
+                        <input
+                            type="text"
+                            value={searchQuery}
+                            onChange={(e) => { setSearchQuery(e.target.value); setShowSearchResults(true); }}
+                            onFocus={() => setShowSearchResults(true)}
+                            placeholder="Tìm Kanji, âm Hán Việt, nghĩa, hoặc từ vựng..."
+                            className="w-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-xl px-4 py-3 pr-20 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm"
+                        />
+                        <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
+                            <button
+                                onClick={() => setShowHandwritingPopup(!showHandwritingPopup)}
+                                className={`p-1.5 rounded-lg transition-colors ${showHandwritingPopup ? 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400' : 'hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-400'}`}
+                                title="Vẽ Kanji để tìm kiếm"
+                            >
+                                <PenTool className="w-4.5 h-4.5" />
+                            </button>
+                            <Search className="w-5 h-5 text-gray-400" />
+                        </div>
+
+                        {/* Search Results Dropdown - Kanji + Vocab */}
+                        {showSearchResults && searchQuery.trim() && (searchResults.length > 0 || vocabList.some(v => v.word?.includes(searchQuery) || v.meaning?.toLowerCase().includes(searchQuery.toLowerCase()) || v.reading?.includes(searchQuery))) && (
+                            <div className="absolute z-50 w-full mt-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-xl shadow-2xl max-h-96 overflow-y-auto">
+                                {/* Kanji results */}
+                                {searchResults.length > 0 && (
+                                    <>
+                                        <div className="p-2 text-xs text-indigo-500 dark:text-indigo-400 border-b border-gray-100 dark:border-slate-700 font-bold flex items-center gap-1.5">
+                                            <span className="w-4 h-4 rounded bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-[10px]">漢</span>
+                                            Kanji ({searchResults.length})
+                                        </div>
+                                        {searchResults.slice(0, 10).map((kanji, idx) => (
+                                            <button key={kanji.id || idx} onClick={() => { openKanjiDetail(kanji.character); setSearchQuery(''); setShowSearchResults(false); }}
+                                                className="w-full px-4 py-2.5 flex items-center gap-3 hover:bg-indigo-50 dark:hover:bg-slate-700 transition-colors text-left border-b border-gray-50 dark:border-slate-700/50 last:border-b-0">
+                                                <span className="text-2xl font-japanese text-indigo-600 dark:text-indigo-400 w-9 text-center">{kanji.character}</span>
+                                                <div className="flex-1 min-w-0">
+                                                    <div className="flex items-center gap-2">
+                                                        <span className="font-medium text-gray-800 dark:text-white text-sm">{kanji.sinoViet || '---'}</span>
+                                                        <span className="text-[10px] px-1.5 py-0.5 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded font-bold">{kanji.level}</span>
+                                                    </div>
+                                                    <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{kanji.meaning}</div>
+                                                </div>
+                                            </button>
+                                        ))}
+                                    </>
+                                )}
+                                {/* Vocab results */}
+                                {(() => {
+                                    const q = searchQuery.toLowerCase().trim();
+                                    const vocabResults = vocabList.filter(v => v.word?.includes(q) || v.meaning?.toLowerCase().includes(q) || v.reading?.includes(q) || v.sinoViet?.toLowerCase().includes(q)).slice(0, 10);
+                                    if (vocabResults.length === 0) return null;
+                                    return (
+                                        <>
+                                            <div className="p-2 text-xs text-cyan-500 dark:text-cyan-400 border-b border-gray-100 dark:border-slate-700 font-bold flex items-center gap-1.5">
+                                                <span className="w-4 h-4 rounded bg-cyan-100 dark:bg-cyan-900/50 flex items-center justify-center text-[10px]">語</span>
+                                                Từ vựng ({vocabResults.length})
+                                            </div>
+                                            {vocabResults.map((v, idx) => (
+                                                <button key={v.id || idx} onClick={() => {
+                                                    // Find kanji in this vocab word and open its detail
+                                                    const kanjiChar = v.word?.split('').find(ch => { const code = ch.charCodeAt(0); return code >= 0x4E00 && code <= 0x9FFF; });
+                                                    if (kanjiChar) { openKanjiDetail(kanjiChar); }
+                                                    setSearchQuery(''); setShowSearchResults(false);
+                                                }}
+                                                    className="w-full px-4 py-2.5 flex items-center gap-3 hover:bg-cyan-50 dark:hover:bg-slate-700 transition-colors text-left border-b border-gray-50 dark:border-slate-700/50 last:border-b-0">
+                                                    <span className="text-lg font-japanese text-cyan-600 dark:text-cyan-400 w-9 text-center">{v.word}</span>
+                                                    <div className="flex-1 min-w-0">
+                                                        <div className="flex items-center gap-2">
+                                                            <span className="text-xs text-gray-500 dark:text-gray-400">{v.reading}</span>
+                                                            {v.sinoViet && <span className="text-[10px] text-amber-500">{v.sinoViet}</span>}
+                                                        </div>
+                                                        <div className="text-xs text-gray-600 dark:text-gray-300 truncate">{v.meaning}</div>
+                                                    </div>
+                                                </button>
+                                            ))}
+                                        </>
+                                    );
+                                })()}
+                            </div>
+                        )}
+                        {showSearchResults && searchQuery.trim() && searchResults.length === 0 && !vocabList.some(v => v.word?.includes(searchQuery) || v.meaning?.toLowerCase().includes(searchQuery.toLowerCase())) && (
+                            <div className="absolute z-50 w-full mt-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-xl shadow-xl p-4 text-center text-gray-500 dark:text-gray-400 text-sm">
+                                Không tìm thấy kết quả nào
+                            </div>
+                        )}
+                    </div>
+                    {showSearchResults && <div className="fixed inset-0 z-40" onClick={() => setShowSearchResults(false)} />}
 
                     {/* Level Tabs */}
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5">
                         {[...JLPT_LEVELS, 'Bộ thủ'].map(level => (
-                            <button
-                                key={level}
-                                onClick={() => setSelectedLevel(level)}
-                                className={`px-4 py-2 rounded-lg font-medium text-sm transition-all ${selectedLevel === level ? LEVEL_TAB_COLORS[level] : 'bg-white dark:bg-slate-800 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-700'}`}
-                            >
-                                {level}
-                            </button>
+                            <button key={level} onClick={() => setSelectedLevel(level)}
+                                className={`px-3.5 py-2 rounded-xl font-bold text-sm transition-all ${selectedLevel === level ? LEVEL_TAB_COLORS[level] + ' scale-105' : 'bg-white dark:bg-slate-800 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-700'}`}
+                            >{level}</button>
                         ))}
                     </div>
+                </div>
 
+                {/* Handwriting Popup Modal */}
+                {showHandwritingPopup && (
+                    <div className="relative">
+                        <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-2xl shadow-2xl overflow-hidden max-w-sm mx-auto">
+                            <div className="p-3 border-b border-gray-200 dark:border-slate-700 flex items-center justify-between bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-slate-800 dark:to-slate-800">
+                                <span className="text-sm font-bold text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                                    <PenTool className="w-4 h-4 text-indigo-500" /> Vẽ Kanji để tìm kiếm
+                                </span>
+                                <div className="flex items-center gap-1">
+                                    {handwritingStrokesRef.current.length > 0 && (
+                                        <span className="text-[10px] text-gray-400 mr-1">{handwritingStrokesRef.current.length} nét</span>
+                                    )}
+                                    <button
+                                        onClick={() => {
+                                            const canvas = document.getElementById('handwriting-canvas');
+                                            if (canvas) { const ctx = canvas.getContext('2d'); ctx.clearRect(0, 0, canvas.width, canvas.height); }
+                                            handwritingStrokesRef.current = []; currentStrokeRef.current = { xs: [], ys: [] };
+                                            if (recognitionTimeoutRef.current) clearTimeout(recognitionTimeoutRef.current);
+                                            setHandwritingSuggestions([]); setSelectedStrokeCount(0);
+                                        }}
+                                        className="p-1.5 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg transition-colors" title="Xóa và vẽ lại"
+                                    ><RotateCcw className="w-4 h-4 text-gray-500 dark:text-gray-400" /></button>
+                                    <button onClick={() => setShowHandwritingPopup(false)} className="p-1.5 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg transition-colors">
+                                        <X className="w-4 h-4 text-gray-500" />
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="relative" style={{ height: '280px' }}>
+                                <canvas
+                                    id="handwriting-canvas" width="280" height="280"
+                                    className="w-full h-full cursor-crosshair touch-none" style={{ touchAction: 'none' }}
+                                    onMouseDown={(e) => { const canvas = e.currentTarget; const rect = canvas.getBoundingClientRect(); const x = (e.clientX - rect.left) * (canvas.width / rect.width); const y = (e.clientY - rect.top) * (canvas.height / rect.height); const ctx = canvas.getContext('2d'); ctx.beginPath(); ctx.moveTo(x, y); canvas.dataset.drawing = 'true'; currentStrokeRef.current = { xs: [Math.round(x)], ys: [Math.round(y)] }; }}
+                                    onMouseMove={(e) => { const canvas = e.currentTarget; if (canvas.dataset.drawing !== 'true') return; const rect = canvas.getBoundingClientRect(); const x = (e.clientX - rect.left) * (canvas.width / rect.width); const y = (e.clientY - rect.top) * (canvas.height / rect.height); const ctx = canvas.getContext('2d'); ctx.lineTo(x, y); ctx.strokeStyle = document.documentElement.classList.contains('dark') ? '#fff' : '#000'; ctx.lineWidth = 4; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke(); currentStrokeRef.current.xs.push(Math.round(x)); currentStrokeRef.current.ys.push(Math.round(y)); }}
+                                    onMouseUp={(e) => { const canvas = e.currentTarget; canvas.dataset.drawing = 'false'; if (currentStrokeRef.current.xs.length > 1) { handwritingStrokesRef.current = [...handwritingStrokesRef.current, { ...currentStrokeRef.current }]; currentStrokeRef.current = { xs: [], ys: [] }; if (recognitionTimeoutRef.current) clearTimeout(recognitionTimeoutRef.current); recognitionTimeoutRef.current = setTimeout(() => { recognizeHandwriting(handwritingStrokesRef.current, canvas.width, canvas.height); }, 300); } }}
+                                    onMouseLeave={(e) => { const canvas = e.currentTarget; if (canvas.dataset.drawing === 'true') { canvas.dataset.drawing = 'false'; if (currentStrokeRef.current.xs.length > 1) { handwritingStrokesRef.current = [...handwritingStrokesRef.current, { ...currentStrokeRef.current }]; currentStrokeRef.current = { xs: [], ys: [] }; if (recognitionTimeoutRef.current) clearTimeout(recognitionTimeoutRef.current); recognitionTimeoutRef.current = setTimeout(() => { recognizeHandwriting(handwritingStrokesRef.current, canvas.width, canvas.height); }, 300); } } }}
+                                    onTouchStart={(e) => { e.preventDefault(); const canvas = e.currentTarget; const rect = canvas.getBoundingClientRect(); const touch = e.touches[0]; const x = (touch.clientX - rect.left) * (canvas.width / rect.width); const y = (touch.clientY - rect.top) * (canvas.height / rect.height); const ctx = canvas.getContext('2d'); ctx.beginPath(); ctx.moveTo(x, y); canvas.dataset.drawing = 'true'; currentStrokeRef.current = { xs: [Math.round(x)], ys: [Math.round(y)] }; }}
+                                    onTouchMove={(e) => { e.preventDefault(); const canvas = e.currentTarget; if (canvas.dataset.drawing !== 'true') return; const rect = canvas.getBoundingClientRect(); const touch = e.touches[0]; const x = (touch.clientX - rect.left) * (canvas.width / rect.width); const y = (touch.clientY - rect.top) * (canvas.height / rect.height); const ctx = canvas.getContext('2d'); ctx.lineTo(x, y); ctx.strokeStyle = document.documentElement.classList.contains('dark') ? '#fff' : '#000'; ctx.lineWidth = 4; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.stroke(); currentStrokeRef.current.xs.push(Math.round(x)); currentStrokeRef.current.ys.push(Math.round(y)); }}
+                                    onTouchEnd={(e) => { const canvas = e.currentTarget; canvas.dataset.drawing = 'false'; if (currentStrokeRef.current.xs.length > 1) { handwritingStrokesRef.current = [...handwritingStrokesRef.current, { ...currentStrokeRef.current }]; currentStrokeRef.current = { xs: [], ys: [] }; if (recognitionTimeoutRef.current) clearTimeout(recognitionTimeoutRef.current); recognitionTimeoutRef.current = setTimeout(() => { recognizeHandwriting(handwritingStrokesRef.current, canvas.width, canvas.height); }, 300); } }}
+                                />
+                            </div>
+                            {handwritingSuggestions.length > 0 && (
+                                <div className="border-t border-gray-200 dark:border-slate-700 p-3 bg-gray-50 dark:bg-slate-900/50 max-h-48 overflow-y-auto">
+                                    <div className="text-xs text-gray-500 dark:text-gray-400 mb-2 px-1 flex items-center justify-between">
+                                        <span>Chọn kanji phù hợp:</span>
+                                        <span className="text-[10px]">{handwritingSuggestions.length} kết quả</span>
+                                    </div>
+                                    <div className="grid grid-cols-8 gap-1.5">
+                                        {handwritingSuggestions.map((kanji, idx) => (
+                                            <button key={kanji.id || idx}
+                                                onClick={() => { openKanjiDetail(kanji.character); const canvas = document.getElementById('handwriting-canvas'); if (canvas) { const ctx = canvas.getContext('2d'); ctx.clearRect(0, 0, canvas.width, canvas.height); } handwritingStrokesRef.current = []; setHandwritingSuggestions([]); setShowHandwritingPopup(false); }}
+                                                className={`aspect-square hover:bg-indigo-50 dark:hover:bg-indigo-900/30 border rounded-lg flex flex-col items-center justify-center text-base font-japanese hover:border-indigo-400 transition-all hover:scale-110 relative group ${kanji.inDatabase === false ? 'bg-gray-50 dark:bg-slate-700 border-gray-200 dark:border-slate-600 text-gray-500' : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-600 text-gray-800 dark:text-white'}`}
+                                                title={`${kanji.character} - ${kanji.sinoViet || ''} ${kanji.meaning || ''}`}
+                                            >
+                                                <span className="text-lg">{kanji.character}</span>
+                                                <span className="text-[9px] text-gray-400 absolute bottom-0.5 right-0.5 opacity-60 group-hover:opacity-100">{kanji.strokes || ''}</span>
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                )}
+
+                {/* Admin Tools */}
+                {isAdmin && (
+                    <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-2xl p-4 shadow-sm space-y-2">
+                        <p className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Admin Tools</p>
+                        <div className="grid grid-cols-2 gap-2">
+                            <button onClick={() => setShowImportKanjiModal(true)} className="py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl font-medium flex items-center justify-center gap-1.5 text-sm text-white transition-colors">
+                                <FileJson className="w-4 h-4" /> Import Kanji
+                            </button>
+                            <button onClick={() => setShowImportVocabModal(true)} className="py-2 bg-purple-600 hover:bg-purple-500 rounded-xl font-medium flex items-center justify-center gap-1.5 text-sm text-white transition-colors">
+                                <FileJson className="w-4 h-4" /> Import Vocab
+                            </button>
+                        </div>
+                        <button
+                            onClick={() => { setBulkSelectMode(!bulkSelectMode); setSelectedKanjiIds([]); setSelectedVocabIds([]); }}
+                            className={`w-full py-2 rounded-xl font-medium flex items-center justify-center gap-2 text-sm transition-colors ${bulkSelectMode ? 'bg-red-600 hover:bg-red-500 text-white' : 'bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-700 dark:text-gray-300'}`}
+                        >
+                            {bulkSelectMode ? <><X className="w-4 h-4" /> Thoát chế độ chọn</> : <><Trash2 className="w-4 h-4" /> Xóa hàng loạt</>}
+                        </button>
+                    </div>
+                )}
+
+                {/* Kanji Grid Section */}
+                <div className="space-y-3">
                     {/* Bulk Select Controls */}
                     {bulkSelectMode && isAdmin && (
                         <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-3 space-y-2">
@@ -2243,12 +1994,12 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                     )}
 
                     {/* Kanji Grid */}
-                    <div className="bg-white/80 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 rounded-xl p-4 max-h-[calc(100vh-320px)] overflow-auto shadow-lg">
+                    <div className="bg-white/80 dark:bg-slate-800/60 backdrop-blur-sm border border-gray-200/80 dark:border-slate-700/50 rounded-2xl p-4 md:p-5 max-h-[calc(100vh-380px)] overflow-auto shadow-xl shadow-gray-200/30 dark:shadow-black/20">
                         {bulkSelectMode && isAdmin ? (
                             /* Bulk select mode - show list with checkboxes */
                             <div className="space-y-2">
                                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">Chọn Kanji để xóa:</p>
-                                <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2">
+                                <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-1.5">
                                     {filteredKanjiList.map(kanji => (
                                         <div
                                             key={kanji.id}
@@ -2356,20 +2107,23 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             </div>
                         ) : (
                             /* Normal mode - show grid with per-level colors */
-                            <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-11 gap-1">
+                            <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 xl:grid-cols-[repeat(14,minmax(0,1fr))] gap-1.5">
                                 {currentKanjiList.map((kanji, i) => {
                                     const colors = LEVEL_COLORS[selectedLevel] || LEVEL_COLORS.N5;
                                     const jData = getJotobaKanjiData(kanji);
-                                    const fbData = kanjiList.find(k => k.character === kanji);
-                                    const meaningTip = fbData?.meaning || jData?.meaningVi || '';
+                                    const fbData = kanjiMap.get(kanji);
+                                    const meaningTip = fbData?.sinoViet || jData?.sinoViet || '';
                                     return (
                                         <button
                                             key={`${kanji}-${i}`}
                                             onClick={() => openKanjiDetail(kanji)}
-                                            className={`aspect-square flex items-center justify-center text-xl font-bold rounded-lg transition-all ${selectedKanji === kanji ? 'bg-cyan-500 text-white scale-105 shadow-lg' : `${colors.bg} ${colors.text} ${colors.hover} hover:scale-105 shadow-md`}`}
-                                            title={meaningTip}
+                                            className={`group relative aspect-square flex flex-col items-center justify-center rounded-xl transition-all duration-200 ${selectedKanji === kanji ? 'bg-indigo-500 text-white scale-110 shadow-xl shadow-indigo-500/30 ring-2 ring-indigo-300 z-10' : `${colors.bg} ${colors.text} ${colors.hover} hover:scale-110 hover:shadow-lg hover:z-10`}`}
+                                            title={`${meaningTip} - ${fbData?.meaning || jData?.meaningVi || ''}`}
                                         >
-                                            <span className="font-japanese">{kanji}</span>
+                                            <span className="font-japanese text-lg md:text-xl leading-none">{kanji}</span>
+                                            {meaningTip && (
+                                                <span className="text-[7px] opacity-0 group-hover:opacity-80 transition-opacity mt-0.5 truncate max-w-full px-0.5 leading-tight">{meaningTip}</span>
+                                            )}
                                         </button>
                                     );
                                 })}
@@ -2383,106 +2137,111 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             {showDetailModal && KanjiDetailModal()}
 
             {/* Add Kanji Modal */}
-            {showAddKanjiModal && (
-                <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 w-[320px] max-w-[90vw] space-y-3 shadow-2xl">
-                        <div className="flex justify-between items-center">
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white">Thêm Kanji mới</h3>
-                            <button onClick={() => setShowAddKanjiModal(false)} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-6 h-6" /></button>
+            {
+                showAddKanjiModal && (
+                    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
+                        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 w-[320px] max-w-[90vw] space-y-3 shadow-2xl">
+                            <div className="flex justify-between items-center">
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Thêm Kanji mới</h3>
+                                <button onClick={() => setShowAddKanjiModal(false)} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-6 h-6" /></button>
+                            </div>
+                            <input value={newKanji.character} onChange={e => setNewKanji({ ...newKanji, character: e.target.value })} placeholder="Kanji (例: 水)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-xl text-center text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-cyan-500" />
+                            <input value={newKanji.sinoViet} onChange={e => setNewKanji({ ...newKanji, sinoViet: e.target.value })} placeholder="Âm Hán Việt (例: THỦY)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                            <input value={newKanji.meaning} onChange={e => setNewKanji({ ...newKanji, meaning: e.target.value })} placeholder="Nghĩa (例: Nước)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                            <div className="grid grid-cols-2 gap-2">
+                                <input value={newKanji.onyomi} onChange={e => setNewKanji({ ...newKanji, onyomi: e.target.value })} placeholder="Âm On" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                                <input value={newKanji.kunyomi} onChange={e => setNewKanji({ ...newKanji, kunyomi: e.target.value })} placeholder="Âm Kun" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                            </div>
+                            <div className="grid grid-cols-2 gap-2">
+                                <select value={newKanji.level} onChange={e => setNewKanji({ ...newKanji, level: e.target.value })} className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600">
+                                    {JLPT_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
+                                </select>
+                                <input value={newKanji.radical || ''} onChange={e => setNewKanji({ ...newKanji, radical: e.target.value })} placeholder="Bộ thủ (例: 水)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                            </div>
+                            <textarea value={newKanji.mnemonic} onChange={e => setNewKanji({ ...newKanji, mnemonic: e.target.value })} placeholder="Cách nhớ" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 resize-none h-16 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                            <button onClick={handleAddKanji} className="w-full py-2 bg-emerald-600 hover:bg-emerald-500 rounded-lg font-bold text-white text-sm">Lưu Kanji</button>
                         </div>
-                        <input value={newKanji.character} onChange={e => setNewKanji({ ...newKanji, character: e.target.value })} placeholder="Kanji (例: 水)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-xl text-center text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-cyan-500" />
-                        <input value={newKanji.sinoViet} onChange={e => setNewKanji({ ...newKanji, sinoViet: e.target.value })} placeholder="Âm Hán Việt (例: THỦY)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                        <input value={newKanji.meaning} onChange={e => setNewKanji({ ...newKanji, meaning: e.target.value })} placeholder="Nghĩa (例: Nước)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                        <div className="grid grid-cols-2 gap-2">
-                            <input value={newKanji.onyomi} onChange={e => setNewKanji({ ...newKanji, onyomi: e.target.value })} placeholder="Âm On" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                            <input value={newKanji.kunyomi} onChange={e => setNewKanji({ ...newKanji, kunyomi: e.target.value })} placeholder="Âm Kun" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                        </div>
-                        <div className="grid grid-cols-2 gap-2">
-                            <select value={newKanji.level} onChange={e => setNewKanji({ ...newKanji, level: e.target.value })} className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600">
-                                {JLPT_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
-                            </select>
-                            <input value={newKanji.radical || ''} onChange={e => setNewKanji({ ...newKanji, radical: e.target.value })} placeholder="Bộ thủ (例: 水)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                        </div>
-                        <textarea value={newKanji.mnemonic} onChange={e => setNewKanji({ ...newKanji, mnemonic: e.target.value })} placeholder="Cách nhớ" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 resize-none h-16 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                        <button onClick={handleAddKanji} className="w-full py-2 bg-emerald-600 hover:bg-emerald-500 rounded-lg font-bold text-white text-sm">Lưu Kanji</button>
                     </div>
-                </div>
-            )}
+                )
+            }
 
             {/* Add Vocab Modal */}
-            {showAddVocabModal && (
-                <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 w-[400px] max-w-[90vw] max-h-[90vh] overflow-y-auto space-y-3 shadow-2xl">
-                        <div className="flex justify-between items-center">
-                            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Thêm Từ vựng</h3>
-                            <button onClick={() => setShowAddVocabModal(false)} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-5 h-5" /></button>
+            {
+                showAddVocabModal && (
+                    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
+                        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 w-[400px] max-w-[90vw] max-h-[90vh] overflow-y-auto space-y-3 shadow-2xl">
+                            <div className="flex justify-between items-center">
+                                <h3 className="text-lg font-bold text-gray-900 dark:text-white">Thêm Từ vựng</h3>
+                                <button onClick={() => setShowAddVocabModal(false)} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-5 h-5" /></button>
+                            </div>
+                            <input value={newVocab.word} onChange={e => setNewVocab({ ...newVocab, word: e.target.value })} placeholder="Từ vựng (例: 水道)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-base text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                            <input value={newVocab.reading} onChange={e => setNewVocab({ ...newVocab, reading: e.target.value })} placeholder="Cách đọc (例: すいどう)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                            <input value={newVocab.sinoViet || ''} onChange={e => setNewVocab({ ...newVocab, sinoViet: e.target.value })} placeholder="Âm Hán Việt (例: THỦY ĐẠO)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                            <input value={newVocab.meaning} onChange={e => setNewVocab({ ...newVocab, meaning: e.target.value })} placeholder="Nghĩa (例: Đường ống nước)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                            <div className="grid grid-cols-2 gap-2">
+                                <select value={newVocab.level} onChange={e => setNewVocab({ ...newVocab, level: e.target.value })} className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600">
+                                    {JLPT_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
+                                </select>
+                                <select value={newVocab.pos || ''} onChange={e => setNewVocab({ ...newVocab, pos: e.target.value })} className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600">
+                                    <option value="">Từ loại</option>
+                                    <option value="noun">Danh từ</option>
+                                    <option value="verb">Động từ</option>
+                                    <option value="suru_verb">Danh động từ</option>
+                                    <option value="adj_i">Tính từ -i</option>
+                                    <option value="adj_na">Tính từ -na</option>
+                                    <option value="adverb">Trạng từ</option>
+                                    <option value="conjunction">Liên từ</option>
+                                    <option value="grammar">Ngữ pháp</option>
+                                    <option value="phrase">Cụm từ</option>
+                                    <option value="other">Khác</option>
+                                </select>
+                            </div>
+                            <input value={newVocab.synonym || ''} onChange={e => setNewVocab({ ...newVocab, synonym: e.target.value })} placeholder="Đồng nghĩa (例: 上水)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                            <input value={newVocab.example || ''} onChange={e => setNewVocab({ ...newVocab, example: e.target.value })} placeholder="Ví dụ (例: 水道の水を飲みます。)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                            <input value={newVocab.exampleMeaning || ''} onChange={e => setNewVocab({ ...newVocab, exampleMeaning: e.target.value })} placeholder="Nghĩa ví dụ (例: Tôi uống nước máy.)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                            <input value={newVocab.nuance || ''} onChange={e => setNewVocab({ ...newVocab, nuance: e.target.value })} placeholder="Sắc thái / Ghi chú" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                            <div className="grid grid-cols-2 gap-2">
+                                <input value={newVocab.source || ''} onChange={e => setNewVocab({ ...newVocab, source: e.target.value })} placeholder="Nguồn" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
+                                <select value={newVocab.category || ''} onChange={e => setNewVocab({ ...newVocab, category: e.target.value })} className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600">
+                                    <option value="">-- Phân loại --</option>
+                                    {vocabCategories.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
+                                </select>
+                            </div>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">* Tự động liên kết với Kanji trong từ</p>
+                            <button onClick={handleAddVocab} className="w-full py-2 bg-orange-600 hover:bg-orange-500 rounded-lg font-bold text-white text-sm">Lưu Từ vựng</button>
                         </div>
-                        <input value={newVocab.word} onChange={e => setNewVocab({ ...newVocab, word: e.target.value })} placeholder="Từ vựng (例: 水道)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-base text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                        <input value={newVocab.reading} onChange={e => setNewVocab({ ...newVocab, reading: e.target.value })} placeholder="Cách đọc (例: すいどう)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                        <input value={newVocab.sinoViet || ''} onChange={e => setNewVocab({ ...newVocab, sinoViet: e.target.value })} placeholder="Âm Hán Việt (例: THỦY ĐẠO)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                        <input value={newVocab.meaning} onChange={e => setNewVocab({ ...newVocab, meaning: e.target.value })} placeholder="Nghĩa (例: Đường ống nước)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                        <div className="grid grid-cols-2 gap-2">
-                            <select value={newVocab.level} onChange={e => setNewVocab({ ...newVocab, level: e.target.value })} className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600">
-                                {JLPT_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
-                            </select>
-                            <select value={newVocab.pos || ''} onChange={e => setNewVocab({ ...newVocab, pos: e.target.value })} className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600">
-                                <option value="">Từ loại</option>
-                                <option value="noun">Danh từ</option>
-                                <option value="verb">Động từ</option>
-                                <option value="suru_verb">Danh động từ</option>
-                                <option value="adj_i">Tính từ -i</option>
-                                <option value="adj_na">Tính từ -na</option>
-                                <option value="adverb">Trạng từ</option>
-                                <option value="conjunction">Liên từ</option>
-                                <option value="grammar">Ngữ pháp</option>
-                                <option value="phrase">Cụm từ</option>
-                                <option value="other">Khác</option>
-                            </select>
-                        </div>
-                        <input value={newVocab.synonym || ''} onChange={e => setNewVocab({ ...newVocab, synonym: e.target.value })} placeholder="Đồng nghĩa (例: 上水)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                        <input value={newVocab.example || ''} onChange={e => setNewVocab({ ...newVocab, example: e.target.value })} placeholder="Ví dụ (例: 水道の水を飲みます。)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                        <input value={newVocab.exampleMeaning || ''} onChange={e => setNewVocab({ ...newVocab, exampleMeaning: e.target.value })} placeholder="Nghĩa ví dụ (例: Tôi uống nước máy.)" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                        <input value={newVocab.nuance || ''} onChange={e => setNewVocab({ ...newVocab, nuance: e.target.value })} placeholder="Sắc thái / Ghi chú" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                        <div className="grid grid-cols-2 gap-2">
-                            <input value={newVocab.source || ''} onChange={e => setNewVocab({ ...newVocab, source: e.target.value })} placeholder="Nguồn" className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600" />
-                            <select value={newVocab.category || ''} onChange={e => setNewVocab({ ...newVocab, category: e.target.value })} className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600">
-                                <option value="">-- Phân loại --</option>
-                                {vocabCategories.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
-                            </select>
-                        </div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">* Tự động liên kết với Kanji trong từ</p>
-                        <button onClick={handleAddVocab} className="w-full py-2 bg-orange-600 hover:bg-orange-500 rounded-lg font-bold text-white text-sm">Lưu Từ vựng</button>
                     </div>
-                </div>
-            )}
+                )
+            }
 
             {/* Import Kanji JSON Modal */}
-            {showImportKanjiModal && (
-                <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 w-[480px] max-w-[90vw] space-y-3 shadow-2xl">
-                        <div className="flex justify-between items-center">
-                            <h3 className="text-lg font-bold flex items-center gap-2 text-gray-900 dark:text-white">
-                                <FileJson className="w-5 h-5 text-cyan-500 dark:text-cyan-400" /> Import Kanji
-                            </h3>
-                            <button onClick={() => { setShowImportKanjiModal(false); setImportStatus(''); }} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-5 h-5" /></button>
-                        </div>
-
-                        <div className="bg-gray-100 dark:bg-slate-700/50 rounded-lg p-3 text-xs border border-gray-200 dark:border-slate-600">
-                            <div className="flex justify-between items-center mb-2">
-                                <p className="text-gray-700 dark:text-gray-300 font-medium">📝 JSON mẫu:</p>
-                                <button
-                                    onClick={() => {
-                                        const sampleJson = `[{"character":"夏","sinoViet":"HẠ","meaning":"Mùa hè","onyomi":"カ","kunyomi":"なつ","level":"N4","radical":"自(Tự), 夂(Truy)","mnemonic":"Còn lại Mình 自 ta Sau 夂 Mùa Hạ 夏."}]`;
-                                        navigator.clipboard.writeText(sampleJson);
-                                        setImportStatus('📋 Đã copy JSON mẫu!');
-                                        setTimeout(() => setImportStatus(''), 2000);
-                                    }}
-                                    className="flex items-center gap-1 px-2 py-1 text-[10px] bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400 rounded hover:bg-cyan-200 dark:hover:bg-cyan-800/50 transition-colors font-medium"
-                                >
-                                    <Copy className="w-3 h-3" /> Copy mẫu
-                                </button>
+            {
+                showImportKanjiModal && (
+                    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
+                        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 w-[480px] max-w-[90vw] space-y-3 shadow-2xl">
+                            <div className="flex justify-between items-center">
+                                <h3 className="text-lg font-bold flex items-center gap-2 text-gray-900 dark:text-white">
+                                    <FileJson className="w-5 h-5 text-cyan-500 dark:text-cyan-400" /> Import Kanji
+                                </h3>
+                                <button onClick={() => { setShowImportKanjiModal(false); setImportStatus(''); }} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-5 h-5" /></button>
                             </div>
-                            <pre className="text-[10px] text-cyan-600 dark:text-cyan-400 overflow-x-auto whitespace-pre-wrap bg-white/50 dark:bg-slate-800/50 rounded p-2">{`{
+
+                            <div className="bg-gray-100 dark:bg-slate-700/50 rounded-lg p-3 text-xs border border-gray-200 dark:border-slate-600">
+                                <div className="flex justify-between items-center mb-2">
+                                    <p className="text-gray-700 dark:text-gray-300 font-medium">📝 JSON mẫu:</p>
+                                    <button
+                                        onClick={() => {
+                                            const sampleJson = `[{"character":"夏","sinoViet":"HẠ","meaning":"Mùa hè","onyomi":"カ","kunyomi":"なつ","level":"N4","radical":"自(Tự), 夂(Truy)","mnemonic":"Còn lại Mình 自 ta Sau 夂 Mùa Hạ 夏."}]`;
+                                            navigator.clipboard.writeText(sampleJson);
+                                            setImportStatus('📋 Đã copy JSON mẫu!');
+                                            setTimeout(() => setImportStatus(''), 2000);
+                                        }}
+                                        className="flex items-center gap-1 px-2 py-1 text-[10px] bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400 rounded hover:bg-cyan-200 dark:hover:bg-cyan-800/50 transition-colors font-medium"
+                                    >
+                                        <Copy className="w-3 h-3" /> Copy mẫu
+                                    </button>
+                                </div>
+                                <pre className="text-[10px] text-cyan-600 dark:text-cyan-400 overflow-x-auto whitespace-pre-wrap bg-white/50 dark:bg-slate-800/50 rounded p-2">{`{
   "character": "夏",
   "sinoViet": "HẠ",
   "meaning": "Mùa hè",
@@ -2492,77 +2251,84 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
   "radical": "自(Tự), 夂(Truy)",
   "mnemonic": "Còn lại Mình 自 ta Sau 夂 Mùa Hạ 夏."
 }`}</pre>
-                            <p className="text-gray-500 dark:text-gray-400 text-[10px] mt-2">* Các trường bắt buộc: character, level. Các trường khác tùy chọn.</p>
+                                <div className="mt-2 space-y-0.5 text-[10px] text-gray-500 dark:text-gray-400">
+                                    <p>• Trường bắt buộc: <strong>character</strong>. Tất cả trường khác tùy chọn.</p>
+                                    <p>• Có thể <strong>để trống các trường</strong> và chỉ điền dữ liệu vào trường cần cập nhật (VD: chỉ gửi character + mnemonic).</p>
+                                    <p>• Kanji <strong>đã tồn tại</strong> → cập nhật các trường có trong JSON (không ghi đè trường trống).</p>
+                                    <p>• Kanji <strong>chưa có</strong> → tạo mới.</p>
+                                </div>
+                            </div>
+
+                            <textarea
+                                value={jsonKanjiInput}
+                                onChange={e => setJsonKanjiInput(e.target.value)}
+                                placeholder="Dán JSON Kanji vào đây..."
+                                className="w-full h-32 bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-2 text-gray-900 dark:text-white font-mono text-xs resize-none border border-gray-200 dark:border-slate-600"
+                            />
+
+                            {importStatus && (
+                                <p className={`text-center text-sm font-medium ${importStatus.includes('✅') ? 'text-emerald-600 dark:text-emerald-400' : importStatus.includes('❌') ? 'text-red-600 dark:text-red-400' : 'text-cyan-600 dark:text-cyan-400'}`}>
+                                    {importStatus}
+                                </p>
+                            )}
+
+                            <button
+                                onClick={handleImportKanjiJson}
+                                disabled={isImporting || !jsonKanjiInput.trim()}
+                                className="w-full py-2 bg-cyan-600 hover:bg-cyan-500 disabled:bg-gray-300 dark:disabled:bg-slate-600 disabled:cursor-not-allowed rounded-lg font-bold flex items-center justify-center gap-2 text-white text-sm"
+                            >
+                                {isImporting ? 'Đang nhập...' : <><Upload className="w-4 h-4" /> Import</>}
+                            </button>
+
+                            {/* Divider */}
+                            <div className="flex items-center gap-3">
+                                <div className="flex-1 h-px bg-gray-200 dark:bg-slate-600"></div>
+                                <span className="text-xs text-gray-400">hoặc</span>
+                                <div className="flex-1 h-px bg-gray-200 dark:bg-slate-600"></div>
+                            </div>
+
+                            {/* Sync ALL Jotoba kanji */}
+                            <button
+                                onClick={handleSyncJotobaToFirebase}
+                                disabled={isImporting}
+                                className="w-full py-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 disabled:from-gray-300 disabled:to-gray-300 dark:disabled:from-slate-600 dark:disabled:to-slate-600 disabled:cursor-not-allowed rounded-lg font-bold flex items-center justify-center gap-2 text-white text-sm"
+                            >
+                                {isImporting ? importStatus : <><RefreshCw className="w-4 h-4" /> Đồng bộ toàn bộ Kanji Jotoba → Firebase</>}
+                            </button>
+                            <p className="text-[10px] text-gray-400 text-center">Thêm 2211 kanji JLPT N5→N1 vào database (không ghi đè dữ liệu đã chỉnh sửa)</p>
                         </div>
-
-                        <textarea
-                            value={jsonKanjiInput}
-                            onChange={e => setJsonKanjiInput(e.target.value)}
-                            placeholder="Dán JSON Kanji vào đây..."
-                            className="w-full h-32 bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-2 text-gray-900 dark:text-white font-mono text-xs resize-none border border-gray-200 dark:border-slate-600"
-                        />
-
-                        {importStatus && (
-                            <p className={`text-center text-sm font-medium ${importStatus.includes('✅') ? 'text-emerald-600 dark:text-emerald-400' : importStatus.includes('❌') ? 'text-red-600 dark:text-red-400' : 'text-cyan-600 dark:text-cyan-400'}`}>
-                                {importStatus}
-                            </p>
-                        )}
-
-                        <button
-                            onClick={handleImportKanjiJson}
-                            disabled={isImporting || !jsonKanjiInput.trim()}
-                            className="w-full py-2 bg-cyan-600 hover:bg-cyan-500 disabled:bg-gray-300 dark:disabled:bg-slate-600 disabled:cursor-not-allowed rounded-lg font-bold flex items-center justify-center gap-2 text-white text-sm"
-                        >
-                            {isImporting ? 'Đang nhập...' : <><Upload className="w-4 h-4" /> Import</>}
-                        </button>
-
-                        {/* Divider */}
-                        <div className="flex items-center gap-3">
-                            <div className="flex-1 h-px bg-gray-200 dark:bg-slate-600"></div>
-                            <span className="text-xs text-gray-400">hoặc</span>
-                            <div className="flex-1 h-px bg-gray-200 dark:bg-slate-600"></div>
-                        </div>
-
-                        {/* Sync ALL Jotoba kanji */}
-                        <button
-                            onClick={handleSyncJotobaToFirebase}
-                            disabled={isImporting}
-                            className="w-full py-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 disabled:from-gray-300 disabled:to-gray-300 dark:disabled:from-slate-600 dark:disabled:to-slate-600 disabled:cursor-not-allowed rounded-lg font-bold flex items-center justify-center gap-2 text-white text-sm"
-                        >
-                            {isImporting ? importStatus : <><RefreshCw className="w-4 h-4" /> Đồng bộ toàn bộ Kanji Jotoba → Firebase</>}
-                        </button>
-                        <p className="text-[10px] text-gray-400 text-center">Thêm 2211 kanji JLPT N5→N1 vào database (không ghi đè dữ liệu đã chỉnh sửa)</p>
                     </div>
-                </div>
-            )}
+                )
+            }
 
             {/* Import Vocab JSON Modal */}
-            {showImportVocabModal && (
-                <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 w-[480px] max-w-[90vw] space-y-3 shadow-2xl">
-                        <div className="flex justify-between items-center">
-                            <h3 className="text-lg font-bold flex items-center gap-2 text-gray-900 dark:text-white">
-                                <FileJson className="w-5 h-5 text-purple-500 dark:text-purple-400" /> Import Từ vựng
-                            </h3>
-                            <button onClick={() => { setShowImportVocabModal(false); setImportStatus(''); }} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-5 h-5" /></button>
-                        </div>
-
-                        <div className="bg-gray-100 dark:bg-slate-700/50 rounded-lg p-3 text-xs border border-gray-200 dark:border-slate-600">
-                            <div className="flex justify-between items-center mb-2">
-                                <p className="text-gray-700 dark:text-gray-300 font-medium">📝 JSON mẫu:</p>
-                                <button
-                                    onClick={() => {
-                                        const sampleJson = `[{"word":"夏休み","reading":"なつやすみ","meaning":"Nghỉ hè","level":"N4","sinoViet":"Hạ hưu","pos":"noun","synonym":"","example":"夏休みは楽しいです。","exampleMeaning":"Kỳ nghỉ hè vui lắm.","nuance":"","accent":"3","specialReading":false}]`;
-                                        navigator.clipboard.writeText(sampleJson);
-                                        setImportStatus('📋 Đã copy JSON mẫu!');
-                                        setTimeout(() => setImportStatus(''), 2000);
-                                    }}
-                                    className="flex items-center gap-1 px-2 py-1 text-[10px] bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 rounded hover:bg-purple-200 dark:hover:bg-purple-800/50 transition-colors font-medium"
-                                >
-                                    <Copy className="w-3 h-3" /> Copy mẫu
-                                </button>
+            {
+                showImportVocabModal && (
+                    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
+                        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 w-[480px] max-w-[90vw] space-y-3 shadow-2xl">
+                            <div className="flex justify-between items-center">
+                                <h3 className="text-lg font-bold flex items-center gap-2 text-gray-900 dark:text-white">
+                                    <FileJson className="w-5 h-5 text-purple-500 dark:text-purple-400" /> Import Từ vựng
+                                </h3>
+                                <button onClick={() => { setShowImportVocabModal(false); setImportStatus(''); }} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-5 h-5" /></button>
                             </div>
-                            <pre className="text-[10px] text-purple-600 dark:text-purple-400 overflow-x-auto whitespace-pre-wrap bg-white/50 dark:bg-slate-800/50 rounded p-2">{`{
+
+                            <div className="bg-gray-100 dark:bg-slate-700/50 rounded-lg p-3 text-xs border border-gray-200 dark:border-slate-600">
+                                <div className="flex justify-between items-center mb-2">
+                                    <p className="text-gray-700 dark:text-gray-300 font-medium">📝 JSON mẫu:</p>
+                                    <button
+                                        onClick={() => {
+                                            const sampleJson = `[{"word":"夏休み","reading":"なつやすみ","meaning":"Nghỉ hè","level":"N4","sinoViet":"Hạ hưu","pos":"noun","synonym":"","example":"夏休みは楽しいです。","exampleMeaning":"Kỳ nghỉ hè vui lắm.","nuance":"","accent":"3","specialReading":false}]`;
+                                            navigator.clipboard.writeText(sampleJson);
+                                            setImportStatus('📋 Đã copy JSON mẫu!');
+                                            setTimeout(() => setImportStatus(''), 2000);
+                                        }}
+                                        className="flex items-center gap-1 px-2 py-1 text-[10px] bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 rounded hover:bg-purple-200 dark:hover:bg-purple-800/50 transition-colors font-medium"
+                                    >
+                                        <Copy className="w-3 h-3" /> Copy mẫu
+                                    </button>
+                                </div>
+                                <pre className="text-[10px] text-purple-600 dark:text-purple-400 overflow-x-auto whitespace-pre-wrap bg-white/50 dark:bg-slate-800/50 rounded p-2">{`{
   "word": "夏休み",
   "reading": "なつやすみ",
   "meaning": "Nghỉ hè",
@@ -2576,258 +2342,265 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
   "exampleMeaning": "Kỳ nghỉ hè vui lắm.",
   "nuance": ""
 }`}</pre>
-                            <p className="text-gray-500 dark:text-gray-400 text-[10px] mt-2">* accent: số vị trí accent (0=heiban, 1=atamadaka...). specialReading: true = đọc đặc biệt (全青色). Tự động liên kết với Kanji cùng cấp độ.</p>
-                        </div>
+                                <p className="text-gray-500 dark:text-gray-400 text-[10px] mt-2">* accent: số vị trí accent (0=heiban, 1=atamadaka...). specialReading: true = đọc đặc biệt (全青色). Tự động liên kết với Kanji cùng cấp độ.</p>
+                            </div>
 
-                        {/* Category selector for import */}
-                        <div className="flex items-center gap-2">
-                            <label className="text-sm text-gray-700 dark:text-gray-300 font-medium whitespace-nowrap">🏷️ Phân loại:</label>
-                            <select
-                                value={importCategory}
-                                onChange={e => setImportCategory(e.target.value)}
-                                className="flex-1 bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
-                            >
-                                <option value="">-- Không phân loại --</option>
-                                {vocabCategories.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
-                            </select>
-                        </div>
+                            {/* Category selector for import */}
+                            <div className="flex items-center gap-2">
+                                <label className="text-sm text-gray-700 dark:text-gray-300 font-medium whitespace-nowrap">🏷️ Phân loại:</label>
+                                <select
+                                    value={importCategory}
+                                    onChange={e => setImportCategory(e.target.value)}
+                                    className="flex-1 bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-1.5 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                                >
+                                    <option value="">-- Không phân loại --</option>
+                                    {vocabCategories.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
+                                </select>
+                            </div>
 
-                        <textarea
-                            value={jsonVocabInput}
-                            onChange={e => setJsonVocabInput(e.target.value)}
-                            placeholder="Dán JSON Từ vựng vào đây..."
-                            className="w-full h-32 bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-2 text-gray-900 dark:text-white font-mono text-xs resize-none border border-gray-200 dark:border-slate-600"
-                        />
-
-                        {importStatus && (
-                            <p className={`text-center text-sm font-medium ${importStatus.includes('✅') ? 'text-emerald-600 dark:text-emerald-400' : importStatus.includes('❌') ? 'text-red-600 dark:text-red-400' : 'text-purple-600 dark:text-purple-400'}`}>
-                                {importStatus}
-                            </p>
-                        )}
-
-                        <button
-                            onClick={handleImportVocabJson}
-                            disabled={isImporting || !jsonVocabInput.trim()}
-                            className="w-full py-2 bg-purple-600 hover:bg-purple-500 disabled:bg-gray-300 dark:disabled:bg-slate-600 disabled:cursor-not-allowed rounded-lg font-bold flex items-center justify-center gap-2 text-white text-sm"
-                        >
-                            {isImporting ? 'Đang nhập...' : <><Upload className="w-4 h-4" /> Import</>}
-                        </button>
-                    </div>
-                </div>
-            )}
-
-            {/* Edit Kanji Modal */}
-            {showEditKanjiModal && editingKanji && (
-                <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-slate-800 rounded-xl p-6 w-full max-w-md max-h-[90vh] overflow-auto space-y-4 shadow-2xl">
-                        <div className="flex justify-between items-center">
-                            <h3 className="text-xl font-bold flex items-center gap-2 text-gray-900 dark:text-white">
-                                <Edit className="w-5 h-5 text-cyan-500 dark:text-cyan-400" /> {editingKanji.id ? 'Chỉnh sửa' : 'Thêm/Sửa'} Kanji
-                            </h3>
-                            <button onClick={() => { setShowEditKanjiModal(false); setEditingKanji(null); }} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-6 h-6" /></button>
-                        </div>
-                        <input
-                            value={editingKanji.character}
-                            onChange={e => setEditingKanji({ ...editingKanji, character: e.target.value })}
-                            placeholder="Kanji"
-                            className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-2xl text-center text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
-                            readOnly={!!editingKanji.id || !!editingKanji._fromJotoba}
-                        />
-                        <input
-                            value={editingKanji.sinoViet || ''}
-                            onChange={e => setEditingKanji({ ...editingKanji, sinoViet: e.target.value })}
-                            placeholder="Âm Hán Việt"
-                            className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
-                        />
-                        <input
-                            value={editingKanji.meaning || ''}
-                            onChange={e => setEditingKanji({ ...editingKanji, meaning: e.target.value })}
-                            placeholder="Nghĩa (tiếng Việt)"
-                            className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
-                        />
-                        <div className="grid grid-cols-2 gap-2">
-                            <input
-                                value={editingKanji.onyomi || ''}
-                                onChange={e => setEditingKanji({ ...editingKanji, onyomi: e.target.value })}
-                                placeholder="Âm On"
-                                className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                            <textarea
+                                value={jsonVocabInput}
+                                onChange={e => setJsonVocabInput(e.target.value)}
+                                placeholder="Dán JSON Từ vựng vào đây..."
+                                className="w-full h-32 bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-2 text-gray-900 dark:text-white font-mono text-xs resize-none border border-gray-200 dark:border-slate-600"
                             />
-                            <input
-                                value={editingKanji.kunyomi || ''}
-                                onChange={e => setEditingKanji({ ...editingKanji, kunyomi: e.target.value })}
-                                placeholder="Âm Kun"
-                                className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
-                            />
-                        </div>
-                        <div className="grid grid-cols-2 gap-2">
-                            <select
-                                value={editingKanji.level}
-                                onChange={e => setEditingKanji({ ...editingKanji, level: e.target.value })}
-                                className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
-                            >
-                                {JLPT_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
-                            </select>
-                            <input
-                                value={editingKanji.strokeCount || ''}
-                                onChange={e => setEditingKanji({ ...editingKanji, strokeCount: e.target.value })}
-                                placeholder="Số nét"
-                                className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
-                            />
-                        </div>
-                        <input
-                            value={editingKanji.parts || ''}
-                            onChange={e => setEditingKanji({ ...editingKanji, parts: e.target.value })}
-                            placeholder="Thành phần chiết tự (cách nhau bằng 、)"
-                            className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white font-japanese border border-gray-200 dark:border-slate-600"
-                        />
-                        <textarea
-                            value={editingKanji.mnemonic || ''}
-                            onChange={e => setEditingKanji({ ...editingKanji, mnemonic: e.target.value })}
-                            placeholder="Cách nhớ"
-                            className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 resize-none h-20 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
-                        />
-                        <button onClick={handleEditKanji} className="w-full py-3 bg-cyan-600 hover:bg-cyan-500 rounded-lg font-bold flex items-center justify-center gap-2 text-white">
-                            <Save className="w-5 h-5" /> {editingKanji.id ? 'Lưu thay đổi' : 'Lưu vào Firebase'}
-                        </button>
-                    </div>
-                </div>
-            )}
 
-            {/* Edit Vocab Modal */}
-            {showEditVocabModal && editingVocab && (
-                <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-slate-800 rounded-xl p-6 w-full max-w-md space-y-4 shadow-2xl">
-                        <div className="flex justify-between items-center">
-                            <h3 className="text-xl font-bold flex items-center gap-2 text-gray-900 dark:text-white">
-                                <Edit className="w-5 h-5 text-orange-500 dark:text-orange-400" /> Chỉnh sửa Từ vựng
-                            </h3>
-                            <button onClick={() => { setShowEditVocabModal(false); setEditingVocab(null); }} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-6 h-6" /></button>
-                        </div>
-                        <input
-                            value={editingVocab.word}
-                            onChange={e => setEditingVocab({ ...editingVocab, word: e.target.value })}
-                            placeholder="Từ vựng"
-                            className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-lg text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
-                        />
-                        <input
-                            value={editingVocab.reading || ''}
-                            onChange={e => setEditingVocab({ ...editingVocab, reading: e.target.value })}
-                            placeholder="Cách đọc (hiragana)"
-                            className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
-                        />
-                        <input
-                            value={editingVocab.sinoViet || ''}
-                            onChange={e => setEditingVocab({ ...editingVocab, sinoViet: e.target.value })}
-                            placeholder="Âm Hán Việt"
-                            className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
-                        />
-                        <input
-                            value={editingVocab.meaning || ''}
-                            onChange={e => setEditingVocab({ ...editingVocab, meaning: e.target.value })}
-                            placeholder="Nghĩa"
-                            className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
-                        />
-                        <div className="grid grid-cols-2 gap-2">
-                            <select
-                                value={editingVocab.level}
-                                onChange={e => setEditingVocab({ ...editingVocab, level: e.target.value })}
-                                className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
-                            >
-                                {JLPT_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
-                            </select>
-                            <input
-                                value={editingVocab.source || ''}
-                                onChange={e => setEditingVocab({ ...editingVocab, source: e.target.value })}
-                                placeholder="Nguồn"
-                                className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
-                            />
-                        </div>
-                        <select
-                            value={editingVocab.category || ''}
-                            onChange={e => setEditingVocab({ ...editingVocab, category: e.target.value })}
-                            className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
-                        >
-                            <option value="">-- Phân loại --</option>
-                            {vocabCategories.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
-                        </select>
-                        <button onClick={handleEditVocab} className="w-full py-3 bg-orange-600 hover:bg-orange-500 rounded-lg font-bold flex items-center justify-center gap-2 text-white">
-                            <Save className="w-5 h-5" /> Lưu thay đổi
-                        </button>
-                    </div>
-                </div>
-            )}
+                            {importStatus && (
+                                <p className={`text-center text-sm font-medium ${importStatus.includes('✅') ? 'text-emerald-600 dark:text-emerald-400' : importStatus.includes('❌') ? 'text-red-600 dark:text-red-400' : 'text-purple-600 dark:text-purple-400'}`}>
+                                    {importStatus}
+                                </p>
+                            )}
 
-            {/* Category Management Modal */}
-            {showCategoryModal && (
-                <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[400px] max-w-[90vw] space-y-4 shadow-2xl">
-                        <div className="flex justify-between items-center">
-                            <h3 className="text-lg font-bold flex items-center gap-2 text-gray-900 dark:text-white">
-                                <FolderPlus className="w-5 h-5 text-purple-500 dark:text-purple-400" /> Quản lý phân loại từ vựng
-                            </h3>
-                            <button onClick={() => setShowCategoryModal(false)} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-5 h-5" /></button>
-                        </div>
-
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                            Tạo các phân loại để nhóm từ vựng (ví dụ: "Mimikara N3", "Tango N3", "Đề JLPT N3").
-                        </p>
-
-                        {/* Add new category */}
-                        <div className="flex items-center gap-2">
-                            <input
-                                value={newCategoryName}
-                                onChange={e => setNewCategoryName(e.target.value)}
-                                onKeyDown={e => e.key === 'Enter' && handleAddCategory()}
-                                placeholder="Tên phân loại mới..."
-                                className="flex-1 bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                            />
                             <button
-                                onClick={handleAddCategory}
-                                disabled={!newCategoryName.trim()}
-                                className="px-4 py-2 bg-purple-600 hover:bg-purple-500 disabled:bg-gray-300 dark:disabled:bg-slate-600 disabled:cursor-not-allowed text-white rounded-lg font-medium text-sm flex items-center gap-1 transition-colors"
+                                onClick={handleImportVocabJson}
+                                disabled={isImporting || !jsonVocabInput.trim()}
+                                className="w-full py-2 bg-purple-600 hover:bg-purple-500 disabled:bg-gray-300 dark:disabled:bg-slate-600 disabled:cursor-not-allowed rounded-lg font-bold flex items-center justify-center gap-2 text-white text-sm"
                             >
-                                <Plus className="w-4 h-4" /> Thêm
+                                {isImporting ? 'Đang nhập...' : <><Upload className="w-4 h-4" /> Import</>}
                             </button>
                         </div>
+                    </div>
+                )
+            }
 
-                        {/* Category list */}
-                        <div className="space-y-2 max-h-[300px] overflow-y-auto">
-                            {vocabCategories.length === 0 ? (
-                                <p className="text-center text-gray-400 dark:text-gray-500 py-4 text-sm">Chưa có phân loại nào</p>
-                            ) : (
-                                vocabCategories.map((cat, idx) => {
-                                    const catVocabCount = vocabList.filter(v => v.category === cat.name).length;
-                                    const colors = [
-                                        'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-orange-200 dark:border-orange-800',
-                                        'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800',
-                                        'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800',
-                                        'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800',
-                                        'bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 border-pink-200 dark:border-pink-800',
-                                        'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800',
-                                    ];
-                                    return (
-                                        <div key={cat.id} className={`flex items-center justify-between p-3 rounded-lg border ${colors[idx % colors.length]} transition-all`}>
-                                            <div className="flex items-center gap-2">
-                                                <Tag className="w-4 h-4" />
-                                                <span className="font-medium text-sm">{cat.name}</span>
-                                                <span className="text-xs opacity-70">({catVocabCount} từ)</span>
-                                            </div>
-                                            <button
-                                                onClick={() => handleDeleteCategory(cat.id)}
-                                                className="p-1 hover:bg-red-200 dark:hover:bg-red-900/50 rounded-md transition-colors"
-                                                title="Xóa phân loại"
-                                            >
-                                                <Trash2 className="w-4 h-4 text-red-500" />
-                                            </button>
-                                        </div>
-                                    );
-                                })
-                            )}
+            {/* Edit Kanji Modal */}
+            {
+                showEditKanjiModal && editingKanji && (
+                    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
+                        <div className="bg-white dark:bg-slate-800 rounded-xl p-6 w-full max-w-md max-h-[90vh] overflow-auto space-y-4 shadow-2xl">
+                            <div className="flex justify-between items-center">
+                                <h3 className="text-xl font-bold flex items-center gap-2 text-gray-900 dark:text-white">
+                                    <Edit className="w-5 h-5 text-cyan-500 dark:text-cyan-400" /> {editingKanji.id ? 'Chỉnh sửa' : 'Thêm/Sửa'} Kanji
+                                </h3>
+                                <button onClick={() => { setShowEditKanjiModal(false); setEditingKanji(null); }} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-6 h-6" /></button>
+                            </div>
+                            <input
+                                value={editingKanji.character}
+                                onChange={e => setEditingKanji({ ...editingKanji, character: e.target.value })}
+                                placeholder="Kanji"
+                                className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-2xl text-center text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                                readOnly={!!editingKanji.id || !!editingKanji._fromJotoba}
+                            />
+                            <input
+                                value={editingKanji.sinoViet || ''}
+                                onChange={e => setEditingKanji({ ...editingKanji, sinoViet: e.target.value })}
+                                placeholder="Âm Hán Việt"
+                                className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                            />
+                            <input
+                                value={editingKanji.meaning || ''}
+                                onChange={e => setEditingKanji({ ...editingKanji, meaning: e.target.value })}
+                                placeholder="Nghĩa (tiếng Việt)"
+                                className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                            />
+                            <div className="grid grid-cols-2 gap-2">
+                                <input
+                                    value={editingKanji.onyomi || ''}
+                                    onChange={e => setEditingKanji({ ...editingKanji, onyomi: e.target.value })}
+                                    placeholder="Âm On"
+                                    className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                                />
+                                <input
+                                    value={editingKanji.kunyomi || ''}
+                                    onChange={e => setEditingKanji({ ...editingKanji, kunyomi: e.target.value })}
+                                    placeholder="Âm Kun"
+                                    className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                                />
+                            </div>
+                            <div className="grid grid-cols-2 gap-2">
+                                <select
+                                    value={editingKanji.level}
+                                    onChange={e => setEditingKanji({ ...editingKanji, level: e.target.value })}
+                                    className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                                >
+                                    {JLPT_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
+                                </select>
+                                <input
+                                    value={editingKanji.strokeCount || ''}
+                                    onChange={e => setEditingKanji({ ...editingKanji, strokeCount: e.target.value })}
+                                    placeholder="Số nét"
+                                    className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                                />
+                            </div>
+                            <input
+                                value={editingKanji.parts || ''}
+                                onChange={e => setEditingKanji({ ...editingKanji, parts: e.target.value })}
+                                placeholder="Thành phần chiết tự (cách nhau bằng 、)"
+                                className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white font-japanese border border-gray-200 dark:border-slate-600"
+                            />
+                            <textarea
+                                value={editingKanji.mnemonic || ''}
+                                onChange={e => setEditingKanji({ ...editingKanji, mnemonic: e.target.value })}
+                                placeholder="Cách nhớ"
+                                className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 resize-none h-20 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                            />
+                            <button onClick={handleEditKanji} className="w-full py-3 bg-cyan-600 hover:bg-cyan-500 rounded-lg font-bold flex items-center justify-center gap-2 text-white">
+                                <Save className="w-5 h-5" /> {editingKanji.id ? 'Lưu thay đổi' : 'Lưu vào Firebase'}
+                            </button>
                         </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )
+            }
+
+            {/* Edit Vocab Modal */}
+            {
+                showEditVocabModal && editingVocab && (
+                    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
+                        <div className="bg-white dark:bg-slate-800 rounded-xl p-6 w-full max-w-md space-y-4 shadow-2xl">
+                            <div className="flex justify-between items-center">
+                                <h3 className="text-xl font-bold flex items-center gap-2 text-gray-900 dark:text-white">
+                                    <Edit className="w-5 h-5 text-orange-500 dark:text-orange-400" /> Chỉnh sửa Từ vựng
+                                </h3>
+                                <button onClick={() => { setShowEditVocabModal(false); setEditingVocab(null); }} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-6 h-6" /></button>
+                            </div>
+                            <input
+                                value={editingVocab.word}
+                                onChange={e => setEditingVocab({ ...editingVocab, word: e.target.value })}
+                                placeholder="Từ vựng"
+                                className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-lg text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                            />
+                            <input
+                                value={editingVocab.reading || ''}
+                                onChange={e => setEditingVocab({ ...editingVocab, reading: e.target.value })}
+                                placeholder="Cách đọc (hiragana)"
+                                className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                            />
+                            <input
+                                value={editingVocab.sinoViet || ''}
+                                onChange={e => setEditingVocab({ ...editingVocab, sinoViet: e.target.value })}
+                                placeholder="Âm Hán Việt"
+                                className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                            />
+                            <input
+                                value={editingVocab.meaning || ''}
+                                onChange={e => setEditingVocab({ ...editingVocab, meaning: e.target.value })}
+                                placeholder="Nghĩa"
+                                className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                            />
+                            <div className="grid grid-cols-2 gap-2">
+                                <select
+                                    value={editingVocab.level}
+                                    onChange={e => setEditingVocab({ ...editingVocab, level: e.target.value })}
+                                    className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                                >
+                                    {JLPT_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
+                                </select>
+                                <input
+                                    value={editingVocab.source || ''}
+                                    onChange={e => setEditingVocab({ ...editingVocab, source: e.target.value })}
+                                    placeholder="Nguồn"
+                                    className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                                />
+                            </div>
+                            <select
+                                value={editingVocab.category || ''}
+                                onChange={e => setEditingVocab({ ...editingVocab, category: e.target.value })}
+                                className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-4 py-2 text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                            >
+                                <option value="">-- Phân loại --</option>
+                                {vocabCategories.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
+                            </select>
+                            <button onClick={handleEditVocab} className="w-full py-3 bg-orange-600 hover:bg-orange-500 rounded-lg font-bold flex items-center justify-center gap-2 text-white">
+                                <Save className="w-5 h-5" /> Lưu thay đổi
+                            </button>
+                        </div>
+                    </div>
+                )
+            }
+
+            {/* Category Management Modal */}
+            {
+                showCategoryModal && (
+                    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
+                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[400px] max-w-[90vw] space-y-4 shadow-2xl">
+                            <div className="flex justify-between items-center">
+                                <h3 className="text-lg font-bold flex items-center gap-2 text-gray-900 dark:text-white">
+                                    <FolderPlus className="w-5 h-5 text-purple-500 dark:text-purple-400" /> Quản lý phân loại từ vựng
+                                </h3>
+                                <button onClick={() => setShowCategoryModal(false)} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-5 h-5" /></button>
+                            </div>
+
+                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                                Tạo các phân loại để nhóm từ vựng (ví dụ: "Mimikara N3", "Tango N3", "Đề JLPT N3").
+                            </p>
+
+                            {/* Add new category */}
+                            <div className="flex items-center gap-2">
+                                <input
+                                    value={newCategoryName}
+                                    onChange={e => setNewCategoryName(e.target.value)}
+                                    onKeyDown={e => e.key === 'Enter' && handleAddCategory()}
+                                    placeholder="Tên phân loại mới..."
+                                    className="flex-1 bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                />
+                                <button
+                                    onClick={handleAddCategory}
+                                    disabled={!newCategoryName.trim()}
+                                    className="px-4 py-2 bg-purple-600 hover:bg-purple-500 disabled:bg-gray-300 dark:disabled:bg-slate-600 disabled:cursor-not-allowed text-white rounded-lg font-medium text-sm flex items-center gap-1 transition-colors"
+                                >
+                                    <Plus className="w-4 h-4" /> Thêm
+                                </button>
+                            </div>
+
+                            {/* Category list */}
+                            <div className="space-y-2 max-h-[300px] overflow-y-auto">
+                                {vocabCategories.length === 0 ? (
+                                    <p className="text-center text-gray-400 dark:text-gray-500 py-4 text-sm">Chưa có phân loại nào</p>
+                                ) : (
+                                    vocabCategories.map((cat, idx) => {
+                                        const catVocabCount = vocabList.filter(v => v.category === cat.name).length;
+                                        const colors = [
+                                            'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-orange-200 dark:border-orange-800',
+                                            'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800',
+                                            'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800',
+                                            'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800',
+                                            'bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 border-pink-200 dark:border-pink-800',
+                                            'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800',
+                                        ];
+                                        return (
+                                            <div key={cat.id} className={`flex items-center justify-between p-3 rounded-lg border ${colors[idx % colors.length]} transition-all`}>
+                                                <div className="flex items-center gap-2">
+                                                    <Tag className="w-4 h-4" />
+                                                    <span className="font-medium text-sm">{cat.name}</span>
+                                                    <span className="text-xs opacity-70">({catVocabCount} từ)</span>
+                                                </div>
+                                                <button
+                                                    onClick={() => handleDeleteCategory(cat.id)}
+                                                    className="p-1 hover:bg-red-200 dark:hover:bg-red-900/50 rounded-md transition-colors"
+                                                    title="Xóa phân loại"
+                                                >
+                                                    <Trash2 className="w-4 h-4 text-red-500" />
+                                                </button>
+                                            </div>
+                                        );
+                                    })
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+        </div >
     );
 };
 

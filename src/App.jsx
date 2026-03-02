@@ -2013,6 +2013,20 @@ const App = () => {
         }
     };
 
+    const handleUpdateAvatar = async (avatarId) => {
+        if (!auth?.currentUser) throw new Error('Chưa đăng nhập');
+        try {
+            if (settingsDocPath) {
+                await updateDoc(doc(db, settingsDocPath), { avatar: avatarId });
+            }
+            setProfile(prev => ({ ...prev, avatar: avatarId }));
+            setNotification('Đã cập nhật avatar!');
+        } catch (e) {
+            console.error('Lỗi cập nhật avatar:', e);
+            throw e;
+        }
+    };
+
     // --- Handle Change Password ---
     const handleChangePassword = async (oldPassword, newPassword) => {
         if (!auth?.currentUser) throw new Error('Chưa đăng nhập');
@@ -2225,56 +2239,68 @@ const App = () => {
     };
 
     // --- UNIFIED AI ASSISTANT (hỗ trợ Gemini + Groq + OpenRouter) ---
-    const handleGeminiAssist = async (frontText, contextPos = '', contextLevel = '') => {
+    const handleGeminiAssist = async (frontText, contextPos = '', contextLevel = '', isRetry = false) => {
         if (!frontText) return null;
 
-        // === BƯỚC 1: Kiểm tra shared vocabulary database trước ===
-        try {
-            const cachedVocab = await lookupSharedVocab(frontText);
-            if (cachedVocab) {
-                // Tìm thấy trong DB chung → dùng luôn, không tốn credit
-                const result = { ...cachedVocab };
-                // Xóa metadata không cần thiết
-                delete result.originalFront;
-                delete result.createdAt;
-                delete result.lookupCount;
+        // === BƯỚC 1: Kiểm tra shared vocabulary database trước (chỉ lần đầu) ===
+        if (!isRetry) {
+            try {
+                const cachedVocab = await lookupSharedVocab(frontText);
+                if (cachedVocab) {
+                    const result = { ...cachedVocab, _fromCache: true };
+                    delete result.originalFront;
+                    delete result.createdAt;
+                    delete result.lookupCount;
 
-                // Chuẩn hóa pos key
-                if (result.pos) result.pos = normalizePosKey(result.pos);
+                    if (result.pos) result.pos = normalizePosKey(result.pos);
 
-                // Nếu user đã chọn pos/level cụ thể → ghi đè
-                if (contextPos && contextPos !== result.pos) {
-                    // User chỉ định từ loại khác → cần gọi AI mới
-                    console.log(`📚 Shared vocab có pos="${result.pos}" nhưng user chọn "${contextPos}" → gọi AI`);
-                } else if (contextLevel && contextLevel !== result.level) {
-                    // User chỉ định level khác → cần gọi AI mới
-                    console.log(`📚 Shared vocab có level="${result.level}" nhưng user chọn "${contextLevel}" → gọi AI`);
-                } else {
-                    // Tăng counter tra cứu (fire-and-forget)
+                    if (contextPos && contextPos !== result.pos) {
+                        console.log(`📚 Cache HIT: ghi đè pos="${result.pos}" → "${contextPos}" theo user chọn`);
+                        result.pos = contextPos;
+                    }
+                    if (contextLevel && contextLevel !== result.level) {
+                        console.log(`📚 Cache HIT: ghi đè level="${result.level}" → "${contextLevel}" theo user chọn`);
+                        result.level = contextLevel;
+                    }
+
                     incrementSharedVocabLookup(frontText);
+
+                    // Trừ 1 credit cho lần đầu dù là sharedVocab (admin/mod không trừ)
+                    const isUnlimited = isAdmin || adminConfig?.moderators?.includes(userId);
+                    if (!isUnlimited && settingsDocPath) {
+                        try {
+                            const newCredits = Math.max(0, (profile?.aiCreditsRemaining || 0) - 1);
+                            await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: newCredits });
+                            setProfile(prev => ({ ...prev, aiCreditsRemaining: newCredits }));
+                            console.log(`💳 SharedVocab HIT - AI Credits: ${newCredits} còn lại`);
+                        } catch (e) { console.warn('Deduct credit error:', e); }
+                    }
+
+                    console.log(`📚 ✅ Dùng dữ liệu có sẵn cho "${frontText}" - trừ 1 credit`);
                     return result;
                 }
+            } catch (e) {
+                console.warn('Shared vocab lookup error:', e);
             }
-        } catch (e) {
-            console.warn('Shared vocab lookup error:', e);
+        } else {
+            console.log(`🔄 Retry mode: bỏ qua SharedVocab, gọi AI trực tiếp cho "${frontText}" - KHÔNG trừ credit`);
         }
 
         // === BƯỚC 2: Không tìm thấy hoặc cần AI mới → tạo prompt ===
-        // Tạo ngữ cảnh bổ sung cho AI
         let contextInfo = "";
         if (contextPos) contextInfo += `, Từ loại: ${contextPos}`;
         if (contextLevel) contextInfo += `, Cấp độ: ${contextLevel}`;
 
         const prompt = `Từ điển Nhật-Việt. Từ: "${frontText}"${contextInfo}.
 JSON only, không markdown/backtick:
-{"frontWithFurigana":"食べる（たべる）","meaning":"ăn","pos":"verb","level":"N5","sinoVietnamese":"THỰC","synonym":"食う","synonymSinoVietnamese":"THỰC","example":"毎日ご飯を＿＿＿＿。","exampleMeaning":"Tôi ăn cơm mỗi ngày。","nuance":"Tha động từ。Thông dụng nhất。Khác 食う thô, nam tính。"}
+{"frontWithFurigana":"食べる（たべる）","meaning":"ăn","pos":"verb","level":"N5","sinoVietnamese":"THỰC","synonym":"食う","synonymSinoVietnamese":"THỰC","example":"まいにち ごはんを ＿＿＿＿。","exampleMeaning":"Tôi ăn cơm mỗi ngày。","nuance":"Tha động từ。Thông dụng nhất。Khác 食う thô, nam tính。"}
 
 QUY TẮC:
 1. pos/level phải khớp ngữ cảnh đã chọn. Grammar→giải thích như ngữ pháp.
 2. CỤM TỪ có trợ từ(を/に/が/で/と)→pos="phrase", giữ nguyên cụm, nghĩa cả cụm, sinoVietnamese chỉ Kanji.
 3. frontWithFurigana: Nguyên dạng. CHỈ trường này mới có furigana trong（）full-width. Tôn trọng cách đọc user nhập.
 4. meaning: Ngắn gọn, nghĩa khác nhau ngăn ";".
-5. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. KHÔNG viết furigana/ngoặc trong câu ví dụ. N5→hiragana chủ yếu.
+5. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. KHÔNG viết furigana/ngoặc trong câu ví dụ. N5→viết bằng HIRAGANA chủ yếu, câu ngắn đơn giản dễ hiểu (tối đa 8-10 từ), tránh dùng kanji ngoài bộ N5. N4→câu đơn giản, ít kanji nâng cao. N3-N1→câu tự nhiên, dùng kanji phù hợp cấp độ.
 6. sinoVietnamese: IN HOA từng Kanji, KHÔNG bịa âm. Không Kanji→"".
 7. nuance: Chi tiết. Động từ→TĐT/ThaĐT. Katakana→ghi từ gốc. KHÔNG quá ngắn.
 8. pos: noun/verb/suru_verb/adj_i/adj_na/adverb/conjunction/particle/grammar/phrase/other.
@@ -2288,27 +2314,26 @@ QUY TẮC:
                 return null;
             }
 
-            // Kiểm tra AI credits (admin/mod không giới hạn)
+            // Kiểm tra AI credits (admin/mod không giới hạn) — chỉ check khi KHÔNG phải retry
             const isUnlimited = isAdmin || adminConfig?.moderators?.includes(userId);
-            const currentCredits = profile?.aiCreditsRemaining;
-            if (!isUnlimited) {
-                if (currentCredits === undefined || currentCredits === null) {
-                    // User cũ chưa có trường credits → khởi tạo 100 credits
-                    try {
-                        await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: 100 });
-                        setProfile(prev => ({ ...prev, aiCreditsRemaining: 100 }));
-                    } catch (e) { console.warn('Init credits error:', e); }
-                } else if (currentCredits <= 0) {
-                    setNotification('Bạn đã hết lượt tạo từ vựng AI miễn phí. Vui lòng mua thêm gói thẻ để tiếp tục sử dụng.');
-                    return null;
+            if (!isRetry) {
+                const currentCredits = profile?.aiCreditsRemaining;
+                if (!isUnlimited) {
+                    if (currentCredits === undefined || currentCredits === null) {
+                        try {
+                            await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: 100 });
+                            setProfile(prev => ({ ...prev, aiCreditsRemaining: 100 }));
+                        } catch (e) { console.warn('Init credits error:', e); }
+                    } else if (currentCredits <= 0) {
+                        setNotification('Bạn đã hết lượt tạo từ vựng AI miễn phí. Vui lòng mua thêm gói thẻ để tiếp tục sử dụng.');
+                        return null;
+                    }
                 }
             }
 
             const providerInfo = getAIProviderInfo();
             console.log(`🤖 AI Providers: ${providerInfo.summary}`);
 
-            // Tất cả cấp độ JLPT (N5-N1) đều dùng OpenRouter Gemini 2.5 Flash
-            // AI sẽ tự phân loại cấp độ JLPT cho từ vựng
             let forcedProvider = 'openrouter';
             let forcedOpenRouterModel = 'google/gemini-2.5-flash';
             console.log(`🤖 Dùng OpenRouter Gemini 2.5 Flash cho tất cả cấp độ`);
@@ -2317,10 +2342,9 @@ QUY TẮC:
             const parsedJson = parseJsonFromAI(responseText);
 
             if (parsedJson) {
-                // Chuẩn hóa pos key (AI có thể trả adj_i thay vì adj-i)
                 if (parsedJson.pos) parsedJson.pos = normalizePosKey(parsedJson.pos);
 
-                // Ghi đè âm Hán Việt bằng bảng tra cứu cứng (ưu tiên hơn AI)
+                // Ghi đè âm Hán Việt bằng bảng tra cứu cứng
                 try {
                     const { getSinoVietnamese } = await import('./utils/aiProvider');
                     const lookupHV = getSinoVietnamese(frontText);
@@ -2330,16 +2354,19 @@ QUY TẮC:
                     }
                 } catch (e) { console.warn('Lookup Hán Việt error:', e); }
 
-                // Trừ 1 credit sau khi AI tạo thành công (admin/mod không trừ)
-                if (!isUnlimited && settingsDocPath) {
+                // Trừ 1 credit: CHỈ trừ khi lần đầu (không phải retry), admin/mod không trừ
+                if (!isRetry && !isUnlimited && settingsDocPath) {
                     try {
                         const newCredits = Math.max(0, (profile?.aiCreditsRemaining || 0) - 1);
                         await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: newCredits });
                         setProfile(prev => ({ ...prev, aiCreditsRemaining: newCredits }));
                         console.log(`💳 AI Credits: ${newCredits} còn lại`);
                     } catch (e) { console.warn('Deduct credit error:', e); }
+                } else if (isRetry) {
+                    console.log(`🔄 Retry mode: KHÔNG trừ credit`);
                 }
-                // === BƯỚC 3: Lưu vào shared vocabulary DB (fire-and-forget) ===
+
+                // Lưu vào shared vocabulary DB (fire-and-forget)
                 saveToSharedVocab(frontText, parsedJson);
 
                 return parsedJson;
@@ -2507,6 +2534,7 @@ QUY TẮC:
                 const publicData = {
                     userId: userId,
                     displayName: profile.displayName || 'Người dùng ẩn danh',
+                    avatar: profile.avatar || '',
                     email: auth?.currentUser?.email || '',
                     totalCards: allCards.length,
                     shortTerm: memoryStats.shortTerm,
@@ -2893,6 +2921,7 @@ QUY TẮC:
                                 handleUpdateGoal={handleUpdateGoal}
                                 handleAdminDeleteUserData={handleAdminDeleteUserData}
                                 handleUpdateProfileName={handleUpdateProfileName}
+                                handleUpdateAvatar={handleUpdateAvatar}
                                 handleChangePassword={handleChangePassword}
                                 batchMode={batchVocabList.length > 0 && currentBatchIndex < batchVocabList.length}
                                 currentBatchIndex={currentBatchIndex}

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import {
     Settings, User, Volume2, VolumeX, Music, Sun, Moon,
     ArrowLeft, Save, Check, X,
-    Palette, Bell, Shield, Info, Trash2, Upload, Play, Pause, Mic
+    Palette, Bell, Shield, Info, Trash2, Upload, Play, Pause, Mic, Edit
 } from 'lucide-react';
 import { ROUTES } from '../../router';
 import {
@@ -32,7 +32,7 @@ const saveSettings = (settings) => {
 
 
 // ==================== Settings Screen ====================
-const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdateProfileName, onChangePassword, isAdmin }) => {
+const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdateProfileName, onUpdateAvatar, onChangePassword, isAdmin }) => {
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('account');
 
@@ -43,6 +43,63 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
     const [confirmPassword, setConfirmPassword] = useState('');
     const [accountMsg, setAccountMsg] = useState('');
     const [isSaving, setIsSaving] = useState(false);
+    const [showAvatarPicker, setShowAvatarPicker] = useState(false);
+
+    // 50 cute cartoon animal avatars
+    const AVATAR_LIST = [
+        { id: 'fox', emoji: '🦊', name: 'Cáo' },
+        { id: 'cat', emoji: '🐱', name: 'Mèo' },
+        { id: 'dog', emoji: '🐶', name: 'Chó' },
+        { id: 'rabbit', emoji: '🐰', name: 'Thỏ' },
+        { id: 'bear', emoji: '🐻', name: 'Gấu' },
+        { id: 'panda', emoji: '🐼', name: 'Gấu trúc' },
+        { id: 'koala', emoji: '🐨', name: 'Koala' },
+        { id: 'tiger', emoji: '🐯', name: 'Hổ' },
+        { id: 'lion', emoji: '🦁', name: 'Sư tử' },
+        { id: 'cow', emoji: '🐮', name: 'Bò' },
+        { id: 'pig', emoji: '🐷', name: 'Heo' },
+        { id: 'mouse', emoji: '🐭', name: 'Chuột' },
+        { id: 'hamster', emoji: '🐹', name: 'Hamster' },
+        { id: 'penguin', emoji: '🐧', name: 'Chim cánh cụt' },
+        { id: 'chicken', emoji: '🐔', name: 'Gà' },
+        { id: 'duck', emoji: '🦆', name: 'Vịt' },
+        { id: 'owl', emoji: '🦉', name: 'Cú' },
+        { id: 'eagle', emoji: '🦅', name: 'Đại bàng' },
+        { id: 'parrot', emoji: '🦜', name: 'Vẹt' },
+        { id: 'flamingo', emoji: '🦩', name: 'Hồng hạc' },
+        { id: 'frog', emoji: '🐸', name: 'Ếch' },
+        { id: 'turtle', emoji: '🐢', name: 'Rùa' },
+        { id: 'snake', emoji: '🐍', name: 'Rắn' },
+        { id: 'dragon', emoji: '🐉', name: 'Rồng' },
+        { id: 'whale', emoji: '🐳', name: 'Cá voi' },
+        { id: 'dolphin', emoji: '🐬', name: 'Cá heo' },
+        { id: 'octopus', emoji: '🐙', name: 'Bạch tuộc' },
+        { id: 'fish', emoji: '🐠', name: 'Cá' },
+        { id: 'shark', emoji: '🦈', name: 'Cá mập' },
+        { id: 'butterfly', emoji: '🦋', name: 'Bướm' },
+        { id: 'bee', emoji: '🐝', name: 'Ong' },
+        { id: 'ladybug', emoji: '🐞', name: 'Bọ rùa' },
+        { id: 'snail', emoji: '🐌', name: 'Ốc sên' },
+        { id: 'monkey', emoji: '🐵', name: 'Khỉ' },
+        { id: 'gorilla', emoji: '🦍', name: 'Khỉ đột' },
+        { id: 'horse', emoji: '🐴', name: 'Ngựa' },
+        { id: 'unicorn', emoji: '🦄', name: 'Kỳ lân' },
+        { id: 'zebra', emoji: '🦓', name: 'Ngựa vằn' },
+        { id: 'giraffe', emoji: '🦒', name: 'Hươu cao cổ' },
+        { id: 'elephant', emoji: '🐘', name: 'Voi' },
+        { id: 'rhino', emoji: '🦏', name: 'Tê giác' },
+        { id: 'hippo', emoji: '🦛', name: 'Hà mã' },
+        { id: 'camel', emoji: '🐫', name: 'Lạc đà' },
+        { id: 'deer', emoji: '🦌', name: 'Hươu' },
+        { id: 'wolf', emoji: '🐺', name: 'Sói' },
+        { id: 'bat', emoji: '🦇', name: 'Dơi' },
+        { id: 'raccoon', emoji: '🦝', name: 'Gấu mèo' },
+        { id: 'sloth', emoji: '🦥', name: 'Lười' },
+        { id: 'hedgehog', emoji: '🦔', name: 'Nhím' },
+        { id: 'shrimp', emoji: '🦐', name: 'Tôm' },
+    ];
+
+    const getAvatarEmoji = (id) => AVATAR_LIST.find(a => a.id === id)?.emoji || '🦊';
 
     // Linked accounts state
     const [linkedProviders, setLinkedProviders] = useState([]);
@@ -118,6 +175,19 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
             setAccountMsg('Lỗi: ' + e.message);
         }
         setIsSaving(false);
+    };
+
+    // Handle select avatar
+    const handleSelectAvatar = async (avatarId) => {
+        if (!onUpdateAvatar) return;
+        try {
+            await onUpdateAvatar(avatarId);
+            setShowAvatarPicker(false);
+            setAccountMsg('Đã chọn avatar mới!');
+            setTimeout(() => setAccountMsg(''), 3000);
+        } catch (e) {
+            setAccountMsg('Lỗi: ' + e.message);
+        }
     };
 
     // Handle change password
@@ -242,36 +312,83 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
             {/* ==================== ACCOUNT TAB ==================== */}
             {activeTab === 'account' && (
                 <div className="space-y-4">
+                    {/* Avatar Section */}
+                    <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
+                        <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
+                            <User className="w-4 h-4" /> Avatar & Thông tin
+                        </h3>
+                        <div className="flex items-center gap-5">
+                            <div className="relative group">
+                                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40 flex items-center justify-center text-5xl shadow-lg border-2 border-white dark:border-gray-600 cursor-pointer hover:scale-105 transition-transform"
+                                    onClick={() => setShowAvatarPicker(!showAvatarPicker)}>
+                                    {getAvatarEmoji(profile?.avatar)}
+                                </div>
+                                <button
+                                    onClick={() => setShowAvatarPicker(!showAvatarPicker)}
+                                    className="absolute -bottom-1 -right-1 w-7 h-7 bg-indigo-500 hover:bg-indigo-600 text-white rounded-full flex items-center justify-center shadow-md transition-colors"
+                                >
+                                    <Edit className="w-3.5 h-3.5" />
+                                </button>
+                            </div>
+                            <div className="flex-1">
+                                <p className="font-bold text-gray-800 dark:text-white text-lg">{profile?.displayName || 'Chưa đặt tên'}</p>
+                                <p className="text-gray-500 dark:text-gray-400 text-xs">{profile?.email || 'Không có email'}</p>
+                                <button onClick={() => setShowAvatarPicker(!showAvatarPicker)}
+                                    className="mt-2 text-xs text-indigo-500 hover:text-indigo-600 dark:text-indigo-400 font-medium transition-colors">
+                                    {showAvatarPicker ? 'Đóng' : '🎨 Đổi avatar'}
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Avatar Picker Grid */}
+                        {showAvatarPicker && (
+                            <div className="border-t border-gray-100 dark:border-gray-700 pt-4 space-y-3">
+                                <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">Chọn avatar yêu thích:</p>
+                                <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-2 max-h-64 overflow-y-auto pr-1">
+                                    {AVATAR_LIST.map(avatar => (
+                                        <button
+                                            key={avatar.id}
+                                            onClick={() => handleSelectAvatar(avatar.id)}
+                                            className={`group relative flex flex-col items-center p-2 rounded-xl transition-all ${profile?.avatar === avatar.id
+                                                ? 'bg-indigo-100 dark:bg-indigo-900/40 ring-2 ring-indigo-400 scale-105 shadow-md'
+                                                : 'bg-gray-50 dark:bg-gray-700/50 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:scale-110 border border-gray-100 dark:border-gray-600'}`}
+                                            title={avatar.name}
+                                        >
+                                            <span className="text-2xl">{avatar.emoji}</span>
+                                            <span className="text-[9px] text-gray-400 dark:text-gray-500 mt-0.5 truncate max-w-full leading-tight">{avatar.name}</span>
+                                            {profile?.avatar === avatar.id && (
+                                                <div className="absolute -top-1 -right-1 w-4 h-4 bg-indigo-500 rounded-full flex items-center justify-center">
+                                                    <Check className="w-2.5 h-2.5 text-white" />
+                                                </div>
+                                            )}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
                     {/* Display Name */}
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                            <User className="w-4 h-4" /> Thông tin tài khoản
+                            <Settings className="w-4 h-4" /> Tên hiển thị
                         </h3>
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
-                            <p className="text-gray-500 dark:text-gray-400 text-sm bg-gray-50 dark:bg-gray-700 px-4 py-2.5 rounded-xl">
-                                {profile?.email || 'Không có email'}
-                            </p>
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Tên hiển thị</label>
-                            <div className="flex gap-2">
-                                <input
-                                    type="text"
-                                    value={displayName}
-                                    onChange={(e) => setDisplayName(e.target.value)}
-                                    className="flex-1 px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 text-sm"
-                                    placeholder="Tên hiển thị"
-                                />
-                                <button
-                                    onClick={handleSaveProfile}
-                                    disabled={isSaving || displayName === profile?.displayName}
-                                    className="px-4 py-2.5 bg-indigo-600 dark:bg-indigo-500 text-white rounded-xl font-bold text-sm hover:bg-indigo-700 dark:hover:bg-indigo-600 disabled:opacity-50 transition-all flex items-center gap-1.5"
-                                >
-                                    {isSaving ? <div className="animate-spin w-4 h-4 border-2 border-white/30 border-t-white rounded-full" /> : <Save className="w-4 h-4" />}
-                                    Lưu
-                                </button>
-                            </div>
+                        <div className="flex gap-2">
+                            <input
+                                type="text"
+                                value={displayName}
+                                onChange={(e) => setDisplayName(e.target.value)}
+                                className="flex-1 px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 text-sm"
+                                placeholder="Tên hiển thị"
+                            />
+                            <button
+                                onClick={handleSaveProfile}
+                                disabled={isSaving || displayName === profile?.displayName}
+                                className="px-4 py-2.5 bg-indigo-600 dark:bg-indigo-500 text-white rounded-xl font-bold text-sm hover:bg-indigo-700 dark:hover:bg-indigo-600 disabled:opacity-50 transition-all flex items-center gap-1.5"
+                            >
+                                {isSaving ? <div className="animate-spin w-4 h-4 border-2 border-white/30 border-t-white rounded-full" /> : <Save className="w-4 h-4" />}
+                                Lưu
+                            </button>
                         </div>
                     </div>
 

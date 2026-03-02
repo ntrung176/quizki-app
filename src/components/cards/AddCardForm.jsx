@@ -111,6 +111,7 @@ const AddCardForm = ({
     const [isSaving, setIsSaving] = useState(false);
     const [isAiLoading, setIsAiLoading] = useState(false);
     const [isGeneratingExample, setIsGeneratingExample] = useState(false);
+    const [aiCallCount, setAiCallCount] = useState(0); // Track AI presses: 2nd press = free retry
     const [showAdvanced, setShowAdvanced] = useState(false);
     const frontInputRef = useRef(null);
     const [showImageSearch, setShowImageSearch] = useState(false);
@@ -169,7 +170,7 @@ const AddCardForm = ({
         if (success && action === 'continue') {
             setFront(''); setBack(''); setSynonym(''); setExample(''); setExampleMeaning('');
             setNuance(''); setPos(''); setLevel(''); setSinoVietnamese(''); setSynonymSinoVietnamese('');
-            setImagePreview(null);
+            setImagePreview(null); setAiCallCount(0);
             if (frontInputRef.current && !isMobileDevice()) frontInputRef.current.focus();
         }
     };
@@ -180,9 +181,11 @@ const AddCardForm = ({
             if (frontInputRef.current && !isMobileDevice()) frontInputRef.current.focus();
             return;
         }
-        // AI sẽ tự động phân loại cấp độ JLPT, không cần user chọn trước
+        // Chỉ lần bấm thứ 2 là miễn phí (aiCallCount === 1), lần 1 và lần 3+ đều trừ credit
+        const isRetry = aiCallCount === 1;
+        setAiCallCount(prev => prev + 1);
         setIsAiLoading(true);
-        const aiData = await onGeminiAssist(front, pos, level);
+        const aiData = await onGeminiAssist(front, pos, level, isRetry);
         if (aiData) {
             if (aiData.frontWithFurigana) setFront(aiData.frontWithFurigana);
             if (aiData.meaning) setBack(aiData.meaning);
@@ -199,7 +202,10 @@ const AddCardForm = ({
     };
 
     const handleKeyDown = (e) => {
-        if (e.key === 'g' && (e.altKey || e.metaKey)) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            handleAiAssist(e);
+        } else if (e.key === 'g' && (e.altKey || e.metaKey)) {
             e.preventDefault();
             handleAiAssist(e);
         }
@@ -245,6 +251,20 @@ const AddCardForm = ({
                 )}
             </div>
 
+            {/* Guidance Banner */}
+            <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border border-amber-200/60 dark:border-amber-800/40 rounded-xl px-4 py-3">
+                <div className="flex items-start gap-2.5">
+                    <span className="text-lg mt-0.5">💡</span>
+                    <div className="text-xs text-amber-800 dark:text-amber-300 space-y-1">
+                        <p className="font-bold text-amber-700 dark:text-amber-200">Hướng dẫn thêm từ vựng:</p>
+                        <p>• Nhập <strong>từ vựng tiếng Nhật</strong> (kanji hoặc hiragana) rồi nhấn <strong>Enter</strong> hoặc nút ✨ để <strong>AI tự động điền</strong> nghĩa, phiên âm, câu ví dụ.</p>
+                        <p>• Chọn <strong>từ loại</strong> và <strong>cấp độ JLPT</strong> trước khi bấm AI để kết quả chính xác hơn.</p>
+                        <p>• N5 sẽ tạo câu ví dụ <strong>đơn giản, dùng hiragana</strong> là chủ yếu. Cấp cao hơn sẽ dùng kanji tự nhiên.</p>
+                        <p>• Nếu AI tạo từ vựng bị lỗi, <strong>bấm AI lần 2</strong> để tạo lại — <strong>miễn phí không trừ credit</strong>. Từ lần 3 trở đi sẽ trừ credit bình thường. 🔄</p>
+                    </div>
+                </div>
+            </div>
+
 
 
             {/* ============ MANUAL TAB ============ */}
@@ -267,7 +287,7 @@ const AddCardForm = ({
                                 id="front"
                                 label="Từ vựng tiếng Nhật"
                                 value={front}
-                                onChange={(e) => setFront(e.target.value)}
+                                onChange={(e) => { setFront(e.target.value); setAiCallCount(0); }}
                                 onKeyDown={handleKeyDown}
                                 onFocus={(e) => {
                                     if (window.innerWidth <= 768) {

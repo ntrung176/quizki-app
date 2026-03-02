@@ -295,17 +295,32 @@ export const generateVocabPrompt = (frontText, contextPos = '', contextLevel = '
 JSON only, không markdown/backtick:
 {"reading":"hiragana","meaning":"nghĩa Việt","example":"câu VD có ＿＿＿＿ thay từ gốc","exampleMeaning":"nghĩa câu VD","pos":"từ loại","level":"JLPT","synonym":"đồng nghĩa","nuance":"sắc thái","sinoVietnamese":"HÁN VIỆT"}
 
-QUY TẮC:
-- CỤM TỪ có trợ từ(を/に/が/で/と)→pos="phrase", reading=cả cụm hiragana, meaning=nghĩa cả cụm, sinoVietnamese=chỉ Kanji.
-- reading: Hiragana nếu có Kanji, "" nếu không. Động/tính từ đã chia→trả nguyên dạng.
-- meaning: Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống.
-- example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. KHÔNG viết furigana/ngoặc trong câu ví dụ. N5→câu đơn giản, không dùng kanji.
-- exampleMeaning: Nghĩa tiếng Việt đầy đủ của câu ví dụ (1 dòng).
-- sinoVietnamese: IN HOA từng Kanji, phân tích từng chữ. VD: 流行→"LƯU HÀNH". Không Kanji→"". KHÔNG bịa.
-- nuance: Chi tiết bối cảnh, so sánh từ tương tự. Động từ→TĐT/ThaĐT.
-- pos: noun/verb/suru_verb/adj_i/adj_na/adverb/conjunction/particle/grammar/phrase/other.
-- level: N5-N1, không rõ→"".
-- synonym: Cùng/dễ hơn JLPT từ gốc. N5→"". Không bịa.`;
+QUY TẮC BẮT BUỘC:
+1. reading:
+   - Nếu từ có Kanji → đọc TOÀN BỘ bằng hiragana (VD: 連絡して→れんらくして, 教えてもらう→おしえてもらう).
+   - CỤM TỪ dài → đọc toàn bộ cụm bằng hiragana, KHÔNG tách rời (VD: 連絡して教えてもらってください→れんらくしておしえてもらってください).
+   - Nếu 100% hiragana/katakana → reading="".
+   - KHÔNG bỏ phần nào, KHÔNG viết dạng từ điển nếu từ gốc đã chia.
+
+2. meaning: Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống.
+
+3. example (QUAN TRỌNG NHẤT):
+   - CHỈ 1 CÂU ví dụ tự nhiên.
+   - BẮT BUỘC thay THẾ CHÍNH XÁC từ gốc "${frontText}" bằng ＿＿＿＿ trong câu.
+   - VD: từ gốc "食べる" → "毎日ご飯を＿＿＿＿。" (ĐÚNG) | "毎日ご飯を食べる。" (SAI - chưa ẩn)
+   - VD: từ gốc "連絡して教えてもらってください" → "先生に＿＿＿＿。" (ĐÚNG)
+   - KHÔNG viết furigana, ngoặc, hay chú thích trong câu ví dụ.
+   - N5→câu đơn giản.
+
+4. exampleMeaning: Nghĩa tiếng Việt đầy đủ.
+
+5. pos: noun/verb/suru_verb/adj_i/adj_na/adverb/conjunction/particle/grammar/phrase/other.
+   - CỤM TỪ có trợ từ(を/に/が/で/と/から/まで) hoặc ghép nhiều động từ → pos="phrase".
+
+6. sinoVietnamese: IN HOA từng Kanji (VD: 流行→"LƯU HÀNH"). Không Kanji→"". KHÔNG bịa.
+7. nuance: Bối cảnh sử dụng, so sánh từ tương tự. Động từ→TĐT/ThaĐT.
+8. level: N5-N1, không rõ→"".
+9. synonym: Cùng/dễ hơn JLPT. N5→"". Không bịa.`;
 };
 
 export const generateMoreExamplePrompt = (frontText, targetMeaning) => {

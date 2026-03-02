@@ -683,26 +683,8 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                     <Upload className="w-4 h-4" /> Import JSON
                                 </button>
                             )}
-                            {isAdmin && vocab.length > 0 && (
-                                <button onClick={() => setShowAudioTrimmer(prev => !prev)}
-                                    className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-medium transition-colors ${showAudioTrimmer
-                                        ? 'bg-violet-600 text-white'
-                                        : 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 hover:bg-violet-200 dark:hover:bg-violet-900/50'
-                                        }`}>
-                                    <Scissors className="w-4 h-4" /> Cắt Audio
-                                </button>
-                            )}
                         </div>
                     </div>
-
-                    {/* Audio Trimmer Tool */}
-                    {showAudioTrimmer && isAdmin && vocab.length > 0 && (
-                        <AudioTrimmer
-                            vocabList={vocab}
-                            onSaveClip={handleSaveAudioClip}
-                            onClose={() => { setShowAudioTrimmer(false); loadLessonAudio(); }}
-                        />
-                    )}
 
                     {vocab.length === 0 ? (
                         <div className="text-center py-12 text-gray-400">

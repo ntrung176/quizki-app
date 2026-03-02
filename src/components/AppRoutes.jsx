@@ -99,6 +99,7 @@ const AppRoutes = ({
     handleUpdateGoal,
     handleAdminDeleteUserData,
     handleUpdateProfileName,
+    handleUpdateAvatar,
     handleChangePassword,
 
     // Batch import
@@ -516,6 +517,7 @@ const AppRoutes = ({
                                 userId={userId}
                                 isAdmin={isAdmin}
                                 onUpdateProfileName={handleUpdateProfileName}
+                                onUpdateAvatar={handleUpdateAvatar}
                                 onChangePassword={handleChangePassword}
                             />
                         </ProtectedRoute>

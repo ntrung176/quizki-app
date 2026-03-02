@@ -10,6 +10,16 @@ import { db, appId } from '../../config/firebase';
 import { JLPT_LEVELS } from '../../config/constants';
 import { PetCompanion, PET_STAGES, getPetStage } from '../ui/PetCompanion';
 
+// Avatar emoji lookup
+const AVATAR_EMOJIS = {
+    fox: '🦊', cat: '🐱', dog: '🐶', rabbit: '🐰', bear: '🐻', panda: '🐼', koala: '🐨', tiger: '🐯', lion: '🦁', cow: '🐮',
+    pig: '🐷', mouse: '🐭', hamster: '🐹', penguin: '🐧', chicken: '🐔', duck: '🦆', owl: '🦉', eagle: '🦅', parrot: '🦜', flamingo: '🦩',
+    frog: '🐸', turtle: '🐢', snake: '🐍', dragon: '🐉', whale: '🐳', dolphin: '🐬', octopus: '🐙', fish: '🐠', shark: '🦈', butterfly: '🦋',
+    bee: '🐝', ladybug: '🐞', snail: '🐌', monkey: '🐵', gorilla: '🦍', horse: '🐴', unicorn: '🦄', zebra: '🦓', giraffe: '🦒', elephant: '🐘',
+    rhino: '🦏', hippo: '🦛', camel: '🐫', deer: '🦌', wolf: '🐺', bat: '🦇', raccoon: '🦝', sloth: '🦥', hedgehog: '🦔', shrimp: '🦐',
+};
+const getAvatarEmoji = (id) => AVATAR_EMOJIS[id] || null;
+
 // ==================== MAIN STATS SCREEN ====================
 const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivityLogs, onUpdateGoal, onBack, userId, publicStatsPath, initialTab }) => {
     const { shortTerm, midTerm, longTerm, new: newCards } = memoryStats;
@@ -576,7 +586,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                         <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 rounded-2xl text-white shadow-xl">
                             <div className="flex items-center gap-3 mb-3">
                                 <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-lg font-bold">
-                                    {(profile.displayName || 'U')[0].toUpperCase()}
+                                    {getAvatarEmoji(profile.avatar) || (profile.displayName || 'U')[0].toUpperCase()}
                                 </div>
                                 <div>
                                     <p className="font-bold text-sm">{profile.displayName || 'Bạn'}</p>
@@ -649,8 +659,8 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                                     return (
                                         <div key={user.id} className={`flex items-center gap-3 p-3 ${rankBg} ${isMe ? 'ring-2 ring-indigo-400 ring-inset' : ''}`}>
                                             <div className="flex-shrink-0">{rankIcon}</div>
-                                            <div className="w-8 h-8 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
-                                                {(user.displayName || 'U')[0].toUpperCase()}
+                                            <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${getAvatarEmoji(user.avatar) ? 'bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40 text-xl' : 'bg-gradient-to-br from-indigo-400 to-purple-500 text-white text-sm font-bold'}`}>
+                                                {getAvatarEmoji(user.avatar) || (user.displayName || 'U')[0].toUpperCase()}
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <p className={`text-sm font-bold truncate ${isMe ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-700 dark:text-gray-300'}`}>

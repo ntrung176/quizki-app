@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Sparkles, Zap, Star, Crown, Gift, Check, ShoppingCart, CreditCard, CheckCircle, Loader2, QrCode, Copy, Ticket, X, ArrowLeft, ChevronRight, MessageCircle, Phone, Mail, ExternalLink } from 'lucide-react';
-import { submitCreditRequest, DEFAULT_AI_PACKAGES, validateVoucher, calculateDiscountedPrice, useVoucher } from '../../utils/adminSettings';
+import { submitCreditRequest, DEFAULT_AI_PACKAGES, validateVoucher, calculateDiscountedPrice, useVoucher, processPaymentSecurely } from '../../utils/adminSettings';
 import { generateOrderCode, generateVietQR, checkPaymentStatus, getSepayToken } from '../../utils/sepayPayment';
 
 const ICONS = { starter: Zap, popular: Star, best_value: Crown, ultimate: Gift };
@@ -125,14 +125,30 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                 clearInterval(pollingRef.current);
                 clearInterval(countdownRef.current);
                 setChecking(false);
-                setPaymentSuccess(true);
-                try { await submitCreditRequest(userId, userName, userEmail, { ...pkg }); } catch (e) { console.warn(e); }
-                try {
-                    const { addCreditsToUser } = await import('../../utils/adminSettings');
-                    await addCreditsToUser(userId, pkg.cards);
-                } catch (e) { console.warn(e); }
-                if (appliedVoucher) {
-                    try { await useVoucher(appliedVoucher.code, userId); } catch (e) { console.warn(e); }
+
+                // SECURITY: Use atomic transaction to prevent replay attacks
+                const txId = result.transactionId || result.referenceNumber;
+                if (!txId) {
+                    console.error('❌ No transaction ID found in payment result');
+                    return;
+                }
+
+                const secureResult = await processPaymentSecurely(
+                    txId, code, userId, pkg.cards, finalPrice
+                );
+
+                if (secureResult.success) {
+                    setPaymentSuccess(true);
+                    try { await submitCreditRequest(userId, userName, userEmail, { ...pkg }); } catch (e) { console.warn(e); }
+                    if (appliedVoucher) {
+                        try { await useVoucher(appliedVoucher.code, userId); } catch (e) { console.warn(e); }
+                    }
+                } else {
+                    console.warn('⚠️ Payment already processed or failed:', secureResult.error);
+                    // Still show success if duplicate (user already got credits)
+                    if (secureResult.error?.includes('đã được xử lý')) {
+                        setPaymentSuccess(true);
+                    }
                 }
             }
         }, 5000);
