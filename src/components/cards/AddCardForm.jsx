@@ -258,7 +258,7 @@ const AddCardForm = ({
                     <div className="text-xs text-amber-800 dark:text-amber-300 space-y-1">
                         <p className="font-bold text-amber-700 dark:text-amber-200">Hướng dẫn thêm từ vựng:</p>
                         <p>• Nhập <strong>từ vựng tiếng Nhật</strong> (kanji hoặc hiragana) rồi nhấn <strong>Enter</strong> hoặc nút ✨ để <strong>AI tự động điền</strong> nghĩa, phiên âm, câu ví dụ.</p>
-                        <p>• Chọn <strong>từ loại</strong> và <strong>cấp độ JLPT</strong> trước khi bấm AI để kết quả chính xác hơn.</p>
+                        <p>• Chọn sẵn cấp độ <strong>N5</strong> để cho ví dụ đơn giản.</p>
                         <p>• N5 sẽ tạo câu ví dụ <strong>đơn giản, dùng hiragana</strong> là chủ yếu. Cấp cao hơn sẽ dùng kanji tự nhiên.</p>
                         <p>• Nếu AI tạo từ vựng bị lỗi, <strong>bấm AI lần 2</strong> để tạo lại — <strong>miễn phí không trừ credit</strong>. Từ lần 3 trở đi sẽ trừ credit bình thường. 🔄</p>
                     </div>

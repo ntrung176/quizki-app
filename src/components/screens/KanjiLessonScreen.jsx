@@ -7,6 +7,7 @@ import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
 import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
+import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 
 // ==================== MAIN COMPONENT ====================
 const KanjiLessonScreen = () => {
@@ -73,9 +74,20 @@ const KanjiLessonScreen = () => {
         setTestMode(null);
     }, [day, level]);
 
-    // Today's 10 kanji
+    // Today's 10 kanji — MUST use same sorting as KanjiStudyScreen
     const todayKanji = useMemo(() => {
         const filtered = kanjiList.filter(k => k.level === level);
+        // Sort by stroke count (fewer = easier), then frequency (lower = more common)
+        filtered.sort((a, b) => {
+            const jA = getJotobaKanjiData(a.character);
+            const jB = getJotobaKanjiData(b.character);
+            const strokeA = jA?.stroke_count || parseInt(a.strokeCount) || 999;
+            const strokeB = jB?.stroke_count || parseInt(b.strokeCount) || 999;
+            if (strokeA !== strokeB) return strokeA - strokeB;
+            const freqA = jA?.frequency || 9999;
+            const freqB = jB?.frequency || 9999;
+            return freqA - freqB;
+        });
         const start = (day - 1) * 10;
         return filtered.slice(start, start + 10);
     }, [kanjiList, level, day]);

@@ -16,7 +16,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
     const location = useLocation();
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [expandedMenus, setExpandedMenus] = useState(['VOCAB', 'KANJI', 'HUB']); // Keep expanded by default
+    const [expandedMenus, setExpandedMenus] = useState([]); // Start collapsed for cleaner look
 
     // Get current view from URL path
     const getCurrentView = () => {
@@ -58,8 +58,8 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
     const toggleMenu = (menuId) => {
         setExpandedMenus(prev =>
             prev.includes(menuId)
-                ? prev.filter(id => id !== menuId)
-                : [...prev, menuId]
+                ? [] // Close if already open
+                : [menuId] // Open only this one (accordion)
         );
     };
 

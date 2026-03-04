@@ -21,13 +21,27 @@ const create404Plugin = () => ({
   }
 })
 
+// Plugin để tạo version.json cho auto-update detection
+const createVersionPlugin = () => ({
+  name: 'create-version',
+  buildStart() {
+    const versionData = JSON.stringify({
+      version: Date.now().toString(36),
+      buildTime: new Date().toISOString()
+    })
+    // Write to public/ so it's copied to dist/ as-is
+    writeFileSync(resolve(__dirname, 'public', 'version.json'), versionData)
+    console.log('✅ Generated version.json for update detection')
+  }
+})
+
 // https://vite.dev/config/
 // Base path cho GitHub Pages:
 // - Nếu repo là project page (username.github.io/repo-name): đặt base = '/repo-name/'
 // - Nếu repo là user page (username.github.io): đặt base = '/'
 // - Hoặc dùng relative paths: base = './' (hoạt động với mọi cấu hình, khuyến nghị)
 export default defineConfig({
-  plugins: [react(), create404Plugin()],
+  plugins: [react(), create404Plugin(), createVersionPlugin()],
   // Sử dụng absolute paths vì app dùng custom domain (quizki.id.vn) tại root
   // Relative paths ('./') gây lỗi 404 khi GitHub Pages serve 404.html cho SPA routes
   // (vd: /kanji -> 404.html -> ./assets/... -> /kanji/assets/... -> 404!)

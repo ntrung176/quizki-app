@@ -36,6 +36,7 @@ import { generateVocabWithAI, getAllGeminiApiKeysFromEnv } from './utils/gemini'
 import { callAI, parseJsonFromAI, getAIProviderInfo } from './utils/aiProvider';
 import { subscribeAdminConfig, canUseAI as checkCanUseAI, hasAdminPrivileges } from './utils/adminSettings';
 import { compressImage } from './utils/image';
+import { initConsoleProtection, aiRateLimiter, verifyAdminAtCallTime, validateCreditChange } from './utils/security';
 
 // Import screens
 import {
@@ -69,6 +70,10 @@ import {
 
 // Import UI components
 import { SearchInput, SrsStatusCell } from './components/ui';
+import UpdateNotification from './components/ui/UpdateNotification';
+
+// Import hooks
+import useVersionCheck from './hooks/useVersionCheck';
 
 // Import routing component
 import AppRoutes from './components/AppRoutes';
@@ -100,11 +105,16 @@ try {
 
 // --- Component Chính App ---
 
+// SECURITY: Suppress sensitive console logs in production
+initConsoleProtection();
 
 const App = () => {
     // React Router hooks
     const navigate = useNavigate();
     const location = useLocation();
+
+    // Version check for auto-update notification (check every 60s)
+    const { updateAvailable, refresh: refreshApp, dismiss: dismissUpdate } = useVersionCheck(60000);
 
     // Helper function to navigate using route names (backward compatible with setView)
     const navigateTo = useCallback((viewName) => {
@@ -198,16 +208,8 @@ const App = () => {
     const [profile, setProfile] = useState(null);
     // Danh sách API keys cho Gemini (có thể cấu hình từ env hoặc localStorage)
     const [geminiApiKeys] = useState(() => {
-        // Lấy từ localStorage nếu có, nếu không thì lấy từ env
-        const savedKeys = localStorage.getItem('geminiApiKeys');
-        if (savedKeys) {
-            try {
-                return JSON.parse(savedKeys);
-            } catch (e) {
-                console.error('Lỗi parse geminiApiKeys từ localStorage:', e);
-            }
-        }
-        // Lấy từ env variables (VITE_GEMINI_API_KEY_1, VITE_GEMINI_API_KEY_2, ..., VITE_GEMINI_API_KEY_N)
+        // SECURITY: Chỉ lấy từ env variables, KHÔNG từ localStorage
+        // Ngăn chặn tấn công: localStorage.setItem('geminiApiKeys', '["stolen-key"]')
         return getAllGeminiApiKeysFromEnv();
     });
     const [isProfileLoading, setIsProfileLoading] = useState(true);
@@ -277,7 +279,9 @@ const App = () => {
 
     const handleAdminDeleteUserData = useCallback(async (targetUserId) => {
         if (!db || !appId || !targetUserId) return;
-        if (!isAdmin) {
+        // SECURITY: Verify admin at call time (not just render time)
+        // Prevents: React DevTools tampering with isAdmin state
+        if (!isAdmin || !verifyAdminAtCallTime(auth, import.meta.env.VITE_ADMIN_EMAIL)) {
             setNotification("Bạn không có quyền thực hiện chức năng này.");
             return;
         }
@@ -1952,12 +1956,9 @@ const App = () => {
         try {
             await updateDoc(doc(db, vocabCollectionPath, cardId), updatedData);
             setNotification(`Đã cập nhật thẻ: ${front}`);
-            // Giữ lại cardId để scroll đến sau khi quay lại LIST
-            // Không setEditingCard(null) ngay để giữ thông tin card
             setEditingCard(null);
-            // KHÔNG reset savedFilters để giữ nguyên bộ lọc
-            setView('LIST');
-            // Scroll đến card sẽ được xử lý trong ListView component 
+            // KHÔNG navigate — giữ nguyên trang hiện tại (ListView, ReviewScreen, v.v.)
+
 
 
         } catch (e) {
@@ -2291,6 +2292,14 @@ const App = () => {
         if (contextPos) contextInfo += `, Từ loại: ${contextPos}`;
         if (contextLevel) contextInfo += `, Cấp độ: ${contextLevel}`;
 
+        // Build example rule dynamically based on user-selected level
+        let exampleRule;
+        if (contextLevel === 'N5') {
+            exampleRule = `5. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. KHÔNG viết furigana/ngoặc trong câu ví dụ. Viết bằng HIRAGANA chủ yếu, câu ngắn đơn giản dễ hiểu (tối đa 8-10 từ), tránh dùng kanji ngoài bộ N5.`;
+        } else {
+            exampleRule = `5. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. KHÔNG viết furigana/ngoặc trong câu ví dụ. Viết câu tự nhiên bằng tiếng Nhật (dùng kanji bình thường phù hợp cấp độ), KHÔNG viết toàn hiragana.`;
+        }
+
         const prompt = `Từ điển Nhật-Việt. Từ: "${frontText}"${contextInfo}.
 JSON only, không markdown/backtick:
 {"frontWithFurigana":"食べる（たべる）","meaning":"ăn","pos":"verb","level":"N5","sinoVietnamese":"THỰC","synonym":"食う","synonymSinoVietnamese":"THỰC","example":"まいにち ごはんを ＿＿＿＿。","exampleMeaning":"Tôi ăn cơm mỗi ngày。","nuance":"Tha động từ。Thông dụng nhất。Khác 食う thô, nam tính。"}
@@ -2298,9 +2307,9 @@ JSON only, không markdown/backtick:
 QUY TẮC:
 1. pos/level phải khớp ngữ cảnh đã chọn. Grammar→giải thích như ngữ pháp.
 2. CỤM TỪ có trợ từ(を/に/が/で/と)→pos="phrase", giữ nguyên cụm, nghĩa cả cụm, sinoVietnamese chỉ Kanji.
-3. frontWithFurigana: Nguyên dạng. CHỈ trường này mới có furigana trong（）full-width. Tôn trọng cách đọc user nhập.
+3. frontWithFurigana: FORMAT BẮT BUỘC = "từ_gốc（cách_đọc_hiragana）". Luôn giữ nguyên từ gốc user nhập "${frontText}" rồi thêm（）chứa TOÀN BỘ cách đọc hiragana. VD: "食べる（たべる）", "連絡（れんらく）", "お願いします（おねがいします）", "勉強する（べんきょうする）". KHÔNG tách rời kanji và furigana kiểu "食（た）べる". KHÔNG bỏ furigana. KHÔNG đổi từ gốc.
 4. meaning: Ngắn gọn, nghĩa khác nhau ngăn ";".
-5. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. KHÔNG viết furigana/ngoặc trong câu ví dụ. N5→viết bằng HIRAGANA chủ yếu, câu ngắn đơn giản dễ hiểu (tối đa 8-10 từ), tránh dùng kanji ngoài bộ N5. N4→câu đơn giản, ít kanji nâng cao. N3-N1→câu tự nhiên, dùng kanji phù hợp cấp độ.
+${exampleRule}
 6. sinoVietnamese: IN HOA từng Kanji, KHÔNG bịa âm. Không Kanji→"".
 7. nuance: Chi tiết. Động từ→TĐT/ThaĐT. Katakana→ghi từ gốc. KHÔNG quá ngắn.
 8. pos: noun/verb/suru_verb/adj_i/adj_na/adverb/conjunction/particle/grammar/phrase/other.
@@ -2308,6 +2317,13 @@ QUY TẮC:
 10. level: N5-N1, không rõ→"".\n\nKhông trả lời gì ngoài JSON.`;
 
         try {
+            // SECURITY: Rate limiting — max 10 AI calls per minute
+            if (!aiRateLimiter.canProceed()) {
+                const waitSec = Math.ceil(aiRateLimiter.getTimeUntilNext() / 1000);
+                setNotification(`Bạn đang gọi AI quá nhanh. Vui lòng đợi ${waitSec} giây.`);
+                return null;
+            }
+
             // Kiểm tra quyền AI
             if (!canUserUseAI) {
                 setNotification('Bạn chưa được cấp quyền sử dụng AI. Liên hệ admin để được cấp quyền.');
@@ -2384,6 +2400,12 @@ QUY TẮC:
     const handleGenerateMoreExample = async (frontText, targetMeaning, level = '') => {
         if (!frontText || !targetMeaning) return null;
         try {
+            // SECURITY: Rate limiting
+            if (!aiRateLimiter.canProceed()) {
+                const waitSec = Math.ceil(aiRateLimiter.getTimeUntilNext() / 1000);
+                setNotification(`Bạn đang gọi AI quá nhanh. Vui lòng đợi ${waitSec} giây.`);
+                return null;
+            }
             if (!canUserUseAI) {
                 setNotification('Bạn chưa được cấp quyền sử dụng AI. Liên hệ admin để được cấp quyền.');
                 return null;
@@ -2802,6 +2824,11 @@ QUY TẮC:
 
             {/* Onboarding tour for new users */}
             {userId && <OnboardingTour userId={userId} />}
+
+            {/* Update notification when new version is deployed */}
+            {updateAvailable && (
+                <UpdateNotification onRefresh={refreshApp} onDismiss={dismissUpdate} />
+            )}
 
             {/* Modal nhập từ vựng hàng loạt */}
             {showBatchImportModal && (
