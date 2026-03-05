@@ -679,14 +679,15 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
 
     const displayedCards = useMemo(() => filteredCards.slice(0, displayedCount), [filteredCards, displayedCount]);
 
-    // Select/deselect all displayed cards (must be after displayedCards)
+    // Select/deselect ALL filtered cards (not just displayed/paginated)
     const toggleSelectAll = useCallback(() => {
-        if (selectedCards.size === displayedCards.length) {
+        const allTargetCards = currentFolder !== null ? currentFolderCards : filteredCards;
+        if (selectedCards.size > 0 && selectedCards.size === allTargetCards.length) {
             setSelectedCards(new Set());
         } else {
-            setSelectedCards(new Set(displayedCards.map(c => c.id)));
+            setSelectedCards(new Set(allTargetCards.map(c => c.id)));
         }
-    }, [selectedCards.size, displayedCards]);
+    }, [selectedCards.size, currentFolder, currentFolderCards, filteredCards]);
 
     // Load more on scroll
     const handleScroll = useCallback(() => {
@@ -1259,7 +1260,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                 onClick={toggleSelectAll}
                                 className="text-xs text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
                             >
-                                {selectedCards.size > 0 && selectedCards.size === (currentFolder !== null ? effectiveDisplayedCards : displayedCards).length ? 'Bỏ chọn tất cả' : 'Chọn tất cả'}
+                                {selectedCards.size > 0 && selectedCards.size === (currentFolder !== null ? currentFolderCards : filteredCards).length ? 'Bỏ chọn tất cả' : `Chọn tất cả (${currentFolder !== null ? currentFolderCards.length : filteredCards.length})`}
                             </button>
                             {onNavigateToImport && (
                                 <button onClick={onNavigateToImport}

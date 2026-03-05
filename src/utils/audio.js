@@ -276,6 +276,16 @@ const speechgenTTS = async (text) => {
 
 // ============== FALLBACK: Web Speech API ==============
 
+// Trích xuất phần đọc từ text: ưu tiên hiragana trong ngoặc, fallback lấy phần trước ngoặc
+const extractReadingText = (text) => {
+    if (!text) return '';
+    // Ưu tiên hiragana/katakana trong ngoặc: 食べる（たべる） → たべる
+    const readingMatch = text.match(/[（(]([^）)]+)[）)]/);
+    if (readingMatch) return readingMatch[1].trim();
+    // Không có ngoặc → lấy nguyên text (bỏ ngoặc nếu có)
+    return text.split('（')[0].split('(')[0].trim();
+};
+
 // Cache for Japanese voices (loaded once)
 let cachedJapaneseVoice = null;
 let voicesLoaded = false;
@@ -309,8 +319,8 @@ if (window.speechSynthesis) {
 const speakWithWebSpeech = (text) => {
     if (!text || !window.speechSynthesis) return;
 
-    // Lấy phần từ vựng (không có furigana)
-    const cleanText = text.split('（')[0].split('(')[0].trim();
+    // Ưu tiên đọc hiragana trong ngoặc
+    const cleanText = extractReadingText(text);
     if (!cleanText) return;
 
     const utterance = new SpeechSynthesisUtterance(cleanText);
@@ -337,8 +347,8 @@ const speakWithWebSpeech = (text) => {
 const speakWithTTS = async (text, onAudioGenerated = null) => {
     if (!text) return;
 
-    // Clean text: remove furigana in parentheses for TTS
-    const cleanText = text.split('（')[0].split('(')[0].trim();
+    // Ưu tiên đọc hiragana trong ngoặc
+    const cleanText = extractReadingText(text);
     if (!cleanText) return;
 
     // Dừng speech cũ
@@ -498,8 +508,8 @@ export const stopAudio = () => {
 export const generateAudioSilent = async (text) => {
     if (!text) return null;
 
-    // Clean text: remove furigana
-    const cleanText = text.split('（')[0].split('(')[0].trim();
+    // Ưu tiên đọc hiragana trong ngoặc
+    const cleanText = extractReadingText(text);
     if (!cleanText) return null;
 
     try {
@@ -523,8 +533,8 @@ export const generateAudioSilent = async (text) => {
 export const generateAudioSilentWithVoice = async (text, voiceId) => {
     if (!text) return null;
 
-    // Clean text: remove furigana & blanks
-    const cleanText = text.replace(/＿+/g, '').split('（')[0].split('(')[0].trim();
+    // Ưu tiên đọc hiragana trong ngoặc, loại bỏ blanks
+    const cleanText = extractReadingText(text.replace(/＿+/g, ''));
     if (!cleanText) return null;
 
     // Temporarily set voice, generate, then restore
