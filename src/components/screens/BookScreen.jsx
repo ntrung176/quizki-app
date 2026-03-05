@@ -92,6 +92,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     // Audio stored separately to avoid Firestore 1MB document limit
     const [lessonAudioMap, setLessonAudioMap] = useState({});
     const bgAudioAbortRef = useRef(false);
+    const editingCardRef = useRef(null);
 
     const COLLECTION = 'bookGroups';
 
@@ -129,8 +130,8 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
         loadLessonAudio();
     }, [loadLessonAudio]);
 
-    const loadAllData = async () => {
-        setLoading(true);
+    const loadAllData = async (silent = false) => {
+        if (!silent) setLoading(true);
         try {
             const groupsSnap = await getDocs(collection(db, COLLECTION));
             const groups = [];
@@ -324,7 +325,10 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
             setEditingVocabIndex(null);
             setEditingVocabData(null);
             showToast('Đã cập nhật từ vựng!', 'success');
-            loadAllData();
+            // Preserve scroll position during reload
+            const scrollY = window.scrollY;
+            await loadAllData(true);
+            requestAnimationFrame(() => { window.scrollTo(0, scrollY); });
         } catch (e) {
             console.error('Error saving vocab edit:', e);
             showToast('Lỗi khi lưu: ' + e.message, 'error');
@@ -764,7 +768,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                 const word = v.word || v.front || '';
                                 const inList = isVocabInUserList(v) || addedVocabSet.has(i);
                                 return (
-                                    <div key={i} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-sky-300 dark:hover:border-sky-600 transition-colors overflow-hidden">
+                                    <div key={i} ref={editingVocabIndex === i ? editingCardRef : null} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-sky-300 dark:hover:border-sky-600 transition-colors overflow-hidden">
                                         {editingVocabIndex === i && editingVocabData ? (
                                             /* ===== EDIT MODE ===== */
                                             <div className="p-4 space-y-3" onClick={e => e.stopPropagation()}>
@@ -961,12 +965,13 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
         );
     }
 
-    // Determine which view to render
+    // Determine which view to render (call as functions, NOT as components <View/>)
+    // Using <View/> would create new component type each render → unmount/remount → lose focus & scroll
     const renderCurrentView = () => {
-        if (lessonId && currentLesson) return <LessonView />;
-        if (bookId && currentBook) return <ChaptersView />;
-        if (groupId && currentGroup) return <BooksView />;
-        return <GroupsView />;
+        if (lessonId && currentLesson) return LessonView();
+        if (bookId && currentBook) return ChaptersView();
+        if (groupId && currentGroup) return BooksView();
+        return GroupsView();
     };
 
     return (
