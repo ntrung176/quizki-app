@@ -1350,9 +1350,10 @@ const App = () => {
             // Save folder assignment if selected
             if (folderId && cardRef) {
                 try {
-                    const savedFolders = JSON.parse(localStorage.getItem('vocab_card_folders') || '{}');
+                    const folderKey = userId ? `vocab_card_folders_${userId}` : 'vocab_card_folders';
+                    const savedFolders = JSON.parse(localStorage.getItem(folderKey) || '{}');
                     savedFolders[cardRef.id] = folderId;
-                    localStorage.setItem('vocab_card_folders', JSON.stringify(savedFolders));
+                    localStorage.setItem(folderKey, JSON.stringify(savedFolders));
                 } catch (e) {
                     console.error('Lỗi lưu thư mục cho thẻ:', e);
                 }
@@ -1789,10 +1790,6 @@ const App = () => {
 
     const handleDeleteCard = async (cardId, cardFront) => {
         if (!vocabCollectionPath || !cardId) return;
-
-        // Add confirmation dialog
-        const confirmed = window.confirm(`Bạn có chắc chắn muốn xóa thẻ "${cardFront}"?`);
-        if (!confirmed) return;
 
         // Optimistic UI update - remove from local state immediately
         setAllCards(prevCards => prevCards.filter(card => card.id !== cardId));
@@ -2742,6 +2739,7 @@ ${exampleRule}
                     onScrollComplete={() => { scrollToCardIdRef.current = null; }}
                     savedFilters={savedFilters}
                     onFiltersChange={(filters) => setSavedFilters(filters)}
+                    userId={userId}
                 />;
             case 'IMPORT':
                 return <ImportScreen

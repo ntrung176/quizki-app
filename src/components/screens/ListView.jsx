@@ -344,7 +344,7 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
 };
 
 // ==================== Main ListView Component ====================
-const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAudio, onExport, onSaveChanges, onGeminiAssist, onNavigateToImport, scrollToCardId, onScrollComplete, savedFilters, onFiltersChange }) => {
+const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAudio, onExport, onSaveChanges, onGeminiAssist, onNavigateToImport, scrollToCardId, onScrollComplete, savedFilters, onFiltersChange, userId }) => {
     const [editingCard, setEditingCard] = useState(null);
     const [filterLevel, setFilterLevel] = useState(savedFilters?.filterLevel || 'all');
     const [filterPos, setFilterPos] = useState(savedFilters?.filterPos || 'all');
@@ -353,9 +353,12 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
     const [searchTerm, setSearchTerm] = useState(savedFilters?.searchTerm || '');
     const deferredSearchTerm = useDeferredValue(searchTerm);
 
-    // Folder management
+    // Folder management — keys are user-specific to avoid cross-user pollution
+    const folderStorageKey = userId ? `vocab_folders_${userId}` : 'vocab_folders';
+    const cardFolderStorageKey = userId ? `vocab_card_folders_${userId}` : 'vocab_card_folders';
+
     const [folders, setFolders] = useState(() => {
-        const saved = localStorage.getItem('vocab_folders');
+        const saved = localStorage.getItem(folderStorageKey);
         return saved ? JSON.parse(saved) : [];
     });
     const [showFolderManager, setShowFolderManager] = useState(false);
@@ -363,7 +366,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
 
     // Card-to-folder mapping
     const [cardFolders, setCardFolders] = useState(() => {
-        const saved = localStorage.getItem('vocab_card_folders');
+        const saved = localStorage.getItem(cardFolderStorageKey);
         return saved ? JSON.parse(saved) : {};
     });
 
@@ -372,17 +375,38 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
     const [selectedCards, setSelectedCards] = useState(new Set());
     const [showBatchMoveModal, setShowBatchMoveModal] = useState(false);
 
+    // Delete confirmation modal state (replaces window.confirm)
+    const [deleteConfirm, setDeleteConfirm] = useState(null); // { type: 'single'|'batch', cardId, cardFront, count }
+
     // Folder navigation (Windows Explorer style)
     const [currentFolder, setCurrentFolder] = useState(null); // null = root folder view
 
-    // Save folders and mappings to localStorage
+    // Save folders and mappings to localStorage (user-specific)
     useEffect(() => {
-        localStorage.setItem('vocab_folders', JSON.stringify(folders));
-    }, [folders]);
+        localStorage.setItem(folderStorageKey, JSON.stringify(folders));
+    }, [folders, folderStorageKey]);
 
     useEffect(() => {
-        localStorage.setItem('vocab_card_folders', JSON.stringify(cardFolders));
-    }, [cardFolders]);
+        localStorage.setItem(cardFolderStorageKey, JSON.stringify(cardFolders));
+    }, [cardFolders, cardFolderStorageKey]);
+
+    // Cleanup stale card-folder mappings (cards that no longer exist)
+    useEffect(() => {
+        if (allCards.length === 0) return;
+        const cardIds = new Set(allCards.map(c => c.id));
+        setCardFolders(prev => {
+            const cleaned = {};
+            let hasStale = false;
+            for (const [cardId, folderId] of Object.entries(prev)) {
+                if (cardIds.has(cardId)) {
+                    cleaned[cardId] = folderId;
+                } else {
+                    hasStale = true;
+                }
+            }
+            return hasStale ? cleaned : prev;
+        });
+    }, [allCards]);
 
     // Folder CRUD — now with parentId support
     const createFolder = useCallback((name, parentId = null) => {
@@ -451,16 +475,30 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
     }, [selectedCards]);
 
     // Batch delete selected cards
-    const batchDeleteSelected = useCallback(async () => {
+    const batchDeleteSelected = useCallback(() => {
         if (selectedCards.size === 0) return;
-        const confirmed = window.confirm(`Xóa ${selectedCards.size} từ vựng đã chọn?`);
-        if (!confirmed) return;
-        for (const cardId of selectedCards) {
-            await onDeleteCard(cardId, '');
+        setDeleteConfirm({ type: 'batch', count: selectedCards.size });
+    }, [selectedCards]);
+
+    // Request single card delete (shows confirmation modal)
+    const requestDeleteCard = useCallback((cardId, cardFront) => {
+        setDeleteConfirm({ type: 'single', cardId, cardFront });
+    }, []);
+
+    // Confirm and execute delete
+    const confirmDelete = useCallback(async () => {
+        if (!deleteConfirm) return;
+        if (deleteConfirm.type === 'single') {
+            await onDeleteCard(deleteConfirm.cardId, deleteConfirm.cardFront);
+        } else if (deleteConfirm.type === 'batch') {
+            for (const cardId of selectedCards) {
+                await onDeleteCard(cardId, '');
+            }
+            setSelectedCards(new Set());
+            setIsSelectMode(false);
         }
-        setSelectedCards(new Set());
-        setIsSelectMode(false);
-    }, [selectedCards, onDeleteCard]);
+        setDeleteConfirm(null);
+    }, [deleteConfirm, selectedCards, onDeleteCard]);
 
     // Toggle card selection
     const toggleCardSelection = useCallback((cardId) => {
@@ -781,584 +819,630 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
     }, [currentFolder, folders]);
 
     return (
-        <div className="max-w-5xl mx-auto space-y-6 p-4 lg:p-8">
-            {/* Modals */}
-            {editingCard && (
-                <EditCardModal card={editingCard} onSave={onSaveChanges} onClose={() => setEditingCard(null)} onGeminiAssist={onGeminiAssist} />
-            )}
-            {showFolderManager && (
-                <FolderManagerModal
-                    folders={foldersWithCounts}
-                    onClose={() => setShowFolderManager(false)}
-                    onCreateFolder={createFolder}
-                    onRenameFolder={renameFolder}
-                    onDeleteFolder={deleteFolder}
-                />
-            )}
+        <>
+            <div className="max-w-5xl mx-auto space-y-6 p-4 lg:p-8">
+                {/* Modals */}
+                {editingCard && (
+                    <EditCardModal card={editingCard} onSave={onSaveChanges} onClose={() => setEditingCard(null)} onGeminiAssist={onGeminiAssist} />
+                )}
+                {showFolderManager && (
+                    <FolderManagerModal
+                        folders={foldersWithCounts}
+                        onClose={() => setShowFolderManager(false)}
+                        onCreateFolder={createFolder}
+                        onRenameFolder={renameFolder}
+                        onDeleteFolder={deleteFolder}
+                    />
+                )}
 
-            {/* Batch move to folder modal */}
-            {showBatchMoveModal && (
-                <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[350px] max-w-[90vw] shadow-2xl space-y-3">
-                        <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                            <Folder className="w-5 h-5 text-indigo-500" /> Chuyển {selectedCards.size} từ vào thư mục
-                        </h3>
-                        <div className="max-h-[250px] overflow-y-auto space-y-1">
-                            <button
-                                onClick={() => batchMoveToFolder('none')}
-                                className="w-full text-left flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
-                            >
-                                <Folder className="w-4 h-4 text-gray-400" />
-                                <span className="text-sm text-gray-500 italic">Chưa phân loại</span>
-                            </button>
-                            {folders.map(f => (
+                {/* Batch move to folder modal */}
+                {showBatchMoveModal && (
+                    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
+                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[350px] max-w-[90vw] shadow-2xl space-y-3">
+                            <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                                <Folder className="w-5 h-5 text-indigo-500" /> Chuyển {selectedCards.size} từ vào thư mục
+                            </h3>
+                            <div className="max-h-[250px] overflow-y-auto space-y-1">
                                 <button
-                                    key={f.id}
-                                    onClick={() => batchMoveToFolder(f.id)}
+                                    onClick={() => batchMoveToFolder('none')}
                                     className="w-full text-left flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
                                 >
-                                    <Folder className="w-4 h-4 text-indigo-400" />
-                                    <span className="text-sm text-gray-700 dark:text-gray-300">{f.name}</span>
+                                    <Folder className="w-4 h-4 text-gray-400" />
+                                    <span className="text-sm text-gray-500 italic">Chưa phân loại</span>
                                 </button>
-                            ))}
-                            {folders.length === 0 && (
-                                <p className="text-center text-sm text-gray-400 py-4">Chưa có thư mục nào. Hãy tạo thư mục trước!</p>
-                            )}
+                                {folders.map(f => (
+                                    <button
+                                        key={f.id}
+                                        onClick={() => batchMoveToFolder(f.id)}
+                                        className="w-full text-left flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
+                                    >
+                                        <Folder className="w-4 h-4 text-indigo-400" />
+                                        <span className="text-sm text-gray-700 dark:text-gray-300">{f.name}</span>
+                                    </button>
+                                ))}
+                                {folders.length === 0 && (
+                                    <p className="text-center text-sm text-gray-400 py-4">Chưa có thư mục nào. Hãy tạo thư mục trước!</p>
+                                )}
+                            </div>
+                            <button onClick={() => setShowBatchMoveModal(false)} className="w-full py-2 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">
+                                Đóng
+                            </button>
                         </div>
-                        <button onClick={() => setShowBatchMoveModal(false)} className="w-full py-2 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">
-                            Đóng
+                    </div>
+                )}
+
+                {/* Move to folder modal */}
+                {showMoveModal && (
+                    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
+                        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[350px] max-w-[90vw] shadow-2xl space-y-3">
+                            <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                                <Folder className="w-5 h-5 text-indigo-500" /> Chọn thư mục
+                            </h3>
+                            <div className="max-h-[250px] overflow-y-auto space-y-1">
+                                <button
+                                    onClick={() => moveCardToFolder(showMoveModal, 'none')}
+                                    className="w-full text-left flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
+                                >
+                                    <Folder className="w-4 h-4 text-gray-400" />
+                                    <span className="text-sm text-gray-500 italic">Chưa phân loại</span>
+                                </button>
+                                {folders.map(f => (
+                                    <button
+                                        key={f.id}
+                                        onClick={() => moveCardToFolder(showMoveModal, f.id)}
+                                        className={`w-full text-left flex items-center gap-3 p-3 rounded-lg transition-colors ${cardFolders[showMoveModal] === f.id
+                                            ? 'bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700'
+                                            : 'hover:bg-gray-50 dark:hover:bg-slate-700'
+                                            }`}
+                                    >
+                                        <Folder className={`w-4 h-4 ${cardFolders[showMoveModal] === f.id ? 'text-indigo-500' : 'text-gray-400'}`} />
+                                        <span className={`text-sm ${cardFolders[showMoveModal] === f.id ? 'text-indigo-700 dark:text-indigo-300 font-medium' : 'text-gray-700 dark:text-gray-300'}`}>{f.name}</span>
+                                    </button>
+                                ))}
+                            </div>
+                            <button onClick={() => setShowMoveModal(null)} className="w-full py-2 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">
+                                Đóng
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+                {/* Header */}
+                <div className="flex items-center justify-between">
+                    <div>
+                        <h1 className="text-2xl font-bold text-gray-800 dark:text-white flex items-center gap-2">
+                            <List className="w-6 h-6 text-indigo-500" />
+                            Danh sách từ vựng
+                        </h1>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                            Quản lý và chỉnh sửa {allCards.length} thẻ ghi nhớ
+                        </p>
+                    </div>
+                    <div className="flex gap-2">
+                        <button onClick={() => setShowFolderManager(true)}
+                            className="px-3 py-2 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5">
+                            <FolderPlus className="w-4 h-4" /> Thư mục
+                        </button>
+                        <button onClick={() => onExport(allCards)}
+                            className="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5">
+                            <Upload className="w-4 h-4" /> Xuất
                         </button>
                     </div>
                 </div>
-            )}
 
-            {/* Move to folder modal */}
-            {showMoveModal && (
-                <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[350px] max-w-[90vw] shadow-2xl space-y-3">
-                        <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                            <Folder className="w-5 h-5 text-indigo-500" /> Chọn thư mục
-                        </h3>
-                        <div className="max-h-[250px] overflow-y-auto space-y-1">
-                            <button
-                                onClick={() => moveCardToFolder(showMoveModal, 'none')}
-                                className="w-full text-left flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
-                            >
-                                <Folder className="w-4 h-4 text-gray-400" />
-                                <span className="text-sm text-gray-500 italic">Chưa phân loại</span>
+                {/* Stats Cards */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm">
+                        <div className="text-2xl font-bold text-indigo-500">{stats.total}</div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">Tổng từ vựng</div>
+                    </div>
+                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm">
+                        <div className="text-2xl font-bold text-orange-500">{stats.dueCards}</div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">Cần ôn</div>
+                    </div>
+                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm">
+                        <div className="text-2xl font-bold text-blue-500">{stats.newCards}</div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">Chưa học</div>
+                    </div>
+                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm">
+                        <div className="text-2xl font-bold text-emerald-500">{stats.total > 0 ? Math.round(((stats.total - stats.newCards) / stats.total) * 100) : 0}%</div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">Đã học</div>
+                    </div>
+                </div>
+
+                {/* Search & Filter Bar */}
+                <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm space-y-3">
+                    {/* Search */}
+                    <div className="relative">
+                        <input
+                            type="text"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            placeholder="Tìm kiếm từ vựng, Hán Việt, nghĩa..."
+                            className="w-full bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg px-4 py-2.5 pl-10 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
+                        />
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                        {searchTerm && (
+                            <button onClick={() => setSearchTerm('')} className="absolute right-3 top-1/2 -translate-y-1/2">
+                                <X className="w-4 h-4 text-gray-400 hover:text-gray-600" />
                             </button>
-                            {folders.map(f => (
+                        )}
+                    </div>
+
+                    {/* Filters */}
+                    <div className="flex flex-wrap items-center gap-2">
+                        <Filter className="w-4 h-4 text-gray-400" />
+
+                        {/* Level filter pills */}
+                        <button onClick={() => setFilterLevel('all')}
+                            className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${filterLevel === 'all' ? 'bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-800' : 'bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600'}`}>
+                            Tất cả
+                        </button>
+                        {JLPT_LEVELS.map(l => (
+                            <button key={l.value}
+                                onClick={() => setFilterLevel(filterLevel === l.value ? 'all' : l.value)}
+                                className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${filterLevel === l.value ? `${l.color} text-white` : 'bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600'}`}>
+                                {l.label}
+                            </button>
+                        ))}
+
+                        <span className="text-gray-300 dark:text-gray-600">|</span>
+
+                        {/* POS filter */}
+                        <select value={filterPos} onChange={(e) => setFilterPos(e.target.value)}
+                            className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
+                            <option value="all">Từ loại</option>
+                            {Object.entries(POS_TYPES).map(([k, v]) => (<option key={k} value={k}>{v.label}</option>))}
+                        </select>
+
+                        {/* Sort */}
+                        <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}
+                            className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
+                            <option value="newest">Mới nhất</option>
+                            <option value="oldest">Cũ nhất</option>
+                        </select>
+
+
+
+                        {/* Folder filter */}
+                        {folders.length > 0 && (
+                            <>
+                                <span className="text-gray-300 dark:text-gray-600">|</span>
+                                <select value={filterFolder} onChange={(e) => setFilterFolder(e.target.value)}
+                                    className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
+                                    <option value="all">📁 Tất cả</option>
+                                    <option value="unfiled">📂 Chưa phân loại</option>
+                                    {folders.map(f => (<option key={f.id} value={f.id}>📁 {f.name}</option>))}
+                                </select>
+                            </>
+                        )}
+                    </div>
+
+                    {/* Active filter info */}
+                    {(hasActiveFilters && !isInFolderBrowseMode) && (
+                        <div className="flex justify-between items-center pt-2 border-t border-gray-100 dark:border-gray-700">
+                            <span className="text-xs text-gray-500">
+                                Tìm thấy <span className="font-bold text-indigo-600 dark:text-indigo-400">{currentFolder !== null ? currentFolderCards.length : filteredCards.length}</span> từ vựng
+                            </span>
+                            <button onClick={() => { resetFilters(); setCurrentFolder(null); }}
+                                className="px-3 py-1.5 text-xs font-bold rounded-lg bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors flex items-center gap-1">
+                                <X className="w-3.5 h-3.5" /> Bỏ lọc
+                            </button>
+                        </div>
+                    )}
+                </div>
+
+                {/* Selection banner (like KanjiSRSListScreen) */}
+                {selectedCards.size > 0 && (
+                    <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-3 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                            <span className="text-sm font-medium text-red-700 dark:text-red-300">
+                                Đã chọn {selectedCards.size} từ vựng
+                            </span>
+                            <button
+                                onClick={() => setSelectedCards(new Set())}
+                                className="text-xs text-red-500 hover:text-red-700 underline"
+                            >
+                                Bỏ chọn tất cả
+                            </button>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={() => folders.length > 0 ? setShowBatchMoveModal(true) : setShowFolderManager(true)}
+                                className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium flex items-center gap-1.5 transition-colors"
+                            >
+                                <Folder className="w-4 h-4" /> Chuyển thư mục
+                            </button>
+                            <button
+                                onClick={batchDeleteSelected}
+                                className="px-4 py-1.5 bg-red-600 hover:bg-red-500 text-white rounded-lg text-sm font-medium flex items-center gap-2 transition-colors"
+                            >
+                                <Trash2 className="w-4 h-4" /> Xóa khỏi danh sách
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+                {/* ====== FOLDER BROWSE MODE — Windows Explorer style ====== */}
+                {isInFolderBrowseMode ? (
+                    <div className="space-y-4">
+                        {/* Breadcrumb */}
+                        {currentFolder !== null && (
+                            <div className="flex items-center gap-1.5 text-sm flex-wrap">
+                                <button onClick={() => setCurrentFolder(null)}
+                                    className="flex items-center gap-1 text-indigo-600 dark:text-indigo-400 hover:underline font-medium">
+                                    <ChevronLeft className="w-4 h-4" /> Thư mục gốc
+                                </button>
+                                {getFolderPath(currentFolder).map((seg, i, arr) => (
+                                    <React.Fragment key={seg.id}>
+                                        <span className="text-gray-400">/</span>
+                                        {i < arr.length - 1 ? (
+                                            <button onClick={() => openFolder(seg.id)} className="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">{seg.name}</button>
+                                        ) : (
+                                            <span className="font-medium text-gray-700 dark:text-gray-300 flex items-center gap-1">
+                                                <Folder className="w-3.5 h-3.5 text-amber-500" /> {seg.name}
+                                            </span>
+                                        )}
+                                    </React.Fragment>
+                                ))}
+                            </div>
+                        )}
+
+                        {/* Info bar */}
+                        <div className="flex items-center gap-2">
+                            <span className="text-sm text-gray-500 dark:text-gray-400 flex-1">
+                                {currentFolder === null
+                                    ? `📁 ${folders.filter(f => !f.parentId).length} thư mục · ${allCards.length} từ vựng`
+                                    : `${currentSubFolders.length} thư mục con · ${currentFolderCards.length} từ vựng`
+                                }
+                            </span>
+                            {/* Create sub-folder button when inside a folder */}
+                            {currentFolder !== null && (
+                                showNewSubFolderInput ? (
+                                    <div className="flex gap-1.5 items-center">
+                                        <input type="text" value={newSubFolderInput}
+                                            onChange={(e) => setNewSubFolderInput(e.target.value)}
+                                            onKeyDown={(e) => {
+                                                if (e.key === 'Enter' && newSubFolderInput.trim()) {
+                                                    createFolder(newSubFolderInput.trim(), currentFolder);
+                                                    setNewSubFolderInput(''); setShowNewSubFolderInput(false);
+                                                }
+                                                if (e.key === 'Escape') setShowNewSubFolderInput(false);
+                                            }}
+                                            autoFocus placeholder="Tên thư mục con..."
+                                            className="px-2 py-1 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 w-40"
+                                        />
+                                        <button onClick={() => {
+                                            if (newSubFolderInput.trim()) { createFolder(newSubFolderInput.trim(), currentFolder); setNewSubFolderInput(''); setShowNewSubFolderInput(false); }
+                                        }} className="px-2 py-1 bg-emerald-600 text-white rounded text-xs font-medium"><Plus className="w-3.5 h-3.5" /></button>
+                                        <button onClick={() => setShowNewSubFolderInput(false)} className="text-gray-400 hover:text-gray-600"><X className="w-3.5 h-3.5" /></button>
+                                    </div>
+                                ) : (
+                                    <button onClick={() => setShowNewSubFolderInput(true)}
+                                        className="px-3 py-1.5 text-xs font-medium rounded-lg bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors flex items-center gap-1">
+                                        <FolderPlus className="w-3.5 h-3.5" /> Thư mục con
+                                    </button>
+                                )
+                            )}
+                            {onNavigateToImport && (
+                                <button onClick={onNavigateToImport}
+                                    className="px-3 py-1.5 text-xs font-medium rounded-lg bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors flex items-center gap-1">
+                                    <Download className="w-3.5 h-3.5" /> Nhập File
+                                </button>
+                            )}
+
+                        </div>
+
+                        {/* Folder Grid */}
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                            {/* "All cards" tile - only at root */}
+                            {currentFolder === null && (
+                                <button
+                                    onClick={() => openFolder('__all__')}
+                                    className="flex flex-col items-center gap-2 p-5 rounded-xl bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/30 dark:to-indigo-800/20 border-2 border-indigo-200 dark:border-indigo-700 hover:border-indigo-400 dark:hover:border-indigo-500 hover:shadow-lg transition-all cursor-pointer group"
+                                >
+                                    <div className="w-14 h-14 rounded-xl bg-indigo-500/10 dark:bg-indigo-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                        <List className="w-7 h-7 text-indigo-500" />
+                                    </div>
+                                    <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">Tất cả từ vựng</span>
+                                    <span className="text-xs text-indigo-500 dark:text-indigo-400 font-medium">{allCards.length} từ</span>
+                                </button>
+                            )}
+
+                            {/* Folder tiles (root or sub-folders) */}
+                            {(currentFolder === null ? foldersWithCounts : currentSubFolders).map(f => (
                                 <button
                                     key={f.id}
-                                    onClick={() => moveCardToFolder(showMoveModal, f.id)}
-                                    className={`w-full text-left flex items-center gap-3 p-3 rounded-lg transition-colors ${cardFolders[showMoveModal] === f.id
-                                        ? 'bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700'
-                                        : 'hover:bg-gray-50 dark:hover:bg-slate-700'
-                                        }`}
+                                    onClick={() => openFolder(f.id)}
+                                    className="flex flex-col items-center gap-2 p-5 rounded-xl bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 hover:shadow-lg transition-all cursor-pointer group"
                                 >
-                                    <Folder className={`w-4 h-4 ${cardFolders[showMoveModal] === f.id ? 'text-indigo-500' : 'text-gray-400'}`} />
-                                    <span className={`text-sm ${cardFolders[showMoveModal] === f.id ? 'text-indigo-700 dark:text-indigo-300 font-medium' : 'text-gray-700 dark:text-gray-300'}`}>{f.name}</span>
+                                    <div className="w-14 h-14 rounded-xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                        <Folder className="w-7 h-7 text-amber-500" />
+                                    </div>
+                                    <span className="text-sm font-bold text-gray-700 dark:text-gray-200 truncate max-w-full">{f.name}</span>
+                                    <div className="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500 font-medium">
+                                        <span>{f.count} từ</span>
+                                        {f.subFolderCount > 0 && <span>· {f.subFolderCount} thư mục</span>}
+                                    </div>
                                 </button>
                             ))}
+
+                            {/* Unfiled tile - only at root */}
+                            {currentFolder === null && unfiledCount > 0 && (
+                                <button
+                                    onClick={() => openFolder('unfiled')}
+                                    className="flex flex-col items-center gap-2 p-5 rounded-xl bg-white dark:bg-slate-800 border-2 border-dashed border-gray-300 dark:border-slate-600 hover:border-gray-400 dark:hover:border-slate-500 hover:shadow-lg transition-all cursor-pointer group"
+                                >
+                                    <div className="w-14 h-14 rounded-xl bg-gray-100 dark:bg-slate-700 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                        <Folder className="w-7 h-7 text-gray-400 dark:text-gray-500" />
+                                    </div>
+                                    <span className="text-sm font-bold text-gray-500 dark:text-gray-400">Chưa phân loại</span>
+                                    <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">{unfiledCount} từ</span>
+                                </button>
+                            )}
                         </div>
-                        <button onClick={() => setShowMoveModal(null)} className="w-full py-2 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">
-                            Đóng
-                        </button>
+
+                        {/* Cards directly in this folder (if any) */}
+                        {currentFolder !== null && currentFolderCards.length > 0 && (
+                            <>
+                                <div className="flex items-center gap-2">
+                                    <div className="flex-1 h-px bg-gray-200 dark:bg-slate-700"></div>
+                                    <span className="text-xs text-gray-400 font-medium">Từ vựng trong thư mục này ({currentFolderCards.length})</span>
+                                    <div className="flex-1 h-px bg-gray-200 dark:bg-slate-700"></div>
+                                </div>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                                    {effectiveDisplayedCards.map(card => {
+                                        const isSelected = selectedCards.has(card.id);
+                                        return (
+                                            <div key={card.id}
+                                                onClick={() => toggleCardSelection(card.id)}
+                                                className={`flex items-center gap-2 p-2.5 rounded-lg border cursor-pointer transition-all ${isSelected
+                                                    ? 'bg-red-50 dark:bg-red-900/20 border-red-300 dark:border-red-700'
+                                                    : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-indigo-300'}`}>
+                                                <div className={`w-4 h-4 rounded border-2 flex items-center justify-center flex-shrink-0 ${isSelected ? 'bg-red-500 border-red-500 text-white' : 'border-gray-300 dark:border-slate-600'}`}>
+                                                    {isSelected && <span className="text-[10px]">&#10003;</span>}
+                                                </div>
+                                                <div className="flex-1 min-w-0">
+                                                    <div className="text-sm font-medium text-gray-900 dark:text-white truncate">{card.front}</div>
+                                                    <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{card.back}</div>
+                                                </div>
+                                                {card.level && (
+                                                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-gray-400 flex-shrink-0">{card.level}</span>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </>
+                        )}
+
+                        {/* Show message if folder is empty */}
+                        {currentFolder !== null && currentSubFolders.length === 0 && currentFolderCards.length === 0 && (
+                            <div className="text-center py-12 space-y-3">
+                                <Folder className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto" />
+                                <p className="text-gray-500 dark:text-gray-400">Thư mục này trống</p>
+                                <p className="text-sm text-gray-400">Bạn có thể tạo thư mục con hoặc chuyển từ vựng vào đây</p>
+                            </div>
+                        )}
                     </div>
-                </div>
-            )}
+                ) : (
+                    /* ====== CARD LIST MODE (inside folder, or no folders, or search active) ====== */
+                    <div className="space-y-4">
 
-            {/* Header */}
-            <div className="flex items-center justify-between">
-                <div>
-                    <h1 className="text-2xl font-bold text-gray-800 dark:text-white flex items-center gap-2">
-                        <List className="w-6 h-6 text-indigo-500" />
-                        Danh sách từ vựng
-                    </h1>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                        Quản lý và chỉnh sửa {allCards.length} thẻ ghi nhớ
-                    </p>
-                </div>
-                <div className="flex gap-2">
-                    <button onClick={() => setShowFolderManager(true)}
-                        className="px-3 py-2 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5">
-                        <FolderPlus className="w-4 h-4" /> Thư mục
-                    </button>
-                    <button onClick={() => onExport(allCards)}
-                        className="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5">
-                        <Upload className="w-4 h-4" /> Xuất
-                    </button>
-                </div>
-            </div>
+                        {/* Breadcrumb when inside a folder */}
+                        {currentFolder !== null && (
+                            <div className="flex items-center gap-2 text-sm">
+                                <button
+                                    onClick={goBackToFolders}
+                                    className="flex items-center gap-1 text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
+                                >
+                                    <ChevronLeft className="w-4 h-4" />
+                                    Thư mục
+                                </button>
+                                <span className="text-gray-400">/</span>
+                                <span className="font-medium text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
+                                    <Folder className="w-4 h-4 text-amber-500" />
+                                    {currentFolderName}
+                                </span>
+                                <span className="text-xs text-gray-400 ml-2">
+                                    {currentFolderCards.length} từ vựng
+                                </span>
+                            </div>
+                        )}
 
-            {/* Stats Cards */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm">
-                    <div className="text-2xl font-bold text-indigo-500">{stats.total}</div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">Tổng từ vựng</div>
-                </div>
-                <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm">
-                    <div className="text-2xl font-bold text-orange-500">{stats.dueCards}</div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">Cần ôn</div>
-                </div>
-                <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm">
-                    <div className="text-2xl font-bold text-blue-500">{stats.newCards}</div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">Chưa học</div>
-                </div>
-                <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm">
-                    <div className="text-2xl font-bold text-emerald-500">{stats.total > 0 ? Math.round(((stats.total - stats.newCards) / stats.total) * 100) : 0}%</div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">Đã học</div>
-                </div>
-            </div>
+                        {/* Import buttons bar */}
+                        <div className="flex items-center gap-2">
+                            <span className="text-sm text-gray-500 dark:text-gray-400 flex-1">
+                                {currentFolder !== null ? currentFolderCards.length : filteredCards.length} từ vựng
+                            </span>
+                            <button
+                                onClick={toggleSelectAll}
+                                className="text-xs text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
+                            >
+                                {selectedCards.size > 0 && selectedCards.size === (currentFolder !== null ? effectiveDisplayedCards : displayedCards).length ? 'Bỏ chọn tất cả' : 'Chọn tất cả'}
+                            </button>
+                            {onNavigateToImport && (
+                                <button onClick={onNavigateToImport}
+                                    className="px-3 py-1.5 text-xs font-medium rounded-lg bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors flex items-center gap-1">
+                                    <Download className="w-3.5 h-3.5" /> Nhập File
+                                </button>
+                            )}
 
-            {/* Search & Filter Bar */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm space-y-3">
-                {/* Search */}
-                <div className="relative">
-                    <input
-                        type="text"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        placeholder="Tìm kiếm từ vựng, Hán Việt, nghĩa..."
-                        className="w-full bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg px-4 py-2.5 pl-10 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
-                    />
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                    {searchTerm && (
-                        <button onClick={() => setSearchTerm('')} className="absolute right-3 top-1/2 -translate-y-1/2">
-                            <X className="w-4 h-4 text-gray-400 hover:text-gray-600" />
-                        </button>
-                    )}
-                </div>
+                        </div>
 
-                {/* Filters */}
-                <div className="flex flex-wrap items-center gap-2">
-                    <Filter className="w-4 h-4 text-gray-400" />
+                        {/* Vocabulary Cards Grid */}
+                        {(currentFolder !== null ? currentFolderCards.length : filteredCards.length) === 0 ? (
+                            <div className="text-center py-16 space-y-4">
+                                <List className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto" />
+                                <h3 className="text-lg font-medium text-gray-500 dark:text-gray-400">Không tìm thấy từ vựng nào</h3>
+                                <p className="text-sm text-gray-400 dark:text-gray-500">{currentFolder !== null ? 'Thư mục này chưa có từ vựng nào' : 'Thử thay đổi bộ lọc hoặc từ khóa tìm kiếm'}</p>
+                                {currentFolder !== null && (
+                                    <button onClick={goBackToFolders} className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition-colors">
+                                        Quay lại thư mục
+                                    </button>
+                                )}
+                            </div>
+                        ) : (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                                {(currentFolder !== null ? effectiveDisplayedCards : displayedCards).map(card => {
+                                    const folderName = getFolderName(card.id);
+                                    const isSelected = selectedCards.has(card.id);
+                                    return (
+                                        <div
+                                            key={card.id}
+                                            data-card-id={card.id}
+                                            className={`group relative flex items-center gap-3 p-3 rounded-xl border transition-all cursor-pointer ${isSelected
+                                                ? 'bg-red-50 dark:bg-red-900/20 border-red-300 dark:border-red-700 ring-1 ring-red-300'
+                                                : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-md'
+                                                }`}
+                                        >
+                                            {/* Checkbox */}
+                                            <div
+                                                onClick={(e) => { e.stopPropagation(); toggleCardSelection(card.id); }}
+                                                className="flex-shrink-0"
+                                            >
+                                                <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${isSelected
+                                                    ? 'bg-red-500 border-red-500 text-white'
+                                                    : 'border-gray-300 dark:border-slate-600 group-hover:border-indigo-400'
+                                                    }`}>
+                                                    {isSelected && <span className="text-xs leading-none">✓</span>}
+                                                </div>
+                                            </div>
 
-                    {/* Level filter pills */}
-                    <button onClick={() => setFilterLevel('all')}
-                        className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${filterLevel === 'all' ? 'bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-800' : 'bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600'}`}>
-                        Tất cả
-                    </button>
-                    {JLPT_LEVELS.map(l => (
-                        <button key={l.value}
-                            onClick={() => setFilterLevel(filterLevel === l.value ? 'all' : l.value)}
-                            className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${filterLevel === l.value ? `${l.color} text-white` : 'bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600'}`}>
-                            {l.label}
-                        </button>
-                    ))}
+                                            {/* Audio + content */}
+                                            <div className="flex items-center gap-2 flex-1 min-w-0">
+                                                <button
+                                                    onClick={(e) => { e.stopPropagation(); onPlayAudio(card.audioBase64 || null, card.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null); }}
+                                                    className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors bg-indigo-50 dark:bg-indigo-900/30 text-indigo-500 hover:bg-indigo-100"
+                                                    title="Phát âm thanh"
+                                                >
+                                                    <Volume2 className="w-3.5 h-3.5" />
+                                                </button>
 
-                    <span className="text-gray-300 dark:text-gray-600">|</span>
+                                                <div className="flex-1 min-w-0">
+                                                    <div className="flex items-center gap-1.5 flex-wrap">
+                                                        <span className="font-bold text-gray-800 dark:text-gray-200 text-sm">{card.front}</span>
+                                                        {card.sinoVietnamese && (
+                                                            <span className="text-[10px] font-medium text-pink-500 dark:text-pink-400 bg-pink-50 dark:bg-pink-900/30 px-1.5 rounded">{card.sinoVietnamese}</span>
+                                                        )}
+                                                        {card.level && (
+                                                            <span className={`text-[10px] px-1.5 py-0.5 rounded-full border font-bold ${getLevelColor(card.level)}`}>{card.level}</span>
+                                                        )}
+                                                    </div>
+                                                    <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{card.back}</div>
+                                                    {folderName && (
+                                                        <div className="flex items-center gap-1 mt-0.5">
+                                                            <Folder className="w-3 h-3 text-indigo-400" />
+                                                            <span className="text-[10px] text-indigo-500 dark:text-indigo-400 font-medium">{folderName}</span>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </div>
 
-                    {/* POS filter */}
-                    <select value={filterPos} onChange={(e) => setFilterPos(e.target.value)}
-                        className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
-                        <option value="all">Từ loại</option>
-                        {Object.entries(POS_TYPES).map(([k, v]) => (<option key={k} value={k}>{v.label}</option>))}
-                    </select>
+                                            {/* SRS badge */}
+                                            <div className="flex-shrink-0">
+                                                <SrsStatusCell intervalIndex={card.intervalIndex_back} nextReview={card.nextReview_back} currentInterval={card.currentInterval_back} hasData={true} asDiv={true} />
+                                            </div>
 
-                    {/* Sort */}
-                    <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}
-                        className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
-                        <option value="newest">Mới nhất</option>
-                        <option value="oldest">Cũ nhất</option>
-                    </select>
+                                            {/* Hover action buttons */}
+                                            <div className="opacity-0 group-hover:opacity-100 absolute top-1 right-1 flex gap-0.5 transition-all bg-white/80 dark:bg-slate-800/80 rounded-lg p-0.5 backdrop-blur-sm">
+                                                <button
+                                                    onClick={(e) => { e.stopPropagation(); setShowMoveModal(card.id); }}
+                                                    className="p-1 text-gray-400 hover:text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded transition-colors"
+                                                    title="Chuyển thư mục"
+                                                >
+                                                    <Folder className="w-3.5 h-3.5" />
+                                                </button>
+                                                <button
+                                                    onClick={(e) => { e.stopPropagation(); setEditingCard(card); }}
+                                                    className="p-1 text-gray-400 hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded transition-colors"
+                                                    title="Chỉnh sửa"
+                                                >
+                                                    <Edit className="w-3.5 h-3.5" />
+                                                </button>
+                                                <button
+                                                    onClick={(e) => { e.stopPropagation(); requestDeleteCard(card.id, card.front); }}
+                                                    className="p-1 text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30 rounded transition-colors"
+                                                    title="Xóa"
+                                                >
+                                                    <Trash2 className="w-3.5 h-3.5" />
+                                                </button>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
 
-
-
-                    {/* Folder filter */}
-                    {folders.length > 0 && (
-                        <>
-                            <span className="text-gray-300 dark:text-gray-600">|</span>
-                            <select value={filterFolder} onChange={(e) => setFilterFolder(e.target.value)}
-                                className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
-                                <option value="all">📁 Tất cả</option>
-                                <option value="unfiled">📂 Chưa phân loại</option>
-                                {folders.map(f => (<option key={f.id} value={f.id}>📁 {f.name}</option>))}
-                            </select>
-                        </>
-                    )}
-                </div>
-
-                {/* Active filter info */}
-                {(hasActiveFilters && !isInFolderBrowseMode) && (
-                    <div className="flex justify-between items-center pt-2 border-t border-gray-100 dark:border-gray-700">
-                        <span className="text-xs text-gray-500">
-                            Tìm thấy <span className="font-bold text-indigo-600 dark:text-indigo-400">{currentFolder !== null ? currentFolderCards.length : filteredCards.length}</span> từ vựng
-                        </span>
-                        <button onClick={() => { resetFilters(); setCurrentFolder(null); }}
-                            className="px-3 py-1.5 text-xs font-bold rounded-lg bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors flex items-center gap-1">
-                            <X className="w-3.5 h-3.5" /> Bỏ lọc
-                        </button>
+                                {/* Load more */}
+                                {displayedCount < filteredCards.length && (
+                                    <div className="col-span-full py-4 text-center space-y-3">
+                                        {isLoadingMore ? (
+                                            <div className="flex items-center justify-center gap-2 text-gray-400">
+                                                <Loader2 className="w-4 h-4 animate-spin" />
+                                                <span className="text-xs">Đang tải thêm...</span>
+                                            </div>
+                                        ) : (
+                                            <>
+                                                <p className="text-xs text-gray-400">
+                                                    Đang hiển thị {displayedCount} / {filteredCards.length} từ vựng
+                                                </p>
+                                                <button onClick={loadMore}
+                                                    className="px-4 py-2 text-xs font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg hover:bg-indigo-200 dark:hover:bg-indigo-900/50 transition-colors">
+                                                    Tải thêm 100 từ vựng
+                                                </button>
+                                            </>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        )}
                     </div>
                 )}
             </div>
 
-            {/* Selection banner (like KanjiSRSListScreen) */}
-            {selectedCards.size > 0 && (
-                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-3 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                        <span className="text-sm font-medium text-red-700 dark:text-red-300">
-                            Đã chọn {selectedCards.size} từ vựng
-                        </span>
-                        <button
-                            onClick={() => setSelectedCards(new Set())}
-                            className="text-xs text-red-500 hover:text-red-700 underline"
-                        >
-                            Bỏ chọn tất cả
-                        </button>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <button
-                            onClick={() => folders.length > 0 ? setShowBatchMoveModal(true) : setShowFolderManager(true)}
-                            className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium flex items-center gap-1.5 transition-colors"
-                        >
-                            <Folder className="w-4 h-4" /> Chuyển thư mục
-                        </button>
-                        <button
-                            onClick={batchDeleteSelected}
-                            className="px-4 py-1.5 bg-red-600 hover:bg-red-500 text-white rounded-lg text-sm font-medium flex items-center gap-2 transition-colors"
-                        >
-                            <Trash2 className="w-4 h-4" /> Xóa khỏi danh sách
-                        </button>
-                    </div>
-                </div>
-            )}
-
-            {/* ====== FOLDER BROWSE MODE — Windows Explorer style ====== */}
-            {isInFolderBrowseMode ? (
-                <div className="space-y-4">
-                    {/* Breadcrumb */}
-                    {currentFolder !== null && (
-                        <div className="flex items-center gap-1.5 text-sm flex-wrap">
-                            <button onClick={() => setCurrentFolder(null)}
-                                className="flex items-center gap-1 text-indigo-600 dark:text-indigo-400 hover:underline font-medium">
-                                <ChevronLeft className="w-4 h-4" /> Thư mục gốc
-                            </button>
-                            {getFolderPath(currentFolder).map((seg, i, arr) => (
-                                <React.Fragment key={seg.id}>
-                                    <span className="text-gray-400">/</span>
-                                    {i < arr.length - 1 ? (
-                                        <button onClick={() => openFolder(seg.id)} className="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">{seg.name}</button>
-                                    ) : (
-                                        <span className="font-medium text-gray-700 dark:text-gray-300 flex items-center gap-1">
-                                            <Folder className="w-3.5 h-3.5 text-amber-500" /> {seg.name}
-                                        </span>
-                                    )}
-                                </React.Fragment>
-                            ))}
-                        </div>
-                    )}
-
-                    {/* Info bar */}
-                    <div className="flex items-center gap-2">
-                        <span className="text-sm text-gray-500 dark:text-gray-400 flex-1">
-                            {currentFolder === null
-                                ? `📁 ${folders.filter(f => !f.parentId).length} thư mục · ${allCards.length} từ vựng`
-                                : `${currentSubFolders.length} thư mục con · ${currentFolderCards.length} từ vựng`
-                            }
-                        </span>
-                        {/* Create sub-folder button when inside a folder */}
-                        {currentFolder !== null && (
-                            showNewSubFolderInput ? (
-                                <div className="flex gap-1.5 items-center">
-                                    <input type="text" value={newSubFolderInput}
-                                        onChange={(e) => setNewSubFolderInput(e.target.value)}
-                                        onKeyDown={(e) => {
-                                            if (e.key === 'Enter' && newSubFolderInput.trim()) {
-                                                createFolder(newSubFolderInput.trim(), currentFolder);
-                                                setNewSubFolderInput(''); setShowNewSubFolderInput(false);
-                                            }
-                                            if (e.key === 'Escape') setShowNewSubFolderInput(false);
-                                        }}
-                                        autoFocus placeholder="Tên thư mục con..."
-                                        className="px-2 py-1 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 w-40"
-                                    />
-                                    <button onClick={() => {
-                                        if (newSubFolderInput.trim()) { createFolder(newSubFolderInput.trim(), currentFolder); setNewSubFolderInput(''); setShowNewSubFolderInput(false); }
-                                    }} className="px-2 py-1 bg-emerald-600 text-white rounded text-xs font-medium"><Plus className="w-3.5 h-3.5" /></button>
-                                    <button onClick={() => setShowNewSubFolderInput(false)} className="text-gray-400 hover:text-gray-600"><X className="w-3.5 h-3.5" /></button>
+            {/* Delete Confirmation Modal */}
+            {
+                deleteConfirm && (
+                    <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4" onClick={() => setDeleteConfirm(null)}>
+                        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-sm w-full p-6 space-y-4" onClick={e => e.stopPropagation()}
+                            style={{ animation: 'deleteModalIn 0.25s ease-out' }}>
+                            <div className="flex items-center gap-3">
+                                <div className="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center flex-shrink-0">
+                                    <Trash2 className="w-6 h-6 text-red-500" />
                                 </div>
-                            ) : (
-                                <button onClick={() => setShowNewSubFolderInput(true)}
-                                    className="px-3 py-1.5 text-xs font-medium rounded-lg bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors flex items-center gap-1">
-                                    <FolderPlus className="w-3.5 h-3.5" /> Thư mục con
-                                </button>
-                            )
-                        )}
-                        {onNavigateToImport && (
-                            <button onClick={onNavigateToImport}
-                                className="px-3 py-1.5 text-xs font-medium rounded-lg bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors flex items-center gap-1">
-                                <Download className="w-3.5 h-3.5" /> Nhập File
-                            </button>
-                        )}
-
-                    </div>
-
-                    {/* Folder Grid */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-                        {/* "All cards" tile - only at root */}
-                        {currentFolder === null && (
-                            <button
-                                onClick={() => openFolder('__all__')}
-                                className="flex flex-col items-center gap-2 p-5 rounded-xl bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/30 dark:to-indigo-800/20 border-2 border-indigo-200 dark:border-indigo-700 hover:border-indigo-400 dark:hover:border-indigo-500 hover:shadow-lg transition-all cursor-pointer group"
-                            >
-                                <div className="w-14 h-14 rounded-xl bg-indigo-500/10 dark:bg-indigo-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                    <List className="w-7 h-7 text-indigo-500" />
+                                <div>
+                                    <h3 className="text-lg font-bold text-gray-800 dark:text-white">Xác nhận xóa</h3>
+                                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                                        {deleteConfirm.type === 'single'
+                                            ? <>Bạn có chắc muốn xóa từ vựng <strong className="text-gray-800 dark:text-white">"{deleteConfirm.cardFront}"</strong>?</>
+                                            : <>Bạn có chắc muốn xóa <strong className="text-red-500">{deleteConfirm.count}</strong> từ vựng đã chọn?</>
+                                        }
+                                    </p>
                                 </div>
-                                <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">Tất cả từ vựng</span>
-                                <span className="text-xs text-indigo-500 dark:text-indigo-400 font-medium">{allCards.length} từ</span>
-                            </button>
-                        )}
-
-                        {/* Folder tiles (root or sub-folders) */}
-                        {(currentFolder === null ? foldersWithCounts : currentSubFolders).map(f => (
-                            <button
-                                key={f.id}
-                                onClick={() => openFolder(f.id)}
-                                className="flex flex-col items-center gap-2 p-5 rounded-xl bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 hover:shadow-lg transition-all cursor-pointer group"
-                            >
-                                <div className="w-14 h-14 rounded-xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                    <Folder className="w-7 h-7 text-amber-500" />
-                                </div>
-                                <span className="text-sm font-bold text-gray-700 dark:text-gray-200 truncate max-w-full">{f.name}</span>
-                                <div className="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500 font-medium">
-                                    <span>{f.count} từ</span>
-                                    {f.subFolderCount > 0 && <span>· {f.subFolderCount} thư mục</span>}
-                                </div>
-                            </button>
-                        ))}
-
-                        {/* Unfiled tile - only at root */}
-                        {currentFolder === null && unfiledCount > 0 && (
-                            <button
-                                onClick={() => openFolder('unfiled')}
-                                className="flex flex-col items-center gap-2 p-5 rounded-xl bg-white dark:bg-slate-800 border-2 border-dashed border-gray-300 dark:border-slate-600 hover:border-gray-400 dark:hover:border-slate-500 hover:shadow-lg transition-all cursor-pointer group"
-                            >
-                                <div className="w-14 h-14 rounded-xl bg-gray-100 dark:bg-slate-700 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                    <Folder className="w-7 h-7 text-gray-400 dark:text-gray-500" />
-                                </div>
-                                <span className="text-sm font-bold text-gray-500 dark:text-gray-400">Chưa phân loại</span>
-                                <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">{unfiledCount} từ</span>
-                            </button>
-                        )}
-                    </div>
-
-                    {/* Cards directly in this folder (if any) */}
-                    {currentFolder !== null && currentFolderCards.length > 0 && (
-                        <>
-                            <div className="flex items-center gap-2">
-                                <div className="flex-1 h-px bg-gray-200 dark:bg-slate-700"></div>
-                                <span className="text-xs text-gray-400 font-medium">Từ vựng trong thư mục này ({currentFolderCards.length})</span>
-                                <div className="flex-1 h-px bg-gray-200 dark:bg-slate-700"></div>
                             </div>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                                {effectiveDisplayedCards.map(card => {
-                                    const isSelected = selectedCards.has(card.id);
-                                    return (
-                                        <div key={card.id}
-                                            onClick={() => toggleCardSelection(card.id)}
-                                            className={`flex items-center gap-2 p-2.5 rounded-lg border cursor-pointer transition-all ${isSelected
-                                                ? 'bg-red-50 dark:bg-red-900/20 border-red-300 dark:border-red-700'
-                                                : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-indigo-300'}`}>
-                                            <div className={`w-4 h-4 rounded border-2 flex items-center justify-center flex-shrink-0 ${isSelected ? 'bg-red-500 border-red-500 text-white' : 'border-gray-300 dark:border-slate-600'}`}>
-                                                {isSelected && <span className="text-[10px]">&#10003;</span>}
-                                            </div>
-                                            <div className="flex-1 min-w-0">
-                                                <div className="text-sm font-medium text-gray-900 dark:text-white truncate">{card.front}</div>
-                                                <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{card.back}</div>
-                                            </div>
-                                            {card.level && (
-                                                <span className="text-[10px] px-1.5 py-0.5 rounded bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-gray-400 flex-shrink-0">{card.level}</span>
-                                            )}
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </>
-                    )}
-
-                    {/* Show message if folder is empty */}
-                    {currentFolder !== null && currentSubFolders.length === 0 && currentFolderCards.length === 0 && (
-                        <div className="text-center py-12 space-y-3">
-                            <Folder className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto" />
-                            <p className="text-gray-500 dark:text-gray-400">Thư mục này trống</p>
-                            <p className="text-sm text-gray-400">Bạn có thể tạo thư mục con hoặc chuyển từ vựng vào đây</p>
-                        </div>
-                    )}
-                </div>
-            ) : (
-                /* ====== CARD LIST MODE (inside folder, or no folders, or search active) ====== */
-                <div className="space-y-4">
-
-                    {/* Breadcrumb when inside a folder */}
-                    {currentFolder !== null && (
-                        <div className="flex items-center gap-2 text-sm">
-                            <button
-                                onClick={goBackToFolders}
-                                className="flex items-center gap-1 text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
-                            >
-                                <ChevronLeft className="w-4 h-4" />
-                                Thư mục
-                            </button>
-                            <span className="text-gray-400">/</span>
-                            <span className="font-medium text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
-                                <Folder className="w-4 h-4 text-amber-500" />
-                                {currentFolderName}
-                            </span>
-                            <span className="text-xs text-gray-400 ml-2">
-                                {currentFolderCards.length} từ vựng
-                            </span>
-                        </div>
-                    )}
-
-                    {/* Import buttons bar */}
-                    <div className="flex items-center gap-2">
-                        <span className="text-sm text-gray-500 dark:text-gray-400 flex-1">
-                            {currentFolder !== null ? currentFolderCards.length : filteredCards.length} từ vựng
-                        </span>
-                        <button
-                            onClick={toggleSelectAll}
-                            className="text-xs text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
-                        >
-                            {selectedCards.size > 0 && selectedCards.size === (currentFolder !== null ? effectiveDisplayedCards : displayedCards).length ? 'Bỏ chọn tất cả' : 'Chọn tất cả'}
-                        </button>
-                        {onNavigateToImport && (
-                            <button onClick={onNavigateToImport}
-                                className="px-3 py-1.5 text-xs font-medium rounded-lg bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors flex items-center gap-1">
-                                <Download className="w-3.5 h-3.5" /> Nhập File
-                            </button>
-                        )}
-
-                    </div>
-
-                    {/* Vocabulary Cards Grid */}
-                    {(currentFolder !== null ? currentFolderCards.length : filteredCards.length) === 0 ? (
-                        <div className="text-center py-16 space-y-4">
-                            <List className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto" />
-                            <h3 className="text-lg font-medium text-gray-500 dark:text-gray-400">Không tìm thấy từ vựng nào</h3>
-                            <p className="text-sm text-gray-400 dark:text-gray-500">{currentFolder !== null ? 'Thư mục này chưa có từ vựng nào' : 'Thử thay đổi bộ lọc hoặc từ khóa tìm kiếm'}</p>
-                            {currentFolder !== null && (
-                                <button onClick={goBackToFolders} className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition-colors">
-                                    Quay lại thư mục
+                            <p className="text-xs text-gray-400 dark:text-gray-500">Thao tác này không thể hoàn tác.</p>
+                            <div className="flex gap-3">
+                                <button
+                                    onClick={() => setDeleteConfirm(null)}
+                                    className="flex-1 px-4 py-2.5 bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-700 dark:text-gray-300 rounded-xl font-medium text-sm transition-colors"
+                                >
+                                    Hủy
                                 </button>
-                            )}
+                                <button
+                                    onClick={confirmDelete}
+                                    className="flex-1 px-4 py-2.5 bg-gradient-to-r from-red-500 to-rose-500 hover:from-red-600 hover:to-rose-600 text-white rounded-xl font-bold text-sm transition-all shadow-lg shadow-red-500/20 flex items-center justify-center gap-1.5"
+                                >
+                                    <Trash2 className="w-4 h-4" />
+                                    Xóa
+                                </button>
+                            </div>
                         </div>
-                    ) : (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                            {(currentFolder !== null ? effectiveDisplayedCards : displayedCards).map(card => {
-                                const folderName = getFolderName(card.id);
-                                const isSelected = selectedCards.has(card.id);
-                                return (
-                                    <div
-                                        key={card.id}
-                                        data-card-id={card.id}
-                                        className={`group relative flex items-center gap-3 p-3 rounded-xl border transition-all cursor-pointer ${isSelected
-                                            ? 'bg-red-50 dark:bg-red-900/20 border-red-300 dark:border-red-700 ring-1 ring-red-300'
-                                            : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-md'
-                                            }`}
-                                    >
-                                        {/* Checkbox */}
-                                        <div
-                                            onClick={(e) => { e.stopPropagation(); toggleCardSelection(card.id); }}
-                                            className="flex-shrink-0"
-                                        >
-                                            <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${isSelected
-                                                ? 'bg-red-500 border-red-500 text-white'
-                                                : 'border-gray-300 dark:border-slate-600 group-hover:border-indigo-400'
-                                                }`}>
-                                                {isSelected && <span className="text-xs leading-none">✓</span>}
-                                            </div>
-                                        </div>
-
-                                        {/* Audio + content */}
-                                        <div className="flex items-center gap-2 flex-1 min-w-0">
-                                            <button
-                                                onClick={(e) => { e.stopPropagation(); onPlayAudio(card.audioBase64 || null, card.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null); }}
-                                                className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors bg-indigo-50 dark:bg-indigo-900/30 text-indigo-500 hover:bg-indigo-100"
-                                                title="Phát âm thanh"
-                                            >
-                                                <Volume2 className="w-3.5 h-3.5" />
-                                            </button>
-
-                                            <div className="flex-1 min-w-0">
-                                                <div className="flex items-center gap-1.5 flex-wrap">
-                                                    <span className="font-bold text-gray-800 dark:text-gray-200 text-sm">{card.front}</span>
-                                                    {card.sinoVietnamese && (
-                                                        <span className="text-[10px] font-medium text-pink-500 dark:text-pink-400 bg-pink-50 dark:bg-pink-900/30 px-1.5 rounded">{card.sinoVietnamese}</span>
-                                                    )}
-                                                    {card.level && (
-                                                        <span className={`text-[10px] px-1.5 py-0.5 rounded-full border font-bold ${getLevelColor(card.level)}`}>{card.level}</span>
-                                                    )}
-                                                </div>
-                                                <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{card.back}</div>
-                                                {folderName && (
-                                                    <div className="flex items-center gap-1 mt-0.5">
-                                                        <Folder className="w-3 h-3 text-indigo-400" />
-                                                        <span className="text-[10px] text-indigo-500 dark:text-indigo-400 font-medium">{folderName}</span>
-                                                    </div>
-                                                )}
-                                            </div>
-                                        </div>
-
-                                        {/* SRS badge */}
-                                        <div className="flex-shrink-0">
-                                            <SrsStatusCell intervalIndex={card.intervalIndex_back} nextReview={card.nextReview_back} currentInterval={card.currentInterval_back} hasData={true} asDiv={true} />
-                                        </div>
-
-                                        {/* Hover action buttons */}
-                                        <div className="opacity-0 group-hover:opacity-100 absolute top-1 right-1 flex gap-0.5 transition-all bg-white/80 dark:bg-slate-800/80 rounded-lg p-0.5 backdrop-blur-sm">
-                                            <button
-                                                onClick={(e) => { e.stopPropagation(); setShowMoveModal(card.id); }}
-                                                className="p-1 text-gray-400 hover:text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded transition-colors"
-                                                title="Chuyển thư mục"
-                                            >
-                                                <Folder className="w-3.5 h-3.5" />
-                                            </button>
-                                            <button
-                                                onClick={(e) => { e.stopPropagation(); setEditingCard(card); }}
-                                                className="p-1 text-gray-400 hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded transition-colors"
-                                                title="Chỉnh sửa"
-                                            >
-                                                <Edit className="w-3.5 h-3.5" />
-                                            </button>
-                                            <button
-                                                onClick={(e) => { e.stopPropagation(); onDeleteCard(card.id, card.front); }}
-                                                className="p-1 text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30 rounded transition-colors"
-                                                title="Xóa"
-                                            >
-                                                <Trash2 className="w-3.5 h-3.5" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-
-                            {/* Load more */}
-                            {displayedCount < filteredCards.length && (
-                                <div className="col-span-full py-4 text-center space-y-3">
-                                    {isLoadingMore ? (
-                                        <div className="flex items-center justify-center gap-2 text-gray-400">
-                                            <Loader2 className="w-4 h-4 animate-spin" />
-                                            <span className="text-xs">Đang tải thêm...</span>
-                                        </div>
-                                    ) : (
-                                        <>
-                                            <p className="text-xs text-gray-400">
-                                                Đang hiển thị {displayedCount} / {filteredCards.length} từ vựng
-                                            </p>
-                                            <button onClick={loadMore}
-                                                className="px-4 py-2 text-xs font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg hover:bg-indigo-200 dark:hover:bg-indigo-900/50 transition-colors">
-                                                Tải thêm 100 từ vựng
-                                            </button>
-                                        </>
-                                    )}
-                                </div>
-                            )}
-                        </div>
-                    )}
-                </div>
-            )}
-        </div>
+                        <style>{`
+                        @keyframes deleteModalIn{0%{transform:scale(0.9);opacity:0}100%{transform:scale(1);opacity:1}}
+                    `}</style>
+                    </div>
+                )
+            }
+        </>
     );
 });
 
