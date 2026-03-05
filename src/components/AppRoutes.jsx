@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { ROUTES, ProtectedRoute, PublicOnlyRoute } from '../router';
 import UpgradeScreen from './ui/AiCreditShop';
 
@@ -118,6 +118,7 @@ const AppRoutes = ({
     // Shuffle utility
     shuffleArray,
 }) => {
+    const navigate = useNavigate();
     const aiCreditsRemaining = profile?.aiCreditsRemaining;
 
     // Loading state
@@ -206,10 +207,12 @@ const AppRoutes = ({
                                 onSaveChanges={handleSaveChanges}
                                 onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
                                 onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
+                                onNavigateToImport={() => navigate(ROUTES.IMPORT)}
                                 scrollToCardId={scrollToCardIdRef?.current}
                                 onScrollComplete={() => { if (scrollToCardIdRef) scrollToCardIdRef.current = null; }}
                                 savedFilters={savedFilters}
                                 onFiltersChange={setSavedFilters}
+                                userId={userId}
                             />
                         </ProtectedRoute>
                     }
