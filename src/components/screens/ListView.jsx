@@ -679,15 +679,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
 
     const displayedCards = useMemo(() => filteredCards.slice(0, displayedCount), [filteredCards, displayedCount]);
 
-    // Select/deselect ALL filtered cards (not just displayed/paginated)
-    const toggleSelectAll = useCallback(() => {
-        const allTargetCards = currentFolder !== null ? currentFolderCards : filteredCards;
-        if (selectedCards.size > 0 && selectedCards.size === allTargetCards.length) {
-            setSelectedCards(new Set());
-        } else {
-            setSelectedCards(new Set(allTargetCards.map(c => c.id)));
-        }
-    }, [selectedCards.size, currentFolder, currentFolderCards, filteredCards]);
 
     // Load more on scroll
     const handleScroll = useCallback(() => {
@@ -790,6 +781,16 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
 
     // Override displayedCards when inside a folder browse
     const effectiveDisplayedCards = currentFolder !== null ? currentFolderCards.slice(0, displayedCount) : displayedCards;
+
+    // Select/deselect ALL filtered cards (not just displayed/paginated)
+    const toggleSelectAll = useCallback(() => {
+        const allTargetCards = currentFolder !== null ? currentFolderCards : filteredCards;
+        if (selectedCards.size > 0 && selectedCards.size === allTargetCards.length) {
+            setSelectedCards(new Set());
+        } else {
+            setSelectedCards(new Set(allTargetCards.map(c => c.id)));
+        }
+    }, [selectedCards.size, currentFolder, currentFolderCards, filteredCards]);
 
     // State for inline sub-folder creation
     const [newSubFolderInput, setNewSubFolderInput] = useState('');
