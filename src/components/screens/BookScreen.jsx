@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
-    BookOpen, Plus, Trash2, Edit, ChevronRight, ChevronLeft, Check, X,
+    BookOpen, Plus, Trash2, Edit, ChevronRight, ChevronLeft, Check, X, Lightbulb,
     Upload, FolderPlus, FileText, List, Search, ArrowLeft, Image, Save, Layers, Copy, Clipboard, Folder, Volume2
 } from 'lucide-react';
 import { db } from '../../config/firebase';
@@ -61,6 +61,9 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     const [showAddLesson, setShowAddLesson] = useState(false);
     const [showJsonImport, setShowJsonImport] = useState(false);
     const [editingItem, setEditingItem] = useState(null);
+    const [editingNameItem, setEditingNameItem] = useState(null); // { type: 'group'|'book'|'chapter'|'lesson', id, name }
+    const [editingNameValue, setEditingNameValue] = useState('');
+    const [showNuanceIndex, setShowNuanceIndex] = useState(null); // index of vocab to show nuance
 
     // Form states
     const [formName, setFormName] = useState('');
@@ -328,8 +331,67 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
         }
     };
 
+    // ==================== EDIT NAMES (Group/Book/Chapter/Lesson) ====================
+    const handleStartEditName = (type, id, currentName) => {
+        setEditingNameItem({ type, id });
+        setEditingNameValue(currentName);
+    };
+
+    const handleSaveEditName = async () => {
+        if (!editingNameItem || !editingNameValue.trim()) return;
+        try {
+            const { type, id } = editingNameItem;
+            let ref;
+            if (type === 'group') {
+                ref = doc(db, COLLECTION, id);
+            } else if (type === 'book') {
+                ref = doc(db, COLLECTION, groupId, 'books', id);
+            } else if (type === 'chapter') {
+                ref = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', id);
+            } else if (type === 'lesson') {
+                ref = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', id);
+            }
+            if (ref) {
+                await updateDoc(ref, { name: editingNameValue.trim() });
+                showToast('Đã cập nhật tên!', 'success');
+                loadAllData();
+            }
+        } catch (e) {
+            console.error('Error saving name edit:', e);
+            showToast('Lỗi: ' + e.message, 'error');
+        }
+        setEditingNameItem(null);
+        setEditingNameValue('');
+    };
+
+    // Inline edit name component
+    const InlineEditName = ({ type, id, currentName, className = '' }) => {
+        if (!isAdmin) return <span className={className}>{currentName}</span>;
+        if (editingNameItem?.type === type && editingNameItem?.id === id) {
+            return (
+                <div className="flex items-center gap-1" onClick={e => e.stopPropagation()}>
+                    <input
+                        value={editingNameValue}
+                        onChange={e => setEditingNameValue(e.target.value)}
+                        onKeyDown={e => { if (e.key === 'Enter') handleSaveEditName(); if (e.key === 'Escape') { setEditingNameItem(null); setEditingNameValue(''); } }}
+                        className="px-2 py-0.5 bg-white dark:bg-gray-700 border border-sky-400 rounded text-sm text-gray-900 dark:text-white outline-none"
+                        autoFocus
+                    />
+                    <button onClick={handleSaveEditName} className="p-0.5 text-emerald-500 hover:text-emerald-600"><Check className="w-4 h-4" /></button>
+                    <button onClick={() => { setEditingNameItem(null); setEditingNameValue(''); }} className="p-0.5 text-gray-400 hover:text-red-500"><X className="w-4 h-4" /></button>
+                </div>
+            );
+        }
+        return (
+            <span className={`${className} group/edit cursor-pointer`} onClick={e => { e.stopPropagation(); handleStartEditName(type, id, currentName); }}>
+                {currentName}
+                <Edit className="w-3 h-3 ml-1 inline opacity-0 group-hover/edit:opacity-50 transition-opacity" />
+            </span>
+        );
+    };
+
     // ==================== BACKGROUND AUDIO GENERATION ====================
-    // Tự động tạo audio ngầm cho từ vựng sách: word → giọng nam, example → giọng nữ
+    // Tự động tạo audio ngầm cho từ vựng sách: word → giọng nam (không tạo cho ví dụ)
     useEffect(() => {
         if (!lessonId || !currentLesson?.vocab?.length || !groupId || !bookId || !chapterId) return;
         bgAudioAbortRef.current = false;
@@ -342,9 +404,8 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                 if (bgAudioAbortRef.current) return;
                 const v = vocab[i];
                 const word = v.word || v.front || '';
-                const example = v.example || '';
 
-                // Generate word audio (giọng nam - ryota)
+                // Generate word audio only (giọng nam - ryota)
                 const wordDocId = `${i}_word`;
                 if (word && !lessonAudioMap[wordDocId]) {
                     try {
@@ -360,29 +421,6 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                             await new Promise(r => setTimeout(r, 2000));
                         }
                     } catch (e) { console.warn('Book audio word error:', e.message); }
-                }
-
-                if (bgAudioAbortRef.current) return;
-
-                // Generate example audio (giọng nữ - mayu)
-                const exDocId = `${i}_example`;
-                if (example && !lessonAudioMap[exDocId]) {
-                    try {
-                        const existingDoc = await getDoc(doc(db, audioColPath, exDocId));
-                        if (!existingDoc.exists()) {
-                            // Thay ＿＿＿＿ bằng từ gốc để TTS đọc đầy đủ
-                            const cleanWord = word.split('（')[0].split('(')[0].trim();
-                            const cleanExample = example.replace(/＿+/g, cleanWord);
-                            const result = await generateAudioSilentWithVoice(cleanExample, 'mayu');
-                            if (result?.base64 && !bgAudioAbortRef.current) {
-                                await setDoc(doc(db, audioColPath, exDocId), {
-                                    base64: result.base64, vocabIndex: i, clipType: 'example', updatedAt: Date.now()
-                                });
-                                console.log(`🔊 Book audio (example/nữ): "${cleanExample.substring(0, 30)}..."`);
-                            }
-                            await new Promise(r => setTimeout(r, 2000));
-                        }
-                    } catch (e) { console.warn('Book audio example error:', e.message); }
                 }
             }
 
@@ -729,7 +767,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                     <div key={i} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-sky-300 dark:hover:border-sky-600 transition-colors overflow-hidden">
                                         {editingVocabIndex === i && editingVocabData ? (
                                             /* ===== EDIT MODE ===== */
-                                            <div className="p-4 space-y-3">
+                                            <div className="p-4 space-y-3" onClick={e => e.stopPropagation()}>
                                                 <div className="flex items-center justify-between">
                                                     <h4 className="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-2">
                                                         <Edit className="w-4 h-4 text-sky-500" /> Chỉnh sửa từ #{i + 1}
@@ -742,50 +780,50 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                                     <div>
                                                         <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Từ vựng</label>
-                                                        <input value={editingVocabData.word || editingVocabData.front || ''} onChange={e => setEditingVocabData({ ...editingVocabData, word: e.target.value })}
+                                                        <input value={editingVocabData.word || editingVocabData.front || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, word: e.target.value }))}
                                                             className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" />
                                                     </div>
                                                     <div>
                                                         <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Nghĩa</label>
-                                                        <input value={editingVocabData.meaning || editingVocabData.back || ''} onChange={e => setEditingVocabData({ ...editingVocabData, meaning: e.target.value })}
+                                                        <input value={editingVocabData.meaning || editingVocabData.back || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, meaning: e.target.value }))}
                                                             className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" />
                                                     </div>
                                                     <div>
                                                         <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Hán Việt</label>
-                                                        <input value={editingVocabData.sinoVietnamese || ''} onChange={e => setEditingVocabData({ ...editingVocabData, sinoVietnamese: e.target.value })}
+                                                        <input value={editingVocabData.sinoVietnamese || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, sinoVietnamese: e.target.value }))}
                                                             className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" />
                                                     </div>
                                                     <div className="grid grid-cols-2 gap-2">
                                                         <div>
                                                             <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Từ loại</label>
-                                                            <input value={editingVocabData.pos || ''} onChange={e => setEditingVocabData({ ...editingVocabData, pos: e.target.value })}
+                                                            <input value={editingVocabData.pos || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, pos: e.target.value }))}
                                                                 className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" placeholder="verb..." />
                                                         </div>
                                                         <div>
                                                             <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Cấp độ</label>
-                                                            <input value={editingVocabData.level || ''} onChange={e => setEditingVocabData({ ...editingVocabData, level: e.target.value })}
+                                                            <input value={editingVocabData.level || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, level: e.target.value }))}
                                                                 className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" placeholder="N5..." />
                                                         </div>
                                                     </div>
                                                     <div>
                                                         <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Đồng nghĩa</label>
-                                                        <input value={editingVocabData.synonym || ''} onChange={e => setEditingVocabData({ ...editingVocabData, synonym: e.target.value })}
+                                                        <input value={editingVocabData.synonym || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, synonym: e.target.value }))}
                                                             className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" />
                                                     </div>
                                                     <div>
                                                         <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Ghi chú / Sắc thái</label>
-                                                        <input value={editingVocabData.nuance || editingVocabData.note || ''} onChange={e => setEditingVocabData({ ...editingVocabData, nuance: e.target.value })}
+                                                        <input value={editingVocabData.nuance || editingVocabData.note || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, nuance: e.target.value }))}
                                                             className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" />
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Câu ví dụ</label>
-                                                    <input value={editingVocabData.example || ''} onChange={e => setEditingVocabData({ ...editingVocabData, example: e.target.value })}
+                                                    <input value={editingVocabData.example || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, example: e.target.value }))}
                                                         className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" />
                                                 </div>
                                                 <div>
                                                     <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Nghĩa câu ví dụ</label>
-                                                    <input value={editingVocabData.exampleMeaning || ''} onChange={e => setEditingVocabData({ ...editingVocabData, exampleMeaning: e.target.value })}
+                                                    <input value={editingVocabData.exampleMeaning || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, exampleMeaning: e.target.value }))}
                                                         className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" />
                                                 </div>
                                             </div>
@@ -820,10 +858,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                         {v.sinoVietnamese && (
                                                             <p className="text-xs text-amber-600 dark:text-amber-400 font-medium mt-1">{v.sinoVietnamese}</p>
                                                         )}
-                                                        <div className="flex items-center gap-1 mt-1.5 flex-wrap">
-                                                            {v.pos && <span className="text-[10px] text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20 px-1.5 py-0.5 rounded">{v.pos}</span>}
-                                                            {v.level && <span className="text-[10px] text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 px-1.5 py-0.5 rounded">{v.level}</span>}
-                                                        </div>
+
                                                         <p className="text-sm text-sky-600 dark:text-sky-400 mt-2 font-medium">{v.meaning || v.back || ''}</p>
                                                     </div>
                                                 </div>
@@ -832,23 +867,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                 <div className="flex-1 p-4 flex flex-col justify-center">
                                                     {v.example ? (
                                                         <div>
-                                                            <div className="flex items-start gap-2">
-                                                                <p className="text-sm text-gray-800 dark:text-gray-200 leading-relaxed flex-1"><FuriganaText text={v.example} /></p>
-                                                                <button
-                                                                    onClick={(e) => {
-                                                                        e.stopPropagation();
-                                                                        if (v.exampleAudioBase64) { playAudio(v.exampleAudioBase64, v.example); }
-                                                                        else { speakJapanese(v.example); }
-                                                                    }}
-                                                                    className={`p-1 rounded-lg transition-all hover:scale-110 shrink-0 mt-0.5 ${v.exampleAudioBase64
-                                                                        ? 'text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:text-amber-600'
-                                                                        : 'text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-500'
-                                                                        }`}
-                                                                    title={v.exampleAudioBase64 ? 'Phát audio ví dụ đã cắt' : 'Phát TTS ví dụ'}
-                                                                >
-                                                                    <Volume2 className="w-3.5 h-3.5" />
-                                                                </button>
-                                                            </div>
+                                                            <p className="text-sm text-gray-800 dark:text-gray-200 leading-relaxed"><FuriganaText text={v.example} /></p>
                                                             {v.exampleMeaning && (
                                                                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-1.5 italic">{v.exampleMeaning}</p>
                                                             )}
@@ -856,8 +875,8 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                     ) : (
                                                         <p className="text-xs text-gray-300 dark:text-gray-600 italic">Chưa có ví dụ</p>
                                                     )}
-                                                    {(v.nuance || v.note) && (
-                                                        <p className="text-xs text-orange-500 dark:text-orange-400 mt-2 italic">💡 {v.nuance || v.note}</p>
+                                                    {(v.nuance || v.note) && showNuanceIndex === i && (
+                                                        <p className="text-xs text-orange-500 dark:text-orange-400 mt-2 italic animate-fadeIn">💡 {v.nuance || v.note}</p>
                                                     )}
                                                 </div>
 
@@ -874,6 +893,13 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                                 <Plus className="w-4 h-4" />
                                                             </button>
                                                         )
+                                                    )}
+                                                    {(v.nuance || v.note) && (
+                                                        <button onClick={() => setShowNuanceIndex(showNuanceIndex === i ? null : i)}
+                                                            className={`p-1.5 transition-colors ${showNuanceIndex === i ? 'text-amber-500' : 'text-gray-300 hover:text-amber-500'}`}
+                                                            title="Xem sắc thái">
+                                                            <Lightbulb className="w-3.5 h-3.5" />
+                                                        </button>
                                                     )}
                                                     {isAdmin && (
                                                         <button onClick={() => handleEditVocab(i)}
