@@ -138,8 +138,8 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
 
                 if (secureResult.success) {
                     setPaymentSuccess(true);
-                    // Ghi credit request với status=approved ngay (để admin dashboard hiện doanh thu đúng)
-                    try { await submitAndApproveCreditRequest(userId, userName, userEmail, { ...pkg }, txId); } catch (e) { console.warn(e); }
+                    // Ghi credit request với status=approved và số tiền THỰC TỢ đã trừ voucher
+                    try { await submitAndApproveCreditRequest(userId, userName, userEmail, { ...pkg, salePrice: finalPrice }, txId); } catch (e) { console.warn(e); }
                     if (appliedVoucher) {
                         try { await useVoucher(appliedVoucher.code, userId); } catch (e) { console.warn(e); }
                     }
@@ -168,14 +168,14 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
 
     const handleManualConfirm = async () => {
         if (!selectedPackage) return;
-        const ok = await submitCreditRequest(userId, userName, userEmail, selectedPackage);
+        const manualFinalPrice = getFinalPrice(selectedPackage);
+        const ok = await submitCreditRequest(userId, userName, userEmail, { ...selectedPackage, salePrice: manualFinalPrice });
         if (ok) {
             if (appliedVoucher) { try { await useVoucher(appliedVoucher.code, userId); } catch (e) { console.warn(e); } }
             // Gửi email xác nhận yêu cầu thủ công
             if (userEmail) {
                 try {
-                    const finalPrice = getFinalPrice(selectedPackage);
-                    await sendAIPurchaseSuccessEmail(userEmail, userName, selectedPackage.name, finalPrice, selectedPackage.cards);
+                    await sendAIPurchaseSuccessEmail(userEmail, userName, selectedPackage.name, manualFinalPrice, selectedPackage.cards);
                     console.log('✅ Email xác nhận đã gửi tới:', userEmail);
                 } catch (e) {
                     console.warn('⚠️ Gửi email xác nhận thất bại:', e);
