@@ -43,6 +43,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
     const [appliedVoucher, setAppliedVoucher] = useState(null);
     const [voucherError, setVoucherError] = useState('');
 
+    const packagesReady = adminConfig !== null; // adminConfig=null nghĩa là chưa load xong từ Firestore
     const packages = adminConfig?.aiCreditPackages || DEFAULT_AI_PACKAGES;
     const bankId = adminConfig?.bankId || 'MB';
     const bankAccountNo = adminConfig?.bankAccountNo || '';
@@ -229,45 +230,60 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                 })()}
 
                 {/* Packages grid */}
-                <div className="grid grid-cols-2 gap-3">
-                    {packages.map(pkg => {
-                        const Icon = ICONS[pkg.id] || Zap;
-                        const color = COLORS[pkg.id] || COLORS.starter;
-                        const bgLight = BG_LIGHT[pkg.id] || BG_LIGHT.starter;
-                        const hasDiscount = pkg.originalPrice && pkg.salePrice && pkg.originalPrice > pkg.salePrice;
-                        const discount = hasDiscount ? Math.round((1 - pkg.salePrice / pkg.originalPrice) * 100) : 0;
-                        const isPopular = pkg.id === 'popular';
-                        const displayPrice = pkg.salePrice || pkg.originalPrice;
-                        return (
-                            <div
-                                key={pkg.id}
-                                onClick={() => handleSelectPackage(pkg)}
-                                className={`relative bg-gradient-to-br ${bgLight} rounded-2xl border-2 p-4 cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] ${isPopular
-                                    ? 'border-indigo-400 dark:border-indigo-500 ring-2 ring-indigo-200/50 dark:ring-indigo-800/50'
-                                    : 'border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-600'
-                                    }`}
-                            >
-                                {isPopular && (
-                                    <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap shadow-md">⭐ PHỔ BIẾN</div>
-                                )}
-                                {hasDiscount && discount > 0 && (
-                                    <div className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[9px] font-bold w-9 h-9 rounded-full flex items-center justify-center shadow-md">-{discount}%</div>
-                                )}
-
-                                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center mb-3 shadow-lg`}>
-                                    <Icon className="w-5 h-5 text-white" />
-                                </div>
-                                <h3 className="font-bold text-gray-800 dark:text-white text-sm">{pkg.name}</h3>
-                                {pkg.cards && <p className="text-indigo-600 dark:text-indigo-400 font-bold text-base">{pkg.cards.toLocaleString()} thẻ AI</p>}
-                                {pkg.originalPrice && hasDiscount && <p className="text-gray-400 line-through text-[11px] mt-1">{formatVND(pkg.originalPrice)}</p>}
-                                {displayPrice && <p className="text-emerald-600 dark:text-emerald-400 font-bold text-lg">{formatVND(displayPrice)}</p>}
-                                <div className={`w-full mt-2.5 py-2 rounded-xl text-white font-bold text-xs bg-gradient-to-r ${color} flex items-center justify-center gap-1.5 shadow-md`}>
-                                    Chọn gói <ChevronRight className="w-3.5 h-3.5" />
-                                </div>
+                {!packagesReady ? (
+                    // Skeleton loading: chờ adminConfig load từ Firestore
+                    <div className="grid grid-cols-2 gap-3">
+                        {[1, 2, 3, 4].map(i => (
+                            <div key={i} className="rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-4 animate-pulse">
+                                <div className="w-8 h-8 rounded-xl bg-gray-200 dark:bg-gray-700 mb-3" />
+                                <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-2/3 mb-2" />
+                                <div className="h-3 bg-gray-100 dark:bg-gray-800 rounded w-1/2 mb-3" />
+                                <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-1" />
+                                <div className="h-3 bg-gray-100 dark:bg-gray-800 rounded w-1/2" />
                             </div>
-                        );
-                    })}
-                </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-2 gap-3">
+                        {packages.map(pkg => {
+                            const Icon = ICONS[pkg.id] || Zap;
+                            const color = COLORS[pkg.id] || COLORS.starter;
+                            const bgLight = BG_LIGHT[pkg.id] || BG_LIGHT.starter;
+                            const hasDiscount = pkg.originalPrice && pkg.salePrice && pkg.originalPrice > pkg.salePrice;
+                            const discount = hasDiscount ? Math.round((1 - pkg.salePrice / pkg.originalPrice) * 100) : 0;
+                            const isPopular = pkg.id === 'popular';
+                            const displayPrice = pkg.salePrice || pkg.originalPrice;
+                            return (
+                                <div
+                                    key={pkg.id}
+                                    onClick={() => handleSelectPackage(pkg)}
+                                    className={`relative bg-gradient-to-br ${bgLight} rounded-2xl border-2 p-4 cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] ${isPopular
+                                        ? 'border-indigo-400 dark:border-indigo-500 ring-2 ring-indigo-200/50 dark:ring-indigo-800/50'
+                                        : 'border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-600'
+                                        }`}
+                                >
+                                    {isPopular && (
+                                        <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap shadow-md">⭐ PHỔ BIẾN</div>
+                                    )}
+                                    {hasDiscount && discount > 0 && (
+                                        <div className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[9px] font-bold w-9 h-9 rounded-full flex items-center justify-center shadow-md">-{discount}%</div>
+                                    )}
+
+                                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center mb-3 shadow-lg`}>
+                                        <Icon className="w-5 h-5 text-white" />
+                                    </div>
+                                    <h3 className="font-bold text-gray-800 dark:text-white text-sm">{pkg.name}</h3>
+                                    {pkg.cards && <p className="text-indigo-600 dark:text-indigo-400 font-bold text-base">{pkg.cards.toLocaleString()} thẻ AI</p>}
+                                    {pkg.originalPrice && hasDiscount && <p className="text-gray-400 line-through text-[11px] mt-1">{formatVND(pkg.originalPrice)}</p>}
+                                    {displayPrice && <p className="text-emerald-600 dark:text-emerald-400 font-bold text-lg">{formatVND(displayPrice)}</p>}
+                                    <div className={`w-full mt-2.5 py-2 rounded-xl text-white font-bold text-xs bg-gradient-to-r ${color} flex items-center justify-center gap-1.5 shadow-md`}>
+                                        Chọn gói <ChevronRight className="w-3.5 h-3.5" />
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                )} {/* end packagesReady ternary */}
 
                 {/* Features */}
                 <div className="mt-5 bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-100 dark:border-gray-700">
