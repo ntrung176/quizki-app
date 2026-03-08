@@ -225,6 +225,35 @@ export const submitCreditRequest = async (userId, userName, userEmail, packageIn
     }
 };
 
+/**
+ * Submit và tự động approve credit request (dùng cho thanh toán tự động qua SePay)
+ * Ghi status='approved' ngay để admin dashboard hiển thị đúng doanh thu
+ */
+export const submitAndApproveCreditRequest = async (userId, userName, userEmail, packageInfo, transactionId) => {
+    try {
+        const colRef = collection(db, getCreditRequestsPath());
+        await addDoc(colRef, {
+            userId,
+            userName: userName || '',
+            userEmail: userEmail || '',
+            packageId: packageInfo.id,
+            packageName: packageInfo.name,
+            credits: packageInfo.cards,
+            amount: packageInfo.salePrice,
+            status: 'approved', // Tự động approve vì đã xác nhận qua SePay
+            autoApproved: true,  // Đánh dấu là tự động duyệt
+            transactionId: transactionId || null,
+            createdAt: serverTimestamp(),
+            processedAt: serverTimestamp(),
+            processedBy: 'sepay_auto',
+        });
+        return true;
+    } catch (e) {
+        console.error('Submit & approve credit request error:', e);
+        return false;
+    }
+};
+
 // Admin loads all pending credit requests
 export const subscribeCreditRequests = (callback) => {
     try {
