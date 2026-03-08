@@ -253,9 +253,10 @@ const App = () => {
     const [adminConfig, setAdminConfig] = useState(null);
 
     useEffect(() => {
+        if (!userId) return; // Chờ đăng nhập rồi mới subscribe (Firestore rules yêu cầu auth)
         const unsubscribe = subscribeAdminConfig(setAdminConfig);
         return () => { if (unsubscribe) unsubscribe(); };
-    }, []);
+    }, [userId]);
 
     // AI giờ kiểm soát bằng credits → tất cả user đều được dùng
     const canUserUseAI = useMemo(() => {
