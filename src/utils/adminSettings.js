@@ -1,5 +1,5 @@
 // --- Admin Settings & Permissions Utilities ---
-import { doc, getDoc, setDoc, updateDoc, onSnapshot, collection, addDoc, getDocs, deleteDoc, serverTimestamp, query, orderBy, increment, runTransaction } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc, onSnapshot, collection, addDoc, getDocs, deleteDoc, serverTimestamp, query, orderBy, increment } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
 
 // Firestore path for admin settings
@@ -326,20 +326,26 @@ export const processPaymentSecurely = async (transactionId, orderCode, userId, c
     const txRef = doc(db, getProcessedTxPath(), String(transactionId));
     const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
 
-    try {
-        const result = await runTransaction(db, async (transaction) => {
-            // Step 1: Check if this transaction was already processed
-            const txSnap = await transaction.get(txRef);
+    const MAX_RETRIES = 3;
+    const RETRY_DELAY_MS = 2000;
+
+    const sleep = (ms) => new Promise(res => setTimeout(res, ms));
+
+    for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+        try {
+            // Step 1: Check duplicate (simple getDoc, không dùng transaction để tránh quota)
+            const txSnap = await getDoc(txRef);
             if (txSnap.exists()) {
-                throw new Error('DUPLICATE_TRANSACTION');
+                console.warn(`⚠️ Duplicate transaction blocked: TX#${transactionId}`);
+                return { success: false, error: 'Giao dịch này đã được xử lý trước đó' };
             }
 
             // Step 2: Read current credits
-            const profileSnap = await transaction.get(profileRef);
+            const profileSnap = await getDoc(profileRef);
             const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
 
             // Step 3: Mark transaction as processed
-            transaction.set(txRef, {
+            await setDoc(txRef, {
                 transactionId: String(transactionId),
                 orderCode,
                 userId,
@@ -349,26 +355,38 @@ export const processPaymentSecurely = async (transactionId, orderCode, userId, c
                 timestamp: Date.now(),
             });
 
-            // Step 4: Update credits atomically
+            // Step 4: Update credits
             if (profileSnap.exists()) {
-                transaction.update(profileRef, { aiCreditsRemaining: currentCredits + credits });
+                await updateDoc(profileRef, { aiCreditsRemaining: increment(credits) });
             } else {
-                transaction.set(profileRef, { aiCreditsRemaining: credits }, { merge: true });
+                await setDoc(profileRef, { aiCreditsRemaining: credits }, { merge: true });
             }
 
-            return { newCredits: currentCredits + credits };
-        });
+            const newCredits = currentCredits + credits;
+            console.log(`✅ Payment processed: TX#${transactionId}, +${credits} credits → total ${newCredits}`);
+            return { success: true, newCredits };
 
-        console.log(`✅ Payment processed securely: TX#${transactionId}, +${credits} credits`);
-        return { success: true, newCredits: result.newCredits };
-    } catch (e) {
-        if (e.message === 'DUPLICATE_TRANSACTION') {
-            console.warn(`⚠️ Duplicate transaction blocked: TX#${transactionId}`);
-            return { success: false, error: 'Giao dịch này đã được xử lý trước đó' };
+        } catch (e) {
+            const isQuotaError = e?.code === 'resource-exhausted' || e?.message?.includes('Quota') || e?.message?.includes('429');
+
+            if (isQuotaError) {
+                if (attempt < MAX_RETRIES) {
+                    const delay = RETRY_DELAY_MS * attempt; // 2s, 4s, 6s
+                    console.warn(`⏳ Firestore quota hit (lần ${attempt}/${MAX_RETRIES}), thử lại sau ${delay / 1000}s...`);
+                    await sleep(delay);
+                    continue;
+                } else {
+                    console.error(`❌ Firestore quota exhausted sau ${MAX_RETRIES} lần thử. Credit chưa được cộng.`);
+                    return { success: false, error: 'Firebase quota exceeded. Vui lòng thử lại sau.' };
+                }
+            }
+
+            console.error('Process payment error:', e);
+            return { success: false, error: e.message };
         }
-        console.error('Process payment error:', e);
-        return { success: false, error: e.message };
     }
+
+    return { success: false, error: 'Max retries exceeded' };
 };
 
 // ============== VOUCHER MANAGEMENT ==============

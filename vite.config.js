@@ -64,6 +64,11 @@ export default defineConfig({
     headers: {
       'Cross-Origin-Opener-Policy': 'same-origin-allow-popups',
     },
+    hmr: {
+      protocol: 'ws',
+      host: 'localhost',
+      port: 5173,
+    },
     proxy: {
       '/api/jotoba': {
         target: 'https://jotoba.de',

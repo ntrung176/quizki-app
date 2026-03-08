@@ -37,7 +37,7 @@ export const generateVietQR = (bankId, accountNo, accountName, amount, content) 
 /**
  * Kiểm tra giao dịch qua SePay API
  */
-export const checkPaymentStatus = async (sepayToken, orderCode, expectedAmount) => {
+export const checkPaymentStatus = async (sepayToken, orderCode, expectedAmount, pollingStartTime) => {
     if (!sepayToken) {
         console.warn('❌ SePay token not configured');
         return null;
@@ -48,17 +48,16 @@ export const checkPaymentStatus = async (sepayToken, orderCode, expectedAmount) 
         const queryPath = `transactions/list?amount_in=${expectedAmount}&limit=20&from_date=${today}`;
 
         let url;
-        if (isDev) {
-            // Dev: Vite proxy
-            url = `/api/sepay/${queryPath}`;
-            console.log(`🔍 SePay poll [DEV via Vite proxy]: ${orderCode} | amount=${expectedAmount}`);
-        } else if (SEPAY_PROXY_URL) {
-            // Production: Cloudflare Worker proxy
+        if (SEPAY_PROXY_URL) {
+            // Ưu tiên: Cloudflare Worker proxy (hoạt động cả local lẫn production)
             url = `${SEPAY_PROXY_URL.replace(/\/$/, '')}/${queryPath}`;
-            console.log(`🔍 SePay poll [PROD via Worker ${SEPAY_PROXY_URL}]: ${orderCode} | amount=${expectedAmount}`);
+            console.log(`🔍 SePay poll [Worker]: ${orderCode} | amount=${expectedAmount} | url=${url}`);
+        } else if (isDev) {
+            // Fallback: Vite proxy (chỉ dùng khi chưa có VITE_SEPAY_PROXY_URL)
+            url = `/api/sepay/${queryPath}`;
+            console.log(`🔍 SePay poll [DEV Vite proxy - fallback]: ${orderCode} | amount=${expectedAmount}`);
         } else {
-            console.error('❌ VITE_SEPAY_PROXY_URL chưa được cấu hình! SePay polling bị tắt trên production.');
-            console.error('   → Hướng dẫn: Deploy workers/sepay-proxy.js lên Cloudflare, sau đó thêm VITE_SEPAY_PROXY_URL vào .env');
+            console.error('❌ VITE_SEPAY_PROXY_URL chưa được cấu hình!');
             return null;
         }
 
@@ -99,13 +98,15 @@ export const checkPaymentStatus = async (sepayToken, orderCode, expectedAmount) 
                 }
             }
 
-            // Match 2: Giao dịch mới nhất trong 15 phút, đúng số tiền
+            // Match 2: Giao dịch mới nhất trong 15 phút, đúng số tiền, và XYẢY RA SAU khi polling bắt đầu
             const recentTx = transactions[0];
             const txTime = new Date(recentTx.transaction_date);
             const now = new Date();
             const diffMin = (now - txTime) / 60000;
+            // Chỉ chấp nhận giao dịch xảy ra SAU khi bắt đầu phên thanh toán này (tránh bắt lại giao dịch cũ)
+            const isAfterPollingStart = pollingStartTime ? txTime >= pollingStartTime : true;
 
-            if (diffMin <= 15 && recentTx.amount_in >= expectedAmount) {
+            if (diffMin <= 15 && recentTx.amount_in >= expectedAmount && isAfterPollingStart) {
                 console.log(`✅ Khớp theo số tiền + thời gian (${diffMin.toFixed(1)} phút trước)!`);
                 return {
                     success: true,
@@ -115,6 +116,8 @@ export const checkPaymentStatus = async (sepayToken, orderCode, expectedAmount) 
                     content: recentTx.transaction_content,
                     date: recentTx.transaction_date
                 };
+            } else if (!isAfterPollingStart) {
+                console.log(`⏱️ Bỏ qua TX #${recentTx.id}: xảy ra TRƯỜC khi bắt đầu thanh toán (${txTime.toLocaleTimeString()} < ${pollingStartTime?.toLocaleTimeString()})`);
             }
         }
 

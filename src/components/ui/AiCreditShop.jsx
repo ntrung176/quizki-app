@@ -48,9 +48,6 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
     const bankAccountNo = adminConfig?.bankAccountNo || '';
     const bankAccountName = adminConfig?.bankAccountName || '';
 
-    // Debug: xem adminConfig có chứa bank info đúng không
-    console.log('💳 UpgradeScreen bank info:', { bankId, bankAccountNo, bankAccountName, rawConfig: { bankId: adminConfig?.bankId, bankAccountNo: adminConfig?.bankAccountNo, bankAccountName: adminConfig?.bankAccountName } });
-
     // Support channels (admin cấu hình)
     const supportChannels = {
         zalo: adminConfig?.supportZalo || '',
@@ -120,8 +117,9 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
     };
 
     const startPolling = (code, pkg, token, finalPrice) => {
+        const pollingStartTime = new Date(); // Ghi lại thời điểm bắt đầu phiên thanh toán này
         pollingRef.current = setInterval(async () => {
-            const result = await checkPaymentStatus(token, code, finalPrice);
+            const result = await checkPaymentStatus(token, code, finalPrice, pollingStartTime);
             if (result && result.success) {
                 clearInterval(pollingRef.current);
                 clearInterval(countdownRef.current);
