@@ -60,23 +60,23 @@ export const loadAdminConfig = async () => {
 export const subscribeAdminConfig = (callback) => {
     try {
         const ref = doc(db, getAdminSettingsPath(), ADMIN_CONFIG_DOC);
-        return onSnapshot(ref, (snap) => {
+        return onSnapshot(ref, { includeMetadataChanges: true }, (snap) => {
             if (snap.exists()) {
-                const config = { ...DEFAULT_ADMIN_CONFIG, ...snap.data() };
-                console.log('✅ Admin config loaded:', { aiEnabled: config.aiEnabled, aiAllowAll: config.aiAllowAll, aiAllowedUsers: config.aiAllowedUsers?.length || 0, moderators: config.moderators?.length || 0 });
+                const config = { ...DEFAULT_ADMIN_CONFIG, ...snap.data(), _fromCache: snap.metadata.fromCache };
+                console.log(`✅ Admin config loaded (${snap.metadata.fromCache ? 'cache' : 'server'}):`, { aiEnabled: config.aiEnabled, aiAllowAll: config.aiAllowAll, aiAllowedUsers: config.aiAllowedUsers?.length || 0, moderators: config.moderators?.length || 0 });
                 callback(config);
             } else {
                 console.log('ℹ️ Admin config not found, using defaults');
-                callback({ ...DEFAULT_ADMIN_CONFIG });
+                callback({ ...DEFAULT_ADMIN_CONFIG, _fromCache: false });
             }
         }, (error) => {
             console.error('❌ Error subscribing to admin config:', error.code, error.message);
             console.warn('⚠️ Falling back to default admin config. If this is a permissions error, update Firestore rules to allow reading artifacts/{appId}/settings/*');
-            callback({ ...DEFAULT_ADMIN_CONFIG });
+            callback({ ...DEFAULT_ADMIN_CONFIG, _fromCache: false });
         });
     } catch (e) {
         console.error('❌ Error setting up admin config subscription:', e);
-        callback({ ...DEFAULT_ADMIN_CONFIG });
+        callback({ ...DEFAULT_ADMIN_CONFIG, _fromCache: false });
         return () => { };
     }
 };

@@ -43,7 +43,8 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
     const [appliedVoucher, setAppliedVoucher] = useState(null);
     const [voucherError, setVoucherError] = useState('');
 
-    const packagesReady = adminConfig !== null; // adminConfig=null nghĩa là chưa load xong từ Firestore
+    // Chỉ hiện packages khi data đến từ server (không phải cache IndexedDB cũ)
+    const packagesReady = adminConfig !== null && adminConfig._fromCache === false;
     const packages = adminConfig?.aiCreditPackages || DEFAULT_AI_PACKAGES;
     const bankId = adminConfig?.bankId || 'MB';
     const bankAccountNo = adminConfig?.bankAccountNo || '';
