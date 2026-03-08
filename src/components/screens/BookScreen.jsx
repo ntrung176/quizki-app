@@ -2,7 +2,8 @@ import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 import { useSearchParams } from 'react-router-dom';
 import {
     BookOpen, Plus, Trash2, Edit, ChevronRight, ChevronLeft, Check, X, Lightbulb,
-    Upload, FolderPlus, FileText, List, Search, ArrowLeft, Image, Save, Layers, Copy, Clipboard, Folder, Volume2
+    Upload, FolderPlus, FileText, List, Search, ArrowLeft, Image, Save, Layers, Copy, Clipboard, Folder, Volume2,
+    ChevronUp, ChevronDown
 } from 'lucide-react';
 import { db } from '../../config/firebase';
 import {
@@ -61,9 +62,12 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     const [showAddLesson, setShowAddLesson] = useState(false);
     const [showJsonImport, setShowJsonImport] = useState(false);
     const [editingItem, setEditingItem] = useState(null);
-    const [editingNameItem, setEditingNameItem] = useState(null); // { type: 'group'|'book'|'chapter'|'lesson', id, name }
+    const [editingNameItem, setEditingNameItem] = useState(null);
     const [editingNameValue, setEditingNameValue] = useState('');
-    const [showNuanceIndex, setShowNuanceIndex] = useState(null); // index of vocab to show nuance
+    const [showNuanceIndex, setShowNuanceIndex] = useState(null);
+    const [showEditGroup, setShowEditGroup] = useState(false);
+    const [showEditBook, setShowEditBook] = useState(false);
+    const [editTarget, setEditTarget] = useState(null);
 
     // Form states
     const [formName, setFormName] = useState('');
@@ -215,7 +219,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     const resetForm = () => {
         setFormName(''); setFormSubtitle(''); setFormColor('#4F87FF');
         setFormDescription(''); setFormWordCount(''); setFormImageUrl('');
-        setJsonInput(''); setEditingItem(null);
+        setJsonInput(''); setEditingItem(null); setEditTarget(null);
     };
 
     const handleAddGroup = async () => {
@@ -259,14 +263,128 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
         resetForm(); setShowAddLesson(false); loadAllData();
     };
 
+    // ==================== EDIT GROUP/BOOK ====================
+    const handleStartEditGroup = (group) => {
+        setEditTarget(group);
+        setFormName(group.name || '');
+        setFormSubtitle(group.subtitle || '');
+        setFormImageUrl(group.imageUrl || '');
+        setShowEditGroup(true);
+    };
+
+    const handleSaveEditGroup = async () => {
+        if (!editTarget || !formName.trim()) return;
+        try {
+            await updateDoc(doc(db, COLLECTION, editTarget.id), {
+                name: formName.trim(), subtitle: formSubtitle.trim(), imageUrl: formImageUrl.trim()
+            });
+            showToast('Đã cập nhật nhóm sách!', 'success');
+            resetForm(); setShowEditGroup(false); loadAllData();
+        } catch (e) { showToast('Lỗi: ' + e.message, 'error'); }
+    };
+
+    const handleStartEditBook = (book) => {
+        setEditTarget(book);
+        setFormName(book.name || '');
+        setFormSubtitle(book.subtitle || '');
+        setFormColor(book.color || '#4F87FF');
+        setFormWordCount(book.wordCount || '');
+        setFormDescription(book.description || '');
+        setShowEditBook(true);
+    };
+
+    const handleSaveEditBook = async () => {
+        if (!editTarget || !formName.trim() || !groupId) return;
+        try {
+            await updateDoc(doc(db, COLLECTION, groupId, 'books', editTarget.id), {
+                name: formName.trim(), subtitle: formSubtitle.trim(),
+                color: formColor, wordCount: formWordCount.trim(),
+                description: formDescription.trim()
+            });
+            showToast('Đã cập nhật sách!', 'success');
+            resetForm(); setShowEditBook(false); loadAllData();
+        } catch (e) { showToast('Lỗi: ' + e.message, 'error'); }
+    };
+
+    // ==================== REORDER CHAPTERS/LESSONS ====================
+    const handleReorderChapter = async (ci, direction) => {
+        const chapters = currentBook?.chapters || [];
+        const swapIdx = ci + direction;
+        if (swapIdx < 0 || swapIdx >= chapters.length) return;
+        try {
+            const batch = writeBatch(db);
+            const chA = chapters[ci];
+            const chB = chapters[swapIdx];
+            batch.update(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chA.id), { order: swapIdx });
+            batch.update(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chB.id), { order: ci });
+            await batch.commit();
+            loadAllData(true);
+        } catch (e) { showToast('Lỗi: ' + e.message, 'error'); }
+    };
+
+    const handleReorderLesson = async (chId, li, direction) => {
+        const chapter = currentBook?.chapters?.find(c => c.id === chId);
+        if (!chapter) return;
+        const lessons = chapter.lessons || [];
+        const swapIdx = li + direction;
+        if (swapIdx < 0 || swapIdx >= lessons.length) return;
+        try {
+            const batch = writeBatch(db);
+            const lsA = lessons[li];
+            const lsB = lessons[swapIdx];
+            batch.update(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chId, 'lessons', lsA.id), { order: swapIdx });
+            batch.update(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chId, 'lessons', lsB.id), { order: li });
+            await batch.commit();
+            loadAllData(true);
+        } catch (e) { showToast('Lỗi: ' + e.message, 'error'); }
+    };
+
     const handleImportJson = async () => {
         if (!jsonInput.trim() || !lessonId) return;
         try {
             const vocabArray = JSON.parse(jsonInput.trim());
             if (!Array.isArray(vocabArray)) { showToast('JSON phải là mảng []', 'warning'); return; }
             const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
-            const existing = currentLesson?.vocab || [];
-            await updateDoc(lessonRef, { vocab: [...existing, ...vocabArray] });
+            const existing = [...(currentLesson?.vocab || [])];
+
+            // Helper: normalize word for matching (remove furigana in parentheses)
+            const normalizeWord = (w) => (w || '').split('（')[0].split('(')[0].trim();
+
+            let updatedCount = 0;
+            let addedCount = 0;
+
+            for (const item of vocabArray) {
+                const itemWord = normalizeWord(item.word || item.front || '');
+                if (!itemWord) continue;
+
+                // Find existing vocab by matching word
+                const existingIndex = existing.findIndex(v => {
+                    const vWord = normalizeWord(v.word || v.front || '');
+                    return vWord === itemWord;
+                });
+
+                if (existingIndex >= 0) {
+                    // Merge: only update fields that are provided and non-empty in the import
+                    const merged = { ...existing[existingIndex] };
+                    for (const [key, value] of Object.entries(item)) {
+                        if (value !== undefined && value !== null && value !== '') {
+                            merged[key] = value;
+                        }
+                    }
+                    existing[existingIndex] = merged;
+                    updatedCount++;
+                } else {
+                    // New vocab: add to end
+                    existing.push(item);
+                    addedCount++;
+                }
+            }
+
+            await updateDoc(lessonRef, { vocab: existing });
+            const msgs = [];
+            if (addedCount > 0) msgs.push(`Thêm ${addedCount} từ mới`);
+            if (updatedCount > 0) msgs.push(`Cập nhật ${updatedCount} từ`);
+            showToast(msgs.join(', ') || 'Không có thay đổi', msgs.length > 0 ? 'success' : 'info');
             resetForm(); setShowJsonImport(false); loadAllData();
         } catch (e) { showToast('JSON không hợp lệ: ' + e.message, 'error'); }
     };
@@ -463,7 +581,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                 level: vocab.level || '',
                 sinoVietnamese: vocab.sinoVietnamese || '',
                 synonymSinoVietnamese: '',
-                imageBase64: null,
+                imageBase64: vocab.imageUrl || null,
                 audioBase64: vocab.audioBase64 || null,
                 exampleAudioBase64: vocab.exampleAudioBase64 || null,
                 action: 'stay',
@@ -561,10 +679,16 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                     <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">{group.books?.length || 0} cuốn sách</p>
                                 </div>
                                 {isAdmin && (
-                                    <button onClick={(e) => { e.stopPropagation(); handleDeleteGroup(group.id); }}
-                                        className="p-2 text-gray-400 hover:text-red-500 transition-colors">
-                                        <Trash2 className="w-4 h-4" />
-                                    </button>
+                                    <div className="flex items-center gap-1">
+                                        <button onClick={(e) => { e.stopPropagation(); handleStartEditGroup(group); }}
+                                            className="p-2 text-gray-400 hover:text-sky-500 transition-colors">
+                                            <Edit className="w-4 h-4" />
+                                        </button>
+                                        <button onClick={(e) => { e.stopPropagation(); handleDeleteGroup(group.id); }}
+                                            className="p-2 text-gray-400 hover:text-red-500 transition-colors">
+                                            <Trash2 className="w-4 h-4" />
+                                        </button>
+                                    </div>
                                 )}
                             </div>
                         </div>
@@ -604,10 +728,16 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                             {book.description && <p className="text-xs opacity-70 mt-1">{book.description}</p>}
                         </div>
                         {isAdmin && (
-                            <button onClick={(e) => { e.stopPropagation(); handleDeleteBook(book.id); }}
-                                className="absolute top-2 right-2 p-1.5 bg-black/20 hover:bg-red-500/80 rounded-lg text-white/70 hover:text-white transition-colors z-20">
-                                <Trash2 className="w-3.5 h-3.5" />
-                            </button>
+                            <div className="absolute top-2 right-2 flex items-center gap-1 z-20">
+                                <button onClick={(e) => { e.stopPropagation(); handleStartEditBook(book); }}
+                                    className="p-1.5 bg-black/20 hover:bg-sky-500/80 rounded-lg text-white/70 hover:text-white transition-colors">
+                                    <Edit className="w-3.5 h-3.5" />
+                                </button>
+                                <button onClick={(e) => { e.stopPropagation(); handleDeleteBook(book.id); }}
+                                    className="p-1.5 bg-black/20 hover:bg-red-500/80 rounded-lg text-white/70 hover:text-white transition-colors">
+                                    <Trash2 className="w-3.5 h-3.5" />
+                                </button>
+                            </div>
                         )}
                     </div>
                 ))}
@@ -636,9 +766,21 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                     {chapters.map((chapter, ci) => (
                         <div key={chapter.id} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
                             <div className="flex items-center justify-between px-4 py-3 bg-gray-50 dark:bg-gray-700/50">
-                                <h3 className="font-bold text-gray-900 dark:text-white text-sm">📖 {chapter.name}</h3>
-                                <div className="flex items-center gap-1">
+                                <h3 className="font-bold text-gray-900 dark:text-white text-sm flex-1">
+                                    📖 <InlineEditName type="chapter" id={chapter.id} currentName={chapter.name} />
+                                </h3>
+                                <div className="flex items-center gap-0.5">
                                     {isAdmin && <>
+                                        <button onClick={() => handleReorderChapter(ci, -1)} disabled={ci === 0}
+                                            className={`p-1 rounded transition-colors ${ci === 0 ? 'text-gray-200 dark:text-gray-600 cursor-not-allowed' : 'text-gray-400 hover:text-sky-500'}`}
+                                            title="Di chuyển lên">
+                                            <ChevronUp className="w-3.5 h-3.5" />
+                                        </button>
+                                        <button onClick={() => handleReorderChapter(ci, 1)} disabled={ci === chapters.length - 1}
+                                            className={`p-1 rounded transition-colors ${ci === chapters.length - 1 ? 'text-gray-200 dark:text-gray-600 cursor-not-allowed' : 'text-gray-400 hover:text-sky-500'}`}
+                                            title="Di chuyển xuống">
+                                            <ChevronDown className="w-3.5 h-3.5" />
+                                        </button>
                                         <button onClick={() => { resetForm(); setFormName(''); navigateTo({ group: groupId, book: bookId, chapter: chapter.id }); setShowAddLesson(true); }}
                                             className="p-1.5 text-gray-400 hover:text-sky-500 transition-colors" title="Thêm bài">
                                             <Plus className="w-3.5 h-3.5" />
@@ -661,13 +803,23 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                             </span>
                                             <span className="text-sm text-gray-800 dark:text-gray-200">{lesson.name}</span>
                                         </div>
-                                        <div className="flex items-center gap-2">
+                                        <div className="flex items-center gap-1">
                                             <span className="text-xs text-gray-400">{lesson.vocab?.length || 0} từ</span>
                                             {isAdmin && (
-                                                <button onClick={(e) => { e.stopPropagation(); handleDeleteLesson(lesson.id); }}
-                                                    className="p-1 text-gray-300 hover:text-red-500 transition-colors">
-                                                    <Trash2 className="w-3 h-3" />
-                                                </button>
+                                                <>
+                                                    <button onClick={(e) => { e.stopPropagation(); handleReorderLesson(chapter.id, li, -1); }} disabled={li === 0}
+                                                        className={`p-0.5 rounded ${li === 0 ? 'text-gray-200 dark:text-gray-600' : 'text-gray-300 hover:text-sky-500'}`}>
+                                                        <ChevronUp className="w-3 h-3" />
+                                                    </button>
+                                                    <button onClick={(e) => { e.stopPropagation(); handleReorderLesson(chapter.id, li, 1); }} disabled={li === chapter.lessons.length - 1}
+                                                        className={`p-0.5 rounded ${li === chapter.lessons.length - 1 ? 'text-gray-200 dark:text-gray-600' : 'text-gray-300 hover:text-sky-500'}`}>
+                                                        <ChevronDown className="w-3 h-3" />
+                                                    </button>
+                                                    <button onClick={(e) => { e.stopPropagation(); handleDeleteLesson(lesson.id); }}
+                                                        className="p-1 text-gray-300 hover:text-red-500 transition-colors">
+                                                        <Trash2 className="w-3 h-3" />
+                                                    </button>
+                                                </>
                                             )}
                                             <ChevronRight className="w-4 h-4 text-gray-300" />
                                         </div>
@@ -788,6 +940,11 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                             className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" />
                                                     </div>
                                                     <div>
+                                                        <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Cách đọc (reading)</label>
+                                                        <input value={editingVocabData.reading || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, reading: e.target.value }))}
+                                                            className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" placeholder="かんじ" />
+                                                    </div>
+                                                    <div>
                                                         <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Nghĩa</label>
                                                         <input value={editingVocabData.meaning || editingVocabData.back || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, meaning: e.target.value }))}
                                                             className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" />
@@ -797,7 +954,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                         <input value={editingVocabData.sinoVietnamese || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, sinoVietnamese: e.target.value }))}
                                                             className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" />
                                                     </div>
-                                                    <div className="grid grid-cols-2 gap-2">
+                                                    <div className="grid grid-cols-3 gap-2">
                                                         <div>
                                                             <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Từ loại</label>
                                                             <input value={editingVocabData.pos || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, pos: e.target.value }))}
@@ -807,6 +964,11 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                             <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Cấp độ</label>
                                                             <input value={editingVocabData.level || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, level: e.target.value }))}
                                                                 className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" placeholder="N5..." />
+                                                        </div>
+                                                        <div>
+                                                            <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Accent</label>
+                                                            <input value={editingVocabData.accent || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, accent: e.target.value }))}
+                                                                className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" placeholder="0" />
                                                         </div>
                                                     </div>
                                                     <div>
@@ -819,16 +981,31 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                         <input value={editingVocabData.nuance || editingVocabData.note || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, nuance: e.target.value }))}
                                                             className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" />
                                                     </div>
+                                                    <div className="flex items-center gap-2 col-span-full">
+                                                        <label className="flex items-center gap-2 cursor-pointer">
+                                                            <input type="checkbox" checked={editingVocabData.specialReading || false} onChange={e => setEditingVocabData(prev => ({ ...prev, specialReading: e.target.checked }))}
+                                                                className="w-4 h-4 rounded border-gray-300 text-sky-500 focus:ring-sky-500" />
+                                                            <span className="text-xs text-gray-600 dark:text-gray-400">Cách đọc đặc biệt (specialReading)</span>
+                                                        </label>
+                                                    </div>
                                                 </div>
                                                 <div>
                                                     <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Câu ví dụ</label>
-                                                    <input value={editingVocabData.example || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, example: e.target.value }))}
-                                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" />
+                                                    <textarea value={editingVocabData.example || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, example: e.target.value }))}
+                                                        rows={2} className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" />
                                                 </div>
                                                 <div>
                                                     <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Nghĩa câu ví dụ</label>
-                                                    <input value={editingVocabData.exampleMeaning || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, exampleMeaning: e.target.value }))}
-                                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" />
+                                                    <textarea value={editingVocabData.exampleMeaning || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, exampleMeaning: e.target.value }))}
+                                                        rows={2} className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">URL hình ảnh (tùy chọn)</label>
+                                                    <input value={editingVocabData.imageUrl || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, imageUrl: e.target.value }))}
+                                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" placeholder="https://..." />
+                                                    {editingVocabData.imageUrl && (
+                                                        <img src={editingVocabData.imageUrl} alt="preview" className="mt-2 max-h-20 rounded-lg object-contain border border-gray-200 dark:border-gray-600" />
+                                                    )}
                                                 </div>
                                             </div>
                                         ) : (
@@ -844,6 +1021,12 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                     <div className="flex-1 flex flex-col justify-center">
                                                         <div className="flex items-center gap-2">
                                                             <p className="text-xl font-bold text-gray-900 dark:text-white leading-tight">{word}</p>
+                                                            {v.accent && (
+                                                                <span className="text-[10px] px-1.5 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded font-mono" title="Accent">{v.accent}</span>
+                                                            )}
+                                                            {v.specialReading && (
+                                                                <span className="text-[10px] px-1.5 py-0.5 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 rounded" title="Cách đọc đặc biệt">特</span>
+                                                            )}
                                                             <button
                                                                 onClick={(e) => {
                                                                     e.stopPropagation();
@@ -859,11 +1042,17 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                                 <Volume2 className="w-4 h-4" />
                                                             </button>
                                                         </div>
+                                                        {v.reading && (
+                                                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{v.reading}</p>
+                                                        )}
                                                         {v.sinoVietnamese && (
                                                             <p className="text-xs text-amber-600 dark:text-amber-400 font-medium mt-1">{v.sinoVietnamese}</p>
                                                         )}
 
                                                         <p className="text-sm text-sky-600 dark:text-sky-400 mt-2 font-medium">{v.meaning || v.back || ''}</p>
+                                                        {v.imageUrl && (
+                                                            <img src={v.imageUrl} alt={word} className="mt-2 max-h-16 rounded-lg object-contain border border-gray-200 dark:border-gray-600 cursor-pointer hover:opacity-80 transition-opacity" onClick={(e) => { e.stopPropagation(); window.open(v.imageUrl, '_blank'); }} title="Click để phóng to" />
+                                                        )}
                                                     </div>
                                                 </div>
 
@@ -1012,8 +1201,14 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                 <InputField label="Tên bài" value={formName} onChange={setFormName} placeholder="VD: Bài 1 - Giới thiệu bản thân" />
             </FormModal>
 
-            <FormModal show={showJsonImport} onClose={() => { setShowJsonImport(false); resetForm(); }} title="Import từ vựng (JSON)" onSave={handleImportJson}>
+            <FormModal show={showJsonImport} onClose={() => { setShowJsonImport(false); resetForm(); }} title="Import / Cập nhật từ vựng (JSON)" onSave={handleImportJson}>
                 <div className="space-y-3">
+                    {/* Info about merge behavior */}
+                    <div className="bg-sky-50 dark:bg-sky-900/20 border border-sky-200 dark:border-sky-800 rounded-xl p-3">
+                        <p className="text-xs text-sky-700 dark:text-sky-300 font-medium">💡 Hỗ trợ cập nhật từ vựng đã có</p>
+                        <p className="text-[11px] text-sky-600 dark:text-sky-400 mt-1">Nếu <strong>word</strong> đã tồn tại trong bài, chỉ các trường <strong>không trống</strong> trong JSON sẽ được cập nhật. Từ mới sẽ được thêm vào cuối danh sách.</p>
+                    </div>
+
                     {/* Sample JSON */}
                     <div>
                         <div className="flex items-center justify-between mb-1">
@@ -1022,60 +1217,84 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                 onClick={() => {
                                     const sample = JSON.stringify([
                                         {
-                                            word: "食べる（たべる）",
-                                            meaning: "Ăn",
-                                            sinoVietnamese: "THỰC",
-                                            pos: "verb",
-                                            level: "N5",
-                                            synonym: "食事する, 食う",
-                                            nuance: "Dùng cho việc ăn nói chung",
-                                            note: "",
-                                            example: "毎日朝ごはんを食べます。",
-                                            exampleMeaning: "Mỗi ngày tôi ăn sáng."
-                                        },
-                                        {
-                                            word: "飲む（のむ）",
-                                            meaning: "Uống",
-                                            sinoVietnamese: "ẤM",
-                                            pos: "verb",
-                                            level: "N5",
-                                            synonym: "",
-                                            nuance: "Dùng cho đồ uống, thuốc",
-                                            note: "",
-                                            example: "水を飲みます。",
-                                            exampleMeaning: "Tôi uống nước."
+                                            word: "漢字（かんじ）",
+                                            reading: "かんじ",
+                                            meaning: "Chữ Hán; Kanji",
+                                            level: "N3",
+                                            sinoVietnamese: "HÁN TỰ",
+                                            pos: "noun",
+                                            synonym: "文字",
+                                            example: "漢字を勉強します。\n新しい漢字を書きなさい。",
+                                            exampleMeaning: "Tôi học chữ Hán.\nHãy viết chữ Hán mới.",
+                                            nuance: "Chỉ hệ thống chữ viết gốc Trung Quốc dùng trong tiếng Nhật.",
+                                            accent: "0",
+                                            specialReading: false
                                         }
                                     ], null, 2);
                                     navigator.clipboard.writeText(sample);
+                                    showToast('Đã copy JSON mẫu!', 'success');
                                 }}
                                 className="flex items-center gap-1 px-2 py-1 text-xs text-sky-600 dark:text-sky-400 hover:bg-sky-50 dark:hover:bg-sky-900/20 rounded-lg transition-colors font-medium"
                             >
                                 <Copy className="w-3 h-3" /> Copy mẫu
                             </button>
                         </div>
-                        <pre className="text-[11px] bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-600 rounded-xl p-3 overflow-x-auto text-gray-600 dark:text-gray-400 font-mono leading-relaxed">{`[
+                        <pre className="text-[11px] bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-600 rounded-xl p-3 overflow-x-auto text-gray-600 dark:text-gray-400 font-mono leading-relaxed max-h-48 overflow-y-auto">{`[
   {
-    "word": "食べる（たべる）",
-    "meaning": "Ăn",
-    "sinoVietnamese": "THỰC",
-    "pos": "verb",
-    "level": "N5",
-    "synonym": "食事する, 食う",
-    "nuance": "Dùng cho việc ăn nói chung",
-    "note": "ghi chú thêm",
-    "example": "毎日朝ごはんを食べます。",
-    "exampleMeaning": "Mỗi ngày tôi ăn sáng."
+    "word": "漢字（かんじ）",
+    "reading": "かんじ",
+    "meaning": "Chữ Hán; Kanji",
+    "level": "N3",
+    "sinoVietnamese": "HÁN TỰ",
+    "pos": "noun",
+    "synonym": "文字",
+    "example": "漢字を勉強します。\\n新しい漢字を書きなさい。",
+    "exampleMeaning": "Tôi học chữ Hán.\\nHãy viết chữ Hán mới.",
+    "nuance": "Ghi chú về sắc thái hoặc cách dùng.",
+    "accent": "0",
+    "specialReading": false
   }
 ]`}</pre>
+                    </div>
+
+                    {/* Partial update example */}
+                    <div>
+                        <label className="text-xs font-medium text-gray-500 dark:text-gray-400">Ví dụ cập nhật 1 trường cho từ đã có:</label>
+                        <pre className="text-[10px] bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-800 rounded-lg p-2 font-mono text-amber-700 dark:text-amber-400 mt-1">{`[{ "word": "漢字（かんじ）", "sinoVietnamese": "HÁN TỰ" }]`}</pre>
                     </div>
 
                     {/* Input area */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Dán JSON vào đây</label>
                         <textarea value={jsonInput} onChange={e => setJsonInput(e.target.value)}
-                            rows={10} placeholder="Dán JSON từ vựng vào đây..."
+                            rows={10} placeholder="Dán JSON từ vựng vào đây...\n\nCó thể bỏ trống các trường không cần cập nhật."
                             className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white font-mono text-xs focus:ring-2 focus:ring-sky-500 outline-none" />
-                        <p className="text-[10px] text-gray-400 mt-1">Các trường: word, meaning, sinoVietnamese, pos (từ loại), level (cấp độ), synonym (đồng nghĩa), nuance (sắc thái), note (ghi chú), example, exampleMeaning</p>
+                        <p className="text-[10px] text-gray-400 mt-1">Các trường: word, reading, meaning, sinoVietnamese, pos, level, synonym, example, exampleMeaning, nuance, accent, specialReading, imageUrl</p>
+                    </div>
+                </div>
+            </FormModal>
+
+            {/* Edit Group Modal */}
+            <FormModal show={showEditGroup} onClose={() => { setShowEditGroup(false); resetForm(); }} title="Chỉnh sửa nhóm sách" onSave={handleSaveEditGroup}>
+                <InputField label="Tên nhóm" value={formName} onChange={setFormName} placeholder="VD: Tango" />
+                <InputField label="Phụ đề" value={formSubtitle} onChange={setFormSubtitle} placeholder="VD: はじめての日本語能力試験" />
+                <InputField label="URL hình ảnh (tùy chọn)" value={formImageUrl} onChange={setFormImageUrl} placeholder="https://..." />
+            </FormModal>
+
+            {/* Edit Book Modal */}
+            <FormModal show={showEditBook} onClose={() => { setShowEditBook(false); resetForm(); }} title="Chỉnh sửa sách" onSave={handleSaveEditBook}>
+                <InputField label="Tên sách" value={formName} onChange={setFormName} placeholder="VD: N5" />
+                <InputField label="Phụ đề" value={formSubtitle} onChange={setFormSubtitle} placeholder="VD: はじめての日本語能力試験" />
+                <InputField label="Số lượng từ vựng" value={formWordCount} onChange={setFormWordCount} placeholder="VD: 1000" />
+                <InputField label="Mô tả" value={formDescription} onChange={setFormDescription} placeholder="VD: dành cho Kỳ thi Năng lực Nhật ngữ N5" />
+                <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Màu sách</label>
+                    <div className="flex gap-2 flex-wrap">
+                        {BOOK_COLORS.map(c => (
+                            <button key={c} onClick={() => setFormColor(c)}
+                                className={`w-8 h-8 rounded-lg transition-all ${formColor === c ? 'ring-2 ring-offset-2 ring-sky-500 scale-110' : 'hover:scale-105'}`}
+                                style={{ backgroundColor: c }} />
+                        ))}
                     </div>
                 </div>
             </FormModal>

@@ -59,6 +59,9 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     const [showCategoryModal, setShowCategoryModal] = useState(false);
     const [newCategoryName, setNewCategoryName] = useState('');
     const [importCategory, setImportCategory] = useState(''); // Category selected for import
+    const [newCategoryLinkedBook, setNewCategoryLinkedBook] = useState(''); // format: groupId/bookId
+    const [bookGroupsForLink, setBookGroupsForLink] = useState([]); // for book selector in category modal
+    const [linkedBookVocab, setLinkedBookVocab] = useState({}); // categoryId -> [{word, meaning, ...}]
 
     // Firebase data
     const [kanjiList, setKanjiList] = useState([]);
@@ -218,6 +221,54 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 const catData = catSnap.docs.map(d => ({ id: d.id, ...d.data() }));
                 console.log('Loaded vocab categories:', catData.length, 'items');
                 setVocabCategories(catData);
+
+                // Load book groups for linking
+                const groupsSnap = await getDocs(collection(db, 'bookGroups'));
+                const groups = [];
+                for (const grpDoc of groupsSnap.docs) {
+                    const grp = { id: grpDoc.id, ...grpDoc.data(), books: [] };
+                    const booksSnap = await getDocs(collection(db, 'bookGroups', grpDoc.id, 'books'));
+                    for (const bkDoc of booksSnap.docs) {
+                        grp.books.push({ id: bkDoc.id, ...bkDoc.data() });
+                    }
+                    if (grp.books.length > 0) groups.push(grp);
+                }
+                setBookGroupsForLink(groups);
+
+                // Load linked book vocab for categories that have linkedBookPath
+                const linkedData = {};
+                for (const cat of catData) {
+                    if (cat.linkedBookPath) {
+                        const [gId, bId] = cat.linkedBookPath.split('/');
+                        if (gId && bId) {
+                            try {
+                                const chapSnap = await getDocs(collection(db, 'bookGroups', gId, 'books', bId, 'chapters'));
+                                const allVocab = [];
+                                for (const chDoc of chapSnap.docs) {
+                                    const lessonsSnap = await getDocs(collection(db, 'bookGroups', gId, 'books', bId, 'chapters', chDoc.id, 'lessons'));
+                                    for (const lDoc of lessonsSnap.docs) {
+                                        const lessonData = lDoc.data();
+                                        if (lessonData.vocab && Array.isArray(lessonData.vocab)) {
+                                            allVocab.push(...lessonData.vocab.map(v => ({
+                                                ...v,
+                                                word: v.word || v.front || '',
+                                                reading: '',
+                                                meaning: v.meaning || v.back || '',
+                                                category: cat.name,
+                                                _fromBook: true,
+                                                _bookCatId: cat.id,
+                                            })));
+                                        }
+                                    }
+                                }
+                                linkedData[cat.id] = allVocab;
+                            } catch (e) {
+                                console.warn('Error loading linked book vocab for', cat.name, e);
+                            }
+                        }
+                    }
+                }
+                setLinkedBookVocab(linkedData);
             } catch (e) {
                 console.error('Error loading kanji data:', e);
                 showToast('Lỗi tải dữ liệu Kanji. Vui lòng kiểm tra kết nối hoặc Firebase Rules.', 'error');
@@ -579,9 +630,24 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         };
     };
 
-    // Get vocab containing this kanji
+    // Get vocab containing this kanji (from kanjiVocab + linked book vocab)
     const getVocabForKanji = (char) => {
-        return vocabList.filter(v => v.word.includes(char));
+        const kanjiVocab = vocabList.filter(v => v.word.includes(char));
+        // Also include vocab from linked book categories
+        const bookVocab = [];
+        for (const catId of Object.keys(linkedBookVocab)) {
+            const items = linkedBookVocab[catId] || [];
+            for (const v of items) {
+                const wordText = v.word || '';
+                if (wordText.includes(char) && !bookVocab.some(bv => bv.word === wordText)) {
+                    bookVocab.push(v);
+                }
+            }
+        }
+        // Deduplicate: don't add book vocab if same word already in kanjiVocab
+        const existingWords = new Set(kanjiVocab.map(v => v.word));
+        const uniqueBookVocab = bookVocab.filter(v => !existingWords.has(v.word));
+        return [...kanjiVocab, ...uniqueBookVocab];
     };
 
     // Get related kanji (from same level or other kanji in Firebase)
@@ -748,12 +814,52 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             return;
         }
         try {
-            const docRef = await addDoc(collection(db, 'vocabCategories'), {
+            const catData = {
                 name: trimmed,
                 createdAt: new Date().toISOString()
-            });
-            setVocabCategories([...vocabCategories, { id: docRef.id, name: trimmed }]);
+            };
+            if (newCategoryLinkedBook) {
+                catData.linkedBookPath = newCategoryLinkedBook;
+                // Find book name for display
+                const [gId, bId] = newCategoryLinkedBook.split('/');
+                const g = bookGroupsForLink.find(g => g.id === gId);
+                const b = g?.books.find(b => b.id === bId);
+                if (b) catData.linkedBookName = `${g.name} - ${b.name}`;
+            }
+            const docRef = await addDoc(collection(db, 'vocabCategories'), catData);
+            setVocabCategories([...vocabCategories, { id: docRef.id, ...catData }]);
             setNewCategoryName('');
+            setNewCategoryLinkedBook('');
+
+            // If linked, load the book vocab
+            if (catData.linkedBookPath) {
+                const [gId, bId] = catData.linkedBookPath.split('/');
+                try {
+                    const chapSnap = await getDocs(collection(db, 'bookGroups', gId, 'books', bId, 'chapters'));
+                    const allVocab = [];
+                    for (const chDoc of chapSnap.docs) {
+                        const lessonsSnap = await getDocs(collection(db, 'bookGroups', gId, 'books', bId, 'chapters', chDoc.id, 'lessons'));
+                        for (const lDoc of lessonsSnap.docs) {
+                            const lessonData = lDoc.data();
+                            if (lessonData.vocab && Array.isArray(lessonData.vocab)) {
+                                allVocab.push(...lessonData.vocab.map(v => ({
+                                    ...v,
+                                    word: v.word || v.front || '',
+                                    reading: '',
+                                    meaning: v.meaning || v.back || '',
+                                    category: trimmed,
+                                    _fromBook: true,
+                                    _bookCatId: docRef.id,
+                                })));
+                            }
+                        }
+                    }
+                    setLinkedBookVocab(prev => ({ ...prev, [docRef.id]: allVocab }));
+                    showToast(`Đã liên kết ${allVocab.length} từ vựng từ sách!`, 'success');
+                } catch (e) {
+                    console.warn('Error loading linked book vocab:', e);
+                }
+            }
         } catch (e) {
             console.error('Error adding category:', e);
             showToast('Lỗi khi thêm phân loại: ' + e.message, 'error');
@@ -2545,21 +2651,41 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             </p>
 
                             {/* Add new category */}
-                            <div className="flex items-center gap-2">
-                                <input
-                                    value={newCategoryName}
-                                    onChange={e => setNewCategoryName(e.target.value)}
-                                    onKeyDown={e => e.key === 'Enter' && handleAddCategory()}
-                                    placeholder="Tên phân loại mới..."
-                                    className="flex-1 bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                                />
-                                <button
-                                    onClick={handleAddCategory}
-                                    disabled={!newCategoryName.trim()}
-                                    className="px-4 py-2 bg-purple-600 hover:bg-purple-500 disabled:bg-gray-300 dark:disabled:bg-slate-600 disabled:cursor-not-allowed text-white rounded-lg font-medium text-sm flex items-center gap-1 transition-colors"
-                                >
-                                    <Plus className="w-4 h-4" /> Thêm
-                                </button>
+                            <div className="space-y-2">
+                                <div className="flex items-center gap-2">
+                                    <input
+                                        value={newCategoryName}
+                                        onChange={e => setNewCategoryName(e.target.value)}
+                                        onKeyDown={e => e.key === 'Enter' && handleAddCategory()}
+                                        placeholder="Tên phân loại mới..."
+                                        className="flex-1 bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                    />
+                                    <button
+                                        onClick={handleAddCategory}
+                                        disabled={!newCategoryName.trim()}
+                                        className="px-4 py-2 bg-purple-600 hover:bg-purple-500 disabled:bg-gray-300 dark:disabled:bg-slate-600 disabled:cursor-not-allowed text-white rounded-lg font-medium text-sm flex items-center gap-1 transition-colors"
+                                    >
+                                        <Plus className="w-4 h-4" /> Thêm
+                                    </button>
+                                </div>
+                                {/* Book linking selector */}
+                                <div>
+                                    <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1">Liên kết sách (tùy chọn - từ vựng trong sách sẽ hiện qua Kanji)</label>
+                                    <select
+                                        value={newCategoryLinkedBook}
+                                        onChange={e => setNewCategoryLinkedBook(e.target.value)}
+                                        className="w-full bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600"
+                                    >
+                                        <option value="">-- Không liên kết sách --</option>
+                                        {bookGroupsForLink.map(g => (
+                                            <optgroup key={g.id} label={g.name}>
+                                                {g.books.map(b => (
+                                                    <option key={b.id} value={`${g.id}/${b.id}`}>{b.name}</option>
+                                                ))}
+                                            </optgroup>
+                                        ))}
+                                    </select>
+                                </div>
                             </div>
 
                             {/* Category list */}
@@ -2569,6 +2695,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                 ) : (
                                     vocabCategories.map((cat, idx) => {
                                         const catVocabCount = vocabList.filter(v => v.category === cat.name).length;
+                                        const bookVocabCount = (linkedBookVocab[cat.id] || []).length;
                                         const colors = [
                                             'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-orange-200 dark:border-orange-800',
                                             'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800',
@@ -2579,14 +2706,19 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                         ];
                                         return (
                                             <div key={cat.id} className={`flex items-center justify-between p-3 rounded-lg border ${colors[idx % colors.length]} transition-all`}>
-                                                <div className="flex items-center gap-2">
-                                                    <Tag className="w-4 h-4" />
-                                                    <span className="font-medium text-sm">{cat.name}</span>
-                                                    <span className="text-xs opacity-70">({catVocabCount} từ)</span>
+                                                <div className="flex-1 min-w-0">
+                                                    <div className="flex items-center gap-2">
+                                                        <Tag className="w-4 h-4 shrink-0" />
+                                                        <span className="font-medium text-sm truncate">{cat.name}</span>
+                                                        <span className="text-xs opacity-70 shrink-0">({catVocabCount}{bookVocabCount > 0 ? ` + ${bookVocabCount} sách` : ''} từ)</span>
+                                                    </div>
+                                                    {cat.linkedBookName && (
+                                                        <p className="text-[10px] opacity-60 mt-0.5 ml-6 truncate">📚 {cat.linkedBookName}</p>
+                                                    )}
                                                 </div>
                                                 <button
                                                     onClick={() => handleDeleteCategory(cat.id)}
-                                                    className="p-1 hover:bg-red-200 dark:hover:bg-red-900/50 rounded-md transition-colors"
+                                                    className="p-1 hover:bg-red-200 dark:hover:bg-red-900/50 rounded-md transition-colors shrink-0"
                                                     title="Xóa phân loại"
                                                 >
                                                     <Trash2 className="w-4 h-4 text-red-500" />
