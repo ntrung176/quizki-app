@@ -51,15 +51,16 @@ export const checkPaymentStatus = async (sepayToken, orderCode, expectedAmount) 
         if (isDev) {
             // Dev: Vite proxy
             url = `/api/sepay/${queryPath}`;
+            console.log(`🔍 SePay poll [DEV via Vite proxy]: ${orderCode} | amount=${expectedAmount}`);
         } else if (SEPAY_PROXY_URL) {
             // Production: Cloudflare Worker proxy
-            url = `${SEPAY_PROXY_URL}/${queryPath}`;
+            url = `${SEPAY_PROXY_URL.replace(/\/$/, '')}/${queryPath}`;
+            console.log(`🔍 SePay poll [PROD via Worker ${SEPAY_PROXY_URL}]: ${orderCode} | amount=${expectedAmount}`);
         } else {
-            console.error('❌ No SEPAY_PROXY_URL configured for production');
+            console.error('❌ VITE_SEPAY_PROXY_URL chưa được cấu hình! SePay polling bị tắt trên production.');
+            console.error('   → Hướng dẫn: Deploy workers/sepay-proxy.js lên Cloudflare, sau đó thêm VITE_SEPAY_PROXY_URL vào .env');
             return null;
         }
-
-        console.log(`🔍 SePay poll [${isDev ? 'DEV' : 'PROD'}]: ${orderCode} | amount=${expectedAmount}`);
 
         const response = await fetch(url, {
             headers: {
@@ -70,13 +71,13 @@ export const checkPaymentStatus = async (sepayToken, orderCode, expectedAmount) 
 
         if (!response.ok) {
             const errText = await response.text().catch(() => '');
-            console.error(`❌ SePay error ${response.status}:`, errText.substring(0, 200));
+            console.error(`❌ SePay error ${response.status}:`, errText.substring(0, 300));
             return null;
         }
 
         const data = await response.json();
         const transactions = data.transactions || [];
-        console.log(`📊 SePay: ${transactions.length} giao dịch khớp amount=${expectedAmount}`);
+        console.log(`📊 SePay: ${transactions.length} giao dịch khớp amount=${expectedAmount} hôm nay`);
 
         if (transactions.length > 0) {
             // Match 1: Tìm giao dịch có nội dung CK chứa mã đơn hàng
@@ -86,7 +87,7 @@ export const checkPaymentStatus = async (sepayToken, orderCode, expectedAmount) 
                 console.log(`  📝 TX #${tx.id}: "${tx.transaction_content}" | ${tx.amount_in}đ`);
 
                 if (content.includes(code)) {
-                    console.log('✅ Matched by content!');
+                    console.log('✅ Khớp theo nội dung chuyển khoản!');
                     return {
                         success: true,
                         transactionId: tx.id,
@@ -98,14 +99,14 @@ export const checkPaymentStatus = async (sepayToken, orderCode, expectedAmount) 
                 }
             }
 
-            // Match 2: Giao dịch mới nhất trong 10 phút, đúng số tiền
+            // Match 2: Giao dịch mới nhất trong 15 phút, đúng số tiền
             const recentTx = transactions[0];
             const txTime = new Date(recentTx.transaction_date);
             const now = new Date();
             const diffMin = (now - txTime) / 60000;
 
-            if (diffMin <= 10 && recentTx.amount_in >= expectedAmount) {
-                console.log(`✅ Matched by amount+time (${diffMin.toFixed(1)} min ago)!`);
+            if (diffMin <= 15 && recentTx.amount_in >= expectedAmount) {
+                console.log(`✅ Khớp theo số tiền + thời gian (${diffMin.toFixed(1)} phút trước)!`);
                 return {
                     success: true,
                     transactionId: recentTx.id,
@@ -119,7 +120,7 @@ export const checkPaymentStatus = async (sepayToken, orderCode, expectedAmount) 
 
         return { success: false };
     } catch (e) {
-        console.error('❌ SePay error:', e);
+        console.error('❌ SePay error:', e.message);
         return null;
     }
 };

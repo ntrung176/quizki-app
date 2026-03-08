@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { collection, query, onSnapshot, doc, deleteDoc, getDocs } from 'firebase/firestore';
+import * as XLSX from 'xlsx';
 import { db, appId } from '../../config/firebase';
 import {
     Users, Search, Shield, Trash2, BarChart3, Clock,
@@ -7,7 +8,7 @@ import {
     Sparkles, Bot, UserCheck, UserX, ToggleLeft, ToggleRight,
     ChevronDown, ChevronUp, Settings, Crown, ShieldCheck,
     CreditCard, Plus, Check, X as XIcon, Edit, Ticket,
-    DollarSign, TrendingUp, TrendingDown, Calendar
+    DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi
 } from 'lucide-react';
 import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, addModerator, removeModerator, grantAIAccess, revokeAIAccess, addCreditsToUser, DEFAULT_AI_PACKAGES, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense } from '../../utils/adminSettings';
 
@@ -43,6 +44,75 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const [newExpense, setNewExpense] = useState({ name: '', amount: '', type: 'operating', recurring: 'monthly', description: '', month: new Date().toISOString().slice(0, 7) });
     const [expenseError, setExpenseError] = useState('');
     const [selectedMonth, setSelectedMonth] = useState(new Date().toISOString().slice(0, 7));
+
+    // API balance state
+    const [apiBalances, setApiBalances] = useState({ openRouter: null, speechGen: null, loading: false, error: '' });
+
+    // Fetch API balances
+    const fetchApiBalances = async () => {
+        setApiBalances(prev => ({ ...prev, loading: true, error: '' }));
+        const results = { openRouter: null, speechGen: null, loading: false, error: '' };
+
+        // 1. OpenRouter credits
+        try {
+            const openRouterKey = import.meta.env.VITE_OPENROUTER_API_KEY;
+            if (openRouterKey) {
+                const res = await fetch('https://openrouter.ai/api/v1/credits', {
+                    headers: { 'Authorization': `Bearer ${openRouterKey}` }
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    results.openRouter = {
+                        totalCredits: data.data?.total_credits || 0,
+                        totalUsage: data.data?.total_usage || 0,
+                        remaining: (data.data?.total_credits || 0) - (data.data?.total_usage || 0),
+                    };
+                } else {
+                    results.openRouter = { error: `HTTP ${res.status}` };
+                }
+            } else {
+                results.openRouter = { error: 'Chưa cấu hình API key' };
+            }
+        } catch (e) {
+            results.openRouter = { error: e.message };
+        }
+
+        // 2. SpeechGen balance
+        try {
+            const speechToken = import.meta.env.VITE_SPEECHGEN_TOKEN;
+            const speechEmail = import.meta.env.VITE_SPEECHGEN_EMAIL;
+            const proxyUrl = import.meta.env.VITE_SPEECHGEN_PROXY_URL;
+            if (speechToken && speechEmail && proxyUrl) {
+                const baseProxy = proxyUrl.replace(/\/+$/, '');
+                const res = await fetch(`${baseProxy}/balance?token=${encodeURIComponent(speechToken)}&email=${encodeURIComponent(speechEmail)}`);
+                if (res.ok) {
+                    const data = await res.json();
+                    results.speechGen = {
+                        balance: data.balans ?? data.balance ?? data.limit ?? null,
+                    };
+                } else {
+                    // Fallback: try direct API
+                    const directRes = await fetch(`https://speechgen.io/index.php?r=api/balance`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ token: speechToken, email: speechEmail }),
+                    });
+                    if (directRes.ok) {
+                        const data = await directRes.json();
+                        results.speechGen = { balance: data.balans ?? data.balance ?? data.limit ?? null };
+                    } else {
+                        results.speechGen = { error: `HTTP ${res.status}` };
+                    }
+                }
+            } else {
+                results.speechGen = { error: 'Chưa cấu hình API key' };
+            }
+        } catch (e) {
+            results.speechGen = { error: e.message };
+        }
+
+        setApiBalances(results);
+    };
 
     // Voucher state
     const [vouchers, setVouchers] = useState([]);
@@ -1323,6 +1393,83 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             {/* ==================== REVENUE / BUSINESS SECTION ==================== */}
             {activeSection === 'revenue' && (
                 <div className="space-y-4">
+                    {/* API Credits Monitor */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+                        <div className="flex items-center justify-between mb-3">
+                            <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2">
+                                <Wifi className="w-4 h-4 text-cyan-500" />
+                                Số dư API bên thứ 3
+                            </h3>
+                            <button
+                                onClick={fetchApiBalances}
+                                disabled={apiBalances.loading}
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-cyan-500 hover:bg-cyan-600 text-white text-xs font-bold rounded-lg transition-colors disabled:opacity-50"
+                            >
+                                {apiBalances.loading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <RefreshCw className="w-3.5 h-3.5" />}
+                                {apiBalances.loading ? 'Đang tải...' : 'Kiểm tra'}
+                            </button>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {/* OpenRouter */}
+                            <div className="p-3 rounded-xl border border-indigo-200 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-900/20">
+                                <div className="flex items-center gap-2 mb-2">
+                                    <div className="w-7 h-7 rounded-lg bg-indigo-500 flex items-center justify-center">
+                                        <Bot className="w-4 h-4 text-white" />
+                                    </div>
+                                    <span className="font-bold text-sm text-indigo-700 dark:text-indigo-300">OpenRouter</span>
+                                </div>
+                                {apiBalances.openRouter === null ? (
+                                    <p className="text-xs text-gray-400 italic">Nhấn "Kiểm tra" để xem số dư</p>
+                                ) : apiBalances.openRouter.error ? (
+                                    <p className="text-xs text-red-500">⚠️ {apiBalances.openRouter.error}</p>
+                                ) : (
+                                    <div className="space-y-1">
+                                        <div className="flex justify-between">
+                                            <span className="text-xs text-gray-500">Tổng nạp:</span>
+                                            <span className="text-xs font-bold text-gray-700 dark:text-gray-300">${apiBalances.openRouter.totalCredits?.toFixed(4)}</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="text-xs text-gray-500">Đã dùng:</span>
+                                            <span className="text-xs font-bold text-orange-600">${apiBalances.openRouter.totalUsage?.toFixed(4)}</span>
+                                        </div>
+                                        <div className="flex justify-between pt-1 border-t border-indigo-200 dark:border-indigo-700">
+                                            <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Còn lại:</span>
+                                            <span className={`text-sm font-bold ${apiBalances.openRouter.remaining > 1 ? 'text-emerald-600' : apiBalances.openRouter.remaining > 0.1 ? 'text-amber-600' : 'text-red-600'}`}>
+                                                ${apiBalances.openRouter.remaining?.toFixed(4)}
+                                            </span>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* SpeechGen */}
+                            <div className="p-3 rounded-xl border border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20">
+                                <div className="flex items-center gap-2 mb-2">
+                                    <div className="w-7 h-7 rounded-lg bg-purple-500 flex items-center justify-center">
+                                        <span className="text-white text-xs font-bold">🔊</span>
+                                    </div>
+                                    <span className="font-bold text-sm text-purple-700 dark:text-purple-300">SpeechGen.io</span>
+                                </div>
+                                {apiBalances.speechGen === null ? (
+                                    <p className="text-xs text-gray-400 italic">Nhấn "Kiểm tra" để xem số dư</p>
+                                ) : apiBalances.speechGen.error ? (
+                                    <p className="text-xs text-red-500">⚠️ {apiBalances.speechGen.error}</p>
+                                ) : (
+                                    <div className="space-y-1">
+                                        <div className="flex justify-between pt-1">
+                                            <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Số ký tự còn lại:</span>
+                                            <span className={`text-sm font-bold ${(apiBalances.speechGen.balance || 0) > 10000 ? 'text-emerald-600' : (apiBalances.speechGen.balance || 0) > 1000 ? 'text-amber-600' : 'text-red-600'}`}>
+                                                {apiBalances.speechGen.balance != null ? Number(apiBalances.speechGen.balance).toLocaleString() : 'N/A'}
+                                            </span>
+                                        </div>
+                                        <p className="text-[10px] text-gray-400">1 ký tự = 1 limit (giọng Pro)</p>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+
                     {/* Month Selector */}
                     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
                         <div className="flex items-center justify-between">
@@ -1330,12 +1477,85 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 <Calendar className="w-4 h-4 text-indigo-500" />
                                 Thống kê theo tháng
                             </h3>
-                            <input
-                                type="month"
-                                value={selectedMonth}
-                                onChange={(e) => setSelectedMonth(e.target.value)}
-                                className="px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
-                            />
+                            <div className="flex items-center gap-2">
+                                <input
+                                    type="month"
+                                    value={selectedMonth}
+                                    onChange={(e) => setSelectedMonth(e.target.value)}
+                                    className="px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
+                                />
+                                <button
+                                    onClick={() => {
+                                        // Gather data for Excel
+                                        const monthTxs = creditRequests.filter(r => {
+                                            if (r.status !== 'approved') return false;
+                                            const date = r.processedAt?.toDate ? r.processedAt.toDate() : (r.processedAt ? new Date(r.processedAt) : null);
+                                            if (!date) return false;
+                                            return date.toISOString().slice(0, 7) === selectedMonth;
+                                        });
+                                        const monthExps = expenses.filter(exp => {
+                                            if (exp.recurring === 'monthly') return true;
+                                            if (exp.recurring === 'yearly') return (exp.month || '').slice(5, 7) === selectedMonth.slice(5, 7);
+                                            return exp.month === selectedMonth;
+                                        });
+                                        const totalRevenue = monthTxs.reduce((s, r) => s + (r.amount || 0), 0);
+                                        const totalFixed = monthExps.filter(e => e.type === 'fixed').reduce((s, e) => s + (e.amount || 0), 0);
+                                        const totalOp = monthExps.filter(e => e.type === 'operating').reduce((s, e) => s + (e.amount || 0), 0);
+                                        const totalOther = monthExps.filter(e => e.type === 'other').reduce((s, e) => s + (e.amount || 0), 0);
+                                        const totalExp = totalFixed + totalOp + totalOther;
+                                        const profit = totalRevenue - totalExp;
+
+                                        // Sheet 1: Tổng quan
+                                        const summaryData = [
+                                            ['BÁO CÁO DOANH THU THÁNG', selectedMonth],
+                                            [],
+                                            ['Hạng mục', 'Số tiền (VND)'],
+                                            ['Doanh thu', totalRevenue],
+                                            ['Chi phí cố định', totalFixed],
+                                            ['Chi phí vận hành', totalOp],
+                                            ['Chi phí khác', totalOther],
+                                            ['Tổng chi phí', totalExp],
+                                            [],
+                                            ['LỢI NHUẬN RÒNG', profit],
+                                            [],
+                                            ['Số giao dịch', monthTxs.length],
+                                        ];
+                                        const ws1 = XLSX.utils.aoa_to_sheet(summaryData);
+                                        ws1['!cols'] = [{ wch: 25 }, { wch: 20 }];
+
+                                        // Sheet 2: Giao dịch
+                                        const txHeaders = ['STT', 'Ngày', 'Người dùng', 'Email', 'Gói', 'Số thẻ', 'Số tiền (VND)'];
+                                        const txRows = monthTxs.map((r, i) => {
+                                            const date = r.processedAt?.toDate ? r.processedAt.toDate() : new Date(r.processedAt);
+                                            const user = users.find(u => u.userId === r.userId);
+                                            return [i + 1, date.toLocaleDateString('vi-VN'), user?.displayName || r.userName || 'N/A', user?.email || r.userEmail || '', r.packageName || r.packageId, r.credits || 0, r.amount || 0];
+                                        });
+                                        const ws2 = XLSX.utils.aoa_to_sheet([txHeaders, ...txRows]);
+                                        ws2['!cols'] = [{ wch: 5 }, { wch: 12 }, { wch: 20 }, { wch: 25 }, { wch: 15 }, { wch: 10 }, { wch: 15 }];
+
+                                        // Sheet 3: Chi phí
+                                        const expHeaders = ['STT', 'Tên', 'Loại', 'Chu kỳ', 'Tháng', 'Số tiền (VND)', 'Ghi chú'];
+                                        const typeMap = { fixed: 'Cố định', operating: 'Vận hành', other: 'Khác' };
+                                        const recurMap = { monthly: 'Hàng tháng', yearly: 'Hàng năm', once: 'Một lần' };
+                                        const expRows = monthExps.map((e, i) => [i + 1, e.name, typeMap[e.type] || e.type, recurMap[e.recurring] || e.recurring, e.month, e.amount || 0, e.description || '']);
+                                        const ws3 = XLSX.utils.aoa_to_sheet([expHeaders, ...expRows]);
+                                        ws3['!cols'] = [{ wch: 5 }, { wch: 20 }, { wch: 12 }, { wch: 12 }, { wch: 10 }, { wch: 15 }, { wch: 25 }];
+
+                                        // Create workbook
+                                        const wb = XLSX.utils.book_new();
+                                        XLSX.utils.book_append_sheet(wb, ws1, 'Tổng quan');
+                                        XLSX.utils.book_append_sheet(wb, ws2, 'Giao dịch');
+                                        XLSX.utils.book_append_sheet(wb, ws3, 'Chi phí');
+                                        XLSX.writeFile(wb, `DoanhThu_${selectedMonth}.xlsx`);
+                                        setNotification({ type: 'success', message: `Đã xuất Excel tháng ${selectedMonth}` });
+                                    }}
+                                    className="flex items-center gap-1.5 px-3 py-2 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-bold rounded-lg transition-colors"
+                                    title="Xuất Excel"
+                                >
+                                    <Download className="w-4 h-4" />
+                                    Excel
+                                </button>
+                            </div>
                         </div>
                     </div>
 

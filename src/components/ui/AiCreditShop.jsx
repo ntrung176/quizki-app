@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Sparkles, Zap, Star, Crown, Gift, Check, ShoppingCart, CreditCard, CheckCircle, Loader2, QrCode, Copy, Ticket, X, ArrowLeft, ChevronRight, MessageCircle, Phone, Mail, ExternalLink } from 'lucide-react';
 import { submitCreditRequest, DEFAULT_AI_PACKAGES, validateVoucher, calculateDiscountedPrice, useVoucher, processPaymentSecurely } from '../../utils/adminSettings';
 import { generateOrderCode, generateVietQR, checkPaymentStatus, getSepayToken } from '../../utils/sepayPayment';
+import { sendAIPurchaseSuccessEmail } from '../../utils/email';
 
 const ICONS = { starter: Zap, popular: Star, best_value: Crown, ultimate: Gift };
 const COLORS = {
@@ -113,7 +114,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
         const finalPrice = getFinalPrice(selectedPackage);
         if (token) {
             setChecking(true);
-            setCountdown(300);
+            setCountdown(600); // 10 phút
             startPolling(code, selectedPackage, token, finalPrice);
         }
     };
@@ -143,6 +144,12 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     if (appliedVoucher) {
                         try { await useVoucher(appliedVoucher.code, userId); } catch (e) { console.warn(e); }
                     }
+                    try {
+                        // Send success email
+                        await sendAIPurchaseSuccessEmail(userEmail, userName, pkg.name, finalPrice, pkg.cards);
+                    } catch (e) {
+                        console.warn('Failed to send success email:', e);
+                    }
                 } else {
                     console.warn('⚠️ Payment already processed or failed:', secureResult.error);
                     // Still show success if duplicate (user already got credits)
@@ -151,7 +158,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     }
                 }
             }
-        }, 5000);
+        }, 3000); // Poll mỗi 3 giây (trước: 5 giây)
         countdownRef.current = setInterval(() => {
             setCountdown(prev => {
                 if (prev <= 1) { clearInterval(pollingRef.current); clearInterval(countdownRef.current); setChecking(false); return 0; }
@@ -165,6 +172,18 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
         const ok = await submitCreditRequest(userId, userName, userEmail, selectedPackage);
         if (ok) {
             if (appliedVoucher) { try { await useVoucher(appliedVoucher.code, userId); } catch (e) { console.warn(e); } }
+            // Gửi email xác nhận yêu cầu thủ công
+            if (userEmail) {
+                try {
+                    const finalPrice = getFinalPrice(selectedPackage);
+                    await sendAIPurchaseSuccessEmail(userEmail, userName, selectedPackage.name, finalPrice, selectedPackage.cards);
+                    console.log('✅ Email xác nhận đã gửi tới:', userEmail);
+                } catch (e) {
+                    console.warn('⚠️ Gửi email xác nhận thất bại:', e);
+                }
+            } else {
+                console.warn('⚠️ Không có userEmail để gửi mail xác nhận');
+            }
             setSubmitted(true);
         }
     };

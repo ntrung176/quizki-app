@@ -61,6 +61,37 @@ export default {
             }
         }
 
+        // GET /balance?token=...&email=... → Check SpeechGen account balance
+        if (request.method === 'GET' && url.pathname === '/balance') {
+            const token = url.searchParams.get('token');
+            const email = url.searchParams.get('email');
+            if (!token || !email) {
+                return new Response(JSON.stringify({ error: 'Missing token or email' }), {
+                    status: 400,
+                    headers: { 'Content-Type': 'application/json', ...corsHeaders },
+                });
+            }
+
+            try {
+                const response = await fetch('https://speechgen.io/index.php?r=api/balance', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token, email }),
+                });
+
+                const data = await response.text();
+                return new Response(data, {
+                    status: response.status,
+                    headers: { 'Content-Type': 'application/json', ...corsHeaders },
+                });
+            } catch (err) {
+                return new Response(JSON.stringify({ error: err.message }), {
+                    status: 500,
+                    headers: { 'Content-Type': 'application/json', ...corsHeaders },
+                });
+            }
+        }
+
         // POST / → Proxy SpeechGen TTS API
         if (request.method === 'POST') {
             try {
