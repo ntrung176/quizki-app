@@ -12,6 +12,7 @@ import {
 import { showToast } from '../../utils/toast';
 import { speakJapanese, playAudio, generateAudioSilentWithVoice } from '../../utils/audio';
 import FuriganaText from '../ui/FuriganaText';
+import { accentNumberToPitchParts } from '../../utils/pitchAccent';
 
 // ==================== REUSABLE COMPONENTS (outside BookScreen to prevent re-mount) ====================
 const FormModal = ({ show, onClose, title, onSave, children }) => {
@@ -918,6 +919,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                         <div className="space-y-2">
                             {vocab.map((v, i) => {
                                 const word = v.word || v.front || '';
+                                const displayWord = word.split('（')[0].split('(')[0].trim();
                                 const inList = isVocabInUserList(v) || addedVocabSet.has(i);
                                 return (
                                     <div key={i} ref={editingVocabIndex === i ? editingCardRef : null} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-sky-300 dark:hover:border-sky-600 transition-colors overflow-hidden">
@@ -1017,13 +1019,11 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                 </div>
 
                                                 {/* LEFT: Từ vựng + nghĩa */}
-                                                <div className="w-2/5 p-4 border-r border-gray-100 dark:border-gray-700 flex flex-col">
+                                                <div className="w-[30%] p-4 border-r border-gray-100 dark:border-gray-700 flex flex-col">
                                                     <div className="flex-1 flex flex-col justify-center">
                                                         <div className="flex items-center gap-2">
-                                                            <p className="text-xl font-bold text-gray-900 dark:text-white leading-tight">{word}</p>
-                                                            {v.accent && (
-                                                                <span className="text-[10px] px-1.5 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded font-mono" title="Accent">{v.accent}</span>
-                                                            )}
+                                                            <p className="text-xl font-bold text-gray-900 dark:text-white leading-tight">{displayWord}</p>
+
                                                             {v.specialReading && (
                                                                 <span className="text-[10px] px-1.5 py-0.5 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 rounded" title="Cách đọc đặc biệt">特</span>
                                                             )}
@@ -1042,34 +1042,82 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                                 <Volume2 className="w-4 h-4" />
                                                             </button>
                                                         </div>
-                                                        {v.reading && (
-                                                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{v.reading}</p>
-                                                        )}
+                                                        {v.reading && (() => {
+                                                            const pitchParts = (v.accent !== undefined && v.accent !== '' && v.accent !== null)
+                                                                ? accentNumberToPitchParts(v.reading, v.accent)
+                                                                : null;
+                                                            if (pitchParts && pitchParts.length > 0) {
+                                                                // Render reading with pitch accent lines
+                                                                const readingChars = [...v.reading];
+                                                                const charPitchMap = [];
+                                                                for (const pp of pitchParts) {
+                                                                    for (const c of [...pp.part]) {
+                                                                        charPitchMap.push({ char: c, high: pp.high });
+                                                                    }
+                                                                }
+                                                                return (
+                                                                    <span className="inline-flex items-end gap-0 mt-0.5">
+                                                                        {readingChars.map((char, ci) => {
+                                                                            const pm = charPitchMap[ci];
+                                                                            const isHigh = pm ? pm.high : false;
+                                                                            const nextHigh = ci + 1 < charPitchMap.length ? charPitchMap[ci + 1]?.high : isHigh;
+                                                                            const showDrop = isHigh && !nextHigh && ci < readingChars.length - 1;
+                                                                            const showRise = !isHigh && nextHigh && ci < readingChars.length - 1;
+                                                                            return (
+                                                                                <span key={ci} className="relative inline-block text-xs text-gray-500 dark:text-gray-400">
+                                                                                    <span className="block" style={{
+                                                                                        borderTop: isHigh ? '2.5px solid #f97316' : '2.5px solid transparent',
+                                                                                        paddingTop: '1px', paddingLeft: '1px', paddingRight: '1px',
+                                                                                    }}>
+                                                                                        {char}
+                                                                                    </span>
+                                                                                    {showDrop && <span className="absolute -right-[1px] top-0 w-[2.5px] bg-orange-500" style={{ height: '100%' }}></span>}
+                                                                                    {showRise && <span className="absolute -right-[1px] top-0 w-[2.5px] bg-orange-500" style={{ height: '100%' }}></span>}
+                                                                                </span>
+                                                                            );
+                                                                        })}
+                                                                    </span>
+                                                                );
+                                                            }
+                                                            return <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{v.reading}</p>;
+                                                        })()}
                                                         {v.sinoVietnamese && (
                                                             <p className="text-xs text-amber-600 dark:text-amber-400 font-medium mt-1">{v.sinoVietnamese}</p>
                                                         )}
 
                                                         <p className="text-sm text-sky-600 dark:text-sky-400 mt-2 font-medium">{v.meaning || v.back || ''}</p>
-                                                        {v.imageUrl && (
-                                                            <img src={v.imageUrl} alt={word} className="mt-2 max-h-16 rounded-lg object-contain border border-gray-200 dark:border-gray-600 cursor-pointer hover:opacity-80 transition-opacity" onClick={(e) => { e.stopPropagation(); window.open(v.imageUrl, '_blank'); }} title="Click để phóng to" />
-                                                        )}
+
                                                     </div>
                                                 </div>
 
                                                 {/* RIGHT: Ví dụ + nghĩa ví dụ */}
-                                                <div className="flex-1 p-4 flex flex-col justify-center">
-                                                    {v.example ? (
-                                                        <div>
-                                                            <p className="text-sm text-gray-800 dark:text-gray-200 leading-relaxed"><FuriganaText text={v.example} /></p>
-                                                            {v.exampleMeaning && (
-                                                                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1.5 italic">{v.exampleMeaning}</p>
-                                                            )}
+                                                <div className="flex-1 p-4 flex items-stretch gap-3">
+                                                    <div className="flex-1 flex flex-col justify-center">
+                                                        {v.example ? (
+                                                            <div className="space-y-2">
+                                                                {v.example.split('\n').map((ex, ei) => (
+                                                                    <div key={ei}>
+                                                                        <p className="text-sm text-gray-800 dark:text-gray-200 leading-relaxed"><FuriganaText text={ex.trim()} /></p>
+                                                                        {v.exampleMeaning && (() => {
+                                                                            const meanings = v.exampleMeaning.split('\n');
+                                                                            return meanings[ei] ? (
+                                                                                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 italic">{meanings[ei].trim()}</p>
+                                                                            ) : null;
+                                                                        })()}
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        ) : (
+                                                            <p className="text-xs text-gray-300 dark:text-gray-600 italic">Chưa có ví dụ</p>
+                                                        )}
+                                                        {(v.nuance || v.note) && showNuanceIndex === i && (
+                                                            <p className="text-xs text-orange-500 dark:text-orange-400 mt-2 italic animate-fadeIn">💡 {v.nuance || v.note}</p>
+                                                        )}
+                                                    </div>
+                                                    {v.imageUrl && (
+                                                        <div className="shrink-0 flex items-center">
+                                                            <img src={v.imageUrl} alt={word} className="w-28 h-28 rounded-xl object-cover border border-gray-200 dark:border-gray-600 cursor-pointer hover:opacity-80 hover:scale-105 transition-all shadow-sm" onClick={(e) => { e.stopPropagation(); window.open(v.imageUrl, '_blank'); }} title="Click để phóng to" />
                                                         </div>
-                                                    ) : (
-                                                        <p className="text-xs text-gray-300 dark:text-gray-600 italic">Chưa có ví dụ</p>
-                                                    )}
-                                                    {(v.nuance || v.note) && showNuanceIndex === i && (
-                                                        <p className="text-xs text-orange-500 dark:text-orange-400 mt-2 italic animate-fadeIn">💡 {v.nuance || v.note}</p>
                                                     )}
                                                 </div>
 

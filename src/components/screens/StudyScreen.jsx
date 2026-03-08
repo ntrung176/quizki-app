@@ -461,25 +461,28 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
 
                 {/* Question Display */}
                 <div className="py-8 w-full">
-                    {/* Image display */}
-                    {currentCard.imageBase64 && (
-                        <div className="flex justify-center mb-3">
-                            <img
-                                src={currentCard.imageBase64}
-                                alt={currentCard.front}
-                                className="max-h-20 max-w-[60%] rounded-lg object-contain border border-slate-500/30"
-                            />
+                    <div className={`flex items-center gap-4 ${currentCard.imageBase64 ? 'justify-start' : 'justify-center'}`}>
+                        {currentCard.imageBase64 && (
+                            <div className="shrink-0">
+                                <img
+                                    src={currentCard.imageBase64}
+                                    alt={currentCard.front}
+                                    className="w-24 h-24 rounded-xl object-cover border border-slate-500/30"
+                                />
+                            </div>
+                        )}
+                        <div className={currentCard.imageBase64 ? 'text-left flex-1' : 'text-center'}>
+                            <p className="text-xs text-gray-400 uppercase tracking-wide mb-2">Ý nghĩa</p>
+                            <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed whitespace-pre-line">
+                                {formatMultipleMeanings(currentCard.back)}
+                            </div>
+                            {currentCard.sinoVietnamese && (
+                                <p className="text-sm text-gray-400 mt-2">
+                                    <span className="font-semibold">Hán Việt:</span> {currentCard.sinoVietnamese}
+                                </p>
+                            )}
                         </div>
-                    )}
-                    <p className="text-xs text-gray-400 uppercase tracking-wide mb-2">Ý nghĩa</p>
-                    <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed whitespace-pre-line">
-                        {formatMultipleMeanings(currentCard.back)}
                     </div>
-                    {currentCard.sinoVietnamese && (
-                        <p className="text-sm text-gray-400 mt-2">
-                            <span className="font-semibold">Hán Việt:</span> {currentCard.sinoVietnamese}
-                        </p>
-                    )}
                 </div>
             </div>
 

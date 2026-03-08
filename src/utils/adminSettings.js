@@ -536,3 +536,62 @@ export const useVoucher = async (voucherCode, userId) => {
         return false;
     }
 };
+
+// ============== EXPENSE / BUSINESS MANAGEMENT ==============
+const getExpensesPath = () => `artifacts/${appId}/expenses`;
+
+/**
+ * Add a new expense entry
+ * @param {Object} expenseData - { name, amount, type: 'fixed'|'operating'|'other', recurring: 'monthly'|'yearly'|'once', description, month }
+ * @param {string} adminUserId
+ */
+export const addExpense = async (expenseData, adminUserId) => {
+    try {
+        const colRef = collection(db, getExpensesPath());
+        await addDoc(colRef, {
+            name: expenseData.name || '',
+            amount: Number(expenseData.amount) || 0,
+            type: expenseData.type || 'operating', // 'fixed' | 'operating' | 'other'
+            recurring: expenseData.recurring || 'monthly', // 'monthly' | 'yearly' | 'once'
+            description: expenseData.description || '',
+            month: expenseData.month || new Date().toISOString().slice(0, 7), // YYYY-MM
+            createdAt: serverTimestamp(),
+            createdBy: adminUserId,
+        });
+        return { success: true };
+    } catch (e) {
+        console.error('Add expense error:', e);
+        return { success: false, error: e.message };
+    }
+};
+
+/**
+ * Subscribe to all expenses (realtime)
+ */
+export const subscribeExpenses = (callback) => {
+    try {
+        const colRef = collection(db, getExpensesPath());
+        const q = query(colRef, orderBy('createdAt', 'desc'));
+        return onSnapshot(q, (snapshot) => {
+            const expenses = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+            callback(expenses);
+        });
+    } catch (e) {
+        console.error('Subscribe expenses error:', e);
+        return null;
+    }
+};
+
+/**
+ * Delete an expense
+ */
+export const deleteExpense = async (expenseId) => {
+    try {
+        await deleteDoc(doc(db, getExpensesPath(), expenseId));
+        return true;
+    } catch (e) {
+        console.error('Delete expense error:', e);
+        return false;
+    }
+};
+

@@ -766,20 +766,22 @@ const ReviewScreen = ({
                             {/* Back side */}
                             <div className="flip-card-back backface-hidden absolute inset-0 w-full h-full rotate-y-180">
                                 <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl shadow-2xl p-6 w-full h-full border-4 border-white hover:shadow-3xl transition-shadow flex flex-col overflow-y-auto">
-                                    <div className="flex-1 flex flex-col items-center justify-center text-center">
-                                        {/* Image display */}
+                                    <div className="flex-1 flex items-center justify-center gap-4">
+                                        {/* Image on the left */}
                                         {currentCard.imageBase64 && (
-                                            <div className="mb-2">
+                                            <div className="shrink-0">
                                                 <img
                                                     src={currentCard.imageBase64}
                                                     alt={currentCard.front}
-                                                    className="max-h-16 max-w-full rounded-lg object-contain border border-white/20"
+                                                    className="w-24 h-24 rounded-xl object-cover border-2 border-white/20"
                                                 />
                                             </div>
                                         )}
-                                        <p className="text-xs text-emerald-200 mb-2 font-medium uppercase tracking-wide">Ý nghĩa</p>
-                                        <div className="text-3xl md:text-4xl font-extrabold text-white leading-relaxed break-words px-2 whitespace-pre-line">
-                                            {formatMultipleMeanings(currentCard.back)}
+                                        <div className={currentCard.imageBase64 ? 'text-left' : 'text-center'}>
+                                            <p className="text-xs text-emerald-200 mb-2 font-medium uppercase tracking-wide">Ý nghĩa</p>
+                                            <div className="text-3xl md:text-4xl font-extrabold text-white leading-relaxed break-words px-2 whitespace-pre-line">
+                                                {formatMultipleMeanings(currentCard.back)}
+                                            </div>
                                         </div>
                                     </div>
 
@@ -849,80 +851,83 @@ const ReviewScreen = ({
                         </div>
 
                         {/* Word display - changes based on inputMode and cardReviewType */}
-                        <div className="py-4">
-                            {/* Image display for cards with images */}
-                            {currentCard.imageBase64 && (
-                                <div className="flex justify-center mb-3">
-                                    <img
-                                        src={currentCard.imageBase64}
-                                        alt={currentCard.front}
-                                        className="max-h-16 max-w-[50%] rounded-lg object-contain border border-slate-500/30 opacity-80"
-                                    />
-                                </div>
-                            )}
-                            {cardReviewType === 'synonym' ? (
-                                <>
-                                    {/* Synonym mode: Show synonym from card */}
-                                    <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed line-clamp-3 font-japanese">
-                                        {currentCard.synonym || 'Không có từ đồng nghĩa'}
+                        <div className="py-4 w-full">
+                            {/* Content area with image on left */}
+                            <div className={`flex items-center gap-4 ${currentCard.imageBase64 ? 'justify-start' : 'justify-center'}`}>
+                                {currentCard.imageBase64 && (
+                                    <div className="shrink-0">
+                                        <img
+                                            src={currentCard.imageBase64}
+                                            alt={currentCard.front}
+                                            className="w-24 h-24 rounded-xl object-cover border border-slate-500/30"
+                                        />
                                     </div>
-                                    <div className="text-sm text-gray-400 mt-2">
-                                        Tìm từ đồng nghĩa
-                                    </div>
-                                </>
-                            ) : cardReviewType === 'example' ? (
-                                <>
-                                    {/* Example mode: Show example sentence with masked word */}
-                                    <div className="text-lg md:text-xl font-medium text-white leading-relaxed line-clamp-4 font-japanese">
-                                        <FuriganaText text={promptInfo.text} />
-                                    </div>
-                                    {promptInfo.meaning && (
-                                        <div className="text-sm text-gray-400 mt-2 italic">
-                                            "{promptInfo.meaning}"
+                                )}
+                                <div className={currentCard.imageBase64 ? 'text-left flex-1' : 'text-center'}>{cardReviewType === 'synonym' ? (
+                                    <>
+                                        {/* Synonym mode: Show synonym from card */}
+                                        <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed line-clamp-3 font-japanese">
+                                            {currentCard.synonym || 'Không có từ đồng nghĩa'}
                                         </div>
-                                    )}
-                                    {/* Show ALL additional examples if card has multiple */}
-                                    {(() => {
-                                        const exampleLines = (currentCard.example || '').split('\n').filter(e => e.trim());
-                                        const exampleMeaningLines = (currentCard.exampleMeaning || '').split('\n').filter(e => e.trim());
-                                        if (exampleLines.length <= 1) return null;
-                                        return (
-                                            <div className="mt-3 pt-3 border-t border-white/20 space-y-2 w-full">
-                                                {exampleLines.slice(1).map((ex, i) => (
-                                                    <div key={i} className="text-left">
-                                                        <p className="text-sm text-white/80 font-japanese">
-                                                            <FuriganaText text={(() => {
-                                                                const wordToMask = getWordForMasking(currentCard.front);
-                                                                const readingForMask = getReadingForMasking(currentCard.front);
-                                                                return maskWordInExample(wordToMask, ex, currentCard.pos, readingForMask);
-                                                            })()} />
-                                                        </p>
-                                                        {exampleMeaningLines[i + 1] && (
-                                                            <p className="text-xs text-gray-400 italic mt-0.5">
-                                                                "{exampleMeaningLines[i + 1]}"
-                                                            </p>
-                                                        )}
-                                                    </div>
-                                                ))}
+                                        <div className="text-sm text-gray-400 mt-2">
+                                            Tìm từ đồng nghĩa
+                                        </div>
+                                    </>
+                                ) : cardReviewType === 'example' ? (
+                                    <>
+                                        {/* Example mode: Show example sentence with masked word */}
+                                        <div className="text-lg md:text-xl font-medium text-white leading-relaxed line-clamp-4 font-japanese">
+                                            <FuriganaText text={promptInfo.text} />
+                                        </div>
+                                        {promptInfo.meaning && (
+                                            <div className="text-sm text-gray-400 mt-2 italic">
+                                                "{promptInfo.meaning}"
                                             </div>
-                                        );
-                                    })()}
-                                </>
-                            ) : inputMode === 'reading' ? (
-                                <>
-                                    {/* Reading mode: Show meaning, user inputs word */}
-                                    <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed whitespace-pre-line">
-                                        {formatMultipleMeanings(currentCard.back)}
-                                    </div>
-                                </>
-                            ) : (
-                                <>
-                                    {/* Meaning mode: Show word only, user inputs meaning */}
-                                    <div className="text-4xl md:text-5xl font-black text-white leading-relaxed font-japanese">
-                                        {currentCard.front.split('（')[0].split('(')[0]}
-                                    </div>
-                                </>
-                            )}
+                                        )}
+                                        {/* Show ALL additional examples if card has multiple */}
+                                        {(() => {
+                                            const exampleLines = (currentCard.example || '').split('\n').filter(e => e.trim());
+                                            const exampleMeaningLines = (currentCard.exampleMeaning || '').split('\n').filter(e => e.trim());
+                                            if (exampleLines.length <= 1) return null;
+                                            return (
+                                                <div className="mt-3 pt-3 border-t border-white/20 space-y-2 w-full">
+                                                    {exampleLines.slice(1).map((ex, i) => (
+                                                        <div key={i} className="text-left">
+                                                            <p className="text-sm text-white/80 font-japanese">
+                                                                <FuriganaText text={(() => {
+                                                                    const wordToMask = getWordForMasking(currentCard.front);
+                                                                    const readingForMask = getReadingForMasking(currentCard.front);
+                                                                    return maskWordInExample(wordToMask, ex, currentCard.pos, readingForMask);
+                                                                })()} />
+                                                            </p>
+                                                            {exampleMeaningLines[i + 1] && (
+                                                                <p className="text-xs text-gray-400 italic mt-0.5">
+                                                                    "{exampleMeaningLines[i + 1]}"
+                                                                </p>
+                                                            )}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            );
+                                        })()}
+                                    </>
+                                ) : inputMode === 'reading' ? (
+                                    <>
+                                        {/* Reading mode: Show meaning, user inputs word */}
+                                        <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed whitespace-pre-line">
+                                            {formatMultipleMeanings(currentCard.back)}
+                                        </div>
+                                    </>
+                                ) : (
+                                    <>
+                                        {/* Meaning mode: Show word only, user inputs meaning */}
+                                        <div className="text-4xl md:text-5xl font-black text-white leading-relaxed font-japanese">
+                                            {currentCard.front.split('（')[0].split('(')[0]}
+                                        </div>
+                                    </>
+                                )}
+                                </div>
+                            </div>
                         </div>
 
                         {/* Sino-Vietnamese hint */}

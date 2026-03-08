@@ -6,9 +6,10 @@ import {
     AlertTriangle, CheckCircle, Loader2, Languages, BookOpen,
     Sparkles, Bot, UserCheck, UserX, ToggleLeft, ToggleRight,
     ChevronDown, ChevronUp, Settings, Crown, ShieldCheck,
-    CreditCard, Plus, Check, X as XIcon, Edit, Ticket
+    CreditCard, Plus, Check, X as XIcon, Edit, Ticket,
+    DollarSign, TrendingUp, TrendingDown, Calendar
 } from 'lucide-react';
-import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, addModerator, removeModerator, grantAIAccess, revokeAIAccess, addCreditsToUser, DEFAULT_AI_PACKAGES, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher } from '../../utils/adminSettings';
+import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, addModerator, removeModerator, grantAIAccess, revokeAIAccess, addCreditsToUser, DEFAULT_AI_PACKAGES, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense } from '../../utils/adminSettings';
 
 const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, adminConfig, isAdmin }) => {
     // State
@@ -29,6 +30,19 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const [manualCreditAmount, setManualCreditAmount] = useState('');
     const [manualCreditEmailSearch, setManualCreditEmailSearch] = useState('');
     const [editingPackages, setEditingPackages] = useState(null);
+
+    // User filter state
+    const [roleFilter, setRoleFilter] = useState('all'); // 'all' | 'admin' | 'moderator' | 'user'
+    const [planFilter, setPlanFilter] = useState('all'); // 'all' | package id
+
+    // Credit requests (for user subscription info)
+    const [creditRequests, setCreditRequests] = useState([]);
+
+    // Expense state
+    const [expenses, setExpenses] = useState([]);
+    const [newExpense, setNewExpense] = useState({ name: '', amount: '', type: 'operating', recurring: 'monthly', description: '', month: new Date().toISOString().slice(0, 7) });
+    const [expenseError, setExpenseError] = useState('');
+    const [selectedMonth, setSelectedMonth] = useState(new Date().toISOString().slice(0, 7));
 
     // Voucher state
     const [vouchers, setVouchers] = useState([]);
@@ -97,6 +111,23 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                 (u.email || '').toLowerCase().includes(q)
             );
         }
+        // Role filter
+        if (roleFilter === 'admin') {
+            result = result.filter(u => u.userId === currentUserId);
+        } else if (roleFilter === 'moderator') {
+            result = result.filter(u => adminConfig?.moderators?.includes(u.userId));
+        } else if (roleFilter === 'user') {
+            result = result.filter(u => u.userId !== currentUserId && !adminConfig?.moderators?.includes(u.userId));
+        }
+        // Plan filter
+        if (planFilter !== 'all') {
+            const usersWithPlan = new Set(
+                creditRequests
+                    .filter(r => r.status === 'approved' && r.packageId === planFilter)
+                    .map(r => r.userId)
+            );
+            result = result.filter(u => usersWithPlan.has(u.userId));
+        }
         result.sort((a, b) => {
             let aVal, bVal;
             switch (sortBy) {
@@ -111,7 +142,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             return sortOrder === 'asc' ? (aVal > bVal ? 1 : -1) : (aVal < bVal ? 1 : -1);
         });
         return result;
-    }, [users, searchQuery, sortBy, sortOrder]);
+    }, [users, searchQuery, sortBy, sortOrder, roleFilter, planFilter, adminConfig, currentUserId, creditRequests]);
 
     const handleSelectUser = (user) => setSelectedUser(user);
 
@@ -219,6 +250,29 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         return () => { if (unsub) unsub(); };
     }, []);
 
+    // Load credit requests for subscription info
+    useEffect(() => {
+        const unsub = subscribeCreditRequests(setCreditRequests);
+        return () => { if (unsub) unsub(); };
+    }, []);
+
+    // Load expenses
+    useEffect(() => {
+        const unsub = subscribeExpenses(setExpenses);
+        return () => { if (unsub) unsub(); };
+    }, []);
+
+    // Helper: get user's purchased plans
+    const getUserPlans = (userId) => {
+        return creditRequests
+            .filter(r => r.userId === userId && r.status === 'approved')
+            .sort((a, b) => {
+                const aTime = a.processedAt?.toDate ? a.processedAt.toDate().getTime() : (a.processedAt || 0);
+                const bTime = b.processedAt?.toDate ? b.processedAt.toDate().getTime() : (b.processedAt || 0);
+                return bTime - aTime;
+            });
+    };
+
     if (isLoading) {
         return (
             <div className="flex items-center justify-center py-20">
@@ -266,6 +320,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         { id: 'users', label: 'Người dùng', icon: Users },
         { id: 'ai', label: 'AI', icon: Bot },
         { id: 'credits', label: 'Credits', icon: CreditCard },
+        { id: 'revenue', label: 'Doanh thu', icon: DollarSign },
         { id: 'vouchers', label: 'Voucher', icon: Ticket },
         { id: 'moderators', label: 'QTV', icon: ShieldCheck },
     ];
@@ -354,9 +409,29 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 />
                             </div>
                             <select
+                                value={roleFilter}
+                                onChange={(e) => setRoleFilter(e.target.value)}
+                                className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg outline-none dark:text-white"
+                            >
+                                <option value="all">Tất cả vai trò</option>
+                                <option value="admin">👑 Admin</option>
+                                <option value="moderator">🛡️ Quản trị viên</option>
+                                <option value="user">👤 Người dùng</option>
+                            </select>
+                            <select
+                                value={planFilter}
+                                onChange={(e) => setPlanFilter(e.target.value)}
+                                className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg outline-none dark:text-white"
+                            >
+                                <option value="all">Tất cả gói</option>
+                                {(adminConfig?.aiCreditPackages || DEFAULT_AI_PACKAGES).map(pkg => (
+                                    <option key={pkg.id} value={pkg.id}>📦 {pkg.name}</option>
+                                ))}
+                            </select>
+                            <select
                                 value={`${sortBy}-${sortOrder}`}
                                 onChange={(e) => { const [by, order] = e.target.value.split('-'); setSortBy(by); setSortOrder(order); }}
-                                className="px-4 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg outline-none"
+                                className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg outline-none dark:text-white"
                             >
                                 <option value="totalCards-desc">Nhiều thẻ nhất</option>
                                 <option value="totalCards-asc">Ít thẻ nhất</option>
@@ -486,6 +561,61 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                 <Loader2 className="w-4 h-4 animate-spin mx-auto text-gray-400" />
                                             </div>
                                         )}
+                                    </div>
+
+                                    {/* Subscription / Purchased Plans */}
+                                    <div>
+                                        <h4 className="text-xs font-bold text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1">
+                                            <CreditCard className="w-3.5 h-3.5" /> GÓI ĐÃ MUA
+                                        </h4>
+                                        {(() => {
+                                            const userPlans = getUserPlans(selectedUser.userId);
+                                            if (userPlans.length === 0) {
+                                                return (
+                                                    <p className="text-xs text-gray-400 dark:text-gray-500 italic p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-center">
+                                                        Chưa mua gói nào
+                                                    </p>
+                                                );
+                                            }
+                                            const totalCredits = userPlans.reduce((sum, r) => sum + (r.credits || 0), 0);
+                                            const totalSpent = userPlans.reduce((sum, r) => sum + (r.amount || 0), 0);
+                                            return (
+                                                <div className="space-y-2">
+                                                    <div className="grid grid-cols-2 gap-2">
+                                                        <div className="p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
+                                                            <p className="text-lg font-bold text-indigo-600">{userPlans.length}</p>
+                                                            <p className="text-xs text-gray-500">Lần mua</p>
+                                                        </div>
+                                                        <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
+                                                            <p className="text-lg font-bold text-emerald-600">{totalCredits.toLocaleString()}</p>
+                                                            <p className="text-xs text-gray-500">Tổng thẻ</p>
+                                                        </div>
+                                                    </div>
+                                                    <div className="p-2.5 bg-amber-50 dark:bg-amber-900/20 rounded-lg flex items-center justify-between">
+                                                        <span className="text-xs text-amber-700 dark:text-amber-400 font-medium">Tổng chi tiêu</span>
+                                                        <span className="text-sm font-bold text-amber-600">{formatVND(totalSpent)}</span>
+                                                    </div>
+                                                    <div className="max-h-[150px] overflow-y-auto space-y-1.5">
+                                                        {userPlans.map((r, idx) => (
+                                                            <div key={idx} className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-xs">
+                                                                <div>
+                                                                    <span className="font-bold text-gray-700 dark:text-gray-300">{r.packageName || r.packageId}</span>
+                                                                    <span className="text-gray-400 ml-1.5">({r.credits} thẻ)</span>
+                                                                </div>
+                                                                <div className="text-right">
+                                                                    <span className="font-medium text-emerald-600">{formatVND(r.amount || 0)}</span>
+                                                                    {r.processedAt && (
+                                                                        <p className="text-[10px] text-gray-400 mt-0.5">
+                                                                            {(r.processedAt?.toDate ? r.processedAt.toDate() : new Date(r.processedAt)).toLocaleDateString('vi-VN')}
+                                                                        </p>
+                                                                    )}
+                                                                </div>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            );
+                                        })()}
                                     </div>
 
                                     {/* Quick Actions for selected user */}
@@ -867,33 +997,43 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                             )}
                         </div>
                         <div className="space-y-2">
+                            <div className="grid grid-cols-5 gap-2 items-center text-[10px] font-bold text-gray-400 uppercase">
+                                <span>Tên gói</span>
+                                <span>Số thẻ</span>
+                                <span>Giá gốc</span>
+                                <span>Giá sale</span>
+                                <span>Giảm</span>
+                            </div>
                             {(editingPackages || adminConfig?.aiCreditPackages || DEFAULT_AI_PACKAGES).map((pkg, i) => (
                                 <div key={pkg.id} className="grid grid-cols-5 gap-2 items-center text-sm">
                                     <span className="font-medium text-gray-700 dark:text-gray-300 text-xs">{pkg.name}</span>
                                     <input
-                                        type="number" value={pkg.cards}
+                                        type="text" inputMode="numeric" value={editingPackages ? (pkg.cards === 0 || pkg.cards === '' ? '' : pkg.cards) : pkg.cards}
                                         disabled={!editingPackages}
-                                        onChange={(e) => { const p = [...editingPackages]; p[i] = { ...p[i], cards: parseInt(e.target.value) || 0 }; setEditingPackages(p); }}
-                                        className="px-2 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none disabled:opacity-60"
+                                        onChange={(e) => { const val = e.target.value; const p = [...editingPackages]; p[i] = { ...p[i], cards: val === '' ? '' : (parseInt(val) || 0) }; setEditingPackages(p); }}
+                                        className="px-2 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none disabled:opacity-60 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                                         placeholder="Thẻ"
                                     />
                                     <input
-                                        type="number" value={pkg.originalPrice}
+                                        type="text" inputMode="numeric" value={editingPackages ? (pkg.originalPrice === 0 || pkg.originalPrice === '' ? '' : pkg.originalPrice) : pkg.originalPrice}
                                         disabled={!editingPackages}
-                                        onChange={(e) => { const p = [...editingPackages]; p[i] = { ...p[i], originalPrice: parseInt(e.target.value) || 0 }; setEditingPackages(p); }}
-                                        className="px-2 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none disabled:opacity-60"
+                                        onChange={(e) => { const val = e.target.value; const p = [...editingPackages]; p[i] = { ...p[i], originalPrice: val === '' ? '' : (parseInt(val) || 0) }; setEditingPackages(p); }}
+                                        className="px-2 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none disabled:opacity-60 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                                         placeholder="Giá gốc"
                                     />
                                     <input
-                                        type="number" value={pkg.salePrice}
+                                        type="text" inputMode="numeric" value={editingPackages ? (pkg.salePrice === 0 || pkg.salePrice === '' ? '' : pkg.salePrice) : pkg.salePrice}
                                         disabled={!editingPackages}
-                                        onChange={(e) => { const p = [...editingPackages]; p[i] = { ...p[i], salePrice: parseInt(e.target.value) || 0 }; setEditingPackages(p); }}
-                                        className="px-2 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none disabled:opacity-60"
+                                        onChange={(e) => { const val = e.target.value; const p = [...editingPackages]; p[i] = { ...p[i], salePrice: val === '' ? '' : (parseInt(val) || 0) }; setEditingPackages(p); }}
+                                        className="px-2 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none disabled:opacity-60 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                                         placeholder="Giá sale"
                                     />
-                                    <span className="text-xs text-gray-400">-{Math.round((1 - pkg.salePrice / (pkg.originalPrice || 1)) * 100)}%</span>
+                                    <span className="text-xs text-gray-400">{pkg.originalPrice && pkg.salePrice ? `-${Math.round((1 - pkg.salePrice / (pkg.originalPrice || 1)) * 100)}%` : '-'}</span>
                                 </div>
                             ))}
+                            {editingPackages && (
+                                <p className="text-[10px] text-amber-500 italic mt-1">💡 Bỏ trống trường nào thì trường đó sẽ không hiển thị ở trang nâng cấp.</p>
+                            )}
                         </div>
                     </div>
 
@@ -1167,6 +1307,366 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                         title="Xóa voucher"
                                                     >
                                                         <Trash2 className="w-4 h-4 text-red-400 hover:text-red-600" />
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
+
+
+            {/* ==================== REVENUE / BUSINESS SECTION ==================== */}
+            {activeSection === 'revenue' && (
+                <div className="space-y-4">
+                    {/* Month Selector */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+                        <div className="flex items-center justify-between">
+                            <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2">
+                                <Calendar className="w-4 h-4 text-indigo-500" />
+                                Thống kê theo tháng
+                            </h3>
+                            <input
+                                type="month"
+                                value={selectedMonth}
+                                onChange={(e) => setSelectedMonth(e.target.value)}
+                                className="px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Revenue Stats Cards */}
+                    {(() => {
+                        // Revenue from approved credit requests in selected month
+                        const monthRevenue = creditRequests
+                            .filter(r => {
+                                if (r.status !== 'approved') return false;
+                                const date = r.processedAt?.toDate ? r.processedAt.toDate() : (r.processedAt ? new Date(r.processedAt) : null);
+                                if (!date) return false;
+                                return date.toISOString().slice(0, 7) === selectedMonth;
+                            })
+                            .reduce((sum, r) => sum + (r.amount || 0), 0);
+
+                        const monthTransactions = creditRequests.filter(r => {
+                            if (r.status !== 'approved') return false;
+                            const date = r.processedAt?.toDate ? r.processedAt.toDate() : (r.processedAt ? new Date(r.processedAt) : null);
+                            if (!date) return false;
+                            return date.toISOString().slice(0, 7) === selectedMonth;
+                        }).length;
+
+                        // Expenses for selected month (recurring monthly expenses always count)
+                        const monthExpenses = expenses.filter(exp => {
+                            if (exp.recurring === 'monthly') return true;
+                            if (exp.recurring === 'yearly') {
+                                const createdMonth = exp.month || '';
+                                return createdMonth.slice(5, 7) === selectedMonth.slice(5, 7);
+                            }
+                            return exp.month === selectedMonth;
+                        });
+
+                        const totalFixedCost = monthExpenses.filter(e => e.type === 'fixed').reduce((sum, e) => sum + (e.amount || 0), 0);
+                        const totalOperatingCost = monthExpenses.filter(e => e.type === 'operating').reduce((sum, e) => sum + (e.amount || 0), 0);
+                        const totalOtherCost = monthExpenses.filter(e => e.type === 'other').reduce((sum, e) => sum + (e.amount || 0), 0);
+                        const totalExpenses = totalFixedCost + totalOperatingCost + totalOtherCost;
+                        const profit = monthRevenue - totalExpenses;
+
+                        // All-time stats
+                        const allTimeRevenue = creditRequests
+                            .filter(r => r.status === 'approved')
+                            .reduce((sum, r) => sum + (r.amount || 0), 0);
+
+                        return (
+                            <>
+                                {/* Overview Cards */}
+                                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <div className="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
+                                                <TrendingUp className="w-4 h-4 text-emerald-600" />
+                                            </div>
+                                        </div>
+                                        <p className="text-lg font-bold text-emerald-600">{formatVND(monthRevenue)}</p>
+                                        <p className="text-[10px] text-gray-500">Doanh thu tháng</p>
+                                    </div>
+                                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <div className="w-8 h-8 rounded-lg bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
+                                                <TrendingDown className="w-4 h-4 text-red-600" />
+                                            </div>
+                                        </div>
+                                        <p className="text-lg font-bold text-red-600">{formatVND(totalExpenses)}</p>
+                                        <p className="text-[10px] text-gray-500">Chi phí tháng</p>
+                                    </div>
+                                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${profit >= 0 ? 'bg-blue-100 dark:bg-blue-900/30' : 'bg-orange-100 dark:bg-orange-900/30'}`}>
+                                                <DollarSign className={`w-4 h-4 ${profit >= 0 ? 'text-blue-600' : 'text-orange-600'}`} />
+                                            </div>
+                                        </div>
+                                        <p className={`text-lg font-bold ${profit >= 0 ? 'text-blue-600' : 'text-orange-600'}`}>{profit >= 0 ? '+' : ''}{formatVND(profit)}</p>
+                                        <p className="text-[10px] text-gray-500">{profit >= 0 ? 'Lợi nhuận' : 'Lỗ'} tháng</p>
+                                    </div>
+                                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <div className="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
+                                                <CreditCard className="w-4 h-4 text-purple-600" />
+                                            </div>
+                                        </div>
+                                        <p className="text-lg font-bold text-purple-600">{formatVND(allTimeRevenue)}</p>
+                                        <p className="text-[10px] text-gray-500">Tổng doanh thu</p>
+                                    </div>
+                                </div>
+
+                                {/* Expense Breakdown */}
+                                <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+                                    <h3 className="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                                        <BarChart3 className="w-4 h-4 text-indigo-500" />
+                                        Chi tiết thu chi tháng {selectedMonth}
+                                    </h3>
+                                    <div className="space-y-3">
+                                        {/* Revenue detail */}
+                                        <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
+                                            <div className="flex items-center justify-between mb-1">
+                                                <span className="text-sm font-bold text-emerald-700 dark:text-emerald-400">📈 Doanh thu</span>
+                                                <span className="text-sm font-bold text-emerald-600">{formatVND(monthRevenue)}</span>
+                                            </div>
+                                            <p className="text-xs text-emerald-600 dark:text-emerald-500">{monthTransactions} giao dịch thanh toán</p>
+                                        </div>
+
+                                        {/* Expenses detail */}
+                                        {totalFixedCost > 0 && (
+                                            <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                                <div className="flex items-center justify-between">
+                                                    <span className="text-sm font-medium text-blue-700 dark:text-blue-400">🏢 Chi phí cố định</span>
+                                                    <span className="text-sm font-bold text-blue-600">-{formatVND(totalFixedCost)}</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {totalOperatingCost > 0 && (
+                                            <div className="p-3 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
+                                                <div className="flex items-center justify-between">
+                                                    <span className="text-sm font-medium text-amber-700 dark:text-amber-400">⚙️ Chi phí vận hành</span>
+                                                    <span className="text-sm font-bold text-amber-600">-{formatVND(totalOperatingCost)}</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {totalOtherCost > 0 && (
+                                            <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                                                <div className="flex items-center justify-between">
+                                                    <span className="text-sm font-medium text-gray-700 dark:text-gray-400">📦 Chi phí khác</span>
+                                                    <span className="text-sm font-bold text-gray-600">-{formatVND(totalOtherCost)}</span>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {/* Profit line */}
+                                        <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
+                                            <div className="flex items-center justify-between">
+                                                <span className="text-sm font-bold text-gray-800 dark:text-white">{profit >= 0 ? '✅ Lợi nhuận ròng' : '⚠️ Lỗ ròng'}</span>
+                                                <span className={`text-base font-bold ${profit >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>{profit >= 0 ? '+' : ''}{formatVND(profit)}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Recent Transactions */}
+                                <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+                                    <h3 className="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                                        <TrendingUp className="w-4 h-4 text-emerald-500" />
+                                        Giao dịch tháng {selectedMonth} ({monthTransactions})
+                                    </h3>
+                                    {monthTransactions === 0 ? (
+                                        <p className="text-sm text-gray-400 italic text-center py-4">Chưa có giao dịch nào trong tháng này.</p>
+                                    ) : (
+                                        <div className="max-h-[250px] overflow-y-auto space-y-1.5">
+                                            {creditRequests
+                                                .filter(r => {
+                                                    if (r.status !== 'approved') return false;
+                                                    const date = r.processedAt?.toDate ? r.processedAt.toDate() : (r.processedAt ? new Date(r.processedAt) : null);
+                                                    if (!date) return false;
+                                                    return date.toISOString().slice(0, 7) === selectedMonth;
+                                                })
+                                                .map(r => {
+                                                    const date = r.processedAt?.toDate ? r.processedAt.toDate() : new Date(r.processedAt);
+                                                    const user = users.find(u => u.userId === r.userId);
+                                                    return (
+                                                        <div key={r.id} className="flex items-center justify-between p-2.5 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                                                            <div className="flex items-center gap-2">
+                                                                <div className="w-7 h-7 rounded-full bg-emerald-500 flex items-center justify-center text-white text-[10px] font-bold">
+                                                                    {(user?.displayName || r.userName || '?')[0].toUpperCase()}
+                                                                </div>
+                                                                <div>
+                                                                    <p className="text-xs font-medium text-gray-800 dark:text-white">{user?.displayName || r.userName || 'N/A'}</p>
+                                                                    <p className="text-[10px] text-gray-400">{r.packageName || r.packageId} • {r.credits} thẻ</p>
+                                                                </div>
+                                                            </div>
+                                                            <div className="text-right">
+                                                                <p className="text-xs font-bold text-emerald-600">+{formatVND(r.amount || 0)}</p>
+                                                                <p className="text-[10px] text-gray-400">{date.toLocaleDateString('vi-VN')}</p>
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })}
+                                        </div>
+                                    )}
+                                </div>
+                            </>
+                        );
+                    })()}
+
+                    {/* Add Expense */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+                        <h3 className="font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+                            <Plus className="w-4 h-4 text-red-500" />
+                            Thêm chi phí
+                        </h3>
+                        <div className="space-y-3">
+                            <div className="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label className="text-[10px] font-bold text-gray-500 uppercase">Tên chi phí</label>
+                                    <input
+                                        type="text"
+                                        value={newExpense.name}
+                                        onChange={(e) => setNewExpense(v => ({ ...v, name: e.target.value }))}
+                                        placeholder="VD: Hosting, API, Domain..."
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="text-[10px] font-bold text-gray-500 uppercase">Số tiền (VND)</label>
+                                    <input
+                                        type="text" inputMode="numeric"
+                                        value={newExpense.amount}
+                                        onChange={(e) => setNewExpense(v => ({ ...v, amount: e.target.value }))}
+                                        placeholder="50000"
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
+                                    />
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-3 gap-3">
+                                <div>
+                                    <label className="text-[10px] font-bold text-gray-500 uppercase">Loại</label>
+                                    <select
+                                        value={newExpense.type}
+                                        onChange={(e) => setNewExpense(v => ({ ...v, type: e.target.value }))}
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
+                                    >
+                                        <option value="fixed">🏢 Cố định</option>
+                                        <option value="operating">⚙️ Vận hành</option>
+                                        <option value="other">📦 Khác</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="text-[10px] font-bold text-gray-500 uppercase">Chu kỳ</label>
+                                    <select
+                                        value={newExpense.recurring}
+                                        onChange={(e) => setNewExpense(v => ({ ...v, recurring: e.target.value }))}
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
+                                    >
+                                        <option value="monthly">Hàng tháng</option>
+                                        <option value="yearly">Hàng năm</option>
+                                        <option value="once">Một lần</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="text-[10px] font-bold text-gray-500 uppercase">Tháng</label>
+                                    <input
+                                        type="month"
+                                        value={newExpense.month}
+                                        onChange={(e) => setNewExpense(v => ({ ...v, month: e.target.value }))}
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <label className="text-[10px] font-bold text-gray-500 uppercase">Ghi chú</label>
+                                <input
+                                    type="text"
+                                    value={newExpense.description}
+                                    onChange={(e) => setNewExpense(v => ({ ...v, description: e.target.value }))}
+                                    placeholder="Mô tả chi phí (tùy chọn)"
+                                    className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
+                                />
+                            </div>
+                            {expenseError && (
+                                <p className="text-xs text-red-500 font-medium">{expenseError}</p>
+                            )}
+                            <button
+                                onClick={async () => {
+                                    setExpenseError('');
+                                    if (!newExpense.name.trim()) { setExpenseError('Nhập tên chi phí'); return; }
+                                    if (!newExpense.amount || Number(newExpense.amount) <= 0) { setExpenseError('Nhập số tiền hợp lệ'); return; }
+                                    setSavingConfig(true);
+                                    const result = await addExpense(newExpense, currentUserId);
+                                    if (result.success) {
+                                        setNotification({ type: 'success', message: `Đã thêm chi phí: ${newExpense.name}` });
+                                        setNewExpense({ name: '', amount: '', type: 'operating', recurring: 'monthly', description: '', month: new Date().toISOString().slice(0, 7) });
+                                    } else {
+                                        setExpenseError(result.error || 'Lỗi thêm chi phí');
+                                    }
+                                    setSavingConfig(false);
+                                }}
+                                disabled={savingConfig}
+                                className="w-full py-2.5 bg-gradient-to-r from-red-500 to-orange-600 text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:from-red-600 hover:to-orange-700 disabled:opacity-50 transition-all"
+                            >
+                                {savingConfig ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
+                                Thêm chi phí
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Expense List */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+                        <h3 className="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                            <TrendingDown className="w-4 h-4 text-red-500" />
+                            Danh sách chi phí ({expenses.length})
+                        </h3>
+                        {expenses.length === 0 ? (
+                            <p className="text-sm text-gray-400 italic py-4 text-center">Chưa có chi phí nào.</p>
+                        ) : (
+                            <div className="space-y-2 max-h-[400px] overflow-y-auto">
+                                {expenses.map(exp => {
+                                    const typeLabel = exp.type === 'fixed' ? '🏢 Cố định' : exp.type === 'operating' ? '⚙️ Vận hành' : '📦 Khác';
+                                    const recurLabel = exp.recurring === 'monthly' ? 'Hàng tháng' : exp.recurring === 'yearly' ? 'Hàng năm' : 'Một lần';
+                                    const typeBg = exp.type === 'fixed' ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800' : exp.type === 'operating' ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-800' : 'bg-gray-50 dark:bg-gray-700/50 border-gray-200 dark:border-gray-700';
+                                    return (
+                                        <div key={exp.id} className={`p-3 rounded-xl border ${typeBg}`}>
+                                            <div className="flex items-center justify-between">
+                                                <div>
+                                                    <p className="font-bold text-sm text-gray-800 dark:text-white">{exp.name}</p>
+                                                    <div className="flex items-center gap-2 flex-wrap mt-0.5">
+                                                        <span className="text-xs text-gray-500">{typeLabel}</span>
+                                                        <span className="text-xs text-gray-400">•</span>
+                                                        <span className="text-xs text-gray-500">{recurLabel}</span>
+                                                        <span className="text-xs text-gray-400">•</span>
+                                                        <span className="text-xs text-gray-500">{exp.month}</span>
+                                                        {exp.description && (
+                                                            <>
+                                                                <span className="text-xs text-gray-400">•</span>
+                                                                <span className="text-xs text-gray-400 italic">{exp.description}</span>
+                                                            </>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-sm font-bold text-red-600">-{formatVND(exp.amount || 0)}</span>
+                                                    <button
+                                                        onClick={async () => {
+                                                            if (!window.confirm(`Xóa chi phí "${exp.name}"?`)) return;
+                                                            setSavingConfig(true);
+                                                            await deleteExpense(exp.id);
+                                                            setNotification({ type: 'success', message: `Đã xóa chi phí ${exp.name}` });
+                                                            setSavingConfig(false);
+                                                        }}
+                                                        disabled={savingConfig}
+                                                        className="p-1.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                        title="Xóa"
+                                                    >
+                                                        <Trash2 className="w-3.5 h-3.5 text-red-400 hover:text-red-600" />
                                                     </button>
                                                 </div>
                                             </div>

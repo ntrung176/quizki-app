@@ -57,10 +57,10 @@ const FuriganaText = ({ text, className = '' }) => {
             {parts.map((part, idx) => {
                 if (part.type === 'ruby') {
                     return (
-                        <ruby key={idx} className="ruby-annotation">
+                        <ruby key={idx} style={{ rubyPosition: 'over', lineHeight: '2.5' }}>
                             {part.kanji}
                             <rp>(</rp>
-                            <rt>{part.reading}</rt>
+                            <rt style={{ fontSize: '0.6em', paddingBottom: '4px', letterSpacing: '0.02em', color: '#8b5cf6' }}>{part.reading}</rt>
                             <rp>)</rp>
                         </ruby>
                     );

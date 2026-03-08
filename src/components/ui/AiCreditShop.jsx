@@ -197,9 +197,18 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                 </div>
 
                 {/* Flash sale banner */}
-                <div className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 rounded-xl text-center mb-4">
-                    <p className="font-bold text-sm">🔥 FLASH SALE - Giảm đến 71% 🔥</p>
-                </div>
+                {(() => {
+                    const maxDiscount = packages.reduce((max, pkg) => {
+                        if (!pkg.originalPrice || !pkg.salePrice) return max;
+                        const discount = Math.round((1 - pkg.salePrice / pkg.originalPrice) * 100);
+                        return discount > max ? discount : max;
+                    }, 0);
+                    return maxDiscount > 0 ? (
+                        <div className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 rounded-xl text-center mb-4">
+                            <p className="font-bold text-sm">🔥 FLASH SALE - Giảm đến {maxDiscount}% 🔥</p>
+                        </div>
+                    ) : null;
+                })()}
 
                 {/* Packages grid */}
                 <div className="grid grid-cols-2 gap-3">
@@ -207,8 +216,10 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         const Icon = ICONS[pkg.id] || Zap;
                         const color = COLORS[pkg.id] || COLORS.starter;
                         const bgLight = BG_LIGHT[pkg.id] || BG_LIGHT.starter;
-                        const discount = Math.round((1 - pkg.salePrice / pkg.originalPrice) * 100);
+                        const hasDiscount = pkg.originalPrice && pkg.salePrice && pkg.originalPrice > pkg.salePrice;
+                        const discount = hasDiscount ? Math.round((1 - pkg.salePrice / pkg.originalPrice) * 100) : 0;
                         const isPopular = pkg.id === 'popular';
+                        const displayPrice = pkg.salePrice || pkg.originalPrice;
                         return (
                             <div
                                 key={pkg.id}
@@ -221,15 +232,17 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                 {isPopular && (
                                     <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap shadow-md">⭐ PHỔ BIẾN</div>
                                 )}
-                                <div className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[9px] font-bold w-9 h-9 rounded-full flex items-center justify-center shadow-md">-{discount}%</div>
+                                {hasDiscount && discount > 0 && (
+                                    <div className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[9px] font-bold w-9 h-9 rounded-full flex items-center justify-center shadow-md">-{discount}%</div>
+                                )}
 
                                 <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center mb-3 shadow-lg`}>
                                     <Icon className="w-5 h-5 text-white" />
                                 </div>
                                 <h3 className="font-bold text-gray-800 dark:text-white text-sm">{pkg.name}</h3>
-                                <p className="text-indigo-600 dark:text-indigo-400 font-bold text-base">{pkg.cards.toLocaleString()} thẻ AI</p>
-                                <p className="text-gray-400 line-through text-[11px] mt-1">{formatVND(pkg.originalPrice)}</p>
-                                <p className="text-emerald-600 dark:text-emerald-400 font-bold text-lg">{formatVND(pkg.salePrice)}</p>
+                                {pkg.cards && <p className="text-indigo-600 dark:text-indigo-400 font-bold text-base">{pkg.cards.toLocaleString()} thẻ AI</p>}
+                                {pkg.originalPrice && hasDiscount && <p className="text-gray-400 line-through text-[11px] mt-1">{formatVND(pkg.originalPrice)}</p>}
+                                {displayPrice && <p className="text-emerald-600 dark:text-emerald-400 font-bold text-lg">{formatVND(displayPrice)}</p>}
                                 <div className={`w-full mt-2.5 py-2 rounded-xl text-white font-bold text-xs bg-gradient-to-r ${color} flex items-center justify-center gap-1.5 shadow-md`}>
                                     Chọn gói <ChevronRight className="w-3.5 h-3.5" />
                                 </div>
@@ -249,7 +262,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         ))}
                     </div>
                 </div>
-            </div>
+            </div >
         );
     }
 
@@ -274,7 +287,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                             </div>
                             <div>
                                 <h2 className="font-bold text-lg">Gói {selectedPackage.name}</h2>
-                                <p className="text-white/80 text-sm">{selectedPackage.cards.toLocaleString()} thẻ AI</p>
+                                {selectedPackage.cards && <p className="text-white/80 text-sm">{selectedPackage.cards.toLocaleString()} thẻ AI</p>}
                             </div>
                         </div>
                     </div>
@@ -285,18 +298,24 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                             <span className="text-sm text-gray-500 dark:text-gray-400">Tên gói</span>
                             <span className="text-sm font-bold text-gray-800 dark:text-white">{selectedPackage.name}</span>
                         </div>
-                        <div className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-gray-700">
-                            <span className="text-sm text-gray-500 dark:text-gray-400">Số thẻ AI</span>
-                            <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">{selectedPackage.cards.toLocaleString()} thẻ</span>
-                        </div>
-                        <div className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-gray-700">
-                            <span className="text-sm text-gray-500 dark:text-gray-400">Giá gốc</span>
-                            <span className="text-sm text-gray-400 line-through">{formatVND(selectedPackage.originalPrice)}</span>
-                        </div>
-                        <div className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-gray-700">
-                            <span className="text-sm text-gray-500 dark:text-gray-400">Giá sale</span>
-                            <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400">{formatVND(selectedPackage.salePrice)}</span>
-                        </div>
+                        {selectedPackage.cards && (
+                            <div className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                                <span className="text-sm text-gray-500 dark:text-gray-400">Số thẻ AI</span>
+                                <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">{selectedPackage.cards.toLocaleString()} thẻ</span>
+                            </div>
+                        )}
+                        {selectedPackage.originalPrice && (
+                            <div className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                                <span className="text-sm text-gray-500 dark:text-gray-400">Giá gốc</span>
+                                <span className="text-sm text-gray-400 line-through">{formatVND(selectedPackage.originalPrice)}</span>
+                            </div>
+                        )}
+                        {(selectedPackage.salePrice || selectedPackage.originalPrice) && (
+                            <div className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                                <span className="text-sm text-gray-500 dark:text-gray-400">{selectedPackage.salePrice ? 'Giá sale' : 'Giá'}</span>
+                                <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400">{formatVND(selectedPackage.salePrice || selectedPackage.originalPrice)}</span>
+                            </div>
+                        )}
 
                         {/* Voucher Section */}
                         <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
