@@ -17,6 +17,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [expandedMenus, setExpandedMenus] = useState([]); // Start collapsed for cleaner look
+    const [flyoutMenu, setFlyoutMenu] = useState(null);
 
     // Get current view from URL path
     const getCurrentView = () => {
@@ -93,7 +94,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
         { id: 'JLPT_TEST', icon: FileCheck, label: 'Luyện thi JLPT', route: ROUTES.JLPT_TEST },
         { id: 'HUB', icon: Gamepad2, label: 'Trung tâm', route: ROUTES.HUB },
         { id: 'UPGRADE', icon: Crown, label: 'Nâng cấp', route: ROUTES.UPGRADE, highlight: true },
-        { id: 'SETTINGS', icon: Settings, label: 'Cài đặt', route: ROUTES.SETTINGS },
         { id: 'FEEDBACK', icon: MessageSquare, label: 'Phản hồi', route: ROUTES.FEEDBACK },
         ...(isAdmin ? [{ id: 'ADMIN', icon: Shield, label: 'Quản lý Admin', route: ROUTES.ADMIN }] : []),
     ];
@@ -137,6 +137,22 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
             {isMobileMenuOpen && (
                 <div className="absolute top-14 left-0 right-0 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl border-b border-gray-200 dark:border-slate-700/50 shadow-2xl max-h-[calc(100vh-3.5rem)] overflow-y-auto">
                     <nav className="p-3 space-y-1">
+                        {/* User info on mobile */}
+                        {displayName && (
+                            <div className="px-4 py-3 mb-2 bg-gray-50 dark:bg-slate-800/50 rounded-xl flex items-center justify-between border border-gray-200 dark:border-slate-700/50">
+                                <div className="overflow-hidden pr-2">
+                                    <p className="text-xs text-gray-500 dark:text-slate-400 uppercase tracking-wider font-medium">Xin chào</p>
+                                    <p className="text-sm font-semibold text-gray-900 dark:text-white truncate mt-0.5">{displayName}</p>
+                                </div>
+                                <Link
+                                    to={ROUTES.SETTINGS}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="p-2 flex-shrink-0 text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 hover:bg-white dark:hover:bg-slate-700 rounded-lg transition-colors shadow-sm dark:shadow-none"
+                                >
+                                    <Settings className="w-5 h-5" />
+                                </Link>
+                            </div>
+                        )}
                         {menuItems.map((item) => (
                             <div key={item.id}>
                                 {item.hasSubmenu ? (
@@ -232,16 +248,38 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
 
             {/* User info */}
             {!isCollapsed && displayName && (
-                <div className="px-4 py-3 border-b border-gray-200 dark:border-slate-700/50">
-                    <p className="text-xs text-gray-500 dark:text-slate-500 uppercase tracking-wider font-medium">Xin chào</p>
-                    <p className="text-sm font-semibold text-gray-900 dark:text-white truncate mt-0.5">{displayName}</p>
+                <div className="px-4 py-3 border-b border-gray-200 dark:border-slate-700/50 flex items-center justify-between">
+                    <div className="overflow-hidden pr-2">
+                        <p className="text-xs text-gray-500 dark:text-slate-500 uppercase tracking-wider font-medium">Xin chào</p>
+                        <p className="text-sm font-semibold text-gray-900 dark:text-white truncate mt-0.5">{displayName}</p>
+                    </div>
+                    <Link
+                        to={ROUTES.SETTINGS}
+                        className="p-1.5 flex-shrink-0 text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                        title="Cài đặt"
+                    >
+                        <Settings className="w-5 h-5" />
+                    </Link>
                 </div>
             )}
 
             {/* Navigation */}
             <nav className="flex-1 p-3 space-y-1 overflow-y-auto sidebar-scroll">
                 {menuItems.map((item) => (
-                    <div key={item.id} data-tour-id={item.id}>
+                    <div
+                        key={item.id}
+                        data-tour-id={item.id}
+                        className="relative group"
+                        onMouseEnter={(e) => {
+                            if (isCollapsed && item.hasSubmenu) {
+                                const rect = e.currentTarget.getBoundingClientRect();
+                                setFlyoutMenu({ id: item.id, top: rect.top });
+                            }
+                        }}
+                        onMouseLeave={() => {
+                            if (isCollapsed) setFlyoutMenu(null);
+                        }}
+                    >
                         {item.hasSubmenu ? (
                             <>
                                 <button
@@ -274,6 +312,33 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
                                                 {child.label}
                                             </Link>
                                         ))}
+                                    </div>
+                                )}
+                                {isCollapsed && flyoutMenu?.id === item.id && (
+                                    <div
+                                        className="fixed left-[4rem] w-[14rem] pl-4 z-[100]"
+                                        style={{ top: flyoutMenu.top }}
+                                    >
+                                        <div className="bg-white dark:bg-slate-800 rounded-xl shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50 border border-gray-100 dark:border-slate-700/50 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+                                            <div className="px-4 py-2 border-b border-gray-100 dark:border-slate-700/50 bg-gray-50 dark:bg-slate-800/80">
+                                                <p className="font-semibold text-sm text-gray-900 dark:text-white truncate">{item.label}</p>
+                                            </div>
+                                            <div className="p-1.5 space-y-0.5 max-h-[calc(100vh-10rem)] overflow-y-auto">
+                                                {item.children.map((child) => (
+                                                    <Link
+                                                        key={child.id}
+                                                        to={child.route}
+                                                        onClick={() => setFlyoutMenu(null)}
+                                                        className={`block px-3 py-2 rounded-lg text-sm transition-all ${currentView === child.id
+                                                            ? 'bg-sky-100 dark:bg-sky-500/20 text-sky-700 dark:text-sky-400 font-medium'
+                                                            : 'text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-700/50'
+                                                            }`}
+                                                    >
+                                                        {child.label}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
                                     </div>
                                 )}
                             </>

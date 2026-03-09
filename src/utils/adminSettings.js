@@ -8,10 +8,10 @@ const ADMIN_CONFIG_DOC = 'adminConfig';
 
 // Default AI Credit packages (admin can customize)
 export const DEFAULT_AI_PACKAGES = [
-    { id: 'starter', name: 'Starter', cards: 500, originalPrice: 69000, salePrice: 39000 },
-    { id: 'popular', name: 'Popular', cards: 1000, originalPrice: 129000, salePrice: 59000 },
-    { id: 'best_value', name: 'Best Value', cards: 3000, originalPrice: 299000, salePrice: 99000 },
-    { id: 'ultimate', name: 'Ultimate', cards: 10000, originalPrice: 699000, salePrice: 199000 },
+    { id: 'starter', name: 'Cơ bản', cards: 500, originalPrice: 69000, salePrice: 39000 },
+    { id: 'popular', name: 'Phổ biến', cards: 1000, originalPrice: 129000, salePrice: 59000 },
+    { id: 'best_value', name: 'Tiết kiệm', cards: 3000, originalPrice: 299000, salePrice: 99000 },
+    { id: 'ultimate', name: 'Cao cấp', cards: 10000, originalPrice: 699000, salePrice: 199000 },
 ];
 
 // Default admin config

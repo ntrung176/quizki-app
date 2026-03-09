@@ -336,7 +336,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                             <div className="text-2xl font-bold text-orange-500 flex items-center justify-center gap-1">
                                 <Flame className="w-4 h-4" />{streak}
                             </div>
-                            <div className="text-[10px] text-gray-500 dark:text-gray-400">Streak</div>
+                            <div className="text-[10px] text-gray-500 dark:text-gray-400">Chuỗi ngày</div>
                         </div>
                         <div className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-100 dark:border-gray-700 text-center">
                             <div className="text-2xl font-bold text-sky-500">{weeklyStats.vocabAdded}</div>
@@ -349,7 +349,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                         {/* Vocabulary */}
                         <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
                             <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-3 flex items-center gap-2">
-                                <BookOpen className="w-4 h-4 text-sky-500" /> Từ vựng SRS
+                                <BookOpen className="w-4 h-4 text-sky-500" /> Hệ thống ôn tập từ vựng
                             </h3>
                             <div className="grid grid-cols-2 gap-2 mb-3">
                                 <div className="text-center p-2 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
@@ -378,7 +378,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                         {/* Kanji SRS */}
                         <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
                             <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-3 flex items-center gap-2">
-                                <Languages className="w-4 h-4 text-emerald-500" /> Kanji SRS
+                                <Languages className="w-4 h-4 text-emerald-500" /> Hệ thống ôn tập Kanji
                             </h3>
                             <div className="grid grid-cols-2 gap-2 mb-3">
                                 <div className="text-center p-2 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
@@ -493,7 +493,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                     {/* Activity Heatmap */}
                     <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
                         <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-3 flex items-center gap-2">
-                            <Flame className="w-4 h-4 text-orange-500" /> Heatmap hoạt động (28 ngày)
+                            <Flame className="w-4 h-4 text-orange-500" /> Biểu đồ hoạt động (28 ngày)
                         </h3>
                         <div className="grid grid-cols-7 gap-1">
                             {['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'].map(d => (
@@ -543,7 +543,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                         {/* SRS Status */}
                         <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
                             <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-3 flex items-center gap-2">
-                                <Clock className="w-4 h-4 text-red-500" /> Trạng thái SRS
+                                <Clock className="w-4 h-4 text-red-500" /> Trạng thái ôn tập
                             </h3>
                             <div className="grid grid-cols-3 gap-2">
                                 {srsBreakdown.map((item, i) => (
@@ -610,7 +610,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                                         </div>
                                         <div className="text-center p-2 bg-white/10 rounded-lg">
                                             <div className="text-lg font-bold flex items-center justify-center gap-0.5"><Flame className="w-3 h-3" />{streak}</div>
-                                            <div className="text-[9px] opacity-70">Streak</div>
+                                            <div className="text-[9px] opacity-70">Chuỗi ngày</div>
                                         </div>
                                     </>
                                 ) : (
@@ -629,7 +629,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                                         </div>
                                         <div className="text-center p-2 bg-white/10 rounded-lg">
                                             <div className="text-lg font-bold flex items-center justify-center gap-0.5"><Flame className="w-3 h-3" />{streak}</div>
-                                            <div className="text-[9px] opacity-70">Streak</div>
+                                            <div className="text-[9px] opacity-70">Chuỗi ngày</div>
                                         </div>
                                     </>
                                 )}
@@ -707,7 +707,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                             {[
                                 { icon: '⚡', val: petXP, label: 'Tổng XP', color: 'text-indigo-600' },
                                 { icon: '🎯', val: `Lv.${petLevel}`, label: 'Cấp', color: 'text-purple-600' },
-                                { icon: '🔥', val: streak, label: 'Streak', color: 'text-orange-600' },
+                                { icon: '🔥', val: streak, label: 'Chuỗi ngày', color: 'text-orange-600' },
                                 { icon: '📚', val: totalCards, label: 'Từ vựng', color: 'text-sky-600' },
                             ].map((s, i) => (
                                 <div key={i} className="bg-white dark:bg-gray-800 p-3 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm text-center">
@@ -727,7 +727,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                                 {[
                                     { label: 'Từ vựng', value: allCards.length * 2, icon: '📚', color: 'bg-indigo-500' },
                                     { label: 'Kanji', value: kanjiSrsStats.total * 3, icon: '🈁', color: 'bg-emerald-500' },
-                                    { label: 'Streak', value: streak * 10, icon: '🔥', color: 'bg-orange-500' },
+                                    { label: 'Chuỗi ngày', value: streak * 10, icon: '🔥', color: 'bg-orange-500' },
                                     { label: 'Thành thạo', value: vocabMastery.mastered * 5 + kanjiSrsStats.mastered * 8, icon: '⭐', color: 'bg-yellow-500' },
                                 ].map((source, i) => (
                                     <div key={i} className="flex items-center gap-3">
@@ -769,7 +769,7 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                                                 <p className={`text-xs font-bold ${isCurrent ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-700 dark:text-gray-300'}`}>
                                                     {stage.name} {isCurrent && '← Hiện tại'}
                                                 </p>
-                                                <p className="text-[10px] text-gray-400">Level {stage.minLevel}+</p>
+                                                <p className="text-[10px] text-gray-400">Cấp {stage.minLevel}+</p>
                                             </div>
                                             {isUnlocked ? (
                                                 <span className="text-emerald-500 text-xs font-bold">✓</span>
@@ -788,11 +788,11 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                                 <Zap className="w-4 h-4" /> Mẹo tăng XP nhanh
                             </h4>
                             <ul className="text-xs text-amber-600 dark:text-amber-400 space-y-1">
-                                <li>🔥 Duy trì streak hàng ngày: +10 XP/ngày streak</li>
+                                <li>🔥 Duy trì chuỗi ngày học: +10 XP/ngày liên tiếp</li>
                                 <li>📚 Thêm từ vựng mới: +2 XP/từ</li>
                                 <li>🈁 Học Kanji: +3 XP/kanji</li>
                                 <li>⭐ Thành thạo từ vựng: +5 XP/từ</li>
-                                <li>🏆 Thành thạo Kanji: +8 XP/kanji</li>
+                                <li>🏆 Thành thạo Kanji: +8 XP/chữ Hán</li>
                             </ul>
                         </div>
                     </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import LoadingIndicator from '../ui/LoadingIndicator';
 import { collection, query, onSnapshot, doc, deleteDoc, getDocs } from 'firebase/firestore';
 import * as XLSX from 'xlsx';
 import { db, appId } from '../../config/firebase';
@@ -344,14 +345,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     };
 
     if (isLoading) {
-        return (
-            <div className="flex items-center justify-center py-20">
-                <div className="text-center space-y-3">
-                    <Loader2 className="w-8 h-8 animate-spin mx-auto text-indigo-500" />
-                    <p className="text-gray-500 text-sm">Đang tải danh sách người dùng...</p>
-                </div>
-            </div>
-        );
+        return <LoadingIndicator text="Đang tải danh sách người dùng..." />;
     }
 
 

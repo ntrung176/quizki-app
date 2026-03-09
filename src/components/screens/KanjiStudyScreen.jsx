@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate } from 'react-router-dom';
 import { Calendar, Target, Flame, TrendingUp, ChevronLeft, ChevronRight, BookOpen, CheckCircle, Sparkles, Zap } from 'lucide-react';
 import { db, appId } from '../../config/firebase';
@@ -134,17 +135,7 @@ const KanjiStudyScreen = () => {
     const progressOffset = progressCircumference - (stats.progressPercent / 100) * progressCircumference;
 
     if (loading) {
-        return (
-            <div className="flex items-center justify-center min-h-[calc(100vh-120px)]">
-                <div className="text-center space-y-4">
-                    <div className="relative w-16 h-16 mx-auto">
-                        <div className="absolute inset-0 border-4 border-indigo-200 dark:border-slate-700 rounded-full"></div>
-                        <div className="absolute inset-0 border-4 border-transparent border-t-indigo-500 rounded-full animate-spin"></div>
-                    </div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Đang tải lộ trình học...</p>
-                </div>
-            </div>
-        );
+        return <LoadingIndicator text="Đang tải lộ trình học..." />;
     }
 
     return (
@@ -186,7 +177,7 @@ const KanjiStudyScreen = () => {
                 {[
                     { icon: Calendar, label: 'Đã học', value: stats.daysProgress, sub: 'ngày', color: 'from-emerald-500 to-teal-500', iconBg: 'bg-emerald-100 dark:bg-emerald-900/40', iconColor: 'text-emerald-600 dark:text-emerald-400' },
                     { icon: Target, label: 'Kanji', value: stats.kanjiLearned, sub: `/ ${stats.totalKanji} chữ`, color: 'from-cyan-500 to-blue-500', iconBg: 'bg-cyan-100 dark:bg-cyan-900/40', iconColor: 'text-cyan-600 dark:text-cyan-400' },
-                    { icon: Flame, label: 'Streak', value: stats.streak, sub: 'ngày liên tiếp', color: 'from-orange-500 to-amber-500', iconBg: 'bg-orange-100 dark:bg-orange-900/40', iconColor: 'text-orange-600 dark:text-orange-400' },
+                    { icon: Flame, label: 'Chuỗi ngày', value: stats.streak, sub: 'ngày liên tiếp', color: 'from-orange-500 to-amber-500', iconBg: 'bg-orange-100 dark:bg-orange-900/40', iconColor: 'text-orange-600 dark:text-orange-400' },
                     { icon: TrendingUp, label: 'Tiến độ', value: `${stats.progressPercent}%`, sub: selectedLevel, color: 'from-pink-500 to-rose-500', iconBg: 'bg-pink-100 dark:bg-pink-900/40', iconColor: 'text-pink-600 dark:text-pink-400' },
                 ].map((stat, i) => (
                     <div key={i} className="group bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-4 border border-gray-100 dark:border-slate-700/50 shadow-sm hover:shadow-lg hover:scale-[1.02] transition-all duration-300">

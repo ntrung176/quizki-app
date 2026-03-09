@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
+import LoadingIndicator from '../ui/LoadingIndicator';
 import { collection, query, onSnapshot, orderBy, where } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
 import { Link } from 'react-router-dom';
@@ -190,11 +191,7 @@ const JLPTTestScreen = ({ isAdmin }) => {
 
     // Render: Loading
     if (loading) {
-        return (
-            <div className="min-h-screen flex items-center justify-center">
-                <div className="text-center"><Loader2 className="w-10 h-10 animate-spin text-indigo-500 mx-auto mb-3" /><p className="text-gray-500">Đang tải đề thi...</p></div>
-            </div>
-        );
+        return <LoadingIndicator text="Đang tải đề thi..." />;
     }
 
     // ======================== RESULT SCREEN ========================

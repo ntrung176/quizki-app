@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import LoadingIndicator from '../ui/LoadingIndicator';
 import { Search, Trash2, ChevronLeft, ChevronRight, BookOpen, Clock, CheckCircle, AlertCircle, Filter, X, Eye, Folder, FolderPlus, FolderOpen, Edit, Plus, List } from 'lucide-react';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
@@ -85,15 +86,26 @@ const KanjiSRSListScreen = () => {
     useEffect(() => {
         const load = async () => {
             try {
-                const kanjiSnap = await getDocs(collection(db, 'kanji'));
-                const kanjiData = kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() }));
-                setKanjiList(kanjiData);
+                const fetchTasks = [
+                    getDocs(collection(db, 'kanji')).then(snap =>
+                        snap.docs.map(d => ({ id: d.id, ...d.data() }))
+                    )
+                ];
 
                 if (userId) {
-                    const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
-                    const srs = {};
-                    srsSnap.docs.forEach(d => { srs[d.id] = d.data(); });
-                    setSrsData(srs);
+                    fetchTasks.push(
+                        getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`)).then(snap => {
+                            const srs = {};
+                            snap.docs.forEach(d => { srs[d.id] = d.data(); });
+                            return srs;
+                        })
+                    );
+                }
+
+                const results = await Promise.all(fetchTasks);
+                setKanjiList(results[0]);
+                if (userId && results[1]) {
+                    setSrsData(results[1]);
                 }
             } catch (e) {
                 console.error('Error loading data:', e);
@@ -412,14 +424,7 @@ const KanjiSRSListScreen = () => {
     };
 
     if (loading) {
-        return (
-            <div className="flex items-center justify-center min-h-[calc(100vh-120px)]">
-                <div className="text-center space-y-3">
-                    <div className="animate-spin w-10 h-10 border-4 border-cyan-500 border-t-transparent rounded-full mx-auto"></div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">Đang tải danh sách Kanji...</p>
-                </div>
-            </div>
-        );
+        return <LoadingIndicator text="Đang tải danh sách Kanji..." />;
     }
 
     return (

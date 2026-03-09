@@ -4,7 +4,7 @@ import { collection, getDocs, onSnapshot, query } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
 import {
     BookOpen, Languages, Target, Flame, Trophy, Clock,
-    ArrowRight, Sparkles, TrendingUp, Zap, Star, Calendar
+    ArrowRight, Sparkles, Zap
 } from 'lucide-react';
 import { ROUTES } from '../../router';
 import OnboardingTour from '../ui/OnboardingTour';
@@ -207,9 +207,7 @@ const HomeScreen = ({
     ];
     const todayTip = learningTips[new Date().getDate() % learningTips.length];
 
-    // Progress calculations for roadmap
-    const vocabProgress = stats.totalCards > 0 ? Math.round((stats.masteredCards / stats.totalCards) * 100) : 0;
-    const kanjiProgress = kanjiSrsStats.total > 0 ? Math.round((kanjiSrsStats.mastered / kanjiSrsStats.total) * 100) : 0;
+
 
     return (
         <div className="space-y-4 max-w-4xl mx-auto">
@@ -326,65 +324,8 @@ const HomeScreen = ({
                 </div>
             </div>
 
-            {/* Learning Path */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700">
-                <h2 className="text-lg font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
-                    <Calendar className="w-5 h-5 text-sky-500" />
-                    Lộ trình học tập
-                </h2>
-
-                <div className="space-y-3">
-                    {/* Vocabulary Progress */}
-                    <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-sky-50 dark:bg-sky-900/20 rounded-xl flex items-center justify-center">
-                            <BookOpen className="w-6 h-6 text-sky-500" />
-                        </div>
-                        <div className="flex-1">
-                            <div className="flex justify-between mb-1">
-                                <span className="text-sm font-medium text-gray-800 dark:text-white">Từ vựng</span>
-                                <span className="text-xs text-gray-500">{stats.masteredCards}/{stats.totalCards} ({vocabProgress}%)</span>
-                            </div>
-                            <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                                <div
-                                    className="h-full bg-gradient-to-r from-sky-500 to-blue-500 rounded-full transition-all duration-500"
-                                    style={{ width: `${vocabProgress}%` }}
-                                />
-                            </div>
-                            <div className="flex gap-4 mt-1 text-xs text-gray-400">
-                                <span>📚 Tổng: <strong className="text-gray-600 dark:text-gray-300">{stats.totalCards}</strong></span>
-                                <span>✅ Thuộc: <strong className="text-emerald-500">{stats.masteredCards}</strong></span>
-                                <span>🆕 Mới: <strong className="text-amber-500">{stats.newCards}</strong></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Kanji Progress */}
-                    <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl flex items-center justify-center">
-                            <Languages className="w-6 h-6 text-emerald-500" />
-                        </div>
-                        <div className="flex-1">
-                            <div className="flex justify-between mb-1">
-                                <span className="text-sm font-medium text-gray-800 dark:text-white">Kanji</span>
-                                <span className="text-xs text-gray-500">{kanjiSrsStats.mastered}/{kanjiSrsStats.total} ({kanjiProgress}%)</span>
-                            </div>
-                            <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                                <div
-                                    className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full transition-all duration-500"
-                                    style={{ width: `${kanjiProgress}%` }}
-                                />
-                            </div>
-                            <div className="flex gap-4 mt-1 text-xs text-gray-400">
-                                <span>📝 Tổng: <strong className="text-gray-600 dark:text-gray-300">{kanjiSrsStats.total}</strong></span>
-                                <span>✅ Thạo: <strong className="text-emerald-500">{kanjiSrsStats.mastered}</strong></span>
-                                <span>📖 Đang học: <strong className="text-amber-500">{kanjiSrsStats.learning}</strong></span>
-                            </div>
-                        </div>
-                    </div>
 
 
-                </div>
-            </div>
 
             {/* Tips */}
             <div className="bg-gradient-to-r from-slate-50 to-gray-50 dark:from-slate-800/50 dark:to-gray-800/50 rounded-xl p-4 border border-slate-200 dark:border-slate-700">

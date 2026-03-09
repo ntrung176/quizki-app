@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-    Calendar, Clock, BookOpen, Users, MessageSquare, GraduationCap, Layers, Plus, Zap
+    Calendar, Clock, BookOpen, Users, MessageSquare, GraduationCap, Layers, Zap
 } from 'lucide-react';
 import { shuffleArray } from '../../utils/textProcessing';
 import { ROUTES } from '../../router';
-import { formatCountdown, getDifficultyLabel, DEFAULT_EASE } from '../../utils/srs';
-import { SRS_INTERVALS, MASTERED_THRESHOLD } from '../../config/constants';
+import { formatCountdown } from '../../utils/srs';
 import OnboardingTour from '../ui/OnboardingTour';
 
 const SRSVocabScreen = ({
@@ -37,36 +36,9 @@ const SRSVocabScreen = ({
         return nextReview && nextReview <= Date.now();
     }).length;
 
-    // Helper: lấy actual interval (backward compatible)
-    const getEffectiveInterval = (card) => {
-        if (typeof card.currentInterval_back === 'number' && card.currentInterval_back > 0) {
-            return card.currentInterval_back;
-        }
-        // Backward compatibility: suy ra từ intervalIndex nếu chưa có currentInterval_back
-        if (card.intervalIndex_back >= 0 && card.intervalIndex_back < SRS_INTERVALS.length) {
-            return SRS_INTERVALS[card.intervalIndex_back];
-        }
-        return 0;
-    };
 
     // Mới thêm (chưa học lần nào, intervalIndex = -1)
     const newCards = allCards.filter(card => card.intervalIndex_back === -1).length;
-
-    // Đang học (intervalIndex = 0 hoặc 1, learning phase)
-    const learningCards = allCards.filter(card => card.intervalIndex_back === 0 || card.intervalIndex_back === 1).length;
-
-    // Ngắn hạn (graduated nhưng chưa mastered: index >= 2 && actual interval < 30 ngày)
-    const shortTermCards = allCards.filter(card =>
-        card.intervalIndex_back >= 2 && getEffectiveInterval(card) < MASTERED_THRESHOLD
-    ).length;
-
-    // Đã thuộc (actual interval >= 30 ngày)
-    const masteredCards = allCards.filter(card =>
-        getEffectiveInterval(card) >= MASTERED_THRESHOLD
-    ).length;
-
-    // Tổng đã học qua (không còn là thẻ mới)
-    const learnedCards = allCards.filter(card => card.intervalIndex_back >= 0).length;
 
     // Đếm số từ có synonym VÀ chưa hoàn thành phần đồng nghĩa (streak < 1)
     const synonymCards = allCards.filter(card => {
@@ -210,46 +182,6 @@ const SRSVocabScreen = ({
                 </div>
             </div>
 
-            {/* Stats Cards */}
-            <div className="grid grid-cols-3 gap-3">
-                {[
-                    { icon: Calendar, label: 'Đã học', value: learnedCards, color: 'text-emerald-600 dark:text-emerald-400', iconBg: 'bg-emerald-100 dark:bg-emerald-900/40' },
-                    { icon: GraduationCap, label: 'Tổng từ vựng', value: totalCards, color: 'text-cyan-600 dark:text-cyan-400', iconBg: 'bg-cyan-100 dark:bg-cyan-900/40' },
-                    { icon: BookOpen, label: 'Đã thuộc', value: masteredCards, color: 'text-orange-600 dark:text-orange-400', iconBg: 'bg-orange-100 dark:bg-orange-900/40' },
-                ].map((s, i) => (
-                    <div key={i} className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-4 border border-gray-100 dark:border-slate-700/50 shadow-sm hover:shadow-md transition-all duration-300 text-center group hover:scale-[1.02]">
-                        <div className={`w-10 h-10 rounded-xl ${s.iconBg} flex items-center justify-center mx-auto mb-2.5`}>
-                            <s.icon className={`w-5 h-5 ${s.color}`} />
-                        </div>
-                        <div className="text-2xl font-bold text-gray-900 dark:text-white">{s.value}</div>
-                        <div className="text-[10px] md:text-xs text-gray-500 dark:text-gray-400 mt-0.5">{s.label}</div>
-                    </div>
-                ))}
-            </div>
-
-            {/* Tổng quan SRS */}
-            <div className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 dark:border-slate-700/50 shadow-sm">
-                <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-4 flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-sky-100 dark:bg-sky-900/50 flex items-center justify-center text-[10px]">📊</span>
-                    Tổng quan SRS
-                </h3>
-                <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
-                    {[
-                        { label: 'Cần ôn', value: dueCards, color: 'text-red-500' },
-                        { label: 'Mới thêm', value: newCards, color: 'text-emerald-500' },
-                        { label: 'Đang học', value: learningCards, color: 'text-amber-500' },
-                        { label: 'Ngắn hạn', value: shortTermCards, color: 'text-blue-500' },
-                        { label: 'Dài hạn', value: masteredCards, color: 'text-green-600' },
-                        { label: 'Đã học', value: learnedCards, color: 'text-indigo-500' },
-                    ].map((item, i) => (
-                        <div key={i} className="p-3 bg-gray-50 dark:bg-slate-700/50 rounded-xl text-center hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors">
-                            <div className={`text-xl md:text-2xl font-bold ${item.color}`}>{item.value}</div>
-                            <div className="text-[10px] text-gray-500 dark:text-gray-400 mt-1">{item.label}</div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
             {/* Hôm nay + Lượt tiếp theo */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {/* Hôm nay */}
@@ -301,92 +233,6 @@ const SRSVocabScreen = ({
                     </div>
                 </div>
             </div>
-
-            {/* Phân bố độ khó */}
-            {learnedCards > 0 && (() => {
-                const cardsWithEase = allCards.filter(c => c.intervalIndex_back >= 0);
-                const easy = cardsWithEase.filter(c => (c.easeFactor || DEFAULT_EASE) >= 2.5).length;
-                const normal = cardsWithEase.filter(c => {
-                    const e = c.easeFactor || DEFAULT_EASE;
-                    return e >= 2.0 && e < 2.5;
-                }).length;
-                const hard = cardsWithEase.filter(c => {
-                    const e = c.easeFactor || DEFAULT_EASE;
-                    return e >= 1.5 && e < 2.0;
-                }).length;
-                const veryHard = cardsWithEase.filter(c => (c.easeFactor || DEFAULT_EASE) < 1.5).length;
-                const total = cardsWithEase.length || 1;
-
-                const distribution = [
-                    { label: 'Dễ', count: easy, percent: (easy / total) * 100, color: 'from-emerald-400 to-green-500' },
-                    { label: 'Trung bình', count: normal, percent: (normal / total) * 100, color: 'from-gray-400 to-gray-500' },
-                    { label: 'Khó', count: hard, percent: (hard / total) * 100, color: 'from-amber-400 to-yellow-500' },
-                    { label: 'Rất khó', count: veryHard, percent: (veryHard / total) * 100, color: 'from-red-400 to-rose-500' },
-                ];
-
-                return (
-                    <div className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 dark:border-slate-700/50 shadow-sm">
-                        <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-4 flex items-center gap-2">
-                            <span className="w-5 h-5 rounded-full bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center text-[10px]">🧠</span>
-                            Phân bố độ khó
-                        </h3>
-                        <div className="space-y-3.5">
-                            {distribution.map((item, index) => (
-                                <div key={index}>
-                                    <div className="flex justify-between text-sm mb-1.5">
-                                        <span className="text-gray-600 dark:text-gray-400 font-medium">{item.label}</span>
-                                        <span className="text-gray-800 dark:text-gray-200 font-bold">{item.count} <span className="text-gray-400 font-normal text-xs">({item.percent.toFixed(0)}%)</span></span>
-                                    </div>
-                                    <div className="h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                                        <div className={`h-full bg-gradient-to-r ${item.color} rounded-full transition-all duration-700 ease-out`}
-                                            style={{ width: `${Math.max(item.percent, 0.5)}%` }} />
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                );
-            })()}
-
-            {/* Chỉ số chính xác */}
-            {(() => {
-                const totalCorrect = allCards.reduce((sum, c) => sum + (c.correctCount || 0), 0);
-                const totalIncorrect = allCards.reduce((sum, c) => sum + (c.incorrectCount || 0), 0);
-                const totalAttempts = totalCorrect + totalIncorrect;
-                if (totalAttempts === 0) return null;
-                const accuracyPercent = Math.round((totalCorrect / totalAttempts) * 100);
-                const firstTimeCorrect = allCards.filter(c => (c.correctCount || 0) >= 1 && (c.incorrectCount || 0) === 0).length;
-                const cardsWithAttempts = allCards.filter(c => (c.correctCount || 0) + (c.incorrectCount || 0) > 0).length;
-
-                return (
-                    <div className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 dark:border-slate-700/50 shadow-sm">
-                        <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-4 flex items-center gap-2">
-                            <span className="w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-[10px]">🎯</span>
-                            Chỉ số chính xác
-                        </h3>
-                        <div className="grid grid-cols-4 gap-2 mb-3">
-                            {[
-                                { label: 'Đúng', value: totalCorrect, color: 'text-emerald-500' },
-                                { label: 'Sai', value: totalIncorrect, color: 'text-red-500' },
-                                { label: 'Tỉ lệ', value: `${accuracyPercent}%`, color: 'text-indigo-500' },
-                                { label: 'Đúng lần 1', value: `${firstTimeCorrect}/${cardsWithAttempts}`, color: 'text-amber-500' },
-                            ].map((item, i) => (
-                                <div key={i} className="p-2.5 bg-gray-50 dark:bg-slate-700/50 rounded-xl text-center">
-                                    <div className={`text-lg font-bold ${item.color}`}>{item.value}</div>
-                                    <div className="text-[8px] text-gray-500 dark:text-gray-400 mt-0.5">{item.label}</div>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <span className="text-[10px] w-8 text-emerald-500 font-medium">✓</span>
-                            <div className="flex-1 h-2.5 bg-red-100 dark:bg-red-900/30 rounded-full overflow-hidden">
-                                <div className="h-full bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full transition-all duration-700 ease-out" style={{ width: `${accuracyPercent}%` }} />
-                            </div>
-                            <span className="text-[10px] w-8 text-red-500 font-medium text-right">✗</span>
-                        </div>
-                    </div>
-                );
-            })()}
 
             {/* Chế độ học */}
             <div className="space-y-3">

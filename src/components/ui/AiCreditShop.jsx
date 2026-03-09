@@ -212,7 +212,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     <p className="text-sm text-gray-500 dark:text-gray-400">Mở khóa sức mạnh AI để tạo từ vựng tự động</p>
                     <div className="mt-3 inline-flex items-center gap-1.5 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-3 py-1.5 rounded-lg text-xs font-medium">
                         <CreditCard className="w-3.5 h-3.5" />
-                        Credits hiện tại: <strong className={creditsRemaining > 20 ? 'text-emerald-600 dark:text-emerald-400' : creditsRemaining > 0 ? 'text-amber-600' : 'text-red-500'}>{creditsRemaining}</strong>
+                        Số lượt còn lại: <strong className={creditsRemaining > 20 ? 'text-emerald-600 dark:text-emerald-400' : creditsRemaining > 0 ? 'text-amber-600' : 'text-red-500'}>{creditsRemaining}</strong>
                     </div>
                 </div>
 

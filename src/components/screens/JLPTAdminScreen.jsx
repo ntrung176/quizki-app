@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import LoadingIndicator from '../ui/LoadingIndicator';
 import {
     collection, query, onSnapshot, doc, setDoc, deleteDoc, serverTimestamp, orderBy
 } from 'firebase/firestore';
@@ -252,11 +253,7 @@ const JLPTAdminScreen = ({ userId }) => {
 
     // Render
     if (loading) {
-        return (
-            <div className="flex items-center justify-center py-20">
-                <Loader2 className="w-8 h-8 animate-spin text-indigo-500" />
-            </div>
-        );
+        return <LoadingIndicator text="Đang tải dữ liệu..." />;
     }
 
     return (

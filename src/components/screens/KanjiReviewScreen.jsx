@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate } from 'react-router-dom';
 import { Calendar, Clock, Target, Flame, ChevronLeft, ExternalLink, RotateCcw, Zap, Award, BarChart3, Sparkles } from 'lucide-react';
 import { db, appId } from '../../config/firebase';
@@ -232,17 +233,7 @@ const KanjiReviewScreen = () => {
     }, [reviewMode, currentCard, currentReviewIndex]);
 
     if (loading) {
-        return (
-            <div className="flex items-center justify-center min-h-[calc(100vh-120px)]">
-                <div className="text-center space-y-4">
-                    <div className="relative w-16 h-16 mx-auto">
-                        <div className="absolute inset-0 border-4 border-indigo-200 dark:border-slate-700 rounded-full"></div>
-                        <div className="absolute inset-0 border-4 border-transparent border-t-indigo-500 rounded-full animate-spin"></div>
-                    </div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Đang tải dữ liệu ôn tập...</p>
-                </div>
-            </div>
-        );
+        return <LoadingIndicator text="Đang tải dữ liệu ôn tập..." />;
     }
 
     // ==================== REVIEW MODE ====================

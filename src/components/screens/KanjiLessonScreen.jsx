@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import HanziWriter from 'hanzi-writer';
 import { ChevronLeft, ChevronRight, Eye, Plus, BookOpen, PenTool, Award, Volume2, Check, X, Sparkles, RotateCcw, Pencil, Keyboard, Languages } from 'lucide-react';
@@ -271,11 +272,7 @@ const KanjiLessonScreen = () => {
     };
 
     if (loading) {
-        return (
-            <div className="flex items-center justify-center min-h-[400px]">
-                <div className="animate-spin w-8 h-8 border-4 border-cyan-500 border-t-transparent rounded-full"></div>
-            </div>
-        );
+        return <LoadingIndicator text="Đang tải dữ liệu bài học..." />;
     }
 
     if (todayKanji.length === 0) {

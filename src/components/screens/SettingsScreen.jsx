@@ -315,7 +315,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                     {/* Avatar Section */}
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                            <User className="w-4 h-4" /> Avatar & Thông tin
+                            <User className="w-4 h-4" /> Ảnh đại diện & Thông tin
                         </h3>
                         <div className="flex items-center gap-5">
                             <div className="relative group">

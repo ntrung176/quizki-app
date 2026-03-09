@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
+import LoadingIndicator from '../ui/LoadingIndicator';
 import { useSearchParams } from 'react-router-dom';
 import {
     BookOpen, Plus, Trash2, Edit, ChevronRight, ChevronLeft, Check, X, Lightbulb,
@@ -83,6 +84,9 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     const [addingVocabIndex, setAddingVocabIndex] = useState(null);
     const [addedVocabSet, setAddedVocabSet] = useState(new Set());
 
+    // Revealed cards for study
+    const [revealedCards, setRevealedCards] = useState(new Set());
+
     // Vocab editing states
     const [editingVocabIndex, setEditingVocabIndex] = useState(null);
     const [editingVocabData, setEditingVocabData] = useState(null);
@@ -133,42 +137,48 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
 
     useEffect(() => {
         loadLessonAudio();
-    }, [loadLessonAudio]);
+        // Clear reveal state when lesson changes
+        setRevealedCards(new Set());
+    }, [loadLessonAudio, lessonId]);
 
     const loadAllData = async (silent = false) => {
         if (!silent) setLoading(true);
         try {
             const groupsSnap = await getDocs(collection(db, COLLECTION));
-            const groups = [];
 
-            for (const groupDoc of groupsSnap.docs) {
+            const groups = await Promise.all(groupsSnap.docs.map(async (groupDoc) => {
                 const group = { id: groupDoc.id, ...groupDoc.data(), books: [] };
 
                 const booksSnap = await getDocs(collection(db, COLLECTION, groupDoc.id, 'books'));
-                for (const bookDoc of booksSnap.docs) {
+
+                group.books = await Promise.all(booksSnap.docs.map(async (bookDoc) => {
                     const book = { id: bookDoc.id, ...bookDoc.data(), chapters: [] };
 
-                    const chaptersSnap = await getDocs(
-                        collection(db, COLLECTION, groupDoc.id, 'books', bookDoc.id, 'chapters')
-                    );
-                    for (const chapterDoc of chaptersSnap.docs) {
+                    const chaptersSnap = await getDocs(collection(db, COLLECTION, groupDoc.id, 'books', bookDoc.id, 'chapters'));
+
+                    book.chapters = await Promise.all(chaptersSnap.docs.map(async (chapterDoc) => {
                         const chapter = { id: chapterDoc.id, ...chapterDoc.data(), lessons: [] };
 
                         const lessonsSnap = await getDocs(
                             collection(db, COLLECTION, groupDoc.id, 'books', bookDoc.id, 'chapters', chapterDoc.id, 'lessons')
                         );
-                        for (const lessonDoc of lessonsSnap.docs) {
-                            chapter.lessons.push({ id: lessonDoc.id, ...lessonDoc.data() });
-                        }
-                        chapter.lessons.sort((a, b) => (a.order || 0) - (b.order || 0));
-                        book.chapters.push(chapter);
-                    }
+
+                        chapter.lessons = lessonsSnap.docs.map(lessonDoc => ({
+                            id: lessonDoc.id,
+                            ...lessonDoc.data()
+                        })).sort((a, b) => (a.order || 0) - (b.order || 0));
+
+                        return chapter;
+                    }));
+
                     book.chapters.sort((a, b) => (a.order || 0) - (b.order || 0));
-                    group.books.push(book);
-                }
+                    return book;
+                }));
+
                 group.books.sort((a, b) => (a.order || 0) - (b.order || 0));
-                groups.push(group);
-            }
+                return group;
+            }));
+
             groups.sort((a, b) => (a.order || 0) - (b.order || 0));
             setBookGroups(groups);
         } catch (e) {
@@ -921,6 +931,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                 const word = v.word || v.front || '';
                                 const displayWord = word.split('（')[0].split('(')[0].trim();
                                 const inList = isVocabInUserList(v) || addedVocabSet.has(i);
+                                const isRevealed = revealedCards.has(i);
                                 return (
                                     <div key={i} ref={editingVocabIndex === i ? editingCardRef : null} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-sky-300 dark:hover:border-sky-600 transition-colors overflow-hidden">
                                         {editingVocabIndex === i && editingVocabData ? (
@@ -1012,7 +1023,11 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                             </div>
                                         ) : (
                                             /* ===== VIEW MODE ===== */
-                                            <div className="flex">
+                                            <div className="flex cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors" onClick={() => {
+                                                setRevealedCards(prev => new Set(prev).add(i));
+                                                if (v.audioBase64) { playAudio(v.audioBase64, word); }
+                                                else { speakJapanese(word); }
+                                            }}>
                                                 {/* INDEX column */}
                                                 <div className="w-10 shrink-0 bg-gray-50 dark:bg-gray-700/50 flex flex-col items-center justify-center border-r border-gray-100 dark:border-gray-700">
                                                     <span className="text-xs font-bold text-gray-400 dark:text-gray-500">{i + 1}</span>
@@ -1066,13 +1081,13 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                                             return (
                                                                                 <span key={ci} className="relative inline-block text-xs text-gray-500 dark:text-gray-400">
                                                                                     <span className="block" style={{
-                                                                                        borderTop: isHigh ? '2.5px solid #f97316' : '2.5px solid transparent',
+                                                                                        borderTop: isHigh ? '1.5px solid rgba(249, 115, 22, 0.6)' : '1.5px solid transparent',
                                                                                         paddingTop: '1px', paddingLeft: '1px', paddingRight: '1px',
                                                                                     }}>
                                                                                         {char}
                                                                                     </span>
-                                                                                    {showDrop && <span className="absolute -right-[1px] top-0 w-[2.5px] bg-orange-500" style={{ height: '100%' }}></span>}
-                                                                                    {showRise && <span className="absolute -right-[1px] top-0 w-[2.5px] bg-orange-500" style={{ height: '100%' }}></span>}
+                                                                                    {showDrop && <span className="absolute -right-[1px] top-0 w-[1.5px] bg-orange-500/60" style={{ height: '100%' }}></span>}
+                                                                                    {showRise && <span className="absolute -right-[1px] top-0 w-[1.5px] bg-orange-500/60" style={{ height: '100%' }}></span>}
                                                                                 </span>
                                                                             );
                                                                         })}
@@ -1082,10 +1097,10 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                             return <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{v.reading}</p>;
                                                         })()}
                                                         {v.sinoVietnamese && (
-                                                            <p className="text-xs text-amber-600 dark:text-amber-400 font-medium mt-1">{v.sinoVietnamese}</p>
+                                                            <p className={`text-xs text-amber-600 dark:text-amber-400 font-medium mt-1 transition-all duration-300 ${isRevealed ? '' : 'blur-[4px] opacity-40 select-none'}`}>{v.sinoVietnamese}</p>
                                                         )}
 
-                                                        <p className="text-sm text-sky-600 dark:text-sky-400 mt-2 font-medium">{v.meaning || v.back || ''}</p>
+                                                        <p className={`text-sm text-sky-600 dark:text-sky-400 mt-2 font-medium transition-all duration-300 ${isRevealed ? '' : 'blur-[4px] opacity-40 select-none'}`}>{v.meaning || v.back || ''}</p>
 
                                                     </div>
                                                 </div>
@@ -1101,7 +1116,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                                         {v.exampleMeaning && (() => {
                                                                             const meanings = v.exampleMeaning.split('\n');
                                                                             return meanings[ei] ? (
-                                                                                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 italic">{meanings[ei].trim()}</p>
+                                                                                <p className={`text-xs text-gray-500 dark:text-gray-400 mt-0.5 italic transition-all duration-300 ${isRevealed ? '' : 'blur-[4px] opacity-40 select-none'}`}>{meanings[ei].trim()}</p>
                                                                             ) : null;
                                                                         })()}
                                                                     </div>
@@ -1129,27 +1144,27 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                         ) : addingVocabIndex === i ? (
                                                             <span className="p-1.5"><div className="w-4 h-4 border-2 border-sky-500 border-t-transparent rounded-full animate-spin"></div></span>
                                                         ) : (
-                                                            <button onClick={() => handleAddToSRS(v, i)}
+                                                            <button onClick={(e) => { e.stopPropagation(); handleAddToSRS(v, i); }}
                                                                 className="p-1.5 text-gray-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors" title="Thêm vào SRS">
                                                                 <Plus className="w-4 h-4" />
                                                             </button>
                                                         )
                                                     )}
                                                     {(v.nuance || v.note) && (
-                                                        <button onClick={() => setShowNuanceIndex(showNuanceIndex === i ? null : i)}
+                                                        <button onClick={(e) => { e.stopPropagation(); setShowNuanceIndex(showNuanceIndex === i ? null : i); }}
                                                             className={`p-1.5 transition-colors ${showNuanceIndex === i ? 'text-amber-500' : 'text-gray-300 hover:text-amber-500'}`}
                                                             title="Xem sắc thái">
                                                             <Lightbulb className="w-3.5 h-3.5" />
                                                         </button>
                                                     )}
                                                     {isAdmin && (
-                                                        <button onClick={() => handleEditVocab(i)}
+                                                        <button onClick={(e) => { e.stopPropagation(); handleEditVocab(i); }}
                                                             className="p-1.5 text-gray-300 hover:text-sky-500 transition-colors" title="Chỉnh sửa">
                                                             <Edit className="w-3.5 h-3.5" />
                                                         </button>
                                                     )}
                                                     {isAdmin && (
-                                                        <button onClick={() => handleDeleteVocab(i)}
+                                                        <button onClick={(e) => { e.stopPropagation(); handleDeleteVocab(i); }}
                                                             className="p-1.5 text-gray-300 hover:text-red-500 transition-colors" title="Xóa">
                                                             <Trash2 className="w-3.5 h-3.5" />
                                                         </button>
@@ -1195,11 +1210,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
 
     // ==================== RENDER ====================
     if (loading) {
-        return (
-            <div className="flex-1 flex items-center justify-center py-20">
-                <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-sky-500"></div>
-            </div>
-        );
+        return <LoadingIndicator text="Đang tải dữ liệu Sách..." />;
     }
 
     // Determine which view to render (call as functions, NOT as components <View/>)

@@ -1,4 +1,5 @@
-﻿import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
+﻿import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import LoadingIndicator from '../ui/LoadingIndicator';
 import { useSearchParams, useParams, useNavigate } from 'react-router-dom';
 import { Search, Grid, PenTool, Download, BookOpen, Map as MapIcon, Globe, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Play, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw } from 'lucide-react';
 import { db } from '../../config/firebase';
@@ -208,35 +209,37 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             try {
                 console.log('Loading kanji data from Firebase...');
 
-                // Load Kanji (shared collection - no userId filter)
-                const kanjiSnap = await getDocs(collection(db, 'kanji'));
+                const [kanjiSnap, vocabSnap, catSnap, groupsSnap] = await Promise.all([
+                    getDocs(collection(db, 'kanji')),
+                    getDocs(collection(db, 'kanjiVocab')),
+                    getDocs(collection(db, 'vocabCategories')),
+                    getDocs(collection(db, 'bookGroups'))
+                ]);
+
+                // 1. Kanji
                 const kanjiData = kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() }));
-                console.log('Loaded kanji:', kanjiData.length, 'items');
                 setKanjiList(kanjiData);
 
-                // Load Vocab (shared collection - no userId filter)
-                const vocabSnap = await getDocs(collection(db, 'kanjiVocab'));
+                // 2. Vocab
                 const vocabData = vocabSnap.docs.map(d => ({ id: d.id, ...d.data() }));
-                console.log('Loaded vocab:', vocabData.length, 'items');
                 setVocabList(vocabData);
 
-                // Load Vocab Categories
-                const catSnap = await getDocs(collection(db, 'vocabCategories'));
+                // 3. Categories
                 const catData = catSnap.docs.map(d => ({ id: d.id, ...d.data() }));
-                console.log('Loaded vocab categories:', catData.length, 'items');
                 setVocabCategories(catData);
 
-                // Load book groups for linking
-                const groupsSnap = await getDocs(collection(db, 'bookGroups'));
-                const groups = [];
-                for (const grpDoc of groupsSnap.docs) {
+                // 4. Book Groups
+                const bookGroupPromises = groupsSnap.docs.map(async (grpDoc) => {
                     const grp = { id: grpDoc.id, ...grpDoc.data(), books: [] };
                     const booksSnap = await getDocs(collection(db, 'bookGroups', grpDoc.id, 'books'));
                     for (const bkDoc of booksSnap.docs) {
                         grp.books.push({ id: bkDoc.id, ...bkDoc.data() });
                     }
-                    if (grp.books.length > 0) groups.push(grp);
-                }
+                    if (grp.books.length > 0) return grp;
+                    return null;
+                });
+
+                const groups = (await Promise.all(bookGroupPromises)).filter(Boolean);
                 setBookGroupsForLink(groups);
 
                 // Load standalone linked books (not tied to categories)
@@ -246,28 +249,27 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                     const linkedBooksData = linkedBooksSnap.docs.map(d => ({ id: d.id, ...d.data() }));
                     setKanjiLinkedBooks(linkedBooksData);
 
-                    // Load vocab for each linked book
+                    // Load vocab for each linked book in parallel
                     const linkedData = {};
-                    for (const lb of linkedBooksData) {
+                    const lbPromises = linkedBooksData.map(async (lb) => {
+                        let allVocab = [];
                         if (lb.bookPath) {
                             const [gId, bId] = lb.bookPath.split('/');
                             if (gId && bId) {
                                 try {
                                     const chapSnap = await getDocs(collection(db, 'bookGroups', gId, 'books', bId, 'chapters'));
-                                    const allVocab = [];
-                                    for (const chDoc of chapSnap.docs) {
+                                    const chPromises = chapSnap.docs.map(async (chDoc) => {
                                         const lessonsSnap = await getDocs(collection(db, 'bookGroups', gId, 'books', bId, 'chapters', chDoc.id, 'lessons'));
-                                        for (const lDoc of lessonsSnap.docs) {
+                                        const lPromises = lessonsSnap.docs.map(async (lDoc) => {
                                             const lessonData = lDoc.data();
                                             if (lessonData.vocab && Array.isArray(lessonData.vocab)) {
-                                                // Also load audio from vocabAudio subcollection
                                                 let audioMap = {};
                                                 try {
                                                     const audioSnap = await getDocs(collection(db, 'bookGroups', gId, 'books', bId, 'chapters', chDoc.id, 'lessons', lDoc.id, 'vocabAudio'));
                                                     audioSnap.docs.forEach(aDoc => { audioMap[aDoc.id] = aDoc.data(); });
                                                 } catch (_) { /* audio subcollection may not exist */ }
 
-                                                allVocab.push(...lessonData.vocab.map((v, vi) => {
+                                                return lessonData.vocab.map((v, vi) => {
                                                     const wordAudio = audioMap[`${vi}_word`];
                                                     return {
                                                         ...v,
@@ -278,17 +280,27 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                         _bookLinkId: lb.id,
                                                         ...(wordAudio?.base64 ? { audioBase64: wordAudio.base64 } : {}),
                                                     };
-                                                }));
+                                                });
                                             }
-                                        }
-                                    }
-                                    linkedData[lb.id] = allVocab;
+                                            return [];
+                                        });
+                                        const lResults = await Promise.all(lPromises);
+                                        return lResults.flat();
+                                    });
+                                    const chResults = await Promise.all(chPromises);
+                                    allVocab = chResults.flat();
                                 } catch (e) {
                                     console.warn('Error loading linked book vocab for', lb.bookName, e);
                                 }
                             }
                         }
-                    }
+                        return { id: lb.id, vocab: allVocab };
+                    });
+
+                    const lbResults = await Promise.all(lbPromises);
+                    lbResults.forEach(res => {
+                        linkedData[res.id] = res.vocab;
+                    });
                     setLinkedBookVocab(linkedData);
                 } catch (e) {
                     console.warn('Could not load kanjiLinkedBooks (check Firebase Rules):', e.message);
@@ -1911,14 +1923,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
 
     // Loading screen
     if (loading) {
-        return (
-            <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:bg-slate-900 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 flex items-center justify-center">
-                <div className="text-center space-y-3">
-                    <div className="w-10 h-10 border-4 border-cyan-200 dark:border-slate-700 border-t-cyan-500 rounded-full animate-spin mx-auto"></div>
-                    <p className="text-gray-600 dark:text-gray-400 font-medium text-sm">Đang tải dữ liệu Kanji...</p>
-                </div>
-            </div>
-        );
+        return <LoadingIndicator text="Đang tải dữ liệu Kanji..." />;
     }
 
     return (
