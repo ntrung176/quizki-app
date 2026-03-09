@@ -316,14 +316,14 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     }, []);
 
     // Auto-open detail if :char param or ?char= param is present
+    // FAST PATH: Open immediately using static Jotoba data, don't wait for full Firebase load
     useEffect(() => {
-        // Priority: path param > query param
         const charParam = params.char || searchParams.get('char');
-        if (charParam && kanjiList.length > 0 && !loading) {
+        if (charParam) {
             setSelectedKanji(charParam);
             setShowDetailModal(true);
         }
-    }, [params.char, searchParams, kanjiList, loading]);
+    }, [params.char, searchParams]);
 
     // Fetch Kanji API data + set up data when kanji is selected
     useEffect(() => {
@@ -1921,8 +1921,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedKanji, kanjiList, vocabList, kanjiApiData, isAdmin, diagramZoom, diagramPan, isDragging, dragStart, pitchAccentData, addedVocabIds, addingVocabId, vocabCategories]);
 
-    // Loading screen
-    if (loading) {
+    // Loading screen - skip if detail modal is already open (fast path via URL param)
+    if (loading && !showDetailModal) {
         return <LoadingIndicator text="Đang tải dữ liệu Kanji..." />;
     }
 

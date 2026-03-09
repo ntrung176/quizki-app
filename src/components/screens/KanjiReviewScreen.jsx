@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate } from 'react-router-dom';
-import { Calendar, Clock, Target, Flame, ChevronLeft, ExternalLink, RotateCcw, Zap, Award, BarChart3, Sparkles } from 'lucide-react';
+import { Calendar, Clock, Target, Flame, ChevronLeft, ExternalLink, RotateCcw, Zap, BarChart3, Sparkles } from 'lucide-react';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, updateDoc, getDoc, setDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -160,31 +160,7 @@ const KanjiReviewScreen = () => {
         return () => clearInterval(interval);
     }, [srsData]);
 
-    const cardDistribution = useMemo(() => {
-        const total = stats.kanjiLearned || 1;
-        return [
-            { label: 'Mới thêm', count: stats.newCards, percent: (stats.newCards / total) * 100, color: 'from-gray-400 to-gray-500', bg: 'bg-gray-100 dark:bg-gray-800' },
-            { label: 'Đang học', count: stats.learning, percent: (stats.learning / total) * 100, color: 'from-amber-400 to-yellow-500', bg: 'bg-amber-50 dark:bg-amber-900/20' },
-            { label: 'Ngắn hạn', count: stats.shortTerm, percent: (stats.shortTerm / total) * 100, color: 'from-orange-400 to-orange-500', bg: 'bg-orange-50 dark:bg-orange-900/20' },
-            { label: 'Dài hạn', count: stats.longTerm, percent: (stats.longTerm / total) * 100, color: 'from-emerald-400 to-green-500', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
-        ];
-    }, [stats]);
 
-    const activityData = useMemo(() => {
-        const days = [];
-        const today = new Date();
-        for (let i = 364; i >= 0; i--) {
-            const date = new Date(today); date.setDate(date.getDate() - i);
-            const dayStart = new Date(date); dayStart.setHours(0, 0, 0, 0);
-            const dayEnd = new Date(date); dayEnd.setHours(23, 59, 59, 999);
-            let count = 0;
-            Object.values(srsData).forEach(srs => {
-                if (srs.lastReview && srs.lastReview >= dayStart.getTime() && srs.lastReview <= dayEnd.getTime()) count++;
-            });
-            days.push({ date, level: count === 0 ? 0 : count < 5 ? 1 : count < 10 ? 2 : count < 20 ? 3 : 4 });
-        }
-        return days;
-    }, [srsData]);
 
     const startReview = () => {
         if (dueKanji.length === 0) return;
@@ -318,69 +294,35 @@ const KanjiReviewScreen = () => {
     // ==================== STATS SCREEN ====================
     return (
         <div className="space-y-5 max-w-4xl mx-auto pb-8">
-            {/* Header */}
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-violet-600 via-indigo-600 to-blue-500 p-6 md:p-8 shadow-2xl">
+            {/* Banner Ôn tập Kanji */}
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 p-6 md:p-8 shadow-2xl">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
-                <div className="relative flex flex-col md:flex-row items-center justify-between gap-4">
-                    <div>
-                        <div className="flex items-center gap-2 mb-2">
-                            <Award className="w-5 h-5 text-yellow-300" />
-                            <span className="text-white/80 text-sm font-medium">Ôn tập Kanji</span>
+                <div className="relative flex flex-col md:flex-row items-center gap-6">
+                    <div className="flex-1 text-center md:text-left">
+                        <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
+                            <Sparkles className="w-5 h-5 text-pink-300" />
+                            <span className="text-white/80 text-sm font-medium">Lộ trình học Kanji</span>
                         </div>
-                        <h1 className="text-3xl md:text-4xl font-bold text-white mb-1">
-                            {stats.dueToday > 0 ? `${stats.dueToday} thẻ cần ôn` : 'Tuyệt vời! 🎉'}
+                        <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                            Ôn tập Kanji
                         </h1>
-                        <p className="text-white/60 text-sm">
-                            {stats.dueToday > 0 ? 'Hãy hoàn thành bài ôn tập hôm nay' : 'Bạn đã hoàn thành ôn tập'}
+                        <p className="text-white/70 text-sm">
+                            Củng cố trí nhớ dài hạn • Hệ thống {kanjiList.length} chữ
                         </p>
                     </div>
-                    <button
-                        onClick={startReview}
-                        disabled={stats.dueToday === 0}
-                        className="flex items-center gap-2 px-7 py-3.5 bg-white/20 hover:bg-white/30 disabled:opacity-40 disabled:cursor-not-allowed rounded-2xl text-white font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg border border-white/20 backdrop-blur-sm"
-                    >
-                        <Zap className="w-5 h-5" />
-                        {stats.dueToday > 0 ? 'Ôn tập ngay' : 'Đã xong'}
-                    </button>
-                </div>
-            </div>
-
-            {/* Stats Cards */}
-            <div className="grid grid-cols-3 gap-3">
-                {[
-                    { icon: Calendar, label: 'Ngày đã học', value: stats.daysStudied, color: 'text-emerald-600 dark:text-emerald-400', iconBg: 'bg-emerald-100 dark:bg-emerald-900/40' },
-                    { icon: Target, label: 'Kanji đã học', value: stats.kanjiLearned, color: 'text-cyan-600 dark:text-cyan-400', iconBg: 'bg-cyan-100 dark:bg-cyan-900/40' },
-                    { icon: Flame, label: 'Ngày liên tiếp', value: stats.streak, color: 'text-orange-600 dark:text-orange-400', iconBg: 'bg-orange-100 dark:bg-orange-900/40' },
-                ].map((s, i) => (
-                    <div key={i} className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-4 border border-gray-100 dark:border-slate-700/50 shadow-sm hover:shadow-md transition-all duration-300 text-center group hover:scale-[1.02]">
-                        <div className={`w-10 h-10 rounded-xl ${s.iconBg} flex items-center justify-center mx-auto mb-2.5`}>
-                            <s.icon className={`w-5 h-5 ${s.color}`} />
+                    {/* Progress Ring */}
+                    <div className="relative w-32 h-32 flex-shrink-0">
+                        <svg className="w-full h-full -rotate-90" viewBox="0 0 120 120">
+                            <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="8" />
+                            <circle cx="60" cy="60" r="54" fill="none" stroke="white" strokeWidth="8" strokeLinecap="round"
+                                strokeDasharray={2 * Math.PI * 54} strokeDashoffset={2 * Math.PI * 54 - (Math.min(1, stats.kanjiLearned / (kanjiList.length || 1))) * 2 * Math.PI * 54}
+                                className="transition-all duration-1000 ease-out" />
+                        </svg>
+                        <div className="absolute inset-0 flex flex-col items-center justify-center">
+                            <span className="text-2xl font-bold text-white">{Math.round((stats.kanjiLearned / (kanjiList.length || 1)) * 100)}%</span>
+                            <span className="text-[10px] text-white/60 uppercase tracking-wide font-medium">Đã học</span>
                         </div>
-                        <div className="text-2xl font-bold text-gray-900 dark:text-white">{s.value}</div>
-                        <div className="text-[10px] md:text-xs text-gray-500 dark:text-gray-400 mt-0.5">{s.label}</div>
                     </div>
-                ))}
-            </div>
-
-            {/* Overview */}
-            <div className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 dark:border-slate-700/50 shadow-sm">
-                <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-4 flex items-center gap-2">
-                    <BarChart3 className="w-4 h-4 text-indigo-500" /> Tổng quan SRS
-                </h3>
-                <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
-                    {[
-                        { label: 'Cần ôn', value: stats.dueToday, color: 'text-cyan-500' },
-                        { label: 'Chưa ôn', value: stats.newCards, color: 'text-gray-500' },
-                        { label: 'Đang học', value: stats.learning, color: 'text-amber-500' },
-                        { label: 'Ngắn hạn', value: stats.shortTerm, color: 'text-orange-500' },
-                        { label: 'Dài hạn', value: stats.longTerm, color: 'text-emerald-500' },
-                        { label: 'Tổng lượt', value: stats.totalReps, color: 'text-indigo-500' },
-                    ].map((item, i) => (
-                        <div key={i} className="p-3 bg-gray-50 dark:bg-slate-700/50 rounded-xl text-center hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors">
-                            <div className={`text-xl md:text-2xl font-bold ${item.color}`}>{item.value}</div>
-                            <div className="text-[10px] text-gray-500 dark:text-gray-400 mt-1">{item.label}</div>
-                        </div>
-                    ))}
                 </div>
             </div>
 
@@ -422,55 +364,42 @@ const KanjiReviewScreen = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {/* Activity Heatmap */}
-                <div className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 dark:border-slate-700/50 shadow-sm">
-                    <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-3 flex items-center gap-2">
-                        <Flame className="w-4 h-4 text-orange-500" /> Hoạt động ({stats.totalReps} lượt)
-                    </h3>
-                    <div className="overflow-x-auto">
-                        <div className="flex gap-[3px] min-w-max">
-                            {Array.from({ length: 52 }).map((_, weekIndex) => (
-                                <div key={weekIndex} className="flex flex-col gap-[3px]">
-                                    {Array.from({ length: 7 }).map((_, dayIndex) => {
-                                        const dataIndex = weekIndex * 7 + dayIndex;
-                                        const activity = activityData[dataIndex];
-                                        const level = activity?.level || 0;
-                                        const colors = ['bg-gray-100 dark:bg-slate-700', 'bg-emerald-200 dark:bg-emerald-800/60', 'bg-emerald-400 dark:bg-emerald-600', 'bg-emerald-500 dark:bg-emerald-500', 'bg-emerald-600 dark:bg-emerald-400'];
-                                        return <div key={dayIndex} className={`w-3 h-3 rounded-[3px] ${colors[level]} transition-colors`} title={activity?.date?.toLocaleDateString()} />;
-                                    })}
-                                </div>
-                            ))}
+            {/* Stats Cards */}
+            <div className="grid grid-cols-3 gap-3">
+                {[
+                    { icon: Calendar, label: 'Ngày đã học', value: stats.daysStudied, color: 'text-emerald-600 dark:text-emerald-400', iconBg: 'bg-emerald-100 dark:bg-emerald-900/40' },
+                    { icon: Target, label: 'Kanji đã học', value: stats.kanjiLearned, color: 'text-cyan-600 dark:text-cyan-400', iconBg: 'bg-cyan-100 dark:bg-cyan-900/40' },
+                    { icon: Flame, label: 'Ngày liên tiếp', value: stats.streak, color: 'text-orange-600 dark:text-orange-400', iconBg: 'bg-orange-100 dark:bg-orange-900/40' },
+                ].map((s, i) => (
+                    <div key={i} className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-4 border border-gray-100 dark:border-slate-700/50 shadow-sm hover:shadow-md transition-all duration-300 text-center group hover:scale-[1.02]">
+                        <div className={`w-10 h-10 rounded-xl ${s.iconBg} flex items-center justify-center mx-auto mb-2.5`}>
+                            <s.icon className={`w-5 h-5 ${s.color}`} />
                         </div>
+                        <div className="text-2xl font-bold text-gray-900 dark:text-white">{s.value}</div>
+                        <div className="text-[10px] md:text-xs text-gray-500 dark:text-gray-400 mt-0.5">{s.label}</div>
                     </div>
-                    <div className="flex items-center justify-end gap-1.5 mt-3 text-[10px] text-gray-400 dark:text-gray-500">
-                        <span>Ít</span>
-                        <div className="flex gap-1">
-                            {['bg-gray-100 dark:bg-slate-700', 'bg-emerald-200 dark:bg-emerald-800/60', 'bg-emerald-400 dark:bg-emerald-600', 'bg-emerald-500', 'bg-emerald-600 dark:bg-emerald-400'].map((c, i) => (
-                                <div key={i} className={`w-2.5 h-2.5 rounded-[2px] ${c}`}></div>
-                            ))}
-                        </div>
-                        <span>Nhiều</span>
-                    </div>
-                </div>
+                ))}
+            </div>
 
-                {/* Card Distribution */}
-                <div className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 dark:border-slate-700/50 shadow-sm">
-                    <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-4">Phân bố thẻ</h3>
-                    <div className="space-y-3.5">
-                        {cardDistribution.map((item, index) => (
-                            <div key={index}>
-                                <div className="flex justify-between text-sm mb-1.5">
-                                    <span className="text-gray-600 dark:text-gray-400 font-medium">{item.label}</span>
-                                    <span className="text-gray-800 dark:text-gray-200 font-bold">{item.count} <span className="text-gray-400 font-normal text-xs">({item.percent.toFixed(0)}%)</span></span>
-                                </div>
-                                <div className="h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                                    <div className={`h-full bg-gradient-to-r ${item.color} rounded-full transition-all duration-700 ease-out`}
-                                        style={{ width: `${Math.max(item.percent, 0.5)}%` }} />
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+            {/* Overview */}
+            <div className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 dark:border-slate-700/50 shadow-sm">
+                <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-4 flex items-center gap-2">
+                    <BarChart3 className="w-4 h-4 text-indigo-500" /> Tổng quan SRS
+                </h3>
+                <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
+                    {[
+                        { label: 'Cần ôn', value: stats.dueToday, color: 'text-cyan-500' },
+                        { label: 'Chưa ôn', value: stats.newCards, color: 'text-gray-500' },
+                        { label: 'Đang học', value: stats.learning, color: 'text-amber-500' },
+                        { label: 'Ngắn hạn', value: stats.shortTerm, color: 'text-orange-500' },
+                        { label: 'Dài hạn', value: stats.longTerm, color: 'text-emerald-500' },
+                        { label: 'Tổng lượt', value: stats.totalReps, color: 'text-indigo-500' },
+                    ].map((item, i) => (
+                        <div key={i} className="p-3 bg-gray-50 dark:bg-slate-700/50 rounded-xl text-center hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors">
+                            <div className={`text-xl md:text-2xl font-bold ${item.color}`}>{item.value}</div>
+                            <div className="text-[10px] text-gray-500 dark:text-gray-400 mt-1">{item.label}</div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

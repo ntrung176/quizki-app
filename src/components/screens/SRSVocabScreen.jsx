@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-    Calendar, Clock, BookOpen, Users, MessageSquare, GraduationCap, Layers, Zap
+    Calendar, Clock, BookOpen, Users, MessageSquare, GraduationCap, Layers, Zap, Sparkles
 } from 'lucide-react';
 import { shuffleArray } from '../../utils/textProcessing';
 import { ROUTES } from '../../router';
@@ -155,30 +155,35 @@ const SRSVocabScreen = ({
 
     return (
         <div className="space-y-5 max-w-4xl mx-auto pb-8">
-            {/* Header - matches KanjiReviewScreen gradient style */}
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-violet-600 via-indigo-600 to-blue-500 p-6 md:p-8 shadow-2xl">
+            {/* Banner Lộ trình & Ôn tập Từ vựng */}
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 p-6 md:p-8 shadow-2xl">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
-                <div className="relative flex flex-col md:flex-row items-center justify-between gap-4">
-                    <div>
-                        <div className="flex items-center gap-2 mb-2">
-                            <BookOpen className="w-5 h-5 text-yellow-300" />
-                            <span className="text-white/80 text-sm font-medium">Ôn tập từ vựng</span>
+                <div className="relative flex flex-col md:flex-row items-center gap-6">
+                    <div className="flex-1 text-center md:text-left">
+                        <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
+                            <Sparkles className="w-5 h-5 text-blue-300" />
+                            <span className="text-white/80 text-sm font-medium">Lộ trình học Từ vựng</span>
                         </div>
-                        <h1 className="text-3xl md:text-4xl font-bold text-white mb-1">
-                            {dueCards > 0 ? `${dueCards} thẻ cần ôn` : 'Tuyệt vời! 🎉'}
+                        <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                            Ôn tập Từ vựng
                         </h1>
-                        <p className="text-white/60 text-sm">
-                            {dueCards > 0 ? 'Hãy hoàn thành bài ôn tập hôm nay' : 'Bạn đã hoàn thành ôn tập'}
+                        <p className="text-white/70 text-sm">
+                            Học đều đặn mỗi ngày • Tổng {allCards.length} thẻ
                         </p>
                     </div>
-                    <button
-                        onClick={() => handleStartReview('mixed')}
-                        disabled={dueCards === 0}
-                        className="flex items-center gap-2 px-7 py-3.5 bg-white/20 hover:bg-white/30 disabled:opacity-40 disabled:cursor-not-allowed rounded-2xl text-white font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg border border-white/20 backdrop-blur-sm"
-                    >
-                        <Zap className="w-5 h-5" />
-                        {dueCards > 0 ? 'Ôn tập ngay' : 'Đã xong'}
-                    </button>
+                    {/* Progress Ring */}
+                    <div className="relative w-32 h-32 flex-shrink-0">
+                        <svg className="w-full h-full -rotate-90" viewBox="0 0 120 120">
+                            <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="8" />
+                            <circle cx="60" cy="60" r="54" fill="none" stroke="white" strokeWidth="8" strokeLinecap="round"
+                                strokeDasharray={2 * Math.PI * 54} strokeDashoffset={2 * Math.PI * 54 - (Math.min(1, Math.max(0, allCards.length - newCards) / (allCards.length || 1))) * 2 * Math.PI * 54}
+                                className="transition-all duration-1000 ease-out" />
+                        </svg>
+                        <div className="absolute inset-0 flex flex-col items-center justify-center">
+                            <span className="text-2xl font-bold text-white">{Math.round((Math.max(0, allCards.length - newCards) / (allCards.length || 1)) * 100)}%</span>
+                            <span className="text-[10px] text-white/60 uppercase tracking-wide font-medium">Đã học</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 

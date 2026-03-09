@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import HanziWriter from 'hanzi-writer';

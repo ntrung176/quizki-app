@@ -140,7 +140,7 @@ const KanjiStudyScreen = () => {
 
     return (
         <div className="space-y-6 max-w-5xl mx-auto pb-8">
-            {/* Header */}
+            {/* ===== 1. Header + Progress Ring - TOP ===== */}
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 p-6 md:p-8 shadow-2xl">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
                 <div className="relative flex flex-col md:flex-row items-center gap-6">
@@ -172,25 +172,7 @@ const KanjiStudyScreen = () => {
                 </div>
             </div>
 
-            {/* Stats Cards */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {[
-                    { icon: Calendar, label: 'Đã học', value: stats.daysProgress, sub: 'ngày', color: 'from-emerald-500 to-teal-500', iconBg: 'bg-emerald-100 dark:bg-emerald-900/40', iconColor: 'text-emerald-600 dark:text-emerald-400' },
-                    { icon: Target, label: 'Kanji', value: stats.kanjiLearned, sub: `/ ${stats.totalKanji} chữ`, color: 'from-cyan-500 to-blue-500', iconBg: 'bg-cyan-100 dark:bg-cyan-900/40', iconColor: 'text-cyan-600 dark:text-cyan-400' },
-                    { icon: Flame, label: 'Chuỗi ngày', value: stats.streak, sub: 'ngày liên tiếp', color: 'from-orange-500 to-amber-500', iconBg: 'bg-orange-100 dark:bg-orange-900/40', iconColor: 'text-orange-600 dark:text-orange-400' },
-                    { icon: TrendingUp, label: 'Tiến độ', value: `${stats.progressPercent}%`, sub: selectedLevel, color: 'from-pink-500 to-rose-500', iconBg: 'bg-pink-100 dark:bg-pink-900/40', iconColor: 'text-pink-600 dark:text-pink-400' },
-                ].map((stat, i) => (
-                    <div key={i} className="group bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-4 border border-gray-100 dark:border-slate-700/50 shadow-sm hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
-                        <div className={`w-9 h-9 rounded-xl ${stat.iconBg} flex items-center justify-center mb-3`}>
-                            <stat.icon className={`w-4.5 h-4.5 ${stat.iconColor}`} />
-                        </div>
-                        <div className="text-2xl font-bold text-gray-900 dark:text-white mb-0.5">{stat.value}</div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">{stat.sub}</div>
-                    </div>
-                ))}
-            </div>
-
-            {/* Level Selector */}
+            {/* ===== 2. Level Selector ===== */}
             <div className="grid grid-cols-5 gap-2">
                 {Object.entries(JLPT_CONFIG).map(([level, cfg]) => {
                     const levelData = kanjiList.filter(k => k.level === level);
@@ -219,7 +201,25 @@ const KanjiStudyScreen = () => {
                 })}
             </div>
 
-            {/* Day Navigation */}
+            {/* ===== 3. Stats Cards ===== */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {[
+                    { icon: Calendar, label: 'Đã học', value: stats.daysProgress, sub: 'ngày', iconBg: 'bg-emerald-100 dark:bg-emerald-900/40', iconColor: 'text-emerald-600 dark:text-emerald-400' },
+                    { icon: Target, label: 'Kanji', value: stats.kanjiLearned, sub: `/ ${stats.totalKanji} chữ`, iconBg: 'bg-cyan-100 dark:bg-cyan-900/40', iconColor: 'text-cyan-600 dark:text-cyan-400' },
+                    { icon: Flame, label: 'Chuỗi ngày', value: stats.streak, sub: 'ngày liên tiếp', iconBg: 'bg-orange-100 dark:bg-orange-900/40', iconColor: 'text-orange-600 dark:text-orange-400' },
+                    { icon: TrendingUp, label: 'Tiến độ', value: `${stats.progressPercent}%`, sub: selectedLevel, iconBg: 'bg-pink-100 dark:bg-pink-900/40', iconColor: 'text-pink-600 dark:text-pink-400' },
+                ].map((stat, i) => (
+                    <div key={i} className="group bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-4 border border-gray-100 dark:border-slate-700/50 shadow-sm hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
+                        <div className={`w-9 h-9 rounded-xl ${stat.iconBg} flex items-center justify-center mb-3`}>
+                            <stat.icon className={`w-4.5 h-4.5 ${stat.iconColor}`} />
+                        </div>
+                        <div className="text-2xl font-bold text-gray-900 dark:text-white mb-0.5">{stat.value}</div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">{stat.sub}</div>
+                    </div>
+                ))}
+            </div>
+
+            {/* ===== 4. Day Navigation ===== */}
             <div className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 dark:border-slate-700/50 shadow-sm">
                 <div className="flex items-center justify-between mb-4">
                     <button
@@ -269,7 +269,7 @@ const KanjiStudyScreen = () => {
                 </div>
             </div>
 
-            {/* Today's Kanji */}
+            {/* ===== 5. Today's Kanji ===== */}
             <div className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 md:p-6 border border-gray-100 dark:border-slate-700/50 shadow-sm">
                 <div className="flex items-center justify-between mb-5">
                     <div className="flex items-center gap-3">
@@ -290,7 +290,7 @@ const KanjiStudyScreen = () => {
                     </button>
                 </div>
 
-                {/* Kanji Grid */}
+                {/* Kanji Grid - 10 per row, simple style */}
                 <div className="grid grid-cols-5 md:grid-cols-10 gap-2.5">
                     {todayKanji.length > 0 ? (
                         todayKanji.map((kanji, index) => (
