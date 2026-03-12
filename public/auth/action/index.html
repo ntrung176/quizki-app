@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>QuizKi - Đang xử lý...</title>
+    <script>
+        // This page handles Firebase Auth action URLs (email verification, password reset)
+        // Since GitHub Pages doesn't support SPA routing natively,
+        // we redirect to the main app with the path and query params encoded in session storage.
+        // The main app (index.html) will pick up these params and render the correct screen.
+        sessionStorage.setItem('authActionParams', window.location.search);
+        sessionStorage.setItem('authActionPath', '/auth/action');
+        window.location.replace('/' + '?authRedirect=true');
+    </script>
+</head>
+
+<body>
+    <p>Đang chuyển hướng...</p>
+</body>
+
+</html>

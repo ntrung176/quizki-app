@@ -123,6 +123,21 @@ const AppRoutes = ({
     const navigate = useNavigate();
     const aiCreditsRemaining = profile?.aiCreditsRemaining;
 
+    // Handle auth action redirect from static /auth/action/index.html page
+    // GitHub Pages can't do SPA routing for /auth/action, so the static page
+    // stores params in sessionStorage and redirects to /?authRedirect=true
+    React.useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('authRedirect') === 'true') {
+            const savedParams = sessionStorage.getItem('authActionParams');
+            sessionStorage.removeItem('authActionParams');
+            sessionStorage.removeItem('authActionPath');
+            if (savedParams) {
+                navigate(`/auth/action${savedParams}`, { replace: true });
+            }
+        }
+    }, [navigate]);
+
     // Loading state
     if (isLoading) {
         return <LoadingIndicator text="Đang tải..." />;

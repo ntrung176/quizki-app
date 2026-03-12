@@ -12,6 +12,7 @@ const AuthActionScreen = () => {
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
 
+    // Try to get params from URL first, then from sessionStorage (set by static redirect page)
     const mode = searchParams.get('mode');
     const oobCode = searchParams.get('oobCode');
 
