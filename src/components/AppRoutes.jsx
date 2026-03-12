@@ -147,6 +147,7 @@ const AppRoutes = ({
 
                 {/* Firebase Auth action handler (email verification, password reset) */}
                 <Route path={ROUTES.AUTH_ACTION} element={<AuthActionScreen />} />
+                <Route path={ROUTES.AUTH_ACTION_FIREBASE_DEFAULT} element={<AuthActionScreen />} />
 
                 {/* Protected routes - require both auth and approval */}
 

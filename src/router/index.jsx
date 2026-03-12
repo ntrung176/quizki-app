@@ -44,6 +44,7 @@ export const ROUTES = {
     FEEDBACK: '/feedback',
     UPGRADE: '/upgrade',
     AUTH_ACTION: '/auth/action',
+    AUTH_ACTION_FIREBASE_DEFAULT: '/__/auth/action',
 };
 
 // Helper function to generate edit route with ID
