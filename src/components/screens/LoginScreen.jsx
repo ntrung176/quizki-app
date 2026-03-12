@@ -19,7 +19,7 @@ const appId = typeof __app_id !== 'undefined' ? __app_id : 'quizki-app';
 // Action code settings for email verification and password reset
 // This tells Firebase to redirect to our custom handler instead of the default Firebase one
 const getActionCodeSettings = () => ({
-    url: `${window.location.origin}/__/auth/action`,
+    url: `${window.location.origin}/auth/action`,
     handleCodeInApp: false,
 });
 
@@ -56,12 +56,17 @@ const LoginScreen = () => {
             if (mode === 'login') {
                 const cred = await signInWithEmailAndPassword(auth, email.trim(), password);
                 if (!cred.user.emailVerified) {
+                    let verificationMsg = 'Email của bạn chưa được xác thực. Vui lòng kiểm tra hộp thư (và mục Spam), bấm vào link xác nhận rồi đăng nhập lại.';
                     try {
                         await sendEmailVerification(cred.user, getActionCodeSettings());
+                        verificationMsg = 'Đã gửi lại email xác thực. ' + verificationMsg;
                     } catch (ve) {
                         console.error('Lỗi gửi lại email xác thực:', ve);
+                        if (ve.code === 'auth/too-many-requests') {
+                            verificationMsg = 'Bạn đã yêu cầu gửi email quá nhiều lần. Vui lòng kiểm tra hộp thư (hoặc mục Spam) hoặc đợi vài phút trước khi thử đăng nhập lại.';
+                        }
                     }
-                    setError('Email của bạn chưa được xác thực. Vui lòng kiểm tra hộp thư, bấm vào link xác nhận rồi đăng nhập lại.');
+                    setError(verificationMsg);
                     await signOut(auth);
                     return;
                 }
@@ -72,7 +77,11 @@ const LoginScreen = () => {
                     setInfo('Đăng ký thành công! Một email xác thực đã được gửi, vui lòng kiểm tra hộp thư và xác thực tài khoản.');
                 } catch (ve) {
                     console.error('Lỗi gửi email xác thực:', ve);
-                    setInfo('Đăng ký thành công, nhưng không gửi được email xác thực. Vui lòng thử lại chức năng quên mật khẩu hoặc liên hệ hỗ trợ.');
+                    if (ve.code === 'auth/too-many-requests') {
+                        setInfo('Đăng ký thành công, nhưng hệ thống đang gửi quá nhiều email. Vui lòng chờ vài phút rồi chọn tính năng quên mật khẩu để xác thực.');
+                    } else {
+                        setInfo('Đăng ký thành công, nhưng không gửi được email xác thực. Vui lòng thử lại chức năng quên mật khẩu hoặc liên hệ hỗ trợ.');
+                    }
                 }
                 if (db) {
                     const defaultName = email.trim().split('@')[0];
@@ -120,9 +129,12 @@ const LoginScreen = () => {
             setInfo('Đã gửi email đặt lại mật khẩu. Vui lòng kiểm tra hộp thư của bạn.');
         } catch (e) {
             console.error('Lỗi quên mật khẩu:', e);
-            const msg = e.code === 'auth/user-not-found'
-                ? 'Không tìm thấy tài khoản với email này.'
-                : 'Không thể gửi email đặt lại mật khẩu. Vui lòng thử lại.';
+            let msg = 'Không thể gửi email đặt lại mật khẩu. Vui lòng thử lại.';
+            if (e.code === 'auth/user-not-found') {
+                msg = 'Không tìm thấy tài khoản với email này.';
+            } else if (e.code === 'auth/too-many-requests') {
+                msg = 'Bạn đã yêu cầu quá nhiều lần. Vui lòng chờ vài phút trước khi thử lại.';
+            }
             setError(msg);
         }
     };
