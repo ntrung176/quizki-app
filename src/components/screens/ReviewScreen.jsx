@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
     Zap, RotateCw, MessageSquare, FileText, Repeat2, Send,
-    ChevronRight, Check, X, Lightbulb
+    ChevronRight, Check, X, Lightbulb, ArrowLeft
 } from 'lucide-react';
 import { POS_TYPES, getPosLabel, getPosColor, getLevelColor } from '../../config/constants';
 import { playAudio, speakJapanese } from '../../utils/audio';
@@ -28,7 +28,8 @@ const ReviewScreen = ({
     onUpdateCard,
     onCompleteReview,
     vocabCollectionPath,
-    onSaveCardAudio
+    onSaveCardAudio,
+    onBack
 }) => {
     const [cards, setCards] = useState(initialCards);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -412,6 +413,7 @@ const ReviewScreen = ({
     const formatMultipleMeanings = (text) => {
         if (!text) return text;
 
+        const numberSymbols = ['➀', '➁', '➂', '➃', '➄', '➅', '➆', '➇', '➈', '➉'];
         let meanings = [];
 
         const numberedMatches = [];
@@ -458,7 +460,10 @@ const ReviewScreen = ({
             return text;
         }
 
-        return meanings.map((meaning, index) => `${index + 1}. ${meaning}`).join('\n');
+        return meanings.map((meaning, index) => {
+            const symbol = numberSymbols[index] || `${index + 1}.`;
+            return `${symbol} ${meaning}`;
+        }).join('\n');
     };
 
     const getPrompt = () => {
@@ -699,488 +704,525 @@ const ReviewScreen = ({
 
     const progress = Math.round(((currentIndex) / cards.length) * 100);
 
-    return (
-        <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3 p-4 border-2 border-indigo-400/30 rounded-2xl">
-            {/* Progress bar */}
-            <div className="w-full space-y-1 flex-shrink-0">
-                <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
-                    <span>{currentIndex + 1} / {cards.length}</span>
-                    {failedCards.size > 0 && <span className="text-red-500">({failedCards.size} sai)</span>}
-                </div>
-                <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-indigo-500 progress-bar rounded-full" style={{ width: `${progress}%` }}></div>
-                </div>
-            </div>
+    // Keyboard shortcut for multiple choice: press 1-4 to select
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (!isMultipleChoice || isRevealed || isProcessing || feedback) return;
+            // Don't trigger if typing in an input
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            const key = parseInt(e.key);
+            if (key >= 1 && key <= 4 && multipleChoiceOptions[key - 1]) {
+                e.preventDefault();
+                const btn = document.querySelector(`[data-mc-option="${key - 1}"]`);
+                if (btn) btn.click();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [isMultipleChoice, isRevealed, isProcessing, feedback, multipleChoiceOptions]);
 
-            {/* Flashcard Area */}
-            <div className="w-full relative group perspective flex-shrink-0 overflow-hidden">
-                {reviewMode === 'flashcard' ? (
-                    <div className="perspective-1000 w-full max-w-[220px] md:max-w-[260px] mx-auto relative" style={{ minHeight: '300px' }}>
-                        <div
-                            className={`flip-card-container transform-style-3d cursor-pointer relative card-slide ${isFlipped ? 'rotate-y-180' : ''} ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
-                            onClick={() => {
-                                if (Math.abs(swipeOffset) < 10) {
-                                    const newFlippedState = !isFlipped;
-                                    setIsFlipped(newFlippedState);
-                                    if (newFlippedState && currentCard) {
-                                        speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-                                    }
-                                }
-                            }}
-                            onTouchStart={onTouchStart}
-                            onTouchMove={onTouchMove}
-                            onTouchEnd={onTouchEnd}
-                            style={{
-                                width: '100%',
-                                height: '340px',
-                                transform: swipeOffset ? `translateX(${swipeOffset}px)` : undefined,
-                                transition: swipeOffset ? 'none' : (slideDirection ? 'transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.3s ease' : 'transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1)'),
-                                touchAction: 'pan-y',
-                            }}
+    return (
+        <div className="relative w-full h-full flex flex-col justify-center">
+            <div className="w-[800px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3">
+                {/* Back Button - outside frame */}
+                {onBack && (
+                    <div className="w-full flex justify-start mb-1">
+                        <button
+                            onClick={onBack}
+                            className="p-2 rounded-xl bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200 shadow-md backdrop-blur-sm transition-all border border-gray-200 dark:border-slate-700 hover:scale-105 flex items-center gap-1.5"
+                            title="Trở lại"
                         >
-                            {/* Front side */}
-                            <div className="flip-card-front backface-hidden absolute inset-0 w-full h-full">
-                                <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl shadow-2xl p-6 flex flex-col items-center justify-center w-full h-full border-4 border-white hover:shadow-3xl transition-shadow overflow-hidden">
-                                    <div className="text-center flex-1 flex flex-col justify-center w-full px-2">
-                                        <p className="text-xs text-indigo-200 mb-3 font-medium uppercase tracking-wide">Từ vựng</p>
-                                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight break-words font-japanese">{currentCard.front}</h3>
-                                        <div className="flex items-center justify-center gap-2 flex-wrap">
-                                            {currentCard.level && (
-                                                <span className="inline-block px-2 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold rounded-full">
-                                                    {currentCard.level}
-                                                </span>
-                                            )}
-                                            {currentCard.pos && (
-                                                <span className="inline-block px-2 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full">
-                                                    {POS_TYPES[currentCard.pos]?.label || currentCard.pos}
-                                                </span>
-                                            )}
+                            <ArrowLeft className="w-5 h-5" />
+                            <span className="text-sm font-medium">Trở lại</span>
+                        </button>
+                    </div>
+                )}
+                <div className="w-full flex flex-col justify-center items-center space-y-3 p-4 border-2 border-indigo-400/30 rounded-2xl">
+                    {/* Progress bar */}
+                    <div className="w-full space-y-1 flex-shrink-0">
+                        <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
+                            <span>{currentIndex + 1} / {cards.length}</span>
+                            {failedCards.size > 0 && <span className="text-red-500">({failedCards.size} sai)</span>}
+                        </div>
+                        <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                            <div className="h-full bg-indigo-500 progress-bar rounded-full" style={{ width: `${progress}%` }}></div>
+                        </div>
+                    </div>
+
+                    {/* Flashcard Area */}
+                    <div className="w-full relative group perspective flex-shrink-0 overflow-hidden">
+                        {reviewMode === 'flashcard' ? (
+                            <div className="perspective-1000 w-full max-w-[700px] mx-auto relative" style={{ minHeight: '480px' }}>
+                                <div
+                                    className={`flip-card-container transform-style-3d cursor-pointer relative card-slide ${isFlipped ? 'rotate-y-180' : ''} ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
+                                    onClick={() => {
+                                        if (Math.abs(swipeOffset) < 10) {
+                                            const newFlippedState = !isFlipped;
+                                            setIsFlipped(newFlippedState);
+                                            if (newFlippedState && currentCard) {
+                                                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+                                            }
+                                        }
+                                    }}
+                                    onTouchStart={onTouchStart}
+                                    onTouchMove={onTouchMove}
+                                    onTouchEnd={onTouchEnd}
+                                    style={{
+                                        width: '100%',
+                                        height: '480px',
+                                        transform: swipeOffset ? `translateX(${swipeOffset}px)` : undefined,
+                                        transition: swipeOffset ? 'none' : (slideDirection ? 'transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.3s ease' : 'transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1)'),
+                                        touchAction: 'pan-y',
+                                    }}
+                                >
+                                    {/* Front side */}
+                                    <div className="flip-card-front backface-hidden absolute inset-0 w-full h-full">
+                                        <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl shadow-2xl p-6 flex flex-col items-center justify-center w-full h-full border-4 border-white hover:shadow-3xl transition-shadow overflow-hidden">
+                                            <div className="text-center flex-1 flex flex-col justify-center w-full px-2">
+                                                <p className="text-xs text-indigo-200 mb-3 font-medium uppercase tracking-wide">Từ vựng</p>
+                                                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight break-words font-japanese">{currentCard.front}</h3>
+                                                <div className="flex items-center justify-center gap-2 flex-wrap">
+                                                    {currentCard.level && (
+                                                        <span className="inline-block px-2 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold rounded-full">
+                                                            {currentCard.level}
+                                                        </span>
+                                                    )}
+                                                    {currentCard.pos && (
+                                                        <span className="inline-block px-2 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full">
+                                                            {POS_TYPES[currentCard.pos]?.label || currentCard.pos}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            </div>
+                                            <div className="absolute bottom-4 right-4 text-white/30">
+                                                <RotateCw className="w-4 h-4 animate-pulse" />
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="absolute bottom-4 right-4 text-white/30">
-                                        <RotateCw className="w-4 h-4 animate-pulse" />
+
+                                    {/* Back side */}
+                                    <div className="flip-card-back backface-hidden absolute inset-0 w-full h-full rotate-y-180">
+                                        <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl shadow-2xl p-6 w-full h-full border-4 border-white hover:shadow-3xl transition-shadow flex flex-col">
+                                            <div className="flex-1 flex items-center justify-center gap-5">
+                                                {/* Image on the left */}
+                                                {currentCard.imageBase64 && (
+                                                    <div className="shrink-0">
+                                                        <img
+                                                            src={currentCard.imageBase64}
+                                                            alt={currentCard.front}
+                                                            className="w-36 h-36 md:w-44 md:h-44 rounded-2xl object-cover border-4 border-white/30 shadow-lg"
+                                                        />
+                                                    </div>
+                                                )}
+                                                <div className={`flex flex-col gap-3 ${currentCard.imageBase64 ? 'text-left' : 'text-center items-center'}`}>
+                                                    <p className="text-xs text-emerald-200 font-medium uppercase tracking-wide">Ý nghĩa</p>
+                                                    <div className="text-3xl md:text-4xl font-extrabold text-white leading-relaxed break-words whitespace-pre-line">
+                                                        {formatMultipleMeanings(currentCard.back)}
+                                                    </div>
+                                                    {currentCard.sinoVietnamese && (
+                                                        <p className="text-base font-medium text-yellow-300 mt-2">
+                                                            <span className="text-slate-400 font-normal">Hán Việt: </span>{currentCard.sinoVietnamese}
+                                                        </p>
+                                                    )}
+                                                    {currentCard.synonym && (
+                                                        <p className="text-emerald-100 text-sm">
+                                                            <span className="font-semibold">Đồng nghĩa:</span> {currentCard.synonym}
+                                                        </p>
+                                                    )}
+                                                </div>
+                                            </div>
+                                            <div className="absolute bottom-4 right-4 text-white/30">
+                                                <RotateCw className="w-4 h-4 animate-pulse" />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <p className="text-center text-[10px] md:text-xs text-gray-500 mt-3 flex items-center justify-center gap-1">
+                                    <RotateCw className="w-3 h-3" />
+                                    Click vào card để lật | Space: Lật | ← →: Chuyển thẻ | Trượt trái/phải: Chuyển thẻ
+                                </p>
                             </div>
+                        ) : (
+                            <div className="w-full bg-slate-800 dark:bg-slate-900 rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center relative overflow-hidden h-[400px] border-2 border-indigo-500/50">
+                                {/* Header with mode label and toggle buttons */}
+                                <div className="w-full flex justify-between items-center absolute top-4 left-0 px-4">
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-orange-500 text-xl">🔥</span>
+                                        <span className="text-white font-bold text-sm">
+                                            {cardReviewType === 'back' ? (inputMode === 'reading' ? 'Cách đọc' : 'Ý nghĩa') : cardReviewType === 'synonym' ? 'Đồng nghĩa' : 'Ngữ cảnh'}
+                                        </span>
+                                    </div>
+                                    {/* Only show toggle buttons for back mode */}
+                                    {cardReviewType === 'back' && !isMultipleChoice && (
+                                        <div className="flex gap-2">
+                                            <button
+                                                onClick={() => { setInputMode('reading'); setInputValue(''); setHintCount(0); }}
+                                                className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${inputMode === 'reading' ? 'bg-orange-500 text-white' : 'bg-slate-700 text-gray-300 hover:bg-slate-600'}`}
+                                            >
+                                                Cách đọc
+                                            </button>
+                                            <button
+                                                onClick={() => { setInputMode('meaning'); setInputValue(''); setHintCount(0); }}
+                                                className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${inputMode === 'meaning' ? 'bg-orange-500 text-white' : 'bg-slate-700 text-gray-300 hover:bg-slate-600'}`}
+                                            >
+                                                Ý nghĩa
+                                            </button>
+                                        </div>
+                                    )}
+                                </div>
 
-                            {/* Back side */}
-                            <div className="flip-card-back backface-hidden absolute inset-0 w-full h-full rotate-y-180">
-                                <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl shadow-2xl p-6 w-full h-full border-4 border-white hover:shadow-3xl transition-shadow flex flex-col overflow-y-auto">
-                                    <div className="flex-1 flex items-center justify-center gap-4">
-                                        {/* Image on the left */}
+                                {/* Word display - changes based on inputMode and cardReviewType */}
+                                <div className="py-4 w-full">
+                                    {/* Content area with image on left */}
+                                    <div className={`flex items-center gap-8 ${currentCard.imageBase64 ? 'justify-center' : 'justify-center'}`}>
                                         {currentCard.imageBase64 && (
                                             <div className="shrink-0">
                                                 <img
                                                     src={currentCard.imageBase64}
                                                     alt={currentCard.front}
-                                                    className="w-24 h-24 rounded-xl object-cover border-2 border-white/20"
+                                                    className="w-36 h-36 md:w-44 md:h-44 rounded-xl object-cover border border-slate-500/30"
                                                 />
                                             </div>
                                         )}
-                                        <div className={currentCard.imageBase64 ? 'text-left' : 'text-center'}>
-                                            <p className="text-xs text-emerald-200 mb-2 font-medium uppercase tracking-wide">Ý nghĩa</p>
-                                            <div className="text-3xl md:text-4xl font-extrabold text-white leading-relaxed break-words px-2 whitespace-pre-line">
-                                                {formatMultipleMeanings(currentCard.back)}
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="text-center space-y-1.5 mt-2 pb-8">
-                                        {currentCard.sinoVietnamese && (
-                                            <p className="text-emerald-100 text-[10px] leading-relaxed">
-                                                <span className="font-semibold">Hán Việt:</span> {currentCard.sinoVietnamese}
-                                            </p>
-                                        )}
-                                        {currentCard.synonym && (
-                                            <p className="text-emerald-100 text-[10px] leading-relaxed">
-                                                <span className="font-semibold">Đồng nghĩa:</span> {currentCard.synonym}
-                                            </p>
-                                        )}
-                                        {currentCard.example && (
-                                            <div className="pt-1.5 border-t border-white/20">
-                                                <p className="text-white/90 text-[10px] italic leading-relaxed whitespace-pre-line">
-                                                    "<FuriganaText text={currentCard.example} />"
-                                                </p>
-                                                {currentCard.exampleMeaning && (
-                                                    <p className="text-emerald-100 text-[9px] mt-1 leading-relaxed whitespace-pre-line">
-                                                        {currentCard.exampleMeaning}
-                                                    </p>
-                                                )}
-                                            </div>
-                                        )}
-                                    </div>
-
-                                    <div className="absolute bottom-4 right-4 text-white/30">
-                                        <RotateCw className="w-4 h-4 animate-pulse" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <p className="text-center text-[10px] md:text-xs text-gray-500 mt-3 flex items-center justify-center gap-1">
-                            <RotateCw className="w-3 h-3" />
-                            Click vào card để lật | Space: Lật | ← →: Chuyển thẻ | Trượt trái/phải: Chuyển thẻ
-                        </p>
-                    </div>
-                ) : (
-                    <div className="w-full bg-slate-800 dark:bg-slate-900 rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center relative overflow-hidden h-[280px] border-2 border-indigo-500/50">
-                        {/* Header with mode label and toggle buttons */}
-                        <div className="w-full flex justify-between items-center absolute top-4 left-0 px-4">
-                            <div className="flex items-center gap-2">
-                                <span className="text-orange-500 text-xl">🔥</span>
-                                <span className="text-white font-bold text-sm">
-                                    {cardReviewType === 'back' ? (inputMode === 'reading' ? 'Cách đọc' : 'Ý nghĩa') : cardReviewType === 'synonym' ? 'Đồng nghĩa' : 'Ngữ cảnh'}
-                                </span>
-                            </div>
-                            {/* Only show toggle buttons for back mode */}
-                            {cardReviewType === 'back' && !isMultipleChoice && (
-                                <div className="flex gap-2">
-                                    <button
-                                        onClick={() => { setInputMode('reading'); setInputValue(''); setHintCount(0); }}
-                                        className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${inputMode === 'reading' ? 'bg-orange-500 text-white' : 'bg-slate-700 text-gray-300 hover:bg-slate-600'}`}
-                                    >
-                                        Cách đọc
-                                    </button>
-                                    <button
-                                        onClick={() => { setInputMode('meaning'); setInputValue(''); setHintCount(0); }}
-                                        className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${inputMode === 'meaning' ? 'bg-orange-500 text-white' : 'bg-slate-700 text-gray-300 hover:bg-slate-600'}`}
-                                    >
-                                        Ý nghĩa
-                                    </button>
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Word display - changes based on inputMode and cardReviewType */}
-                        <div className="py-4 w-full">
-                            {/* Content area with image on left */}
-                            <div className={`flex items-center gap-4 ${currentCard.imageBase64 ? 'justify-start' : 'justify-center'}`}>
-                                {currentCard.imageBase64 && (
-                                    <div className="shrink-0">
-                                        <img
-                                            src={currentCard.imageBase64}
-                                            alt={currentCard.front}
-                                            className="w-24 h-24 rounded-xl object-cover border border-slate-500/30"
-                                        />
-                                    </div>
-                                )}
-                                <div className={currentCard.imageBase64 ? 'text-left flex-1' : 'text-center'}>{cardReviewType === 'synonym' ? (
-                                    <>
-                                        {/* Synonym mode: Show synonym from card */}
-                                        <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed line-clamp-3 font-japanese">
-                                            {currentCard.synonym || 'Không có từ đồng nghĩa'}
-                                        </div>
-                                        <div className="text-sm text-gray-400 mt-2">
-                                            Tìm từ đồng nghĩa
-                                        </div>
-                                    </>
-                                ) : cardReviewType === 'example' ? (
-                                    <>
-                                        {/* Example mode: Show example sentence with masked word */}
-                                        <div className="text-lg md:text-xl font-medium text-white leading-relaxed line-clamp-4 font-japanese">
-                                            <FuriganaText text={promptInfo.text} />
-                                        </div>
-                                        {promptInfo.meaning && (
-                                            <div className="text-sm text-gray-400 mt-2 italic">
-                                                "{promptInfo.meaning}"
-                                            </div>
-                                        )}
-                                        {/* Show ALL additional examples if card has multiple */}
-                                        {(() => {
-                                            const exampleLines = (currentCard.example || '').split('\n').filter(e => e.trim());
-                                            const exampleMeaningLines = (currentCard.exampleMeaning || '').split('\n').filter(e => e.trim());
-                                            if (exampleLines.length <= 1) return null;
-                                            return (
-                                                <div className="mt-3 pt-3 border-t border-white/20 space-y-2 w-full">
-                                                    {exampleLines.slice(1).map((ex, i) => (
-                                                        <div key={i} className="text-left">
-                                                            <p className="text-sm text-white/80 font-japanese">
-                                                                <FuriganaText text={(() => {
-                                                                    const wordToMask = getWordForMasking(currentCard.front);
-                                                                    const readingForMask = getReadingForMasking(currentCard.front);
-                                                                    return maskWordInExample(wordToMask, ex, currentCard.pos, readingForMask);
-                                                                })()} />
-                                                            </p>
-                                                            {exampleMeaningLines[i + 1] && (
-                                                                <p className="text-xs text-gray-400 italic mt-0.5">
-                                                                    "{exampleMeaningLines[i + 1]}"
-                                                                </p>
-                                                            )}
-                                                        </div>
-                                                    ))}
+                                        <div className={currentCard.imageBase64 ? 'text-center flex-1 min-w-0' : 'text-center'}>{cardReviewType === 'synonym' ? (
+                                            <>
+                                                {/* Synonym mode: Show synonym from card */}
+                                                <div className="text-3xl md:text-4xl font-bold text-white leading-relaxed break-words font-japanese">
+                                                    {currentCard.synonym || 'Không có từ đồng nghĩa'}
                                                 </div>
-                                            );
-                                        })()}
-                                    </>
-                                ) : inputMode === 'reading' ? (
-                                    <>
-                                        {/* Reading mode: Show meaning, user inputs word */}
-                                        <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed whitespace-pre-line">
-                                            {formatMultipleMeanings(currentCard.back)}
+                                                <div className="text-sm text-gray-400 mt-2">
+                                                    Tìm từ đồng nghĩa
+                                                </div>
+                                            </>
+                                        ) : cardReviewType === 'example' ? (
+                                            <>
+                                                {/* Example mode: Show example sentence with masked word */}
+                                                <div className="text-lg md:text-xl font-medium text-white leading-relaxed font-japanese break-words">
+                                                    <FuriganaText text={promptInfo.text} />
+                                                </div>
+                                                {promptInfo.meaning && (
+                                                    <div className="text-base text-gray-400 mt-2 italic break-words">
+                                                        "{promptInfo.meaning.replace(/^"|"$/g, '')}"
+                                                    </div>
+                                                )}
+                                                {/* Show ALL additional examples if card has multiple */}
+                                                {(() => {
+                                                    const exampleLines = (currentCard.example || '').split('\n').filter(e => e.trim());
+                                                    const exampleMeaningLines = (currentCard.exampleMeaning || '').split('\n').filter(e => e.trim());
+                                                    if (exampleLines.length <= 1) return null;
+                                                    return (
+                                                        <div className="mt-3 pt-3 border-t border-white/20 space-y-2 w-full">
+                                                            {exampleLines.slice(1).map((ex, i) => (
+                                                                <div key={i} className="text-center">
+                                                                    <p className="text-lg md:text-xl text-white font-japanese break-words font-medium">
+                                                                        <FuriganaText text={(() => {
+                                                                            const wordToMask = getWordForMasking(currentCard.front);
+                                                                            const readingForMask = getReadingForMasking(currentCard.front);
+                                                                            return maskWordInExample(wordToMask, ex, currentCard.pos, readingForMask);
+                                                                        })()} />
+                                                                    </p>
+                                                                    {exampleMeaningLines[i + 1] && (
+                                                                        <p className="text-base text-gray-400 italic mt-1 break-words">
+                                                                            "{exampleMeaningLines[i + 1].replace(/^"|"$/g, '')}"
+                                                                        </p>
+                                                                    )}
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    );
+                                                })()}
+                                            </>
+                                        ) : inputMode === 'reading' ? (
+                                            <>
+                                                {/* Reading mode: Show meaning, user inputs word */}
+                                                <div className="text-3xl md:text-4xl font-bold text-white leading-relaxed whitespace-pre-line break-words">
+                                                    {formatMultipleMeanings(currentCard.back)}
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                {/* Meaning mode: Show word only, user inputs meaning */}
+                                                <div className="text-4xl md:text-5xl font-black text-white leading-relaxed font-japanese">
+                                                    {currentCard.front.split('（')[0].split('(')[0]}
+                                                </div>
+                                            </>
+                                        )}
+
+                                            {/* Sino-Vietnamese hint */}
+                                            {!['synonym', 'example'].includes(cardReviewType) && currentCard.sinoVietnamese && (
+                                                <p className="text-base font-medium text-yellow-300 mt-4">
+                                                    <span className="text-slate-400 font-normal">Hán Việt: </span>{currentCard.sinoVietnamese}
+                                                </p>
+                                            )}
                                         </div>
-                                    </>
-                                ) : (
-                                    <>
-                                        {/* Meaning mode: Show word only, user inputs meaning */}
-                                        <div className="text-4xl md:text-5xl font-black text-white leading-relaxed font-japanese">
-                                            {currentCard.front.split('（')[0].split('(')[0]}
-                                        </div>
-                                    </>
-                                )}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        {/* Sino-Vietnamese hint */}
-                        {!['synonym', 'example'].includes(cardReviewType) && currentCard.sinoVietnamese && (
-                            <span className="text-sm font-semibold text-pink-400 bg-pink-900/30 px-3 py-1 rounded-full">
-                                {currentCard.sinoVietnamese}
-                            </span>
                         )}
                     </div>
-                )}
-            </div>
 
-            {/* Interaction Area */}
-            <div className="w-full space-y-2 flex-shrink-0">
-                {/* Multiple Choice */}
-                {isMultipleChoice && !isRevealed && multipleChoiceOptions.length > 0 && (
-                    <div className="space-y-3">
-                        <p className="text-sm font-medium text-gray-600 dark:text-gray-300 text-center">
-                            {cardReviewType === 'synonym'
-                                ? `Từ đồng nghĩa của "${promptInfo.text}" là gì?`
-                                : `Điền từ còn thiếu`
-                            }
-                        </p>
-                        <div className="grid grid-cols-2 gap-2">
-                            {multipleChoiceOptions.map((option, index) => {
-                                const isSelected = selectedAnswer === option;
-                                let buttonClass = "px-3 py-3 text-sm font-bold rounded-xl transition-all border-2 text-center ";
+                    {/* Interaction Area */}
+                    <div className="w-full space-y-2 flex-shrink-0">
+                        {/* Multiple Choice */}
+                        {isMultipleChoice && !isRevealed && multipleChoiceOptions.length > 0 && (
+                            <div className="space-y-3">
+                                <p className="text-sm font-medium text-gray-600 dark:text-gray-300 text-center">
+                                    {cardReviewType === 'synonym'
+                                        ? `Từ đồng nghĩa của "${promptInfo.text}" là gì?`
+                                        : `Điền từ còn thiếu`
+                                    }
+                                </p>
+                                <div className="grid grid-cols-2 gap-2">
+                                    {multipleChoiceOptions.map((option, index) => {
+                                        const isSelected = selectedAnswer === option;
+                                        let buttonClass = "px-3 py-3 text-sm font-bold rounded-xl transition-all border-2 text-left flex items-center gap-3 ";
 
-                                if (feedback && isSelected && feedback === 'correct') {
-                                    buttonClass += "bg-emerald-500 text-white border-emerald-600 shadow-md";
-                                } else if (feedback && isSelected && feedback === 'incorrect') {
-                                    buttonClass += "bg-red-500 text-white border-red-600 shadow-md";
-                                } else if (feedback && option === currentCard.front) {
-                                    // Highlight đáp án đúng khi sai
-                                    buttonClass += "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-500";
-                                } else if (isSelected) {
-                                    buttonClass += "bg-indigo-500 text-white border-indigo-600 shadow-md";
-                                } else {
-                                    buttonClass += "bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:border-indigo-400";
-                                }
+                                        if (feedback && isSelected && feedback === 'correct') {
+                                            buttonClass += "bg-emerald-500 text-white border-emerald-600 shadow-md";
+                                        } else if (feedback && isSelected && feedback === 'incorrect') {
+                                            buttonClass += "bg-red-500 text-white border-red-600 shadow-md";
+                                        } else if (feedback && option === currentCard.front) {
+                                            // Highlight đáp án đúng khi sai
+                                            buttonClass += "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-500";
+                                        } else if (isSelected) {
+                                            buttonClass += "bg-indigo-500 text-white border-indigo-600 shadow-md";
+                                        } else {
+                                            buttonClass += "bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:border-indigo-400";
+                                        }
 
-                                return (
-                                    <button
-                                        key={index}
-                                        data-mc-option={index}
-                                        onClick={async () => {
-                                            if (isRevealed || isProcessing || feedback) return;
-                                            setSelectedAnswer(option);
+                                        return (
+                                            <button
+                                                key={index}
+                                                data-mc-option={index}
+                                                onClick={async () => {
+                                                    if (isRevealed || isProcessing || feedback) return;
+                                                    setSelectedAnswer(option);
 
-                                            // Auto-submit ngay khi click
-                                            const isCorrect = option === currentCard.front;
-                                            const cardKey = `${currentCard.id}-${cardReviewType}`;
-                                            const hasFailedBefore = failedCards.has(cardKey);
+                                                    // Auto-submit ngay khi click
+                                                    const isCorrect = option === currentCard.front;
+                                                    const cardKey = `${currentCard.id}-${cardReviewType}`;
+                                                    const hasFailedBefore = failedCards.has(cardKey);
 
-                                            setIsProcessing(true);
+                                                    setIsProcessing(true);
 
-                                            if (isCorrect) {
-                                                if (hasFailedBefore) {
-                                                    setFailedCards(prev => {
-                                                        const newSet = new Set(prev);
-                                                        newSet.delete(cardKey);
-                                                        return newSet;
-                                                    });
-                                                    setFeedback('correct');
-                                                    setMessage(`Chính xác! ${displayFront} - Đã hoàn thành!`);
-                                                } else {
-                                                    setFeedback('correct');
-                                                    setMessage(`Chính xác! ${displayFront}`);
-                                                }
-                                                flashCorrect();
-                                                playCorrectSound();
-                                                celebrateCorrectAnswer();
-                                            } else {
-                                                setFailedCards(prev => new Set([...prev, cardKey]));
-                                                setFeedback('incorrect');
-                                                setMessage(`Đáp án đúng: ${displayFront}`);
-                                                playIncorrectSound();
-
-                                                setCards(prevCards => {
-                                                    return prevCards.map(card => {
-                                                        if (card.id === currentCard.id) {
-                                                            const updatedCard = { ...card };
-                                                            if (cardReviewType === 'synonym') {
-                                                                updatedCard.correctStreak_synonym = 0;
-                                                            } else if (cardReviewType === 'example') {
-                                                                updatedCard.correctStreak_example = 0;
-                                                            }
-                                                            return updatedCard;
+                                                    if (isCorrect) {
+                                                        if (hasFailedBefore) {
+                                                            setFailedCards(prev => {
+                                                                const newSet = new Set(prev);
+                                                                newSet.delete(cardKey);
+                                                                return newSet;
+                                                            });
+                                                            setFeedback('correct');
+                                                            setMessage(`Chính xác! ${displayFront} - Đã hoàn thành!`);
+                                                        } else {
+                                                            setFeedback('correct');
+                                                            setMessage(`Chính xác! ${displayFront}`);
                                                         }
-                                                        return card;
-                                                    });
-                                                });
+                                                        flashCorrect();
+                                                        playCorrectSound();
+                                                        celebrateCorrectAnswer();
+                                                    } else {
+                                                        setFailedCards(prev => new Set([...prev, cardKey]));
+                                                        setFeedback('incorrect');
+                                                        setMessage(`Đáp án đúng: ${displayFront}`);
+                                                        playIncorrectSound();
 
-                                                await onUpdateCard(currentCard.id, false, cardReviewType, 'review', getResponseTime());
-                                            }
+                                                        setCards(prevCards => {
+                                                            return prevCards.map(card => {
+                                                                if (card.id === currentCard.id) {
+                                                                    const updatedCard = { ...card };
+                                                                    if (cardReviewType === 'synonym') {
+                                                                        updatedCard.correctStreak_synonym = 0;
+                                                                    } else if (cardReviewType === 'example') {
+                                                                        updatedCard.correctStreak_example = 0;
+                                                                    }
+                                                                    return updatedCard;
+                                                                }
+                                                                return card;
+                                                            });
+                                                        });
 
-                                            setIsRevealed(true);
-                                            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-                                            await new Promise(resolve => setTimeout(resolve, 1000));
-                                            await moveToNextCard(isCorrect);
-                                        }}
-                                        disabled={isRevealed || isProcessing || !!feedback}
-                                        className={buttonClass}
-                                    >
-                                        <span className="font-japanese">{option}</span>
-                                    </button>
-                                );
-                            })}
-                        </div>
-                        <p className="text-[10px] text-gray-400 dark:text-gray-500 text-center mt-1 opacity-70">⌨️ Dùng phím bàn phím để chọn nhanh</p>
-                    </div>
-                )}
+                                                        await onUpdateCard(currentCard.id, false, cardReviewType, 'review', getResponseTime());
+                                                    }
 
-                {/* Flashcard Mode Navigation */}
-                {reviewMode === 'flashcard' && (
-                    <div className="flex gap-2 md:gap-4">
-                        <button
-                            onClick={moveToPreviousCard}
-                            disabled={isProcessing || currentIndex === 0}
-                            className={`px-3 md:px-4 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all shadow-md ${isProcessing || currentIndex === 0
-                                ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-                                : 'bg-gray-500 dark:bg-gray-600 text-white hover:bg-gray-600 dark:hover:bg-gray-700 hover:shadow-lg hover:scale-105'
-                                }`}
-                            title="Thẻ trước (←)"
-                        >
-                            ←
-                        </button>
-                        <button
-                            onClick={() => {
-                                if (currentIndex < cards.length - 1) {
-                                    setSlideDirection('left');
-                                    setTimeout(() => {
-                                        setCurrentIndex(currentIndex + 1);
-                                        setSlideDirection('right');
-                                        setTimeout(() => setSlideDirection(''), 300);
-                                    }, 150);
-                                } else {
-                                    handleCompleteReview();
-                                }
-                            }}
-                            disabled={isProcessing}
-                            className={`flex-1 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all shadow-md ${isProcessing
-                                ? 'bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-500 cursor-not-allowed'
-                                : 'bg-gradient-to-r from-indigo-500 to-purple-600 dark:from-indigo-600 dark:to-purple-700 text-white hover:shadow-lg hover:scale-105'
-                                }`}
-                            title="Thẻ tiếp theo (→)"
-                        >
-                            {currentIndex < cards.length - 1 ? 'Thẻ tiếp theo →' : 'Hoàn thành'}
-                        </button>
-                    </div>
-                )}
-
-                {/* Typing Mode UI */}
-                {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
-                    <div className="space-y-3">
-                        {/* Hint Display - Only for reading mode */}
-                        {!isRevealed && inputMode === 'reading' && (
-                            <div className="flex justify-center gap-1.5">
-                                {currentCard.front.split('（')[0].split('(')[0].split('').map((char, idx) => (
-                                    <span
-                                        key={idx}
-                                        className={`inline-block w-7 h-9 leading-9 text-center text-base font-bold border-b-2 ${idx < hintCount
-                                            ? 'text-gray-800 dark:text-gray-200 border-indigo-500'
-                                            : 'text-gray-400 dark:text-gray-500 border-gray-300 dark:border-gray-600'
-                                            }`}
-                                    >
-                                        {idx < hintCount ? char : '_'}
-                                    </span>
-                                ))}
+                                                    setIsRevealed(true);
+                                                    speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+                                                    await new Promise(resolve => setTimeout(resolve, 1000));
+                                                    await moveToNextCard(isCorrect);
+                                                }}
+                                                disabled={isRevealed || isProcessing || !!feedback}
+                                                className={buttonClass}
+                                            >
+                                                <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/20 text-xs font-bold flex-shrink-0">{index + 1}</span>
+                                                <span className="font-japanese">{option}</span>
+                                            </button>
+                                        );
+                                    })}
+                                </div>
+                                <p className="text-[10px] text-gray-400 dark:text-gray-500 text-center mt-1 opacity-70">⌨️ Nhấn phím 1-4 để chọn nhanh</p>
                             </div>
                         )}
 
-                        {/* Input Section */}
-                        <input
-                            ref={inputRef}
-                            type="text"
-                            inputMode="text"
-                            autoComplete="off"
-                            autoCapitalize="off"
-                            autoCorrect="off"
-                            spellCheck="false"
-                            value={inputValue}
-                            onChange={(e) => setInputValue(e.target.value)}
-                            onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); isRevealed ? handleNext() : checkAnswer(); } }}
-                            onFocus={(e) => {
-                                if (window.innerWidth <= 768) {
-                                    setTimeout(() => {
-                                        e.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
-                                    }, 300);
-                                }
-                            }}
-                            disabled={feedback === 'correct'}
-                            className={`w-full px-5 py-3 text-lg font-semibold rounded-xl border-2 transition-all outline-none shadow-md
-                                ${feedback === 'correct'
-                                    ? 'border-green-400 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300'
-                                    : feedback === 'incorrect'
-                                        ? 'border-red-400 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300'
-                                        : 'border-gray-300 dark:border-gray-600 bg-gray-800 text-white focus:border-indigo-500'}`}
-                            placeholder={inputMode === 'reading' ? 'Nhập từ vựng tiếng Nhật...' : 'Nhập ý nghĩa tiếng Việt...'}
-                        />
-
-                        {/* Hint button and Check button row */}
-                        {!isRevealed && (
-                            <div className="flex gap-3">
-                                {inputMode === 'reading' && (
-                                    <button
-                                        onClick={() => {
-                                            const answer = currentCard.front.split('（')[0].split('(')[0];
-                                            if (hintCount < answer.length) {
-                                                setHintCount(prev => prev + 1);
-                                            }
-                                        }}
-                                        disabled={hintCount >= currentCard.front.split('（')[0].split('(')[0].length}
-                                        className="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl font-medium hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-                                    >
-                                        <Lightbulb className="w-4 h-4" />
-                                        <span>Gợi ý ({hintCount}/{currentCard.front.split('（')[0].split('(')[0].length})</span>
-                                    </button>
-                                )}
+                        {/* Flashcard Mode Navigation */}
+                        {reviewMode === 'flashcard' && (
+                            <div className="flex gap-2 md:gap-4">
                                 <button
-                                    onClick={checkAnswer}
-                                    disabled={!inputValue.trim() || isProcessing}
-                                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-bold shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                    onClick={moveToPreviousCard}
+                                    disabled={isProcessing || currentIndex === 0}
+                                    className={`px-3 md:px-4 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all shadow-md ${isProcessing || currentIndex === 0
+                                        ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                                        : 'bg-gray-500 dark:bg-gray-600 text-white hover:bg-gray-600 dark:hover:bg-gray-700 hover:shadow-lg hover:scale-105'
+                                        }`}
+                                    title="Thẻ trước (←)"
                                 >
-                                    <Check className="w-4 h-4" />
-                                    <span>Kiểm tra</span>
+                                    ←
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        if (currentIndex < cards.length - 1) {
+                                            setSlideDirection('left');
+                                            setTimeout(() => {
+                                                setCurrentIndex(currentIndex + 1);
+                                                setSlideDirection('right');
+                                                setTimeout(() => setSlideDirection(''), 300);
+                                            }, 150);
+                                        } else {
+                                            handleCompleteReview();
+                                        }
+                                    }}
+                                    disabled={isProcessing}
+                                    className={`flex-1 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all shadow-md ${isProcessing
+                                        ? 'bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-500 cursor-not-allowed'
+                                        : 'bg-gradient-to-r from-indigo-500 to-purple-600 dark:from-indigo-600 dark:to-purple-700 text-white hover:shadow-lg hover:scale-105'
+                                        }`}
+                                    title="Thẻ tiếp theo (→)"
+                                >
+                                    {currentIndex < cards.length - 1 ? 'Thẻ tiếp theo →' : 'Hoàn thành'}
                                 </button>
                             </div>
                         )}
-                    </div>
-                )}
 
-                {/* Feedback & Actions */}
-                {reviewMode !== 'flashcard' && (
-                    <div className="space-y-2 md:space-y-3">
-                        <div className={`transition-all duration-300 ease-out overflow-hidden ${isRevealed ? 'max-h-[120px] md:max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
-                            <div className={`p-3 md:p-5 rounded-xl md:rounded-2xl border flex items-start gap-2 md:gap-4 overflow-y-auto max-h-[120px] md:max-h-40 ${feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : feedback === 'incorrect' ? 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800' : 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700'}`}>
-                                {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
-                                    <div className={`p-1.5 md:p-2 rounded-full flex-shrink-0 ${feedback === 'correct' ? 'bg-green-200 dark:bg-green-800 text-green-700 dark:text-green-300' : 'bg-red-200 dark:bg-red-800 text-red-700 dark:text-red-300'}`}>
-                                        {feedback === 'correct' ? <Check className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3} /> : <X className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3} />}
+                        {/* Typing Mode UI */}
+                        {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
+                            <div className="space-y-3">
+                                {/* Hint Display - Only for reading mode, show hiragana */}
+                                {!isRevealed && inputMode === 'reading' && (
+                                    <div className="flex justify-center gap-1.5">
+                                        {(() => {
+                                            // Extract hiragana reading for hint
+                                            const hiraganaMatch = currentCard.front.match(/[（(]([^）)]+)[）)]/);
+                                            const reading = hiraganaMatch ? hiraganaMatch[1] : currentCard.front.split('（')[0].split('(')[0];
+                                            const maxHint = Math.ceil(reading.length / 2); // Max half the characters
+                                            return reading.split('').map((char, idx) => (
+                                                <span
+                                                    key={idx}
+                                                    className={`inline-block w-7 h-9 leading-9 text-center text-base font-bold border-b-2 font-japanese ${idx < hintCount && idx < maxHint
+                                                        ? 'text-cyan-300 border-cyan-400'
+                                                        : 'text-gray-400 dark:text-gray-500 border-gray-300 dark:border-gray-600'
+                                                        }`}
+                                                >
+                                                    {idx < hintCount && idx < maxHint ? char : '_'}
+                                                </span>
+                                            ));
+                                        })()}
                                     </div>
                                 )}
-                                <div className="flex-1 min-w-0">
-                                    <div>
-                                        <p className={`font-bold text-base md:text-xl ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'}`}>{message}</p>
-                                        {feedback === 'incorrect' && cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && <p className="text-xs md:text-base text-red-600 dark:text-red-400 mt-0.5 md:mt-1">Gõ lại từ đúng để tiếp tục</p>}
+
+                                {/* Input Section */}
+                                <input
+                                    ref={inputRef}
+                                    type="text"
+                                    inputMode="text"
+                                    autoComplete="off"
+                                    autoCapitalize="off"
+                                    autoCorrect="off"
+                                    spellCheck="false"
+                                    value={inputValue}
+                                    onChange={(e) => setInputValue(e.target.value)}
+                                    onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); isRevealed ? handleNext() : checkAnswer(); } }}
+                                    onFocus={(e) => {
+                                        if (window.innerWidth <= 768) {
+                                            setTimeout(() => {
+                                                e.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+                                            }, 300);
+                                        }
+                                    }}
+                                    disabled={feedback === 'correct'}
+                                    className={`w-full px-5 py-3 text-lg font-semibold rounded-xl border-2 transition-all outline-none shadow-md
+                                ${feedback === 'correct'
+                                            ? 'border-green-400 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300'
+                                            : feedback === 'incorrect'
+                                                ? 'border-red-400 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300'
+                                                : 'border-gray-300 dark:border-gray-600 bg-gray-800 text-white focus:border-indigo-500'}`}
+                                    placeholder={inputMode === 'reading' ? 'Nhập từ vựng tiếng Nhật...' : 'Nhập ý nghĩa tiếng Việt...'}
+                                />
+
+                                {/* Hint button and Check button row */}
+                                {!isRevealed && (
+                                    <div className="flex gap-3">
+                                        {/* Hint button - Only for reading mode */}
+                                        {inputMode === 'reading' && (
+                                            <button
+                                                onClick={() => {
+                                                    const hiraganaMatch = currentCard.front.match(/[（(]([^）)]+)[）)]/);
+                                                    const reading = hiraganaMatch ? hiraganaMatch[1] : currentCard.front.split('（')[0].split('(')[0];
+                                                    const maxHint = Math.ceil(reading.length / 2);
+                                                    if (hintCount < maxHint) {
+                                                        setHintCount(prev => prev + 1);
+                                                    }
+                                                }}
+                                                disabled={(() => {
+                                                    const hiraganaMatch = currentCard.front.match(/[（(]([^）)]+)[）)]/);
+                                                    const reading = hiraganaMatch ? hiraganaMatch[1] : currentCard.front.split('（')[0].split('(')[0];
+                                                    const maxHint = Math.ceil(reading.length / 2);
+                                                    return hintCount >= maxHint;
+                                                })()}
+                                                className="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl font-medium hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                            >
+                                                <Lightbulb className="w-4 h-4" />
+                                                <span>Gợi ý ({hintCount}/{(() => {
+                                                    const hiraganaMatch = currentCard.front.match(/[（(]([^）)]+)[）)]/);
+                                                    const reading = hiraganaMatch ? hiraganaMatch[1] : currentCard.front.split('（')[0].split('(')[0];
+                                                    return Math.ceil(reading.length / 2);
+                                                })()})</span>
+                                            </button>
+                                        )}
+                                        <button
+                                            onClick={checkAnswer}
+                                            disabled={!inputValue.trim() || isProcessing}
+                                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-bold shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                        >
+                                            <Check className="w-4 h-4" />
+                                            <span>Kiểm tra</span>
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+
+                        {/* Feedback & Actions */}
+                        {reviewMode !== 'flashcard' && (
+                            <div className="space-y-2 md:space-y-3">
+                                <div className={`transition-all duration-300 ease-out overflow-hidden ${isRevealed ? 'max-h-[120px] md:max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+                                    <div className={`p-3 md:p-5 rounded-xl md:rounded-2xl border flex items-start gap-2 md:gap-4 overflow-y-auto max-h-[120px] md:max-h-40 ${feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : feedback === 'incorrect' ? 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800' : 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700'}`}>
+                                        {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
+                                            <div className={`p-1.5 md:p-2 rounded-full flex-shrink-0 ${feedback === 'correct' ? 'bg-green-200 dark:bg-green-800 text-green-700 dark:text-green-300' : 'bg-red-200 dark:bg-red-800 text-red-700 dark:text-red-300'}`}>
+                                                {feedback === 'correct' ? <Check className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3} /> : <X className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3} />}
+                                            </div>
+                                        )}
+                                        <div className="flex-1 min-w-0">
+                                            <div>
+                                                <p className={`font-bold text-base md:text-xl ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'}`}>{message}</p>
+                                                {feedback === 'incorrect' && cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && <p className="text-xs md:text-base text-red-600 dark:text-red-400 mt-0.5 md:mt-1">Gõ lại từ đúng để tiếp tục</p>}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
+                            </div>
+                        )}
                     </div>
-                )}
+                </div>
             </div>
         </div>
     );

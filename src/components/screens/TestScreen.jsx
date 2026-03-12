@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
     FileCheck, X, Check, CheckCircle, XCircle, ChevronRight,
-    Languages, BookOpen, Wrench, Home
+    Languages, BookOpen, Wrench, Home, ArrowLeft
 } from 'lucide-react';
 import { shuffleArray } from '../../utils/textProcessing';
 import { ROUTES } from '../../router';
@@ -10,7 +10,7 @@ import { celebrateCorrectAnswer, flashCorrect, launchFanfare, launchConfetti } f
 import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
 import { showToast } from '../../utils/toast';
 
-const TestScreen = ({ allCards }) => {
+const TestScreen = ({ allCards, onBack }) => {
     const [testMode, setTestMode] = useState(null);
     const [testType, setTestType] = useState(null);
     const [showConfig, setShowConfig] = useState(false);
@@ -358,7 +358,16 @@ const TestScreen = ({ allCards }) => {
         const passed = percentage >= 70;
 
         return (
-            <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
+            <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
+                {onBack && (
+                    <button
+                        onClick={onBack}
+                        className="absolute top-4 left-4 z-50 p-2 rounded-xl bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200 shadow-md backdrop-blur-sm transition-all border border-gray-200 dark:border-slate-700 hover:scale-105"
+                        title="Trở lại"
+                    >
+                        <ArrowLeft className="w-5 h-5 md:w-6 md:h-6" />
+                    </button>
+                )}
                 <div className="max-w-3xl mx-auto">
                     <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-6 md:p-8">
                         <div className="text-center mb-8">
@@ -447,17 +456,18 @@ const TestScreen = ({ allCards }) => {
         const currentQuestion = questions[currentQuestionIndex];
 
         return (
-            <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
+            <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
+                {onBack && (
+                    <button
+                        onClick={onBack}
+                        className="absolute top-4 left-4 z-50 p-2 rounded-xl bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200 shadow-md backdrop-blur-sm transition-all border border-gray-200 dark:border-slate-700 hover:scale-105"
+                        title="Trở lại"
+                    >
+                        <ArrowLeft className="w-5 h-5 md:w-6 md:h-6" />
+                    </button>
+                )}
                 <div className="max-w-3xl mx-auto">
                     <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-6 md:p-8">
-                        {/* Back button */}
-                        <button
-                            onClick={handleBackToMenu}
-                            className="mb-4 flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition"
-                        >
-                            <ChevronRight className="w-5 h-5 rotate-180 mr-1" />
-                            Quay lại menu
-                        </button>
 
                         {/* Progress bar */}
                         <div className="mb-6">
@@ -617,7 +627,16 @@ const TestScreen = ({ allCards }) => {
 
     // Render menu screen (initial)
     return (
-        <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
+        <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
+            {onBack && (
+                <button
+                    onClick={onBack}
+                    className="absolute top-4 left-4 z-50 p-2 rounded-xl bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200 shadow-md backdrop-blur-sm transition-all border border-gray-200 dark:border-slate-700 hover:scale-105"
+                    title="Trở lại"
+                >
+                    <ArrowLeft className="w-5 h-5" />
+                </button>
+            )}
             <div className="max-w-5xl mx-auto">
                 <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-6 md:p-8">
                     <div className="flex items-center justify-between mb-8">
@@ -625,9 +644,6 @@ const TestScreen = ({ allCards }) => {
                             <FileCheck className="w-8 h-8 mr-3 text-indigo-600 dark:text-indigo-400" />
                             Luyện Thi JLPT
                         </h1>
-                        <Link to={ROUTES.VOCAB_REVIEW} className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
-                            <Home className="w-6 h-6" />
-                        </Link>
                     </div>
 
                     <p className="text-gray-600 dark:text-gray-400 mb-8 text-center">

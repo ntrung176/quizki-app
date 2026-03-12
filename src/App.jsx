@@ -2305,7 +2305,7 @@ JSON only, không markdown/backtick:
 QUY TẮC:
 1. pos/level phải khớp ngữ cảnh đã chọn. Grammar→giải thích như ngữ pháp.
 2. CỤM TỪ có trợ từ(を/に/が/で/と)→pos="phrase", giữ nguyên cụm, nghĩa cả cụm, sinoVietnamese chỉ Kanji.
-3. frontWithFurigana: FORMAT BẮT BUỘC = "từ_gốc（cách_đọc_hiragana）". Luôn giữ nguyên từ gốc user nhập "${frontText}" rồi thêm（）chứa TOÀN BỘ cách đọc hiragana. VD: "食べる（たべる）", "連絡（れんらく）", "お願いします（おねがいします）", "勉強する（べんきょうする）". KHÔNG tách rời kanji và furigana kiểu "食（た）べる". KHÔNG bỏ furigana. KHÔNG đổi từ gốc.
+3. frontWithFurigana: FORMAT BẮT BUỘC có furigana cho các chữ Kanji theo 2 cách. Cách 1 (Kanji đứng liền nhau): Viết phiên âm sau cụm Kanji, VD: "結婚（けっこん）", "会社（かいしゃ）". Cách 2 (Kanji có okurigana đi kèm): Viết phiên âm ngay sau chữ Kanji đó rồi tới okurigana (âm hiragana), VD: "振（ふ）り込（こ）む", "食（た）べる", "行（い）く". Bắt buộc dùng ngoặc tròn to （）. KHÔNG bỏ furigana.
 4. meaning: Ngắn gọn, nghĩa khác nhau ngăn ";".
 ${exampleRule}
 6. sinoVietnamese: IN HOA từng Kanji, KHÔNG bịa âm. Không Kanji→"".

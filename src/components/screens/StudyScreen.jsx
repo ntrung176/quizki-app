@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, ArrowLeft } from 'lucide-react';
 import { speakJapanese } from '../../utils/audio';
 import { shuffleArray, buildAdjNaAcceptedAnswers } from '../../utils/textProcessing';
 import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
@@ -9,14 +9,35 @@ const isMobileDevice = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
 };
 
-const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdateCard, onSaveCardAudio, onCompleteStudy }) => {
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdateCard, onSaveCardAudio, onCompleteStudy, onBack }) => {
+    // Load saved progress from localStorage
+    const getSavedStudyProgress = () => {
+        try {
+            const saved = localStorage.getItem('study_progress');
+            if (saved) {
+                const data = JSON.parse(saved);
+                // Verify batchIndex matches
+                if (data.batchIndex === studySessionData.batchIndex) {
+                    return data;
+                }
+            }
+        } catch (e) { /* ignore */ }
+        return null;
+    };
+
+    const savedStudy = getSavedStudyProgress();
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(savedStudy?.currentQuestionIndex || 0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [inputValue, setInputValue] = useState('');
     const [isRevealed, setIsRevealed] = useState(false);
     const [feedback, setFeedback] = useState(null);
     const [isProcessing, setIsProcessing] = useState(false);
-    const [completedCards, setCompletedCards] = useState(new Set());
+    const [completedCards, setCompletedCards] = useState(() => {
+        if (savedStudy?.completedCardIds) {
+            return new Set(savedStudy.completedCardIds);
+        }
+        return new Set();
+    });
     const [multipleChoiceOptions, setMultipleChoiceOptions] = useState([]);
     const inputRef = useRef(null);
     const optionsRef = useRef({});
@@ -26,6 +47,18 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     const currentPhase = studySessionData.currentPhase || 'multipleChoice';
     const currentCard = currentBatch[currentQuestionIndex];
     const currentCardId = currentCard?.id;
+
+    // Save study progress to localStorage
+    useEffect(() => {
+        const progressData = {
+            batchIndex: studySessionData.batchIndex,
+            currentQuestionIndex,
+            completedCardIds: [...completedCards],
+            currentPhase,
+            timestamp: Date.now(),
+        };
+        localStorage.setItem('study_progress', JSON.stringify(progressData));
+    }, [currentQuestionIndex, completedCards, currentPhase, studySessionData.batchIndex]);
 
     // Helper function to split text ignoring parentheses
     const splitIgnoringParentheses = (text, delimiter) => {
@@ -428,179 +461,211 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     const remainingCards = studySessionData.allNoSrsCards.filter(card => !completedCards.has(card.id)).length;
     const totalCards = studySessionData.allNoSrsCards.length;
 
+    // Keyboard shortcut for multiple choice: press 1-4 to select
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (currentPhase !== 'multipleChoice' || isRevealed || isProcessing) return;
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            const key = parseInt(e.key);
+            if (key >= 1 && key <= 4 && multipleChoiceOptions[key - 1]) {
+                e.preventDefault();
+                const btn = document.querySelector(`[data-mc-option="${key - 1}"]`);
+                if (btn) btn.click();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [currentPhase, isRevealed, isProcessing, multipleChoiceOptions]);
+
     return (
-        <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3 p-4 border-2 border-teal-400/30 rounded-2xl">
-            {/* Progress bar */}
-            <div className="w-full space-y-1 flex-shrink-0">
-                <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
-                    <span className="flex items-center gap-1">
-                        <GraduationCap className="w-3 h-3 text-teal-500" />
-                        {currentPhase === 'multipleChoice' ? 'Trắc nghiệm' : 'Tự luận'} - Batch {studySessionData.batchIndex + 1}
-                    </span>
-                    <span>{currentQuestionIndex + 1} / {currentBatch.length}</span>
-                </div>
-                <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-teal-500 progress-bar rounded-full" style={{ width: `${progress}%` }}></div>
-                </div>
-                <div className="text-xs text-right text-teal-600 dark:text-teal-400">
-                    Còn {remainingCards}/{totalCards} từ mới
-                </div>
-            </div>
-
-            {/* Main Card Area */}
-            <div className="w-full bg-slate-800 dark:bg-slate-900 rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center relative overflow-hidden min-h-[280px] border-2 border-teal-500/50">
-                {/* Header with mode label */}
-                <div className="w-full flex justify-between items-center absolute top-4 left-0 px-4">
-                    <div className="flex items-center gap-2">
-                        <span className="text-teal-500 text-xl">🎓</span>
-                        <span className="text-white font-bold text-sm">
-                            {currentPhase === 'multipleChoice' ? 'Chọn đáp án đúng' : 'Nhập từ vựng'}
-                        </span>
+        <div className="relative w-full h-full flex flex-col justify-center">
+            <div className="w-[800px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3">
+                {/* Back Button - outside frame */}
+                {onBack && (
+                    <div className="w-full flex justify-start mb-1">
+                        <button
+                            onClick={onBack}
+                            className="p-2 rounded-xl bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200 shadow-md backdrop-blur-sm transition-all border border-gray-200 dark:border-slate-700 hover:scale-105 flex items-center gap-1.5"
+                            title="Trở lại"
+                        >
+                            <ArrowLeft className="w-5 h-5" />
+                            <span className="text-sm font-medium">Trở lại</span>
+                        </button>
                     </div>
-                </div>
-
-                {/* Question Display */}
-                <div className="py-8 w-full">
-                    <div className={`flex items-center gap-4 ${currentCard.imageBase64 ? 'justify-start' : 'justify-center'}`}>
-                        {currentCard.imageBase64 && (
-                            <div className="shrink-0">
-                                <img
-                                    src={currentCard.imageBase64}
-                                    alt={currentCard.front}
-                                    className="w-24 h-24 rounded-xl object-cover border border-slate-500/30"
-                                />
-                            </div>
-                        )}
-                        <div className={currentCard.imageBase64 ? 'text-left flex-1' : 'text-center'}>
-                            <p className="text-xs text-gray-400 uppercase tracking-wide mb-2">Ý nghĩa</p>
-                            <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed whitespace-pre-line">
-                                {formatMultipleMeanings(currentCard.back)}
-                            </div>
-                            {currentCard.sinoVietnamese && (
-                                <p className="text-sm text-gray-400 mt-2">
-                                    <span className="font-semibold">Hán Việt:</span> {currentCard.sinoVietnamese}
-                                </p>
-                            )}
+                )}
+                <div className="w-full flex flex-col justify-center items-center space-y-3 p-4 border-2 border-teal-400/30 rounded-2xl">
+                    {/* Progress bar */}
+                    <div className="w-full space-y-1 flex-shrink-0">
+                        <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
+                            <span className="flex items-center gap-1">
+                                <GraduationCap className="w-3 h-3 text-teal-500" />
+                                {currentPhase === 'multipleChoice' ? 'Trắc nghiệm' : 'Tự luận'} - Batch {studySessionData.batchIndex + 1}
+                            </span>
+                            <span>{currentQuestionIndex + 1} / {currentBatch.length}</span>
+                        </div>
+                        <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                            <div className="h-full bg-teal-500 progress-bar rounded-full" style={{ width: `${progress}%` }}></div>
+                        </div>
+                        <div className="text-xs text-right text-teal-600 dark:text-teal-400">
+                            Còn {remainingCards}/{totalCards} từ mới
                         </div>
                     </div>
-                </div>
-            </div>
 
-            {/* Answer Area */}
-            <div className="w-full space-y-3">
-                {currentPhase === 'multipleChoice' ? (
-                    <>
-                        <div className="grid grid-cols-2 gap-2">
-                            {multipleChoiceOptions.map((option, idx) => (
-                                <button
-                                    key={idx}
-                                    data-mc-option={idx}
-                                    onClick={() => handleMultipleChoiceAnswer(option)}
-                                    disabled={isProcessing || isRevealed}
-                                    className={`p-3 md:p-4 rounded-xl font-bold text-sm md:text-base transition-all text-center border-2
+                    {/* Main Card Area */}
+                    <div className="w-full bg-slate-800 dark:bg-slate-900 rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center relative overflow-hidden min-h-[400px] border-2 border-teal-500/50">
+                        {/* Header with mode label */}
+                        <div className="w-full flex justify-between items-center absolute top-4 left-0 px-4">
+                            <div className="flex items-center gap-2">
+                                <span className="text-teal-500 text-xl">🎓</span>
+                                <span className="text-white font-bold text-sm">
+                                    {currentPhase === 'multipleChoice' ? 'Chọn đáp án đúng' : 'Nhập từ vựng'}
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* Question Display */}
+                        <div className="py-8 w-full">
+                            <div className={`flex items-center gap-8 justify-center`}>
+                                {currentCard.imageBase64 && (
+                                    <div className="shrink-0">
+                                        <img
+                                            src={currentCard.imageBase64}
+                                            alt={currentCard.front}
+                                            className="w-36 h-36 md:w-44 md:h-44 rounded-xl object-cover border border-slate-500/30"
+                                        />
+                                    </div>
+                                )}
+                                <div className={currentCard.imageBase64 ? 'text-center flex-1 min-w-0' : 'text-center'}>
+                                    <div className="text-3xl md:text-4xl font-bold text-white leading-relaxed whitespace-pre-line break-words">
+                                        {formatMultipleMeanings(currentCard.back)}
+                                    </div>
+                                    {currentCard.sinoVietnamese && (
+                                        <p className="text-base font-medium text-yellow-300 mt-2">
+                                            <span className="text-slate-400 font-normal">Hán Việt: </span>{currentCard.sinoVietnamese}
+                                        </p>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Answer Area */}
+                    <div className="w-full space-y-3">
+                        {currentPhase === 'multipleChoice' ? (
+                            <>
+                                <div className="grid grid-cols-2 gap-2">
+                                    {multipleChoiceOptions.map((option, idx) => (
+                                        <button
+                                            key={idx}
+                                            data-mc-option={idx}
+                                            onClick={() => handleMultipleChoiceAnswer(option)}
+                                            disabled={isProcessing || isRevealed}
+                                            className={`p-3 md:p-4 rounded-xl font-bold text-sm md:text-base transition-all text-left border-2 flex items-center gap-3
                                     ${selectedAnswer === option
-                                            ? feedback === 'correct'
-                                                ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'
-                                                : 'bg-red-500 dark:bg-red-600 text-white shadow-lg border-red-600 dark:border-red-700'
-                                            : isRevealed && normalizeAnswer(option) === normalizeAnswer(currentCard.front)
-                                                ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'
-                                                : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:bg-teal-50 dark:hover:bg-teal-900/30 hover:border-teal-400'
-                                        }
+                                                    ? feedback === 'correct'
+                                                        ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'
+                                                        : 'bg-red-500 dark:bg-red-600 text-white shadow-lg border-red-600 dark:border-red-700'
+                                                    : isRevealed && normalizeAnswer(option) === normalizeAnswer(currentCard.front)
+                                                        ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'
+                                                        : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:bg-teal-50 dark:hover:bg-teal-900/30 hover:border-teal-400'
+                                                }
                                     ${isProcessing || isRevealed ? 'cursor-not-allowed' : 'cursor-pointer hover:scale-[1.02]'}
                                 `}
-                                >
-                                    <span className="font-japanese">{option}</span>
-                                </button>
-                            ))}
-                        </div>
-                        <p className="text-[10px] text-gray-400 dark:text-gray-500 text-center mt-1 opacity-70">⌨️ Dùng phím bàn phím để chọn nhanh</p>
-                    </>
-                ) : (
-                    <div className="space-y-3">
-                        <div className="relative">
-                            <input
-                                ref={inputRef}
-                                type="text"
-                                inputMode="text"
-                                autoComplete="off"
-                                autoCapitalize="off"
-                                autoCorrect="off"
-                                spellCheck="false"
-                                value={inputValue}
-                                onChange={(e) => setInputValue(e.target.value)}
-                                onKeyDown={(e) => {
-                                    if (e.key === 'Enter' && !isRevealed) {
-                                        handleTypingAnswer();
-                                    }
-                                }}
-                                onFocus={(e) => {
-                                    if (window.innerWidth <= 768) {
-                                        setTimeout(() => {
-                                            e.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
-                                        }, 300);
-                                    }
-                                }}
-                                disabled={isRevealed || isProcessing}
-                                className={`w-full px-4 py-3 text-lg font-semibold rounded-xl border-2 transition-all outline-none shadow-md text-center
+                                        >
+                                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/20 text-xs font-bold flex-shrink-0">{idx + 1}</span>
+                                            <span className="font-japanese">{option}</span>
+                                        </button>
+                                    ))}
+                                </div>
+                                <p className="text-[10px] text-gray-400 dark:text-gray-500 text-center mt-1 opacity-70">⌨️ Nhấn phím 1-4 để chọn nhanh</p>
+                            </>
+                        ) : (
+                            <div className="space-y-3">
+                                <div className="relative">
+                                    <input
+                                        ref={inputRef}
+                                        type="text"
+                                        inputMode="text"
+                                        autoComplete="off"
+                                        autoCapitalize="off"
+                                        autoCorrect="off"
+                                        spellCheck="false"
+                                        value={inputValue}
+                                        onChange={(e) => setInputValue(e.target.value)}
+                                        onKeyDown={(e) => {
+                                            if (e.key === 'Enter' && !isRevealed) {
+                                                handleTypingAnswer();
+                                            }
+                                        }}
+                                        onFocus={(e) => {
+                                            if (window.innerWidth <= 768) {
+                                                setTimeout(() => {
+                                                    e.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+                                                }, 300);
+                                            }
+                                        }}
+                                        disabled={isRevealed || isProcessing}
+                                        className={`w-full px-4 py-3 text-lg font-semibold rounded-xl border-2 transition-all outline-none shadow-md text-center
                                     ${feedback === 'correct'
-                                        ? 'border-green-400 dark:border-green-600 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300'
-                                        : feedback === 'incorrect'
-                                            ? 'border-red-400 dark:border-red-600 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300'
-                                            : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:border-teal-500 dark:focus:border-teal-400 focus:ring-4 focus:ring-teal-500/10'
-                                    }
+                                                ? 'border-green-400 dark:border-green-600 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300'
+                                                : feedback === 'incorrect'
+                                                    ? 'border-red-400 dark:border-red-600 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300'
+                                                    : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:border-teal-500 dark:focus:border-teal-400 focus:ring-4 focus:ring-teal-500/10'
+                                            }
                                 `}
-                                placeholder="Nhập từ vựng tiếng Nhật..."
-                            />
-                        </div>
+                                        placeholder="Nhập từ vựng tiếng Nhật..."
+                                    />
+                                </div>
 
-                        {isRevealed && (
-                            <div className={`p-4 rounded-xl border ${feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800'}`}>
-                                <p className={`font-bold text-base text-center ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'}`}>
-                                    {feedback === 'correct' ? '✓ Chính xác!' : <><span className="font-japanese">✗ Đáp án đúng: {currentCard.front}</span></>}
-                                </p>
+                                {isRevealed && (
+                                    <div className={`p-4 rounded-xl border ${feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800'}`}>
+                                        <p className={`font-bold text-base text-center ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'}`}>
+                                            {feedback === 'correct' ? '✓ Chính xác!' : <><span className="font-japanese">✗ Đáp án đúng: {currentCard.front}</span></>}
+                                        </p>
+                                    </div>
+                                )}
+
+                                {!isRevealed && (
+                                    <button
+                                        onClick={handleTypingAnswer}
+                                        disabled={isProcessing || !inputValue.trim()}
+                                        className="w-full py-3 rounded-xl font-bold text-base shadow-lg transition-all flex items-center justify-center bg-teal-600 text-white hover:bg-teal-700 disabled:bg-gray-300 disabled:text-gray-500 disabled:shadow-none"
+                                    >
+                                        Kiểm tra
+                                    </button>
+                                )}
                             </div>
                         )}
 
-                        {!isRevealed && (
+                        {/* Next button for typing phase when revealed */}
+                        {currentPhase === 'typing' && isRevealed && (
                             <button
-                                onClick={handleTypingAnswer}
-                                disabled={isProcessing || !inputValue.trim()}
-                                className="w-full py-3 rounded-xl font-bold text-base shadow-lg transition-all flex items-center justify-center bg-teal-600 text-white hover:bg-teal-700 disabled:bg-gray-300 disabled:text-gray-500 disabled:shadow-none"
+                                onClick={async () => {
+                                    if (isProcessing) return;
+                                    setIsProcessing(true);
+
+                                    if (currentQuestionIndex < currentBatch.length - 1) {
+                                        setCurrentQuestionIndex(currentQuestionIndex + 1);
+                                        setInputValue('');
+                                        setIsRevealed(false);
+                                        setFeedback(null);
+                                        setIsProcessing(false);
+                                    } else {
+                                        createNextBatch();
+                                        setIsProcessing(false);
+                                    }
+                                }}
+                                disabled={isProcessing}
+                                className="w-full py-3 rounded-xl font-bold text-base shadow-lg transition-all flex items-center justify-center bg-teal-600 text-white hover:bg-teal-700 disabled:bg-gray-300 disabled:text-gray-500"
                             >
-                                Kiểm tra
+                                {currentQuestionIndex < currentBatch.length - 1 ? 'Tiếp theo →' : 'Batch tiếp theo →'}
                             </button>
                         )}
                     </div>
-                )}
-
-                {/* Next button for typing phase when revealed */}
-                {currentPhase === 'typing' && isRevealed && (
-                    <button
-                        onClick={async () => {
-                            if (isProcessing) return;
-                            setIsProcessing(true);
-
-                            if (currentQuestionIndex < currentBatch.length - 1) {
-                                setCurrentQuestionIndex(currentQuestionIndex + 1);
-                                setInputValue('');
-                                setIsRevealed(false);
-                                setFeedback(null);
-                                setIsProcessing(false);
-                            } else {
-                                createNextBatch();
-                                setIsProcessing(false);
-                            }
-                        }}
-                        disabled={isProcessing}
-                        className="w-full py-3 rounded-xl font-bold text-base shadow-lg transition-all flex items-center justify-center bg-teal-600 text-white hover:bg-teal-700 disabled:bg-gray-300 disabled:text-gray-500"
-                    >
-                        {currentQuestionIndex < currentBatch.length - 1 ? 'Tiếp theo →' : 'Batch tiếp theo →'}
-                    </button>
-                )}
+                </div>
             </div>
         </div>
     );
 };
 
 export default StudyScreen;
-

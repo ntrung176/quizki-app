@@ -23,13 +23,13 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
     const getCurrentView = () => {
         const path = location.pathname;
         if (path === '/' || path === ROUTES.HOME) return 'HOME';
-        if (path === ROUTES.VOCAB_REVIEW) return 'VOCAB_REVIEW';
+        if (path === ROUTES.VOCAB_REVIEW || path.startsWith('/vocab/review/')) return 'VOCAB_REVIEW';
         if (path === ROUTES.VOCAB_LIST || path.startsWith('/vocab/list') || path.startsWith('/vocab/edit')) return 'VOCAB_LIST';
         if (path === ROUTES.VOCAB_ADD) return 'VOCAB_ADD';
-        if (path === ROUTES.KANJI_STUDY) return 'KANJI_STUDY';
-        if (path === ROUTES.KANJI_REVIEW) return 'KANJI_REVIEW';
+        if (path === ROUTES.KANJI_STUDY || path.startsWith('/kanji/study/')) return 'KANJI_STUDY';
+        if (path === ROUTES.KANJI_REVIEW || path.startsWith('/kanji/review/')) return 'KANJI_REVIEW';
         if (path === ROUTES.KANJI_SAVED) return 'KANJI_SAVED';
-        if (path === ROUTES.KANJI_LIST) return 'KANJI_LIST';
+        if (path === ROUTES.KANJI_LIST || path.startsWith('/kanji/list/')) return 'KANJI_LIST';
         if (path === ROUTES.TEST) return 'TEST';
         if (path === ROUTES.JLPT_TEST) return 'JLPT_TEST';
         if (path === ROUTES.JLPT_ADMIN) return 'JLPT_ADMIN';

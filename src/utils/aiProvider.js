@@ -308,9 +308,9 @@ QUY TẮC BẮT BUỘC:
    - CHỈ 1 CÂU ví dụ tự nhiên.
    - BẮT BUỘC thay THẾ CHÍNH XÁC từ gốc "${frontText}" bằng ＿＿＿＿ trong câu.
    - VD: từ gốc "食べる" → "毎日ご飯を＿＿＿＿。" (ĐÚNG) | "毎日ご飯を食べる。" (SAI - chưa ẩn)
-   - VD: từ gốc "連絡して教えてもらってください" → "先生に＿＿＿＿。" (ĐÚNG)
-   - KHÔNG viết furigana, ngoặc, hay chú thích trong câu ví dụ.
-   - N5→câu đơn giản.
+   - TẤT CẢ Kanji xuất hiện trong câu ví dụ (trừ ＿＿＿＿) PHẢI CÓ FURIGANA. Bắt buộc dùng ngoặc tròn to của Nhật （） và tuân theo 2 nguyên tắc sau:
+     + Cách 1 (Các Kanji đứng liền nhau): Viết phiên âm rập khuôn sau cụm Kanji. VD: 結婚（けっこん）、会社（かいしゃ）
+     + Cách 2 (Kanji có okurigana đi kèm): Viết phiên âm cho Kanji ngay sau chữ Kanji đó rồi tới okurigana (âm hiragana). VD: 振（ふ）り込（こ）む、食（た）べる、行（い）く
 
 4. exampleMeaning: Nghĩa tiếng Việt đầy đủ.
 
@@ -324,7 +324,7 @@ QUY TẮC BẮT BUỘC:
 };
 
 export const generateMoreExamplePrompt = (frontText, targetMeaning) => {
-    return `1 câu ví dụ JP cho "${frontText}" nghĩa "${targetMeaning}". Thay "${frontText}" bằng ＿＿＿＿. KHÔNG furigana/ngoặc. JSON only:{"example":"câu JP có ＿＿＿＿","exampleMeaning":"nghĩa VN"}`;
+    return `1 câu ví dụ JP cho "${frontText}" nghĩa "${targetMeaning}". Thay "${frontText}" bằng ＿＿＿＿. BẮT BUỘC có furigana cho các kanji khác theo 2 cách: 1/ Kanji liền nhau: 結婚（けっこん） 2/ Kanji có okurigana: 振（ふ）り込（こ）む. Dùng ngoặc tròn to （）. JSON only:{"example":"câu JP có ＿＿＿＿ và furigana","exampleMeaning":"nghĩa VN"}`;
 };
 
 

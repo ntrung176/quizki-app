@@ -43,6 +43,7 @@ export const ROUTES = {
     SETTINGS: '/settings',
     FEEDBACK: '/feedback',
     UPGRADE: '/upgrade',
+    AUTH_ACTION: '/__/auth/action',
 };
 
 // Helper function to generate edit route with ID

@@ -210,9 +210,9 @@ const HomeScreen = ({
 
 
     return (
-        <div className="space-y-4 max-w-4xl mx-auto">
+        <div className="flex flex-col h-full max-h-[calc(100vh-80px)] max-w-7xl mx-auto gap-3 md:gap-4 pb-4 overflow-y-auto overflow-x-hidden">
             {/* Hero Section - Beautiful teal gradient */}
-            <div className="relative overflow-hidden bg-gradient-to-br from-teal-600 via-cyan-600 to-sky-600 rounded-2xl p-6 md:p-8 text-white">
+            <div className="relative flex-shrink-0 overflow-hidden bg-gradient-to-br from-teal-600 via-cyan-600 to-sky-600 rounded-2xl p-4 md:p-6 text-white pb-6 md:pb-8">
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                 <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"></div>
@@ -250,7 +250,7 @@ const HomeScreen = ({
             </div>
 
             {/* Today's Summary */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 flex-shrink-0">
                 <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 text-center">
                     <div className="w-10 h-10 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-2">
                         <Clock className="w-5 h-5 text-red-500" />
@@ -285,18 +285,18 @@ const HomeScreen = ({
             </div>
 
             {/* Quick Actions */}
-            <div className="space-y-3">
-                <h2 className="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2">
+            <div className="flex flex-col flex-1 min-h-0 gap-2">
+                <h2 className="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2 flex-shrink-0">
                     <Zap className="w-5 h-5 text-amber-500" />
                     Bắt đầu nhanh
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 flex-1 min-h-0">
                     {quickActions.map((action) => (
                         <button
                             key={action.id}
                             onClick={() => navigate(action.route)}
-                            className={`relative group bg-gradient-to-r ${action.color} rounded-xl p-5 text-white text-left shadow-md ${action.shadowColor} hover:scale-[1.02] transition-all duration-300 overflow-hidden`}
+                            className={`relative group bg-gradient-to-r ${action.color} rounded-xl p-3 md:p-5 text-white text-left shadow-md ${action.shadowColor} hover:scale-[1.02] transition-all duration-300 overflow-hidden flex-1 h-full min-h-0 flex flex-col justify-center`}
                         >
                             {/* Background decoration */}
                             <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full blur-xl translate-x-8 -translate-y-8 group-hover:translate-x-4 transition-transform"></div>
@@ -328,7 +328,7 @@ const HomeScreen = ({
 
 
             {/* Tips */}
-            <div className="bg-gradient-to-r from-slate-50 to-gray-50 dark:from-slate-800/50 dark:to-gray-800/50 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+            <div className="bg-gradient-to-r from-slate-50 to-gray-50 dark:from-slate-800/50 dark:to-gray-800/50 rounded-xl p-3 md:p-4 border border-slate-200 dark:border-slate-700 flex-shrink-0">
                 <div className="flex items-start gap-3">
                     <div className="w-10 h-10 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center flex-shrink-0">
                         <Sparkles className="w-5 h-5 text-slate-600 dark:text-slate-300" />

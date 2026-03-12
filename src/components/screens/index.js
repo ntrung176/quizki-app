@@ -25,4 +25,5 @@ export { default as JLPTTestScreen } from './JLPTTestScreen';
 export { default as JLPTAdminScreen } from './JLPTAdminScreen';
 export { default as PrivacyScreen } from './PrivacyScreen';
 export { default as TermsScreen } from './TermsScreen';
+export { default as AuthActionScreen } from './AuthActionScreen';
 

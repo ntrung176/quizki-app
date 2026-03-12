@@ -112,13 +112,54 @@ const SRSVocabScreen = ({
         return () => clearInterval(interval);
     }, [allCards]);
 
+    // Check flashcard progress
+    const getFlashcardProgress = () => {
+        try {
+            const saved = localStorage.getItem('flashcard_progress');
+            if (saved) {
+                const data = JSON.parse(saved);
+                const noSrsCards = allCards.filter(c => c.intervalIndex_back === -1);
+                const savedIds = new Set(data.cardIds || []);
+                const currentIds = noSrsCards.map(c => c.id);
+                if (currentIds.length > 0 && currentIds.length === savedIds.size && currentIds.every(id => savedIds.has(id))) {
+                    return data;
+                }
+            }
+        } catch (e) { /* ignore */ }
+        return null;
+    };
+
+    // Check study progress
+    const getStudyProgress = () => {
+        try {
+            const saved = localStorage.getItem('study_progress');
+            if (saved) {
+                const data = JSON.parse(saved);
+                if (data.completedCardIds && data.completedCardIds.length > 0) {
+                    return data;
+                }
+            }
+        } catch (e) { /* ignore */ }
+        return null;
+    };
+
+    const flashcardProgress = getFlashcardProgress();
+    const studyProgress = getStudyProgress();
+
+    const flashcardIsComplete = flashcardProgress?.isComplete || false;
+    const flashcardInProgress = flashcardProgress && !flashcardProgress.isComplete && (flashcardProgress.currentIndex > 0 || flashcardProgress.knownCardIds?.length > 0 || flashcardProgress.unknownCardIds?.length > 0);
+    const studyInProgress = studyProgress && studyProgress.completedCardIds?.length > 0;
+
     const handleStartReview = (mode) => {
         setReviewMode(mode);
         onStartReview(mode, 'all');
     };
 
     // Bắt đầu học từ mới (từ chưa có SRS)
-    const handleStartStudy = () => {
+    const handleStartStudy = (forceReset = false) => {
+        if (forceReset) {
+            localStorage.removeItem('study_progress');
+        }
         const noSrsCards = allCards.filter(c => c.intervalIndex_back === -1);
         if (noSrsCards.length === 0) return;
 
@@ -138,7 +179,10 @@ const SRSVocabScreen = ({
     };
 
     // Bắt đầu flashcard (chỉ cho từ mới)
-    const handleStartFlashcard = () => {
+    const handleStartFlashcard = (forceReset = false) => {
+        if (forceReset) {
+            localStorage.removeItem('flashcard_progress');
+        }
         console.log('handleStartFlashcard called', { newCards, allCardsLength: allCards.length });
         if (newCards === 0) {
             console.log('No new cards, returning');
@@ -260,16 +304,28 @@ const SRSVocabScreen = ({
                         <p className="text-xs text-gray-500 dark:text-gray-400 mb-3 flex-1 leading-relaxed">
                             Lật thẻ flashcard để học từ vựng mới. Xem mặt trước và lật để kiểm tra nghĩa.
                         </p>
-                        <button
-                            onClick={handleStartFlashcard}
-                            disabled={newCards === 0}
-                            className={`w-full py-2.5 rounded-xl font-bold text-sm transition-all mt-auto ${newCards > 0
-                                ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.02]'
-                                : 'bg-gray-100 dark:bg-slate-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-                                }`}
-                        >
-                            Lật Flashcard
-                        </button>
+                        <div className="flex gap-2 mt-auto">
+                            {flashcardIsComplete && (
+                                <button
+                                    onClick={() => handleStartFlashcard(true)}
+                                    className="flex-1 py-2.5 rounded-xl font-bold text-sm transition-all bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:shadow-lg hover:scale-[1.02]"
+                                >
+                                    🔄 Reset & Học lại
+                                </button>
+                            )}
+                            {!flashcardIsComplete && (
+                                <button
+                                    onClick={() => handleStartFlashcard(false)}
+                                    disabled={newCards === 0}
+                                    className={`flex-1 py-2.5 rounded-xl font-bold text-sm transition-all ${newCards > 0
+                                        ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.02]'
+                                        : 'bg-gray-100 dark:bg-slate-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                                        }`}
+                                >
+                                    {flashcardInProgress ? '▶ Tiếp tục lật' : 'Lật Flashcard'}
+                                </button>
+                            )}
+                        </div>
                     </div>
 
                     {/* Học từ mới */}
@@ -286,16 +342,26 @@ const SRSVocabScreen = ({
                         <p className="text-xs text-gray-500 dark:text-gray-400 mb-3 flex-1 leading-relaxed">
                             Học từ vựng mới bằng trắc nghiệm 4 đáp án. Giao diện giống chế độ kiểm tra.
                         </p>
-                        <button
-                            onClick={handleStartStudy}
-                            disabled={newCards === 0}
-                            className={`w-full py-2.5 rounded-xl font-bold text-sm transition-all mt-auto ${newCards > 0
-                                ? 'bg-gradient-to-r from-teal-500 to-emerald-500 text-white hover:shadow-lg hover:shadow-teal-500/20 hover:scale-[1.02]'
-                                : 'bg-gray-100 dark:bg-slate-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-                                }`}
-                        >
-                            Bắt đầu học
-                        </button>
+                        <div className="flex gap-2 mt-auto">
+                            {studyInProgress && (
+                                <button
+                                    onClick={() => handleStartStudy(true)}
+                                    className="py-2.5 px-3 rounded-xl font-bold text-sm transition-all bg-gray-200 dark:bg-slate-600 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-slate-500"
+                                >
+                                    🔄 Reset
+                                </button>
+                            )}
+                            <button
+                                onClick={() => handleStartStudy(false)}
+                                disabled={newCards === 0}
+                                className={`flex-1 py-2.5 rounded-xl font-bold text-sm transition-all ${newCards > 0
+                                    ? 'bg-gradient-to-r from-teal-500 to-emerald-500 text-white hover:shadow-lg hover:shadow-teal-500/20 hover:scale-[1.02]'
+                                    : 'bg-gray-100 dark:bg-slate-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                                    }`}
+                            >
+                                {studyInProgress ? '▶ Tiếp tục học' : 'Bắt đầu học'}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

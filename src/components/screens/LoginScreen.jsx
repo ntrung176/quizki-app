@@ -16,6 +16,13 @@ import { Link } from 'react-router-dom';
 // Application ID for Firebase paths
 const appId = typeof __app_id !== 'undefined' ? __app_id : 'quizki-app';
 
+// Action code settings for email verification and password reset
+// This tells Firebase to redirect to our custom handler instead of the default Firebase one
+const getActionCodeSettings = () => ({
+    url: `${window.location.origin}/__/auth/action`,
+    handleCodeInApp: false,
+});
+
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -50,7 +57,7 @@ const LoginScreen = () => {
                 const cred = await signInWithEmailAndPassword(auth, email.trim(), password);
                 if (!cred.user.emailVerified) {
                     try {
-                        await sendEmailVerification(cred.user);
+                        await sendEmailVerification(cred.user, getActionCodeSettings());
                     } catch (ve) {
                         console.error('Lỗi gửi lại email xác thực:', ve);
                     }
@@ -61,7 +68,7 @@ const LoginScreen = () => {
             } else {
                 const cred = await createUserWithEmailAndPassword(auth, email.trim(), password);
                 try {
-                    await sendEmailVerification(cred.user);
+                    await sendEmailVerification(cred.user, getActionCodeSettings());
                     setInfo('Đăng ký thành công! Một email xác thực đã được gửi, vui lòng kiểm tra hộp thư và xác thực tài khoản.');
                 } catch (ve) {
                     console.error('Lỗi gửi email xác thực:', ve);
@@ -109,7 +116,7 @@ const LoginScreen = () => {
             return;
         }
         try {
-            await sendPasswordResetEmail(auth, email.trim());
+            await sendPasswordResetEmail(auth, email.trim(), getActionCodeSettings());
             setInfo('Đã gửi email đặt lại mật khẩu. Vui lòng kiểm tra hộp thư của bạn.');
         } catch (e) {
             console.error('Lỗi quên mật khẩu:', e);

@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import {
     BookOpen, Plus, Trash2, Edit, ChevronRight, ChevronLeft, Check, X, Lightbulb,
     Upload, FolderPlus, FileText, List, Search, ArrowLeft, Image, Save, Layers, Copy, Clipboard, Folder, Volume2,
-    ChevronUp, ChevronDown
+    ChevronUp, ChevronDown, RefreshCw, Mic, Wrench
 } from 'lucide-react';
 import { db } from '../../config/firebase';
 import {
@@ -102,6 +102,11 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     const [lessonAudioMap, setLessonAudioMap] = useState({});
     const bgAudioAbortRef = useRef(false);
     const editingCardRef = useRef(null);
+
+    // Fix audio states
+    const [fixAudioIndex, setFixAudioIndex] = useState(null);
+    const [fixAudioCustomReading, setFixAudioCustomReading] = useState('');
+    const [fixAudioLoading, setFixAudioLoading] = useState(false);
 
     const COLLECTION = 'bookGroups';
 
@@ -567,6 +572,51 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
         const timer = setTimeout(generateBookAudio, 3000);
         return () => { bgAudioAbortRef.current = true; clearTimeout(timer); };
     }, [lessonId, currentLesson?.vocab?.length]);
+
+    // ==================== FIX AUDIO ====================
+    const handleFixAudio = async (vocabIndex, customReading = null) => {
+        if (!lessonId || !groupId || !bookId || !chapterId) return;
+        setFixAudioLoading(true);
+        try {
+            const vocab = currentLesson?.vocab || [];
+            const v = vocab[vocabIndex];
+            if (!v) throw new Error('Không tìm thấy từ vựng');
+
+            const word = v.word || v.front || '';
+            let textToGenerate;
+
+            if (customReading) {
+                // Option 2: Manual custom reading input
+                textToGenerate = customReading.trim();
+            } else {
+                // Option 1: Use pronunciation in parentheses, or reading field
+                const readingMatch = word.match(/[（(]([^）)]+)[）)]/);
+                textToGenerate = readingMatch ? readingMatch[1].trim() : (v.reading || word.split('（')[0].split('(')[0].trim());
+            }
+
+            if (!textToGenerate) throw new Error('Không có dữ liệu phát âm');
+
+            const result = await generateAudioSilentWithVoice(textToGenerate, 'ryota');
+            if (!result?.base64) throw new Error('Không thể tạo audio. Vui lòng thử lại.');
+
+            // Save to Firestore vocabAudio subcollection
+            const audioColPath = `${COLLECTION}/${groupId}/books/${bookId}/chapters/${chapterId}/lessons/${lessonId}/vocabAudio`;
+            const wordDocId = `${vocabIndex}_word`;
+            await setDoc(doc(db, audioColPath, wordDocId), {
+                base64: result.base64, vocabIndex, clipType: 'word', updatedAt: Date.now()
+            });
+
+            showToast(`Đã tạo lại audio cho「${word.split('（')[0].split('(')[0].trim()}」(đọc: ${textToGenerate})`, 'success');
+            setFixAudioIndex(null);
+            setFixAudioCustomReading('');
+            await loadLessonAudio();
+        } catch (e) {
+            console.error('Fix audio error:', e);
+            showToast('Lỗi: ' + e.message, 'error');
+        } finally {
+            setFixAudioLoading(false);
+        }
+    };
 
     // ==================== ADD VOCAB TO SRS ====================
     const handleAddToSRS = async (vocab, index) => {
@@ -1056,6 +1106,15 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                             >
                                                                 <Volume2 className="w-4 h-4" />
                                                             </button>
+                                                            {isAdmin && (
+                                                                <button
+                                                                    onClick={(e) => { e.stopPropagation(); setFixAudioIndex(i); setFixAudioCustomReading(''); }}
+                                                                    className="p-1 rounded-lg transition-all hover:scale-110 shrink-0 text-gray-300 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:text-amber-500"
+                                                                    title="Sửa audio"
+                                                                >
+                                                                    <Wrench className="w-3.5 h-3.5" />
+                                                                </button>
+                                                            )}
                                                         </div>
                                                         {v.reading && (() => {
                                                             const pitchParts = (v.accent !== undefined && v.accent !== '' && v.accent !== null)
@@ -1204,6 +1263,119 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                         </div>
                     </div>
                 )}
+            </div>
+        );
+    };
+
+    // ==================== FIX AUDIO MODAL ====================
+    const FixAudioModal = () => {
+        if (fixAudioIndex === null) return null;
+        const vocab = vocabWithAudio;
+        const v = vocab[fixAudioIndex];
+        if (!v) return null;
+        const word = v.word || v.front || '';
+        const displayWord = word.split('（')[0].split('(')[0].trim();
+        const readingMatch = word.match(/[（(]([^）)]+)[）)]/);
+        const autoReading = readingMatch ? readingMatch[1].trim() : (v.reading || '');
+
+        return (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => { if (!fixAudioLoading) { setFixAudioIndex(null); setFixAudioCustomReading(''); } }}>
+                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden" onClick={e => e.stopPropagation()}>
+                    {/* Header */}
+                    <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20">
+                        <div className="flex items-center gap-2">
+                            <div className="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-800/50 flex items-center justify-center">
+                                <Wrench className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                            </div>
+                            <div>
+                                <h3 className="text-sm font-bold text-gray-900 dark:text-white">Sửa âm thanh</h3>
+                                <p className="text-xs text-gray-500 dark:text-gray-400">Từ #{fixAudioIndex + 1}: <span className="font-bold text-gray-700 dark:text-gray-300">{displayWord}</span></p>
+                            </div>
+                        </div>
+                        <button onClick={() => { if (!fixAudioLoading) { setFixAudioIndex(null); setFixAudioCustomReading(''); } }}
+                            className="p-1 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors" disabled={fixAudioLoading}>
+                            <X className="w-5 h-5 text-gray-500" />
+                        </button>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-4 space-y-3">
+                        {/* Option 1: Auto regenerate */}
+                        <button
+                            onClick={() => handleFixAudio(fixAudioIndex)}
+                            disabled={fixAudioLoading || !autoReading}
+                            className={`w-full flex items-center gap-3 p-3 rounded-xl border-2 transition-all text-left group ${fixAudioLoading ? 'opacity-50 cursor-not-allowed border-gray-200 dark:border-gray-700'
+                                    : autoReading ? 'border-sky-200 dark:border-sky-800 hover:border-sky-400 dark:hover:border-sky-600 hover:bg-sky-50/50 dark:hover:bg-sky-900/20 cursor-pointer'
+                                        : 'border-gray-200 dark:border-gray-700 opacity-50 cursor-not-allowed'
+                                }`}
+                        >
+                            <div className="w-10 h-10 rounded-xl bg-sky-100 dark:bg-sky-900/40 flex items-center justify-center shrink-0 group-hover:bg-sky-200 dark:group-hover:bg-sky-800/60 transition-colors">
+                                <RefreshCw className={`w-5 h-5 text-sky-600 dark:text-sky-400 ${fixAudioLoading && !fixAudioCustomReading ? 'animate-spin' : ''}`} />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                                <p className="text-sm font-bold text-gray-900 dark:text-white">Tạo lại từ phát âm gốc</p>
+                                {autoReading ? (
+                                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Sử dụng: <span className="font-bold text-sky-600 dark:text-sky-400">「{autoReading}」</span></p>
+                                ) : (
+                                    <p className="text-xs text-red-400 dark:text-red-500 mt-0.5">Không tìm thấy phát âm trong ngoặc</p>
+                                )}
+                            </div>
+                        </button>
+
+                        {/* Divider */}
+                        <div className="flex items-center gap-2">
+                            <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>
+                            <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">HOẶC</span>
+                            <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>
+                        </div>
+
+                        {/* Option 2: Manual input */}
+                        <div className="space-y-2">
+                            <div className="flex items-center gap-2">
+                                <div className="w-8 h-8 rounded-lg bg-violet-100 dark:bg-violet-900/40 flex items-center justify-center shrink-0">
+                                    <Mic className="w-4 h-4 text-violet-600 dark:text-violet-400" />
+                                </div>
+                                <p className="text-sm font-bold text-gray-900 dark:text-white">Nhập cách đọc thủ công</p>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <input
+                                    type="text"
+                                    value={fixAudioCustomReading}
+                                    onChange={e => setFixAudioCustomReading(e.target.value)}
+                                    placeholder="Nhập hiragana/katakana... (VD: たべる)"
+                                    className="flex-1 px-3 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-violet-400 focus:border-violet-400 outline-none transition-all"
+                                    disabled={fixAudioLoading}
+                                    onKeyDown={e => { if (e.key === 'Enter' && fixAudioCustomReading.trim()) handleFixAudio(fixAudioIndex, fixAudioCustomReading); }}
+                                />
+                                <button
+                                    onClick={() => handleFixAudio(fixAudioIndex, fixAudioCustomReading)}
+                                    disabled={fixAudioLoading || !fixAudioCustomReading.trim()}
+                                    className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-1.5 shrink-0 ${fixAudioLoading || !fixAudioCustomReading.trim()
+                                            ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                                            : 'bg-violet-500 hover:bg-violet-600 text-white shadow-sm hover:shadow-md'
+                                        }`}
+                                >
+                                    {fixAudioLoading && fixAudioCustomReading ? (
+                                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                    ) : (
+                                        <RefreshCw className="w-4 h-4" />
+                                    )}
+                                    Tạo
+                                </button>
+                            </div>
+                            <p className="text-[11px] text-gray-400 dark:text-gray-500 pl-10">Nhập cách đọc bằng hiragana để tạo audio chính xác</p>
+                        </div>
+                    </div>
+
+                    {/* Footer hint */}
+                    {v.audioBase64 && (
+                        <div className="px-4 pb-3">
+                            <p className="text-[11px] text-amber-500 dark:text-amber-400 flex items-center gap-1">
+                                ⚠️ Audio hiện tại sẽ bị thay thế bằng audio mới
+                            </p>
+                        </div>
+                    )}
+                </div>
             </div>
         );
     };
@@ -1357,6 +1529,9 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                     </div>
                 </div>
             </FormModal>
+
+            {/* Fix Audio Modal */}
+            {FixAudioModal()}
         </div>
     );
 };

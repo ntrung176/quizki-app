@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+﻿import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { Search, Trash2, ChevronLeft, ChevronRight, BookOpen, Clock, CheckCircle, AlertCircle, Filter, X, Eye, Folder, FolderPlus, FolderOpen, Edit, Plus, List } from 'lucide-react';
@@ -592,13 +592,13 @@ const KanjiSRSListScreen = () => {
             {kanjiWithSRS.length === 0 ? (
                 <div className="text-center py-16 space-y-4">
                     <BookOpen className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto" />
-                    <h3 className="text-lg font-medium text-gray-500 dark:text-gray-400">Ch&#432;a c&#243; Kanji n&#224;o</h3>
+                    <h3 className="text-lg font-medium text-gray-500 dark:text-gray-400">Chưa có Kanji nào</h3>
                     <p className="text-sm text-gray-400 dark:text-gray-500">
-                        H&#227;y v&#224;o m&#7909;c <strong>H&#7885;c Kanji</strong> &#273;&#7875; th&#234;m kanji v&#224;o danh s&#225;ch &#244;n t&#7853;p
+                        Hãy vào mục <strong>Học Kanji</strong> để thêm kanji vào danh sách ôn tập
                     </p>
                     <button onClick={() => navigate(ROUTES.KANJI_STUDY)}
                         className="px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-medium transition-colors">
-                        B&#7855;t &#273;&#7847;u h&#7885;c Kanji
+                        Bắt đầu học Kanji
                     </button>
                 </div>
             ) : isInFolderBrowseMode ? (
@@ -609,7 +609,7 @@ const KanjiSRSListScreen = () => {
                         <div className="flex items-center gap-1.5 text-sm flex-wrap">
                             <button onClick={() => setCurrentFolder(null)}
                                 className="flex items-center gap-1 text-cyan-600 dark:text-cyan-400 hover:underline font-medium">
-                                <ChevronLeft className="w-4 h-4" /> Th&#432; m&#7909;c g&#7889;c
+                                <ChevronLeft className="w-4 h-4" /> Thư mục gốc
                             </button>
                             {getFolderPath(currentFolder).map((seg, i, arr) => (
                                 <React.Fragment key={seg.id}>
@@ -672,7 +672,7 @@ const KanjiSRSListScreen = () => {
                                 <div className="w-14 h-14 rounded-xl bg-cyan-500/10 dark:bg-cyan-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                                     <List className="w-7 h-7 text-cyan-500" />
                                 </div>
-                                <span className="text-sm font-bold text-cyan-700 dark:text-cyan-300">T&#7845;t c&#7843; Kanji</span>
+                                <span className="text-sm font-bold text-cyan-700 dark:text-cyan-300">Tất cả Kanji</span>
                                 <span className="text-xs text-cyan-500 dark:text-cyan-400 font-medium">{kanjiWithSRS.length}</span>
                             </button>
                         )}
@@ -704,7 +704,7 @@ const KanjiSRSListScreen = () => {
                                 <span className="text-sm font-bold text-gray-700 dark:text-gray-200 truncate max-w-full">{f.name}</span>
                                 <div className="flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500 font-medium">
                                     <span>{f.count} kanji</span>
-                                    {f.subFolderCount > 0 && <span>&#183; {f.subFolderCount} th&#432; m&#7909;c</span>}
+                                    {f.subFolderCount > 0 && <span>· {f.subFolderCount} thư mục</span>}
                                 </div>
                             </button>
                         ))}
@@ -716,7 +716,7 @@ const KanjiSRSListScreen = () => {
                         <>
                             <div className="flex items-center gap-2">
                                 <div className="flex-1 h-px bg-gray-200 dark:bg-slate-700"></div>
-                                <span className="text-xs text-gray-400 font-medium">Kanji trong th&#432; m&#7909;c n&#224;y ({currentFolderKanji.length})</span>
+                                <span className="text-xs text-gray-400 font-medium">Kanji trong thư mục này ({currentFolderKanji.length})</span>
                                 <div className="flex-1 h-px bg-gray-200 dark:bg-slate-700"></div>
                             </div>
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -730,7 +730,7 @@ const KanjiSRSListScreen = () => {
                                                 ? 'bg-red-50 dark:bg-red-900/20 border-red-300 dark:border-red-700'
                                                 : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-cyan-300'}`}>
                                             <div className={`w-4 h-4 rounded border-2 flex items-center justify-center flex-shrink-0 ${isSelected ? 'bg-red-500 border-red-500 text-white' : 'border-gray-300 dark:border-slate-600'}`}>
-                                                {isSelected && <span className="text-[10px]">&#10003;</span>}
+                                                {isSelected && <span className="text-[10px]">✓</span>}
                                             </div>
                                             <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-xl font-bold font-japanese ${levelColor.light} ${levelColor.text}`}>
                                                 {kanji.character}
@@ -750,8 +750,8 @@ const KanjiSRSListScreen = () => {
                     {currentFolder !== null && currentSubFolders.length === 0 && currentFolderKanji.length === 0 && (
                         <div className="text-center py-12 space-y-3">
                             <Folder className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto" />
-                            <p className="text-gray-500 dark:text-gray-400">Th&#432; m&#7909;c n&#224;y tr&#7889;ng</p>
-                            <p className="text-sm text-gray-400">T&#7841;o th&#432; m&#7909;c con ho&#7863;c chuy&#7875;n kanji v&#224;o &#273;&#226;y</p>
+                            <p className="text-gray-500 dark:text-gray-400">Thư mục này trống</p>
+                            <p className="text-sm text-gray-400">Tạo thư mục con hoặc chuyển kanji vào đây</p>
                         </div>
                     )}
                 </div>
@@ -763,7 +763,7 @@ const KanjiSRSListScreen = () => {
                         <div className="flex items-center gap-2 text-sm">
                             <button onClick={goBackToFolders}
                                 className="flex items-center gap-1 text-cyan-600 dark:text-cyan-400 hover:underline font-medium">
-                                <ChevronLeft className="w-4 h-4" /> Th&#432; m&#7909;c
+                                <ChevronLeft className="w-4 h-4" /> Thư mục
                             </button>
                             <span className="text-gray-400">/</span>
                             {currentFolder.startsWith('jlpt_') ? (
@@ -799,7 +799,7 @@ const KanjiSRSListScreen = () => {
                         </span>
                         <button onClick={selectAllVisible}
                             className="text-xs text-cyan-600 dark:text-cyan-400 hover:underline font-medium">
-                            {(currentFolder ? currentFolderKanji : filteredKanji).every(k => selectedIds.has(k.id)) ? 'B&#7887; ch&#7885;n t&#7845;t c&#7843;' : 'Ch&#7885;n t&#7845;t c&#7843;'}
+                            {(currentFolder ? currentFolderKanji : filteredKanji).every(k => selectedIds.has(k.id)) ? 'Bỏ Chọn tất cả' : 'Chọn tất cả'}
                         </button>
                     </div>
 
@@ -807,10 +807,10 @@ const KanjiSRSListScreen = () => {
                     {(currentFolder ? currentFolderKanji : filteredKanji).length === 0 ? (
                         <div className="text-center py-12 space-y-3">
                             <Search className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto" />
-                            <p className="text-gray-500 dark:text-gray-400">Kh&#244;ng t&#236;m th&#7845;y kanji n&#224;o</p>
+                            <p className="text-gray-500 dark:text-gray-400">Không tìm thấy kanji nào</p>
                             {currentFolder && (
                                 <button onClick={goBackToFolders} className="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg text-sm font-medium">
-                                    Quay l&#7841;i th&#432; m&#7909;c
+                                    Quay lại thư mục
                                 </button>
                             )}
                         </div>
@@ -827,7 +827,7 @@ const KanjiSRSListScreen = () => {
                                             : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-cyan-300 dark:hover:border-cyan-600 hover:shadow-md'}`}>
                                         <div onClick={(e) => { e.stopPropagation(); toggleSelect(kanji.id); }} className="flex-shrink-0">
                                             <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${isSelected ? 'bg-red-500 border-red-500 text-white' : 'border-gray-300 dark:border-slate-600 group-hover:border-cyan-400'}`}>
-                                                {isSelected && <span className="text-xs">&#10003;</span>}
+                                                {isSelected && <span className="text-xs">✓</span>}
                                             </div>
                                         </div>
                                         <div onClick={() => openKanjiDetail(kanji.character)} className="flex items-center gap-3 flex-1 min-w-0">
@@ -837,7 +837,7 @@ const KanjiSRSListScreen = () => {
                                             <div className="flex-1 min-w-0">
                                                 <div className="flex items-center gap-2">
                                                     <span className="font-bold text-cyan-600 dark:text-cyan-400 text-sm">{kanji.sinoViet || '---'}</span>
-                                                    <span className="text-xs text-gray-400">{kanji.strokeCount} n&#233;t</span>
+                                                    <span className="text-xs text-gray-400">{kanji.strokeCount} nét</span>
                                                 </div>
                                                 <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{kanji.meaning}</div>
                                                 {getFolderName(kanji.id) && (
@@ -861,11 +861,11 @@ const KanjiSRSListScreen = () => {
                                         </div>
                                         <div className="opacity-0 group-hover:opacity-100 absolute top-1 right-1 flex gap-0.5 transition-all bg-white/80 dark:bg-slate-800/80 rounded-lg p-0.5 backdrop-blur-sm">
                                             <button onClick={(e) => { e.stopPropagation(); setShowMoveModal(kanji.id); }}
-                                                className="p-1 text-gray-400 hover:text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded transition-colors" title="Chuy&#7875;n th&#432; m&#7909;c">
+                                                className="p-1 text-gray-400 hover:text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded transition-colors" title="Chuyển thư mục">
                                                 <Folder className="w-3.5 h-3.5" />
                                             </button>
                                             <button onClick={() => openKanjiDetail(kanji.character)}
-                                                className="p-1 text-gray-400 hover:text-cyan-500 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 rounded transition-colors" title="Xem chi ti&#7871;t">
+                                                className="p-1 text-gray-400 hover:text-cyan-500 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 rounded transition-colors" title="Xem chi tiết">
                                                 <Eye className="w-3.5 h-3.5" />
                                             </button>
                                         </div>
@@ -955,29 +955,29 @@ const KanjiSRSListScreen = () => {
                     <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[350px] max-w-[90vw] shadow-2xl space-y-3">
                             <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                                <Folder className="w-5 h-5 text-indigo-500" /> Chuy&#7875;n {selectedIds.size} kanji v&#224;o th&#432; m&#7909;c
+                                <Folder className="w-5 h-5 text-indigo-500" /> Chuyển {selectedIds.size} kanji vào thư mục
                             </h3>
                             <div className="max-h-[300px] overflow-y-auto space-y-0.5">
                                 <button onClick={() => batchMoveToFolder('none')}
                                     className="w-full text-left flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors">
                                     <Folder className="w-4 h-4 text-gray-400" />
-                                    <span className="text-sm text-gray-500 italic">Ch&#432;a ph&#226;n lo&#7841;i</span>
+                                    <span className="text-sm text-gray-500 italic">Chưa phân loại</span>
                                 </button>
                                 {flatTree.map(f => (
                                     <button key={f.id} onClick={() => batchMoveToFolder(f.id)}
                                         className="w-full text-left flex items-center gap-2 p-2.5 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
                                         style={{ paddingLeft: `${12 + f.depth * 20}px` }}>
-                                        {f.depth > 0 && <span className="text-gray-300 text-xs">&#9492;</span>}
+                                        {f.depth > 0 && <span className="text-gray-300 text-xs">└</span>}
                                         <Folder className={`w-4 h-4 ${f.depth > 0 ? 'text-amber-400' : 'text-indigo-400'}`} />
                                         <span className="text-sm text-gray-700 dark:text-gray-300">{f.name}</span>
                                     </button>
                                 ))}
                                 {folders.length === 0 && (
-                                    <p className="text-center text-sm text-gray-400 py-4">Ch&#432;a c&#243; th&#432; m&#7909;c n&#224;o</p>
+                                    <p className="text-center text-sm text-gray-400 py-4">Chưa có thư mục nào</p>
                                 )}
                             </div>
                             <button onClick={() => setShowBatchMoveModal(false)} className="w-full py-2 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">
-                                &#272;&#243;ng
+                                Đóng
                             </button>
                         </div>
                     </div>
@@ -995,27 +995,27 @@ const KanjiSRSListScreen = () => {
                     <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[350px] max-w-[90vw] shadow-2xl space-y-3">
                             <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                                <Folder className="w-5 h-5 text-indigo-500" /> Chuy&#7875;n v&#224;o th&#432; m&#7909;c
+                                <Folder className="w-5 h-5 text-indigo-500" /> Chuyển vào thư mục
                             </h3>
                             <div className="max-h-[300px] overflow-y-auto space-y-0.5">
                                 <button onClick={() => moveKanjiToFolder(showMoveModal, 'none')}
                                     className={`w-full text-left flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors ${!kanjiCardFolders[showMoveModal] ? 'bg-indigo-50 dark:bg-indigo-900/20' : ''}`}>
                                     <Folder className="w-4 h-4 text-gray-400" />
-                                    <span className="text-sm text-gray-500 italic">Ch&#432;a ph&#224;n lo&#7841;i</span>
+                                    <span className="text-sm text-gray-500 italic">Chưa phàn loại</span>
                                 </button>
                                 {flatTree.map(f => (
                                     <button key={f.id} onClick={() => moveKanjiToFolder(showMoveModal, f.id)}
                                         className={`w-full text-left flex items-center gap-2 p-2.5 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors ${kanjiCardFolders[showMoveModal] === f.id ? 'bg-indigo-50 dark:bg-indigo-900/20' : ''}`}
                                         style={{ paddingLeft: `${12 + f.depth * 20}px` }}>
-                                        {f.depth > 0 && <span className="text-gray-300 text-xs">&#9492;</span>}
+                                        {f.depth > 0 && <span className="text-gray-300 text-xs">└</span>}
                                         <Folder className={`w-4 h-4 ${f.depth > 0 ? 'text-amber-400' : 'text-indigo-400'}`} />
                                         <span className="text-sm text-gray-700 dark:text-gray-300 flex-1">{f.name}</span>
-                                        {kanjiCardFolders[showMoveModal] === f.id && <span className="text-xs text-indigo-500 ml-auto">&#10003; Hi&#7879;n t&#7841;i</span>}
+                                        {kanjiCardFolders[showMoveModal] === f.id && <span className="text-xs text-indigo-500 ml-auto">✓ Hiện tại</span>}
                                     </button>
                                 ))}
                             </div>
                             <button onClick={() => setShowMoveModal(null)} className="w-full py-2 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">
-                                &#272;&#243;ng
+                                Đóng
                             </button>
                         </div>
                     </div>
@@ -1035,14 +1035,14 @@ const KanjiSRSListScreen = () => {
                     <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[450px] max-w-[90vw] shadow-2xl space-y-4">
                             <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                                <FolderPlus className="w-5 h-5 text-cyan-500" /> Qu&#7843;n l&#253; th&#43; m&#7909;c Kanji
+                                <FolderPlus className="w-5 h-5 text-cyan-500" /> Quản lý th+ mục Kanji
                             </h3>
                             {/* Create new root folder */}
                             <div className="flex gap-2">
                                 <input type="text" value={newFolderName}
                                     onChange={(e) => setNewFolderName(e.target.value)}
                                     onKeyDown={(e) => { if (e.key === 'Enter' && newFolderName.trim()) { createFolder(newFolderName); setNewFolderName(''); } }}
-                                    placeholder="T&#234;n th&#43; m&#7909;c m&#7899;i..."
+                                    placeholder="Tên th+ mục mới..."
                                     className="flex-1 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
                                 />
                                 <button onClick={() => { if (newFolderName.trim()) { createFolder(newFolderName); setNewFolderName(''); } }}
@@ -1053,13 +1053,13 @@ const KanjiSRSListScreen = () => {
                             {/* Folder tree */}
                             <div className="max-h-[350px] overflow-y-auto space-y-0.5">
                                 {flatTree.length === 0 ? (
-                                    <p className="text-center text-sm text-gray-400 py-4">Ch&#43;a c&#243; th&#43; m&#7909;c n&#224;o</p>
+                                    <p className="text-center text-sm text-gray-400 py-4">Ch+a có th+ mục nào</p>
                                 ) : flatTree.map(f => {
                                     const count = getRecursiveCardCount(f.id);
                                     return (
                                         <div key={f.id} className="flex items-center gap-1.5 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 group"
                                             style={{ paddingLeft: `${8 + f.depth * 20}px` }}>
-                                            {f.depth > 0 && <span className="text-gray-300 dark:text-gray-600 text-xs">&#9492;</span>}
+                                            {f.depth > 0 && <span className="text-gray-300 dark:text-gray-600 text-xs">└</span>}
                                             <Folder className={`w-4 h-4 flex-shrink-0 ${f.depth > 0 ? 'text-amber-400' : 'text-indigo-500'}`} />
                                             {editingFolderId === f.id ? (
                                                 <input type="text" value={editingFolderName}
@@ -1073,15 +1073,15 @@ const KanjiSRSListScreen = () => {
                                             )}
                                             <span className="text-xs text-gray-400 mr-0.5">{count}</span>
                                             <button onClick={() => { setEditingFolderId(f.id); setEditingFolderName(f.name); }}
-                                                className="p-1 text-gray-400 hover:text-cyan-500 opacity-0 group-hover:opacity-100 transition-all" title="&#272;&#7893;i t&#234;n">
+                                                className="p-1 text-gray-400 hover:text-cyan-500 opacity-0 group-hover:opacity-100 transition-all" title="Đổi tên">
                                                 <Edit className="w-3.5 h-3.5" />
                                             </button>
-                                            <button onClick={() => createFolder('Th&#43; m&#7909;c con', f.id)}
-                                                className="p-1 text-gray-400 hover:text-emerald-500 opacity-0 group-hover:opacity-100 transition-all" title="T&#7841;o th&#43; m&#7909;c con">
+                                            <button onClick={() => createFolder('Th+ mục con', f.id)}
+                                                className="p-1 text-gray-400 hover:text-emerald-500 opacity-0 group-hover:opacity-100 transition-all" title="Tạo th+ mục con">
                                                 <FolderPlus className="w-3.5 h-3.5" />
                                             </button>
-                                            <button onClick={() => { if (window.confirm(`X&#243;a th&#43; m&#7909;c "${f.name}"?`)) deleteFolder(f.id); }}
-                                                className="p-1 text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all" title="X&#243;a">
+                                            <button onClick={() => { if (window.confirm(`Xóa th+ mục "${f.name}"?`)) deleteFolder(f.id); }}
+                                                className="p-1 text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all" title="Xóa">
                                                 <Trash2 className="w-3.5 h-3.5" />
                                             </button>
                                         </div>
@@ -1089,7 +1089,7 @@ const KanjiSRSListScreen = () => {
                                 })}
                             </div>
                             <button onClick={() => setShowFolderManager(false)} className="w-full py-2 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">
-                                &#272;&#243;ng
+                                Đóng
                             </button>
                         </div>
                     </div>

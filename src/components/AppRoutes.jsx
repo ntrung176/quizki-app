@@ -30,7 +30,8 @@ import {
     JLPTTestScreen,
     JLPTAdminScreen,
     PrivacyScreen,
-    TermsScreen
+    TermsScreen,
+    AuthActionScreen
 } from './screens';
 
 // Import card components
@@ -143,6 +144,9 @@ const AppRoutes = ({
                 {/* Legal public routes */}
                 <Route path={ROUTES.PRIVACY} element={<PrivacyScreen />} />
                 <Route path={ROUTES.TERMS} element={<TermsScreen />} />
+
+                {/* Firebase Auth action handler (email verification, password reset) */}
+                <Route path={ROUTES.AUTH_ACTION} element={<AuthActionScreen />} />
 
                 {/* Protected routes - require both auth and approval */}
 
@@ -312,7 +316,7 @@ const AppRoutes = ({
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
                             {reviewCards?.length === 0 ? (
-                                <ReviewCompleteScreen onBack={() => setView('LIST')} allCards={allCards} />
+                                <ReviewCompleteScreen onBack={() => navigate(ROUTES.VOCAB_REVIEW)} allCards={allCards} />
                             ) : (
                                 <ReviewScreen
                                     cards={reviewCards}
@@ -335,9 +339,10 @@ const AppRoutes = ({
                                             setReviewMode('mixed');
                                         } else {
                                             setReviewCards([]);
-                                            setView('LIST');
+                                            navigate(ROUTES.VOCAB_REVIEW);
                                         }
                                     }}
+                                    onBack={() => navigate(ROUTES.VOCAB_REVIEW)}
                                 />
                             )}
                         </ProtectedRoute>
@@ -364,8 +369,9 @@ const AppRoutes = ({
                                         batchIndex: 0,
                                         allNoSrsCards: []
                                     });
-                                    setView('LIST');
+                                    navigate(ROUTES.VOCAB_REVIEW);
                                 }}
+                                onBack={() => navigate(ROUTES.VOCAB_REVIEW)}
                             />
                         </ProtectedRoute>
                     }
@@ -377,7 +383,7 @@ const AppRoutes = ({
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
                             <TestScreen
                                 allCards={allCards}
-                                onBack={() => setView('LIST')}
+                                onBack={() => navigate(ROUTES.VOCAB_REVIEW)}
                             />
                         </ProtectedRoute>
                     }
@@ -475,8 +481,9 @@ const AppRoutes = ({
                                     onSaveCardAudio={handleSaveCardAudio}
                                     onComplete={() => {
                                         setFlashcardCards([]);
-                                        setView('LIST');
+                                        navigate(ROUTES.VOCAB_REVIEW);
                                     }}
+                                    onBack={() => navigate(ROUTES.VOCAB_REVIEW)}
                                 />
                             ) : (
                                 <Navigate to={ROUTES.VOCAB_REVIEW} replace />
