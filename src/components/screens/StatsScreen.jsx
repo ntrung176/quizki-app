@@ -94,7 +94,13 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
         return currentStreak;
     }, [dailyActivityLogs]);
 
-    // ==================== WEEKLY STATS ====================
+    // ==================== STATS ====================
+    const allTimeStats = useMemo(() => {
+        const totalReviews = (dailyActivityLogs || []).reduce((s, l) => s + (l.reviewsDone || 0), 0);
+        const activeDays = (dailyActivityLogs || []).filter(l => (l.newWordsAdded || 0) > 0 || (l.reviewsDone || 0) > 0).length;
+        return { totalReviews, activeDays };
+    }, [dailyActivityLogs]);
+
     const weeklyStats = useMemo(() => {
         const today = new Date();
         const dayOfWeek = today.getDay() === 0 ? 6 : today.getDay() - 1; // Mon=0, Sun=6
@@ -189,17 +195,29 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
     const xpPercent = Math.min(100, Math.round((xpProgress / xpNeeded) * 100));
 
     // ==================== LEADERBOARD ====================
+    // Hàm tính điểm từ dữ liệu user (cho người dùng cũ chưa có score)
+    const computeScore = useCallback((user) => {
+        if (user.score !== undefined && user.score !== null) return user.score;
+        // Fallback: tính từ các trường có sẵn
+        return Math.round(
+            ((user.totalCards || 0) * 1) +
+            ((user.kanjiTotal || 0) * 2) +
+            ((user.mastered || 0) * 3) +
+            ((user.kanjiMastered || 0) * 5) +
+            ((user.totalReviews || 0) * 0.5) +
+            ((user.activeDays || 0) * 5) +
+            ((user.streak || 0) * 3)
+        );
+    }, []);
+
     const sortedLeaderboard = useMemo(() => {
         const sorted = [...leaderboardData].sort((a, b) => {
-            if (leaderboardTab === 'weekly') {
-                return (b.totalCards || 0) - (a.totalCards || 0);
-            }
-            const aTotal = (a.totalCards || 0) + (a.shortTerm || 0) + (a.midTerm || 0) + (a.longTerm || 0);
-            const bTotal = (b.totalCards || 0) + (b.shortTerm || 0) + (b.midTerm || 0) + (b.longTerm || 0);
-            return bTotal - aTotal;
+            const aScore = computeScore(a);
+            const bScore = computeScore(b);
+            return bScore - aScore;
         });
         return sorted;
-    }, [leaderboardData, leaderboardTab]);
+    }, [leaderboardData, leaderboardTab, computeScore]);
 
     const handleSaveGoal = useCallback(() => {
         onUpdateGoal({ vocabGoal: Number(vocabGoal), kanjiGoal: Number(kanjiGoal) });
@@ -570,18 +588,6 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
             {
                 activeTab === 'leaderboard' && (
                     <div className="space-y-4">
-                        {/* Leaderboard Type Toggle */}
-                        <div className="flex bg-gray-100 dark:bg-gray-800 rounded-xl p-1">
-                            <button onClick={() => setLeaderboardTab('weekly')}
-                                className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-1.5 ${leaderboardTab === 'weekly' ? 'bg-white dark:bg-gray-700 text-orange-500 shadow-sm' : 'text-gray-500'}`}>
-                                <Zap className="w-4 h-4" /> Tuần này
-                            </button>
-                            <button onClick={() => setLeaderboardTab('alltime')}
-                                className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-1.5 ${leaderboardTab === 'alltime' ? 'bg-white dark:bg-gray-700 text-purple-500 shadow-sm' : 'text-gray-500'}`}>
-                                <Crown className="w-4 h-4" /> Tổng
-                            </button>
-                        </div>
-
                         {/* My Stats Card */}
                         <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 rounded-2xl text-white shadow-xl">
                             <div className="flex items-center gap-3 mb-3">
@@ -593,46 +599,27 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                                     <p className="text-[10px] text-indigo-200">Thống kê của bạn</p>
                                 </div>
                             </div>
-                            <div className="grid grid-cols-4 gap-2">
-                                {leaderboardTab === 'weekly' ? (
-                                    <>
-                                        <div className="text-center p-2 bg-white/10 rounded-lg">
-                                            <div className="text-lg font-bold">{weeklyStats.vocabAdded}</div>
-                                            <div className="text-[9px] opacity-70">Từ mới</div>
-                                        </div>
-                                        <div className="text-center p-2 bg-white/10 rounded-lg">
-                                            <div className="text-lg font-bold">{weeklyStats.totalReviews}</div>
-                                            <div className="text-[9px] opacity-70">Ôn tập</div>
-                                        </div>
-                                        <div className="text-center p-2 bg-white/10 rounded-lg">
-                                            <div className="text-lg font-bold">{weeklyStats.activeDays}</div>
-                                            <div className="text-[9px] opacity-70">Ngày HĐ</div>
-                                        </div>
-                                        <div className="text-center p-2 bg-white/10 rounded-lg">
-                                            <div className="text-lg font-bold flex items-center justify-center gap-0.5"><Flame className="w-3 h-3" />{streak}</div>
-                                            <div className="text-[9px] opacity-70">Chuỗi ngày</div>
-                                        </div>
-                                    </>
-                                ) : (
-                                    <>
-                                        <div className="text-center p-2 bg-white/10 rounded-lg">
-                                            <div className="text-lg font-bold">{totalCards}</div>
-                                            <div className="text-[9px] opacity-70">Từ vựng</div>
-                                        </div>
-                                        <div className="text-center p-2 bg-white/10 rounded-lg">
-                                            <div className="text-lg font-bold">{kanjiSrsStats.total}</div>
-                                            <div className="text-[9px] opacity-70">Kanji</div>
-                                        </div>
-                                        <div className="text-center p-2 bg-white/10 rounded-lg">
-                                            <div className="text-lg font-bold">{vocabMastery.mastered}</div>
-                                            <div className="text-[9px] opacity-70">Thành thạo</div>
-                                        </div>
-                                        <div className="text-center p-2 bg-white/10 rounded-lg">
-                                            <div className="text-lg font-bold flex items-center justify-center gap-0.5"><Flame className="w-3 h-3" />{streak}</div>
-                                            <div className="text-[9px] opacity-70">Chuỗi ngày</div>
-                                        </div>
-                                    </>
-                                )}
+                            <div className="grid grid-cols-5 gap-1.5">
+                                <div className="text-center p-2 bg-white/10 rounded-lg">
+                                    <div className="text-lg font-bold">{totalCards}</div>
+                                    <div className="text-[9px] opacity-70">Từ vựng</div>
+                                </div>
+                                <div className="text-center p-2 bg-white/10 rounded-lg">
+                                    <div className="text-lg font-bold">{kanjiSrsStats.total}</div>
+                                    <div className="text-[9px] opacity-70">Kanji</div>
+                                </div>
+                                <div className="text-center p-2 bg-white/10 rounded-lg">
+                                    <div className="text-lg font-bold">{vocabMastery.mastered}</div>
+                                    <div className="text-[9px] opacity-70">Thành thạo</div>
+                                </div>
+                                <div className="text-center p-2 bg-white/10 rounded-lg">
+                                    <div className="text-lg font-bold flex items-center justify-center gap-0.5"><Flame className="w-3 h-3" />{streak}</div>
+                                    <div className="text-[9px] opacity-70">Chuỗi ngày</div>
+                                </div>
+                                <div className="text-center p-2 bg-white/15 rounded-lg border border-white/20">
+                                    <div className="text-lg font-bold flex items-center justify-center gap-0.5"><Star className="w-3 h-3" />{computeScore({ totalCards, kanjiTotal: kanjiSrsStats.total, mastered: vocabMastery.mastered, kanjiMastered: kanjiSrsStats.mastered, totalReviews: allTimeStats.totalReviews, activeDays: allTimeStats.activeDays, streak })}</div>
+                                    <div className="text-[9px] opacity-70">Điểm</div>
+                                </div>
                             </div>
                         </div>
 
@@ -641,12 +628,13 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                             <div className="p-4 border-b border-gray-100 dark:border-gray-700">
                                 <h3 className="font-bold text-gray-700 dark:text-gray-200 flex items-center gap-2 text-sm">
                                     <Users className="w-4 h-4 text-indigo-500" />
-                                    Bảng xếp hạng {leaderboardTab === 'weekly' ? 'tuần' : 'tổng'}
+                                    Bảng xếp hạng tổng hợp
                                 </h3>
                             </div>
                             <div className="divide-y divide-gray-50 dark:divide-gray-700/50">
                                 {sortedLeaderboard.length > 0 ? sortedLeaderboard.map((user, index) => {
                                     const isMe = user.id === userId;
+                                    const userScore = computeScore(user);
                                     const rankBg = index === 0 ? 'bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20'
                                         : index === 1 ? 'bg-gradient-to-r from-gray-50 to-slate-50 dark:from-gray-800/50 dark:to-slate-800/50'
                                             : index === 2 ? 'bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/10'
@@ -666,13 +654,23 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                                                 <p className={`text-sm font-bold truncate ${isMe ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-700 dark:text-gray-300'}`}>
                                                     {user.displayName || 'Ẩn danh'} {isMe && '(Bạn)'}
                                                 </p>
-                                                <p className="text-[10px] text-gray-400">
-                                                    {user.totalCards || 0} từ · {(user.shortTerm || 0) + (user.midTerm || 0) + (user.longTerm || 0)} đã học
-                                                </p>
+                                                <div className="flex items-center gap-2 text-[10px] text-gray-400 flex-wrap">
+                                                    <span>{user.totalCards || 0} từ</span>
+                                                    <span>·</span>
+                                                    <span>{user.kanjiTotal || 0} kanji</span>
+                                                    <span>·</span>
+                                                    <span className="flex items-center gap-0.5"><Flame className="w-2.5 h-2.5 text-orange-400" />{user.streak || 0}</span>
+                                                    {(user.totalReviews || 0) > 0 && (
+                                                        <><span>·</span><span>{user.totalReviews} ôn</span></>
+                                                    )}
+                                                </div>
                                             </div>
-                                            <div className="text-right">
-                                                <p className="text-sm font-bold text-gray-700 dark:text-gray-300">{user.totalCards || 0}</p>
-                                                <p className="text-[9px] text-gray-400">từ vựng</p>
+                                            <div className="text-right flex-shrink-0">
+                                                <p className="text-sm font-bold text-indigo-600 dark:text-indigo-400 flex items-center gap-0.5 justify-end">
+                                                    <Star className="w-3.5 h-3.5 text-yellow-500" />
+                                                    {userScore}
+                                                </p>
+                                                <p className="text-[9px] text-gray-400">điểm</p>
                                             </div>
                                         </div>
                                     );
@@ -682,6 +680,22 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                                         Chưa có dữ liệu xếp hạng
                                     </div>
                                 )}
+                            </div>
+                        </div>
+
+                        {/* Scoring System Info */}
+                        <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-xl border border-indigo-200 dark:border-indigo-800">
+                            <h4 className="text-sm font-bold text-indigo-700 dark:text-indigo-300 mb-2 flex items-center gap-2">
+                                <Star className="w-4 h-4" /> Cách tính điểm xếp hạng
+                            </h4>
+                            <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-indigo-600 dark:text-indigo-400">
+                                <span>📚 Thêm từ vựng: +1đ/từ</span>
+                                <span>🈁 Học Kanji: +2đ/kanji</span>
+                                <span>⭐ Thành thạo TV: +3đ/từ</span>
+                                <span>🏆 Thành thạo Kanji: +5đ/chữ</span>
+                                <span>🔄 Ôn tập: +0.5đ/lượt</span>
+                                <span>📅 Ngày hoạt động: +5đ/ngày</span>
+                                <span>🔥 Streak: +3đ/ngày</span>
                             </div>
                         </div>
                     </div>

@@ -211,6 +211,7 @@ const App = () => {
     });
     const [isProfileLoading, setIsProfileLoading] = useState(true);
     const [dailyActivityLogs, setDailyActivityLogs] = useState([]);
+    const [kanjiSrsPublicCount, setKanjiSrsPublicCount] = useState({ total: 0, mastered: 0 });
     const [studySessionData, setStudySessionData] = useState({
         learning: [], // Từ sai trong session (ưu tiên 1)
         new: [], // Từ mới chưa học (ưu tiên 2)
@@ -2409,12 +2410,72 @@ const App = () => {
         return stats;
     }, [allCards]);
 
+    // Fetch kanji SRS counts for public stats
+    useEffect(() => {
+        if (!authReady || !userId || !db) return;
+        const q = query(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
+        const unsub = onSnapshot(q, (snap) => {
+            let total = 0, mastered = 0;
+            snap.docs.forEach(d => {
+                total++;
+                if (d.data().reps >= 5) mastered++;
+            });
+            setKanjiSrsPublicCount({ total, mastered });
+        }, () => { });
+        return () => unsub();
+    }, [authReady, userId]);
+
     useEffect(() => {
         if (!authReady || !userId || !db || !profile) return;
 
         const updatePublicStats = async () => {
             try {
                 const statsDocRef = doc(db, publicStatsCollectionPath, userId);
+                const vocabMastered = allCards.filter(c => c.intervalIndex_back >= 4).length;
+
+                // Tính streak từ dailyActivityLogs
+                let currentStreak = 0;
+                if (dailyActivityLogs && dailyActivityLogs.length > 0) {
+                    const todayStr = new Date().toISOString().split('T')[0];
+                    const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
+                    const yesterdayStr = yesterday.toISOString().split('T')[0];
+                    const reversedLogs = [...dailyActivityLogs].reverse();
+                    const lastLog = reversedLogs[0];
+                    if (lastLog && (lastLog.id === todayStr || lastLog.id === yesterdayStr)) {
+                        let checkDate = new Date();
+                        if (lastLog.id !== todayStr) checkDate.setDate(checkDate.getDate() - 1);
+                        for (const log of reversedLogs) {
+                            const checkDateStr = checkDate.toISOString().split('T')[0];
+                            if (log.id === checkDateStr && (log.newWordsAdded > 0 || log.reviewsDone > 0)) {
+                                currentStreak++;
+                                checkDate.setDate(checkDate.getDate() - 1);
+                            } else break;
+                        }
+                    }
+                }
+
+                // Tính tổng ôn tập và ngày hoạt động
+                const totalReviews = (dailyActivityLogs || []).reduce((s, l) => s + (l.reviewsDone || 0), 0);
+                const activeDays = (dailyActivityLogs || []).filter(l => (l.newWordsAdded || 0) > 0 || (l.reviewsDone || 0) > 0).length;
+
+                // === CÔNG THỨC TÍNH ĐIỂM XẾP HẠNG ===
+                // Từ vựng đã thêm: +1đ/từ
+                // Kanji đã học: +2đ/kanji
+                // Từ vựng thành thạo: +3đ/từ (thêm bonus so với chỉ thêm)
+                // Kanji thành thạo: +5đ/kanji
+                // Tổng ôn tập: +0.5đ/lượt
+                // Ngày hoạt động: +5đ/ngày
+                // Streak: +3đ/ngày streak
+                const score = Math.round(
+                    (allCards.length * 1) +
+                    (kanjiSrsPublicCount.total * 2) +
+                    (vocabMastered * 3) +
+                    (kanjiSrsPublicCount.mastered * 5) +
+                    (totalReviews * 0.5) +
+                    (activeDays * 5) +
+                    (currentStreak * 3)
+                );
+
                 const publicData = {
                     userId: userId,
                     displayName: profile.displayName || 'Người dùng ẩn danh',
@@ -2424,7 +2485,16 @@ const App = () => {
                     shortTerm: memoryStats.shortTerm,
                     midTerm: memoryStats.midTerm,
                     longTerm: memoryStats.longTerm,
-                    mastered: allCards.filter(c => c.intervalIndex_back >= 4).length,
+                    mastered: vocabMastered,
+                    // Dữ liệu Kanji
+                    kanjiTotal: kanjiSrsPublicCount.total,
+                    kanjiMastered: kanjiSrsPublicCount.mastered,
+                    // Dữ liệu hoạt động
+                    totalReviews: totalReviews,
+                    activeDays: activeDays,
+                    streak: currentStreak,
+                    // Điểm tổng hợp cho xếp hạng
+                    score: score,
                     lastUpdated: serverTimestamp()
                 };
                 await setDoc(statsDocRef, publicData, { merge: true }).catch(err => {
@@ -2448,7 +2518,7 @@ const App = () => {
 
         return () => clearTimeout(timeoutId);
 
-    }, [memoryStats, allCards.length, profile, userId, authReady, publicStatsCollectionPath]);
+    }, [memoryStats, allCards.length, profile, userId, authReady, publicStatsCollectionPath, dailyActivityLogs, kanjiSrsPublicCount]);
 
 
     // Nếu chưa biết trạng thái auth, show loading
