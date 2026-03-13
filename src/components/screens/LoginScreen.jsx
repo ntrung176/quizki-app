@@ -16,12 +16,10 @@ import { Link } from 'react-router-dom';
 // Application ID for Firebase paths
 const appId = typeof __app_id !== 'undefined' ? __app_id : 'quizki-app';
 
-// Action code settings for email verification and password reset
-// This tells Firebase to redirect to our custom handler instead of the default Firebase one
-const getActionCodeSettings = () => ({
-    url: `${window.location.origin}/auth/action`,
-    handleCodeInApp: false,
-});
+// Cooldown tracking for email sending (prevent too-many-requests)
+let lastVerificationEmailTime = 0;
+let lastPasswordResetTime = 0;
+const EMAIL_COOLDOWN_MS = 60000; // 60 seconds cooldown between emails
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
@@ -56,31 +54,43 @@ const LoginScreen = () => {
             if (mode === 'login') {
                 const cred = await signInWithEmailAndPassword(auth, email.trim(), password);
                 if (!cred.user.emailVerified) {
-                    let verificationMsg = 'Email của bạn chưa được xác thực. Vui lòng kiểm tra hộp thư (và mục Spam), bấm vào link xác nhận rồi đăng nhập lại.';
-                    try {
-                        await sendEmailVerification(cred.user, getActionCodeSettings());
-                        verificationMsg = 'Đã gửi lại email xác thực. ' + verificationMsg;
-                    } catch (ve) {
-                        console.error('Lỗi gửi lại email xác thực:', ve);
-                        if (ve.code === 'auth/too-many-requests') {
-                            verificationMsg = 'Bạn đã yêu cầu gửi email quá nhiều lần. Vui lòng kiểm tra hộp thư (hoặc mục Spam) hoặc đợi vài phút trước khi thử đăng nhập lại.';
+                    const now = Date.now();
+                    const timeSinceLastEmail = now - lastVerificationEmailTime;
+
+                    if (timeSinceLastEmail < EMAIL_COOLDOWN_MS) {
+                        const waitSeconds = Math.ceil((EMAIL_COOLDOWN_MS - timeSinceLastEmail) / 1000);
+                        setError(`Email của bạn chưa được xác thực. Vui lòng kiểm tra hộp thư (và mục Spam/Junk). Bạn có thể yêu cầu gửi lại sau ${waitSeconds} giây.`);
+                    } else {
+                        let verificationMsg = 'Email của bạn chưa được xác thực. Vui lòng kiểm tra hộp thư (và mục Spam/Junk), bấm vào link xác nhận rồi đăng nhập lại.';
+                        try {
+                            await sendEmailVerification(cred.user);
+                            lastVerificationEmailTime = Date.now();
+                            verificationMsg = '✅ Đã gửi lại email xác thực! ' + verificationMsg;
+                        } catch (ve) {
+                            console.error('Lỗi gửi lại email xác thực:', ve);
+                            if (ve.code === 'auth/too-many-requests') {
+                                lastVerificationEmailTime = Date.now(); // Set cooldown anyway
+                                verificationMsg = '⚠️ Bạn đã yêu cầu gửi email quá nhiều lần. Vui lòng kiểm tra hộp thư (và mục Spam/Junk) hoặc đợi 1-2 phút trước khi thử lại.';
+                            }
                         }
+                        setError(verificationMsg);
                     }
-                    setError(verificationMsg);
                     await signOut(auth);
                     return;
                 }
             } else {
                 const cred = await createUserWithEmailAndPassword(auth, email.trim(), password);
                 try {
-                    await sendEmailVerification(cred.user, getActionCodeSettings());
-                    setInfo('Đăng ký thành công! Một email xác thực đã được gửi, vui lòng kiểm tra hộp thư và xác thực tài khoản.');
+                    await sendEmailVerification(cred.user);
+                    lastVerificationEmailTime = Date.now();
+                    setInfo('🎉 Đăng ký thành công! Một email xác thực đã được gửi. Vui lòng kiểm tra hộp thư (và mục Spam/Junk) rồi bấm vào link xác nhận.');
                 } catch (ve) {
                     console.error('Lỗi gửi email xác thực:', ve);
                     if (ve.code === 'auth/too-many-requests') {
-                        setInfo('Đăng ký thành công, nhưng hệ thống đang gửi quá nhiều email. Vui lòng chờ vài phút rồi chọn tính năng quên mật khẩu để xác thực.');
+                        lastVerificationEmailTime = Date.now();
+                        setInfo('Đăng ký thành công! Nhưng hệ thống đang bận. Vui lòng chờ 1-2 phút rồi đăng nhập lại để nhận email xác thực.');
                     } else {
-                        setInfo('Đăng ký thành công, nhưng không gửi được email xác thực. Vui lòng thử lại chức năng quên mật khẩu hoặc liên hệ hỗ trợ.');
+                        setInfo('Đăng ký thành công! Nhưng không gửi được email xác thực. Vui lòng đăng nhập lại để nhận email xác thực mới.');
                     }
                 }
                 if (db) {
@@ -124,16 +134,28 @@ const LoginScreen = () => {
             setError('Vui lòng nhập email để đặt lại mật khẩu.');
             return;
         }
+
+        // Check cooldown
+        const now = Date.now();
+        const timeSinceLastReset = now - lastPasswordResetTime;
+        if (timeSinceLastReset < EMAIL_COOLDOWN_MS) {
+            const waitSeconds = Math.ceil((EMAIL_COOLDOWN_MS - timeSinceLastReset) / 1000);
+            setError(`Vui lòng đợi ${waitSeconds} giây trước khi yêu cầu gửi lại email đặt lại mật khẩu.`);
+            return;
+        }
+
         try {
-            await sendPasswordResetEmail(auth, email.trim(), getActionCodeSettings());
-            setInfo('Đã gửi email đặt lại mật khẩu. Vui lòng kiểm tra hộp thư của bạn.');
+            await sendPasswordResetEmail(auth, email.trim());
+            lastPasswordResetTime = Date.now();
+            setInfo('✅ Đã gửi email đặt lại mật khẩu! Vui lòng kiểm tra hộp thư (và mục Spam/Junk). Bấm vào link trong email để đặt mật khẩu mới.');
         } catch (e) {
             console.error('Lỗi quên mật khẩu:', e);
             let msg = 'Không thể gửi email đặt lại mật khẩu. Vui lòng thử lại.';
             if (e.code === 'auth/user-not-found') {
                 msg = 'Không tìm thấy tài khoản với email này.';
             } else if (e.code === 'auth/too-many-requests') {
-                msg = 'Bạn đã yêu cầu quá nhiều lần. Vui lòng chờ vài phút trước khi thử lại.';
+                lastPasswordResetTime = Date.now();
+                msg = '⚠️ Bạn đã yêu cầu quá nhiều lần. Vui lòng kiểm tra hộp thư (và Spam/Junk) hoặc đợi 1-2 phút trước khi thử lại.';
             }
             setError(msg);
         }

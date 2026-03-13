@@ -1,7 +1,7 @@
 ﻿import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useSearchParams, useParams, useNavigate } from 'react-router-dom';
-import { Search, Grid, PenTool, Download, BookOpen, Map as MapIcon, Globe, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Play, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw } from 'lucide-react';
+import { Search, Grid, PenTool, Download, BookOpen, Map as MapIcon, Globe, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Play, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw, ChevronUp, ChevronDown } from 'lucide-react';
 import { db } from '../../config/firebase';
 import { collection, getDocs, addDoc, deleteDoc, doc, query, where, writeBatch, updateDoc } from 'firebase/firestore';
 import { playAudio } from '../../utils/audio';
@@ -679,7 +679,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             for (const v of items) {
                 const wordText = v.word || '';
                 if (wordText.includes(char) && !bookVocab.some(bv => bv.word === wordText)) {
-                    bookVocab.push({ ...v, category: `📚 ${bookName}` });
+                    bookVocab.push({ ...v, category: `📚 ${bookName}`, _bookOrder: linkedBook?.order ?? 99, _linkId: linkId });
                 }
             }
         }
@@ -688,6 +688,40 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         const uniqueBookVocab = bookVocab.filter(v => !existingWords.has(v.word));
         return [...kanjiVocab, ...uniqueBookVocab];
     };
+
+    // Admin: reorder linked book position
+    const handleReorderLinkedBook = async (catName, direction) => {
+        // catName = "📚 BookName"
+        const bookName = catName.replace('📚 ', '');
+        const lb = kanjiLinkedBooks.find(b => b.bookName === bookName);
+        if (!lb) return;
+
+        const sorted = [...kanjiLinkedBooks].sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
+        const idx = sorted.findIndex(b => b.id === lb.id);
+        const swapIdx = idx + direction;
+        if (swapIdx < 0 || swapIdx >= sorted.length) return;
+
+        const orderA = sorted[idx].order ?? idx;
+        const orderB = sorted[swapIdx].order ?? swapIdx;
+
+        try {
+            const batch = writeBatch(db);
+            batch.update(doc(db, 'kanjiLinkedBooks', sorted[idx].id), { order: orderB });
+            batch.update(doc(db, 'kanjiLinkedBooks', sorted[swapIdx].id), { order: orderA });
+            await batch.commit();
+
+            setKanjiLinkedBooks(prev => prev.map(b => {
+                if (b.id === sorted[idx].id) return { ...b, order: orderB };
+                if (b.id === sorted[swapIdx].id) return { ...b, order: orderA };
+                return b;
+            }));
+            showToast('Đã cập nhật vị trí sách!', 'success');
+        } catch (e) {
+            console.error('Reorder linked book error:', e);
+            showToast('Lỗi cập nhật vị trí: ' + e.message, 'error');
+        }
+    };
+
 
     // Get related kanji (from same level or other kanji in Firebase)
     const getRelatedKanji = (char) => {
@@ -1628,15 +1662,6 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     <Tag className="w-4 h-4" /> Từ vựng ({vocab.length})
                                 </h3>
                                 <div className="flex items-center gap-2">
-                                    {isAdmin && (
-                                        <button
-                                            onClick={() => setShowCategoryModal(true)}
-                                            className="flex items-center gap-1 px-2 py-1 text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-800/40 transition-colors font-medium"
-                                            title="Quản lý phân loại"
-                                        >
-                                            <FolderPlus className="w-3 h-3" /> Phân loại
-                                        </button>
-                                    )}
                                     {onAddVocabToSRS && vocab.length > 0 && (
                                         <button
                                             onClick={() => handleAddAllVocabToSRS(vocab)}
@@ -1865,7 +1890,26 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     { text: 'text-amber-500 dark:text-amber-400', tag: 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400' },
                                 ];
 
-                                const sortedCatNames = [...allCatNames].sort();
+                                // Sort categories: use _bookOrder from vocab items, then JLPT level, then alphabetical
+                                const jlptOrder = { 'N5': 1, 'N4': 2, 'N3': 3, 'N2': 4, 'N1': 5 };
+                                const getJlptLevel = (name) => {
+                                    const match = name.match(/N[1-5]/i);
+                                    return match ? (jlptOrder[match[0].toUpperCase()] || 99) : 99;
+                                };
+                                const getCatOrder = (catName) => {
+                                    const items = grouped[catName] || [];
+                                    if (items.length > 0 && items[0]._bookOrder !== undefined) return items[0]._bookOrder;
+                                    return getJlptLevel(catName);
+                                };
+                                const sortedCatNames = [...allCatNames].sort((a, b) => {
+                                    const oa = getCatOrder(a);
+                                    const ob = getCatOrder(b);
+                                    if (oa !== ob) return oa - ob;
+                                    const la = getJlptLevel(a);
+                                    const lb = getJlptLevel(b);
+                                    if (la !== lb) return la - lb;
+                                    return a.localeCompare(b);
+                                });
                                 let colorIndex = 0;
 
                                 return (
@@ -1882,6 +1926,24 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                             {catName}
                                                         </span>
                                                         <span className="text-xs text-gray-500 dark:text-gray-400">({items.length})</span>
+                                                        {isAdmin && catName.startsWith('📚') && (
+                                                            <div className="flex items-center gap-0.5 ml-auto">
+                                                                <button
+                                                                    onClick={() => handleReorderLinkedBook(catName, -1)}
+                                                                    className="p-0.5 text-gray-400 hover:text-sky-500 transition-colors"
+                                                                    title="Di chuyển lên"
+                                                                >
+                                                                    <ChevronUp className="w-3 h-3" />
+                                                                </button>
+                                                                <button
+                                                                    onClick={() => handleReorderLinkedBook(catName, 1)}
+                                                                    className="p-0.5 text-gray-400 hover:text-sky-500 transition-colors"
+                                                                    title="Di chuyển xuống"
+                                                                >
+                                                                    <ChevronDown className="w-3 h-3" />
+                                                                </button>
+                                                            </div>
+                                                        )}
                                                     </div>
                                                     <div className="space-y-1">
                                                         {items.map((v, i) => renderVocabItem(v, i))}

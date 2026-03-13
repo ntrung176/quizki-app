@@ -18,7 +18,7 @@ export const DEFAULT_AI_PACKAGES = [
 const DEFAULT_ADMIN_CONFIG = {
     // AI Settings
     aiEnabled: true,
-    aiProvider: 'auto',
+    aiProvider: 'openrouter',
     openRouterModel: 'google/gemini-2.5-flash',
     aiAllowedUsers: [],
     aiAllowAll: false,
@@ -188,10 +188,7 @@ export const revokeAIAccess = async (adminConfig, userId, updatedByUserId) => {
 };
 
 export const AI_PROVIDER_OPTIONS = [
-    { value: 'auto', label: 'Tự động (thử tất cả)', description: 'Groq → Gemini → OpenRouter' },
-    { value: 'groq', label: 'Groq (Llama 3.3)', description: 'Nhanh, miễn phí, chất lượng cao' },
-    { value: 'gemini', label: 'Google Gemini', description: 'Flash Lite / Flash / 1.5 Flash' },
-    { value: 'openrouter', label: 'OpenRouter (Trả phí)', description: 'Gemini 2.5 Flash' },
+    { value: 'openrouter', label: 'OpenRouter (Gemini 2.5 Flash)', description: 'Mô hình AI chính, chất lượng cao' },
 ];
 
 export const OPENROUTER_MODELS = [

@@ -1,50 +1,11 @@
-// --- Unified AI Provider System ---
-// Hỗ trợ nhiều AI providers: Gemini, Groq, OpenRouter
-// Tự động detect keys từ .env và fallback giữa các providers
+// --- AI Provider: OpenRouter Only ---
+// Sử dụng duy nhất OpenRouter (Gemini 2.5 Flash) cho tất cả AI generation
 
 // ============== KANJI → HÁN VIỆT LOOKUP ==============
-// Re-export từ module tra cứu 2201 kanji (N5-N1)
 export { getSinoVietnamese } from './kanjiHVLookup';
 
 
 // ============== KEY MANAGEMENT ==============
-
-// Lấy tất cả Gemini keys
-export const getGeminiKeys = () => {
-    const keys = [];
-    let i = 1;
-    while (true) {
-        const key = import.meta.env[`VITE_GEMINI_API_KEY_${i}`];
-        if (key) {
-            keys.push(key);
-            i++;
-        } else {
-            break;
-        }
-    }
-    return keys;
-};
-
-// Lấy tất cả Groq keys
-export const getGroqKeys = () => {
-    const keys = [];
-    let i = 1;
-    while (true) {
-        const key = import.meta.env[`VITE_GROQ_API_KEY_${i}`];
-        if (key) {
-            keys.push(key);
-            i++;
-        } else {
-            break;
-        }
-    }
-    // Cũng check key đơn (không đánh số)
-    const singleKey = import.meta.env.VITE_GROQ_API_KEY;
-    if (singleKey && !keys.includes(singleKey)) {
-        keys.unshift(singleKey);
-    }
-    return keys;
-};
 
 // Lấy tất cả OpenRouter keys
 export const getOpenRouterKeys = () => {
@@ -66,110 +27,61 @@ export const getOpenRouterKeys = () => {
     return keys;
 };
 
-// ============== PROVIDER DEFINITIONS ==============
 
-const PROVIDERS = {
-    gemini: {
-        name: 'Gemini',
-        models: ['gemini-2.0-flash-lite', 'gemini-2.0-flash', 'gemini-1.5-flash'],
-        getKeys: getGeminiKeys,
-        buildRequest: (prompt, model, apiKey) => ({
-            url: `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
-            options: {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    contents: [{ parts: [{ text: prompt }] }],
-                    generationConfig: { temperature: 0.3, maxOutputTokens: 2048 }
-                })
-            }
-        }),
-        extractText: (result) => result?.candidates?.[0]?.content?.parts?.[0]?.text || null
-    },
-    groq: {
-        name: 'Groq',
-        // Llama 3.3 70B rất mạnh, miễn phí trên Groq
-        models: ['llama-3.3-70b-versatile', 'llama-3.1-8b-instant', 'gemma2-9b-it'],
-        getKeys: getGroqKeys,
-        buildRequest: (prompt, model, apiKey) => ({
-            url: 'https://api.groq.com/openai/v1/chat/completions',
-            options: {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKey}`
-                },
-                body: JSON.stringify({
-                    model: model,
-                    messages: [
-                        { role: 'system', content: 'You are a Japanese-Vietnamese dictionary assistant. Always respond with valid JSON only, no markdown, no explanation.' },
-                        { role: 'user', content: prompt }
-                    ],
-                    temperature: 0.3,
-                    max_tokens: 2048
-                })
-            }
-        }),
-        extractText: (result) => result?.choices?.[0]?.message?.content || null
-    },
-    openrouter: {
-        name: 'OpenRouter (Gemini 2.5 Flash)',
-        models: ['google/gemini-2.5-flash'],
-        getKeys: getOpenRouterKeys,
-        buildRequest: (prompt, model, apiKey) => ({
-            url: 'https://openrouter.ai/api/v1/chat/completions',
-            options: {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKey}`,
-                    'HTTP-Referer': window.location.origin,
-                    'X-Title': 'Quizki Vocab'
-                },
-                body: JSON.stringify({
-                    model: model,
-                    messages: [
-                        { role: 'system', content: 'You are a Japanese-Vietnamese dictionary assistant. Always respond with valid JSON only, no markdown, no explanation.' },
-                        { role: 'user', content: prompt }
-                    ],
-                    temperature: 0.3,
-                    max_tokens: 2048
-                })
-            }
-        }),
-        extractText: (result) => result?.choices?.[0]?.message?.content || null
+// ============== OPENROUTER API CALL ==============
+
+const OPENROUTER_MODELS = ['google/gemini-2.5-flash'];
+
+const buildOpenRouterRequest = (prompt, model, apiKey) => ({
+    url: 'https://openrouter.ai/api/v1/chat/completions',
+    options: {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`,
+            'HTTP-Referer': window.location.origin,
+            'X-Title': 'Quizki Vocab'
+        },
+        body: JSON.stringify({
+            model: model,
+            messages: [
+                { role: 'system', content: 'You are a Japanese-Vietnamese dictionary assistant. Always respond with valid JSON only, no markdown, no explanation.' },
+                { role: 'user', content: prompt }
+            ],
+            temperature: 0.3,
+            max_tokens: 2048
+        })
     }
-};
+});
 
-// ============== CORE API CALL ==============
+const extractOpenRouterText = (result) => result?.choices?.[0]?.message?.content || null;
 
-// Gọi AI với một provider cụ thể, tự động retry qua các keys và models
-const callProviderWithRetry = async (provider, prompt, keyIndex = 0, modelIndex = 0, preferredModel = null) => {
-    const config = PROVIDERS[provider];
-    if (!config) throw new Error(`Unknown provider: ${provider}`);
 
-    const keys = config.getKeys();
-    if (keys.length === 0) return null; // Provider không có key → bỏ qua
+// Core API call with retry across keys and models
+const callWithRetry = async (prompt, keyIndex = 0, modelIndex = 0, preferredModel = null) => {
+    const keys = getOpenRouterKeys();
+    if (keys.length === 0) {
+        throw new Error('Không có OpenRouter API key. Vui lòng thêm VITE_OPENROUTER_API_KEY vào file .env');
+    }
 
-    let models = [...config.models];
-    // Ưu tiên mô hình OpenRouter được cấu hình
-    if (provider === 'openrouter' && preferredModel) {
+    let models = [...OPENROUTER_MODELS];
+    if (preferredModel) {
         models = [preferredModel, ...models.filter(m => m !== preferredModel)];
     }
 
     const currentKey = keys[keyIndex];
     const currentModel = models[modelIndex];
 
-    const { url, options } = config.buildRequest(prompt, currentModel, currentKey);
+    const { url, options } = buildOpenRouterRequest(prompt, currentModel, currentKey);
 
     try {
         const response = await fetch(url, options);
 
         if (response.ok) {
             const result = await response.json();
-            const text = config.extractText(result);
+            const text = extractOpenRouterText(result);
             if (text) {
-                console.log(`✅ ${config.name} (${currentModel}) thành công!`);
+                console.log(`✅ OpenRouter (${currentModel}) thành công!`);
                 return text;
             }
         }
@@ -178,90 +90,51 @@ const callProviderWithRetry = async (provider, prompt, keyIndex = 0, modelIndex 
 
         // Rate limited → thử key tiếp theo
         if ((status === 429 || status === 503) && keyIndex < keys.length - 1) {
-            console.log(`⚠️ ${config.name} key ${keyIndex + 1} rate limited, thử key ${keyIndex + 2}...`);
+            console.log(`⚠️ OpenRouter key ${keyIndex + 1} rate limited, thử key ${keyIndex + 2}...`);
             await new Promise(r => setTimeout(r, 500));
-            return callProviderWithRetry(provider, prompt, keyIndex + 1, modelIndex, preferredModel);
+            return callWithRetry(prompt, keyIndex + 1, modelIndex, preferredModel);
         }
 
-        // Hết key cho model này → thử model tiếp theo
+        // Hết key cho model này → thử model tiếp
         if ((status === 429 || status === 503) && modelIndex < models.length - 1) {
-            console.log(`⚠️ ${config.name} hết quota cho ${currentModel}, thử ${models[modelIndex + 1]}...`);
+            console.log(`⚠️ Hết quota cho ${currentModel}, thử ${models[modelIndex + 1]}...`);
             await new Promise(r => setTimeout(r, 500));
-            return callProviderWithRetry(provider, prompt, 0, modelIndex + 1, preferredModel);
+            return callWithRetry(prompt, 0, modelIndex + 1, preferredModel);
         }
 
-        // Model not found (404) → thử model tiếp theo
+        // Model not found
         if (status === 404 && modelIndex < models.length - 1) {
-            console.log(`⚠️ ${config.name} model ${currentModel} không tồn tại, thử ${models[modelIndex + 1]}...`);
-            return callProviderWithRetry(provider, prompt, keyIndex, modelIndex + 1, preferredModel);
+            console.log(`⚠️ Model ${currentModel} không tồn tại, thử ${models[modelIndex + 1]}...`);
+            return callWithRetry(prompt, keyIndex, modelIndex + 1, preferredModel);
         }
 
-        // Lỗi không retry được
         const errorText = await response.text().catch(() => '');
-        console.error(`❌ ${config.name} error (${status}):`, errorText);
-        return null;
+        console.error(`❌ OpenRouter error (${status}):`, errorText);
+        throw new Error(`OpenRouter API error: ${status}`);
 
     } catch (error) {
-        console.error(`❌ ${config.name} network error:`, error.message);
-        // Network error → thử key tiếp
+        if (error.message?.startsWith('OpenRouter API error')) throw error;
+        console.error(`❌ OpenRouter network error:`, error.message);
         if (keyIndex < keys.length - 1) {
-            return callProviderWithRetry(provider, prompt, keyIndex + 1, modelIndex, preferredModel);
+            return callWithRetry(prompt, keyIndex + 1, modelIndex, preferredModel);
         }
-        return null;
+        throw error;
     }
 };
+
 
 // ============== UNIFIED AI CALL ==============
 
-// Xác định thứ tự ưu tiên providers dựa trên keys có sẵn
-const getAvailableProviders = () => {
-    const available = [];
-    // Ưu tiên Groq (nhanh nhất, free tier tốt nhất)
-    if (getGroqKeys().length > 0) available.push('groq');
-    // Gemini
-    if (getGeminiKeys().length > 0) available.push('gemini');
-    // OpenRouter (fallback cuối)
-    if (getOpenRouterKeys().length > 0) available.push('openrouter');
-    return available;
+export const callAI = async (prompt, forcedOpenRouterModel = null) => {
+    const keys = getOpenRouterKeys();
+    if (keys.length === 0) {
+        throw new Error('Không có OpenRouter API key. Vui lòng thêm VITE_OPENROUTER_API_KEY vào file .env');
+    }
+
+    console.log(`🤖 OpenRouter (${keys.length} keys) — Model: ${forcedOpenRouterModel || 'google/gemini-2.5-flash'}`);
+    return callWithRetry(prompt, 0, 0, forcedOpenRouterModel);
 };
 
-// Gọi AI thống nhất - tự động chọn provider hoặc dùng provider admin chỉ định
-export const callAI = async (prompt, forcedProvider = 'auto', forcedOpenRouterModel = null) => {
-    let providers;
-
-    if (forcedProvider && forcedProvider !== 'auto') {
-        // Admin đã chọn provider cụ thể
-        const config = PROVIDERS[forcedProvider];
-        if (!config) throw new Error(`Unknown provider: ${forcedProvider}`);
-        const keys = config.getKeys();
-        if (keys.length === 0) {
-            throw new Error(`Provider ${config.name} không có API key. Vui lòng thêm key vào .env`);
-        }
-        providers = [forcedProvider];
-    } else {
-        // Auto: thử tất cả providers
-        providers = getAvailableProviders();
-    }
-
-    if (providers.length === 0) {
-        throw new Error('Không có API key nào được cấu hình. Vui lòng thêm VITE_GROQ_API_KEY hoặc VITE_GEMINI_API_KEY_1 vào file .env');
-    }
-
-    console.log(`🤖 Thử ${providers.length} AI providers: ${providers.map(p => PROVIDERS[p].name).join(' → ')}`);
-
-    for (const provider of providers) {
-        try {
-            const preferredModel = provider === 'openrouter' ? forcedOpenRouterModel : null;
-            const result = await callProviderWithRetry(provider, prompt, 0, 0, preferredModel);
-            if (result) return result;
-            console.log(`⚠️ ${PROVIDERS[provider].name} không khả dụng, thử provider tiếp theo...`);
-        } catch (e) {
-            console.error(`❌ ${PROVIDERS[provider].name} failed:`, e);
-        }
-    }
-
-    throw new Error('Tất cả AI providers đều không khả dụng. Vui lòng kiểm tra API keys hoặc thử lại sau.');
-};
 
 // ============== PARSE JSON RESPONSE ==============
 
@@ -288,47 +161,55 @@ export const parseJsonFromAI = (text) => {
     }
 };
 
-// ============== VOCAB GENERATION ==============
+
+// ============== VOCAB GENERATION PROMPT ==============
 
 export const generateVocabPrompt = (frontText, contextPos = '', contextLevel = '') => {
-    return `Từ điển Nhật-Việt. Từ: "${frontText}"${contextPos ? ` (${contextPos})` : ''}${contextLevel ? ` [${contextLevel}]` : ''}
+    // Build example rule dynamically based on level
+    let exampleRule;
+    if (contextLevel === 'N5') {
+        exampleRule = `4. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. Viết bằng HIRAGANA chủ yếu, câu ngắn đơn giản dễ hiểu (tối đa 8-10 từ), tránh dùng kanji ngoài bộ N5. Nếu bắt buộc dùng Kanji khó (ngoài N5) → ghi kèm furigana dạng 漢字（ひらがな）ví dụ: 経営（けいえい）. KHÔNG ghi furigana cho từ gốc đã thay bằng ＿＿＿＿.`;
+    } else {
+        exampleRule = `4. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. Viết câu tự nhiên bằng tiếng Nhật (dùng kanji bình thường). Các Kanji khó/hiếm/cao cấp hơn cấp độ hiện tại → GHI KÈM furigana dạng 漢字（ひらがな）ngay sau kanji đó. Ví dụ: 経営（けいえい）状態（じょうたい）が悪（わる）いので、＿＿＿＿した。 KHÔNG ghi furigana cho từ gốc đã thay bằng ＿＿＿＿. Dùng ngoặc toàn khổ （ ）.`;
+    }
+
+    return `Từ điển Nhật-Việt. Từ: "${frontText}"${contextPos ? ` (Từ loại: ${contextPos})` : ''}${contextLevel ? ` [Cấp độ: ${contextLevel}]` : ''}
 JSON only, không markdown/backtick:
-{"reading":"hiragana","meaning":"nghĩa Việt","example":"câu VD có ＿＿＿＿ thay từ gốc","exampleMeaning":"nghĩa câu VD","pos":"từ loại","level":"JLPT","synonym":"đồng nghĩa","nuance":"sắc thái","sinoVietnamese":"HÁN VIỆT"}
+{"frontWithFurigana":"水道（すいどう）","meaning":"đường ống nước","pos":"noun","level":"N3","sinoVietnamese":"THUỶ ĐẠO","synonym":"配管","synonymSinoVietnamese":"PHỐI QUẢN","example":"＿＿＿＿の水が止まった。","exampleMeaning":"Nước đường ống đã ngừng chảy.","nuance":"Chỉ hệ thống cấp nước sinh hoạt."}
 
 QUY TẮC BẮT BUỘC:
-1. reading:
-   - Nếu từ có Kanji → đọc TOÀN BỘ bằng hiragana (VD: 連絡して→れんらくして, 教えてもらう→おしえてもらう).
-   - CỤM TỪ dài → đọc toàn bộ cụm bằng hiragana, KHÔNG tách rời (VD: 連絡して教えてもらってください→れんらくしておしえてもらってください).
-   - Nếu 100% hiragana/katakana → reading="".
-   - KHÔNG bỏ phần nào, KHÔNG viết dạng từ điển nếu từ gốc đã chia.
+1. frontWithFurigana (QUAN TRỌNG NHẤT — định dạng trường hiển thị chính):
+   - Nếu từ có Kanji → viết theo định dạng: TừVựngGốc（toàn bộ phiên âm hiragana）.
+   - BẮT BUỘC dùng ngoặc đơn TOÀN KHỔ của Nhật （ ）, KHÔNG dùng ngoặc thường () hay [] hay 「」.
+   - Phiên âm trong ngoặc là TOÀN BỘ cụm từ đọc bằng hiragana, KHÔNG tách rời từng Kanji.
+   - Nếu từ gốc đã chia → giữ nguyên dạng đã chia, KHÔNG đổi về dạng từ điển.
+   - VD ĐÚNG: 振り込む（ふりこむ）, 連絡して（れんらくして）, 水道（すいどう）, 食べる（たべる）, 割り込む（わりこむ）
+   - VD SAI: 振（ふ）り込（こ）む, 食（た）べる, 振り込む(ふりこむ), 振り込む[ふりこむ]
+   - Nếu từ đã là 100% hiragana/katakana → frontWithFurigana = từ gốc (không thêm ngoặc).
+   - CỤM TỪ dài → giữ nguyên cụm, phiên âm toàn bộ: 連絡して教えてもらう（れんらくしておしえてもらう）
 
 2. meaning: Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống.
 
-3. example (QUAN TRỌNG NHẤT):
-   - CHỈ 1 CÂU ví dụ tự nhiên.
-   - BẮT BUỘC thay THẾ CHÍNH XÁC từ gốc "${frontText}" bằng ＿＿＿＿ trong câu.
-   - VD: từ gốc "食べる" → "毎日ご飯を＿＿＿＿。" (ĐÚNG) | "毎日ご飯を食べる。" (SAI - chưa ẩn)
-   - TẤT CẢ Kanji xuất hiện trong câu ví dụ (trừ ＿＿＿＿) PHẢI CÓ FURIGANA. Bắt buộc dùng ngoặc tròn to của Nhật （） và tuân theo 2 nguyên tắc sau:
-     + Cách 1 (Các Kanji đứng liền nhau): Viết phiên âm rập khuôn sau cụm Kanji. VD: 結婚（けっこん）、会社（かいしゃ）
-     + Cách 2 (Kanji có okurigana đi kèm): Viết phiên âm cho Kanji ngay sau chữ Kanji đó rồi tới okurigana (âm hiragana). VD: 振（ふ）り込（こ）む、食（た）べる、行（い）く
+3. pos/level: Phải khớp ngữ cảnh nếu đã chọn. Grammar→giải thích như ngữ pháp.
+   - pos: noun/verb/suru_verb/adj_i/adj_na/adverb/conjunction/particle/grammar/phrase/other.
+   - CỤM TỪ có trợ từ (を/に/が/で/と/から/まで) hoặc ghép nhiều động từ → pos="phrase".
 
-4. exampleMeaning: Nghĩa tiếng Việt đầy đủ.
-
-5. pos: noun/verb/suru_verb/adj_i/adj_na/adverb/conjunction/particle/grammar/phrase/other.
-   - CỤM TỪ có trợ từ(を/に/が/で/と/から/まで) hoặc ghép nhiều động từ → pos="phrase".
-
+${exampleRule}
+5. exampleMeaning: Nghĩa tiếng Việt đầy đủ của câu ví dụ.
 6. sinoVietnamese: IN HOA từng Kanji (VD: 流行→"LƯU HÀNH"). Không Kanji→"". KHÔNG bịa.
-7. nuance: Bối cảnh sử dụng, so sánh từ tương tự. Động từ→TĐT/ThaĐT.
-8. level: N5-N1, không rõ→"".
-9. synonym: Cùng/dễ hơn JLPT. N5→"". Không bịa.`;
+7. nuance: Chi tiết. Động từ→TĐT/ThaĐT. Katakana→ghi từ gốc. Bối cảnh sử dụng, so sánh từ tương tự. KHÔNG quá ngắn.
+8. synonym/synonymSinoVietnamese: Cùng/dễ hơn JLPT. N5→"". Không bịa. synonymSinoVietnamese = HV của synonym.
+9. level: N5-N1, không rõ→"".
+
+Không trả lời gì ngoài JSON.`;
 };
 
 export const generateMoreExamplePrompt = (frontText, targetMeaning) => {
-    return `1 câu ví dụ JP cho "${frontText}" nghĩa "${targetMeaning}". Thay "${frontText}" bằng ＿＿＿＿. BẮT BUỘC có furigana cho các kanji khác theo 2 cách: 1/ Kanji liền nhau: 結婚（けっこん） 2/ Kanji có okurigana: 振（ふ）り込（こ）む. Dùng ngoặc tròn to （）. JSON only:{"example":"câu JP có ＿＿＿＿ và furigana","exampleMeaning":"nghĩa VN"}`;
+    return `1 câu ví dụ JP cho "${frontText}" nghĩa "${targetMeaning}". Thay "${frontText}" bằng ＿＿＿＿. Các Kanji khó/hiếm → ghi kèm furigana dạng 漢字（ひらがな）ngay sau kanji đó, dùng ngoặc toàn khổ（）. KHÔNG ghi furigana cho từ gốc đã thay bằng ＿＿＿＿. Viết câu tự nhiên. JSON only:{"example":"câu JP có ＿＿＿＿ và furigana cho kanji khó","exampleMeaning":"nghĩa VN"}`;
 };
 
 
-// Hàm chính để tạo vocab với AI (tương thích ngược với geminiAssist)
+// Hàm chính để tạo vocab với AI
 export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '') => {
     if (!frontText || frontText.trim() === '') return null;
 
@@ -351,17 +232,17 @@ export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '
 // ============== INFO ==============
 
 export const getAIProviderInfo = () => {
-    const providers = getAvailableProviders();
+    const keys = getOpenRouterKeys();
     return {
-        available: providers.map(p => ({
-            id: p,
-            name: PROVIDERS[p].name,
-            models: PROVIDERS[p].models,
-            keyCount: PROVIDERS[p].getKeys().length
-        })),
-        totalKeys: providers.reduce((sum, p) => sum + PROVIDERS[p].getKeys().length, 0),
-        summary: providers.length > 0
-            ? `${providers.map(p => `${PROVIDERS[p].name}(${PROVIDERS[p].getKeys().length} keys)`).join(', ')} `
-            : 'Chưa cấu hình AI provider nào'
+        available: [{
+            id: 'openrouter',
+            name: 'OpenRouter (Gemini 2.5 Flash)',
+            models: OPENROUTER_MODELS,
+            keyCount: keys.length
+        }],
+        totalKeys: keys.length,
+        summary: keys.length > 0
+            ? `OpenRouter(${keys.length} keys)`
+            : 'Chưa cấu hình OpenRouter API key'
     };
 };

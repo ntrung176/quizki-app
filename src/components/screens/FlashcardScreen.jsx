@@ -526,6 +526,11 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
                                                         <span className="text-slate-400 font-normal">Hán Việt: </span>{currentCard.sinoVietnamese}
                                                     </p>
                                                 )}
+                                                {currentCard.pos && (
+                                                    <p className="text-sm text-slate-400 mt-1">
+                                                        <span className="inline-block px-2 py-0.5 bg-slate-600/60 rounded-md text-xs font-medium text-indigo-300">{currentCard.pos}</span>
+                                                    </p>
+                                                )}
                                             </div>
                                         </div>
                                     </div>

@@ -32,8 +32,7 @@ import {
     buildAdjNaAcceptedAnswers,
     isMobileDevice
 } from './utils/textProcessing';
-import { generateVocabWithAI, getAllGeminiApiKeysFromEnv } from './utils/gemini';
-import { callAI, parseJsonFromAI, getAIProviderInfo } from './utils/aiProvider';
+import { callAI, parseJsonFromAI, getAIProviderInfo, generateVocabPrompt, getOpenRouterKeys } from './utils/aiProvider';
 import { subscribeAdminConfig, canUseAI as checkCanUseAI, hasAdminPrivileges } from './utils/adminSettings';
 import { compressImage } from './utils/image';
 import { initConsoleProtection, aiRateLimiter, verifyAdminAtCallTime, validateCreditChange } from './utils/security';
@@ -206,11 +205,9 @@ const App = () => {
     });
 
     const [profile, setProfile] = useState(null);
-    // Danh sách API keys cho Gemini (có thể cấu hình từ env hoặc localStorage)
+    // Danh sách API keys cho OpenRouter
     const [geminiApiKeys] = useState(() => {
-        // SECURITY: Chỉ lấy từ env variables, KHÔNG từ localStorage
-        // Ngăn chặn tấn công: localStorage.setItem('geminiApiKeys', '["stolen-key"]')
-        return getAllGeminiApiKeysFromEnv();
+        return getOpenRouterKeys();
     });
     const [isProfileLoading, setIsProfileLoading] = useState(true);
     const [dailyActivityLogs, setDailyActivityLogs] = useState([]);
@@ -2043,106 +2040,6 @@ const App = () => {
         }
     };
 
-    // --- Helper: Lấy danh sách API keys ---
-    const getGeminiApiKeys = () => {
-        // Ưu tiên dùng keys từ state (có thể được cấu hình từ UI)
-        if (geminiApiKeys && geminiApiKeys.length > 0) {
-            return geminiApiKeys;
-        }
-        // Fallback: lấy từ env (VITE_GEMINI_API_KEY_1, VITE_GEMINI_API_KEY_2, ..., VITE_GEMINI_API_KEY_N)
-        return getAllGeminiApiKeysFromEnv();
-    };
-
-    // --- Helper: Gọi Gemini API với retry logic tự động chuyển key + fallback model ---
-    const GEMINI_MODELS_FALLBACK = ['gemini-2.0-flash-lite', 'gemini-2.0-flash', 'gemini-1.5-flash'];
-
-    const callGeminiApiWithRetry = async (payload, model = 'gemini-2.0-flash-lite', _triedModels = null) => {
-        const apiKeys = getGeminiApiKeys();
-        const triedModels = _triedModels || new Set();
-
-        if (apiKeys.length === 0) {
-            setNotification("Chưa cấu hình khóa API Gemini. Vui lòng thêm VITE_GEMINI_API_KEY_1, VITE_GEMINI_API_KEY_2, ... vào file .env hoặc cấu hình trong Settings.");
-            throw new Error("Không có API key nào được cấu hình");
-        }
-
-        let lastError = null;
-        let allKeysRateLimited = true;
-
-        // Thử từng key một
-        for (let i = 0; i < apiKeys.length; i++) {
-            const apiKey = apiKeys[i];
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (response.ok) {
-                    const result = await response.json();
-                    return result;
-                }
-
-                let errorBody = "";
-                try {
-                    errorBody = await response.text();
-                    console.error(`Gemini error với key ${i + 1}/${apiKeys.length} (${model}):`, errorBody);
-                } catch (err) {
-                    console.error('Error reading error response:', err);
-                }
-
-                // Các lỗi có thể retry với key khác: 401, 403, 429
-                const retryableErrors = [401, 403, 429, 503];
-                if (retryableErrors.includes(response.status)) {
-                    lastError = new Error(`Lỗi API Gemini với key ${i + 1}: ${response.status} ${response.statusText}`);
-                    if (response.status !== 429 && response.status !== 503) {
-                        allKeysRateLimited = false;
-                    }
-                    continue;
-                } else {
-                    allKeysRateLimited = false;
-                    if (response.status === 400) {
-                        setNotification(`Lỗi yêu cầu không hợp lệ (400). Vui lòng kiểm tra lại dữ liệu đầu vào.`);
-                    } else {
-                        setNotification(`Lỗi từ Gemini: ${response.status} ${response.statusText}. Xem chi tiết trong console.`);
-                    }
-                    throw new Error(`Lỗi API Gemini: ${response.status} ${response.statusText} ${errorBody}`);
-                }
-            } catch (e) {
-                if (e.message && e.message.includes("Lỗi API Gemini")) {
-                    throw e;
-                }
-                console.error(`Lỗi network với key ${i + 1}:`, e);
-                lastError = e;
-                allKeysRateLimited = false;
-                if (i < apiKeys.length - 1) {
-                    continue;
-                }
-            }
-        }
-
-        // Tất cả keys bị rate limit → thử fallback model
-        if (allKeysRateLimited && lastError) {
-            triedModels.add(model);
-            const fallbackModel = GEMINI_MODELS_FALLBACK.find(m => !triedModels.has(m));
-            if (fallbackModel) {
-                console.log(`⚡ Tất cả keys hết quota cho ${model}, thử model: ${fallbackModel}...`);
-                setNotification(`Đang thử model ${fallbackModel}...`);
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                return callGeminiApiWithRetry(payload, fallbackModel, triedModels);
-            }
-        }
-
-        // Tất cả keys + models đều thất bại
-        if (lastError) {
-            setNotification(`Tất cả ${apiKeys.length} API key đều hết quota. Vui lòng chờ vài phút rồi thử lại.`);
-            throw lastError;
-        }
-
-        throw new Error("Không thể gọi API Gemini với bất kỳ key nào");
-    };
 
     // --- SHARED VOCABULARY COLLECTION (dùng chung cho mọi user) ---
     const sharedVocabPath = useMemo(() => `artifacts/${appId}/sharedVocab`, []);
@@ -2237,7 +2134,7 @@ const App = () => {
         }
     };
 
-    // --- UNIFIED AI ASSISTANT (hỗ trợ Gemini + Groq + OpenRouter) ---
+    // --- UNIFIED AI ASSISTANT (OpenRouter only) ---
     const handleGeminiAssist = async (frontText, contextPos = '', contextLevel = '', isRetry = false) => {
         if (!frontText) return null;
 
@@ -2285,34 +2182,8 @@ const App = () => {
             console.log(`🔄 Retry mode: bỏ qua SharedVocab, gọi AI trực tiếp cho "${frontText}" - KHÔNG trừ credit`);
         }
 
-        // === BƯỚC 2: Không tìm thấy hoặc cần AI mới → tạo prompt ===
-        let contextInfo = "";
-        if (contextPos) contextInfo += `, Từ loại: ${contextPos}`;
-        if (contextLevel) contextInfo += `, Cấp độ: ${contextLevel}`;
-
-        // Build example rule dynamically based on user-selected level
-        let exampleRule;
-        if (contextLevel === 'N5') {
-            exampleRule = `5. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. KHÔNG viết furigana/ngoặc trong câu ví dụ. Viết bằng HIRAGANA chủ yếu, câu ngắn đơn giản dễ hiểu (tối đa 8-10 từ), tránh dùng kanji ngoài bộ N5.`;
-        } else {
-            exampleRule = `5. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. KHÔNG viết furigana/ngoặc trong câu ví dụ. Viết câu tự nhiên bằng tiếng Nhật (dùng kanji bình thường phù hợp cấp độ), KHÔNG viết toàn hiragana.`;
-        }
-
-        const prompt = `Từ điển Nhật-Việt. Từ: "${frontText}"${contextInfo}.
-JSON only, không markdown/backtick:
-{"frontWithFurigana":"食べる（たべる）","meaning":"ăn","pos":"verb","level":"N5","sinoVietnamese":"THỰC","synonym":"食う","synonymSinoVietnamese":"THỰC","example":"まいにち ごはんを ＿＿＿＿。","exampleMeaning":"Tôi ăn cơm mỗi ngày。","nuance":"Tha động từ。Thông dụng nhất。Khác 食う thô, nam tính。"}
-
-QUY TẮC:
-1. pos/level phải khớp ngữ cảnh đã chọn. Grammar→giải thích như ngữ pháp.
-2. CỤM TỪ có trợ từ(を/に/が/で/と)→pos="phrase", giữ nguyên cụm, nghĩa cả cụm, sinoVietnamese chỉ Kanji.
-3. frontWithFurigana: FORMAT BẮT BUỘC có furigana cho các chữ Kanji theo 2 cách. Cách 1 (Kanji đứng liền nhau): Viết phiên âm sau cụm Kanji, VD: "結婚（けっこん）", "会社（かいしゃ）". Cách 2 (Kanji có okurigana đi kèm): Viết phiên âm ngay sau chữ Kanji đó rồi tới okurigana (âm hiragana), VD: "振（ふ）り込（こ）む", "食（た）べる", "行（い）く". Bắt buộc dùng ngoặc tròn to （）. KHÔNG bỏ furigana.
-4. meaning: Ngắn gọn, nghĩa khác nhau ngăn ";".
-${exampleRule}
-6. sinoVietnamese: IN HOA từng Kanji, KHÔNG bịa âm. Không Kanji→"".
-7. nuance: Chi tiết. Động từ→TĐT/ThaĐT. Katakana→ghi từ gốc. KHÔNG quá ngắn.
-8. pos: noun/verb/suru_verb/adj_i/adj_na/adverb/conjunction/particle/grammar/phrase/other.
-9. synonym/synonymSinoVietnamese: Cấp JLPT ≤ từ gốc. N5→"". synonymSinoVietnamese=HV của synonym.
-10. level: N5-N1, không rõ→"".\n\nKhông trả lời gì ngoài JSON.`;
+        // === BƯỚC 2: Tạo prompt thống nhất từ aiProvider ===
+        const prompt = generateVocabPrompt(frontText, contextPos, contextLevel);
 
         try {
             // SECURITY: Rate limiting — max 10 AI calls per minute
@@ -2346,13 +2217,10 @@ ${exampleRule}
             }
 
             const providerInfo = getAIProviderInfo();
-            console.log(`🤖 AI Providers: ${providerInfo.summary}`);
+            console.log(`🤖 AI Provider: ${providerInfo.summary}`);
 
-            let forcedProvider = 'openrouter';
-            let forcedOpenRouterModel = 'google/gemini-2.5-flash';
-            console.log(`🤖 Dùng OpenRouter Gemini 2.5 Flash cho tất cả cấp độ`);
-
-            const responseText = await callAI(prompt, forcedProvider, forcedOpenRouterModel);
+            const forcedModel = adminConfig?.openRouterModel || 'google/gemini-2.5-flash';
+            const responseText = await callAI(prompt, forcedModel);
             const parsedJson = parseJsonFromAI(responseText);
 
             if (parsedJson) {
@@ -2363,8 +2231,7 @@ ${exampleRule}
                     const { getSinoVietnamese } = await import('./utils/aiProvider');
                     const lookupHV = getSinoVietnamese(frontText);
                     if (lookupHV) {
-                        console.log(`📘 Hán Việt lookup: "${frontText}" → "${lookupHV}" (AI: "${parsedJson.sinoVietnamese || ''}")`);
-                        parsedJson.sinoVietnamese = lookupHV;
+                        console.log(`📘 Hán Việt lookup: "${frontText}" → "${lookupHV}" (AI: "${parsedJson.sinoVietnamese || ''}")`); parsedJson.sinoVietnamese = lookupHV;
                     }
                 } catch (e) { console.warn('Lookup Hán Việt error:', e); }
 
@@ -2411,11 +2278,8 @@ ${exampleRule}
             const { generateMoreExamplePrompt } = await import('./utils/aiProvider');
             const prompt = generateMoreExamplePrompt(frontText, targetMeaning);
 
-            // Tất cả cấp độ đều dùng OpenRouter Gemini 2.5 Flash
-            let forcedProvider = 'openrouter';
-            let forcedModel = 'google/gemini-2.5-flash';
-
-            const responseText = await callAI(prompt, forcedProvider, forcedModel);
+            const forcedModel = adminConfig?.openRouterModel || 'google/gemini-2.5-flash';
+            const responseText = await callAI(prompt, forcedModel);
             const parsedJson = parseJsonFromAI(responseText);
             if (parsedJson) return parsedJson;
             setNotification("AI trả về dữ liệu không hợp lệ. Thử lại.");

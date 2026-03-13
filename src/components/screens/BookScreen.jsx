@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import {
     BookOpen, Plus, Trash2, Edit, ChevronRight, ChevronLeft, Check, X, Lightbulb,
     Upload, FolderPlus, FileText, List, Search, ArrowLeft, Image, Save, Layers, Copy, Clipboard, Folder, Volume2,
-    ChevronUp, ChevronDown, RefreshCw, Mic, Wrench
+    ChevronUp, ChevronDown, RefreshCw, Mic, Wrench, Eye, EyeOff, RotateCcw, Languages
 } from 'lucide-react';
 import { db } from '../../config/firebase';
 import {
@@ -86,6 +86,10 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
 
     // Revealed cards for study
     const [revealedCards, setRevealedCards] = useState(new Set());
+    // Persisted progress — cards that have been flipped at least once (saved to localStorage)
+    const [persistedRevealed, setPersistedRevealed] = useState(new Set());
+    // Blur mode: 'vn' = blur Vietnamese (default), 'jp' = blur Japanese
+    const [blurMode, setBlurMode] = useState('vn');
 
     // Vocab editing states
     const [editingVocabIndex, setEditingVocabIndex] = useState(null);
@@ -140,11 +144,65 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
         }
     }, [groupId, bookId, chapterId, lessonId]);
 
+    // Build a stable key for persisting reveal state per lesson
+    const lessonPersistKey = useMemo(() => {
+        if (!groupId || !bookId || !chapterId || !lessonId) return null;
+        return `book_reveal_${groupId}_${bookId}_${chapterId}_${lessonId}`;
+    }, [groupId, bookId, chapterId, lessonId]);
+
     useEffect(() => {
         loadLessonAudio();
-        // Clear reveal state when lesson changes
+        // Load persisted reveal state from localStorage
+        if (lessonPersistKey) {
+            try {
+                const saved = localStorage.getItem(lessonPersistKey);
+                if (saved) {
+                    const arr = JSON.parse(saved);
+                    const restoredSet = new Set(arr);
+                    setPersistedRevealed(restoredSet);
+                    setRevealedCards(new Set(restoredSet));
+                    return;
+                }
+            } catch (e) { console.warn('Error restoring reveal state:', e); }
+        }
+        setPersistedRevealed(new Set());
         setRevealedCards(new Set());
-    }, [loadLessonAudio, lessonId]);
+    }, [loadLessonAudio, lessonId, lessonPersistKey]);
+
+    // Persist when a card is revealed
+    const revealCard = useCallback((index) => {
+        setRevealedCards(prev => {
+            const next = new Set(prev);
+            next.add(index);
+            return next;
+        });
+        setPersistedRevealed(prev => {
+            const next = new Set(prev);
+            if (!next.has(index)) {
+                next.add(index);
+                // Save to localStorage
+                if (lessonPersistKey) {
+                    try { localStorage.setItem(lessonPersistKey, JSON.stringify([...next])); }
+                    catch (e) { /* ignore */ }
+                }
+            }
+            return next;
+        });
+    }, [lessonPersistKey]);
+
+    // Re-blur all cards (does NOT affect persisted progress)
+    const handleReBlurAll = useCallback(() => {
+        setRevealedCards(new Set());
+    }, []);
+
+    // Reset all progress (clear persisted + view)
+    const handleResetProgress = useCallback(() => {
+        setRevealedCards(new Set());
+        setPersistedRevealed(new Set());
+        if (lessonPersistKey) {
+            try { localStorage.removeItem(lessonPersistKey); } catch (e) { /* ignore */ }
+        }
+    }, [lessonPersistKey]);
 
     const loadAllData = async (silent = false) => {
         if (!silent) setLoading(true);
@@ -969,6 +1027,75 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                         </div>
                     </div>
 
+                    {/* Progress bar + Study controls */}
+                    {vocab.length > 0 && (() => {
+                        const totalWords = vocab.length;
+                        const learnedWords = persistedRevealed.size;
+                        const progressPct = Math.round((learnedWords / totalWords) * 100);
+                        return (
+                            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-3 space-y-2">
+                                {/* Progress */}
+                                <div className="flex items-center gap-3">
+                                    <div className="flex-1">
+                                        <div className="flex items-center justify-between mb-1">
+                                            <span className="text-xs font-bold text-gray-600 dark:text-gray-300">Tiến độ</span>
+                                            <span className="text-xs font-bold text-sky-600 dark:text-sky-400">{learnedWords}/{totalWords} ({progressPct}%)</span>
+                                        </div>
+                                        <div className="w-full h-2 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+                                            <div
+                                                className="h-full rounded-full transition-all duration-500 ease-out"
+                                                style={{
+                                                    width: `${progressPct}%`,
+                                                    background: progressPct === 100
+                                                        ? 'linear-gradient(90deg, #10B981, #059669)'
+                                                        : 'linear-gradient(90deg, #38BDF8, #0EA5E9)',
+                                                }}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Controls */}
+                                <div className="flex items-center gap-2 flex-wrap">
+                                    {/* Toggle blur mode */}
+                                    <button
+                                        onClick={() => setBlurMode(prev => prev === 'vn' ? 'jp' : 'vn')}
+                                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border ${blurMode === 'vn'
+                                            ? 'bg-sky-50 dark:bg-sky-900/20 text-sky-600 dark:text-sky-400 border-sky-200 dark:border-sky-800'
+                                            : 'bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400 border-amber-200 dark:border-amber-800'
+                                            }`}
+                                        title={blurMode === 'vn' ? 'Đang ẩn: Tiếng Việt' : 'Đang ẩn: Kanji + Cách đọc'}
+                                    >
+                                        <Languages className="w-3.5 h-3.5" />
+                                        {blurMode === 'vn' ? 'Ẩn: Tiếng Việt' : 'Ẩn: Kanji + Đọc'}
+                                    </button>
+
+                                    {/* Re-blur all (keep progress) */}
+                                    <button
+                                        onClick={handleReBlurAll}
+                                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border bg-gray-50 dark:bg-gray-700/50 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600/50"
+                                        title="Làm mờ lại tất cả (giữ tiến độ)"
+                                    >
+                                        <EyeOff className="w-3.5 h-3.5" /> Mờ lại
+                                    </button>
+
+                                    {/* Reset progress */}
+                                    {persistedRevealed.size > 0 && (
+                                        <button
+                                            onClick={() => {
+                                                if (window.confirm('Xóa toàn bộ tiến độ bài này?')) handleResetProgress();
+                                            }}
+                                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border bg-red-50 dark:bg-red-900/20 text-red-500 dark:text-red-400 border-red-200 dark:border-red-800 hover:bg-red-100 dark:hover:bg-red-800/30"
+                                            title="Xóa tiến độ và bắt đầu lại"
+                                        >
+                                            <RotateCcw className="w-3.5 h-3.5" /> Reset tiến độ
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        );
+                    })()}
+
                     {vocab.length === 0 ? (
                         <div className="text-center py-12 text-gray-400">
                             <FileText className="w-12 h-12 mx-auto mb-3 opacity-30" />
@@ -1074,92 +1201,103 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                         ) : (
                                             /* ===== VIEW MODE ===== */
                                             <div className="flex cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors" onClick={() => {
-                                                setRevealedCards(prev => new Set(prev).add(i));
+                                                revealCard(i);
                                                 if (v.audioBase64) { playAudio(v.audioBase64, word); }
                                                 else { speakJapanese(word); }
                                             }}>
                                                 {/* INDEX column */}
-                                                <div className="w-10 shrink-0 bg-gray-50 dark:bg-gray-700/50 flex flex-col items-center justify-center border-r border-gray-100 dark:border-gray-700">
+                                                <div className="w-10 shrink-0 bg-gray-50 dark:bg-gray-700/50 flex flex-col items-center justify-center gap-1 border-r border-gray-100 dark:border-gray-700">
                                                     <span className="text-xs font-bold text-gray-400 dark:text-gray-500">{i + 1}</span>
+                                                    {persistedRevealed.has(i) && (
+                                                        <div className="w-2 h-2 rounded-full bg-emerald-400" title="Đã lật" />
+                                                    )}
                                                 </div>
 
                                                 {/* LEFT: Từ vựng + nghĩa */}
                                                 <div className="w-[30%] p-4 border-r border-gray-100 dark:border-gray-700 flex flex-col">
                                                     <div className="flex-1 flex flex-col justify-center">
-                                                        <div className="flex items-center gap-2">
-                                                            <p className="text-xl font-bold text-gray-900 dark:text-white leading-tight">{displayWord}</p>
+                                                        {(() => {
+                                                            const blurJP = blurMode === 'jp' && !isRevealed;
+                                                            const blurVN = blurMode === 'vn' && !isRevealed;
+                                                            const blurClass = 'blur-[4px] opacity-40 select-none';
+                                                            return (<>
+                                                                <div className="flex items-center gap-2">
+                                                                    <p className={`text-xl font-bold text-gray-900 dark:text-white leading-tight transition-all duration-300 ${blurJP ? blurClass : ''}`}>{displayWord}</p>
 
-                                                            {v.specialReading && (
-                                                                <span className="text-[10px] px-1.5 py-0.5 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 rounded" title="Cách đọc đặc biệt">特</span>
-                                                            )}
-                                                            <button
-                                                                onClick={(e) => {
-                                                                    e.stopPropagation();
-                                                                    if (v.audioBase64) { playAudio(v.audioBase64, word); }
-                                                                    else { speakJapanese(word); }
-                                                                }}
-                                                                className={`p-1 rounded-lg transition-all hover:scale-110 shrink-0 ${v.audioBase64
-                                                                    ? 'text-violet-500 hover:bg-violet-50 dark:hover:bg-violet-900/20 hover:text-violet-600'
-                                                                    : 'text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-500'
-                                                                    }`}
-                                                                title={v.audioBase64 ? 'Phát audio đã cắt' : 'Phát TTS'}
-                                                            >
-                                                                <Volume2 className="w-4 h-4" />
-                                                            </button>
-                                                            {isAdmin && (
-                                                                <button
-                                                                    onClick={(e) => { e.stopPropagation(); setFixAudioIndex(i); setFixAudioCustomReading(''); }}
-                                                                    className="p-1 rounded-lg transition-all hover:scale-110 shrink-0 text-gray-300 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:text-amber-500"
-                                                                    title="Sửa audio"
-                                                                >
-                                                                    <Wrench className="w-3.5 h-3.5" />
-                                                                </button>
-                                                            )}
-                                                        </div>
-                                                        {v.reading && (() => {
-                                                            const pitchParts = (v.accent !== undefined && v.accent !== '' && v.accent !== null)
-                                                                ? accentNumberToPitchParts(v.reading, v.accent)
-                                                                : null;
-                                                            if (pitchParts && pitchParts.length > 0) {
-                                                                // Render reading with pitch accent lines
-                                                                const readingChars = [...v.reading];
-                                                                const charPitchMap = [];
-                                                                for (const pp of pitchParts) {
-                                                                    for (const c of [...pp.part]) {
-                                                                        charPitchMap.push({ char: c, high: pp.high });
+                                                                    {v.specialReading && (
+                                                                        <span className="text-[10px] px-1.5 py-0.5 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 rounded" title="Cách đọc đặc biệt">特</span>
+                                                                    )}
+                                                                    <button
+                                                                        onClick={(e) => {
+                                                                            e.stopPropagation();
+                                                                            if (v.audioBase64) { playAudio(v.audioBase64, word); }
+                                                                            else { speakJapanese(word); }
+                                                                        }}
+                                                                        className={`p-1 rounded-lg transition-all hover:scale-110 shrink-0 ${v.audioBase64
+                                                                            ? 'text-violet-500 hover:bg-violet-50 dark:hover:bg-violet-900/20 hover:text-violet-600'
+                                                                            : 'text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-500'
+                                                                            }`}
+                                                                        title={v.audioBase64 ? 'Phát audio đã cắt' : 'Phát TTS'}
+                                                                    >
+                                                                        <Volume2 className="w-4 h-4" />
+                                                                    </button>
+                                                                    {isAdmin && (
+                                                                        <button
+                                                                            onClick={(e) => { e.stopPropagation(); setFixAudioIndex(i); setFixAudioCustomReading(''); }}
+                                                                            className="p-1 rounded-lg transition-all hover:scale-110 shrink-0 text-gray-300 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:text-amber-500"
+                                                                            title="Sửa audio"
+                                                                        >
+                                                                            <Wrench className="w-3.5 h-3.5" />
+                                                                        </button>
+                                                                    )}
+                                                                </div>
+                                                                {v.reading && (() => {
+                                                                    const pitchParts = (v.accent !== undefined && v.accent !== '' && v.accent !== null)
+                                                                        ? accentNumberToPitchParts(v.reading, v.accent)
+                                                                        : null;
+                                                                    if (pitchParts && pitchParts.length > 0) {
+                                                                        // Render reading with pitch accent lines
+                                                                        const readingChars = [...v.reading];
+                                                                        const charPitchMap = [];
+                                                                        for (const pp of pitchParts) {
+                                                                            for (const c of [...pp.part]) {
+                                                                                charPitchMap.push({ char: c, high: pp.high });
+                                                                            }
+                                                                        }
+                                                                        return (
+                                                                            <span className={`inline-flex items-end gap-0 mt-0.5 transition-all duration-300 ${blurJP ? blurClass : ''}`}>
+                                                                                {readingChars.map((char, ci) => {
+                                                                                    const pm = charPitchMap[ci];
+                                                                                    const isHigh = pm ? pm.high : false;
+                                                                                    const nextHigh = ci + 1 < charPitchMap.length ? charPitchMap[ci + 1]?.high : isHigh;
+                                                                                    const showDrop = isHigh && !nextHigh && ci < readingChars.length - 1;
+                                                                                    const showRise = !isHigh && nextHigh && ci < readingChars.length - 1;
+                                                                                    return (
+                                                                                        <span key={ci} className="relative inline-block text-xs text-gray-500 dark:text-gray-400">
+                                                                                            <span className="block" style={{
+                                                                                                borderTop: isHigh ? '1.5px solid rgba(249, 115, 22, 0.6)' : '1.5px solid transparent',
+                                                                                                paddingTop: '1px', paddingLeft: '1px', paddingRight: '1px',
+                                                                                            }}>
+                                                                                                {char}
+                                                                                            </span>
+                                                                                            {showDrop && <span className="absolute -right-[1px] top-0 w-[1.5px] bg-orange-500/60" style={{ height: '100%' }}></span>}
+                                                                                            {showRise && <span className="absolute -right-[1px] top-0 w-[1.5px] bg-orange-500/60" style={{ height: '100%' }}></span>}
+                                                                                        </span>
+                                                                                    );
+                                                                                })}
+                                                                            </span>
+                                                                        );
                                                                     }
-                                                                }
-                                                                return (
-                                                                    <span className="inline-flex items-end gap-0 mt-0.5">
-                                                                        {readingChars.map((char, ci) => {
-                                                                            const pm = charPitchMap[ci];
-                                                                            const isHigh = pm ? pm.high : false;
-                                                                            const nextHigh = ci + 1 < charPitchMap.length ? charPitchMap[ci + 1]?.high : isHigh;
-                                                                            const showDrop = isHigh && !nextHigh && ci < readingChars.length - 1;
-                                                                            const showRise = !isHigh && nextHigh && ci < readingChars.length - 1;
-                                                                            return (
-                                                                                <span key={ci} className="relative inline-block text-xs text-gray-500 dark:text-gray-400">
-                                                                                    <span className="block" style={{
-                                                                                        borderTop: isHigh ? '1.5px solid rgba(249, 115, 22, 0.6)' : '1.5px solid transparent',
-                                                                                        paddingTop: '1px', paddingLeft: '1px', paddingRight: '1px',
-                                                                                    }}>
-                                                                                        {char}
-                                                                                    </span>
-                                                                                    {showDrop && <span className="absolute -right-[1px] top-0 w-[1.5px] bg-orange-500/60" style={{ height: '100%' }}></span>}
-                                                                                    {showRise && <span className="absolute -right-[1px] top-0 w-[1.5px] bg-orange-500/60" style={{ height: '100%' }}></span>}
-                                                                                </span>
-                                                                            );
-                                                                        })}
-                                                                    </span>
-                                                                );
-                                                            }
-                                                            return <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{v.reading}</p>;
-                                                        })()}
-                                                        {v.sinoVietnamese && (
-                                                            <p className={`text-xs text-amber-600 dark:text-amber-400 font-medium mt-1 transition-all duration-300 ${isRevealed ? '' : 'blur-[4px] opacity-40 select-none'}`}>{v.sinoVietnamese}</p>
-                                                        )}
+                                                                    return <p className={`text-xs text-gray-500 dark:text-gray-400 mt-0.5 transition-all duration-300 ${blurJP ? blurClass : ''}`}>{v.reading}</p>;
+                                                                })()}
+                                                                {v.sinoVietnamese && (
+                                                                    <p className={`text-xs text-amber-600 dark:text-amber-400 font-medium mt-1 transition-all duration-300 ${blurVN ? blurClass : ''}`}>{v.sinoVietnamese}</p>
+                                                                )}
 
-                                                        <p className={`text-sm text-sky-600 dark:text-sky-400 mt-2 font-medium transition-all duration-300 ${isRevealed ? '' : 'blur-[4px] opacity-40 select-none'}`}>{v.meaning || v.back || ''}</p>
+                                                                <p className={`text-sm text-sky-600 dark:text-sky-400 mt-2 font-medium transition-all duration-300 ${blurVN ? blurClass : ''}`}>{v.meaning || v.back || ''}</p>
+
+                                                            </>);
+                                                        })()}
 
                                                     </div>
                                                 </div>
@@ -1169,17 +1307,22 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                     <div className="flex-1 flex flex-col justify-center">
                                                         {v.example ? (
                                                             <div className="space-y-2">
-                                                                {v.example.split('\n').map((ex, ei) => (
-                                                                    <div key={ei}>
-                                                                        <p className="text-sm text-gray-800 dark:text-gray-200 leading-relaxed"><FuriganaText text={ex.trim()} /></p>
-                                                                        {v.exampleMeaning && (() => {
-                                                                            const meanings = v.exampleMeaning.split('\n');
-                                                                            return meanings[ei] ? (
-                                                                                <p className={`text-xs text-gray-500 dark:text-gray-400 mt-0.5 italic transition-all duration-300 ${isRevealed ? '' : 'blur-[4px] opacity-40 select-none'}`}>{meanings[ei].trim()}</p>
-                                                                            ) : null;
-                                                                        })()}
-                                                                    </div>
-                                                                ))}
+                                                                {v.example.split('\n').map((ex, ei) => {
+                                                                    const blurJP = blurMode === 'jp' && !isRevealed;
+                                                                    const blurVN = blurMode === 'vn' && !isRevealed;
+                                                                    const blurClass = 'blur-[4px] opacity-40 select-none';
+                                                                    return (
+                                                                        <div key={ei}>
+                                                                            <p className={`text-sm text-gray-800 dark:text-gray-200 leading-relaxed transition-all duration-300 ${blurJP ? blurClass : ''}`}><FuriganaText text={ex.trim()} /></p>
+                                                                            {v.exampleMeaning && (() => {
+                                                                                const meanings = v.exampleMeaning.split('\n');
+                                                                                return meanings[ei] ? (
+                                                                                    <p className={`text-xs text-gray-500 dark:text-gray-400 mt-0.5 italic transition-all duration-300 ${blurVN ? blurClass : ''}`}>{meanings[ei].trim()}</p>
+                                                                                ) : null;
+                                                                            })()}
+                                                                        </div>
+                                                                    );
+                                                                })}
                                                             </div>
                                                         ) : (
                                                             <p className="text-xs text-gray-300 dark:text-gray-600 italic">Chưa có ví dụ</p>
@@ -1305,8 +1448,8 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                             onClick={() => handleFixAudio(fixAudioIndex)}
                             disabled={fixAudioLoading || !autoReading}
                             className={`w-full flex items-center gap-3 p-3 rounded-xl border-2 transition-all text-left group ${fixAudioLoading ? 'opacity-50 cursor-not-allowed border-gray-200 dark:border-gray-700'
-                                    : autoReading ? 'border-sky-200 dark:border-sky-800 hover:border-sky-400 dark:hover:border-sky-600 hover:bg-sky-50/50 dark:hover:bg-sky-900/20 cursor-pointer'
-                                        : 'border-gray-200 dark:border-gray-700 opacity-50 cursor-not-allowed'
+                                : autoReading ? 'border-sky-200 dark:border-sky-800 hover:border-sky-400 dark:hover:border-sky-600 hover:bg-sky-50/50 dark:hover:bg-sky-900/20 cursor-pointer'
+                                    : 'border-gray-200 dark:border-gray-700 opacity-50 cursor-not-allowed'
                                 }`}
                         >
                             <div className="w-10 h-10 rounded-xl bg-sky-100 dark:bg-sky-900/40 flex items-center justify-center shrink-0 group-hover:bg-sky-200 dark:group-hover:bg-sky-800/60 transition-colors">
@@ -1351,8 +1494,8 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                     onClick={() => handleFixAudio(fixAudioIndex, fixAudioCustomReading)}
                                     disabled={fixAudioLoading || !fixAudioCustomReading.trim()}
                                     className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-1.5 shrink-0 ${fixAudioLoading || !fixAudioCustomReading.trim()
-                                            ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-                                            : 'bg-violet-500 hover:bg-violet-600 text-white shadow-sm hover:shadow-md'
+                                        ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                                        : 'bg-violet-500 hover:bg-violet-600 text-white shadow-sm hover:shadow-md'
                                         }`}
                                 >
                                     {fixAudioLoading && fixAudioCustomReading ? (

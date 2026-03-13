@@ -752,43 +752,26 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 <Bot className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                             </div>
                             <div>
-                                <p className="font-bold text-gray-800 dark:text-white">Chọn AI Provider</p>
-                                <p className="text-xs text-gray-500 dark:text-gray-400">Chỉ định AI provider mà ứng dụng sẽ sử dụng</p>
+                                <p className="font-bold text-gray-800 dark:text-white">AI Provider: OpenRouter</p>
+                                <p className="text-xs text-gray-500 dark:text-gray-400">Sử dụng Gemini 2.5 Flash qua OpenRouter</p>
                             </div>
-                        </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                            {AI_PROVIDER_OPTIONS.map(opt => (
-                                <button
-                                    key={opt.value}
-                                    onClick={() => handleChangeProvider(opt.value)}
-                                    disabled={savingConfig}
-                                    className={`p-3 rounded-xl border-2 text-left transition-all ${adminConfig?.aiProvider === opt.value || (!adminConfig?.aiProvider && opt.value === 'auto')
-                                        ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 ring-2 ring-indigo-200 dark:ring-indigo-800'
-                                        : 'border-gray-200 dark:border-gray-600 hover:border-indigo-300 dark:hover:border-indigo-700'
-                                        }`}
-                                >
-                                    <p className="font-bold text-sm text-gray-800 dark:text-white">{opt.label}</p>
-                                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{opt.description}</p>
-                                </button>
-                            ))}
                         </div>
 
                         {/* OpenRouter Model Selection */}
-                        {(adminConfig?.aiProvider === 'openrouter' || adminConfig?.aiProvider === 'auto' || !adminConfig?.aiProvider) && (
-                            <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-                                <p className="font-bold text-sm text-gray-800 dark:text-white mb-2">Mô hình OpenRouter</p>
-                                <select
-                                    value={adminConfig?.openRouterModel || 'google/gemini-2.5-flash'}
-                                    onChange={(e) => handleChangeOpenRouterModel(e.target.value)}
-                                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-xl outline-none text-sm dark:text-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
-                                >
-                                    {OPENROUTER_MODELS.map(model => (
-                                        <option key={model.value} value={model.value}>{model.label}</option>
-                                    ))}
-                                </select>
-                            </div>
-                        )}
+                        <div>
+                            <p className="font-bold text-sm text-gray-800 dark:text-white mb-2">Mô hình OpenRouter</p>
+                            <select
+                                value={adminConfig?.openRouterModel || 'google/gemini-2.5-flash'}
+                                onChange={(e) => handleChangeOpenRouterModel(e.target.value)}
+                                className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-xl outline-none text-sm dark:text-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
+                            >
+                                {OPENROUTER_MODELS.map(model => (
+                                    <option key={model.value} value={model.value}>{model.label}</option>
+                                ))}
+                            </select>
+                        </div>
                     </div>
+
 
                     {/* Info note */}
                     <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
