@@ -10,6 +10,7 @@ import { SrsStatusCell } from '../ui';
 import { playAudio } from '../../utils/audio';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
+import FuriganaText from '../ui/FuriganaText';
 
 // ==================== Edit Modal Component ====================
 const EditCardModal = ({ card, onSave, onClose, onGeminiAssist }) => {
@@ -1205,7 +1206,9 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                     {isSelected && <span className="text-[10px]">&#10003;</span>}
                                                 </div>
                                                 <div className="flex-1 min-w-0">
-                                                    <div className="text-sm font-medium text-gray-900 dark:text-white truncate">{card.front}</div>
+                                                    <div className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                                                        <FuriganaText text={card.frontWithFurigana || card.front} forceHide={true} />
+                                                    </div>
                                                     <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{card.back}</div>
                                                 </div>
                                                 {card.level && (
@@ -1323,7 +1326,9 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
 
                                                 <div className="flex-1 min-w-0">
                                                     <div className="flex items-center gap-1.5 flex-wrap">
-                                                        <span className="font-bold text-gray-800 dark:text-gray-200 text-sm">{card.front}</span>
+                                                        <span className="font-bold text-gray-800 dark:text-gray-200 text-sm">
+                                                            <FuriganaText text={card.frontWithFurigana || card.front} forceHide={true} />
+                                                        </span>
                                                         {card.sinoVietnamese && (
                                                             <span className="text-[10px] font-medium text-pink-500 dark:text-pink-400 bg-pink-50 dark:bg-pink-900/30 px-1.5 rounded">{card.sinoVietnamese}</span>
                                                         )}

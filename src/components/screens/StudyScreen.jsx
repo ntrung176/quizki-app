@@ -3,6 +3,8 @@ import { GraduationCap, ArrowLeft } from 'lucide-react';
 import { speakJapanese } from '../../utils/audio';
 import { shuffleArray, buildAdjNaAcceptedAnswers } from '../../utils/textProcessing';
 import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
+import FuriganaText from '../ui/FuriganaText';
+import { POS_TYPES } from '../../config/constants';
 
 // Helper function to detect mobile devices
 const isMobileDevice = () => {
@@ -201,7 +203,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         }
 
         if (!optionsRef.current[currentCardId]) {
-            const correctAnswer = currentCard.front;
+            const correctAnswer = currentCard.frontWithFurigana || currentCard.front;
             const currentPos = currentCard.pos;
 
             const allValidCards = allCards
@@ -244,7 +246,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             const shuffledCandidates = shuffleArray(candidates);
             const wrongOptions = shuffledCandidates
                 .slice(0, 3)
-                .map(card => card.front)
+                .map(card => card.frontWithFurigana || card.front)
                 .filter((front, index, self) => self.findIndex(f => normalizeAnswer(f) === normalizeAnswer(front)) === index);
 
             while (wrongOptions.length < 3) {
@@ -545,9 +547,9 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                         </p>
                                     )}
                                     {currentCard.pos && (
-                                        <p className="text-sm text-slate-400 mt-1">
-                                            <span className="inline-block px-2 py-0.5 bg-slate-600/60 rounded-md text-xs font-medium text-teal-300">{currentCard.pos}</span>
-                                        </p>
+                                        <div className="flex justify-center mb-1">
+                                            <span className="inline-block px-2 py-0.5 bg-slate-600/60 rounded-md text-xs font-medium text-teal-300">{POS_TYPES[currentCard.pos]?.label || currentCard.pos}</span>
+                                        </div>
                                     )}
                                 </div>
                             </div>
@@ -578,7 +580,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                 `}
                                         >
                                             <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/20 text-xs font-bold flex-shrink-0">{idx + 1}</span>
-                                            <span className="font-japanese">{option}</span>
+                                            <span className="font-japanese"><FuriganaText text={option} /></span>
                                         </button>
                                     ))}
                                 </div>
@@ -625,7 +627,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                 {isRevealed && (
                                     <div className={`p-4 rounded-xl border ${feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800'}`}>
                                         <p className={`font-bold text-base text-center ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'}`}>
-                                            {feedback === 'correct' ? '✓ Chính xác!' : <><span className="font-japanese">✗ Đáp án đúng: {currentCard.front}</span></>}
+                                            {feedback === 'correct' ? '✓ Chính xác!' : <><span className="font-japanese">✗ Đáp án đúng: <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} /></span></>}
                                         </p>
                                     </div>
                                 )}

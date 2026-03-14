@@ -307,7 +307,7 @@ const ReviewScreen = ({
         }
 
         if (!optionsRef.current[currentCardId]) {
-            const correctAnswer = currentCard.front;
+            const correctAnswer = currentCard.frontWithFurigana || currentCard.front;
             const currentPos = currentCard.pos;
 
             const allValidCards = (allCards || cards)
@@ -350,7 +350,7 @@ const ReviewScreen = ({
             const shuffledCandidates = shuffleArray(candidates);
             const wrongOptions = shuffledCandidates
                 .slice(0, 3)
-                .map(card => card.front)
+                .map(card => card.frontWithFurigana || card.front)
                 .filter((front, index, self) => self.findIndex(f => normalizeAnswer(f) === normalizeAnswer(front)) === index);
 
             while (wrongOptions.length < 3) {
@@ -780,7 +780,9 @@ const ReviewScreen = ({
                                         <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl shadow-2xl p-6 flex flex-col items-center justify-center w-full h-full border-4 border-white hover:shadow-3xl transition-shadow overflow-hidden">
                                             <div className="text-center flex-1 flex flex-col justify-center w-full px-2">
                                                 <p className="text-xs text-indigo-200 mb-3 font-medium uppercase tracking-wide">Từ vựng</p>
-                                                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight break-words font-japanese">{currentCard.front}</h3>
+                                                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight break-words font-japanese">
+                                                    <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} />
+                                                </h3>
                                                 <div className="flex items-center justify-center gap-2 flex-wrap">
                                                     {currentCard.level && (
                                                         <span className="inline-block px-2 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold rounded-full">
@@ -948,12 +950,21 @@ const ReviewScreen = ({
                                             </>
                                         )}
 
-                                            {/* Sino-Vietnamese hint */}
-                                            {!['synonym', 'example'].includes(cardReviewType) && currentCard.sinoVietnamese && (
-                                                <p className="text-base font-medium text-yellow-300 mt-4">
-                                                    <span className="text-slate-400 font-normal">Hán Việt: </span>{currentCard.sinoVietnamese}
-                                                </p>
-                                            )}
+                                            {/* Sino-Vietnamese hint & POS */}
+                                            <div className="flex flex-col items-center justify-center gap-2 mt-4 text-center">
+                                                {!['synonym', 'example'].includes(cardReviewType) && currentCard.sinoVietnamese && (
+                                                    <p className="text-base font-medium text-yellow-300">
+                                                        <span className="text-slate-400 font-normal">Hán Việt: </span>{currentCard.sinoVietnamese}
+                                                    </p>
+                                                )}
+                                                {currentCard.pos && (
+                                                    <p className="text-sm">
+                                                        <span className="inline-block px-2 py-0.5 bg-slate-600/60 rounded-md text-xs font-medium text-teal-300">
+                                                            {POS_TYPES[currentCard.pos]?.label || currentCard.pos}
+                                                        </span>
+                                                    </p>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -981,7 +992,7 @@ const ReviewScreen = ({
                                             buttonClass += "bg-emerald-500 text-white border-emerald-600 shadow-md";
                                         } else if (feedback && isSelected && feedback === 'incorrect') {
                                             buttonClass += "bg-red-500 text-white border-red-600 shadow-md";
-                                        } else if (feedback && option === currentCard.front) {
+                                        } else if (feedback && option === (currentCard.frontWithFurigana || currentCard.front)) {
                                             // Highlight đáp án đúng khi sai
                                             buttonClass += "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-500";
                                         } else if (isSelected) {
@@ -999,7 +1010,7 @@ const ReviewScreen = ({
                                                     setSelectedAnswer(option);
 
                                                     // Auto-submit ngay khi click
-                                                    const isCorrect = option === currentCard.front;
+                                                    const isCorrect = option === (currentCard.frontWithFurigana || currentCard.front);
                                                     const cardKey = `${currentCard.id}-${cardReviewType}`;
                                                     const hasFailedBefore = failedCards.has(cardKey);
 
@@ -1054,7 +1065,7 @@ const ReviewScreen = ({
                                                 className={buttonClass}
                                             >
                                                 <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/20 text-xs font-bold flex-shrink-0">{index + 1}</span>
-                                                <span className="font-japanese">{option}</span>
+                                                <span className="font-japanese"><FuriganaText text={option} /></span>
                                             </button>
                                         );
                                     })}

@@ -3,6 +3,9 @@
 
 // ============== KANJI → HÁN VIỆT LOOKUP ==============
 export { getSinoVietnamese } from './kanjiHVLookup';
+import { getSinoVietnamese } from './kanjiHVLookup';
+import { generateFuriganaText } from './furiganaHelper';
+
 
 
 // ============== KEY MANAGEMENT ==============
@@ -166,38 +169,33 @@ export const parseJsonFromAI = (text) => {
 
 export const generateVocabPrompt = (frontText, contextPos = '', contextLevel = '') => {
     // Build example rule dynamically based on level
-    let exampleRule;
+    let exampleRule = `4. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. Viết câu tự nhiên bằng tiếng Nhật. KHÔNG thêm phiên âm hay ngoặc furigana vào câu.`;
     if (contextLevel === 'N5') {
-        exampleRule = `4. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. Viết bằng HIRAGANA chủ yếu, câu ngắn đơn giản dễ hiểu (tối đa 8-10 từ), tránh dùng kanji ngoài bộ N5. Nếu bắt buộc dùng Kanji khó (ngoài N5) → ghi kèm furigana dạng 漢字（ひらがな）ví dụ: 経営（けいえい）. KHÔNG ghi furigana cho từ gốc đã thay bằng ＿＿＿＿.`;
-    } else {
-        exampleRule = `4. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. Viết câu tự nhiên bằng tiếng Nhật (dùng kanji bình thường). Các Kanji khó/hiếm/cao cấp hơn cấp độ hiện tại → GHI KÈM furigana dạng 漢字（ひらがな）ngay sau kanji đó. Ví dụ: 経営（けいえい）状態（じょうたい）が悪（わる）いので、＿＿＿＿した。 KHÔNG ghi furigana cho từ gốc đã thay bằng ＿＿＿＿. Dùng ngoặc toàn khổ （ ）.`;
+        exampleRule = `4. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. Viết bằng HIRAGANA chủ yếu, câu ngắn đơn giản dễ hiểu (tối đa 8-10 từ), phân cách từ rõ ràng. KHÔNG thêm ngoặc phiên âm furigana.`;
     }
 
     return `Từ điển Nhật-Việt. Từ: "${frontText}"${contextPos ? ` (Từ loại: ${contextPos})` : ''}${contextLevel ? ` [Cấp độ: ${contextLevel}]` : ''}
 JSON only, không markdown/backtick:
-{"frontWithFurigana":"水道（すいどう）","meaning":"đường ống nước","pos":"noun","level":"N3","sinoVietnamese":"THUỶ ĐẠO","synonym":"配管","synonymSinoVietnamese":"PHỐI QUẢN","example":"＿＿＿＿の水が止まった。","exampleMeaning":"Nước đường ống đã ngừng chảy.","nuance":"Chỉ hệ thống cấp nước sinh hoạt."}
+{"frontWithFurigana":"水道（すいどう）","meaning":"đường ống nước","pos":"noun","level":"N3","sinoVietnamese":"THUỶ ĐẠO","synonym":"配管（はいかん）","synonymSinoVietnamese":"PHỐI QUẢN","example":"＿＿＿＿の水が止まった。","exampleMeaning":"Nước đường ống đã ngừng chảy.","nuance":"Chỉ hệ thống cấp nước sinh hoạt."}
 
 QUY TẮC BẮT BUỘC:
-1. frontWithFurigana (QUAN TRỌNG NHẤT — định dạng trường hiển thị chính):
-   - Nếu từ có Kanji → viết theo định dạng: TừVựngGốc（toàn bộ phiên âm hiragana）.
-   - BẮT BUỘC dùng ngoặc đơn TOÀN KHỔ của Nhật （ ）, KHÔNG dùng ngoặc thường () hay [] hay 「」.
-   - Phiên âm trong ngoặc là TOÀN BỘ cụm từ đọc bằng hiragana, KHÔNG tách rời từng Kanji.
-   - Nếu từ gốc đã chia → giữ nguyên dạng đã chia, KHÔNG đổi về dạng từ điển.
-   - VD ĐÚNG: 振り込む（ふりこむ）, 連絡して（れんらくして）, 水道（すいどう）, 食べる（たべる）, 割り込む（わりこむ）
-   - VD SAI: 振（ふ）り込（こ）む, 食（た）べる, 振り込む(ふりこむ), 振り込む[ふりこむ]
-   - Nếu từ đã là 100% hiragana/katakana → frontWithFurigana = từ gốc (không thêm ngoặc).
-   - CỤM TỪ dài → giữ nguyên cụm, phiên âm toàn bộ: 連絡して教えてもらう（れんらくしておしえてもらう）
+1. Từ vựng (frontWithFurigana) & Từ đồng nghĩa (synonym):
+   - BẮT BUỘC dùng định dạng: "Từ gốc（cách đọc hiragana của CẢ TỪ）".
+   - NGOẶC PHIÊN ÂM PHẢI ĐẶT Ở CUỐI CÙNG sau toàn bộ chữ gốc. Tuyệt đối KHÔNG chèn ngoặc vào giữa các nhóm Kanji/Hiragana.
+   - Ví dụ ĐÚNG: "顔認証（かおにんしょう）", "振り込む（ふりこむ）"
+   - Ví dụ SAI: "顔（かお）認証（にんしょう）", "振（ふ）り込（こ）む"
+   - Từ đồng nghĩa (synonym) CŨNG BẮT BUỘC tuân theo đúng form này. VD: "配管（はいかん）"
+   - Trả về trường "frontWithFurigana" cho từ gốc và "synonym" cho từ đồng nghĩa.
 
 2. meaning: Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống.
 
 3. pos/level: Phải khớp ngữ cảnh nếu đã chọn. Grammar→giải thích như ngữ pháp.
    - pos: noun/verb/suru_verb/adj_i/adj_na/adverb/conjunction/particle/grammar/phrase/other.
-   - CỤM TỪ có trợ từ (を/に/が/で/と/から/まで) hoặc ghép nhiều động từ → pos="phrase".
 
 ${exampleRule}
 5. exampleMeaning: Nghĩa tiếng Việt đầy đủ của câu ví dụ.
 6. sinoVietnamese: IN HOA từng Kanji (VD: 流行→"LƯU HÀNH"). Không Kanji→"". KHÔNG bịa.
-7. nuance: Chi tiết. Động từ→TĐT/ThaĐT. Katakana→ghi từ gốc. Bối cảnh sử dụng, so sánh từ tương tự. KHÔNG quá ngắn.
+7. nuance: Chi tiết bối cảnh sử dụng.
 8. synonym/synonymSinoVietnamese: Cùng/dễ hơn JLPT. N5→"". Không bịa. synonymSinoVietnamese = HV của synonym.
 9. level: N5-N1, không rõ→"".
 
@@ -205,7 +203,7 @@ Không trả lời gì ngoài JSON.`;
 };
 
 export const generateMoreExamplePrompt = (frontText, targetMeaning) => {
-    return `1 câu ví dụ JP cho "${frontText}" nghĩa "${targetMeaning}". Thay "${frontText}" bằng ＿＿＿＿. Các Kanji khó/hiếm → ghi kèm furigana dạng 漢字（ひらがな）ngay sau kanji đó, dùng ngoặc toàn khổ（）. KHÔNG ghi furigana cho từ gốc đã thay bằng ＿＿＿＿. Viết câu tự nhiên. JSON only:{"example":"câu JP có ＿＿＿＿ và furigana cho kanji khó","exampleMeaning":"nghĩa VN"}`;
+    return `1 câu ví dụ JP cho "${frontText}" nghĩa "${targetMeaning}". Thay "${frontText}" bằng ＿＿＿＿. Viết câu tự nhiên bằng tiếng Nhật. KHÔNG thêm phiên âm hay ngoặc furigana vào câu. JSON only:{"example":"câu JP có ＿＿＿＿","exampleMeaning":"nghĩa VN"}`;
 };
 
 
@@ -224,9 +222,70 @@ export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '
             console.log(`📘 Hán Việt lookup: "${frontText}" → "${lookupHV}" (AI: "${result.sinoVietnamese || ''}")`);
             result.sinoVietnamese = lookupHV;
         }
+
+        // Tự động phân tích Furigana chuẩn bằng kuroshiro CHỈ CHO CÂU VÍ DỤ, KHÔNG xử lý từ vựng và từ đồng nghĩa
+        try {
+            // Đảm bảo AI đã gán đúng frontWithFurigana. Nếu thiếu thì fallback
+            if (!result.frontWithFurigana) {
+                result.frontWithFurigana = result.frontText || frontText;
+            }
+
+            // Xử lý câu ví dụ
+            if (result.example) {
+                result.example = await generateFuriganaText(result.example);
+            }
+        } catch (e) {
+            console.error("Kuroshiro conversion failed:", e);
+        }
     }
 
     return result;
+};
+
+// ============== KANJI BATCH FORMAT (AI clean up) ==============
+
+export const aiBatchFormatKanji = async (kanjiItems) => {
+    // kanjiItems: [{character, meaning, sinoViet}, ...]
+    const listStr = kanjiItems.map((k, i) =>
+        `${i + 1}. ${k.character} | meaning: "${k.meaning}" | sinoViet: "${k.sinoViet}"`
+    ).join('\n');
+
+    const prompt = `Bạn là chuyên gia Hán tự và bộ thủ. Hãy format lại dữ liệu Kanji/bộ thủ sau:
+${listStr}
+
+QUY TẮC:
+1. "meaning": Sửa ý nghĩa tiếng Việt ngắn gọn (DƯỚI 5 từ). Xoá nghĩa trùng lặp, chỉ giữ nghĩa phổ biến nhất. Viết thường.
+   - Nếu meaning trống hoặc là "-", hãy ĐIỀN ý nghĩa đúng cho chữ đó.
+   VD: "Anh, Anh, anh hùng, xuất sắc, đài hoa" → "anh hùng, xuất sắc"
+   VD: "nặng nề, quan trọng, quý trọng, kính trọng, chất đống" → "nặng, quan trọng"
+2. "sinoViet": Chỉ giữ 1-2 âm Hán Việt PHỔ BIẾN NHẤT, IN HOA. Xoá âm hiếm dùng.
+   - Nếu sinoViet trống hoặc là "-", hãy ĐIỀN âm Hán Việt đúng cho chữ đó.
+   - Với bộ thủ, dùng tên bộ thủ Hán Việt phổ biến nhất.
+   VD: "TRỌNG, TRÙNG" → "TRỌNG"
+   VD: "" (trống) cho 木 → "MỘC"
+
+JSON only, không markdown/backtick. Trả về MẢNG JSON:
+[{"character":"英","meaning":"anh hùng, xuất sắc","sinoViet":"ANH"}]`;
+
+    const responseText = await callAI(prompt);
+    if (!responseText) return null;
+
+    let jsonStr = responseText.trim();
+    if (jsonStr.startsWith('```json')) jsonStr = jsonStr.slice(7);
+    if (jsonStr.startsWith('```')) jsonStr = jsonStr.slice(3);
+    if (jsonStr.endsWith('```')) jsonStr = jsonStr.slice(0, -3);
+    jsonStr = jsonStr.trim();
+
+    // Try to extract JSON array
+    const arrMatch = jsonStr.match(/\[[\s\S]*\]/);
+    if (arrMatch) jsonStr = arrMatch[0];
+
+    try {
+        return JSON.parse(jsonStr);
+    } catch (e) {
+        console.error('Error parsing AI batch format response:', e, 'Raw:', responseText);
+        return null;
+    }
 };
 
 // ============== INFO ==============

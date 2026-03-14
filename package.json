@@ -17,7 +17,10 @@
     "@tanstack/react-query-devtools": "^5.91.1",
     "firebase": "^12.9.0",
     "hanzi-writer": "^3.7.3",
+    "kuroshiro": "^1.2.0",
+    "kuroshiro-analyzer-kuromoji": "^1.1.0",
     "lucide-react": "^0.561.0",
+    "path-browserify": "^1.0.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-error-boundary": "^6.0.0",
@@ -49,6 +52,7 @@
     "puppeteer": "^24.39.0",
     "rollup-plugin-visualizer": "^6.0.5",
     "tailwindcss": "^4.1.18",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "vite-plugin-node-polyfills": "^0.25.0"
   }
 }
