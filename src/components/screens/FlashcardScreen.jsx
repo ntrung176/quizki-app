@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { RotateCcw, Check, X, Undo2, Trophy, RefreshCw, Volume2, ArrowLeft } from 'lucide-react';
 import { playAudio, speakJapanese } from '../../utils/audio';
 import FuriganaText from '../ui/FuriganaText';
+import { POS_TYPES } from '../../config/constants';
 
 const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSaveCardAudio, onBack }) => {
     // Load saved progress from localStorage
@@ -461,25 +462,12 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
                                 <div className="flip-card-front backface-hidden absolute inset-0 w-full h-full">
                                     <div className="bg-slate-700 dark:bg-slate-800 rounded-2xl shadow-2xl p-6 flex flex-col items-center justify-center w-full h-full border-2 border-slate-600 dark:border-slate-700 hover:shadow-3xl transition-shadow overflow-hidden">
                                         <div className="text-center flex-1 flex flex-col justify-center w-full px-2">
-                                            {(() => {
-                                                const kanjiMatch = currentCard.front.match(/^([^（(]+)/);
-                                                const hiraganaMatch = currentCard.front.match(/[（(]([^）)]+)[）)]/);
-                                                const kanji = kanjiMatch ? kanjiMatch[1] : currentCard.front;
-                                                const hiragana = hiraganaMatch ? hiraganaMatch[1] : null;
-
-                                                return (
-                                                    <div className="space-y-2">
-                                                        <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight break-words font-japanese">
-                                                            {kanji}
-                                                        </h3>
-                                                        {hiragana && (
-                                                            <p className="text-xl md:text-2xl font-medium text-cyan-300 leading-tight font-japanese">
-                                                                {hiragana}
-                                                            </p>
-                                                        )}
-                                                    </div>
-                                                );
-                                            })()}
+                                            {/* We use FuriganaText to properly render both AI formats and new Auto-Furigana formats */}
+                                            <div className="space-y-4">
+                                                <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight break-words font-japanese flex items-center justify-center">
+                                                    <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} forceHide={true} />
+                                                </h3>
+                                            </div>
                                         </div>
                                         <div className="absolute bottom-4 text-center text-xs text-gray-500">
                                             Nhấn để lật
@@ -528,7 +516,7 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
                                                 )}
                                                 {currentCard.pos && (
                                                     <p className="text-sm text-slate-400 mt-1">
-                                                        <span className="inline-block px-2 py-0.5 bg-slate-600/60 rounded-md text-xs font-medium text-indigo-300">{currentCard.pos}</span>
+                                                        <span className="inline-block px-2 py-0.5 bg-slate-600/60 rounded-md text-xs font-medium text-indigo-300">{POS_TYPES[currentCard.pos]?.label || currentCard.pos}</span>
                                                     </p>
                                                 )}
                                             </div>

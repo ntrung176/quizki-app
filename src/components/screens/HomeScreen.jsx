@@ -130,7 +130,6 @@ const HomeScreen = ({
             color: 'from-sky-500 to-blue-600',
             shadowColor: 'shadow-sky-500/20',
             route: ROUTES.VOCAB_REVIEW,
-            badge: stats.dueCards > 0 ? stats.dueCards : null,
         },
         {
             id: 'kanji-review',
@@ -140,7 +139,6 @@ const HomeScreen = ({
             color: 'from-amber-500 to-orange-500',
             shadowColor: 'shadow-amber-500/20',
             route: ROUTES.KANJI_REVIEW,
-            badge: kanjiSrsStats.dueCount > 0 ? kanjiSrsStats.dueCount : null,
         },
     ];
 
@@ -285,18 +283,18 @@ const HomeScreen = ({
             </div>
 
             {/* Quick Actions */}
-            <div className="flex flex-col flex-1 min-h-0 gap-2">
-                <h2 className="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2 flex-shrink-0">
+            <div className="flex flex-col gap-2 flex-shrink-0">
+                <h2 className="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2">
                     <Zap className="w-5 h-5 text-amber-500" />
                     Bắt đầu nhanh
                 </h2>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 flex-1 min-h-0">
+                <div className="grid grid-cols-2 gap-2 md:gap-3">
                     {quickActions.map((action) => (
                         <button
                             key={action.id}
                             onClick={() => navigate(action.route)}
-                            className={`relative group bg-gradient-to-r ${action.color} rounded-xl p-3 md:p-5 text-white text-left shadow-md ${action.shadowColor} hover:scale-[1.02] transition-all duration-300 overflow-hidden flex-1 h-full min-h-0 flex flex-col justify-center`}
+                            className={`relative group bg-gradient-to-r ${action.color} rounded-xl p-3 md:p-5 text-white text-left shadow-md ${action.shadowColor} hover:scale-[1.02] transition-all duration-300 overflow-hidden flex flex-col justify-center min-h-[80px]`}
                         >
                             {/* Background decoration */}
                             <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full blur-xl translate-x-8 -translate-y-8 group-hover:translate-x-4 transition-transform"></div>

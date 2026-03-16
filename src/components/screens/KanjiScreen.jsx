@@ -1,7 +1,7 @@
 ﻿import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useSearchParams, useParams, useNavigate } from 'react-router-dom';
-import { Search, Grid, PenTool, Download, BookOpen, Map as MapIcon, Globe, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Play, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw, ChevronUp, ChevronDown } from 'lucide-react';
+import { Search, Grid, PenTool, Download, BookOpen, Map as MapIcon, Globe, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Play, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw, ChevronUp, ChevronDown, Sparkles } from 'lucide-react';
 import { db } from '../../config/firebase';
 import { collection, getDocs, addDoc, deleteDoc, doc, query, where, writeBatch, updateDoc } from 'firebase/firestore';
 import { playAudio } from '../../utils/audio';
@@ -12,6 +12,7 @@ import { renderStrokeGuide } from '../../utils/kanjiStroke';
 
 import { RADICALS_214, KANJI_TREE, getDecompositionTree, isBasicRadical, getRadicalInfo } from '../../data/radicals214';
 import { JOTOBA_KANJI_DATA, getJotobaKanjiByLevel, getJotobaKanjiChars, getJotobaKanjiData } from '../../data/jotobaKanjiData';
+import KanjiAIFormatTool from './KanjiAIFormatTool';
 
 // JLPT Levels
 const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
@@ -54,6 +55,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     const [editingVocab, setEditingVocab] = useState(null);
     const [importStatus, setImportStatus] = useState('');
     const [isImporting, setIsImporting] = useState(false);
+    const [showAIFormatModal, setShowAIFormatModal] = useState(false);
 
     // Vocab Categories
     const [vocabCategories, setVocabCategories] = useState([]);
@@ -2200,6 +2202,12 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         >
                             {bulkSelectMode ? <><X className="w-4 h-4" /> Thoát chế độ chọn</> : <><Trash2 className="w-4 h-4" /> Xóa hàng loạt</>}
                         </button>
+                        <button
+                            onClick={() => setShowAIFormatModal(true)}
+                            className="w-full py-2 bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-300 hover:to-orange-300 rounded-xl font-medium flex items-center justify-center gap-2 text-sm text-white transition-all shadow-lg shadow-orange-500/20"
+                        >
+                            <Sparkles className="w-4 h-4" /> AI Format Kanji
+                        </button>
                     </div>
                 )}
 
@@ -2939,6 +2947,17 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             )}
                         </div>
                     </div>
+                )
+            }
+
+            {/* AI Format Kanji Modal */}
+            {
+                showAIFormatModal && (
+                    <KanjiAIFormatTool
+                        kanjiList={kanjiList}
+                        setKanjiList={setKanjiList}
+                        onClose={() => setShowAIFormatModal(false)}
+                    />
                 )
             }
         </div >

@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { writeFileSync, readFileSync } from 'fs'
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import { resolve } from 'path'
 
 // Plugin để tạo 404.html cho GitHub Pages SPA routing
@@ -41,7 +42,14 @@ const createVersionPlugin = () => ({
 // - Nếu repo là user page (username.github.io): đặt base = '/'
 // - Hoặc dùng relative paths: base = './' (hoạt động với mọi cấu hình, khuyến nghị)
 export default defineConfig({
-  plugins: [react(), create404Plugin(), createVersionPlugin()],
+  plugins: [
+    react(),
+    create404Plugin(),
+    createVersionPlugin(),
+    nodePolyfills({
+      include: ['path', 'fs', 'url', 'os', 'util']
+    })
+  ],
   // Sử dụng absolute paths vì app dùng custom domain (quizki.id.vn) tại root
   // Relative paths ('./') gây lỗi 404 khi GitHub Pages serve 404.html cho SPA routes
   // (vd: /kanji -> 404.html -> ./assets/... -> /kanji/assets/... -> 404!)

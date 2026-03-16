@@ -1,0 +1,1 @@
+const Kuroshiro = require("kuroshiro"); const KuromojiAnalyzer = require("kuroshiro-analyzer-kuromoji"); const kuroshiro = new Kuroshiro.default(); kuroshiro.init(new KuromojiAnalyzer({ dictPath: "public/dict" })).then(() => { return kuroshiro.convert("食べ物", { mode: "furigana", to: "hiragana" }); }).then(console.log);

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import {
     Settings, User, Volume2, VolumeX, Music, Sun, Moon,
     ArrowLeft, Save, Check, X,
-    Palette, Bell, Shield, Info, Trash2, Upload, Play, Pause, Mic, Edit
+    Palette, Bell, Shield, Info, Trash2, Upload, Play, Pause, Mic, Edit, Type
 } from 'lucide-react';
 import { ROUTES } from '../../router';
 import {
@@ -113,6 +113,18 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         const settings = getSettings();
         return settings.bgmEnabled !== false;
     });
+    const [furiganaEnabled, setFuriganaEnabled] = useState(() => {
+        const settings = getSettings();
+        return settings.furiganaEnabled !== false;
+    });
+    const [furiganaColor, setFuriganaColor] = useState(() => {
+        const settings = getSettings();
+        return settings.furiganaColor || '#8b5cf6'; // Default color
+    });
+    const [furiganaFontSize, setFuriganaFontSize] = useState(() => {
+        const settings = getSettings();
+        return settings.furiganaFontSize || '0.6em'; // Default size
+    });
 
     // BGM track state
     const [selectedTrack, setSelectedTrackState] = useState(() => getSelectedTrackId());
@@ -144,8 +156,14 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         settings.bgmVolume = bgmVolume;
         settings.sfxEnabled = sfxEnabled;
         settings.bgmEnabled = bgmEnabled;
+        settings.furiganaEnabled = furiganaEnabled;
+        settings.furiganaColor = furiganaColor;
+        settings.furiganaFontSize = furiganaFontSize;
         saveSettings(settings);
-    }, [sfxVolume, bgmVolume, sfxEnabled, bgmEnabled]);
+
+        // Dispatch event for other components to react
+        window.dispatchEvent(new Event('quizki-settings-changed'));
+    }, [sfxVolume, bgmVolume, sfxEnabled, bgmEnabled, furiganaEnabled, furiganaColor, furiganaFontSize]);
 
     // Handle BGM volume changes
     useEffect(() => {
@@ -507,6 +525,89 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
             {/* ==================== GENERAL SETTINGS TAB ==================== */}
             {activeTab === 'general' && (
                 <div className="space-y-4">
+                    {/* Display Properties */}
+                    <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
+                        <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
+                            <Type className="w-4 h-4" /> Hiển thị
+                        </h3>
+
+                        {/* Furigana Toggle */}
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <div>
+                                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Hiển thị phiên âm (Furigana)</p>
+                                    <p className="text-xs text-gray-400 dark:text-gray-500">Cho phép hiển thị cách đọc Hiragana trên chữ Hán.</p>
+                                </div>
+                            </div>
+                            <button
+                                onClick={() => setFuriganaEnabled(!furiganaEnabled)}
+                                className={`relative w-12 h-6 rounded-full transition-colors ${furiganaEnabled ? 'bg-indigo-500' : 'bg-gray-300 dark:bg-gray-600'}`}
+                            >
+                                <span className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform`}
+                                    style={{ left: furiganaEnabled ? '26px' : '2px' }}
+                                />
+                            </button>
+                        </div>
+
+                        {/* Furigana Settings (Only when enabled) */}
+                        {furiganaEnabled && (
+                            <div className="border-t border-gray-100 dark:border-gray-700 pt-4 mt-4 space-y-4">
+                                <div className="space-y-2">
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Màu chữ phiên âm</span>
+                                        <span className="w-6 h-6 rounded-full border border-gray-300 dark:border-gray-600 shadow-sm" style={{ backgroundColor: furiganaColor }}></span>
+                                    </div>
+                                    <div className="flex gap-2">
+                                        {/* Color options */}
+                                        {[
+                                            { color: '#8b5cf6', name: 'Tím (Mặc định)' },
+                                            { color: '#f59e0b', name: 'Vàng/Cam' },
+                                            { color: '#3b82f6', name: 'Xanh dương' },
+                                            { color: '#ef4444', name: 'Đỏ' },
+                                            { color: '#10b981', name: 'Xanh ngọc' },
+                                            { color: '#9ca3af', name: 'Xám nhạt' }
+                                        ].map((setting) => (
+                                            <button
+                                                key={setting.color}
+                                                onClick={() => setFuriganaColor(setting.color)}
+                                                className={`w-8 h-8 rounded-full shadow-sm border-2 flex items-center justify-center transition-transform hover:scale-110 ${furiganaColor === setting.color ? 'border-indigo-500 scale-110' : 'border-transparent'}`}
+                                                style={{ backgroundColor: setting.color }}
+                                                title={setting.name}
+                                            >
+                                                {furiganaColor === setting.color && <Check className="w-4 h-4 text-white drop-shadow-md" />}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div className="space-y-2">
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Kích thước chữ phiên âm</span>
+                                    </div>
+                                    <div className="grid grid-cols-3 gap-2">
+                                        {[
+                                            { value: '0.5em', label: 'Nhỏ', sample: 'text-xs' },
+                                            { value: '0.6em', label: 'Vừa', sample: 'text-sm' },
+                                            { value: '0.8em', label: 'Lớn', sample: 'text-base' }
+                                        ].map((size) => (
+                                            <button
+                                                key={size.value}
+                                                onClick={() => setFuriganaFontSize(size.value)}
+                                                className={`py-2 rounded-xl border transition-colors ${furiganaFontSize === size.value
+                                                    ? 'bg-indigo-50 border-indigo-400 text-indigo-700 dark:bg-indigo-900/30 dark:border-indigo-500 dark:text-indigo-300'
+                                                    : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700'
+                                                    }`}
+                                            >
+                                                <span className={`block font-bold ${size.sample}`}>あ</span>
+                                                <span className="text-[10px] mt-1">{size.label}</span>
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
                     {/* Sound Effects */}
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
