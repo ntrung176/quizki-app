@@ -2010,14 +2010,41 @@ const App = () => {
         }
     };
 
-    const handleUpdateAvatar = async (avatarId) => {
+    const handleUpdateAvatar = async (avatarValue) => {
         if (!auth?.currentUser) throw new Error('Chưa đăng nhập');
         try {
-            if (settingsDocPath) {
-                await updateDoc(doc(db, settingsDocPath), { avatar: avatarId });
+            let finalAvatarValue = avatarValue;
+
+            // Nếu là ảnh base64, kiểm tra và nén nếu cần
+            if (typeof avatarValue === 'string' && avatarValue.startsWith('data:image/')) {
+                // Nén ảnh xuống tối đa ~150KB để tránh vượt giới hạn Firestore (1MB/doc)
+                const MAX_SIZE = 150 * 1024; // 150KB in chars
+                if (avatarValue.length > MAX_SIZE) {
+                    // Nén thêm bằng Canvas với quality thấp hơn
+                    finalAvatarValue = await new Promise((resolve) => {
+                        const img = new Image();
+                        img.onload = () => {
+                            const canvas = document.createElement('canvas');
+                            const SIZE = 150; // output size 150x150
+                            canvas.width = SIZE;
+                            canvas.height = SIZE;
+                            const ctx = canvas.getContext('2d');
+                            ctx.beginPath();
+                            ctx.arc(SIZE / 2, SIZE / 2, SIZE / 2, 0, Math.PI * 2);
+                            ctx.clip();
+                            ctx.drawImage(img, 0, 0, SIZE, SIZE);
+                            resolve(canvas.toDataURL('image/jpeg', 0.72));
+                        };
+                        img.src = avatarValue;
+                    });
+                }
             }
-            setProfile(prev => ({ ...prev, avatar: avatarId }));
-            setNotification('Đã cập nhật avatar!');
+
+            if (settingsDocPath) {
+                await updateDoc(doc(db, settingsDocPath), { avatar: finalAvatarValue });
+            }
+            setProfile(prev => ({ ...prev, avatar: finalAvatarValue }));
+            setNotification('Đã cập nhật ảnh đại diện!');
         } catch (e) {
             console.error('Lỗi cập nhật avatar:', e);
             throw e;
@@ -2479,7 +2506,7 @@ const App = () => {
                 const publicData = {
                     userId: userId,
                     displayName: profile.displayName || 'Người dùng ẩn danh',
-                    avatar: profile.avatar || '',
+                    avatar: (profile.avatar && !profile.avatar.startsWith('data:image/')) ? profile.avatar : '',
                     email: auth?.currentUser?.email || '',
                     totalCards: allCards.length,
                     shortTerm: memoryStats.shortTerm,
@@ -2753,6 +2780,7 @@ const App = () => {
                 setIsDarkMode={setIsDarkMode}
                 displayName={profile?.displayName}
                 isAdmin={isAdmin}
+                userId={userId}
             />
 
             {/* Onboarding tour for new users */}

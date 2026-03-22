@@ -37,18 +37,10 @@ html.dark ruby.ruby-annotation rt {
 @layer base {
   html {
     background-color: #e8f4fc !important;
-    background-image:
-      linear-gradient(#d0e8f5 1px, transparent 1px),
-      linear-gradient(90deg, #d0e8f5 1px, transparent 1px) !important;
-    background-size: 20px 20px !important;
   }
 
   html.dark {
     background-color: #1e293b !important;
-    background-image:
-      linear-gradient(#334155 1px, transparent 1px),
-      linear-gradient(90deg, #334155 1px, transparent 1px) !important;
-    background-size: 20px 20px !important;
   }
 
   #root,
@@ -61,21 +53,12 @@ html.dark ruby.ruby-annotation rt {
   }
 }
 
-/* Background pattern - shows only in empty areas */
 body {
   background-color: #e8f4fc;
-  background-image:
-    linear-gradient(#cce4f0 1px, transparent 1px),
-    linear-gradient(90deg, #cce4f0 1px, transparent 1px);
-  background-size: 20px 20px;
 }
 
 html.dark body {
   background-color: #1e293b;
-  background-image:
-    linear-gradient(#334155 1px, transparent 1px),
-    linear-gradient(90deg, #334155 1px, transparent 1px);
-  background-size: 20px 20px;
 }
 
 /* Ensure main has visible pattern area */
@@ -93,22 +76,12 @@ html {
   height: -webkit-fill-available;
   overflow-x: hidden;
   color-scheme: light;
-  /* Light blue notebook grid pattern */
   background-color: #e8f4fc !important;
-  background-image:
-    linear-gradient(#d0e8f5 1px, transparent 1px),
-    linear-gradient(90deg, #d0e8f5 1px, transparent 1px) !important;
-  background-size: 20px 20px !important;
 }
 
 html.dark {
   color-scheme: dark;
-  /* Dark mode notebook grid pattern */
   background-color: #1e293b !important;
-  background-image:
-    linear-gradient(#334155 1px, transparent 1px),
-    linear-gradient(90deg, #334155 1px, transparent 1px) !important;
-  background-size: 20px 20px !important;
 }
 
 /* Exclude background-color and color from transitions for instant dark mode switch */

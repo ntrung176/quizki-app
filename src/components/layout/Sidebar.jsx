@@ -7,11 +7,11 @@ import {
     Home, BookOpen, BarChart3, Users, Settings, Plus,
     LogOut, Sun, Moon, Sparkles, ChevronRight, X, List,
     Repeat2, FileCheck, Languages, Shield, ChevronDown,
-    Trophy, Heart, Gamepad2, MessageSquare, Crown
+    Trophy, Heart, Gamepad2, MessageSquare, Crown, MessageCircle, User
 } from 'lucide-react';
 
 // Sidebar Component - Navigation with submenu support
-const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
+const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const [isCollapsed, setIsCollapsed] = useState(false);
@@ -37,6 +37,8 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
         if (path === ROUTES.ACCOUNT) return 'ACCOUNT';
         if (path === ROUTES.SETTINGS) return 'SETTINGS';
         if (path === ROUTES.FEEDBACK) return 'FEEDBACK';
+        if (path === ROUTES.FORUM) return 'FORUM';
+        if (path.startsWith('/profile')) return 'PROFILE';
         if (path === ROUTES.BOOKS) return 'BOOKS_LIST';
         if (path === ROUTES.UPGRADE) return 'UPGRADE';
         if (path === ROUTES.ADMIN) return 'ADMIN';
@@ -93,6 +95,8 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin }) => {
         },
         { id: 'JLPT_TEST', icon: FileCheck, label: 'Luyện thi JLPT', route: ROUTES.JLPT_TEST },
         { id: 'HUB', icon: Gamepad2, label: 'Trung tâm', route: ROUTES.HUB },
+        { id: 'FORUM', icon: MessageCircle, label: 'Diễn đàn', route: ROUTES.FORUM },
+        { id: 'PROFILE', icon: User, label: 'Trang cá nhân', route: `/profile/${userId || 'me'}` },
         { id: 'UPGRADE', icon: Crown, label: 'Nâng cấp', route: ROUTES.UPGRADE, highlight: true },
         { id: 'FEEDBACK', icon: MessageSquare, label: 'Phản hồi', route: ROUTES.FEEDBACK },
         ...(isAdmin ? [{ id: 'ADMIN', icon: Shield, label: 'Quản lý Admin', route: ROUTES.ADMIN }] : []),

@@ -31,7 +31,9 @@ import {
     JLPTAdminScreen,
     PrivacyScreen,
     TermsScreen,
-    AuthActionScreen
+    AuthActionScreen,
+    ForumScreen,
+    UserProfileScreen
 } from './screens';
 
 // Import card components
@@ -550,6 +552,34 @@ const AppRoutes = ({
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
                             <FeedbackScreen
+                                userId={userId}
+                                profile={profile}
+                                isAdmin={isAdmin}
+                            />
+                        </ProtectedRoute>
+                    }
+                />
+
+                {/* Diễn đàn */}
+                <Route
+                    path={ROUTES.FORUM}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <ForumScreen
+                                userId={userId}
+                                profile={profile}
+                                isAdmin={isAdmin}
+                            />
+                        </ProtectedRoute>
+                    }
+                />
+
+                {/* Trang cá nhân */}
+                <Route
+                    path={ROUTES.PROFILE}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <UserProfileScreen
                                 userId={userId}
                                 profile={profile}
                                 isAdmin={isAdmin}

@@ -26,4 +26,6 @@ export { default as JLPTAdminScreen } from './JLPTAdminScreen';
 export { default as PrivacyScreen } from './PrivacyScreen';
 export { default as TermsScreen } from './TermsScreen';
 export { default as AuthActionScreen } from './AuthActionScreen';
+export { default as ForumScreen } from './ForumScreen';
+export { default as UserProfileScreen } from './UserProfileScreen';
 

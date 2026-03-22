@@ -3,6 +3,7 @@ import { Sparkles, Check, X, AlertTriangle, Save, Zap } from 'lucide-react';
 import { doc, updateDoc, addDoc, collection } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 import { aiBatchFormatKanji } from '../../utils/aiProvider';
+import { isMultiReadingKanji } from '../../utils/kanjiHVLookup';
 import { showToast } from '../../utils/toast';
 import { RADICALS_214 } from '../../data/radicals214';
 
@@ -75,6 +76,9 @@ const KanjiAIFormatTool = ({ kanjiList, setKanjiList, onClose }) => {
         // 6. Not in Firebase (radical only)
         if (k._notInFirebase) issues.push('CHƯA_CÓ');
 
+        // 7. Kanji has 2+ distinct HV readings — needs manual review
+        if (k.character && isMultiReadingKanji(k.character)) issues.push('ĐA_ÂM');
+
         return issues;
     };
 
@@ -102,7 +106,7 @@ const KanjiAIFormatTool = ({ kanjiList, setKanjiList, onClose }) => {
 
     // Stats
     const issueStats = useMemo(() => {
-        let dup = 0, long = 0, hv = 0, missingHv = 0, missingMeaning = 0, notInDb = 0;
+        let dup = 0, long = 0, hv = 0, missingHv = 0, missingMeaning = 0, notInDb = 0, multiHv = 0;
         problematicKanji.forEach(k => {
             if (k._issues.includes('LẶP')) dup++;
             if (k._issues.includes('DÀI')) long++;
@@ -110,8 +114,9 @@ const KanjiAIFormatTool = ({ kanjiList, setKanjiList, onClose }) => {
             if (k._issues.includes('THIẾU_HV')) missingHv++;
             if (k._issues.includes('THIẾU_NGHĨA')) missingMeaning++;
             if (k._issues.includes('CHƯA_CÓ')) notInDb++;
+            if (k._issues.includes('ĐA_ÂM')) multiHv++;
         });
-        return { dup, long, hv, missingHv, missingMeaning, notInDb, total: problematicKanji.length };
+        return { dup, long, hv, missingHv, missingMeaning, notInDb, multiHv, total: problematicKanji.length };
     }, [problematicKanji]);
 
     // Available levels - always include Bộ thủ
@@ -260,10 +265,11 @@ const KanjiAIFormatTool = ({ kanjiList, setKanjiList, onClose }) => {
         const config = {
             'LẶP': { bg: 'bg-red-100 dark:bg-red-900/30', text: 'text-red-500', label: 'LẶP' },
             'DÀI': { bg: 'bg-orange-100 dark:bg-orange-900/30', text: 'text-orange-500', label: 'DÀI' },
-            'HV': { bg: 'bg-yellow-100 dark:bg-yellow-900/30', text: 'text-yellow-600', label: 'HV' },
+            'HV': { bg: 'bg-yellow-100 dark:bg-yellow-900/30', text: 'text-yellow-600', label: 'NHIỀU HV' },
             'THIẾU_HV': { bg: 'bg-purple-100 dark:bg-purple-900/30', text: 'text-purple-500', label: 'THIẾU HV' },
             'THIẾU_NGHĨA': { bg: 'bg-pink-100 dark:bg-pink-900/30', text: 'text-pink-500', label: 'THIẾU NGHĨA' },
             'CHƯA_CÓ': { bg: 'bg-blue-100 dark:bg-blue-900/30', text: 'text-blue-500', label: 'CHƯA CÓ DB' },
+            'ĐA_ÂM': { bg: 'bg-indigo-100 dark:bg-indigo-900/40', text: 'text-indigo-500', label: '⚠ ĐA ÂM HV' },
         };
         const c = config[type] || { bg: 'bg-gray-100', text: 'text-gray-500', label: type };
         return <span className={`px-1.5 py-0.5 ${c.bg} ${c.text} text-[10px] rounded font-bold`}>{c.label}</span>;
@@ -306,7 +312,7 @@ const KanjiAIFormatTool = ({ kanjiList, setKanjiList, onClose }) => {
                 {/* Content */}
                 <div className="flex-1 overflow-y-auto p-5 space-y-4">
                     {/* Issue summary cards */}
-                    <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
+                    <div className="grid grid-cols-3 md:grid-cols-7 gap-2">
                         {[
                             { label: 'Nghĩa LẶP', value: issueStats.dup, color: 'text-red-500', border: 'border-red-200 dark:border-red-800/50', bg: 'bg-red-50 dark:bg-red-900/20' },
                             { label: 'Nghĩa DÀI', value: issueStats.long, color: 'text-orange-500', border: 'border-orange-200 dark:border-orange-800/50', bg: 'bg-orange-50 dark:bg-orange-900/20' },
@@ -314,8 +320,9 @@ const KanjiAIFormatTool = ({ kanjiList, setKanjiList, onClose }) => {
                             { label: 'Thiếu HV', value: issueStats.missingHv, color: 'text-purple-500', border: 'border-purple-200 dark:border-purple-800/50', bg: 'bg-purple-50 dark:bg-purple-900/20' },
                             { label: 'Thiếu nghĩa', value: issueStats.missingMeaning, color: 'text-pink-500', border: 'border-pink-200 dark:border-pink-800/50', bg: 'bg-pink-50 dark:bg-pink-900/20' },
                             { label: 'Chưa có DB', value: issueStats.notInDb, color: 'text-blue-500', border: 'border-blue-200 dark:border-blue-800/50', bg: 'bg-blue-50 dark:bg-blue-900/20' },
+                            { label: '⚠ Đa âm HV', value: issueStats.multiHv, color: 'text-indigo-500', border: 'border-indigo-200 dark:border-indigo-800/50', bg: 'bg-indigo-50 dark:bg-indigo-900/20', tooltip: 'Kanji có 2+ âm HV khác nhau — cần kiểm tra thủ công' },
                         ].map(s => (
-                            <div key={s.label} className={`${s.bg} border ${s.border} rounded-xl p-2.5 text-center`}>
+                            <div key={s.label} className={`${s.bg} border ${s.border} rounded-xl p-2.5 text-center`} title={s.tooltip || ''}>
                                 <div className={`text-xl font-bold ${s.color}`}>{s.value}</div>
                                 <div className="text-[9px] text-gray-500 font-bold mt-0.5 leading-tight">{s.label}</div>
                             </div>

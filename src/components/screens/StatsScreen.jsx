@@ -20,6 +20,17 @@ const AVATAR_EMOJIS = {
 };
 const getAvatarEmoji = (id) => AVATAR_EMOJIS[id] || null;
 
+// Helpers cho custom photo avatar
+const isCustomPhoto = (avatarValue) => typeof avatarValue === 'string' && avatarValue.startsWith('data:image/');
+const getAvatarDisplayNode = (avatarValue, textFallback = 'U') => {
+    if (isCustomPhoto(avatarValue)) {
+        return <img src={avatarValue} alt="avatar" className="w-full h-full object-cover" />;
+    }
+    const emoji = getAvatarEmoji(avatarValue);
+    if (emoji) return <span>{emoji}</span>;
+    return <span>{(textFallback || 'U')[0].toUpperCase()}</span>;
+};
+
 // ==================== MAIN STATS SCREEN ====================
 const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivityLogs, onUpdateGoal, onBack, userId, publicStatsPath, initialTab }) => {
     const { shortTerm, midTerm, longTerm, new: newCards } = memoryStats;
@@ -591,8 +602,8 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                         {/* My Stats Card */}
                         <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 rounded-2xl text-white shadow-xl">
                             <div className="flex items-center gap-3 mb-3">
-                                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-lg font-bold">
-                                    {getAvatarEmoji(profile.avatar) || (profile.displayName || 'U')[0].toUpperCase()}
+                                <div className={`w-10 h-10 overflow-hidden rounded-full flex items-center justify-center flex-shrink-0 ${isCustomPhoto(profile.avatar) ? 'border-2 border-white/40' : 'bg-white/20 text-lg font-bold'}`}>
+                                    {getAvatarDisplayNode(profile.avatar, profile.displayName || 'U')}
                                 </div>
                                 <div>
                                     <p className="font-bold text-sm">{profile.displayName || 'Bạn'}</p>
@@ -647,8 +658,8 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
                                     return (
                                         <div key={user.id} className={`flex items-center gap-3 p-3 ${rankBg} ${isMe ? 'ring-2 ring-indigo-400 ring-inset' : ''}`}>
                                             <div className="flex-shrink-0">{rankIcon}</div>
-                                            <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${getAvatarEmoji(user.avatar) ? 'bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40 text-xl' : 'bg-gradient-to-br from-indigo-400 to-purple-500 text-white text-sm font-bold'}`}>
-                                                {getAvatarEmoji(user.avatar) || (user.displayName || 'U')[0].toUpperCase()}
+                                            <div className={`w-8 h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 ${isCustomPhoto(user.avatar) ? '' : (getAvatarEmoji(user.avatar) ? 'bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40 text-xl' : 'bg-gradient-to-br from-indigo-400 to-purple-500 text-white text-sm font-bold')}`}>
+                                                {getAvatarDisplayNode(user.avatar, user.displayName || 'U')}
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <p className={`text-sm font-bold truncate ${isMe ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-700 dark:text-gray-300'}`}>

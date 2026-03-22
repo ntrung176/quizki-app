@@ -3,8 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import {
     Settings, User, Volume2, VolumeX, Music, Sun, Moon,
     ArrowLeft, Save, Check, X,
-    Palette, Bell, Shield, Info, Trash2, Upload, Play, Pause, Mic, Edit, Type
+    Palette, Bell, Shield, Info, Trash2, Upload, Play, Pause, Mic, Edit, Type, Camera
 } from 'lucide-react';
+import AvatarCropper from '../ui/AvatarCropper';
 import { ROUTES } from '../../router';
 import {
     getSfxVolume, getBgmVolume, isSfxEnabled,
@@ -44,6 +45,8 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
     const [accountMsg, setAccountMsg] = useState('');
     const [isSaving, setIsSaving] = useState(false);
     const [showAvatarPicker, setShowAvatarPicker] = useState(false);
+    const [showAvatarCropper, setShowAvatarCropper] = useState(false);
+    const [avatarTab, setAvatarTab] = useState('emoji'); // 'emoji' | 'photo'
 
     // 50 cute cartoon animal avatars
     const AVATAR_LIST = [
@@ -100,6 +103,17 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
     ];
 
     const getAvatarEmoji = (id) => AVATAR_LIST.find(a => a.id === id)?.emoji || '🦊';
+
+    // Kiểm tra avatar có phải ảnh custom không
+    const isCustomPhoto = (avatarValue) => typeof avatarValue === 'string' && avatarValue.startsWith('data:image/');
+
+    // Lấy display content cho avatar
+    const getAvatarDisplay = (avatarValue, sizeClass = 'text-5xl') => {
+        if (isCustomPhoto(avatarValue)) {
+            return <img src={avatarValue} alt="avatar" className="w-full h-full object-cover" />;
+        }
+        return <span className={sizeClass}>{getAvatarEmoji(avatarValue)}</span>;
+    };
 
     // Linked accounts state
     const [linkedProviders, setLinkedProviders] = useState([]);
@@ -195,17 +209,23 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         setIsSaving(false);
     };
 
-    // Handle select avatar
-    const handleSelectAvatar = async (avatarId) => {
+    // Handle select avatar (emoji id hoặc base64 data URL)
+    const handleSelectAvatar = async (avatarValue) => {
         if (!onUpdateAvatar) return;
         try {
-            await onUpdateAvatar(avatarId);
+            await onUpdateAvatar(avatarValue);
             setShowAvatarPicker(false);
-            setAccountMsg('Đã chọn avatar mới!');
+            setShowAvatarCropper(false);
+            setAccountMsg('Đã cập nhật ảnh đại diện!');
             setTimeout(() => setAccountMsg(''), 3000);
         } catch (e) {
             setAccountMsg('Lỗi: ' + e.message);
         }
+    };
+
+    // Handle cropped photo confirm
+    const handleCroppedPhoto = async (base64) => {
+        await handleSelectAvatar(base64);
     };
 
     // Handle change password
@@ -337,9 +357,11 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                         </h3>
                         <div className="flex items-center gap-5">
                             <div className="relative group">
-                                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40 flex items-center justify-center text-5xl shadow-lg border-2 border-white dark:border-gray-600 cursor-pointer hover:scale-105 transition-transform"
-                                    onClick={() => setShowAvatarPicker(!showAvatarPicker)}>
-                                    {getAvatarEmoji(profile?.avatar)}
+                                <div
+                                    className="w-20 h-20 rounded-full overflow-hidden bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40 flex items-center justify-center text-5xl shadow-lg border-2 border-white dark:border-gray-600 cursor-pointer hover:scale-105 transition-transform"
+                                    onClick={() => setShowAvatarPicker(!showAvatarPicker)}
+                                >
+                                    {getAvatarDisplay(profile?.avatar)}
                                 </div>
                                 <button
                                     onClick={() => setShowAvatarPicker(!showAvatarPicker)}
@@ -351,40 +373,117 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                             <div className="flex-1">
                                 <p className="font-bold text-gray-800 dark:text-white text-lg">{profile?.displayName || 'Chưa đặt tên'}</p>
                                 <p className="text-gray-500 dark:text-gray-400 text-xs">{profile?.email || 'Không có email'}</p>
-                                <button onClick={() => setShowAvatarPicker(!showAvatarPicker)}
-                                    className="mt-2 text-xs text-indigo-500 hover:text-indigo-600 dark:text-indigo-400 font-medium transition-colors">
-                                    {showAvatarPicker ? 'Đóng' : '🎨 Đổi avatar'}
-                                </button>
+                                <div className="flex items-center gap-2 mt-2">
+                                    <button
+                                        onClick={() => { setShowAvatarPicker(!showAvatarPicker); setAvatarTab('emoji'); }}
+                                        className="text-xs text-indigo-500 hover:text-indigo-600 dark:text-indigo-400 font-medium transition-colors"
+                                    >
+                                        {showAvatarPicker ? 'Đóng' : '🎨 Đổi avatar'}
+                                    </button>
+                                    <span className="text-gray-200 dark:text-gray-700">|</span>
+                                    <button
+                                        onClick={() => setShowAvatarCropper(true)}
+                                        className="text-xs text-purple-500 hover:text-purple-600 dark:text-purple-400 font-medium transition-colors flex items-center gap-1"
+                                    >
+                                        <Camera className="w-3 h-3" />
+                                        Tải ảnh lên
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
                         {/* Avatar Picker Grid */}
                         {showAvatarPicker && (
                             <div className="border-t border-gray-100 dark:border-gray-700 pt-4 space-y-3">
-                                <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">Chọn avatar yêu thích:</p>
-                                <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-2 max-h-64 overflow-y-auto pr-1">
-                                    {AVATAR_LIST.map(avatar => (
-                                        <button
-                                            key={avatar.id}
-                                            onClick={() => handleSelectAvatar(avatar.id)}
-                                            className={`group relative flex flex-col items-center p-2 rounded-xl transition-all ${profile?.avatar === avatar.id
-                                                ? 'bg-indigo-100 dark:bg-indigo-900/40 ring-2 ring-indigo-400 scale-105 shadow-md'
-                                                : 'bg-gray-50 dark:bg-gray-700/50 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:scale-110 border border-gray-100 dark:border-gray-600'}`}
-                                            title={avatar.name}
-                                        >
-                                            <span className="text-2xl">{avatar.emoji}</span>
-                                            <span className="text-[9px] text-gray-400 dark:text-gray-500 mt-0.5 truncate max-w-full leading-tight">{avatar.name}</span>
-                                            {profile?.avatar === avatar.id && (
-                                                <div className="absolute -top-1 -right-1 w-4 h-4 bg-indigo-500 rounded-full flex items-center justify-center">
-                                                    <Check className="w-2.5 h-2.5 text-white" />
-                                                </div>
-                                            )}
-                                        </button>
-                                    ))}
+                                {/* Tabs: Emoji / Ảnh */}
+                                <div className="flex rounded-xl bg-gray-100 dark:bg-gray-700 p-1 gap-1">
+                                    <button
+                                        onClick={() => setAvatarTab('emoji')}
+                                        className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all ${avatarTab === 'emoji' ? 'bg-white dark:bg-gray-600 text-indigo-600 dark:text-indigo-400 shadow-sm' : 'text-gray-500 dark:text-gray-400'}`}
+                                    >
+                                        🎨 Emoji
+                                    </button>
+                                    <button
+                                        onClick={() => setAvatarTab('photo')}
+                                        className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1 ${avatarTab === 'photo' ? 'bg-white dark:bg-gray-600 text-purple-600 dark:text-purple-400 shadow-sm' : 'text-gray-500 dark:text-gray-400'}`}
+                                    >
+                                        <Camera className="w-3 h-3" /> Ảnh của bạn
+                                    </button>
                                 </div>
+
+                                {avatarTab === 'emoji' && (
+                                    <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-2 max-h-64 overflow-y-auto pr-1">
+                                        {AVATAR_LIST.map(avatar => (
+                                            <button
+                                                key={avatar.id}
+                                                onClick={() => handleSelectAvatar(avatar.id)}
+                                                className={`group relative flex flex-col items-center p-2 rounded-xl transition-all ${profile?.avatar === avatar.id
+                                                    ? 'bg-indigo-100 dark:bg-indigo-900/40 ring-2 ring-indigo-400 scale-105 shadow-md'
+                                                    : 'bg-gray-50 dark:bg-gray-700/50 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:scale-110 border border-gray-100 dark:border-gray-600'}`}
+                                                title={avatar.name}
+                                            >
+                                                <span className="text-2xl">{avatar.emoji}</span>
+                                                <span className="text-[9px] text-gray-400 dark:text-gray-500 mt-0.5 truncate max-w-full leading-tight">{avatar.name}</span>
+                                                {profile?.avatar === avatar.id && (
+                                                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-indigo-500 rounded-full flex items-center justify-center">
+                                                        <Check className="w-2.5 h-2.5 text-white" />
+                                                    </div>
+                                                )}
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {avatarTab === 'photo' && (
+                                    <div className="space-y-3">
+                                        {isCustomPhoto(profile?.avatar) ? (
+                                            <div className="flex items-center gap-4 p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl border border-purple-200 dark:border-purple-800">
+                                                <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border-2 border-purple-300 dark:border-purple-700">
+                                                    <img src={profile.avatar} alt="Current avatar" className="w-full h-full object-cover" />
+                                                </div>
+                                                <div className="flex-1">
+                                                    <p className="text-xs font-bold text-purple-700 dark:text-purple-300">Ảnh hiện tại</p>
+                                                    <p className="text-[10px] text-purple-500 dark:text-purple-400 mt-0.5">Ảnh tùy chỉnh đang được sử dụng</p>
+                                                </div>
+                                                <button
+                                                    onClick={() => handleSelectAvatar('fox')}
+                                                    className="text-xs text-red-500 hover:text-red-600 font-medium px-2 py-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                >
+                                                    Xóa
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            <div className="flex flex-col items-center gap-3 py-4">
+                                                <div className="w-16 h-16 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
+                                                    <Camera className="w-7 h-7 text-purple-400" />
+                                                </div>
+                                                <p className="text-sm text-gray-500 dark:text-gray-400 text-center">Chưa có ảnh tùy chỉnh</p>
+                                            </div>
+                                        )}
+                                        <button
+                                            onClick={() => { setShowAvatarPicker(false); setShowAvatarCropper(true); }}
+                                            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white text-sm font-bold shadow-md shadow-purple-200 dark:shadow-purple-900/30 transition-all"
+                                        >
+                                            <Upload className="w-4 h-4" />
+                                            Tải ảnh mới lên
+                                        </button>
+                                        <p className="text-center text-[10px] text-gray-400 dark:text-gray-600">
+                                            Hỗ trợ JPG, PNG, WebP · Có thể cắt và chỉnh vị trí
+                                        </p>
+                                    </div>
+                                )}
                             </div>
                         )}
                     </div>
+
+                    {/* Avatar Cropper Modal */}
+                    {showAvatarCropper && (
+                        <AvatarCropper
+                            onConfirm={handleCroppedPhoto}
+                            onCancel={() => setShowAvatarCropper(false)}
+                            currentAvatarUrl={isCustomPhoto(profile?.avatar) ? profile.avatar : null}
+                        />
+                    )}
 
                     {/* Display Name */}
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">

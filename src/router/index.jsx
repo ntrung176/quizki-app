@@ -37,6 +37,8 @@ export const ROUTES = {
 
     // Social & Data
     HUB: '/hub',
+    FORUM: '/forum',
+    PROFILE: '/profile/:userId',
     IMPORT: '/import',
     ADMIN: '/admin',
     BOOKS: '/books',
