@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
     Zap, RotateCw, MessageSquare, FileText, Repeat2, Send,
-    ChevronRight, Check, X, Lightbulb, ArrowLeft
+    ChevronRight, Check, X, Lightbulb, ArrowLeft, Eye, EyeOff
 } from 'lucide-react';
 import { POS_TYPES, getPosLabel, getPosColor, getLevelColor } from '../../config/constants';
 import { playAudio, speakJapanese } from '../../utils/audio';
@@ -48,6 +48,8 @@ const ReviewScreen = ({
     const [multipleChoiceOptions, setMultipleChoiceOptions] = useState([]);
     const [failedCards, setFailedCards] = useState(new Set());
     const [hintCount, setHintCount] = useState(0); // Number of characters revealed as hint
+    const [blurVietnamese, setBlurVietnamese] = useState(false); // Blur Vietnamese text in example mode
+    const [revealedMeanings, setRevealedMeanings] = useState(new Set()); // Track which meanings are revealed
     const [inputMode, setInputMode] = useState('reading'); // 'reading' = show meaning, input word | 'meaning' = show word, input meaning
     const inputRef = useRef(null);
     const isCompletingRef = useRef(false);
@@ -100,6 +102,7 @@ const ReviewScreen = ({
         setMultipleChoiceOptions([]);
         setSwipeOffset(0);
         setHintCount(0); // Reset hint when changing card
+        setRevealedMeanings(new Set()); // Reset revealed meanings when changing card
         cardShownTimeRef.current = Date.now(); // Reset timer khi đổi card
     }, [currentIndex]);
 
@@ -869,6 +872,19 @@ const ReviewScreen = ({
                                         <span className="text-white font-bold text-sm">
                                             {cardReviewType === 'back' ? (inputMode === 'reading' ? 'Cách đọc' : 'Ý nghĩa') : cardReviewType === 'synonym' ? 'Đồng nghĩa' : 'Ngữ cảnh'}
                                         </span>
+                                        {cardReviewType === 'example' && (
+                                            <button
+                                                onClick={(e) => { e.stopPropagation(); setBlurVietnamese(prev => !prev); setRevealedMeanings(new Set()); }}
+                                                className={`flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-medium transition-all border ${blurVietnamese
+                                                        ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 hover:bg-amber-500/30'
+                                                        : 'bg-slate-700/50 text-slate-400 border-slate-600/50 hover:bg-slate-600/50'
+                                                    }`}
+                                                title={blurVietnamese ? 'Tắt ẩn tiếng Việt' : 'Ẩn tiếng Việt để luyện đọc'}
+                                            >
+                                                {blurVietnamese ? <EyeOff className="w-3 h-3" /> : <Eye className="w-3 h-3" />}
+                                                {blurVietnamese ? 'Hiện VN' : 'Ẩn VN'}
+                                            </button>
+                                        )}
                                     </div>
                                     {/* Only show toggle buttons for back mode */}
                                     {cardReviewType === 'back' && !isMultipleChoice && (
@@ -919,7 +935,11 @@ const ReviewScreen = ({
                                                     <FuriganaText text={promptInfo.text} />
                                                 </div>
                                                 {promptInfo.meaning && (
-                                                    <div className="text-base text-gray-400 mt-2 italic break-words">
+                                                    <div
+                                                        className={`text-base mt-2 italic break-words cursor-pointer transition-all duration-300 select-none ${blurVietnamese && !revealedMeanings.has('main') ? 'blur-[6px] opacity-40 hover:opacity-60' : 'text-gray-400'}`}
+                                                        onClick={(e) => { e.stopPropagation(); if (blurVietnamese) { setRevealedMeanings(prev => { const next = new Set(prev); next.has('main') ? next.delete('main') : next.add('main'); return next; }); } }}
+                                                        title={blurVietnamese ? (revealedMeanings.has('main') ? 'Click để ẩn lại' : 'Click để hiện nghĩa') : ''}
+                                                    >
                                                         "{promptInfo.meaning.replace(/^"|"$/g, '')}"
                                                     </div>
                                                 )}
@@ -940,7 +960,10 @@ const ReviewScreen = ({
                                                                         })()} />
                                                                     </p>
                                                                     {exampleMeaningLines[i + 1] && (
-                                                                        <p className="text-base text-gray-400 italic mt-1 break-words">
+                                                                        <p
+                                                                            className={`text-base italic mt-1 break-words cursor-pointer transition-all duration-300 select-none ${blurVietnamese && !revealedMeanings.has(`ex_${i}`) ? 'blur-[6px] opacity-40 hover:opacity-60' : 'text-gray-400'}`}
+                                                                            onClick={(e) => { e.stopPropagation(); if (blurVietnamese) { setRevealedMeanings(prev => { const next = new Set(prev); next.has(`ex_${i}`) ? next.delete(`ex_${i}`) : next.add(`ex_${i}`); return next; }); } }}
+                                                                        >
                                                                             "{exampleMeaningLines[i + 1].replace(/^"|"$/g, '')}"
                                                                         </p>
                                                                     )}

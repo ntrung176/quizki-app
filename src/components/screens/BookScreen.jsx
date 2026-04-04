@@ -6,7 +6,7 @@ import {
     Upload, FolderPlus, FileText, List, Search, ArrowLeft, Image, Save, Layers, Copy, Clipboard, Folder, Volume2,
     ChevronUp, ChevronDown, RefreshCw, Mic, Wrench, Eye, EyeOff, RotateCcw, Languages
 } from 'lucide-react';
-import { db } from '../../config/firebase';
+import { db, appId } from '../../config/firebase';
 import {
     collection, getDocs, addDoc, deleteDoc, doc, updateDoc, writeBatch, setDoc, getDoc
 } from 'firebase/firestore';
@@ -44,7 +44,7 @@ const InputField = ({ label, value, onChange, placeholder, type = 'text' }) => (
 );
 
 // ==================== BOOK SCREEN ====================
-const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserCards = [] }) => {
+const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserCards = [], userId = null }) => {
     const [searchParams, setSearchParams] = useSearchParams();
 
     // Data states
@@ -112,6 +112,9 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     const [fixAudioCustomReading, setFixAudioCustomReading] = useState('');
     const [fixAudioLoading, setFixAudioLoading] = useState(false);
 
+    // Debounce ref for saving progress to Firebase
+    const saveProgressTimerRef = useRef(null);
+
     const COLLECTION = 'bookGroups';
 
     // ==================== LOAD DATA ====================
@@ -152,8 +155,35 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
 
     useEffect(() => {
         loadLessonAudio();
-        // Load persisted reveal state from localStorage
-        if (lessonPersistKey) {
+        // Load persisted reveal state: Firebase first, then localStorage fallback
+        const loadProgress = async () => {
+            if (!lessonPersistKey) {
+                setPersistedRevealed(new Set());
+                setRevealedCards(new Set());
+                return;
+            }
+
+            // Try Firebase first if user is logged in
+            if (userId && appId) {
+                try {
+                    const progressDocRef = doc(db, `artifacts/${appId}/users/${userId}/bookProgress`, lessonPersistKey);
+                    const progressSnap = await getDoc(progressDocRef);
+                    if (progressSnap.exists()) {
+                        const data = progressSnap.data();
+                        const arr = data.revealed || [];
+                        const restoredSet = new Set(arr);
+                        setPersistedRevealed(restoredSet);
+                        setRevealedCards(new Set(restoredSet));
+                        // Also update localStorage cache
+                        try { localStorage.setItem(lessonPersistKey, JSON.stringify(arr)); } catch (e) { /* ignore */ }
+                        return;
+                    }
+                } catch (e) {
+                    console.warn('Could not load progress from Firebase, falling back to localStorage:', e);
+                }
+            }
+
+            // Fallback: localStorage
             try {
                 const saved = localStorage.getItem(lessonPersistKey);
                 if (saved) {
@@ -164,10 +194,13 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                     return;
                 }
             } catch (e) { console.warn('Error restoring reveal state:', e); }
-        }
-        setPersistedRevealed(new Set());
-        setRevealedCards(new Set());
-    }, [loadLessonAudio, lessonId, lessonPersistKey]);
+
+            setPersistedRevealed(new Set());
+            setRevealedCards(new Set());
+        };
+
+        loadProgress();
+    }, [loadLessonAudio, lessonId, lessonPersistKey, userId]);
 
     // Persist when a card is revealed
     const revealCard = useCallback((index) => {
@@ -180,15 +213,26 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
             const next = new Set(prev);
             if (!next.has(index)) {
                 next.add(index);
-                // Save to localStorage
+                const arr = [...next];
+                // Save to localStorage immediately (fast cache)
                 if (lessonPersistKey) {
-                    try { localStorage.setItem(lessonPersistKey, JSON.stringify([...next])); }
+                    try { localStorage.setItem(lessonPersistKey, JSON.stringify(arr)); }
                     catch (e) { /* ignore */ }
+                }
+                // Debounced save to Firebase (sync across devices)
+                if (userId && appId && lessonPersistKey) {
+                    if (saveProgressTimerRef.current) clearTimeout(saveProgressTimerRef.current);
+                    saveProgressTimerRef.current = setTimeout(async () => {
+                        try {
+                            const progressDocRef = doc(db, `artifacts/${appId}/users/${userId}/bookProgress`, lessonPersistKey);
+                            await setDoc(progressDocRef, { revealed: arr, updatedAt: new Date() }, { merge: true });
+                        } catch (e) { console.warn('Could not save progress to Firebase:', e); }
+                    }, 1000); // debounce 1 second
                 }
             }
             return next;
         });
-    }, [lessonPersistKey]);
+    }, [lessonPersistKey, userId]);
 
     // Re-blur all cards (does NOT affect persisted progress)
     const handleReBlurAll = useCallback(() => {
@@ -196,13 +240,20 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     }, []);
 
     // Reset all progress (clear persisted + view)
-    const handleResetProgress = useCallback(() => {
+    const handleResetProgress = useCallback(async () => {
         setRevealedCards(new Set());
         setPersistedRevealed(new Set());
         if (lessonPersistKey) {
             try { localStorage.removeItem(lessonPersistKey); } catch (e) { /* ignore */ }
         }
-    }, [lessonPersistKey]);
+        // Also delete from Firebase
+        if (userId && appId && lessonPersistKey) {
+            try {
+                const progressDocRef = doc(db, `artifacts/${appId}/users/${userId}/bookProgress`, lessonPersistKey);
+                await deleteDoc(progressDocRef);
+            } catch (e) { console.warn('Could not delete progress from Firebase:', e); }
+        }
+    }, [lessonPersistKey, userId]);
 
     const loadAllData = async (silent = false) => {
         if (!silent) setLoading(true);
@@ -511,9 +562,42 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
         if (editingVocabIndex === null || !editingVocabData) return;
         try {
             const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
+            const oldVocab = currentLesson?.vocab?.[editingVocabIndex] || {};
             const newVocab = [...(currentLesson?.vocab || [])];
             newVocab[editingVocabIndex] = editingVocabData;
             await updateDoc(lessonRef, { vocab: newVocab });
+
+            // === ADMIN SYNC: Track changes for user vocab sync ===
+            if (isAdmin && appId) {
+                const word = oldVocab.word || oldVocab.front || editingVocabData.word || editingVocabData.front || '';
+                // Detect which fields actually changed
+                const trackFields = ['meaning', 'back', 'synonym', 'example', 'exampleMeaning', 'nuance', 'note', 'reading', 'sinoVietnamese', 'pos', 'level'];
+                const changes = {};
+                for (const field of trackFields) {
+                    const oldVal = (oldVocab[field] || '').toString().trim();
+                    const newVal = (editingVocabData[field] || '').toString().trim();
+                    if (oldVal !== newVal && newVal) {
+                        changes[field] = newVal;
+                    }
+                }
+                // Only create update record if there are actual changes  
+                if (Object.keys(changes).length > 0 && word) {
+                    try {
+                        const updatesCol = collection(db, `artifacts/${appId}/bookVocabUpdates`);
+                        await addDoc(updatesCol, {
+                            word: word.split('（')[0].split('(')[0].trim(),
+                            wordFull: word,
+                            changes,
+                            bookPath: `${groupId}/${bookId}/${chapterId}/${lessonId}`,
+                            bookName: currentBook?.name || '',
+                            lessonName: currentLesson?.name || '',
+                            updatedAt: new Date(),
+                            updatedBy: userId || 'admin',
+                        });
+                    } catch (e) { console.warn('Could not create vocab update record:', e); }
+                }
+            }
+
             setEditingVocabIndex(null);
             setEditingVocabData(null);
             showToast('Đã cập nhật từ vựng!', 'success');
@@ -1295,6 +1379,10 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                                                 )}
 
                                                                 <p className={`text-sm text-sky-600 dark:text-sky-400 mt-2 font-medium transition-all duration-300 ${blurVN ? blurClass : ''}`}>{v.meaning || v.back || ''}</p>
+
+                                                                {v.synonym && (
+                                                                    <p className={`text-xs text-purple-500 dark:text-purple-400 mt-1 transition-all duration-300 ${blurVN ? blurClass : ''}`}>🔄 {v.synonym}</p>
+                                                                )}
 
                                                             </>);
                                                         })()}

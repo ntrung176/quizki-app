@@ -8,12 +8,14 @@ import {
 } from 'lucide-react';
 import { ROUTES } from '../../router';
 import OnboardingTour from '../ui/OnboardingTour';
+import BookVocabSyncChecker from '../ui/BookVocabSyncChecker';
 
 const HomeScreen = ({
     displayName,
     totalCards,
     allCards = [],
     userId,
+    vocabCollectionPath,
 }) => {
     const navigate = useNavigate();
     const [kanjiSrsStats, setKanjiSrsStats] = useState({ total: 0, learning: 0, mastered: 0, dueCount: 0 });
@@ -209,6 +211,14 @@ const HomeScreen = ({
 
     return (
         <div className="flex flex-col h-full max-h-[calc(100vh-80px)] max-w-7xl mx-auto gap-3 md:gap-4 pb-4 overflow-y-auto overflow-x-hidden">
+            {/* Book Vocab Sync Notification */}
+            <BookVocabSyncChecker
+                userId={userId}
+                appId={appId}
+                allCards={allCards}
+                vocabCollectionPath={vocabCollectionPath}
+            />
+
             {/* Hero Section - Beautiful teal gradient */}
             <div className="relative flex-shrink-0 overflow-hidden bg-gradient-to-br from-teal-600 via-cyan-600 to-sky-600 rounded-2xl p-4 md:p-6 text-white pb-6 md:pb-8">
                 {/* Decorative elements */}

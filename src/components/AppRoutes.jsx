@@ -178,6 +178,7 @@ const AppRoutes = ({
                                 totalCards={allCards?.length || 0}
                                 allCards={allCards}
                                 userId={userId}
+                                vocabCollectionPath={vocabCollectionPath}
                             />
                         ) : (
                             <LoginScreen />
@@ -522,6 +523,7 @@ const AppRoutes = ({
                                 onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
                                 onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
                                 allUserCards={allCards}
+                                userId={userId}
                             />
                         </ProtectedRoute>
                     }
