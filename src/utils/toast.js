@@ -88,3 +88,90 @@ const removeToast = (toast) => {
         if (toast.parentNode) toast.parentNode.removeChild(toast);
     }, 350);
 };
+
+/**
+ * Thay thế window.confirm() bằng modal dialog đẹp
+ * Trả về Promise<boolean>
+ * 
+ * Sử dụng:
+ *   import { showConfirm } from '../utils/toast';
+ *   const ok = await showConfirm('Bạn có chắc muốn xóa?');
+ *   if (ok) { ... }
+ */
+export const showConfirm = (message, { confirmText = 'Xác nhận', cancelText = 'Hủy', type = 'warning' } = {}) => {
+    return new Promise((resolve) => {
+        const isDark = document.documentElement.classList.contains('dark');
+
+        // Overlay
+        const overlay = document.createElement('div');
+        overlay.style.cssText = `
+            position: fixed; inset: 0; z-index: 99998;
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.2s ease;
+        `;
+
+        // Modal
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+            background: ${isDark ? '#1e293b' : '#ffffff'};
+            border: 1px solid ${isDark ? '#334155' : '#e2e8f0'};
+            border-radius: 16px; padding: 24px; max-width: 400px; width: 90%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transform: scale(0.9); transition: transform 0.2s cubic-bezier(0.21, 1.02, 0.73, 1);
+            text-align: center;
+        `;
+
+        const icon = type === 'danger' ? '🗑️' : '⚠️';
+        const confirmColor = type === 'danger'
+            ? 'background: linear-gradient(135deg, #ef4444, #dc2626);'
+            : 'background: linear-gradient(135deg, #f59e0b, #d97706);';
+
+        modal.innerHTML = `
+            <div style="font-size: 36px; margin-bottom: 12px;">${icon}</div>
+            <p style="color: ${isDark ? '#e2e8f0' : '#1e293b'}; font-size: 15px; font-weight: 500; line-height: 1.5; margin-bottom: 20px; word-break: break-word;">${message}</p>
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button id="confirm-cancel" style="
+                    flex: 1; padding: 10px 16px; border-radius: 10px; font-size: 14px; font-weight: 600;
+                    border: 1px solid ${isDark ? '#475569' : '#cbd5e1'}; cursor: pointer;
+                    background: ${isDark ? '#334155' : '#f1f5f9'}; color: ${isDark ? '#94a3b8' : '#64748b'};
+                    transition: all 0.15s ease;
+                ">${cancelText}</button>
+                <button id="confirm-ok" style="
+                    flex: 1; padding: 10px 16px; border-radius: 10px; font-size: 14px; font-weight: 600;
+                    border: none; cursor: pointer; color: white; ${confirmColor}
+                    transition: all 0.15s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                ">${confirmText}</button>
+            </div>
+        `;
+
+        overlay.appendChild(modal);
+        document.body.appendChild(overlay);
+
+        // Animate in
+        requestAnimationFrame(() => {
+            overlay.style.opacity = '1';
+            modal.style.transform = 'scale(1)';
+        });
+
+        const cleanup = (result) => {
+            overlay.style.opacity = '0';
+            modal.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+                resolve(result);
+            }, 200);
+        };
+
+        modal.querySelector('#confirm-cancel').onclick = () => cleanup(false);
+        modal.querySelector('#confirm-ok').onclick = () => cleanup(true);
+        overlay.onclick = (e) => { if (e.target === overlay) cleanup(false); };
+
+        // ESC to cancel
+        const handleKey = (e) => {
+            if (e.key === 'Escape') { cleanup(false); window.removeEventListener('keydown', handleKey); }
+            if (e.key === 'Enter') { cleanup(true); window.removeEventListener('keydown', handleKey); }
+        };
+        window.addEventListener('keydown', handleKey);
+    });
+};

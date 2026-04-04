@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { Upload, ZoomIn, ZoomOut, RotateCw, Check, X, ImageIcon } from 'lucide-react';
+import { showToast } from '../../utils/toast';
 
 // =============================================
 // AvatarCropper - Upload & Crop avatar từ máy
@@ -114,11 +115,11 @@ const AvatarCropper = ({ onConfirm, onCancel, currentAvatarUrl }) => {
         const file = e.target.files?.[0];
         if (!file) return;
         if (!file.type.startsWith('image/')) {
-            alert('Vui lòng chọn file ảnh!');
+            showToast('Vui lòng chọn file ảnh!', 'warning');
             return;
         }
         if (file.size > 5 * 1024 * 1024) {
-            alert('Ảnh quá lớn! Tối đa 5MB.');
+            showToast('Ảnh quá lớn! Tối đa 5MB.', 'warning');
             return;
         }
         const reader = new FileReader();

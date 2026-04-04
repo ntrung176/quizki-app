@@ -7,12 +7,13 @@ import { collection, getDocs, addDoc, deleteDoc, doc, query, where, writeBatch, 
 import { playAudio } from '../../utils/audio';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
 import HanziWriter from 'hanzi-writer';
-import { showToast } from '../../utils/toast';
+import { showToast, showConfirm } from '../../utils/toast';
 import { renderStrokeGuide } from '../../utils/kanjiStroke';
 
 import { RADICALS_214, KANJI_TREE, getDecompositionTree, isBasicRadical, getRadicalInfo } from '../../data/radicals214';
 import { JOTOBA_KANJI_DATA, getJotobaKanjiByLevel, getJotobaKanjiChars, getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import KanjiAIFormatTool from './KanjiAIFormatTool';
+import KanjiStoryTool from './KanjiStoryTool';
 
 // JLPT Levels
 const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
@@ -56,6 +57,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     const [importStatus, setImportStatus] = useState('');
     const [isImporting, setIsImporting] = useState(false);
     const [showAIFormatModal, setShowAIFormatModal] = useState(false);
+    const [showStoryTool, setShowStoryTool] = useState(false);
 
     // Vocab Categories
     const [vocabCategories, setVocabCategories] = useState([]);
@@ -757,7 +759,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
 
     // Sync ALL Jotoba kanji data to Firebase
     const handleSyncJotobaToFirebase = async () => {
-        if (!window.confirm('Đồng bộ toàn bộ dữ liệu Kanji từ Jotoba vào Firebase?\nKanji mới sẽ được thêm, kanji đã có sẽ được cập nhật fields còn thiếu.\nDữ liệu đã chỉnh sửa sẽ KHÔNG bị ghi đè.')) return;
+        if (!await showConfirm('Đồng bộ toàn bộ dữ liệu Kanji từ Jotoba vào Firebase?\nKanji mới sẽ được thêm, kanji đã có sẽ được cập nhật fields còn thiếu.\nDữ liệu đã chỉnh sửa sẽ KHÔNG bị ghi đè.')) return;
 
         setIsImporting(true);
         setImportStatus('Đang đồng bộ...');
@@ -972,7 +974,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     };
 
     const handleDeleteBookLink = async (linkId) => {
-        if (!window.confirm('Bạn có chắc muốn hủy liên kết sách này? Từ vựng sách sẽ không hiện qua Kanji nữa.')) return;
+        if (!await showConfirm('Bạn có chắc muốn hủy liên kết sách này? Từ vựng sách sẽ không hiện qua Kanji nữa.', { type: 'danger', confirmText: 'Hủy liên kết' })) return;
         try {
             await deleteDoc(doc(db, 'kanjiLinkedBooks', linkId));
             setKanjiLinkedBooks(prev => prev.filter(lb => lb.id !== linkId));
@@ -990,7 +992,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
 
     // Delete Vocab Category
     const handleDeleteCategory = async (catId) => {
-        if (!window.confirm('Bạn có chắc muốn xóa phân loại này?')) return;
+        if (!await showConfirm('Bạn có chắc muốn xóa phân loại này?', { type: 'danger', confirmText: 'Xóa' })) return;
         try {
             await deleteDoc(doc(db, 'vocabCategories', catId));
             setVocabCategories(vocabCategories.filter(c => c.id !== catId));
@@ -1032,7 +1034,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     // Bulk delete kanji
     const handleBulkDeleteKanji = async () => {
         if (selectedKanjiIds.length === 0) return;
-        if (!window.confirm(`Bạn có chắc muốn xóa ${selectedKanjiIds.length} kanji?`)) return;
+        if (!await showConfirm(`Bạn có chắc muốn xóa ${selectedKanjiIds.length} kanji?`, { type: 'danger', confirmText: 'Xóa' })) return;
 
         try {
             for (const id of selectedKanjiIds) {
@@ -1049,7 +1051,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     // Bulk delete vocab
     const handleBulkDeleteVocab = async () => {
         if (selectedVocabIds.length === 0) return;
-        if (!window.confirm(`Bạn có chắc muốn xóa ${selectedVocabIds.length} từ vựng?`)) return;
+        if (!await showConfirm(`Bạn có chắc muốn xóa ${selectedVocabIds.length} từ vựng?`, { type: 'danger', confirmText: 'Xóa' })) return;
 
         try {
             for (const id of selectedVocabIds) {
@@ -1264,7 +1266,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
 
     // Delete Kanji
     const handleDeleteKanji = async (kanjiId) => {
-        if (!kanjiId || !window.confirm('Bạn có chắc muốn xóa kanji này?')) return;
+        if (!kanjiId || !await showConfirm('Bạn có chắc muốn xóa kanji này?', { type: 'danger', confirmText: 'Xóa' })) return;
         try {
             await deleteDoc(doc(db, 'kanji', kanjiId));
             setKanjiList(kanjiList.filter(k => k.id !== kanjiId));
@@ -1299,7 +1301,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
 
     // Delete Vocab
     const handleDeleteVocab = async (vocabId) => {
-        if (!vocabId || !window.confirm('Bạn có chắc muốn xóa từ vựng này?')) return;
+        if (!vocabId || !await showConfirm('Bạn có chắc muốn xóa từ vựng này?', { type: 'danger', confirmText: 'Xóa' })) return;
         try {
             await deleteDoc(doc(db, 'kanjiVocab', vocabId));
             setVocabList(vocabList.filter(v => v.id !== vocabId));
@@ -1980,7 +1982,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         );
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedKanji, kanjiList, vocabList, kanjiApiData, isAdmin, diagramZoom, diagramPan, isDragging, dragStart, pitchAccentData, addedVocabIds, addingVocabId, vocabCategories]);
@@ -2207,6 +2209,12 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             className="w-full py-2 bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-300 hover:to-orange-300 rounded-xl font-medium flex items-center justify-center gap-2 text-sm text-white transition-all shadow-lg shadow-orange-500/20"
                         >
                             <Sparkles className="w-4 h-4" /> AI Format Kanji
+                        </button>
+                        <button
+                            onClick={() => setShowStoryTool(true)}
+                            className="w-full py-2 bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-400 hover:to-indigo-400 rounded-xl font-medium flex items-center justify-center gap-2 text-sm text-white transition-all shadow-lg shadow-purple-500/20"
+                        >
+                            📖 Nhập Câu Chuyện Kanji
                         </button>
                     </div>
                 )}
@@ -2949,7 +2957,6 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                     </div>
                 )
             }
-
             {/* AI Format Kanji Modal */}
             {
                 showAIFormatModal && (
@@ -2957,6 +2964,17 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         kanjiList={kanjiList}
                         setKanjiList={setKanjiList}
                         onClose={() => setShowAIFormatModal(false)}
+                    />
+                )
+            }
+
+            {/* Kanji Story Tool Modal */}
+            {
+                showStoryTool && (
+                    <KanjiStoryTool
+                        kanjiList={kanjiList}
+                        setKanjiList={setKanjiList}
+                        onClose={() => setShowStoryTool(false)}
                     />
                 )
             }

@@ -274,11 +274,9 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
 
             speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
 
-            try {
-                await onUpdateCard(currentCard.id, isCorrect, 'back', 'study', Date.now() - cardShownTimeRef.current);
-            } catch (error) {
+            onUpdateCard(currentCard.id, isCorrect, 'back', 'study', Date.now() - cardShownTimeRef.current).catch(error => {
                 console.error('Failed to update card:', error);
-            }
+            });
 
             if (isCorrect) {
                 playCorrectSound();
@@ -312,7 +310,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                     setIsRevealed(false);
                     setFeedback(null);
                 }
-            }, 1500);
+            }, 800);
         } catch (error) {
             console.error('Error in MC handler:', error);
             // Reset state to allow retry
@@ -356,11 +354,9 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             setIsRevealed(true);
             speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
 
-            try {
-                await onUpdateCard(currentCard.id, isCorrect, 'back', 'study', Date.now() - cardShownTimeRef.current);
-            } catch (error) {
+            onUpdateCard(currentCard.id, isCorrect, 'back', 'study', Date.now() - cardShownTimeRef.current).catch(error => {
                 console.error('Failed to update card:', error);
-            }
+            });
 
             if (isCorrect) {
                 playCorrectSound();
@@ -389,7 +385,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                 } else {
                     createNextBatch();
                 }
-            }, 1500);
+            }, 800);
         } catch (error) {
             console.error('Error in typing handler:', error);
             setIsProcessing(false);
@@ -564,7 +560,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                     </div>
                                 )}
                                 <div className={currentCard.imageBase64 ? 'text-center flex-1 min-w-0' : 'text-center'}>
-                                    <div className="text-3xl md:text-4xl font-bold text-white leading-relaxed whitespace-pre-line break-words">
+                                    <div className="quiz-question-text-lg font-bold text-white whitespace-pre-line break-words text-auto-fit">
                                         {formatMultipleMeanings(currentCard.back)}
                                     </div>
                                     {currentCard.sinoVietnamese && (
@@ -593,7 +589,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                             data-mc-option={idx}
                                             onClick={() => handleMultipleChoiceAnswer(option)}
                                             disabled={isProcessing || isRevealed}
-                                            className={`p-3 md:p-4 rounded-xl font-bold text-sm md:text-base transition-all text-left border-2 flex items-center gap-3
+                                            className={`p-3 md:p-4 rounded-xl font-bold transition-all text-left border-2 flex items-center gap-3 mc-option-text
                                     ${selectedAnswer === option
                                                     ? feedback === 'correct'
                                                         ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'

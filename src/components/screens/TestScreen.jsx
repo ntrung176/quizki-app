@@ -485,12 +485,12 @@ const TestScreen = ({ allCards, onBack }) => {
 
                         {/* Question */}
                         <div className="mb-6">
-                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
+                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-auto-fit">
                                 {renderBoldText(currentQuestion.question)}
                             </h3>
                             {currentQuestion.context && (
                                 <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 mb-4">
-                                    <p className="text-gray-800 dark:text-gray-200 text-lg">{renderBoldText(currentQuestion.context)}</p>
+                                    <p className="text-gray-800 dark:text-gray-200 quiz-example-text text-auto-fit">{renderBoldText(currentQuestion.context)}</p>
                                 </div>
                             )}
                         </div>

@@ -194,6 +194,10 @@ const KanjiLessonScreen = () => {
                     nextReview: now, // Due immediately for first review
                     lastReview: now,
                     reps: 0,
+                    learningStep: null,
+                    isLapsed: false,
+                    lapseCount: 0,
+                    prelapseInterval: null,
                 }, { merge: true });
             }
         } catch (e) {
@@ -547,6 +551,7 @@ const KanjiFlashcard = ({ kanji, vocab, writerContainerRef, writerRef, speakJapa
             const now = Date.now();
             await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanji.id), {
                 interval: 0, ease: 2.5, nextReview: now, lastReview: now, reps: 0,
+                learningStep: null, isLapsed: false, lapseCount: 0, prelapseInterval: null,
             }, { merge: true });
             setSrsAddedSet(prev => new Set([...prev, kanji.id]));
             showToast(`✅ Đã thêm ${kanji.character} vào ôn tập`);

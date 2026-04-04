@@ -12,6 +12,7 @@ import {
     DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi
 } from 'lucide-react';
 import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, addModerator, removeModerator, grantAIAccess, revokeAIAccess, addCreditsToUser, DEFAULT_AI_PACKAGES, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense } from '../../utils/adminSettings';
+import { showConfirm } from '../../utils/toast';
 
 const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, adminConfig, isAdmin }) => {
     // State
@@ -1343,7 +1344,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                     </button>
                                                     <button
                                                         onClick={async () => {
-                                                            if (!window.confirm(`Xóa voucher ${v.code}?`)) return;
+                                                            if (!await showConfirm(`Xóa voucher ${v.code}?`, { type: 'danger', confirmText: 'Xóa' })) return;
                                                             setSavingConfig(true);
                                                             await deleteVoucher(v.code);
                                                             setNotification({ type: 'success', message: `Đã xóa voucher ${v.code}` });
@@ -1853,7 +1854,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                     <span className="text-sm font-bold text-red-600">-{formatVND(exp.amount || 0)}</span>
                                                     <button
                                                         onClick={async () => {
-                                                            if (!window.confirm(`Xóa chi phí "${exp.name}"?`)) return;
+                                                            if (!await showConfirm(`Xóa chi phí "${exp.name}"?`, { type: 'danger', confirmText: 'Xóa' })) return;
                                                             setSavingConfig(true);
                                                             await deleteExpense(exp.id);
                                                             setNotification({ type: 'success', message: `Đã xóa chi phí ${exp.name}` });

@@ -6,6 +6,7 @@ import {
 import { ROUTES } from '../../router';
 import { collection, addDoc, getDocs, deleteDoc, query, orderBy, serverTimestamp, doc, updateDoc } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
+import { showConfirm } from '../../utils/toast';
 
 // ==================== Status Badge ====================
 const StatusBadge = ({ status }) => {
@@ -210,8 +211,8 @@ const FeedbackScreen = ({ userId, profile, isAdmin }) => {
                                             ⏳ Chờ xử lý
                                         </button>
                                         <button
-                                            onClick={() => {
-                                                if (window.confirm('Xóa phản hồi này?')) handleDeleteFeedback(fb.id);
+                                            onClick={async () => {
+                                                if (await showConfirm('Xóa phản hồi này?', { type: 'danger', confirmText: 'Xóa' })) handleDeleteFeedback(fb.id);
                                             }}
                                             className="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-400 rounded-lg text-xs font-bold hover:bg-red-100 hover:text-red-600 dark:hover:bg-red-900/30 dark:hover:text-red-400 transition-all ml-auto"
                                         >

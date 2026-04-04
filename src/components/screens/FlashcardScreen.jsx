@@ -464,8 +464,8 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
                                         <div className="text-center flex-1 flex flex-col justify-center w-full px-2">
                                             {/* We use FuriganaText to properly render both AI formats and new Auto-Furigana formats */}
                                             <div className="space-y-4">
-                                                <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight break-words font-japanese flex items-center justify-center">
-                                                    <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} forceHide={true} />
+                                                <h3 className="flashcard-front-text font-bold text-white break-words font-japanese flex items-center justify-center">
+                                                    <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} />
                                                 </h3>
                                             </div>
                                         </div>
@@ -504,7 +504,7 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
                                             )}
                                             <div className={`flex flex-col gap-2 ${currentCard.imageBase64 ? 'text-center items-center flex-1 min-w-0' : 'text-center items-center w-full'}`}>
                                                 {/* Vietnamese meaning */}
-                                                <div className="text-3xl md:text-4xl font-bold text-white leading-snug break-words whitespace-pre-line">
+                                                <div className="flashcard-back-text font-bold text-white break-words whitespace-pre-line text-auto-fit">
                                                     {formatMultipleMeanings(currentCard.back)}
                                                 </div>
 
@@ -517,6 +517,12 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
                                                 {currentCard.pos && (
                                                     <p className="text-sm text-slate-400 mt-1">
                                                         <span className="inline-block px-2 py-0.5 bg-slate-600/60 rounded-md text-xs font-medium text-indigo-300">{POS_TYPES[currentCard.pos]?.label || currentCard.pos}</span>
+                                                    </p>
+                                                )}
+                                                {currentCard.synonym && (
+                                                    <p className="text-sm text-slate-300 mt-2">
+                                                        <span className="font-semibold text-slate-400">Đồng nghĩa: </span>
+                                                        <FuriganaText text={currentCard.synonym} className="font-japanese" />
                                                     </p>
                                                 )}
                                             </div>

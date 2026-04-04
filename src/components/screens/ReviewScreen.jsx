@@ -560,7 +560,7 @@ const ReviewScreen = ({
                     playCorrectSound();
                     celebrateCorrectAnswer();
                     speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    await new Promise(resolve => setTimeout(resolve, 600));
                     await moveToNextCard(true);
                 } else {
                     setIsProcessing(true);
@@ -572,7 +572,7 @@ const ReviewScreen = ({
                     playCorrectSound();
                     celebrateCorrectAnswer();
                     speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    await new Promise(resolve => setTimeout(resolve, 600));
                     await moveToNextCard(true);
                 }
             } else {
@@ -619,11 +619,10 @@ const ReviewScreen = ({
 
     const moveToNextCard = async (shouldUpdateStreak) => {
         if (shouldUpdateStreak) {
-            try {
-                await onUpdateCard(currentCard.id, true, cardReviewType, 'review', getResponseTime());
-            } catch (error) {
+            // Fire-and-forget: don't await to avoid blocking UI transition
+            onUpdateCard(currentCard.id, true, cardReviewType, 'review', getResponseTime()).catch(error => {
                 console.error('Error updating card:', error);
-            }
+            });
 
             setCards(prevCards => {
                 return prevCards.map(card => {
@@ -796,7 +795,7 @@ const ReviewScreen = ({
                                         <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl shadow-2xl p-6 flex flex-col items-center justify-center w-full h-full border-4 border-white hover:shadow-3xl transition-shadow overflow-hidden">
                                             <div className="text-center flex-1 flex flex-col justify-center w-full px-2">
                                                 <p className="text-xs text-indigo-200 mb-3 font-medium uppercase tracking-wide">Từ vựng</p>
-                                                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight break-words font-japanese">
+                                                <h3 className="flashcard-front-text font-bold text-white mb-4 break-words font-japanese">
                                                     <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} />
                                                 </h3>
                                                 <div className="flex items-center justify-center gap-2 flex-wrap">
@@ -834,7 +833,7 @@ const ReviewScreen = ({
                                                 )}
                                                 <div className={`flex flex-col gap-3 ${currentCard.imageBase64 ? 'text-left' : 'text-center items-center'}`}>
                                                     <p className="text-xs text-emerald-200 font-medium uppercase tracking-wide">Ý nghĩa</p>
-                                                    <div className="text-3xl md:text-4xl font-extrabold text-white leading-relaxed break-words whitespace-pre-line">
+                                                    <div className="flashcard-back-text font-extrabold text-white break-words whitespace-pre-line text-auto-fit">
                                                         {formatMultipleMeanings(currentCard.back)}
                                                     </div>
                                                     {currentCard.sinoVietnamese && (
@@ -844,7 +843,8 @@ const ReviewScreen = ({
                                                     )}
                                                     {currentCard.synonym && (
                                                         <p className="text-emerald-100 text-sm">
-                                                            <span className="font-semibold">Đồng nghĩa:</span> {currentCard.synonym}
+                                                            <span className="font-semibold">Đồng nghĩa:</span>{' '}
+                                                            <FuriganaText text={currentCard.synonym} className="font-japanese" />
                                                         </p>
                                                     )}
                                                 </div>
@@ -905,8 +905,8 @@ const ReviewScreen = ({
                                         <div className={currentCard.imageBase64 ? 'text-center flex-1 min-w-0' : 'text-center'}>{cardReviewType === 'synonym' ? (
                                             <>
                                                 {/* Synonym mode: Show synonym from card */}
-                                                <div className="text-3xl md:text-4xl font-bold text-white leading-relaxed break-words font-japanese">
-                                                    {currentCard.synonym || 'Không có từ đồng nghĩa'}
+                                                <div className="quiz-question-text-lg font-bold text-white break-words font-japanese text-auto-fit">
+                                                    <FuriganaText text={currentCard.synonym || 'Không có từ đồng nghĩa'} />
                                                 </div>
                                                 <div className="text-sm text-gray-400 mt-2">
                                                     Tìm từ đồng nghĩa
@@ -915,7 +915,7 @@ const ReviewScreen = ({
                                         ) : cardReviewType === 'example' ? (
                                             <>
                                                 {/* Example mode: Show example sentence with masked word */}
-                                                <div className="text-lg md:text-xl font-medium text-white leading-relaxed font-japanese break-words">
+                                                <div className="quiz-example-text font-medium text-white font-japanese break-words text-auto-fit">
                                                     <FuriganaText text={promptInfo.text} />
                                                 </div>
                                                 {promptInfo.meaning && (
@@ -932,7 +932,7 @@ const ReviewScreen = ({
                                                         <div className="mt-3 pt-3 border-t border-white/20 space-y-2 w-full">
                                                             {exampleLines.slice(1).map((ex, i) => (
                                                                 <div key={i} className="text-center">
-                                                                    <p className="text-lg md:text-xl text-white font-japanese break-words font-medium">
+                                                                    <p className="quiz-example-text text-white font-japanese break-words font-medium text-auto-fit">
                                                                         <FuriganaText text={(() => {
                                                                             const wordToMask = getWordForMasking(currentCard.front);
                                                                             const readingForMask = getReadingForMasking(currentCard.front);
@@ -953,14 +953,14 @@ const ReviewScreen = ({
                                         ) : inputMode === 'reading' ? (
                                             <>
                                                 {/* Reading mode: Show meaning, user inputs word */}
-                                                <div className="text-3xl md:text-4xl font-bold text-white leading-relaxed whitespace-pre-line break-words">
+                                                <div className="quiz-question-text-lg font-bold text-white whitespace-pre-line break-words text-auto-fit">
                                                     {formatMultipleMeanings(currentCard.back)}
                                                 </div>
                                             </>
                                         ) : (
                                             <>
                                                 {/* Meaning mode: Show word only, user inputs meaning */}
-                                                <div className="text-4xl md:text-5xl font-black text-white leading-relaxed font-japanese">
+                                                <div className="quiz-question-text-xl font-black text-white font-japanese text-auto-fit">
                                                     {currentCard.front.split('（')[0].split('(')[0]}
                                                 </div>
                                             </>
@@ -1079,7 +1079,7 @@ const ReviewScreen = ({
 
                                                         setIsRevealed(true);
                                                         speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-                                                        await new Promise(resolve => setTimeout(resolve, 1000));
+                                                        await new Promise(resolve => setTimeout(resolve, 600));
                                                         await moveToNextCard(isCorrect);
                                                     } catch (error) {
                                                         console.error('Error in MC handler:', error);

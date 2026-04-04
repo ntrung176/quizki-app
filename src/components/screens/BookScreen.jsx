@@ -10,7 +10,7 @@ import { db } from '../../config/firebase';
 import {
     collection, getDocs, addDoc, deleteDoc, doc, updateDoc, writeBatch, setDoc, getDoc
 } from 'firebase/firestore';
-import { showToast } from '../../utils/toast';
+import { showToast, showConfirm } from '../../utils/toast';
 import { speakJapanese, playAudio, generateAudioSilentWithVoice } from '../../utils/audio';
 import FuriganaText from '../ui/FuriganaText';
 import { accentNumberToPitchParts } from '../../utils/pitchAccent';
@@ -464,35 +464,35 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     };
 
     const handleDeleteGroup = async (gId) => {
-        if (!window.confirm('Xóa nhóm sách này?')) return;
+        if (!await showConfirm('Xóa nhóm sách này?', { type: 'danger', confirmText: 'Xóa' })) return;
         await deleteDoc(doc(db, COLLECTION, gId));
         if (groupId === gId) navigateTo({});
         loadAllData();
     };
 
     const handleDeleteBook = async (bId) => {
-        if (!window.confirm('Xóa sách này?')) return;
+        if (!await showConfirm('Xóa sách này?', { type: 'danger', confirmText: 'Xóa' })) return;
         await deleteDoc(doc(db, COLLECTION, groupId, 'books', bId));
         if (bookId === bId) navigateTo({ group: groupId });
         loadAllData();
     };
 
     const handleDeleteChapter = async (cId) => {
-        if (!window.confirm('Xóa chương này?')) return;
+        if (!await showConfirm('Xóa chương này?', { type: 'danger', confirmText: 'Xóa' })) return;
         await deleteDoc(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', cId));
         if (chapterId === cId) navigateTo({ group: groupId, book: bookId });
         loadAllData();
     };
 
     const handleDeleteLesson = async (lId) => {
-        if (!window.confirm('Xóa bài này?')) return;
+        if (!await showConfirm('Xóa bài này?', { type: 'danger', confirmText: 'Xóa' })) return;
         await deleteDoc(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lId));
         if (lessonId === lId) navigateTo({ group: groupId, book: bookId, chapter: chapterId });
         loadAllData();
     };
 
     const handleDeleteVocab = async (vocabIndex) => {
-        if (!window.confirm('Xóa từ vựng này?')) return;
+        if (!await showConfirm('Xóa từ vựng này?', { type: 'danger', confirmText: 'Xóa' })) return;
         const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
         const newVocab = [...(currentLesson?.vocab || [])];
         newVocab.splice(vocabIndex, 1);
@@ -1082,8 +1082,8 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                     {/* Reset progress */}
                                     {persistedRevealed.size > 0 && (
                                         <button
-                                            onClick={() => {
-                                                if (window.confirm('Xóa toàn bộ tiến độ bài này?')) handleResetProgress();
+                                            onClick={async () => {
+                                                if (await showConfirm('Xóa toàn bộ tiến độ bài này?', { type: 'danger', confirmText: 'Xóa' })) handleResetProgress();
                                             }}
                                             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all border bg-red-50 dark:bg-red-900/20 text-red-500 dark:text-red-400 border-red-200 dark:border-red-800 hover:bg-red-100 dark:hover:bg-red-800/30"
                                             title="Xóa tiến độ và bắt đầu lại"

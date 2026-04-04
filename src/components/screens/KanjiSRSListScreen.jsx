@@ -6,7 +6,7 @@ import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
-import { showToast } from '../../utils/toast';
+import { showToast, showConfirm } from '../../utils/toast';
 import { JOTOBA_KANJI_DATA, getJotobaKanjiData } from '../../data/jotobaKanjiData';
 
 const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
@@ -1080,7 +1080,7 @@ const KanjiSRSListScreen = () => {
                                                 className="p-1 text-gray-400 hover:text-emerald-500 opacity-0 group-hover:opacity-100 transition-all" title="Tạo th+ mục con">
                                                 <FolderPlus className="w-3.5 h-3.5" />
                                             </button>
-                                            <button onClick={() => { if (window.confirm(`Xóa th+ mục "${f.name}"?`)) deleteFolder(f.id); }}
+                                            <button onClick={async () => { if (await showConfirm(`Xóa thư mục "${f.name}"?`, { type: 'danger', confirmText: 'Xóa' })) deleteFolder(f.id); }}
                                                 className="p-1 text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all" title="Xóa">
                                                 <Trash2 className="w-3.5 h-3.5" />
                                             </button>
