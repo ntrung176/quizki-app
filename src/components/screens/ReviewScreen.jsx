@@ -768,7 +768,7 @@ const ReviewScreen = ({
                     </div>
 
                     {/* Flashcard Area */}
-                    <div className="w-full relative group perspective flex-shrink-0 overflow-hidden">
+                    <div className="w-full relative group perspective flex-shrink-0">
                         {reviewMode === 'flashcard' ? (
                             <div className="perspective-1000 w-full max-w-[700px] mx-auto relative" style={{ minHeight: '480px' }}>
                                 <div
@@ -787,7 +787,8 @@ const ReviewScreen = ({
                                     onTouchEnd={onTouchEnd}
                                     style={{
                                         width: '100%',
-                                        height: '480px',
+                                        minHeight: '480px',
+                                        height: 'auto',
                                         transform: swipeOffset ? `translateX(${swipeOffset}px)` : undefined,
                                         transition: swipeOffset ? 'none' : (slideDirection ? 'transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.3s ease' : 'transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1)'),
                                         touchAction: 'pan-y',
@@ -822,7 +823,7 @@ const ReviewScreen = ({
 
                                     {/* Back side */}
                                     <div className="flip-card-back backface-hidden absolute inset-0 w-full h-full rotate-y-180">
-                                        <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl shadow-2xl p-6 w-full h-full border-4 border-white hover:shadow-3xl transition-shadow flex flex-col">
+                                        <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl shadow-2xl p-6 w-full h-full border-4 border-white hover:shadow-3xl transition-shadow flex flex-col overflow-y-auto">
                                             <div className="flex-1 flex items-center justify-center gap-5">
                                                 {/* Image on the left */}
                                                 {currentCard.imageBase64 && (
@@ -864,9 +865,9 @@ const ReviewScreen = ({
                                 </p>
                             </div>
                         ) : (
-                            <div className="w-full bg-slate-800 dark:bg-slate-900 rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center relative overflow-hidden h-[400px] border-2 border-indigo-500/50">
+                            <div className="w-full bg-slate-800 dark:bg-slate-900 rounded-2xl shadow-xl p-5 flex flex-col text-center relative border-2 border-indigo-500/50">
                                 {/* Header with mode label and toggle buttons */}
-                                <div className="w-full flex justify-between items-center absolute top-4 left-0 px-4">
+                                <div className="w-full flex justify-between items-center mb-3 flex-shrink-0">
                                     <div className="flex items-center gap-2">
                                         <span className="text-orange-500 text-xl">🔥</span>
                                         <span className="text-white font-bold text-sm">
@@ -876,8 +877,8 @@ const ReviewScreen = ({
                                             <button
                                                 onClick={(e) => { e.stopPropagation(); setBlurVietnamese(prev => !prev); setRevealedMeanings(new Set()); }}
                                                 className={`flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-medium transition-all border ${blurVietnamese
-                                                        ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 hover:bg-amber-500/30'
-                                                        : 'bg-slate-700/50 text-slate-400 border-slate-600/50 hover:bg-slate-600/50'
+                                                    ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 hover:bg-amber-500/30'
+                                                    : 'bg-slate-700/50 text-slate-400 border-slate-600/50 hover:bg-slate-600/50'
                                                     }`}
                                                 title={blurVietnamese ? 'Tắt ẩn tiếng Việt' : 'Ẩn tiếng Việt để luyện đọc'}
                                             >
@@ -905,8 +906,8 @@ const ReviewScreen = ({
                                     )}
                                 </div>
 
-                                {/* Word display - changes based on inputMode and cardReviewType */}
-                                <div className="py-4 w-full">
+                                {/* Word display - scrollable content area */}
+                                <div className="flex-1 flex flex-col items-center justify-center w-full min-h-[280px] overflow-y-auto">
                                     {/* Content area with image on left */}
                                     <div className={`flex items-center gap-8 ${currentCard.imageBase64 ? 'justify-center' : 'justify-center'}`}>
                                         {currentCard.imageBase64 && (
@@ -984,7 +985,7 @@ const ReviewScreen = ({
                                             <>
                                                 {/* Meaning mode: Show word only, user inputs meaning */}
                                                 <div className="quiz-question-text-xl font-black text-white font-japanese text-auto-fit">
-                                                    {currentCard.front.split('（')[0].split('(')[0]}
+                                                    <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} />
                                                 </div>
                                             </>
                                         )}
@@ -1018,7 +1019,7 @@ const ReviewScreen = ({
                             <div className="space-y-3">
                                 <p className="text-sm font-medium text-gray-600 dark:text-gray-300 text-center">
                                     {cardReviewType === 'synonym'
-                                        ? `Từ đồng nghĩa của "${promptInfo.text}" là gì?`
+                                        ? <span>Từ đồng nghĩa của "<FuriganaText text={promptInfo.text} />" là gì?</span>
                                         : `Điền từ còn thiếu`
                                     }
                                 </p>

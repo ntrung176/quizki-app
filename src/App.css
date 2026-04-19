@@ -161,6 +161,8 @@
   overflow-wrap: break-word;
   word-break: break-word;
   hyphens: auto;
+  max-height: 320px;
+  overflow-y: auto;
 }
 
 /* Responsive question text - scales smoothly between mobile and desktop */
@@ -221,6 +223,27 @@
   line-height: 1.5;
   overflow-wrap: break-word;
   word-break: break-word;
+}
+
+/* Flashcard text auto-fit: shrinks font when content is long */
+.flashcard-text-autofit {
+  font-size: clamp(0.875rem, 3.5vw, 2rem);
+  /* 14px → 32px */
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-height: 340px;
+  overflow-y: auto;
+}
+
+/* Ensure flip card works with auto height */
+.flip-card-container {
+  min-height: 460px;
+}
+
+.flip-card-front,
+.flip-card-back {
+  min-height: 460px;
 }
 
 /* Mobile-specific overrides */

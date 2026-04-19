@@ -438,7 +438,7 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
                     </div>
 
                     {/* Flashcard Area */}
-                    <div className="w-full relative group perspective flex-shrink-0 overflow-hidden">
+                    <div className="w-full relative group perspective flex-shrink-0">
                         <div className="perspective-1000 w-full mx-auto relative" style={{ minHeight: '360px' }}>
                             <div
                                 className={`flip-card-container transform-style-3d cursor-pointer relative card-slide ${isFlipped ? 'rotate-y-180' : ''} ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
@@ -452,7 +452,8 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
                                 onTouchEnd={onTouchEnd}
                                 style={{
                                     width: '100%',
-                                    height: '460px',
+                                    minHeight: '460px',
+                                    height: 'auto',
                                     transform: swipeOffset ? `translateX(${swipeOffset}px)` : undefined,
                                     transition: swipeOffset ? 'none' : (slideDirection ? 'transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.3s ease' : 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)'),
                                     touchAction: 'pan-y',
@@ -460,7 +461,7 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
                             >
                                 {/* Front side - Japanese with colored hiragana */}
                                 <div className="flip-card-front backface-hidden absolute inset-0 w-full h-full">
-                                    <div className="bg-slate-700 dark:bg-slate-800 rounded-2xl shadow-2xl p-6 flex flex-col items-center justify-center w-full h-full border-2 border-slate-600 dark:border-slate-700 hover:shadow-3xl transition-shadow overflow-hidden">
+                                    <div className="bg-slate-700 dark:bg-slate-800 rounded-2xl shadow-2xl p-6 flex flex-col items-center justify-center w-full h-full border-2 border-slate-600 dark:border-slate-700 hover:shadow-3xl transition-shadow">
                                         <div className="text-center flex-1 flex flex-col justify-center w-full px-2">
                                             {/* We use FuriganaText to properly render both AI formats and new Auto-Furigana formats */}
                                             <div className="space-y-4">
@@ -477,7 +478,7 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
 
                                 {/* Back side - Vietnamese with Sino-Vietnamese */}
                                 <div className="flip-card-back backface-hidden absolute inset-0 w-full h-full rotate-y-180">
-                                    <div className="bg-slate-700 dark:bg-slate-800 rounded-2xl shadow-2xl p-5 w-full h-full border-2 border-slate-600 dark:border-slate-700 hover:shadow-3xl transition-shadow flex flex-col">
+                                    <div className="bg-slate-700 dark:bg-slate-800 rounded-2xl shadow-2xl p-5 w-full h-full border-2 border-slate-600 dark:border-slate-700 hover:shadow-3xl transition-shadow flex flex-col overflow-y-auto">
                                         {/* Speaker button */}
                                         <div className="flex justify-end mb-1 flex-shrink-0">
                                             <button
@@ -504,7 +505,7 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
                                             )}
                                             <div className={`flex flex-col gap-2 ${currentCard.imageBase64 ? 'text-center items-center flex-1 min-w-0' : 'text-center items-center w-full'}`}>
                                                 {/* Vietnamese meaning */}
-                                                <div className="flashcard-back-text font-bold text-white break-words whitespace-pre-line text-auto-fit">
+                                                <div className="flashcard-back-text font-bold text-white break-words whitespace-pre-line flashcard-text-autofit">
                                                     {formatMultipleMeanings(currentCard.back)}
                                                 </div>
 

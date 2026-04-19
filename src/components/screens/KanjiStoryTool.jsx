@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
-import { X, Save, BookOpen, Filter, Search, ChevronDown, ChevronUp, Check, AlertTriangle, Sparkles, Layers, SkipForward, Upload } from 'lucide-react';
+import { X, Save, BookOpen, Filter, Search, ChevronDown, ChevronUp, Check, AlertTriangle, Sparkles, Layers, SkipForward, Upload, ImagePlus, Image, Trash2 } from 'lucide-react';
 import { doc, updateDoc, addDoc, collection } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 import { getJotobaKanjiData, getJotobaKanjiByLevel } from '../../data/jotobaKanjiData';
@@ -21,9 +21,16 @@ const FILTER_OPTIONS = [
     { value: 'filled', label: 'Đã có câu chuyện', icon: '✅' },
 ];
 
+const IMAGE_FILTER_OPTIONS = [
+    { value: 'all', label: 'Tất cả', icon: '📋' },
+    { value: 'no-image', label: 'Chưa có hình', icon: '🖼️' },
+    { value: 'has-image', label: 'Đã có hình', icon: '✅' },
+];
+
 const KanjiStoryTool = ({ kanjiList, setKanjiList, onClose }) => {
     const [selectedLevel, setSelectedLevel] = useState('N5');
     const [filter, setFilter] = useState('empty'); // 'all' | 'empty' | 'filled'
+    const [imageFilter, setImageFilter] = useState('all'); // 'all' | 'no-image' | 'has-image'
     const [searchQuery, setSearchQuery] = useState('');
     const [editingId, setEditingId] = useState(null); // kanji character being edited
     const [editValue, setEditValue] = useState('');
@@ -34,6 +41,8 @@ const KanjiStoryTool = ({ kanjiList, setKanjiList, onClose }) => {
     const [jsonInput, setJsonInput] = useState('');
     const [isImporting, setIsImporting] = useState(false);
     const textareaRefs = useRef({});
+    const imageInputRef = useRef(null);
+    const [uploadingImageId, setUploadingImageId] = useState(null);
     const listRef = useRef(null);
 
     // Build kanji data for current level - merge Firebase + Jotoba
@@ -66,6 +75,7 @@ const KanjiStoryTool = ({ kanjiList, setKanjiList, onClose }) => {
                 id: fb?.id || null,
                 sinoViet: fb?.sinoViet || j?.sinoViet || '',
                 meaning: fb?.meaning || j?.meaningVi || j?.meanings?.join(', ') || '',
+                imageBase64: fb?.imageBase64 || '',
                 onyomi: fb?.onyomi || j?.onyomi?.join('、') || '',
                 kunyomi: fb?.kunyomi || j?.kunyomi?.join('、') || '',
                 mnemonic: fb?.mnemonic || '',
@@ -78,7 +88,7 @@ const KanjiStoryTool = ({ kanjiList, setKanjiList, onClose }) => {
         });
     }, [kanjiList, selectedLevel]);
 
-    // Filter kanji based on filter + search
+    // Filter kanji based on filter + search + imageFilter
     const filteredKanji = useMemo(() => {
         let result = kanjiData;
 
@@ -87,6 +97,13 @@ const KanjiStoryTool = ({ kanjiList, setKanjiList, onClose }) => {
             result = result.filter(k => !k.mnemonic || k.mnemonic.trim() === '');
         } else if (filter === 'filled') {
             result = result.filter(k => k.mnemonic && k.mnemonic.trim() !== '');
+        }
+
+        // Filter by image status
+        if (imageFilter === 'no-image') {
+            result = result.filter(k => !k.imageBase64);
+        } else if (imageFilter === 'has-image') {
+            result = result.filter(k => !!k.imageBase64);
         }
 
         // Search
@@ -100,13 +117,14 @@ const KanjiStoryTool = ({ kanjiList, setKanjiList, onClose }) => {
         }
 
         return result;
-    }, [kanjiData, filter, searchQuery]);
+    }, [kanjiData, filter, searchQuery, imageFilter]);
 
     // Stats
     const stats = useMemo(() => {
         const total = kanjiData.length;
         const withStory = kanjiData.filter(k => k.mnemonic && k.mnemonic.trim()).length;
-        return { total, withStory, withoutStory: total - withStory };
+        const withImage = kanjiData.filter(k => !!k.imageBase64).length;
+        return { total, withStory, withoutStory: total - withStory, withImage, withoutImage: total - withImage };
     }, [kanjiData]);
 
     // Save mnemonic to Firebase
@@ -155,6 +173,79 @@ const KanjiStoryTool = ({ kanjiList, setKanjiList, onClose }) => {
             setSavingId(null);
         }
     }, [selectedLevel, setKanjiList]);
+
+    // Upload image for a kanji
+    const handleImageUpload = useCallback(async (kanji, file) => {
+        if (!file) return;
+        setUploadingImageId(kanji.character);
+        try {
+            // Convert to base64
+            const base64 = await new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+
+            // Resize to max 256px to save space
+            const resized = await new Promise((resolve) => {
+                const img = new window.Image();
+                img.onload = () => {
+                    const maxSize = 256;
+                    let w = img.width, h = img.height;
+                    if (w > maxSize || h > maxSize) {
+                        if (w > h) { h = Math.round(h * maxSize / w); w = maxSize; }
+                        else { w = Math.round(w * maxSize / h); h = maxSize; }
+                    }
+                    const canvas = document.createElement('canvas');
+                    canvas.width = w; canvas.height = h;
+                    canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+                    resolve(canvas.toDataURL('image/webp', 0.8));
+                };
+                img.src = base64;
+            });
+
+            if (kanji.id) {
+                await updateDoc(doc(db, 'kanji', kanji.id), { imageBase64: resized });
+                setKanjiList(prev => prev.map(k => k.id === kanji.id ? { ...k, imageBase64: resized } : k));
+            } else {
+                const jData = getJotobaKanjiData(kanji.character);
+                const newDoc = {
+                    character: kanji.character,
+                    meaning: kanji.meaning || jData?.meaningVi || '',
+                    sinoViet: kanji.sinoViet || jData?.sinoViet || '',
+                    onyomi: kanji.onyomi || jData?.onyomi?.join('、') || '',
+                    kunyomi: kanji.kunyomi || jData?.kunyomi?.join('、') || '',
+                    level: kanji.level || selectedLevel,
+                    mnemonic: kanji.mnemonic || '',
+                    radical: kanji.radical || '',
+                    strokeCount: String(kanji.strokeCount || ''),
+                    imageBase64: resized,
+                };
+                const docRef = await addDoc(collection(db, 'kanji'), newDoc);
+                setKanjiList(prev => [...prev, { ...newDoc, id: docRef.id }]);
+            }
+            showToast(`Đã thêm hình cho ${kanji.character}`, 'success');
+        } catch (e) {
+            console.error('Error uploading image:', e);
+            showToast(`Lỗi tải hình: ${e.message}`, 'error');
+        } finally {
+            setUploadingImageId(null);
+        }
+    }, [setKanjiList, selectedLevel]);
+
+    // Remove image from kanji
+    const handleRemoveImage = useCallback(async (kanji) => {
+        if (!kanji.id) return;
+        try {
+            await updateDoc(doc(db, 'kanji', kanji.id), { imageBase64: '' });
+            setKanjiList(prev => prev.map(k => k.id === kanji.id ? { ...k, imageBase64: '' } : k));
+            showToast(`Đã xoá hình cho ${kanji.character}`, 'success');
+        } catch (e) {
+            console.error('Error removing image:', e);
+            showToast(`Lỗi xoá hình: ${e.message}`, 'error');
+        }
+    }, [setKanjiList]);
 
     const handleImportJson = async () => {
         if (!jsonInput.trim()) return;
@@ -357,6 +448,10 @@ const KanjiStoryTool = ({ kanjiList, setKanjiList, onClose }) => {
                                 <div className="text-sm font-bold text-red-200">{stats.withoutStory}</div>
                                 <div className="text-[9px] text-red-200/60">Thiếu</div>
                             </div>
+                            <div className="bg-purple-400/20 backdrop-blur-sm rounded-lg px-2.5 py-1.5 text-center border border-purple-300/20">
+                                <div className="text-sm font-bold text-purple-200">{stats.withImage}</div>
+                                <div className="text-[9px] text-purple-200/60">Có hình</div>
+                            </div>
                         </div>
 
                         {/* Progress bar */}
@@ -384,6 +479,22 @@ const KanjiStoryTool = ({ kanjiList, setKanjiList, onClose }) => {
                                 onClick={() => setFilter(opt.value)}
                                 className={`px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${filter === opt.value
                                     ? 'bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 ring-1 ring-indigo-300 dark:ring-indigo-700'
+                                    : 'bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600'
+                                    }`}
+                            >
+                                {opt.icon} {opt.label}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Image filter buttons */}
+                    <div className="flex gap-1">
+                        {IMAGE_FILTER_OPTIONS.map(opt => (
+                            <button
+                                key={opt.value}
+                                onClick={() => setImageFilter(opt.value)}
+                                className={`px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${imageFilter === opt.value
+                                    ? 'bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 ring-1 ring-purple-300 dark:ring-purple-700'
                                     : 'bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600'
                                     }`}
                             >
@@ -464,6 +575,35 @@ const KanjiStoryTool = ({ kanjiList, setKanjiList, onClose }) => {
                                                 title="Click để nhập câu chuyện"
                                             >
                                                 {kanji.character}
+                                            </div>
+                                            {/* Image thumbnail / upload */}
+                                            <div className="relative group/img">
+                                                {kanji.imageBase64 ? (
+                                                    <div className="relative">
+                                                        <img src={kanji.imageBase64} alt={kanji.character} className="w-10 h-10 rounded-lg object-cover border border-slate-500/30" />
+                                                        <button
+                                                            onClick={(e) => { e.stopPropagation(); handleRemoveImage(kanji); }}
+                                                            className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 hover:bg-red-400 rounded-full flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity"
+                                                            title="Xoá hình"
+                                                        >
+                                                            <X className="w-2.5 h-2.5 text-white" />
+                                                        </button>
+                                                    </div>
+                                                ) : (
+                                                    <label className={`w-10 h-10 rounded-lg border-2 border-dashed border-gray-300 dark:border-slate-600 flex items-center justify-center cursor-pointer hover:border-purple-400 dark:hover:border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/10 transition-all ${uploadingImageId === kanji.character ? 'opacity-50 pointer-events-none' : ''}`}>
+                                                        {uploadingImageId === kanji.character ? (
+                                                            <div className="w-4 h-4 border-2 border-purple-500 border-t-transparent rounded-full animate-spin" />
+                                                        ) : (
+                                                            <ImagePlus className="w-4 h-4 text-gray-400 dark:text-gray-500" />
+                                                        )}
+                                                        <input
+                                                            type="file"
+                                                            accept="image/*"
+                                                            className="hidden"
+                                                            onChange={(e) => { if (e.target.files[0]) handleImageUpload(kanji, e.target.files[0]); e.target.value = ''; }}
+                                                        />
+                                                    </label>
+                                                )}
                                             </div>
                                         </div>
 

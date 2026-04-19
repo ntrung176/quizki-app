@@ -1,59 +1,54 @@
 import Kuroshiro from "kuroshiro";
 import KuromojiAnalyzer from "kuroshiro-analyzer-kuromoji";
+import * as kuromojiModule from "kuromoji";
 
 const DICT_BASE_URL = "https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict";
 
 let kuroshiroInstance = null;
 let initPromise = null;
 
+// Resolve CommonJS export
+const kuromoji = kuromojiModule.default || kuromojiModule;
+
 /**
  * Patch the KuromojiAnalyzer to load dictionary files using correct absolute URLs.
  * 
  * Problem: kuromoji internally uses `path.join(dicPath, filename)` to build dictionary URLs.
  * When `path` is polyfilled by vite-plugin-node-polyfills, `path.join` strips the "https://"
- * protocol from the CDN URL, producing "https:/cdn.jsdelivr.net/..." which the browser
- * resolves as a relative URL → "https://quizki.id.vn/cdn.jsdelivr.net/..." → 404.
+ * protocol from the CDN URL, producing "https:/cdn.jsdelivr.net/..." which causes a 404.
  * 
- * Fix: After creating the KuromojiAnalyzer, we monkey-patch the internal kuromoji builder
- * so that loadArrayBuffer uses proper string concatenation for the URL instead of path.join.
+ * Fix: Patch XMLHttpRequest.prototype.open temporarily during initialization to fix the URL.
  */
 const createPatchedAnalyzer = () => {
     const analyzer = new KuromojiAnalyzer({
         dictPath: DICT_BASE_URL
     });
 
-    // Wrap the original init method to patch the loader after kuromoji builder is created
     const originalInit = analyzer.init.bind(analyzer);
+
     analyzer.init = function () {
         return new Promise((resolve, reject) => {
-            // Access the internal kuromoji module to patch loader
-            import("kuromoji").then((kuromojiModule) => {
-                const kuromoji = kuromojiModule.default || kuromojiModule;
+            // Install XMLHttpRequest interceptor to fix mangled URLs
+            const originalOpen = XMLHttpRequest.prototype.open;
+            XMLHttpRequest.prototype.open = function (method, url, ...rest) {
+                let fixedUrl = url;
+                if (typeof url === 'string' && url.includes("https:/cdn.jsdelivr.net") && !url.includes("https://cdn.jsdelivr.net")) {
+                    fixedUrl = url.replace("https:/cdn.jsdelivr.net", "https://cdn.jsdelivr.net");
+                }
+                return originalOpen.apply(this, [method, fixedUrl, ...rest]);
+            };
 
-                // Create a builder with the dict path
-                const builder = kuromoji.builder({ dicPath: DICT_BASE_URL });
-
-                // Patch the DictionaryLoader's loadArrayBuffer to use correct absolute URLs
-                const originalLoadArrayBuffer = builder.loader.loadArrayBuffer.bind(builder.loader);
-                builder.loader.loadArrayBuffer = function (url, callback) {
-                    // Fix the URL: if path.join mangled the https:// protocol, reconstruct it
-                    let fixedUrl = url;
-                    if (!url.startsWith("https://") && !url.startsWith("http://")) {
-                        // Extract just the filename from the mangled path
-                        const filename = url.split("/").pop();
-                        fixedUrl = DICT_BASE_URL + "/" + filename;
-                    }
-                    return originalLoadArrayBuffer(fixedUrl, callback);
-                };
-
-                builder.build((err, tokenizer) => {
-                    if (err) {
-                        return reject(err);
-                    }
-                    this._analyzer = tokenizer;
+            originalInit()
+                .then(() => {
+                    // Restore original open after dictionary is loaded
+                    XMLHttpRequest.prototype.open = originalOpen;
                     resolve();
+                })
+                .catch((err) => {
+                    // Restore on error as well
+                    XMLHttpRequest.prototype.open = originalOpen;
+                    reject(err);
                 });
-            }).catch(reject);
         });
     };
 
