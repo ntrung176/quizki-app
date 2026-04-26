@@ -25,37 +25,35 @@ const SRSVocabScreen = ({
     const [countdownText, setCountdownText] = useState(null);
     const [isCountdown, setIsCountdown] = useState(false);
 
-    // Cần ôn (thẻ đến hạn HOẶC thẻ mới) VÀ chưa hoàn thành ý nghĩa (streak_back < 1)
+    // Cần ôn: thẻ ĐÃ CÓ SRS VÀ chưa hoàn thành (back hoặc example)
     const dueCards = allCards.filter(card => {
-        const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
-        if (backStreak >= 1) return false; // Đã hoàn thành phần ý nghĩa rồi
-        // Thẻ mới (chưa có SRS) luôn cần ôn
-        if (card.intervalIndex_back === -1) return true;
-        // Thẻ đã có SRS: kiểm tra nextReview
+        if (card.intervalIndex_back === -1) return false; // Không tính thẻ mới
         const nextReview = card.nextReview_back;
-        return nextReview && nextReview <= Date.now();
-    }).length;
+        if (!nextReview || nextReview > Date.now()) return false; // Chưa đến hạn
 
+        const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
+        const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
+
+        // Cần ôn nếu phần ý nghĩa hoặc ngữ cảnh chưa hoàn thành
+        return backStreak < 1 || (card.example && card.example.trim() !== '' && exampleStreak < 1);
+    }).length;
 
     // Mới thêm (chưa học lần nào, intervalIndex = -1)
     const newCards = allCards.filter(card => card.intervalIndex_back === -1).length;
 
-    // Đếm số từ có synonym VÀ chưa hoàn thành phần đồng nghĩa (streak < 1)
+    // Đếm số từ có synonym VÀ chưa hoàn thành phần đồng nghĩa (không phụ thuộc SRS due)
     const synonymCards = allCards.filter(card => {
         if (!card.synonym || card.synonym.trim() === '') return false;
         const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
-        if (synonymStreak >= 1) return false; // Đã hoàn thành
-        return card.intervalIndex_back === -1 ||
-            (card.nextReview_back && card.nextReview_back <= Date.now());
+        return synonymStreak < 1;
     }).length;
 
-    // Đếm số từ có example VÀ chưa hoàn thành phần ngữ cảnh (streak < 1)
-    const exampleCards = allCards.filter(card => {
-        if (!card.example || card.example.trim() === '') return false;
+    // Thẻ cần "Học": thẻ MỚI VÀ chưa hoàn thành
+    const learnCards = allCards.filter(card => {
+        if (card.intervalIndex_back !== -1) return false; // Chỉ tính thẻ mới
+        const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
         const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
-        if (exampleStreak >= 1) return false; // Đã hoàn thành
-        return card.intervalIndex_back === -1 ||
-            (card.nextReview_back && card.nextReview_back <= Date.now());
+        return backStreak < 1 || (card.example && card.example.trim() !== '' && exampleStreak < 1);
     }).length;
 
     // Tìm thời gian ôn tập tiếp theo (CHỈ từ thẻ đã học, KHÔNG tính thẻ mới)
@@ -150,9 +148,9 @@ const SRSVocabScreen = ({
     const flashcardInProgress = flashcardProgress && !flashcardProgress.isComplete && (flashcardProgress.currentIndex > 0 || flashcardProgress.knownCardIds?.length > 0 || flashcardProgress.unknownCardIds?.length > 0);
     const studyInProgress = studyProgress && studyProgress.completedCardIds?.length > 0;
 
-    const handleStartReview = (mode) => {
+    const handleStartReview = (mode, category = 'all') => {
         setReviewMode(mode);
-        onStartReview(mode, 'all');
+        onStartReview(mode, category);
     };
 
     // Bắt đầu học từ mới (từ chưa có SRS)
@@ -231,54 +229,75 @@ const SRSVocabScreen = ({
                 </div>
             </div>
 
-            {/* Hôm nay + Lượt tiếp theo */}
+            {/* Ôn tập + Học */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {/* Hôm nay */}
-                <div className="relative overflow-hidden bg-gradient-to-br from-orange-500 to-rose-500 rounded-2xl p-5 text-white shadow-xl">
+                {/* Ôn tập / Lượt tiếp theo — chuyển đổi tự động */}
+                {dueCards > 0 ? (
+                    /* CÓ từ cần ôn → hiện nút ôn tập */
+                    <div className="relative overflow-hidden bg-gradient-to-br from-orange-500 to-rose-500 rounded-2xl p-5 text-white shadow-xl">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                        <div className="relative">
+                            <div className="flex items-center gap-2 mb-2">
+                                <Calendar className="w-4 h-4 text-orange-100" />
+                                <span className="font-bold text-sm">Ôn tập</span>
+                            </div>
+                            <div className="text-5xl font-bold mb-1">{dueCards}</div>
+                            <p className="text-orange-100 text-sm mb-3">thẻ cần ôn tập</p>
+                            <button
+                                onClick={() => handleStartReview('mixed', 'old')}
+                                className="relative z-10 w-full py-3 bg-white/20 hover:bg-white/30 rounded-xl text-sm font-bold transition-all border border-white/20 backdrop-blur-sm shadow-lg hover:shadow-xl hover:scale-[1.02]"
+                            >
+                                Ôn tập ngay
+                            </button>
+                        </div>
+                    </div>
+                ) : (
+                    /* KHÔNG còn từ → hiện bộ đếm lượt tiếp theo */
+                    <div className="relative overflow-hidden bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl p-5 text-white shadow-xl">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                        <div className="relative">
+                            <div className="flex items-center gap-2 mb-2">
+                                <Clock className="w-4 h-4 text-blue-100" />
+                                <span className="font-bold text-sm">Lượt tiếp theo</span>
+                            </div>
+                            {countdownText ? (
+                                <>
+                                    <div className={`font-bold mb-1 ${isCountdown ? 'text-3xl font-mono tracking-wider' : 'text-4xl'}`}>
+                                        {countdownText}
+                                    </div>
+                                    <p className="text-blue-100 text-sm">{isCountdown ? 'Đếm ngược...' : 'Nghỉ ngơi nhé...'}</p>
+                                    {nextRoundCount > 0 && (
+                                        <div className="mt-3 bg-white/15 rounded-xl px-3 py-1.5 inline-flex items-center gap-1.5">
+                                            <span className="text-xs font-bold">✨ {nextRoundCount} thẻ sẽ đến hạn</span>
+                                        </div>
+                                    )}
+                                </>
+                            ) : (
+                                <>
+                                    <div className="text-4xl font-bold mb-1">✅</div>
+                                    <p className="text-blue-100 text-sm">Đã ôn hết! Nghỉ ngơi thôi 😴</p>
+                                </>
+                            )}
+                        </div>
+                    </div>
+                )}
+                {/* Học (thẻ chưa có SRS) */}
+                <div className="relative overflow-hidden bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-5 text-white shadow-xl">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
                     <div className="relative">
                         <div className="flex items-center gap-2 mb-2">
-                            <Calendar className="w-4 h-4 text-orange-100" />
-                            <span className="font-bold text-sm">Hôm nay</span>
+                            <Zap className="w-4 h-4 text-emerald-100" />
+                            <span className="font-bold text-sm">Học</span>
                         </div>
-                        <div className="text-5xl font-bold mb-1">{dueCards}</div>
-                        <p className="text-orange-100 text-sm mb-4">thẻ cần ôn tập</p>
+                        <div className="text-5xl font-bold mb-1">{learnCards}</div>
+                        <p className="text-emerald-100 text-sm mb-3">từ vựng chưa học</p>
                         <button
-                            onClick={() => handleStartReview('mixed')}
-                            disabled={dueCards === 0}
+                            onClick={() => handleStartReview('mixed', 'new')}
+                            disabled={learnCards === 0}
                             className="w-full py-2.5 bg-white/20 hover:bg-white/30 disabled:opacity-40 disabled:cursor-not-allowed rounded-xl text-sm font-bold transition-all border border-white/20 backdrop-blur-sm"
                         >
-                            {dueCards > 0 ? 'Ôn tập tất cả' : 'Nghỉ ngơi 😴'}
+                            {learnCards > 0 ? 'Bắt đầu học' : 'Đã học hết 🎉'}
                         </button>
-                    </div>
-                </div>
-
-                {/* Lượt tiếp theo */}
-                <div className="relative overflow-hidden bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl p-5 text-white shadow-xl">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                    <div className="relative">
-                        <div className="flex items-center gap-2 mb-2">
-                            <Clock className="w-4 h-4 text-blue-100" />
-                            <span className="font-bold text-sm">Lượt tiếp theo</span>
-                        </div>
-                        {countdownText ? (
-                            <>
-                                <div className={`font-bold mb-1 ${isCountdown ? 'text-3xl font-mono tracking-wider' : 'text-4xl'}`}>
-                                    {countdownText}
-                                </div>
-                                <p className="text-blue-100 text-sm">{isCountdown ? 'Đếm ngược...' : 'Nghỉ ngơi...'}</p>
-                                {nextRoundCount > 0 && (
-                                    <div className="mt-3 bg-white/15 rounded-xl px-3 py-1.5 inline-flex items-center gap-1.5">
-                                        <span className="text-xs font-bold">✨ {nextRoundCount} thẻ sẽ đến hạn</span>
-                                    </div>
-                                )}
-                            </>
-                        ) : (
-                            <>
-                                <div className="text-4xl font-bold mb-1">∞</div>
-                                <p className="text-blue-100 text-sm">Không có thẻ đang chờ</p>
-                            </>
-                        )}
                     </div>
                 </div>
             </div>
@@ -366,43 +385,41 @@ const SRSVocabScreen = ({
                 </div>
             </div>
 
-            {/* Chọn chế độ ôn tập */}
+            {/* Học nâng cao */}
             <div className="space-y-3">
                 <h2 className="text-sm font-bold text-gray-700 dark:text-gray-200 flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center text-[10px]">⚡</span>
-                    Chọn chế độ ôn tập
+                    <span className="w-5 h-5 rounded-full bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center text-[10px]">🎓</span>
+                    Học nâng cao
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    {[
-                        { icon: BookOpen, label: 'Ý nghĩa', count: dueCards, mode: 'back', gradient: 'from-sky-500 to-blue-500', iconBg: 'bg-sky-100 dark:bg-sky-900/40', iconColor: 'text-sky-600 dark:text-sky-400', badgeBg: 'bg-sky-50 dark:bg-sky-900/30', badgeText: 'text-sky-600 dark:text-sky-400', desc: 'Xem từ và nhớ lại ý nghĩa' },
-                        { icon: Users, label: 'Đồng nghĩa', count: synonymCards, mode: 'synonym', gradient: 'from-emerald-500 to-green-500', iconBg: 'bg-emerald-100 dark:bg-emerald-900/40', iconColor: 'text-emerald-600 dark:text-emerald-400', badgeBg: 'bg-emerald-50 dark:bg-emerald-900/30', badgeText: 'text-emerald-600 dark:text-emerald-400', desc: 'Mở rộng vốn từ đồng nghĩa' },
-                        { icon: MessageSquare, label: 'Ngữ cảnh', count: exampleCards, mode: 'example', gradient: 'from-amber-500 to-orange-500', iconBg: 'bg-amber-100 dark:bg-amber-900/40', iconColor: 'text-amber-600 dark:text-amber-400', badgeBg: 'bg-amber-50 dark:bg-amber-900/30', badgeText: 'text-amber-600 dark:text-amber-400', desc: 'Hiểu cách sử dụng trong câu' },
-                    ].map((item, i) => (
-                        <div key={i} className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 dark:border-slate-700/50 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01] flex flex-col">
-                            <div className="flex items-center gap-2 mb-2">
-                                <div className={`w-8 h-8 rounded-xl ${item.iconBg} flex items-center justify-center`}>
-                                    <item.icon className={`w-4 h-4 ${item.iconColor}`} />
-                                </div>
-                                <span className="font-bold text-sm text-gray-800 dark:text-white">{item.label}</span>
-                                <span className={`ml-auto text-xs px-2.5 py-0.5 ${item.badgeBg} ${item.badgeText} rounded-full font-bold`}>
-                                    {item.count} từ
-                                </span>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {/* Từ đồng nghĩa */}
+                    <div className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 dark:border-slate-700/50 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01] flex flex-col">
+                        <div className="flex items-center gap-2 mb-2">
+                            <div className="w-8 h-8 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center">
+                                <Users className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                             </div>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mb-3 flex-1 leading-relaxed">
-                                {item.desc}
-                            </p>
-                            <button
-                                onClick={() => handleStartReview(item.mode)}
-                                disabled={item.count === 0}
-                                className={`w-full py-2.5 rounded-xl font-bold text-sm transition-all mt-auto ${item.count > 0
-                                    ? `bg-gradient-to-r ${item.gradient} text-white hover:shadow-lg hover:scale-[1.02]`
-                                    : 'bg-gray-100 dark:bg-slate-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-                                    }`}
-                            >
-                                Bắt đầu {item.label}
-                            </button>
+                            <span className="font-bold text-sm text-gray-800 dark:text-white">Từ đồng nghĩa</span>
+                            <span className="ml-auto text-xs px-2.5 py-0.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-full font-bold">
+                                {synonymCards} từ
+                            </span>
                         </div>
-                    ))}
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-1 flex-1 leading-relaxed">
+                            Mở rộng vốn từ đồng nghĩa. Không ảnh hưởng chu kì SRS chính.
+                        </p>
+                        <p className="text-[10px] text-purple-500 dark:text-purple-400 mb-3 italic">
+                            Ưu tiên: từ dài hạn → từ mới
+                        </p>
+                        <button
+                            onClick={() => handleStartReview('synonym')}
+                            disabled={synonymCards === 0}
+                            className={`w-full py-2.5 rounded-xl font-bold text-sm transition-all mt-auto ${synonymCards > 0
+                                ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white hover:shadow-lg hover:scale-[1.02]'
+                                : 'bg-gray-100 dark:bg-slate-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                                }`}
+                        >
+                            Luyện đồng nghĩa
+                        </button>
+                    </div>
                 </div>
             </div>
 

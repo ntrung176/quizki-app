@@ -13,7 +13,7 @@ const TermsScreen = () => {
                 <div className="bg-gradient-to-r from-teal-500 to-emerald-600 p-8 text-white relative">
                     <button
                         onClick={() => navigate(-1)}
-                        className="absolute top-6 left-6 p-2 bg-white/20 hover:bg-white/30 rounded-full transition-colors backdrop-blur-sm"
+                        className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105"
                     >
                         <ArrowLeft className="w-5 h-5" />
                     </button>

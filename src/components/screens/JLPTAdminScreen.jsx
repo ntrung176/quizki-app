@@ -262,7 +262,7 @@ const JLPTAdminScreen = ({ userId }) => {
                 {/* Header */}
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <Link to={ROUTES.JLPT_TEST} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition">
+                        <Link to={ROUTES.JLPT_TEST} className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105">
                             <ArrowLeft className="w-5 h-5 text-gray-600 dark:text-gray-400" />
                         </Link>
                         <div>

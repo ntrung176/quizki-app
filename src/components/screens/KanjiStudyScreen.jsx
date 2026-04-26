@@ -225,7 +225,7 @@ const KanjiStudyScreen = () => {
                     <button
                         onClick={() => setCurrentDay(d => Math.max(1, d - 1))}
                         disabled={currentDay <= 1}
-                        className="p-2.5 rounded-xl bg-gray-50 dark:bg-slate-700/50 hover:bg-gray-100 dark:hover:bg-slate-700 disabled:opacity-30 transition-all"
+                        className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105"
                     >
                         <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-400" />
                     </button>

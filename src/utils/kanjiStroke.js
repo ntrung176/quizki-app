@@ -53,9 +53,24 @@ export async function fetchKanjiSvg(char) {
             }
         });
 
+        // Also extract numbers
+        const numbers = [];
+        const texts = doc.querySelectorAll('text');
+        texts.forEach(t => {
+            const transform = t.getAttribute('transform');
+            const num = t.textContent;
+            if (transform && num) {
+                // e.g. matrix(1 0 0 1 33.75 22.63)
+                const match = transform.match(/matrix\([^)]+\s+([^ ]+)\s+([^ )]+)\)/);
+                if (match) {
+                    numbers.push({ num, x: parseFloat(match[1]), y: parseFloat(match[2]) });
+                }
+            }
+        });
+
         if (strokes.length === 0) return null;
 
-        const result = { char, strokes, svgText };
+        const result = { char, strokes, numbers, svgText };
         SVG_CACHE[char] = result;
         return result;
     } catch (e) {
@@ -284,6 +299,154 @@ export async function renderKanjiStrokes(container, char, options = {}) {
     // Start initial animation
     animate();
 
+    return { replay, stop, hasData: true };
+}
+
+/**
+ * Mazii-style SVG stroke rendering with uniform colored pens and numbers.
+ */
+export async function renderMaziiStyleKanji(container, char, options = {}) {
+    const {
+        animDuration = 0.5,
+        delayBetween = 0.2,
+        onComplete = null,
+        strokeWidth = 4,
+    } = options;
+
+    const data = await fetchKanjiSvg(char);
+    if (!data || !container) {
+        container.innerHTML = `<span style="font-size:min(80%, 180px);color:#334155;line-height:1;display:flex;align-items:center;justify-content:center;width:100%;height:100%">${char}</span>`;
+        return { replay: () => { }, stop: () => { }, hasData: false };
+    }
+
+    let stopped = false;
+    let animFrameId = null;
+    const { strokes, numbers } = data;
+
+    const PALETTE = [
+        '#ef4444', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6',
+        '#ec4899', '#14b8a6', '#f97316', '#6366f1', '#84cc16'
+    ]; // Bright distinct colors for strokes
+
+    function buildSvg() {
+        const ns = 'http://www.w3.org/2000/svg';
+        const svg = document.createElementNS(ns, 'svg');
+        svg.setAttribute('viewBox', '0 0 109 109');
+        svg.style.width = '100%';
+        svg.style.height = '100%';
+        svg.style.display = 'block';
+
+        // Grid lines (similar to Mazii)
+        const grid = document.createElementNS(ns, 'g');
+        grid.setAttribute('opacity', '0.3');
+        [['54.5,2', '54.5,107'], ['2,54.5', '107,54.5']].forEach(([from, to]) => {
+            const line = document.createElementNS(ns, 'line');
+            const [x1, y1] = from.split(',');
+            const [x2, y2] = to.split(',');
+            line.setAttribute('x1', x1); line.setAttribute('y1', y1);
+            line.setAttribute('x2', x2); line.setAttribute('y2', y2);
+            line.setAttribute('stroke', '#cbd5e1'); // Slate-300
+            line.setAttribute('stroke-width', '1');
+            line.setAttribute('stroke-dasharray', '4,4');
+            grid.appendChild(line);
+        });
+        svg.appendChild(grid);
+
+        const paths = [];
+        const numTexts = [];
+
+        strokes.forEach((s, i) => {
+            const color = PALETTE[i % PALETTE.length];
+            const path = document.createElementNS(ns, 'path');
+            path.setAttribute('d', s.d);
+            path.setAttribute('fill', 'none');
+            path.setAttribute('stroke', color);
+            path.setAttribute('stroke-width', String(strokeWidth));
+            path.setAttribute('stroke-linecap', 'round');
+            path.setAttribute('stroke-linejoin', 'round');
+            // Hide initially
+            path.style.strokeDasharray = '500';
+            path.style.strokeDashoffset = '500';
+            svg.appendChild(path);
+            paths.push(path);
+        });
+
+        (numbers || []).forEach((n, i) => {
+            const t = document.createElementNS(ns, 'text');
+            t.setAttribute('x', n.x);
+            t.setAttribute('y', n.y);
+            t.setAttribute('font-size', '6');
+            t.setAttribute('font-weight', 'bold');
+            t.setAttribute('font-family', 'sans-serif');
+            t.setAttribute('fill', PALETTE[i % PALETTE.length]);
+            t.setAttribute('opacity', '0'); // Hide initially
+            t.textContent = n.num;
+            svg.appendChild(t);
+            numTexts.push(t);
+        });
+
+        return { svg, paths, numTexts };
+    }
+
+    async function animate() {
+        stopped = false;
+        container.innerHTML = '';
+        const { svg, paths, numTexts } = buildSvg();
+        container.appendChild(svg);
+
+        for (let i = 0; i < paths.length; i++) {
+            if (stopped) return;
+            const path = paths[i];
+            const numT = numTexts[i];
+            const length = path.getTotalLength();
+            path.style.strokeDasharray = String(length);
+            path.style.strokeDashoffset = String(length);
+
+            if (numT) numT.setAttribute('opacity', '1'); // show number when stroke starts
+
+            const duration = animDuration * 1000;
+            const startTime = performance.now();
+
+            await new Promise((resolve) => {
+                function step(currentTime) {
+                    if (stopped) { resolve(); return; }
+                    const elapsed = currentTime - startTime;
+                    let progress = Math.min(1, elapsed / duration);
+                    // Simple ease-out
+                    progress = 1 - Math.pow(1 - progress, 3);
+                    path.style.strokeDashoffset = String(length * (1 - progress));
+
+                    if (progress < 1) requestAnimationFrame(step);
+                    else {
+                        path.style.strokeDashoffset = '0';
+                        resolve();
+                    }
+                }
+                requestAnimationFrame(step);
+            });
+
+            if (i < paths.length - 1) {
+                await new Promise(r => setTimeout(r, delayBetween * 1000));
+            }
+        }
+        if (!stopped && onComplete) onComplete();
+    }
+
+    function replay() {
+        stopped = true;
+        setTimeout(() => animate(), 50);
+    }
+
+    function stop() {
+        stopped = true;
+        container.innerHTML = '';
+        const { svg, paths, numTexts } = buildSvg();
+        paths.forEach(p => p.style.strokeDashoffset = '0');
+        numTexts.forEach(t => t.setAttribute('opacity', '1'));
+        container.appendChild(svg);
+    }
+
+    animate();
     return { replay, stop, hasData: true };
 }
 

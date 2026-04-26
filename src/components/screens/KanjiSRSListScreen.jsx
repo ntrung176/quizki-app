@@ -608,7 +608,7 @@ const KanjiSRSListScreen = () => {
                     {currentFolder !== null && (
                         <div className="flex items-center gap-1.5 text-sm flex-wrap">
                             <button onClick={() => setCurrentFolder(null)}
-                                className="flex items-center gap-1 text-cyan-600 dark:text-cyan-400 hover:underline font-medium">
+                                className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105">
                                 <ChevronLeft className="w-4 h-4" /> Thư mục gốc
                             </button>
                             {getFolderPath(currentFolder).map((seg, i, arr) => (
@@ -762,7 +762,7 @@ const KanjiSRSListScreen = () => {
                     {currentFolder !== null && (
                         <div className="flex items-center gap-2 text-sm">
                             <button onClick={goBackToFolders}
-                                className="flex items-center gap-1 text-cyan-600 dark:text-cyan-400 hover:underline font-medium">
+                                className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105">
                                 <ChevronLeft className="w-4 h-4" /> Thư mục
                             </button>
                             <span className="text-gray-400">/</span>

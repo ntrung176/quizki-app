@@ -509,7 +509,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                     <div className="w-full flex justify-start mb-1">
                         <button
                             onClick={onBack}
-                            className="p-2 rounded-xl bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200 shadow-md backdrop-blur-sm transition-all border border-gray-200 dark:border-slate-700 hover:scale-105 flex items-center gap-1.5"
+                            className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105"
                             title="Trở lại"
                         >
                             <ArrowLeft className="w-5 h-5" />

@@ -257,6 +257,25 @@ export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType =
     const newEase = calculateNewEase(currentEase, rating, activityWeight);
     updateData.easeFactor = newEase;
 
+    // ===== SYNONYM PRACTICE: only update synonym streak, NO main SRS changes =====
+    if (activityType === 'synonym_practice') {
+        const synonymStreak = typeof cardData.correctStreak_synonym === 'number' ? cardData.correctStreak_synonym : 0;
+        if (isCorrect) {
+            updateData.correctStreak_synonym = synonymStreak + 1;
+        } else {
+            updateData.correctStreak_synonym = 0;
+        }
+        // Update synonym-specific SRS level for sorting (but don't touch main SRS)
+        const synInterval = typeof cardData.intervalIndex_synonym === 'number' ? cardData.intervalIndex_synonym : -1;
+        if (isCorrect && (synonymStreak + 1) >= 1) {
+            // Advance synonym SRS level for ordering purposes
+            updateData.intervalIndex_synonym = Math.min(synInterval + 1, SRS_INTERVALS.length - 1);
+            updateData.correctStreak_synonym = 0; // Reset streak after advancing
+        }
+        console.log(`[SRS] Synonym practice: streak ${synonymStreak} → ${isCorrect ? synonymStreak + 1 : 0} (main SRS unchanged)`);
+        return updateData;
+    }
+
     // ===== FLASHCARD / STUDY: chỉ ảnh hưởng ease, KHÔNG thay đổi streak hay interval =====
     const isFlashcardOrStudy = activityType === 'flashcard_known' || activityType === 'flashcard_unknown' || activityType === 'study';
 
@@ -288,12 +307,11 @@ export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType =
     if (hasSynonym) updateData.correctStreak_synonym = newSynonymStreak;
     if (hasExample) updateData.correctStreak_example = newExampleStreak;
 
-    // Kiểm tra hoàn thành chu kỳ (tất cả phần đều streak >= 1)
+    // Kiểm tra hoàn thành chu kỳ: synonym KHÔNG tham gia vào chu kỳ chính nữa
     const backCompleted = newBackStreak >= 1;
-    const synonymCompleted = !hasSynonym || newSynonymStreak >= 1; // Nếu không có synonym thì coi là hoàn thành
     const exampleCompleted = !hasExample || newExampleStreak >= 1;
 
-    const allCompleted = backCompleted && synonymCompleted && exampleCompleted;
+    const allCompleted = backCompleted && exampleCompleted;
 
     if (allCompleted) {
         // ===== DYNAMIC MULTIPLIER SRS ENGINE =====

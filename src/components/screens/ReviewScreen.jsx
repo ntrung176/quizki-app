@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
     Zap, RotateCw, MessageSquare, FileText, Repeat2, Send,
-    ChevronRight, Check, X, Lightbulb, ArrowLeft, Eye, EyeOff
+    ChevronRight, Check, X, Lightbulb, ArrowLeft, Eye, EyeOff, Settings
 } from 'lucide-react';
 import { POS_TYPES, getPosLabel, getPosColor, getLevelColor } from '../../config/constants';
 import { playAudio, speakJapanese } from '../../utils/audio';
@@ -57,6 +57,12 @@ const ReviewScreen = ({
     const optionsRef = useRef({});
     const cardShownTimeRef = useRef(Date.now()); // Track thời gian hiển thị card
 
+    // Review settings
+    const [showSettings, setShowSettings] = useState(false);
+    const [reviewTestFormat, setReviewTestFormat] = useState(() => {
+        return localStorage.getItem('review_test_format') || 'multipleChoice';
+    });
+
     // Update cards when initialCards change
     useEffect(() => {
         setCards(initialCards);
@@ -74,7 +80,7 @@ const ReviewScreen = ({
     // Get current card safely
     const currentCard = cards.length > 0 && currentIndex < cards.length ? cards[currentIndex] : null;
     const cardReviewType = currentCard ? (currentCard.reviewType || reviewMode) : null;
-    const isMultipleChoice = cardReviewType === 'synonym' || cardReviewType === 'example';
+    const isMultipleChoice = cardReviewType === 'synonym' || cardReviewType === 'example' || (cardReviewType === 'back' && reviewTestFormat === 'multipleChoice');
     const currentCardId = currentCard?.id;
 
     // Auto focus logic
@@ -365,7 +371,7 @@ const ReviewScreen = ({
         }
 
         setMultipleChoiceOptions(optionsRef.current[currentCardId] || []);
-    }, [currentCardId, isMultipleChoice, currentCard, allCards, cards, normalizeAnswer]);
+    }, [currentCardId, isMultipleChoice, currentCard, allCards, cards, normalizeAnswer, reviewTestFormat]);
 
     // Auto complete when cards are done
     useEffect(() => {
@@ -622,8 +628,10 @@ const ReviewScreen = ({
 
     const moveToNextCard = async (shouldUpdateStreak) => {
         if (shouldUpdateStreak) {
+            // For synonym mode: use 'synonym_practice' action so main SRS is NOT affected
+            const action = reviewMode === 'synonym' ? 'synonym_practice' : 'review';
             // Fire-and-forget: don't await to avoid blocking UI transition
-            onUpdateCard(currentCard.id, true, cardReviewType, 'review', getResponseTime()).catch(error => {
+            onUpdateCard(currentCard.id, true, cardReviewType, action, getResponseTime()).catch(error => {
                 console.error('Error updating card:', error);
             });
 
@@ -747,7 +755,7 @@ const ReviewScreen = ({
                     <div className="w-full flex justify-start mb-1">
                         <button
                             onClick={onBack}
-                            className="p-2 rounded-xl bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200 shadow-md backdrop-blur-sm transition-all border border-gray-200 dark:border-slate-700 hover:scale-105 flex items-center gap-1.5"
+                            className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105"
                             title="Trở lại"
                         >
                             <ArrowLeft className="w-5 h-5" />
@@ -755,12 +763,17 @@ const ReviewScreen = ({
                         </button>
                     </div>
                 )}
-                <div className="w-full flex flex-col justify-center items-center space-y-3 p-4 border-2 border-indigo-400/30 rounded-2xl">
-                    {/* Progress bar */}
+                <div className="w-full flex flex-col justify-center items-center space-y-3 p-4 border-2 border-indigo-400/30 rounded-2xl overflow-hidden">
+                    {/* Progress bar + Settings */}
                     <div className="w-full space-y-1 flex-shrink-0">
                         <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
                             <span>{currentIndex + 1} / {cards.length}</span>
-                            {failedCards.size > 0 && <span className="text-red-500">({failedCards.size} sai)</span>}
+                            <div className="flex items-center gap-2">
+                                {failedCards.size > 0 && <span className="text-red-500">({failedCards.size} sai)</span>}
+                                <button onClick={() => setShowSettings(true)} className="p-1 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-700 transition-all" title="Cài đặt">
+                                    <Settings className="w-4 h-4" />
+                                </button>
+                            </div>
                         </div>
                         <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                             <div className="h-full bg-indigo-500 progress-bar rounded-full" style={{ width: `${progress}%` }}></div>
@@ -907,7 +920,7 @@ const ReviewScreen = ({
                                 </div>
 
                                 {/* Word display - scrollable content area */}
-                                <div className="flex-1 flex flex-col items-center justify-center w-full min-h-[280px] overflow-y-auto">
+                                <div className="flex-1 flex flex-col items-center justify-center w-full min-h-[280px]">
                                     {/* Content area with image on left */}
                                     <div className={`flex items-center gap-8 ${currentCard.imageBase64 ? 'justify-center' : 'justify-center'}`}>
                                         {currentCard.imageBase64 && (
@@ -1083,7 +1096,9 @@ const ReviewScreen = ({
                                                                 return prevCards.map(card => {
                                                                     if (card.id === currentCard.id) {
                                                                         const updatedCard = { ...card };
-                                                                        if (cardReviewType === 'synonym') {
+                                                                        if (cardReviewType === 'back') {
+                                                                            updatedCard.correctStreak_back = 0;
+                                                                        } else if (cardReviewType === 'synonym') {
                                                                             updatedCard.correctStreak_synonym = 0;
                                                                         } else if (cardReviewType === 'example') {
                                                                             updatedCard.correctStreak_example = 0;
@@ -1288,6 +1303,59 @@ const ReviewScreen = ({
                     </div>
                 </div>
             </div>
+
+            {/* Settings Modal Popup */}
+            {showSettings && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setShowSettings(false)}>
+                    <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+                    <div className="relative bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-sm p-6 space-y-5 border border-gray-200 dark:border-slate-700"
+                        onClick={e => e.stopPropagation()}>
+                        {/* Header */}
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                                <Settings className="w-5 h-5 text-indigo-500" />
+                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">Cài đặt ôn tập</h3>
+                            </div>
+                            <button onClick={() => setShowSettings(false)} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition-all">
+                                <X className="w-5 h-5 text-gray-400" />
+                            </button>
+                        </div>
+
+                        {/* Test format */}
+                        <div>
+                            <label className="text-sm font-bold text-gray-600 dark:text-gray-300 block mb-3">Hình thức kiểm tra ý nghĩa</label>
+                            <div className="grid grid-cols-2 gap-3">
+                                <button
+                                    onClick={() => { setReviewTestFormat('multipleChoice'); localStorage.setItem('review_test_format', 'multipleChoice'); }}
+                                    className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${reviewTestFormat === 'multipleChoice'
+                                        ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
+                                        : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
+                                        }`}
+                                >
+                                    📝 Trắc nghiệm
+                                </button>
+                                <button
+                                    onClick={() => { setReviewTestFormat('written'); localStorage.setItem('review_test_format', 'written'); }}
+                                    className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${reviewTestFormat === 'written'
+                                        ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
+                                        : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
+                                        }`}
+                                >
+                                    ✏️ Tự luận
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Close button */}
+                        <button
+                            onClick={() => setShowSettings(false)}
+                            className="w-full py-2.5 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-xl transition-all text-sm"
+                        >
+                            Xong
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

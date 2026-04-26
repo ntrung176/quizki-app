@@ -163,6 +163,13 @@
   hyphens: auto;
   max-height: 320px;
   overflow-y: auto;
+  /* Hide scrollbars */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.text-auto-fit::-webkit-scrollbar {
+  display: none;
 }
 
 /* Responsive question text - scales smoothly between mobile and desktop */
@@ -234,6 +241,13 @@
   word-break: break-word;
   max-height: 340px;
   overflow-y: auto;
+  /* Hide scrollbars */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.flashcard-text-autofit::-webkit-scrollbar {
+  display: none;
 }
 
 /* Ensure flip card works with auto height */

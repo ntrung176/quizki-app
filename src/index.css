@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&display=swap');
 @import "tailwindcss";
 
-/* Japanese Mincho font class */
+/* Japanese Mincho font class for JLPT Standard Look */
 .font-japanese {
-  font-family: 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif !important;
+  font-family: 'BIZ UDPMincho', 'MS Mincho', 'ＭＳ 明朝', 'Hiragino Mincho ProN', 'Yu Mincho', serif !important;
+  font-weight: 400;
 }
 
 /* Ruby / Furigana annotations */
@@ -28,7 +29,7 @@ html.dark ruby.ruby-annotation rt {
 .kanji-text,
 .hiragana-text,
 .katakana-text {
-  font-family: 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif !important;
+  font-family: 'BIZ UDPMincho', 'MS Mincho', 'ＭＳ 明朝', 'Hiragino Mincho ProN', 'Yu Mincho', serif !important;
 }
 
 @custom-variant dark (&:is(.dark, .dark *));
@@ -212,6 +213,16 @@ video {
 
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* ===== STANDARDIZED UI COMPONENTS ===== */

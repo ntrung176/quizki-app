@@ -583,59 +583,89 @@ const KanjiReviewScreen = () => {
                 </div>
             </div>
 
-            {/* Today Status & Next Review */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="relative overflow-hidden bg-gradient-to-br from-orange-500 to-rose-500 rounded-2xl p-5 text-white shadow-xl">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                    <div className="relative">
-                        <div className="flex items-center gap-2 mb-2">
-                            <Calendar className="w-4 h-4 text-orange-100" />
-                            <span className="font-bold text-sm">Hôm nay</span>
-                        </div>
-                        <div className="text-5xl font-bold mb-1">{stats.dueToday}</div>
-                        <p className="text-orange-100 text-sm mb-4">thẻ cần ôn</p>
-                        <button onClick={startReview} disabled={stats.dueToday === 0}
-                            className="w-full py-2.5 bg-white/20 hover:bg-white/30 disabled:opacity-40 disabled:cursor-not-allowed rounded-xl text-sm font-bold transition-all border border-white/20 backdrop-blur-sm">
-                            {stats.dueToday > 0 ? 'Ôn tập ngay' : 'Nghỉ ngơi 😴'}
-                        </button>
-                    </div>
-                </div>
-                <div className="relative overflow-hidden bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl p-5 text-white shadow-xl">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                    <div className="relative">
-                        <div className="flex items-center gap-2 mb-2">
-                            <Clock className="w-4 h-4 text-blue-100" />
-                            <span className="font-bold text-sm">Lượt tiếp theo</span>
-                        </div>
-                        <div className={`font-bold mb-1 ${isNextReviewCountdown ? 'text-3xl font-mono tracking-wider' : 'text-4xl'}`}>
-                            {nextReviewText || '∞'}
-                        </div>
-                        <p className="text-blue-100 text-sm">{isNextReviewCountdown ? 'Đếm ngược...' : 'Nghỉ ngơi...'}</p>
-                        {nextRoundCount > 0 && (
-                            <div className="mt-3 bg-white/15 rounded-xl px-3 py-1.5 inline-flex items-center gap-1.5">
-                                <Sparkles className="w-3 h-3" />
-                                <span className="text-xs font-bold">{nextRoundCount} thẻ sẽ đến hạn</span>
+            {/* Dashboard Content: Review Card + Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Left Column: Ôn tập / Lượt tiếp theo */}
+                <div className="h-full">
+                    {stats.dueToday > 0 ? (
+                        <div className="relative overflow-hidden bg-gradient-to-br from-orange-500 to-rose-500 rounded-2xl p-6 text-white shadow-xl h-full flex flex-col justify-between">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                            <div className="relative z-10">
+                                <div className="flex items-center gap-2 mb-3">
+                                    <Calendar className="w-5 h-5 text-orange-100" />
+                                    <span className="font-bold text-sm tracking-wide">ÔN TẬP</span>
+                                </div>
+                                <div className="text-6xl font-black mb-1">{stats.dueToday}</div>
+                                <p className="text-orange-100 text-sm mb-6">thẻ cần ôn</p>
                             </div>
-                        )}
-                    </div>
-                </div>
-            </div>
-
-            {/* Stats Cards */}
-            <div className="grid grid-cols-3 gap-3">
-                {[
-                    { icon: Calendar, label: 'Ngày đã học', value: stats.daysStudied, color: 'text-emerald-600 dark:text-emerald-400', iconBg: 'bg-emerald-100 dark:bg-emerald-900/40' },
-                    { icon: Target, label: 'Kanji đã học', value: stats.kanjiLearned, color: 'text-cyan-600 dark:text-cyan-400', iconBg: 'bg-cyan-100 dark:bg-cyan-900/40' },
-                    { icon: Flame, label: 'Ngày liên tiếp', value: stats.streak, color: 'text-orange-600 dark:text-orange-400', iconBg: 'bg-orange-100 dark:bg-orange-900/40' },
-                ].map((s, i) => (
-                    <div key={i} className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-4 border border-gray-100 dark:border-slate-700/50 shadow-sm hover:shadow-md transition-all duration-300 text-center group hover:scale-[1.02]">
-                        <div className={`w-10 h-10 rounded-xl ${s.iconBg} flex items-center justify-center mx-auto mb-2.5`}>
-                            <s.icon className={`w-5 h-5 ${s.color}`} />
+                            <button onClick={startReview}
+                                className="relative z-10 w-full py-3 mt-auto bg-white/20 hover:bg-white/30 rounded-xl text-sm font-bold transition-all border border-white/20 backdrop-blur-sm shadow-lg hover:shadow-xl hover:scale-[1.02]">
+                                Ôn tập ngay
+                            </button>
                         </div>
-                        <div className="text-2xl font-bold text-gray-900 dark:text-white">{s.value}</div>
-                        <div className="text-[10px] md:text-xs text-gray-500 dark:text-gray-400 mt-0.5">{s.label}</div>
-                    </div>
-                ))}
+                    ) : (
+                        <div className="relative overflow-hidden bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl p-6 text-white shadow-xl h-full flex flex-col justify-between">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                            <div className="relative z-10">
+                                <div className="flex items-center gap-2 mb-3">
+                                    <Clock className="w-5 h-5 text-blue-100" />
+                                    <span className="font-bold text-sm tracking-wide">LƯỢT TIẾP THEO</span>
+                                </div>
+                                {nextReviewText ? (
+                                    <>
+                                        <div className={`font-black mb-1 ${isNextReviewCountdown ? 'text-4xl font-mono tracking-wider' : 'text-5xl'}`}>
+                                            {nextReviewText}
+                                        </div>
+                                        <p className="text-blue-100 text-sm mt-2">{isNextReviewCountdown ? 'Đếm ngược...' : 'Nghỉ ngơi nhé...'}</p>
+                                    </>
+                                ) : (
+                                    <>
+                                        <div className="text-5xl font-black mb-1">✅</div>
+                                        <p className="text-blue-100 text-sm mt-2">Đã ôn hết! Nghỉ ngơi thôi 😴</p>
+                                    </>
+                                )}
+                            </div>
+                            {/* Empty space filler for layout matching */}
+                            {nextReviewText && nextRoundCount > 0 ? (
+                                <div className="relative z-10 mt-auto bg-white/15 rounded-xl px-4 py-3 inline-flex items-center justify-center gap-2 w-full backdrop-blur-sm border border-white/10">
+                                    <Sparkles className="w-4 h-4" />
+                                    <span className="text-sm font-bold">{nextRoundCount} thẻ sẽ đến hạn</span>
+                                </div>
+                            ) : null}
+                        </div>
+                    )}
+                </div>
+
+                {/* Right Column: Stats Cards */}
+                <div className="grid grid-cols-2 gap-3 h-full">
+                    {[
+                        { icon: Calendar, label: 'Ngày đã học', value: stats.daysStudied, color: 'text-emerald-600 dark:text-emerald-400', iconBg: 'bg-emerald-100 dark:bg-emerald-900/40' },
+                        { icon: Target, label: 'Kanji đã học', value: stats.kanjiLearned, color: 'text-cyan-600 dark:text-cyan-400', iconBg: 'bg-cyan-100 dark:bg-cyan-900/40' },
+                        { icon: Flame, label: 'Ngày liên tiếp', value: stats.streak, color: 'text-orange-600 dark:text-orange-400', iconBg: 'bg-orange-100 dark:bg-orange-900/40', isFullRow: true },
+                    ].map((s, i) => (
+                        <div key={i} className={`bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 dark:border-slate-700/50 shadow-sm hover:shadow-md transition-all duration-300 group hover:scale-[1.02] flex items-center justify-center ${s.isFullRow ? 'col-span-2 flex-row gap-5' : 'flex-col text-center'}`}>
+                            {s.isFullRow ? (
+                                <>
+                                    <div className={`w-14 h-14 rounded-2xl ${s.iconBg} flex items-center justify-center flex-shrink-0 shadow-sm`}>
+                                        <s.icon className={`w-7 h-7 ${s.color}`} />
+                                    </div>
+                                    <div className="flex-1 text-left">
+                                        <div className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-1 tracking-tight">{s.value}</div>
+                                        <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider">{s.label}</div>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className={`w-12 h-12 rounded-xl ${s.iconBg} flex items-center justify-center mx-auto mb-3 shadow-sm`}>
+                                        <s.icon className={`w-6 h-6 ${s.color}`} />
+                                    </div>
+                                    <div className="text-3xl font-black text-gray-900 dark:text-white tracking-tight mb-1">{s.value}</div>
+                                    <div className="text-[10px] md:text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider font-bold">{s.label}</div>
+                                </>
+                            )}
+                        </div>
+                    ))}
+                </div>
             </div>
 
             {/* Overview */}

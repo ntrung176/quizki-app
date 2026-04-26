@@ -580,7 +580,7 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
             <div className="flex items-center gap-3 pb-4">
                 <button
                     onClick={() => navigate(-1)}
-                    className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 transition-colors"
+                    className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105"
                 >
                     <ArrowLeft className="w-5 h-5" />
                 </button>

@@ -668,12 +668,12 @@ const App = () => {
             if (!isCardAvailable(card)) return false;
 
             // Kiểm tra xem có phần nào chưa hoàn thành không (streak < 1)
+            // Synonym KHÔNG tham gia vào chu kỳ chính nữa
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
-            const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
             const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
 
-            // Có ít nhất một phần chưa hoàn thành
-            return backStreak < 1 || (card.synonym && card.synonym.trim() !== '' && synonymStreak < 1) || (card.example && card.example.trim() !== '' && exampleStreak < 1);
+            // Có ít nhất một phần chưa hoàn thành (trừ synonym)
+            return backStreak < 1 || (card.example && card.example.trim() !== '' && exampleStreak < 1);
         }).length;
 
         // Back: các từ sẵn sàng VÀ chưa hoàn thành phần back (streak < 1)
@@ -823,7 +823,7 @@ const App = () => {
             dueCards = shuffleArray(dueCards);
 
         } else if (mode === 'mixed') {
-            // Mixed mode: bao gồm cả thẻ mới VÀ thẻ đến hạn
+            // Mixed mode: bao gồm cả thẻ mới VÀ thẻ đến hạn (KHÔNG bao gồm synonym — đã tách riêng)
             const isNew = (card) => card.intervalIndex_back === -1 || card.intervalIndex_back === undefined;
 
             const dueBackCards = filteredCards
@@ -835,16 +835,6 @@ const App = () => {
                 })
                 .map(card => ({ ...card, reviewType: 'back' }));
 
-            const dueSynonymCards = filteredCards
-                .filter(card => {
-                    if (!card.synonym || card.synonym.trim() === '') return false;
-                    if (isNew(card)) return true;
-                    if (card.nextReview_back > today) return false;
-                    const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
-                    return synonymStreak < 1;
-                })
-                .map(card => ({ ...card, reviewType: 'synonym' }));
-
             const dueExampleCards = filteredCards
                 .filter(card => {
                     if (!card.example || card.example.trim() === '') return false;
@@ -855,7 +845,7 @@ const App = () => {
                 })
                 .map(card => ({ ...card, reviewType: 'example' }));
 
-            dueCards = shuffleArray([...dueBackCards, ...dueSynonymCards, ...dueExampleCards]);
+            dueCards = shuffleArray([...dueBackCards, ...dueExampleCards]);
 
         } else if (mode === 'back') {
             // Back: thẻ mới (intervalIndex_back === -1) HOẶC thẻ đến hạn (nextReview <= now) + chưa hoàn thành
@@ -869,16 +859,19 @@ const App = () => {
                     return backStreak < 1;
                 });
         } else if (mode === 'synonym') {
-            // Synonym: thẻ mới có synonym HOẶC thẻ đến hạn + chưa hoàn thành synonym
+            // Synonym (Advanced): all cards with synonyms, sorted by SRS level desc (long-term first → new last)
+            // Synonym review does NOT affect main SRS cycle
             dueCards = filteredCards
                 .filter(card => {
                     if (!card.synonym || card.synonym.trim() === '') return false;
-                    // Thẻ mới luôn được bao gồm
-                    if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined) return true;
-                    // Thẻ cũ: kiểm tra nextReview và streak
-                    if (card.nextReview_back > today) return false;
                     const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
                     return synonymStreak < 1;
+                })
+                .sort((a, b) => {
+                    // Sort by intervalIndex_synonym descending (long-term first)
+                    const aIdx = typeof a.intervalIndex_synonym === 'number' ? a.intervalIndex_synonym : -1;
+                    const bIdx = typeof b.intervalIndex_synonym === 'number' ? b.intervalIndex_synonym : -1;
+                    return bIdx - aIdx;
                 });
         } else if (mode === 'example') {
             // Example: thẻ mới có example HOẶC thẻ đến hạn + chưa hoàn thành example
@@ -2855,11 +2848,11 @@ const App = () => {
             )}
 
             {/* Main content area - responsive for sidebar */}
-            <main className={`lg:ml-64 min-h-screen pt-14 lg:pt-0 ${view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
-                <div className={`${view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' ? 'w-full h-screen flex items-center justify-center bg-transparent' : view === 'KANJI' ? 'w-full min-h-screen' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6'}`}>
+            <main className={`lg:ml-64 min-h-screen pt-14 lg:pt-0 flex flex-col ${view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
+                <div className={`${view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' ? 'w-full flex-1 flex items-center justify-center bg-transparent py-4 md:py-8' : view === 'KANJI' ? 'w-full flex-1' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6'}`}>
                     {/* Main content container - transparent */}
-                    <div className={`${view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
-                        <div className={view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' || view === 'KANJI' ? 'bg-transparent' : ''}>
+                    <div className={`w-full ${view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
+                        <div className={`w-full ${view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
                             <AppRoutes
                                 isAuthenticated={!!userId}
                                 isLoading={isLoading}

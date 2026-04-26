@@ -210,7 +210,7 @@ const HomeScreen = ({
 
 
     return (
-        <div className="flex flex-col h-full max-h-[calc(100vh-80px)] max-w-7xl mx-auto gap-3 md:gap-4 pb-4 overflow-y-auto overflow-x-hidden">
+        <div className="flex flex-col h-full max-h-[calc(100vh-80px)] max-w-7xl mx-auto gap-2 md:gap-3 pb-2 overflow-y-auto overflow-x-hidden scrollbar-hide justify-between">
             {/* Book Vocab Sync Notification */}
             <BookVocabSyncChecker
                 userId={userId}
@@ -220,112 +220,104 @@ const HomeScreen = ({
             />
 
             {/* Hero Section - Beautiful teal gradient */}
-            <div className="relative flex-shrink-0 overflow-hidden bg-gradient-to-br from-teal-600 via-cyan-600 to-sky-600 rounded-2xl p-4 md:p-6 text-white pb-6 md:pb-8">
+            <div className="relative flex-shrink overflow-hidden bg-gradient-to-br from-teal-600 via-cyan-600 to-sky-600 rounded-2xl p-3 md:p-5 text-white pb-3 md:pb-5">
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                 <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"></div>
 
                 <div className="relative z-10">
-                    <div className="flex items-center gap-2 mb-2">
-                        <Sparkles className="w-5 h-5 text-amber-300" />
-                        <span className="text-sm font-medium text-white/80">{getGreeting()}</span>
+                    <div className="flex items-center gap-1.5 mb-1 md:mb-2">
+                        <Sparkles className="w-4 h-4 text-amber-300" />
+                        <span className="text-xs md:text-sm font-medium text-white/80">{getGreeting()}</span>
                     </div>
 
-                    <h1 className="text-2xl md:text-3xl font-bold mb-2">
+                    <h1 className="text-xl md:text-3xl font-bold mb-1 md:mb-2">
                         {displayName ? `${displayName}!` : 'Bạn ơi!'}
                     </h1>
 
-                    <p className="text-white/70 text-sm md:text-base mb-4 italic">
+                    <p className="text-white/70 text-xs md:text-base mb-2 md:mb-3 italic opacity-90 line-clamp-1">
                         "{todayQuote}"
                     </p>
 
                     {/* Mini Stats */}
-                    <div className="flex flex-wrap gap-4 mt-4">
-                        <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                            <Flame className="w-4 h-4 text-orange-400" />
-                            <span className="text-sm font-medium">{stats.streak} ngày liên tiếp</span>
+                    <div className="flex flex-wrap gap-2 mt-2 md:mt-4">
+                        <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 md:px-4 md:py-2">
+                            <Flame className="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-400" />
+                            <span className="text-xs md:text-sm font-medium">{stats.streak} ngày</span>
                         </div>
-                        <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                            <Trophy className="w-4 h-4 text-amber-400" />
-                            <span className="text-sm font-medium">{stats.masteredCards} từ đã thuộc</span>
+                        <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 md:px-4 md:py-2">
+                            <Trophy className="w-3.5 h-3.5 md:w-4 md:h-4 text-amber-400" />
+                            <span className="text-xs md:text-sm font-medium">{stats.masteredCards} từ thuộc</span>
                         </div>
-                        <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                            <Languages className="w-4 h-4 text-emerald-400" />
-                            <span className="text-sm font-medium">{kanjiSrsStats.mastered} kanji đã thuộc</span>
+                        <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 md:px-4 md:py-2 hidden sm:flex">
+                            <Languages className="w-3.5 h-3.5 md:w-4 md:h-4 text-emerald-400" />
+                            <span className="text-xs md:text-sm font-medium">{kanjiSrsStats.mastered} kanji</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* Today's Summary */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 flex-shrink-0">
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 text-center">
-                    <div className="w-10 h-10 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <Clock className="w-5 h-5 text-red-500" />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 flex-shrink-0">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-2 md:p-3 border border-gray-200 dark:border-gray-700 text-center flex flex-col items-center justify-center">
+                    <div className="w-8 h-8 md:w-10 md:h-10 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center mb-1">
+                        <Clock className="w-4 h-4 md:w-5 md:h-5 text-red-500" />
                     </div>
-                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{stats.dueCards}</div>
-                    <div className="text-xs text-gray-500">Từ vựng cần ôn</div>
+                    <div className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white leading-none">{stats.dueCards}</div>
+                    <div className="text-[10px] md:text-xs text-gray-500 mt-1">Từ vựng ôn</div>
                 </div>
 
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 text-center">
-                    <div className="w-10 h-10 bg-amber-50 dark:bg-amber-900/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <Target className="w-5 h-5 text-amber-500" />
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-2 md:p-3 border border-gray-200 dark:border-gray-700 text-center flex flex-col items-center justify-center">
+                    <div className="w-8 h-8 md:w-10 md:h-10 bg-amber-50 dark:bg-amber-900/20 rounded-full flex items-center justify-center mb-1">
+                        <Target className="w-4 h-4 md:w-5 md:h-5 text-amber-500" />
                     </div>
-                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{kanjiSrsStats.dueCount}</div>
-                    <div className="text-xs text-gray-500">Kanji cần ôn</div>
+                    <div className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white leading-none">{kanjiSrsStats.dueCount}</div>
+                    <div className="text-[10px] md:text-xs text-gray-500 mt-1">Kanji ôn</div>
                 </div>
 
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 text-center">
-                    <div className="w-10 h-10 bg-sky-50 dark:bg-sky-900/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <BookOpen className="w-5 h-5 text-sky-500" />
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-2 md:p-3 border border-gray-200 dark:border-gray-700 text-center flex flex-col items-center justify-center">
+                    <div className="w-8 h-8 md:w-10 md:h-10 bg-sky-50 dark:bg-sky-900/20 rounded-full flex items-center justify-center mb-1">
+                        <BookOpen className="w-4 h-4 md:w-5 md:h-5 text-sky-500" />
                     </div>
-                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{stats.totalCards}</div>
-                    <div className="text-xs text-gray-500">Tổng từ vựng</div>
+                    <div className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white leading-none">{stats.totalCards}</div>
+                    <div className="text-[10px] md:text-xs text-gray-500 mt-1">Tổng từ vựng</div>
                 </div>
 
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 text-center">
-                    <div className="w-10 h-10 bg-emerald-50 dark:bg-emerald-900/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <Languages className="w-5 h-5 text-emerald-500" />
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-2 md:p-3 border border-gray-200 dark:border-gray-700 text-center flex flex-col items-center justify-center">
+                    <div className="w-8 h-8 md:w-10 md:h-10 bg-emerald-50 dark:bg-emerald-900/20 rounded-full flex items-center justify-center mb-1">
+                        <Languages className="w-4 h-4 md:w-5 md:h-5 text-emerald-500" />
                     </div>
-                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{kanjiSrsStats.total}</div>
-                    <div className="text-xs text-gray-500">Tổng Kanji</div>
+                    <div className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white leading-none">{kanjiSrsStats.total}</div>
+                    <div className="text-[10px] md:text-xs text-gray-500 mt-1">Tổng Kanji</div>
                 </div>
             </div>
 
             {/* Quick Actions */}
-            <div className="flex flex-col gap-2 flex-shrink-0">
-                <h2 className="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2">
-                    <Zap className="w-5 h-5 text-amber-500" />
+            <div className="flex flex-col gap-1.5 md:gap-2 flex-1 min-h-0">
+                <h2 className="text-sm md:text-base font-bold text-gray-800 dark:text-white flex items-center gap-1.5 px-1">
+                    <Zap className="w-4 h-4 md:w-5 md:h-5 text-amber-500" />
                     Bắt đầu nhanh
                 </h2>
 
-                <div className="grid grid-cols-2 gap-2 md:gap-3">
+                <div className="grid grid-cols-2 gap-2 md:gap-3 flex-1">
                     {quickActions.map((action) => (
                         <button
                             key={action.id}
                             onClick={() => navigate(action.route)}
-                            className={`relative group bg-gradient-to-r ${action.color} rounded-xl p-3 md:p-5 text-white text-left shadow-md ${action.shadowColor} hover:scale-[1.02] transition-all duration-300 overflow-hidden flex flex-col justify-center min-h-[80px]`}
+                            className={`relative group bg-gradient-to-r ${action.color} rounded-xl p-2.5 md:p-4 text-white text-left shadow-md ${action.shadowColor} hover:scale-[1.02] transition-all duration-300 overflow-hidden flex flex-col justify-center`}
                         >
                             {/* Background decoration */}
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full blur-xl translate-x-8 -translate-y-8 group-hover:translate-x-4 transition-transform"></div>
+                            <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full blur-xl translate-x-8 -translate-y-8 group-hover:translate-x-4 transition-transform"></div>
 
                             <div className="relative z-10 flex items-start justify-between">
                                 <div>
-                                    <div className="flex items-center gap-2 mb-1">
-                                        <action.icon className="w-5 h-5" />
-                                        <h3 className="font-bold">{action.title}</h3>
+                                    <div className="flex items-center gap-1.5 md:gap-2 mb-0.5">
+                                        <action.icon className="w-4 h-4 md:w-5 md:h-5" />
+                                        <h3 className="font-bold text-sm md:text-base">{action.title}</h3>
                                     </div>
-                                    <p className="text-sm text-white/80">{action.subtitle}</p>
+                                    <p className="text-[10px] md:text-xs text-white/80 line-clamp-1">{action.subtitle}</p>
                                 </div>
-
-                                <div className="flex items-center gap-2">
-                                    {action.badge && (
-                                        <span className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-bold">
-                                            {action.badge}
-                                        </span>
-                                    )}
-                                    <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                                </div>
+                                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                             </div>
                         </button>
                     ))}
@@ -336,14 +328,14 @@ const HomeScreen = ({
 
 
             {/* Tips */}
-            <div className="bg-gradient-to-r from-slate-50 to-gray-50 dark:from-slate-800/50 dark:to-gray-800/50 rounded-xl p-3 md:p-4 border border-slate-200 dark:border-slate-700 flex-shrink-0">
-                <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Sparkles className="w-5 h-5 text-slate-600 dark:text-slate-300" />
+            <div className="bg-gradient-to-r from-slate-50 to-gray-50 dark:from-slate-800/50 dark:to-gray-800/50 rounded-xl p-2 md:p-3 border border-slate-200 dark:border-slate-700 flex-shrink-0 mx-1 mb-1 hidden sm:block">
+                <div className="flex items-center gap-2 md:gap-3">
+                    <div className="w-7 h-7 md:w-8 md:h-8 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4 text-slate-600 dark:text-slate-300" />
                     </div>
                     <div>
-                        <h3 className="font-bold text-slate-700 dark:text-slate-200 mb-1">💡 Mẹo học tập</h3>
-                        <p className="text-sm text-slate-600 dark:text-slate-400">
+                        <p className="text-[10px] md:text-xs text-slate-600 dark:text-slate-400 font-medium italic line-clamp-1">
+                            <span className="font-bold text-slate-700 dark:text-slate-300 mr-1">💡 Mẹo học tập:</span>
                             {todayTip}
                         </p>
                     </div>
