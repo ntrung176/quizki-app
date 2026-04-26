@@ -15,7 +15,7 @@
     "@react-three/fiber": "^9.5.0",
     "@tanstack/react-query": "^5.90.12",
     "@tanstack/react-query-devtools": "^5.91.1",
-    "firebase": "^12.9.0",
+    "firebase": "^12.12.1",
     "hanzi-writer": "^3.7.3",
     "kuroshiro": "^1.2.0",
     "kuroshiro-analyzer-kuromoji": "^1.1.0",

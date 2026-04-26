@@ -4,7 +4,7 @@ import { useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { useDebounce } from 'use-debounce';
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail, updatePassword, sendEmailVerification } from 'firebase/auth';
-import { getFirestore, doc, setDoc, addDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, getDocs, where, writeBatch, increment } from 'firebase/firestore';
+import { getFirestore, doc, setDoc, addDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, getDocs, where, writeBatch, increment, collectionGroup } from 'firebase/firestore';
 import { Loader2, Plus, Repeat2, Home, CheckCircle, XCircle, Volume2, Send, BookOpen, Clock, HeartHandshake, List, Calendar, Trash2, Mic, FileText, MessageSquare, HelpCircle, Upload, Wand2, BarChart3, Users, PieChart as PieChartIcon, Target, Save, Edit, Zap, Eye, EyeOff, AlertTriangle, Check, VolumeX, Image as ImageIcon, X, Music, FileAudio, Tag, Sparkles, Filter, ArrowDown, ArrowUp, GraduationCap, Search, Languages, RefreshCw, Settings, ChevronRight, Wrench, LayoutGrid, Flame, TrendingUp, Lightbulb, Brain, Ear, Keyboard, MousePointerClick, Layers, RotateCw, Lock, LogOut, FileCheck, Moon, Sun } from 'lucide-react';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 
@@ -2062,96 +2062,56 @@ const App = () => {
     };
 
 
-    // --- SHARED VOCABULARY COLLECTION (dùng chung cho mọi user) ---
-    const sharedVocabPath = useMemo(() => `artifacts/${appId}/sharedVocab`, []);
-    // Flag: nếu gặp lỗi permission → tắt shared vocab cho session này
-    const sharedVocabDisabledRef = useRef(false);
-
-    // Inject Firestore deps vào audio module để shared audio cache hoạt động
-    useEffect(() => {
-        initSharedAudioCache({
-            db,
-            sharedVocabPath,
-            getDoc,
-            setDoc,
-            doc,
-            disabled: sharedVocabDisabledRef,
-        });
-    }, [sharedVocabPath]);
-
-    // Tạo key chuẩn hóa cho shared vocab lookup (trim + lowercase cho nhất quán)
-    const getSharedVocabKey = (text) => {
-        if (!text) return '';
-        // Giữ nguyên ký tự Nhật, chỉ trim khoảng trắng
-        return text.trim().replace(/\s+/g, ' ');
-    };
-
-    // Tra cứu từ vựng trong shared DB
-    const lookupSharedVocab = async (frontText) => {
-        // Bỏ qua nếu shared vocab bị tắt (do lỗi permission)
-        if (sharedVocabDisabledRef.current) return null;
+    // --- BOOK VOCABULARY LOOKUP ---
+    // Tìm từ vựng trong bộ sách (books/chapters/lessons) thay vì sharedVocab
+    const lookupBookVocab = async (frontText) => {
         try {
-            const key = getSharedVocabKey(frontText);
+            const key = frontText.trim();
             if (!key) return null;
-            const encodedKey = encodeURIComponent(key);
-            const vocabRef = doc(db, sharedVocabPath, encodedKey);
-            const snap = await getDoc(vocabRef);
-            if (snap.exists()) {
-                console.log(`📚 Shared vocab HIT: "${frontText}" - Dùng dữ liệu có sẵn, không tốn credit`);
-                return snap.data();
+
+            // Lấy tất cả vocab từ tất cả các lessons bằng collectionGroup
+            const lessonsQuery = query(collectionGroup(db, 'lessons'));
+            const lessonsSnap = await getDocs(lessonsQuery);
+
+            for (const docSnap of lessonsSnap.docs) {
+                const lessonData = docSnap.data();
+                if (lessonData.vocab && Array.isArray(lessonData.vocab)) {
+                    const match = lessonData.vocab.find(v => {
+                        const word = v.word || v.front || '';
+                        // So sánh từ vựng cơ bản (Bỏ ngoặc kép và furigana)
+                        const normalizedWord = word.split('（')[0].split('(')[0].trim();
+                        return normalizedWord === key;
+                    });
+
+                    if (match) {
+                        console.log(`📚 Tìm thấy "${key}" trong sách bài học!`);
+
+                        // Chuyển đổi format của sách sang format của thẻ User
+                        return {
+                            front: match.word || match.front || key,
+                            back: match.meaning || match.back || '',
+                            synonym: match.synonym || '',
+                            example: match.example || '',
+                            exampleMeaning: match.exampleMeaning || '',
+                            nuance: match.nuance || match.note || '',
+                            pos: match.pos || '',
+                            level: match.level || '',
+                            sinoVietnamese: match.sinoVietnamese || '',
+                            synonymSinoVietnamese: '',
+                            imageBase64: match.imageUrl || null,
+                            audioBase64: match.audioBase64 || null,
+                            exampleAudioBase64: match.exampleAudioBase64 || null,
+                            _fromBook: true
+                        };
+                    }
+                }
             }
-            console.log(`📚 Shared vocab MISS: "${frontText}" - Sẽ gọi AI`);
+
+            console.log(`📚 Không tìm thấy "${key}" trong sách - Gọi AI`);
             return null;
         } catch (e) {
-            // Nếu lỗi permission → tắt shared vocab cho session này
-            if (e?.code === 'permission-denied' || e?.message?.includes('permissions')) {
-                sharedVocabDisabledRef.current = true;
-                console.log('📚 Shared vocab không khả dụng (chưa cấu hình Firestore rules) → bỏ qua, luôn dùng AI');
-            } else {
-                console.warn('Shared vocab lookup error:', e);
-            }
+            console.warn('Book vocab lookup error:', e);
             return null;
-        }
-    };
-
-    // Lưu từ vựng vào shared DB (sau khi AI tạo thành công)
-    const saveToSharedVocab = async (frontText, vocabData) => {
-        // Bỏ qua nếu shared vocab bị tắt (do lỗi permission)
-        if (sharedVocabDisabledRef.current) return;
-        try {
-            const key = getSharedVocabKey(frontText);
-            if (!key) return;
-            const encodedKey = encodeURIComponent(key);
-            const vocabRef = doc(db, sharedVocabPath, encodedKey);
-            await setDoc(vocabRef, {
-                ...vocabData,
-                originalFront: frontText,
-                createdAt: serverTimestamp(),
-                lookupCount: 1,
-            }, { merge: true });
-            console.log(`💾 Saved to shared vocab: "${frontText}"`);
-        } catch (e) {
-            if (e?.code === 'permission-denied' || e?.message?.includes('permissions')) {
-                sharedVocabDisabledRef.current = true;
-            } else {
-                console.warn('Save shared vocab error:', e);
-            }
-        }
-    };
-
-    // Tăng số lần tra cứu cho từ vựng đã có
-    const incrementSharedVocabLookup = async (frontText) => {
-        if (sharedVocabDisabledRef.current) return;
-        try {
-            const key = getSharedVocabKey(frontText);
-            if (!key) return;
-            const encodedKey = encodeURIComponent(key);
-            const vocabRef = doc(db, sharedVocabPath, encodedKey);
-            await updateDoc(vocabRef, { lookupCount: increment(1) });
-        } catch (e) {
-            if (e?.code === 'permission-denied' || e?.message?.includes('permissions')) {
-                sharedVocabDisabledRef.current = true;
-            }
         }
     };
 
@@ -2159,48 +2119,43 @@ const App = () => {
     const handleGeminiAssist = async (frontText, contextPos = '', contextLevel = '', isRetry = false) => {
         if (!frontText) return null;
 
-        // === BƯỚC 1: Kiểm tra shared vocabulary database trước (chỉ lần đầu) ===
+        // === BƯỚC 1: Kiểm tra Book Vocabulary database trước (chỉ lần đầu) ===
         if (!isRetry) {
             try {
-                const cachedVocab = await lookupSharedVocab(frontText);
+                const cachedVocab = await lookupBookVocab(frontText);
                 if (cachedVocab) {
-                    const result = { ...cachedVocab, _fromCache: true };
-                    delete result.originalFront;
-                    delete result.createdAt;
-                    delete result.lookupCount;
+                    const result = { ...cachedVocab };
 
                     if (result.pos) result.pos = normalizePosKey(result.pos);
 
                     if (contextPos && contextPos !== result.pos) {
-                        console.log(`📚 Cache HIT: ghi đè pos="${result.pos}" → "${contextPos}" theo user chọn`);
+                        console.log(`📚 Book HIT: ghi đè pos="${result.pos}" → "${contextPos}" theo user chọn`);
                         result.pos = contextPos;
                     }
                     if (contextLevel && contextLevel !== result.level) {
-                        console.log(`📚 Cache HIT: ghi đè level="${result.level}" → "${contextLevel}" theo user chọn`);
+                        console.log(`📚 Book HIT: ghi đè level="${result.level}" → "${contextLevel}" theo user chọn`);
                         result.level = contextLevel;
                     }
 
-                    incrementSharedVocabLookup(frontText);
-
-                    // Trừ 1 credit cho lần đầu dù là sharedVocab (admin/mod không trừ)
+                    // Vẫn trừ credit mỗi khi bấm nút theo yêu cầu của user
                     const isUnlimited = isAdmin || adminConfig?.moderators?.includes(userId);
                     if (!isUnlimited && settingsDocPath) {
                         try {
                             const newCredits = Math.max(0, (profile?.aiCreditsRemaining || 0) - 1);
                             await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: newCredits });
                             setProfile(prev => ({ ...prev, aiCreditsRemaining: newCredits }));
-                            console.log(`💳 SharedVocab HIT - AI Credits: ${newCredits} còn lại`);
+                            console.log(`💳 BookVocab HIT - Vẫn tính AI Credits: ${newCredits} còn lại`);
                         } catch (e) { console.warn('Deduct credit error:', e); }
                     }
 
-                    console.log(`📚 ✅ Dùng dữ liệu có sẵn cho "${frontText}" - trừ 1 credit`);
+                    console.log(`📚 ✅ Dùng dữ liệu từ sách cho "${frontText}" - trừ 1 credit`);
                     return result;
                 }
             } catch (e) {
-                console.warn('Shared vocab lookup error:', e);
+                console.warn('Book vocab lookup error:', e);
             }
         } else {
-            console.log(`🔄 Retry mode: bỏ qua SharedVocab, gọi AI trực tiếp cho "${frontText}" - KHÔNG trừ credit`);
+            console.log(`🔄 Retry mode: gọi AI trực tiếp cho "${frontText}" - KHÔNG trừ credit thêm lần nữa`);
         }
 
         // === BƯỚC 2: Tạo prompt thống nhất từ aiProvider ===
@@ -2268,8 +2223,7 @@ const App = () => {
                     console.log(`🔄 Retry mode: KHÔNG trừ credit`);
                 }
 
-                // Lưu vào shared vocabulary DB (fire-and-forget)
-                saveToSharedVocab(frontText, parsedJson);
+                // Cũ: Lưu vào shared vocabulary DB (fire-and-forget) - Đã bỏ theo yêu cầu của User
 
                 return parsedJson;
             } else {

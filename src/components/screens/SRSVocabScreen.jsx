@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-    Calendar, Clock, BookOpen, Users, MessageSquare, GraduationCap, Layers, Zap, Sparkles
+    Calendar, Clock, BookOpen, Users, MessageSquare, Headphones, Layers, Zap, Sparkles
 } from 'lucide-react';
 import { shuffleArray } from '../../utils/textProcessing';
 import { ROUTES } from '../../router';
@@ -153,25 +153,17 @@ const SRSVocabScreen = ({
         onStartReview(mode, category);
     };
 
-    // Bắt đầu học từ mới (từ chưa có SRS)
+    // Bắt đầu chế độ Dictation (Luyện nghe)
     const handleStartStudy = (forceReset = false) => {
-        if (forceReset) {
-            localStorage.removeItem('study_progress');
-        }
-        const noSrsCards = allCards.filter(c => c.intervalIndex_back === -1);
-        if (noSrsCards.length === 0) return;
+        const validCards = allCards.filter(c => c.audioBase64 || c.example);
+        if (validCards.length === 0) return;
 
-        const shuffledCards = shuffleArray([...noSrsCards]);
-        const firstBatch = shuffledCards.slice(0, Math.min(5, shuffledCards.length));
+        const shuffledCards = shuffleArray([...validCards]);
 
         setStudySessionData({
-            learning: [],
-            new: shuffledCards,
-            reviewing: [],
-            currentBatch: firstBatch,
-            currentPhase: 'multipleChoice',
-            batchIndex: 0,
-            allNoSrsCards: shuffledCards
+            cards: shuffledCards,
+            currentIndex: 0,
+            mode: 'dictation'
         });
         setView('STUDY');
     };
@@ -347,38 +339,29 @@ const SRSVocabScreen = ({
                         </div>
                     </div>
 
-                    {/* Học từ mới */}
-                    <div className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-gray-100 dark:border-slate-700/50 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01] flex flex-col">
-                        <div className="flex items-center gap-2 mb-2">
-                            <div className="w-8 h-8 rounded-xl bg-teal-100 dark:bg-teal-900/40 flex items-center justify-center">
-                                <GraduationCap className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-                            </div>
-                            <span className="font-bold text-sm text-gray-800 dark:text-white">Học từ mới</span>
-                            <span className="ml-auto text-xs px-2.5 py-0.5 bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-full font-bold">
-                                {newCards} từ
-                            </span>
+                    {/* Dictation */}
+                    <div className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-indigo-100 dark:border-indigo-900/50 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01] flex flex-col relative overflow-hidden">
+                        {/* Ribbon Đang phát triển */}
+                        <div className="absolute top-3 right-[-35px] rotate-45 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[10px] font-bold py-1 px-10 shadow-sm border border-amber-400/50">
+                            Đang phát triển
                         </div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3 flex-1 leading-relaxed">
-                            Học từ vựng mới bằng trắc nghiệm 4 đáp án. Giao diện giống chế độ kiểm tra.
+
+                        <div className="flex items-center gap-2 mb-2 pr-10">
+                            <div className="w-8 h-8 rounded-xl bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center">
+                                <Headphones className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                            </div>
+                            <span className="font-bold text-sm text-gray-800 dark:text-white">DICTATION</span>
+                        </div>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3 flex-1 leading-relaxed pr-2">
+                            Nghe từ vựng và câu ví dụ, sau đó gõ lại chính xác tiếng Nhật để luyện kỹ năng nghe. (Tính năng đang trong giai đoạn thử nghiệm)
                         </p>
                         <div className="flex gap-2 mt-auto">
-                            {studyInProgress && (
-                                <button
-                                    onClick={() => handleStartStudy(true)}
-                                    className="py-2.5 px-3 rounded-xl font-bold text-sm transition-all bg-gray-200 dark:bg-slate-600 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-slate-500"
-                                >
-                                    🔄 Reset
-                                </button>
-                            )}
                             <button
-                                onClick={() => handleStartStudy(false)}
-                                disabled={newCards === 0}
-                                className={`flex-1 py-2.5 rounded-xl font-bold text-sm transition-all ${newCards > 0
-                                    ? 'bg-gradient-to-r from-teal-500 to-emerald-500 text-white hover:shadow-lg hover:shadow-teal-500/20 hover:scale-[1.02]'
-                                    : 'bg-gray-100 dark:bg-slate-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-                                    }`}
+                                onClick={() => handleStartStudy()}
+                                disabled={true}
+                                className="w-full py-2.5 rounded-xl font-bold text-sm bg-gray-200 dark:bg-slate-700 text-gray-400 dark:text-gray-500 cursor-not-allowed"
                             >
-                                {studyInProgress ? '▶ Tiếp tục học' : 'Bắt đầu học'}
+                                Đang phát triển...
                             </button>
                         </div>
                     </div>

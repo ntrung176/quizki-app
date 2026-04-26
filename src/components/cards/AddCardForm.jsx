@@ -113,6 +113,7 @@ const AddCardForm = ({
     const [isGeneratingExample, setIsGeneratingExample] = useState(false);
     const [aiCallCount, setAiCallCount] = useState(0); // Track AI presses: 2nd press = free retry
     const [showAdvanced, setShowAdvanced] = useState(false);
+    const [showGuide, setShowGuide] = useState(false);
     const frontInputRef = useRef(null);
     const [showImageSearch, setShowImageSearch] = useState(false);
 
@@ -252,17 +253,28 @@ const AddCardForm = ({
             </div>
 
             {/* Guidance Banner */}
-            <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border border-amber-200/60 dark:border-amber-800/40 rounded-xl px-4 py-3">
-                <div className="flex items-start gap-2.5">
-                    <span className="text-lg mt-0.5">💡</span>
-                    <div className="text-xs text-amber-800 dark:text-amber-300 space-y-1">
-                        <p className="font-bold text-amber-700 dark:text-amber-200">Hướng dẫn thêm từ vựng:</p>
-                        <p>• Nhập <strong>từ vựng tiếng Nhật</strong> (kanji hoặc hiragana) rồi nhấn <strong>Enter</strong> hoặc nút ✨ để <strong>AI tự động điền</strong> nghĩa, phiên âm, câu ví dụ.</p>
-                        <p>• Chọn sẵn cấp độ <strong>N5</strong> để cho ví dụ đơn giản.</p>
-                        <p>• N5 sẽ tạo câu ví dụ <strong>đơn giản, dùng hiragana</strong> là chủ yếu. Cấp cao hơn sẽ dùng kanji tự nhiên.</p>
-                        <p>• Nếu AI tạo từ vựng bị lỗi, <strong>bấm AI lần 2</strong> để tạo lại — <strong>miễn phí không trừ credit</strong>. Từ lần 3 trở đi sẽ trừ credit bình thường. 🔄</p>
+            <div className="bg-white dark:bg-gray-800/80 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden">
+                <button
+                    type="button"
+                    onClick={() => setShowGuide(!showGuide)}
+                    className="w-full flex items-center justify-between p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+                >
+                    <div className="flex items-center gap-2">
+                        <span className="text-lg leading-none">💡</span>
+                        <h3 className="text-sm font-bold text-amber-700 dark:text-amber-400">Hướng dẫn thêm từ vựng</h3>
                     </div>
-                </div>
+                    <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${showGuide ? 'rotate-180' : ''}`} />
+                </button>
+                {showGuide && (
+                    <div className="px-4 pb-4">
+                        <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border border-amber-200/60 dark:border-amber-800/40 rounded-xl px-4 py-3 text-xs text-amber-800 dark:text-amber-300 space-y-1">
+                            <p>• Nhập <strong>từ vựng tiếng Nhật</strong> (kanji hoặc hiragana) rồi nhấn <strong>Enter</strong> hoặc nút ✨ để <strong>tự động điền</strong> nghĩa, phiên âm, câu ví dụ.</p>
+                            <p>• 📚 Hệ thống sẽ <strong>ưu tiên tìm trong kho Sách</strong> trước. Nếu không có, sẽ chuyển sang <strong>sử dụng AI</strong> tạo mới.</p>
+                            <p>• 💳 <strong>Khấu trừ Credit:</strong> Mỗi lần bấm tự động điền sẽ bị trừ 1 Credit lượt tạo.</p>
+                            <p>• Mẹo: Nên chọn cấp độ <strong>JLPT</strong> trước khi bấm AI để hệ thống tạo câu ví dụ đúng trình độ mong muốn.</p>
+                        </div>
+                    </div>
+                )}
             </div>
 
 

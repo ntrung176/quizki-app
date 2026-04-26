@@ -612,7 +612,8 @@ const ReviewScreen = ({
                 });
 
                 try {
-                    await onUpdateCard(currentCard.id, false, cardReviewType, 'review', getResponseTime());
+                    const action = reviewMode === 'synonym' ? 'synonym_practice' : 'review';
+                    await onUpdateCard(currentCard.id, false, cardReviewType, action, getResponseTime());
                 } catch (error) {
                     console.error('Error updating card:', error);
                 }
@@ -1110,7 +1111,8 @@ const ReviewScreen = ({
                                                             });
 
                                                             try {
-                                                                await onUpdateCard(currentCard.id, false, cardReviewType, 'review', getResponseTime());
+                                                                const action = reviewMode === 'synonym' ? 'synonym_practice' : 'review';
+                                                                await onUpdateCard(currentCard.id, false, cardReviewType, action, getResponseTime());
                                                             } catch (error) {
                                                                 console.error('Error updating card:', error);
                                                             }

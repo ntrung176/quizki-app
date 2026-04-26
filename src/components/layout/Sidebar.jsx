@@ -93,7 +93,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId }) =>
                 { id: 'KANJI_LIST', label: 'Danh sách Kanji', route: ROUTES.KANJI_LIST },
             ]
         },
-        { id: 'JLPT_TEST', icon: FileCheck, label: 'Luyện thi JLPT', route: ROUTES.JLPT_TEST },
+        { id: 'JLPT_TEST', icon: FileCheck, label: 'Luyện thi JLPT (WIP)', route: '#', disabled: true },
         { id: 'HUB', icon: Gamepad2, label: 'Trung tâm', route: ROUTES.HUB },
         { id: 'FORUM', icon: MessageCircle, label: 'Diễn đàn', route: ROUTES.FORUM },
         { id: 'PROFILE', icon: User, label: 'Trang cá nhân', route: `/profile/${userId || 'me'}` },
@@ -194,11 +194,16 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId }) =>
                                     </>
                                 ) : (
                                     <Link
-                                        to={item.route}
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                        className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${currentView === item.id
-                                            ? 'bg-indigo-100 dark:bg-indigo-600/20 text-indigo-600 dark:text-indigo-400 border border-indigo-300 dark:border-indigo-500/30'
-                                            : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50'
+                                        to={item.disabled ? '#' : item.route}
+                                        onClick={(e) => {
+                                            if (item.disabled) e.preventDefault();
+                                            else setIsMobileMenuOpen(false);
+                                        }}
+                                        className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${item.disabled
+                                            ? 'cursor-not-allowed opacity-50 text-gray-400'
+                                            : currentView === item.id
+                                                ? 'bg-indigo-100 dark:bg-indigo-600/20 text-indigo-600 dark:text-indigo-400 border border-indigo-300 dark:border-indigo-500/30'
+                                                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50'
                                             }`}
                                     >
                                         <item.icon className="w-5 h-5" />
@@ -348,17 +353,22 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId }) =>
                             </>
                         ) : (
                             <Link
-                                to={item.route}
-                                className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2.5 rounded-xl transition-all duration-200 group relative ${currentView === item.id
-                                    ? 'bg-sky-100 dark:bg-gradient-to-r dark:from-sky-600/30 dark:to-slate-600/20 text-sky-700 dark:text-white border border-sky-300 dark:border-sky-500/30 shadow-md dark:shadow-lg dark:shadow-sky-500/10'
-                                    : 'text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50'
+                                to={item.disabled ? '#' : item.route}
+                                onClick={(e) => {
+                                    if (item.disabled) e.preventDefault();
+                                }}
+                                className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2.5 rounded-xl transition-all duration-200 group relative ${item.disabled
+                                    ? 'cursor-not-allowed opacity-50 text-gray-400'
+                                    : currentView === item.id
+                                        ? 'bg-sky-100 dark:bg-gradient-to-r dark:from-sky-600/30 dark:to-slate-600/20 text-sky-700 dark:text-white border border-sky-300 dark:border-sky-500/30 shadow-md dark:shadow-lg dark:shadow-sky-500/10'
+                                        : 'text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50'
                                     }`}
                                 title={isCollapsed ? item.label : undefined}
                             >
-                                {currentView === item.id && (
+                                {currentView === item.id && !item.disabled && (
                                     <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-sky-500 rounded-r-full" />
                                 )}
-                                <item.icon className={`w-5 h-5 ${currentView === item.id ? 'text-sky-600 dark:text-sky-400' : 'group-hover:text-sky-500 dark:group-hover:text-sky-400'} transition-colors`} />
+                                <item.icon className={`w-5 h-5 ${currentView === item.id && !item.disabled ? 'text-sky-600 dark:text-sky-400' : item.disabled ? '' : 'group-hover:text-sky-500 dark:group-hover:text-sky-400'} transition-colors`} />
                                 {!isCollapsed && (
                                     <span className="font-medium">{item.label}</span>
                                 )}

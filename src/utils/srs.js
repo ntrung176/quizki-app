@@ -265,14 +265,7 @@ export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType =
         } else {
             updateData.correctStreak_synonym = 0;
         }
-        // Update synonym-specific SRS level for sorting (but don't touch main SRS)
-        const synInterval = typeof cardData.intervalIndex_synonym === 'number' ? cardData.intervalIndex_synonym : -1;
-        if (isCorrect && (synonymStreak + 1) >= 1) {
-            // Advance synonym SRS level for ordering purposes
-            updateData.intervalIndex_synonym = Math.min(synInterval + 1, SRS_INTERVALS.length - 1);
-            updateData.correctStreak_synonym = 0; // Reset streak after advancing
-        }
-        console.log(`[SRS] Synonym practice: streak ${synonymStreak} → ${isCorrect ? synonymStreak + 1 : 0} (main SRS unchanged)`);
+        console.log(`[SRS] Synonym practice: streak ${synonymStreak} → ${updateData.correctStreak_synonym} (main SRS unchanged)`);
         return updateData;
     }
 

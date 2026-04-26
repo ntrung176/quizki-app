@@ -497,7 +497,7 @@ const KanjiReviewScreen = () => {
 
                     {/* Flashcard */}
                     <div className="w-full cursor-pointer" style={{ perspective: '1000px' }} onClick={() => setIsFlipped(f => !f)}>
-                        <div style={{ position: 'relative', width: '100%', height: '360px', transformStyle: 'preserve-3d', transition: 'transform 0.6s cubic-bezier(0.4,0,0.2,1)', transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
+                        <div key={currentCard.id} style={{ position: 'relative', width: '100%', height: '360px', transformStyle: 'preserve-3d', transition: 'transform 0.6s cubic-bezier(0.4,0,0.2,1)', transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
                             {/* Front */}
                             <div className="bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 rounded-3xl border border-gray-200 dark:border-slate-700 shadow-2xl shadow-gray-200/50 dark:shadow-black/30"
                                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>

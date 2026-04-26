@@ -1,695 +1,231 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { GraduationCap, ArrowLeft } from 'lucide-react';
+import { Headphones, ArrowLeft, Volume2, CheckCircle, XCircle } from 'lucide-react';
 import { speakJapanese } from '../../utils/audio';
-import { shuffleArray, buildAdjNaAcceptedAnswers } from '../../utils/textProcessing';
+import { shuffleArray } from '../../utils/textProcessing';
 import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
 import FuriganaText from '../ui/FuriganaText';
-import { POS_TYPES } from '../../config/constants';
-
-// Helper function to detect mobile devices
-const isMobileDevice = () => {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
-};
 
 const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdateCard, onSaveCardAudio, onCompleteStudy, onBack }) => {
-    // Load saved progress from localStorage
-    const getSavedStudyProgress = () => {
-        try {
-            const saved = localStorage.getItem('study_progress');
-            if (saved) {
-                const data = JSON.parse(saved);
-                // Verify batchIndex matches
-                if (data.batchIndex === studySessionData.batchIndex) {
-                    return data;
-                }
-            }
-        } catch (e) { /* ignore */ }
-        return null;
-    };
-
-    const savedStudy = getSavedStudyProgress();
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(savedStudy?.currentQuestionIndex || 0);
-    const [selectedAnswer, setSelectedAnswer] = useState(null);
-    const [inputValue, setInputValue] = useState('');
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [vocabInput, setVocabInput] = useState('');
+    const [exampleInput, setExampleInput] = useState('');
     const [isRevealed, setIsRevealed] = useState(false);
-    const [feedback, setFeedback] = useState(null);
+    const [feedback, setFeedback] = useState(null); // { vocab: true/false, example: true/false }
     const [isProcessing, setIsProcessing] = useState(false);
-    const [completedCards, setCompletedCards] = useState(() => {
-        if (savedStudy?.completedCardIds) {
-            return new Set(savedStudy.completedCardIds);
-        }
-        return new Set();
-    });
-    const [multipleChoiceOptions, setMultipleChoiceOptions] = useState([]);
-    const inputRef = useRef(null);
-    const optionsRef = useRef({});
-    const cardShownTimeRef = useRef(Date.now()); // Track thời gian hiển thị card
 
-    const currentBatch = studySessionData.currentBatch || [];
-    const currentPhase = studySessionData.currentPhase || 'multipleChoice';
-    const currentCard = currentBatch[currentQuestionIndex];
-    const currentCardId = currentCard?.id;
+    // Default mode dictation fallback
+    const queue = studySessionData?.cards || [];
+    const currentCard = queue[currentQuestionIndex];
 
-    // Save study progress to localStorage
+    const vocabInputRef = useRef(null);
+
+    // Initial load setup
     useEffect(() => {
-        const progressData = {
-            batchIndex: studySessionData.batchIndex,
-            currentQuestionIndex,
-            completedCardIds: [...completedCards],
-            currentPhase,
-            timestamp: Date.now(),
-        };
-        localStorage.setItem('study_progress', JSON.stringify(progressData));
-    }, [currentQuestionIndex, completedCards, currentPhase, studySessionData.batchIndex]);
-
-    // Helper function to split text ignoring parentheses
-    const splitIgnoringParentheses = (text, delimiter) => {
-        const result = [];
-        let currentPart = '';
-        let depth = 0;
-
-        for (let i = 0; i < text.length; i++) {
-            const char = text[i];
-            if (char === '(' || char === '（') {
-                depth++;
-                currentPart += char;
-            } else if (char === ')' || char === '）') {
-                depth--;
-                currentPart += char;
-            } else if (char === delimiter && depth === 0) {
-                result.push(currentPart.trim());
-                currentPart = '';
-            } else {
-                currentPart += char;
-            }
-        }
-
-        if (currentPart.trim()) {
-            result.push(currentPart.trim());
-        }
-
-        return result;
-    };
-
-    // Format multiple meanings
-    const formatMultipleMeanings = (text) => {
-        if (!text) return text;
-
-        const numberSymbols = ['➀', '➁', '➂', '➃', '➄', '➅', '➆', '➇', '➈', '➉'];
-        let meanings = [];
-
-        const numberedMatches = [];
-        let depth = 0;
-
-        for (let i = 0; i < text.length; i++) {
-            const char = text[i];
-            if (char === '(' || char === '（') {
-                depth++;
-            } else if (char === ')' || char === '）') {
-                depth--;
-            } else if (depth === 0 && /^\d+\.\s/.test(text.substring(i))) {
-                const match = text.substring(i).match(/^(\d+\.\s+)/);
-                if (match) {
-                    numberedMatches.push({ start: i, number: parseInt(match[1]) });
-                }
-            }
-        }
-
-        if (numberedMatches.length >= 2) {
-            for (let i = 0; i < numberedMatches.length; i++) {
-                const start = numberedMatches[i].start;
-                const end = i < numberedMatches.length - 1 ? numberedMatches[i + 1].start : text.length;
-                const part = text.substring(start, end).trim();
-                if (part) {
-                    meanings.push(part);
-                }
-            }
-        }
-
-        if (meanings.length <= 1) {
-            if (text.includes('\n')) {
-                meanings = text.split('\n').map(m => m.trim()).filter(m => m);
-            } else if (text.includes(';')) {
-                meanings = splitIgnoringParentheses(text, ';')
-                    .map(m => m.replace(/\s+/g, ' ').trim())
-                    .filter(m => m);
-            } else {
-                meanings = [text];
-            }
-        }
-
-        if (meanings.length <= 1) {
-            return text;
-        }
-
-        return meanings.map((meaning, index) => {
-            const symbol = numberSymbols[index] || `${index + 1}.`;
-            return `${symbol} ${meaning}`;
-        }).join('\n');
-    };
-
-    // Early return if no card
-    if (!currentCard) {
-        return <div className="flex items-center justify-center h-full">
-            <p className="text-gray-500">Không có từ vựng nào để học.</p>
-        </div>;
-    }
-
-    // Reset when changing phase
-    useEffect(() => {
-        if (currentPhase === 'typing') {
-            setInputValue('');
-            setIsRevealed(false);
-            setFeedback(null);
-            if (inputRef.current && !isMobileDevice()) {
-                setTimeout(() => inputRef.current?.focus(), 100);
-            }
-        }
-        cardShownTimeRef.current = Date.now(); // Reset timer khi đổi câu
-    }, [currentPhase, currentQuestionIndex]);
-
-    // Keyboard shortcuts for multiple choice (1-2-3-4)
-    useEffect(() => {
-        if (currentPhase !== 'multipleChoice' || isRevealed || isProcessing || multipleChoiceOptions.length === 0) return;
-
-        const handleMCKeyDown = (e) => {
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-            const keyNum = parseInt(e.key);
-            if (keyNum >= 1 && keyNum <= multipleChoiceOptions.length) {
-                e.preventDefault();
-                const buttons = document.querySelectorAll('[data-mc-option]');
-                if (buttons[keyNum - 1]) buttons[keyNum - 1].click();
-            }
-        };
-
-        window.addEventListener('keydown', handleMCKeyDown);
-        return () => window.removeEventListener('keydown', handleMCKeyDown);
-    }, [currentPhase, isRevealed, isProcessing, multipleChoiceOptions]);
-
-    // Reset completedCards when starting new batch
-    useEffect(() => {
-        if (currentPhase === 'multipleChoice' && currentQuestionIndex === 0 && studySessionData.batchIndex > 0) {
-            // Keep completedCards from previous batches
-        }
-    }, [currentPhase, currentQuestionIndex, studySessionData.batchIndex]);
-
-    const normalizeAnswer = (text) => text.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').replace(/\s+/g, '').toLowerCase();
-
-    // Generate multiple choice options
-    useEffect(() => {
-        if (!currentCard || currentPhase !== 'multipleChoice') {
-            setMultipleChoiceOptions([]);
-            return;
-        }
-
-        if (!optionsRef.current[currentCardId]) {
-            const correctAnswer = currentCard.frontWithFurigana || currentCard.front;
-            const currentPos = currentCard.pos;
-
-            const allValidCards = allCards
-                .filter(card =>
-                    card.id !== currentCard.id &&
-                    card.front &&
-                    card.front.trim() !== '' &&
-                    normalizeAnswer(card.front) !== normalizeAnswer(correctAnswer)
-                );
-
-            const samePosCards = currentPos
-                ? allValidCards.filter(card => card.pos === currentPos)
-                : [];
-
-            const correctLength = correctAnswer.length;
-            const similarLengthCards = allValidCards.filter(card =>
-                Math.abs(card.front.length - correctLength) <= 2
-            );
-
-            let candidates = [];
-
-            if (samePosCards.length > 0) {
-                candidates.push(...samePosCards.slice(0, 3));
-            }
-
-            if (candidates.length < 3) {
-                const remaining = similarLengthCards.filter(card =>
-                    !candidates.find(c => c.id === card.id)
-                );
-                candidates.push(...remaining.slice(0, 3 - candidates.length));
-            }
-
-            if (candidates.length < 3) {
-                const remaining = allValidCards.filter(card =>
-                    !candidates.find(c => c.id === card.id)
-                );
-                candidates.push(...remaining.slice(0, 3 - candidates.length));
-            }
-
-            const shuffledCandidates = shuffleArray(candidates);
-            const wrongOptions = shuffledCandidates
-                .slice(0, 3)
-                .map(card => card.frontWithFurigana || card.front)
-                .filter((front, index, self) => self.findIndex(f => normalizeAnswer(f) === normalizeAnswer(front)) === index);
-
-            while (wrongOptions.length < 3) {
-                wrongOptions.push('...');
-            }
-
-            const options = [correctAnswer, ...wrongOptions];
-            optionsRef.current[currentCardId] = shuffleArray([...options]);
-        }
-
-        setMultipleChoiceOptions(optionsRef.current[currentCardId] || []);
-    }, [currentCardId, currentPhase, currentCard, allCards]);
-
-    // Handle multiple choice answer
-    const handleMultipleChoiceAnswer = async (selectedOption) => {
-        if (isProcessing || isRevealed) return;
-
-        setIsProcessing(true);
-        setSelectedAnswer(selectedOption);
-
-        try {
-            const isCorrect = normalizeAnswer(selectedOption) === normalizeAnswer(currentCard.front);
-            setFeedback(isCorrect ? 'correct' : 'incorrect');
-            setIsRevealed(true);
-
-            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-
-            onUpdateCard(currentCard.id, isCorrect, 'back', 'study', Date.now() - cardShownTimeRef.current).catch(error => {
-                console.error('Failed to update card:', error);
-            });
-
-            if (isCorrect) {
-                playCorrectSound();
-                setStudySessionData(prev => ({
-                    ...prev,
-                    learning: prev.learning.filter(c => c.id !== currentCard.id),
-                    reviewing: [...prev.reviewing.filter(c => c.id !== currentCard.id), currentCard]
-                }));
-            } else {
-                playIncorrectSound();
-                setStudySessionData(prev => ({
-                    ...prev,
-                    learning: [...prev.learning.filter(c => c.id !== currentCard.id), currentCard]
-                }));
-            }
-
-            setTimeout(() => {
-                setIsProcessing(false);
-                if (currentQuestionIndex < currentBatch.length - 1) {
-                    setCurrentQuestionIndex(currentQuestionIndex + 1);
-                    setSelectedAnswer(null);
-                    setIsRevealed(false);
-                    setFeedback(null);
-                } else {
-                    setStudySessionData(prev => ({
-                        ...prev,
-                        currentPhase: 'typing'
-                    }));
-                    setCurrentQuestionIndex(0);
-                    setSelectedAnswer(null);
-                    setIsRevealed(false);
-                    setFeedback(null);
-                }
-            }, 800);
-        } catch (error) {
-            console.error('Error in MC handler:', error);
-            // Reset state to allow retry
-            setIsProcessing(false);
-            setIsRevealed(false);
-            setFeedback(null);
-            setSelectedAnswer(null);
-        }
-    };
-
-    // Handle typing answer
-    const handleTypingAnswer = async () => {
-        if (isProcessing || !inputValue.trim()) return;
-
-        const userAnswer = normalizeAnswer(inputValue);
-
-        const rawFront = currentCard.front;
-        const kanjiPart = rawFront.split('（')[0].split('(')[0];
-        const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
-        const kanaPart = kanaPartMatch ? kanaPartMatch[1] : '';
-
-        const normalizedKanji = normalizeAnswer(kanjiPart);
-        const normalizedKana = normalizeAnswer(kanaPart);
-        const normalizedFull = normalizeAnswer(rawFront);
-
-        let isCorrect = userAnswer === normalizedKanji || (kanaPart && userAnswer === normalizedKana) || userAnswer === normalizedFull;
-
-        if (!isCorrect && currentCard.pos === 'adj_na') {
-            const accepted = new Set([
-                ...buildAdjNaAcceptedAnswers(normalizedKanji),
-                ...(kanaPart ? buildAdjNaAcceptedAnswers(normalizedKana) : []),
-                ...buildAdjNaAcceptedAnswers(normalizedFull),
-            ]);
-            isCorrect = accepted.has(userAnswer);
-        }
-
-        setIsProcessing(true);
-
-        try {
-            setFeedback(isCorrect ? 'correct' : 'incorrect');
-            setIsRevealed(true);
-            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-
-            onUpdateCard(currentCard.id, isCorrect, 'back', 'study', Date.now() - cardShownTimeRef.current).catch(error => {
-                console.error('Failed to update card:', error);
-            });
-
-            if (isCorrect) {
-                playCorrectSound();
-                setStudySessionData(prev => ({
-                    ...prev,
-                    learning: prev.learning.filter(c => c.id !== currentCard.id),
-                    reviewing: [...prev.reviewing.filter(c => c.id !== currentCard.id), currentCard]
-                }));
-                setCompletedCards(prev => new Set([...prev, currentCard.id]));
-            } else {
-                playIncorrectSound();
-                setStudySessionData(prev => ({
-                    ...prev,
-                    learning: [...prev.learning.filter(c => c.id !== currentCard.id), currentCard]
-                }));
-            }
-
-            setTimeout(() => {
-                setIsProcessing(false);
-
-                if (currentQuestionIndex < currentBatch.length - 1) {
-                    setCurrentQuestionIndex(currentQuestionIndex + 1);
-                    setInputValue('');
-                    setIsRevealed(false);
-                    setFeedback(null);
-                } else {
-                    createNextBatch();
-                }
-            }, 800);
-        } catch (error) {
-            console.error('Error in typing handler:', error);
-            setIsProcessing(false);
-            setIsRevealed(false);
-            setFeedback(null);
-        }
-    };
-
-    // Function to create next batch
-    const createNextBatch = () => {
-        const remainingNoSrs = studySessionData.allNoSrsCards.filter(card =>
-            !completedCards.has(card.id)
-        );
-
-        const learning = studySessionData.learning.filter(card =>
-            remainingNoSrs.some(c => c.id === card.id)
-        );
-        const newCards = remainingNoSrs.filter(card =>
-            !learning.some(c => c.id === card.id) &&
-            !studySessionData.reviewing.some(c => c.id === card.id)
-        );
-        const reviewing = studySessionData.reviewing.filter(card =>
-            remainingNoSrs.some(c => c.id === card.id) &&
-            !learning.some(c => c.id === card.id)
-        );
-
-        if (remainingNoSrs.length === 0 && studySessionData.learning.length > 0) {
-            const learningIds = new Set(studySessionData.learning.map(c => c.id));
-            setCompletedCards(prev => {
-                const newSet = new Set(prev);
-                learningIds.forEach(id => newSet.delete(id));
-                return newSet;
-            });
-
-            const nextBatch = shuffleArray([...studySessionData.learning]).slice(0, Math.min(5, studySessionData.learning.length));
-
-            setStudySessionData(prev => ({
-                ...prev,
-                currentBatch: nextBatch,
-                currentPhase: 'multipleChoice',
-                batchIndex: prev.batchIndex + 1
-            }));
+        if (!currentCard && queue.length > 0) {
             setCurrentQuestionIndex(0);
-            setInputValue('');
-            setIsRevealed(false);
-            setFeedback(null);
-            return;
+        }
+    }, [queue, currentCard]);
+
+    // Reset inputs when moving to next card
+    useEffect(() => {
+        setVocabInput('');
+        setExampleInput('');
+        setIsRevealed(false);
+        setFeedback(null);
+        if (vocabInputRef.current) {
+            setTimeout(() => vocabInputRef.current?.focus(), 100);
         }
 
-        if (remainingNoSrs.length === 0) {
-            launchFireworks();
-            playCompletionFanfare();
-            onCompleteStudy();
-            return;
+        // Auto-play vocab audio initially if setting permits, for now just auto-play:
+        if (currentCard && !isRevealed) {
+            setTimeout(() => {
+                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+            }, 300);
+        }
+    }, [currentQuestionIndex, currentCard]);
+
+    const normalizeText = (text) => {
+        if (!text) return '';
+        // Remove furigana parentheses, punctuation, spaces
+        return text
+            .replace(/（[^）]*）/g, '')
+            .replace(/\([^)]*\)/g, '')
+            .replace(/[。、！？\s]/g, '')
+            .toLowerCase();
+    };
+
+    const handleCheckAnswer = async () => {
+        if (isProcessing) return;
+        setIsProcessing(true);
+
+        const vocabCorrect = normalizeText(vocabInput) === normalizeText(currentCard.front) || normalizeText(vocabInput) === normalizeText(currentCard.reading);
+
+        let exampleCorrect = true;
+        if (currentCard.example) {
+            exampleCorrect = normalizeText(exampleInput) === normalizeText(currentCard.example);
         }
 
-        const nextBatch = [];
-        if (learning.length > 0) {
-            nextBatch.push(...shuffleArray(learning).slice(0, Math.min(5, learning.length)));
-        }
-        if (nextBatch.length < 5 && newCards.length > 0) {
-            const shuffledNew = shuffleArray(newCards);
-            nextBatch.push(...shuffledNew.slice(0, Math.min(5 - nextBatch.length, shuffledNew.length)));
-        }
-        if (nextBatch.length < 5 && reviewing.length > 0) {
-            const shuffledReviewing = shuffleArray(reviewing);
-            nextBatch.push(...shuffledReviewing.slice(0, Math.min(5 - nextBatch.length, shuffledReviewing.length)));
-        }
+        const completelyCorrect = vocabCorrect && exampleCorrect;
 
-        if (nextBatch.length === 0) {
-            launchFireworks();
-            playCompletionFanfare();
-            onCompleteStudy();
+        setFeedback({ vocab: vocabCorrect, example: exampleCorrect, completelyCorrect });
+        setIsRevealed(true);
+
+        if (completelyCorrect) {
+            playCorrectSound();
+            // Also update SRS if needed? The user didn't mention SRS for Dictation, it could just be a practice mode.
+            // But we can call onUpdateCard with a 'dictation' type if needed.
+            // onUpdateCard(currentCard.id, completelyCorrect, 'back', 'dictation', 0);
         } else {
-            setStudySessionData(prev => ({
-                ...prev,
-                currentBatch: nextBatch,
-                currentPhase: 'multipleChoice',
-                batchIndex: prev.batchIndex + 1
-            }));
-            setCurrentQuestionIndex(0);
-            setInputValue('');
-            setIsRevealed(false);
-            setFeedback(null);
+            playIncorrectSound();
+        }
+
+        setIsProcessing(false);
+    };
+
+    const handleNext = () => {
+        if (currentQuestionIndex < queue.length - 1) {
+            setCurrentQuestionIndex(currentQuestionIndex + 1);
+        } else {
+            launchFireworks();
+            playCompletionFanfare();
+            if (onCompleteStudy) onCompleteStudy();
         }
     };
 
     if (!currentCard) {
-        onCompleteStudy();
-        return null;
+        return (
+            <div className="flex flex-col items-center justify-center h-full">
+                <p className="text-gray-500 mb-4">Không có thẻ nào để luyện nghe.</p>
+                <button onClick={onBack} className="btn-primary">Trở lại</button>
+            </div>
+        );
     }
 
-    const progress = currentPhase === 'multipleChoice'
-        ? ((currentQuestionIndex + 1) / currentBatch.length) * 50
-        : 50 + ((currentQuestionIndex + 1) / currentBatch.length) * 50;
-
-    const remainingCards = studySessionData.allNoSrsCards.filter(card => !completedCards.has(card.id)).length;
-    const totalCards = studySessionData.allNoSrsCards.length;
-
-    // Keyboard shortcut for multiple choice: press 1-4 to select
-    useEffect(() => {
-        const handleKeyDown = (e) => {
-            if (currentPhase !== 'multipleChoice' || isRevealed || isProcessing) return;
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-            const key = parseInt(e.key);
-            if (key >= 1 && key <= 4 && multipleChoiceOptions[key - 1]) {
-                e.preventDefault();
-                const btn = document.querySelector(`[data-mc-option="${key - 1}"]`);
-                if (btn) btn.click();
-            }
-        };
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [currentPhase, isRevealed, isProcessing, multipleChoiceOptions]);
+    const progress = ((currentQuestionIndex) / queue.length) * 100;
 
     return (
         <div className="relative w-full h-full flex flex-col justify-center">
             <div className="w-[800px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3">
-                {/* Back Button - outside frame */}
                 {onBack && (
                     <div className="w-full flex justify-start mb-1">
                         <button
                             onClick={onBack}
                             className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105"
-                            title="Trở lại"
                         >
                             <ArrowLeft className="w-5 h-5" />
-                            <span className="text-sm font-medium">Trở lại</span>
+                            <span className="text-sm font-medium ml-1">Trở lại</span>
                         </button>
                     </div>
                 )}
-                <div className="w-full flex flex-col justify-center items-center space-y-3 p-4 border-2 border-teal-400/30 rounded-2xl">
-                    {/* Progress bar */}
-                    <div className="w-full space-y-1 flex-shrink-0">
-                        <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
-                            <span className="flex items-center gap-1">
-                                <GraduationCap className="w-3 h-3 text-teal-500" />
-                                {currentPhase === 'multipleChoice' ? 'Trắc nghiệm' : 'Tự luận'} - Batch {studySessionData.batchIndex + 1}
+
+                <div className="w-full flex flex-col justify-center items-center space-y-4 p-5 md:p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl">
+                    <div className="w-full space-y-2 flex-shrink-0">
+                        <div className="flex justify-between items-center text-sm font-bold text-indigo-500 dark:text-indigo-400">
+                            <span className="flex items-center gap-2">
+                                <Headphones className="w-5 h-5" />
+                                DICTATION
                             </span>
-                            <span>{currentQuestionIndex + 1} / {currentBatch.length}</span>
+                            <span className="text-gray-500">{currentQuestionIndex + 1} / {queue.length}</span>
                         </div>
-                        <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                            <div className="h-full bg-teal-500 progress-bar rounded-full" style={{ width: `${progress}%` }}></div>
-                        </div>
-                        <div className="text-xs text-right text-teal-600 dark:text-teal-400">
-                            Còn {remainingCards}/{totalCards} từ mới
+                        <div className="h-2 w-full bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                            <div className="h-full bg-indigo-500 rounded-full transition-all duration-300" style={{ width: `${progress}%` }}></div>
                         </div>
                     </div>
 
-                    {/* Main Card Area */}
-                    <div className="w-full bg-slate-800 dark:bg-slate-900 rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center relative overflow-hidden min-h-[400px] border-2 border-teal-500/50">
-                        {/* Header with mode label */}
-                        <div className="w-full flex justify-between items-center absolute top-4 left-0 px-4">
-                            <div className="flex items-center gap-2">
-                                <span className="text-teal-500 text-xl">🎓</span>
-                                <span className="text-white font-bold text-sm">
-                                    {currentPhase === 'multipleChoice' ? 'Chọn đáp án đúng' : 'Nhập từ vựng'}
-                                </span>
-                            </div>
-                        </div>
-
-                        {/* Question Display */}
-                        <div className="py-8 w-full">
-                            <div className={`flex items-center gap-8 justify-center`}>
-                                {currentCard.imageBase64 && (
-                                    <div className="shrink-0">
-                                        <img
-                                            src={currentCard.imageBase64}
-                                            alt={currentCard.front}
-                                            className="w-36 h-36 md:w-44 md:h-44 rounded-xl object-cover border border-slate-500/30"
-                                        />
-                                    </div>
-                                )}
-                                <div className={currentCard.imageBase64 ? 'text-center flex-1 min-w-0' : 'text-center'}>
-                                    <div className="quiz-question-text-lg font-bold text-white whitespace-pre-line break-words text-auto-fit">
-                                        {formatMultipleMeanings(currentCard.back)}
-                                    </div>
-                                    {currentCard.sinoVietnamese && (
-                                        <p className="text-base font-medium text-yellow-300 mt-2">
-                                            <span className="text-slate-400 font-normal">Hán Việt: </span>{currentCard.sinoVietnamese}
-                                        </p>
-                                    )}
-                                    {currentCard.pos && (
-                                        <div className="flex justify-center mb-1">
-                                            <span className="inline-block px-2 py-0.5 bg-slate-600/60 rounded-md text-xs font-medium text-teal-300">{POS_TYPES[currentCard.pos]?.label || currentCard.pos}</span>
+                    <div className="w-full space-y-6 mt-4">
+                        {/* Từ vựng */}
+                        <div className="bg-slate-50 dark:bg-slate-800/50 p-4 md:p-6 rounded-2xl border border-gray-200 dark:border-slate-700">
+                            <div className="flex items-center gap-4 mb-4">
+                                <button
+                                    onClick={() => speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null)}
+                                    className="p-4 bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-900/50 dark:hover:bg-indigo-800/50 text-indigo-600 dark:text-indigo-400 rounded-full transition-all flex-shrink-0 shadow-sm"
+                                >
+                                    <Volume2 className="w-8 h-8" />
+                                </button>
+                                <div className="flex-1">
+                                    <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 mb-2">từ vựng</h3>
+                                    <input
+                                        ref={vocabInputRef}
+                                        type="text"
+                                        value={vocabInput}
+                                        onChange={e => setVocabInput(e.target.value)}
+                                        disabled={isRevealed}
+                                        placeholder="Nhập từ vựng nghe được..."
+                                        className="w-full p-3 font-japanese text-lg bg-white dark:bg-slate-900 border-2 border-gray-200 dark:border-slate-700 rounded-xl focus:border-indigo-500 outline-none transition-colors"
+                                        onKeyDown={e => e.key === 'Enter' && (!currentCard.example || exampleInput) && !isRevealed && handleCheckAnswer()}
+                                    />
+                                    {isRevealed && (
+                                        <div className={`mt-3 p-3 rounded-xl border flex items-center gap-3 ${feedback?.vocab ? 'bg-green-50 border-green-200 text-green-700 dark:bg-green-900/20' : 'bg-red-50 border-red-200 text-red-700 dark:bg-red-900/20'}`}>
+                                            {feedback?.vocab ? <CheckCircle className="w-5 h-5 flex-shrink-0" /> : <XCircle className="w-5 h-5 flex-shrink-0" />}
+                                            <div className="font-japanese text-lg font-medium"><FuriganaText text={currentCard.frontWithFurigana || currentCard.front} /></div>
                                         </div>
                                     )}
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    {/* Answer Area */}
-                    <div className="w-full space-y-3">
-                        {currentPhase === 'multipleChoice' ? (
-                            <>
-                                <div className="grid grid-cols-2 gap-2">
-                                    {multipleChoiceOptions.map((option, idx) => (
-                                        <button
-                                            key={idx}
-                                            data-mc-option={idx}
-                                            onClick={() => handleMultipleChoiceAnswer(option)}
-                                            disabled={isProcessing || isRevealed}
-                                            className={`p-3 md:p-4 rounded-xl font-bold transition-all text-left border-2 flex items-center gap-3 mc-option-text
-                                    ${selectedAnswer === option
-                                                    ? feedback === 'correct'
-                                                        ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'
-                                                        : 'bg-red-500 dark:bg-red-600 text-white shadow-lg border-red-600 dark:border-red-700'
-                                                    : isRevealed && normalizeAnswer(option) === normalizeAnswer(currentCard.front)
-                                                        ? 'bg-green-500 dark:bg-green-600 text-white shadow-lg border-green-600 dark:border-green-700'
-                                                        : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:bg-teal-50 dark:hover:bg-teal-900/30 hover:border-teal-400'
-                                                }
-                                    ${isProcessing || isRevealed ? 'cursor-not-allowed' : 'cursor-pointer hover:scale-[1.02]'}
-                                `}
-                                        >
-                                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/20 text-xs font-bold flex-shrink-0">{idx + 1}</span>
-                                            <span className="font-japanese"><FuriganaText text={option} /></span>
-                                        </button>
-                                    ))}
-                                </div>
-                                <p className="text-[10px] text-gray-400 dark:text-gray-500 text-center mt-1 opacity-70">⌨️ Nhấn phím 1-4 để chọn nhanh</p>
-                            </>
-                        ) : (
-                            <div className="space-y-3">
-                                <div className="relative">
-                                    <input
-                                        ref={inputRef}
-                                        type="text"
-                                        inputMode="text"
-                                        autoComplete="off"
-                                        autoCapitalize="off"
-                                        autoCorrect="off"
-                                        spellCheck="false"
-                                        value={inputValue}
-                                        onChange={(e) => setInputValue(e.target.value)}
-                                        onKeyDown={(e) => {
-                                            if (e.key === 'Enter' && !isRevealed) {
-                                                handleTypingAnswer();
-                                            }
-                                        }}
-                                        onFocus={(e) => {
-                                            if (window.innerWidth <= 768) {
-                                                setTimeout(() => {
-                                                    e.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
-                                                }, 300);
-                                            }
-                                        }}
-                                        disabled={isRevealed || isProcessing}
-                                        className={`w-full px-4 py-3 text-lg font-semibold rounded-xl border-2 transition-all outline-none shadow-md text-center
-                                    ${feedback === 'correct'
-                                                ? 'border-green-400 dark:border-green-600 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300'
-                                                : feedback === 'incorrect'
-                                                    ? 'border-red-400 dark:border-red-600 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300'
-                                                    : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:border-teal-500 dark:focus:border-teal-400 focus:ring-4 focus:ring-teal-500/10'
-                                            }
-                                `}
-                                        placeholder="Nhập từ vựng tiếng Nhật..."
-                                    />
-                                </div>
-
-                                {isRevealed && (
-                                    <div className={`p-4 rounded-xl border ${feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800'}`}>
-                                        <p className={`font-bold text-base text-center ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'}`}>
-                                            {feedback === 'correct' ? '✓ Chính xác!' : <><span className="font-japanese">✗ Đáp án đúng: <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} /></span></>}
-                                        </p>
-                                    </div>
-                                )}
-
-                                {!isRevealed && (
+                        {/* Câu ví dụ */}
+                        {currentCard.example && (
+                            <div className="bg-slate-50 dark:bg-slate-800/50 p-4 md:p-6 rounded-2xl border border-gray-200 dark:border-slate-700">
+                                <div className="flex items-center gap-4 mb-4">
                                     <button
-                                        onClick={handleTypingAnswer}
-                                        disabled={isProcessing || !inputValue.trim()}
-                                        className="w-full py-3 rounded-xl font-bold text-base shadow-lg transition-all flex items-center justify-center bg-teal-600 text-white hover:bg-teal-700 disabled:bg-gray-300 disabled:text-gray-500 disabled:shadow-none"
+                                        onClick={() => speakJapanese(currentCard.example)} // Uses default TTS for example, will cache if setup
+                                        className="p-4 bg-teal-100 hover:bg-teal-200 dark:bg-teal-900/50 dark:hover:bg-teal-800/50 text-teal-600 dark:text-teal-400 rounded-full transition-all flex-shrink-0 shadow-sm"
                                     >
-                                        Kiểm tra
+                                        <Volume2 className="w-8 h-8" />
                                     </button>
-                                )}
+                                    <div className="flex-1">
+                                        <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 mb-2">câu ví dụ</h3>
+                                        <input
+                                            type="text"
+                                            value={exampleInput}
+                                            onChange={e => setExampleInput(e.target.value)}
+                                            disabled={isRevealed}
+                                            placeholder="Nhập câu ví dụ nghe được..."
+                                            className="w-full p-3 font-japanese text-lg bg-white dark:bg-slate-900 border-2 border-gray-200 dark:border-slate-700 rounded-xl focus:border-teal-500 outline-none transition-colors"
+                                            onKeyDown={e => e.key === 'Enter' && vocabInput && !isRevealed && handleCheckAnswer()}
+                                        />
+                                        {isRevealed && (
+                                            <div className={`mt-3 p-3 text-sm rounded-xl border flex flex-col gap-1 ${feedback?.example ? 'bg-green-50 border-green-200 text-green-700 dark:bg-green-900/20' : 'bg-red-50 border-red-200 text-red-700 dark:bg-red-900/20'}`}>
+                                                <div className="flex items-center gap-2">
+                                                    {feedback?.example ? <CheckCircle className="w-5 h-5 flex-shrink-0" /> : <XCircle className="w-5 h-5 flex-shrink-0" />}
+                                                    <span className="font-japanese font-medium leading-relaxed">{currentCard.example}</span>
+                                                </div>
+                                                <div className="pl-7 text-xs opacity-80">{currentCard.exampleMeaning}</div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
                             </div>
                         )}
 
-                        {/* Next button for typing phase when revealed */}
-                        {currentPhase === 'typing' && isRevealed && (
-                            <button
-                                onClick={async () => {
-                                    if (isProcessing) return;
-                                    setIsProcessing(true);
-
-                                    if (currentQuestionIndex < currentBatch.length - 1) {
-                                        setCurrentQuestionIndex(currentQuestionIndex + 1);
-                                        setInputValue('');
-                                        setIsRevealed(false);
-                                        setFeedback(null);
-                                        setIsProcessing(false);
-                                    } else {
-                                        createNextBatch();
-                                        setIsProcessing(false);
-                                    }
-                                }}
-                                disabled={isProcessing}
-                                className="w-full py-3 rounded-xl font-bold text-base shadow-lg transition-all flex items-center justify-center bg-teal-600 text-white hover:bg-teal-700 disabled:bg-gray-300 disabled:text-gray-500"
-                            >
-                                {currentQuestionIndex < currentBatch.length - 1 ? 'Tiếp theo →' : 'Batch tiếp theo →'}
-                            </button>
+                        {/* Meaning Revealed */}
+                        {isRevealed && (
+                            <div className="w-full p-4 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-slate-800 dark:to-indigo-900/20 rounded-xl border border-indigo-100 dark:border-indigo-800/50 text-center animate-fade-in">
+                                <h4 className="text-xs uppercase font-bold text-indigo-400 mb-1">ý nghĩa</h4>
+                                <p className="text-lg font-bold text-gray-800 dark:text-gray-200">{currentCard.sinoViet || currentCard.meaning}</p>
+                                {currentCard.sinoViet && <p className="text-sm text-gray-500 mt-1">{currentCard.meaning}</p>}
+                            </div>
                         )}
+
+                        <div className="pt-4">
+                            {!isRevealed ? (
+                                <button
+                                    onClick={handleCheckAnswer}
+                                    disabled={!vocabInput.trim() || isProcessing}
+                                    className="w-full py-4 rounded-xl font-bold text-lg shadow-lg transition-all flex items-center justify-center bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-indigo-500/30 disabled:bg-gray-300 disabled:text-gray-500 disabled:shadow-none"
+                                >
+                                    Kiểm tra
+                                </button>
+                            ) : (
+                                <button
+                                    onClick={handleNext}
+                                    className="w-full py-4 rounded-xl font-bold text-lg shadow-lg transition-all flex items-center justify-center bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-indigo-500/30"
+                                >
+                                    {currentQuestionIndex < queue.length - 1 ? 'Tiếp tục →' : 'Hoàn thành 🎉'}
+                                </button>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
