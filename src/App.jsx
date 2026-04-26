@@ -2063,18 +2063,30 @@ const App = () => {
 
 
     // --- BOOK VOCABULARY LOOKUP ---
+    // Cache các bài học trong phiên làm việc để tránh query db liên tục
+    const cachedLessonsRef = useRef(null);
+    const cachedLessonsErrorRef = useRef(false);
+
     // Tìm từ vựng trong bộ sách (books/chapters/lessons) thay vì sharedVocab
     const lookupBookVocab = async (frontText) => {
         try {
             const key = frontText.trim();
             if (!key) return null;
 
-            // Lấy tất cả vocab từ tất cả các lessons bằng collectionGroup
-            const lessonsQuery = query(collectionGroup(db, 'lessons'));
-            const lessonsSnap = await getDocs(lessonsQuery);
+            // Nếu đã từng bị lỗi quyền hoặc có lỗi khác, bỏ qua query tĩnh để đỡ lỗi Firebase
+            if (cachedLessonsErrorRef.current) return null;
 
-            for (const docSnap of lessonsSnap.docs) {
-                const lessonData = docSnap.data();
+            let lessonsDocs = cachedLessonsRef.current;
+
+            if (!lessonsDocs) {
+                // Lấy tất cả vocab từ tất cả các lessons bằng collectionGroup
+                const lessonsQuery = query(collectionGroup(db, 'lessons'));
+                const lessonsSnap = await getDocs(lessonsQuery);
+                lessonsDocs = lessonsSnap.docs.map(doc => doc.data());
+                cachedLessonsRef.current = lessonsDocs; // Lưu cache lại
+            }
+
+            for (const lessonData of lessonsDocs) {
                 if (lessonData.vocab && Array.isArray(lessonData.vocab)) {
                     const match = lessonData.vocab.find(v => {
                         const word = v.word || v.front || '';
@@ -2089,7 +2101,7 @@ const App = () => {
                         // Chuyển đổi format của sách sang format của thẻ User
                         return {
                             front: match.word || match.front || key,
-                            back: match.meaning || match.back || '',
+                            meaning: match.meaning || match.back || match.meaningVi || match.vietnamese || '',
                             synonym: match.synonym || '',
                             example: match.example || '',
                             exampleMeaning: match.exampleMeaning || '',
@@ -2110,7 +2122,12 @@ const App = () => {
             console.log(`📚 Không tìm thấy "${key}" trong sách - Gọi AI`);
             return null;
         } catch (e) {
-            console.warn('Book vocab lookup error:', e);
+            if (e?.code === 'permission-denied' || e?.message?.includes('permissions')) {
+                console.error("🔥 Lỗi quyền Firebase khi đọc sách (collectionGroup 'lessons'). Bạn cần cập nhật Rules trên Firebase Console. Tính năng đọc sách tạm tắt.");
+                cachedLessonsErrorRef.current = true;
+            } else {
+                console.warn('Book vocab lookup error:', e);
+            }
             return null;
         }
     };
@@ -2119,43 +2136,38 @@ const App = () => {
     const handleGeminiAssist = async (frontText, contextPos = '', contextLevel = '', isRetry = false) => {
         if (!frontText) return null;
 
-        // === BƯỚC 1: Kiểm tra Book Vocabulary database trước (chỉ lần đầu) ===
-        if (!isRetry) {
-            try {
-                const cachedVocab = await lookupBookVocab(frontText);
-                if (cachedVocab) {
-                    const result = { ...cachedVocab };
+        // === BƯỚC 1: Luôn kiểm tra Book Vocabulary database trước ===
+        try {
+            const cachedVocab = await lookupBookVocab(frontText);
+            if (cachedVocab) {
+                const result = { ...cachedVocab };
 
-                    if (result.pos) result.pos = normalizePosKey(result.pos);
+                if (result.pos) result.pos = normalizePosKey(result.pos);
 
-                    if (contextPos && contextPos !== result.pos) {
-                        console.log(`📚 Book HIT: ghi đè pos="${result.pos}" → "${contextPos}" theo user chọn`);
-                        result.pos = contextPos;
-                    }
-                    if (contextLevel && contextLevel !== result.level) {
-                        console.log(`📚 Book HIT: ghi đè level="${result.level}" → "${contextLevel}" theo user chọn`);
-                        result.level = contextLevel;
-                    }
-
-                    // Vẫn trừ credit mỗi khi bấm nút theo yêu cầu của user
-                    const isUnlimited = isAdmin || adminConfig?.moderators?.includes(userId);
-                    if (!isUnlimited && settingsDocPath) {
-                        try {
-                            const newCredits = Math.max(0, (profile?.aiCreditsRemaining || 0) - 1);
-                            await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: newCredits });
-                            setProfile(prev => ({ ...prev, aiCreditsRemaining: newCredits }));
-                            console.log(`💳 BookVocab HIT - Vẫn tính AI Credits: ${newCredits} còn lại`);
-                        } catch (e) { console.warn('Deduct credit error:', e); }
-                    }
-
-                    console.log(`📚 ✅ Dùng dữ liệu từ sách cho "${frontText}" - trừ 1 credit`);
-                    return result;
+                if (contextPos && contextPos !== result.pos) {
+                    console.log(`📚 Book HIT: ghi đè pos="${result.pos}" → "${contextPos}" theo user chọn`);
+                    result.pos = contextPos;
                 }
-            } catch (e) {
-                console.warn('Book vocab lookup error:', e);
+                if (contextLevel && contextLevel !== result.level) {
+                    console.log(`📚 Book HIT: ghi đè level="${result.level}" → "${contextLevel}" theo user chọn`);
+                    result.level = contextLevel;
+                }
+
+                // Luôn trừ credit mỗi khi bấm nút theo yêu cầu của user
+                if (!isRetry && settingsDocPath) {
+                    try {
+                        const newCredits = Math.max(0, (profile?.aiCreditsRemaining || 0) - 1);
+                        await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: newCredits });
+                        setProfile(prev => ({ ...prev, aiCreditsRemaining: newCredits }));
+                        console.log(`💳 BookVocab HIT - Vẫn tính AI Credits: ${newCredits} còn lại`);
+                    } catch (e) { console.warn('Deduct credit error:', e); }
+                }
+
+                console.log(`📚 ✅ Dùng dữ liệu từ sách cho "${frontText}"`);
+                return result;
             }
-        } else {
-            console.log(`🔄 Retry mode: gọi AI trực tiếp cho "${frontText}" - KHÔNG trừ credit thêm lần nữa`);
+        } catch (e) {
+            console.warn('Book vocab lookup error:', e);
         }
 
         // === BƯỚC 2: Tạo prompt thống nhất từ aiProvider ===
@@ -2211,8 +2223,8 @@ const App = () => {
                     }
                 } catch (e) { console.warn('Lookup Hán Việt error:', e); }
 
-                // Trừ 1 credit: CHỈ trừ khi lần đầu (không phải retry), admin/mod không trừ
-                if (!isRetry && !isUnlimited && settingsDocPath) {
+                // Trừ 1 credit: CHỈ trừ khi lần đầu (không phải retry), trừ cho TẤT CẢ (gồm cả admin) để hiển thị số đúng
+                if (!isRetry && settingsDocPath) {
                     try {
                         const newCredits = Math.max(0, (profile?.aiCreditsRemaining || 0) - 1);
                         await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: newCredits });
