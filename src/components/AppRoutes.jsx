@@ -1,8 +1,10 @@
 import React from 'react';
 import LoadingIndicator from './ui/LoadingIndicator';
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { ROUTES, ProtectedRoute, PublicOnlyRoute } from '../router';
 import UpgradeScreen from './ui/AiCreditShop';
+import { shuffleArray } from '../utils/textProcessing';
+
 
 import {
     HomeScreen,
@@ -12,7 +14,8 @@ import {
     HelpScreen,
     ImportScreen,
     StatsScreen,
-    ListView,
+    LibraryScreen,
+    StudySetDetail,
     ReviewScreen,
     ReviewCompleteScreen,
     KanjiScreen,
@@ -33,7 +36,14 @@ import {
     TermsScreen,
     AuthActionScreen,
     ForumScreen,
-    UserProfileScreen
+    UserProfileScreen,
+    SynonymQuizScreen,
+    EditSetScreen,
+    GrammarTextbooksScreen,
+    GrammarLessonsScreen,
+    GrammarPointsScreen,
+    GrammarDetailScreen,
+    GrammarPracticeScreen
 } from './screens';
 
 // Import card components
@@ -41,6 +51,118 @@ import {
     AddCardForm
 } from './cards';
 
+
+// Wrapper for StudySetDetail
+const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards, setReviewMode, setFlashcardCards, setStudySessionData, navigate, onDeleteFolder, handleSaveChanges, handleSaveCardAudio, handleDeleteCard }) => {
+    const { id } = useParams();
+    
+    const handleStudySet = (setId) => {
+        const setCards = id === 'unfiled' 
+            ? allCards.filter(c => !cardFolders[c.id]) 
+            : allCards.filter(c => cardFolders[c.id] === id);
+        setStudySessionData({ mode: 'learn', cards: setCards });
+        navigate(ROUTES.STUDY);
+    };
+
+    const handleFlashcardSet = (setId) => {
+        const setCards = id === 'unfiled' 
+            ? allCards.filter(c => !cardFolders[c.id]) 
+            : allCards.filter(c => cardFolders[c.id] === id);
+        setFlashcardCards(setCards);
+        navigate(ROUTES.FLASHCARD);
+    };
+
+    const handleReviewSet = (setId) => {
+        const setCards = id === 'unfiled' 
+            ? allCards.filter(c => !cardFolders[c.id]) 
+            : allCards.filter(c => cardFolders[c.id] === id);
+
+        // Build mixed review cards with proper reviewType for each card
+        const dueBackCards = setCards
+            .map(card => ({ ...card, reviewType: 'back' }));
+
+        const dueExampleCards = setCards
+            .filter(card => card.example && card.example.trim() !== '')
+            .map(card => ({ ...card, reviewType: 'example' }));
+
+        const dueDictationCards = setCards
+            .map(card => ({ ...card, reviewType: 'dictation' }));
+
+        const mixed = shuffleArray([...dueBackCards, ...dueExampleCards, ...dueDictationCards]);
+        if (mixed.length > 0) {
+            setReviewCards(mixed);
+            if (setReviewMode) setReviewMode('mixed');
+            navigate(ROUTES.REVIEW);
+        }
+    };
+
+    const handleSynonymQuiz = (setId) => {
+        const setCards = id === 'unfiled' 
+            ? allCards.filter(c => !cardFolders[c.id]) 
+            : allCards.filter(c => cardFolders[c.id] === id);
+        setFlashcardCards(setCards);
+        navigate(ROUTES.SYNONYM_QUIZ);
+    };
+
+    // Bulk delete cards (used for unfiled group)
+    const handleDeleteCards = async (cardIds) => {
+        if (!handleDeleteCard || !cardIds?.length) return;
+        for (const cardId of cardIds) {
+            await handleDeleteCard(cardId);
+        }
+        navigate(ROUTES.VOCAB_LIST);
+    };
+
+    return <StudySetDetail 
+        folderId={id} 
+        folders={folders} 
+        cardFolders={cardFolders} 
+        allCards={allCards} 
+        onBack={() => navigate(ROUTES.VOCAB_LIST)}
+        onEditSet={() => navigate(`/vocab/edit-set/${id}`)}
+        onStudySet={handleStudySet}
+        onFlashcardSet={handleFlashcardSet}
+        onReviewSet={handleReviewSet}
+        onSynonymQuiz={handleSynonymQuiz}
+        onNavigateToAdd={() => navigate(ROUTES.VOCAB_ADD)}
+        onDeleteFolder={onDeleteFolder}
+        onDeleteCards={handleDeleteCards}
+        onSaveChanges={handleSaveChanges}
+        onSaveCardAudio={handleSaveCardAudio}
+    />;
+};
+
+const EditSetScreenWrapper = ({
+    folders,
+    cardFolders,
+    allCards,
+    onRenameFolder,
+    handleUpdateCard,
+    handleDeleteCard,
+    handleSaveNewCard,
+    handleGeminiAssist,
+    handleGenerateMoreExample,
+    handleExtractVocabFromImage,
+    aiCreditsRemaining
+}) => {
+    const { id } = useParams();
+    const navigate = useNavigate();
+    return <EditSetScreen 
+        folderId={id} 
+        folders={folders} 
+        cardFolders={cardFolders} 
+        allCards={allCards} 
+        onRenameFolder={onRenameFolder}
+        onUpdateCard={handleUpdateCard}
+        onDeleteCard={handleDeleteCard}
+        onSaveNewCard={handleSaveNewCard}
+        onBack={() => navigate(-1)}
+        onGeminiAssist={handleGeminiAssist}
+        onGenerateMoreExample={handleGenerateMoreExample}
+        onExtractVocabFromImage={handleExtractVocabFromImage}
+        aiCreditsRemaining={aiCreditsRemaining}
+    />;
+};
 
 const AppRoutes = ({
     // Auth state
@@ -95,6 +217,7 @@ const AppRoutes = ({
     handleSaveChanges,
     handleGeminiAssist,
     handleGenerateMoreExample,
+    handleExtractVocabFromImage,
     handleBatchImport,
     handleBatchSaveNext,
     handleBatchSkip,
@@ -121,6 +244,11 @@ const AppRoutes = ({
 
     // Shuffle utility
     shuffleArray,
+    folders,
+    cardFolders,
+    onAddFolder,
+    onDeleteFolder,
+    onRenameFolder
 }) => {
     const navigate = useNavigate();
     const aiCreditsRemaining = profile?.aiCreditsRemaining;
@@ -193,6 +321,9 @@ const AppRoutes = ({
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
                             <SRSVocabScreen
                                 displayName={profile?.displayName}
+                                folders={folders}
+                                cardFolders={cardFolders}
+                                setReviewCards={setReviewCards}
                                 dueCounts={dueCounts}
                                 totalCards={allCards?.length || 0}
                                 allCards={allCards}
@@ -209,27 +340,41 @@ const AppRoutes = ({
                     }
                 />
 
-                {/* Danh sách từ vựng - ListView */}
+                {/* Thư viện Học phần */}
                 <Route
                     path={ROUTES.VOCAB_LIST}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <ListView
+                            <LibraryScreen
                                 allCards={allCards}
-                                onDeleteCard={handleDeleteCard}
-                                onPlayAudio={playAudio}
-                                onSaveCardAudio={handleSaveCardAudio}
-                                onExport={() => handleExport(allCards)}
+                                folders={folders}
+                                cardFolders={cardFolders}
+                                onOpenStudySet={(id) => navigate('/vocab/set/' + id)}
+                                onNavigateToAdd={() => navigate(ROUTES.VOCAB_ADD)}
+                                onDeleteFolder={onDeleteFolder}
+                            />
+                        </ProtectedRoute>
+                    }
+                />
 
-                                onSaveChanges={handleSaveChanges}
-                                onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
-                                onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
-                                onNavigateToImport={() => navigate(ROUTES.IMPORT)}
-                                scrollToCardId={scrollToCardIdRef?.current}
-                                onScrollComplete={() => { if (scrollToCardIdRef) scrollToCardIdRef.current = null; }}
-                                savedFilters={savedFilters}
-                                onFiltersChange={setSavedFilters}
-                                userId={userId}
+                {/* Chi tiết Học phần */}
+                <Route
+                    path={ROUTES.VOCAB_SET_DETAIL}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <StudySetDetailWrapper 
+                                allCards={allCards}
+                                folders={folders}
+                                cardFolders={cardFolders}
+                                setReviewCards={setReviewCards}
+                                setReviewMode={setReviewMode}
+                                setFlashcardCards={setFlashcardCards}
+                                setStudySessionData={setStudySessionData}
+                                navigate={navigate}
+                                onDeleteFolder={onDeleteFolder}
+                                handleDeleteCard={handleDeleteCard}
+                                handleSaveChanges={handleSaveChanges}
+                                handleSaveCardAudio={handleSaveCardAudio}
                             />
                         </ProtectedRoute>
                     }
@@ -240,10 +385,12 @@ const AppRoutes = ({
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
                             <AddCardForm
+                                onAddFolder={onAddFolder}
                                 onSave={handleSaveNewCard}
                                 onBack={() => setView('LIST')}
                                 onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
                                 onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
+                                onExtractVocabFromImage={canUserUseAI ? handleExtractVocabFromImage : null}
                                 batchMode={batchMode}
                                 currentBatchIndex={currentBatchIndex}
                                 totalBatchCount={batchVocabList?.length || 0}
@@ -252,6 +399,28 @@ const AppRoutes = ({
                                 editingCard={editingCard}
                                 onOpenBatchImport={() => setShowBatchImportModal(true)}
                                 aiCreditsRemaining={aiCreditsRemaining}
+                            />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path={ROUTES.VOCAB_EDIT_SET}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <EditSetScreenWrapper
+                                folders={folders}
+                                cardFolders={cardFolders}
+                                allCards={allCards}
+                                onRenameFolder={onRenameFolder}
+                                handleUpdateCard={handleUpdateCard}
+                                handleDeleteCard={handleDeleteCard}
+                                handleSaveNewCard={handleSaveNewCard}
+                                handleGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
+                                handleGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
+                                handleExtractVocabFromImage={canUserUseAI ? handleExtractVocabFromImage : null}
+                                aiCreditsRemaining={aiCreditsRemaining}
+                                navigate={navigate}
                             />
                         </ProtectedRoute>
                     }
@@ -361,7 +530,7 @@ const AppRoutes = ({
                                             navigate(ROUTES.VOCAB_REVIEW);
                                         }
                                     }}
-                                    onBack={() => navigate(ROUTES.VOCAB_REVIEW)}
+                                    onBack={() => navigate(-1)}
                                 />
                             )}
                         </ProtectedRoute>
@@ -390,7 +559,7 @@ const AppRoutes = ({
                                     });
                                     navigate(ROUTES.VOCAB_REVIEW);
                                 }}
-                                onBack={() => navigate(ROUTES.VOCAB_REVIEW)}
+                                onBack={() => navigate(-1)}
                             />
                         </ProtectedRoute>
                     }
@@ -502,7 +671,7 @@ const AppRoutes = ({
                                         setFlashcardCards([]);
                                         navigate(ROUTES.VOCAB_REVIEW);
                                     }}
-                                    onBack={() => navigate(ROUTES.VOCAB_REVIEW)}
+                                    onBack={() => navigate(-1)}
                                 />
                             ) : (
                                 <Navigate to={ROUTES.VOCAB_REVIEW} replace />
@@ -511,6 +680,27 @@ const AppRoutes = ({
                     }
                 />
 
+
+                {/* Synonym Quiz route */}
+                <Route
+                    path={ROUTES.SYNONYM_QUIZ}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            {flashcardCards && flashcardCards.length > 0 ? (
+                                <SynonymQuizScreen
+                                    cards={flashcardCards}
+                                    onBack={() => navigate(-1)}
+                                    onComplete={() => {
+                                        setFlashcardCards([]);
+                                        navigate(ROUTES.VOCAB_REVIEW);
+                                    }}
+                                />
+                            ) : (
+                                <Navigate to={ROUTES.VOCAB_REVIEW} replace />
+                            )}
+                        </ProtectedRoute>
+                    }
+                />
 
                 {/* Học theo sách */}
                 <Route
@@ -525,6 +715,48 @@ const AppRoutes = ({
                                 allUserCards={allCards}
                                 userId={userId}
                             />
+                        </ProtectedRoute>
+                    }
+                />
+
+                {/* ==================== GRAMMAR MODULE ==================== */}
+                <Route
+                    path={ROUTES.GRAMMAR}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <GrammarTextbooksScreen isAdmin={userHasAdminPrivileges} />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_TEXTBOOK}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <GrammarLessonsScreen isAdmin={userHasAdminPrivileges} />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_LESSON}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <GrammarPointsScreen isAdmin={userHasAdminPrivileges} />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_DETAIL}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <GrammarDetailScreen isAdmin={userHasAdminPrivileges} />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_PRACTICE}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <GrammarPracticeScreen isAdmin={userHasAdminPrivileges} />
                         </ProtectedRoute>
                     }
                 />
@@ -637,3 +869,11 @@ const AppRoutes = ({
 };
 
 export default AppRoutes;
+
+
+
+
+
+
+
+

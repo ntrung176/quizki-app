@@ -10,7 +10,7 @@ import {
 } from 'firebase/auth';
 import { doc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, db } from '../../config/firebase';
-import { Sparkles, Loader2, Eye, EyeOff, BookOpen, BrainCircuit, Gamepad2, TrendingUp } from 'lucide-react';
+import { Sparkles, Loader2, Eye, EyeOff, Brain, RefreshCw, Trophy, FileText, BookOpen, Gamepad2, Database, Route } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // Application ID for Firebase paths
@@ -213,243 +213,248 @@ const LoginScreen = () => {
     };
 
     return (
-        <div className="min-h-screen relative bg-slate-50 flex flex-col">
-            {/* Split layout: Content (Left) & Auth (Right) */}
-            <div className="flex-1 flex flex-col lg:flex-row shadow-lg">
+        <div className="min-h-screen w-full grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] bg-[#FAFBFD] text-slate-800 overflow-x-hidden font-sans fixed inset-0 z-50">
+            {/* Left Side: Landing / Features */}
+            <div className="hidden lg:flex bg-gradient-to-b from-[#EBF0FF] to-[#DCE6FF] p-10 xl:p-16 flex-col justify-between text-slate-800 relative overflow-hidden">
+                {/* Logo */}
+                <div className="flex items-center gap-3 z-10">
+                    <div className="w-10 h-10 bg-[#2E5B70] rounded-xl flex items-center justify-center text-white shadow-md shadow-[#2E5B70]/20">
+                        <BookOpen className="w-5 h-5" />
+                    </div>
+                    <span className="text-xl font-bold tracking-tight text-slate-800">QuizKi</span>
+                </div>
 
-                {/* Left Side: Landing / Features */}
-                <div className="flex-1 bg-gradient-to-br from-indigo-700 via-purple-700 to-pink-600 p-6 lg:p-10 flex flex-col justify-center relative overflow-hidden text-white lg:min-h-[calc(100vh-64px)] rounded-b-3xl lg:rounded-b-none lg:rounded-r-3xl z-10">
-                    {/* Decorative Background */}
-                    <div className="absolute top-10 left-10 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
-                    <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-400/20 rounded-full blur-3xl" />
+                {/* Center Content */}
+                <div className="flex flex-col justify-center flex-1 py-12 z-10">
+                    <h1 className="text-3xl xl:text-[34px] font-extrabold leading-tight mb-4 tracking-tight text-slate-800 max-w-xl">
+                        Nền tảng học ngữ pháp và từ vựng thông minh.
+                    </h1>
+                    <p className="text-sm text-slate-500 mb-10 leading-relaxed max-w-lg font-medium">
+                        Ứng dụng công nghệ AI và thuật toán lặp lại ngắt quãng (SRS) giúp bạn ghi nhớ tiếng Nhật một cách tự nhiên và bền vững nhất.
+                    </p>
 
-                    <div className="relative z-10 max-w-xl mx-auto lg:mx-0 pr-0 lg:pr-8">
-                        {/* Logo */}
-                        <div className="flex items-center gap-3 mb-6">
-                            <div className="w-10 h-10 bg-white rounded-xl shadow-lg flex items-center justify-center">
-                                <Sparkles className="w-6 h-6 text-indigo-600" />
+                    {/* Features Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-[620px]">
+                        {/* Card 1 */}
+                        <div className="flex flex-col gap-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-md transition-all">
+                            <div className="w-10 h-10 rounded-xl bg-[#EEF5F8] flex items-center justify-center text-[#2E5B70] shrink-0">
+                                <Brain className="w-5 h-5" />
                             </div>
-                            <span className="text-2xl font-extrabold tracking-tight">QuizKi</span>
+                            <div>
+                                <h3 className="font-bold text-slate-800 text-xs uppercase tracking-wide">AI Thông minh</h3>
+                                <p className="text-slate-500 text-[11px] leading-relaxed mt-1 font-medium">Cá nhân hóa lộ trình học theo trình độ của bạn.</p>
+                            </div>
                         </div>
-
-                        {/* Tagline */}
-                        <h1 className="text-3xl lg:text-4xl font-bold leading-tight mb-4">
-                            Nền tảng học ngữ pháp và từ vựng thông minh.
-                        </h1>
-                        <p className="text-base text-indigo-100 mb-8 leading-relaxed max-w-md">
-                            Áp dụng phương pháp lặp lại ngắt quãng (Spaced Repetition System) kết hợp cùng AI giúp bạn làm chủ ngôn ngữ nhanh chóng, nhớ lâu hơn và tiết kiệm thời gian.
-                        </p>
-
-                        {/* Features List */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="flex gap-3">
-                                <div className="mt-1 bg-white/20 p-1.5 rounded-lg backdrop-blur-sm self-start"><BrainCircuit className="w-4 h-4 text-white" /></div>
-                                <div>
-                                    <h3 className="font-bold text-base">AI Thông minh</h3>
-                                    <p className="text-indigo-100 text-xs mt-1">Gợi ý từ vựng, tự động tạo câu ví dụ và giải thích ngữ cảnh.</p>
-                                </div>
+                        {/* Card 2 */}
+                        <div className="flex flex-col gap-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-md transition-all">
+                            <div className="w-10 h-10 rounded-xl bg-[#EEF5F8] flex items-center justify-center text-[#2E5B70] shrink-0">
+                                <Route className="w-5 h-5" />
                             </div>
-                            <div className="flex gap-3">
-                                <div className="mt-1 bg-white/20 p-1.5 rounded-lg backdrop-blur-sm self-start"><BookOpen className="w-4 h-4 text-white" /></div>
-                                <div>
-                                    <h3 className="font-bold text-base">Ôn tập SRS</h3>
-                                    <p className="text-indigo-100 text-xs mt-1">Tối ưu hóa thời gian hiển thị thẻ flashcard khi bạn sắp quên.</p>
-                                </div>
+                            <div>
+                                <h3 className="font-bold text-slate-800 text-xs uppercase tracking-wide">Ôn tập SRS</h3>
+                                <p className="text-slate-500 text-[11px] leading-relaxed mt-1 font-medium">Thuật toán ghi nhớ lâu dài tối ưu cho não bộ.</p>
                             </div>
-                            <div className="flex gap-3">
-                                <div className="mt-1 bg-white/20 p-1.5 rounded-lg backdrop-blur-sm self-start"><Gamepad2 className="w-4 h-4 text-white" /></div>
-                                <div>
-                                    <h3 className="font-bold text-base">Gamification</h3>
-                                    <p className="text-indigo-100 text-xs mt-1">Đua top bảng xếp hạng, nuôi thú cưng ảo từ điểm kinh nghiệm.</p>
-                                </div>
+                        </div>
+                        {/* Card 3 */}
+                        <div className="flex flex-col gap-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-md transition-all">
+                            <div className="w-10 h-10 rounded-xl bg-[#EEF5F8] flex items-center justify-center text-[#2E5B70] shrink-0">
+                                <Gamepad2 className="w-5 h-5" />
                             </div>
-                            <div className="flex gap-3">
-                                <div className="mt-1 bg-white/20 p-1.5 rounded-lg backdrop-blur-sm self-start"><TrendingUp className="w-4 h-4 text-white" /></div>
-                                <div>
-                                    <h3 className="font-bold text-base">Kho dữ liệu JLPT</h3>
-                                    <p className="text-indigo-100 text-xs mt-1">Hệ thống bài thi mô phỏng JLPT N5-N1 giúp bạn luyện tập thực chiến.</p>
-                                </div>
+                            <div>
+                                <h3 className="font-bold text-slate-800 text-xs uppercase tracking-wide">Gamification</h3>
+                                <p className="text-slate-500 text-[11px] leading-relaxed mt-1 font-medium">Học mà chơi với hệ thống nhiệm vụ hấp dẫn.</p>
+                            </div>
+                        </div>
+                        {/* Card 4 */}
+                        <div className="flex flex-col gap-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-md transition-all">
+                            <div className="w-10 h-10 rounded-xl bg-[#EEF5F8] flex items-center justify-center text-[#2E5B70] shrink-0">
+                                <Database className="w-5 h-5" />
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-slate-800 text-xs uppercase tracking-wide">Kho dữ liệu JLPT</h3>
+                                <p className="text-slate-500 text-[11px] leading-relaxed mt-1 font-medium">Hàng ngàn câu hỏi sát thực tế từ N5 đến N1.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Right Side: Auth Form */}
-                <div className="w-full lg:w-[480px] xl:w-[500px] flex flex-col justify-center p-6 sm:p-10 lg:p-12 bg-white lg:min-h-[calc(100vh-64px)] self-center lg:self-stretch items-center">
-                    <div className="w-full max-w-sm mx-auto space-y-6">
-                        {/* Mobile Logo Hidden on Desktop */}
-                        <div className="lg:hidden text-center mb-8">
-                            <div className="inline-flex w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl items-center justify-center shadow-md mb-3">
-                                <Sparkles className="w-6 h-6 text-white" />
+                {/* Bottom spacer to align nicely */}
+                <div className="h-4" />
+            </div>
+
+            {/* Right Side: Auth Form */}
+            <div className="flex flex-col justify-between min-h-screen p-6 sm:p-10 lg:p-12 xl:p-16 bg-white w-full">
+                {/* Mobile Logo Hidden on Desktop */}
+                <div className="w-full flex justify-center lg:hidden mb-6">
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-[#2E5B70] rounded-xl flex items-center justify-center text-white shadow-md">
+                            <BookOpen className="w-5 h-5" />
+                        </div>
+                        <span className="text-2xl font-bold tracking-tight text-slate-800">QuizKi</span>
+                    </div>
+                </div>
+
+                {/* Center Form */}
+                <div className="w-full max-w-sm mx-auto my-auto space-y-6">
+                    <div className="text-center">
+                        <h2 className="text-2xl font-extrabold text-slate-800 tracking-tight">
+                            {mode === 'login' ? 'Đăng nhập vào tài khoản' : 'Bắt đầu hành trình mới'}
+                        </h2>
+                        <p className="text-slate-500 mt-2 text-sm font-medium">
+                            {mode === 'login' ? 'Chào mừng bạn trở lại với hành trình chinh phục tiếng Nhật.' : 'Đăng ký tài khoản miễn phí ngay hôm nay.'}
+                        </p>
+                    </div>
+
+                    <form onSubmit={handleSubmit} className="space-y-5">
+                        {/* Email */}
+                        <div className="space-y-1">
+                            <label className="block text-xs font-bold text-slate-400 tracking-wider uppercase">EMAIL</label>
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="w-full py-3 px-0.5 bg-transparent border-b border-slate-200 focus:border-[#2E5B70] text-sm text-slate-800 placeholder-slate-300 outline-none transition-all focus:ring-0 focus:outline-none"
+                                placeholder="example@gmail.com"
+                                required
+                            />
+                        </div>
+
+                        {/* Password */}
+                        <div className="space-y-1">
+                            <div className="flex justify-between items-center">
+                                <label className="block text-xs font-bold text-slate-400 tracking-wider uppercase">MẬT KHẨU</label>
+                                {mode === 'login' && (
+                                    <button
+                                        type="button"
+                                        onClick={handleResetPassword}
+                                        disabled={isLoading}
+                                        className="text-xs font-bold text-[#2E5B70] hover:underline uppercase tracking-wide cursor-pointer"
+                                    >
+                                        QUÊN MẬT KHẨU?
+                                    </button>
+                                )}
                             </div>
-                            <h2 className="text-2xl font-bold text-slate-800">QuizKi</h2>
-                        </div>
-
-                        <div>
-                            <h2 className="text-xl font-bold text-slate-800">{mode === 'login' ? 'Đăng nhập vào tài khoản' : 'Bắt đầu hành trình mới'}</h2>
-                            <p className="text-slate-500 mt-1 text-xs">{mode === 'login' ? 'Vui lòng nhập email và mật khẩu để tiếp tục.' : 'Đăng ký tài khoản miễn phí ngay hôm nay.'}</p>
-                        </div>
-
-                        {/* Mode Toggle */}
-                        <div className="flex bg-slate-100 rounded-xl p-1 text-sm font-medium">
-                            <button
-                                type="button"
-                                onClick={() => setMode('login')}
-                                className={`flex-1 py-2 rounded-lg transition-all ${mode === 'login'
-                                    ? 'bg-white text-indigo-600 shadow-sm'
-                                    : 'text-slate-500 hover:text-slate-700'
-                                    }`}
-                            >
-                                Đăng nhập
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => setMode('register')}
-                                className={`flex-1 py-2 rounded-lg transition-all ${mode === 'register'
-                                    ? 'bg-white text-indigo-600 shadow-sm'
-                                    : 'text-slate-500 hover:text-slate-700'
-                                    }`}
-                            >
-                                Đăng ký
-                            </button>
-                        </div>
-
-                        {/* Form */}
-                        <form onSubmit={handleSubmit} className="space-y-3.5">
-                            <div>
-                                <label className="block text-sm font-medium text-slate-700 mb-1.5">Email</label>
+                            <div className="relative">
                                 <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-sm text-slate-900 placeholder-slate-400 outline-none transition-all"
-                                    placeholder="you@example.com"
+                                    type={showPassword ? 'text' : 'password'}
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    className="w-full py-3 px-0.5 pr-8 bg-transparent border-b border-slate-200 focus:border-[#2E5B70] text-sm text-slate-800 placeholder-slate-300 outline-none transition-all focus:ring-0 focus:outline-none"
+                                    placeholder="........"
                                     required
                                 />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className="absolute right-1 bottom-3 text-slate-400 hover:text-slate-600 cursor-pointer"
+                                    tabIndex={-1}
+                                >
+                                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                </button>
                             </div>
+                        </div>
 
-                            <div>
-                                <label className="block text-sm font-medium text-slate-700 mb-1.5">Mật khẩu</label>
+                        {/* Confirm Password (only for register mode) */}
+                        {mode === 'register' && (
+                            <div className="space-y-1">
+                                <label className="block text-xs font-bold text-slate-400 tracking-wider uppercase">NHẬP LẠI MẬT KHẨU</label>
                                 <div className="relative">
                                     <input
-                                        type={showPassword ? 'text' : 'password'}
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        className="w-full px-3 py-2 pr-10 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-sm text-slate-900 placeholder-slate-400 outline-none transition-all"
-                                        placeholder="Tối thiểu 6 ký tự"
+                                        type={showConfirmPassword ? 'text' : 'password'}
+                                        value={confirmPassword}
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                        className="w-full py-3 px-0.5 pr-8 bg-transparent border-b border-slate-200 focus:border-[#2E5B70] text-sm text-slate-800 placeholder-slate-300 outline-none transition-all focus:ring-0 focus:outline-none"
+                                        placeholder="........"
                                         required
                                     />
                                     <button
                                         type="button"
-                                        onClick={() => setShowPassword(!showPassword)}
-                                        className="absolute inset-y-0 right-0 px-3 flex items-center text-slate-400 hover:text-slate-600"
+                                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                        className="absolute right-1 bottom-3 text-slate-400 hover:text-slate-600 cursor-pointer"
                                         tabIndex={-1}
                                     >
-                                        {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                        {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                                     </button>
                                 </div>
                             </div>
+                        )}
 
-                            {mode === 'register' && (
-                                <div>
-                                    <label className="block text-sm font-medium text-slate-700 mb-1.5">Xác nhận mật khẩu</label>
-                                    <div className="relative">
-                                        <input
-                                            type={showConfirmPassword ? 'text' : 'password'}
-                                            value={confirmPassword}
-                                            onChange={(e) => setConfirmPassword(e.target.value)}
-                                            className="w-full px-3 py-2 pr-10 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-sm text-slate-900 placeholder-slate-400 outline-none transition-all"
-                                            placeholder="Nhập lại mật khẩu"
-                                            required
-                                        />
-                                        <button
-                                            type="button"
-                                            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                                            className="absolute inset-y-0 right-0 px-3 flex items-center text-slate-400 hover:text-slate-600"
-                                            tabIndex={-1}
-                                        >
-                                            {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                                        </button>
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Error/Info Messages */}
-                            {error && (
-                                <div className="text-xs text-red-600 bg-red-50 border border-red-100 rounded-lg px-3 py-2">
-                                    {error}
-                                </div>
-                            )}
-                            {info && (
-                                <div className="text-xs text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-lg px-3 py-2">
-                                    {info}
-                                </div>
-                            )}
-
-                            {/* Submit Button */}
-                            <button
-                                type="submit"
-                                disabled={isLoading}
-                                className="w-full py-2.5 mt-2 text-sm font-bold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 shadow-md shadow-indigo-600/30 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-                            >
-                                {isLoading ? (
-                                    <Loader2 className="animate-spin w-5 h-5 mx-auto" />
-                                ) : mode === 'login' ? (
-                                    'Đăng nhập'
-                                ) : (
-                                    'Tạo tài khoản'
-                                )}
-                            </button>
-
-                            {mode === 'login' && (
-                                <button
-                                    type="button"
-                                    onClick={handleResetPassword}
-                                    disabled={isLoading}
-                                    className="w-full text-xs font-medium text-indigo-600 hover:text-indigo-800 text-center mt-2"
-                                >
-                                    Quên mật khẩu?
-                                </button>
-                            )}
-                        </form>
-
-                        {/* Divider */}
-                        <div className="relative py-2">
-                            <div className="absolute inset-0 flex items-center">
-                                <div className="w-full border-t border-slate-200"></div>
+                        {/* Error/Info Messages */}
+                        {error && (
+                            <div className="text-xs text-red-600 bg-red-50 border border-red-100 rounded-xl px-4 py-3">
+                                {error}
                             </div>
-                            <div className="relative flex justify-center text-xs">
-                                <span className="px-3 bg-white text-slate-400 font-medium">HOẶC ĐĂNG NHẬP BẰNG</span>
+                        )}
+                        {info && (
+                            <div className="text-xs text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-xl px-4 py-3">
+                                {info}
                             </div>
-                        </div>
+                        )}
 
-                        {/* Google Sign-In Button */}
+                        {/* Submit Button */}
                         <button
-                            type="button"
-                            onClick={handleGoogleSignIn}
+                            type="submit"
                             disabled={isLoading}
-                            className="w-full py-2.5 text-sm font-semibold rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 flex items-center justify-center gap-3 transition-all disabled:opacity-50 shadow-sm"
+                            className="w-full py-3.5 mt-4 text-xs font-bold rounded-lg text-white bg-[#2E5B70] hover:bg-[#254A5C] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-[#2E5B70]/10 tracking-widest uppercase cursor-pointer"
                         >
-                            <svg className="w-5 h-5" viewBox="0 0 24 24">
-                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                            </svg>
-                            Tài khoản Google
+                            {isLoading ? (
+                                <Loader2 className="animate-spin w-5 h-5 mx-auto" />
+                            ) : mode === 'login' ? (
+                                'ĐĂNG NHẬP →'
+                            ) : (
+                                'ĐĂNG KÝ →'
+                            )}
                         </button>
+                    </form>
+
+                    {/* Divider */}
+                    <div className="relative py-2">
+                        <div className="absolute inset-0 flex items-center">
+                            <div className="w-full border-t border-slate-100"></div>
+                        </div>
+                        <div className="relative flex justify-center text-xs">
+                            <span className="px-3 bg-white text-slate-300 font-bold tracking-widest">HOẶC</span>
+                        </div>
+                    </div>
+
+                    {/* Google Sign-in */}
+                    <button
+                        type="button"
+                        onClick={handleGoogleSignIn}
+                        disabled={isLoading}
+                        className="w-full py-3.5 text-xs font-bold rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 flex items-center justify-center gap-3 transition-all disabled:opacity-50 shadow-sm tracking-widest cursor-pointer"
+                    >
+                        <svg className="w-4 h-4" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                        </svg>
+                        TIẾP TỤC VỚI GOOGLE
+                    </button>
+
+                    {/* Switch Mode Link */}
+                    <div className="text-center pt-2">
+                        <span className="text-xs font-semibold text-slate-500">
+                            {mode === 'login' ? 'Bạn chưa có tài khoản? ' : 'Đã có tài khoản? '}
+                            <button
+                                type="button"
+                                onClick={() => setMode(mode === 'login' ? 'register' : 'login')}
+                                className="font-bold text-[#2E5B70] hover:underline cursor-pointer"
+                            >
+                                {mode === 'login' ? 'Đăng ký ngay' : 'Đăng nhập'}
+                            </button>
+                        </span>
                     </div>
                 </div>
-            </div>
 
-            {/* Footer with Links required by Google OAuth Verification */}
-            <footer className="w-full bg-slate-900 py-4 text-center z-20">
-                <div className="flex flex-wrap justify-center items-center gap-6 text-xs text-slate-400 max-w-4xl mx-auto px-6">
-                    <span className="font-semibold text-slate-300">© 2024 QuizKi App</span>
-                    <Link to="/privacy" className="hover:text-white transition-colors underline underline-offset-4">Chính sách bảo mật (Privacy Policy)</Link>
-                    <Link to="/terms" className="hover:text-white transition-colors underline underline-offset-4">Điều khoản dịch vụ (Terms of Service)</Link>
+                {/* Footer */}
+                <div className="w-full text-center pt-8 text-[10px] text-slate-400 font-bold tracking-widest space-x-6">
+                    <Link to="/terms" className="hover:text-slate-600 transition-colors uppercase">Điều khoản</Link>
+                    <Link to="/privacy" className="hover:text-slate-600 transition-colors uppercase">Bảo mật</Link>
+                    <Link to="/help" className="hover:text-slate-600 transition-colors uppercase">Trợ giúp</Link>
                 </div>
-            </footer>
+            </div>
         </div>
     );
 };

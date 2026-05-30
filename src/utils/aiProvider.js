@@ -288,6 +288,43 @@ JSON only, không markdown/backtick. Trả về MẢNG JSON:
     }
 };
 
+// ============== OCR IMAGE EXTRACTION ==============
+
+export const extractVocabFromImage = async (imageBase64) => {
+    if (!imageBase64) return null;
+
+    const imageUrl = imageBase64.startsWith('data:') ? imageBase64 : `data:image/jpeg;base64,${imageBase64}`;
+
+    const promptText = `Hãy trích xuất tất cả các từ vựng tiếng Nhật (Kanji, Hiragana, Katakana hoặc chữ Hán đơn) xuất hiện trong ảnh này.
+Yêu cầu trả về duy nhất một mảng JSON các chuỗi chứa các từ được tìm thấy (array of strings), ví dụ: ["単語1", "単語2"].
+Không trả về bất kỳ văn bản giải thích nào khác ngoài mảng JSON này.`;
+
+    const prompt = [
+        { type: 'text', text: promptText },
+        { type: 'image_url', image_url: { url: imageUrl } }
+    ];
+
+    const responseText = await callAI(prompt);
+    if (!responseText) return null;
+
+    let jsonStr = responseText.trim();
+    if (jsonStr.startsWith('```json')) jsonStr = jsonStr.slice(7);
+    if (jsonStr.startsWith('```')) jsonStr = jsonStr.slice(3);
+    if (jsonStr.endsWith('```')) jsonStr = jsonStr.slice(0, -3);
+    jsonStr = jsonStr.trim();
+
+    // Try to extract JSON array
+    const arrMatch = jsonStr.match(/\[[\s\S]*\]/);
+    if (arrMatch) jsonStr = arrMatch[0];
+
+    try {
+        return JSON.parse(jsonStr);
+    } catch (e) {
+        console.error('Lỗi khi phân tích danh sách từ vựng từ AI:', e, 'Văn bản gốc:', responseText);
+        return null;
+    }
+};
+
 // ============== INFO ==============
 
 export const getAIProviderInfo = () => {
@@ -304,4 +341,44 @@ export const getAIProviderInfo = () => {
             ? `OpenRouter(${keys.length} keys)`
             : 'Chưa cấu hình OpenRouter API key'
     };
+};
+
+// ============== GRAMMAR ANSWER CHECK ==============
+
+export const aiCheckGrammarAnswer = async (userAnswer, questionVi, correctAnswers, grammarPattern) => {
+    if (!userAnswer || !userAnswer.trim()) return null;
+
+    const answersStr = correctAnswers.map((a, i) => `${i + 1}. ${a}`).join('\n');
+
+    const prompt = `Bạn là giáo viên tiếng Nhật. Hãy chấm điểm bản dịch của học sinh.
+
+NGỮ PHÁP ĐANG HỌC: ${grammarPattern}
+CÂU TIẾNG VIỆT: ${questionVi}
+ĐÁP ÁN MẪU:
+${answersStr}
+
+BÀI LÀM CỦA HỌC SINH: ${userAnswer}
+
+Hãy đánh giá bài làm và trả về JSON (không markdown):
+{
+  "score": <0-100>,
+  "isCorrect": <true/false>,
+  "feedback": "<Nhận xét ngắn gọn bằng tiếng Việt, tối đa 2 câu>",
+  "correction": "<Câu đúng gợi ý nếu sai, hoặc null nếu đúng>",
+  "grammarUsed": <true/false nếu học sinh có dùng đúng mẫu ngữ pháp ${grammarPattern}>
+}
+
+QUY TẮC CHẤM:
+- Đúng hoàn toàn hoặc gần đúng (khác chút ít về trợ từ, kính ngữ) = 80-100 điểm
+- Đúng nghĩa nhưng không dùng mẫu ngữ pháp = 40-60 điểm
+- Sai nghĩa hoặc sai ngữ pháp nghiêm trọng = 0-30 điểm
+- Chỉ trả JSON, không markdown/backtick`;
+
+    try {
+        const responseText = await callAI(prompt);
+        return parseJsonFromAI(responseText);
+    } catch (e) {
+        console.error('AI grammar check error:', e);
+        return null;
+    }
 };

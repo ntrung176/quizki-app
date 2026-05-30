@@ -139,6 +139,14 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         const settings = getSettings();
         return settings.furiganaFontSize || '0.6em'; // Default size
     });
+    const [jpFontFamily, setJpFontFamily] = useState(() => {
+        const settings = getSettings();
+        return settings.jpFontFamily || 'kyokasho';
+    });
+    const [jpFontSize, setJpFontSize] = useState(() => {
+        const settings = getSettings();
+        return settings.jpFontSize || 'large';
+    });
 
     // BGM track state
     const [selectedTrack, setSelectedTrackState] = useState(() => getSelectedTrackId());
@@ -173,11 +181,13 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         settings.furiganaEnabled = furiganaEnabled;
         settings.furiganaColor = furiganaColor;
         settings.furiganaFontSize = furiganaFontSize;
+        settings.jpFontFamily = jpFontFamily;
+        settings.jpFontSize = jpFontSize;
         saveSettings(settings);
 
         // Dispatch event for other components to react
         window.dispatchEvent(new Event('quizki-settings-changed'));
-    }, [sfxVolume, bgmVolume, sfxEnabled, bgmEnabled, furiganaEnabled, furiganaColor, furiganaFontSize]);
+    }, [sfxVolume, bgmVolume, sfxEnabled, bgmEnabled, furiganaEnabled, furiganaColor, furiganaFontSize, jpFontFamily, jpFontSize]);
 
     // Handle BGM volume changes
     useEffect(() => {
@@ -705,6 +715,66 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                 </div>
                             </div>
                         )}
+
+                        {/* Font Settings */}
+                        <div className="border-t border-gray-100 dark:border-gray-700 pt-4 mt-4 space-y-4">
+                            <div className="flex items-center gap-2 mb-2">
+                                <h4 className="text-sm font-bold text-gray-700 dark:text-gray-300">Cài đặt Font chữ tiếng Nhật</h4>
+                            </div>
+                            
+                            <div className="space-y-2">
+                                <span className="text-xs text-gray-500">Kiểu chữ (Font)</span>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                                    <button
+                                        onClick={() => setJpFontFamily('kyokasho')}
+                                        className={`p-3 rounded-xl border text-left transition-colors ${jpFontFamily === 'kyokasho' ? 'bg-indigo-50 border-indigo-400 dark:bg-indigo-900/30 dark:border-indigo-500' : 'bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'}`}
+                                    >
+                                        <p className="font-bold text-indigo-600 dark:text-indigo-400 mb-1 text-lg" style={{fontFamily: '"UD デジタル 教科書体 N-R", "UD Digi Kyokasho N-R"'}}>日本語</p>
+                                        <p className="text-xs font-bold text-gray-700 dark:text-gray-300">UD Kyokasho</p>
+                                        <p className="text-[10px] text-gray-500 mt-0.5">Chuẩn giáo dục, nét đều (Mặc định)</p>
+                                    </button>
+                                    <button
+                                        onClick={() => setJpFontFamily('mincho')}
+                                        className={`p-3 rounded-xl border text-left transition-colors ${jpFontFamily === 'mincho' ? 'bg-indigo-50 border-indigo-400 dark:bg-indigo-900/30 dark:border-indigo-500' : 'bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'}`}
+                                    >
+                                        <p className="font-bold text-indigo-600 dark:text-indigo-400 mb-1 text-lg" style={{fontFamily: '"BIZ UDPMincho", "MS Mincho", serif'}}>日本語</p>
+                                        <p className="text-xs font-bold text-gray-700 dark:text-gray-300">Mincho</p>
+                                        <p className="text-[10px] text-gray-500 mt-0.5">Chuẩn thi JLPT, nét thanh đậm</p>
+                                    </button>
+                                    <button
+                                        onClick={() => setJpFontFamily('gothic')}
+                                        className={`p-3 rounded-xl border text-left transition-colors ${jpFontFamily === 'gothic' ? 'bg-indigo-50 border-indigo-400 dark:bg-indigo-900/30 dark:border-indigo-500' : 'bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'}`}
+                                    >
+                                        <p className="font-bold text-indigo-600 dark:text-indigo-400 mb-1 text-lg" style={{fontFamily: '"BIZ UDPGothic", "Meiryo", sans-serif'}}>日本語</p>
+                                        <p className="text-xs font-bold text-gray-700 dark:text-gray-300">Gothic</p>
+                                        <p className="text-[10px] text-gray-500 mt-0.5">Hiện đại, nét dễ đọc</p>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className="space-y-2 mt-4">
+                                <span className="text-xs text-gray-500">Cỡ chữ (tương đối cho toàn app)</span>
+                                <div className="grid grid-cols-3 gap-2">
+                                    {[
+                                        { value: 'small', label: 'Gọn gàng', desc: 'Tiết kiệm không gian' },
+                                        { value: 'medium', label: 'Tiêu chuẩn', desc: 'Cân bằng' },
+                                        { value: 'large', label: 'To & Rõ', desc: 'Dễ nhìn, nhấn mạnh' }
+                                    ].map((size) => (
+                                        <button
+                                            key={size.value}
+                                            onClick={() => setJpFontSize(size.value)}
+                                            className={`py-2.5 px-2 rounded-xl border text-center transition-colors ${jpFontSize === size.value
+                                                ? 'bg-indigo-50 border-indigo-400 text-indigo-700 dark:bg-indigo-900/30 dark:border-indigo-500 dark:text-indigo-300 shadow-sm'
+                                                : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700'
+                                                }`}
+                                        >
+                                            <p className="text-sm font-bold">{size.label}</p>
+                                            <p className="text-[10px] mt-0.5 opacity-80 hidden sm:block">{size.desc}</p>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Sound Effects */}

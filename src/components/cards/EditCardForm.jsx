@@ -135,25 +135,10 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
                             )}
                         </div>
 
-                        {/* Classification & Level */}
+                        {/* Classification */}
                         <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-xl border border-gray-100 dark:border-gray-700 space-y-3">
-                            <label className="block text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Phân loại & Cấp độ</label>
+                            <label className="block text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Phân loại Từ loại</label>
                             <div className="flex flex-col gap-3">
-                                <div className="flex gap-2 overflow-x-auto pb-1">
-                                    {JLPT_LEVELS.map((lvl) => (
-                                        <button
-                                            key={lvl.value}
-                                            type="button"
-                                            onClick={() => setLevel(lvl.value)}
-                                            className={`flex-1 py-2 px-3 rounded-lg text-sm font-bold transition-all border ${level === lvl.value
-                                                ? `${lvl.color} shadow-sm ring-1 ring-offset-1 ring-indigo-200 dark:ring-indigo-800`
-                                                : 'bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600'
-                                                }`}
-                                        >
-                                            {lvl.label}
-                                        </button>
-                                    ))}
-                                </div>
                                 <select value={pos} onChange={(e) => setPos(e.target.value)} className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-sm font-medium text-gray-700 dark:text-gray-100">
                                     <option value="">-- Chọn Từ Loại --</option>
                                     {Object.entries(POS_TYPES).map(([key, value]) => (<option key={key} value={key}>{value.label}</option>))}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
     Zap, RotateCw, MessageSquare, FileText, Repeat2, Send,
-    ChevronRight, Check, X, Lightbulb, ArrowLeft, Eye, EyeOff, Settings
+    ChevronRight, Check, X, Lightbulb, ArrowLeft, Eye, EyeOff, Settings, Volume2, Headphones
 } from 'lucide-react';
 import { POS_TYPES, getPosLabel, getPosColor, getLevelColor } from '../../config/constants';
 import { playAudio, speakJapanese } from '../../utils/audio';
@@ -56,12 +56,22 @@ const ReviewScreen = ({
     const failedCardsRef = useRef(failedCards);
     const optionsRef = useRef({});
     const cardShownTimeRef = useRef(Date.now()); // Track thời gian hiển thị card
+    const isMountedRef = useRef(true); // Track if component is still mounted
+    const audioAbortRef = useRef(false); // Abort in-flight TTS requests
 
     // Review settings
     const [showSettings, setShowSettings] = useState(false);
     const [reviewTestFormat, setReviewTestFormat] = useState(() => {
         return localStorage.getItem('review_test_format') || 'multipleChoice';
     });
+
+    // Cleanup on unmount
+    useEffect(() => {
+        return () => {
+            isMountedRef.current = false;
+            audioAbortRef.current = true;
+        };
+    }, []);
 
     // Update cards when initialCards change
     useEffect(() => {
@@ -79,13 +89,16 @@ const ReviewScreen = ({
 
     // Get current card safely
     const currentCard = cards.length > 0 && currentIndex < cards.length ? cards[currentIndex] : null;
-    const cardReviewType = currentCard ? (currentCard.reviewType || reviewMode) : null;
-    const isMultipleChoice = cardReviewType === 'synonym' || cardReviewType === 'example' || (cardReviewType === 'back' && reviewTestFormat === 'multipleChoice');
+    // Normalize cardReviewType: fall back to reviewMode, then to 'back' for any unrecognized type
+    const _rawReviewType = currentCard ? (currentCard.reviewType || reviewMode) : null;
+    const KNOWN_REVIEW_TYPES = ['back', 'synonym', 'example', 'dictation', 'flashcard'];
+    const cardReviewType = _rawReviewType && KNOWN_REVIEW_TYPES.includes(_rawReviewType) ? _rawReviewType : (_rawReviewType ? 'back' : null);
+    const isMultipleChoice = (cardReviewType === 'synonym' || cardReviewType === 'example' || (cardReviewType === 'back' && reviewTestFormat === 'multipleChoice')) && cardReviewType !== 'dictation';
     const currentCardId = currentCard?.id;
 
     // Auto focus logic
     useEffect(() => {
-        if (cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && inputRef.current && !isRevealed && !isMobileDevice()) {
+        if ((cardReviewType === 'back' || cardReviewType === 'dictation') && reviewMode !== 'flashcard' && !isMultipleChoice && inputRef.current && !isRevealed && !isMobileDevice()) {
             const timer = setTimeout(() => {
                 inputRef.current?.focus();
             }, reviewMode === 'flashcard' ? 450 : 100);
@@ -110,7 +123,28 @@ const ReviewScreen = ({
         setHintCount(0); // Reset hint when changing card
         setRevealedMeanings(new Set()); // Reset revealed meanings when changing card
         cardShownTimeRef.current = Date.now(); // Reset timer khi đổi card
+
+        // Cleanup stale MC options cache for cards we've moved past
+        // Keep current + adjacent cards, clear the rest to avoid memory leak
+        const currentKeys = Object.keys(optionsRef.current);
+        if (currentKeys.length > 10) {
+            optionsRef.current = {};
+        }
+
+        let timeoutId;
+        // Auto-play audio for dictation mode (both when card has reviewType === 'dictation' or reviewMode === 'dictation')
+        const card = cards[currentIndex];
+        if (card && (card.reviewType === 'dictation' || reviewMode === 'dictation')) {
+            timeoutId = setTimeout(() => {
+                speakJapanese(card.front, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
+            }, 300);
+        }
+
+        return () => {
+            if (timeoutId) clearTimeout(timeoutId);
+        };
     }, [currentIndex]);
+
 
     // Helper: tính thời gian phản hồi (ms)
     const getResponseTime = () => Date.now() - cardShownTimeRef.current;
@@ -360,14 +394,25 @@ const ReviewScreen = ({
             const wrongOptions = shuffledCandidates
                 .slice(0, 3)
                 .map(card => card.frontWithFurigana || card.front)
-                .filter((front, index, self) => self.findIndex(f => normalizeAnswer(f) === normalizeAnswer(front)) === index);
+                .filter((front, index, self) =>
+                    // Deduplicate by normalized form
+                    self.findIndex(f => normalizeAnswer(f) === normalizeAnswer(front)) === index
+                    // Also exclude options that are too similar to the correct answer
+                    && normalizeAnswer(front) !== normalizeAnswer(correctAnswer)
+                );
 
+            // Only pad with '...' if we have fewer than 3 real wrong options
+            // and only if there really aren't enough cards in the collection
+            const realWrongCount = wrongOptions.length;
             while (wrongOptions.length < 3) {
-                wrongOptions.push('...');
+                wrongOptions.push(`(Lựa chọn ${wrongOptions.length + 1})`);
             }
 
             const options = [correctAnswer, ...wrongOptions];
-            optionsRef.current[currentCardId] = shuffleArray(options);
+            const shuffledOptions = shuffleArray(options);
+
+            // If we had to pad, at least make sure it's clear these are placeholders
+            optionsRef.current[currentCardId] = shuffledOptions;
         }
 
         setMultipleChoiceOptions(optionsRef.current[currentCardId] || []);
@@ -490,6 +535,8 @@ const ReviewScreen = ({
                 const maskedExample = maskWordInExample(wordToMask, firstExample, currentCard.pos, readingForMask);
                 return { label: 'Điền từ còn thiếu', text: maskedExample, meaning: firstExampleMeaning, image: currentCard.imageBase64, icon: FileText, color: 'text-purple-600' };
             }
+            case 'dictation':
+                return { label: 'Nghe chép', text: null, image: null, icon: Headphones, color: 'text-indigo-600' };
             default:
                 return { label: 'Ý nghĩa (Mặt sau)', text: formatMultipleMeanings(currentCard.back), image: currentCard.imageBase64, icon: Repeat2, color: 'text-emerald-600' };
         }
@@ -501,13 +548,11 @@ const ReviewScreen = ({
     const checkAnswer = async () => {
         if (isProcessing) return;
 
-        console.log('checkAnswer - inputMode:', inputMode, '| inputValue:', inputValue);
-
         const userAnswer = normalizeAnswer(inputValue);
         let isCorrect = false;
 
-        if (inputMode === 'reading') {
-            // Mode: Hiện nghĩa, nhập từ vựng
+        if (inputMode === 'reading' || cardReviewType === 'dictation') {
+            // Mode: Hiện nghĩa, nhập từ vựng HOẶC Dictation: nghe, nhập từ vựng
             const rawFront = currentCard.front;
             const kanjiPart = rawFront.split('（')[0].split('(')[0];
             const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
@@ -528,8 +573,8 @@ const ReviewScreen = ({
                 isCorrect = accepted.has(userAnswer);
             }
         } else {
-            // Mode: Hiện từ vựng, nhập nghĩa - chỉ cần đúng 1 trong các nghĩa
-            // Normalize for Vietnamese: lowercase, trim, but keep spaces between words
+            // Mode: Hiện từ vựng, nhập nghĩa - chấp nhận đúng 1 trong các nghĩa
+            // Chấp nhận cả kanji và furigana cho đáp án nghĩa
             const normalizeVietnamese = (text) => text.toLowerCase().trim().replace(/\s+/g, ' ');
             const userAnswerNormalized = normalizeVietnamese(inputValue);
 
@@ -547,6 +592,17 @@ const ReviewScreen = ({
                 if (userAnswerNormalized.length >= 3 && meaning.includes(userAnswerNormalized)) return true;
                 return false;
             });
+
+            // Fallback: chấp nhận kanji hoặc furigana của từ vựng như đáp án
+            if (!isCorrect) {
+                const rawFront = currentCard.front;
+                const kanjiPart = rawFront.split('（')[0].split('(')[0];
+                const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
+                const kanaPart = kanaPartMatch ? kanaPartMatch[1] : '';
+                const normalizedKanji = normalizeAnswer(kanjiPart);
+                const normalizedKana = normalizeAnswer(kanaPart);
+                isCorrect = userAnswer === normalizedKanji || (kanaPart && userAnswer === normalizedKana);
+            }
         }
 
         const cardKey = `${currentCard.id}-${cardReviewType}`;
@@ -568,9 +624,29 @@ const ReviewScreen = ({
                     flashCorrect();
                     playCorrectSound();
                     celebrateCorrectAnswer();
-                    speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-                    await new Promise(resolve => setTimeout(resolve, 600));
-                    await moveToNextCard(true);
+                    
+                    // Safely call speakJapanese with error handling
+                    try {
+                        await Promise.all([
+                            speakJapanese(currentCard.front, currentCard.audioBase64, 
+                                onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
+                                    if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
+                                        onSaveCardAudio(currentCard.id, b64, vid).catch(e => {
+                                            console.warn('⚠️ Failed to persist audio:', e.message);
+                                        });
+                                    }
+                                } : null
+                            ),
+                            new Promise(resolve => setTimeout(resolve, 600))
+                        ]);
+                    } catch (audioError) {
+                        console.warn('⚠️ Audio playback error (continuing):', audioError.message);
+                        await new Promise(resolve => setTimeout(resolve, 600));
+                    }
+                    
+                    if (isMountedRef.current) {
+                        await moveToNextCard(true);
+                    }
                 } else {
                     setIsProcessing(true);
                     setFeedback('correct');
@@ -580,9 +656,31 @@ const ReviewScreen = ({
                     flashCorrect();
                     playCorrectSound();
                     celebrateCorrectAnswer();
-                    speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-                    await new Promise(resolve => setTimeout(resolve, 600));
-                    await moveToNextCard(true);
+                    
+                    // Safely call speakJapanese with error handling
+                    try {
+                        await Promise.all([
+                            speakJapanese(currentCard.front, currentCard.audioBase64, 
+                                onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
+                                    // Only save if component still mounted
+                                    if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
+                                        onSaveCardAudio(currentCard.id, b64, vid).catch(e => {
+                                            console.warn('⚠️ Failed to persist audio:', e.message);
+                                        });
+                                    }
+                                } : null
+                            ),
+                            new Promise(resolve => setTimeout(resolve, 600))
+                        ]);
+                    } catch (audioError) {
+                        console.warn('⚠️ Audio playback error (continuing):', audioError.message);
+                        // Continue anyway, don't block review flow
+                        await new Promise(resolve => setTimeout(resolve, 600));
+                    }
+                    
+                    if (isMountedRef.current) {
+                        await moveToNextCard(true);
+                    }
                 }
             } else {
                 setFailedCards(prev => new Set([...prev, cardKey]));
@@ -592,7 +690,23 @@ const ReviewScreen = ({
                 setIsRevealed(true);
                 setIsLocked(true);
                 playIncorrectSound();
-                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+                
+                // Speak with safe error handling
+                try {
+                    speakJapanese(currentCard.front, currentCard.audioBase64, 
+                        onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
+                            if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
+                                onSaveCardAudio(currentCard.id, b64, vid).catch(e => {
+                                    console.warn('⚠️ Failed to persist audio:', e.message);
+                                });
+                            }
+                        } : null
+                    ).catch(e => {
+                        console.warn('⚠️ Audio playback error:', e.message);
+                    });
+                } catch (audioError) {
+                    console.warn('⚠️ Audio error:', audioError.message);
+                }
 
                 setCards(prevCards => {
                     return prevCards.map(card => {
@@ -604,6 +718,8 @@ const ReviewScreen = ({
                                 updatedCard.correctStreak_synonym = 0;
                             } else if (cardReviewType === 'example') {
                                 updatedCard.correctStreak_example = 0;
+                            } else if (cardReviewType === 'dictation') {
+                                updatedCard.correctStreak_dictation = 0;
                             }
                             return updatedCard;
                         }
@@ -646,6 +762,8 @@ const ReviewScreen = ({
                             updatedCard.correctStreak_synonym = (card.correctStreak_synonym || 0) + 1;
                         } else if (cardReviewType === 'example') {
                             updatedCard.correctStreak_example = (card.correctStreak_example || 0) + 1;
+                        } else if (cardReviewType === 'dictation') {
+                            updatedCard.correctStreak_dictation = (card.correctStreak_dictation || 0) + 1;
                         }
                         return updatedCard;
                     }
@@ -682,7 +800,7 @@ const ReviewScreen = ({
                 setFeedback(null);
                 setMessage('');
                 setIsProcessing(false);
-                if (cardReviewType === 'back' && !isMultipleChoice && inputRef.current && !isMobileDevice()) {
+                if ((cardReviewType === 'back' || cardReviewType === 'dictation') && !isMultipleChoice && inputRef.current && !isMobileDevice()) {
                     setTimeout(() => inputRef.current?.focus(), 100);
                 }
             }
@@ -694,38 +812,11 @@ const ReviewScreen = ({
 
     const handleNext = () => {
         if (isProcessing) return;
-
-        if (cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice) {
-            if (feedback === 'correct') {
-                setIsProcessing(true);
-                moveToNextCard(true);
-            } else if (feedback === 'incorrect' && isLocked) {
-                const userAnswer = normalizeAnswer(inputValue);
-                const rawFront = currentCard.front;
-                const kanjiPart = rawFront.split('（')[0].split('(')[0];
-                const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
-                const kanaPart = kanaPartMatch ? kanaPartMatch[1] : '';
-
-                const normalizedKanji = normalizeAnswer(kanjiPart);
-                const normalizedKana = normalizeAnswer(kanaPart);
-
-                const isCorrect = userAnswer === normalizedKanji || (kanaPart && userAnswer === normalizedKana) || userAnswer === normalizeAnswer(rawFront);
-
-                if (isCorrect) {
-                    speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-                    setIsProcessing(true);
-                    moveToNextCard(false);
-                } else {
-                    setMessage(`Hãy nhập lại: "${displayFront}"`);
-                }
-            }
-        } else {
-            if (feedback === 'correct') {
-                setIsProcessing(true);
-                moveToNextCard(true);
-            } else if (feedback === 'incorrect') {
-                setIsProcessing(false);
-            }
+        setIsProcessing(true);
+        if (feedback === 'correct') {
+            moveToNextCard(true);
+        } else if (feedback === 'incorrect') {
+            moveToNextCard(false);
         }
     };
 
@@ -734,6 +825,13 @@ const ReviewScreen = ({
     // Keyboard shortcut for multiple choice: press 1-4 to select
     useEffect(() => {
         const handleKeyDown = (e) => {
+            if (e.key === 'Enter' && isRevealed && !isProcessing) {
+                if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                    e.preventDefault();
+                    handleNext();
+                    return;
+                }
+            }
             if (!isMultipleChoice || isRevealed || isProcessing || feedback) return;
             // Don't trigger if typing in an input
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
@@ -860,9 +958,9 @@ const ReviewScreen = ({
                                                         </p>
                                                     )}
                                                     {currentCard.synonym && (
-                                                        <p className="text-emerald-100 text-sm">
-                                                            <span className="font-semibold">Đồng nghĩa:</span>{' '}
-                                                            <FuriganaText text={currentCard.synonym} className="font-japanese" />
+                                                        <p className="text-emerald-100 text-lg md:text-xl mt-2 font-bold">
+                                                            <span className="font-semibold opacity-90 text-base md:text-lg">Đồng nghĩa:</span>{' '}
+                                                            <FuriganaText text={currentCard.synonym} className="font-japanese font-black" />
                                                         </p>
                                                     )}
                                                 </div>
@@ -885,7 +983,7 @@ const ReviewScreen = ({
                                     <div className="flex items-center gap-2">
                                         <span className="text-orange-500 text-xl">🔥</span>
                                         <span className="text-white font-bold text-sm">
-                                            {cardReviewType === 'back' ? (inputMode === 'reading' ? 'Cách đọc' : 'Ý nghĩa') : cardReviewType === 'synonym' ? 'Đồng nghĩa' : 'Ngữ cảnh'}
+                                            {cardReviewType === 'back' ? (inputMode === 'reading' ? 'Cách đọc' : 'Ý nghĩa') : cardReviewType === 'synonym' ? 'Đồng nghĩa' : cardReviewType === 'dictation' ? 'Nghe chép' : 'Ngữ cảnh'}
                                         </span>
                                         {cardReviewType === 'example' && (
                                             <button
@@ -946,12 +1044,12 @@ const ReviewScreen = ({
                                         ) : cardReviewType === 'example' ? (
                                             <>
                                                 {/* Example mode: Show example sentence with masked word */}
-                                                <div className="quiz-example-text font-medium text-white font-japanese break-words text-auto-fit">
+                                                <div className="quiz-example-text font-bold text-lg md:text-xl text-white font-japanese break-words text-auto-fit">
                                                     <FuriganaText text={promptInfo.text} />
                                                 </div>
                                                 {promptInfo.meaning && (
                                                     <div
-                                                        className={`text-base mt-2 italic break-words cursor-pointer transition-all duration-300 select-none ${blurVietnamese && !revealedMeanings.has('main') ? 'blur-[6px] opacity-40 hover:opacity-60' : 'text-gray-400'}`}
+                                                        className={`text-lg md:text-xl font-medium mt-2 italic break-words cursor-pointer transition-all duration-300 select-none ${blurVietnamese && !revealedMeanings.has('main') ? 'blur-[6px] opacity-40 hover:opacity-60' : 'text-gray-400'}`}
                                                         onClick={(e) => { e.stopPropagation(); if (blurVietnamese) { setRevealedMeanings(prev => { const next = new Set(prev); next.has('main') ? next.delete('main') : next.add('main'); return next; }); } }}
                                                         title={blurVietnamese ? (revealedMeanings.has('main') ? 'Click để ẩn lại' : 'Click để hiện nghĩa') : ''}
                                                     >
@@ -967,7 +1065,7 @@ const ReviewScreen = ({
                                                         <div className="mt-3 pt-3 border-t border-white/20 space-y-2 w-full">
                                                             {exampleLines.slice(1).map((ex, i) => (
                                                                 <div key={i} className="text-center">
-                                                                    <p className="quiz-example-text text-white font-japanese break-words font-medium text-auto-fit">
+                                                                    <p className="quiz-example-text text-white font-japanese break-words font-bold text-lg md:text-xl text-auto-fit">
                                                                         <FuriganaText text={(() => {
                                                                             const wordToMask = getWordForMasking(currentCard.front);
                                                                             const readingForMask = getReadingForMasking(currentCard.front);
@@ -976,7 +1074,7 @@ const ReviewScreen = ({
                                                                     </p>
                                                                     {exampleMeaningLines[i + 1] && (
                                                                         <p
-                                                                            className={`text-base italic mt-1 break-words cursor-pointer transition-all duration-300 select-none ${blurVietnamese && !revealedMeanings.has(`ex_${i}`) ? 'blur-[6px] opacity-40 hover:opacity-60' : 'text-gray-400'}`}
+                                                                            className={`text-lg md:text-xl font-medium italic mt-1 break-words cursor-pointer transition-all duration-300 select-none ${blurVietnamese && !revealedMeanings.has(`ex_${i}`) ? 'blur-[6px] opacity-40 hover:opacity-60' : 'text-gray-400'}`}
                                                                             onClick={(e) => { e.stopPropagation(); if (blurVietnamese) { setRevealedMeanings(prev => { const next = new Set(prev); next.has(`ex_${i}`) ? next.delete(`ex_${i}`) : next.add(`ex_${i}`); return next; }); } }}
                                                                         >
                                                                             "{exampleMeaningLines[i + 1].replace(/^"|"$/g, '')}"
@@ -988,10 +1086,24 @@ const ReviewScreen = ({
                                                     );
                                                 })()}
                                             </>
+                                        ) : cardReviewType === 'dictation' ? (
+                                            <>
+                                                {/* Dictation mode: Show audio button, user listens and types */}
+                                                <div className="flex flex-col items-center gap-4">
+                                                    <button
+                                                        onClick={() => speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null)}
+                                                        className="p-6 bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 hover:text-indigo-200 rounded-full transition-all shadow-lg hover:shadow-indigo-500/20 hover:scale-110 active:scale-95 border-2 border-indigo-400/30"
+                                                        title="Phát âm thanh"
+                                                    >
+                                                        <Volume2 className="w-12 h-12" />
+                                                    </button>
+                                                    <p className="text-sm text-gray-400">Nghe và nhập lại từ vựng</p>
+                                                </div>
+                                            </>
                                         ) : inputMode === 'reading' ? (
                                             <>
                                                 {/* Reading mode: Show meaning, user inputs word */}
-                                                <div className="quiz-question-text-lg font-bold text-white whitespace-pre-line break-words text-auto-fit">
+                                                <div className="quiz-question-text-lg font-extrabold text-xl md:text-2xl text-white whitespace-pre-line break-words text-auto-fit">
                                                     {formatMultipleMeanings(currentCard.back)}
                                                 </div>
                                             </>
@@ -1006,7 +1118,7 @@ const ReviewScreen = ({
 
                                             {/* Sino-Vietnamese hint & POS */}
                                             <div className="flex flex-col items-center justify-center gap-2 mt-4 text-center">
-                                                {!['synonym', 'example'].includes(cardReviewType) && currentCard.sinoVietnamese && (
+                                                {!['synonym', 'example', 'dictation'].includes(cardReviewType) && currentCard.sinoVietnamese && (
                                                     <p className="text-base font-medium text-yellow-300">
                                                         <span className="text-slate-400 font-normal">Hán Việt: </span>{currentCard.sinoVietnamese}
                                                     </p>
@@ -1031,7 +1143,7 @@ const ReviewScreen = ({
                         {/* Multiple Choice */}
                         {isMultipleChoice && !isRevealed && multipleChoiceOptions.length > 0 && (
                             <div className="space-y-3">
-                                <p className="text-sm font-medium text-gray-600 dark:text-gray-300 text-center">
+                                <p className="text-base md:text-lg font-bold text-gray-600 dark:text-gray-300 text-center mb-1">
                                     {cardReviewType === 'synonym'
                                         ? <span>Từ đồng nghĩa của "<FuriganaText text={promptInfo.text} />" là gì?</span>
                                         : `Điền từ còn thiếu`
@@ -1040,7 +1152,7 @@ const ReviewScreen = ({
                                 <div className="grid grid-cols-2 gap-2">
                                     {multipleChoiceOptions.map((option, index) => {
                                         const isSelected = selectedAnswer === option;
-                                        let buttonClass = "px-3 py-3 text-sm font-bold rounded-xl transition-all border-2 text-left flex items-center gap-3 ";
+                                        let buttonClass = "px-3 py-4 text-base md:text-xl font-extrabold rounded-xl transition-all border-2 text-left flex items-center gap-3 ";
 
                                         if (feedback && isSelected && feedback === 'correct') {
                                             buttonClass += "bg-emerald-500 text-white border-emerald-600 shadow-md";
@@ -1119,9 +1231,16 @@ const ReviewScreen = ({
                                                         }
 
                                                         setIsRevealed(true);
-                                                        speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-                                                        await new Promise(resolve => setTimeout(resolve, 600));
-                                                        await moveToNextCard(isCorrect);
+                                                        if (isCorrect) {
+                                                            await Promise.all([
+                                                                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null),
+                                                                new Promise(resolve => setTimeout(resolve, 600))
+                                                            ]);
+                                                            await moveToNextCard(true);
+                                                        } else {
+                                                            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+                                                            setIsProcessing(false);
+                                                        }
                                                     } catch (error) {
                                                         console.error('Error in MC handler:', error);
                                                         // Reset state to allow retry
@@ -1184,10 +1303,10 @@ const ReviewScreen = ({
                         )}
 
                         {/* Typing Mode UI */}
-                        {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
+                        {(cardReviewType === 'back' || cardReviewType === 'dictation') && reviewMode !== 'flashcard' && !isMultipleChoice && (
                             <div className="space-y-3">
-                                {/* Hint Display - Only for reading mode, show hiragana */}
-                                {!isRevealed && inputMode === 'reading' && (
+                                {/* Hint Display - Only for reading mode (back), show hiragana */}
+                                {!isRevealed && inputMode === 'reading' && cardReviewType === 'back' && (
                                     <div className="flex justify-center gap-1.5">
                                         {(() => {
                                             // Extract hiragana reading for hint
@@ -1235,14 +1354,14 @@ const ReviewScreen = ({
                                             : feedback === 'incorrect'
                                                 ? 'border-red-400 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300'
                                                 : 'border-gray-300 dark:border-gray-600 bg-gray-800 text-white focus:border-indigo-500'}`}
-                                    placeholder={inputMode === 'reading' ? 'Nhập từ vựng tiếng Nhật...' : 'Nhập ý nghĩa tiếng Việt...'}
+                                    placeholder={cardReviewType === 'dictation' ? 'Nhập từ vựng bạn nghe được...' : (inputMode === 'reading' ? 'Nhập từ vựng tiếng Nhật...' : 'Nhập ý nghĩa tiếng Việt...')}
                                 />
 
                                 {/* Hint button and Check button row */}
                                 {!isRevealed && (
                                     <div className="flex gap-3">
-                                        {/* Hint button - Only for reading mode */}
-                                        {inputMode === 'reading' && (
+                                        {/* Hint button - Only for reading mode (back) */}
+                                        {inputMode === 'reading' && cardReviewType === 'back' && (
                                             <button
                                                 onClick={() => {
                                                     const hiraganaMatch = currentCard.front.match(/[（(]([^）)]+)[）)]/);
@@ -1286,18 +1405,27 @@ const ReviewScreen = ({
                             <div className="space-y-2 md:space-y-3">
                                 <div className={`transition-all duration-300 ease-out overflow-hidden ${isRevealed ? 'max-h-[120px] md:max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
                                     <div className={`p-3 md:p-5 rounded-xl md:rounded-2xl border flex items-start gap-2 md:gap-4 overflow-y-auto max-h-[120px] md:max-h-40 ${feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : feedback === 'incorrect' ? 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800' : 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700'}`}>
-                                        {cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && (
+                                        {(cardReviewType === 'back' || cardReviewType === 'dictation') && reviewMode !== 'flashcard' && !isMultipleChoice && (
                                             <div className={`p-1.5 md:p-2 rounded-full flex-shrink-0 ${feedback === 'correct' ? 'bg-green-200 dark:bg-green-800 text-green-700 dark:text-green-300' : 'bg-red-200 dark:bg-red-800 text-red-700 dark:text-red-300'}`}>
                                                 {feedback === 'correct' ? <Check className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3} /> : <X className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3} />}
                                             </div>
                                         )}
                                         <div className="flex-1 min-w-0">
                                             <div>
-                                                <p className={`font-bold text-base md:text-xl ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'}`}>{message}</p>
-                                                {feedback === 'incorrect' && cardReviewType === 'back' && reviewMode !== 'flashcard' && !isMultipleChoice && <p className="text-xs md:text-base text-red-600 dark:text-red-400 mt-0.5 md:mt-1">Gõ lại từ đúng để tiếp tục</p>}
+                                                <p className={`font-extrabold text-lg md:text-2xl ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'}`}>{message}</p>
                                             </div>
                                         </div>
                                     </div>
+
+                                    {feedback === 'incorrect' && (
+                                        <button
+                                            onClick={handleNext}
+                                            disabled={isProcessing}
+                                            className="w-full mt-3 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95"
+                                        >
+                                            Tiếp tục (Enter)
+                                        </button>
+                                    )}
                                 </div>
 
                             </div>

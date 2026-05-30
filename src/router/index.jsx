@@ -15,8 +15,10 @@ export const ROUTES = {
     // Vocabulary: /vocab/*
     VOCAB_REVIEW: '/vocab/review',       // Ôn tập từ vựng (SRS flashcard)
     VOCAB_LIST: '/vocab/list',           // Danh sách từ vựng
+    VOCAB_SET_DETAIL: '/vocab/set/:id',  // Chi tiết học phần
     VOCAB_ADD: '/vocab/add',             // Thêm từ vựng mới
     VOCAB_EDIT: '/vocab/edit/:id',       // Chỉnh sửa từ vựng
+    VOCAB_EDIT_SET: '/vocab/edit-set/:id',// Chỉnh sửa học phần
 
     // Kanji: /kanji/*
     KANJI_STUDY: '/kanji/study',         // Học Kanji (lộ trình)
@@ -29,11 +31,19 @@ export const ROUTES = {
     REVIEW: '/vocab/review/quiz',
     FLASHCARD: '/vocab/review/flashcard',
     STUDY: '/vocab/review/study',
+    SYNONYM_QUIZ: '/vocab/review/synonym',
     TEST: '/vocab/review/test',
 
     // JLPT Test
     JLPT_TEST: '/jlpt/test',
     JLPT_ADMIN: '/jlpt/admin',
+
+    // Grammar: /grammar/*
+    GRAMMAR: '/grammar',
+    GRAMMAR_TEXTBOOK: '/grammar/textbook/:textbookId',
+    GRAMMAR_LESSON: '/grammar/textbook/:textbookId/lesson/:lessonId',
+    GRAMMAR_DETAIL: '/grammar/detail/:grammarId',
+    GRAMMAR_PRACTICE: '/grammar/practice/:grammarId',
 
     // Social & Data
     HUB: '/hub',

@@ -104,42 +104,46 @@ const HomeScreen = ({
         return { dueCards, newCards, masteredCards, streak, totalCards };
     }, [allCards, totalCards, kanjiActivityDates]);
 
-    // Quick action cards - using softer colors
+    // Quick action cards - using softer pastel colors and clean styling properties
     const quickActions = [
         {
             id: 'add',
             title: 'Thêm từ vựng',
-            subtitle: 'Mở rộng vốn từ',
+            subtitle: 'Mở rộng vốn từ của bạn',
             icon: Sparkles,
-            color: 'from-cyan-500 to-teal-500',
-            shadowColor: 'shadow-cyan-500/20',
+            bgColor: 'bg-[#EEF7F6] dark:bg-teal-950/20 border-teal-100/50 dark:border-teal-900/30',
+            textColor: 'text-[#1E4D4A] dark:text-teal-300',
+            iconColor: 'text-[#2C7A7B] dark:text-teal-400',
             route: ROUTES.VOCAB_ADD,
         },
         {
             id: 'kanji',
             title: 'Học Kanji',
-            subtitle: 'Chinh phục chữ Hán',
+            subtitle: 'Chinh phục lộ trình chữ Hán',
             icon: Languages,
-            color: 'from-emerald-500 to-teal-600',
-            shadowColor: 'shadow-emerald-500/20',
+            bgColor: 'bg-[#EDF6F0] dark:bg-emerald-950/20 border-emerald-100/50 dark:border-emerald-900/30',
+            textColor: 'text-[#1E4620] dark:text-emerald-300',
+            iconColor: 'text-[#2F855A] dark:text-emerald-400',
             route: ROUTES.KANJI_STUDY,
         },
         {
             id: 'vocab-review',
             title: 'Ôn Tập Từ Vựng',
-            subtitle: `${stats.dueCards} thẻ cần ôn`,
+            subtitle: `${stats.dueCards} thẻ đang đến hạn ôn`,
             icon: BookOpen,
-            color: 'from-sky-500 to-blue-600',
-            shadowColor: 'shadow-sky-500/20',
+            bgColor: 'bg-[#E8F2FC] dark:bg-blue-950/20 border-blue-100/50 dark:border-blue-900/30',
+            textColor: 'text-[#1A365D] dark:text-blue-300',
+            iconColor: 'text-[#2B6CB0] dark:text-blue-400',
             route: ROUTES.VOCAB_REVIEW,
         },
         {
             id: 'kanji-review',
             title: 'Ôn Tập Kanji',
-            subtitle: `${kanjiSrsStats.dueCount} kanji cần ôn`,
+            subtitle: `${kanjiSrsStats.dueCount} kanji đang chờ ôn`,
             icon: Target,
-            color: 'from-amber-500 to-orange-500',
-            shadowColor: 'shadow-amber-500/20',
+            bgColor: 'bg-[#FDF6ED] dark:bg-amber-950/20 border-amber-100/50 dark:border-amber-900/30',
+            textColor: 'text-[#744210] dark:text-amber-300',
+            iconColor: 'text-[#D69E2E] dark:text-amber-400',
             route: ROUTES.KANJI_REVIEW,
         },
     ];
@@ -154,36 +158,16 @@ const HomeScreen = ({
 
     // Get motivational quote - 30 quotes rotating daily
     const quotes = [
-        '継続は力なり - Kiên trì là sức mạnh',
-        '千里の道も一歩から - Ngàn dặm bắt đầu từ một bước',
-        '七転び八起き - Ngã bảy lần, đứng dậy tám lần',
-        '石の上にも三年 - Kiên nhẫn sẽ thành công',
-        '努力は必ず報われる - Nỗ lực sẽ được đền đáp',
-        '一日一歩 - Mỗi ngày một bước tiến',
-        '夢を追いかけろ - Hãy theo đuổi ước mơ',
-        '失敗は成功のもと - Thất bại là mẹ thành công',
-        '今日できることを明日に延ばすな - Việc hôm nay chớ để ngày mai',
-        '自分を信じろ - Hãy tin vào chính mình',
-        '諦めなければ夢は叶う - Đừng bỏ cuộc, ước mơ sẽ thành hiện thực',
-        '小さな積み重ねが大きな力になる - Tích tiểu thành đại',
-        '今この瞬間を大切に - Trân trọng từng khoảnh khắc',
-        '挑戦することが成長への道 - Thử thách là con đường trưởng thành',
-        '学ぶことに終わりはない - Học tập không có điểm dừng',
-        '一歩一歩前へ進め - Từng bước tiến về phía trước',
-        '困難は人を強くする - Khó khăn khiến con người mạnh mẽ hơn',
-        '笑顔で頑張ろう - Hãy cố gắng với nụ cười',
-        '可能性は無限大 - Khả năng là vô hạn',
-        '今日の努力、明日の成果 - Nỗ lực hôm nay, thành quả ngày mai',
-        '勉強は未来への投資 - Học tập là đầu tư cho tương lai',
-        '毎日少しずつ上手になる - Mỗi ngày giỏi hơn một chút',
-        '言葉は世界への扉 - Ngôn ngữ là cánh cửa đến thế giới',
-        '夢は逃げない - Ước mơ không bỏ chạy',
-        '自分のペースで進もう - Tiến bước theo nhịp điệu của riêng mình',
-        '今日も頑張れ - Hôm nay cũng cố lên nhé',
-        '成功は準備と機会の出会いだ - Thành công là sự giao thoa của chuẩn bị và cơ hội',
-        '知識は力なり - Kiến thức là sức mạnh',
-        '練習は裏切らない - Luyện tập không bao giờ phản bội',
-        '一期一会 - Mỗi cuộc gặp gỡ là duy nhất',
+        '継続は力なり — Kế Tục Thị Lực Dã — Kiên trì là sức mạnh',
+        '千里の道も一歩から — Thiên Lí Chi Lộ Thủy Ư Nhất Bộ — Đường dài vạn dẫm khởi đầu từ một bước',
+        '七転び八起き — Thất Chuyển Bát Khởi — Bảy lần vấp ngã, tám lần đứng lên',
+        '石の上にも三年 — Thạch Thượng Tam Niên — Ngồi trên đá ba năm cũng ấm (Kiên nhẫn sẽ thành công)',
+        '努力は必ず報われる — Nỗ Lực Tất Báo — Nỗ lực nhất định sẽ được đền đáp',
+        '一日一歩 — Nhất Nhật Nhất Bộ — Mỗi ngày tiến một bước',
+        '夢を追いかけろ — Mộng Truy Cập — Hãy theo đuổi ước mơ',
+        '失敗は成功のもと — Thất Bại Thị Thành Công Chi Bản — Thất bại là mẹ thành công',
+        '自分を信じろ — Tự Thân Tín — Hãy tin tưởng vào bản thân',
+        '一期一会 — Nhất Kỳ Nhất Hội — Đời người chỉ gặp một lần (Trân quý cơ duyên)',
     ];
     const todayQuote = quotes[new Date().getDate() % quotes.length];
 
@@ -210,7 +194,7 @@ const HomeScreen = ({
 
 
     return (
-        <div className="flex flex-col h-full max-h-[calc(100vh-80px)] max-w-7xl mx-auto gap-2 md:gap-3 pb-2 overflow-y-auto overflow-x-hidden scrollbar-hide justify-between">
+        <div className="flex flex-col h-full max-h-[calc(100vh-80px)] max-w-7xl mx-auto gap-4 p-4 md:p-6 overflow-y-auto scrollbar-hide">
             {/* Book Vocab Sync Notification */}
             <BookVocabSyncChecker
                 userId={userId}
@@ -219,123 +203,134 @@ const HomeScreen = ({
                 vocabCollectionPath={vocabCollectionPath}
             />
 
-            {/* Hero Section - Beautiful teal gradient */}
-            <div className="relative flex-shrink overflow-hidden bg-gradient-to-br from-teal-600 via-cyan-600 to-sky-600 rounded-2xl p-3 md:p-5 text-white pb-3 md:pb-5">
-                {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"></div>
+            {/* Hero Section - Soft light-blue background card */}
+            <div className="relative flex-shrink-0 overflow-hidden bg-[#E8F1FA] dark:bg-slate-900 border border-blue-100/50 dark:border-slate-800/60 rounded-2xl p-5 md:p-6 text-slate-800 dark:text-slate-200">
+                {/* Decorative subtle background shapes */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-200/20 dark:bg-slate-800/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-teal-200/10 dark:bg-slate-800/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"></div>
 
-                <div className="relative z-10">
-                    <div className="flex items-center gap-1.5 mb-1 md:mb-2">
-                        <Sparkles className="w-4 h-4 text-amber-300" />
-                        <span className="text-xs md:text-sm font-medium text-white/80">{getGreeting()}</span>
+                <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <div>
+                        <div className="flex items-center gap-1.5 mb-1.5">
+                            <Sparkles className="w-4 h-4 text-[#2E5B70] dark:text-sky-400" />
+                            <span className="text-xs md:text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">{getGreeting()}</span>
+                        </div>
+
+                        <h1 className="text-2xl md:text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight mb-2">
+                            {displayName ? `${displayName}!` : 'Chào bạn!'}
+                        </h1>
+
+                        <p className="text-slate-600 dark:text-slate-300 text-sm font-medium italic leading-relaxed">
+                            "{todayQuote}"
+                        </p>
                     </div>
 
-                    <h1 className="text-xl md:text-3xl font-bold mb-1 md:mb-2">
-                        {displayName ? `${displayName}!` : 'Bạn ơi!'}
-                    </h1>
-
-                    <p className="text-white/70 text-xs md:text-base mb-2 md:mb-3 italic opacity-90 line-clamp-1">
-                        "{todayQuote}"
-                    </p>
-
-                    {/* Mini Stats */}
-                    <div className="flex flex-wrap gap-2 mt-2 md:mt-4">
-                        <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 md:px-4 md:py-2">
-                            <Flame className="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-400" />
-                            <span className="text-xs md:text-sm font-medium">{stats.streak} ngày</span>
+                    {/* Mini Stats Pills inside Hero banner */}
+                    <div className="flex flex-wrap gap-2 md:flex-col md:items-end justify-start">
+                        <div className="flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 rounded-xl px-4 py-2 shadow-sm">
+                            <Flame className="w-4 h-4 text-orange-500" />
+                            <span className="text-xs md:text-sm font-bold text-slate-700 dark:text-slate-200">{stats.streak} ngày streak</span>
                         </div>
-                        <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 md:px-4 md:py-2">
-                            <Trophy className="w-3.5 h-3.5 md:w-4 md:h-4 text-amber-400" />
-                            <span className="text-xs md:text-sm font-medium">{stats.masteredCards} từ thuộc</span>
+                        <div className="flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 rounded-xl px-4 py-2 shadow-sm">
+                            <Trophy className="w-4 h-4 text-amber-500" />
+                            <span className="text-xs md:text-sm font-bold text-slate-700 dark:text-slate-200">{stats.masteredCards} từ thuộc</span>
                         </div>
-                        <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 md:px-4 md:py-2 hidden sm:flex">
-                            <Languages className="w-3.5 h-3.5 md:w-4 md:h-4 text-emerald-400" />
-                            <span className="text-xs md:text-sm font-medium">{kanjiSrsStats.mastered} kanji</span>
+                        <div className="flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 rounded-xl px-4 py-2 shadow-sm">
+                            <Languages className="w-4 h-4 text-emerald-500" />
+                            <span className="text-xs md:text-sm font-bold text-slate-700 dark:text-slate-200">{kanjiSrsStats.mastered} kanji thuộc</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* Today's Summary */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 flex-shrink-0">
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-2 md:p-3 border border-gray-200 dark:border-gray-700 text-center flex flex-col items-center justify-center">
-                    <div className="w-8 h-8 md:w-10 md:h-10 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center mb-1">
-                        <Clock className="w-4 h-4 md:w-5 md:h-5 text-red-500" />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 flex-shrink-0">
+                {/* Card 1: Vocab Review */}
+                <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-100 dark:border-slate-800/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] dark:shadow-none flex items-center gap-4">
+                    <div className="w-12 h-12 bg-rose-50 dark:bg-rose-950/30 rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <Clock className="w-5 h-5 text-rose-500" />
                     </div>
-                    <div className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white leading-none">{stats.dueCards}</div>
-                    <div className="text-[10px] md:text-xs text-gray-500 mt-1">Từ vựng ôn</div>
+                    <div>
+                        <div className="text-2xl font-bold text-slate-800 dark:text-white leading-tight">{stats.dueCards}</div>
+                        <div className="text-xs text-slate-400 dark:text-slate-500 font-medium">Từ vựng cần ôn</div>
+                    </div>
                 </div>
 
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-2 md:p-3 border border-gray-200 dark:border-gray-700 text-center flex flex-col items-center justify-center">
-                    <div className="w-8 h-8 md:w-10 md:h-10 bg-amber-50 dark:bg-amber-900/20 rounded-full flex items-center justify-center mb-1">
-                        <Target className="w-4 h-4 md:w-5 md:h-5 text-amber-500" />
+                {/* Card 2: Kanji Review */}
+                <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-100 dark:border-slate-800/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] dark:shadow-none flex items-center gap-4">
+                    <div className="w-12 h-12 bg-amber-50 dark:bg-amber-950/30 rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <Target className="w-5 h-5 text-amber-500" />
                     </div>
-                    <div className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white leading-none">{kanjiSrsStats.dueCount}</div>
-                    <div className="text-[10px] md:text-xs text-gray-500 mt-1">Kanji ôn</div>
+                    <div>
+                        <div className="text-2xl font-bold text-slate-800 dark:text-white leading-tight">{kanjiSrsStats.dueCount}</div>
+                        <div className="text-xs text-slate-400 dark:text-slate-500 font-medium">Kanji cần ôn</div>
+                    </div>
                 </div>
 
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-2 md:p-3 border border-gray-200 dark:border-gray-700 text-center flex flex-col items-center justify-center">
-                    <div className="w-8 h-8 md:w-10 md:h-10 bg-sky-50 dark:bg-sky-900/20 rounded-full flex items-center justify-center mb-1">
-                        <BookOpen className="w-4 h-4 md:w-5 md:h-5 text-sky-500" />
+                {/* Card 3: Total Cards */}
+                <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-100 dark:border-slate-800/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] dark:shadow-none flex items-center gap-4">
+                    <div className="w-12 h-12 bg-sky-50 dark:bg-sky-950/30 rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <BookOpen className="w-5 h-5 text-sky-500" />
                     </div>
-                    <div className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white leading-none">{stats.totalCards}</div>
-                    <div className="text-[10px] md:text-xs text-gray-500 mt-1">Tổng từ vựng</div>
+                    <div>
+                        <div className="text-2xl font-bold text-slate-800 dark:text-white leading-tight">{stats.totalCards}</div>
+                        <div className="text-xs text-slate-400 dark:text-slate-500 font-medium">Tổng từ vựng</div>
+                    </div>
                 </div>
 
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-2 md:p-3 border border-gray-200 dark:border-gray-700 text-center flex flex-col items-center justify-center">
-                    <div className="w-8 h-8 md:w-10 md:h-10 bg-emerald-50 dark:bg-emerald-900/20 rounded-full flex items-center justify-center mb-1">
-                        <Languages className="w-4 h-4 md:w-5 md:h-5 text-emerald-500" />
+                {/* Card 4: Total Kanji */}
+                <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-100 dark:border-slate-800/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] dark:shadow-none flex items-center gap-4">
+                    <div className="w-12 h-12 bg-emerald-50 dark:bg-emerald-950/30 rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <Languages className="w-5 h-5 text-emerald-500" />
                     </div>
-                    <div className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white leading-none">{kanjiSrsStats.total}</div>
-                    <div className="text-[10px] md:text-xs text-gray-500 mt-1">Tổng Kanji</div>
+                    <div>
+                        <div className="text-2xl font-bold text-slate-800 dark:text-white leading-tight">{kanjiSrsStats.total}</div>
+                        <div className="text-xs text-slate-400 dark:text-slate-500 font-medium">Tổng Kanji</div>
+                    </div>
                 </div>
             </div>
 
             {/* Quick Actions */}
-            <div className="flex flex-col gap-1.5 md:gap-2 flex-1 min-h-0">
-                <h2 className="text-sm md:text-base font-bold text-gray-800 dark:text-white flex items-center gap-1.5 px-1">
-                    <Zap className="w-4 h-4 md:w-5 md:h-5 text-amber-500" />
+            <div className="flex flex-col gap-2.5 flex-shrink-0">
+                <h2 className="text-sm md:text-base font-bold text-slate-800 dark:text-white flex items-center gap-1.5 px-1">
+                    <Zap className="w-4 h-4 md:w-5 md:h-5 text-amber-500 animate-pulse" />
                     Bắt đầu nhanh
                 </h2>
 
-                <div className="grid grid-cols-2 gap-2 md:gap-3 flex-1">
+                <div className="grid grid-cols-2 gap-4">
                     {quickActions.map((action) => (
                         <button
                             key={action.id}
                             onClick={() => navigate(action.route)}
-                            className={`relative group bg-gradient-to-r ${action.color} rounded-xl p-2.5 md:p-4 text-white text-left shadow-md ${action.shadowColor} hover:scale-[1.02] transition-all duration-300 overflow-hidden flex flex-col justify-center`}
+                            className={`relative group ${action.bgColor} border rounded-2xl p-5 text-left transition-all duration-300 hover:shadow-md hover:scale-[1.01] overflow-hidden flex flex-col justify-between min-h-[110px] cursor-pointer`}
                         >
-                            {/* Background decoration */}
-                            <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full blur-xl translate-x-8 -translate-y-8 group-hover:translate-x-4 transition-transform"></div>
-
-                            <div className="relative z-10 flex items-start justify-between">
+                            <div className="relative z-10 flex flex-col h-full justify-between">
                                 <div>
-                                    <div className="flex items-center gap-1.5 md:gap-2 mb-0.5">
-                                        <action.icon className="w-4 h-4 md:w-5 md:h-5" />
-                                        <h3 className="font-bold text-sm md:text-base">{action.title}</h3>
+                                    <div className="flex items-center gap-2 mb-1">
+                                        <action.icon className={`w-5 h-5 ${action.iconColor}`} />
+                                        <h3 className={`font-bold text-sm md:text-base ${action.textColor}`}>{action.title}</h3>
                                     </div>
-                                    <p className="text-[10px] md:text-xs text-white/80 line-clamp-1">{action.subtitle}</p>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">{action.subtitle}</p>
                                 </div>
-                                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                                <div className="flex items-center gap-1 mt-3 text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <span className={action.textColor}>Học ngay</span>
+                                    <ArrowRight className={`w-3.5 h-3.5 ${action.textColor} translate-x-0 group-hover:translate-x-1 transition-transform`} />
+                                </div>
                             </div>
                         </button>
                     ))}
                 </div>
             </div>
 
-
-
-
             {/* Tips */}
-            <div className="bg-gradient-to-r from-slate-50 to-gray-50 dark:from-slate-800/50 dark:to-gray-800/50 rounded-xl p-2 md:p-3 border border-slate-200 dark:border-slate-700 flex-shrink-0 mx-1 mb-1 hidden sm:block">
-                <div className="flex items-center gap-2 md:gap-3">
-                    <div className="w-7 h-7 md:w-8 md:h-8 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4 text-slate-600 dark:text-slate-300" />
+            <div className="bg-[#FFF9E6] dark:bg-amber-950/20 rounded-2xl p-4 border border-amber-200/50 dark:border-amber-900/30 flex-shrink-0 mx-1 mb-1">
+                <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 bg-amber-100 dark:bg-amber-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <Sparkles className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                     </div>
                     <div>
-                        <p className="text-[10px] md:text-xs text-slate-600 dark:text-slate-400 font-medium italic line-clamp-1">
-                            <span className="font-bold text-slate-700 dark:text-slate-300 mr-1">💡 Mẹo học tập:</span>
+                        <p className="text-xs text-amber-800 dark:text-amber-300 font-semibold mb-0.5">Mẹo học tập hôm nay</p>
+                        <p className="text-xs text-amber-700/80 dark:text-amber-400/80 font-medium leading-relaxed">
                             {todayTip}
                         </p>
                     </div>

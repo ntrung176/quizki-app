@@ -14,6 +14,8 @@ import { showToast, showConfirm } from '../../utils/toast';
 import { speakJapanese, playAudio, generateAudioSilentWithVoice } from '../../utils/audio';
 import FuriganaText from '../ui/FuriganaText';
 import { accentNumberToPitchParts } from '../../utils/pitchAccent';
+import { TopTabBar } from '../ui';
+import { VOCAB_TABS } from '../../config/tabs';
 
 // ==================== REUSABLE COMPONENTS (outside BookScreen to prevent re-mount) ====================
 const FormModal = ({ show, onClose, title, onSave, children }) => {
@@ -42,6 +44,70 @@ const InputField = ({ label, value, onChange, placeholder, type = 'text' }) => (
             placeholder={placeholder} className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-sky-500 outline-none" />
     </div>
 );
+
+const ZenModeView = ({ allUserCards = [], bookGroups = [], onClose }) => {
+    const [elapsedTime, setElapsedTime] = useState(0);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setElapsedTime(prev => prev + 1);
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
+
+    const formatTime = (seconds) => {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    };
+
+    return (
+        <div className="fixed inset-0 z-50 bg-[#0F172A] text-white flex flex-col items-center justify-center p-6 animate-fadeIn">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.08),transparent_70%)] pointer-events-none" />
+            
+            <div className="relative z-10 text-center max-w-lg w-full space-y-8">
+                {/* Glowing Quietness Character */}
+                <div className="w-32 h-32 mx-auto rounded-3xl bg-slate-800/80 border border-slate-700/50 flex flex-col items-center justify-center shadow-[0_0_50px_rgba(99,102,241,0.15)] animate-pulse">
+                    <span className="text-5xl font-extrabold bg-gradient-to-br from-indigo-300 to-sky-300 bg-clip-text text-transparent">静</span>
+                    <span className="text-[10px] tracking-[0.2em] text-slate-500 font-bold mt-2 uppercase">QUIETNESS</span>
+                </div>
+
+                <div className="space-y-3">
+                    <h2 className="text-3xl font-black bg-gradient-to-r from-indigo-200 to-sky-200 bg-clip-text text-transparent tracking-tight">Zen Focus Session</h2>
+                    <p className="text-slate-400 text-sm leading-relaxed max-w-md mx-auto">
+                        "Learning is a treasure that will follow its owner everywhere."
+                    </p>
+                </div>
+
+                {/* Timer */}
+                <div className="space-y-1 py-4">
+                    <div className="text-6xl font-mono font-light text-indigo-400 tracking-wider">
+                        {formatTime(elapsedTime)}
+                    </div>
+                    <p className="text-[10px] tracking-widest text-slate-500 uppercase font-bold">Active Focus Time</p>
+                </div>
+
+                {/* Simple Quick Stats */}
+                <div className="grid grid-cols-2 gap-4 py-6 border-y border-slate-800/60 max-w-sm mx-auto">
+                    <div className="text-center">
+                        <p className="text-2xl font-black text-slate-200">{allUserCards?.length || 0}</p>
+                        <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider mt-0.5">Cards in SRS</p>
+                    </div>
+                    <div className="text-center">
+                        <p className="text-2xl font-black text-slate-200">{bookGroups?.length || 0}</p>
+                        <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider mt-0.5">Book Collections</p>
+                    </div>
+                </div>
+
+                <button
+                    onClick={onClose}
+                    className="px-8 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-xl border border-slate-700/50 text-sm font-bold shadow-lg transition-all cursor-pointer inline-flex items-center gap-2"
+                >
+                    Exit Focus Mode
+                </button>
+            </div>
+        </div>
+    );
+};
 
 // ==================== BOOK SCREEN ====================
 const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserCards = [], userId = null }) => {
@@ -101,6 +167,39 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
 
     // Table of contents
     const [showTOC, setShowTOC] = useState(true);
+
+    // Search and filter states
+    const [searchQuery, setSearchQuery] = useState('');
+    const [activeFilter, setActiveFilter] = useState('ALL');
+    const [isZenMode, setIsZenMode] = useState(false);
+
+    const getGroupCategory = (group) => {
+        const name = (group.name || '').toLowerCase();
+        const subtitle = (group.subtitle || '').toLowerCase();
+        if (name.includes('mimikara') || name.includes('jlpt') || subtitle.includes('jlpt') || name.includes('tango')) {
+            return 'JLPT';
+        }
+        if (name.includes('daichi') || name.includes('irodori') || name.includes('minna') || name.includes('sách')) {
+            return 'TEXTBOOK';
+        }
+        return 'CUSTOM';
+    };
+
+    const filteredGroups = useMemo(() => {
+        return bookGroups.filter(group => {
+            const name = (group.name || '').toLowerCase();
+            const subtitle = (group.subtitle || '').toLowerCase();
+            const matchesSearch = name.includes(searchQuery.toLowerCase()) || subtitle.includes(searchQuery.toLowerCase());
+            if (!matchesSearch) return false;
+            
+            if (activeFilter === 'ALL') return true;
+            const cat = getGroupCategory(group);
+            if (activeFilter === 'JLPT') return cat === 'JLPT';
+            if (activeFilter === 'TEXTBOOK') return cat === 'TEXTBOOK';
+            if (activeFilter === 'CUSTOM') return cat === 'CUSTOM';
+            return true;
+        });
+    }, [bookGroups, searchQuery, activeFilter]);
 
     // Audio stored separately to avoid Firestore 1MB document limit
     const [lessonAudioMap, setLessonAudioMap] = useState({});
@@ -810,6 +909,59 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
         return allUserCards.some(c => c.front.split('（')[0].split('(')[0].trim() === n);
     };
 
+    const getBookProgress = useCallback((gId, book) => {
+        let totalVocab = 0;
+        let revealedCount = 0;
+        if (!book.chapters) return 0;
+        for (const chapter of book.chapters) {
+            if (!chapter.lessons) continue;
+            for (const lesson of chapter.lessons) {
+                const vocabLen = lesson.vocab?.length || 0;
+                totalVocab += vocabLen;
+                if (vocabLen > 0) {
+                    const key = `book_reveal_${gId}_${book.id}_${chapter.id}_${lesson.id}`;
+                    try {
+                        const saved = localStorage.getItem(key);
+                        if (saved) {
+                            const arr = JSON.parse(saved);
+                            revealedCount += new Set(arr).size;
+                        }
+                    } catch(e) {}
+                }
+            }
+        }
+        if (totalVocab === 0) return 0;
+        return Math.round((revealedCount / totalVocab) * 100);
+    }, []);
+
+    const getGroupProgress = useCallback((group) => {
+        let totalVocab = 0;
+        let revealedCount = 0;
+        if (!group.books) return 0;
+        for (const book of group.books) {
+            if (!book.chapters) continue;
+            for (const chapter of book.chapters) {
+                if (!chapter.lessons) continue;
+                for (const lesson of chapter.lessons) {
+                    const vocabLen = lesson.vocab?.length || 0;
+                    totalVocab += vocabLen;
+                    if (vocabLen > 0) {
+                        const key = `book_reveal_${group.id}_${book.id}_${chapter.id}_${lesson.id}`;
+                        try {
+                            const saved = localStorage.getItem(key);
+                            if (saved) {
+                                const arr = JSON.parse(saved);
+                                revealedCount += new Set(arr).size;
+                            }
+                        } catch(e) {}
+                    }
+                }
+            }
+        }
+        if (totalVocab === 0) return 0;
+        return Math.round((revealedCount / totalVocab) * 100);
+    }, []);
+
     // ==================== COLORS ====================
     const BOOK_COLORS = [
         '#4F87FF', '#9B59B6', '#2ECC71', '#FF6B6B', '#F1C40F',
@@ -842,111 +994,318 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
 
     // ==================== VIEWS ====================
     // VIEW 1: Book Groups listing
-    const GroupsView = () => (
-        <div className="space-y-6">
-            <div className="flex items-center justify-between">
-                <div>
-                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white">📚 Thư viện sách</h1>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Chọn bộ sách để bắt đầu học từ vựng</p>
+    const GroupsView = () => {
+        return (
+            <div className="space-y-8">
+                {/* Modern Premium Header */}
+                <div className="flex flex-col gap-2">
+                    <h1 className="text-3xl font-extrabold tracking-tight text-slate-800 dark:text-white">Vocabulary Books</h1>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm max-w-2xl leading-relaxed">
+                        Curated collections for your language journey. Track your progress across foundational textbooks and specialized vocabulary guides.
+                    </p>
                 </div>
-                {isAdmin && (
-                    <button onClick={() => { resetForm(); setShowAddGroup(true); }}
-                        className="flex items-center gap-2 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-xl font-medium transition-colors">
-                        <Plus className="w-4 h-4" /> Thêm nhóm sách
-                    </button>
+
+                {/* Filters & Search Row */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-slate-50 dark:bg-slate-855/40 p-3 rounded-2xl border border-slate-100 dark:border-slate-800">
+                    {/* Tabs / Filters */}
+                    <div className="flex flex-wrap gap-1.5 w-full sm:w-auto">
+                        {[
+                            { id: 'ALL', label: 'ALL BOOKS' },
+                            { id: 'JLPT', label: 'JLPT SERIES' },
+                            { id: 'TEXTBOOK', label: 'TEXTBOOKS' },
+                            { id: 'CUSTOM', label: 'CUSTOM' }
+                        ].map(tab => (
+                            <button
+                                key={tab.id}
+                                onClick={() => setActiveFilter(tab.id)}
+                                className={`px-4 py-2 rounded-xl text-xs font-bold tracking-wider transition-all duration-200 ${
+                                    activeFilter === tab.id
+                                        ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm'
+                                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
+                                }`}
+                            >
+                                {tab.label}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Search Bar */}
+                    <div className="relative w-full sm:w-72">
+                        <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                        <input
+                            type="text"
+                            placeholder="Search your library..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="w-full pl-10 pr-4 py-2 rounded-xl text-xs bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
+                        />
+                    </div>
+                </div>
+
+                {filteredGroups.length === 0 && !loading && (
+                    <div className="text-center py-16 text-slate-400 dark:text-slate-500 bg-slate-50/50 dark:bg-slate-800/20 rounded-2xl border border-dashed border-slate-200 dark:border-slate-700">
+                        <BookOpen className="w-16 h-16 mx-auto mb-4 opacity-30 text-slate-400" />
+                        <p className="text-lg font-semibold">No books match your criteria</p>
+                        <p className="text-sm mt-1">Try adjusting your filters or search query.</p>
+                    </div>
                 )}
-            </div>
 
-            {bookGroups.length === 0 && !loading && (
-                <div className="text-center py-16 text-gray-400 dark:text-gray-500">
-                    <BookOpen className="w-16 h-16 mx-auto mb-4 opacity-30" />
-                    <p className="text-lg">Chưa có nhóm sách nào</p>
-                    {isAdmin && <p className="text-sm mt-1">Bấm "Thêm nhóm sách" để bắt đầu</p>}
-                </div>
-            )}
+                {/* Cards Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filteredGroups.map(group => {
+                        const progress = getGroupProgress(group);
+                        const category = getGroupCategory(group);
+                        const isTextbook = category === 'TEXTBOOK';
+                        const isJLPT = category === 'JLPT';
+                        const badgeText = isTextbook ? 'TEXTBOOK' : isJLPT ? 'JLPT SERIES' : 'CUSTOM';
+                        
+                        // Badge levels
+                        let levelBadge = '';
+                        if (group.name.includes('Daichi')) levelBadge = 'BEGINNER';
+                        else if (group.name.includes('Irodori')) levelBadge = 'A2 LEVEL';
+                        else if (group.name.includes('Mimikara')) levelBadge = 'N2 LEVEL';
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {bookGroups.map(group => (
-                    <div key={group.id} className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group/card"
-                        onClick={() => navigateTo({ group: group.id })}>
-                        {group.imageUrl && (
-                            <div className="h-40 overflow-hidden">
-                                <img src={group.imageUrl} alt={group.name} className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-300" />
-                            </div>
-                        )}
-                        <div className="p-5">
-                            <div className="flex items-start justify-between">
-                                <div>
-                                    <h2 className="text-xl font-bold text-gray-900 dark:text-white">{group.name}</h2>
-                                    {group.subtitle && <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{group.subtitle}</p>}
-                                    <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">{group.books?.length || 0} cuốn sách</p>
-                                </div>
-                                {isAdmin && (
-                                    <div className="flex items-center gap-1">
-                                        <button onClick={(e) => { e.stopPropagation(); handleStartEditGroup(group); }}
-                                            className="p-2 text-gray-400 hover:text-sky-500 transition-colors">
-                                            <Edit className="w-4 h-4" />
-                                        </button>
-                                        <button onClick={(e) => { e.stopPropagation(); handleDeleteGroup(group.id); }}
-                                            className="p-2 text-gray-400 hover:text-red-500 transition-colors">
-                                            <Trash2 className="w-4 h-4" />
-                                        </button>
+                        return (
+                            <div
+                                key={group.id}
+                                className="bg-white dark:bg-slate-850 rounded-3xl border border-slate-200/60 dark:border-slate-750 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col group"
+                                onClick={() => navigateTo({ group: group.id })}
+                            >
+                                {group.imageUrl ? (
+                                    <div className="h-44 overflow-hidden relative">
+                                        <img
+                                            src={group.imageUrl}
+                                            alt={group.name}
+                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                        <div className="absolute top-4 left-4 flex gap-1.5">
+                                            <span className={`px-2.5 py-1 text-[9px] font-black uppercase tracking-wider rounded-lg shadow-sm ${
+                                                isJLPT ? 'bg-sky-500 text-white' : isTextbook ? 'bg-indigo-500 text-white' : 'bg-emerald-500 text-white'
+                                            }`}>
+                                                {badgeText}
+                                            </span>
+                                            {levelBadge && (
+                                                <span className="px-2.5 py-1 text-[9px] font-black uppercase tracking-wider rounded-lg shadow-sm bg-slate-900/80 text-white backdrop-blur-sm">
+                                                    {levelBadge}
+                                                </span>
+                                            )}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="h-44 bg-gradient-to-br from-slate-100 to-slate-200/50 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center relative">
+                                        <BookOpen className="w-12 h-12 text-slate-400 opacity-40" />
+                                        <div className="absolute top-4 left-4 flex gap-1.5">
+                                            <span className="px-2.5 py-1 text-[9px] font-black uppercase tracking-wider bg-slate-400 text-white rounded-lg shadow-sm">
+                                                {badgeText}
+                                            </span>
+                                        </div>
                                     </div>
                                 )}
+                                
+                                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                                    <div className="space-y-1.5">
+                                        <div className="flex items-start justify-between gap-4">
+                                            <h2 className="text-xl font-bold text-slate-800 dark:text-white leading-tight group-hover:text-sky-500 transition-colors">
+                                                {group.name}
+                                            </h2>
+                                            {isAdmin && (
+                                                <div className="flex items-center gap-1 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                    <button onClick={(e) => { e.stopPropagation(); handleStartEditGroup(group); }}
+                                                        className="p-1.5 text-slate-400 hover:text-sky-500 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors">
+                                                        <Edit className="w-3.5 h-3.5" />
+                                                    </button>
+                                                    <button onClick={(e) => { e.stopPropagation(); handleDeleteGroup(group.id); }}
+                                                        className="p-1.5 text-slate-400 hover:text-red-500 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors">
+                                                        <Trash2 className="w-3.5 h-3.5" />
+                                                    </button>
+                                                </div>
+                                            )}
+                                        </div>
+                                        {group.subtitle && (
+                                            <p className="text-sm text-slate-400 dark:text-slate-500 font-medium">
+                                                {group.subtitle}
+                                            </p>
+                                        )}
+                                    </div>
+
+                                    <div className="space-y-2 pt-2">
+                                        <div className="flex items-center justify-between text-xs font-bold text-slate-600 dark:text-slate-300">
+                                            <span>Progress</span>
+                                            <span className="text-sky-500 font-extrabold">{progress}%</span>
+                                        </div>
+                                        <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-750 rounded-full overflow-hidden">
+                                            <div
+                                                className="h-full bg-gradient-to-r from-sky-400 to-indigo-500 rounded-full transition-all duration-500"
+                                                style={{ width: `${progress}%` }}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                        );
+                    })}
+
+                    {/* Admin Add Card */}
+                    {isAdmin && (
+                        <div
+                            onClick={() => { resetForm(); setShowAddGroup(true); }}
+                            className="bg-transparent dark:bg-transparent rounded-3xl border-2 border-dashed border-slate-300 dark:border-slate-700 p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:border-slate-400 dark:hover:border-slate-500 transition-all min-h-[320px] group"
+                        >
+                            <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                <Plus className="w-6 h-6 text-slate-500 dark:text-slate-400" />
+                            </div>
+                            <h3 className="font-bold text-slate-700 dark:text-slate-300 text-lg mb-1">Add New Group</h3>
+                            <p className="text-xs text-slate-400 dark:text-slate-500 max-w-[200px] leading-relaxed">
+                                Create a custom collection for your specific learning goals.
+                            </p>
                         </div>
+                    )}
+                </div>
+
+                {/* Zen Mode Bottom Banner */}
+                <div className="bg-slate-900 dark:bg-slate-950 text-white rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800/80 shadow-xl overflow-hidden relative group/banner">
+                    <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-indigo-500/10 to-sky-500/10 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+                    
+                    <div className="space-y-4 max-w-xl z-10">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-500/20 border border-indigo-500/30 rounded-full text-xs font-bold text-indigo-300">
+                            <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-pulse" />
+                            DEEP FOCUS SESSION
+                        </div>
+                        <h2 className="text-2xl font-black tracking-tight md:text-3xl">Deep Focus Session</h2>
+                        <p className="text-slate-400 text-sm leading-relaxed">
+                            Minimize distractions and enter a flow state. Our Zen mode tracks your focus intensity while you study from your vocabulary books.
+                        </p>
+                        <button
+                            onClick={() => setIsZenMode(true)}
+                            className="px-6 py-3 bg-white hover:bg-slate-100 text-slate-900 rounded-xl text-xs font-black shadow-md hover:shadow-lg transition-all transform active:scale-95 cursor-pointer"
+                        >
+                            Enter Library Mode
+                        </button>
                     </div>
-                ))}
+
+                    {/* Glow Zen badge graphic */}
+                    <div className="shrink-0 w-32 h-32 rounded-2xl bg-slate-800/55 border border-slate-700/60 flex flex-col items-center justify-center shadow-[0_0_40px_rgba(99,102,241,0.1)] group-hover/banner:scale-105 transition-transform duration-500 z-10">
+                        <span className="text-4xl font-extrabold bg-gradient-to-br from-indigo-200 to-sky-200 bg-clip-text text-transparent">静</span>
+                        <span className="text-[9px] tracking-[0.2em] text-slate-500 font-bold mt-2">QUIETNESS</span>
+                    </div>
+                </div>
             </div>
-        </div>
-    );
+        );
+    };
 
     // VIEW 2: Books in a group (Tango-like cards)
-    const BooksView = () => (
-        <div className="space-y-6">
-            <div className="flex items-center justify-between">
-                <div>
-                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{currentGroup?.name}</h1>
-                    {currentGroup?.subtitle && <p className="text-sm text-gray-500 dark:text-gray-400">{currentGroup.subtitle}</p>}
-                </div>
-                {isAdmin && (
-                    <button onClick={() => { resetForm(); setShowAddBook(true); }}
-                        className="flex items-center gap-2 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-xl font-medium">
-                        <Plus className="w-4 h-4" /> Thêm sách
-                    </button>
-                )}
-            </div>
+    const BooksView = () => {
+        const filteredBooks = (currentGroup?.books || []).filter(book => 
+            (book.name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (book.subtitle || '').toLowerCase().includes(searchQuery.toLowerCase())
+        );
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {(currentGroup?.books || []).map(book => (
-                    <div key={book.id}
-                        onClick={() => navigateTo({ group: groupId, book: book.id })}
-                        className="relative rounded-2xl p-6 cursor-pointer hover:scale-[1.02] transition-all duration-200 shadow-lg hover:shadow-xl overflow-hidden"
-                        style={{ backgroundColor: book.color || '#4F87FF' }}>
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
-                        <div className="relative z-10 text-center text-white">
-                            {book.subtitle && <p className="text-xs opacity-80 mb-1">{book.subtitle}</p>}
-                            <h3 className="text-4xl font-bold mb-2">{book.name}</h3>
-                            {book.wordCount && <p className="text-sm opacity-90">{book.wordCount} từ vựng</p>}
-                            {book.description && <p className="text-xs opacity-70 mt-1">{book.description}</p>}
-                        </div>
-                        {isAdmin && (
-                            <div className="absolute top-2 right-2 flex items-center gap-1 z-20">
-                                <button onClick={(e) => { e.stopPropagation(); handleStartEditBook(book); }}
-                                    className="p-1.5 bg-black/20 hover:bg-sky-500/80 rounded-lg text-white/70 hover:text-white transition-colors">
-                                    <Edit className="w-3.5 h-3.5" />
-                                </button>
-                                <button onClick={(e) => { e.stopPropagation(); handleDeleteBook(book.id); }}
-                                    className="p-1.5 bg-black/20 hover:bg-red-500/80 rounded-lg text-white/70 hover:text-white transition-colors">
-                                    <Trash2 className="w-3.5 h-3.5" />
-                                </button>
-                            </div>
-                        )}
+        return (
+            <div className="space-y-6">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h1 className="text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight">{currentGroup?.name}</h1>
+                        {currentGroup?.subtitle && <p className="text-sm text-slate-400 dark:text-slate-500 mt-1">{currentGroup.subtitle}</p>}
                     </div>
-                ))}
+                    {isAdmin && (
+                        <button onClick={() => { resetForm(); setShowAddBook(true); }}
+                            className="flex items-center gap-2 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-xl font-bold transition-all shadow-sm">
+                            <Plus className="w-4 h-4" /> Thêm sách
+                        </button>
+                    )}
+                </div>
+
+                {/* Books Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filteredBooks.map(book => {
+                        const progress = getBookProgress(groupId, book);
+                        // Extract level badge or category if possible
+                        let bookLevel = book.subtitle || '';
+                        if (book.name.includes('N5')) bookLevel = 'N5 LEVEL';
+                        else if (book.name.includes('N4')) bookLevel = 'N4 LEVEL';
+                        else if (book.name.includes('N3')) bookLevel = 'N3 LEVEL';
+                        else if (book.name.includes('N2')) bookLevel = 'N2 LEVEL';
+                        else if (book.name.includes('N1')) bookLevel = 'N1 LEVEL';
+                        
+                        return (
+                            <div key={book.id}
+                                onClick={() => navigateTo({ group: groupId, book: book.id })}
+                                className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/60 dark:border-slate-700/60 p-6 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-h-[220px] group relative overflow-hidden"
+                            >
+                                <div className="absolute inset-x-0 top-0 h-1.5" style={{ backgroundColor: book.color || '#4F87FF' }} />
+                                
+                                <div className="space-y-4">
+                                    <div className="flex items-start justify-between gap-4">
+                                        <div>
+                                            {bookLevel && (
+                                                <span className="inline-block px-2.5 py-0.5 text-[9px] font-black bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 rounded mb-2">
+                                                    {bookLevel}
+                                                </span>
+                                            )}
+                                            <h3 className="text-xl font-extrabold text-slate-800 dark:text-white leading-snug group-hover:text-sky-500 transition-colors">
+                                                {book.name}
+                                            </h3>
+                                        </div>
+                                        {isAdmin && (
+                                            <div className="flex items-center gap-0.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <button onClick={(e) => { e.stopPropagation(); handleStartEditBook(book); }}
+                                                    className="p-1.5 text-slate-400 hover:text-sky-500 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700">
+                                                    <Edit className="w-3.5 h-3.5" />
+                                                </button>
+                                                <button onClick={(e) => { e.stopPropagation(); handleDeleteBook(book.id); }}
+                                                    className="p-1.5 text-slate-400 hover:text-red-500 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700">
+                                                    <Trash2 className="w-3.5 h-3.5" />
+                                                </button>
+                                            </div>
+                                        )}
+                                    </div>
+                                    
+                                    {book.description && (
+                                        <p className="text-xs text-slate-400 dark:text-slate-500 line-clamp-2">
+                                            {book.description}
+                                        </p>
+                                    )}
+                                </div>
+
+                                <div className="space-y-3 mt-4">
+                                    {/* Stats */}
+                                    <div className="flex items-center justify-between text-xs">
+                                        <span className="text-slate-400 font-medium">
+                                            {book.wordCount || 0} từ vựng
+                                        </span>
+                                        <span className="text-sky-500 font-black">{progress}%</span>
+                                    </div>
+                                    {/* Progress Bar */}
+                                    <div className="w-full h-1 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                                        <div
+                                            className="h-full bg-gradient-to-r from-sky-400 to-indigo-500 rounded-full transition-all duration-500"
+                                            style={{ width: `${progress}%` }}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+
+                    {/* Admin Add Book */}
+                    {isAdmin && (
+                        <div
+                            onClick={() => { resetForm(); setShowAddBook(true); }}
+                            className="bg-transparent dark:bg-transparent rounded-3xl border-2 border-dashed border-slate-300 dark:border-slate-700 p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:border-slate-400 dark:hover:border-slate-500 transition-all min-h-[220px] group"
+                        >
+                            <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <Plus className="w-5 h-5 text-slate-500 dark:text-slate-400" />
+                            </div>
+                            <h3 className="font-bold text-slate-700 dark:text-slate-300 mb-1">Add New Book</h3>
+                            <p className="text-xs text-slate-400 dark:text-slate-500 max-w-[200px] leading-relaxed">
+                                Create a book under this group.
+                            </p>
+                        </div>
+                    )}
+                </div>
             </div>
-        </div>
-    );
+        );
+    };
 
     // VIEW 3: Chapters & Lessons (with TOC)
     const ChaptersView = () => {
@@ -1613,7 +1972,16 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
 
     // ==================== RENDER ====================
     if (loading) {
-        return <LoadingIndicator text="Đang tải dữ liệu Sách..." />;
+        return (
+            <div className="w-full pb-8">
+                <TopTabBar tabs={VOCAB_TABS} />
+                <LoadingIndicator text="Đang tải dữ liệu Sách..." />
+            </div>
+        );
+    }
+
+    if (isZenMode) {
+        return <ZenModeView allUserCards={allUserCards} bookGroups={bookGroups} onClose={() => setIsZenMode(false)} />;
     }
 
     // Determine which view to render (call as functions, NOT as components <View/>)
@@ -1626,8 +1994,10 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     };
 
     return (
-        <div className="space-y-4">
-            {(groupId || bookId || chapterId || lessonId) && <Breadcrumb />}
+        <div className="w-full pb-8">
+            <TopTabBar tabs={VOCAB_TABS} />
+            <div className="max-w-6xl mx-auto space-y-4 px-4 md:px-8 mt-4">
+                {(groupId || bookId || chapterId || lessonId) && <Breadcrumb />}
 
             {renderCurrentView()}
 
@@ -1763,6 +2133,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
 
             {/* Fix Audio Modal */}
             {FixAudioModal()}
+            </div>
         </div>
     );
 };

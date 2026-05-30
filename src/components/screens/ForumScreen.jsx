@@ -11,6 +11,13 @@ import {
     Filter, Tag, Edit3, MessageCircle, ThumbsUp, Eye, EyeOff, Pin, Users, Pencil, Check
 } from 'lucide-react';
 import { ROUTES } from '../../router';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import remarkBreaks from 'remark-breaks';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
+import MDEditor from '@uiw/react-md-editor';
 
 // ==========================
 // AVATAR EMOJIS (reuse)
@@ -79,6 +86,19 @@ const timeAgo = (timestamp) => {
 };
 
 // ==========================
+// MARKDOWN HELPERS
+// ==========================
+const formatContentForMarkdown = (content) => {
+    if (!content) return '';
+    // Convert ChatGPT math syntax to standard markdown math syntax
+    // \( ... \) -> $ ... $
+    // \[ ... \] -> $$ ... $$
+    let text = content.replace(/\\\((.*?)\\\)/g, '$$$1$$');
+    text = text.replace(/\\\[(.*?)\\\]/gs, '$$$$$1$$$$');
+    return text;
+};
+
+// ==========================
 // COMMENT COMPONENT
 // ==========================
 const CommentItem = ({ comment, userId, onDelete, onLike, onReply, onEdit, onHide, isAdmin, isPostOwner }) => {
@@ -122,13 +142,19 @@ const CommentItem = ({ comment, userId, onDelete, onLike, onReply, onEdit, onHid
 
                     {isEditing ? (
                         <div className="flex flex-col gap-1.5">
-                            <input
-                                type="text"
+                            <textarea
                                 value={editText}
                                 onChange={e => setEditText(e.target.value)}
-                                className="w-full px-2.5 py-1.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-sm text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-indigo-500/20"
+                                className="w-full px-2.5 py-1.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-sm text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-indigo-500/20 resize-none"
                                 maxLength={500}
-                                onKeyDown={e => { if (e.key === 'Enter') handleSaveEdit(); if (e.key === 'Escape') setIsEditing(false); }}
+                                rows={2}
+                                onKeyDown={e => {
+                                    if (e.key === 'Enter' && !e.shiftKey) {
+                                        e.preventDefault();
+                                        handleSaveEdit();
+                                    }
+                                    if (e.key === 'Escape') setIsEditing(false);
+                                }}
                                 autoFocus
                             />
                             <div className="flex gap-1.5">
@@ -141,7 +167,11 @@ const CommentItem = ({ comment, userId, onDelete, onLike, onReply, onEdit, onHid
                             </div>
                         </div>
                     ) : (
-                        <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap break-words">{comment.content}</p>
+                        <div className="prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 whitespace-pre-wrap break-words">
+                            <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath, remarkBreaks]} rehypePlugins={[rehypeKatex]}>
+                                {formatContentForMarkdown(comment.content)}
+                            </ReactMarkdown>
+                        </div>
                     )}
 
                     {/* Menu */}
@@ -430,13 +460,24 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                             className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-sm font-bold text-gray-800 dark:text-white focus:ring-2 focus:ring-indigo-500/20"
                             maxLength={150}
                         />
-                        <textarea
-                            value={editContent}
-                            onChange={e => setEditContent(e.target.value)}
-                            className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-sm text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-indigo-500/20 resize-none"
-                            rows={4}
-                            maxLength={2000}
-                        />
+                        <div data-color-mode="light" className="dark:hidden border border-gray-300 rounded-xl overflow-hidden mt-2">
+                            <MDEditor
+                                value={editContent}
+                                onChange={val => setEditContent(val || '')}
+                                preview="edit"
+                                height={200}
+                                className="w-full"
+                            />
+                        </div>
+                        <div data-color-mode="dark" className="hidden dark:block border border-gray-600 rounded-xl overflow-hidden mt-2">
+                            <MDEditor
+                                value={editContent}
+                                onChange={val => setEditContent(val || '')}
+                                preview="edit"
+                                height={200}
+                                className="w-full"
+                            />
+                        </div>
                         <div className="flex gap-2">
                             <button
                                 onClick={handleEditPost}
@@ -462,7 +503,11 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                                 {post.editedAt && <span className="text-[10px] text-gray-400 font-normal ml-2 italic">(đã sửa)</span>}
                             </h3>
                         )}
-                        <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap break-words leading-relaxed">{post.content}</p>
+                        <div className="prose prose-sm md:prose-base dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 break-words leading-relaxed">
+                            <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath, remarkBreaks]} rehypePlugins={[rehypeKatex]}>
+                                {formatContentForMarkdown(post.content)}
+                            </ReactMarkdown>
+                        </div>
                         {!post.title && post.editedAt && <span className="text-[10px] text-gray-400 italic">(đã sửa)</span>}
                     </>
                 )}
@@ -569,14 +614,20 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                         <div className="flex items-center gap-2">
                             <AvatarDisplay avatar={profile?.avatar} name={profile?.displayName} size="w-7 h-7" textSize="text-xs" />
                             <div className="flex-1 relative">
-                                <input
+                                <textarea
                                     ref={commentInputRef}
-                                    type="text"
                                     value={commentText}
                                     onChange={(e) => setCommentText(e.target.value)}
-                                    placeholder="Viết bình luận..."
-                                    className="w-full px-3.5 py-2 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-full text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-400 dark:focus:border-indigo-500 transition-all pr-10"
+                                    placeholder="Viết bình luận... (Shift+Enter để xuống dòng)"
+                                    className="w-full px-3.5 py-2 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-2xl text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-400 dark:focus:border-indigo-500 transition-all pr-10 resize-none min-h-[40px] max-h-[120px]"
                                     maxLength={500}
+                                    rows={1}
+                                    onKeyDown={e => {
+                                        if (e.key === 'Enter' && !e.shiftKey) {
+                                            e.preventDefault();
+                                            if (commentText.trim() && !isSubmitting) handleSubmitComment(e);
+                                        }
+                                    }}
                                 />
                                 <button
                                     type="submit"
@@ -713,15 +764,30 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
                     />
 
                     {/* Content */}
-                    <textarea
-                        ref={contentRef}
-                        value={content}
-                        onChange={e => setContent(e.target.value)}
-                        placeholder="Bạn muốn hỏi gì? Chia sẻ kiến thức, thắc mắc về tiếng Nhật..."
-                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-400 resize-none"
-                        rows={5}
-                        maxLength={2000}
-                    />
+                    <div data-color-mode="light" className="dark:hidden border border-gray-200 rounded-xl overflow-hidden">
+                        <MDEditor
+                            value={content}
+                            onChange={val => setContent(val || '')}
+                            preview="edit"
+                            height={250}
+                            textareaProps={{
+                                placeholder: 'Bạn muốn hỏi gì? Chia sẻ kiến thức, thắc mắc về tiếng Nhật...'
+                            }}
+                            className="w-full"
+                        />
+                    </div>
+                    <div data-color-mode="dark" className="hidden dark:block border border-gray-700 rounded-xl overflow-hidden">
+                        <MDEditor
+                            value={content}
+                            onChange={val => setContent(val || '')}
+                            preview="edit"
+                            height={250}
+                            textareaProps={{
+                                placeholder: 'Bạn muốn hỏi gì? Chia sẻ kiến thức, thắc mắc về tiếng Nhật...'
+                            }}
+                            className="w-full"
+                        />
+                    </div>
                     <p className="text-right text-[10px] text-gray-400 -mt-2">{content.length}/2000</p>
 
                     {/* Tags - kiểu Facebook: gõ #tag rồi Enter */}

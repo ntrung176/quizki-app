@@ -20,6 +20,7 @@ export const ACTIVITY_WEIGHTS = {
     review_back: 1.0,  // Ôn tập ý nghĩa (nặng nhất - test nhớ lại)
     review_synonym: 0.8, // Ôn tập đồng nghĩa
     review_example: 0.8, // Ôn tập ngữ cảnh
+    review_dictation: 0.9, // Ôn tập nghe chép (gần bằng ý nghĩa)
 };
 
 // Rating levels - đánh giá chất lượng câu trả lời
@@ -223,6 +224,7 @@ export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType =
     const backStreak = typeof cardData.correctStreak_back === 'number' ? cardData.correctStreak_back : 0;
     const synonymStreak = typeof cardData.correctStreak_synonym === 'number' ? cardData.correctStreak_synonym : 0;
     const exampleStreak = typeof cardData.correctStreak_example === 'number' ? cardData.correctStreak_example : 0;
+    const dictationStreak = typeof cardData.correctStreak_dictation === 'number' ? cardData.correctStreak_dictation : 0;
 
     const hasSynonym = cardData.synonym && cardData.synonym.trim() !== '';
     const hasExample = cardData.example && cardData.example.trim() !== '';
@@ -251,6 +253,8 @@ export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType =
         activityWeight = ACTIVITY_WEIGHTS.review_synonym;
     } else if (reviewType === 'example') {
         activityWeight = ACTIVITY_WEIGHTS.review_example;
+    } else if (reviewType === 'dictation') {
+        activityWeight = ACTIVITY_WEIGHTS.review_dictation;
     }
 
     // Cập nhật ease factor
@@ -285,26 +289,32 @@ export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType =
     let newBackStreak = backStreak;
     let newSynonymStreak = synonymStreak;
     let newExampleStreak = exampleStreak;
+    let newDictationStreak = dictationStreak;
 
     if (isCorrect) {
         if (reviewType === 'back') newBackStreak = backStreak + 1;
         else if (reviewType === 'synonym') newSynonymStreak = synonymStreak + 1;
         else if (reviewType === 'example') newExampleStreak = exampleStreak + 1;
+        else if (reviewType === 'dictation') newDictationStreak = dictationStreak + 1;
     } else {
         if (reviewType === 'back') newBackStreak = 0;
         else if (reviewType === 'synonym') newSynonymStreak = 0;
         else if (reviewType === 'example') newExampleStreak = 0;
+        else if (reviewType === 'dictation') newDictationStreak = 0;
     }
 
     updateData.correctStreak_back = newBackStreak;
     if (hasSynonym) updateData.correctStreak_synonym = newSynonymStreak;
     if (hasExample) updateData.correctStreak_example = newExampleStreak;
+    updateData.correctStreak_dictation = newDictationStreak;
 
     // Kiểm tra hoàn thành chu kỳ: synonym KHÔNG tham gia vào chu kỳ chính nữa
+    // Dictation tham gia vào chu kỳ cùng với back và example
     const backCompleted = newBackStreak >= 1;
     const exampleCompleted = !hasExample || newExampleStreak >= 1;
+    const dictationCompleted = newDictationStreak >= 1;
 
-    const allCompleted = backCompleted && exampleCompleted;
+    const allCompleted = backCompleted && exampleCompleted && dictationCompleted;
 
     if (allCompleted) {
         // ===== DYNAMIC MULTIPLIER SRS ENGINE =====
@@ -352,22 +362,27 @@ export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType =
             updateData.intervalIndex_example = newIntervalIndex;
             updateData.nextReview_example = nextReviewDate;
         }
+        updateData.intervalIndex_dictation = newIntervalIndex;
+        updateData.nextReview_dictation = nextReviewDate;
 
         // Reset streaks sau khi hoàn thành chu kỳ
         updateData.correctStreak_back = 0;
         if (hasSynonym) updateData.correctStreak_synonym = 0;
         if (hasExample) updateData.correctStreak_example = 0;
+        updateData.correctStreak_dictation = 0;
     } else {
         // Chưa hoàn thành → giữ thẻ ở trạng thái "due" (nextReview = now)
         updateData.nextReview_back = now;
         if (hasSynonym) updateData.nextReview_synonym = now;
         if (hasExample) updateData.nextReview_example = now;
+        updateData.nextReview_dictation = now;
 
         // Nếu thẻ mới, bắt đầu learning
         if (currentInterval < 0) {
             updateData.intervalIndex_back = 0;
             if (hasSynonym) updateData.intervalIndex_synonym = 0;
             if (hasExample) updateData.intervalIndex_example = 0;
+            updateData.intervalIndex_dictation = 0;
         }
 
         // Sai khi đang graduated (index >= 2) → Lapse penalty
@@ -382,15 +397,16 @@ export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType =
             updateData.intervalIndex_back = lapseIndex;
             if (hasSynonym) updateData.intervalIndex_synonym = lapseIndex;
             if (hasExample) updateData.intervalIndex_example = lapseIndex;
+            updateData.intervalIndex_dictation = lapseIndex;
             console.log(`[SRS] ⚠️ Lapse! interval giảm: ${lastInterval} → ${lapsedInterval}min`);
         } else if (!isCorrect && currentInterval === 1) {
             // Sai khi đang learning step 2 → về learning step 1
             updateData.intervalIndex_back = 0;
             if (hasSynonym) updateData.intervalIndex_synonym = 0;
             if (hasExample) updateData.intervalIndex_example = 0;
+            updateData.intervalIndex_dictation = 0;
         }
-
-        console.log(`[SRS] Chưa hoàn thành chu kỳ. back:${newBackStreak} syn:${newSynonymStreak} ex:${newExampleStreak}`);
+        console.log(`[SRS] Chưa hoàn thành chu kỳ. back:${newBackStreak} ex:${newExampleStreak} dict:${newDictationStreak}`);
     }
 
     return updateData;

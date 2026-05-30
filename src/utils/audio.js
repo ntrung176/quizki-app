@@ -317,24 +317,29 @@ if (window.speechSynthesis) {
 
 // Fallback: Sử dụng Web Speech API để đọc text tiếng Nhật
 const speakWithWebSpeech = (text) => {
-    if (!text || !window.speechSynthesis) return;
+    return new Promise((resolve) => {
+        if (!text || !window.speechSynthesis) return resolve();
 
-    // Ưu tiên đọc hiragana trong ngoặc
-    const cleanText = extractReadingText(text);
-    if (!cleanText) return;
+        // Ưu tiên đọc hiragana trong ngoặc
+        const cleanText = extractReadingText(text);
+        if (!cleanText) return resolve();
 
-    const utterance = new SpeechSynthesisUtterance(cleanText);
-    utterance.lang = 'ja-JP';
-    utterance.rate = 0.9;
-    utterance.pitch = 1;
+        const utterance = new SpeechSynthesisUtterance(cleanText);
+        utterance.lang = 'ja-JP';
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
 
-    // Tìm giọng tiếng Nhật (dùng cached voice)
-    const japaneseVoice = loadJapaneseVoice();
-    if (japaneseVoice) {
-        utterance.voice = japaneseVoice;
-    }
+        // Tìm giọng tiếng Nhật (dùng cached voice)
+        const japaneseVoice = loadJapaneseVoice();
+        if (japaneseVoice) {
+            utterance.voice = japaneseVoice;
+        }
 
-    window.speechSynthesis.speak(utterance);
+        utterance.onend = () => resolve();
+        utterance.onerror = () => resolve();
+
+        window.speechSynthesis.speak(utterance);
+    });
 };
 
 // ============== MAIN TTS FUNCTION ==============
@@ -344,117 +349,160 @@ const speakWithWebSpeech = (text) => {
  * @param {string} text - Text cần đọc
  * @param {Function|null} onAudioGenerated - Callback khi TTS tạo audio mới: (base64, voiceId) => void
  */
-const speakWithTTS = async (text, onAudioGenerated = null) => {
-    if (!text) return;
+const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
+    return new Promise(async (resolve) => {
+        if (!text) return resolve();
 
-    // Ưu tiên đọc hiragana trong ngoặc
-    const cleanText = extractReadingText(text);
-    if (!cleanText) return;
+        // Ưu tiên đọc hiragana trong ngoặc
+        const cleanText = extractReadingText(text);
+        if (!cleanText) return resolve();
 
-    // Dừng speech cũ
-    if (window.speechSynthesis) {
-        window.speechSynthesis.cancel();
-    }
-
-    // Thử SpeechGen TTS trước
-    const token = import.meta.env.VITE_SPEECHGEN_TOKEN;
-    const email = import.meta.env.VITE_SPEECHGEN_EMAIL;
-    const proxyUrl = import.meta.env.VITE_SPEECHGEN_PROXY_URL;
-
-    if (token && email && proxyUrl) {
-        try {
-            const result = await speechgenTTS(cleanText);
-            if (result && result.blobUrl) {
-                currentAudioObj = new Audio(result.blobUrl);
-                currentAudioObj.onended = () => {
-                    currentAudioObj = null;
-                };
-                currentAudioObj.play().catch(e => {
-                    console.warn('SpeechGen play error, falling back:', e);
-                    speakWithWebSpeech(text);
-                });
-
-                // Gọi callback để component lưu audio vào database
-                if (onAudioGenerated && result.base64) {
-                    onAudioGenerated(result.base64, result.voiceId);
-                }
-                return;
-            }
-        } catch (e) {
-            console.warn('SpeechGen TTS error, falling back:', e);
+        // Dừng speech cũ
+        if (window.speechSynthesis) {
+            window.speechSynthesis.cancel();
         }
-    }
 
-    // Fallback to Web Speech API
-    speakWithWebSpeech(text);
+        // Thử SpeechGen TTS trước
+        const token = import.meta.env.VITE_SPEECHGEN_TOKEN;
+        const email = import.meta.env.VITE_SPEECHGEN_EMAIL;
+        const proxyUrl = import.meta.env.VITE_SPEECHGEN_PROXY_URL;
+
+        if (token && email && proxyUrl) {
+            try {
+                const result = await speechgenTTS(cleanText);
+                if (sessionId !== null && globalAudioSessionId !== sessionId) return resolve();
+
+                if (result && result.blobUrl) {
+                    currentAudioObj = new Audio(result.blobUrl);
+                    currentAudioObj.onended = () => {
+                        currentAudioObj = null;
+                        resolve();
+                    };
+                    currentAudioObj.onerror = async () => {
+                        console.warn('SpeechGen play error, falling back');
+                        if (sessionId !== null && globalAudioSessionId !== sessionId) return resolve();
+                        await speakWithWebSpeech(text);
+                        resolve();
+                    };
+                    try {
+                        await currentAudioObj.play();
+                    } catch (e) {
+                        console.warn('SpeechGen play error, falling back:', e);
+                        if (sessionId !== null && globalAudioSessionId !== sessionId) return resolve();
+                        await speakWithWebSpeech(text);
+                        resolve();
+                    }
+
+                    // Gọi callback để component lưu audio vào database
+                    if (onAudioGenerated && result.base64) {
+                        onAudioGenerated(result.base64, result.voiceId);
+                    }
+                    return;
+                }
+            } catch (e) {
+                console.warn('SpeechGen TTS error, falling back:', e);
+            }
+        }
+
+        // Fallback to Web Speech API
+        await speakWithWebSpeech(text);
+        resolve();
+    });
 };
+
+let globalAudioSessionId = 0;
 
 // ============== PLAY AUDIO ==============
 
 // Play Audio - với fallback sử dụng SpeechGen TTS → Web Speech API
 export const playAudio = (base64Data, text = '', onAudioGenerated = null) => {
-    // Dừng audio đang phát (nếu có)
-    if (currentAudioObj) {
-        try {
-            currentAudioObj.pause();
-            currentAudioObj.currentTime = 0;
-            currentAudioObj.remove?.();
-        } catch (e) {
-            console.error('Error stopping previous audio:', e);
-        }
-        currentAudioObj = null;
-    }
+    globalAudioSessionId++;
+    const currentSessionId = globalAudioSessionId;
 
-    // Dừng speech đang nói (nếu có)
-    if (window.speechSynthesis) {
-        window.speechSynthesis.cancel();
-    }
-
-    // Nếu có base64Data, phát audio (đã lưu trước đó, không cần tạo mới)
-    if (base64Data) {
-        try {
-            if (base64Data.startsWith('data:audio') || base64Data.startsWith('UklGR') || base64Data.startsWith('SUQz') || base64Data.startsWith('//uQ') || base64Data.startsWith('AAAA')) {
-                const audioSrc = base64Data.startsWith('data:audio')
-                    ? base64Data
-                    : `data:audio/mp3;base64,${base64Data}`;
-                currentAudioObj = new Audio(audioSrc);
-                currentAudioObj.onended = () => {
-                    if (currentAudioObj) {
-                        currentAudioObj.remove?.();
-                    }
-                    currentAudioObj = null;
-                };
-                currentAudioObj.play().catch(e => {
-                    console.error('Audio play error:', e);
-                    speakWithTTS(text, onAudioGenerated);
-                });
-            } else {
-                const rawData = base64ToArrayBuffer(base64Data);
-                const pcm16 = new Int16Array(rawData);
-                const wavBuffer = pcmToWav(pcm16, 24000);
-                const blob = new Blob([wavBuffer], { type: 'audio/wav' });
-                const url = URL.createObjectURL(blob);
-                currentAudioObj = new Audio(url);
-                currentAudioObj.onended = () => {
-                    URL.revokeObjectURL(url);
-                    if (currentAudioObj) {
-                        currentAudioObj.remove?.();
-                    }
-                    currentAudioObj = null;
-                };
-                currentAudioObj.play().catch(e => {
-                    console.error('Audio play error:', e);
-                    speakWithTTS(text, onAudioGenerated);
-                });
+    return new Promise((resolve) => {
+        // Dừng audio đang phát (nếu có)
+        if (currentAudioObj) {
+            try {
+                currentAudioObj.pause();
+                currentAudioObj.currentTime = 0;
+                currentAudioObj.remove?.();
+            } catch (e) {
+                console.error('Error stopping previous audio:', e);
             }
-        } catch (e) {
-            console.error('playAudio error:', e);
-            speakWithTTS(text, onAudioGenerated);
+            currentAudioObj = null;
         }
-    } else if (text) {
-        // Không có audio → dùng TTS và lưu kết quả qua callback
-        speakWithTTS(text, onAudioGenerated);
-    }
+
+        // Dừng speech đang nói (nếu có)
+        if (window.speechSynthesis) {
+            window.speechSynthesis.cancel();
+        }
+
+        // Nếu có base64Data, phát audio (đã lưu trước đó, không cần tạo mới)
+        if (base64Data) {
+            try {
+                if (base64Data.startsWith('data:audio') || base64Data.startsWith('UklGR') || base64Data.startsWith('SUQz') || base64Data.startsWith('//uQ') || base64Data.startsWith('AAAA')) {
+                    const audioSrc = base64Data.startsWith('data:audio')
+                        ? base64Data
+                        : `data:audio/mp3;base64,${base64Data}`;
+                    currentAudioObj = new Audio(audioSrc);
+                    currentAudioObj.onended = () => {
+                        if (currentAudioObj) {
+                            currentAudioObj.remove?.();
+                        }
+                        currentAudioObj = null;
+                        resolve();
+                    };
+                    currentAudioObj.onerror = async () => {
+                        if (globalAudioSessionId !== currentSessionId) return resolve();
+                        await speakWithTTS(text, onAudioGenerated, currentSessionId);
+                        resolve();
+                    };
+                    currentAudioObj.play().catch(async (e) => {
+                        console.error('Audio play error:', e);
+                        if (globalAudioSessionId !== currentSessionId) return resolve();
+                        await speakWithTTS(text, onAudioGenerated, currentSessionId);
+                        resolve();
+                    });
+                } else {
+                    const rawData = base64ToArrayBuffer(base64Data);
+                    const pcm16 = new Int16Array(rawData);
+                    const wavBuffer = pcmToWav(pcm16, 24000);
+                    const blob = new Blob([wavBuffer], { type: 'audio/wav' });
+                    const url = URL.createObjectURL(blob);
+                    currentAudioObj = new Audio(url);
+                    currentAudioObj.onended = () => {
+                        URL.revokeObjectURL(url);
+                        if (currentAudioObj) {
+                            currentAudioObj.remove?.();
+                        }
+                        currentAudioObj = null;
+                        resolve();
+                    };
+                    currentAudioObj.onerror = async () => {
+                        if (globalAudioSessionId !== currentSessionId) return resolve();
+                        await speakWithTTS(text, onAudioGenerated, currentSessionId);
+                        resolve();
+                    };
+                    currentAudioObj.play().catch(async (e) => {
+                        console.error('Audio play error:', e);
+                        if (globalAudioSessionId !== currentSessionId) return resolve();
+                        await speakWithTTS(text, onAudioGenerated, currentSessionId);
+                        resolve();
+                    });
+                }
+            } catch (e) {
+                console.error('playAudio error:', e);
+                if (globalAudioSessionId !== currentSessionId) return resolve();
+                speakWithTTS(text, onAudioGenerated, currentSessionId).then(resolve);
+            }
+        } else if (text) {
+            // Không có audio → dùng TTS và lưu kết quả qua callback
+            if (globalAudioSessionId !== currentSessionId) return resolve();
+            speakWithTTS(text, onAudioGenerated, currentSessionId).then(resolve);
+        } else {
+            resolve();
+        }
+    });
 };
 
 /**
@@ -466,12 +514,11 @@ export const playAudio = (base64Data, text = '', onAudioGenerated = null) => {
  * @param {Function|null} onAudioGenerated - Callback khi TTS tạo audio mới: (base64, voiceId) => void
  */
 export const speakJapanese = (text, audioBase64 = null, onAudioGenerated = null) => {
-    if (!text && !audioBase64) return;
+    if (!text && !audioBase64) return Promise.resolve();
 
     // Nếu có audioBase64 lưu sẵn, dùng nó (không cần callback vì đã lưu rồi)
     if (audioBase64) {
-        playAudio(audioBase64, text || '');
-        return;
+        return playAudio(audioBase64, text || '');
     }
 
     // Ưu tiên đọc phần hiragana/katakana trong ngoặc để tránh sai phát âm kanji
@@ -479,8 +526,10 @@ export const speakJapanese = (text, audioBase64 = null, onAudioGenerated = null)
     const textToSpeak = readingMatch ? readingMatch[1] : text.split('（')[0].split('(')[0].trim();
 
     if (textToSpeak) {
-        playAudio(null, textToSpeak, onAudioGenerated);
+        return playAudio(null, textToSpeak, onAudioGenerated);
     }
+    
+    return Promise.resolve();
 };
 
 // Stop current audio

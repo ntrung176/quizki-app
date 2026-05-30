@@ -29,3 +29,14 @@ export { default as AuthActionScreen } from './AuthActionScreen';
 export { default as ForumScreen } from './ForumScreen';
 export { default as UserProfileScreen } from './UserProfileScreen';
 
+export { default as LibraryScreen } from './LibraryScreen';
+export { default as StudySetDetail } from './StudySetDetail';
+export { default as SynonymQuizScreen } from './SynonymQuizScreen';
+export { default as EditSetScreen } from './EditSetScreen';
+
+// Grammar
+export { default as GrammarTextbooksScreen } from './GrammarTextbooksScreen';
+export { default as GrammarLessonsScreen } from './GrammarLessonsScreen';
+export { default as GrammarPointsScreen } from './GrammarPointsScreen';
+export { default as GrammarDetailScreen } from './GrammarDetailScreen';
+export { default as GrammarPracticeScreen } from './GrammarPracticeScreen';

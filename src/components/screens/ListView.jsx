@@ -1,16 +1,17 @@
-﻿import React, { useState, useEffect, useRef, useMemo, useCallback, useDeferredValue } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback, useDeferredValue } from 'react';
 import {
     List, Search, Upload, Download, ArrowDown, GraduationCap, Tag, Volume2,
     X, Edit, Trash2, Loader2, Check, Image as ImageIcon, Music,
     FolderPlus, Folder, FolderOpen, ChevronRight, ChevronLeft, Filter, Eye, MoreVertical, Plus
 } from 'lucide-react';
 import { JLPT_LEVELS, POS_TYPES, getPosLabel, getPosColor, getLevelColor } from '../../config/constants';
-import { SearchInput } from '../ui';
+import { SearchInput, TopTabBar } from '../ui';
 import { SrsStatusCell } from '../ui';
 import { playAudio } from '../../utils/audio';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 import FuriganaText from '../ui/FuriganaText';
+import { VOCAB_TABS } from '../../config/tabs';
 
 // ==================== Edit Modal Component ====================
 const EditCardModal = ({ card, onSave, onClose, onGeminiAssist }) => {
@@ -123,17 +124,6 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist }) => {
                                 </div>
                             </div>
                             <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-xl space-y-3">
-                                <div className="flex gap-2 overflow-x-auto pb-1">
-                                    {JLPT_LEVELS.map((lvl) => (
-                                        <button key={lvl.value} type="button" onClick={() => setLevel(lvl.value)}
-                                            className={`py-1.5 px-3 rounded-lg text-xs font-bold transition-all border ${level === lvl.value
-                                                ? `${lvl.color} shadow-sm ring-1 ring-offset-1 ring-indigo-200 dark:ring-indigo-800`
-                                                : 'bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600'
-                                                }`}>
-                                            {lvl.label}
-                                        </button>
-                                    ))}
-                                </div>
                                 <select value={pos} onChange={(e) => setPos(e.target.value)} className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-700 dark:text-gray-100">
                                     <option value="">-- Chọn Từ Loại --</option>
                                     {Object.entries(POS_TYPES).map(([key, value]) => (<option key={key} value={key}>{value.label}</option>))}
@@ -410,9 +400,31 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
     }, [allCards]);
 
     // Folder CRUD — now with parentId support
-    const createFolder = useCallback((name, parentId = null) => {
-        setFolders(prev => [...prev, { id: `folder_${Date.now()}`, name, parentId }]);
+    const MAX_FOLDER_DEPTH = 3; // Limit nesting to avoid UI breakage
+
+    const getFolderDepth = useCallback((folderId, allFolders) => {
+        let depth = 0;
+        let current = folderId;
+        while (current) {
+            const f = allFolders.find(f => f.id === current);
+            if (!f || !f.parentId) break;
+            current = f.parentId;
+            depth++;
+        }
+        return depth;
     }, []);
+
+    const createFolder = useCallback((name, parentId = null) => {
+        // Validate max depth
+        if (parentId) {
+            const parentDepth = getFolderDepth(parentId, folders);
+            if (parentDepth >= MAX_FOLDER_DEPTH - 1) {
+                showToast(`Độ sâu thư mục tối đa là ${MAX_FOLDER_DEPTH} cấp`, 'warning');
+                return;
+            }
+        }
+        setFolders(prev => [...prev, { id: `folder_${Date.now()}`, name, parentId }]);
+    }, [folders, getFolderDepth]);
 
     const renameFolder = useCallback((id, newName) => {
         if (!newName.trim()) return;
@@ -822,8 +834,9 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
     }, [currentFolder, folders]);
 
     return (
-        <>
-            <div className="max-w-5xl mx-auto space-y-6 p-4 lg:p-8">
+        <div className="w-full pb-8">
+            <TopTabBar tabs={VOCAB_TABS} />
+            <div className="max-w-5xl mx-auto space-y-6 px-4 md:px-8 mt-4">
                 {/* Modals */}
                 {editingCard && (
                     <EditCardModal card={editingCard} onSave={onSaveChanges} onClose={() => setEditingCard(null)} onGeminiAssist={onGeminiAssist} />
@@ -976,21 +989,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                     <div className="flex flex-wrap items-center gap-2">
                         <Filter className="w-4 h-4 text-gray-400" />
 
-                        {/* Level filter pills */}
-                        <button onClick={() => setFilterLevel('all')}
-                            className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${filterLevel === 'all' ? 'bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-800' : 'bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600'}`}>
-                            Tất cả
-                        </button>
-                        {JLPT_LEVELS.map(l => (
-                            <button key={l.value}
-                                onClick={() => setFilterLevel(filterLevel === l.value ? 'all' : l.value)}
-                                className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${filterLevel === l.value ? `${l.color} text-white` : 'bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600'}`}>
-                                {l.label}
-                            </button>
-                        ))}
-
-                        <span className="text-gray-300 dark:text-gray-600">|</span>
-
                         {/* POS filter */}
                         <select value={filterPos} onChange={(e) => setFilterPos(e.target.value)}
                             className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
@@ -1021,18 +1019,22 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                         )}
                     </div>
 
-                    {/* Active filter info */}
-                    {(hasActiveFilters && !isInFolderBrowseMode) && (
+                    {/* Active filter info / search results */}
+                    {(hasActiveFilters && !isInFolderBrowseMode) || deferredSearchTerm.trim() ? (
                         <div className="flex justify-between items-center pt-2 border-t border-gray-100 dark:border-gray-700">
                             <span className="text-xs text-gray-500">
-                                Tìm thấy <span className="font-bold text-indigo-600 dark:text-indigo-400">{currentFolder !== null ? currentFolderCards.length : filteredCards.length}</span> từ vựng
+                                {deferredSearchTerm.trim() ? (
+                                    <>🔍 Tìm thấy <span className="font-bold text-indigo-600 dark:text-indigo-400">{currentFolder !== null ? currentFolderCards.length : filteredCards.length}</span> kết quả cho &ldquo;{deferredSearchTerm.trim()}&rdquo;</>
+                                ) : (
+                                    <>🔽 Đã lọc: <span className="font-bold text-indigo-600 dark:text-indigo-400">{currentFolder !== null ? currentFolderCards.length : filteredCards.length}</span> từ vựng</>
+                                )}
                             </span>
                             <button onClick={() => { resetFilters(); setCurrentFolder(null); }}
                                 className="px-3 py-1.5 text-xs font-bold rounded-lg bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors flex items-center gap-1">
                                 <X className="w-3.5 h-3.5" /> Bỏ lọc
                             </button>
                         </div>
-                    )}
+                    ) : null}
                 </div>
 
                 {/* Selection banner (like KanjiSRSListScreen) */}
@@ -1421,7 +1423,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                     <p className="text-sm text-gray-500 dark:text-gray-400">
                                         {deleteConfirm.type === 'single'
                                             ? <>Bạn có chắc muốn xóa từ vựng <strong className="text-gray-800 dark:text-white">"{deleteConfirm.cardFront}"</strong>?</>
-                                            : <>Bạn có chắc muốn xóa <strong className="text-red-500">{deleteConfirm.count}</strong> từ vựng đã chọn?</>
+                                            : <>Xóa <strong className="text-red-500 text-xl">{deleteConfirm.count}</strong> từ vựng đã chọn?</>
                                         }
                                     </p>
                                 </div>
@@ -1449,7 +1451,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                     </div>
                 )
             }
-        </>
+        </div>
     );
 });
 

@@ -19,6 +19,11 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId }) =>
     const [expandedMenus, setExpandedMenus] = useState([]); // Start collapsed for cleaner look
     const [flyoutMenu, setFlyoutMenu] = useState(null);
 
+    // Hide sidebar completely on login page or when not logged in
+    if (!userId || location.pathname === ROUTES.LOGIN || location.pathname === '/login' || location.pathname === '/privacy' || location.pathname === '/terms') {
+        return null;
+    }
+
     // Get current view from URL path
     const getCurrentView = () => {
         const path = location.pathname;
@@ -42,6 +47,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId }) =>
         if (path === ROUTES.BOOKS) return 'BOOKS_LIST';
         if (path === ROUTES.UPGRADE) return 'UPGRADE';
         if (path === ROUTES.ADMIN) return 'ADMIN';
+        if (path === ROUTES.GRAMMAR || path.startsWith('/grammar')) return 'GRAMMAR';
         return 'HOME';
     };
 
@@ -66,46 +72,33 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId }) =>
         );
     };
 
-    // Menu structure with submenus
+    // Menu structure matching the new requirements
     const menuItems = [
         { id: 'HOME', icon: Home, label: 'Trang chủ', route: ROUTES.HOME },
-        {
-            id: 'VOCAB',
-            icon: BookOpen,
-            label: 'Học Từ Vựng',
-            hasSubmenu: true,
-            children: [
-                { id: 'VOCAB_ADD', label: 'Thêm từ vựng mới', route: ROUTES.VOCAB_ADD },
-                { id: 'VOCAB_REVIEW', label: 'Ôn tập từ vựng', route: ROUTES.VOCAB_REVIEW },
-                { id: 'VOCAB_LIST', label: 'Danh sách từ vựng', route: ROUTES.VOCAB_LIST },
-                { id: 'BOOKS_LIST', label: 'Học theo sách', route: ROUTES.BOOKS },
-            ]
-        },
-        {
-            id: 'KANJI',
-            icon: Languages,
-            label: 'Học Kanji',
-            hasSubmenu: true,
-            children: [
-                { id: 'KANJI_STUDY', label: 'Thêm Kanji mới', route: ROUTES.KANJI_STUDY },
-                { id: 'KANJI_REVIEW', label: 'Ôn tập Kanji', route: ROUTES.KANJI_REVIEW },
-                { id: 'KANJI_SAVED', label: 'Kanji đã lưu', route: ROUTES.KANJI_SAVED },
-                { id: 'KANJI_LIST', label: 'Danh sách Kanji', route: ROUTES.KANJI_LIST },
-            ]
-        },
-        { id: 'JLPT_TEST', icon: FileCheck, label: 'Luyện thi JLPT (WIP)', route: '#', disabled: true },
-        { id: 'HUB', icon: Gamepad2, label: 'Trung tâm', route: ROUTES.HUB },
-        { id: 'FORUM', icon: MessageCircle, label: 'Diễn đàn', route: ROUTES.FORUM },
-        { id: 'PROFILE', icon: User, label: 'Trang cá nhân', route: `/profile/${userId || 'me'}` },
-        { id: 'UPGRADE', icon: Crown, label: 'Nâng cấp', route: ROUTES.UPGRADE, highlight: true },
-        { id: 'FEEDBACK', icon: MessageSquare, label: 'Phản hồi', route: ROUTES.FEEDBACK },
-        ...(isAdmin ? [{ id: 'ADMIN', icon: Shield, label: 'Quản lý Admin', route: ROUTES.ADMIN }] : []),
+        { id: 'VOCAB_LIST', icon: BookOpen, label: 'Từ vựng', route: ROUTES.VOCAB_LIST },
+        { id: 'KANJI_STUDY', icon: Languages, label: 'Thư viện Kanji', route: ROUTES.KANJI_STUDY },
+        { id: 'GRAMMAR', icon: Repeat2, label: 'Ngữ pháp', route: ROUTES.GRAMMAR },
+        { id: 'HUB', icon: BarChart3, label: 'Thống kê', route: ROUTES.HUB },
+        { id: 'SETTINGS', icon: Settings, label: 'Cài đặt', route: ROUTES.SETTINGS },
     ];
+
+    if (isAdmin) {
+        menuItems.push({ id: 'ADMIN', icon: Shield, label: 'Quản trị', route: ROUTES.ADMIN });
+    }
 
     // Check if a menu or any of its children is active
     const isMenuActive = (item) => {
         if (item.hasSubmenu) {
             return item.children.some(child => currentView === child.id);
+        }
+        if (item.id === 'KANJI_STUDY') {
+            return currentView.startsWith('KANJI_');
+        }
+        if (item.id === 'VOCAB_LIST') {
+            return currentView.startsWith('VOCAB_');
+        }
+        if (item.id === 'HUB') {
+            return currentView === 'HUB';
         }
         return currentView === item.id;
     };
@@ -237,37 +230,39 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId }) =>
 
     // Desktop sidebar
     const DesktopSidebar = () => (
-        <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} bg-white dark:bg-gradient-to-b dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 border-r border-gray-200 dark:border-slate-700/50 shadow-lg dark:shadow-none`}>
+        <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} bg-[#F8F9FA] dark:bg-slate-900 border-r border-slate-100 dark:border-slate-800/40 shadow-sm`}>
             {/* Logo */}
-            <div className="p-4 border-b border-gray-200 dark:border-slate-700/50">
+            <div className="p-5 border-b border-slate-100 dark:border-slate-800/40">
                 <Link
-                    to={ROUTES.VOCAB_REVIEW}
-                    className="flex items-center space-x-3 group"
+                    to={ROUTES.HOME}
+                    className="flex items-center space-x-3"
                 >
-                    <div className="bg-gradient-to-br from-slate-600 to-slate-700 p-2 rounded-xl shadow-lg shadow-slate-500/30 group-hover:shadow-slate-500/50 transition-all duration-300">
-                        <Sparkles className="w-6 h-6 text-white" />
-                    </div>
                     {!isCollapsed && (
-                        <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
-                            QuizKi
-                        </span>
+                        <div className="flex flex-col">
+                            <span className="text-xl font-bold text-slate-800 dark:text-white leading-none">
+                                QuizKi
+                            </span>
+                            <span className="text-[11px] text-slate-400 dark:text-slate-500 font-medium tracking-wide mt-1.5">
+                                Học tập hiện đại
+                            </span>
+                        </div>
                     )}
                 </Link>
             </div>
 
             {/* User info */}
             {!isCollapsed && displayName && (
-                <div className="px-4 py-3 border-b border-gray-200 dark:border-slate-700/50 flex items-center justify-between">
+                <div className="px-5 py-4 border-b border-slate-100 dark:border-slate-800/40 flex items-center justify-between">
                     <div className="overflow-hidden pr-2">
-                        <p className="text-xs text-gray-500 dark:text-slate-500 uppercase tracking-wider font-medium">Xin chào</p>
-                        <p className="text-sm font-semibold text-gray-900 dark:text-white truncate mt-0.5">{displayName}</p>
+                        <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Xin chào</p>
+                        <p className="text-sm font-bold text-slate-700 dark:text-white truncate mt-0.5">{displayName}</p>
                     </div>
                     <Link
                         to={ROUTES.SETTINGS}
-                        className="p-1.5 flex-shrink-0 text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                        className="p-1.5 flex-shrink-0 text-slate-400 hover:text-[#2E5B70] dark:text-slate-500 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
                         title="Cài đặt"
                     >
-                        <Settings className="w-5 h-5" />
+                        <Settings className="w-4 h-4" />
                     </Link>
                 </div>
             )}
@@ -279,134 +274,74 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId }) =>
                         key={item.id}
                         data-tour-id={item.id}
                         className="relative group"
-                        onMouseEnter={(e) => {
-                            if (isCollapsed && item.hasSubmenu) {
-                                const rect = e.currentTarget.getBoundingClientRect();
-                                setFlyoutMenu({ id: item.id, top: rect.top });
-                            }
-                        }}
-                        onMouseLeave={() => {
-                            if (isCollapsed) setFlyoutMenu(null);
-                        }}
                     >
-                        {item.hasSubmenu ? (
-                            <>
-                                <button
-                                    onClick={() => !isCollapsed && toggleMenu(item.id)}
-                                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'} px-3 py-2.5 rounded-xl transition-all duration-200 ${isMenuActive(item)
-                                        ? 'bg-sky-100 dark:bg-gradient-to-r dark:from-sky-600/30 dark:to-slate-600/20 text-sky-700 dark:text-white'
-                                        : 'text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50'
-                                        }`}
-                                    title={isCollapsed ? item.label : undefined}
-                                >
-                                    <div className={`flex items-center ${isCollapsed ? '' : 'space-x-3'}`}>
-                                        <item.icon className={`w-5 h-5 ${isMenuActive(item) ? 'text-sky-600 dark:text-sky-400' : ''}`} />
-                                        {!isCollapsed && <span className="font-medium">{item.label}</span>}
-                                    </div>
-                                    {!isCollapsed && (
-                                        <ChevronDown className={`w-4 h-4 transition-transform ${expandedMenus.includes(item.id) ? 'rotate-180' : ''}`} />
-                                    )}
-                                </button>
-                                {!isCollapsed && expandedMenus.includes(item.id) && (
-                                    <div className="ml-8 mt-1 space-y-0.5">
-                                        {item.children.map((child) => (
-                                            <Link
-                                                key={child.id}
-                                                to={child.route}
-                                                className={`block px-3 py-2 rounded-lg text-sm transition-all ${currentView === child.id
-                                                    ? 'bg-indigo-500 text-white shadow-md'
-                                                    : 'text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50'
-                                                    }`}
-                                            >
-                                                {child.label}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                )}
-                                {isCollapsed && flyoutMenu?.id === item.id && (
-                                    <div
-                                        className="fixed left-[4rem] w-[14rem] pl-4 z-[100]"
-                                        style={{ top: flyoutMenu.top }}
-                                    >
-                                        <div className="bg-white dark:bg-slate-800 rounded-xl shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50 border border-gray-100 dark:border-slate-700/50 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-                                            <div className="px-4 py-2 border-b border-gray-100 dark:border-slate-700/50 bg-gray-50 dark:bg-slate-800/80">
-                                                <p className="font-semibold text-sm text-gray-900 dark:text-white truncate">{item.label}</p>
-                                            </div>
-                                            <div className="p-1.5 space-y-0.5 max-h-[calc(100vh-10rem)] overflow-y-auto">
-                                                {item.children.map((child) => (
-                                                    <Link
-                                                        key={child.id}
-                                                        to={child.route}
-                                                        onClick={() => setFlyoutMenu(null)}
-                                                        className={`block px-3 py-2 rounded-lg text-sm transition-all ${currentView === child.id
-                                                            ? 'bg-sky-100 dark:bg-sky-500/20 text-sky-700 dark:text-sky-400 font-medium'
-                                                            : 'text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-700/50'
-                                                            }`}
-                                                    >
-                                                        {child.label}
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-                            </>
-                        ) : (
-                            <Link
-                                to={item.disabled ? '#' : item.route}
-                                onClick={(e) => {
-                                    if (item.disabled) e.preventDefault();
-                                }}
-                                className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2.5 rounded-xl transition-all duration-200 group relative ${item.disabled
-                                    ? 'cursor-not-allowed opacity-50 text-gray-400'
-                                    : currentView === item.id
-                                        ? 'bg-sky-100 dark:bg-gradient-to-r dark:from-sky-600/30 dark:to-slate-600/20 text-sky-700 dark:text-white border border-sky-300 dark:border-sky-500/30 shadow-md dark:shadow-lg dark:shadow-sky-500/10'
-                                        : 'text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50'
-                                    }`}
-                                title={isCollapsed ? item.label : undefined}
-                            >
-                                {currentView === item.id && !item.disabled && (
-                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-sky-500 rounded-r-full" />
-                                )}
-                                <item.icon className={`w-5 h-5 ${currentView === item.id && !item.disabled ? 'text-sky-600 dark:text-sky-400' : item.disabled ? '' : 'group-hover:text-sky-500 dark:group-hover:text-sky-400'} transition-colors`} />
-                                {!isCollapsed && (
-                                    <span className="font-medium">{item.label}</span>
-                                )}
-                            </Link>
-                        )}
+                        <Link
+                            to={item.disabled ? '#' : item.route}
+                            onClick={(e) => {
+                                if (item.disabled) e.preventDefault();
+                            }}
+                            className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-4 py-3 rounded-xl transition-all duration-200 group relative ${item.disabled
+                                ? 'cursor-not-allowed opacity-50 text-slate-300 dark:text-slate-600'
+                                : isMenuActive(item)
+                                    ? 'bg-slate-100/70 dark:bg-slate-800/50 text-[#2E5B70] dark:text-sky-400 font-semibold shadow-sm'
+                                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/30'
+                                }`}
+                            title={isCollapsed ? item.label : undefined}
+                        >
+                            {isMenuActive(item) && !item.disabled && (
+                                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-[#2E5B70] dark:bg-sky-400 rounded-l-full" />
+                            )}
+                            <item.icon className={`w-5 h-5 ${isMenuActive(item) && !item.disabled ? 'text-[#2E5B70] dark:text-sky-400' : item.disabled ? 'text-slate-300 dark:text-slate-600' : 'text-slate-400 dark:text-slate-500 group-hover:text-[#2E5B70] dark:group-hover:text-white'} transition-colors`} />
+                            {!isCollapsed && (
+                                <span className="text-sm font-medium">{item.label}</span>
+                            )}
+                        </Link>
                     </div>
                 ))}
             </nav>
 
             {/* Bottom section */}
-            <div className="p-3 border-t border-gray-200 dark:border-slate-700/50 space-y-1">
+            <div className="p-3 border-t border-slate-100 dark:border-slate-800/40 space-y-1">
+                {/* Start Review button */}
+                {!isCollapsed && (
+                    <button
+                        onClick={() => {
+                            navigate(ROUTES.REVIEW);
+                        }}
+                        className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-[#2E5B70] hover:bg-[#254A5C] text-white text-xs font-bold rounded-lg transition-all shadow-md shadow-[#2E5B70]/10 tracking-wider uppercase mb-2 cursor-pointer"
+                    >
+                        <Sparkles className="w-3.5 h-3.5" />
+                        Bắt đầu ôn tập
+                    </button>
+                )}
+
                 {/* Collapse toggle */}
                 <button
                     onClick={() => setIsCollapsed(!isCollapsed)}
-                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2 rounded-lg text-gray-500 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50 transition-all`}
+                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2 rounded-lg text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer`}
                 >
                     <ChevronRight className={`w-5 h-5 transition-transform duration-300 ${isCollapsed ? '' : 'rotate-180'}`} />
-                    {!isCollapsed && <span className="text-sm">Thu gọn</span>}
+                    {!isCollapsed && <span className="text-sm font-medium">Thu gọn</span>}
                 </button>
 
                 {/* Dark mode toggle */}
                 <button
                     onClick={() => setIsDarkMode(prev => !prev)}
-                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2 rounded-lg text-gray-500 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50 transition-all`}
+                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2 rounded-lg text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer`}
                     title={isCollapsed ? (isDarkMode ? 'Giao diện sáng' : 'Giao diện tối') : undefined}
                 >
                     {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-                    {!isCollapsed && <span className="text-sm">{isDarkMode ? 'Giao diện sáng' : 'Giao diện tối'}</span>}
+                    {!isCollapsed && <span className="text-sm font-medium">{isDarkMode ? 'Giao diện sáng' : 'Giao diện tối'}</span>}
                 </button>
 
                 {/* Logout */}
                 <button
                     onClick={handleLogout}
-                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2 rounded-lg text-gray-500 dark:text-slate-400 hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 transition-all`}
+                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2 rounded-lg text-slate-400 hover:text-red-500 dark:text-slate-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 transition-all cursor-pointer`}
                     title={isCollapsed ? 'Đăng xuất' : undefined}
                 >
                     <LogOut className="w-5 h-5" />
-                    {!isCollapsed && <span className="text-sm">Đăng xuất</span>}
+                    {!isCollapsed && <span className="text-sm font-medium">Đăng xuất</span>}
                 </button>
             </div>
         </aside>

@@ -384,7 +384,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const sections = [
         { id: 'users', label: 'Người dùng', icon: Users },
         { id: 'ai', label: 'AI', icon: Bot },
-        { id: 'credits', label: 'Credits', icon: CreditCard },
+        { id: 'credits', label: 'Gói & Lượt AI', icon: CreditCard },
         { id: 'revenue', label: 'Doanh thu', icon: DollarSign },
         { id: 'vouchers', label: 'Voucher', icon: Ticket },
         { id: 'moderators', label: 'QTV', icon: ShieldCheck },
@@ -777,7 +777,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                     {/* Info note */}
                     <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
                         <p className="text-sm text-blue-700 dark:text-blue-300">
-                            <strong>💡 Lưu ý:</strong> AI được kiểm soát bằng hệ thống credits. Tất cả người dùng có thể dùng AI trong giới hạn lượt. Quản lý credits ở tab <strong>Credits</strong>.
+                            <strong>💡 Lưu ý:</strong> AI được kiểm soát bằng hệ thống lượt sử dụng. Tất cả người dùng có thể dùng AI trong giới hạn lượt. Quản lý lượt ở tab <strong>Gói & Lượt AI</strong>.
                         </p>
                     </div>
                 </div>
@@ -915,7 +915,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
                         <h3 className="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
                             <Plus className="w-4 h-4 text-emerald-500" />
-                            Cộng credits thủ công
+                            Cộng lượt AI thủ công
                         </h3>
 
                         {/* Email search */}
@@ -1011,7 +1011,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 type="number"
                                 value={manualCreditAmount}
                                 onChange={(e) => setManualCreditAmount(e.target.value)}
-                                placeholder="Số credits"
+                                placeholder="Số lượt AI"
                                 className="flex-1 px-3 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
                             />
                             <button

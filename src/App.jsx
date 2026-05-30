@@ -145,8 +145,9 @@ const App = () => {
         if (path === ROUTES.LOGIN) return 'LOGIN';
         if (path === ROUTES.ACCOUNT) return 'ACCOUNT';
         if (path === ROUTES.HELP) return 'HELP';
-        if (path === ROUTES.VOCAB_REVIEW) return 'LIST';
-        if (path === ROUTES.VOCAB_ADD) return 'ADD_CARD';
+        if (path === ROUTES.VOCAB_REVIEW) return 'VOCAB_REVIEW';
+        if (path === ROUTES.VOCAB_LIST || path.startsWith('/vocab/list')) return 'VOCAB_LIST';
+        if (path === ROUTES.VOCAB_ADD) return 'VOCAB_ADD';
         if (path.startsWith('/vocab/edit/')) return 'EDIT_CARD';
         if (path === ROUTES.REVIEW) return 'REVIEW';
         if (path === ROUTES.FLASHCARD) return 'FLASHCARD';
@@ -204,6 +205,37 @@ const App = () => {
         return result;
     });
 
+    useEffect(() => {
+        const handleSettings = () => {
+            try {
+                const settingsStr = localStorage.getItem('quizki-settings');
+                const settings = settingsStr ? JSON.parse(settingsStr) : {};
+                
+                // Set Japanese Font Family
+                const fontPref = settings.jpFontFamily || 'kyokasho';
+                let fontStr = '';
+                if (fontPref === 'kyokasho') {
+                    fontStr = '"UD デジタル 教科書体 N-R", "UD Digi Kyokasho N-R", "UD デジタル 教科書体 NP-R", "UD Digi Kyokasho NP-R", "UD デジタル 教科書体 NK-R", "UD Digi Kyokasho NK-R", "BIZ UDPMincho", "MS Mincho", "ＭＳ 明朝", "Hiragino Mincho ProN", "Yu Mincho", serif';
+                } else if (fontPref === 'mincho') {
+                    fontStr = '"BIZ UDPMincho", "MS Mincho", "ＭＳ 明朝", "Hiragino Mincho ProN", "Yu Mincho", serif';
+                } else if (fontPref === 'gothic') {
+                    fontStr = '"BIZ UDPGothic", "Meiryo", "MS Gothic", sans-serif';
+                }
+                if (fontStr) {
+                    document.documentElement.style.setProperty('--font-japanese-family', fontStr);
+                }
+
+                // Set Japanese Font Size
+                const sizePref = settings.jpFontSize || 'large';
+                document.documentElement.setAttribute('data-jp-size', sizePref);
+
+            } catch(e){}
+        };
+        handleSettings();
+        window.addEventListener('quizki-settings-changed', handleSettings);
+        return () => window.removeEventListener('quizki-settings-changed', handleSettings);
+    }, []);
+
     const [profile, setProfile] = useState(null);
     // Danh sách API keys cho OpenRouter
     const [geminiApiKeys] = useState(() => {
@@ -222,6 +254,39 @@ const App = () => {
         allNoSrsCards: [] // Tất cả từ chưa có SRS
     });
     const [flashcardCards, setFlashcardCards] = useState([]);
+
+    const [folders, setFolders] = useState([]);
+
+    const studySetsCollectionPath = useMemo(() => {
+        if (!userId) return null;
+        return `artifacts/${appId}/users/${userId}/studySets`;
+    }, [userId]);
+
+    useEffect(() => {
+        if (!authReady || !studySetsCollectionPath) return;
+
+        const q = query(collection(db, studySetsCollectionPath));
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+            const fetchedFolders = [];
+            snapshot.forEach((doc) => {
+                fetchedFolders.push({ id: doc.id, ...doc.data() });
+            });
+            setFolders(fetchedFolders);
+        }, (error) => {
+            console.error("Lỗi tải học phần:", error);
+        });
+        return () => unsubscribe();
+    }, [authReady, studySetsCollectionPath]);
+
+    const cardFolders = useMemo(() => {
+        const mapping = {};
+        allCards.forEach(card => {
+            if (card.folderId) {
+                mapping[card.id] = card.folderId;
+            }
+        });
+        return mapping;
+    }, [allCards]);
 
     const vocabCollectionPath = useMemo(() => {
         if (!userId) return null;
@@ -505,6 +570,7 @@ const App = () => {
                     nextReview_back: new Date(card.nextReview_back),
                     nextReview_synonym: new Date(card.nextReview_synonym),
                     nextReview_example: new Date(card.nextReview_example),
+                    nextReview_dictation: card.nextReview_dictation ? new Date(card.nextReview_dictation) : new Date(),
                     // Khôi phục audioBase64 và imageBase64 từ cache nếu có, nếu không thì null
                     // (sẽ được cập nhật từ Firestore sau)
                     audioBase64: card.hasAudio ? null : null, // Sẽ được load từ Firestore
@@ -540,6 +606,7 @@ const App = () => {
                     nuance: data.nuance || '',
                     pos: data.pos || '',
                     level: data.level || '',
+                    folderId: data.folderId || null,
                     audioBase64: data.audioBase64 !== undefined ? data.audioBase64 : null,
                     imageBase64: data.imageBase64 || null,
                     createdAt: data.createdAt?.toDate ? data.createdAt.toDate() : (data.createdAt ? new Date(data.createdAt) : today),
@@ -552,6 +619,9 @@ const App = () => {
                     intervalIndex_example: typeof data.intervalIndex_example === 'number' ? data.intervalIndex_example : -1,
                     correctStreak_example: typeof data.correctStreak_example === 'number' ? data.correctStreak_example : 0,
                     nextReview_example: data.nextReview_example?.toDate ? data.nextReview_example.toDate() : (data.nextReview_example ? new Date(data.nextReview_example) : today),
+                    intervalIndex_dictation: typeof data.intervalIndex_dictation === 'number' ? data.intervalIndex_dictation : -1,
+                    correctStreak_dictation: typeof data.correctStreak_dictation === 'number' ? data.correctStreak_dictation : 0,
+                    nextReview_dictation: data.nextReview_dictation?.toDate ? data.nextReview_dictation.toDate() : (data.nextReview_dictation ? new Date(data.nextReview_dictation) : today),
                     easeFactor: typeof data.easeFactor === 'number' ? data.easeFactor : DEFAULT_EASE,
                     totalReps: typeof data.totalReps === 'number' ? data.totalReps : 0,
                     currentInterval_back: typeof data.currentInterval_back === 'number' ? data.currentInterval_back : 0,
@@ -575,6 +645,7 @@ const App = () => {
                     nextReview_back: card.nextReview_back.toISOString(),
                     nextReview_synonym: card.nextReview_synonym.toISOString(),
                     nextReview_example: card.nextReview_example.toISOString(),
+                    nextReview_dictation: card.nextReview_dictation ? card.nextReview_dictation.toISOString() : new Date().toISOString(),
                     // Chỉ lưu flag để biết có media hay không, không lưu dữ liệu thực tế
                     hasAudio: !!audioBase64,
                     hasImage: !!imageBase64,
@@ -671,9 +742,10 @@ const App = () => {
             // Synonym KHÔNG tham gia vào chu kỳ chính nữa
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
             const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
+            const dictationStreak = typeof card.correctStreak_dictation === 'number' ? card.correctStreak_dictation : 0;
 
             // Có ít nhất một phần chưa hoàn thành (trừ synonym)
-            return backStreak < 1 || (card.example && card.example.trim() !== '' && exampleStreak < 1);
+            return backStreak < 1 || (card.example && card.example.trim() !== '' && exampleStreak < 1) || dictationStreak < 1;
         }).length;
 
         // Back: các từ sẵn sàng VÀ chưa hoàn thành phần back (streak < 1)
@@ -718,9 +790,9 @@ const App = () => {
             const isDue = card.nextReview_back <= now;
             if (!isDue) return false;
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
-            const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
             const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
-            return backStreak < 1 || (card.synonym && synonymStreak < 1) || (card.example && exampleStreak < 1);
+            const dictationStreak = typeof card.correctStreak_dictation === 'number' ? card.correctStreak_dictation : 0;
+            return backStreak < 1 || (card.example && exampleStreak < 1) || dictationStreak < 1;
         }).length;
         const oldBack = oldCards.filter(card => {
             const isDue = card.nextReview_back <= now;
@@ -757,7 +829,8 @@ const App = () => {
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
             const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
             const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
-            return backStreak < 1 || (card.synonym && synonymStreak < 1) || (card.example && exampleStreak < 1);
+            const dictationStreak = typeof card.correctStreak_dictation === 'number' ? card.correctStreak_dictation : 0;
+            return backStreak < 1 || (card.synonym && synonymStreak < 1) || (card.example && exampleStreak < 1) || dictationStreak < 1;
         }).length;
         const grammarBack = grammarCards.filter(card => {
             const isDue = card.nextReview_back <= now;
@@ -828,24 +901,34 @@ const App = () => {
 
             const dueBackCards = filteredCards
                 .filter(card => {
-                    if (isNew(card)) return true; // Thẻ mới luôn bao gồm
-                    if (card.nextReview_back > today) return false;
                     const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
-                    return backStreak < 1;
+                    if (backStreak >= 1) return false;
+                    if (isNew(card)) return true;
+                    return card.nextReview_back <= today;
                 })
                 .map(card => ({ ...card, reviewType: 'back' }));
 
             const dueExampleCards = filteredCards
                 .filter(card => {
                     if (!card.example || card.example.trim() === '') return false;
-                    if (isNew(card)) return true;
-                    if (card.nextReview_back > today) return false;
                     const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
-                    return exampleStreak < 1;
+                    if (exampleStreak >= 1) return false;
+                    if (isNew(card)) return true;
+                    return card.nextReview_back <= today;
                 })
                 .map(card => ({ ...card, reviewType: 'example' }));
 
-            dueCards = shuffleArray([...dueBackCards, ...dueExampleCards]);
+            // Dictation: tất cả thẻ mới hoặc đến hạn + chưa hoàn thành dictation streak
+            const dueDictationCards = filteredCards
+                .filter(card => {
+                    const dictationStreak = typeof card.correctStreak_dictation === 'number' ? card.correctStreak_dictation : 0;
+                    if (dictationStreak >= 1) return false;
+                    if (isNew(card)) return true;
+                    return card.nextReview_back <= today;
+                })
+                .map(card => ({ ...card, reviewType: 'dictation' }));
+
+            dueCards = shuffleArray([...dueBackCards, ...dueExampleCards, ...dueDictationCards]);
 
         } else if (mode === 'back') {
             // Back: thẻ mới (intervalIndex_back === -1) HOẶC thẻ đến hạn (nextReview <= now) + chưa hoàn thành
@@ -884,6 +967,17 @@ const App = () => {
                     if (card.nextReview_back > today) return false;
                     const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
                     return exampleStreak < 1;
+                });
+        } else if (mode === 'dictation') {
+            // Dictation: thẻ mới HOẶC thẻ đến hạn + chưa hoàn thành dictation streak
+            dueCards = filteredCards
+                .filter(card => {
+                    // Thẻ mới luôn được bao gồm
+                    if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined) return true;
+                    // Thẻ cũ: kiểm tra nextReview và streak
+                    if (card.nextReview_back > today) return false;
+                    const dictationStreak = typeof card.correctStreak_dictation === 'number' ? card.correctStreak_dictation : 0;
+                    return dictationStreak < 1;
                 });
         }
 
@@ -1294,6 +1388,63 @@ const App = () => {
         return result;
     };
 
+    const handleAddFolder = async (name, description = '', coverImage = null) => {
+        if (!studySetsCollectionPath) return null;
+        try {
+            const folderRef = await addDoc(collection(db, studySetsCollectionPath), {
+                name,
+                description,
+                parentId: null,
+                coverImage,
+                createdAt: serverTimestamp()
+            });
+            return folderRef.id;
+        } catch (e) {
+            console.error('Lỗi khi tạo học phần:', e);
+            setNotification('Lỗi khi tạo học phần');
+            return null;
+        }
+    };
+
+    const handleUpdateFolder = async (folderId, updates) => {
+        if (!studySetsCollectionPath || !folderId) return;
+        try {
+            await updateDoc(doc(db, studySetsCollectionPath, folderId), updates);
+        } catch (e) {
+            console.error('Lỗi khi cập nhật học phần:', e);
+        }
+    };
+
+    const handleDeleteFolder = async (folderId) => {
+        if (!studySetsCollectionPath || !folderId) return;
+        try {
+            // Remove folder
+            await deleteDoc(doc(db, studySetsCollectionPath, folderId));
+            // Remove folderId from all cards that had it
+            const batch = writeBatch(db);
+            let hasUpdates = false;
+            allCards.forEach(card => {
+                if (card.folderId === folderId) {
+                    batch.update(doc(db, vocabCollectionPath, card.id), { folderId: null });
+                    hasUpdates = true;
+                }
+            });
+            if (hasUpdates) await batch.commit();
+        } catch (e) {
+            console.error('Lỗi khi xoá học phần:', e);
+        }
+    };
+
+    const handleMoveCardToFolder = async (cardId, folderId) => {
+        if (!vocabCollectionPath || !cardId) return;
+        try {
+            const val = folderId === 'unfiled' || !folderId ? null : folderId;
+            await updateDoc(doc(db, vocabCollectionPath, cardId), { folderId: val });
+        } catch (e) {
+            console.error('Lỗi di chuyển thẻ:', e);
+        }
+    };
+
     const handleAddCard = async ({ front, back, synonym, example, exampleMeaning, nuance, pos, level, action, imageBase64, audioBase64, exampleAudioBase64, sinoVietnamese, synonymSinoVietnamese, folderId }) => {
         if (!vocabCollectionPath) return false;
 
@@ -1325,6 +1476,10 @@ const App = () => {
 
         const newCardData = createCardObject(finalFront, finalBack, finalSynonym, finalExample, finalExampleMeaning, finalNuance, {}, null, imageBase64, audioBase64, finalPos, finalLevel, finalSinoVietnamese, finalSynonymSinoVietnamese);
 
+        if (folderId && folderId !== 'unfiled') {
+            newCardData.folderId = folderId;
+        }
+
         // Add example audio if provided (from book audio trimmer)
         if (exampleAudioBase64) {
             newCardData.exampleAudioBase64 = exampleAudioBase64;
@@ -1346,6 +1501,7 @@ const App = () => {
                     const savedFolders = JSON.parse(localStorage.getItem(folderKey) || '{}');
                     savedFolders[cardRef.id] = folderId;
                     localStorage.setItem(folderKey, JSON.stringify(savedFolders));
+                    window.dispatchEvent(new Event('study_sets_updated'));
                 } catch (e) {
                     console.error('Lỗi lưu thư mục cho thẻ:', e);
                 }
@@ -1831,6 +1987,7 @@ const App = () => {
             correctStreak_back: typeof cardData.correctStreak_back === 'number' ? cardData.correctStreak_back : 0,
             correctStreak_synonym: typeof cardData.correctStreak_synonym === 'number' ? cardData.correctStreak_synonym : 0,
             correctStreak_example: typeof cardData.correctStreak_example === 'number' ? cardData.correctStreak_example : 0,
+            correctStreak_dictation: typeof cardData.correctStreak_dictation === 'number' ? cardData.correctStreak_dictation : 0,
         };
 
         // Sử dụng SRS engine mới để tính toán
@@ -2278,6 +2435,64 @@ const App = () => {
         }
     };
 
+    const handleExtractVocabFromImage = async (imageBase64) => {
+        if (!imageBase64) return null;
+
+        try {
+            // SECURITY: Rate limiting
+            if (!aiRateLimiter.canProceed()) {
+                const waitSec = Math.ceil(aiRateLimiter.getTimeUntilNext() / 1000);
+                setNotification(`Bạn đang gọi AI quá nhanh. Vui lòng đợi ${waitSec} giây.`);
+                return null;
+            }
+
+            // Kiểm tra quyền AI
+            if (!canUserUseAI) {
+                setNotification('Bạn chưa được cấp quyền sử dụng AI. Liên hệ admin để được cấp quyền.');
+                return null;
+            }
+
+            // Kiểm tra AI credits (admin/mod không giới hạn)
+            const isUnlimited = isAdmin || adminConfig?.moderators?.includes(userId);
+            const currentCredits = profile?.aiCreditsRemaining;
+            if (!isUnlimited) {
+                if (currentCredits === undefined || currentCredits === null) {
+                    try {
+                        await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: 100 });
+                        setProfile(prev => ({ ...prev, aiCreditsRemaining: 100 }));
+                    } catch (e) { console.warn('Init credits error:', e); }
+                } else if (currentCredits <= 0) {
+                    setNotification('Bạn đã hết lượt tạo từ vựng AI miễn phí. Vui lòng mua thêm gói thẻ để tiếp tục sử dụng.');
+                    return null;
+                }
+            }
+
+            // Call extractVocabFromImage
+            const { extractVocabFromImage } = await import('./utils/aiProvider');
+            const result = await extractVocabFromImage(imageBase64);
+
+            if (result && Array.isArray(result)) {
+                // Trừ 1 credit
+                if (settingsDocPath) {
+                    try {
+                        const newCredits = Math.max(0, (profile?.aiCreditsRemaining || 0) - 1);
+                        await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: newCredits });
+                        setProfile(prev => ({ ...prev, aiCreditsRemaining: newCredits }));
+                        console.log(`💳 AI Credits: ${newCredits} còn lại sau khi quét ảnh`);
+                    } catch (e) { console.warn('Deduct credit error:', e); }
+                }
+                return result;
+            } else {
+                setNotification("Không thể trích xuất từ vựng từ ảnh này. Thử lại với ảnh rõ hơn.");
+                return null;
+            }
+        } catch (e) {
+            console.error("Lỗi trích xuất từ ảnh:", e);
+            setNotification(e.message || "Không gọi được AI. Kiểm tra API key hoặc thử lại sau.");
+            return null;
+        }
+    };
+
     // --- NEW: Batch Auto-Classification for Missing POS ---
     const handleAutoClassifyBatch = async (cardsToClassify) => {
         if (!cardsToClassify || cardsToClassify.length === 0) return;
@@ -2547,11 +2762,15 @@ const App = () => {
                     }}
                     onGeminiAssist={handleGeminiAssist}
                     batchMode={batchVocabList.length > 0 && currentBatchIndex < batchVocabList.length}
+                    batchVocabList={batchVocabList}
                     currentBatchIndex={currentBatchIndex}
                     totalBatchCount={batchVocabList.length}
                     onBatchNext={handleBatchSaveNext}
                     onBatchSkip={handleBatchSkip}
                     editingCard={editingCard}
+                    userId={userId}
+                    onGenerateMoreExample={handleGenerateMoreExample}
+                    aiCreditsRemaining={userProfile?.aiCredits}
                     onOpenBatchImport={() => setShowBatchImportModal(true)}
                 />;
             case 'EDIT_CARD':
@@ -2814,11 +3033,11 @@ const App = () => {
             )}
 
             {/* Main content area - responsive for sidebar */}
-            <main className={`lg:ml-64 min-h-screen pt-14 lg:pt-0 flex flex-col ${view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
-                <div className={`${view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' ? 'w-full flex-1 flex items-center justify-center bg-transparent py-4 md:py-8' : view === 'KANJI' ? 'w-full flex-1' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6'}`}>
+            <main className={`lg:ml-64 min-h-screen pt-14 lg:pt-0 flex flex-col ${['REVIEW', 'STUDY', 'FLASHCARD', 'KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') ? 'bg-transparent' : ''}`}>
+                <div className={`${['REVIEW', 'STUDY', 'FLASHCARD'].includes(view) ? 'w-full flex-1 flex items-center justify-center bg-transparent py-4 md:py-8' : ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') ? 'w-full flex-1' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6'}`}>
                     {/* Main content container - transparent */}
-                    <div className={`w-full ${view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
-                        <div className={`w-full ${view === 'REVIEW' || view === 'STUDY' || view === 'FLASHCARD' || view === 'KANJI' ? 'bg-transparent' : ''}`}>
+                    <div className={`w-full ${['REVIEW', 'STUDY', 'FLASHCARD', 'KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') ? 'bg-transparent' : ''}`}>
+                        <div className={`w-full ${['REVIEW', 'STUDY', 'FLASHCARD', 'KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') ? 'bg-transparent' : ''}`}>
                             <AppRoutes
                                 isAuthenticated={!!userId}
                                 isLoading={isLoading}
@@ -2843,6 +3062,11 @@ const App = () => {
                                 canUserUseAI={canUserUseAI}
                                 userHasAdminPrivileges={userHasAdminPrivileges}
                                 currentUserEmail={auth?.currentUser?.email}
+                                folders={folders}
+                                cardFolders={cardFolders}
+                                onAddFolder={handleAddFolder}
+                                onDeleteFolder={handleDeleteFolder}
+                                onRenameFolder={handleUpdateFolder}
                                 setView={setView}
                                 setEditingCard={setEditingCard}
                                 setStudySessionData={setStudySessionData}
@@ -2858,6 +3082,7 @@ const App = () => {
                                 handleSaveNewCard={handleAddCard}
                                 handleSaveChanges={handleSaveChanges}
                                 handleGeminiAssist={handleGeminiAssist}
+                                handleExtractVocabFromImage={handleExtractVocabFromImage}
                                 handleGenerateMoreExample={handleGenerateMoreExample}
                                 handleBatchImport={handleBatchImport}
                                 handleBatchSaveNext={handleBatchSaveNext}
@@ -2902,3 +3127,10 @@ const App = () => {
 };
 
 export default App;
+
+
+
+
+
+
+
