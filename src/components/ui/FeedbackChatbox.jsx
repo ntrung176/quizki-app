@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { db, appId } from '../../config/firebase';
-import { collection, addDoc, query, where, orderBy, onSnapshot, serverTimestamp } from 'firebase/firestore';
+import { collection, addDoc, query, where, orderBy, onSnapshot, serverTimestamp, setDoc, doc } from 'firebase/firestore';
 import { MessageSquare, X, Send, Image as ImageIcon, Loader2, Paperclip, Check } from 'lucide-react';
 
 const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
@@ -17,26 +17,21 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
     const fileInputRef = useRef(null);
     const chatContainerRef = useRef(null);
 
-    const chatPath = `artifacts/${appId}/public/data/feedbacks`;
+    const chatPath = `artifacts/${appId}/forum/support_chat_${userId}/comments`;
+    const statusDocRef = doc(db, `artifacts/${appId}/forum`, `support_chat_${userId}`);
 
     // Subscribe to chat messages
     useEffect(() => {
         if (!userId || !db || !isOpen) return;
 
         setLoading(true);
-        // Only load messages belonging to this user
-        const q = query(
-            collection(db, chatPath),
-            where('userId', '==', userId)
-        );
+        const q = collection(db, chatPath);
 
         const unsubscribe = onSnapshot(q, (snapshot) => {
-            const list = snapshot.docs
-                .map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                }))
-                .filter(msg => msg.isSupportChat);
+            const list = snapshot.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            }));
 
             // Sort client-side by createdAt
             list.sort((a, b) => {
@@ -70,19 +65,12 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
             return;
         }
 
-        const q = query(
-            collection(db, chatPath),
-            where('userId', '==', userId)
-        );
+        const q = collection(db, chatPath);
 
         const unsubscribe = onSnapshot(q, (snapshot) => {
             if (snapshot.empty) return;
             
-            const list = snapshot.docs
-                .map(doc => doc.data())
-                .filter(msg => msg.isSupportChat);
-
-            if (list.length === 0) return;
+            const list = snapshot.docs.map(doc => doc.data());
 
             // Sort client-side
             list.sort((a, b) => {
@@ -127,6 +115,33 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
         reader.readAsDataURL(file);
     };
 
+    // Handle paste event (e.g. Ctrl+V image)
+    const handlePaste = (e) => {
+        const items = e.clipboardData?.items;
+        if (!items) return;
+
+        for (let i = 0; i < items.length; i++) {
+            if (items[i].type.indexOf('image') !== -1) {
+                const file = items[i].getAsFile();
+                if (!file) continue;
+
+                // Limit size to ~1.2MB for base64 storage
+                if (file.size > 1.2 * 1024 * 1024) {
+                    alert('Hình ảnh dán quá lớn! Vui lòng chọn ảnh nhỏ hơn 1.2 MB.');
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    setSelectedImage(reader.result);
+                };
+                reader.readAsDataURL(file);
+                e.preventDefault(); // Prevent pasting binary text/file name in text input
+                break;
+            }
+        }
+    };
+
     // Send Message
     const handleSendMessage = async (e) => {
         e.preventDefault();
@@ -151,6 +166,16 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
                 isSupportChat: true,
                 createdAt: serverTimestamp()
             });
+
+            await setDoc(statusDocRef, {
+                isSupportChat: true,
+                userId,
+                senderName: profile?.displayName || 'Người dùng',
+                email: profile?.email || '',
+                text: textToSend,
+                isAdminReply: false,
+                updatedAt: serverTimestamp()
+            }, { merge: true });
 
             // Trigger scroll
             messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -303,6 +328,7 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
                             type="text"
                             value={inputText}
                             onChange={(e) => setInputText(e.target.value)}
+                            onPaste={handlePaste}
                             className="flex-1 py-2 px-3 text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-[#2E5B70] text-slate-800 dark:text-slate-200 placeholder-slate-400"
                             placeholder="Nhập nội dung tin nhắn..."
                         />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc, addDoc, where, serverTimestamp, orderBy } from 'firebase/firestore';
+import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc, addDoc, where, serverTimestamp, orderBy, setDoc } from 'firebase/firestore';
 import * as XLSX from 'xlsx';
 import { db, appId } from '../../config/firebase';
 import {
@@ -2067,39 +2067,27 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
         if (showLoader) setLoadingThreads(true);
         try {
             const q = query(
-                collection(db, chatPath),
-                orderBy('createdAt', 'desc')
+                collection(db, `artifacts/${appId}/forum`),
+                where('isSupportChat', '==', true)
             );
             const snapshot = await getDocs(q);
-            const allMsgs = snapshot.docs
-                .map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                }))
-                .filter(msg => msg.isSupportChat);
-
-            // Group by userId
-            const threadMap = {};
-            allMsgs.forEach(msg => {
-                const uId = msg.userId;
-                if (!uId) return;
-
-                if (!threadMap[uId]) {
-                    // Find user profile from user list
-                    const userProfile = users.find(u => u.userId === uId);
-                    threadMap[uId] = {
-                        userId: uId,
-                        displayName: userProfile?.displayName || msg.senderName || 'Người dùng ẩn danh',
-                        email: userProfile?.email || '',
-                        messages: [],
-                        lastMessage: msg
-                    };
-                }
-                threadMap[uId].messages.push(msg);
+            
+            const threadList = snapshot.docs.map(doc => {
+                const data = doc.data();
+                return {
+                    userId: data.userId,
+                    displayName: data.senderName || 'Người dùng ẩn danh',
+                    email: data.email || '',
+                    lastMessage: {
+                        text: data.text || '',
+                        createdAt: data.updatedAt,
+                        isAdmin: data.isAdminReply
+                    }
+                };
             });
 
-            // Convert to array and sort by last message time
-            const threadList = Object.values(threadMap).sort((a, b) => {
+            // Sort threads by last message time (updatedAt)
+            threadList.sort((a, b) => {
                 const aTime = a.lastMessage.createdAt?.toDate ? a.lastMessage.createdAt.toDate().getTime() : (a.lastMessage.createdAt || 0);
                 const bTime = b.lastMessage.createdAt?.toDate ? b.lastMessage.createdAt.toDate().getTime() : (b.lastMessage.createdAt || 0);
                 return bTime - aTime;
@@ -2130,17 +2118,12 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
 
         if (showLoader) setLoadingMessages(true);
         try {
-            const q = query(
-                collection(db, chatPath),
-                where('userId', '==', selectedUserId)
-            );
+            const q = collection(db, `artifacts/${appId}/forum/support_chat_${selectedUserId}/comments`);
             const snapshot = await getDocs(q);
-            const list = snapshot.docs
-                .map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                }))
-                .filter(msg => msg.isSupportChat);
+            const list = snapshot.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            }));
 
             // Sort client-side by createdAt
             list.sort((a, b) => {
@@ -2201,7 +2184,8 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
         setSelectedImage(null);
 
         try {
-            await addDoc(collection(db, chatPath), {
+            // 1. Add comment/message to the subcollection
+            await addDoc(collection(db, `artifacts/${appId}/forum/support_chat_${selectedUserId}/comments`), {
                 userId: selectedUserId,
                 senderId: currentUserId,
                 senderName: 'Ban quản trị QuizKi',
@@ -2211,6 +2195,17 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                 isSupportChat: true,
                 createdAt: serverTimestamp()
             });
+
+            // 2. Update status doc
+            const statusDocRef = doc(db, `artifacts/${appId}/forum`, `support_chat_${selectedUserId}`);
+            await setDoc(statusDocRef, {
+                isSupportChat: true,
+                userId: selectedUserId,
+                text: textToSend,
+                isAdminReply: true,
+                updatedAt: serverTimestamp()
+            }, { merge: true });
+
             // Fetch immediately
             fetchMessages(false);
             fetchThreads(false);
