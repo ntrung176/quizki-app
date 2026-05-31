@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { ArrowLeft, Users, CheckCircle, XCircle, RotateCcw, Trophy, ChevronRight } from 'lucide-react';
 import FuriganaText from '../ui/FuriganaText';
 import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
+import { speakJapanese } from '../../utils/audio';
 
 const shuffleArr = (arr) => {
     const a = [...arr];
@@ -24,19 +25,44 @@ const SynonymQuizScreen = ({ cards, onBack, onComplete }) => {
     const options = useMemo(() => {
         if (!currentCard) return [];
         const correctAnswer = currentCard.synonym;
-        // Get wrong answers from other cards' synonyms or meanings
-        const pool = cards
-            .filter(c => c.id !== currentCard.id && (c.synonym || c.back))
-            .map(c => c.synonym || c.back);
-        const wrongAnswers = shuffleArr(pool).slice(0, 3);
-        // Combine and shuffle
-        const allOptions = shuffleArr([correctAnswer, ...wrongAnswers.slice(0, 3)]);
-        // Ensure we have exactly 4 options, pad with meanings if needed
-        while (allOptions.length < 4) {
-            const extra = cards.find(c => c.id !== currentCard.id && !allOptions.includes(c.back));
-            if (extra) allOptions.push(extra.back); else break;
+        
+        // Get all unique synonyms from other cards
+        let synonymPool = Array.from(new Set(
+            cards
+                .filter(c => c.synonym && c.synonym.trim() && c.synonym !== correctAnswer)
+                .map(c => c.synonym)
+        ));
+        
+        // If we don't have enough synonyms in the deck, we can pad with other cards' Japanese fronts
+        let paddingPool = [];
+        if (synonymPool.length < 3) {
+            paddingPool = Array.from(new Set(
+                cards
+                    .filter(c => c.front && c.front.trim() && c.front !== currentCard.front && c.synonym !== c.front)
+                    .map(c => c.front)
+            ));
         }
-        return allOptions.slice(0, 4);
+
+        const wrongAnswers = shuffleArr(synonymPool).slice(0, 3);
+        const allOptions = [correctAnswer, ...wrongAnswers];
+
+        // Pad with padding pool if still less than 4 options
+        if (allOptions.length < 4) {
+            const extraWrong = shuffleArr(paddingPool);
+            for (const item of extraWrong) {
+                if (!allOptions.includes(item)) {
+                    allOptions.push(item);
+                }
+                if (allOptions.length >= 4) break;
+            }
+        }
+
+        // Just in case we still don't have 4 options, create dummy ones or duplicate
+        while (allOptions.length < 4) {
+            allOptions.push(`Lựa chọn ${allOptions.length + 1}`);
+        }
+
+        return shuffleArr(allOptions);
     }, [currentCard, cards, currentIndex]);
 
     const handleSelect = useCallback((option) => {
@@ -44,8 +70,16 @@ const SynonymQuizScreen = ({ cards, onBack, onComplete }) => {
         setSelectedAnswer(option);
         setIsRevealed(true);
         const isCorrect = option === currentCard.synonym;
-        if (isCorrect) { playCorrectSound(); setScore(s => ({ ...s, correct: s.correct + 1 })); }
-        else { playIncorrectSound(); setScore(s => ({ ...s, incorrect: s.incorrect + 1 })); }
+        if (isCorrect) { 
+            playCorrectSound(); 
+            setScore(s => ({ ...s, correct: s.correct + 1 })); 
+        } else { 
+            playIncorrectSound(); 
+            setScore(s => ({ ...s, incorrect: s.incorrect + 1 })); 
+        }
+        setTimeout(() => {
+            speakJapanese(currentCard.front, currentCard.audioBase64).catch(e => console.warn(e));
+        }, 500);
     }, [isRevealed, currentCard]);
 
     const handleNext = () => {
@@ -67,6 +101,16 @@ const SynonymQuizScreen = ({ cards, onBack, onComplete }) => {
         setScore({ correct: 0, incorrect: 0 });
         setIsComplete(false);
     };
+
+    // Auto-exit when completed
+    useEffect(() => {
+        if (isComplete) {
+            const timer = setTimeout(() => {
+                onBack();
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [isComplete, onBack]);
 
     // Keyboard
     useEffect(() => {
@@ -96,8 +140,8 @@ const SynonymQuizScreen = ({ cards, onBack, onComplete }) => {
     if (isComplete) {
         const pct = Math.round((score.correct / quizCards.length) * 100);
         return (
-            <div className="relative w-full h-full flex flex-col justify-center">
-                <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col items-center space-y-6 p-8 bg-white dark:bg-slate-900 border-2 border-purple-400/30 rounded-3xl shadow-xl">
+            <div className="relative w-full h-full flex flex-col justify-center py-6">
+                <div className="w-[800px] max-w-[95vw] mx-auto my-auto flex flex-col items-center space-y-6 p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl">
                     <div className="w-20 h-20 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full flex items-center justify-center shadow-lg">
                         <Trophy className="w-10 h-10 text-white" />
                     </div>
@@ -129,16 +173,21 @@ const SynonymQuizScreen = ({ cards, onBack, onComplete }) => {
     const progress = (currentIndex / quizCards.length) * 100;
 
     return (
-        <div className="relative w-full h-full flex flex-col justify-center">
-            <div className="w-[700px] max-w-[95vw] mx-auto my-auto flex flex-col items-center space-y-3">
+        <div className="relative w-full h-full flex flex-col justify-center py-6">
+            <div className="w-[800px] max-w-[95vw] mx-auto my-auto flex flex-col items-center space-y-3">
                 {onBack && (
                     <div className="w-full flex justify-start mb-1">
-                        <button onClick={onBack} className="p-2.5 flex items-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105">
-                            <ArrowLeft className="w-5 h-5" /><span className="text-sm font-medium ml-1">Trở lại</span>
+                        <button
+                            onClick={onBack}
+                            className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105"
+                            title="Trở lại"
+                        >
+                            <ArrowLeft className="w-5 h-5" />
+                            <span className="text-sm font-medium ml-1">Trở lại</span>
                         </button>
                     </div>
                 )}
-                <div className="w-full flex flex-col space-y-4 p-5 md:p-8 bg-white dark:bg-slate-900 border-2 border-purple-400/30 rounded-3xl shadow-xl">
+                <div className="w-full flex flex-col space-y-4 p-5 md:p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl">
                     {/* Progress */}
                     <div className="space-y-1">
                         <div className="flex justify-between text-sm font-bold text-purple-500 dark:text-purple-400">

@@ -36,46 +36,38 @@ export function playCorrectSound() {
     try {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
         const masterGain = ctx.createGain();
-        masterGain.gain.setValueAtTime(volume * 0.25, ctx.currentTime);
+        masterGain.gain.setValueAtTime(volume * 0.28, ctx.currentTime);
         masterGain.connect(ctx.destination);
 
-        // Pleasant ascending chime - C5, E5, G5
+        const now = ctx.currentTime;
+
+        // Bright, premium ascending major 9th chime: C5, E5, G5, B5, D6, G6
         const notes = [
-            { freq: 523.25, start: 0, dur: 0.15 },
-            { freq: 659.25, start: 0.08, dur: 0.15 },
-            { freq: 783.99, start: 0.16, dur: 0.25 },
+            { freq: 523.25, type: 'sine', start: 0, dur: 0.3, vol: 0.5 },
+            { freq: 659.25, type: 'sine', start: 0.04, dur: 0.3, vol: 0.5 },
+            { freq: 783.99, type: 'sine', start: 0.08, dur: 0.3, vol: 0.5 },
+            { freq: 987.77, type: 'triangle', start: 0.12, dur: 0.35, vol: 0.35 },
+            { freq: 1174.66, type: 'triangle', start: 0.16, dur: 0.4, vol: 0.35 },
+            { freq: 1567.98, type: 'sine', start: 0.20, dur: 0.5, vol: 0.45 },
         ];
 
-        notes.forEach(({ freq, start, dur }) => {
+        notes.forEach(({ freq, type, start, dur, vol }) => {
             const osc = ctx.createOscillator();
             const gain = ctx.createGain();
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(freq, ctx.currentTime + start);
+            osc.type = type;
+            osc.frequency.setValueAtTime(freq, now + start);
 
-            gain.gain.setValueAtTime(0, ctx.currentTime + start);
-            gain.gain.linearRampToValueAtTime(0.6, ctx.currentTime + start + 0.02);
-            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + dur);
+            gain.gain.setValueAtTime(0, now + start);
+            gain.gain.linearRampToValueAtTime(vol, now + start + 0.02);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + start + dur);
 
             osc.connect(gain);
             gain.connect(masterGain);
-            osc.start(ctx.currentTime + start);
-            osc.stop(ctx.currentTime + start + dur);
+            osc.start(now + start);
+            osc.stop(now + start + dur);
         });
 
-        // Sparkle overtone
-        const sparkle = ctx.createOscillator();
-        const sparkleGain = ctx.createGain();
-        sparkle.type = 'sine';
-        sparkle.frequency.setValueAtTime(1568, ctx.currentTime + 0.2);
-        sparkleGain.gain.setValueAtTime(0, ctx.currentTime + 0.2);
-        sparkleGain.gain.linearRampToValueAtTime(0.15, ctx.currentTime + 0.22);
-        sparkleGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5);
-        sparkle.connect(sparkleGain);
-        sparkleGain.connect(masterGain);
-        sparkle.start(ctx.currentTime + 0.2);
-        sparkle.stop(ctx.currentTime + 0.5);
-
-        setTimeout(() => ctx.close(), 1000);
+        setTimeout(() => ctx.close(), 1200);
     } catch (e) {
         console.log('Sound not available');
     }
@@ -88,34 +80,39 @@ export function playIncorrectSound() {
     try {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
         const masterGain = ctx.createGain();
-        masterGain.gain.setValueAtTime(volume * 0.2, ctx.currentTime);
+        masterGain.gain.setValueAtTime(volume * 0.35, ctx.currentTime);
         masterGain.connect(ctx.destination);
 
-        // Descending buzz - dissonant interval
+        const now = ctx.currentTime;
+
+        // Soft disappointed descending womp: Bb3 -> Gb3
         const notes = [
-            { freq: 330, start: 0, dur: 0.18 },
-            { freq: 277, start: 0.12, dur: 0.25 },
+            { freq: 233.08, type: 'triangle', start: 0, dur: 0.18, vol: 0.6 },
+            { freq: 185.00, type: 'triangle', start: 0.12, dur: 0.3, vol: 0.6 },
         ];
 
-        notes.forEach(({ freq, start, dur }) => {
+        notes.forEach(({ freq, type, start, dur, vol }) => {
             const osc = ctx.createOscillator();
             const gain = ctx.createGain();
-            osc.type = 'square';
-            osc.frequency.setValueAtTime(freq, ctx.currentTime + start);
-
             const filter = ctx.createBiquadFilter();
-            filter.type = 'lowpass';
-            filter.frequency.setValueAtTime(800, ctx.currentTime + start);
+            
+            osc.type = type;
+            osc.frequency.setValueAtTime(freq, now + start);
+            osc.frequency.exponentialRampToValueAtTime(freq * 0.9, now + start + dur);
 
-            gain.gain.setValueAtTime(0, ctx.currentTime + start);
-            gain.gain.linearRampToValueAtTime(0.4, ctx.currentTime + start + 0.02);
-            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + dur);
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(600, now + start);
+            filter.frequency.exponentialRampToValueAtTime(150, now + start + dur);
+
+            gain.gain.setValueAtTime(0, now + start);
+            gain.gain.linearRampToValueAtTime(vol, now + start + 0.02);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + start + dur);
 
             osc.connect(filter);
             filter.connect(gain);
             gain.connect(masterGain);
-            osc.start(ctx.currentTime + start);
-            osc.stop(ctx.currentTime + start + dur);
+            osc.start(now + start);
+            osc.stop(now + start + dur);
         });
 
         setTimeout(() => ctx.close(), 800);
@@ -211,14 +208,15 @@ export function playClickSound() {
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
         osc.type = 'sine';
-        osc.frequency.setValueAtTime(600, ctx.currentTime);
-        gain.gain.setValueAtTime(volume * 0.08, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.06);
+        osc.frequency.setValueAtTime(500, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(150, ctx.currentTime + 0.04);
+        gain.gain.setValueAtTime(volume * 0.05, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
         osc.connect(gain);
         gain.connect(ctx.destination);
         osc.start(ctx.currentTime);
-        osc.stop(ctx.currentTime + 0.06);
-        setTimeout(() => ctx.close(), 200);
+        osc.stop(ctx.currentTime + 0.04);
+        setTimeout(() => ctx.close(), 100);
     } catch (e) { }
 }
 
@@ -229,41 +227,93 @@ export function playCompletionFanfare() {
     try {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
         const masterGain = ctx.createGain();
-        masterGain.gain.setValueAtTime(volume * 0.15, ctx.currentTime);
+        masterGain.gain.setValueAtTime(volume * 0.22, ctx.currentTime);
         masterGain.connect(ctx.destination);
 
-        // Triumphant melody
-        const notes = [
-            { freq: 523.25, start: 0, dur: 0.12 },
-            { freq: 587.33, start: 0.1, dur: 0.12 },
-            { freq: 659.25, start: 0.2, dur: 0.12 },
-            { freq: 783.99, start: 0.3, dur: 0.12 },
-            { freq: 1046.50, start: 0.4, dur: 0.35 },
-            { freq: 783.99, start: 0.8, dur: 0.08 },
-            { freq: 1046.50, start: 0.9, dur: 0.5 },
+        const now = ctx.currentTime;
+
+        // Triumphant chord progression: C major -> F major -> G major -> C major 9th
+        const chords = [
+            {
+                start: 0, dur: 0.18, notes: [
+                    { freq: 261.63, type: 'triangle', vol: 0.3 }, // C4
+                    { freq: 392.00, type: 'triangle', vol: 0.3 }, // G4
+                    { freq: 523.25, type: 'sine', vol: 0.4 },     // C5
+                    { freq: 659.25, type: 'sine', vol: 0.4 },     // E5
+                ]
+            },
+            {
+                start: 0.18, dur: 0.18, notes: [
+                    { freq: 349.23, type: 'triangle', vol: 0.3 }, // F4
+                    { freq: 440.00, type: 'triangle', vol: 0.3 }, // A4
+                    { freq: 523.25, type: 'sine', vol: 0.4 },     // C5
+                    { freq: 698.46, type: 'sine', vol: 0.4 },     // F5
+                ]
+            },
+            {
+                start: 0.36, dur: 0.22, notes: [
+                    { freq: 392.00, type: 'triangle', vol: 0.3 }, // G4
+                    { freq: 493.88, type: 'triangle', vol: 0.3 }, // B4
+                    { freq: 587.33, type: 'sine', vol: 0.4 },     // D5
+                    { freq: 783.99, type: 'sine', vol: 0.4 },     // G5
+                ]
+            },
+            {
+                start: 0.58, dur: 1.2, notes: [
+                    { freq: 261.63, type: 'triangle', vol: 0.3 }, // C4
+                    { freq: 392.00, type: 'triangle', vol: 0.3 }, // G4
+                    { freq: 659.25, type: 'sine', vol: 0.4 },     // E5
+                    { freq: 783.99, type: 'sine', vol: 0.4 },     // G5
+                    { freq: 987.77, type: 'sine', vol: 0.3 },     // B5
+                    { freq: 1174.66, type: 'sine', vol: 0.3 },    // D6
+                    { freq: 1567.98, type: 'sine', vol: 0.2 },    // G6
+                ]
+            }
         ];
 
-        notes.forEach(({ freq, start, dur }) => {
+        chords.forEach(({ start, dur, notes }) => {
+            notes.forEach(({ freq, type, vol }) => {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                const filter = ctx.createBiquadFilter();
+
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, now + start);
+
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(2000, now + start);
+
+                gain.gain.setValueAtTime(0, now + start);
+                gain.gain.linearRampToValueAtTime(vol, now + start + 0.02);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + start + dur);
+
+                osc.connect(filter);
+                filter.connect(gain);
+                gain.connect(masterGain);
+                osc.start(now + start);
+                osc.stop(now + start + dur);
+            });
+        });
+
+        // Add a sparkling arpeggio sweep at the very end of the final chord
+        const sparkleNotes = [1046.50, 1318.51, 1567.98, 2093.00];
+        sparkleNotes.forEach((freq, idx) => {
             const osc = ctx.createOscillator();
             const gain = ctx.createGain();
-            const filter = ctx.createBiquadFilter();
+            const start = 0.65 + idx * 0.06;
+            const dur = 0.4;
 
-            osc.type = 'sawtooth';
-            osc.frequency.setValueAtTime(freq, ctx.currentTime + start);
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, now + start);
 
-            filter.type = 'lowpass';
-            filter.frequency.setValueAtTime(2500, ctx.currentTime + start);
+            gain.gain.setValueAtTime(0, now + start);
+            gain.gain.linearRampToValueAtTime(0.15, now + start + 0.01);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + start + dur);
 
-            gain.gain.setValueAtTime(0, ctx.currentTime + start);
-            gain.gain.linearRampToValueAtTime(0.5, ctx.currentTime + start + 0.02);
-            gain.gain.linearRampToValueAtTime(0.3, ctx.currentTime + start + dur * 0.6);
-            gain.gain.linearRampToValueAtTime(0, ctx.currentTime + start + dur);
-
-            osc.connect(filter);
-            filter.connect(gain);
+            osc.connect(gain);
             gain.connect(masterGain);
-            osc.start(ctx.currentTime + start);
-            osc.stop(ctx.currentTime + start + dur + 0.05);
+            osc.start(now + start);
+            osc.stop(now + start + dur);
         });
 
         setTimeout(() => ctx.close(), 2500);

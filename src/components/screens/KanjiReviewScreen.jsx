@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Calendar, Clock, Target, Flame, ChevronLeft, ExternalLink, RotateCcw, Zap, BarChart3, Sparkles } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { db, appId } from '../../config/firebase';
-import { collection, getDocs, doc, updateDoc, getDoc, setDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, updateDoc, getDoc, setDoc, increment } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
 import { formatCountdown } from '../../utils/srs';
@@ -469,6 +469,13 @@ const KanjiReviewScreen = () => {
         try {
             await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, currentCard.id), newSrs);
             setSrsData(prev => ({ ...prev, [currentCard.id]: newSrs }));
+
+            // Cập nhật hoạt động ôn tập Kanji hàng ngày
+            const todayDateString = new Date().toISOString().split('T')[0];
+            const activityRef = doc(db, `artifacts/${appId}/users/${userId}/activity`, todayDateString);
+            await setDoc(activityRef, {
+                reviewsDone: increment(1)
+            }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Kanji:', err));
         } catch (e) { console.error('Error updating SRS:', e); }
         if (currentReviewIndex + 1 < reviewQueue.length) {
             if (rating === 'good' || rating === 'easy') { flashCorrect(); playCorrectSound(); }
@@ -533,21 +540,21 @@ const KanjiReviewScreen = () => {
                     <div className="w-full cursor-pointer" style={{ perspective: '1000px' }} onClick={() => setIsFlipped(f => !f)}>
                         <div key={currentCard.id} style={{ position: 'relative', width: '100%', height: '360px', transformStyle: 'preserve-3d', transition: 'transform 0.6s cubic-bezier(0.4,0,0.2,1)', transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
                             {/* Front */}
-                            <div className="bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 rounded-3xl border border-gray-200 dark:border-slate-700 shadow-2xl shadow-gray-200/50 dark:shadow-black/30"
+                            <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none"
                                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                                 <div className="text-[140px] leading-none font-bold text-gray-800 dark:text-white select-none font-japanese">{currentCard.character}</div>
-                                <div className="absolute bottom-5 left-0 right-0 text-center">
-                                    <span className="text-xs text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-slate-700/50 px-3 py-1 rounded-full">Nhấn để lật thẻ</span>
+                                <div className="absolute bottom-6 left-0 right-0 text-center">
+                                    <span className="text-xs text-gray-400 dark:text-gray-500 px-3.5 py-1.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">Nhấn để lật thẻ</span>
                                 </div>
                             </div>
                             {/* Back */}
-                            <div className="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-slate-800 dark:to-indigo-950/30 rounded-3xl border border-indigo-200 dark:border-indigo-800/50 shadow-2xl shadow-indigo-200/30 dark:shadow-black/30"
+                            <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none"
                                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px', overflowY: 'auto' }}>
                                 <div className="text-center space-y-4 w-full">
                                     <div className="text-4xl font-bold bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">{currentCard.sinoViet || '—'}</div>
-                                    <div className="text-xl text-cyan-600 dark:text-cyan-400 font-medium">{currentCard.meaning || '—'}</div>
+                                    <div className="text-xl text-cyan-600 dark:text-cyan-400 font-semibold">{currentCard.meaning || '—'}</div>
                                     {currentCard.mnemonic && (
-                                        <div className="text-sm text-gray-600 dark:text-gray-300 bg-white/80 dark:bg-slate-700/60 backdrop-blur-sm rounded-xl p-4 leading-relaxed border border-gray-200/50 dark:border-slate-600/30">
+                                        <div className="text-sm text-slate-650 dark:text-slate-350 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 leading-relaxed border border-slate-100 dark:border-slate-800 text-left w-full">
                                             💡 {currentCard.mnemonic}
                                         </div>
                                     )}
@@ -663,7 +670,7 @@ const KanjiReviewScreen = () => {
                 {/* 4 SRS Stage Cards */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-sm">
-                        <span className="text-[10px] font-bold text-sky-500 uppercase tracking-wider">Sơ cấp (New/Learning)</span>
+                        <span className="text-[10px] font-bold text-sky-500 uppercase tracking-wider">Sơ cấp (Mới học/Đang học)</span>
                         <div className="flex items-baseline gap-1 mt-2">
                             <span className="text-3xl font-black text-slate-850 dark:text-white">{stats.newCards + stats.learning}</span>
                             <span className="text-xs text-slate-400">chữ</span>
@@ -674,7 +681,7 @@ const KanjiReviewScreen = () => {
                     </div>
                     
                     <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-sm">
-                        <span className="text-[10px] font-bold text-amber-500 uppercase tracking-wider">Trung cấp (Review)</span>
+                        <span className="text-[10px] font-bold text-amber-500 uppercase tracking-wider">Trung cấp (Đang ôn tập)</span>
                         <div className="flex items-baseline gap-1 mt-2">
                             <span className="text-3xl font-black text-slate-850 dark:text-white">{stats.shortTerm}</span>
                             <span className="text-xs text-slate-400">chữ</span>
@@ -685,7 +692,7 @@ const KanjiReviewScreen = () => {
                     </div>
 
                     <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-sm">
-                        <span className="text-[10px] font-bold text-violet-500 uppercase tracking-wider">Cao cấp (Mastered)</span>
+                        <span className="text-[10px] font-bold text-violet-500 uppercase tracking-wider">Cao cấp (Thành thạo)</span>
                         <div className="flex items-baseline gap-1 mt-2">
                             <span className="text-3xl font-black text-slate-850 dark:text-white">{Math.max(0, stats.longTerm - Math.round(stats.longTerm * 0.2))}</span>
                             <span className="text-xs text-slate-400">chữ</span>
@@ -696,7 +703,7 @@ const KanjiReviewScreen = () => {
                     </div>
 
                     <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-sm">
-                        <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-wider">Chuyên gia (Retained)</span>
+                        <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-wider">Chuyên gia (Ghi nhớ)</span>
                         <div className="flex items-baseline gap-1 mt-2">
                             <span className="text-3xl font-black text-slate-850 dark:text-white">{Math.round(stats.longTerm * 0.2)}</span>
                             <span className="text-xs text-slate-400">chữ</span>

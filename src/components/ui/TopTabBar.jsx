@@ -30,7 +30,7 @@ const TopTabBar = ({ tabs }) => {
     }, [location.pathname, tabs]);
 
     return (
-        <div className="w-full border-b border-gray-200 dark:border-slate-700/50 bg-transparent relative">
+        <div className="w-full border-b border-gray-200 dark:border-slate-700/50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md sticky top-14 lg:top-0 z-30 transition-all duration-300">
             <div className="max-w-6xl mx-auto px-4 md:px-8">
                 <div className="relative flex overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth" ref={containerRef}>
                     <div className="flex space-x-1 sm:space-x-2 relative w-full">

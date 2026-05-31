@@ -30,7 +30,7 @@ const buildOptions = (correctCard, allCards) => {
 
 // ─── Phase: Multiple Choice ────────────────────────────────────────────────
 
-const MCPhase = ({ card, allCards, onCorrect, onWrong }) => {
+const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio }) => {
     const [options] = useState(() => buildOptions(card, allCards));
     const [selected, setSelected] = useState(null);
     const [answered, setAnswered] = useState(false);
@@ -43,9 +43,15 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong }) => {
         const isCorrect = normalize(opt) === normalize(correct);
         if (isCorrect) {
             playCorrectSound();
-            setTimeout(() => onCorrect(), 700);
+            setTimeout(() => {
+                speakJapanese(card.front, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
+            }, 500);
+            setTimeout(() => onCorrect(), 1200);
         } else {
             playIncorrectSound();
+            setTimeout(() => {
+                speakJapanese(card.front, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
+            }, 500);
         }
     };
 
@@ -125,10 +131,15 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio }) => {
         setFeedback(isCorrect ? 'correct' : 'incorrect');
         if (isCorrect) {
             playCorrectSound();
-            speakJapanese(correctFront, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
-            setTimeout(() => onCorrect(), 900);
+            setTimeout(() => {
+                speakJapanese(correctFront, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
+            }, 500);
+            setTimeout(() => onCorrect(), 1200);
         } else {
             playIncorrectSound();
+            setTimeout(() => {
+                speakJapanese(correctFront, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
+            }, 500);
         }
     };
 
@@ -154,8 +165,8 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio }) => {
                 placeholder="Nhập từ vựng tiếng Nhật..."
                 className={`w-full px-5 py-4 text-xl font-japanese font-bold rounded-xl border-2 outline-none transition-all shadow-sm
                     ${feedback === 'correct' ? 'border-emerald-400 bg-emerald-50/80 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300'
-                    : feedback === 'incorrect' ? 'border-red-400 bg-red-50/80 dark:bg-red-900/30 text-red-800 dark:text-red-300'
-                    : 'border-gray-200/80 dark:border-slate-600/80 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:border-emerald-500 focus:bg-white dark:focus:bg-slate-800'}`}
+                        : feedback === 'incorrect' ? 'border-red-400 bg-red-50/80 dark:bg-red-900/30 text-red-800 dark:text-red-300'
+                            : 'border-gray-200/80 dark:border-slate-600/80 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:border-emerald-500 focus:bg-white dark:focus:bg-slate-800'}`}
             />
 
             {!feedback && (
@@ -191,37 +202,36 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio }) => {
     );
 };
 
-// ─── Round Complete Screen ─────────────────────────────────────────────────
-
-const RoundComplete = ({ roundNum, correct, total, onNext }) => (
-    <div className="flex flex-col items-center justify-center text-center space-y-6 py-12 animate-fade-in">
-        <div className="w-24 h-24 rounded-full bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center shadow-xl shadow-indigo-200/50 dark:shadow-indigo-900/50">
-            <Trophy className="w-12 h-12 text-white" />
+// ─── Batch Complete Screen ──────────────────────────────────────────────────
+const BatchComplete = ({ batchNum, totalBatches, wordCount, onNext }) => (
+    <div className="flex flex-col items-center justify-center text-center space-y-6 py-10 animate-fade-in">
+        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-200/50 dark:shadow-emerald-900/50">
+            <Check className="w-10 h-10 text-white stroke-[3px]" />
         </div>
         <div>
-            <h2 className="text-3xl font-black text-gray-800 dark:text-white mb-2">Vòng {roundNum} hoàn thành!</h2>
-            <p className="text-gray-500 dark:text-gray-400 text-lg">
-                Trả lời đúng <span className="font-black text-indigo-600 dark:text-indigo-400">{correct}/{total}</span> câu
+            <h2 className="text-2xl font-black text-gray-800 dark:text-white mb-2">Nhóm {batchNum}/{totalBatches} hoàn thành!</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-base">
+                Bạn đã ghi nhớ thành công <span className="font-black text-emerald-600 dark:text-emerald-400">{wordCount}</span> từ vựng tiếp theo
             </p>
         </div>
-        {correct < total && (
-            <p className="text-sm text-orange-500 font-medium bg-orange-50/80 dark:bg-orange-900/20 backdrop-blur-sm px-4 py-2 rounded-xl border border-orange-200/60 dark:border-orange-800/60">
-                🔄 {total - correct} từ chưa thuần thục sẽ luyện lại
-            </p>
-        )}
         <button
             onClick={onNext}
-            className="px-8 py-3.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+            className="px-8 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5"
         >
-            {correct < total ? 'Luyện lại từ sai →' : 'Tiếp tục →'}
+            {batchNum < totalBatches ? 'Học nhóm tiếp theo →' : 'Xem kết quả →'}
         </button>
     </div>
 );
 
 // ─── Session Complete ──────────────────────────────────────────────────────
-
 const SessionComplete = ({ totalCards, onBack, onRestart }) => {
-    useEffect(() => { launchFireworks(); }, []);
+    useEffect(() => {
+        launchFireworks();
+        const timer = setTimeout(() => {
+            onBack();
+        }, 3000);
+        return () => clearTimeout(timer);
+    }, [onBack]);
     return (
         <div className="flex flex-col items-center justify-center text-center space-y-6 py-8 animate-fade-in">
             <div className="text-6xl mb-2">🎉</div>
@@ -250,139 +260,170 @@ const SessionComplete = ({ totalCards, onBack, onRestart }) => {
 };
 
 // ─── Main StudyScreen ──────────────────────────────────────────────────────
-
 const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdateCard, onSaveCardAudio, onCompleteStudy, onBack }) => {
     const originalCards = useMemo(() => studySessionData?.cards || [], [studySessionData]);
+    const [batches, setBatches] = useState([]);
+    const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
+    const [currentBatch, setCurrentBatch] = useState([]);
+    
+    // Sub-phases: 'mc', 'written', 'batchComplete'
+    const [batchPhase, setBatchPhase] = useState('mc');
 
-    // phases: 'mc' → 'written' → 'roundComplete' → loop back, or 'done'
-    const [phase, setPhase] = useState('mc');
-    const [round, setRound] = useState(1);
+    // MC queue for current batch
+    const [mcQueue, setMcQueue] = useState([]);
+    const [mcIdx, setMcIdx] = useState(0);
 
-    // Queue of cards remaining in current phase
-    const [queue, setQueue] = useState(() => shuffleArray([...originalCards]));
-    const [currentIdx, setCurrentIdx] = useState(0);
-
-    // Track correct per round
-    const [correctCount, setCorrectCount] = useState(0);
-    const [wrongCards, setWrongCards] = useState([]); // cards to re-queue in written phase
-
-    // Written phase re-queue tracking
+    // Written queue for current batch (including wrong ones)
     const [writtenQueue, setWrittenQueue] = useState([]);
     const [writtenIdx, setWrittenIdx] = useState(0);
-    const [writtenCorrect, setWrittenCorrect] = useState(0);
     const [writtenWrong, setWrittenWrong] = useState([]);
 
-    const [roundSummary, setRoundSummary] = useState(null); // { correct, total }
     const [done, setDone] = useState(false);
 
-    const currentCard = phase === 'mc' ? queue[currentIdx]
-        : phase === 'written' ? writtenQueue[writtenIdx]
-        : null;
+    // Initialize/Restart batches
+    const initializeBatches = useCallback(() => {
+        if (!originalCards.length) return;
+        const shuffled = shuffleArray([...originalCards]);
+        const b = [];
+        for (let i = 0; i < shuffled.length; i += 5) {
+            b.push(shuffled.slice(i, i + 5));
+        }
+        setBatches(b);
+        setCurrentBatchIndex(0);
+        setDone(false);
+        if (b.length > 0) {
+            setCurrentBatch(b[0]);
+            setBatchPhase('mc');
+            setMcQueue(shuffleArray([...b[0]]));
+            setMcIdx(0);
+            setWrittenQueue([]);
+            setWrittenIdx(0);
+            setWrittenWrong([]);
+        }
+    }, [originalCards]);
 
-    // Progress
+    useEffect(() => {
+        if (originalCards.length > 0 && batches.length === 0) {
+            initializeBatches();
+        }
+    }, [originalCards, batches.length, initializeBatches]);
+
+    const currentCard = batchPhase === 'mc' ? mcQueue[mcIdx]
+        : batchPhase === 'written' ? writtenQueue[writtenIdx]
+            : null;
+
+    // Overall Progress Calculation
     const progress = useMemo(() => {
-        if (phase === 'mc') return queue.length > 0 ? (currentIdx / queue.length) * 100 : 0;
-        if (phase === 'written') return writtenQueue.length > 0 ? (writtenIdx / writtenQueue.length) * 100 : 0;
-        return 100;
-    }, [phase, queue, currentIdx, writtenQueue, writtenIdx]);
+        if (!batches.length) return 0;
+        const totalSteps = originalCards.length * 2;
+        
+        // Steps from completed batches
+        let completedSteps = 0;
+        for (let i = 0; i < currentBatchIndex; i++) {
+            completedSteps += batches[i].length * 2;
+        }
+        
+        // Steps in current batch
+        if (batchPhase === 'mc') {
+            completedSteps += mcIdx;
+        } else if (batchPhase === 'written') {
+            completedSteps += currentBatch.length;
+            completedSteps += Math.min(writtenIdx, currentBatch.length);
+        } else if (batchPhase === 'batchComplete') {
+            completedSteps += currentBatch.length * 2;
+        }
+        
+        return Math.min(100, Math.round((completedSteps / totalSteps) * 100));
+    }, [batches, currentBatchIndex, batchPhase, mcIdx, writtenIdx, currentBatch.length, originalCards.length]);
 
     // ── MC handlers ──────────────────────────────────────────────────────────
 
     const handleMCCorrect = useCallback(() => {
-        const nextIdx = currentIdx + 1;
-        if (nextIdx >= queue.length) {
-            // MC phase complete — move to written phase with all cards
-            setPhase('written');
-            setWrittenQueue(shuffleArray([...originalCards]));
+        const nextIdx = mcIdx + 1;
+        if (nextIdx >= mcQueue.length) {
+            setBatchPhase('written');
+            setWrittenQueue(shuffleArray([...currentBatch]));
             setWrittenIdx(0);
-            setWrittenCorrect(0);
             setWrittenWrong([]);
         } else {
-            setCurrentIdx(nextIdx);
+            setMcIdx(nextIdx);
         }
-        setCorrectCount(p => p + 1);
-    }, [currentIdx, queue.length, originalCards]);
+    }, [mcIdx, mcQueue.length, currentBatch]);
 
     const handleMCWrong = useCallback(() => {
-        // Wrong — move on but note it
-        setWrongCards(p => [...p, queue[currentIdx]]);
-        const nextIdx = currentIdx + 1;
-        if (nextIdx >= queue.length) {
-            setPhase('written');
-            setWrittenQueue(shuffleArray([...originalCards]));
+        const nextIdx = mcIdx + 1;
+        if (nextIdx >= mcQueue.length) {
+            setBatchPhase('written');
+            setWrittenQueue(shuffleArray([...currentBatch]));
             setWrittenIdx(0);
-            setWrittenCorrect(0);
             setWrittenWrong([]);
         } else {
-            setCurrentIdx(nextIdx);
+            setMcIdx(nextIdx);
         }
-    }, [currentIdx, queue, originalCards]);
+    }, [mcIdx, mcQueue.length, currentBatch]);
 
     // ── Written handlers ─────────────────────────────────────────────────────
 
     const handleWrittenCorrect = useCallback(() => {
         const nextIdx = writtenIdx + 1;
-        const newCorrect = writtenCorrect + 1;
         if (nextIdx >= writtenQueue.length) {
-            // Written phase complete
+            // Current round of written finished
             if (writtenWrong.length === 0) {
-                // All mastered!
-                setDone(true);
+                setBatchPhase('batchComplete');
             } else {
-                // Show round summary, then re-queue wrong cards
-                setRoundSummary({ correct: newCorrect, total: writtenQueue.length, wrongCount: writtenWrong.length });
-                setPhase('roundComplete');
+                setWrittenQueue(shuffleArray([...writtenWrong]));
+                setWrittenIdx(0);
+                setWrittenWrong([]);
             }
-            setWrittenCorrect(newCorrect);
         } else {
             setWrittenIdx(nextIdx);
-            setWrittenCorrect(newCorrect);
         }
-    }, [writtenIdx, writtenQueue.length, writtenCorrect, writtenWrong]);
+    }, [writtenIdx, writtenQueue.length, writtenWrong]);
 
     const handleWrittenWrong = useCallback(() => {
-        setWrittenWrong(p => [...p, writtenQueue[writtenIdx]]);
+        const cCard = writtenQueue[writtenIdx];
+        setWrittenWrong(prev => {
+            if (prev.some(c => c.id === cCard.id)) return prev;
+            return [...prev, cCard];
+        });
+
         const nextIdx = writtenIdx + 1;
         if (nextIdx >= writtenQueue.length) {
-            setRoundSummary({ correct: writtenCorrect, total: writtenQueue.length, wrongCount: writtenWrong.length + 1 });
-            setPhase('roundComplete');
+            // Include current wrong card if not already added
+            setWrittenWrong(prev => {
+                const updated = [...prev];
+                if (!updated.some(c => c.id === cCard.id)) {
+                    updated.push(cCard);
+                }
+                setWrittenQueue(shuffleArray(updated));
+                return [];
+            });
+            setWrittenIdx(0);
         } else {
             setWrittenIdx(nextIdx);
         }
-    }, [writtenIdx, writtenQueue, writtenCorrect, writtenWrong]);
+    }, [writtenIdx, writtenQueue]);
 
-    // ── Round complete → next round ───────────────────────────────────────────
-
-    const handleNextRound = useCallback(() => {
-        const wrongList = writtenWrong.length > 0 ? writtenWrong : [];
-        if (wrongList.length === 0) {
+    const handleNextBatch = useCallback(() => {
+        const nextBatchIdx = currentBatchIndex + 1;
+        if (nextBatchIdx >= batches.length) {
             setDone(true);
-            return;
+        } else {
+            setCurrentBatchIndex(nextBatchIdx);
+            const nextBatch = batches[nextBatchIdx];
+            setCurrentBatch(nextBatch);
+            setBatchPhase('mc');
+            setMcQueue(shuffleArray([...nextBatch]));
+            setMcIdx(0);
+            setWrittenQueue([]);
+            setWrittenIdx(0);
+            setWrittenWrong([]);
         }
-        // New round: re-queue wrong cards in written phase
-        setRound(r => r + 1);
-        setWrittenQueue(shuffleArray([...wrongList]));
-        setWrittenIdx(0);
-        setWrittenCorrect(0);
-        setWrittenWrong([]);
-        setPhase('written');
-        setRoundSummary(null);
-    }, [writtenWrong]);
+    }, [currentBatchIndex, batches]);
 
     const handleRestart = useCallback(() => {
-        setPhase('mc');
-        setRound(1);
-        setQueue(shuffleArray([...originalCards]));
-        setCurrentIdx(0);
-        setCorrectCount(0);
-        setWrongCards([]);
-        setWrittenQueue([]);
-        setWrittenIdx(0);
-        setWrittenCorrect(0);
-        setWrittenWrong([]);
-        setRoundSummary(null);
-        setDone(false);
-    }, [originalCards]);
+        initializeBatches();
+    }, [initializeBatches]);
 
     if (!originalCards.length) {
         return (
@@ -394,78 +435,93 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         );
     }
 
-    const phaseLabel = phase === 'mc' ? '🟦 Trắc nghiệm' : '✏️ Tự luận';
-    const phaseDesc = phase === 'mc'
-        ? `${currentIdx + 1} / ${queue.length}`
+    const phaseLabel = batchPhase === 'mc' 
+        ? `🟦 Trắc nghiệm (Nhóm ${currentBatchIndex + 1}/${batches.length})` 
+        : `✏️ Tự luận (Nhóm ${currentBatchIndex + 1}/${batches.length})`;
+
+    const phaseDesc = batchPhase === 'mc'
+        ? `${mcIdx + 1} / ${mcQueue.length}`
         : `${writtenIdx + 1} / ${writtenQueue.length}`;
 
     return (
-        <div className="relative w-full flex flex-col animate-fade-in">
-            {/* Header */}
-            <div className="sticky top-0 z-20 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border-b border-white/30 dark:border-slate-700/50">
-                <div className="max-w-2xl mx-auto px-4 h-14 flex items-center gap-3">
-                    <button onClick={onBack} className="p-2 rounded-lg hover:bg-gray-100/60 dark:hover:bg-slate-800/60 text-gray-500 dark:text-gray-400 transition-colors">
-                        <ArrowLeft className="w-5 h-5" />
-                    </button>
-                    <div className="flex-1 min-w-0">
-                        <div className="h-2 bg-gray-200/70 dark:bg-slate-700/70 rounded-full overflow-hidden">
-                            <div
-                                className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-500"
-                                style={{ width: `${progress}%` }}
-                            />
-                        </div>
+        <div className="relative w-full h-full flex flex-col justify-center py-6 animate-fade-in">
+            <div className="w-[800px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3">
+                {/* Back Button - outside frame */}
+                {onBack && (
+                    <div className="w-full flex justify-start mb-1">
+                        <button
+                            onClick={onBack}
+                            className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105"
+                            title="Trở lại"
+                        >
+                            <ArrowLeft className="w-5 h-5" />
+                            <span className="text-sm font-medium ml-1">Trở lại</span>
+                        </button>
                     </div>
-                    <div className="flex items-center gap-1 flex-shrink-0">
-                        <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400">{phaseLabel}</span>
-                        {!done && phase !== 'roundComplete' && (
-                            <span className="text-xs text-gray-400 ml-1">{phaseDesc}</span>
-                        )}
+                )}
+                
+                <div className="w-full flex flex-col space-y-5 p-6 md:p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl">
+                    {/* Progress bar inside the box */}
+                    {!done && batchPhase !== 'batchComplete' && (
+                        <div className="space-y-1.5 w-full flex-shrink-0">
+                            <div className="flex justify-between items-center text-xs font-bold text-indigo-500 dark:text-indigo-400">
+                                <span>{phaseLabel}</span>
+                                <span className="text-gray-500 dark:text-gray-400">{phaseDesc}</span>
+                            </div>
+                            <div className="h-2 w-full bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div
+                                    className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-500"
+                                    style={{ width: `${progress}%` }}
+                                />
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Content */}
+                    <div className="w-full">
+                        {done ? (
+                            <SessionComplete
+                                totalCards={originalCards.length}
+                                onBack={onCompleteStudy || onBack}
+                                onRestart={handleRestart}
+                            />
+                        ) : batchPhase === 'batchComplete' ? (
+                            <BatchComplete
+                                batchNum={currentBatchIndex + 1}
+                                totalBatches={batches.length}
+                                wordCount={currentBatch.length}
+                                onNext={handleNextBatch}
+                            />
+                        ) : batchPhase === 'mc' && currentCard ? (
+                            <>
+                                <div className="mb-4 flex items-center gap-2">
+                                    <span className="text-xs font-bold uppercase tracking-widest text-indigo-500 bg-indigo-50 dark:bg-indigo-900/30 px-3 py-1 rounded-full">Nhóm {currentBatchIndex + 1} · Trắc nghiệm</span>
+                                </div>
+                                <MCPhase
+                                    key={currentCard.id + '-mc-' + mcIdx}
+                                    card={currentCard}
+                                    allCards={allCards?.length > 1 ? allCards : originalCards}
+                                    onCorrect={handleMCCorrect}
+                                    onWrong={handleMCWrong}
+                                    onSaveCardAudio={onSaveCardAudio}
+                                />
+                            </>
+                        ) : batchPhase === 'written' && currentCard ? (
+                            <>
+                                <div className="mb-4 flex items-center gap-2">
+                                    <span className="text-xs font-bold uppercase tracking-widest text-emerald-500 bg-emerald-50 dark:bg-emerald-900/30 px-3 py-1 rounded-full">Nhóm {currentBatchIndex + 1} · Tự luận</span>
+                                </div>
+                                <WrittenPhase
+                                    key={currentCard.id + '-written-' + writtenIdx + '-b' + currentBatchIndex}
+                                    card={currentCard}
+                                    onCorrect={handleWrittenCorrect}
+                                    onWrong={handleWrittenWrong}
+                                    onSaveCardAudio={onSaveCardAudio}
+                                />
+                            </>
+                        ) : null}
                     </div>
                 </div>
-            </div>
-
-            {/* Content */}
-            <div className="flex-1 max-w-2xl mx-auto w-full px-4 py-6 pb-24">
-                {done ? (
-                    <SessionComplete
-                        totalCards={originalCards.length}
-                        onBack={onCompleteStudy || onBack}
-                        onRestart={handleRestart}
-                    />
-                ) : phase === 'roundComplete' && roundSummary ? (
-                    <RoundComplete
-                        roundNum={round}
-                        correct={roundSummary.correct}
-                        total={roundSummary.total}
-                        onNext={handleNextRound}
-                    />
-                ) : phase === 'mc' && currentCard ? (
-                    <>
-                        <div className="mb-4 flex items-center gap-2">
-                            <span className="text-xs font-bold uppercase tracking-widest text-indigo-500 bg-indigo-50 dark:bg-indigo-900/30 px-3 py-1 rounded-full">Vòng {round} · Trắc nghiệm</span>
-                        </div>
-                        <MCPhase
-                            key={currentCard.id + '-mc-' + currentIdx}
-                            card={currentCard}
-                            allCards={allCards?.length > 1 ? allCards : originalCards}
-                            onCorrect={handleMCCorrect}
-                            onWrong={handleMCWrong}
-                        />
-                    </>
-                ) : phase === 'written' && currentCard ? (
-                    <>
-                        <div className="mb-4 flex items-center gap-2">
-                            <span className="text-xs font-bold uppercase tracking-widest text-emerald-500 bg-emerald-50 dark:bg-emerald-900/30 px-3 py-1 rounded-full">Vòng {round} · Tự luận</span>
-                        </div>
-                        <WrittenPhase
-                            key={currentCard.id + '-written-' + writtenIdx + '-r' + round}
-                            card={currentCard}
-                            onCorrect={handleWrittenCorrect}
-                            onWrong={handleWrittenWrong}
-                            onSaveCardAudio={onSaveCardAudio}
-                        />
-                    </>
-                ) : null}
             </div>
         </div>
     );

@@ -350,7 +350,7 @@ export const aiCheckGrammarAnswer = async (userAnswer, questionVi, correctAnswer
 
     const answersStr = correctAnswers.map((a, i) => `${i + 1}. ${a}`).join('\n');
 
-    const prompt = `Bạn là giáo viên tiếng Nhật. Hãy chấm điểm bản dịch của học sinh.
+    const prompt = `Bạn là giáo viên tiếng Nhật. Hãy chấm điểm và phân tích chi tiết bản dịch của học sinh.
 
 NGỮ PHÁP ĐANG HỌC: ${grammarPattern}
 CÂU TIẾNG VIỆT: ${questionVi}
@@ -359,20 +359,25 @@ ${answersStr}
 
 BÀI LÀM CỦA HỌC SINH: ${userAnswer}
 
-Hãy đánh giá bài làm và trả về JSON (không markdown):
+Hãy đánh giá bài làm và trả về JSON (không markdown, không bọc ngoài bằng từ khóa):
 {
   "score": <0-100>,
   "isCorrect": <true/false>,
-  "feedback": "<Nhận xét ngắn gọn bằng tiếng Việt, tối đa 2 câu>",
-  "correction": "<Câu đúng gợi ý nếu sai, hoặc null nếu đúng>",
-  "grammarUsed": <true/false nếu học sinh có dùng đúng mẫu ngữ pháp ${grammarPattern}>
+  "feedback": "<Nhận xét tổng quát ngắn gọn bằng tiếng Việt>",
+  "errors": ["<Danh sách lỗi sai cụ thể bằng tiếng Việt, ví dụ: 'Sai trợ từ に thành は', 'Chưa chia đúng thể động từ V-ta', hoặc mảng rỗng [] nếu không có lỗi nào>"],
+  "explanation": "<Phân tích so sánh ngắn gọn, súc tích (không viết dông dài) dưới dạng các gạch đầu dòng ngắn. Sử dụng cấu trúc markdown '**A** vs **B**: giải thích ngắn 1 câu'. Đối chiếu trực tiếp từ vựng học sinh đã dùng với từ vựng trong đáp án mẫu và sắc thái ngữ cảnh của chúng (ví dụ: '**登録する** vs **申し込む**: 登録する là đăng ký tài khoản/hệ thống, còn 申し込む là đăng ký tham gia sự kiện/khóa học').>",
+  "correction": "<Câu tiếng Nhật đúng gợi ý hoàn chỉnh để sửa lại bài làm của học sinh, hoặc null nếu học sinh viết đúng hoàn toàn>",
+  "grammarUsed": <true/false nếu học sinh có dùng đúng cấu trúc ngữ pháp ${grammarPattern}>
 }
 
-QUY TẮC CHẤM:
-- Đúng hoàn toàn hoặc gần đúng (khác chút ít về trợ từ, kính ngữ) = 80-100 điểm
-- Đúng nghĩa nhưng không dùng mẫu ngữ pháp = 40-60 điểm
-- Sai nghĩa hoặc sai ngữ pháp nghiêm trọng = 0-30 điểm
-- Chỉ trả JSON, không markdown/backtick`;
+QUY TẮC CHẤM ĐIỂM (CỰC KỲ KHÁCH QUAN VÀ HỢP LÝ):
+- 90-100: Câu viết hoàn hảo, đúng hoàn toàn cả về từ vựng, ngữ pháp và ngữ cảnh, có sử dụng chính xác mẫu ngữ pháp đang học.
+- 70-89: Viết đúng ý, có sử dụng mẫu ngữ pháp đang học nhưng mắc lỗi nhỏ không nghiêm trọng (như sai nhẹ trợ từ, nhầm lẫn nhỏ về kanji hoặc cách chia thể động từ nhẹ).
+- 50-69: Dịch đúng nghĩa tiếng Việt nhưng không sử dụng mẫu ngữ pháp đang học, hoặc sử dụng mẫu ngữ pháp nhưng mắc lỗi nghiêm trọng về cấu trúc liên kết.
+- 30-49: Sai nhiều về cấu trúc ngữ pháp, diễn đạt lủng củng, dùng sai từ vựng quan trọng mặc dù vẫn hiểu được đại ý.
+- 0-29: Sai hoàn toàn nghĩa của câu, không sử dụng mẫu ngữ pháp đang học và sai ngữ pháp tiếng Nhật cơ bản.
+
+Chỉ trả về JSON hợp lệ.`;
 
     try {
         const responseText = await callAI(prompt);

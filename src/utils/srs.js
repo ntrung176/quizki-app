@@ -551,3 +551,214 @@ export const getDifficultyLabel = (ease) => {
     if (ease < 3.0) return { text: 'Dễ', color: 'text-green-500' };
     return { text: 'Rất dễ', color: 'text-emerald-600' };
 };
+
+// --- ANKI SM-2 SCHEDULER ENGINE FOR VOCABULARY & KANJI ---
+const RELEARNING_STEPS = [10];           // minutes
+const GRADUATING_INTERVAL = 1440;        // 1 day (minutes)
+const EASY_GRADUATING_INTERVAL = 5760;   // 4 days (minutes)
+const HARD_MULTIPLIER = 1.2;
+const EASY_BONUS = 1.3;
+const LAPSE_NEW_INTERVAL_PERCENT = 0.7;
+const MAX_REVIEW_INTERVAL = 525600;      // 365 days (minutes)
+
+const getCardState = (srs) => {
+    const reps = srs.reps || 0;
+    const learningStep = srs.learningStep;
+
+    if (reps === 0 && (learningStep === undefined || learningStep === null)) return 'new';
+    if (srs.isLapsed && typeof learningStep === 'number' && learningStep >= 0) return 'relearning';
+    if (typeof learningStep === 'number' && learningStep >= 0) return 'learning';
+    return 'review';
+};
+
+export const calculateAnkiSRS = (srs, rating) => {
+    const currentEase = srs.ease || 2.5;
+    const currentInterval = srs.interval || 0;
+    const currentReps = srs.reps || 0;
+    const learningStep = srs.learningStep;
+    const lapseCount = srs.lapseCount || 0;
+    const state = getCardState(srs);
+
+    let newEase = currentEase;
+    let newInterval = currentInterval;
+    let newLearningStep = undefined;     // undefined = graduated / review
+    let newIsLapsed = false;
+    let newReps = currentReps;
+    let newLapseCount = lapseCount;
+
+    // ========== NEW CARD ==========
+    if (state === 'new') {
+        switch (rating) {
+            case 'again':
+                newInterval = LEARNING_STEPS[0];
+                newLearningStep = 0;
+                newReps = 0;
+                break;
+            case 'hard':
+                newInterval = LEARNING_STEPS.length > 1
+                    ? Math.round((LEARNING_STEPS[0] + LEARNING_STEPS[1]) / 2)
+                    : LEARNING_STEPS[0];
+                newLearningStep = 0;
+                newReps = 0;
+                break;
+            case 'good':
+                if (LEARNING_STEPS.length > 1) {
+                    newInterval = LEARNING_STEPS[1];
+                    newLearningStep = 1;
+                } else {
+                    newInterval = GRADUATING_INTERVAL;
+                    newLearningStep = undefined;
+                }
+                newReps = 1;
+                break;
+            case 'easy':
+                newInterval = EASY_GRADUATING_INTERVAL;
+                newLearningStep = undefined;
+                newEase = Math.min(3.5, currentEase + 0.15);
+                newReps = 1;
+                break;
+            default:
+                newInterval = LEARNING_STEPS[0];
+                newLearningStep = 0;
+        }
+    }
+    // ========== LEARNING STATE ==========
+    else if (state === 'learning') {
+        const steps = LEARNING_STEPS;
+        const currentStepIndex = typeof learningStep === 'number' ? learningStep : 0;
+
+        switch (rating) {
+            case 'again':
+                newInterval = steps[0];
+                newLearningStep = 0;
+                break;
+            case 'hard':
+                if (currentStepIndex + 1 < steps.length) {
+                    newInterval = Math.round((steps[currentStepIndex] + steps[currentStepIndex + 1]) / 2);
+                } else {
+                    newInterval = Math.round(steps[currentStepIndex] * 1.5);
+                }
+                newLearningStep = currentStepIndex;
+                break;
+            case 'good':
+                if (currentStepIndex + 1 < steps.length) {
+                    newLearningStep = currentStepIndex + 1;
+                    newInterval = steps[currentStepIndex + 1];
+                } else {
+                    newInterval = GRADUATING_INTERVAL;
+                    newLearningStep = undefined;
+                    newReps = currentReps + 1;
+                }
+                break;
+            case 'easy':
+                newInterval = EASY_GRADUATING_INTERVAL;
+                newLearningStep = undefined;
+                newEase = Math.min(3.5, currentEase + 0.15);
+                newReps = currentReps + 1;
+                break;
+            default:
+                newInterval = steps[0];
+                newLearningStep = 0;
+        }
+    }
+    // ========== RELEARNING STATE (Lapsed card) ==========
+    else if (state === 'relearning') {
+        const steps = RELEARNING_STEPS;
+        const currentStepIndex = typeof learningStep === 'number' ? learningStep : 0;
+        const prevGraduatedInterval = srs.prelapseInterval || currentInterval;
+
+        switch (rating) {
+            case 'again':
+                newInterval = steps[0];
+                newLearningStep = 0;
+                newIsLapsed = true;
+                newEase = Math.max(MIN_EASE, currentEase - 0.20);
+                break;
+            case 'hard':
+                if (currentStepIndex + 1 < steps.length) {
+                    newInterval = Math.round((steps[currentStepIndex] + steps[currentStepIndex + 1]) / 2);
+                } else {
+                    newInterval = Math.round(steps[currentStepIndex] * 1.5);
+                }
+                newLearningStep = currentStepIndex;
+                newIsLapsed = true;
+                break;
+            case 'good':
+                if (currentStepIndex + 1 < steps.length) {
+                    newLearningStep = currentStepIndex + 1;
+                    newInterval = steps[currentStepIndex + 1];
+                    newIsLapsed = true;
+                } else {
+                    const lapseInterval = Math.max(GRADUATING_INTERVAL, Math.round(prevGraduatedInterval * LAPSE_NEW_INTERVAL_PERCENT));
+                    newInterval = Math.min(lapseInterval, MAX_REVIEW_INTERVAL);
+                    newLearningStep = undefined;
+                    newIsLapsed = false;
+                    newReps = currentReps + 1;
+                }
+                break;
+            case 'easy':
+                const easyLapseInterval = Math.max(EASY_GRADUATING_INTERVAL, Math.round(prevGraduatedInterval * LAPSE_NEW_INTERVAL_PERCENT));
+                newInterval = Math.min(easyLapseInterval, MAX_REVIEW_INTERVAL);
+                newLearningStep = undefined;
+                newIsLapsed = false;
+                newEase = Math.min(3.5, currentEase + 0.15);
+                newReps = currentReps + 1;
+                break;
+            default:
+                newInterval = steps[0];
+                newLearningStep = 0;
+                newIsLapsed = true;
+        }
+    }
+    // ========== REVIEW STATE (Graduated) ==========
+    else {
+        switch (rating) {
+            case 'again':
+                newEase = Math.max(MIN_EASE, currentEase - 0.20);
+                newLapseCount = lapseCount + 1;
+                newInterval = RELEARNING_STEPS[0];
+                newLearningStep = 0;
+                newIsLapsed = true;
+                break;
+            case 'hard':
+                newEase = Math.max(MIN_EASE, currentEase - 0.15);
+                newInterval = Math.max(
+                    currentInterval + 1,
+                    Math.round(currentInterval * HARD_MULTIPLIER)
+                );
+                newInterval = Math.min(newInterval, MAX_REVIEW_INTERVAL);
+                newReps = currentReps + 1;
+                break;
+            case 'good':
+                newInterval = Math.max(
+                    currentInterval + 1,
+                    Math.round(currentInterval * currentEase)
+                );
+                newInterval = Math.min(newInterval, MAX_REVIEW_INTERVAL);
+                newReps = currentReps + 1;
+                break;
+            case 'easy':
+                newEase = Math.min(3.5, currentEase + 0.15);
+                newInterval = Math.max(
+                    currentInterval + 1,
+                    Math.round(currentInterval * currentEase * EASY_BONUS)
+                );
+                newInterval = Math.min(newInterval, MAX_REVIEW_INTERVAL);
+                newReps = currentReps + 1;
+                break;
+            default:
+                newInterval = currentInterval;
+                newReps = currentReps + 1;
+        }
+    }
+
+    return {
+        interval: newInterval,
+        ease: newEase,
+        learningStep: newLearningStep !== undefined ? newLearningStep : null,
+        isLapsed: newIsLapsed,
+        reps: newReps,
+        lapseCount: newLapseCount,
+        prelapseInterval: rating === 'again' && state === 'review' ? currentInterval : (srs.prelapseInterval || null),
+    };
+};

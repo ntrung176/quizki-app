@@ -32,7 +32,7 @@ html.dark ruby.ruby-annotation rt {
   font-family: var(--font-japanese-family, "UD デジタル 教科書体 N-R", "UD Digi Kyokasho N-R", "UD デジタル 教科書体 NP-R", "UD Digi Kyokasho NP-R", "UD デジタル 教科書体 NK-R", "UD Digi Kyokasho NK-R", 'BIZ UDPMincho', 'MS Mincho', 'ＭＳ 明朝', 'Hiragino Mincho ProN', 'Yu Mincho', serif) !important;
 }
 
-@custom-variant dark (&:is(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* Override Tailwind preflight background */
 @layer base {
@@ -52,6 +52,17 @@ html.dark ruby.ruby-annotation rt {
     background-color: transparent !important;
     background: transparent !important;
   }
+}
+
+/* Fix JLPT Screen Background in Light and Dark Modes */
+.jlpt-screen {
+  background-color: #FAFBFD !important;
+  background: #FAFBFD !important;
+}
+
+html.dark .jlpt-screen {
+  background-color: #0f172a !important;
+  background: #0f172a !important;
 }
 
 body {

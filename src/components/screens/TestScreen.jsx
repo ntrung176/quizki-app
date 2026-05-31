@@ -345,12 +345,22 @@ const TestScreen = ({ allCards, onBack }) => {
 
     // Trigger fanfare on result screen
     useEffect(() => {
-        if (showResult && score / questions.length >= 0.7) {
+        if (showResult) {
             launchFanfare();
             launchFireworks();
             playCompletionFanfare();
         }
     }, [showResult]);
+
+    // Auto-exit after 3 seconds when showing results
+    useEffect(() => {
+        if (showResult) {
+            const timer = setTimeout(() => {
+                if (onBack) onBack();
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [showResult, onBack]);
 
     // Render result screen
     if (showResult) {
@@ -358,94 +368,30 @@ const TestScreen = ({ allCards, onBack }) => {
         const passed = percentage >= 70;
 
         return (
-            <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
-                {onBack && (
-                    <button
-                        onClick={onBack}
-                        className="absolute top-4 left-4 z-50 p-2 rounded-xl bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200 shadow-md backdrop-blur-sm transition-all border border-gray-200 dark:border-slate-700 hover:scale-105"
-                        title="Trở lại"
-                    >
-                        <ArrowLeft className="w-5 h-5 md:w-6 md:h-6" />
-                    </button>
-                )}
-                <div className="max-w-3xl mx-auto">
-                    <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-6 md:p-8">
-                        <div className="text-center mb-8">
-                            <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full mb-4 ${passed ? 'bg-green-100 dark:bg-green-900/50' : 'bg-red-100 dark:bg-red-900/50'
-                                }`}>
-                                {passed ? (
-                                    <CheckCircle className="w-10 h-10 text-green-600 dark:text-green-400" />
-                                ) : (
-                                    <XCircle className="w-10 h-10 text-red-600 dark:text-red-400" />
-                                )}
-                            </div>
-                            <h2 className="text-3xl font-bold mb-2 text-gray-900 dark:text-gray-100">
-                                {passed ? 'Xuất sắc! 🎉' : 'Cố gắng thêm! 💪'}
-                            </h2>
-                            <p className="text-gray-600 dark:text-gray-400">
-                                Bạn đạt {score}/{questions.length} câu đúng ({percentage}%)
-                            </p>
-                        </div>
-
-                        {/* Review answers */}
-                        <div className="space-y-4 mb-6">
-                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">Chi tiết câu trả lời:</h3>
-                            {userAnswers.map((answer, idx) => (
-                                <div key={idx} className={`p-4 rounded-xl border-2 ${answer.isCorrect
-                                    ? 'border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20'
-                                    : 'border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20'
-                                    }`}>
-                                    <div className="flex items-start justify-between mb-2">
-                                        <span className="font-bold text-gray-700 dark:text-gray-300">Câu {idx + 1}:</span>
-                                        {answer.isCorrect ? (
-                                            <Check className="w-5 h-5 text-green-600 dark:text-green-400" />
-                                        ) : (
-                                            <X className="w-5 h-5 text-red-600 dark:text-red-400" />
-                                        )}
-                                    </div>
-                                    <p className="text-gray-800 dark:text-gray-200 mb-2">{renderBoldText(answer.question)}</p>
-                                    {answer.context && (
-                                        <p className="text-gray-600 dark:text-gray-400 text-sm mb-2 italic">{renderBoldText(answer.context)}</p>
-                                    )}
-                                    <div className="space-y-1">
-                                        <p className="text-sm dark:text-gray-300">
-                                            <span className="font-semibold">Câu trả lời của bạn: </span>
-                                            <span className={answer.isCorrect ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}>
-                                                {answer.selectedAnswer}
-                                            </span>
-                                        </p>
-                                        {!answer.isCorrect && (
-                                            <p className="text-sm dark:text-gray-300">
-                                                <span className="font-semibold">Đáp án đúng: </span>
-                                                <span className="text-green-600 dark:text-green-400">{answer.correctAnswer}</span>
-                                            </p>
-                                        )}
-                                        {answer.explanation && (
-                                            <p className="text-sm text-gray-600 dark:text-gray-400">
-                                                <span className="font-semibold">Giải thích: </span>
-                                                {answer.explanation}
-                                            </p>
-                                        )}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="flex gap-3">
-                            <button
-                                onClick={handleBackToMenu}
-                                className="flex-1 py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-xl font-bold hover:bg-indigo-700 dark:hover:bg-indigo-600 transition"
-                            >
-                                Làm bài khác
-                            </button>
-                            <Link
-                                to={ROUTES.VOCAB_REVIEW}
-                                className="flex-1 py-3 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 transition text-center font-medium"
-                            >
-                                Về trang ôn tập
-                            </Link>
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm animate-fade-in">
+                <div className="flex flex-col items-center justify-center text-center space-y-6 p-6 max-w-md">
+                    <div className="w-28 h-28 bg-gradient-to-br from-indigo-100 to-purple-200 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-full flex items-center justify-center mb-2 shadow-inner">
+                        <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 animate-bounce">
+                            <Award className="w-10 h-10 text-white" strokeWidth={2} />
                         </div>
                     </div>
+                    <div>
+                        <h2 className="text-4xl font-black text-gray-800 dark:text-gray-100 mb-3">
+                            {passed ? 'Tuyệt vời! 🎉' : 'Hoàn thành! 💪'}
+                        </h2>
+                        <p className="text-gray-500 dark:text-gray-400 font-medium text-lg">
+                            Bạn đã hoàn thành bài kiểm tra này.
+                        </p>
+                        <p className="text-indigo-600 dark:text-indigo-400 font-bold text-xl mt-2">
+                            Đạt {score}/{questions.length} câu đúng ({percentage}%)
+                        </p>
+                    </div>
+                    <button
+                        onClick={() => { if (onBack) onBack(); }}
+                        className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white font-bold rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all"
+                    >
+                        Trở về
+                    </button>
                 </div>
             </div>
         );

@@ -3,6 +3,7 @@ import { RotateCcw, Check, X, Undo2, Trophy, RefreshCw, Volume2, ArrowLeft } fro
 import { playAudio, speakJapanese } from '../../utils/audio';
 import FuriganaText from '../ui/FuriganaText';
 import { POS_TYPES } from '../../config/constants';
+import { launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
 
 const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSaveCardAudio, onBack }) => {
     // Load saved progress from localStorage
@@ -82,6 +83,18 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
         setButtonPressed(null);
         cardShownTimeRef.current = Date.now(); // Reset timer khi đổi card
     }, [currentIndex, round]);
+
+    // Auto-exit when all cards are completed in Flashcards
+    useEffect(() => {
+        if (isComplete && unknownCards.length === 0) {
+            launchFireworks();
+            playCompletionFanfare();
+            const timer = setTimeout(() => {
+                onBack();
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [isComplete, unknownCards.length, onBack]);
 
     // Format multiple meanings
     const formatMultipleMeanings = (text) => {
@@ -421,19 +434,19 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
                         </button>
                     </div>
                 )}
-                <div className="w-full flex flex-col justify-center items-center space-y-3 p-4 border-2 border-indigo-400/30 rounded-2xl">
+                <div className="w-full flex flex-col justify-center items-center space-y-4">
                     {/* Progress bar */}
                     <div className="w-full space-y-1 flex-shrink-0">
-                        <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
-                            <span>Vòng {round}</span>
-                            <span>{currentIndex + 1} / {currentDeck.length}</span>
+                        <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">
+                            <span className="px-2.5 py-0.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 rounded-full text-xs font-semibold">Vòng {round}</span>
+                            <span className="px-2.5 py-0.5 bg-slate-100 text-slate-650 dark:bg-slate-800/80 dark:text-slate-400 rounded-full text-xs font-bold">{currentIndex + 1} / {currentDeck.length}</span>
                         </div>
-                        <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                            <div className="h-full bg-indigo-500 progress-bar rounded-full" style={{ width: `${progress}%` }}></div>
+                        <div className="h-2 w-full bg-gray-200/60 dark:bg-gray-700/60 rounded-full overflow-hidden">
+                            <div className="h-full bg-gradient-to-r from-indigo-500 to-indigo-600 progress-bar rounded-full" style={{ width: `${progress}%` }}></div>
                         </div>
-                        <div className="flex justify-between text-[10px] text-gray-400">
-                            <span className="text-green-500">{knownCards.length} thuộc</span>
-                            <span className="text-red-400">{unknownCards.length} chưa thuộc</span>
+                        <div className="flex justify-between text-[11px] font-semibold mt-1">
+                            <span className="px-2.5 py-0.5 bg-green-50 text-green-600 dark:bg-green-950/20 dark:text-green-400 rounded-full">{knownCards.length} đã thuộc</span>
+                            <span className="px-2.5 py-0.5 bg-red-50 text-red-500 dark:bg-red-950/20 dark:text-red-400 rounded-full">{unknownCards.length} chưa thuộc</span>
                         </div>
                     </div>
 
@@ -461,24 +474,26 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
                             >
                                 {/* Front side - Japanese with colored hiragana */}
                                 <div className="flip-card-front backface-hidden absolute inset-0 w-full h-full">
-                                    <div className="bg-slate-700 dark:bg-slate-800 rounded-2xl shadow-2xl p-6 flex flex-col items-center justify-center w-full h-full border-2 border-slate-600 dark:border-slate-700 hover:shadow-3xl transition-shadow">
+                                    <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none p-6 flex flex-col items-center justify-center w-full h-full hover:shadow-xl transition-shadow">
                                         <div className="text-center flex-1 flex flex-col justify-center w-full px-2">
                                             {/* We use FuriganaText to properly render both AI formats and new Auto-Furigana formats */}
                                             <div className="space-y-4">
-                                                <h3 className="flashcard-front-text font-bold text-white break-words font-japanese flex items-center justify-center">
+                                                <h3 className="flashcard-front-text font-bold text-slate-850 dark:text-white break-words font-japanese flex items-center justify-center">
                                                     <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} />
                                                 </h3>
                                             </div>
                                         </div>
-                                        <div className="absolute bottom-4 text-center text-xs text-gray-500">
-                                            Nhấn để lật
+                                        <div className="absolute bottom-6 text-center">
+                                            <span className="px-3.5 py-1.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">
+                                                Nhấn để lật thẻ
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Back side - Vietnamese with Sino-Vietnamese */}
                                 <div className="flip-card-back backface-hidden absolute inset-0 w-full h-full rotate-y-180">
-                                    <div className="bg-slate-700 dark:bg-slate-800 rounded-2xl shadow-2xl p-5 w-full h-full border-2 border-slate-600 dark:border-slate-700 hover:shadow-3xl transition-shadow flex flex-col overflow-y-auto">
+                                    <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none p-5 w-full h-full hover:shadow-xl transition-shadow flex flex-col overflow-y-auto">
                                         {/* Speaker button */}
                                         <div className="flex justify-end mb-1 flex-shrink-0">
                                             <button
@@ -486,7 +501,7 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
                                                     e.stopPropagation();
                                                     speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
                                                 }}
-                                                className="p-2 rounded-full bg-slate-600 hover:bg-indigo-500 text-white transition-all hover:scale-110"
+                                                className="p-2.5 rounded-full bg-slate-100 hover:bg-indigo-50 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-350 transition-all hover:scale-110 hover:text-indigo-600"
                                                 title="Nghe phát âm"
                                             >
                                                 <Volume2 className="w-4 h-4" />
@@ -499,30 +514,30 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
                                                     <img
                                                         src={currentCard.imageBase64}
                                                         alt={currentCard.front}
-                                                        className="w-36 h-36 md:w-44 md:h-44 rounded-xl object-cover border-2 border-slate-500/40"
+                                                        className="w-36 h-36 md:w-44 md:h-44 rounded-2xl object-cover border border-gray-200 dark:border-slate-600/50"
                                                     />
                                                 </div>
                                             )}
                                             <div className={`flex flex-col gap-2 ${currentCard.imageBase64 ? 'text-center items-center flex-1 min-w-0' : 'text-center items-center w-full'}`}>
                                                 {/* Vietnamese meaning */}
-                                                <div className="flashcard-back-text font-bold text-white break-words whitespace-pre-line flashcard-text-autofit">
+                                                <div className="flashcard-back-text font-bold text-slate-850 dark:text-white break-words whitespace-pre-line flashcard-text-autofit">
                                                     {formatMultipleMeanings(currentCard.back)}
                                                 </div>
 
                                                 {/* Sino-Vietnamese */}
                                                 {currentCard.sinoVietnamese && (
-                                                    <p className="text-base font-medium text-yellow-300">
-                                                        <span className="text-slate-400 font-normal">Hán Việt: </span>{currentCard.sinoVietnamese}
+                                                    <p className="text-base font-semibold text-amber-600 dark:text-yellow-300">
+                                                        <span className="text-slate-450 dark:text-slate-400 font-normal">Hán Việt: </span>{currentCard.sinoVietnamese}
                                                     </p>
                                                 )}
                                                 {currentCard.pos && (
-                                                    <p className="text-sm text-slate-400 mt-1">
-                                                        <span className="inline-block px-2 py-0.5 bg-slate-600/60 rounded-md text-xs font-medium text-indigo-300">{POS_TYPES[currentCard.pos]?.label || currentCard.pos}</span>
+                                                    <p className="text-sm mt-1">
+                                                        <span className="inline-block px-3 py-1 bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100/50 dark:border-indigo-900/30 rounded-full text-xs font-semibold text-indigo-600 dark:text-indigo-300">{POS_TYPES[currentCard.pos]?.label || currentCard.pos}</span>
                                                     </p>
                                                 )}
                                                 {currentCard.synonym && (
-                                                    <p className="text-sm text-slate-300 mt-2">
-                                                        <span className="font-semibold text-slate-400">Đồng nghĩa: </span>
+                                                    <p className="text-sm text-slate-750 dark:text-slate-350 mt-2">
+                                                        <span className="font-semibold text-slate-450 dark:text-slate-400">Đồng nghĩa: </span>
                                                         <FuriganaText text={currentCard.synonym} className="font-japanese" />
                                                     </p>
                                                 )}

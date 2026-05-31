@@ -7,17 +7,27 @@ import { db, appId } from '../../config/firebase';
 import {
     Plus, Trash2, Edit3, Save, X, ChevronDown, ChevronUp,
     FileText, Headphones, BookOpen, Languages, AlertTriangle,
-    CheckCircle, Loader2, Copy, Upload, Eye, ArrowLeft
+    CheckCircle, Loader2, Copy, Upload, Eye, ArrowLeft, Award
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../router';
 
 const SECTION_TYPES = [
-    { value: 'vocabulary', label: '文字・語彙 (Moji/Goi)', icon: Languages, color: 'blue' },
-    { value: 'grammar', label: '文法 (Bunpou)', icon: BookOpen, color: 'purple' },
-    { value: 'reading', label: '読解 (Dokkai)', icon: FileText, color: 'green' },
-    { value: 'listening', label: '聴解 (Choukai)', icon: Headphones, color: 'orange' },
+    { value: 'vocabulary', label: 'Từ vựng (文字・語彙)', icon: Languages, color: 'blue' },
+    { value: 'grammar', label: 'Ngữ pháp (文法)', icon: BookOpen, color: 'purple' },
+    { value: 'kanji', label: 'Hán tự (漢字)', icon: Award, color: 'teal' },
+    { value: 'reading', label: 'Đọc hiểu (読解)', icon: FileText, color: 'green' },
+    { value: 'listening', label: 'Nghe hiểu (聴解)', icon: Headphones, color: 'orange' },
 ];
+
+// Helper to map values
+const SKILL_LABELS = {
+    vocabulary: 'Từ vựng',
+    grammar: 'Ngữ pháp',
+    kanji: 'Hán tự',
+    reading: 'Đọc hiểu',
+    listening: 'Nghe hiểu'
+};
 
 const EMPTY_QUESTION = {
     question: '', options: ['', '', '', ''], correctAnswer: 0,
@@ -28,6 +38,8 @@ const EMPTY_SECTION = { type: 'vocabulary', title: '', questions: [{ ...EMPTY_QU
 
 const EMPTY_TEST = {
     title: '', level: 'N5', timeLimit: 60,
+    isSkillTest: false,
+    skillType: 'vocabulary',
     sections: [{ ...EMPTY_SECTION, questions: [{ ...EMPTY_QUESTION }] }]
 };
 
@@ -35,10 +47,12 @@ const SAMPLE_JSON = {
     title: "JLPT N5 - Đề mẫu 1",
     level: "N5",
     timeLimit: 60,
+    isSkillTest: false,
+    skillType: "vocabulary",
     sections: [
         {
             type: "vocabulary",
-            title: "文字・語彙",
+            title: "Từ vựng (文字・語彙)",
             questions: [
                 {
                     question: "「学校」の読み方は？",
@@ -50,7 +64,7 @@ const SAMPLE_JSON = {
         },
         {
             type: "listening",
-            title: "聴解",
+            title: "Nghe hiểu (聴解)",
             questions: [
                 {
                     question: "Nghe và chọn đáp án đúng",
@@ -65,6 +79,7 @@ const SAMPLE_JSON = {
 };
 
 const JLPTAdminScreen = ({ userId }) => {
+    const location = useLocation();
     const [tests, setTests] = useState([]);
     const [loading, setLoading] = useState(true);
     const [editingTest, setEditingTest] = useState(null);
@@ -75,7 +90,6 @@ const JLPTAdminScreen = ({ userId }) => {
     const [showJsonImport, setShowJsonImport] = useState(false);
     const [jsonInput, setJsonInput] = useState('');
     const [confirmDelete, setConfirmDelete] = useState(null);
-    const [previewTest, setPreviewTest] = useState(null);
 
     const testsPath = `artifacts/${appId}/jlptTests`;
 
@@ -100,17 +114,40 @@ const JLPTAdminScreen = ({ userId }) => {
 
     const notify = (type, message) => setNotification({ type, message });
 
+    // Handle type change (Full vs Skill)
+    const handleTestTypeChange = (isSkill) => {
+        const sections = isSkill 
+            ? [{ type: formData.skillType, title: SKILL_LABELS[formData.skillType], questions: [{ ...EMPTY_QUESTION }] }]
+            : [{ ...EMPTY_SECTION, type: 'vocabulary', title: 'Từ vựng (文字・語彙)', questions: [{ ...EMPTY_QUESTION }] }];
+        setFormData({
+            ...formData,
+            isSkillTest: isSkill,
+            sections
+        });
+    };
+
+    const handleSkillTypeChange = (skill) => {
+        const sections = [{ type: skill, title: SKILL_LABELS[skill], questions: [{ ...EMPTY_QUESTION }] }];
+        setFormData({
+            ...formData,
+            skillType: skill,
+            sections
+        });
+    };
+
     // Save test
     const handleSave = async () => {
         if (!formData.title.trim()) { notify('error', 'Vui lòng nhập tên đề thi'); return; }
-        if (formData.sections.length === 0) { notify('error', 'Cần ít nhất 1 phần'); return; }
+        if (formData.sections.length === 0) { notify('error', 'Cần ít nhất 1 phần thi'); return; }
 
-        // Validate all questions have content
-        for (const sec of formData.sections) {
-            if (!sec.title.trim()) { notify('error', 'Mỗi phần cần có tiêu đề'); return; }
-            for (const q of sec.questions) {
-                if (!q.question.trim()) { notify('error', 'Mỗi câu hỏi cần có nội dung'); return; }
-                if (q.options.some(o => !o.trim())) { notify('error', 'Tất cả đáp án cần được điền'); return; }
+        // Validate all sections & questions
+        for (let sIdx = 0; sIdx < formData.sections.length; sIdx++) {
+            const sec = formData.sections[sIdx];
+            if (!sec.title.trim()) { notify('error', `Phần ${sIdx + 1} cần có tiêu đề`); return; }
+            for (let qIdx = 0; qIdx < sec.questions.length; qIdx++) {
+                const q = sec.questions[qIdx];
+                if (!q.question.trim()) { notify('error', `Phần "${sec.title}" - Câu ${qIdx + 1} chưa nhập nội dung câu hỏi`); return; }
+                if (q.options.some(o => !o.trim())) { notify('error', `Phần "${sec.title}" - Câu ${qIdx + 1} có đáp án trống`); return; }
             }
         }
 
@@ -119,15 +156,20 @@ const JLPTAdminScreen = ({ userId }) => {
             const testId = editingTest?.id || `test_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
             const testData = {
                 ...formData,
+                isSkillTest: !!formData.isSkillTest,
+                skillType: formData.isSkillTest ? formData.skillType : '',
                 updatedAt: serverTimestamp(),
-                updatedBy: userId,
+                updatedBy: userId || 'admin',
             };
             if (!editingTest) {
                 testData.createdAt = serverTimestamp();
-                testData.createdBy = userId;
+                testData.createdBy = userId || 'admin';
+            } else {
+                testData.createdAt = editingTest.createdAt || serverTimestamp();
+                testData.createdBy = editingTest.createdBy || 'admin';
             }
             await setDoc(doc(db, testsPath, testId), testData);
-            notify('success', editingTest ? 'Đã cập nhật đề thi!' : 'Đã tạo đề thi mới!');
+            notify('success', editingTest ? 'Cập nhật đề thi thành công!' : 'Tạo đề thi mới thành công!');
             resetForm();
         } catch (e) {
             console.error(e);
@@ -141,7 +183,7 @@ const JLPTAdminScreen = ({ userId }) => {
         if (!confirmDelete) return;
         try {
             await deleteDoc(doc(db, testsPath, confirmDelete.id));
-            notify('success', 'Đã xóa đề thi');
+            notify('success', 'Đã xóa đề thi thành công');
             if (editingTest?.id === confirmDelete.id) resetForm();
         } catch (e) {
             notify('error', 'Lỗi: ' + e.message);
@@ -162,20 +204,32 @@ const JLPTAdminScreen = ({ userId }) => {
             title: test.title || '',
             level: test.level || 'N5',
             timeLimit: test.timeLimit || 60,
+            isSkillTest: !!test.isSkillTest,
+            skillType: test.skillType || 'vocabulary',
             sections: test.sections || [],
         });
         setExpandedSections({ 0: true });
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
+    useEffect(() => {
+        if (location.state?.editTest) {
+            handleEdit(location.state.editTest);
+            // Clear the history state to prevent re-entering edit mode on refresh
+            window.history.replaceState({}, document.title);
+        }
+    }, [location.state]);
+
     const handleJsonImport = () => {
         try {
             const parsed = JSON.parse(jsonInput);
-            if (!parsed.title || !parsed.sections) throw new Error('JSON không hợp lệ');
+            if (!parsed.title || !parsed.sections) throw new Error('JSON thiếu trường title hoặc sections bắt buộc.');
             setFormData({
                 title: parsed.title || '',
                 level: parsed.level || 'N5',
                 timeLimit: parsed.timeLimit || 60,
+                isSkillTest: !!parsed.isSkillTest,
+                skillType: parsed.skillType || 'vocabulary',
                 sections: parsed.sections.map(s => ({
                     type: s.type || 'vocabulary',
                     title: s.title || '',
@@ -192,7 +246,7 @@ const JLPTAdminScreen = ({ userId }) => {
             });
             setShowJsonImport(false);
             setJsonInput('');
-            notify('success', 'Đã import JSON thành công!');
+            notify('success', 'Đã nhập dữ liệu JSON thành công!');
         } catch (e) {
             notify('error', 'JSON không hợp lệ: ' + e.message);
         }
@@ -247,184 +301,262 @@ const JLPTAdminScreen = ({ userId }) => {
 
     const toggleSection = (i) => setExpandedSections(p => ({ ...p, [i]: !p[i] }));
 
-    const totalQuestions = formData.sections.reduce((sum, s) => sum + s.questions.length, 0);
+    const totalQuestions = formData.sections.reduce((sum, s) => sum + (s.questions?.length || 0), 0);
 
     const getSectionMeta = (type) => SECTION_TYPES.find(s => s.value === type) || SECTION_TYPES[0];
 
     // Render
     if (loading) {
-        return <LoadingIndicator text="Đang tải dữ liệu..." />;
+        return <LoadingIndicator text="Đang tải dữ liệu cấu hình..." />;
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-6">
-            <div className="max-w-5xl mx-auto space-y-6">
+        <div className="jlpt-screen min-h-screen bg-[#FAFBFD] dark:bg-slate-900 p-4 md:p-8 font-sans">
+            <div className="max-w-6xl mx-auto space-y-6">
                 {/* Header */}
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
                         <Link to={ROUTES.JLPT_TEST} className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105">
                             <ArrowLeft className="w-5 h-5 text-gray-600 dark:text-gray-400" />
                         </Link>
                         <div>
-                            <h1 className="text-2xl font-bold text-gray-800 dark:text-white flex items-center gap-2">
-                                <FileText className="w-6 h-6 text-indigo-500" />
-                                Quản lý đề thi JLPT
+                            <h1 className="text-2xl font-extrabold text-slate-800 dark:text-white tracking-tight flex items-center gap-2">
+                                <FileText className="w-6 h-6 text-[#2E5B70]" />
+                                Quản lý đề thi & luyện tập JLPT
                             </h1>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">Tạo, chỉnh sửa và quản lý đề thi theo cấu trúc JLPT chuẩn</p>
+                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Cấu hình đề thi thử đầy đủ hoặc bài luyện tập chuyên sâu cho từng kỹ năng</p>
                         </div>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2.5">
                         <button onClick={() => setShowJsonImport(true)}
-                            className="px-3 py-2 text-sm bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-lg hover:bg-violet-200 dark:hover:bg-violet-900/50 transition flex items-center gap-1">
-                            <Upload className="w-4 h-4" /> Import JSON
+                            className="px-4 py-2 text-xs font-bold bg-[#2E5B70] text-white rounded-xl hover:bg-[#254A5C] transition flex items-center gap-1.5 shadow-sm cursor-pointer">
+                            <Upload className="w-4 h-4" /> Nhập JSON
                         </button>
-                        <button onClick={() => { navigator.clipboard.writeText(JSON.stringify(SAMPLE_JSON, null, 2)); notify('success', 'Đã copy JSON mẫu!'); }}
-                            className="px-3 py-2 text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition flex items-center gap-1">
+                        <button onClick={() => { navigator.clipboard.writeText(JSON.stringify(SAMPLE_JSON, null, 2)); notify('success', 'Đã copy JSON mẫu vào Clipboard!'); }}
+                            className="px-4 py-2 text-xs font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-xl transition flex items-center gap-1.5 cursor-pointer">
                             <Copy className="w-4 h-4" /> Copy JSON mẫu
                         </button>
                     </div>
                 </div>
 
-                {/* Form */}
-                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
-                    <div className="p-5 border-b border-gray-100 dark:border-gray-700">
-                        <h2 className="font-bold text-gray-800 dark:text-white text-lg">
-                            {editingTest ? '✏️ Chỉnh sửa đề thi' : '➕ Tạo đề thi mới'}
+                {/* Form nhập liệu */}
+                <div className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] overflow-hidden">
+                    <div className="p-5 border-b border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
+                        <h2 className="font-extrabold text-slate-800 dark:text-white text-base">
+                            {editingTest ? '✏️ Chỉnh sửa đề thi / bài luyện' : '➕ Thêm đề thi hoặc bài luyện mới'}
                         </h2>
                     </div>
-                    <div className="p-5 space-y-5">
-                        {/* Basic info */}
+                    
+                    <div className="p-6 space-y-6">
+                        {/* Cấu hình loại đề */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-50 dark:bg-slate-900/30 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
+                            <div>
+                                <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">Loại đề ôn tập</label>
+                                <div className="flex gap-3">
+                                    <button
+                                        type="button"
+                                        onClick={() => handleTestTypeChange(false)}
+                                        className={`flex-1 py-2.5 rounded-xl text-xs font-bold transition-all border ${!formData.isSkillTest 
+                                            ? 'bg-white dark:bg-slate-800 text-[#2E5B70] dark:text-sky-400 border-slate-200 dark:border-slate-700 shadow-sm' 
+                                            : 'bg-transparent text-slate-400 border-transparent hover:text-slate-600'}`}
+                                    >
+                                        Đề thi thử đầy đủ (Full Test)
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => handleTestTypeChange(true)}
+                                        className={`flex-1 py-2.5 rounded-xl text-xs font-bold transition-all border ${formData.isSkillTest 
+                                            ? 'bg-white dark:bg-slate-800 text-[#2E5B70] dark:text-sky-400 border-slate-200 dark:border-slate-700 shadow-sm' 
+                                            : 'bg-transparent text-slate-400 border-transparent hover:text-slate-600'}`}
+                                    >
+                                        Luyện chuyên sâu 1 kỹ năng
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            {formData.isSkillTest && (
+                                <div>
+                                    <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">Chọn kỹ năng luyện tập</label>
+                                    <select 
+                                        value={formData.skillType} 
+                                        onChange={e => handleSkillTypeChange(e.target.value)}
+                                        className="w-full px-3 py-2.5 text-xs font-bold border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-white outline-none focus:ring-2 focus:ring-[#2E5B70]/10"
+                                    >
+                                        {Object.entries(SKILL_LABELS).map(([val, label]) => (
+                                            <option key={val} value={val}>{label}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Thông tin cơ bản */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="md:col-span-1">
-                                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Tên đề thi</label>
+                            <div>
+                                <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Tên đề thi / bài luyện</label>
                                 <input type="text" value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })}
-                                    placeholder="VD: JLPT N5 - Đề số 1" className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none" />
+                                    placeholder="VD: Đề thi thử JLPT N2 - Đề số 1" className="w-full px-3 py-2 text-sm border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/40 text-slate-800 dark:text-white focus:ring-2 focus:ring-[#2E5B70]/20 outline-none" />
                             </div>
                             <div>
-                                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Cấp độ</label>
+                                <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Cấp độ (JLPT Level)</label>
                                 <select value={formData.level} onChange={e => setFormData({ ...formData, level: e.target.value })}
-                                    className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white focus:ring-2 focus:ring-indigo-500/20 outline-none">
+                                    className="w-full px-3 py-2 text-sm border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/40 text-slate-800 dark:text-white focus:ring-2 focus:ring-[#2E5B70]/20 outline-none">
                                     {['N5', 'N4', 'N3', 'N2', 'N1'].map(l => <option key={l} value={l}>{l}</option>)}
                                 </select>
                             </div>
                             <div>
-                                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Thời gian (phút)</label>
+                                <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Thời gian làm bài (Phút)</label>
                                 <input type="number" value={formData.timeLimit} onChange={e => setFormData({ ...formData, timeLimit: Number(e.target.value) })}
-                                    min={10} max={300} className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white focus:ring-2 focus:ring-indigo-500/20 outline-none" />
+                                    min={5} max={300} className="w-full px-3 py-2 text-sm border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/40 text-slate-800 dark:text-white focus:ring-2 focus:ring-[#2E5B70]/20 outline-none" />
                             </div>
                         </div>
 
-                        {/* Sections */}
-                        <div>
-                            <div className="flex items-center justify-between mb-3">
-                                <h3 className="font-bold text-gray-700 dark:text-gray-300">Các phần ({formData.sections.length}) • {totalQuestions} câu hỏi</h3>
-                                <button onClick={addSection} className="px-3 py-1.5 text-sm bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-lg hover:bg-indigo-200 transition flex items-center gap-1">
-                                    <Plus className="w-4 h-4" /> Thêm phần
-                                </button>
+                        {/* Quản lý các phần thi */}
+                        <div className="space-y-4">
+                            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+                                <h3 className="text-sm font-bold text-slate-800 dark:text-white">
+                                    Cấu trúc đề thi ({formData.sections.length} phần) • Tổng số: {totalQuestions} câu hỏi
+                                </h3>
+                                {!formData.isSkillTest && (
+                                    <button onClick={addSection} className="px-3.5 py-1.5 text-xs font-bold bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/30 dark:hover:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-xl transition flex items-center gap-1.5 cursor-pointer">
+                                        <Plus className="w-3.5 h-3.5" /> Thêm phần thi
+                                    </button>
+                                )}
                             </div>
 
-                            <div className="space-y-3">
+                            <div className="space-y-4">
                                 {formData.sections.map((section, si) => {
                                     const meta = getSectionMeta(section.type);
-                                    const Icon = meta.icon;
-                                    const isExpanded = expandedSections[si];
+                                    const Icon = meta.icon || FileText;
+                                    const isExpanded = expandedSections[si] !== false; // Default expanded
 
                                     return (
-                                        <div key={si} className="border border-gray-200 dark:border-gray-600 rounded-xl overflow-hidden">
-                                            {/* Section header */}
-                                            <div className={`flex items-center justify-between p-3 bg-${meta.color}-50 dark:bg-${meta.color}-900/20 cursor-pointer`}
+                                        <div key={si} className="border border-slate-100 dark:border-slate-700 rounded-2xl overflow-hidden shadow-sm bg-white dark:bg-slate-800">
+                                            {/* Header phần */}
+                                            <div className="flex items-center justify-between p-4 bg-slate-50/70 dark:bg-slate-900/20 cursor-pointer border-b border-slate-100 dark:border-slate-700/50"
                                                 onClick={() => toggleSection(si)}>
-                                                <div className="flex items-center gap-2">
-                                                    <Icon className={`w-5 h-5 text-${meta.color}-600 dark:text-${meta.color}-400`} />
-                                                    <span className="font-semibold text-gray-800 dark:text-white text-sm">
-                                                        {section.title || meta.label} ({section.questions.length} câu)
-                                                    </span>
+                                                <div className="flex items-center gap-2.5">
+                                                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center bg-${meta.color}-50 dark:bg-${meta.color}-950/20 text-${meta.color}-600`}>
+                                                        <Icon className="w-4 h-4" />
+                                                    </div>
+                                                    <div>
+                                                        <span className="font-extrabold text-slate-800 dark:text-white text-xs block">
+                                                            PHẦN {si + 1}: {section.title || SKILL_LABELS[section.type] || section.type}
+                                                        </span>
+                                                        <span className="text-[10px] text-slate-400 font-semibold">{section.questions.length} câu hỏi • Thể loại: {SKILL_LABELS[section.type] || section.type}</span>
+                                                    </div>
                                                 </div>
-                                                <div className="flex items-center gap-1">
-                                                    <button onClick={(e) => { e.stopPropagation(); removeSection(si); }}
-                                                        className="p-1 text-red-500 hover:bg-red-100 dark:hover:bg-red-900/30 rounded transition">
-                                                        <Trash2 className="w-4 h-4" />
+                                                <div className="flex items-center gap-1.5" onClick={e => e.stopPropagation()}>
+                                                    {!formData.isSkillTest && formData.sections.length > 1 && (
+                                                        <button onClick={() => removeSection(si)}
+                                                            className="p-1.5 text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition cursor-pointer">
+                                                            <Trash2 className="w-4 h-4" />
+                                                        </button>
+                                                    )}
+                                                    <button onClick={() => toggleSection(si)} className="p-1.5 text-slate-400 hover:text-slate-600 rounded-lg transition cursor-pointer">
+                                                        {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                                                     </button>
-                                                    {isExpanded ? <ChevronUp className="w-4 h-4 text-gray-500" /> : <ChevronDown className="w-4 h-4 text-gray-500" />}
                                                 </div>
                                             </div>
 
                                             {isExpanded && (
-                                                <div className="p-4 space-y-4">
-                                                    {/* Section type & title */}
-                                                    <div className="grid grid-cols-2 gap-3">
-                                                        <div>
-                                                            <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">Loại phần</label>
-                                                            <select value={section.type} onChange={e => updateSection(si, 'type', e.target.value)}
-                                                                className="w-full px-2 py-1.5 text-sm border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-white outline-none">
-                                                                {SECTION_TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
-                                                            </select>
+                                                <div className="p-5 space-y-5 bg-white dark:bg-slate-800">
+                                                    {/* Loại phần thi (chỉ cho phép sửa nếu không phải là đề luyện kỹ năng chuyên biệt) */}
+                                                    {!formData.isSkillTest && (
+                                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                            <div>
+                                                                <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Loại kỹ năng</label>
+                                                                <select value={section.type} onChange={e => { updateSection(si, 'type', e.target.value); updateSection(si, 'title', SKILL_LABELS[e.target.value]); }}
+                                                                    className="w-full px-2.5 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/40 text-slate-800 dark:text-white outline-none">
+                                                                    {SECTION_TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
+                                                                </select>
+                                                            </div>
+                                                            <div>
+                                                                <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Tiêu đề hiển thị</label>
+                                                                <input type="text" value={section.title} onChange={e => updateSection(si, 'title', e.target.value)}
+                                                                    placeholder="VD: Từ vựng - Moji Goi" className="w-full px-2.5 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/40 text-slate-800 dark:text-white outline-none" />
+                                                            </div>
                                                         </div>
-                                                        <div>
-                                                            <label className="block text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">Tiêu đề</label>
-                                                            <input type="text" value={section.title} onChange={e => updateSection(si, 'title', e.target.value)}
-                                                                placeholder={meta.label} className="w-full px-2 py-1.5 text-sm border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-white outline-none" />
-                                                        </div>
+                                                    )}
+
+                                                    {/* Câu hỏi con */}
+                                                    <div className="space-y-4 pt-2">
+                                                        {section.questions.map((q, qi) => (
+                                                            <div key={qi} className="p-4 bg-slate-50 dark:bg-slate-900/20 rounded-2xl border border-slate-100 dark:border-slate-800 space-y-4">
+                                                                <div className="flex items-center justify-between">
+                                                                    <span className="text-xs font-extrabold text-slate-700 dark:text-slate-300">Câu hỏi số {qi + 1}</span>
+                                                                    {section.questions.length > 1 && (
+                                                                        <button onClick={() => removeQuestion(si, qi)} className="p-1 text-slate-400 hover:text-red-500 transition cursor-pointer">
+                                                                            <X className="w-4 h-4" />
+                                                                        </button>
+                                                                    )}
+                                                                </div>
+
+                                                                <div>
+                                                                    <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Đề bài / Câu hỏi</label>
+                                                                    <textarea value={q.question} onChange={e => updateQuestion(si, qi, 'question', e.target.value)}
+                                                                        placeholder="Nhập nội dung câu hỏi..." rows={2}
+                                                                        className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none resize-none font-japanese" />
+                                                                </div>
+
+                                                                {/* Đoạn văn cho Đọc hiểu */}
+                                                                {(section.type === 'reading' || formData.skillType === 'reading') && (
+                                                                    <div>
+                                                                        <label className="block text-[10px] font-bold text-slate-450 uppercase tracking-wider mb-1">Đoạn văn đọc hiểu (Nếu có)</label>
+                                                                        <textarea value={q.passage || ''} onChange={e => updateQuestion(si, qi, 'passage', e.target.value)}
+                                                                            placeholder="Nhập đoạn văn bản tiếng Nhật..." rows={4}
+                                                                            className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none resize-none font-japanese leading-relaxed" />
+                                                                    </div>
+                                                                )}
+
+                                                                {/* Link Audio cho Nghe hiểu */}
+                                                                {(section.type === 'listening' || formData.skillType === 'listening') && (
+                                                                    <div>
+                                                                        <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Đường dẫn file âm thanh (MP3 URL)</label>
+                                                                        <input type="text" value={q.audioUrl || ''} onChange={e => updateQuestion(si, qi, 'audioUrl', e.target.value)}
+                                                                            placeholder="https://example.com/audio.mp3"
+                                                                            className="w-full px-3 py-2 text-xs border border-orange-200 dark:border-orange-800 rounded-xl bg-orange-50/30 dark:bg-orange-950/10 text-slate-800 dark:text-white outline-none" />
+                                                                    </div>
+                                                                )}
+
+                                                                {/* Các phương án lựa chọn */}
+                                                                <div>
+                                                                    <label className="block text-[10px] font-bold text-slate-450 uppercase tracking-wider mb-2">Các phương án trả lời & Tích chọn đáp án đúng</label>
+                                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                                                        {q.options.map((opt, oi) => (
+                                                                            <div key={oi} className="flex items-center gap-2">
+                                                                                <button
+                                                                                    type="button"
+                                                                                    onClick={() => updateQuestion(si, qi, 'correctAnswer', oi)}
+                                                                                    className={`w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-extrabold transition-all cursor-pointer ${q.correctAnswer === oi
+                                                                                        ? 'bg-green-500 text-white ring-2 ring-green-150'
+                                                                                        : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-300'
+                                                                                        }`}
+                                                                                >
+                                                                                    {String.fromCharCode(65 + oi)}
+                                                                                </button>
+                                                                                <input type="text" value={opt} onChange={e => updateOption(si, qi, oi, e.target.value)}
+                                                                                    placeholder={`Phương án ${String.fromCharCode(65 + oi)}`}
+                                                                                    className="flex-1 px-3 py-1.5 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none font-japanese" />
+                                                                            </div>
+                                                                        ))}
+                                                                    </div>
+                                                                </div>
+
+                                                                {/* Giải thích câu hỏi */}
+                                                                <div>
+                                                                    <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Giải thích chi tiết (Dành cho phần xem lại đề)</label>
+                                                                    <input type="text" value={q.explanation || ''} onChange={e => updateQuestion(si, qi, 'explanation', e.target.value)}
+                                                                        placeholder="Giải thích ngữ pháp hoặc dịch từ vựng..."
+                                                                        className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none" />
+                                                                </div>
+                                                            </div>
+                                                        ))}
                                                     </div>
 
-                                                    {/* Questions */}
-                                                    {section.questions.map((q, qi) => (
-                                                        <div key={qi} className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg border border-gray-100 dark:border-gray-600 space-y-3">
-                                                            <div className="flex items-center justify-between">
-                                                                <span className="text-sm font-bold text-gray-700 dark:text-gray-300">Câu {qi + 1}</span>
-                                                                {section.questions.length > 1 && (
-                                                                    <button onClick={() => removeQuestion(si, qi)} className="p-1 text-red-400 hover:text-red-600 transition">
-                                                                        <X className="w-4 h-4" />
-                                                                    </button>
-                                                                )}
-                                                            </div>
-
-                                                            <textarea value={q.question} onChange={e => updateQuestion(si, qi, 'question', e.target.value)}
-                                                                placeholder="Nội dung câu hỏi..." rows={2}
-                                                                className="w-full px-2 py-1.5 text-sm border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-600 text-gray-800 dark:text-white outline-none resize-none" />
-
-                                                            {/* Passage for reading */}
-                                                            {section.type === 'reading' && (
-                                                                <textarea value={q.passage} onChange={e => updateQuestion(si, qi, 'passage', e.target.value)}
-                                                                    placeholder="Đoạn văn đọc hiểu..." rows={4}
-                                                                    className="w-full px-2 py-1.5 text-sm border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-600 text-gray-800 dark:text-white outline-none resize-none font-japanese" />
-                                                            )}
-
-                                                            {/* Audio URL for listening */}
-                                                            {section.type === 'listening' && (
-                                                                <input type="text" value={q.audioUrl} onChange={e => updateQuestion(si, qi, 'audioUrl', e.target.value)}
-                                                                    placeholder="URL file audio (mp3, wav...)"
-                                                                    className="w-full px-2 py-1.5 text-sm border border-orange-200 dark:border-orange-700 rounded-lg bg-orange-50 dark:bg-orange-900/20 text-gray-800 dark:text-white outline-none" />
-                                                            )}
-
-                                                            {/* Options */}
-                                                            <div className="grid grid-cols-2 gap-2">
-                                                                {q.options.map((opt, oi) => (
-                                                                    <div key={oi} className="flex items-center gap-1.5">
-                                                                        <button onClick={() => updateQuestion(si, qi, 'correctAnswer', oi)}
-                                                                            className={`w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold transition ${q.correctAnswer === oi
-                                                                                ? 'bg-green-500 text-white ring-2 ring-green-300'
-                                                                                : 'bg-gray-200 dark:bg-gray-600 text-gray-600 dark:text-gray-400 hover:bg-green-100'
-                                                                                }`}>
-                                                                            {String.fromCharCode(65 + oi)}
-                                                                        </button>
-                                                                        <input type="text" value={opt} onChange={e => updateOption(si, qi, oi, e.target.value)}
-                                                                            placeholder={`Đáp án ${String.fromCharCode(65 + oi)}`}
-                                                                            className="flex-1 px-2 py-1 text-sm border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-600 text-gray-800 dark:text-white outline-none" />
-                                                                    </div>
-                                                                ))}
-                                                            </div>
-
-                                                            {/* Explanation */}
-                                                            <input type="text" value={q.explanation} onChange={e => updateQuestion(si, qi, 'explanation', e.target.value)}
-                                                                placeholder="Giải thích đáp án..."
-                                                                className="w-full px-2 py-1.5 text-sm border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-600 text-gray-800 dark:text-white outline-none" />
-                                                        </div>
-                                                    ))}
-
                                                     <button onClick={() => addQuestion(si)}
-                                                        className="w-full py-2 text-sm text-indigo-600 dark:text-indigo-400 border-2 border-dashed border-indigo-200 dark:border-indigo-700 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition flex items-center justify-center gap-1">
-                                                        <Plus className="w-4 h-4" /> Thêm câu hỏi
+                                                        className="w-full py-2.5 text-xs font-bold text-[#2E5B70] dark:text-sky-400 border-2 border-dashed border-[#2E5B70]/20 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-900/10 transition flex items-center justify-center gap-1 cursor-pointer">
+                                                        <Plus className="w-4 h-4" /> Thêm câu hỏi mới cho phần này
                                                     </button>
                                                 </div>
                                             )}
@@ -434,62 +566,68 @@ const JLPTAdminScreen = ({ userId }) => {
                             </div>
                         </div>
 
-                        {/* Actions */}
+                        {/* Thao tác lưu / Hủy */}
                         <div className="flex gap-3 pt-2">
                             <button onClick={handleSave} disabled={saving}
-                                className="flex-1 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition flex items-center justify-center gap-2 disabled:opacity-50">
+                                className="flex-1 py-3 bg-[#2E5B70] text-white rounded-xl font-bold hover:bg-[#254A5C] transition flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer shadow-sm">
                                 {saving ? <Loader2 className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5" />}
-                                {editingTest ? 'Cập nhật đề thi' : 'Lưu đề thi'}
+                                {editingTest ? 'Lưu cập nhật thay đổi' : 'Lưu và xuất bản đề thi'}
                             </button>
                             {editingTest && (
-                                <button onClick={resetForm} className="px-6 py-3 border border-gray-200 dark:border-gray-600 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
-                                    Hủy
+                                <button onClick={resetForm} className="px-6 py-3 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-600 dark:text-slate-350 hover:bg-slate-50 dark:hover:bg-slate-800 font-bold text-xs transition cursor-pointer">
+                                    Hủy bỏ sửa
                                 </button>
                             )}
                         </div>
                     </div>
                 </div>
 
-                {/* Test list */}
-                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
-                    <div className="p-5 border-b border-gray-100 dark:border-gray-700">
-                        <h2 className="font-bold text-gray-800 dark:text-white text-lg">📋 Danh sách đề thi ({tests.length})</h2>
+                {/* Danh sách đề thi hiện có */}
+                <div className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] overflow-hidden">
+                    <div className="p-5 border-b border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
+                        <h2 className="font-extrabold text-slate-800 dark:text-white text-base">📋 Danh sách đề thi & bài luyện hiện có ({tests.length})</h2>
                     </div>
-                    <div className="divide-y divide-gray-100 dark:divide-gray-700">
+                    <div className="divide-y divide-slate-100 dark:divide-slate-700">
                         {tests.length === 0 ? (
-                            <div className="p-10 text-center text-gray-400">
-                                <FileText className="w-12 h-12 mx-auto mb-3 opacity-50" />
-                                <p>Chưa có đề thi nào. Hãy tạo đề mới!</p>
+                            <div className="p-12 text-center text-slate-400">
+                                <FileText className="w-12 h-12 mx-auto mb-3 opacity-30" />
+                                <p className="text-xs font-medium">Chưa có đề thi nào trong hệ thống. Hãy tạo đề thi đầu tiên!</p>
                             </div>
                         ) : tests.map(test => {
                             const totalQ = (test.sections || []).reduce((s, sec) => s + (sec.questions?.length || 0), 0);
                             const levelColors = {
-                                N5: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400',
-                                N4: 'bg-teal-100 text-teal-700 dark:bg-teal-900/30 dark:text-teal-400',
-                                N3: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400',
-                                N2: 'bg-violet-100 text-violet-700 dark:bg-violet-900/30 dark:text-violet-400',
-                                N1: 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400',
+                                N5: 'bg-emerald-50 text-emerald-600 dark:bg-emerald-950/20 dark:text-emerald-400 border border-emerald-100/55',
+                                N4: 'bg-teal-50 text-teal-600 dark:bg-teal-950/20 dark:text-teal-400 border border-teal-100/55',
+                                N3: 'bg-blue-50 text-blue-600 dark:bg-blue-950/20 dark:text-blue-400 border border-blue-100/55',
+                                N2: 'bg-violet-50 text-violet-600 dark:bg-violet-950/20 dark:text-violet-400 border border-violet-100/55',
+                                N1: 'bg-rose-50 text-rose-600 dark:bg-rose-950/20 dark:text-rose-400 border border-rose-100/55',
                             };
                             return (
-                                <div key={test.id} className="p-4 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition">
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center gap-3">
-                                            <span className={`px-2 py-1 rounded-lg text-xs font-bold ${levelColors[test.level] || ''}`}>
-                                                {test.level}
-                                            </span>
-                                            <div>
-                                                <p className="font-semibold text-gray-800 dark:text-white">{test.title}</p>
-                                                <p className="text-xs text-gray-500">{totalQ} câu • {test.timeLimit} phút • {(test.sections || []).length} phần</p>
-                                            </div>
+                                <div key={test.id} className="p-4 hover:bg-slate-50/60 dark:hover:bg-slate-900/10 transition flex items-center justify-between gap-4">
+                                    <div className="flex items-center gap-3">
+                                        <span className={`px-2.5 py-1 rounded-lg text-xs font-extrabold ${levelColors[test.level] || ''}`}>
+                                            {test.level}
+                                        </span>
+                                        <div>
+                                            <p className="font-extrabold text-slate-800 dark:text-white text-xs">{test.title}</p>
+                                            <p className="text-[10px] text-slate-400 font-semibold mt-0.5 flex items-center gap-2">
+                                                <span>{totalQ} câu hỏi</span>
+                                                <span>•</span>
+                                                <span>{test.timeLimit} phút</span>
+                                                <span>•</span>
+                                                <span className={`px-2 py-0.5 rounded text-[9px] font-bold ${test.isSkillTest ? 'bg-sky-50 dark:bg-sky-950/25 text-sky-600' : 'bg-indigo-50 dark:bg-indigo-950/25 text-indigo-600'}`}>
+                                                    {test.isSkillTest ? `Luyện kỹ năng: ${SKILL_LABELS[test.skillType] || test.skillType}` : 'Đề thi thử đầy đủ'}
+                                                </span>
+                                            </p>
                                         </div>
-                                        <div className="flex items-center gap-1">
-                                            <button onClick={() => handleEdit(test)} className="p-2 text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 rounded-lg transition">
-                                                <Edit3 className="w-4 h-4" />
-                                            </button>
-                                            <button onClick={() => setConfirmDelete(test)} className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition">
-                                                <Trash2 className="w-4 h-4" />
-                                            </button>
-                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-1 flex-shrink-0">
+                                        <button onClick={() => handleEdit(test)} className="p-2 text-[#2E5B70] hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition cursor-pointer">
+                                            <Edit3 className="w-4 h-4" />
+                                        </button>
+                                        <button onClick={() => setConfirmDelete(test)} className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-xl transition cursor-pointer">
+                                            <Trash2 className="w-4 h-4" />
+                                        </button>
                                     </div>
                                 </div>
                             );
@@ -500,55 +638,58 @@ const JLPTAdminScreen = ({ userId }) => {
 
             {/* JSON Import Modal */}
             {showJsonImport && (
-                <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-2xl w-full p-6 space-y-4 max-h-[80vh] overflow-y-auto">
+                <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                    <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl max-w-2xl w-full p-6 space-y-4 max-h-[85vh] overflow-y-auto border border-slate-100 dark:border-slate-700">
                         <div className="flex items-center justify-between">
-                            <h3 className="text-lg font-bold text-gray-800 dark:text-white">Import đề thi từ JSON</h3>
-                            <button onClick={() => setShowJsonImport(false)} className="p-1 text-gray-400 hover:text-gray-600"><X className="w-5 h-5" /></button>
+                            <h3 className="text-base font-extrabold text-slate-800 dark:text-white">Import đề thi / bài luyện từ cấu trúc JSON</h3>
+                            <button onClick={() => setShowJsonImport(false)} className="p-1 text-slate-400 hover:text-slate-600 cursor-pointer"><X className="w-5 h-5" /></button>
                         </div>
+                        <p className="text-[11px] text-slate-400 font-medium leading-relaxed">
+                            Cấu trúc JSON cần có: <code className="font-mono text-pink-600 bg-slate-50 px-1 py-0.5 rounded">title</code>, <code className="font-mono text-pink-600 bg-slate-50 px-1 py-0.5 rounded">level</code>, <code className="font-mono text-pink-600 bg-slate-50 px-1 py-0.5 rounded">timeLimit</code>, <code className="font-mono text-pink-600 bg-slate-50 px-1 py-0.5 rounded">isSkillTest</code>, <code className="font-mono text-pink-600 bg-slate-50 px-1 py-0.5 rounded">skillType</code> (nếu là bài luyện) và mảng <code className="font-mono text-pink-600 bg-slate-50 px-1 py-0.5 rounded">sections</code>.
+                        </p>
                         <textarea value={jsonInput} onChange={e => setJsonInput(e.target.value)}
-                            placeholder="Paste JSON đề thi vào đây..." rows={15}
-                            className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white outline-none resize-none font-mono" />
+                            placeholder="Dán mã JSON đề thi vào đây..." rows={12}
+                            className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-2xl bg-slate-50 dark:bg-slate-900/50 text-slate-800 dark:text-white outline-none resize-none font-mono" />
                         <div className="flex gap-3">
-                            <button onClick={handleJsonImport} className="flex-1 py-2 bg-indigo-600 text-white rounded-lg font-bold hover:bg-indigo-700 transition">
-                                Import
+                            <button onClick={handleJsonImport} className="flex-1 py-2.5 bg-[#2E5B70] text-white rounded-xl font-bold hover:bg-[#254A5C] transition cursor-pointer text-xs">
+                                Tiến hành Import
                             </button>
-                            <button onClick={() => setShowJsonImport(false)} className="px-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
-                                Hủy
+                            <button onClick={() => setShowJsonImport(false)} className="px-4 py-2.5 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-600 dark:text-slate-350 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-xs cursor-pointer">
+                                Hủy bỏ
                             </button>
                         </div>
                     </div>
                 </div>
             )}
 
-            {/* Delete Confirm */}
+            {/* Xác nhận xóa */}
             {confirmDelete && (
-                <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-sm w-full p-6 space-y-4">
+                <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                    <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl max-w-sm w-full p-6 space-y-4 border border-slate-100 dark:border-slate-700">
                         <div className="text-center">
-                            <div className="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center mx-auto mb-3">
-                                <AlertTriangle className="w-6 h-6 text-red-600" />
+                            <div className="w-12 h-12 rounded-full bg-red-50 dark:bg-red-950/20 flex items-center justify-center mx-auto mb-3">
+                                <AlertTriangle className="w-6 h-6 text-red-500" />
                             </div>
-                            <h3 className="text-lg font-bold text-gray-800 dark:text-white">Xóa đề thi?</h3>
-                            <p className="text-sm text-gray-500 mt-2">
-                                Xóa <strong>{confirmDelete.title}</strong>? Hành động này không thể hoàn tác.
+                            <h3 className="text-sm font-extrabold text-slate-800 dark:text-white">Bạn thực sự muốn xóa?</h3>
+                            <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                                Đề thi <strong>{confirmDelete.title}</strong> sẽ bị xóa vĩnh viễn khỏi cơ sở dữ liệu và không thể khôi phục lại.
                             </p>
                         </div>
                         <div className="flex gap-3">
-                            <button onClick={() => setConfirmDelete(null)} className="flex-1 px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg transition">Hủy</button>
-                            <button onClick={handleDelete} className="flex-1 px-4 py-2 text-sm bg-red-600 text-white rounded-lg hover:bg-red-700 transition flex items-center justify-center gap-1">
-                                <Trash2 className="w-4 h-4" /> Xóa
+                            <button onClick={() => setConfirmDelete(null)} className="flex-1 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs transition cursor-pointer">Hủy bỏ</button>
+                            <button onClick={handleDelete} className="flex-1 px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs transition flex items-center justify-center gap-1.5 cursor-pointer">
+                                <Trash2 className="w-4 h-4" /> Đồng ý Xóa
                             </button>
                         </div>
                     </div>
                 </div>
             )}
 
-            {/* Notification */}
+            {/* Thông báo góc màn hình */}
             {notification && (
-                <div className={`fixed bottom-4 right-4 z-50 px-4 py-3 rounded-xl shadow-lg flex items-center gap-2 animate-fade-in ${notification.type === 'success' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}>
-                    {notification.type === 'success' ? <CheckCircle className="w-5 h-5" /> : <AlertTriangle className="w-5 h-5" />}
-                    <span className="text-sm font-medium">{notification.message}</span>
+                <div className={`fixed bottom-4 right-4 z-50 px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2 animate-bounce text-xs font-bold text-white ${notification.type === 'success' ? 'bg-emerald-500' : 'bg-rose-500'}`}>
+                    {notification.type === 'success' ? <CheckCircle className="w-4 h-4" /> : <AlertTriangle className="w-4 h-4" />}
+                    <span>{notification.message}</span>
                 </div>
             )}
         </div>

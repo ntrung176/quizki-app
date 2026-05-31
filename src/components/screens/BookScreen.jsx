@@ -68,13 +68,13 @@ const ZenModeView = ({ allUserCards = [], bookGroups = [], onClose }) => {
                 {/* Glowing Quietness Character */}
                 <div className="w-32 h-32 mx-auto rounded-3xl bg-slate-800/80 border border-slate-700/50 flex flex-col items-center justify-center shadow-[0_0_50px_rgba(99,102,241,0.15)] animate-pulse">
                     <span className="text-5xl font-extrabold bg-gradient-to-br from-indigo-300 to-sky-300 bg-clip-text text-transparent">静</span>
-                    <span className="text-[10px] tracking-[0.2em] text-slate-500 font-bold mt-2 uppercase">QUIETNESS</span>
+                    <span className="text-[10px] tracking-[0.2em] text-slate-500 font-bold mt-2 uppercase">TẬP TRUNG</span>
                 </div>
 
                 <div className="space-y-3">
-                    <h2 className="text-3xl font-black bg-gradient-to-r from-indigo-200 to-sky-200 bg-clip-text text-transparent tracking-tight">Zen Focus Session</h2>
+                    <h2 className="text-3xl font-black bg-gradient-to-r from-indigo-200 to-sky-200 bg-clip-text text-transparent tracking-tight">Phiên tập trung sâu</h2>
                     <p className="text-slate-400 text-sm leading-relaxed max-w-md mx-auto">
-                        "Learning is a treasure that will follow its owner everywhere."
+                        "Học tập là kho báu theo chủ nhân đến mọi nơi."
                     </p>
                 </div>
 
@@ -83,18 +83,18 @@ const ZenModeView = ({ allUserCards = [], bookGroups = [], onClose }) => {
                     <div className="text-6xl font-mono font-light text-indigo-400 tracking-wider">
                         {formatTime(elapsedTime)}
                     </div>
-                    <p className="text-[10px] tracking-widest text-slate-500 uppercase font-bold">Active Focus Time</p>
+                    <p className="text-[10px] tracking-widest text-slate-500 uppercase font-bold">Thời gian tập trung</p>
                 </div>
 
                 {/* Simple Quick Stats */}
                 <div className="grid grid-cols-2 gap-4 py-6 border-y border-slate-800/60 max-w-sm mx-auto">
                     <div className="text-center">
                         <p className="text-2xl font-black text-slate-200">{allUserCards?.length || 0}</p>
-                        <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider mt-0.5">Cards in SRS</p>
+                        <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider mt-0.5">Thẻ trong SRS</p>
                     </div>
                     <div className="text-center">
                         <p className="text-2xl font-black text-slate-200">{bookGroups?.length || 0}</p>
-                        <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider mt-0.5">Book Collections</p>
+                        <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider mt-0.5">Bộ sách</p>
                     </div>
                 </div>
 
@@ -102,7 +102,7 @@ const ZenModeView = ({ allUserCards = [], bookGroups = [], onClose }) => {
                     onClick={onClose}
                     className="px-8 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-xl border border-slate-700/50 text-sm font-bold shadow-lg transition-all cursor-pointer inline-flex items-center gap-2"
                 >
-                    Exit Focus Mode
+                    Thoát chế độ tập trung
                 </button>
             </div>
         </div>
@@ -999,9 +999,9 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
             <div className="space-y-8">
                 {/* Modern Premium Header */}
                 <div className="flex flex-col gap-2">
-                    <h1 className="text-3xl font-extrabold tracking-tight text-slate-800 dark:text-white">Vocabulary Books</h1>
+                    <h1 className="text-3xl font-extrabold tracking-tight text-slate-800 dark:text-white">Sách từ vựng</h1>
                     <p className="text-slate-500 dark:text-slate-400 text-sm max-w-2xl leading-relaxed">
-                        Curated collections for your language journey. Track your progress across foundational textbooks and specialized vocabulary guides.
+                        Tuyển tập các bộ sách cho hành trình học tiếng Nhật. Theo dõi tiến độ qua các giáo trình nền tảng và bộ từ vựng chuyên biệt.
                     </p>
                 </div>
 
@@ -1010,10 +1010,10 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                     {/* Tabs / Filters */}
                     <div className="flex flex-wrap gap-1.5 w-full sm:w-auto">
                         {[
-                            { id: 'ALL', label: 'ALL BOOKS' },
-                            { id: 'JLPT', label: 'JLPT SERIES' },
-                            { id: 'TEXTBOOK', label: 'TEXTBOOKS' },
-                            { id: 'CUSTOM', label: 'CUSTOM' }
+                            { id: 'ALL', label: 'TẤT CẢ' },
+                            { id: 'JLPT', label: 'JLPT' },
+                            { id: 'TEXTBOOK', label: 'GIÁO TRÌNH' },
+                            { id: 'CUSTOM', label: 'TÙY CHỈNH' }
                         ].map(tab => (
                             <button
                                 key={tab.id}
@@ -1034,7 +1034,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                         <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                         <input
                             type="text"
-                            placeholder="Search your library..."
+                            placeholder="Tìm kiếm sách..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             className="w-full pl-10 pr-4 py-2 rounded-xl text-xs bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
@@ -1045,8 +1045,8 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                 {filteredGroups.length === 0 && !loading && (
                     <div className="text-center py-16 text-slate-400 dark:text-slate-500 bg-slate-50/50 dark:bg-slate-800/20 rounded-2xl border border-dashed border-slate-200 dark:border-slate-700">
                         <BookOpen className="w-16 h-16 mx-auto mb-4 opacity-30 text-slate-400" />
-                        <p className="text-lg font-semibold">No books match your criteria</p>
-                        <p className="text-sm mt-1">Try adjusting your filters or search query.</p>
+                        <p className="text-lg font-semibold">Không tìm thấy sách nào</p>
+                        <p className="text-sm mt-1">Thử điều chỉnh bộ lọc hoặc từ khóa tìm kiếm.</p>
                     </div>
                 )}
 
@@ -1057,13 +1057,13 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                         const category = getGroupCategory(group);
                         const isTextbook = category === 'TEXTBOOK';
                         const isJLPT = category === 'JLPT';
-                        const badgeText = isTextbook ? 'TEXTBOOK' : isJLPT ? 'JLPT SERIES' : 'CUSTOM';
+                        const badgeText = isTextbook ? 'GIÁO TRÌNH' : isJLPT ? 'JLPT' : 'TÙY CHỈNH';
                         
                         // Badge levels
                         let levelBadge = '';
-                        if (group.name.includes('Daichi')) levelBadge = 'BEGINNER';
-                        else if (group.name.includes('Irodori')) levelBadge = 'A2 LEVEL';
-                        else if (group.name.includes('Mimikara')) levelBadge = 'N2 LEVEL';
+                        if (group.name.includes('Daichi')) levelBadge = 'SƠ CẤP';
+                        else if (group.name.includes('Irodori')) levelBadge = 'TRÌNH ĐỘ A2';
+                        else if (group.name.includes('Mimikara')) levelBadge = 'TRÌNH ĐỘ N2';
 
                         return (
                             <div
@@ -1130,7 +1130,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
 
                                     <div className="space-y-2 pt-2">
                                         <div className="flex items-center justify-between text-xs font-bold text-slate-600 dark:text-slate-300">
-                                            <span>Progress</span>
+                                            <span>Tiến độ</span>
                                             <span className="text-sky-500 font-extrabold">{progress}%</span>
                                         </div>
                                         <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-750 rounded-full overflow-hidden">
@@ -1154,9 +1154,9 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                             <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                                 <Plus className="w-6 h-6 text-slate-500 dark:text-slate-400" />
                             </div>
-                            <h3 className="font-bold text-slate-700 dark:text-slate-300 text-lg mb-1">Add New Group</h3>
+                            <h3 className="font-bold text-slate-700 dark:text-slate-300 text-lg mb-1">Thêm nhóm sách mới</h3>
                             <p className="text-xs text-slate-400 dark:text-slate-500 max-w-[200px] leading-relaxed">
-                                Create a custom collection for your specific learning goals.
+                                Tạo bộ sưu tập tùy chỉnh cho mục tiêu học tập của bạn.
                             </p>
                         </div>
                     )}
@@ -1169,24 +1169,24 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                     <div className="space-y-4 max-w-xl z-10">
                         <div className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-500/20 border border-indigo-500/30 rounded-full text-xs font-bold text-indigo-300">
                             <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-pulse" />
-                            DEEP FOCUS SESSION
+                            CHẾ ĐỘ TẬP TRUNG
                         </div>
-                        <h2 className="text-2xl font-black tracking-tight md:text-3xl">Deep Focus Session</h2>
+                        <h2 className="text-2xl font-black tracking-tight md:text-3xl">Phiên học tập trung sâu</h2>
                         <p className="text-slate-400 text-sm leading-relaxed">
-                            Minimize distractions and enter a flow state. Our Zen mode tracks your focus intensity while you study from your vocabulary books.
+                            Giảm thiểu phiền nhiễu và bước vào trạng thái tập trung. Chế độ Tập trung theo dõi cường độ học tập của bạn từ các cuốn sách từ vựng.
                         </p>
                         <button
                             onClick={() => setIsZenMode(true)}
                             className="px-6 py-3 bg-white hover:bg-slate-100 text-slate-900 rounded-xl text-xs font-black shadow-md hover:shadow-lg transition-all transform active:scale-95 cursor-pointer"
                         >
-                            Enter Library Mode
+                            Bắt đầu tập trung
                         </button>
                     </div>
 
                     {/* Glow Zen badge graphic */}
                     <div className="shrink-0 w-32 h-32 rounded-2xl bg-slate-800/55 border border-slate-700/60 flex flex-col items-center justify-center shadow-[0_0_40px_rgba(99,102,241,0.1)] group-hover/banner:scale-105 transition-transform duration-500 z-10">
                         <span className="text-4xl font-extrabold bg-gradient-to-br from-indigo-200 to-sky-200 bg-clip-text text-transparent">静</span>
-                        <span className="text-[9px] tracking-[0.2em] text-slate-500 font-bold mt-2">QUIETNESS</span>
+                        <span className="text-[9px] tracking-[0.2em] text-slate-500 font-bold mt-2">TẬP TRUNG</span>
                     </div>
                 </div>
             </div>
@@ -1221,11 +1221,11 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                         const progress = getBookProgress(groupId, book);
                         // Extract level badge or category if possible
                         let bookLevel = book.subtitle || '';
-                        if (book.name.includes('N5')) bookLevel = 'N5 LEVEL';
-                        else if (book.name.includes('N4')) bookLevel = 'N4 LEVEL';
-                        else if (book.name.includes('N3')) bookLevel = 'N3 LEVEL';
-                        else if (book.name.includes('N2')) bookLevel = 'N2 LEVEL';
-                        else if (book.name.includes('N1')) bookLevel = 'N1 LEVEL';
+                        if (book.name.includes('N5')) bookLevel = 'TRÌNH ĐỘ N5';
+                        else if (book.name.includes('N4')) bookLevel = 'TRÌNH ĐỘ N4';
+                        else if (book.name.includes('N3')) bookLevel = 'TRÌNH ĐỘ N3';
+                        else if (book.name.includes('N2')) bookLevel = 'TRÌNH ĐỘ N2';
+                        else if (book.name.includes('N1')) bookLevel = 'TRÌNH ĐỘ N1';
                         
                         return (
                             <div key={book.id}
@@ -1296,9 +1296,9 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                             <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                                 <Plus className="w-5 h-5 text-slate-500 dark:text-slate-400" />
                             </div>
-                            <h3 className="font-bold text-slate-700 dark:text-slate-300 mb-1">Add New Book</h3>
+                            <h3 className="font-bold text-slate-700 dark:text-slate-300 mb-1">Thêm sách mới</h3>
                             <p className="text-xs text-slate-400 dark:text-slate-500 max-w-[200px] leading-relaxed">
-                                Create a book under this group.
+                                Tạo một cuốn sách thuộc nhóm này.
                             </p>
                         </div>
                     )}
@@ -1458,7 +1458,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                             {onAddVocabToSRS && vocab.length > 0 && (
                                 <button onClick={handleAddAllToSRS}
                                     className="flex items-center gap-1.5 px-3 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl text-sm font-medium transition-colors">
-                                    <Plus className="w-4 h-4" /> Thêm tất cả vào SRS
+                                    <Plus className="w-4 h-4" /> Thêm tất cả vào học phần
                                 </button>
                             )}
                             {isAdmin && (

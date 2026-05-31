@@ -1,7 +1,26 @@
 import React, { useState, useMemo } from 'react';
-import { ChevronLeft, ChevronRight, Edit2, PlayCircle, BookOpen, Layers, Search, Volume2, Plus, Trash2, Users, Check, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Edit2, PlayCircle, BookOpen, Layers, Search, Volume2, Trash2, Users, Check, Plus, Headphones, FileText } from 'lucide-react';
 import FuriganaText from '../ui/FuriganaText';
 import { playAudio, speakJapanese } from '../../utils/audio';
+import { getSrsProgressText } from '../../utils/srs';
+
+// Helper: derive human-readable SRS cycle stage from vocab SM-2 fields
+const getSrsCycleLabel = (card) => {
+    if (!card.srsEnabled) return null;
+    const interval = card.srsInterval || 0;
+    const reps = card.srsReps || 0;
+    const learningStep = card.srsLearningStep;
+    if (reps === 0 && (learningStep === undefined || learningStep === null)) return 'Mới';
+    if (card.srsIsLapsed) return 'Học lại';
+    if (typeof learningStep === 'number' && learningStep >= 0) {
+        return learningStep === 0 ? '1 phút' : '10 phút';
+    }
+    if (interval < 1440) return `${Math.round(interval / 60)} giờ`;
+    const days = Math.round(interval / 1440);
+    if (days === 1) return '1 ngày';
+    if (days < 30) return `${days} ngày`;
+    return `${Math.round(days / 30)} tháng`;
+};
 
 const InlineEditCell = ({ value, onSave, className = '', isJapanese = false }) => {
     const [editing, setEditing] = useState(false);
@@ -36,11 +55,11 @@ const InlineEditCell = ({ value, onSave, className = '', isJapanese = false }) =
     );
 };
 
-const StudySetDetail = ({ 
-    folderId, folders, cardFolders, allCards, 
-    onBack, onEditSet, onStudySet, onFlashcardSet, onReviewSet, onSynonymQuiz,
+const StudySetDetail = ({
+    folderId, folders, cardFolders, allCards,
+    onBack, onEditSet, onStudySet, onFlashcardSet, onMeaningSet, onDictationSet, onExampleSet, onSynonymQuiz,
     onNavigateToAdd, onDeleteFolder, onSaveChanges, onSaveCardAudio,
-    onDeleteCards
+    onDeleteCards, onToggleSrs
 }) => {
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [isCardFlipped, setIsCardFlipped] = useState(false);
@@ -58,7 +77,7 @@ const StudySetDetail = ({
     }, [folderId, allCards, cardFolders]);
 
     const activeCard = setCards[currentCardIndex];
-    
+
     const changeCard = (newIndex) => {
         if (isCardFlipped) {
             setIsAnimatingFlip(false);
@@ -129,23 +148,6 @@ const StudySetDetail = ({
             </div>
 
             <div className="max-w-6xl mx-auto px-4 md:px-8 mt-8 space-y-10">
-                {/* Title */}
-                <div className="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between bg-white dark:bg-gray-800 p-6 md:p-8 rounded-3xl border border-slate-100 dark:border-slate-800/80 shadow-sm relative overflow-hidden">
-                    <div className="space-y-3 flex-1">
-                        <h1 className="text-3xl md:text-4xl font-black tracking-tight text-slate-850 dark:text-white">{folder.name}</h1>
-                        {folder.description && <p className="text-slate-650 dark:text-slate-400 text-base md:text-lg leading-relaxed">{folder.description}</p>}
-                        <div className="flex items-center gap-2 pt-2">
-                            <span className="bg-indigo-50 dark:bg-indigo-950/40 text-indigo-650 dark:text-indigo-400 text-xs font-bold px-3 py-1.5 rounded-full border border-indigo-100 dark:border-indigo-900/30">
-                                {setCards.length} thuật ngữ
-                            </span>
-                        </div>
-                    </div>
-                    {folder.coverImage && (
-                        <div className="w-full md:w-64 h-36 md:h-28 rounded-2xl overflow-hidden shrink-0 shadow border border-slate-100 dark:border-slate-700/60">
-                            <img src={folder.coverImage} alt={folder.name} className="w-full h-full object-cover" />
-                        </div>
-                    )}
-                </div>
 
                 {setCards.length > 0 ? (
                     <>
@@ -158,22 +160,26 @@ const StudySetDetail = ({
                                     style={{ minHeight: '280px' }}
                                 >
                                     {/* Front */}
-                                    <div className="absolute inset-0 backface-hidden bg-slate-700 dark:bg-slate-800 rounded-2xl shadow-2xl border-2 border-slate-600 dark:border-slate-700 flex flex-col items-center justify-center p-8 text-center">
-                                        <div className="text-3xl md:text-4xl font-bold text-white font-japanese">
+                                    <div className="absolute inset-0 backface-hidden bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none flex flex-col items-center justify-center p-8 text-center">
+                                        <div className="text-3xl md:text-4xl font-bold text-slate-850 dark:text-white font-japanese">
                                             <FuriganaText text={activeCard?.frontWithFurigana || activeCard?.front || ''} />
                                         </div>
-                                        <p className="text-slate-400 text-xs mt-6">Nhấn để lật</p>
+                                        <div className="absolute bottom-6 text-center">
+                                            <span className="px-3.5 py-1.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">
+                                                Nhấn để lật thẻ
+                                            </span>
+                                        </div>
                                         {activeCard?.audioBase64 && (
-                                            <button onClick={(e) => { e.stopPropagation(); playAudio(activeCard.audioBase64); }} className="absolute top-4 right-4 p-3 bg-slate-600 hover:bg-indigo-500 text-white rounded-full transition-all hover:scale-110">
+                                            <button onClick={(e) => { e.stopPropagation(); playAudio(activeCard.audioBase64); }} className="absolute top-5 right-5 p-2.5 bg-slate-100 hover:bg-indigo-50 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-300 rounded-full transition-all hover:scale-110 hover:text-indigo-600">
                                                 <Volume2 className="w-5 h-5" />
                                             </button>
                                         )}
                                     </div>
                                     {/* Back */}
-                                    <div className="absolute inset-0 backface-hidden rotate-y-180 bg-slate-700 dark:bg-slate-800 rounded-2xl shadow-2xl border-2 border-slate-600 dark:border-slate-700 flex flex-col items-center justify-center p-8 text-center">
-                                        <div className="text-2xl md:text-3xl font-bold text-white">{activeCard?.back}</div>
-                                        {activeCard?.sinoVietnamese && <p className="text-yellow-300 mt-3 text-base"><span className="text-slate-400">Hán Việt: </span>{activeCard.sinoVietnamese}</p>}
-                                        {activeCard?.example && <p className="mt-4 text-sm text-slate-300 italic">"{activeCard.example}"</p>}
+                                    <div className="absolute inset-0 backface-hidden rotate-y-180 bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none flex flex-col items-center justify-center p-8 text-center">
+                                        <div className="text-2xl md:text-3xl font-bold text-slate-850 dark:text-white">{activeCard?.back}</div>
+                                        {activeCard?.sinoVietnamese && <p className="text-amber-600 dark:text-yellow-300 mt-3 text-base font-semibold"><span className="text-slate-450 dark:text-slate-400 font-normal">Hán Việt: </span>{activeCard.sinoVietnamese}</p>}
+                                        {activeCard?.example && <p className="mt-4 text-sm text-slate-600 dark:text-slate-300 italic">"{activeCard.example}"</p>}
                                     </div>
                                 </div>
                             </div>
@@ -188,9 +194,8 @@ const StudySetDetail = ({
                                 </button>
                             </div>
                         </div>
-
                         {/* Action Buttons */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
                             <button onClick={() => onFlashcardSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-blue-400 dark:hover:border-blue-600 shadow-sm hover:shadow-lg transition-all group">
                                 <div className="w-11 h-11 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Layers className="w-5 h-5 text-blue-500" /></div>
                                 <span className="font-bold text-sm text-gray-800 dark:text-white">Thẻ ghi nhớ</span>
@@ -198,18 +203,28 @@ const StudySetDetail = ({
                             </button>
                             <button onClick={() => onStudySet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-emerald-400 dark:hover:border-emerald-600 shadow-sm hover:shadow-lg transition-all group">
                                 <div className="w-11 h-11 rounded-full bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><BookOpen className="w-5 h-5 text-emerald-500" /></div>
-                                <span className="font-bold text-sm text-gray-800 dark:text-white">Học (Learn)</span>
+                                <span className="font-bold text-sm text-gray-800 dark:text-white">Học tập</span>
                                 <span className="text-[11px] text-gray-500 mt-0.5">Trắc nghiệm + Tự luận</span>
                             </button>
-                            <button onClick={() => onReviewSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-amber-400 dark:hover:border-amber-600 shadow-sm hover:shadow-lg transition-all group">
-                                <div className="w-11 h-11 rounded-full bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><PlayCircle className="w-5 h-5 text-amber-500" /></div>
-                                <span className="font-bold text-sm text-gray-800 dark:text-white">Ôn trắc nghiệm</span>
-                                <span className="text-[11px] text-gray-500 mt-0.5">Kiểm tra kiến thức</span>
+                            <button onClick={() => onMeaningSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-pink-400 dark:hover:border-pink-600 shadow-sm hover:shadow-lg transition-all group">
+                                <div className="w-11 h-11 rounded-full bg-pink-50 dark:bg-pink-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Edit2 className="w-5 h-5 text-pink-500" /></div>
+                                <span className="font-bold text-sm text-gray-800 dark:text-white">Nhập ý nghĩa</span>
+                                <span className="text-[11px] text-gray-500 mt-0.5">Tự luận dịch nghĩa</span>
+                            </button>
+                            <button onClick={() => onDictationSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-indigo-400 dark:hover:border-indigo-600 shadow-sm hover:shadow-lg transition-all group">
+                                <div className="w-11 h-11 rounded-full bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Headphones className="w-5 h-5 text-indigo-500" /></div>
+                                <span className="font-bold text-sm text-gray-800 dark:text-white">Nghe Chép</span>
+                                <span className="text-[11px] text-gray-500 mt-0.5">Nghe và viết lại</span>
+                            </button>
+                            <button onClick={() => onExampleSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-amber-400 dark:hover:border-amber-600 shadow-sm hover:shadow-lg transition-all group">
+                                <div className="w-11 h-11 rounded-full bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><FileText className="w-5 h-5 text-amber-500" /></div>
+                                <span className="font-bold text-sm text-gray-800 dark:text-white">Câu ví dụ</span>
+                                <span className="text-[11px] text-gray-500 mt-0.5">Điền từ vào câu</span>
                             </button>
                             <button onClick={() => onSynonymQuiz && onSynonymQuiz(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-purple-400 dark:hover:border-purple-600 shadow-sm hover:shadow-lg transition-all group">
                                 <div className="w-11 h-11 rounded-full bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Users className="w-5 h-5 text-purple-500" /></div>
                                 <span className="font-bold text-sm text-gray-800 dark:text-white">Đồng nghĩa</span>
-                                <span className="text-[11px] text-gray-500 mt-0.5">Trắc nghiệm synonym</span>
+                                <span className="text-[11px] text-gray-500 mt-0.5">Trắc nghiệm đồng nghĩa</span>
                             </button>
                         </div>
 
@@ -221,46 +236,88 @@ const StudySetDetail = ({
                             </div>
                             <div className="space-y-3">
                                 {setCards.map(card => (
-                                    <div key={card.id} className="flex flex-col md:flex-row bg-white dark:bg-gray-800 p-4 md:p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 gap-4 md:gap-6 items-stretch">
-                                        <div className="flex-1 md:w-1/2 flex flex-col justify-center md:border-r border-gray-100 dark:border-gray-700 md:pr-6">
-                                            <div className="font-bold text-lg text-gray-900 dark:text-white">
-                                                <InlineEditCell
-                                                    value={card.frontWithFurigana || card.front}
-                                                    isJapanese={true}
-                                                    onSave={(v) => handleInlineSave(card, 'front', v)}
-                                                    className="text-lg font-bold"
-                                                />
-                                            </div>
-                                            {card.sinoVietnamese && (
-                                                <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium">
+                                    <div key={card.id} className="flex flex-col bg-white dark:bg-gray-800 p-4 md:p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 gap-3">
+                                        <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+                                            <div className="flex-1 md:w-1/2 flex flex-col justify-center md:border-r border-gray-100 dark:border-gray-700 md:pr-6">
+                                                <div className="font-bold text-lg text-gray-900 dark:text-white">
                                                     <InlineEditCell
-                                                        value={card.sinoVietnamese}
-                                                        onSave={(v) => handleInlineSave(card, 'sinoVietnamese', v)}
-                                                        className="text-sm font-medium inline-block"
+                                                        value={card.frontWithFurigana || card.front}
+                                                        isJapanese={true}
+                                                        onSave={(v) => handleInlineSave(card, 'front', v)}
+                                                        className="text-lg font-bold"
                                                     />
                                                 </div>
-                                            )}
-                                        </div>
-                                        <div className="flex-1 md:w-1/2 flex items-center justify-between gap-4">
-                                            <div className="flex-1 flex flex-col justify-center text-lg text-gray-800 dark:text-gray-200">
-                                                <InlineEditCell
-                                                    value={card.back}
-                                                    onSave={(v) => handleInlineSave(card, 'back', v)}
-                                                    className="text-lg"
-                                                />
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                {card.imageBase64 && (
-                                                    <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 shadow-sm border border-gray-100 dark:border-gray-700">
-                                                        <img src={card.imageBase64} alt={card.front} className="w-full h-full object-cover" />
+                                                {card.sinoVietnamese && (
+                                                    <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium">
+                                                        <InlineEditCell
+                                                            value={card.sinoVietnamese}
+                                                            onSave={(v) => handleInlineSave(card, 'sinoVietnamese', v)}
+                                                            className="text-sm font-medium inline-block"
+                                                        />
                                                     </div>
                                                 )}
-                                                {card.audioBase64 && (
-                                                    <button onClick={() => playAudio(card.audioBase64)} className="p-2.5 text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-full transition-colors flex-shrink-0">
-                                                        <Volume2 className="w-5 h-5" />
-                                                    </button>
+                                            </div>
+                                            <div className="flex-1 md:w-1/2 flex items-center justify-between gap-4">
+                                                <div className="flex-1 flex flex-col justify-center text-lg text-gray-800 dark:text-gray-200">
+                                                    <InlineEditCell
+                                                        value={card.back}
+                                                        onSave={(v) => handleInlineSave(card, 'back', v)}
+                                                        className="text-lg"
+                                                    />
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    {card.imageBase64 && (
+                                                        <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 shadow-sm border border-gray-100 dark:border-gray-700">
+                                                            <img src={card.imageBase64} alt={card.front} className="w-full h-full object-cover" />
+                                                        </div>
+                                                    )}
+                                                    {card.audioBase64 && (
+                                                        <button onClick={() => playAudio(card.audioBase64)} className="p-2.5 text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-full transition-colors flex-shrink-0">
+                                                            <Volume2 className="w-5 h-5" />
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/* Example sentence row */}
+                                        {(card.example || card.exampleMeaning) && (
+                                            <div className="bg-gray-50 dark:bg-gray-900/40 rounded-xl px-4 py-2.5 space-y-0.5">
+                                                {card.example && (
+                                                    <p className="text-sm text-gray-700 dark:text-gray-300 font-japanese leading-relaxed">
+                                                        <FuriganaText text={card.example} />
+                                                    </p>
+                                                )}
+                                                {card.exampleMeaning && (
+                                                    <p className="text-xs text-gray-500 dark:text-gray-400 italic">{card.exampleMeaning}</p>
                                                 )}
                                             </div>
+                                        )}
+
+                                        {/* SRS Toggle Footer */}
+                                        <div className="border-t border-gray-100 dark:border-gray-700/60 pt-3 flex justify-between items-center">
+                                            {card.srsEnabled ? (
+                                                <div className="flex items-center gap-1.5">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
+                                                    <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                                                        Ngắt quãng · {getSrsCycleLabel(card)}
+                                                    </span>
+                                                </div>
+                                            ) : (
+                                                <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">
+                                                    Ôn tập ngắt quãng
+                                                </span>
+                                            )}
+                                            {/* Toggle switch */}
+                                            <button
+                                                onClick={(e) => { e.stopPropagation(); onToggleSrs && onToggleSrs(card.id, !card.srsEnabled); }}
+                                                className={`relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${card.srsEnabled ? 'bg-indigo-600' : 'bg-gray-200 dark:bg-gray-600'}`}
+                                                role="switch"
+                                                aria-checked={!!card.srsEnabled}
+                                            >
+                                                <span
+                                                    className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out ${card.srsEnabled ? 'translate-x-4' : 'translate-x-0'}`}
+                                                />
+                                            </button>
                                         </div>
                                     </div>
                                 ))}

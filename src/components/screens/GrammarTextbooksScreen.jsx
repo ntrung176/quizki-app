@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Search, Plus, Trash2, Edit2, Save, X, FileJson, Clipboard, Check, AlertCircle } from 'lucide-react';
+import { BookOpen, Search, Plus, Trash2, Edit2, Save, X, FileJson, Clipboard, Check, AlertCircle, ChevronRight } from 'lucide-react';
 import { GRAMMAR_CATEGORIES } from '../../data/grammarData';
 import { subscribeTextbooks, addTextbook, updateTextbook, deleteTextbook, importTextbooksFromJson } from '../../utils/grammarService';
 
@@ -11,7 +11,8 @@ const SAMPLE_TEXTBOOKS_JSON = `[
     "description": "Giáo trình ngữ pháp N2 chuyên sâu cho kỳ thi JLPT",
     "levels": ["N2"],
     "category": "jlpt",
-    "featured": true
+    "featured": true,
+    "color": "#6366f1"
   },
   {
     "title": "新完全マスター 文法 N3",
@@ -19,9 +20,71 @@ const SAMPLE_TEXTBOOKS_JSON = `[
     "description": "Giáo trình ngữ pháp N3 chuyên sâu cho kỳ thi JLPT",
     "levels": ["N3"],
     "category": "jlpt",
-    "featured": false
+    "featured": false,
+    "color": "#10b981"
   }
 ]`;
+
+const TextbookCover = ({ title, titleVi, levels, description, color, featured }) => {
+    const primaryColor = color || '#10b981';
+    const levelText = (levels && levels.length > 0) ? levels.join(', ') : 'N3';
+
+    return (
+        <div 
+            className="w-full aspect-[16/10] relative overflow-hidden flex flex-col justify-between p-5 text-white select-none rounded-2xl transition-all duration-350 shadow-md"
+            style={{ 
+                backgroundColor: primaryColor,
+                backgroundImage: 'radial-gradient(circle at 50% 25%, rgba(255,255,255,0.18) 0%, transparent 60%), linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.22) 100%)'
+            }}
+        >
+            {/* Shimmer gloss sweep effect on hover */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/12 to-transparent -translate-x-full z-10 shimmer-sweep pointer-events-none" />
+
+            {/* Inner elegant frame border */}
+            <div className="absolute inset-3 border border-white/10 rounded-xl pointer-events-none z-0" />
+
+            {/* Featured star badge */}
+            {featured && (
+                <div className="absolute top-5 right-5 bg-amber-500/25 backdrop-blur-md border border-amber-400/30 text-amber-300 px-2 py-0.5 rounded text-[9px] font-black tracking-wider uppercase z-20 flex items-center gap-0.5">
+                    <span>★</span>
+                    <span>Nổi bật</span>
+                </div>
+            )}
+
+            {/* Content Container */}
+            <div className="flex flex-col h-full justify-between relative z-10 py-1.5">
+                {/* Top: Japanese Title */}
+                <div className="text-center">
+                    <p className="text-[9px] uppercase tracking-widest font-black text-white/50">
+                        Ngữ pháp • Grammar
+                    </p>
+                    <h4 className="text-[11px] font-bold text-white/80 line-clamp-1 mt-1 tracking-wide leading-relaxed px-2">
+                        {title || '日本語'}
+                    </h4>
+                </div>
+
+                {/* Middle: Level Badge & Vietnamese Title */}
+                <div className="text-center my-auto flex flex-col items-center justify-center">
+                    {/* Level stamp */}
+                    <div className="px-4 py-1 rounded-xl bg-white/10 border border-white/25 backdrop-blur-md shadow-inner inline-block mb-2.5 font-black text-3xl tracking-widest text-center min-w-[4rem]">
+                        {levelText}
+                    </div>
+                    {/* Vietnamese Title */}
+                    <h3 className="text-base font-extrabold tracking-tight text-white leading-snug line-clamp-2 px-2">
+                        {titleVi || 'Giáo trình'}
+                    </h3>
+                </div>
+
+                {/* Bottom: Description */}
+                <div className="text-center mt-auto">
+                    <p className="text-[10px] text-white/70 line-clamp-2 leading-relaxed px-2 font-medium">
+                        {description || 'Tài liệu ôn thi năng lực Nhật ngữ chất lượng cao'}
+                    </p>
+                </div>
+            </div>
+        </div>
+    );
+};
 
 const GrammarTextbooksScreen = ({ isAdmin }) => {
     const navigate = useNavigate();
@@ -35,7 +98,7 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
     const [importSuccess, setImportSuccess] = useState('');
     const [copied, setCopied] = useState(false);
     const [editId, setEditId] = useState(null);
-    const [form, setForm] = useState({ title: '', titleVi: '', description: '', levels: '', category: 'jlpt', featured: false });
+    const [form, setForm] = useState({ title: '', titleVi: '', description: '', levels: '', category: 'jlpt', featured: false, color: '#10b981' });
     const [saving, setSaving] = useState(false);
 
     useEffect(() => {
@@ -55,14 +118,18 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
 
     const handleSave = async () => {
         setSaving(true);
-        const data = { ...form, levels: form.levels.split(',').map(s => s.trim()).filter(Boolean) };
+        const data = { 
+            ...form, 
+            levels: form.levels.split(',').map(s => s.trim()).filter(Boolean),
+            color: form.color || '#10b981'
+        };
         if (editId) {
             await updateTextbook(editId, data);
         } else {
             await addTextbook(data, 'admin');
         }
         setShowAdd(false); setEditId(null);
-        setForm({ title: '', titleVi: '', description: '', levels: '', category: 'jlpt', featured: false });
+        setForm({ title: '', titleVi: '', description: '', levels: '', category: 'jlpt', featured: false, color: '#10b981' });
         setSaving(false);
     };
 
@@ -96,7 +163,7 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
     };
 
     const handleEdit = (tb) => {
-        setForm({ title: tb.title || '', titleVi: tb.titleVi || '', description: tb.description || '', levels: (tb.levels || []).join(', '), category: tb.category || 'jlpt', featured: tb.featured || false });
+        setForm({ title: tb.title || '', titleVi: tb.titleVi || '', description: tb.description || '', levels: (tb.levels || []).join(', '), category: tb.category || 'jlpt', featured: tb.featured || false, color: tb.color || '#10b981' });
         setEditId(tb.id); setShowAdd(true); setShowJsonImport(false);
     };
 
@@ -106,6 +173,19 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
 
     return (
         <div className="max-w-5xl mx-auto space-y-6">
+            <style>{`
+                @keyframes shimmer-effect {
+                    0% { transform: translateX(-100%) skewX(-15deg); }
+                    100% { transform: translateX(100%) skewX(-15deg); }
+                }
+                .shimmer-sweep {
+                    transform: translateX(-100%) skewX(-15deg);
+                    width: 50%;
+                }
+                .group:hover .shimmer-sweep {
+                    animation: shimmer-effect 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+                }
+            `}</style>
             <div>
                 <p className="text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">Curriculum / Grammar</p>
                 <h1 className="text-2xl font-extrabold text-slate-800 dark:text-white">Chọn giáo trình Ngữ pháp</h1>
@@ -131,7 +211,7 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
             {/* Admin Controls */}
             {isAdmin && (
                 <div className="flex flex-wrap gap-2">
-                    <button onClick={() => { setShowAdd(true); setShowJsonImport(false); setEditId(null); setForm({ title: '', titleVi: '', description: '', levels: '', category: 'jlpt', featured: false }); }}
+                    <button onClick={() => { setShowAdd(true); setShowJsonImport(false); setEditId(null); setForm({ title: '', titleVi: '', description: '', levels: '', category: 'jlpt', featured: false, color: '#10b981' }); }}
                         className="flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-xl transition-colors">
                         <Plus className="w-4 h-4" /> Thêm giáo trình
                     </button>
@@ -158,6 +238,45 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
                         className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none">
                         {GRAMMAR_CATEGORIES.filter(c => c.id !== 'all').map(c => <option key={c.id} value={c.id}>{c.label}</option>)}
                     </select>
+                    <div className="space-y-2 py-1">
+                        <span className="text-xs font-bold text-slate-500 dark:text-slate-400 block">Màu sắc hiển thị (Thumbnail)</span>
+                        <div className="flex flex-wrap items-center gap-2">
+                            {[
+                                { name: 'Xanh ngọc', value: '#10b981' },
+                                { name: 'Xanh lục', value: '#0d9488' },
+                                { name: 'Classic Blue', value: '#3b82f6' },
+                                { name: 'Indigo', value: '#6366f1' },
+                                { name: 'Tím', value: '#8b5cf6' },
+                                { name: 'Hồng cánh sen', value: '#ec4899' },
+                                { name: 'Đỏ hồng', value: '#f43f5e' },
+                                { name: 'Đỏ đậm', value: '#be123c' },
+                                { name: 'Vàng cam', value: '#f59e0b' },
+                                { name: 'Xám đậm', value: '#475569' }
+                            ].map(p => (
+                                <button
+                                    key={p.value}
+                                    type="button"
+                                    onClick={() => setForm(f => ({ ...f, color: p.value }))}
+                                    style={{ backgroundColor: p.value }}
+                                    className={`w-7 h-7 rounded-full border-2 transition-all ${
+                                        (form.color || '#10b981') === p.value 
+                                            ? 'border-slate-800 dark:border-white scale-110 shadow-md shadow-slate-300 dark:shadow-none' 
+                                            : 'border-transparent hover:scale-105'
+                                    }`}
+                                    title={p.name}
+                                />
+                            ))}
+                            <div className="relative flex items-center gap-1.5 pl-2 border-l border-slate-200 dark:border-slate-700">
+                                <input 
+                                    type="color" 
+                                    value={form.color || '#10b981'} 
+                                    onChange={e => setForm(f => ({ ...f, color: e.target.value }))}
+                                    className="w-7 h-7 rounded cursor-pointer border border-slate-200 dark:border-slate-700 p-0 overflow-hidden" 
+                                />
+                                <span className="text-[10px] font-mono text-slate-600 dark:text-slate-300 uppercase select-all">{form.color || '#10b981'}</span>
+                            </div>
+                        </div>
+                    </div>
                     <label className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
                         <input type="checkbox" checked={form.featured} onChange={e => setForm(f => ({ ...f, featured: e.target.checked }))} /> Giáo trình nổi bật
                     </label>
@@ -219,29 +338,23 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
 
             {/* Textbooks grid */}
             {filtered.length === 0 && <p className="text-center text-slate-400 dark:text-slate-500 py-12">Chưa có giáo trình nào. {isAdmin ? 'Nhấn "Thêm giáo trình" hoặc "Nhập bằng JSON" để bắt đầu.' : ''}</p>}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {filtered.map(tb => (
-                    <div key={tb.id} className="group relative text-left bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                    <div key={tb.id} className="group relative text-left rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-350">
                         <button onClick={() => navigate(`/grammar/textbook/${tb.id}`)} className="w-full text-left">
-                            <div className="h-24 bg-gradient-to-br from-slate-100 to-indigo-50 dark:from-slate-700 dark:to-indigo-900/20 flex items-center justify-center relative">
-                                <BookOpen className="w-10 h-10 text-indigo-400/60" />
-                                <div className="absolute top-2 left-2 flex gap-1">
-                                    {(tb.levels || []).map(lvl => (
-                                        <span key={lvl} className="px-1.5 py-0.5 text-[9px] font-black rounded bg-white/80 dark:bg-slate-600/80 text-slate-700 dark:text-slate-200">{lvl}</span>
-                                    ))}
-                                </div>
-                                {tb.featured && <span className="absolute top-2 right-2 px-1.5 py-0.5 text-[9px] font-black rounded bg-amber-100 text-amber-700">⭐</span>}
-                            </div>
-                            <div className="p-3">
-                                <h3 className="text-sm font-extrabold text-slate-800 dark:text-white truncate">{tb.titleVi || tb.title}</h3>
-                                {tb.title && <p className="text-[11px] text-slate-400 dark:text-slate-500 truncate">{tb.title}</p>}
-                                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">{tb.description}</p>
-                            </div>
+                            <TextbookCover 
+                                title={tb.title} 
+                                titleVi={tb.titleVi} 
+                                levels={tb.levels} 
+                                description={tb.description} 
+                                color={tb.color} 
+                                featured={tb.featured} 
+                            />
                         </button>
                         {isAdmin && (
-                            <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                                <button onClick={(e) => { e.stopPropagation(); handleEdit(tb); }} className="p-1.5 bg-white/90 dark:bg-slate-700/90 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition-colors"><Edit2 className="w-3.5 h-3.5 text-indigo-600" /></button>
-                                <button onClick={(e) => { e.stopPropagation(); handleDelete(tb.id); }} className="p-1.5 bg-white/90 dark:bg-slate-700/90 rounded-lg hover:bg-red-100 dark:hover:bg-red-900/40 transition-colors"><Trash2 className="w-3.5 h-3.5 text-red-500" /></button>
+                            <div className="absolute top-3 right-3 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity z-20">
+                                <button onClick={(e) => { e.stopPropagation(); handleEdit(tb); }} className="p-2 bg-white/95 dark:bg-slate-800/95 shadow-lg rounded-xl hover:bg-indigo-50 dark:hover:bg-indigo-950/60 transition-all border border-slate-200/40 dark:border-slate-700/40" title="Sửa giáo trình"><Edit2 className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" /></button>
+                                <button onClick={(e) => { e.stopPropagation(); handleDelete(tb.id); }} className="p-2 bg-white/95 dark:bg-slate-800/95 shadow-lg rounded-xl hover:bg-red-50 dark:hover:bg-red-950/60 transition-all border border-slate-200/40 dark:border-slate-700/40" title="Xóa giáo trình"><Trash2 className="w-3.5 h-3.5 text-red-500" /></button>
                             </div>
                         )}
                     </div>

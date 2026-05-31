@@ -4,6 +4,55 @@ import { ArrowLeft, CheckCircle, Eye, Lightbulb, Sparkles, X, Loader2, Award, Cl
 import { fetchGrammarPointById, updateGrammarPoint } from '../../utils/grammarService';
 import { aiCheckGrammarAnswer } from '../../utils/aiProvider';
 
+const formatExplanation = (text) => {
+    if (!text) return null;
+    let textStr = '';
+    if (typeof text !== 'string') {
+        if (Array.isArray(text)) {
+            textStr = text.join('\n');
+        } else {
+            textStr = String(text);
+        }
+    } else {
+        textStr = text;
+    }
+    const lines = textStr.split('\n');
+    return lines.map((line, index) => {
+        const trimmed = line.trim();
+        if (!trimmed) return null;
+        
+        const isBullet = trimmed.startsWith('-') || trimmed.startsWith('*');
+        const content = isBullet ? trimmed.substring(1).trim() : trimmed;
+        
+        const parts = content.split(/\*\*/g);
+        const parsedElements = parts.map((part, i) => {
+            if (i % 2 === 1) {
+                return (
+                    <strong key={i} className="font-extrabold text-indigo-600 dark:text-indigo-400 bg-indigo-50/80 dark:bg-indigo-900/30 px-1 py-0.5 rounded text-[11px] font-mono mx-0.5">
+                        {part}
+                    </strong>
+                );
+            }
+            return <span key={i}>{part}</span>;
+        });
+
+        if (isBullet) {
+            return (
+                <div key={index} className="flex items-start gap-1.5 mt-1 ml-1 text-slate-700 dark:text-slate-300">
+                    <span className="text-indigo-500 font-bold select-none">•</span>
+                    <span className="leading-relaxed text-xs">{parsedElements}</span>
+                </div>
+            );
+        }
+        
+        return (
+            <p key={index} className="mt-1 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                {parsedElements}
+            </p>
+        );
+    }).filter(Boolean);
+};
+
 const GrammarPracticeScreen = ({ isAdmin }) => {
     const { grammarId } = useParams();
     const [searchParams] = useSearchParams();
@@ -70,15 +119,6 @@ const GrammarPracticeScreen = ({ isAdmin }) => {
     const normalizeJa = (s) => s.replace(/\s+/g, '').replace(/[。、！？]/g, '');
 
     // Đặt câu handles
-    const handleCheckTranslate = (id) => {
-        const ex = exercises.find(e => e.id === id || e.questionVi === id);
-        const user = (translateAnswers[id] || '').trim();
-        if (!user || !ex) return;
-        const answersList = ex.answers || [];
-        const ok = answersList.some(a => normalizeJa(a) === normalizeJa(user));
-        setTranslateResults(p => ({ ...p, [id]: ok ? 'correct' : 'incorrect' }));
-    };
-
     const handleAiCheck = async (id) => {
         const ex = exercises.find(e => e.id === id || e.questionVi === id);
         const user = (translateAnswers[id] || '').trim();
@@ -380,7 +420,7 @@ const GrammarPracticeScreen = ({ isAdmin }) => {
                         <div className="space-y-5">
                             <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl p-4">
                                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                                    Đọc câu tiếng Việt, dịch sang tiếng Nhật bằng cấu trúc ngữ pháp <strong>{gp.pattern}</strong>. Nhấp "Kiểm tra" hoặc "AI đánh giá" để xem đáp án.
+                                    Đọc câu tiếng Việt, dịch sang tiếng Nhật bằng cấu trúc ngữ pháp <strong>{gp.pattern}</strong>. Nhấp "AI đánh giá" để xem điểm số và phân tích chi tiết.
                                 </p>
                             </div>
 
@@ -447,7 +487,7 @@ const GrammarPracticeScreen = ({ isAdmin }) => {
 
                                             <p className="text-[10px] font-bold text-slate-400 uppercase mb-1.5">Bản dịch của bạn (日本語)</p>
                                             <input ref={idx === 0 ? inputRef : null} type="text" value={translateAnswers[id] || ''} onChange={e => setTranslateAnswers(p => ({ ...p, [id]: e.target.value }))}
-                                                onKeyDown={e => { if (e.key === 'Enter') handleCheckTranslate(id); }} placeholder="Gõ bản dịch tiếng Nhật..." disabled={r === 'correct'}
+                                                onKeyDown={e => { if (e.key === 'Enter') handleAiCheck(id); }} placeholder="Gõ bản dịch tiếng Nhật..." disabled={r === 'correct'}
                                                 className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/20 disabled:opacity-60 font-medium" />
 
                                             {showTranslateAnswer[id] && (
@@ -459,26 +499,47 @@ const GrammarPracticeScreen = ({ isAdmin }) => {
 
                                             {/* AI feedback */}
                                             {ai && (
-                                                <div className={`mt-3 px-4 py-3 rounded-xl border ${ai.isCorrect ? 'bg-emerald-50 dark:bg-emerald-900/10 border-emerald-200 dark:border-emerald-800/40' : 'bg-orange-50 dark:bg-orange-900/10 border-orange-200 dark:border-orange-800/40'}`}>
-                                                    <div className="flex items-center gap-2 mb-1">
-                                                        <Sparkles className="w-4 h-4 text-indigo-500" />
-                                                        <span className="text-xs font-black text-indigo-600 uppercase">AI đánh giá</span>
-                                                        <span className={`ml-auto text-sm font-black ${ai.score >= 80 ? 'text-emerald-600' : ai.score >= 50 ? 'text-amber-600' : 'text-red-600'}`}>{ai.score}/100</span>
+                                                <div className={`mt-3 px-4 py-3.5 rounded-xl border transition-all ${ai.isCorrect ? 'bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800/40 text-emerald-900 dark:text-emerald-200' : 'bg-amber-50/60 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800/40 text-amber-900 dark:text-amber-200'}`}>
+                                                    <div className="flex items-center gap-2 mb-2 pb-1.5 border-b border-slate-200/40 dark:border-slate-700/40">
+                                                        <Sparkles className="w-4 h-4 text-indigo-500 animate-pulse" />
+                                                        <span className="text-xs font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">AI Đánh Giá Chi Tiết</span>
+                                                        <span className={`ml-auto text-sm font-black px-2 py-0.5 rounded-full ${ai.score >= 80 ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300' : ai.score >= 50 ? 'bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300' : 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300'}`}>{ai.score}/100</span>
                                                     </div>
-                                                    <p className="text-sm text-slate-700 dark:text-slate-300">{ai.feedback}</p>
-                                                    {ai.correction && <p className="text-sm font-bold text-slate-800 dark:text-white mt-1">✏️ Gợi ý: {ai.correction}</p>}
-                                                    {ai.grammarUsed === false && <p className="text-xs text-amber-600 mt-1">⚠️ Chưa sử dụng mẫu ngữ pháp {gp.pattern}</p>}
+                                                    
+                                                    <p className="text-sm font-bold text-slate-800 dark:text-slate-100 mb-1">{ai.feedback}</p>
+                                                    
+                                                    {ai.errors && ai.errors.length > 0 && (
+                                                        <div className="mt-2.5">
+                                                            <p className="text-[10px] font-bold text-red-500 dark:text-red-400 uppercase tracking-wider mb-1">Các lỗi sai phát hiện:</p>
+                                                            <ul className="list-disc pl-4 text-xs text-slate-700 dark:text-slate-300 space-y-1">
+                                                                {ai.errors.map((err, i) => <li key={i}>{err}</li>)}
+                                                            </ul>
+                                                        </div>
+                                                    )}
+                                                    
+                                                    {ai.explanation && (
+                                                        <div className="mt-2.5">
+                                                            <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-0.5">Phân tích chuyên sâu:</p>
+                                                            <div className="space-y-0.5">{formatExplanation(ai.explanation)}</div>
+                                                        </div>
+                                                    )}
+                                                    
+                                                    {ai.correction && (
+                                                        <div className="mt-2.5 pt-2 border-t border-slate-200/40 dark:border-slate-700/40">
+                                                            <p className="text-[10px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider mb-0.5">Bản dịch gợi ý tốt nhất:</p>
+                                                            <p className="text-sm font-bold text-slate-800 dark:text-white select-all">{ai.correction}</p>
+                                                        </div>
+                                                    )}
+                                                    
+                                                    {ai.grammarUsed === false && (
+                                                        <p className="text-xs text-amber-600 dark:text-amber-400 font-semibold mt-2.5 flex items-center gap-1">
+                                                            ⚠️ Chưa sử dụng mẫu ngữ pháp: <span className="font-bold underline">{gp.pattern}</span>
+                                                        </p>
+                                                    )}
                                                 </div>
                                             )}
 
-                                            {r === 'correct' && !ai && <p className="mt-2 text-sm text-emerald-600 font-bold">✅ Chính xác!</p>}
-                                            {r === 'incorrect' && !ai && !showTranslateAnswer[id] && <p className="mt-2 text-sm text-red-600 font-medium">Chưa đúng. Thử lại hoặc xem đáp án.</p>}
-
                                             <div className="flex flex-wrap items-center gap-2.5 mt-4">
-                                                <button onClick={() => handleCheckTranslate(id)} disabled={!translateAnswers[id]?.trim() || r === 'correct'}
-                                                    className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-xl disabled:opacity-40 flex items-center gap-1.5">
-                                                    <CheckCircle className="w-4 h-4" /> Kiểm tra
-                                                </button>
                                                 <button onClick={() => handleAiCheck(id)} disabled={!translateAnswers[id]?.trim() || isAiLoading}
                                                     className="px-4 py-2 bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white text-sm font-bold rounded-xl disabled:opacity-40 flex items-center gap-1.5">
                                                     {isAiLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />} AI đánh giá

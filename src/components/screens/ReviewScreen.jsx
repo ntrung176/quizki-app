@@ -47,10 +47,17 @@ const ReviewScreen = ({
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [multipleChoiceOptions, setMultipleChoiceOptions] = useState([]);
     const [failedCards, setFailedCards] = useState(new Set());
+    const [showComplete, setShowComplete] = useState(false);
     const [hintCount, setHintCount] = useState(0); // Number of characters revealed as hint
     const [blurVietnamese, setBlurVietnamese] = useState(false); // Blur Vietnamese text in example mode
     const [revealedMeanings, setRevealedMeanings] = useState(new Set()); // Track which meanings are revealed
-    const [inputMode, setInputMode] = useState('reading'); // 'reading' = show meaning, input word | 'meaning' = show word, input meaning
+    const [inputMode, setInputMode] = useState(() => {
+        if (reviewMode === 'meaning_input') {
+            const savedLang = localStorage.getItem('meaning_input_lang') || 'vi';
+            return savedLang === 'vi' ? 'meaning' : 'reading';
+        }
+        return 'reading';
+    });
     const inputRef = useRef(null);
     const isCompletingRef = useRef(false);
     const failedCardsRef = useRef(failedCards);
@@ -59,9 +66,11 @@ const ReviewScreen = ({
     const isMountedRef = useRef(true); // Track if component is still mounted
     const audioAbortRef = useRef(false); // Abort in-flight TTS requests
 
-    // Review settings
     const [showSettings, setShowSettings] = useState(false);
     const [reviewTestFormat, setReviewTestFormat] = useState(() => {
+        if (reviewMode === 'meaning_input' || reviewMode === 'dictation') {
+            return 'written';
+        }
         return localStorage.getItem('review_test_format') || 'multipleChoice';
     });
 
@@ -72,6 +81,16 @@ const ReviewScreen = ({
             audioAbortRef.current = true;
         };
     }, []);
+
+    useEffect(() => {
+        if (reviewMode === 'meaning_input') {
+            const savedLang = localStorage.getItem('meaning_input_lang') || 'vi';
+            setInputMode(savedLang === 'vi' ? 'meaning' : 'reading');
+            setReviewTestFormat('written');
+        } else if (reviewMode === 'dictation') {
+            setReviewTestFormat('written');
+        }
+    }, [reviewMode]);
 
     // Update cards when initialCards change
     useEffect(() => {
@@ -211,8 +230,9 @@ const ReviewScreen = ({
                 return;
             }
         }
-        onCompleteReview(currentFailedCards);
-    }, [allCards, onCompleteReview]);
+        // Hiển thị màn hình hoàn thành nội bộ thay vì delegate ra AppRoutes
+        setShowComplete(true);
+    }, [allCards]);
 
     // Keyboard event handlers for flashcard mode
     useEffect(() => {
@@ -420,13 +440,49 @@ const ReviewScreen = ({
 
     // Auto complete when cards are done
     useEffect(() => {
-        if ((cards.length === 0 || currentIndex >= cards.length) && !isCompletingRef.current) {
+        if ((cards.length === 0 || currentIndex >= cards.length) && !isCompletingRef.current && !showComplete) {
             const timer = setTimeout(() => {
                 handleCompleteReview();
             }, 150);
             return () => clearTimeout(timer);
         }
-    }, [cards.length, currentIndex, handleCompleteReview, failedCards.size]);
+    }, [cards.length, currentIndex, handleCompleteReview, failedCards.size, showComplete]);
+
+    // Auto-exit khi hiển thị màn hình hoàn thành
+    useEffect(() => {
+        if (showComplete) {
+            launchFireworks();
+            const timer = setTimeout(() => {
+                if (onBack) onBack();
+            }, 2500);
+            return () => clearTimeout(timer);
+        }
+    }, [showComplete, onBack]);
+
+    // Màn hình hoàn thành nội bộ
+    if (showComplete) {
+        return (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm animate-fade-in">
+                <div className="flex flex-col items-center justify-center text-center space-y-6 p-6 max-w-md">
+                    <div className="w-28 h-28 bg-gradient-to-br from-emerald-100 to-green-200 dark:from-emerald-900/30 dark:to-green-900/30 rounded-full flex items-center justify-center mb-2 shadow-inner">
+                        <div className="w-20 h-20 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-200 dark:shadow-green-900/50 animate-bounce">
+                            <Check className="w-10 h-10 text-white" strokeWidth={4} />
+                        </div>
+                    </div>
+                    <div>
+                        <h2 className="text-4xl font-black text-gray-800 dark:text-gray-100 mb-3">🎊 Tuyệt vời! 🎊</h2>
+                        <p className="text-gray-500 dark:text-gray-400 font-medium text-lg">Bạn đã hoàn thành phiên ôn tập này.</p>
+                    </div>
+                    <button
+                        onClick={() => { if (onBack) onBack(); }}
+                        className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white font-bold rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all"
+                    >
+                        Quay lại
+                    </button>
+                </div>
+            </div>
+        );
+    }
 
     if (cards.length === 0 || currentIndex >= cards.length) {
         return null;
@@ -625,10 +681,11 @@ const ReviewScreen = ({
                     playCorrectSound();
                     celebrateCorrectAnswer();
                     
-                    // Safely call speakJapanese with error handling
+                    // Safely call speakJapanese with error handling, delayed by 500ms to avoid overlapping correct sound
                     try {
-                        await Promise.all([
-                            speakJapanese(currentCard.front, currentCard.audioBase64, 
+                        await new Promise(resolve => setTimeout(resolve, 500));
+                        if (isMountedRef.current && !audioAbortRef.current) {
+                            await speakJapanese(currentCard.front, currentCard.audioBase64, 
                                 onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
                                     if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
                                         onSaveCardAudio(currentCard.id, b64, vid).catch(e => {
@@ -636,12 +693,11 @@ const ReviewScreen = ({
                                         });
                                     }
                                 } : null
-                            ),
-                            new Promise(resolve => setTimeout(resolve, 600))
-                        ]);
+                            );
+                        }
+                        await new Promise(resolve => setTimeout(resolve, 300));
                     } catch (audioError) {
                         console.warn('⚠️ Audio playback error (continuing):', audioError.message);
-                        await new Promise(resolve => setTimeout(resolve, 600));
                     }
                     
                     if (isMountedRef.current) {
@@ -657,10 +713,11 @@ const ReviewScreen = ({
                     playCorrectSound();
                     celebrateCorrectAnswer();
                     
-                    // Safely call speakJapanese with error handling
+                    // Safely call speakJapanese with error handling, delayed by 500ms to avoid overlapping correct sound
                     try {
-                        await Promise.all([
-                            speakJapanese(currentCard.front, currentCard.audioBase64, 
+                        await new Promise(resolve => setTimeout(resolve, 500));
+                        if (isMountedRef.current && !audioAbortRef.current) {
+                            await speakJapanese(currentCard.front, currentCard.audioBase64, 
                                 onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
                                     // Only save if component still mounted
                                     if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
@@ -669,13 +726,11 @@ const ReviewScreen = ({
                                         });
                                     }
                                 } : null
-                            ),
-                            new Promise(resolve => setTimeout(resolve, 600))
-                        ]);
+                            );
+                        }
+                        await new Promise(resolve => setTimeout(resolve, 300));
                     } catch (audioError) {
                         console.warn('⚠️ Audio playback error (continuing):', audioError.message);
-                        // Continue anyway, don't block review flow
-                        await new Promise(resolve => setTimeout(resolve, 600));
                     }
                     
                     if (isMountedRef.current) {
@@ -685,28 +740,29 @@ const ReviewScreen = ({
             } else {
                 setFailedCards(prev => new Set([...prev, cardKey]));
                 setFeedback('incorrect');
+                const correctAns = (inputMode === 'reading' || cardReviewType === 'dictation') ? displayFront : currentCard.back;
                 const nuanceText = currentCard.nuance ? ` (${currentCard.nuance})` : '';
-                setMessage(`Đáp án đúng: ${displayFront}${nuanceText}. Hãy làm lại!`);
+                setMessage(`Đáp án đúng: ${correctAns}${nuanceText}. Hãy làm lại!`);
                 setIsRevealed(true);
                 setIsLocked(true);
                 playIncorrectSound();
                 
-                // Speak with safe error handling
-                try {
-                    speakJapanese(currentCard.front, currentCard.audioBase64, 
-                        onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
-                            if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
-                                onSaveCardAudio(currentCard.id, b64, vid).catch(e => {
-                                    console.warn('⚠️ Failed to persist audio:', e.message);
-                                });
-                            }
-                        } : null
-                    ).catch(e => {
-                        console.warn('⚠️ Audio playback error:', e.message);
-                    });
-                } catch (audioError) {
-                    console.warn('⚠️ Audio error:', audioError.message);
-                }
+                // Speak with safe error handling, delayed by 500ms to avoid overlapping incorrect sound
+                setTimeout(() => {
+                    if (isMountedRef.current && !audioAbortRef.current) {
+                        speakJapanese(currentCard.front, currentCard.audioBase64, 
+                            onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
+                                if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
+                                    onSaveCardAudio(currentCard.id, b64, vid).catch(e => {
+                                        console.warn('⚠️ Failed to persist audio:', e.message);
+                                    });
+                                }
+                            } : null
+                        ).catch(e => {
+                            console.warn('⚠️ Audio playback error:', e.message);
+                        });
+                    }
+                }, 500);
 
                 setCards(prevCards => {
                     return prevCards.map(card => {
@@ -869,11 +925,12 @@ const ReviewScreen = ({
                             <span>{currentIndex + 1} / {cards.length}</span>
                             <div className="flex items-center gap-2">
                                 {failedCards.size > 0 && <span className="text-red-500">({failedCards.size} sai)</span>}
-                                <button onClick={() => setShowSettings(true)} className="p-1 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-700 transition-all" title="Cài đặt">
-                                    <Settings className="w-4 h-4" />
-                                </button>
-                            </div>
-                        </div>
+                                {cardReviewType !== 'example' && reviewMode !== 'dictation' && (
+                                    <button onClick={() => setShowSettings(true)} className="p-1 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-700 transition-all" title="Cài đặt">
+                                        <Settings className="w-4 h-4" />
+                                    </button>
+                                )}
+                            </div>                        </div>
                         <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                             <div className="h-full bg-indigo-500 progress-bar rounded-full" style={{ width: `${progress}%` }}></div>
                         </div>
@@ -983,7 +1040,7 @@ const ReviewScreen = ({
                                     <div className="flex items-center gap-2">
                                         <span className="text-orange-500 text-xl">🔥</span>
                                         <span className="text-white font-bold text-sm">
-                                            {cardReviewType === 'back' ? (inputMode === 'reading' ? 'Cách đọc' : 'Ý nghĩa') : cardReviewType === 'synonym' ? 'Đồng nghĩa' : cardReviewType === 'dictation' ? 'Nghe chép' : 'Ngữ cảnh'}
+                                            {reviewMode === 'meaning_input' ? (inputMode === 'reading' ? 'Nhập tiếng Nhật' : 'Nhập tiếng Việt') : (cardReviewType === 'back' ? (inputMode === 'reading' ? 'Cách đọc' : 'Ý nghĩa') : cardReviewType === 'synonym' ? 'Đồng nghĩa' : cardReviewType === 'dictation' ? 'Nghe chép' : 'Ngữ cảnh')}
                                         </span>
                                         {cardReviewType === 'example' && (
                                             <button
@@ -999,9 +1056,9 @@ const ReviewScreen = ({
                                             </button>
                                         )}
                                     </div>
-                                    {/* Only show toggle buttons for back mode */}
-                                    {cardReviewType === 'back' && !isMultipleChoice && (
-                                        <div className="flex gap-2">
+                                    {/* Only show toggle buttons for back mode and not meaning_input */}
+                                    {cardReviewType === 'back' && reviewMode !== 'meaning_input' && !isMultipleChoice && (
+                                        <div className="flex gap-1">
                                             <button
                                                 onClick={() => { setInputMode('reading'); setInputValue(''); setHintCount(0); }}
                                                 className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${inputMode === 'reading' ? 'bg-orange-500 text-white' : 'bg-slate-700 text-gray-300 hover:bg-slate-600'}`}
@@ -1232,13 +1289,18 @@ const ReviewScreen = ({
 
                                                         setIsRevealed(true);
                                                         if (isCorrect) {
-                                                            await Promise.all([
-                                                                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null),
-                                                                new Promise(resolve => setTimeout(resolve, 600))
-                                                            ]);
+                                                            await new Promise(resolve => setTimeout(resolve, 500));
+                                                            if (isMountedRef.current && !audioAbortRef.current) {
+                                                                await speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+                                                            }
+                                                            await new Promise(resolve => setTimeout(resolve, 300));
                                                             await moveToNextCard(true);
                                                         } else {
-                                                            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+                                                            setTimeout(() => {
+                                                                if (isMountedRef.current && !audioAbortRef.current) {
+                                                                    speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+                                                                }
+                                                            }, 500);
                                                             setIsProcessing(false);
                                                         }
                                                     } catch (error) {
@@ -1451,30 +1513,66 @@ const ReviewScreen = ({
                             </button>
                         </div>
 
-                        {/* Test format */}
-                        <div>
-                            <label className="text-sm font-bold text-gray-600 dark:text-gray-300 block mb-3">Hình thức kiểm tra ý nghĩa</label>
-                            <div className="grid grid-cols-2 gap-3">
-                                <button
-                                    onClick={() => { setReviewTestFormat('multipleChoice'); localStorage.setItem('review_test_format', 'multipleChoice'); }}
-                                    className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${reviewTestFormat === 'multipleChoice'
-                                        ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
-                                        : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
-                                        }`}
-                                >
-                                    📝 Trắc nghiệm
-                                </button>
-                                <button
-                                    onClick={() => { setReviewTestFormat('written'); localStorage.setItem('review_test_format', 'written'); }}
-                                    className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${reviewTestFormat === 'written'
-                                        ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
-                                        : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
-                                        }`}
-                                >
-                                    ✏️ Tự luận
-                                </button>
+                        {/* Test format / Language direction */}
+                        {reviewMode === 'meaning_input' ? (
+                            <div>
+                                <label className="text-sm font-bold text-gray-600 dark:text-gray-300 block mb-3">Ngôn ngữ câu trả lời</label>
+                                <div className="grid grid-cols-2 gap-3">
+                                    <button
+                                        onClick={() => {
+                                            setInputMode('meaning');
+                                            localStorage.setItem('meaning_input_lang', 'vi');
+                                            setInputValue('');
+                                            setHintCount(0);
+                                        }}
+                                        className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${inputMode === 'meaning'
+                                            ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
+                                            : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
+                                            }`}
+                                    >
+                                        🇻🇳 Tiếng Việt
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            setInputMode('reading');
+                                            localStorage.setItem('meaning_input_lang', 'ja');
+                                            setInputValue('');
+                                            setHintCount(0);
+                                        }}
+                                        className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${inputMode === 'reading'
+                                            ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
+                                            : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
+                                            }`}
+                                    >
+                                        🇯🇵 Tiếng Nhật
+                                    </button>
+                                </div>
                             </div>
-                        </div>
+                        ) : (
+                            <div>
+                                <label className="text-sm font-bold text-gray-600 dark:text-gray-300 block mb-3">Hình thức kiểm tra ý nghĩa</label>
+                                <div className="grid grid-cols-2 gap-3">
+                                    <button
+                                        onClick={() => { setReviewTestFormat('multipleChoice'); localStorage.setItem('review_test_format', 'multipleChoice'); }}
+                                        className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${reviewTestFormat === 'multipleChoice'
+                                            ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
+                                            : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
+                                            }`}
+                                    >
+                                        📝 Trắc nghiệm
+                                    </button>
+                                    <button
+                                        onClick={() => { setReviewTestFormat('written'); localStorage.setItem('review_test_format', 'written'); }}
+                                        className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${reviewTestFormat === 'written'
+                                            ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
+                                            : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
+                                            }`}
+                                    >
+                                        ✏️ Tự luận
+                                    </button>
+                                </div>
+                            </div>
+                        )}
 
                         {/* Close button */}
                         <button
@@ -1532,8 +1630,16 @@ export const ReviewCompleteScreen = ({ onBack, allCards }) => {
             setShowCycle(true);
         }, 1500);
 
-        return () => clearTimeout(timer);
-    }, []);
+        // Tự động thoát sau 3 giây (3000ms)
+        const exitTimer = setTimeout(() => {
+            onBack();
+        }, 3000);
+
+        return () => {
+            clearTimeout(timer);
+            clearTimeout(exitTimer);
+        };
+    }, [allCards, onBack]);
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm animate-fade-in">

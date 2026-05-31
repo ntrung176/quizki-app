@@ -1,14 +1,10 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import {
-    Target, Save, TrendingUp, Flame, BookOpen, Languages, Calendar, Clock,
-    BarChart3, Trophy, Crown, Medal, Star, Sparkles, Heart, Zap, Award,
-    ChevronUp, ChevronDown, Users
+    Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Award,
+    Search, SlidersHorizontal, ArrowUpDown, ChevronDown, ChevronUp, Users, Sparkles
 } from 'lucide-react';
-import { ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, AreaChart, Area } from 'recharts';
-import { collection, query, onSnapshot, getDocs } from 'firebase/firestore';
+import { collection, query, onSnapshot } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
-import { JLPT_LEVELS } from '../../config/constants';
-import { PetCompanion, PET_STAGES, getPetStage } from '../ui/PetCompanion';
 
 // Avatar emoji lookup
 const AVATAR_EMOJIS = {
@@ -31,38 +27,45 @@ const getAvatarDisplayNode = (avatarValue, textFallback = 'U') => {
     return <span>{(textFallback || 'U')[0].toUpperCase()}</span>;
 };
 
-// ==================== MAIN STATS SCREEN ====================
-const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivityLogs, onUpdateGoal, onBack, userId, publicStatsPath, initialTab }) => {
-    const { shortTerm, midTerm, longTerm, new: newCards } = memoryStats;
-    const [activeTab, setActiveTab] = useState(initialTab || 'stats');
-    const [vocabGoal, setVocabGoal] = useState(profile.dailyGoal || 10);
-    const [kanjiGoal, setKanjiGoal] = useState(profile.dailyKanjiGoal || 10);
-    const [kanjiSrsStats, setKanjiSrsStats] = useState({ total: 0, learning: 0, mastered: 0, dueToday: 0 });
-    const [leaderboardTab, setLeaderboardTab] = useState('weekly'); // 'weekly' | 'alltime'
-    const [leaderboardData, setLeaderboardData] = useState([]);
-    const [kanjiSrsCards, setKanjiSrsCards] = useState([]);
+// Helper định dạng thời gian hoạt động cuối
+const formatLastActive = (lastUpdated) => {
+    if (!lastUpdated) return 'Không rõ';
+    const date = lastUpdated.toDate ? lastUpdated.toDate() : new Date(lastUpdated);
+    const diffMs = Date.now() - date.getTime();
+    const diffMins = Math.floor(diffMs / 60000);
+    if (diffMins < 60) return `${Math.max(1, diffMins)} phút trước`;
+    const diffHours = Math.floor(diffMins / 60);
+    if (diffHours < 24) return `${diffHours} giờ trước`;
+    const diffDays = Math.floor(diffHours / 24);
+    if (diffDays === 0) return 'Hôm nay';
+    if (diffDays === 1) return 'Hôm qua';
+    return `${diffDays} ngày trước`;
+};
 
-    // Sync tab when navigating via URL
-    useEffect(() => { if (initialTab) setActiveTab(initialTab); }, [initialTab]);
+// ==================== MAIN HONOR ROLL / LEADERBOARD SCREEN ====================
+const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId, publicStatsPath }) => {
+    const [kanjiSrsStats, setKanjiSrsStats] = useState({ total: 0, learning: 0, mastered: 0, dueToday: 0 });
+    const [leaderboardData, setLeaderboardData] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [sortBy, setSortBy] = useState('score'); // 'score' | 'vocab' | 'kanji' | 'streak'
+    const [displayCount, setDisplayCount] = useState(15);
+    const [expandedUser, setExpandedUser] = useState(null);
 
     // Fetch kanji SRS stats
     useEffect(() => {
         if (!userId || !db) return;
         const q = query(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
         const unsub = onSnapshot(q, (snap) => {
-            const now = Date.now();
             let total = 0, learning = 0, mastered = 0, dueToday = 0;
-            const cards = [];
+            const now = Date.now();
             snap.docs.forEach(d => {
                 total++;
                 const data = d.data();
-                cards.push(data);
                 if (data.reps >= 5) mastered++;
                 else learning++;
                 if (data.nextReview && data.nextReview <= now) dueToday++;
             });
             setKanjiSrsStats({ total, learning, mastered, dueToday });
-            setKanjiSrsCards(cards);
         }, () => { });
         return () => unsub();
     }, [userId]);
@@ -105,725 +108,566 @@ const StatsScreen = ({ memoryStats, totalCards, profile, allCards, dailyActivity
         return currentStreak;
     }, [dailyActivityLogs]);
 
-    // ==================== STATS ====================
-    const allTimeStats = useMemo(() => {
-        const totalReviews = (dailyActivityLogs || []).reduce((s, l) => s + (l.reviewsDone || 0), 0);
-        const activeDays = (dailyActivityLogs || []).filter(l => (l.newWordsAdded || 0) > 0 || (l.reviewsDone || 0) > 0).length;
-        return { totalReviews, activeDays };
-    }, [dailyActivityLogs]);
-
-    const weeklyStats = useMemo(() => {
-        const today = new Date();
-        const dayOfWeek = today.getDay() === 0 ? 6 : today.getDay() - 1; // Mon=0, Sun=6
-        const weekStart = new Date(today);
-        weekStart.setDate(today.getDate() - dayOfWeek);
-        weekStart.setHours(0, 0, 0, 0);
-
-        const vocabAdded = allCards.filter(c => c.createdAt >= weekStart).length;
-        const weekLogs = (dailyActivityLogs || []).filter(l => l.id >= weekStart.toISOString().split('T')[0]);
-        const totalReviews = weekLogs.reduce((s, l) => s + (l.reviewsDone || 0), 0);
-        const activeDays = weekLogs.filter(l => (l.newWordsAdded || 0) > 0 || (l.reviewsDone || 0) > 0).length;
-
-        return { vocabAdded, totalReviews, activeDays };
-    }, [allCards, dailyActivityLogs]);
-
-    // Today's stats for goal tracking
-    const todayStats = useMemo(() => {
-        const todayStr = new Date().toISOString().split('T')[0];
-        const todayLog = (dailyActivityLogs || []).find(l => l.id === todayStr);
-        return {
-            vocabAdded: todayLog?.newWordsAdded || 0,
-            reviewsDone: todayLog?.reviewsDone || 0,
-        };
-    }, [dailyActivityLogs]);
-
-    // ==================== DAILY ACTIVITY CHART ====================
-    const dailyChartData = useMemo(() => {
-        const days = [];
-        for (let i = 13; i >= 0; i--) {
-            const d = new Date();
-            d.setDate(d.getDate() - i);
-            const dateStr = d.toISOString().split('T')[0];
-            const log = dailyActivityLogs?.find(l => l.id === dateStr);
-            days.push({
-                date: `${d.getDate()}/${d.getMonth() + 1}`,
-                words: log?.newWordsAdded || 0,
-                reviews: log?.reviewsDone || 0,
-            });
-        }
-        return days;
-    }, [dailyActivityLogs]);
-
-    // ==================== SRS BREAKDOWN ====================
-    const srsBreakdown = useMemo(() => {
-        if (!allCards || allCards.length === 0) return [];
-        const today = new Date(); today.setHours(0, 0, 0, 0);
-        const dueNow = allCards.filter(c => c.nextReview_back && c.nextReview_back <= today).length;
-        const notDue = allCards.filter(c => c.nextReview_back && c.nextReview_back > today).length;
-        const noSrs = allCards.filter(c => c.intervalIndex_back === -1 || c.intervalIndex_back === undefined).length;
-        return [
-            { name: 'Cần ôn', value: dueNow, fill: '#ef4444' },
-            { name: 'Chưa đến hạn', value: notDue, fill: '#10b981' },
-            { name: 'Chưa học', value: noSrs, fill: '#94a3b8' },
-        ].filter(e => e.value > 0);
-    }, [allCards]);
-
-    const jlptVocabData = useMemo(() => {
-        return JLPT_LEVELS.map((level, i) => ({
-            name: level.label,
-            vocab: allCards.filter(c => c.level === level.value).length,
-            kanji: kanjiSrsCards.filter(c => c.level === level.value).length,
-            vocabTarget: level.target,
-            kanjiTarget: level.kanjiTarget || 0,
-            fill: ['#10b981', '#0d9488', '#0ea5e9', '#8b5cf6', '#f43f5e'][i]
-        }));
-    }, [allCards, kanjiSrsCards]);
-
     const vocabMastery = useMemo(() => {
-        const today = new Date(); today.setHours(0, 0, 0, 0);
         const mastered = allCards.filter(c => c.intervalIndex_back >= 4).length;
-        const learning = allCards.filter(c => c.intervalIndex_back >= 0 && c.intervalIndex_back < 4).length;
-        const dueToday = allCards.filter(c => c.nextReview_back && c.nextReview_back <= today).length;
-        const unlearned = allCards.filter(c => c.intervalIndex_back === -1 || c.intervalIndex_back === undefined).length;
-        return { mastered, learning, dueToday, unlearned, total: allCards.length };
+        return { mastered };
     }, [allCards]);
 
-    // ==================== PET SYSTEM ====================
-    const petXP = useMemo(() => {
-        const vocabXP = allCards.length * 2;
-        const kanjiXP = kanjiSrsStats.total * 3;
-        const streakXP = streak * 10;
-        const masteredXP = vocabMastery.mastered * 5 + kanjiSrsStats.mastered * 8;
-        return vocabXP + kanjiXP + streakXP + masteredXP;
-    }, [allCards.length, kanjiSrsStats, streak, vocabMastery]);
-
-    const petLevel = useMemo(() => Math.floor(Math.sqrt(petXP / 20)), [petXP]);
-    const petStage = useMemo(() => getPetStage(petLevel), [petLevel]);
-    const xpForCurrentLevel = petLevel * petLevel * 20;
-    const xpForNextLevel = (petLevel + 1) * (petLevel + 1) * 20;
-    const xpProgress = petXP - xpForCurrentLevel;
-    const xpNeeded = xpForNextLevel - xpForCurrentLevel;
-    const xpPercent = Math.min(100, Math.round((xpProgress / xpNeeded) * 100));
-
-    // ==================== LEADERBOARD ====================
-    // Hàm tính điểm từ dữ liệu user (cho người dùng cũ chưa có score)
+    // ==================== LEADERBOARD SCORE CALCULATION ====================
     const computeScore = useCallback((user) => {
         if (user.score !== undefined && user.score !== null) return user.score;
-        // Fallback: tính từ các trường có sẵn
+        // Fallback locally
+        const added7 = user.addedLast7Days !== undefined ? user.addedLast7Days : Math.min(user.totalCards || 0, 5);
+        const reviews7 = user.reviewsLast7Days !== undefined ? user.reviewsLast7Days : Math.min(user.totalReviews || 0, 20);
+        const activeDays7 = user.activeDaysLast7Days !== undefined ? user.activeDaysLast7Days : Math.min(user.activeDays || 0, 2);
         return Math.round(
-            ((user.totalCards || 0) * 1) +
-            ((user.kanjiTotal || 0) * 2) +
-            ((user.mastered || 0) * 3) +
-            ((user.kanjiMastered || 0) * 5) +
-            ((user.totalReviews || 0) * 0.5) +
-            ((user.activeDays || 0) * 5) +
-            ((user.streak || 0) * 3)
+            (added7 * 15) +
+            (reviews7 * 2) +
+            (activeDays7 * 50) +
+            ((user.streak || 0) * 20)
         );
     }, []);
 
-    const sortedLeaderboard = useMemo(() => {
-        const sorted = [...leaderboardData].sort((a, b) => {
-            const aScore = computeScore(a);
-            const bScore = computeScore(b);
-            return bScore - aScore;
+    // Current user's calculated score
+    const myScore = useMemo(() => {
+        const me = leaderboardData.find(u => u.id === userId);
+        if (me) return computeScore(me);
+
+        // Fallback to local log-based calculation
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const last7DaysLogs = (dailyActivityLogs || []).filter(log => {
+            try {
+                const logDate = new Date(log.id);
+                logDate.setHours(0, 0, 0, 0);
+                const diffTime = today.getTime() - logDate.getTime();
+                const diffDays = diffTime / (1000 * 60 * 60 * 24);
+                return diffDays >= 0 && diffDays < 7;
+            } catch (e) {
+                return false;
+            }
         });
-        return sorted;
-    }, [leaderboardData, leaderboardTab, computeScore]);
 
-    const handleSaveGoal = useCallback(() => {
-        onUpdateGoal({ vocabGoal: Number(vocabGoal), kanjiGoal: Number(kanjiGoal) });
-    }, [vocabGoal, kanjiGoal, onUpdateGoal]);
+        const addedLast7Days = last7DaysLogs.reduce((s, l) => s + (l.newWordsAdded || 0), 0);
+        const reviewsLast7Days = last7DaysLogs.reduce((s, l) => s + (l.reviewsDone || 0), 0);
+        const activeDaysLast7Days = last7DaysLogs.filter(l => (l.newWordsAdded || 0) > 0 || (l.reviewsDone || 0) > 0).length;
 
-    // ==================== ACTIVITY HEATMAP (28 DAYS) ====================
-    const heatmapData = useMemo(() => {
-        const days = [];
-        for (let i = 27; i >= 0; i--) {
-            const d = new Date();
-            d.setDate(d.getDate() - i);
-            const dateStr = d.toISOString().split('T')[0];
-            const log = dailyActivityLogs?.find(l => l.id === dateStr);
-            const activity = (log?.newWordsAdded || 0) + (log?.reviewsDone || 0);
-            days.push({ date: dateStr, day: d.getDate(), weekday: d.getDay(), activity });
+        return Math.round(
+            (addedLast7Days * 15) +
+            (reviewsLast7Days * 2) +
+            (activeDaysLast7Days * 50) +
+            (streak * 20)
+        );
+    }, [leaderboardData, userId, dailyActivityLogs, streak, computeScore]);
+
+    // Sort & search leaderboard data
+    const sortedLeaderboard = useMemo(() => {
+        let list = leaderboardData.map(u => ({
+            ...u,
+            computedScore: computeScore(u)
+        }));
+
+        // Lọc bỏ những người không hoạt động quá 7 ngày
+        const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+        list = list.filter(u => {
+            if (!u.lastUpdated) return false;
+            const lastActiveDate = u.lastUpdated.toDate ? u.lastUpdated.toDate() : new Date(u.lastUpdated);
+            return lastActiveDate.getTime() >= sevenDaysAgo;
+        });
+
+        // Filter by search term
+        if (searchTerm.trim()) {
+            const term = searchTerm.toLowerCase();
+            list = list.filter(u => (u.displayName || '').toLowerCase().includes(term));
         }
-        return days;
-    }, [dailyActivityLogs]);
 
-    const getHeatmapColor = (activity) => {
-        if (activity === 0) return 'bg-gray-100 dark:bg-gray-700';
-        if (activity <= 3) return 'bg-emerald-200 dark:bg-emerald-800';
-        if (activity <= 10) return 'bg-emerald-400 dark:bg-emerald-600';
-        if (activity <= 25) return 'bg-emerald-500 dark:bg-emerald-500';
-        return 'bg-emerald-600 dark:bg-emerald-400';
+        // Sort dynamically based on user selection
+        list.sort((a, b) => {
+            if (sortBy === 'vocab') {
+                return (b.totalCards || 0) - (a.totalCards || 0);
+            }
+            if (sortBy === 'kanji') {
+                return (b.kanjiTotal || 0) - (a.kanjiTotal || 0);
+            }
+            if (sortBy === 'streak') {
+                return (b.streak || 0) - (a.streak || 0);
+            }
+            return b.computedScore - a.computedScore; // default: score
+        });
+
+        return list;
+    }, [leaderboardData, searchTerm, sortBy, computeScore]);
+
+    // Find current user's rank
+    const myRankInfo = useMemo(() => {
+        const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+        const activeUsers = leaderboardData.filter(u => {
+            if (!u.lastUpdated) return false;
+            const lastActiveDate = u.lastUpdated.toDate ? u.lastUpdated.toDate() : new Date(u.lastUpdated);
+            return lastActiveDate.getTime() >= sevenDaysAgo;
+        });
+
+        const fullSorted = activeUsers
+            .map(u => ({ ...u, computedScore: computeScore(u) }))
+            .sort((a, b) => {
+                if (sortBy === 'vocab') return (b.totalCards || 0) - (a.totalCards || 0);
+                if (sortBy === 'kanji') return (b.kanjiTotal || 0) - (a.kanjiTotal || 0);
+                if (sortBy === 'streak') return (b.streak || 0) - (a.streak || 0);
+                return b.computedScore - a.computedScore;
+            });
+        
+        const index = fullSorted.findIndex(u => u.id === userId);
+        return {
+            rank: index !== -1 ? index + 1 : fullSorted.length + 1,
+            total: fullSorted.length
+        };
+    }, [leaderboardData, userId, sortBy, computeScore]);
+
+    // Top 3 Podium
+    const podiumList = useMemo(() => {
+        if (searchTerm.trim()) return [];
+        return sortedLeaderboard.slice(0, 3);
+    }, [sortedLeaderboard, searchTerm]);
+
+    // Remaining list
+    const remainingList = useMemo(() => {
+        if (searchTerm.trim()) return sortedLeaderboard;
+        return sortedLeaderboard.slice(3);
+    }, [sortedLeaderboard, searchTerm]);
+
+    const handleToggleExpandUser = (id) => {
+        setExpandedUser(prev => prev === id ? null : id);
     };
 
-    // ==================== PIE CHART DATA ====================
-    const pieData = [
-        { name: 'Mới', value: newCards, fill: '#94a3b8' },
-        { name: 'Ngắn hạn', value: shortTerm, fill: '#f59e0b' },
-        { name: 'Trung hạn', value: midTerm, fill: '#10b981' },
-        { name: 'Dài hạn', value: longTerm, fill: '#22c55e' },
-    ].filter(e => e.value > 0);
+    const renderUserRow = (user, index, rank) => {
+        const isMe = user.id === userId;
+        const isExpanded = expandedUser === user.id;
 
-    // ==================== TAB NAVIGATION ====================
-    const tabs = [
-        { id: 'stats', label: 'Thống kê', icon: BarChart3 },
-        { id: 'leaderboard', label: 'Xếp hạng', icon: Trophy },
-        { id: 'pet', label: 'Thú cưng', icon: Heart },
-    ];
+        const rankBg = rank === 1 ? 'bg-gradient-to-r from-yellow-50/50 to-amber-50/20 dark:from-yellow-950/10 dark:to-transparent'
+            : rank === 2 ? 'bg-gradient-to-r from-gray-50/50 to-slate-50/20 dark:from-gray-800/10 dark:to-transparent'
+                : rank === 3 ? 'bg-gradient-to-r from-orange-50/50 to-amber-50/10 dark:from-orange-950/10 dark:to-transparent'
+                    : '';
+        
+        const rankIcon = rank === 1 ? <Crown className="w-5 h-5 text-yellow-500 fill-yellow-100 dark:fill-yellow-900/30" />
+            : rank === 2 ? <Medal className="w-5 h-5 text-slate-400 fill-slate-100 dark:fill-slate-800" />
+                : rank === 3 ? <Medal className="w-5 h-5 text-amber-600 fill-amber-100 dark:fill-amber-900/30" />
+                    : <span className="text-xs font-bold text-gray-400 dark:text-gray-500 w-5 text-center">{rank}</span>;
 
-    return (
-        <div className="space-y-4 md:space-y-6 max-w-4xl mx-auto">
-            {/* Tab Navigation */}
-            <div className="flex bg-white dark:bg-gray-800 rounded-2xl p-1.5 border border-gray-200 dark:border-gray-700 shadow-sm">
-                {tabs.map(tab => {
-                    const Icon = tab.icon;
-                    return (
-                        <button
-                            key={tab.id}
-                            onClick={() => setActiveTab(tab.id)}
-                            className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-bold transition-all ${activeTab === tab.id
-                                ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/25'
-                                : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/50'
-                                }`}
-                        >
-                            <Icon className="w-4 h-4" />
-                            <span className="hidden sm:inline">{tab.label}</span>
-                        </button>
-                    );
-                })}
-            </div>
+        const scoreToShow = sortBy === 'vocab' ? `${user.totalCards || 0} từ`
+            : sortBy === 'kanji' ? `${user.kanjiTotal || 0} kanji`
+                : sortBy === 'streak' ? `${user.streak || 0} ngày`
+                    : `${user.computedScore} điểm`;
 
-            {/* ==================== TAB: STATISTICS ==================== */}
-            {activeTab === 'stats' && (
-                <div className="space-y-4">
-                    {/* Goals Section */}
-                    <div className="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-5 rounded-2xl text-white shadow-xl relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -mr-16 -mt-16" />
-                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full -ml-8 -mb-8" />
-                        <div className="relative">
-                            <h3 className="text-base font-bold flex items-center gap-2 mb-4">
-                                <Target className="w-5 h-5" /> Mục tiêu hàng ngày
-                            </h3>
-                            <div className="grid grid-cols-2 gap-4">
-                                {/* Vocab Goal */}
-                                <div className="space-y-2">
-                                    <div className="flex items-center gap-2">
-                                        <BookOpen className="w-4 h-4 text-indigo-200" />
-                                        <span className="text-xs text-indigo-100">Từ vựng</span>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <input type="number" min={1} max={100} value={vocabGoal}
-                                            onChange={e => setVocabGoal(e.target.value)}
-                                            className="w-16 px-2 py-1 rounded-lg text-lg font-bold text-indigo-700 bg-white/90 text-center"
-                                        />
-                                        <span className="text-xs opacity-80">từ/ngày</span>
-                                    </div>
-                                    <div className="h-2 bg-white/20 rounded-full overflow-hidden">
-                                        <div className="h-full bg-white/80 rounded-full transition-all"
-                                            style={{ width: `${Math.min(100, (todayStats.vocabAdded / (vocabGoal || 1)) * 100)}%` }} />
-                                    </div>
-                                    <p className="text-[10px] opacity-70">{todayStats.vocabAdded}/{vocabGoal} hôm nay</p>
-                                </div>
-                                {/* Kanji Goal */}
-                                <div className="space-y-2">
-                                    <div className="flex items-center gap-2">
-                                        <Languages className="w-4 h-4 text-pink-200" />
-                                        <span className="text-xs text-pink-100">Kanji</span>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <input type="number" min={1} max={100} value={kanjiGoal}
-                                            onChange={e => setKanjiGoal(e.target.value)}
-                                            className="w-16 px-2 py-1 rounded-lg text-lg font-bold text-pink-700 bg-white/90 text-center"
-                                        />
-                                        <span className="text-xs opacity-80">kanji/ngày</span>
-                                    </div>
-                                    <div className="h-2 bg-white/20 rounded-full overflow-hidden">
-                                        <div className="h-full bg-white/80 rounded-full transition-all"
-                                            style={{ width: `${Math.min(100, (kanjiSrsStats.dueToday > 0 ? 50 : 0))}%` }} />
-                                    </div>
-                                    <p className="text-[10px] opacity-70">Cần ôn: {kanjiSrsStats.dueToday}</p>
-                                </div>
-                            </div>
-                            <button onClick={handleSaveGoal}
-                                className="mt-3 inline-flex items-center px-4 py-1.5 text-xs font-bold rounded-lg bg-white/15 hover:bg-white/25 transition-colors border border-white/20">
-                                <Save className="w-3 h-3 mr-1.5" /> Lưu mục tiêu
-                            </button>
-                        </div>
+        const scoreIcon = sortBy === 'vocab' ? <BookOpen className="w-3.5 h-3.5 text-indigo-500" />
+            : sortBy === 'kanji' ? <Languages className="w-3.5 h-3.5 text-emerald-500" />
+                : sortBy === 'streak' ? <Flame className="w-3.5 h-3.5 text-orange-500 fill-orange-400" />
+                    : <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-400" />;
+
+        return (
+            <div 
+                key={user.id} 
+                className={`transition-all duration-300 ${rankBg} ${isMe ? 'ring-2 ring-indigo-400 ring-inset dark:ring-indigo-500' : ''}`}
+            >
+                {/* Main Row Content */}
+                <div 
+                    onClick={() => handleToggleExpandUser(user.id)}
+                    className="flex items-center gap-3 p-3.5 cursor-pointer hover:bg-gray-50/50 dark:hover:bg-gray-700/20 transition-all"
+                >
+                    <div className="flex-shrink-0 w-6 flex justify-center">{rankIcon}</div>
+                    
+                    <div className={`w-9 h-9 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-gray-700 ${isCustomPhoto(user.avatar) ? '' : 'bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40 text-lg font-bold'}`}>
+                        {getAvatarDisplayNode(user.avatar, user.displayName || 'U')}
                     </div>
-
-                    {/* Quick Stats Row */}
-                    <div className="grid grid-cols-4 gap-2">
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-100 dark:border-gray-700 text-center">
-                            <div className="text-2xl font-bold text-indigo-500">{totalCards}</div>
-                            <div className="text-[10px] text-gray-500 dark:text-gray-400">Tổng từ vựng</div>
-                        </div>
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-100 dark:border-gray-700 text-center">
-                            <div className="text-2xl font-bold text-emerald-500">{kanjiSrsStats.total}</div>
-                            <div className="text-[10px] text-gray-500 dark:text-gray-400">Tổng Kanji</div>
-                        </div>
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-100 dark:border-gray-700 text-center">
-                            <div className="text-2xl font-bold text-orange-500 flex items-center justify-center gap-1">
-                                <Flame className="w-4 h-4" />{streak}
-                            </div>
-                            <div className="text-[10px] text-gray-500 dark:text-gray-400">Chuỗi ngày</div>
-                        </div>
-                        <div className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-100 dark:border-gray-700 text-center">
-                            <div className="text-2xl font-bold text-sky-500">{weeklyStats.vocabAdded}</div>
-                            <div className="text-[10px] text-gray-500 dark:text-gray-400">Tuần này</div>
-                        </div>
-                    </div>
-
-                    {/* Vocab & Kanji SRS Side by Side */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        {/* Vocabulary */}
-                        <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
-                            <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-3 flex items-center gap-2">
-                                <BookOpen className="w-4 h-4 text-sky-500" /> Hệ thống ôn tập từ vựng
-                            </h3>
-                            <div className="grid grid-cols-2 gap-2 mb-3">
-                                <div className="text-center p-2 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
-                                    <div className="text-xl font-bold text-emerald-600">{vocabMastery.mastered}</div>
-                                    <div className="text-[10px] text-gray-500">Thành thạo</div>
-                                </div>
-                                <div className="text-center p-2 bg-red-50 dark:bg-red-900/20 rounded-lg">
-                                    <div className="text-xl font-bold text-red-500">{vocabMastery.dueToday}</div>
-                                    <div className="text-[10px] text-gray-500">Cần ôn</div>
-                                </div>
-                                <div className="text-center p-2 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
-                                    <div className="text-xl font-bold text-amber-600">{vocabMastery.learning}</div>
-                                    <div className="text-[10px] text-gray-500">Đang học</div>
-                                </div>
-                                <div className="text-center p-2 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg">
-                                    <div className="text-xl font-bold text-cyan-600">{vocabMastery.total}</div>
-                                    <div className="text-[10px] text-gray-500">Tổng cộng</div>
-                                </div>
-                            </div>
-                            <div className="h-2.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden flex">
-                                <div className="h-full bg-emerald-500" style={{ width: `${totalCards > 0 ? (vocabMastery.mastered / totalCards * 100) : 0}%` }} />
-                                <div className="h-full bg-amber-400" style={{ width: `${totalCards > 0 ? (vocabMastery.learning / totalCards * 100) : 0}%` }} />
-                            </div>
-                        </div>
-
-                        {/* Kanji SRS */}
-                        <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
-                            <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-3 flex items-center gap-2">
-                                <Languages className="w-4 h-4 text-emerald-500" /> Hệ thống ôn tập Kanji
-                            </h3>
-                            <div className="grid grid-cols-2 gap-2 mb-3">
-                                <div className="text-center p-2 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
-                                    <div className="text-xl font-bold text-emerald-600">{kanjiSrsStats.mastered}</div>
-                                    <div className="text-[10px] text-gray-500">Thành thạo</div>
-                                </div>
-                                <div className="text-center p-2 bg-red-50 dark:bg-red-900/20 rounded-lg">
-                                    <div className="text-xl font-bold text-red-500">{kanjiSrsStats.dueToday}</div>
-                                    <div className="text-[10px] text-gray-500">Cần ôn</div>
-                                </div>
-                                <div className="text-center p-2 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
-                                    <div className="text-xl font-bold text-amber-600">{kanjiSrsStats.learning}</div>
-                                    <div className="text-[10px] text-gray-500">Đang học</div>
-                                </div>
-                                <div className="text-center p-2 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg">
-                                    <div className="text-xl font-bold text-cyan-600">{kanjiSrsStats.total}</div>
-                                    <div className="text-[10px] text-gray-500">Tổng cộng</div>
-                                </div>
-                            </div>
-                            <div className="h-2.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden flex">
-                                <div className="h-full bg-cyan-500" style={{ width: `${kanjiSrsStats.total > 0 ? (kanjiSrsStats.mastered / kanjiSrsStats.total * 100) : 0}%` }} />
-                                <div className="h-full bg-amber-400" style={{ width: `${kanjiSrsStats.total > 0 ? (kanjiSrsStats.learning / kanjiSrsStats.total * 100) : 0}%` }} />
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* JLPT Level Chart — Vocab + Kanji combined */}
-                    <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
-                        <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-3 flex items-center gap-2">
-                            <Award className="w-4 h-4 text-purple-500" /> Tiến độ theo cấp độ JLPT
-                        </h3>
-                        <div style={{ width: '100%', height: 200 }}>
-                            <ResponsiveContainer width="100%" height="100%" minWidth={0}>
-                                <BarChart data={jlptVocabData} margin={{ top: 5, right: 10, left: -10, bottom: 5 }}>
-                                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb30" />
-                                    <XAxis dataKey="name" tick={{ fontSize: 11, fontWeight: 'bold' }} />
-                                    <YAxis tick={{ fontSize: 10 }} allowDecimals={false} />
-                                    <Tooltip
-                                        contentStyle={{ fontSize: 12, borderRadius: 8, border: '1px solid #e5e7eb' }}
-                                        content={({ active, payload }) => {
-                                            if (active && payload && payload.length) {
-                                                const d = payload[0].payload;
-                                                return (
-                                                    <div className="bg-white dark:bg-gray-800 p-2 border border-gray-200 dark:border-gray-700 shadow-lg rounded-lg text-xs">
-                                                        <p className="font-bold mb-1">{d.name}</p>
-                                                        <p>Từ vựng: {d.vocab}/{d.vocabTarget} ({Math.round(d.vocab / d.vocabTarget * 100)}%)</p>
-                                                        <p>Kanji: {d.kanji}/{d.kanjiTarget} ({d.kanjiTarget > 0 ? Math.round(d.kanji / d.kanjiTarget * 100) : 0}%)</p>
-                                                    </div>
-                                                );
-                                            }
-                                            return null;
-                                        }}
-                                    />
-                                    <Bar dataKey="vocab" fill="#6366f1" radius={[4, 4, 0, 0]} name="vocab" barSize={20} />
-                                    <Bar dataKey="kanji" fill="#10b981" radius={[4, 4, 0, 0]} name="kanji" barSize={20} />
-                                </BarChart>
-                            </ResponsiveContainer>
-                        </div>
-                        <div className="flex justify-center gap-4 mt-1 text-[10px] text-gray-500">
-                            <span className="flex items-center gap-1"><span className="w-2 h-2 bg-indigo-500 rounded-full inline-block" />Từ vựng</span>
-                            <span className="flex items-center gap-1"><span className="w-2 h-2 bg-emerald-500 rounded-full inline-block" />Kanji</span>
-                        </div>
-                        {/* JLPT Target Reference */}
-                        <div className="mt-3 grid grid-cols-5 gap-1 text-center">
-                            {jlptVocabData.map((d, i) => (
-                                <div key={i} className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-1.5">
-                                    <p className="text-[10px] font-bold text-gray-600 dark:text-gray-300">{d.name}</p>
-                                    <p className="text-[9px] text-indigo-500">{d.vocab}/{d.vocabTarget} từ</p>
-                                    <p className="text-[9px] text-emerald-500">{d.kanji}/{d.kanjiTarget} kanji</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Activity Chart */}
-                    <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
-                        <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-3 flex items-center gap-2">
-                            <Calendar className="w-4 h-4 text-indigo-500" /> Hoạt động 14 ngày gần đây
-                        </h3>
-                        <div style={{ width: '100%', height: 180 }}>
-                            <ResponsiveContainer width="100%" height="100%" minWidth={0}>
-                                <AreaChart data={dailyChartData} margin={{ top: 5, right: 5, left: -20, bottom: 0 }}>
-                                    <defs>
-                                        <linearGradient id="colorWords" x1="0" y1="0" x2="0" y2="1">
-                                            <stop offset="5%" stopColor="#6366f1" stopOpacity={0.3} />
-                                            <stop offset="95%" stopColor="#6366f1" stopOpacity={0} />
-                                        </linearGradient>
-                                        <linearGradient id="colorReviews" x1="0" y1="0" x2="0" y2="1">
-                                            <stop offset="5%" stopColor="#10b981" stopOpacity={0.3} />
-                                            <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
-                                        </linearGradient>
-                                    </defs>
-                                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb40" />
-                                    <XAxis dataKey="date" tick={{ fontSize: 10, fill: '#9ca3af' }} tickLine={false} axisLine={false} />
-                                    <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} tickLine={false} axisLine={false} allowDecimals={false} />
-                                    <Tooltip
-                                        contentStyle={{ fontSize: 12, borderRadius: 8, border: '1px solid #e5e7eb', backgroundColor: '#fff' }}
-                                        formatter={(value, name) => [value, name === 'words' ? 'Từ mới' : 'Ôn tập']}
-                                        labelFormatter={(l) => `Ngày ${l}`}
-                                    />
-                                    <Area type="monotone" dataKey="words" stroke="#6366f1" fill="url(#colorWords)" strokeWidth={2} name="words" />
-                                    <Area type="monotone" dataKey="reviews" stroke="#10b981" fill="url(#colorReviews)" strokeWidth={2} name="reviews" />
-                                </AreaChart>
-                            </ResponsiveContainer>
-                        </div>
-                        <div className="flex justify-center gap-4 mt-1 text-[10px] text-gray-500">
-                            <span className="flex items-center gap-1"><span className="w-2 h-2 bg-indigo-500 rounded-full inline-block" />Từ mới</span>
-                            <span className="flex items-center gap-1"><span className="w-2 h-2 bg-emerald-500 rounded-full inline-block" />Ôn tập</span>
-                        </div>
-                    </div>
-
-                    {/* Activity Heatmap */}
-                    <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
-                        <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-3 flex items-center gap-2">
-                            <Flame className="w-4 h-4 text-orange-500" /> Biểu đồ hoạt động (28 ngày)
-                        </h3>
-                        <div className="grid grid-cols-7 gap-1">
-                            {['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'].map(d => (
-                                <div key={d} className="text-center text-[9px] text-gray-400 font-medium mb-0.5">{d}</div>
-                            ))}
-                            {heatmapData.map((d, i) => (
-                                <div key={i}
-                                    className={`aspect-square rounded-sm ${getHeatmapColor(d.activity)} transition-colors cursor-default`}
-                                    title={`${d.date}: ${d.activity} hoạt động`}
-                                />
-                            ))}
-                        </div>
-                        <div className="flex items-center gap-1 mt-2 justify-end text-[9px] text-gray-400">
-                            <span>Ít</span>
-                            <div className="w-3 h-3 rounded-sm bg-gray-100 dark:bg-gray-700" />
-                            <div className="w-3 h-3 rounded-sm bg-emerald-200 dark:bg-emerald-800" />
-                            <div className="w-3 h-3 rounded-sm bg-emerald-400 dark:bg-emerald-600" />
-                            <div className="w-3 h-3 rounded-sm bg-emerald-500 dark:bg-emerald-500" />
-                            <div className="w-3 h-3 rounded-sm bg-emerald-600 dark:bg-emerald-400" />
-                            <span>Nhiều</span>
-                        </div>
-                    </div>
-
-                    {/* Memory Pie Chart + SRS Breakdown */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
-                            <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-2">Ghi nhớ Từ vựng</h3>
-                            {pieData.length > 0 ? (
-                                <div style={{ width: '100%', height: 220 }}>
-                                    <ResponsiveContainer width="100%" height="100%" minWidth={0}>
-                                        <PieChart>
-                                            <Pie data={pieData} cx="50%" cy="45%" innerRadius={50} outerRadius={75} paddingAngle={5} dataKey="value">
-                                                {pieData.map((entry, index) => (
-                                                    <Cell key={`cell-${index}`} fill={entry.fill} />
-                                                ))}
-                                            </Pie>
-                                            <Tooltip />
-                                            <Legend verticalAlign="bottom" wrapperStyle={{ fontSize: '11px' }} iconSize={10} />
-                                        </PieChart>
-                                    </ResponsiveContainer>
-                                </div>
-                            ) : (
-                                <div className="h-[220px] flex items-center justify-center text-gray-400 text-sm">Chưa có dữ liệu</div>
+                    
+                    <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-1.5">
+                            <p className={`text-sm font-bold truncate ${isMe ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-700 dark:text-gray-200'}`}>
+                                {user.displayName || 'Ẩn danh'}
+                            </p>
+                            {isMe && (
+                                <span className="bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 text-[9px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider">
+                                    Bạn
+                                </span>
                             )}
                         </div>
-
-                        {/* SRS Status */}
-                        <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
-                            <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-3 flex items-center gap-2">
-                                <Clock className="w-4 h-4 text-red-500" /> Trạng thái ôn tập
-                            </h3>
-                            <div className="grid grid-cols-3 gap-2">
-                                {srsBreakdown.map((item, i) => (
-                                    <div key={i} className="text-center p-3 rounded-lg" style={{ backgroundColor: item.fill + '15' }}>
-                                        <div className="text-2xl font-bold" style={{ color: item.fill }}>{item.value}</div>
-                                        <div className="text-[10px] text-gray-500 mt-0.5">{item.name}</div>
-                                    </div>
-                                ))}
-                            </div>
-                            {srsBreakdown.length > 0 && (
-                                <div className="mt-3 h-3 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden flex">
-                                    {srsBreakdown.map((item, i) => (
-                                        <div key={i} className="h-full" style={{ width: `${totalCards > 0 ? (item.value / totalCards * 100) : 0}%`, backgroundColor: item.fill }} />
-                                    ))}
-                                </div>
-                            )}
+                        
+                        <div className="flex items-center gap-2 text-[10px] text-gray-400 dark:text-gray-500 font-medium mt-0.5">
+                            <span>{user.totalCards || 0} từ</span>
+                            <span>·</span>
+                            <span>{user.kanjiTotal || 0} kanji</span>
+                            <span>·</span>
+                            <span className="flex items-center gap-0.5">
+                                <Flame className="w-3 h-3 text-orange-400" />
+                                {user.streak || 0}
+                            </span>
                         </div>
+                    </div>
+
+                    <div className="text-right flex-shrink-0">
+                        <p className="text-sm font-bold text-gray-800 dark:text-white flex items-center gap-1 justify-end">
+                            {scoreIcon}
+                            {scoreToShow}
+                        </p>
+                        <p className="text-[9px] text-gray-400 dark:text-gray-500 font-medium uppercase tracking-wider">
+                            {sortBy === 'score' ? 'tổng điểm' : sortBy === 'vocab' ? 'từ vựng' : sortBy === 'kanji' ? 'chữ Hán' : 'kỷ lục'}
+                        </p>
                     </div>
                 </div>
-            )
-            }
 
-            {/* ==================== TAB: LEADERBOARD ==================== */}
-            {
-                activeTab === 'leaderboard' && (
-                    <div className="space-y-4">
-                        {/* My Stats Card */}
-                        <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 rounded-2xl text-white shadow-xl">
-                            <div className="flex items-center gap-3 mb-3">
-                                <div className={`w-10 h-10 overflow-hidden rounded-full flex items-center justify-center flex-shrink-0 ${isCustomPhoto(profile.avatar) ? 'border-2 border-white/40' : 'bg-white/20 text-lg font-bold'}`}>
-                                    {getAvatarDisplayNode(profile.avatar, profile.displayName || 'U')}
+                {/* Expanded Details Panel */}
+                {isExpanded && (
+                    <div className="px-5 pb-5 pt-3 bg-slate-50/80 dark:bg-slate-800/80 border-t border-gray-150 dark:border-slate-700/40 text-xs text-gray-500 dark:text-gray-400 animate-fade-in space-y-4">
+                        {/* Cumulative Section */}
+                        <div>
+                            <span className="text-[10px] font-extrabold text-indigo-500 uppercase tracking-widest block mb-2">Thống kê tích lũy</span>
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
+                                    <span className="text-[10px] font-bold text-gray-400 block mb-1">Tổng từ vựng:</span>
+                                    <span className="text-sm font-black text-slate-700 dark:text-gray-200">{user.totalCards || 0}</span> từ ({user.mastered || 0} thuộc)
                                 </div>
-                                <div>
-                                    <p className="font-bold text-sm">{profile.displayName || 'Bạn'}</p>
-                                    <p className="text-[10px] text-indigo-200">Thống kê của bạn</p>
+                                <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
+                                    <span className="text-[10px] font-bold text-gray-400 block mb-1">Tổng chữ Hán:</span>
+                                    <span className="text-sm font-black text-slate-700 dark:text-gray-200">{user.kanjiTotal || 0}</span> tự ({user.kanjiMastered || 0} thuộc)
                                 </div>
-                            </div>
-                            <div className="grid grid-cols-5 gap-1.5">
-                                <div className="text-center p-2 bg-white/10 rounded-lg">
-                                    <div className="text-lg font-bold">{totalCards}</div>
-                                    <div className="text-[9px] opacity-70">Từ vựng</div>
+                                <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
+                                    <span className="text-[10px] font-bold text-gray-400 block mb-1">Chuỗi ngày (Streak):</span>
+                                    <span className="text-sm font-black text-orange-500 flex items-center gap-0.5">
+                                        <Flame className="w-4 h-4 fill-orange-500" /> {user.streak || 0} ngày
+                                    </span>
                                 </div>
-                                <div className="text-center p-2 bg-white/10 rounded-lg">
-                                    <div className="text-lg font-bold">{kanjiSrsStats.total}</div>
-                                    <div className="text-[9px] opacity-70">Kanji</div>
-                                </div>
-                                <div className="text-center p-2 bg-white/10 rounded-lg">
-                                    <div className="text-lg font-bold">{vocabMastery.mastered}</div>
-                                    <div className="text-[9px] opacity-70">Thành thạo</div>
-                                </div>
-                                <div className="text-center p-2 bg-white/10 rounded-lg">
-                                    <div className="text-lg font-bold flex items-center justify-center gap-0.5"><Flame className="w-3 h-3" />{streak}</div>
-                                    <div className="text-[9px] opacity-70">Chuỗi ngày</div>
-                                </div>
-                                <div className="text-center p-2 bg-white/15 rounded-lg border border-white/20">
-                                    <div className="text-lg font-bold flex items-center justify-center gap-0.5"><Star className="w-3 h-3" />{computeScore({ totalCards, kanjiTotal: kanjiSrsStats.total, mastered: vocabMastery.mastered, kanjiMastered: kanjiSrsStats.mastered, totalReviews: allTimeStats.totalReviews, activeDays: allTimeStats.activeDays, streak })}</div>
-                                    <div className="text-[9px] opacity-70">Điểm</div>
+                                <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
+                                    <span className="text-[10px] font-bold text-gray-400 block mb-1">Hoạt động cuối:</span>
+                                    <span className="text-sm font-black text-slate-700 dark:text-gray-200">{formatLastActive(user.lastUpdated)}</span>
                                 </div>
                             </div>
                         </div>
-
-                        {/* Leaderboard List */}
-                        <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden">
-                            <div className="p-4 border-b border-gray-100 dark:border-gray-700">
-                                <h3 className="font-bold text-gray-700 dark:text-gray-200 flex items-center gap-2 text-sm">
-                                    <Users className="w-4 h-4 text-indigo-500" />
-                                    Bảng xếp hạng tổng hợp
-                                </h3>
-                            </div>
-                            <div className="divide-y divide-gray-50 dark:divide-gray-700/50">
-                                {sortedLeaderboard.length > 0 ? sortedLeaderboard.map((user, index) => {
-                                    const isMe = user.id === userId;
-                                    const userScore = computeScore(user);
-                                    const rankBg = index === 0 ? 'bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20'
-                                        : index === 1 ? 'bg-gradient-to-r from-gray-50 to-slate-50 dark:from-gray-800/50 dark:to-slate-800/50'
-                                            : index === 2 ? 'bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/10'
-                                                : '';
-                                    const rankIcon = index === 0 ? <Crown className="w-5 h-5 text-yellow-500" />
-                                        : index === 1 ? <Medal className="w-5 h-5 text-gray-400" />
-                                            : index === 2 ? <Medal className="w-5 h-5 text-orange-400" />
-                                                : <span className="text-sm font-bold text-gray-400 w-5 text-center">{index + 1}</span>;
-
-                                    return (
-                                        <div key={user.id} className={`flex items-center gap-3 p-3 ${rankBg} ${isMe ? 'ring-2 ring-indigo-400 ring-inset' : ''}`}>
-                                            <div className="flex-shrink-0">{rankIcon}</div>
-                                            <div className={`w-8 h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 ${isCustomPhoto(user.avatar) ? '' : (getAvatarEmoji(user.avatar) ? 'bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40 text-xl' : 'bg-gradient-to-br from-indigo-400 to-purple-500 text-white text-sm font-bold')}`}>
-                                                {getAvatarDisplayNode(user.avatar, user.displayName || 'U')}
-                                            </div>
-                                            <div className="flex-1 min-w-0">
-                                                <p className={`text-sm font-bold truncate ${isMe ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-700 dark:text-gray-300'}`}>
-                                                    {user.displayName || 'Ẩn danh'} {isMe && '(Bạn)'}
-                                                </p>
-                                                <div className="flex items-center gap-2 text-[10px] text-gray-400 flex-wrap">
-                                                    <span>{user.totalCards || 0} từ</span>
-                                                    <span>·</span>
-                                                    <span>{user.kanjiTotal || 0} kanji</span>
-                                                    <span>·</span>
-                                                    <span className="flex items-center gap-0.5"><Flame className="w-2.5 h-2.5 text-orange-400" />{user.streak || 0}</span>
-                                                    {(user.totalReviews || 0) > 0 && (
-                                                        <><span>·</span><span>{user.totalReviews} ôn</span></>
-                                                    )}
-                                                </div>
-                                            </div>
-                                            <div className="text-right flex-shrink-0">
-                                                <p className="text-sm font-bold text-indigo-600 dark:text-indigo-400 flex items-center gap-0.5 justify-end">
-                                                    <Star className="w-3.5 h-3.5 text-yellow-500" />
-                                                    {userScore}
-                                                </p>
-                                                <p className="text-[9px] text-gray-400">điểm</p>
-                                            </div>
-                                        </div>
-                                    );
-                                }) : (
-                                    <div className="p-8 text-center text-gray-400 text-sm">
-                                        <Users className="w-8 h-8 mx-auto mb-2 opacity-50" />
-                                        Chưa có dữ liệu xếp hạng
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-
-                        {/* Scoring System Info */}
-                        <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-xl border border-indigo-200 dark:border-indigo-800">
-                            <h4 className="text-sm font-bold text-indigo-700 dark:text-indigo-300 mb-2 flex items-center gap-2">
-                                <Star className="w-4 h-4" /> Cách tính điểm xếp hạng
-                            </h4>
-                            <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-indigo-600 dark:text-indigo-400">
-                                <span>📚 Thêm từ vựng: +1đ/từ</span>
-                                <span>🈁 Học Kanji: +2đ/kanji</span>
-                                <span>⭐ Thành thạo TV: +3đ/từ</span>
-                                <span>🏆 Thành thạo Kanji: +5đ/chữ</span>
-                                <span>🔄 Ôn tập: +0.5đ/lượt</span>
-                                <span>📅 Ngày hoạt động: +5đ/ngày</span>
-                                <span>🔥 Streak: +3đ/ngày</span>
+                        
+                        {/* Weekly Section */}
+                        <div>
+                            <span className="text-[10px] font-extrabold text-emerald-500 uppercase tracking-widest block mb-2">Hoạt động tuần này (7 ngày qua)</span>
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
+                                    <span className="text-[10px] font-bold text-gray-400 block mb-1">Từ học mới:</span>
+                                    <span className="text-sm font-black text-emerald-600 dark:text-emerald-450">+{user.addedLast7Days || 0}</span> từ vựng
+                                </div>
+                                <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
+                                    <span className="text-[10px] font-bold text-gray-400 block mb-1">Tổng lượt ôn tập:</span>
+                                    <span className="text-sm font-black text-emerald-600 dark:text-emerald-450">+{user.reviewsLast7Days || 0}</span> lượt
+                                </div>
+                                <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
+                                    <span className="text-[10px] font-bold text-gray-400 block mb-1">Số ngày học:</span>
+                                    <span className="text-sm font-black text-emerald-600 dark:text-emerald-450">{user.activeDaysLast7Days || 0}</span> / 7 ngày
+                                </div>
+                                <div className="p-2.5 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20 rounded-xl border border-indigo-100/50 dark:border-indigo-950/50 shadow-sm flex flex-col justify-center">
+                                    <span className="text-[10px] font-bold text-indigo-500 dark:text-indigo-400 block mb-0.5">Điểm vinh danh:</span>
+                                    <span className="text-sm font-black text-indigo-600 dark:text-indigo-400 flex items-center gap-0.5">
+                                        <Star className="w-4 h-4 fill-indigo-500 text-indigo-500 dark:fill-indigo-400 dark:text-indigo-400" /> {user.computedScore} điểm
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                )
-            }
+                )}
+            </div>
+        );
+    };
 
-            {/* ==================== TAB: PET COMPANION ==================== */}
-            {
-                activeTab === 'pet' && (
-                    <div className="space-y-4">
-                        {/* Live Pet Habitat */}
-                        <PetCompanion
-                            petLevel={petLevel}
-                            streak={streak}
-                            petXP={petXP}
-                            xpPercent={xpPercent}
-                            xpProgress={xpProgress}
-                            xpNeeded={xpNeeded}
-                        />
+    return (
+        <div className="space-y-6 max-w-4xl mx-auto pb-24">
+            {/* Purple Header Stats Card */}
+            <div className="bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] p-6 rounded-3xl text-white shadow-xl">
+                <div className="flex items-center gap-4 mb-5">
+                    <div className={`w-14 h-14 overflow-hidden rounded-full flex items-center justify-center flex-shrink-0 bg-white/20 border-2 border-white/40 shadow-inner text-2xl`}>
+                        {getAvatarDisplayNode(profile.avatar, profile.displayName || 'U')}
+                    </div>
+                    <div>
+                        <h2 className="text-xl font-bold tracking-tight">{profile.displayName || 'Bạn'}</h2>
+                        <p className="text-xs text-indigo-100/80 font-medium">Thống kê của bạn</p>
+                    </div>
+                </div>
+                
+                <div className="grid grid-cols-5 gap-3 bg-white/10 p-3 rounded-2xl border border-white/10">
+                    <div className="text-center">
+                        <div className="text-xl md:text-2xl font-bold">{totalCards}</div>
+                        <div className="text-[10px] md:text-xs text-indigo-100 font-medium opacity-90 mt-1">Từ vựng</div>
+                    </div>
+                    <div className="text-center">
+                        <div className="text-xl md:text-2xl font-bold">{kanjiSrsStats.total}</div>
+                        <div className="text-[10px] md:text-xs text-indigo-100 font-medium opacity-90 mt-1">Kanji</div>
+                    </div>
+                    <div className="text-center">
+                        <div className="text-xl md:text-2xl font-bold">{vocabMastery.mastered}</div>
+                        <div className="text-[10px] md:text-xs text-indigo-100 font-medium opacity-90 mt-1">Thành thạo</div>
+                    </div>
+                    <div className="text-center">
+                        <div className="text-xl md:text-2xl font-bold flex items-center justify-center gap-0.5">
+                            <Flame className="w-4 h-4 fill-orange-400 text-orange-400" />
+                            {streak}
+                        </div>
+                        <div className="text-[10px] md:text-xs text-indigo-100 font-medium opacity-90 mt-1">Chuỗi ngày</div>
+                    </div>
+                    <div className="text-center border-l border-white/20 pl-2">
+                        <div className="text-xl md:text-2xl font-bold flex items-center justify-center gap-0.5 text-yellow-300">
+                            <Star className="w-4 h-4 fill-yellow-300 text-yellow-300" />
+                            {myScore}
+                        </div>
+                        <div className="text-[10px] md:text-xs text-indigo-100 font-medium opacity-90 mt-1">Điểm</div>
+                    </div>
+                </div>
+            </div>
 
-                        {/* Pet Stats */}
-                        <div className="grid grid-cols-4 gap-2">
+            {/* Top 3 Podium Displays */}
+            {!searchTerm.trim() && podiumList.length > 0 && (
+                <div className="grid grid-cols-3 gap-3 pt-6 items-end max-w-xl mx-auto mb-6">
+                    {/* 2nd Place (Silver) */}
+                    {podiumList[1] && (
+                        <div className="flex flex-col items-center group cursor-pointer" onClick={() => handleToggleExpandUser(podiumList[1].id)}>
+                            <div className="relative mb-2">
+                                <div className="w-16 h-16 rounded-full border-4 border-slate-300 overflow-hidden bg-white shadow-lg group-hover:scale-105 transition-all duration-300">
+                                    <div className="w-full h-full flex items-center justify-center text-xl bg-slate-100 dark:bg-slate-800">
+                                        {getAvatarDisplayNode(podiumList[1].avatar, podiumList[1].displayName)}
+                                    </div>
+                                </div>
+                                <div className="absolute -top-3 -right-2 bg-slate-300 text-slate-800 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold border-2 border-white shadow">
+                                    2
+                                </div>
+                            </div>
+                            <div className="text-center bg-white dark:bg-gray-800 rounded-2xl p-3 border border-slate-200 dark:border-gray-700 w-full shadow-md group-hover:shadow-lg transition-all duration-300">
+                                <p className="font-bold text-xs truncate text-gray-700 dark:text-gray-200">{podiumList[1].displayName || 'Ẩn danh'}</p>
+                                <p className="text-[10px] text-gray-400 mt-0.5">{podiumList[1].totalCards || 0} từ · {podiumList[1].kanjiTotal || 0} kanji</p>
+                                <div className="mt-2 text-indigo-500 font-bold text-xs flex items-center justify-center gap-0.5">
+                                    <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+                                    {podiumList[1].computedScore}
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* 1st Place (Gold Crown) */}
+                    {podiumList[0] && (
+                        <div className="flex flex-col items-center group z-10 cursor-pointer" onClick={() => handleToggleExpandUser(podiumList[0].id)}>
+                            <div className="relative mb-2">
+                                <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-yellow-500 animate-bounce">
+                                    <Crown className="w-8 h-8 fill-yellow-500 text-yellow-500 drop-shadow-[0_2px_5px_rgba(234,179,8,0.4)]" />
+                                </div>
+                                <div className="w-20 h-20 rounded-full border-4 border-yellow-400 overflow-hidden bg-white shadow-xl group-hover:scale-105 transition-all duration-300 ring-4 ring-yellow-400/20">
+                                    <div className="w-full h-full flex items-center justify-center text-2xl bg-amber-50 dark:bg-amber-950/20">
+                                        {getAvatarDisplayNode(podiumList[0].avatar, podiumList[0].displayName)}
+                                    </div>
+                                </div>
+                                <div className="absolute -top-1 -right-1 bg-yellow-400 text-yellow-950 rounded-full w-7 h-7 flex items-center justify-center text-sm font-bold border-2 border-white shadow">
+                                    1
+                                </div>
+                            </div>
+                            <div className="text-center bg-gradient-to-b from-yellow-50 to-white dark:from-yellow-950/20 dark:to-gray-800 rounded-2xl p-4 border-2 border-yellow-300 dark:border-yellow-600/30 w-full shadow-lg group-hover:shadow-xl transition-all duration-300 ring-4 ring-yellow-400/10">
+                                <p className="font-bold text-sm truncate text-yellow-700 dark:text-yellow-400">{podiumList[0].displayName || 'Ẩn danh'}</p>
+                                <p className="text-[10px] text-gray-400 mt-0.5">{podiumList[0].totalCards || 0} từ · {podiumList[0].kanjiTotal || 0} kanji</p>
+                                <div className="mt-2 text-yellow-600 dark:text-yellow-400 font-bold text-sm flex items-center justify-center gap-0.5">
+                                    <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                                    {podiumList[0].computedScore}
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* 3rd Place (Bronze) */}
+                    {podiumList[2] && (
+                        <div className="flex flex-col items-center group cursor-pointer" onClick={() => handleToggleExpandUser(podiumList[2].id)}>
+                            <div className="relative mb-2">
+                                <div className="w-16 h-16 rounded-full border-4 border-amber-600 overflow-hidden bg-white shadow-lg group-hover:scale-105 transition-all duration-300">
+                                    <div className="w-full h-full flex items-center justify-center text-xl bg-orange-50 dark:bg-orange-950/20">
+                                        {getAvatarDisplayNode(podiumList[2].avatar, podiumList[2].displayName)}
+                                    </div>
+                                </div>
+                                <div className="absolute -top-3 -right-2 bg-amber-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold border-2 border-white shadow">
+                                    3
+                                </div>
+                            </div>
+                            <div className="text-center bg-white dark:bg-gray-800 rounded-2xl p-3 border border-amber-200 dark:border-gray-700 w-full shadow-md group-hover:shadow-lg transition-all duration-300">
+                                <p className="font-bold text-xs truncate text-gray-700 dark:text-gray-200">{podiumList[2].displayName || 'Ẩn danh'}</p>
+                                <p className="text-[10px] text-gray-400 mt-0.5">{podiumList[2].totalCards || 0} từ · {podiumList[2].kanjiTotal || 0} kanji</p>
+                                <div className="mt-2 text-indigo-500 font-bold text-xs flex items-center justify-center gap-0.5">
+                                    <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+                                    {podiumList[2].computedScore}
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            )}
+
+            {/* Leaderboard Card */}
+            <div className="bg-white dark:bg-gray-800 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden">
+                {/* Header with Search and Sorting */}
+                <div className="p-5 border-b border-gray-100 dark:border-gray-700 space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                        <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2 text-base">
+                            <Trophy className="w-5 h-5 text-indigo-500 fill-indigo-100 dark:fill-indigo-900/30" />
+                            Bảng xếp hạng tổng hợp
+                        </h3>
+                        
+                        {/* Sort options */}
+                        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
+                            <span className="text-[11px] font-bold text-gray-400 dark:text-gray-500 whitespace-nowrap">Sắp xếp:</span>
                             {[
-                                { icon: '⚡', val: petXP, label: 'Tổng XP', color: 'text-indigo-600' },
-                                { icon: '🎯', val: `Lv.${petLevel}`, label: 'Cấp', color: 'text-purple-600' },
-                                { icon: '🔥', val: streak, label: 'Chuỗi ngày', color: 'text-orange-600' },
-                                { icon: '📚', val: totalCards, label: 'Từ vựng', color: 'text-sky-600' },
-                            ].map((s, i) => (
-                                <div key={i} className="bg-white dark:bg-gray-800 p-3 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm text-center">
-                                    <div className="text-xl mb-0.5">{s.icon}</div>
-                                    <div className={`text-sm font-bold ${s.color}`}>{s.val}</div>
-                                    <div className="text-[9px] text-gray-500">{s.label}</div>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* XP Breakdown */}
-                        <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
-                            <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-3 flex items-center gap-2">
-                                <Sparkles className="w-4 h-4 text-yellow-500" /> Nguồn XP
-                            </h3>
-                            <div className="space-y-2">
-                                {[
-                                    { label: 'Từ vựng', value: allCards.length * 2, icon: '📚', color: 'bg-indigo-500' },
-                                    { label: 'Kanji', value: kanjiSrsStats.total * 3, icon: '🈁', color: 'bg-emerald-500' },
-                                    { label: 'Chuỗi ngày', value: streak * 10, icon: '🔥', color: 'bg-orange-500' },
-                                    { label: 'Thành thạo', value: vocabMastery.mastered * 5 + kanjiSrsStats.mastered * 8, icon: '⭐', color: 'bg-yellow-500' },
-                                ].map((source, i) => (
-                                    <div key={i} className="flex items-center gap-3">
-                                        <span className="text-lg">{source.icon}</span>
-                                        <div className="flex-1">
-                                            <div className="flex justify-between text-xs mb-0.5">
-                                                <span className="text-gray-600 dark:text-gray-400">{source.label}</span>
-                                                <span className="font-bold text-gray-700 dark:text-gray-300">+{source.value} XP</span>
-                                            </div>
-                                            <div className="h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
-                                                <div className={`h-full ${source.color} rounded-full transition-all`}
-                                                    style={{ width: `${petXP > 0 ? Math.min(100, (source.value / petXP) * 100) : 0}%` }} />
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Evolution Timeline */}
-                        <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
-                            <h3 className="text-sm font-bold text-gray-700 dark:text-gray-200 mb-3 flex items-center gap-2">
-                                <TrendingUp className="w-4 h-4 text-indigo-500" /> Lộ trình tiến hóa
-                            </h3>
-                            <div className="space-y-2">
-                                {PET_STAGES.map((stage, i) => {
-                                    const isUnlocked = petLevel >= stage.minLevel;
-                                    const isCurrent = petStage.name === stage.name;
-                                    return (
-                                        <div key={i} className={`flex items-center gap-3 p-2.5 rounded-xl transition-all ${isCurrent
-                                            ? 'bg-indigo-50 dark:bg-indigo-900/20 border-2 border-indigo-300 dark:border-indigo-700'
-                                            : isUnlocked ? 'bg-gray-50 dark:bg-gray-700/50 opacity-70' : 'opacity-30'
-                                            }`}>
-                                            <img src={stage.image} alt={stage.name}
-                                                className={`w-8 h-8 rounded-full object-cover border-2 ${isUnlocked ? 'border-indigo-400' : 'border-gray-300 dark:border-gray-600'}`}
-                                                style={{ filter: isUnlocked ? 'none' : 'grayscale(100%) opacity(0.4)' }}
-                                            />
-                                            <div className="flex-1">
-                                                <p className={`text-xs font-bold ${isCurrent ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-700 dark:text-gray-300'}`}>
-                                                    {stage.name} {isCurrent && '← Hiện tại'}
-                                                </p>
-                                                <p className="text-[10px] text-gray-400">Cấp {stage.minLevel}+</p>
-                                            </div>
-                                            {isUnlocked ? (
-                                                <span className="text-emerald-500 text-xs font-bold">✓</span>
-                                            ) : (
-                                                <span className="text-gray-300 text-xs">🔒</span>
-                                            )}
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-
-                        {/* Tips */}
-                        <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-xl border border-amber-200 dark:border-amber-800">
-                            <h4 className="text-sm font-bold text-amber-700 dark:text-amber-300 mb-2 flex items-center gap-2">
-                                <Zap className="w-4 h-4" /> Mẹo tăng XP nhanh
-                            </h4>
-                            <ul className="text-xs text-amber-600 dark:text-amber-400 space-y-1">
-                                <li>🔥 Duy trì chuỗi ngày học: +10 XP/ngày liên tiếp</li>
-                                <li>📚 Thêm từ vựng mới: +2 XP/từ</li>
-                                <li>🈁 Học Kanji: +3 XP/kanji</li>
-                                <li>⭐ Thành thạo từ vựng: +5 XP/từ</li>
-                                <li>🏆 Thành thạo Kanji: +8 XP/chữ Hán</li>
-                            </ul>
+                                { id: 'score', label: 'Điểm', icon: Star },
+                                { id: 'vocab', label: 'Từ vựng', icon: BookOpen },
+                                { id: 'kanji', label: 'Kanji', icon: Languages },
+                                { id: 'streak', label: 'Streak', icon: Flame },
+                            ].map(opt => {
+                                const Icon = opt.icon;
+                                const isActive = sortBy === opt.id;
+                                return (
+                                    <button
+                                        key={opt.id}
+                                        onClick={() => { setSortBy(opt.id); setDisplayCount(15); }}
+                                        className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all border ${
+                                            isActive
+                                                ? 'bg-indigo-500 border-indigo-500 text-white shadow-sm'
+                                                : 'bg-gray-50 dark:bg-gray-700/50 border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
+                                        }`}
+                                    >
+                                        <Icon className="w-3.5 h-3.5" />
+                                        <span>{opt.label}</span>
+                                    </button>
+                                );
+                            })}
                         </div>
                     </div>
-                )
-            }
-        </div >
+
+                    {/* Search box */}
+                    <div className="relative">
+                        <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <Search className="h-4 w-4 text-gray-400" />
+                        </span>
+                        <input
+                            type="text"
+                            placeholder="Tìm kiếm người học..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            className="block w-full pl-9 pr-4 py-2 border border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-900/50 placeholder-gray-400 text-gray-700 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                        />
+                    </div>
+                </div>
+
+                {/* List portion */}
+                <div className="divide-y divide-gray-50 dark:divide-gray-700/50">
+                    {remainingList.length > 0 || podiumList.length > 0 ? (
+                        <>
+                            {/* Render podium items here too if search is active (since we hid the podium visual on search) */}
+                            {searchTerm.trim() && sortedLeaderboard.slice(0, displayCount).map((user, idx) => {
+                                return renderUserRow(user, idx, idx + 1);
+                            })}
+
+                            {/* Otherwise render from rank 4 onwards */}
+                            {!searchTerm.trim() && remainingList.slice(0, displayCount - 3).map((user, idx) => {
+                                const absoluteRank = idx + 4;
+                                return renderUserRow(user, idx, absoluteRank);
+                            })}
+                        </>
+                    ) : (
+                        <div className="p-8 text-center text-gray-400 text-sm">
+                            <Users className="w-10 h-10 mx-auto mb-2 opacity-50 text-gray-400" />
+                            Không tìm thấy người học nào phù hợp.
+                        </div>
+                    )}
+                </div>
+
+                {/* Show More Button */}
+                {sortedLeaderboard.length > displayCount && (
+                    <div className="p-4 text-center border-t border-gray-50 dark:border-gray-700/50">
+                        <button
+                            onClick={() => setDisplayCount(prev => prev + 15)}
+                            className="px-6 py-2 text-xs font-bold bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700/50 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 rounded-xl transition-all shadow-sm"
+                        >
+                            Hiển thị thêm người học
+                        </button>
+                    </div>
+                )}
+            </div>
+
+            {/* Sticky bottom bar for my rank if not in the current view count */}
+            {myRankInfo.rank > displayCount && (
+                <div className="fixed bottom-0 left-0 right-0 lg:left-64 bg-white/95 dark:bg-gray-900/95 backdrop-blur border-t border-indigo-100 dark:border-indigo-950/50 p-4 shadow-[0_-8px_30px_rgba(0,0,0,0.1)] z-30 transition-all flex items-center justify-between max-w-4xl mx-auto rounded-t-3xl border-x">
+                    <div className="flex items-center gap-3">
+                        <div className="bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 font-bold text-sm px-3 py-1.5 rounded-xl border border-indigo-100 dark:border-indigo-900/40">
+                            Hạng {myRankInfo.rank}
+                        </div>
+                        <div className="hidden sm:block">
+                            <p className="text-xs font-bold text-gray-700 dark:text-gray-200 flex items-center gap-1">
+                                {profile.displayName || 'Bạn'} (Bạn)
+                            </p>
+                            <p className="text-[10px] text-gray-400 font-medium">Bạn đang nằm ngoài danh sách hiển thị</p>
+                        </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-4 text-xs font-bold">
+                        <span className="text-gray-500 dark:text-gray-400">{totalCards} từ</span>
+                        <span className="text-gray-500 dark:text-gray-400">{kanjiSrsStats.total} kanji</span>
+                        <span className="flex items-center gap-0.5 text-orange-500">
+                            <Flame className="w-3.5 h-3.5 fill-orange-400 text-orange-400" />
+                            {streak}
+                        </span>
+                        <span className="flex items-center gap-0.5 text-indigo-500 dark:text-indigo-400">
+                            <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+                            {myScore}
+                        </span>
+                    </div>
+                </div>
+            )}
+
+            {/* Scoring System Info */}
+            <div className="bg-indigo-50/50 dark:bg-indigo-900/10 p-5 rounded-3xl border border-indigo-100 dark:border-indigo-950/40">
+                <h4 className="text-sm font-bold text-indigo-700 dark:text-indigo-300 mb-2 flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-indigo-500 fill-indigo-100 dark:fill-indigo-900/30" />
+                    Quy định tính điểm vinh danh (Chăm chỉ) ⭐
+                </h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">
+                    Hệ thống xếp hạng ưu tiên những người học năng động và chăm chỉ. Điểm số được tính toán dựa trên hoạt động trong <strong>7 ngày gần nhất</strong> và chuỗi ngày học liên tục (Streak):
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs text-indigo-600 dark:text-indigo-300">
+                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-indigo-100/50 dark:border-indigo-900/30">
+                        <p className="font-bold mb-1">📚 Học từ mới</p>
+                        <p className="opacity-80">Trong 7 ngày qua: <strong className="font-bold text-indigo-700 dark:text-indigo-400">+15 điểm/từ</strong></p>
+                    </div>
+                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-indigo-100/50 dark:border-indigo-900/30">
+                        <p className="font-bold mb-1">🔄 Lượt ôn tập</p>
+                        <p className="opacity-80">Từ vựng & Kanji: <strong className="font-bold text-indigo-700 dark:text-indigo-400">+2 điểm/lượt</strong></p>
+                    </div>
+                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-indigo-100/50 dark:border-indigo-900/30">
+                        <p className="font-bold mb-1">📅 Ngày năng động</p>
+                        <p className="opacity-80">Trong 7 ngày qua: <strong className="font-bold text-indigo-700 dark:text-indigo-400">+50 điểm/ngày</strong></p>
+                    </div>
+                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-indigo-100/50 dark:border-indigo-900/30">
+                        <p className="font-bold mb-1">🔥 Chuỗi học</p>
+                        <p className="opacity-80">Ngày học liên tiếp (Streak): <strong className="font-bold text-indigo-700 dark:text-indigo-400">+20 điểm/ngày</strong></p>
+                    </div>
+                </div>
+                <div className="mt-4 p-3 bg-indigo-100/30 dark:bg-indigo-950/20 border border-indigo-150/20 dark:border-indigo-900/30 rounded-xl text-[11px] text-indigo-700 dark:text-indigo-350">
+                    ⚠️ <strong>Lưu ý:</strong> Những người không có hoạt động trong vòng <strong>7 ngày</strong> qua sẽ bị ẩn khỏi bảng vinh danh cho tới khi học lại.
+                </div>
+            </div>
+            
+            {/* Inline animation */}
+            <style>{`
+                .animate-fade-in {
+                    animation: rowFadeIn 0.2s ease-out;
+                }
+                @keyframes rowFadeIn {
+                    from { opacity: 0; transform: translateY(-4px); }
+                    to   { opacity: 1; transform: translateY(0); }
+                }
+                /* Hide scrollbar for Chrome, Safari and Opera */
+                .scrollbar-none::-webkit-scrollbar {
+                    display: none;
+                }
+                /* Hide scrollbar for IE, Edge and Firefox */
+                .scrollbar-none {
+                    -ms-overflow-style: none;  /* IE and Edge */
+                    scrollbar-width: none;  /* Firefox */
+                }
+            `}</style>
+        </div>
     );
 };
 

@@ -4,7 +4,7 @@ import { useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { useDebounce } from 'use-debounce';
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail, updatePassword, sendEmailVerification } from 'firebase/auth';
-import { getFirestore, doc, setDoc, addDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, getDocs, where, writeBatch, increment, collectionGroup } from 'firebase/firestore';
+import { getFirestore, doc, setDoc, addDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, getDocs, where, writeBatch, increment, collectionGroup, deleteField } from 'firebase/firestore';
 import { Loader2, Plus, Repeat2, Home, CheckCircle, XCircle, Volume2, Send, BookOpen, Clock, HeartHandshake, List, Calendar, Trash2, Mic, FileText, MessageSquare, HelpCircle, Upload, Wand2, BarChart3, Users, PieChart as PieChartIcon, Target, Save, Edit, Zap, Eye, EyeOff, AlertTriangle, Check, VolumeX, Image as ImageIcon, X, Music, FileAudio, Tag, Sparkles, Filter, ArrowDown, ArrowUp, GraduationCap, Search, Languages, RefreshCw, Settings, ChevronRight, Wrench, LayoutGrid, Flame, TrendingUp, Lightbulb, Brain, Ear, Keyboard, MousePointerClick, Layers, RotateCw, Lock, LogOut, FileCheck, Moon, Sun } from 'lucide-react';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 
@@ -23,7 +23,7 @@ import {
 } from './config/constants';
 
 import { playAudio, pcmToWav, base64ToArrayBuffer, initSharedAudioCache, generateAudioSilent, getTTSVoice } from './utils/audio';
-import { getNextReviewDate, getSrsProgressText, processSrsUpdate, DEFAULT_EASE, calculateCorrectInterval } from './utils/srs';
+import { getNextReviewDate, getSrsProgressText, processSrsUpdate, DEFAULT_EASE, calculateCorrectInterval, calculateAnkiSRS } from './utils/srs';
 import {
     shuffleArray,
     maskWordInExample,
@@ -163,6 +163,8 @@ const App = () => {
         if (path === ROUTES.ADMIN) return 'ADMIN';
         if (path === ROUTES.BOOKS) return 'BOOKS';
         if (path === ROUTES.SETTINGS) return 'SETTINGS';
+        if (path === ROUTES.JLPT_TEST) return 'JLPT_TEST';
+        if (path === ROUTES.JLPT_ADMIN) return 'JLPT_ADMIN';
         return 'HOME';
     }, [location.pathname]);
 
@@ -628,6 +630,16 @@ const App = () => {
                     correctCount: typeof data.correctCount === 'number' ? data.correctCount : 0,
                     incorrectCount: typeof data.incorrectCount === 'number' ? data.incorrectCount : 0,
                     lastReviewed: data.lastReviewed?.toDate ? data.lastReviewed.toDate() : (data.lastReviewed ? new Date(data.lastReviewed) : null),
+                    seenCount: typeof data.seenCount === 'number' ? data.seenCount : 0,
+                    // Vocabulary SRS (SM-2) fields
+                    srsEnabled: data.srsEnabled !== false,
+                    srsInterval: typeof data.srsInterval === 'number' ? data.srsInterval : 0,
+                    srsEase: typeof data.srsEase === 'number' ? data.srsEase : 2.5,
+                    srsReps: typeof data.srsReps === 'number' ? data.srsReps : 0,
+                    srsLearningStep: data.srsLearningStep !== undefined ? data.srsLearningStep : null,
+                    srsIsLapsed: data.srsIsLapsed === true,
+                    srsLapseCount: typeof data.srsLapseCount === 'number' ? data.srsLapseCount : 0,
+                    srsPrelapseInterval: typeof data.srsPrelapseInterval === 'number' ? data.srsPrelapseInterval : null,
                 });
             });
 
@@ -1212,13 +1224,13 @@ const App = () => {
     };
 
 
-    const updateDailyActivity = async (count) => {
+    const updateDailyActivity = async (count, field = 'newWordsAdded') => {
         if (!activityCollectionPath) return;
         const todayDateString = new Date().toISOString().split('T')[0];
         const activityRef = doc(db, activityCollectionPath, todayDateString);
         try {
             await setDoc(activityRef, {
-                newWordsAdded: increment(count)
+                [field]: increment(count)
             }, { merge: true });
         } catch (e) {
             console.error("Lỗi cập nhật hoạt động hàng ngày:", e);
@@ -1298,9 +1310,9 @@ const App = () => {
             nextReview_example: nextReview_example,
             easeFactor: DEFAULT_EASE,
             totalReps: 0,
+            srsEnabled: true,
         };
     };
-
     // ==================== SHARED VOCABULARY ====================
     const SHARED_VOCAB_COLLECTION = 'sharedVocabulary';
 
@@ -1974,32 +1986,94 @@ const App = () => {
         if (!cardSnap.exists()) return;
         const cardData = cardSnap.data();
 
-        // Chuẩn hóa dữ liệu trước khi xử lý
-        let normalizedInterval = typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1;
-        if (normalizedInterval === -999) normalizedInterval = -1;
-
-        const normalizedCardData = {
-            ...cardData,
-            intervalIndex_back: normalizedInterval,
-            easeFactor: typeof cardData.easeFactor === 'number' ? cardData.easeFactor : DEFAULT_EASE,
-            totalReps: typeof cardData.totalReps === 'number' ? cardData.totalReps : 0,
-            currentInterval_back: typeof cardData.currentInterval_back === 'number' ? cardData.currentInterval_back : 0,
-            correctStreak_back: typeof cardData.correctStreak_back === 'number' ? cardData.correctStreak_back : 0,
-            correctStreak_synonym: typeof cardData.correctStreak_synonym === 'number' ? cardData.correctStreak_synonym : 0,
-            correctStreak_example: typeof cardData.correctStreak_example === 'number' ? cardData.correctStreak_example : 0,
-            correctStreak_dictation: typeof cardData.correctStreak_dictation === 'number' ? cardData.correctStreak_dictation : 0,
+        const updateData = {
+            correctCount: typeof cardData.correctCount === 'number' ? cardData.correctCount + (isCorrect ? 1 : 0) : (isCorrect ? 1 : 0),
+            incorrectCount: typeof cardData.incorrectCount === 'number' ? cardData.incorrectCount + (isCorrect ? 0 : 1) : (isCorrect ? 0 : 1),
+            seenCount: typeof cardData.seenCount === 'number' ? cardData.seenCount + 1 : 1,
+            lastReviewed: serverTimestamp()
         };
-
-        // Sử dụng SRS engine mới để tính toán
-        const updateData = processSrsUpdate(normalizedCardData, isCorrect, cardReviewType, activityType, responseTimeMs);
-
-        // Thay lastReviewed bằng serverTimestamp cho Firestore
-        updateData.lastReviewed = serverTimestamp();
 
         try {
             await updateDoc(cardRef, updateData);
+            if (activityType === 'review') {
+                await updateDailyActivity(1, 'reviewsDone');
+            }
         } catch (e) {
             console.error("Lỗi khi cập nhật thẻ:", e);
+        }
+    };
+
+    const handleToggleSrs = async (cardId, srsEnabled) => {
+        if (!vocabCollectionPath) return;
+        const cardRef = doc(db, vocabCollectionPath, cardId);
+
+        try {
+            if (srsEnabled) {
+                await updateDoc(cardRef, {
+                    srsEnabled: true,
+                    srsInterval: 0,
+                    srsEase: 2.5,
+                    srsLearningStep: null,
+                    srsIsLapsed: false,
+                    srsReps: 0,
+                    srsLapseCount: 0,
+                    srsPrelapseInterval: null,
+                    nextReview_back: new Date(),
+                    lastReviewed: serverTimestamp()
+                });
+            } else {
+                await updateDoc(cardRef, {
+                    srsEnabled: false,
+                    srsInterval: deleteField(),
+                    srsEase: deleteField(),
+                    srsLearningStep: deleteField(),
+                    srsIsLapsed: deleteField(),
+                    srsReps: deleteField(),
+                    srsLapseCount: deleteField(),
+                    srsPrelapseInterval: deleteField(),
+                    nextReview_back: deleteField()
+                });
+            }
+        } catch (e) {
+            console.error("Lỗi khi chuyển trạng thái SRS:", e);
+        }
+    };
+
+    const handleUpdateVocabSrsRating = async (cardId, rating) => {
+        if (!vocabCollectionPath) return;
+        const cardRef = doc(db, vocabCollectionPath, cardId);
+
+        try {
+            const cardSnap = await getDoc(cardRef);
+            if (!cardSnap.exists()) return;
+            const cardData = cardSnap.data();
+
+            const srsState = {
+                interval: cardData.srsInterval || 0,
+                ease: cardData.srsEase || 2.5,
+                learningStep: cardData.srsLearningStep !== undefined ? cardData.srsLearningStep : null,
+                isLapsed: cardData.srsIsLapsed || false,
+                reps: cardData.srsReps || 0,
+                lapseCount: cardData.srsLapseCount || 0,
+                prelapseInterval: cardData.srsPrelapseInterval || null
+            };
+
+            const result = calculateAnkiSRS(srsState, rating);
+            const nextReviewDate = new Date(Date.now() + result.interval * 60000);
+
+            await updateDoc(cardRef, {
+                srsInterval: result.interval,
+                srsEase: result.ease,
+                srsLearningStep: result.learningStep,
+                srsIsLapsed: result.isLapsed,
+                srsReps: result.reps,
+                srsLapseCount: result.lapseCount,
+                srsPrelapseInterval: result.prelapseInterval,
+                nextReview_back: nextReviewDate,
+                lastReviewed: serverTimestamp()
+            });
+        } catch (e) {
+            console.error("Lỗi cập nhật đánh giá SRS từ vựng:", e);
         }
     };
 
@@ -2659,22 +2733,36 @@ const App = () => {
                 const totalReviews = (dailyActivityLogs || []).reduce((s, l) => s + (l.reviewsDone || 0), 0);
                 const activeDays = (dailyActivityLogs || []).filter(l => (l.newWordsAdded || 0) > 0 || (l.reviewsDone || 0) > 0).length;
 
-                // === CÔNG THỨC TÍNH ĐIỂM XẾP HẠNG ===
-                // Từ vựng đã thêm: +1đ/từ
-                // Kanji đã học: +2đ/kanji
-                // Từ vựng thành thạo: +3đ/từ (thêm bonus so với chỉ thêm)
-                // Kanji thành thạo: +5đ/kanji
-                // Tổng ôn tập: +0.5đ/lượt
-                // Ngày hoạt động: +5đ/ngày
-                // Streak: +3đ/ngày streak
+                // Tính số liệu hoạt động trong 7 ngày qua
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                const last7DaysLogs = (dailyActivityLogs || []).filter(log => {
+                    try {
+                        const logDate = new Date(log.id);
+                        logDate.setHours(0, 0, 0, 0);
+                        const diffTime = today.getTime() - logDate.getTime();
+                        const diffDays = diffTime / (1000 * 60 * 60 * 24);
+                        return diffDays >= 0 && diffDays < 7;
+                    } catch (e) {
+                        return false;
+                    }
+                });
+
+                const addedLast7Days = last7DaysLogs.reduce((s, l) => s + (l.newWordsAdded || 0), 0);
+                const reviewsLast7Days = last7DaysLogs.reduce((s, l) => s + (l.reviewsDone || 0), 0);
+                const activeDaysLast7Days = last7DaysLogs.filter(l => (l.newWordsAdded || 0) > 0 || (l.reviewsDone || 0) > 0).length;
+
+                // === CÔNG THỨC TÍNH ĐIỂM VINH DANH MỚI (CHĂM CHỈ) ===
+                // Điểm vinh danh được tính dựa trên hoạt động tích cực trong 7 ngày gần nhất và streak hiện tại:
+                // - Từ vựng mới thêm trong tuần: +15 điểm/từ
+                // - Ôn tập trong tuần: +2 điểm/lượt
+                // - Số ngày học tích cực trong tuần (max 7 ngày): +50 điểm/ngày
+                // - Chuỗi ngày học liên tục (streak): +20 điểm/ngày streak
                 const score = Math.round(
-                    (allCards.length * 1) +
-                    (kanjiSrsPublicCount.total * 2) +
-                    (vocabMastered * 3) +
-                    (kanjiSrsPublicCount.mastered * 5) +
-                    (totalReviews * 0.5) +
-                    (activeDays * 5) +
-                    (currentStreak * 3)
+                    (addedLast7Days * 15) +
+                    (reviewsLast7Days * 2) +
+                    (activeDaysLast7Days * 50) +
+                    (currentStreak * 20)
                 );
 
                 const publicData = {
@@ -2694,7 +2782,11 @@ const App = () => {
                     totalReviews: totalReviews,
                     activeDays: activeDays,
                     streak: currentStreak,
-                    // Điểm tổng hợp cho xếp hạng
+                    // Dữ liệu hoạt động 7 ngày qua
+                    addedLast7Days: addedLast7Days,
+                    reviewsLast7Days: reviewsLast7Days,
+                    activeDaysLast7Days: activeDaysLast7Days,
+                    // Điểm vinh danh năng động mới
                     score: score,
                     lastUpdated: serverTimestamp()
                 };
@@ -2720,7 +2812,6 @@ const App = () => {
         return () => clearTimeout(timeoutId);
 
     }, [memoryStats, allCards.length, profile, userId, authReady, publicStatsCollectionPath, dailyActivityLogs, kanjiSrsPublicCount]);
-
 
     // Nếu chưa biết trạng thái auth, show loading
     if (!authReady) {
@@ -3033,11 +3124,11 @@ const App = () => {
             )}
 
             {/* Main content area - responsive for sidebar */}
-            <main className={`lg:ml-64 min-h-screen pt-14 lg:pt-0 flex flex-col ${['REVIEW', 'STUDY', 'FLASHCARD', 'KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') ? 'bg-transparent' : ''}`}>
-                <div className={`${['REVIEW', 'STUDY', 'FLASHCARD'].includes(view) ? 'w-full flex-1 flex items-center justify-center bg-transparent py-4 md:py-8' : ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') ? 'w-full flex-1' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6'}`}>
+            <main className={`lg:ml-64 min-h-screen pt-14 lg:pt-0 flex flex-col ${['REVIEW', 'STUDY', 'FLASHCARD', 'KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
+                <div className={`${['REVIEW', 'STUDY', 'FLASHCARD'].includes(view) ? 'w-full flex-1 flex items-center justify-center bg-transparent py-4 md:py-8' : ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'w-full flex-1' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6'}`}>
                     {/* Main content container - transparent */}
-                    <div className={`w-full ${['REVIEW', 'STUDY', 'FLASHCARD', 'KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') ? 'bg-transparent' : ''}`}>
-                        <div className={`w-full ${['REVIEW', 'STUDY', 'FLASHCARD', 'KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') ? 'bg-transparent' : ''}`}>
+                    <div className={`w-full ${['REVIEW', 'STUDY', 'FLASHCARD', 'KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
+                        <div className={`w-full ${['REVIEW', 'STUDY', 'FLASHCARD', 'KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
                             <AppRoutes
                                 isAuthenticated={!!userId}
                                 isLoading={isLoading}
@@ -3103,6 +3194,8 @@ const App = () => {
                                 playAudio={playAudio}
                                 handleSaveCardAudio={handleSaveCardAudio}
                                 shuffleArray={shuffleArray}
+                                onToggleSrs={handleToggleSrs}
+                                onUpdateVocabSrsRating={handleUpdateVocabSrsRating}
                             />
                         </div>
 

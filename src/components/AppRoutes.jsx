@@ -17,7 +17,6 @@ import {
     LibraryScreen,
     StudySetDetail,
     ReviewScreen,
-    ReviewCompleteScreen,
     KanjiScreen,
     KanjiStudyScreen,
     KanjiLessonScreen,
@@ -53,7 +52,7 @@ import {
 
 
 // Wrapper for StudySetDetail
-const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards, setReviewMode, setFlashcardCards, setStudySessionData, navigate, onDeleteFolder, handleSaveChanges, handleSaveCardAudio, handleDeleteCard }) => {
+const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards, setReviewMode, setFlashcardCards, setStudySessionData, navigate, onDeleteFolder, handleSaveChanges, handleSaveCardAudio, handleDeleteCard, onToggleSrs }) => {
     const { id } = useParams();
     
     const handleStudySet = (setId) => {
@@ -71,29 +70,43 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
         setFlashcardCards(setCards);
         navigate(ROUTES.FLASHCARD);
     };
-
-    const handleReviewSet = (setId) => {
+    const handleMeaningSet = (setId) => {
         const setCards = id === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
             : allCards.filter(c => cardFolders[c.id] === id);
+        if (setCards.length === 0) return;
+        const meaningCards = setCards.map(card => ({ ...card, reviewType: 'back' }));
+        setReviewCards(shuffleArray(meaningCards));
+        if (setReviewMode) setReviewMode('meaning_input');
+        navigate(ROUTES.REVIEW);
+    };
 
-        // Build mixed review cards with proper reviewType for each card
-        const dueBackCards = setCards
-            .map(card => ({ ...card, reviewType: 'back' }));
+    const handleDictationSet = (setId) => {
+        const setCards = id === 'unfiled' 
+            ? allCards.filter(c => !cardFolders[c.id]) 
+            : allCards.filter(c => cardFolders[c.id] === id);
+        if (setCards.length === 0) return;
+        const dictationCards = setCards.map(card => ({ ...card, reviewType: 'dictation' }));
+        setReviewCards(shuffleArray(dictationCards));
+        if (setReviewMode) setReviewMode('dictation');
+        navigate(ROUTES.REVIEW);
+    };
 
-        const dueExampleCards = setCards
+    const handleExampleSet = (setId) => {
+        const setCards = id === 'unfiled' 
+            ? allCards.filter(c => !cardFolders[c.id]) 
+            : allCards.filter(c => cardFolders[c.id] === id);
+        const exampleCards = setCards
             .filter(card => card.example && card.example.trim() !== '')
             .map(card => ({ ...card, reviewType: 'example' }));
-
-        const dueDictationCards = setCards
-            .map(card => ({ ...card, reviewType: 'dictation' }));
-
-        const mixed = shuffleArray([...dueBackCards, ...dueExampleCards, ...dueDictationCards]);
-        if (mixed.length > 0) {
-            setReviewCards(mixed);
-            if (setReviewMode) setReviewMode('mixed');
-            navigate(ROUTES.REVIEW);
+        
+        if (exampleCards.length === 0) {
+            alert('Không có từ vựng nào trong bộ này có câu ví dụ!');
+            return;
         }
+        setReviewCards(shuffleArray(exampleCards));
+        if (setReviewMode) setReviewMode('example');
+        navigate(ROUTES.REVIEW);
     };
 
     const handleSynonymQuiz = (setId) => {
@@ -122,13 +135,16 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
         onEditSet={() => navigate(`/vocab/edit-set/${id}`)}
         onStudySet={handleStudySet}
         onFlashcardSet={handleFlashcardSet}
-        onReviewSet={handleReviewSet}
+        onMeaningSet={handleMeaningSet}
+        onDictationSet={handleDictationSet}
+        onExampleSet={handleExampleSet}
         onSynonymQuiz={handleSynonymQuiz}
         onNavigateToAdd={() => navigate(ROUTES.VOCAB_ADD)}
         onDeleteFolder={onDeleteFolder}
         onDeleteCards={handleDeleteCards}
         onSaveChanges={handleSaveChanges}
         onSaveCardAudio={handleSaveCardAudio}
+        onToggleSrs={onToggleSrs}
     />;
 };
 
@@ -248,7 +264,9 @@ const AppRoutes = ({
     cardFolders,
     onAddFolder,
     onDeleteFolder,
-    onRenameFolder
+    onRenameFolder,
+    onToggleSrs,
+    onUpdateVocabSrsRating
 }) => {
     const navigate = useNavigate();
     const aiCreditsRemaining = profile?.aiCreditsRemaining;
@@ -335,6 +353,9 @@ const AppRoutes = ({
                                 onStartReview={prepareReviewCards}
                                 onNavigate={setView}
                                 setFlashcardCards={setFlashcardCards}
+                                onToggleSrs={onToggleSrs}
+                                onUpdateVocabSrsRating={onUpdateVocabSrsRating}
+                                playAudio={playAudio}
                             />
                         </ProtectedRoute>
                     }
@@ -375,6 +396,7 @@ const AppRoutes = ({
                                 handleDeleteCard={handleDeleteCard}
                                 handleSaveChanges={handleSaveChanges}
                                 handleSaveCardAudio={handleSaveCardAudio}
+                                onToggleSrs={onToggleSrs}
                             />
                         </ProtectedRoute>
                     }
@@ -503,9 +525,7 @@ const AppRoutes = ({
                     path={ROUTES.REVIEW}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            {reviewCards?.length === 0 ? (
-                                <ReviewCompleteScreen onBack={() => navigate(ROUTES.VOCAB_REVIEW)} allCards={allCards} />
-                            ) : (
+                            {reviewCards?.length > 0 ? (
                                 <ReviewScreen
                                     cards={reviewCards}
                                     reviewMode={reviewMode}
@@ -524,14 +544,23 @@ const AppRoutes = ({
                                                 }
                                             });
                                             setReviewCards(shuffleArray(failedCardsList));
-                                            setReviewMode('mixed');
+                                            setReviewMode(reviewMode || 'mixed');
                                         } else {
                                             setReviewCards([]);
+                                        }
+                                    }}
+                                    onBack={() => {
+                                        setReviewCards([]);
+                                        const canGoBack = window.history.state && window.history.state.idx > 0;
+                                        if (canGoBack) {
+                                            navigate(-1);
+                                        } else {
                                             navigate(ROUTES.VOCAB_REVIEW);
                                         }
                                     }}
-                                    onBack={() => navigate(-1)}
                                 />
+                            ) : (
+                                <Navigate to={ROUTES.VOCAB_REVIEW} replace />
                             )}
                         </ProtectedRoute>
                     }
@@ -557,7 +586,12 @@ const AppRoutes = ({
                                         batchIndex: 0,
                                         allNoSrsCards: []
                                     });
-                                    navigate(ROUTES.VOCAB_REVIEW);
+                                    const canGoBack = window.history.state && window.history.state.idx > 0;
+                                    if (canGoBack) {
+                                        navigate(-1);
+                                    } else {
+                                        navigate(ROUTES.VOCAB_REVIEW);
+                                    }
                                 }}
                                 onBack={() => navigate(-1)}
                             />
@@ -669,7 +703,12 @@ const AppRoutes = ({
                                     onSaveCardAudio={handleSaveCardAudio}
                                     onComplete={() => {
                                         setFlashcardCards([]);
-                                        navigate(ROUTES.VOCAB_REVIEW);
+                                        const canGoBack = window.history.state && window.history.state.idx > 0;
+                                        if (canGoBack) {
+                                            navigate(-1);
+                                        } else {
+                                            navigate(ROUTES.VOCAB_REVIEW);
+                                        }
                                     }}
                                     onBack={() => navigate(-1)}
                                 />
@@ -692,7 +731,12 @@ const AppRoutes = ({
                                     onBack={() => navigate(-1)}
                                     onComplete={() => {
                                         setFlashcardCards([]);
-                                        navigate(ROUTES.VOCAB_REVIEW);
+                                        const canGoBack = window.history.state && window.history.state.idx > 0;
+                                        if (canGoBack) {
+                                            navigate(-1);
+                                        } else {
+                                            navigate(ROUTES.VOCAB_REVIEW);
+                                        }
                                     }}
                                 />
                             ) : (
@@ -827,7 +871,11 @@ const AppRoutes = ({
                     path={ROUTES.JLPT_TEST}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <JLPTTestScreen isAdmin={isAdmin} />
+                            <JLPTTestScreen 
+                                isAdmin={isAdmin} 
+                                allCards={allCards} 
+                                profile={profile} 
+                            />
                         </ProtectedRoute>
                     }
                 />
@@ -856,6 +904,8 @@ const AppRoutes = ({
                                 userId={userId}
                                 userName={profile?.displayName}
                                 userEmail={currentUserEmail}
+                                profile={profile}
+                                isAdmin={isAdmin}
                             />
                         </ProtectedRoute>
                     }

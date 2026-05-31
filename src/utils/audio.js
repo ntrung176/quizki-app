@@ -318,11 +318,25 @@ if (window.speechSynthesis) {
 // Fallback: Sử dụng Web Speech API để đọc text tiếng Nhật
 const speakWithWebSpeech = (text) => {
     return new Promise((resolve) => {
-        if (!text || !window.speechSynthesis) return resolve();
+        let isResolved = false;
+        const safeResolve = () => {
+            if (!isResolved) {
+                isResolved = true;
+                clearTimeout(safetyTimeout);
+                resolve();
+            }
+        };
+
+        const safetyTimeout = setTimeout(() => {
+            console.warn('⚠️ Web Speech synthesis timed out after 3000ms');
+            safeResolve();
+        }, 3000);
+
+        if (!text || !window.speechSynthesis) return safeResolve();
 
         // Ưu tiên đọc hiragana trong ngoặc
         const cleanText = extractReadingText(text);
-        if (!cleanText) return resolve();
+        if (!cleanText) return safeResolve();
 
         const utterance = new SpeechSynthesisUtterance(cleanText);
         utterance.lang = 'ja-JP';
@@ -335,8 +349,8 @@ const speakWithWebSpeech = (text) => {
             utterance.voice = japaneseVoice;
         }
 
-        utterance.onend = () => resolve();
-        utterance.onerror = () => resolve();
+        utterance.onend = () => safeResolve();
+        utterance.onerror = () => safeResolve();
 
         window.speechSynthesis.speak(utterance);
     });
@@ -351,11 +365,25 @@ const speakWithWebSpeech = (text) => {
  */
 const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
     return new Promise(async (resolve) => {
-        if (!text) return resolve();
+        let isResolved = false;
+        const safeResolve = () => {
+            if (!isResolved) {
+                isResolved = true;
+                clearTimeout(safetyTimeout);
+                resolve();
+            }
+        };
+
+        const safetyTimeout = setTimeout(() => {
+            console.warn('⚠️ TTS playback timed out after 3000ms');
+            safeResolve();
+        }, 3000);
+
+        if (!text) return safeResolve();
 
         // Ưu tiên đọc hiragana trong ngoặc
         const cleanText = extractReadingText(text);
-        if (!cleanText) return resolve();
+        if (!cleanText) return safeResolve();
 
         // Dừng speech cũ
         if (window.speechSynthesis) {
@@ -370,27 +398,27 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
         if (token && email && proxyUrl) {
             try {
                 const result = await speechgenTTS(cleanText);
-                if (sessionId !== null && globalAudioSessionId !== sessionId) return resolve();
+                if (sessionId !== null && globalAudioSessionId !== sessionId) return safeResolve();
 
                 if (result && result.blobUrl) {
                     currentAudioObj = new Audio(result.blobUrl);
                     currentAudioObj.onended = () => {
                         currentAudioObj = null;
-                        resolve();
+                        safeResolve();
                     };
                     currentAudioObj.onerror = async () => {
                         console.warn('SpeechGen play error, falling back');
-                        if (sessionId !== null && globalAudioSessionId !== sessionId) return resolve();
+                        if (sessionId !== null && globalAudioSessionId !== sessionId) return safeResolve();
                         await speakWithWebSpeech(text);
-                        resolve();
+                        safeResolve();
                     };
                     try {
                         await currentAudioObj.play();
                     } catch (e) {
                         console.warn('SpeechGen play error, falling back:', e);
-                        if (sessionId !== null && globalAudioSessionId !== sessionId) return resolve();
+                        if (sessionId !== null && globalAudioSessionId !== sessionId) return safeResolve();
                         await speakWithWebSpeech(text);
-                        resolve();
+                        safeResolve();
                     }
 
                     // Gọi callback để component lưu audio vào database
@@ -406,7 +434,7 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
 
         // Fallback to Web Speech API
         await speakWithWebSpeech(text);
-        resolve();
+        safeResolve();
     });
 };
 
@@ -420,6 +448,20 @@ export const playAudio = (base64Data, text = '', onAudioGenerated = null) => {
     const currentSessionId = globalAudioSessionId;
 
     return new Promise((resolve) => {
+        let isResolved = false;
+        const safeResolve = () => {
+            if (!isResolved) {
+                isResolved = true;
+                clearTimeout(safetyTimeout);
+                resolve();
+            }
+        };
+
+        const safetyTimeout = setTimeout(() => {
+            console.warn('⚠️ playAudio timed out after 4000ms');
+            safeResolve();
+        }, 4000);
+
         // Dừng audio đang phát (nếu có)
         if (currentAudioObj) {
             try {
@@ -450,18 +492,18 @@ export const playAudio = (base64Data, text = '', onAudioGenerated = null) => {
                             currentAudioObj.remove?.();
                         }
                         currentAudioObj = null;
-                        resolve();
+                        safeResolve();
                     };
                     currentAudioObj.onerror = async () => {
-                        if (globalAudioSessionId !== currentSessionId) return resolve();
+                        if (globalAudioSessionId !== currentSessionId) return safeResolve();
                         await speakWithTTS(text, onAudioGenerated, currentSessionId);
-                        resolve();
+                        safeResolve();
                     };
                     currentAudioObj.play().catch(async (e) => {
                         console.error('Audio play error:', e);
-                        if (globalAudioSessionId !== currentSessionId) return resolve();
+                        if (globalAudioSessionId !== currentSessionId) return safeResolve();
                         await speakWithTTS(text, onAudioGenerated, currentSessionId);
-                        resolve();
+                        safeResolve();
                     });
                 } else {
                     const rawData = base64ToArrayBuffer(base64Data);
@@ -476,31 +518,31 @@ export const playAudio = (base64Data, text = '', onAudioGenerated = null) => {
                             currentAudioObj.remove?.();
                         }
                         currentAudioObj = null;
-                        resolve();
+                        safeResolve();
                     };
                     currentAudioObj.onerror = async () => {
-                        if (globalAudioSessionId !== currentSessionId) return resolve();
+                        if (globalAudioSessionId !== currentSessionId) return safeResolve();
                         await speakWithTTS(text, onAudioGenerated, currentSessionId);
-                        resolve();
+                        safeResolve();
                     };
                     currentAudioObj.play().catch(async (e) => {
                         console.error('Audio play error:', e);
-                        if (globalAudioSessionId !== currentSessionId) return resolve();
+                        if (globalAudioSessionId !== currentSessionId) return safeResolve();
                         await speakWithTTS(text, onAudioGenerated, currentSessionId);
-                        resolve();
+                        safeResolve();
                     });
                 }
             } catch (e) {
                 console.error('playAudio error:', e);
-                if (globalAudioSessionId !== currentSessionId) return resolve();
-                speakWithTTS(text, onAudioGenerated, currentSessionId).then(resolve);
+                if (globalAudioSessionId !== currentSessionId) return safeResolve();
+                speakWithTTS(text, onAudioGenerated, currentSessionId).then(safeResolve);
             }
         } else if (text) {
             // Không có audio → dùng TTS và lưu kết quả qua callback
-            if (globalAudioSessionId !== currentSessionId) return resolve();
-            speakWithTTS(text, onAudioGenerated, currentSessionId).then(resolve);
+            if (globalAudioSessionId !== currentSessionId) return safeResolve();
+            speakWithTTS(text, onAudioGenerated, currentSessionId).then(safeResolve);
         } else {
-            resolve();
+            safeResolve();
         }
     });
 };

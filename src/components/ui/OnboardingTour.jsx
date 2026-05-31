@@ -45,8 +45,8 @@ const TOUR_STEPS = [
     },
     {
         target: '[data-tour-id="HUB"]',
-        title: '🎮 Trung tâm',
-        desc: 'Xem thống kê chi tiết, bảng xếp hạng thi đua với bạn bè, và chăm sóc thú cưng ảo — phần thưởng cho việc học chăm chỉ!',
+        title: '🏆 Bảng vinh danh',
+        desc: 'Xem bảng xếp hạng vinh danh học tập và so tài cùng bạn bè!',
     },
     {
         target: '[data-tour-id="SETTINGS"]',

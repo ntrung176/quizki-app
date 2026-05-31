@@ -228,7 +228,8 @@ export const importTextbooksFromJson = async (jsonArray, adminUserId) => {
                 description: tb.description || '',
                 levels: Array.isArray(tb.levels) ? tb.levels : (tb.levels || '').split(',').map(s => s.trim()).filter(Boolean),
                 category: tb.category || 'jlpt',
-                featured: !!tb.featured
+                featured: !!tb.featured,
+                color: tb.color || '#10b981'
             };
             const res = await addTextbook(tbData, adminUserId);
             if (!res.success) throw new Error(`Lỗi giáo trình "${tbData.titleVi}": ${res.error}`);

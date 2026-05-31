@@ -54,10 +54,10 @@ const HomeScreen = ({
     // Calculate stats
     const stats = useMemo(() => {
         const dueCards = allCards.filter(card =>
-            card.nextReview_back && card.nextReview_back <= Date.now()
+            card.srsEnabled === true && card.nextReview_back && card.nextReview_back <= Date.now()
         ).length;
-        const newCards = allCards.filter(card => card.intervalIndex_back === -1).length;
-        const masteredCards = allCards.filter(card => card.intervalIndex_back >= 4).length;
+        const newCards = allCards.filter(card => !card.srsEnabled).length;
+        const masteredCards = allCards.filter(card => card.srsEnabled === true && card.srsReps >= 5).length;
 
         // Tính streak thực tế dựa trên ngày hoạt động (tạo từ, ôn tập từ vựng)
         const activityDates = new Set();

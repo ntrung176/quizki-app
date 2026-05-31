@@ -78,13 +78,19 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId }) =>
         { id: 'VOCAB_LIST', icon: BookOpen, label: 'Từ vựng', route: ROUTES.VOCAB_LIST },
         { id: 'KANJI_STUDY', icon: Languages, label: 'Thư viện Kanji', route: ROUTES.KANJI_STUDY },
         { id: 'GRAMMAR', icon: Repeat2, label: 'Ngữ pháp', route: ROUTES.GRAMMAR },
-        { id: 'HUB', icon: BarChart3, label: 'Thống kê', route: ROUTES.HUB },
+        { id: 'JLPT_TEST', icon: FileCheck, label: 'Luyện đề JLPT', route: ROUTES.JLPT_TEST },
+        { id: 'HUB', icon: Trophy, label: 'Bảng vinh danh', route: ROUTES.HUB },
         { id: 'SETTINGS', icon: Settings, label: 'Cài đặt', route: ROUTES.SETTINGS },
     ];
 
     if (isAdmin) {
         menuItems.push({ id: 'ADMIN', icon: Shield, label: 'Quản trị', route: ROUTES.ADMIN });
     }
+
+    const mobileMenuItems = [
+        ...menuItems,
+        { id: 'UPGRADE', icon: Crown, label: 'Nâng cấp tài khoản', route: ROUTES.UPGRADE }
+    ];
 
     // Check if a menu or any of its children is active
     const isMenuActive = (item) => {
@@ -99,6 +105,9 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId }) =>
         }
         if (item.id === 'HUB') {
             return currentView === 'HUB';
+        }
+        if (item.id === 'JLPT_TEST') {
+            return currentView === 'JLPT_TEST' || currentView === 'JLPT_ADMIN';
         }
         return currentView === item.id;
     };
@@ -150,7 +159,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId }) =>
                                 </Link>
                             </div>
                         )}
-                        {menuItems.map((item) => (
+                        {mobileMenuItems.map((item) => (
                             <div key={item.id}>
                                 {item.hasSubmenu ? (
                                     <>
@@ -194,7 +203,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId }) =>
                                         }}
                                         className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${item.disabled
                                             ? 'cursor-not-allowed opacity-50 text-gray-400'
-                                            : currentView === item.id
+                                            : isMenuActive(item)
                                                 ? 'bg-indigo-100 dark:bg-indigo-600/20 text-indigo-600 dark:text-indigo-400 border border-indigo-300 dark:border-indigo-500/30'
                                                 : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50'
                                             }`}
@@ -301,19 +310,20 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId }) =>
             </nav>
 
             {/* Bottom section */}
-            <div className="p-3 border-t border-slate-100 dark:border-slate-800/40 space-y-1">
-                {/* Start Review button */}
-                {!isCollapsed && (
-                    <button
-                        onClick={() => {
-                            navigate(ROUTES.REVIEW);
-                        }}
-                        className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-[#2E5B70] hover:bg-[#254A5C] text-white text-xs font-bold rounded-lg transition-all shadow-md shadow-[#2E5B70]/10 tracking-wider uppercase mb-2 cursor-pointer"
-                    >
-                        <Sparkles className="w-3.5 h-3.5" />
-                        Bắt đầu ôn tập
-                    </button>
-                )}
+            <div className="p-3 border-t border-slate-100 dark:border-slate-800/40 space-y-2">
+                {/* Upgrade Account Link */}
+                <Link
+                    to={ROUTES.UPGRADE}
+                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-4 py-3 rounded-xl transition-all duration-200 group relative ${
+                        currentView === 'UPGRADE'
+                            ? 'bg-[#6366F1] text-white font-semibold shadow-md shadow-indigo-150 dark:shadow-none'
+                            : 'bg-indigo-50 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/30'
+                    }`}
+                    title={isCollapsed ? 'Nâng cấp tài khoản' : undefined}
+                >
+                    <Crown className={`w-5 h-5 ${currentView === 'UPGRADE' ? 'text-white' : 'text-indigo-500'}`} />
+                    {!isCollapsed && <span className="text-sm font-semibold">Nâng cấp tài khoản</span>}
+                </Link>
 
                 {/* Collapse toggle */}
                 <button

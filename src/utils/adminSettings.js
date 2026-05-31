@@ -1,5 +1,5 @@
 // --- Admin Settings & Permissions Utilities ---
-import { doc, getDoc, setDoc, updateDoc, onSnapshot, collection, addDoc, getDocs, deleteDoc, serverTimestamp, query, orderBy, increment } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc, onSnapshot, collection, addDoc, getDocs, deleteDoc, serverTimestamp, query, orderBy, increment, arrayUnion } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
 
 // Firestore path for admin settings
@@ -8,10 +8,69 @@ const ADMIN_CONFIG_DOC = 'adminConfig';
 
 // Default AI Credit packages (admin can customize)
 export const DEFAULT_AI_PACKAGES = [
-    { id: 'starter', name: 'Cơ bản', cards: 500, originalPrice: 69000, salePrice: 39000 },
-    { id: 'popular', name: 'Phổ biến', cards: 1000, originalPrice: 129000, salePrice: 59000 },
-    { id: 'best_value', name: 'Tiết kiệm', cards: 3000, originalPrice: 299000, salePrice: 99000 },
-    { id: 'ultimate', name: 'Cao cấp', cards: 10000, originalPrice: 699000, salePrice: 199000 },
+    { id: 'starter', name: 'Starter', cards: 100, originalPrice: 19000, salePrice: 19000 },
+    { id: 'popular', name: 'Popular', cards: 500, originalPrice: 95000, salePrice: 49000 },
+    { id: 'best_value', name: 'Best Value', cards: 1000, originalPrice: 190000, salePrice: 89000 },
+    { id: 'ultimate', name: 'Ultimate', cards: 3000, originalPrice: 570000, salePrice: 199000 },
+];
+
+export const DEFAULT_SPECIALIZED_PACKAGES = [
+    {
+        id: 'vocab_zen',
+        name: 'Mở khóa Từ vựng Zen',
+        icon: 'BookOpen',
+        description: 'Độc quyền thuật toán ôn tập Spaced Repetition (SRS) tự động tối ưu chu kỳ ghi nhớ và học tập.',
+        originalPrice: 99000,
+        salePrice: 49000,
+        unlockedFeatures: [
+            '[Premium] Hệ thống Leitner Box & Spaced Repetition thông minh nhắc nhở ôn tập tự động',
+            '[Premium] Tạo từ vựng không giới hạn bằng AI (tự động điền Hán Việt, ví dụ, bộ thủ)',
+            '🔊 Phát âm từ vựng chuẩn xác giọng bản xứ (Nam/Nữ) qua AI Voice',
+            '📈 Thống kê tiến độ ôn tập & đo lường hiệu quả học tập hàng ngày'
+        ]
+    },
+    {
+        id: 'grammar_zen',
+        name: 'Mở khóa Ngữ pháp Zen',
+        icon: 'Sparkles',
+        description: 'Chinh phục 500+ mẫu ngữ pháp JLPT N5 - N1 với sơ đồ tư duy liên kết và trợ lý giải thích ngữ nghĩa AI.',
+        originalPrice: 99000,
+        salePrice: 49000,
+        unlockedFeatures: [
+            '[Premium] Phân tích & so sánh các mẫu ngữ pháp dễ nhầm lẫn bằng AI',
+            '[Premium] Bản đồ tư duy liên kết các mẫu ngữ pháp tương đồng trực quan',
+            '🔊 5,000+ câu hỏi luyện tập kèm giải thích đáp án chi tiết',
+            '📚 Sách ngữ pháp điện tử JLPT N5 - N1 phân loại rõ ràng'
+        ]
+    },
+    {
+        id: 'kanji_zen',
+        name: 'Mở khóa Kanji Zen',
+        icon: 'Languages',
+        description: 'Bản đồ tư duy Kanji (Kanji Mindmap) liên kết bộ thủ độc quyền. Luyện viết nét đứt sinh động theo thời gian thực.',
+        originalPrice: 99000,
+        salePrice: 49000,
+        unlockedFeatures: [
+            '[Premium] Bản đồ tư duy Kanji liên kết Hán tự & Bộ thủ độc quyền',
+            '[Premium] Luyện viết Kanji từng nét (Stroke Order) sinh động theo thời gian thực',
+            '🔊 Phân tích chi tiết âm Onyomi/Kunyomi & từ ghép thông dụng',
+            '📊 Thống kê tần suất xuất hiện của Kanji trong đề thi thực tế'
+        ]
+    },
+    {
+        id: 'jlpt_prep',
+        name: 'Gói Luyện thi JLPT',
+        icon: 'Trophy',
+        description: 'Trải nghiệm phòng thi ảo tính giờ & chấm điểm tự động. Đánh giá chi tiết năng lực & kỹ năng làm bài thi.',
+        originalPrice: 199000,
+        salePrice: 99000,
+        unlockedFeatures: [
+            '[Premium] Phòng thi ảo bấm giờ và chấm điểm tự động sát đề thật 99%',
+            '[Premium] Biểu đồ phân tích kỹ năng yếu (Moji-Goi, Choukai, Dokkai) sau khi làm đề',
+            '🔊 Kho đề thi thử JLPT N5 - N1 dồi dào, cập nhật mới liên tục',
+            '🏆 Nhận huy hiệu danh giá & lọt Top Bảng Vinh Danh'
+        ]
+    }
 ];
 
 // Default admin config
@@ -23,6 +82,7 @@ const DEFAULT_ADMIN_CONFIG = {
     aiAllowedUsers: [],
     aiAllowAll: false,
     aiCreditPackages: DEFAULT_AI_PACKAGES,
+    specializedPackages: DEFAULT_SPECIALIZED_PACKAGES,
 
     // Payment Settings (SePay)
     sepayToken: '',                     // SePay API Token
@@ -208,7 +268,7 @@ export const submitCreditRequest = async (userId, userName, userEmail, packageIn
             userEmail: userEmail || '',
             packageId: packageInfo.id,
             packageName: packageInfo.name,
-            credits: packageInfo.cards,
+            credits: packageInfo.cards !== undefined ? packageInfo.cards : ('specialized:' + packageInfo.id),
             amount: packageInfo.salePrice,
             status: 'pending', // 'pending' | 'approved' | 'rejected'
             createdAt: serverTimestamp(),
@@ -235,7 +295,7 @@ export const submitAndApproveCreditRequest = async (userId, userName, userEmail,
             userEmail: userEmail || '',
             packageId: packageInfo.id,
             packageName: packageInfo.name,
-            credits: packageInfo.cards,
+            credits: packageInfo.cards !== undefined ? packageInfo.cards : ('specialized:' + packageInfo.id),
             amount: packageInfo.salePrice,
             status: 'approved', // Tự động approve vì đã xác nhận qua SePay
             autoApproved: true,  // Đánh dấu là tự động duyệt
@@ -269,11 +329,24 @@ export const subscribeCreditRequests = (callback) => {
 // Admin approves a credit request → add credits to user
 export const approveCreditRequest = async (requestId, userId, credits, adminUserId) => {
     try {
-        // Update user profile credits
+        // Update user profile credits or unlock specialized package
         const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
-        const profileSnap = await getDoc(profileRef);
-        const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
-        await updateDoc(profileRef, { aiCreditsRemaining: currentCredits + credits });
+        if (typeof credits === 'string' && credits.startsWith('specialized:')) {
+            const packageId = credits.replace('specialized:', '');
+            if (packageId === 'premium') {
+                await setDoc(profileRef, {
+                    unlockedSpecializedPackages: arrayUnion('premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep')
+                }, { merge: true });
+            } else {
+                await setDoc(profileRef, {
+                    unlockedSpecializedPackages: arrayUnion(packageId)
+                }, { merge: true });
+            }
+        } else {
+            const profileSnap = await getDoc(profileRef);
+            const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
+            await updateDoc(profileRef, { aiCreditsRemaining: currentCredits + Number(credits) });
+        }
 
         // Mark request as approved
         const reqRef = doc(db, getCreditRequestsPath(), requestId);
@@ -381,16 +454,31 @@ export const processPaymentSecurely = async (transactionId, orderCode, userId, c
                 timestamp: Date.now(),
             });
 
-            // Step 4: Update credits
-            if (profileSnap.exists()) {
-                await updateDoc(profileRef, { aiCreditsRemaining: increment(credits) });
+            // Step 4: Update credits or unlock package
+            if (typeof credits === 'string' && credits.startsWith('specialized:')) {
+                const packageId = credits.replace('specialized:', '');
+                if (packageId === 'premium') {
+                    await setDoc(profileRef, {
+                        unlockedSpecializedPackages: arrayUnion('premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep')
+                    }, { merge: true });
+                } else {
+                    await setDoc(profileRef, {
+                        unlockedSpecializedPackages: arrayUnion(packageId)
+                    }, { merge: true });
+                }
+                console.log(`✅ Payment processed: TX#${transactionId}, unlocked specialized package ${packageId}`);
+                return { success: true, newCredits: currentCredits };
             } else {
-                await setDoc(profileRef, { aiCreditsRemaining: credits }, { merge: true });
+                const creditNum = Number(credits) || 0;
+                if (profileSnap.exists()) {
+                    await updateDoc(profileRef, { aiCreditsRemaining: increment(creditNum) });
+                } else {
+                    await setDoc(profileRef, { aiCreditsRemaining: creditNum }, { merge: true });
+                }
+                const newCredits = currentCredits + creditNum;
+                console.log(`✅ Payment processed: TX#${transactionId}, +${creditNum} credits → total ${newCredits}`);
+                return { success: true, newCredits };
             }
-
-            const newCredits = currentCredits + credits;
-            console.log(`✅ Payment processed: TX#${transactionId}, +${credits} credits → total ${newCredits}`);
-            return { success: true, newCredits };
 
         } catch (e) {
             const isQuotaError = e?.code === 'resource-exhausted' || e?.message?.includes('Quota') || e?.message?.includes('429');
