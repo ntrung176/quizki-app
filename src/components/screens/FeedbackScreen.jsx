@@ -40,7 +40,9 @@ const FeedbackScreen = ({ userId, profile, isAdmin }) => {
         try {
             const q = query(collection(db, feedbackPath), orderBy('createdAt', 'desc'));
             const snapshot = await getDocs(q);
-            const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+            const items = snapshot.docs
+                .map(d => ({ id: d.id, ...d.data() }))
+                .filter(d => !d.isSupportChat);
             setFeedbacks(items);
         } catch (e) {
             console.error('Error loading feedbacks:', e);

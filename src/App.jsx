@@ -71,6 +71,7 @@ import {
 import { SearchInput, SrsStatusCell } from './components/ui';
 import UpdateNotification from './components/ui/UpdateNotification';
 import VocabularySelectionLookup from './components/ui/VocabularySelectionLookup';
+import FeedbackChatbox from './components/ui/FeedbackChatbox';
 
 // Import hooks
 import useVersionCheck from './hooks/useVersionCheck';
@@ -3340,6 +3341,15 @@ const App = () => {
                     </div>
                 </div>
             </main>
+
+            {/* Real-time floating support/bug feedback chatbox */}
+            {userId && !isAdmin && (
+                <FeedbackChatbox
+                    userId={userId}
+                    profile={profile}
+                    isAdmin={isAdmin}
+                />
+            )}
         </div>
 
     );

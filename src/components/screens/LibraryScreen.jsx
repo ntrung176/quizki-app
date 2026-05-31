@@ -79,9 +79,8 @@ const LibraryScreen = ({
                 
             if (!matchesSearch) return false;
             
-            // If there's a search query, and we are at the root level, search globally (ignore parentId)
-            // But if we are inside a specific folder, only search within that folder!
-            if (searchQuery && !activeParentFolderId) return true;
+            // If there's a search query, search globally (ignore parentId)
+            if (searchQuery) return true;
             
             // Match parent folder
             const matchesParent = activeParentFolderId 
@@ -329,7 +328,7 @@ const LibraryScreen = ({
                 )}
 
                 {/* 1. PARENT FOLDERS GRID SECTION - Only show at root level */}
-                {!activeParentFolderId && (
+                {(!activeParentFolderId || searchQuery) && (
                     <div className="space-y-4">
                         <div className="flex items-center justify-between">
                             <h2 className="text-lg font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2">

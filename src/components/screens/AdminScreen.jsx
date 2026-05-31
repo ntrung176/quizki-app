@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc } from 'firebase/firestore';
+import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc, addDoc, where, serverTimestamp, orderBy } from 'firebase/firestore';
 import * as XLSX from 'xlsx';
 import { db, appId } from '../../config/firebase';
 import {
@@ -9,7 +9,8 @@ import {
     Sparkles, Bot, UserCheck, UserX, ToggleLeft, ToggleRight,
     ChevronDown, ChevronUp, Settings, Crown, ShieldCheck,
     CreditCard, Plus, Check, X as XIcon, Edit, Ticket,
-    DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send
+    DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send,
+    MessageSquare, Image as ImageIcon
 } from 'lucide-react';
 import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, addModerator, removeModerator, DEFAULT_AI_PACKAGES, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense, manuallyApplyPackageToUser, sendGlobalNotification, deleteGlobalNotification } from '../../utils/adminSettings';
 import { showConfirm } from '../../utils/toast';
@@ -464,6 +465,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     // Section tabs
     const sections = [
         { id: 'users', label: 'Người dùng', icon: Users },
+        { id: 'support', label: 'Hỗ trợ trực tuyến', icon: MessageSquare },
         { id: 'ai', label: 'AI', icon: Bot },
         { id: 'credits', label: 'Gói & Lượt AI', icon: CreditCard },
         { id: 'revenue', label: 'Doanh thu', icon: DollarSign },
@@ -875,6 +877,14 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                         </div>
                     </div>
                 </>
+            )}
+
+            {/* ==================== ONLINE SUPPORT SECTION ==================== */}
+            {activeSection === 'support' && (
+                <AdminSupportChatSection
+                    users={users}
+                    currentUserId={currentUserId}
+                />
             )}
 
             {/* ==================== AI SETTINGS SECTION ==================== */}
@@ -2033,6 +2043,376 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                     <span className="text-sm font-medium">{notification.message}</span>
                 </div>
             )}
+        </div>
+    );
+};
+
+// ==================== ADMIN SUPPORT CHAT SECTION ====================
+const AdminSupportChatSection = ({ users, currentUserId }) => {
+    const [threads, setThreads] = React.useState([]);
+    const [selectedUserId, setSelectedUserId] = React.useState(null);
+    const [messages, setMessages] = React.useState([]);
+    const [replyText, setReplyText] = React.useState('');
+    const [selectedImage, setSelectedImage] = React.useState(null);
+    const [sending, setSending] = React.useState(false);
+    const [loadingThreads, setLoadingThreads] = React.useState(true);
+    const [loadingMessages, setLoadingMessages] = React.useState(false);
+    
+    const messagesEndRef = React.useRef(null);
+    const fileInputRef = React.useRef(null);
+    const chatPath = `artifacts/${appId}/public/data/feedbacks`;
+
+    const fetchThreads = React.useCallback(async (showLoader = false) => {
+        if (!db) return;
+        if (showLoader) setLoadingThreads(true);
+        try {
+            const q = query(
+                collection(db, chatPath),
+                orderBy('createdAt', 'desc')
+            );
+            const snapshot = await getDocs(q);
+            const allMsgs = snapshot.docs
+                .map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }))
+                .filter(msg => msg.isSupportChat);
+
+            // Group by userId
+            const threadMap = {};
+            allMsgs.forEach(msg => {
+                const uId = msg.userId;
+                if (!uId) return;
+
+                if (!threadMap[uId]) {
+                    // Find user profile from user list
+                    const userProfile = users.find(u => u.userId === uId);
+                    threadMap[uId] = {
+                        userId: uId,
+                        displayName: userProfile?.displayName || msg.senderName || 'Người dùng ẩn danh',
+                        email: userProfile?.email || '',
+                        messages: [],
+                        lastMessage: msg
+                    };
+                }
+                threadMap[uId].messages.push(msg);
+            });
+
+            // Convert to array and sort by last message time
+            const threadList = Object.values(threadMap).sort((a, b) => {
+                const aTime = a.lastMessage.createdAt?.toDate ? a.lastMessage.createdAt.toDate().getTime() : (a.lastMessage.createdAt || 0);
+                const bTime = b.lastMessage.createdAt?.toDate ? b.lastMessage.createdAt.toDate().getTime() : (b.lastMessage.createdAt || 0);
+                return bTime - aTime;
+            });
+
+            setThreads(threadList);
+        } catch (error) {
+            console.error("Error fetching admin support threads:", error);
+        } finally {
+            if (showLoader) setLoadingThreads(false);
+        }
+    }, [users]);
+
+    // Load all support messages and group them into threads on mount and polling
+    React.useEffect(() => {
+        fetchThreads(true);
+        const interval = setInterval(() => {
+            fetchThreads(false);
+        }, 15000);
+        return () => clearInterval(interval);
+    }, [fetchThreads]);
+
+    const fetchMessages = React.useCallback(async (showLoader = false) => {
+        if (!selectedUserId || !db) {
+            setMessages([]);
+            return;
+        }
+
+        if (showLoader) setLoadingMessages(true);
+        try {
+            const q = query(
+                collection(db, chatPath),
+                where('userId', '==', selectedUserId)
+            );
+            const snapshot = await getDocs(q);
+            const list = snapshot.docs
+                .map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }))
+                .filter(msg => msg.isSupportChat);
+
+            // Sort client-side by createdAt
+            list.sort((a, b) => {
+                const aTime = a.createdAt?.toDate ? a.createdAt.toDate().getTime() : (a.createdAt || 0);
+                const bTime = b.createdAt?.toDate ? b.createdAt.toDate().getTime() : (b.createdAt || 0);
+                return aTime - bTime;
+            });
+
+            setMessages(list);
+            
+            // Scroll to bottom
+            setTimeout(() => {
+                messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        } catch (error) {
+            console.error("Error fetching chat messages for user:", selectedUserId, error);
+        } finally {
+            if (showLoader) setLoadingMessages(false);
+        }
+    }, [selectedUserId]);
+
+    // Load messages of selected thread
+    React.useEffect(() => {
+        fetchMessages(true);
+        const interval = setInterval(() => {
+            fetchMessages(false);
+        }, 4000);
+        return () => clearInterval(interval);
+    }, [fetchMessages]);
+
+    // Handle image select
+    const handleImageSelect = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        if (file.size > 1.2 * 1024 * 1024) {
+            alert('Hình ảnh quá lớn! Vui lòng chọn ảnh nhỏ hơn 1.2 MB.');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setSelectedImage(reader.result);
+        };
+        reader.readAsDataURL(file);
+    };
+
+    // Send reply
+    const handleSendReply = async (e) => {
+        e.preventDefault();
+        if ((!replyText.trim() && !selectedImage) || sending || !selectedUserId) return;
+
+        setSending(true);
+        const textToSend = replyText.trim();
+        const imageToSend = selectedImage;
+
+        setReplyText('');
+        setSelectedImage(null);
+
+        try {
+            await addDoc(collection(db, chatPath), {
+                userId: selectedUserId,
+                senderId: currentUserId,
+                senderName: 'Ban quản trị QuizKi',
+                text: textToSend,
+                imageUrl: imageToSend || null,
+                isAdmin: true,
+                isSupportChat: true,
+                createdAt: serverTimestamp()
+            });
+            // Fetch immediately
+            fetchMessages(false);
+            fetchThreads(false);
+        } catch (error) {
+            console.error("Error sending admin reply:", error);
+            setReplyText(textToSend);
+            setSelectedImage(imageToSend);
+            alert("Lỗi khi gửi phản hồi.");
+        } finally {
+            setSending(false);
+        }
+    };
+
+    const selectedThread = threads.find(t => t.userId === selectedUserId);
+
+    return (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden h-[600px] shadow-sm">
+            {/* Thread List */}
+            <div className="border-r border-gray-100 dark:border-gray-700 flex flex-col h-full bg-slate-50/50 dark:bg-slate-900/30 font-sans">
+                <div className="p-4 border-b border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800">
+                    <h3 className="font-bold text-gray-850 dark:text-white flex items-center gap-2 text-xs">
+                        <MessageSquare className="w-5 h-5 text-[#2E5B70]" />
+                        Hội thoại hỗ trợ ({threads.length})
+                    </h3>
+                </div>
+                
+                <div className="flex-1 overflow-y-auto divide-y divide-gray-100 dark:divide-gray-750">
+                    {loadingThreads ? (
+                        <div className="p-8 text-center">
+                            <Loader2 className="w-6 h-6 animate-spin text-[#2E5B70] mx-auto" />
+                        </div>
+                    ) : threads.length === 0 ? (
+                        <div className="p-8 text-center text-gray-400 dark:text-gray-500 text-xs italic">
+                            Chưa có yêu cầu hỗ trợ nào.
+                        </div>
+                    ) : (
+                        threads.map(thread => {
+                            const isSelected = thread.userId === selectedUserId;
+                            const needsReply = !thread.lastMessage.isAdmin;
+                            return (
+                                <div
+                                    key={thread.userId}
+                                    onClick={() => setSelectedUserId(thread.userId)}
+                                    className={`p-4 cursor-pointer hover:bg-white dark:hover:bg-gray-800 transition-all flex items-start gap-3 relative ${
+                                        isSelected ? 'bg-white dark:bg-gray-800 border-l-4 border-[#2E5B70]' : ''
+                                    }`}
+                                >
+                                    <div className="w-10 h-10 rounded-xl bg-[#2E5B70]/10 dark:bg-[#2E5B70]/20 flex items-center justify-center font-bold text-[#2E5B70] dark:text-[#3B728C] flex-shrink-0">
+                                        {(thread.displayName || '?')[0].toUpperCase()}
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                        <div className="flex items-center justify-between mb-1">
+                                            <p className="font-bold text-xs text-gray-800 dark:text-gray-200 truncate pr-2">
+                                                {thread.displayName}
+                                            </p>
+                                            {thread.lastMessage.createdAt && (
+                                                <span className="text-[10px] text-gray-455 whitespace-nowrap">
+                                                    {thread.lastMessage.createdAt.toDate ? thread.lastMessage.createdAt.toDate().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) : ''}
+                                                </span>
+                                            )}
+                                        </div>
+                                        <p className={`text-xs truncate ${needsReply ? 'text-gray-900 dark:text-gray-100 font-bold' : 'text-gray-400 dark:text-gray-500'}`}>
+                                            {thread.lastMessage.isAdmin ? 'Bạn: ' : ''}{thread.lastMessage.text || '[Hình ảnh]'}
+                                        </p>
+                                    </div>
+                                    {needsReply && (
+                                        <span className="absolute top-4 right-4 w-2 h-2 bg-[#2E5B70] rounded-full animate-pulse" />
+                                    )}
+                                </div>
+                            );
+                        })
+                    )}
+                </div>
+            </div>
+
+            {/* Chat Pane */}
+            <div className="lg:col-span-2 flex flex-col h-full bg-white dark:bg-gray-800 font-sans">
+                {selectedThread ? (
+                    <>
+                        {/* Chat Header */}
+                        <div className="p-4 border-b border-gray-105 dark:border-gray-700 flex items-center justify-between">
+                            <div>
+                                <h4 className="font-bold text-gray-800 dark:text-white text-xs">
+                                    {selectedThread.displayName}
+                                </h4>
+                                <p className="text-[10px] text-gray-400 dark:text-gray-500 font-mono">
+                                    Email: {selectedThread.email || 'N/A'} | ID: {selectedThread.userId}
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Message Stream */}
+                        <div className="flex-1 overflow-y-auto p-4 bg-slate-50 dark:bg-slate-950 space-y-3">
+                            {loadingMessages ? (
+                                <div className="h-full flex items-center justify-center">
+                                    <Loader2 className="w-6 h-6 animate-spin text-[#2E5B70]" />
+                                </div>
+                            ) : (
+                                messages.map(msg => {
+                                    const isSelf = msg.isAdmin;
+                                    return (
+                                        <div
+                                            key={msg.id}
+                                            className={`flex flex-col ${isSelf ? 'items-end' : 'items-start'}`}
+                                        >
+                                            <span className="text-[9px] text-slate-400 font-bold mb-0.5 px-1">
+                                                {isSelf ? 'Ban quản trị' : selectedThread.displayName}
+                                            </span>
+                                            <div
+                                                className={`max-w-[75%] rounded-2xl px-3.5 py-2.5 text-xs shadow-sm ${
+                                                    isSelf
+                                                        ? 'bg-[#2E5B70] text-white rounded-tr-none'
+                                                        : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none border border-gray-150/40 dark:border-slate-700/50'
+                                                }`}
+                                            >
+                                                {msg.text && <p className="whitespace-pre-wrap leading-relaxed">{msg.text}</p>}
+                                                {msg.imageUrl && (
+                                                    <div className="mt-2 rounded-lg overflow-hidden border border-black/5 dark:border-white/5 max-w-[260px]">
+                                                        <img 
+                                                            src={msg.imageUrl} 
+                                                            alt="Đính kèm" 
+                                                            className="w-full h-auto object-cover max-h-56 cursor-pointer"
+                                                            onClick={() => window.open(msg.imageUrl, '_blank')}
+                                                        />
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    );
+                                })
+                            )}
+                            <div ref={messagesEndRef} />
+                        </div>
+
+                        {/* Image Preview */}
+                        {selectedImage && (
+                            <div className="p-3 bg-slate-100 dark:bg-slate-800 border-t border-gray-200/60 dark:border-slate-700/60 flex items-center justify-between">
+                                <div className="flex items-center gap-2">
+                                    <img src={selectedImage} className="w-14 h-14 object-cover rounded-md border border-gray-200" alt="Preview" />
+                                    <span className="text-xs text-slate-400 font-medium">Đính kèm 1 ảnh</span>
+                                </div>
+                                <button 
+                                    onClick={() => setSelectedImage(null)}
+                                    className="p-1 hover:bg-slate-200 dark:hover:bg-slate-750 text-slate-400 dark:text-slate-500 rounded-full cursor-pointer"
+                                >
+                                    <XIcon className="w-4 h-4" />
+                                </button>
+                            </div>
+                        )}
+
+                        {/* Input Area */}
+                        <form onSubmit={handleSendReply} className="p-4 border-t border-gray-100 dark:border-gray-700 flex items-center gap-2.5">
+                            <button
+                                type="button"
+                                onClick={() => fileInputRef.current?.click()}
+                                className="p-2.5 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all cursor-pointer"
+                                title="Đính kèm hình ảnh"
+                            >
+                                <ImageIcon className="w-5 h-5" />
+                            </button>
+                            <input
+                                type="file"
+                                ref={fileInputRef}
+                                onChange={handleImageSelect}
+                                accept="image/*"
+                                className="hidden"
+                            />
+                            
+                            <input
+                                type="text"
+                                value={replyText}
+                                onChange={(e) => setReplyText(e.target.value)}
+                                className="flex-1 py-2.5 px-4 text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-[#2E5B70] text-slate-850 dark:text-slate-200"
+                                placeholder="Gõ câu trả lời của bạn..."
+                            />
+
+                            <button
+                                type="submit"
+                                disabled={(!replyText.trim() && !selectedImage) || sending}
+                                className="px-4 py-2.5 bg-[#2E5B70] hover:bg-[#203F4F] text-white rounded-xl font-bold text-xs disabled:opacity-40 transition-all flex items-center gap-1.5 cursor-pointer"
+                            >
+                                {sending ? (
+                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                ) : (
+                                    <>
+                                        <Send className="w-3.5 h-3.5" />
+                                        Gửi phản hồi
+                                    </>
+                                )}
+                            </button>
+                        </form>
+                    </>
+                ) : (
+                    <div className="h-full flex flex-col items-center justify-center text-center p-6 text-gray-400">
+                        <MessageSquare className="w-16 h-16 opacity-30 mb-3" />
+                        <p className="text-sm font-semibold">Chưa chọn hội thoại nào</p>
+                        <p className="text-xs text-gray-455 dark:text-gray-500 max-w-sm mt-1">
+                            Chọn một người dùng từ danh sách bên trái để bắt đầu hỗ trợ trực tuyến.
+                        </p>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
