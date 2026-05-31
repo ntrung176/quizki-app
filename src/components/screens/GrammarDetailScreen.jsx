@@ -115,7 +115,7 @@ const GrammarDetailScreen = ({ isAdmin }) => {
     };
 
     return (
-        <div className="max-w-5xl mx-auto space-y-6">
+        <div className="max-w-5xl mx-auto space-y-6 animate-fade-in">
             <div className="flex items-start justify-between">
                 <div>
                     <button onClick={() => navigate(backUrl)} className="flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline mb-3">

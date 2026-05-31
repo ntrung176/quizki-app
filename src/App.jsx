@@ -70,6 +70,7 @@ import {
 // Import UI components
 import { SearchInput, SrsStatusCell } from './components/ui';
 import UpdateNotification from './components/ui/UpdateNotification';
+import VocabularySelectionLookup from './components/ui/VocabularySelectionLookup';
 
 // Import hooks
 import useVersionCheck from './hooks/useVersionCheck';
@@ -279,6 +280,14 @@ const App = () => {
         });
         return () => unsubscribe();
     }, [authReady, studySetsCollectionPath]);
+
+    const parentFolders = useMemo(() => {
+        return folders.filter(f => f.type === 'folder');
+    }, [folders]);
+
+    const studySets = useMemo(() => {
+        return folders.filter(f => f.type !== 'folder');
+    }, [folders]);
 
     const cardFolders = useMemo(() => {
         const mapping = {};
@@ -1454,6 +1463,60 @@ const App = () => {
             await updateDoc(doc(db, vocabCollectionPath, cardId), { folderId: val });
         } catch (e) {
             console.error('Lỗi di chuyển thẻ:', e);
+        }
+    };
+
+    const handleAddParentFolder = async (name) => {
+        if (!studySetsCollectionPath) return null;
+        try {
+            const docRef = await addDoc(collection(db, studySetsCollectionPath), {
+                name,
+                type: 'folder',
+                createdAt: serverTimestamp()
+            });
+            return docRef.id;
+        } catch (e) {
+            console.error("Lỗi tạo thư mục:", e);
+            return null;
+        }
+    };
+
+    const handleUpdateParentFolder = async (folderId, name) => {
+        if (!studySetsCollectionPath || !folderId) return;
+        try {
+            await updateDoc(doc(db, studySetsCollectionPath, folderId), { name });
+        } catch (e) {
+            console.error("Lỗi cập nhật thư mục:", e);
+        }
+    };
+
+    const handleDeleteParentFolder = async (folderId) => {
+        if (!studySetsCollectionPath || !folderId) return;
+        try {
+            await deleteDoc(doc(db, studySetsCollectionPath, folderId));
+            
+            // Set parentId to null for all study sets inside this folder
+            const batch = writeBatch(db);
+            let hasUpdates = false;
+            folders.forEach(set => {
+                if (set.type !== 'folder' && set.parentId === folderId) {
+                    batch.update(doc(db, studySetsCollectionPath, set.id), { parentId: null });
+                    hasUpdates = true;
+                }
+            });
+            if (hasUpdates) await batch.commit();
+        } catch (e) {
+            console.error("Lỗi xóa thư mục:", e);
+        }
+    };
+
+    const handleMoveStudySetToParentFolder = async (setId, parentFolderId) => {
+        if (!studySetsCollectionPath || !setId) return;
+        try {
+            const targetParentId = parentFolderId === 'root' || !parentFolderId ? null : parentFolderId;
+            await updateDoc(doc(db, studySetsCollectionPath, setId), { parentId: targetParentId });
+        } catch (e) {
+            console.error("Lỗi di chuyển học phần vào thư mục:", e);
         }
     };
 
@@ -2788,6 +2851,13 @@ const App = () => {
                     activeDaysLast7Days: activeDaysLast7Days,
                     // Điểm vinh danh năng động mới
                     score: score,
+                    isPremium: (profile.unlockedSpecializedPackages && (
+                        profile.unlockedSpecializedPackages.includes('premium') ||
+                        profile.unlockedSpecializedPackages.includes('vocab_zen') ||
+                        profile.unlockedSpecializedPackages.includes('grammar_zen') ||
+                        profile.unlockedSpecializedPackages.includes('kanji_zen') ||
+                        profile.unlockedSpecializedPackages.includes('jlpt_prep')
+                    )) || false,
                     lastUpdated: serverTimestamp()
                 };
                 await setDoc(statsDocRef, publicData, { merge: true }).catch(err => {
@@ -3041,6 +3111,48 @@ const App = () => {
         }
     };
 
+    // Check if maintenance mode is active for non-admins
+    const isLoginPage = location.pathname === ROUTES.LOGIN || location.pathname === '/login';
+    if (adminConfig?.maintenanceMode && !isAdmin && userId && !isLoginPage) {
+        return (
+            <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-950 p-6 text-center">
+                <div className="max-w-md w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 shadow-xl flex flex-col items-center">
+                    <div className="w-16 h-16 bg-amber-50 dark:bg-amber-950/30 rounded-2xl flex items-center justify-center mb-6 animate-pulse">
+                        <Wrench className="w-8 h-8 text-amber-500" />
+                    </div>
+                    <h1 className="text-2xl font-extrabold text-slate-800 dark:text-white tracking-tight mb-3">
+                        Hệ thống đang bảo trì
+                    </h1>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm font-medium mb-6 leading-relaxed">
+                        QuizKi đang thực hiện nâng cấp và bảo trì định kỳ để mang lại trải nghiệm tốt nhất cho bạn. Chúng tôi sẽ trở lại trong thời gian sớm nhất.
+                    </p>
+                    <div className="w-full h-px bg-slate-100 dark:bg-slate-800 mb-6"></div>
+                    
+                    <div className="flex flex-col items-center gap-4 w-full">
+                        <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">
+                            Cảm ơn bạn đã kiên nhẫn và thông cảm!
+                        </p>
+                        
+                        <button
+                            onClick={async () => {
+                                try {
+                                    await signOut(auth);
+                                    window.location.reload();
+                                } catch (error) {
+                                    console.error("Lỗi đăng xuất:", error);
+                                }
+                            }}
+                            className="px-4 py-2 text-xs font-semibold text-slate-500 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400 bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/50 rounded-xl hover:border-rose-100 dark:hover:border-rose-950/30 transition-all flex items-center gap-1.5 cursor-pointer shadow-sm hover:shadow"
+                        >
+                            <LogOut className="w-3.5 h-3.5" />
+                            Đăng xuất / Chuyển tài khoản
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-100 via-gray-50 to-indigo-50 dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950 font-sans selection:bg-indigo-100 dark:selection:bg-indigo-900 selection:text-indigo-800 dark:selection:text-indigo-200">
             {/* Sidebar for navigation */}
@@ -3050,6 +3162,15 @@ const App = () => {
                 displayName={profile?.displayName}
                 isAdmin={isAdmin}
                 userId={userId}
+                allCards={allCards}
+            />
+
+            {/* Global text selection vocabulary lookup tool */}
+            <VocabularySelectionLookup
+                allCards={allCards}
+                folders={folders}
+                handleAddCard={handleAddCard}
+                setNotification={setNotification}
             />
 
             {/* Onboarding tour for new users */}
@@ -3153,11 +3274,16 @@ const App = () => {
                                 canUserUseAI={canUserUseAI}
                                 userHasAdminPrivileges={userHasAdminPrivileges}
                                 currentUserEmail={auth?.currentUser?.email}
-                                folders={folders}
+                                folders={studySets}
                                 cardFolders={cardFolders}
                                 onAddFolder={handleAddFolder}
                                 onDeleteFolder={handleDeleteFolder}
                                 onRenameFolder={handleUpdateFolder}
+                                parentFolders={parentFolders}
+                                onAddParentFolder={handleAddParentFolder}
+                                onRenameParentFolder={handleUpdateParentFolder}
+                                onDeleteParentFolder={handleDeleteParentFolder}
+                                onMoveStudySetToParentFolder={handleMoveStudySetToParentFolder}
                                 setView={setView}
                                 setEditingCard={setEditingCard}
                                 setStudySessionData={setStudySessionData}

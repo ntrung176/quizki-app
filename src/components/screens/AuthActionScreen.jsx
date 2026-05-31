@@ -6,7 +6,7 @@ import {
     confirmPasswordReset
 } from 'firebase/auth';
 import { auth } from '../../config/firebase';
-import { CheckCircle, XCircle, Loader2, Eye, EyeOff, KeyRound, MailCheck, Sparkles } from 'lucide-react';
+import { CheckCircle, XCircle, Loader2, Eye, EyeOff, KeyRound, MailCheck, Sparkles, BookOpen } from 'lucide-react';
 
 const AuthActionScreen = () => {
     const [searchParams] = useSearchParams();
@@ -104,10 +104,10 @@ const AuthActionScreen = () => {
             <div className="w-full max-w-md">
                 {/* Logo */}
                 <div className="text-center mb-8">
-                    <div className="inline-flex w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl items-center justify-center shadow-lg mb-3">
-                        <Sparkles className="w-7 h-7 text-white" />
+                    <div className="inline-flex w-12 h-12 bg-[#2E5B70] rounded-2xl items-center justify-center text-white shadow-md shadow-[#2E5B70]/20 mb-3">
+                        <BookOpen className="w-6 h-6" />
                     </div>
-                    <h1 className="text-2xl font-bold text-gray-900">QuizKi</h1>
+                    <h1 className="text-2xl font-bold text-slate-800 tracking-tight">QuizKi</h1>
                 </div>
 
                 <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">

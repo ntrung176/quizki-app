@@ -1,6 +1,6 @@
 import React from 'react';
 import LoadingIndicator from './ui/LoadingIndicator';
-import { Routes, Route, Navigate, useNavigate, useParams } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate, useParams, useLocation } from 'react-router-dom';
 import { ROUTES, ProtectedRoute, PublicOnlyRoute } from '../router';
 import UpgradeScreen from './ui/AiCreditShop';
 import { shuffleArray } from '../utils/textProcessing';
@@ -265,11 +265,105 @@ const AppRoutes = ({
     onAddFolder,
     onDeleteFolder,
     onRenameFolder,
+    parentFolders,
+    onAddParentFolder,
+    onRenameParentFolder,
+    onDeleteParentFolder,
+    onMoveStudySetToParentFolder,
     onToggleSrs,
     onUpdateVocabSrsRating
 }) => {
     const navigate = useNavigate();
+    const location = useLocation();
     const aiCreditsRemaining = profile?.aiCreditsRemaining;
+
+    // Dynamically update document title based on current path
+    React.useEffect(() => {
+        const path = location.pathname;
+        let title = 'QUIZKI - HỌC TẬP HIỆN ĐẠI';
+
+        if (path === '/') {
+            title = 'QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/login') {
+            title = 'Đăng nhập | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/account') {
+            title = 'Tài khoản | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/help') {
+            title = 'Trợ giúp & Hướng dẫn | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/privacy') {
+            title = 'Chính sách bảo mật | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/terms') {
+            title = 'Điều khoản dịch vụ | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/vocab/review') {
+            title = 'Ôn tập Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/vocab/list') {
+            title = 'Thư viện Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path.startsWith('/vocab/set/')) {
+            title = 'Chi tiết Học phần | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/vocab/add') {
+            title = 'Thêm Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path.startsWith('/vocab/edit-set/')) {
+            title = 'Sửa Học phần | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path.startsWith('/vocab/edit/')) {
+            title = 'Sửa Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/kanji/study') {
+            title = 'Lộ trình học Kanji | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/kanji/study/lesson') {
+            title = 'Bài học Kanji | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/kanji/review') {
+            title = 'Ôn tập Kanji | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/kanji/saved') {
+            title = 'Thư viện Kanji | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/kanji/list') {
+            title = 'Tra cứu Kanji | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/vocab/review/quiz') {
+            title = 'Trắc nghiệm Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/vocab/review/flashcard') {
+            title = 'Flashcard | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/vocab/review/study') {
+            title = 'Học từ mới | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/vocab/review/synonym') {
+            title = 'Trắc nghiệm Đồng nghĩa | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/vocab/review/test') {
+            title = 'Kiểm tra Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/jlpt/test') {
+            title = 'Luyện thi JLPT | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/jlpt/admin') {
+            title = 'Quản trị JLPT | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/grammar') {
+            title = 'Ngữ pháp Tiếng Nhật | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path.startsWith('/grammar/textbook/')) {
+            if (path.includes('/lesson/')) {
+                title = 'Bài học Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            } else {
+                title = 'Giáo trình Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            }
+        } else if (path.startsWith('/grammar/detail/')) {
+            title = 'Chi tiết mẫu câu | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path.startsWith('/grammar/practice/')) {
+            title = 'Luyện tập Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/hub') {
+            title = 'Trung tâm Cộng đồng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/forum') {
+            title = 'Diễn đàn thảo luận | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path.startsWith('/profile/')) {
+            title = 'Trang cá nhân | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/import') {
+            title = 'Nhập dữ liệu | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/admin') {
+            title = 'Quản trị viên | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/books') {
+            title = 'Kho sách | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/settings') {
+            title = 'Cài đặt | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/feedback') {
+            title = 'Góp ý & Báo lỗi | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/upgrade') {
+            title = 'Nâng cấp Premium | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        }
+
+        document.title = title;
+    }, [location.pathname]);
 
     // Handle auth action redirect from static /auth/action/index.html page
     // GitHub Pages can't do SPA routing for /auth/action, so the static page
@@ -373,6 +467,11 @@ const AppRoutes = ({
                                 onOpenStudySet={(id) => navigate('/vocab/set/' + id)}
                                 onNavigateToAdd={() => navigate(ROUTES.VOCAB_ADD)}
                                 onDeleteFolder={onDeleteFolder}
+                                parentFolders={parentFolders}
+                                onAddParentFolder={onAddParentFolder}
+                                onRenameParentFolder={onRenameParentFolder}
+                                onDeleteParentFolder={onDeleteParentFolder}
+                                onMoveStudySetToParentFolder={onMoveStudySetToParentFolder}
                             />
                         </ProtectedRoute>
                     }
@@ -550,13 +649,15 @@ const AppRoutes = ({
                                         }
                                     }}
                                     onBack={() => {
-                                        setReviewCards([]);
                                         const canGoBack = window.history.state && window.history.state.idx > 0;
                                         if (canGoBack) {
                                             navigate(-1);
                                         } else {
                                             navigate(ROUTES.VOCAB_REVIEW);
                                         }
+                                        setTimeout(() => {
+                                            setReviewCards([]);
+                                        }, 50);
                                     }}
                                 />
                             ) : (

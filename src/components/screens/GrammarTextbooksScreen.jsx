@@ -172,7 +172,7 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
     };
 
     return (
-        <div className="max-w-5xl mx-auto space-y-6">
+        <div className="max-w-5xl mx-auto space-y-6 animate-fade-in">
             <style>{`
                 @keyframes shimmer-effect {
                     0% { transform: translateX(-100%) skewX(-15deg); }

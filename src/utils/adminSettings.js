@@ -387,6 +387,58 @@ export const addCreditsToUser = async (userId, credits) => {
     }
 };
 
+/**
+ * Admin manually applies a package (Premium, AI, or specialized) to a user
+ */
+export const manuallyApplyPackageToUser = async (userId, userName, userEmail, packageInfo, adminUserId) => {
+    try {
+        // 1. Update user profile settings
+        const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
+        let creditsValue;
+        
+        if (packageInfo.type === 'premium') {
+            creditsValue = 'specialized:premium';
+            await setDoc(profileRef, {
+                unlockedSpecializedPackages: arrayUnion('premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep')
+            }, { merge: true });
+        } else if (packageInfo.type === 'specialized') {
+            creditsValue = 'specialized:' + packageInfo.id;
+            await setDoc(profileRef, {
+                unlockedSpecializedPackages: arrayUnion(packageInfo.id)
+            }, { merge: true });
+        } else if (packageInfo.type === 'ai') {
+            creditsValue = packageInfo.credits;
+            const profileSnap = await getDoc(profileRef);
+            const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
+            await setDoc(profileRef, { 
+                aiCreditsRemaining: currentCredits + Number(packageInfo.credits) 
+            }, { merge: true });
+        }
+
+        // 2. Add approved log request so it shows up in "Gói đã mua" and "Doanh thu" if desired (amount = 0)
+        const colRef = collection(db, `artifacts/${appId}/creditRequests`);
+        await addDoc(colRef, {
+            userId,
+            userName: userName || '',
+            userEmail: userEmail || '',
+            packageId: packageInfo.id,
+            packageName: packageInfo.name,
+            credits: creditsValue,
+            amount: 0, // 0 VND for manual allocation
+            status: 'approved',
+            createdAt: serverTimestamp(),
+            processedAt: serverTimestamp(),
+            processedBy: adminUserId,
+            isManualAllocation: true
+        });
+
+        return true;
+    } catch (e) {
+        console.error('Manually apply package error:', e);
+        return false;
+    }
+};
+
 // ============== PAYMENT SECURITY ==============
 const getProcessedTxPath = () => `artifacts/${appId}/processedTransactions`;
 
@@ -726,4 +778,39 @@ export const deleteExpense = async (expenseId) => {
         return false;
     }
 };
+
+// ============== GLOBAL NOTIFICATIONS ==============
+/**
+ * Send a global notification to all users
+ */
+export const sendGlobalNotification = async (title, message, senderId) => {
+    try {
+        const colRef = collection(db, `artifacts/${appId}/globalNotifications`);
+        await addDoc(colRef, {
+            title,
+            message,
+            createdAt: Date.now(),
+            senderId
+        });
+        return true;
+    } catch (e) {
+        console.error('Error sending global notification:', e);
+        return false;
+    }
+};
+
+/**
+ * Delete a global notification
+ */
+export const deleteGlobalNotification = async (notificationId) => {
+    try {
+        const docRef = doc(db, `artifacts/${appId}/globalNotifications`, notificationId);
+        await deleteDoc(docRef);
+        return true;
+    } catch (e) {
+        console.error('Error deleting global notification:', e);
+        return false;
+    }
+};
+
 

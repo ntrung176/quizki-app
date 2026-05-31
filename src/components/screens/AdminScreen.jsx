@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { collection, query, onSnapshot, doc, deleteDoc, getDocs } from 'firebase/firestore';
+import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc } from 'firebase/firestore';
 import * as XLSX from 'xlsx';
 import { db, appId } from '../../config/firebase';
 import {
@@ -9,9 +9,9 @@ import {
     Sparkles, Bot, UserCheck, UserX, ToggleLeft, ToggleRight,
     ChevronDown, ChevronUp, Settings, Crown, ShieldCheck,
     CreditCard, Plus, Check, X as XIcon, Edit, Ticket,
-    DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi
+    DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send
 } from 'lucide-react';
-import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, addModerator, removeModerator, grantAIAccess, revokeAIAccess, addCreditsToUser, DEFAULT_AI_PACKAGES, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense } from '../../utils/adminSettings';
+import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, addModerator, removeModerator, DEFAULT_AI_PACKAGES, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense, manuallyApplyPackageToUser, sendGlobalNotification, deleteGlobalNotification } from '../../utils/adminSettings';
 import { showConfirm } from '../../utils/toast';
 
 const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, adminConfig, isAdmin }) => {
@@ -22,17 +22,18 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const [sortBy, setSortBy] = useState('totalCards');
     const [sortOrder, setSortOrder] = useState('desc');
     const [selectedUser, setSelectedUser] = useState(null);
+    const [selectedUserProfile, setSelectedUserProfile] = useState(null);
+    const [loadingProfile, setLoadingProfile] = useState(false);
     const [notification, setNotification] = useState(null);
     const [confirmDelete, setConfirmDelete] = useState(null);
     const [deleting, setDeleting] = useState(false);
     const [deleteType, setDeleteType] = useState('all');
-    const [userKanjiStats, setUserKanjiStats] = useState({});
+
     const [activeSection, setActiveSection] = useState('users');
     const [savingConfig, setSavingConfig] = useState(false);
     const [manualCreditUserId, setManualCreditUserId] = useState('');
-    const [manualCreditAmount, setManualCreditAmount] = useState('');
+    const [selectedPackageId, setSelectedPackageId] = useState('premium');
     const [manualCreditEmailSearch, setManualCreditEmailSearch] = useState('');
-    const [editingPackages, setEditingPackages] = useState(null);
 
     // User filter state
     const [roleFilter, setRoleFilter] = useState('all'); // 'all' | 'admin' | 'moderator' | 'user'
@@ -49,6 +50,12 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
 
     // API balance state
     const [apiBalances, setApiBalances] = useState({ openRouter: null, speechGen: null, loading: false, error: '' });
+
+    // Global notifications & maintenance states
+    const [globalNotifications, setGlobalNotifications] = useState([]);
+    const [newNotificationText, setNewNotificationText] = useState({ title: '', message: '' });
+    const [notificationError, setNotificationError] = useState('');
+    const [sendingNotification, setSendingNotification] = useState(false);
 
     // Fetch API balances
     const fetchApiBalances = async () => {
@@ -136,28 +143,30 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         return () => unsubscribe();
     }, [publicStatsPath]);
 
-    // Load kanji SRS stats for selected user
+
+    // Load profile settings for selected user (AI credits & specialized packages)
     useEffect(() => {
-        if (!selectedUser) return;
-        const loadKanjiStats = async () => {
+        if (!selectedUser) {
+            setSelectedUserProfile(null);
+            return;
+        }
+        const loadProfile = async () => {
+            setLoadingProfile(true);
             try {
-                const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${selectedUser.userId}/kanjiSRS`));
-                let total = 0, learning = 0, mastered = 0;
-                srsSnap.docs.forEach(d => {
-                    total++;
-                    const data = d.data();
-                    if (data.interval >= 1440 * 21) mastered++;
-                    else learning++;
-                });
-                setUserKanjiStats(prev => ({
-                    ...prev,
-                    [selectedUser.userId]: { total, learning, mastered }
-                }));
+                const profileRef = doc(db, `artifacts/${appId}/users/${selectedUser.userId}/settings/profile`);
+                const snap = await getDoc(profileRef);
+                if (snap.exists()) {
+                    setSelectedUserProfile(snap.data());
+                } else {
+                    setSelectedUserProfile({ aiCreditsRemaining: 0, unlockedSpecializedPackages: [] });
+                }
             } catch (e) {
-                console.error('Error loading kanji stats:', e);
+                console.error('Error loading user profile:', e);
+            } finally {
+                setLoadingProfile(false);
             }
         };
-        loadKanjiStats();
+        loadProfile();
     }, [selectedUser]);
 
     // Stats
@@ -195,7 +204,14 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         if (planFilter !== 'all') {
             const usersWithPlan = new Set(
                 creditRequests
-                    .filter(r => r.status === 'approved' && r.packageId === planFilter)
+                    .filter(r => {
+                        if (r.status !== 'approved') return false;
+                        const pId = r.packageId;
+                        if (pId === planFilter) return true;
+                        if (planFilter.startsWith('ai_') && pId === planFilter.substring(3)) return true;
+                        if (pId?.startsWith('ai_') && planFilter === pId.substring(3)) return true;
+                        return false;
+                    })
                     .map(r => r.userId)
             );
             result = result.filter(u => usersWithPlan.has(u.userId));
@@ -230,10 +246,10 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                     await deleteDoc(docSnap.ref);
                     deleted++;
                 }
-                setUserKanjiStats(prev => ({
-                    ...prev,
-                    [confirmDelete.userId]: { total: 0, learning: 0, mastered: 0 }
-                }));
+                setUsers(prev => prev.map(u => u.userId === confirmDelete.userId ? { ...u, kanjiTotal: 0, kanjiMastered: 0 } : u));
+                if (selectedUser?.userId === confirmDelete.userId) {
+                    setSelectedUser(prev => prev ? { ...prev, kanjiTotal: 0, kanjiMastered: 0 } : null);
+                }
                 setNotification({ type: 'success', message: `Đã xóa ${deleted} dữ liệu Kanji SRS của ${confirmDelete.displayName}` });
             } else {
                 if (onAdminDeleteUserData) await onAdminDeleteUserData(confirmDelete.userId);
@@ -295,16 +311,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         setSavingConfig(false);
     };
 
-    const handleToggleAIAccess = async (userId, userName) => {
-        setSavingConfig(true);
-        const hasAccess = adminConfig?.aiAllowedUsers?.includes(userId);
-        const ok = hasAccess
-            ? await revokeAIAccess(adminConfig, userId, currentUserId)
-            : await grantAIAccess(adminConfig, userId, currentUserId);
-        if (ok) setNotification({ type: 'success', message: hasAccess ? `Đã thu hồi quyền AI của ${userName}` : `Đã cấp quyền AI cho ${userName}` });
-        else setNotification({ type: 'error', message: 'Lỗi khi cập nhật' });
-        setSavingConfig(false);
-    };
 
     // Clear notification
     useEffect(() => {
@@ -334,6 +340,53 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         return () => { if (unsub) unsub(); };
     }, []);
 
+    // Load global notifications
+    useEffect(() => {
+        if (!db) return;
+        const q = query(collection(db, `artifacts/${appId}/globalNotifications`));
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+            const list = snapshot.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+            list.sort((a, b) => {
+                const aTime = a.createdAt?.toDate ? a.createdAt.toDate().getTime() : (a.createdAt || 0);
+                const bTime = b.createdAt?.toDate ? b.createdAt.toDate().getTime() : (b.createdAt || 0);
+                return bTime - aTime;
+            });
+            setGlobalNotifications(list);
+        }, (error) => {
+            console.error('Error loading global notifications:', error);
+        });
+        return () => unsubscribe();
+    }, []);
+
+    const handleSendNotification = async () => {
+        if (!newNotificationText.title.trim() || !newNotificationText.message.trim()) {
+            setNotificationError('Vui lòng điền đầy đủ tiêu đề và nội dung');
+            return;
+        }
+        setSendingNotification(true);
+        setNotificationError('');
+        const ok = await sendGlobalNotification(newNotificationText.title, newNotificationText.message, currentUserId);
+        if (ok) {
+            setNewNotificationText({ title: '', message: '' });
+            setNotification({ type: 'success', message: 'Đã gửi thông báo đến toàn bộ người dùng' });
+        } else {
+            setNotificationError('Lỗi khi gửi thông báo');
+        }
+        setSendingNotification(false);
+    };
+
+    const handleDeleteNotification = async (notifId) => {
+        const ok = await deleteGlobalNotification(notifId);
+        if (ok) {
+            setNotification({ type: 'success', message: 'Đã xóa thông báo' });
+        } else {
+            setNotification({ type: 'error', message: 'Lỗi khi xóa thông báo' });
+        }
+    };
+
     // Helper: get user's purchased plans
     const getUserPlans = (userId) => {
         return creditRequests
@@ -345,38 +398,66 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             });
     };
 
+    const kanjiStats = useMemo(() => {
+        if (!selectedUser) return null;
+        const total = selectedUser.kanjiTotal || 0;
+        const mastered = selectedUser.kanjiMastered || 0;
+        const learning = Math.max(0, total - mastered);
+        return { total, learning, mastered };
+    }, [selectedUser]);
+
     if (isLoading) {
         return <LoadingIndicator text="Đang tải danh sách người dùng..." />;
     }
-
-
-
-    const kanjiStats = selectedUser ? userKanjiStats[selectedUser.userId] : null;
 
     const formatVND = (n) => new Intl.NumberFormat('vi-VN').format(n) + 'đ';
 
 
 
-    const handleManualAddCredits = async () => {
-        if (!manualCreditUserId || !manualCreditAmount || isNaN(manualCreditAmount)) return;
+    const handleManualApplyPackage = async () => {
+        if (!manualCreditUserId || !selectedPackageId) return;
         setSavingConfig(true);
-        const ok = await addCreditsToUser(manualCreditUserId, parseInt(manualCreditAmount));
         const user = users.find(u => u.userId === manualCreditUserId);
-        if (ok) {
-            setNotification({ type: 'success', message: `Đã cộng ${manualCreditAmount} credits cho ${user?.displayName || manualCreditUserId}` });
-            setManualCreditAmount('');
-        } else setNotification({ type: 'error', message: 'Lỗi' });
-        setSavingConfig(false);
-    };
+        
+        // Find package info
+        const pkgOptions = [
+            { id: 'premium', name: 'Gói Premium (Tất cả tính năng)', type: 'premium' },
+            { id: 'vocab_zen', name: 'Mở khóa Từ vựng Zen', type: 'specialized' },
+            { id: 'grammar_zen', name: 'Mở khóa Ngữ pháp Zen', type: 'specialized' },
+            { id: 'kanji_zen', name: 'Mở khóa Kanji Zen', type: 'specialized' },
+            { id: 'jlpt_prep', name: 'Gói Luyện thi JLPT', type: 'specialized' },
+            { id: 'ai_starter', name: 'Gói AI Starter (100 lượt)', type: 'ai', credits: 100 },
+            { id: 'ai_popular', name: 'Gói AI Popular (500 lượt)', type: 'ai', credits: 500 },
+            { id: 'ai_best_value', name: 'Gói AI Best Value (1000 lượt)', type: 'ai', credits: 1000 },
+            { id: 'ai_ultimate', name: 'Gói AI Ultimate (3000 lượt)', type: 'ai', credits: 3000 }
+        ];
+        
+        const pkg = pkgOptions.find(p => p.id === selectedPackageId);
+        if (!pkg) {
+            setNotification({ type: 'error', message: 'Gói không hợp lệ' });
+            setSavingConfig(false);
+            return;
+        }
 
-    const handleSavePackages = async () => {
-        if (!editingPackages) return;
-        setSavingConfig(true);
-        const ok = await updateAdminConfig({ aiCreditPackages: editingPackages }, currentUserId);
+        const ok = await manuallyApplyPackageToUser(
+            manualCreditUserId, 
+            user?.displayName || '', 
+            user?.email || '', 
+            pkg, 
+            currentUserId
+        );
+        
         if (ok) {
-            setNotification({ type: 'success', message: 'Đã cập nhật giá gói thẽ' });
-            setEditingPackages(null);
-        } else setNotification({ type: 'error', message: 'Lỗi' });
+            setNotification({ 
+                type: 'success', 
+                message: `Đã áp dụng ${pkg.name} cho ${user?.displayName || manualCreditUserId}` 
+            });
+            setManualCreditUserId('');
+            setManualCreditEmailSearch('');
+            setSelectedPackageId('premium');
+        } else {
+            setNotification({ type: 'error', message: 'Lỗi khi áp dụng gói' });
+        }
         setSavingConfig(false);
     };
 
@@ -388,6 +469,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         { id: 'revenue', label: 'Doanh thu', icon: DollarSign },
         { id: 'vouchers', label: 'Voucher', icon: Ticket },
         { id: 'moderators', label: 'QTV', icon: ShieldCheck },
+        { id: 'system', label: 'Hệ thống & TB', icon: Settings },
     ];
 
     return (
@@ -489,9 +571,15 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg outline-none dark:text-white"
                             >
                                 <option value="all">Tất cả gói</option>
-                                {(adminConfig?.aiCreditPackages || DEFAULT_AI_PACKAGES).map(pkg => (
-                                    <option key={pkg.id} value={pkg.id}>📦 {pkg.name}</option>
-                                ))}
+                                <option value="premium">👑 Gói Premium</option>
+                                <option value="vocab_zen">📖 Từ vựng Zen</option>
+                                <option value="grammar_zen">✍️ Ngữ pháp Zen</option>
+                                <option value="kanji_zen">💮 Kanji Zen</option>
+                                <option value="jlpt_prep">🏆 Gói Luyện thi JLPT</option>
+                                <option value="starter">📦 AI Starter (100 lượt)</option>
+                                <option value="popular">📦 AI Popular (500 lượt)</option>
+                                <option value="best_value">📦 AI Best Value (1000 lượt)</option>
+                                <option value="ultimate">📦 AI Ultimate (3000 lượt)</option>
                             </select>
                             <select
                                 value={`${sortBy}-${sortOrder}`}
@@ -526,7 +614,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                     <div className="divide-y divide-gray-100 dark:divide-gray-700">
                                         {filteredUsers.map(user => {
                                             const isMod = adminConfig?.moderators?.includes(user.userId);
-                                            const hasAI = adminConfig?.aiAllowedUsers?.includes(user.userId) || adminConfig?.aiAllowAll;
                                             return (
                                                 <div
                                                     key={user.userId}
@@ -552,11 +639,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                                 </p>
                                                                 <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
                                                                     <span>{user.totalCards || 0} thẻ</span>
-                                                                    {hasAI && (
-                                                                        <span className="text-emerald-500 flex items-center gap-0.5">
-                                                                            <Sparkles className="w-3 h-3" /> AI
-                                                                        </span>
-                                                                    )}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -582,6 +664,72 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                             <p className="font-bold text-gray-800 dark:text-white">{selectedUser.displayName || 'Chưa đặt tên'}</p>
                                             <p className="text-xs text-gray-500 font-mono">{selectedUser.userId?.slice(0, 20)}...</p>
                                         </div>
+                                    </div>
+
+                                    {/* Account & Packages Info */}
+                                    <div>
+                                        <h4 className="text-xs font-bold text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1">
+                                            <Shield className="w-3.5 h-3.5 text-indigo-500" /> GÓI & TÀI KHOẢN
+                                        </h4>
+                                        {loadingProfile ? (
+                                            <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-center">
+                                                <Loader2 className="w-4 h-4 animate-spin mx-auto text-indigo-500" />
+                                            </div>
+                                        ) : (
+                                            <div className="space-y-2">
+                                                {/* AI Credits */}
+                                                <div className="p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg flex justify-between items-center">
+                                                    <div>
+                                                        <p className="text-sm font-bold text-indigo-700 dark:text-indigo-400">
+                                                            {(selectedUserProfile?.aiCreditsRemaining ?? 0).toLocaleString()}
+                                                        </p>
+                                                        <p className="text-[10px] text-gray-500">Lượt AI còn lại</p>
+                                                    </div>
+                                                    <Sparkles className="w-5 h-5 text-indigo-555" />
+                                                </div>
+
+                                                {/* Active Packages */}
+                                                <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg space-y-1.5">
+                                                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Trạng thái gói học</p>
+                                                    
+                                                    {(() => {
+                                                        const unlocked = selectedUserProfile?.unlockedSpecializedPackages || [];
+                                                        const packageList = [
+                                                            { id: 'premium', name: '👑 Gói Premium', color: 'text-amber-600 bg-amber-50 dark:bg-amber-900/20' },
+                                                            { id: 'vocab_zen', name: '📖 Từ vựng Zen', color: 'text-purple-600 bg-purple-50 dark:bg-purple-900/20' },
+                                                            { id: 'grammar_zen', name: '✍️ Ngữ pháp Zen', color: 'text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20' },
+                                                            { id: 'kanji_zen', name: '💮 Kanji Zen', color: 'text-orange-600 bg-orange-50 dark:bg-orange-900/20' },
+                                                            { id: 'jlpt_prep', name: '🏆 Luyện thi JLPT', color: 'text-rose-600 bg-rose-50 dark:bg-rose-900/20' },
+                                                        ];
+
+                                                        return (
+                                                            <div className="grid grid-cols-2 gap-1.5">
+                                                                {packageList.map(pkg => {
+                                                                    const isOwned = unlocked.includes(pkg.id);
+                                                                    return (
+                                                                        <div 
+                                                                            key={pkg.id} 
+                                                                            className={`px-2 py-1 rounded text-[11px] font-medium flex items-center justify-between border ${
+                                                                                isOwned 
+                                                                                    ? `${pkg.color} border-current` 
+                                                                                    : 'text-gray-400 dark:text-gray-600 bg-transparent border-gray-200 dark:border-gray-700'
+                                                                            }`}
+                                                                        >
+                                                                            <span>{pkg.name}</span>
+                                                                            {isOwned ? (
+                                                                                <Check className="w-3 h-3 text-current flex-shrink-0" />
+                                                                            ) : (
+                                                                                <XIcon className="w-2.5 h-2.5 text-current flex-shrink-0" />
+                                                                            )}
+                                                                        </div>
+                                                                    );
+                                                                })}
+                                                            </div>
+                                                        );
+                                                    })()}
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
 
                                     {/* Vocabulary Stats */}
@@ -701,20 +849,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                 }
                                             </button>
 
-                                            {/* Toggle AI Access */}
-                                            <button
-                                                onClick={() => handleToggleAIAccess(selectedUser.userId, selectedUser.displayName)}
-                                                disabled={savingConfig}
-                                                className={`w-full px-3 py-2 text-sm font-medium rounded-lg transition-colors flex items-center justify-center gap-2 ${adminConfig?.aiAllowedUsers?.includes(selectedUser.userId)
-                                                    ? 'text-violet-700 bg-violet-50 dark:bg-violet-900/20 hover:bg-violet-100 dark:hover:bg-violet-900/30'
-                                                    : 'text-indigo-700 bg-indigo-50 dark:bg-indigo-900/20 hover:bg-indigo-100 dark:hover:bg-indigo-900/30'
-                                                    }`}
-                                            >
-                                                {adminConfig?.aiAllowedUsers?.includes(selectedUser.userId)
-                                                    ? <><Sparkles className="w-4 h-4" /> Thu hồi quyền AI</>
-                                                    : <><Sparkles className="w-4 h-4" /> Cấp quyền AI</>
-                                                }
-                                            </button>
 
                                             {/* Delete actions */}
                                             <button
@@ -911,11 +1045,11 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             {/* ==================== CREDITS SECTION ==================== */}
             {activeSection === 'credits' && (
                 <div className="space-y-4">
-                    {/* Manual Add Credits */}
+                    {/* Manual Apply Package */}
                     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
                         <h3 className="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
                             <Plus className="w-4 h-4 text-emerald-500" />
-                            Cộng lượt AI thủ công
+                            Áp dụng gói học cho người dùng
                         </h3>
 
                         {/* Email search */}
@@ -929,7 +1063,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                         setManualCreditEmailSearch(e.target.value);
                                         setManualCreditUserId('');
                                     }}
-                                    placeholder="Tìm theo email người dùng..."
+                                    placeholder="Tìm theo email hoặc tên người dùng..."
                                     className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
                                 />
                             </div>
@@ -947,7 +1081,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                     if (matched.length === 0) {
                                         return (
                                             <div className="p-3 text-center text-sm text-gray-400 italic">
-                                                Không tìm thấy người dùng với email này
+                                                Không tìm thấy người dùng phù hợp
                                             </div>
                                         );
                                     }
@@ -1005,164 +1139,38 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                             ) : null;
                         })()}
 
-                        {/* Credits amount + button */}
-                        <div className="flex gap-2">
-                            <input
-                                type="number"
-                                value={manualCreditAmount}
-                                onChange={(e) => setManualCreditAmount(e.target.value)}
-                                placeholder="Số lượt AI"
+                        {/* Package Selector + Apply Button */}
+                        <div className="flex flex-col sm:flex-row gap-3">
+                            <select
+                                value={selectedPackageId}
+                                onChange={(e) => setSelectedPackageId(e.target.value)}
                                 className="flex-1 px-3 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
-                            />
-                            <button
-                                onClick={handleManualAddCredits}
-                                disabled={savingConfig || !manualCreditUserId || !manualCreditAmount}
-                                className="px-5 py-2.5 bg-emerald-500 text-white font-bold text-sm rounded-lg hover:bg-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
                             >
-                                <Plus className="w-4 h-4" />
-                                Cộng
+                                <optgroup label="👑 Gói Premium (Tất cả tính năng)">
+                                    <option value="premium">Gói Premium (Mở khóa tất cả)</option>
+                                </optgroup>
+                                <optgroup label="📖 Gói Lẻ (Môn học lẻ)">
+                                    <option value="vocab_zen">Từ vựng Zen</option>
+                                    <option value="grammar_zen">Ngữ pháp Zen</option>
+                                    <option value="kanji_zen">Kanji Zen</option>
+                                    <option value="jlpt_prep">Luyện thi JLPT</option>
+                                </optgroup>
+                                <optgroup label="🤖 Gói AI (Thêm lượt AI)">
+                                    <option value="ai_starter">AI Starter (+100 lượt)</option>
+                                    <option value="ai_popular">AI Popular (+500 lượt)</option>
+                                    <option value="ai_best_value">AI Best Value (+1000 lượt)</option>
+                                    <option value="ai_ultimate">AI Ultimate (+3000 lượt)</option>
+                                </optgroup>
+                            </select>
+                            
+                            <button
+                                onClick={handleManualApplyPackage}
+                                disabled={savingConfig || !manualCreditUserId || !selectedPackageId}
+                                className="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                            >
+                                {savingConfig ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
+                                Áp dụng gói
                             </button>
-                        </div>
-                    </div>
-
-                    {/* Edit Packages */}
-                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
-                        <div className="flex items-center justify-between mb-3">
-                            <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2">
-                                <Edit className="w-4 h-4 text-indigo-500" />
-                                Cấu hình gói thẻ bán
-                            </h3>
-                            {!editingPackages ? (
-                                <button
-                                    onClick={() => setEditingPackages(adminConfig?.aiCreditPackages || DEFAULT_AI_PACKAGES)}
-                                    className="text-xs text-indigo-500 hover:text-indigo-700 font-bold"
-                                >Chỉnh sửa</button>
-                            ) : (
-                                <div className="flex gap-2">
-                                    <button onClick={() => setEditingPackages(null)} className="text-xs text-gray-400 hover:text-gray-600">Hủy</button>
-                                    <button onClick={handleSavePackages} disabled={savingConfig} className="text-xs text-emerald-500 hover:text-emerald-700 font-bold">Lưu</button>
-                                </div>
-                            )}
-                        </div>
-                        <div className="space-y-2">
-                            <div className="grid grid-cols-5 gap-2 items-center text-[10px] font-bold text-gray-400 uppercase">
-                                <span>Tên gói</span>
-                                <span>Số thẻ</span>
-                                <span>Giá gốc</span>
-                                <span>Giá sale</span>
-                                <span>Giảm</span>
-                            </div>
-                            {(editingPackages || adminConfig?.aiCreditPackages || DEFAULT_AI_PACKAGES).map((pkg, i) => (
-                                <div key={pkg.id} className="grid grid-cols-5 gap-2 items-center text-sm">
-                                    <span className="font-medium text-gray-700 dark:text-gray-300 text-xs">{pkg.name}</span>
-                                    <input
-                                        type="text" inputMode="numeric" value={editingPackages ? (pkg.cards === 0 || pkg.cards === '' ? '' : pkg.cards) : pkg.cards}
-                                        disabled={!editingPackages}
-                                        onChange={(e) => { const val = e.target.value; const p = [...editingPackages]; p[i] = { ...p[i], cards: val === '' ? '' : (parseInt(val) || 0) }; setEditingPackages(p); }}
-                                        className="px-2 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none disabled:opacity-60 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                        placeholder="Thẻ"
-                                    />
-                                    <input
-                                        type="text" inputMode="numeric" value={editingPackages ? (pkg.originalPrice === 0 || pkg.originalPrice === '' ? '' : pkg.originalPrice) : pkg.originalPrice}
-                                        disabled={!editingPackages}
-                                        onChange={(e) => { const val = e.target.value; const p = [...editingPackages]; p[i] = { ...p[i], originalPrice: val === '' ? '' : (parseInt(val) || 0) }; setEditingPackages(p); }}
-                                        className="px-2 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none disabled:opacity-60 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                        placeholder="Giá gốc"
-                                    />
-                                    <input
-                                        type="text" inputMode="numeric" value={editingPackages ? (pkg.salePrice === 0 || pkg.salePrice === '' ? '' : pkg.salePrice) : pkg.salePrice}
-                                        disabled={!editingPackages}
-                                        onChange={(e) => { const val = e.target.value; const p = [...editingPackages]; p[i] = { ...p[i], salePrice: val === '' ? '' : (parseInt(val) || 0) }; setEditingPackages(p); }}
-                                        className="px-2 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none disabled:opacity-60 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                        placeholder="Giá sale"
-                                    />
-                                    <span className="text-xs text-gray-400">{pkg.originalPrice && pkg.salePrice ? `-${Math.round((1 - pkg.salePrice / (pkg.originalPrice || 1)) * 100)}%` : '-'}</span>
-                                </div>
-                            ))}
-                            {editingPackages && (
-                                <p className="text-[10px] text-amber-500 italic mt-1">💡 Bỏ trống trường nào thì trường đó sẽ không hiển thị ở trang nâng cấp.</p>
-                            )}
-                        </div>
-                    </div>
-
-                    {/* SePay Payment Config */}
-                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
-                        <h3 className="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
-                            <CreditCard className="w-4 h-4 text-purple-500" />
-                            Cấu hình thanh toán (SePay)
-                        </h3>
-                        <div className="space-y-3">
-                            <div className="grid grid-cols-2 gap-2">
-                                <div>
-                                    <label className="text-[10px] font-bold text-gray-500 uppercase">Mã ngân hàng</label>
-                                    <input
-                                        type="text"
-                                        key={`bankId-${adminConfig?.bankId || ''}`}
-                                        defaultValue={adminConfig?.bankId || ''}
-                                        onBlur={(e) => { if (e.target.value.trim()) updateAdminConfig({ bankId: e.target.value.trim() }, currentUserId); }}
-                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
-                                        placeholder="MB, VCB, TCB..."
-                                    />
-                                </div>
-                                <div>
-                                    <label className="text-[10px] font-bold text-gray-500 uppercase">Số tài khoản</label>
-                                    <input
-                                        type="text"
-                                        key={`bankAccountNo-${adminConfig?.bankAccountNo || ''}`}
-                                        defaultValue={adminConfig?.bankAccountNo || ''}
-                                        onBlur={(e) => { if (e.target.value.trim()) updateAdminConfig({ bankAccountNo: e.target.value.trim() }, currentUserId); }}
-                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
-                                    />
-                                </div>
-                            </div>
-                            <div>
-                                <label className="text-[10px] font-bold text-gray-500 uppercase">Tên tài khoản</label>
-                                <input
-                                    type="text"
-                                    key={`bankAccountName-${adminConfig?.bankAccountName || ''}`}
-                                    defaultValue={adminConfig?.bankAccountName || ''}
-                                    onBlur={(e) => { if (e.target.value.trim()) updateAdminConfig({ bankAccountName: e.target.value.trim() }, currentUserId); }}
-                                    className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
-                                />
-                            </div>
-
-                            {/* Support Channels */}
-                            <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                                <h4 className="text-xs font-bold text-gray-600 dark:text-gray-300 mb-3">📞 Kênh hỗ trợ thanh toán</h4>
-                                <div className="space-y-2">
-                                    <div>
-                                        <label className="text-[10px] font-bold text-gray-500 uppercase">Link Zalo</label>
-                                        <input
-                                            type="url"
-                                            defaultValue={adminConfig?.supportZalo || ''}
-                                            onBlur={(e) => updateAdminConfig({ supportZalo: e.target.value }, currentUserId)}
-                                            className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
-                                            placeholder="https://zalo.me/..."
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="text-[10px] font-bold text-gray-500 uppercase">Link Messenger</label>
-                                        <input
-                                            type="url"
-                                            defaultValue={adminConfig?.supportMessenger || ''}
-                                            onBlur={(e) => updateAdminConfig({ supportMessenger: e.target.value }, currentUserId)}
-                                            className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
-                                            placeholder="https://m.me/..."
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="text-[10px] font-bold text-gray-500 uppercase">Email hỗ trợ</label>
-                                        <input
-                                            type="email"
-                                            defaultValue={adminConfig?.supportEmail || ''}
-                                            onBlur={(e) => updateAdminConfig({ supportEmail: e.target.value }, currentUserId)}
-                                            className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none"
-                                            placeholder="support@example.com"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -1871,6 +1879,143 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                         </div>
                                     );
                                 })}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
+
+            {/* ==================== SYSTEM & NOTIFICATIONS SECTION ==================== */}
+            {activeSection === 'system' && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Maintenance Mode setting card */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 flex flex-col justify-between">
+                        <div>
+                            <h3 className="font-bold text-gray-800 dark:text-white text-lg mb-2 flex items-center gap-2">
+                                <Settings className="w-5 h-5 text-indigo-500" />
+                                Bảo trì hệ thống
+                            </h3>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
+                                Khi kích hoạt chế độ bảo trì, chỉ có tài khoản Admin mới có thể truy cập được ứng dụng. Người dùng thông thường khi vào QuizKi sẽ thấy màn hình thông báo bảo trì.
+                            </p>
+                            
+                            <div className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                                <div className="flex flex-col gap-1">
+                                    <span className="font-bold text-sm text-slate-800 dark:text-white">Trạng thái bảo trì</span>
+                                    <span className="text-xs text-slate-400 dark:text-slate-500">
+                                        {adminConfig?.maintenanceMode ? 'Đang bật' : 'Đang tắt'}
+                                    </span>
+                                </div>
+                                <button
+                                    onClick={async () => {
+                                        setSavingConfig(true);
+                                        const newStatus = !adminConfig?.maintenanceMode;
+                                        const ok = await updateAdminConfig({ maintenanceMode: newStatus }, currentUserId);
+                                        if (ok) {
+                                            setNotification({ 
+                                                type: 'success', 
+                                                message: newStatus ? 'Đã bật chế độ bảo trì' : 'Đã tắt chế độ bảo trì' 
+                                            });
+                                        } else {
+                                            setNotification({ type: 'error', message: 'Lỗi khi cập nhật trạng thái bảo trì' });
+                                        }
+                                        setSavingConfig(false);
+                                    }}
+                                    disabled={savingConfig}
+                                    className="p-1 rounded-full cursor-pointer focus:outline-none transition-colors"
+                                >
+                                    {adminConfig?.maintenanceMode ? (
+                                        <ToggleRight className="w-12 h-12 text-[#2E5B70] dark:text-sky-400" />
+                                    ) : (
+                                        <ToggleLeft className="w-12 h-12 text-slate-300 dark:text-slate-600" />
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Global notification creation card */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+                        <h3 className="font-bold text-gray-800 dark:text-white text-lg mb-2 flex items-center gap-2">
+                            <Bell className="w-5 h-5 text-indigo-500" />
+                            Gửi thông báo hệ thống
+                        </h3>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                            Gửi một thông báo chung tới hộp thư của tất cả người dùng trên hệ thống.
+                        </p>
+                        
+                        <div className="space-y-4">
+                            <div>
+                                <label className="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1.5">Tiêu đề thông báo</label>
+                                <input
+                                    type="text"
+                                    value={newNotificationText.title}
+                                    onChange={(e) => setNewNotificationText(prev => ({ ...prev, title: e.target.value }))}
+                                    placeholder="Ví dụ: Cập nhật tính năng mới..."
+                                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none text-sm text-gray-800 dark:text-white"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1.5">Nội dung thông báo</label>
+                                <textarea
+                                    value={newNotificationText.message}
+                                    onChange={(e) => setNewNotificationText(prev => ({ ...prev, message: e.target.value }))}
+                                    placeholder="Nhập nội dung chi tiết..."
+                                    rows={3}
+                                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none text-sm text-gray-800 dark:text-white resize-none"
+                                />
+                            </div>
+
+                            {notificationError && (
+                                <p className="text-xs text-red-500 font-medium">{notificationError}</p>
+                            )}
+
+                            <button
+                                onClick={handleSendNotification}
+                                disabled={sendingNotification || !newNotificationText.title.trim() || !newNotificationText.message.trim()}
+                                className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 disabled:opacity-50 transition-all cursor-pointer shadow-sm"
+                            >
+                                {sendingNotification ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                                Gửi thông báo
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Notification History card */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 md:col-span-2">
+                        <h3 className="font-bold text-gray-800 dark:text-white text-lg mb-3 flex items-center gap-2">
+                            <Clock className="w-5 h-5 text-slate-500" />
+                            Lịch sử thông báo đã gửi
+                        </h3>
+                        {globalNotifications.length === 0 ? (
+                            <p className="text-sm text-gray-400 italic py-6 text-center border border-dashed border-gray-200 dark:border-gray-700 rounded-2xl">
+                                Chưa có thông báo nào được gửi.
+                            </p>
+                        ) : (
+                            <div className="space-y-3 max-h-[300px] overflow-y-auto">
+                                {globalNotifications.map(notif => (
+                                    <div key={notif.id} className="p-4 rounded-xl border border-gray-100 dark:border-gray-700 bg-slate-50/50 dark:bg-slate-800/40 flex items-start justify-between gap-4">
+                                        <div className="overflow-hidden">
+                                            <h4 className="font-bold text-sm text-gray-800 dark:text-white truncate">{notif.title}</h4>
+                                            <p className="text-xs text-gray-600 dark:text-gray-300 mt-1 whitespace-pre-wrap">{notif.message}</p>
+                                            <span className="text-[10px] text-gray-400 dark:text-gray-500 mt-2 block">
+                                                Gửi vào: {new Date(notif.createdAt).toLocaleString('vi-VN')}
+                                            </span>
+                                        </div>
+                                        <button
+                                            onClick={async () => {
+                                                if (await showConfirm('Bạn có chắc chắn muốn xóa thông báo này?', { type: 'danger', confirmText: 'Xóa' })) {
+                                                    await handleDeleteNotification(notif.id);
+                                                }
+                                            }}
+                                            className="p-1.5 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg transition-colors flex-shrink-0"
+                                            title="Xóa thông báo"
+                                        >
+                                            <Trash2 className="w-4 h-4" />
+                                        </button>
+                                    </div>
+                                ))}
                             </div>
                         )}
                     </div>

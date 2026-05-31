@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { ChevronLeft, ChevronRight, Edit2, PlayCircle, BookOpen, Layers, Search, Volume2, Trash2, Users, Check, Plus, Headphones, FileText } from 'lucide-react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, ChevronDown, Edit2, PlayCircle, BookOpen, Layers, Search, Volume2, Trash2, Users, Check, Plus, Headphones, FileText } from 'lucide-react';
 import FuriganaText from '../ui/FuriganaText';
 import { playAudio, speakJapanese } from '../../utils/audio';
 import { getSrsProgressText } from '../../utils/srs';
@@ -66,6 +66,9 @@ const StudySetDetail = ({
     const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
+    const [visibleCount, setVisibleCount] = useState(30);
+    const [searchQuery, setSearchQuery] = useState('');
+
     const folder = useMemo(() => {
         if (folderId === 'unfiled') return { id: 'unfiled', name: 'Từ vựng lẻ', description: 'Các từ vựng chưa được phân loại vào học phần nào.' };
         return folders.find(f => f.id === folderId) || { name: 'Học phần không xác định' };
@@ -75,6 +78,25 @@ const StudySetDetail = ({
         if (folderId === 'unfiled') return allCards.filter(c => !cardFolders[c.id] || cardFolders[c.id] === 'unfiled');
         return allCards.filter(c => cardFolders[c.id] === folderId);
     }, [folderId, allCards, cardFolders]);
+
+    const filteredCards = useMemo(() => {
+        if (!searchQuery.trim()) return setCards;
+        const query = searchQuery.toLowerCase().trim();
+        return setCards.filter(c => 
+            (c.front || '').toLowerCase().includes(query) ||
+            (c.back || '').toLowerCase().includes(query) ||
+            (c.sinoVietnamese || '').toLowerCase().includes(query) ||
+            (c.example || '').toLowerCase().includes(query)
+        );
+    }, [setCards, searchQuery]);
+
+    const visibleCards = useMemo(() => {
+        return filteredCards.slice(0, visibleCount);
+    }, [filteredCards, visibleCount]);
+
+    useEffect(() => {
+        setVisibleCount(30);
+    }, [folderId, searchQuery]);
 
     const activeCard = setCards[currentCardIndex];
 
@@ -230,98 +252,135 @@ const StudySetDetail = ({
 
                         {/* Term List - Inline Editable */}
                         <div className="pt-4">
-                            <div className="flex items-center justify-between mb-6">
-                                <h2 className="text-xl font-bold text-gray-900 dark:text-white">Thuật ngữ ({setCards.length})</h2>
-                                <p className="text-xs text-gray-400 dark:text-gray-500 italic">Bấm vào từ để sửa trực tiếp</p>
+                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                                <div>
+                                    <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+                                        Thuật ngữ ({filteredCards.length} / {setCards.length})
+                                    </h2>
+                                    <p className="text-xs text-gray-400 dark:text-gray-500 italic mt-0.5">Bấm vào từ để sửa trực tiếp</p>
+                                </div>
+
+                                {setCards.length > 5 && (
+                                    <div className="relative w-full md:w-72">
+                                        <input
+                                            type="text"
+                                            placeholder="Tìm kiếm từ vựng..."
+                                            value={searchQuery}
+                                            onChange={(e) => setSearchQuery(e.target.value)}
+                                            className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl pl-9 pr-4 py-2 text-sm outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-gray-850 dark:text-white transition-all shadow-sm"
+                                        />
+                                        <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" />
+                                    </div>
+                                )}
                             </div>
-                            <div className="space-y-3">
-                                {setCards.map(card => (
-                                    <div key={card.id} className="flex flex-col bg-white dark:bg-gray-800 p-4 md:p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 gap-3">
-                                        <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
-                                            <div className="flex-1 md:w-1/2 flex flex-col justify-center md:border-r border-gray-100 dark:border-gray-700 md:pr-6">
-                                                <div className="font-bold text-lg text-gray-900 dark:text-white">
-                                                    <InlineEditCell
-                                                        value={card.frontWithFurigana || card.front}
-                                                        isJapanese={true}
-                                                        onSave={(v) => handleInlineSave(card, 'front', v)}
-                                                        className="text-lg font-bold"
-                                                    />
-                                                </div>
-                                                {card.sinoVietnamese && (
-                                                    <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium">
+
+                            {filteredCards.length === 0 && searchQuery ? (
+                                <div className="text-center py-12 bg-white dark:bg-gray-850 rounded-2xl border border-gray-150 dark:border-gray-700">
+                                    <Search className="w-12 h-12 text-gray-300 dark:text-gray-650 mx-auto mb-3" />
+                                    <p className="text-gray-500 dark:text-gray-400 text-sm">Không tìm thấy từ vựng nào khớp với "{searchQuery}"</p>
+                                </div>
+                            ) : (
+                                <div className="space-y-3">
+                                    {visibleCards.map(card => (
+                                        <div key={card.id} className="flex flex-col bg-white dark:bg-gray-800 p-4 md:p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 gap-3">
+                                            <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+                                                <div className="flex-1 md:w-1/2 flex flex-col justify-center md:border-r border-gray-100 dark:border-gray-700 md:pr-6">
+                                                    <div className="font-bold text-lg text-gray-900 dark:text-white">
                                                         <InlineEditCell
-                                                            value={card.sinoVietnamese}
-                                                            onSave={(v) => handleInlineSave(card, 'sinoVietnamese', v)}
-                                                            className="text-sm font-medium inline-block"
+                                                            value={card.frontWithFurigana || card.front}
+                                                            isJapanese={true}
+                                                            onSave={(v) => handleInlineSave(card, 'front', v)}
+                                                            className="text-lg font-bold"
                                                         />
                                                     </div>
-                                                )}
-                                            </div>
-                                            <div className="flex-1 md:w-1/2 flex items-center justify-between gap-4">
-                                                <div className="flex-1 flex flex-col justify-center text-lg text-gray-800 dark:text-gray-200">
-                                                    <InlineEditCell
-                                                        value={card.back}
-                                                        onSave={(v) => handleInlineSave(card, 'back', v)}
-                                                        className="text-lg"
-                                                    />
-                                                </div>
-                                                <div className="flex items-center gap-2">
-                                                    {card.imageBase64 && (
-                                                        <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 shadow-sm border border-gray-100 dark:border-gray-700">
-                                                            <img src={card.imageBase64} alt={card.front} className="w-full h-full object-cover" />
+                                                    {card.sinoVietnamese && (
+                                                        <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium">
+                                                            <InlineEditCell
+                                                                value={card.sinoVietnamese}
+                                                                onSave={(v) => handleInlineSave(card, 'sinoVietnamese', v)}
+                                                                className="text-sm font-medium inline-block"
+                                                            />
                                                         </div>
                                                     )}
-                                                    {card.audioBase64 && (
-                                                        <button onClick={() => playAudio(card.audioBase64)} className="p-2.5 text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-full transition-colors flex-shrink-0">
-                                                            <Volume2 className="w-5 h-5" />
-                                                        </button>
+                                                </div>
+                                                <div className="flex-1 md:w-1/2 flex items-center justify-between gap-4">
+                                                    <div className="flex-1 flex flex-col justify-center text-lg text-gray-800 dark:text-gray-200">
+                                                        <InlineEditCell
+                                                            value={card.back}
+                                                            onSave={(v) => handleInlineSave(card, 'back', v)}
+                                                            className="text-lg"
+                                                        />
+                                                    </div>
+                                                    <div className="flex items-center gap-2">
+                                                        {card.imageBase64 && (
+                                                            <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 shadow-sm border border-gray-100 dark:border-gray-700">
+                                                                <img src={card.imageBase64} alt={card.front} className="w-full h-full object-cover" />
+                                                            </div>
+                                                        )}
+                                                        {card.audioBase64 && (
+                                                            <button onClick={() => playAudio(card.audioBase64)} className="p-2.5 text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-full transition-colors flex-shrink-0">
+                                                                <Volume2 className="w-5 h-5" />
+                                                            </button>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {/* Example sentence row */}
+                                            {(card.example || card.exampleMeaning) && (
+                                                <div className="bg-gray-50 dark:bg-gray-900/40 rounded-xl px-4 py-2.5 space-y-0.5">
+                                                    {card.example && (
+                                                        <p className="text-sm text-gray-700 dark:text-gray-300 font-japanese leading-relaxed">
+                                                            <FuriganaText text={card.example} />
+                                                        </p>
+                                                    )}
+                                                    {card.exampleMeaning && (
+                                                        <p className="text-xs text-gray-500 dark:text-gray-400 italic">{card.exampleMeaning}</p>
                                                     )}
                                                 </div>
-                                            </div>
-                                        </div>
-                                        {/* Example sentence row */}
-                                        {(card.example || card.exampleMeaning) && (
-                                            <div className="bg-gray-50 dark:bg-gray-900/40 rounded-xl px-4 py-2.5 space-y-0.5">
-                                                {card.example && (
-                                                    <p className="text-sm text-gray-700 dark:text-gray-300 font-japanese leading-relaxed">
-                                                        <FuriganaText text={card.example} />
-                                                    </p>
-                                                )}
-                                                {card.exampleMeaning && (
-                                                    <p className="text-xs text-gray-500 dark:text-gray-400 italic">{card.exampleMeaning}</p>
-                                                )}
-                                            </div>
-                                        )}
-
-                                        {/* SRS Toggle Footer */}
-                                        <div className="border-t border-gray-100 dark:border-gray-700/60 pt-3 flex justify-between items-center">
-                                            {card.srsEnabled ? (
-                                                <div className="flex items-center gap-1.5">
-                                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
-                                                    <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-                                                        Ngắt quãng · {getSrsCycleLabel(card)}
-                                                    </span>
-                                                </div>
-                                            ) : (
-                                                <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">
-                                                    Ôn tập ngắt quãng
-                                                </span>
                                             )}
-                                            {/* Toggle switch */}
-                                            <button
-                                                onClick={(e) => { e.stopPropagation(); onToggleSrs && onToggleSrs(card.id, !card.srsEnabled); }}
-                                                className={`relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${card.srsEnabled ? 'bg-indigo-600' : 'bg-gray-200 dark:bg-gray-600'}`}
-                                                role="switch"
-                                                aria-checked={!!card.srsEnabled}
-                                            >
-                                                <span
-                                                    className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out ${card.srsEnabled ? 'translate-x-4' : 'translate-x-0'}`}
-                                                />
-                                            </button>
+
+                                            {/* SRS Toggle Footer */}
+                                            <div className="border-t border-gray-100 dark:border-gray-700/60 pt-3 flex justify-between items-center">
+                                                {card.srsEnabled ? (
+                                                    <div className="flex items-center gap-1.5">
+                                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
+                                                        <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                                                            Ngắt quãng · {getSrsCycleLabel(card)}
+                                                        </span>
+                                                    </div>
+                                                ) : (
+                                                    <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">
+                                                        Ôn tập ngắt quãng
+                                                    </span>
+                                                )}
+                                                {/* Toggle switch */}
+                                                <button
+                                                    onClick={(e) => { e.stopPropagation(); onToggleSrs && onToggleSrs(card.id, !card.srsEnabled); }}
+                                                    className={`relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${card.srsEnabled ? 'bg-indigo-600' : 'bg-gray-200 dark:bg-gray-600'}`}
+                                                    role="switch"
+                                                    aria-checked={!!card.srsEnabled}
+                                                >
+                                                    <span
+                                                        className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out ${card.srsEnabled ? 'translate-x-4' : 'translate-x-0'}`}
+                                                    />
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
-                            </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            {filteredCards.length > visibleCount && (
+                                <div className="text-center pt-6">
+                                    <button
+                                        onClick={() => setVisibleCount(prev => prev + 30)}
+                                        className="px-6 py-2.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-indigo-500 dark:hover:border-indigo-500 text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-bold rounded-xl transition-all shadow-sm hover:shadow-md cursor-pointer inline-flex items-center gap-2 text-sm"
+                                    >
+                                        Xem thêm từ vựng ({filteredCards.length - visibleCount} từ ẩn)
+                                        <ChevronDown className="w-4 h-4" />
+                                    </button>
+                                </div>
+                            )}
                         </div>
                     </>
                 ) : (

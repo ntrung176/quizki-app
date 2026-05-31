@@ -333,7 +333,7 @@ const GrammarPracticeScreen = ({ isAdmin }) => {
     }
 
     return (
-        <div className="max-w-3xl mx-auto space-y-5">
+        <div className="max-w-3xl mx-auto space-y-5 animate-fade-in">
             <div className="flex items-start justify-between">
                 <div>
                     <button onClick={() => navigate(`/grammar/detail/${grammarId}?tb=${tb}&ls=${ls}`)} className="flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline mb-2">

@@ -48,6 +48,7 @@ const ReviewScreen = ({
     const [multipleChoiceOptions, setMultipleChoiceOptions] = useState([]);
     const [failedCards, setFailedCards] = useState(new Set());
     const [showComplete, setShowComplete] = useState(false);
+    const [needsRetype, setNeedsRetype] = useState(false); // After wrong: must retype correct answer
     const [hintCount, setHintCount] = useState(0); // Number of characters revealed as hint
     const [blurVietnamese, setBlurVietnamese] = useState(false); // Blur Vietnamese text in example mode
     const [revealedMeanings, setRevealedMeanings] = useState(new Set()); // Track which meanings are revealed
@@ -60,6 +61,8 @@ const ReviewScreen = ({
     });
     const inputRef = useRef(null);
     const isCompletingRef = useRef(false);
+    const isProcessingRef = useRef(false); // Sync guard to prevent double-submit
+    const handleNextRef = useRef(null); // Ref to handleNext, allows useEffect before early-return
     const failedCardsRef = useRef(failedCards);
     const optionsRef = useRef({});
     const cardShownTimeRef = useRef(Date.now()); // Track thời gian hiển thị card
@@ -179,12 +182,13 @@ const ReviewScreen = ({
             if (reviewMode === 'flashcard') {
                 setSlideDirection('right');
                 setTimeout(() => {
-                    setCurrentIndex(currentIndex - 1);
+                                    setCurrentIndex(currentIndex - 1);
                     setInputValue('');
                     setIsRevealed(false);
                     setIsLocked(false);
                     setFeedback(null);
                     setMessage('');
+                    setNeedsRetype(false);
                     setSlideDirection('left');
                     setTimeout(() => setSlideDirection(''), 300);
                 }, 150);
@@ -195,6 +199,7 @@ const ReviewScreen = ({
                 setIsLocked(false);
                 setFeedback(null);
                 setMessage('');
+                setNeedsRetype(false);
             }
         }
     }, [currentIndex, isProcessing, reviewMode]);
@@ -225,7 +230,9 @@ const ReviewScreen = ({
                 setIsLocked(false);
                 setFeedback(null);
                 setMessage('');
+                setNeedsRetype(false);
                 setIsProcessing(false);
+                isProcessingRef.current = false; // Reset sync guard for next round
                 isCompletingRef.current = false;
                 return;
             }
@@ -459,6 +466,29 @@ const ReviewScreen = ({
         }
     }, [showComplete, onBack]);
 
+    // Keyboard shortcut: Enter to advance (outside input), 1-4 for MC — must be before any early return
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'Enter' && isRevealed && !isProcessing) {
+                if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                    e.preventDefault();
+                    handleNextRef.current?.();
+                    return;
+                }
+            }
+            if (!isMultipleChoice || isRevealed || isProcessing || feedback) return;
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            const key = parseInt(e.key);
+            if (key >= 1 && key <= 4 && multipleChoiceOptions[key - 1]) {
+                e.preventDefault();
+                const btn = document.querySelector(`[data-mc-option="${key - 1}"]`);
+                if (btn) btn.click();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [isMultipleChoice, isRevealed, isProcessing, feedback, multipleChoiceOptions]);
+
     // Màn hình hoàn thành nội bộ
     if (showComplete) {
         return (
@@ -602,7 +632,8 @@ const ReviewScreen = ({
 
     // Check answer
     const checkAnswer = async () => {
-        if (isProcessing) return;
+        if (isProcessingRef.current) return;
+        isProcessingRef.current = true;
 
         const userAnswer = normalizeAnswer(inputValue);
         let isCorrect = false;
@@ -666,85 +697,48 @@ const ReviewScreen = ({
 
         try {
             if (isCorrect) {
+                // Shared handler for correct answer (first try or after prior failure)
                 if (hasFailedBefore) {
-                    setFailedCards(prev => {
-                        const newSet = new Set(prev);
-                        newSet.delete(cardKey);
-                        return newSet;
-                    });
-                    setIsProcessing(true);
-                    setFeedback('correct');
-                    setMessage(`Chính xác! ${displayFront} - Đã hoàn thành!`);
-                    setIsRevealed(true);
-                    setIsLocked(false);
-                    flashCorrect();
-                    playCorrectSound();
-                    celebrateCorrectAnswer();
-                    
-                    // Safely call speakJapanese with error handling, delayed by 500ms to avoid overlapping correct sound
-                    try {
-                        await new Promise(resolve => setTimeout(resolve, 500));
-                        if (isMountedRef.current && !audioAbortRef.current) {
-                            await speakJapanese(currentCard.front, currentCard.audioBase64, 
-                                onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
-                                    if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
-                                        onSaveCardAudio(currentCard.id, b64, vid).catch(e => {
-                                            console.warn('⚠️ Failed to persist audio:', e.message);
-                                        });
-                                    }
-                                } : null
-                            );
-                        }
-                        await new Promise(resolve => setTimeout(resolve, 300));
-                    } catch (audioError) {
-                        console.warn('⚠️ Audio playback error (continuing):', audioError.message);
-                    }
-                    
-                    if (isMountedRef.current) {
-                        await moveToNextCard(true);
-                    }
-                } else {
-                    setIsProcessing(true);
-                    setFeedback('correct');
-                    setMessage(`Chính xác! ${displayFront}`);
-                    setIsRevealed(true);
-                    setIsLocked(false);
-                    flashCorrect();
-                    playCorrectSound();
-                    celebrateCorrectAnswer();
-                    
-                    // Safely call speakJapanese with error handling, delayed by 500ms to avoid overlapping correct sound
-                    try {
-                        await new Promise(resolve => setTimeout(resolve, 500));
-                        if (isMountedRef.current && !audioAbortRef.current) {
-                            await speakJapanese(currentCard.front, currentCard.audioBase64, 
-                                onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
-                                    // Only save if component still mounted
-                                    if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
-                                        onSaveCardAudio(currentCard.id, b64, vid).catch(e => {
-                                            console.warn('⚠️ Failed to persist audio:', e.message);
-                                        });
-                                    }
-                                } : null
-                            );
-                        }
-                        await new Promise(resolve => setTimeout(resolve, 300));
-                    } catch (audioError) {
-                        console.warn('⚠️ Audio playback error (continuing):', audioError.message);
-                    }
-                    
-                    if (isMountedRef.current) {
-                        await moveToNextCard(true);
-                    }
+                    failedCardsRef.current.delete(cardKey);
+                    setFailedCards(new Set(failedCardsRef.current));
                 }
+                setIsProcessing(true);
+                setFeedback('correct');
+                setMessage(hasFailedBefore ? `Chính xác! ${displayFront} - Đã hoàn thành!` : `Chính xác! ${displayFront}`);
+                setIsRevealed(true);
+                setIsLocked(false);
+                flashCorrect();
+                playCorrectSound();
+                celebrateCorrectAnswer();
+
+                // Fire-and-forget audio — do NOT await so auto-advance is not blocked
+                speakJapanese(currentCard.front, currentCard.audioBase64,
+                    onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
+                        if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
+                            onSaveCardAudio(currentCard.id, b64, vid).catch(e => {
+                                console.warn('⚠️ Failed to persist audio:', e.message);
+                            });
+                        }
+                    } : null
+                ).catch(e => console.warn('⚠️ Audio playback error (continuing):', e.message));
+
+                // Auto-advance after short fixed delay regardless of audio
+                await new Promise(resolve => setTimeout(resolve, 700));
+                await moveToNextCard(true);
             } else {
-                setFailedCards(prev => new Set([...prev, cardKey]));
+                failedCardsRef.current.add(cardKey);
+                setFailedCards(new Set(failedCardsRef.current));
                 setFeedback('incorrect');
                 const correctAns = (inputMode === 'reading' || cardReviewType === 'dictation') ? displayFront : currentCard.back;
                 const nuanceText = currentCard.nuance ? ` (${currentCard.nuance})` : '';
-                setMessage(`Đáp án đúng: ${correctAns}${nuanceText}. Hãy làm lại!`);
+                setMessage(`Đáp án đúng: ${correctAns}${nuanceText}`);
                 setIsRevealed(true);
                 setIsLocked(true);
+                // Clear input and require user to retype correct answer for typing modes
+                if ((cardReviewType === 'back' || cardReviewType === 'dictation') && !isMultipleChoice) {
+                    setInputValue('');
+                    setNeedsRetype(true);
+                }
                 playIncorrectSound();
                 
                 // Speak with safe error handling, delayed by 500ms to avoid overlapping incorrect sound
@@ -789,9 +783,12 @@ const ReviewScreen = ({
                 } catch (error) {
                     console.error('Error updating card:', error);
                 }
+                // Release processing guard so user can retype
+                isProcessingRef.current = false;
             }
         } catch (error) {
             console.error('Error in checkAnswer:', error);
+            isProcessingRef.current = false;
             setIsProcessing(false);
             setFeedback(null);
             setIsRevealed(false);
@@ -839,7 +836,9 @@ const ReviewScreen = ({
                     setIsLocked(false);
                     setFeedback(null);
                     setMessage('');
+                    setNeedsRetype(false);
                     setIsProcessing(false);
+                    isProcessingRef.current = false;
                     setSlideDirection('right');
                     setTimeout(() => {
                         setSlideDirection('');
@@ -855,7 +854,9 @@ const ReviewScreen = ({
                 setIsLocked(false);
                 setFeedback(null);
                 setMessage('');
+                setNeedsRetype(false);
                 setIsProcessing(false);
+                isProcessingRef.current = false;
                 if ((cardReviewType === 'back' || cardReviewType === 'dictation') && !isMultipleChoice && inputRef.current && !isMobileDevice()) {
                     setTimeout(() => inputRef.current?.focus(), 100);
                 }
@@ -871,36 +872,65 @@ const ReviewScreen = ({
         setIsProcessing(true);
         if (feedback === 'correct') {
             moveToNextCard(true);
-        } else if (feedback === 'incorrect') {
+        } else if (feedback === 'incorrect' && !needsRetype) {
             moveToNextCard(false);
+        } else {
+            setIsProcessing(false);
+        }
+    };
+    // Keep ref in sync so the early-hoisted useEffect can call it
+    handleNextRef.current = handleNext;
+
+    // Handle retype submission: check if user typed the correct answer
+    const handleRetypeSubmit = async () => {
+        if (!needsRetype || isProcessingRef.current) return;
+        isProcessingRef.current = true;
+        const retypeAns = normalizeAnswer(inputValue);
+        let isRetypeCorrect = false;
+
+        if (inputMode === 'reading' || cardReviewType === 'dictation') {
+            const rawFront = currentCard.front;
+            const kanjiPart = rawFront.split('（')[0].split('(')[0];
+            const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
+            const kanaPart = kanaPartMatch ? kanaPartMatch[1] : '';
+            const normalizedKanji = normalizeAnswer(kanjiPart);
+            const normalizedKana = normalizeAnswer(kanaPart);
+            const normalizedFull = normalizeAnswer(rawFront);
+            isRetypeCorrect = retypeAns === normalizedKanji || (kanaPart && retypeAns === normalizedKana) || retypeAns === normalizedFull;
+        } else {
+            const normalizeVietnamese = (text) => text.toLowerCase().trim().replace(/\s+/g, ' ');
+            const userAnswerNorm = normalizeVietnamese(inputValue);
+            const rawMeanings = currentCard.back.split(/[,;，；\n]/);
+            const meanings = rawMeanings.map(m => normalizeVietnamese(m.replace(/^\d+\.\s*/, '').trim())).filter(m => m.length > 0);
+            isRetypeCorrect = meanings.some(meaning => {
+                if (!meaning) return false;
+                if (userAnswerNorm === meaning) return true;
+                if (userAnswerNorm.includes(meaning)) return true;
+                if (userAnswerNorm.length >= 3 && meaning.includes(userAnswerNorm)) return true;
+                return false;
+            });
+        }
+
+        if (isRetypeCorrect) {
+            setNeedsRetype(false);
+            setFeedback('correct');
+            setMessage('Đúng rồi! Tiếp tục nào...');
+            flashCorrect();
+            playCorrectSound();
+            setIsProcessing(true);
+            await new Promise(resolve => setTimeout(resolve, 700));
+            await moveToNextCard(false); // Don't update streak since first answer was wrong
+        } else {
+            setFeedback('incorrect');
+            setMessage(`Chưa đúng! Hãy nhập: ${(inputMode === 'reading' || cardReviewType === 'dictation') ? displayFront : currentCard.back}`);
+            setInputValue('');
+            playIncorrectSound();
+            isProcessingRef.current = false; // Release so user can try again
         }
     };
 
-    const progress = Math.round(((currentIndex) / cards.length) * 100);
 
-    // Keyboard shortcut for multiple choice: press 1-4 to select
-    useEffect(() => {
-        const handleKeyDown = (e) => {
-            if (e.key === 'Enter' && isRevealed && !isProcessing) {
-                if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-                    e.preventDefault();
-                    handleNext();
-                    return;
-                }
-            }
-            if (!isMultipleChoice || isRevealed || isProcessing || feedback) return;
-            // Don't trigger if typing in an input
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-            const key = parseInt(e.key);
-            if (key >= 1 && key <= 4 && multipleChoiceOptions[key - 1]) {
-                e.preventDefault();
-                const btn = document.querySelector(`[data-mc-option="${key - 1}"]`);
-                if (btn) btn.click();
-            }
-        };
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [isMultipleChoice, isRevealed, isProcessing, feedback, multipleChoiceOptions]);
+    const progress = Math.round(((currentIndex) / cards.length) * 100);
 
     return (
         <div className="relative w-full h-full flex flex-col justify-center">
@@ -1242,11 +1272,8 @@ const ReviewScreen = ({
                                                     try {
                                                         if (isCorrect) {
                                                             if (hasFailedBefore) {
-                                                                setFailedCards(prev => {
-                                                                    const newSet = new Set(prev);
-                                                                    newSet.delete(cardKey);
-                                                                    return newSet;
-                                                                });
+                                                                failedCardsRef.current.delete(cardKey);
+                                                                 setFailedCards(new Set(failedCardsRef.current));
                                                                 setFeedback('correct');
                                                                 setMessage(`Chính xác! ${displayFront} - Đã hoàn thành!`);
                                                             } else {
@@ -1257,7 +1284,8 @@ const ReviewScreen = ({
                                                             playCorrectSound();
                                                             celebrateCorrectAnswer();
                                                         } else {
-                                                            setFailedCards(prev => new Set([...prev, cardKey]));
+                                                            failedCardsRef.current.add(cardKey);
+                                                            setFailedCards(new Set(failedCardsRef.current));
                                                             setFeedback('incorrect');
                                                             setMessage(`Đáp án đúng: ${displayFront}`);
                                                             playIncorrectSound();
@@ -1289,18 +1317,18 @@ const ReviewScreen = ({
 
                                                         setIsRevealed(true);
                                                         if (isCorrect) {
-                                                            await new Promise(resolve => setTimeout(resolve, 500));
-                                                            if (isMountedRef.current && !audioAbortRef.current) {
-                                                                await speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-                                                            }
-                                                            await new Promise(resolve => setTimeout(resolve, 300));
+                                                            // Fire-and-forget audio, then auto-advance
+                                                            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null)
+                                                                .catch(e => console.warn('⚠️ Audio error:', e.message));
+                                                            await new Promise(resolve => setTimeout(resolve, 700));
                                                             await moveToNextCard(true);
                                                         } else {
+                                                            // Fire-and-forget audio for incorrect answer
                                                             setTimeout(() => {
-                                                                if (isMountedRef.current && !audioAbortRef.current) {
-                                                                    speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-                                                                }
+                                                                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null)
+                                                                    .catch(e => console.warn('⚠️ Audio error:', e.message));
                                                             }, 500);
+                                                            isProcessingRef.current = false;
                                                             setIsProcessing(false);
                                                         }
                                                     } catch (error) {
@@ -1401,7 +1429,7 @@ const ReviewScreen = ({
                                     spellCheck="false"
                                     value={inputValue}
                                     onChange={(e) => setInputValue(e.target.value)}
-                                    onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); isRevealed ? handleNext() : checkAnswer(); } }}
+                                    onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); needsRetype ? handleRetypeSubmit() : (isRevealed ? handleNext() : checkAnswer()); } }}
                                     onFocus={(e) => {
                                         if (window.innerWidth <= 768) {
                                             setTimeout(() => {
@@ -1409,18 +1437,32 @@ const ReviewScreen = ({
                                             }, 300);
                                         }
                                     }}
-                                    disabled={feedback === 'correct'}
+                                    disabled={feedback === 'correct' && !needsRetype}
                                     className={`w-full px-5 py-3 text-lg font-semibold rounded-xl border-2 transition-all outline-none shadow-md
-                                ${feedback === 'correct'
-                                            ? 'border-green-400 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300'
-                                            : feedback === 'incorrect'
-                                                ? 'border-red-400 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300'
-                                                : 'border-gray-300 dark:border-gray-600 bg-gray-800 text-white focus:border-indigo-500'}`}
-                                    placeholder={cardReviewType === 'dictation' ? 'Nhập từ vựng bạn nghe được...' : (inputMode === 'reading' ? 'Nhập từ vựng tiếng Nhật...' : 'Nhập ý nghĩa tiếng Việt...')}
+                                ${needsRetype
+                                            ? 'border-orange-400 bg-orange-50 dark:bg-orange-900/20 text-orange-900 dark:text-orange-100 focus:border-orange-500'
+                                            : feedback === 'correct'
+                                                ? 'border-green-400 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300'
+                                                : feedback === 'incorrect'
+                                                    ? 'border-red-400 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300'
+                                                    : 'border-gray-300 dark:border-gray-600 bg-gray-800 text-white focus:border-indigo-500'}`}
+                                    placeholder={needsRetype ? 'Nhập lại đáp án đúng để tiếp tục...' : (cardReviewType === 'dictation' ? 'Nhập từ vựng bạn nghe được...' : (inputMode === 'reading' ? 'Nhập từ vựng tiếng Nhật...' : 'Nhập ý nghĩa tiếng Việt...'))}
                                 />
 
                                 {/* Hint button and Check button row */}
-                                {!isRevealed && (
+                                {needsRetype ? (
+                                    <div className="flex flex-col gap-2">
+                                        <p className="text-xs font-bold text-orange-500 dark:text-orange-400 text-center">✏️ Nhập lại đáp án đúng để tiếp tục</p>
+                                        <button
+                                            onClick={handleRetypeSubmit}
+                                            disabled={!inputValue.trim() || isProcessing}
+                                            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-bold shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                        >
+                                            <Check className="w-4 h-4" />
+                                            <span>Xác nhận đáp án đúng</span>
+                                        </button>
+                                    </div>
+                                ) : !isRevealed && (
                                     <div className="flex gap-3">
                                         {/* Hint button - Only for reading mode (back) */}
                                         {inputMode === 'reading' && cardReviewType === 'back' && (
@@ -1479,13 +1521,13 @@ const ReviewScreen = ({
                                         </div>
                                     </div>
 
-                                    {feedback === 'incorrect' && (
+                                    {feedback === 'incorrect' && !needsRetype && (
                                         <button
                                             onClick={handleNext}
                                             disabled={isProcessing}
                                             className="w-full mt-3 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95"
                                         >
-                                            Tiếp tục (Enter)
+                                            Bỏ qua → Câu tiếp theo
                                         </button>
                                     )}
                                 </div>

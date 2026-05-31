@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { collection, query, onSnapshot } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
+import LoadingIndicator from '../ui/LoadingIndicator';
 
 // Avatar emoji lookup
 const AVATAR_EMOJIS = {
@@ -50,6 +51,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
     const [sortBy, setSortBy] = useState('score'); // 'score' | 'vocab' | 'kanji' | 'streak'
     const [displayCount, setDisplayCount] = useState(15);
     const [expandedUser, setExpandedUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     // Fetch kanji SRS stats
     useEffect(() => {
@@ -72,7 +74,10 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
 
     // Fetch leaderboard data
     useEffect(() => {
-        if (!publicStatsPath || !db) return;
+        if (!publicStatsPath || !db) {
+            setLoading(false);
+            return;
+        }
         const q = query(collection(db, publicStatsPath));
         const unsub = onSnapshot(q, (snap) => {
             const users = [];
@@ -81,7 +86,11 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                 users.push({ id: d.id, ...data });
             });
             setLeaderboardData(users);
-        }, () => { });
+            setLoading(false);
+        }, (err) => {
+            console.error(err);
+            setLoading(false);
+        });
         return () => unsub();
     }, [publicStatsPath]);
 
@@ -284,6 +293,12 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                             <p className={`text-sm font-bold truncate ${isMe ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-700 dark:text-gray-200'}`}>
                                 {user.displayName || 'Ẩn danh'}
                             </p>
+                            {user.isPremium && (
+                                <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[9px] font-black px-1.5 py-0.5 rounded-md uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
+                                    <Crown className="w-2.5 h-2.5 fill-white text-white" />
+                                    PREMIUM
+                                </span>
+                            )}
                             {isMe && (
                                 <span className="bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 text-[9px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider">
                                     Bạn
@@ -372,8 +387,12 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
         );
     };
 
+    if (loading) {
+        return <LoadingIndicator text="Đang tải bảng vinh danh..." />;
+    }
+
     return (
-        <div className="space-y-6 max-w-4xl mx-auto pb-24">
+        <div className="space-y-6 max-w-4xl mx-auto pb-24 animate-fade-in">
             {/* Purple Header Stats Card */}
             <div className="bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] p-6 rounded-3xl text-white shadow-xl">
                 <div className="flex items-center gap-4 mb-5">
@@ -433,7 +452,15 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                 </div>
                             </div>
                             <div className="text-center bg-white dark:bg-gray-800 rounded-2xl p-3 border border-slate-200 dark:border-gray-700 w-full shadow-md group-hover:shadow-lg transition-all duration-300">
-                                <p className="font-bold text-xs truncate text-gray-700 dark:text-gray-200">{podiumList[1].displayName || 'Ẩn danh'}</p>
+                                <div className="flex flex-col items-center gap-0.5 justify-center mb-1">
+                                    <p className="font-bold text-xs truncate text-gray-700 dark:text-gray-200 max-w-full">{podiumList[1].displayName || 'Ẩn danh'}</p>
+                                    {podiumList[1].isPremium && (
+                                        <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider flex items-center gap-0.5 shadow-sm scale-90">
+                                            <Crown className="w-2 h-2 fill-white text-white" />
+                                            PREMIUM
+                                        </span>
+                                    )}
+                                </div>
                                 <p className="text-[10px] text-gray-400 mt-0.5">{podiumList[1].totalCards || 0} từ · {podiumList[1].kanjiTotal || 0} kanji</p>
                                 <div className="mt-2 text-indigo-500 font-bold text-xs flex items-center justify-center gap-0.5">
                                     <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
@@ -460,7 +487,15 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                 </div>
                             </div>
                             <div className="text-center bg-gradient-to-b from-yellow-50 to-white dark:from-yellow-950/20 dark:to-gray-800 rounded-2xl p-4 border-2 border-yellow-300 dark:border-yellow-600/30 w-full shadow-lg group-hover:shadow-xl transition-all duration-300 ring-4 ring-yellow-400/10">
-                                <p className="font-bold text-sm truncate text-yellow-700 dark:text-yellow-400">{podiumList[0].displayName || 'Ẩn danh'}</p>
+                                <div className="flex flex-col items-center gap-0.5 justify-center mb-1">
+                                    <p className="font-bold text-sm truncate text-yellow-700 dark:text-yellow-400 max-w-full">{podiumList[0].displayName || 'Ẩn danh'}</p>
+                                    {podiumList[0].isPremium && (
+                                        <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider flex items-center gap-0.5 shadow-sm scale-90">
+                                            <Crown className="w-2.5 h-2.5 fill-white text-white" />
+                                            PREMIUM
+                                        </span>
+                                    )}
+                                </div>
                                 <p className="text-[10px] text-gray-400 mt-0.5">{podiumList[0].totalCards || 0} từ · {podiumList[0].kanjiTotal || 0} kanji</p>
                                 <div className="mt-2 text-yellow-600 dark:text-yellow-400 font-bold text-sm flex items-center justify-center gap-0.5">
                                     <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
@@ -484,7 +519,15 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                 </div>
                             </div>
                             <div className="text-center bg-white dark:bg-gray-800 rounded-2xl p-3 border border-amber-200 dark:border-gray-700 w-full shadow-md group-hover:shadow-lg transition-all duration-300">
-                                <p className="font-bold text-xs truncate text-gray-700 dark:text-gray-200">{podiumList[2].displayName || 'Ẩn danh'}</p>
+                                <div className="flex flex-col items-center gap-0.5 justify-center mb-1">
+                                    <p className="font-bold text-xs truncate text-gray-700 dark:text-gray-200 max-w-full">{podiumList[2].displayName || 'Ẩn danh'}</p>
+                                    {podiumList[2].isPremium && (
+                                        <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider flex items-center gap-0.5 shadow-sm scale-90">
+                                            <Crown className="w-2 h-2 fill-white text-white" />
+                                            PREMIUM
+                                        </span>
+                                    )}
+                                </div>
                                 <p className="text-[10px] text-gray-400 mt-0.5">{podiumList[2].totalCards || 0} từ · {podiumList[2].kanjiTotal || 0} kanji</p>
                                 <div className="mt-2 text-indigo-500 font-bold text-xs flex items-center justify-center gap-0.5">
                                     <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />

@@ -80,7 +80,7 @@ const GrammarLessonsScreen = ({ isAdmin }) => {
     if (!textbook) return <div className="p-8 text-center text-slate-500">Đang tải...</div>;
 
     return (
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
             <div>
                 <button onClick={() => navigate('/grammar')} className="flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline mb-3">
                     <ArrowLeft className="w-3.5 h-3.5" /> Ngữ pháp

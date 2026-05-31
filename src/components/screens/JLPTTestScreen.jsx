@@ -708,7 +708,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         const SkillIcon = SECTION_ICONS[skillType] || FileText;
 
         return (
-            <div className="min-h-screen bg-[#FAFBFD] dark:bg-slate-900 p-4 md:p-8 font-sans">
+            <div className="min-h-screen bg-[#FAFBFD] dark:bg-slate-900 p-4 md:p-8 font-sans animate-fade-in">
                 {/* Header breadcrumb */}
                 <div className="flex items-center justify-between mb-8">
                     <div className="flex items-center gap-3">
@@ -1093,7 +1093,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         const lvlGradient = LEVEL_GRADIENTS[level] || 'from-slate-500 to-slate-600';
 
         return (
-            <div className="min-h-screen bg-[#FAFBFD] dark:bg-slate-900 p-4 md:p-8 font-sans">
+            <div className="min-h-screen bg-[#FAFBFD] dark:bg-slate-900 p-4 md:p-8 font-sans animate-fade-in">
                 {/* Header breadcrumb */}
                 <div className="flex items-center justify-between mb-8">
                     <div className="flex items-center gap-3">
@@ -1417,7 +1417,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
     }
 
     return (
-        <div className="jlpt-screen min-h-screen bg-[#FAFBFD] dark:bg-slate-900 p-4 md:p-8 font-sans">
+        <div className="jlpt-screen min-h-screen bg-[#FAFBFD] dark:bg-slate-900 p-4 md:p-8 font-sans animate-fade-in">
             {/* Toast Notification */}
             {notification && (
                 <div className="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-xl border border-slate-700/50 flex items-center gap-2 animate-bounce text-xs font-bold">
@@ -1662,10 +1662,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                     </div>
                 </div>
 
-                {/* Footer */}
-                <p className="text-center text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider pt-4">
-                    © 2026 QuizKi Learning Platform. Zen Study Environment.
-                </p>
             </div>
 
             {/* Modal Luyện kỹ năng */}

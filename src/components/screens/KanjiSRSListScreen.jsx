@@ -285,14 +285,28 @@ const KanjiSRSListScreen = () => {
 
     const currentFolderKanji = useMemo(() => {
         if (!currentFolder) return [];
-        if (currentFolder === '__all__') return [...kanjiWithSRS];
-        if (currentFolder === 'unfiled') return kanjiWithSRS.filter(k => !kanjiCardFolders[k.id]);
-        if (currentFolder.startsWith('jlpt_')) {
+        let list = [];
+        if (currentFolder === '__all__') {
+            list = [...kanjiWithSRS];
+        } else if (currentFolder === 'unfiled') {
+            list = kanjiWithSRS.filter(k => !kanjiCardFolders[k.id]);
+        } else if (currentFolder.startsWith('jlpt_')) {
             const level = currentFolder.replace('jlpt_', '');
-            return kanjiWithSRS.filter(k => k.level === level);
+            list = kanjiWithSRS.filter(k => k.level === level);
+        } else {
+            list = kanjiWithSRS.filter(k => kanjiCardFolders[k.id] === currentFolder);
         }
-        return kanjiWithSRS.filter(k => kanjiCardFolders[k.id] === currentFolder);
-    }, [currentFolder, kanjiWithSRS, kanjiCardFolders]);
+
+        if (searchQuery.trim()) {
+            const query = searchQuery.toLowerCase().trim();
+            list = list.filter(k =>
+                k.character.includes(query) ||
+                k.sinoViet?.toLowerCase().includes(query) ||
+                k.meaning?.toLowerCase().includes(query)
+            );
+        }
+        return list;
+    }, [currentFolder, kanjiWithSRS, kanjiCardFolders, searchQuery]);
 
     const openFolder = useCallback((folderId) => {
         setCurrentFolder(folderId);
@@ -444,65 +458,42 @@ const KanjiSRSListScreen = () => {
                             Quản lý và ôn tập các Hán tự bạn đã lưu trữ theo cấp độ.
                         </p>
                     </div>
-                    
-                    {/* User profile & actions */}
-                    <div className="flex items-center gap-3 self-end md:self-center">
-                        <button className="p-2.5 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-full text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:shadow-sm transition-all relative">
-                            <Bell className="w-5 h-5" />
-                            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full"></span>
-                        </button>
-                        
-                        <div className="flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-full pl-2 pr-3 py-1 shadow-sm">
-                            <div className="w-7 h-7 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-slate-700 dark:text-slate-300 overflow-hidden">
-                                {user?.photoURL ? (
-                                    <img src={user.photoURL} alt="Avatar" className="w-full h-full object-cover" />
-                                ) : (
-                                    user?.displayName?.charAt(0) || user?.email?.charAt(0).toUpperCase() || 'U'
-                                )}
-                            </div>
-                            <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                                {user?.displayName || 'User'}
-                            </span>
-                        </div>
-                    </div>
                 </div>
 
                 {/* Search and Filters */}
-                {isInFolderBrowseMode && (
-                    <div className="flex flex-col md:flex-row gap-3 items-center w-full">
-                        <div className="relative flex-1 w-full">
-                            <input
-                                type="text"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder="Tìm kiếm thư mục hoặc Kanji..."
-                                className="w-full bg-white dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700 rounded-2xl px-4 py-3 pl-11 text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 shadow-sm text-sm"
-                            />
-                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                            {searchQuery && (
-                                <button onClick={() => setSearchQuery('')} className="absolute right-4 top-1/2 -translate-y-1/2">
-                                    <X className="w-4 h-4 text-slate-400 hover:text-slate-600" />
-                                </button>
-                            )}
-                        </div>
-                        
-                        <div className="flex gap-2 w-full md:w-auto">
-                            <button
-                                onClick={() => setShowFolderManager(true)}
-                                className="px-4 py-3 bg-white dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-2xl text-sm font-semibold hover:bg-slate-50 transition-all flex items-center justify-center gap-2 shadow-sm w-full md:w-auto cursor-pointer"
-                            >
-                                <FolderPlus className="w-4 h-4 text-slate-500" /> Quản lý thư mục
+                <div className="flex flex-col md:flex-row gap-3 items-center w-full">
+                    <div className="relative flex-1 w-full">
+                        <input
+                            type="text"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            placeholder="Tìm kiếm thư mục hoặc Kanji..."
+                            className="w-full bg-white dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700 rounded-2xl px-4 py-3 pl-11 text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 shadow-sm text-sm"
+                        />
+                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                        {searchQuery && (
+                            <button onClick={() => setSearchQuery('')} className="absolute right-4 top-1/2 -translate-y-1/2">
+                                <X className="w-4 h-4 text-slate-400 hover:text-slate-600" />
                             </button>
-                            
-                            <button
-                                onClick={() => navigate(ROUTES.KANJI_REVIEW)}
-                                className="px-5 py-3 bg-[#2E5B70] hover:bg-[#234757] text-white rounded-2xl text-sm font-bold transition-all flex items-center justify-center gap-2 shadow-md w-full md:w-auto cursor-pointer"
-                            >
-                                Ôn tập ngay
-                            </button>
-                        </div>
+                        )}
                     </div>
-                )}
+                    
+                    <div className="flex gap-2 w-full md:w-auto">
+                        <button
+                            onClick={() => setShowFolderManager(true)}
+                            className="px-4 py-3 bg-white dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-2xl text-sm font-semibold hover:bg-slate-50 transition-all flex items-center justify-center gap-2 shadow-sm w-full md:w-auto cursor-pointer"
+                        >
+                            <FolderPlus className="w-4 h-4 text-slate-500" /> Quản lý thư mục
+                        </button>
+                        
+                        <button
+                            onClick={() => navigate(ROUTES.KANJI_REVIEW)}
+                            className="px-5 py-3 bg-[#2E5B70] hover:bg-[#234757] text-white rounded-2xl text-sm font-bold transition-all flex items-center justify-center gap-2 shadow-md w-full md:w-auto cursor-pointer"
+                        >
+                            Ôn tập ngay
+                        </button>
+                    </div>
+                </div>
 
                 {/* Selection Controls */}
                 {selectedIds.size > 0 && (
