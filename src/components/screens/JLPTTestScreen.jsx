@@ -324,7 +324,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                         : <XCircle className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />}
                                                     <div className="flex-1 space-y-2">
                                                         {q.passage && (
-                                                            <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2" dangerouslySetInnerHTML={{ __html: q.passage }} />
+                                                            <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.passage }} />
                                                         )}
                                                         {q.audioUrl && (
                                                             <div className="mb-2">
@@ -336,23 +336,21 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                                 <img src={q.imageUrl} alt="Câu hỏi" className="max-h-48 object-contain" />
                                                             </div>
                                                         )}
-                                                        <p className="font-medium text-gray-800 dark:text-gray-200 text-sm font-japanese" dangerouslySetInnerHTML={{ __html: q.question }} />
+                                                        <p className="font-medium text-gray-800 dark:text-gray-200 text-sm font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.question }} />
                                                         {userAns !== undefined && (
                                                             <p className="text-xs mt-1">
                                                                 <span className="text-gray-500">Bạn chọn: </span>
-                                                                <span className={isCorrect ? 'text-green-600 font-bold font-japanese' : 'text-red-600 font-bold line-through font-japanese'}>
-                                                                    {q.options[userAns]}
-                                                                </span>
+                                                                <span className={`${isCorrect ? 'text-green-600 font-bold font-japanese' : 'text-red-600 font-bold line-through font-japanese'} whitespace-pre-line`} dangerouslySetInnerHTML={{ __html: q.options[userAns] }} />
                                                             </p>
                                                         )}
                                                         {!isCorrect && (
                                                             <p className="text-xs mt-1">
                                                                 <span className="text-gray-500">Đáp án: </span>
-                                                                <span className="text-green-600 font-bold font-japanese">{q.options[q.correctAnswer]}</span>
+                                                                <span className="text-green-600 font-bold font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.options[q.correctAnswer] }} />
                                                             </p>
                                                         )}
                                                         {q.explanation && (
-                                                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 italic">💡 {q.explanation}</p>
+                                                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${q.explanation}` }} />
                                                         )}
                                                     </div>
                                                 </div>
@@ -501,7 +499,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                             {/* Reading passage */}
                             {section.type === 'reading' && question?.passage && (
                                 <div className="mb-6 p-5 bg-green-50 dark:bg-green-900/15 border border-green-200 dark:border-green-800 rounded-xl">
-                                    <div className="text-gray-800 dark:text-gray-200 leading-relaxed font-japanese" dangerouslySetInnerHTML={{ __html: question.passage }} />
+                                    <div className="text-gray-800 dark:text-gray-200 leading-relaxed font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: question.passage }} />
                                 </div>
                             )}
 
@@ -513,7 +511,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                             )}
 
                             {/* Question */}
-                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-6 leading-relaxed font-japanese" dangerouslySetInnerHTML={{ __html: question?.question }} />
+                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-6 leading-relaxed font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: question?.question }} />
 
                             {/* Options */}
                             <div className="space-y-3 mb-8">
@@ -529,11 +527,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                             <div className="flex items-center gap-3">
                                                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 ${isSelected
                                                     ? 'bg-indigo-600 text-white'
-                                                    : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
+                                                    : 'bg-gray-100 dark:bg-gray-700 text-gray-650 dark:text-gray-400'
                                                     }`}>
                                                     {String.fromCharCode(65 + oi)}
                                                 </div>
-                                                <span className="font-japanese">{opt}</span>
+                                                <span className="font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: opt }} />
                                             </div>
                                         </button>
                                     );

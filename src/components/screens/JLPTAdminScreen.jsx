@@ -80,28 +80,123 @@ const SAMPLE_FULL_JSON = {
     ]
 };
 
-const SAMPLE_SKILL_JSON = {
-    title: "Luyện chuyên sâu Nghe hiểu N5 - Bài 1",
-    level: "N5",
-    timeLimit: 15,
-    isSkillTest: true,
-    skillType: "listening",
-    sections: [
-        {
-            type: "listening",
-            title: "Nghe hiểu (聴解)",
-            questions: [
-                {
-                    question: "Nghe và chọn đáp án đúng",
-                    audioUrl: "https://example.com/audio.mp3",
-                    imageUrl: "https://example.com/image.png",
-                    options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
-                    correctAnswer: 1,
-                    explanation: "Giải thích..."
-                }
-            ]
-        }
-    ]
+const getSampleJsonForSkill = (skillType) => {
+    switch (skillType) {
+        case 'listening':
+            return {
+                title: "Luyện chuyên sâu Nghe hiểu N5 - Bài 1",
+                level: "N5",
+                timeLimit: 15,
+                isSkillTest: true,
+                skillType: "listening",
+                sections: [
+                    {
+                        type: "listening",
+                        title: "Nghe hiểu (聴解)",
+                        questions: [
+                            {
+                                question: "Nghe và chọn đáp án đúng nhất (Ví dụ: <u>質問</u>：男の人はこれからどうしますか？)",
+                                audioUrl: "https://example.com/audio.mp3",
+                                imageUrl: "https://example.com/image.png",
+                                options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                                correctAnswer: 0,
+                                explanation: "Giải thích lý do chọn đáp án A..."
+                            }
+                        ]
+                    }
+                ]
+            };
+        case 'reading':
+            return {
+                title: "Luyện chuyên sâu Đọc hiểu N5 - Bài 1",
+                level: "N5",
+                timeLimit: 20,
+                isSkillTest: true,
+                skillType: "reading",
+                sections: [
+                    {
+                        type: "reading",
+                        title: "Đọc hiểu (読解)",
+                        questions: [
+                            {
+                                passage: "<b>[Đoạn văn đọc hiểu]</b><br/>これは日本語の文章です。質問を読んで答えてください。",
+                                question: "質問：正しいものはどれですか？",
+                                options: ["Đáp án 1", "Đáp án 2", "Đáp án 3", "Đáp án 4"],
+                                correctAnswer: 0,
+                                explanation: "Giải thích chi tiết vì sao đáp án 1 đúng dựa vào đoạn văn..."
+                            }
+                        ]
+                    }
+                ]
+            };
+        case 'kanji':
+            return {
+                title: "Luyện chuyên sâu Hán tự N5 - Bài 1",
+                level: "N5",
+                timeLimit: 10,
+                isSkillTest: true,
+                skillType: "kanji",
+                sections: [
+                    {
+                        type: "kanji",
+                        title: "Hán tự (漢字)",
+                        questions: [
+                            {
+                                question: "「<u>日本語</u>」の漢字 của đọc là gì?",
+                                options: ["にほんご", "にっぽんご", "にほんこ", "にほんごう"],
+                                correctAnswer: 0,
+                                explanation: "日本語 = にほんご (Tiếng Nhật)"
+                            }
+                        ]
+                    }
+                ]
+            };
+        case 'grammar':
+            return {
+                title: "Luyện chuyên sâu Ngữ pháp N5 - Bài 1",
+                level: "N5",
+                timeLimit: 12,
+                isSkillTest: true,
+                skillType: "grammar",
+                sections: [
+                    {
+                        type: "grammar",
+                        title: "Ngữ pháp (文法)",
+                        questions: [
+                            {
+                                question: "わたしは 毎日 日本語 ____ 勉強します。",
+                                options: ["が", "を", "に", "で"],
+                                correctAnswer: 1,
+                                explanation: "Trợ từ を dùng để chỉ đối tượng trực tiếp tác động của động từ 勉強します."
+                            }
+                        ]
+                    }
+                ]
+            };
+        case 'vocabulary':
+        default:
+            return {
+                title: "Luyện chuyên sâu Từ vựng N5 - Bài 1",
+                level: "N5",
+                timeLimit: 10,
+                isSkillTest: true,
+                skillType: "vocabulary",
+                sections: [
+                    {
+                        type: "vocabulary",
+                        title: "Từ vựng (文字・語彙)",
+                        questions: [
+                            {
+                                question: "「学校」の đọc là gì?",
+                                options: ["がっこう", "がくこう", "がこう", "がっこ"],
+                                correctAnswer: 0,
+                                explanation: "学校（がっこう）= trường học"
+                            }
+                        ]
+                    }
+                ]
+            };
+    }
 };
 
 const JLPTAdminScreen = ({ userId }) => {
@@ -287,7 +382,11 @@ const JLPTAdminScreen = ({ userId }) => {
     // Section/Question modifiers
     const updateSection = (si, field, value) => {
         const s = [...formData.sections];
-        s[si] = { ...s[si], [field]: value };
+        if (typeof field === 'object' && field !== null) {
+            s[si] = { ...s[si], ...field };
+        } else {
+            s[si] = { ...s[si], [field]: value };
+        }
         setFormData({ ...formData, sections: s });
     };
 
@@ -417,14 +516,6 @@ const JLPTAdminScreen = ({ userId }) => {
                         <button onClick={() => setShowJsonImport(true)}
                             className="px-4 py-2 text-xs font-bold bg-[#2E5B70] text-white rounded-xl hover:bg-[#254A5C] transition flex items-center gap-1.5 shadow-sm cursor-pointer">
                             <Upload className="w-4 h-4" /> Nhập JSON
-                        </button>
-                        <button onClick={() => { 
-                            const sample = formData.isSkillTest ? SAMPLE_SKILL_JSON : SAMPLE_FULL_JSON;
-                            navigator.clipboard.writeText(JSON.stringify(sample, null, 2)); 
-                            notify('success', 'Đã copy JSON mẫu vào Clipboard!'); 
-                        }}
-                            className="px-4 py-2 text-xs font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-xl transition flex items-center gap-1.5 cursor-pointer">
-                            <Copy className="w-4 h-4" /> Copy JSON mẫu
                         </button>
                     </div>
                 </div>
@@ -556,7 +647,7 @@ const JLPTAdminScreen = ({ userId }) => {
                                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                             <div>
                                                                 <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Loại kỹ năng</label>
-                                                                <select value={section.type} onChange={e => { updateSection(si, 'type', e.target.value); updateSection(si, 'title', SKILL_LABELS[e.target.value]); }}
+                                                                <select value={section.type} onChange={e => updateSection(si, { type: e.target.value, title: SKILL_LABELS[e.target.value] })}
                                                                     className="w-full px-2.5 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/40 text-slate-800 dark:text-white outline-none">
                                                                     {SECTION_TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
                                                                 </select>
@@ -596,7 +687,7 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                 </div>
 
                                                                 {/* Đoạn văn cho Đọc hiểu */}
-                                                                {(section.type === 'reading' || formData.skillType === 'reading') && (
+                                                                {section.type === 'reading' && (
                                                                     <div>
                                                                         <label className="block text-[10px] font-bold text-slate-450 uppercase tracking-wider mb-1 flex items-center justify-between">
                                                                             <span>Đoạn văn đọc hiểu (Nếu có)</span>
@@ -613,7 +704,7 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                 )}
 
                                                                 {/* File Audio và Hình ảnh cho Nghe hiểu */}
-                                                                {(section.type === 'listening' || formData.skillType === 'listening') && (
+                                                                {section.type === 'listening' && (
                                                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-orange-50/20 dark:bg-orange-950/5 p-3 rounded-2xl border border-orange-100 dark:border-orange-900/50">
                                                                         {/* Audio Upload/URL Section */}
                                                                         <div className="space-y-2">
@@ -860,19 +951,36 @@ const JLPTAdminScreen = ({ userId }) => {
                             )}
                         </div>
 
-                        <div className="flex items-center justify-between">
-                            <span className="text-[11px] text-slate-400 font-medium">Mẫu cấu trúc tương ứng:</span>
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    const sample = importType === 'full' ? SAMPLE_FULL_JSON : SAMPLE_SKILL_JSON;
-                                    navigator.clipboard.writeText(JSON.stringify(sample, null, 2));
-                                    notify('success', 'Đã copy JSON mẫu vào Clipboard!');
-                                }}
-                                className="px-2.5 py-1.5 text-[10px] font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-300 rounded-xl transition flex items-center gap-1.5 cursor-pointer select-none"
-                            >
-                                <Copy className="w-3.5 h-3.5" /> Sao chép JSON mẫu
-                            </button>
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <span className="text-[11px] text-slate-400 font-medium">Mẫu cấu trúc tương ứng ({importType === 'full' ? 'Đề đầy đủ' : SKILL_LABELS[importSkillType]}):</span>
+                            <div className="flex gap-2">
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        const sample = importType === 'full' 
+                                            ? SAMPLE_FULL_JSON 
+                                            : getSampleJsonForSkill(importSkillType);
+                                        navigator.clipboard.writeText(JSON.stringify(sample, null, 2));
+                                        notify('success', 'Đã copy JSON mẫu vào Clipboard!');
+                                    }}
+                                    className="px-2.5 py-1.5 text-[10px] font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-300 rounded-xl transition flex items-center gap-1.5 cursor-pointer select-none"
+                                >
+                                    <Copy className="w-3.5 h-3.5" /> Sao chép JSON mẫu
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        const sample = importType === 'full' 
+                                            ? SAMPLE_FULL_JSON 
+                                            : getSampleJsonForSkill(importSkillType);
+                                        setJsonInput(JSON.stringify(sample, null, 2));
+                                        notify('success', 'Đã nạp JSON mẫu vào khung soạn thảo!');
+                                    }}
+                                    className="px-2.5 py-1.5 text-[10px] font-bold bg-sky-50 dark:bg-sky-950/30 text-[#2E5B70] dark:text-sky-400 border border-sky-100 dark:border-sky-900/50 hover:bg-sky-100 dark:hover:bg-sky-900/30 rounded-xl transition cursor-pointer select-none"
+                                >
+                                    Nạp JSON mẫu vào ô nhập
+                                </button>
+                            </div>
                         </div>
 
                         <textarea value={jsonInput} onChange={e => setJsonInput(e.target.value)}
