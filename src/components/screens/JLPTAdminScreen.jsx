@@ -684,6 +684,12 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                     <textarea id={`textarea-${si}-${qi}-question`} value={q.question} onChange={e => updateQuestion(si, qi, 'question', e.target.value)}
                                                                         placeholder="Nhập nội dung câu hỏi..." rows={2}
                                                                         className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none resize-none font-japanese" />
+                                                                    {q.question && (
+                                                                        <div className="mt-1.5 p-2.5 rounded-xl bg-slate-100/50 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/80">
+                                                                            <span className="block text-[9px] font-bold text-[#2E5B70] dark:text-sky-400 uppercase tracking-wider mb-1">Xem trước câu hỏi:</span>
+                                                                            <div className="text-xs font-japanese leading-relaxed whitespace-pre-line text-slate-800 dark:text-slate-200" dangerouslySetInnerHTML={{ __html: q.question }} />
+                                                                        </div>
+                                                                    )}
                                                                 </div>
 
                                                                 {/* Đoạn văn cho Đọc hiểu */}
@@ -700,6 +706,12 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                         <textarea id={`textarea-${si}-${qi}-passage`} value={q.passage || ''} onChange={e => updateQuestion(si, qi, 'passage', e.target.value)}
                                                                             placeholder="Nhập đoạn văn bản tiếng Nhật..." rows={4}
                                                                             className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none resize-none font-japanese leading-relaxed" />
+                                                                        {q.passage && (
+                                                                            <div className="mt-1.5 p-2.5 rounded-xl bg-slate-100/50 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/80">
+                                                                                <span className="block text-[9px] font-bold text-[#2E5B70] dark:text-sky-400 uppercase tracking-wider mb-1">Xem trước đoạn văn:</span>
+                                                                                <div className="text-xs font-japanese leading-relaxed whitespace-pre-line text-slate-800 dark:text-slate-200" dangerouslySetInnerHTML={{ __html: q.passage }} />
+                                                                            </div>
+                                                                        )}
                                                                     </div>
                                                                 )}
 
@@ -799,9 +811,14 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                                 >
                                                                                     {String.fromCharCode(65 + oi)}
                                                                                 </button>
-                                                                                <input type="text" value={opt} onChange={e => updateOption(si, qi, oi, e.target.value)}
-                                                                                    placeholder={`Phương án ${String.fromCharCode(65 + oi)}`}
-                                                                                    className="flex-1 px-3 py-1.5 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none font-japanese" />
+                                                                                <div className="flex-1 space-y-1">
+                                                                                    <input type="text" value={opt} onChange={e => updateOption(si, qi, oi, e.target.value)}
+                                                                                        placeholder={`Phương án ${String.fromCharCode(65 + oi)}`}
+                                                                                        className="w-full px-3 py-1.5 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none font-japanese" />
+                                                                                    {opt && (
+                                                                                        <div className="px-2.5 py-1 text-[10px] font-japanese text-slate-600 dark:text-slate-350 leading-relaxed whitespace-pre-line bg-slate-100/40 dark:bg-slate-900/20 rounded-lg border border-slate-200/40 dark:border-slate-800/30" dangerouslySetInnerHTML={{ __html: opt }} />
+                                                                                    )}
+                                                                                </div>
                                                                             </div>
                                                                         ))}
                                                                     </div>
@@ -813,6 +830,12 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                     <input type="text" value={q.explanation || ''} onChange={e => updateQuestion(si, qi, 'explanation', e.target.value)}
                                                                         placeholder="Giải thích ngữ pháp hoặc dịch từ vựng..."
                                                                         className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none" />
+                                                                    {q.explanation && (
+                                                                        <div className="mt-1.5 p-2.5 rounded-xl bg-slate-100/50 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/80">
+                                                                            <span className="block text-[9px] font-bold text-[#2E5B70] dark:text-sky-400 uppercase tracking-wider mb-1">Xem trước giải thích:</span>
+                                                                            <div className="text-xs italic leading-relaxed whitespace-pre-line text-slate-600 dark:text-slate-400" dangerouslySetInnerHTML={{ __html: `💡 ${q.explanation}` }} />
+                                                                        </div>
+                                                                    )}
                                                                 </div>
                                                             </div>
                                                         ))}

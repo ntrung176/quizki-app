@@ -8,17 +8,14 @@ import { playAudio } from '../../utils/audio';
 const isNodeInSelection = (range, node) => {
     if (!range || !node) return false;
     try {
+        if (typeof range.intersectsNode === 'function') {
+            return range.intersectsNode(node);
+        }
+        // Fallback for older browsers
         const nodeRange = document.createRange();
         nodeRange.selectNodeContents(node);
-        // range starts after node ends
-        if (range.compareBoundaryPoints(Range.START_TO_END, nodeRange) <= 0) {
-            return false;
-        }
-        // range ends before node starts
-        if (range.compareBoundaryPoints(Range.END_TO_START, nodeRange) >= 0) {
-            return false;
-        }
-        return true;
+        return range.compareBoundaryPoints(Range.START_TO_END, nodeRange) > 0 &&
+               range.compareBoundaryPoints(Range.END_TO_START, nodeRange) < 0;
     } catch (e) {
         return false;
     }
@@ -189,6 +186,38 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
 
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
+    // Intercept copy event to strip furigana cleanly when copying text
+    useEffect(() => {
+        const handleCopy = (e) => {
+            const selection = window.getSelection();
+            if (selection && !selection.isCollapsed) {
+                const cleanedText = getSelectedTextClean(selection);
+                if (cleanedText) {
+                    // Check if selection contains any ruby text to prevent intercepting normal copy
+                    let hasRuby = false;
+                    try {
+                        const range = selection.getRangeAt(0);
+                        const clone = range.cloneContents();
+                        hasRuby = clone.querySelector('ruby') !== null;
+                    } catch (err) {
+                        // Fallback check
+                        if (selection.anchorNode && selection.anchorNode.parentElement) {
+                            hasRuby = selection.anchorNode.parentElement.closest('ruby') !== null;
+                        }
+                    }
+
+                    if (hasRuby) {
+                        e.clipboardData.setData('text/plain', cleanedText);
+                        e.preventDefault(); // Override standard browser copy behavior
+                    }
+                }
+            }
+        };
+
+        document.addEventListener('copy', handleCopy);
+        return () => document.removeEventListener('copy', handleCopy);
     }, []);
 
     // Keep popup fully within screen boundaries
@@ -395,35 +424,60 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                     }}
                 >
                     {/* Header: Title and controls */}
-                    <div className="flex items-start justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3 mb-3">
-                        <div className="min-w-0">
-                            <div className="flex items-center gap-2 flex-wrap">
-                                <h3 className="text-lg font-black tracking-tight text-slate-900 dark:text-white truncate font-japanese">
-                                    {aiResult?.frontWithFurigana ? aiResult.frontWithFurigana.split('（')[0] : pendingWord}
-                                </h3>
-                                <button 
-                                    onClick={handlePlayAudio}
-                                    className="p-1.5 rounded-lg bg-indigo-50 dark:bg-slate-800 hover:bg-indigo-100 dark:hover:bg-slate-700 text-indigo-600 dark:text-indigo-400 transition-colors cursor-pointer"
-                                    title="Phát âm tiếng Nhật"
-                                >
-                                    <Volume2 className="w-4 h-4" />
-                                </button>
+                    <div className="flex flex-col gap-2 border-b border-slate-100 dark:border-slate-800 pb-3 mb-3">
+                        <div className="flex items-start justify-between gap-2">
+                            <div className="min-w-0">
+                                <div className="flex items-center gap-2 flex-wrap">
+                                    <h3 className="text-lg font-black tracking-tight text-slate-900 dark:text-white truncate font-japanese">
+                                        {aiResult?.frontWithFurigana ? aiResult.frontWithFurigana.split('（')[0] : pendingWord}
+                                    </h3>
+                                    <button 
+                                        onClick={handlePlayAudio}
+                                        className="p-1.5 rounded-lg bg-indigo-50 dark:bg-slate-800 hover:bg-indigo-100 dark:hover:bg-slate-700 text-indigo-600 dark:text-indigo-400 transition-colors cursor-pointer"
+                                        title="Phát âm tiếng Nhật"
+                                    >
+                                        <Volume2 className="w-4 h-4" />
+                                    </button>
+                                </div>
+                                
+                                {/* Sino Vietnamese or Reading */}
+                                {(localSinoVietnamese || aiResult?.sinoVietnamese) && (
+                                    <p className="text-xs font-bold text-pink-500 mt-0.5 tracking-wide uppercase">
+                                        Hán Việt: {aiResult?.sinoVietnamese || localSinoVietnamese}
+                                    </p>
+                                )}
                             </div>
-                            
-                            {/* Sino Vietnamese or Reading */}
-                            {(localSinoVietnamese || aiResult?.sinoVietnamese) && (
-                                <p className="text-xs font-bold text-pink-500 mt-0.5 tracking-wide uppercase">
-                                    Hán Việt: {aiResult?.sinoVietnamese || localSinoVietnamese}
-                                </p>
-                            )}
+
+                            <button 
+                                onClick={handleCloseAll}
+                                className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg transition-colors cursor-pointer shrink-0"
+                            >
+                                <X className="w-4 h-4" />
+                            </button>
                         </div>
 
-                        <button 
-                            onClick={handleCloseAll}
-                            className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg transition-colors cursor-pointer"
-                        >
-                            <X className="w-4 h-4" />
-                        </button>
+                        {/* Adjust Selection / Search Term Input */}
+                        <div className="flex gap-1.5 items-center w-full">
+                            <input 
+                                type="text" 
+                                value={pendingWord} 
+                                onChange={(e) => setPendingWord(e.target.value)}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter') {
+                                        handleLookup(e);
+                                    }
+                                }}
+                                placeholder="Sửa lại từ cần tra..."
+                                className="flex-1 px-2.5 py-1 text-xs font-bold font-japanese border border-slate-200 dark:border-slate-700/60 rounded-xl bg-slate-50 dark:bg-slate-950/40 text-slate-800 dark:text-white outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" 
+                            />
+                            <button 
+                                onClick={handleLookup}
+                                disabled={loading}
+                                className="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-sm transition-all disabled:opacity-50 shrink-0 cursor-pointer"
+                            >
+                                Tra lại
+                            </button>
+                        </div>
                     </div>
 
                     {/* Content Section */}
