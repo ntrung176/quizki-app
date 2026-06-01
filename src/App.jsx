@@ -641,6 +641,8 @@ const App = () => {
                     incorrectCount: typeof data.incorrectCount === 'number' ? data.incorrectCount : 0,
                     lastReviewed: data.lastReviewed?.toDate ? data.lastReviewed.toDate() : (data.lastReviewed ? new Date(data.lastReviewed) : null),
                     seenCount: typeof data.seenCount === 'number' ? data.seenCount : 0,
+                    masteryState: data.masteryState || 'not_learned',
+                    needsMistakeReview: data.needsMistakeReview === true,
                     // Vocabulary SRS (SM-2) fields
                     srsEnabled: data.srsEnabled !== false,
                     srsInterval: typeof data.srsInterval === 'number' ? data.srsInterval : 0,
@@ -1561,6 +1563,19 @@ const App = () => {
             newCardData.exampleAudioBase64 = exampleAudioBase64;
         }
 
+        // Tự động tạo audio mới nếu chưa có
+        if (!newCardData.audioBase64) {
+            try {
+                const result = await generateAudioSilent(finalFront);
+                if (result && result.base64) {
+                    newCardData.audioBase64 = result.base64;
+                    newCardData.audioVoiceId = result.voiceId || null;
+                }
+            } catch (e) {
+                console.warn('⚠️ Lỗi tự động tạo audio khi thêm từ vựng mới:', e);
+            }
+        }
+
         let cardRef;
 
         try {
@@ -1941,76 +1956,8 @@ const App = () => {
     };
 
     // ============== BACKGROUND AUDIO GENERATION ==============
-    // Tự động tạo audio ngầm cho tất cả từ vựng chưa có audio,
-    // hoặc có audio nhưng với giọng khác giọng hiện tại của người dùng
-    const bgAudioAbortRef = useRef(false);
-
-    useEffect(() => {
-        if (!authReady || !userId || !db || !vocabCollectionPath || allCards.length === 0) return;
-
-        // Đợi 10 giây sau khi app load xong để không ảnh hưởng trải nghiệm
-        const startDelay = setTimeout(async () => {
-            const currentVoice = getTTSVoice(); // 'mayu' hoặc 'ryota'
-
-            // Tìm các card chưa có audio hoặc có audio với giọng khác
-            const cardsNeedAudio = allCards.filter(card => {
-                if (!card.front) return false;
-                // Card chưa có audio
-                if (!card.audioBase64) return true;
-                // Card có audio nhưng với giọng khác giọng hiện tại
-                if (card.audioVoiceId && card.audioVoiceId !== currentVoice) return true;
-                return false;
-            });
-
-            if (cardsNeedAudio.length === 0) {
-                console.log('🔊 Tất cả từ vựng đã có audio');
-                return;
-            }
-
-            console.log(`🔊 Bắt đầu tạo audio ngầm cho ${cardsNeedAudio.length} từ vựng (giọng: ${currentVoice})...`);
-            bgAudioAbortRef.current = false;
-
-            let successCount = 0;
-            for (const card of cardsNeedAudio) {
-                // Kiểm tra nếu component bị unmount hoặc user logout
-                if (bgAudioAbortRef.current) {
-                    console.log('🔊 Dừng tạo audio ngầm (unmount/logout)');
-                    break;
-                }
-
-                try {
-                    const result = await generateAudioSilent(card.front);
-                    if (result && result.base64) {
-                        // Lưu vào Firestore
-                        await updateDoc(doc(db, vocabCollectionPath, card.id), {
-                            audioBase64: result.base64,
-                            audioVoiceId: result.voiceId || null,
-                        });
-                        successCount++;
-
-                        // Log tiến trình mỗi 10 từ
-                        if (successCount % 10 === 0) {
-                            console.log(`🔊 Đã tạo audio ngầm: ${successCount}/${cardsNeedAudio.length}`);
-                        }
-                    }
-                } catch (e) {
-                    console.warn(`⚠️ Lỗi tạo audio ngầm cho "${card.front}":`, e.message);
-                }
-
-                // Delay 2 giây giữa mỗi request để không quá tải API
-                await new Promise(r => setTimeout(r, 2000));
-            }
-
-            if (successCount > 0) {
-                console.log(`🔊 Hoàn tất tạo audio ngầm: ${successCount}/${cardsNeedAudio.length} từ vựng`);
-            }
-        }, 10000); // Đợi 10 giây
-
-        return () => {
-            clearTimeout(startDelay);
-            bgAudioAbortRef.current = true;
-        };
-    }, [authReady, userId, allCards.length, vocabCollectionPath]);
+    // Tự động tạo audio ngầm đã bị tắt để tránh lãng phí API quota SpeechGen.
+    // Audio sẽ được tạo tự động 1 lần duy nhất khi thêm/sửa card hoặc tạo lười (on-demand) khi học/ôn tập.
 
     const handleDeleteCard = async (cardId, cardFront) => {
         if (!vocabCollectionPath || !cardId) return;
@@ -2036,9 +1983,60 @@ const App = () => {
     };
 
     const handleUpdateCard = async (cardId, isCorrect, cardReviewType, activityType = 'review', responseTimeMs = null) => {
-        if (!vocabCollectionPath) return;
+        if (!vocabCollectionPath || !cardId) return;
 
         const cardRef = doc(db, vocabCollectionPath, cardId);
+
+        // Chỉnh sửa/cập nhật tất cả các trường từ màn hình EditSetScreen
+        if (isCorrect === 'all' && typeof cardReviewType === 'object' && cardReviewType !== null) {
+            const fields = cardReviewType;
+            const updatedData = {
+                front: (fields.front || '').trim(),
+                back: (fields.back || '').trim(),
+                synonym: (fields.synonym || '').trim(),
+                sinoVietnamese: (fields.sinoVietnamese || '').trim(),
+                synonymSinoVietnamese: (fields.synonymSinoVietnamese || '').trim(),
+                example: (fields.example || '').trim(),
+                exampleMeaning: (fields.exampleMeaning || '').trim(),
+                nuance: (fields.nuance || '').trim(),
+                pos: fields.pos || '',
+                level: fields.level || '',
+            };
+
+            if (fields.imageBase64 !== undefined) {
+                updatedData.imageBase64 = fields.imageBase64;
+            }
+
+            if (fields.audioBase64 !== undefined) {
+                updatedData.audioBase64 = fields.audioBase64;
+            }
+
+            // Tự động tạo audio mới nếu đổi front text hoặc chưa có audio
+            const oldCard = allCards.find(c => c.id === cardId);
+            const oldSpeechText = oldCard ? getSpeechText(oldCard.front) : '';
+            const newSpeechText = getSpeechText(updatedData.front);
+
+            if (newSpeechText !== oldSpeechText || (oldCard && !oldCard.audioBase64)) {
+                try {
+                    const result = await generateAudioSilent(updatedData.front);
+                    if (result && result.base64) {
+                        updatedData.audioBase64 = result.base64;
+                        updatedData.audioVoiceId = result.voiceId || null;
+                    }
+                } catch (e) {
+                    console.warn('⚠️ Lỗi tự động tạo audio khi cập nhật thẻ:', e);
+                }
+            }
+
+            try {
+                await updateDoc(cardRef, updatedData);
+            } catch (e) {
+                console.error("Lỗi khi cập nhật thẻ từ EditSetScreen:", e);
+            }
+            return;
+        }
+
+        // Cập nhật tiến trình ôn tập / thống kê thông thường
         let cardSnap;
         try {
             cardSnap = await getDoc(cardRef);
@@ -2050,11 +2048,18 @@ const App = () => {
         if (!cardSnap.exists()) return;
         const cardData = cardSnap.data();
 
+        const currentMastery = cardData.masteryState || 'not_learned';
+        const newMastery = isCorrect 
+            ? (currentMastery === 'not_learned' ? 'learning' : 'memorized')
+            : (currentMastery === 'memorized' ? 'learning' : 'not_learned');
+
         const updateData = {
             correctCount: typeof cardData.correctCount === 'number' ? cardData.correctCount + (isCorrect ? 1 : 0) : (isCorrect ? 1 : 0),
             incorrectCount: typeof cardData.incorrectCount === 'number' ? cardData.incorrectCount + (isCorrect ? 0 : 1) : (isCorrect ? 0 : 1),
             seenCount: typeof cardData.seenCount === 'number' ? cardData.seenCount + 1 : 1,
-            lastReviewed: serverTimestamp()
+            lastReviewed: serverTimestamp(),
+            needsMistakeReview: !isCorrect,
+            masteryState: newMastery
         };
 
         try {
@@ -2122,24 +2127,32 @@ const App = () => {
                 prelapseInterval: cardData.srsPrelapseInterval || null
             };
 
-            const result = calculateAnkiSRS(srsState, rating);
-            const nextReviewDate = new Date(Date.now() + result.interval * 60000);
-
-            await updateDoc(cardRef, {
-                srsInterval: result.interval,
-                srsEase: result.ease,
-                srsLearningStep: result.learningStep,
-                srsIsLapsed: result.isLapsed,
-                srsReps: result.reps,
-                srsLapseCount: result.lapseCount,
-                srsPrelapseInterval: result.prelapseInterval,
-                nextReview_back: nextReviewDate,
-                lastReviewed: serverTimestamp()
-            });
-        } catch (e) {
-            console.error("Lỗi cập nhật đánh giá SRS từ vựng:", e);
-        }
-    };
+             const result = calculateAnkiSRS(srsState, rating);
+             const nextReviewDate = new Date(Date.now() + result.interval * 60000);
+ 
+             const isCorrect = rating !== 'again';
+             const currentMastery = cardData.masteryState || 'not_learned';
+             const newMastery = isCorrect 
+                 ? (currentMastery === 'not_learned' ? 'learning' : 'memorized')
+                 : (currentMastery === 'memorized' ? 'learning' : 'not_learned');
+ 
+             await updateDoc(cardRef, {
+                 srsInterval: result.interval,
+                 srsEase: result.ease,
+                 srsLearningStep: result.learningStep,
+                 srsIsLapsed: result.isLapsed,
+                 srsReps: result.reps,
+                 srsLapseCount: result.lapseCount,
+                 srsPrelapseInterval: result.prelapseInterval,
+                 nextReview_back: nextReviewDate,
+                 lastReviewed: serverTimestamp(),
+                 needsMistakeReview: rating === 'again',
+                 masteryState: newMastery
+             });
+         } catch (e) {
+             console.error("Lỗi cập nhật đánh giá SRS từ vựng:", e);
+         }
+     };
 
     // Lưu cardId để scroll đến sau khi save
     const scrollToCardIdRef = useRef(null);
@@ -2235,6 +2248,17 @@ const App = () => {
                 updatedData.audioBase64 = audioBase64;
             }
             // Nếu audioBase64 === '', không cập nhật (giữ nguyên audio cũ)
+        } else if (newSpeechText !== oldSpeechText || !oldCard.audioBase64) {
+            // Tự động tạo audio mới nếu đổi front text hoặc chưa có audio
+            try {
+                const result = await generateAudioSilent(front.trim());
+                if (result && result.base64) {
+                    updatedData.audioBase64 = result.base64;
+                    updatedData.audioVoiceId = result.voiceId || null;
+                }
+            } catch (e) {
+                console.warn('⚠️ Lỗi tự động tạo audio khi cập nhật thẻ:', e);
+            }
         }
 
         try {

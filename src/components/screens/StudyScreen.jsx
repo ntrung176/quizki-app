@@ -279,10 +279,44 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     const [writtenWrong, setWrittenWrong] = useState([]);
 
     const [done, setDone] = useState(false);
+    const sessionWrongCardIdsRef = useRef(new Set());
+
+    const getSavedProgress = useCallback(() => {
+        if (!studySessionData?.setId) return null;
+        try {
+            const key = `study_progress_${studySessionData.setId}_study`;
+            const saved = localStorage.getItem(key);
+            if (saved) {
+                const data = JSON.parse(saved);
+                const savedIds = new Set(data.cardIds || []);
+                const currentIds = originalCards.map(c => c.id);
+                if (currentIds.length === savedIds.size && currentIds.every(id => savedIds.has(id))) {
+                    return data;
+                }
+            }
+        } catch (e) { /* ignore */ }
+        return null;
+    }, [studySessionData?.setId, originalCards]);
 
     // Initialize/Restart batches
     const initializeBatches = useCallback(() => {
         if (!originalCards.length) return;
+
+        const saved = getSavedProgress();
+        if (saved) {
+            setBatches(saved.batches || []);
+            setCurrentBatchIndex(saved.currentBatchIndex || 0);
+            setCurrentBatch(saved.currentBatch || []);
+            setBatchPhase(saved.batchPhase || 'mc');
+            setMcQueue(saved.mcQueue || []);
+            setMcIdx(saved.mcIdx || 0);
+            setWrittenQueue(saved.writtenQueue || []);
+            setWrittenIdx(saved.writtenIdx || 0);
+            setWrittenWrong(saved.writtenWrong || []);
+            setDone(saved.done || false);
+            return;
+        }
+
         const shuffled = shuffleArray([...originalCards]);
         const b = [];
         for (let i = 0; i < shuffled.length; i += 5) {
@@ -300,13 +334,47 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             setWrittenIdx(0);
             setWrittenWrong([]);
         }
-    }, [originalCards]);
+    }, [originalCards, getSavedProgress]);
 
     useEffect(() => {
         if (originalCards.length > 0 && batches.length === 0) {
             initializeBatches();
         }
     }, [originalCards, batches.length, initializeBatches]);
+
+    // Save progress to localStorage whenever state changes
+    useEffect(() => {
+        if (!studySessionData?.setId || batches.length === 0) return;
+        const progressData = {
+            cardIds: originalCards.map(c => c.id),
+            batches,
+            currentBatchIndex,
+            currentBatch,
+            batchPhase,
+            mcQueue,
+            mcIdx,
+            writtenQueue,
+            writtenIdx,
+            writtenWrong,
+            done,
+            timestamp: Date.now(),
+        };
+        const key = `study_progress_${studySessionData.setId}_study`;
+        localStorage.setItem(key, JSON.stringify(progressData));
+    }, [
+        studySessionData?.setId,
+        originalCards,
+        batches,
+        currentBatchIndex,
+        currentBatch,
+        batchPhase,
+        mcQueue,
+        mcIdx,
+        writtenQueue,
+        writtenIdx,
+        writtenWrong,
+        done
+    ]);
 
     const currentCard = batchPhase === 'mc' ? mcQueue[mcIdx]
         : batchPhase === 'written' ? writtenQueue[writtenIdx]
@@ -337,8 +405,12 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     }, [batches, currentBatchIndex, batchPhase, mcIdx, writtenIdx, currentBatch.length, originalCards.length]);
 
     // ── MC handlers ──────────────────────────────────────────────────────────
-
+ 
     const handleMCCorrect = useCallback(() => {
+        const cCard = mcQueue[mcIdx];
+        if (onUpdateCard && cCard?.id && !sessionWrongCardIdsRef.current.has(cCard.id)) {
+            onUpdateCard(cCard.id, true, 'back', 'study_mc');
+        }
         const nextIdx = mcIdx + 1;
         if (nextIdx >= mcQueue.length) {
             setBatchPhase('written');
@@ -348,9 +420,16 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         } else {
             setMcIdx(nextIdx);
         }
-    }, [mcIdx, mcQueue.length, currentBatch]);
-
+    }, [mcIdx, mcQueue.length, currentBatch, onUpdateCard, mcQueue]);
+ 
     const handleMCWrong = useCallback(() => {
+        const cCard = mcQueue[mcIdx];
+        if (cCard?.id) {
+            sessionWrongCardIdsRef.current.add(cCard.id);
+            if (onUpdateCard) {
+                onUpdateCard(cCard.id, false, 'back', 'study_mc');
+            }
+        }
         const nextIdx = mcIdx + 1;
         if (nextIdx >= mcQueue.length) {
             setBatchPhase('written');
@@ -360,11 +439,15 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         } else {
             setMcIdx(nextIdx);
         }
-    }, [mcIdx, mcQueue.length, currentBatch]);
-
+    }, [mcIdx, mcQueue.length, currentBatch, onUpdateCard, mcQueue]);
+ 
     // ── Written handlers ─────────────────────────────────────────────────────
-
+ 
     const handleWrittenCorrect = useCallback(() => {
+        const cCard = writtenQueue[writtenIdx];
+        if (onUpdateCard && cCard?.id && !sessionWrongCardIdsRef.current.has(cCard.id)) {
+            onUpdateCard(cCard.id, true, 'back', 'study_written');
+        }
         const nextIdx = writtenIdx + 1;
         if (nextIdx >= writtenQueue.length) {
             // Current round of written finished
@@ -378,15 +461,21 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         } else {
             setWrittenIdx(nextIdx);
         }
-    }, [writtenIdx, writtenQueue.length, writtenWrong]);
-
+    }, [writtenIdx, writtenQueue.length, writtenWrong, onUpdateCard, writtenQueue]);
+ 
     const handleWrittenWrong = useCallback(() => {
         const cCard = writtenQueue[writtenIdx];
+        if (cCard?.id) {
+            sessionWrongCardIdsRef.current.add(cCard.id);
+            if (onUpdateCard) {
+                onUpdateCard(cCard.id, false, 'back', 'study_written');
+            }
+        }
         setWrittenWrong(prev => {
             if (prev.some(c => c.id === cCard.id)) return prev;
             return [...prev, cCard];
         });
-
+ 
         const nextIdx = writtenIdx + 1;
         if (nextIdx >= writtenQueue.length) {
             // Include current wrong card if not already added
@@ -402,8 +491,8 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         } else {
             setWrittenIdx(nextIdx);
         }
-    }, [writtenIdx, writtenQueue]);
-
+    }, [writtenIdx, writtenQueue, onUpdateCard]);
+ 
     const handleNextBatch = useCallback(() => {
         const nextBatchIdx = currentBatchIndex + 1;
         if (nextBatchIdx >= batches.length) {
@@ -420,10 +509,30 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             setWrittenWrong([]);
         }
     }, [currentBatchIndex, batches]);
-
+ 
     const handleRestart = useCallback(() => {
-        initializeBatches();
-    }, [initializeBatches]);
+        if (studySessionData?.setId) {
+            localStorage.removeItem(`study_progress_${studySessionData.setId}_study`);
+            localStorage.removeItem(`study_completed_${studySessionData.setId}_study`);
+        }
+        const shuffled = shuffleArray([...originalCards]);
+        const b = [];
+        for (let i = 0; i < shuffled.length; i += 5) {
+            b.push(shuffled.slice(i, i + 5));
+        }
+        setBatches(b);
+        setCurrentBatchIndex(0);
+        setDone(false);
+        if (b.length > 0) {
+            setCurrentBatch(b[0]);
+            setBatchPhase('mc');
+            setMcQueue(shuffleArray([...b[0]]));
+            setMcIdx(0);
+            setWrittenQueue([]);
+            setWrittenIdx(0);
+            setWrittenWrong([]);
+        }
+    }, [originalCards, studySessionData?.setId]);
 
     if (!originalCards.length) {
         return (

@@ -62,9 +62,90 @@ const SRSVocabScreen = ({
     setFlashcardCards,
     setNotification,
     playAudio,
-    onUpdateVocabSrsRating
+    onUpdateVocabSrsRating,
+    dailyActivityLogs = []
 }) => {
     const navigate = useNavigate();
+
+    // Calculate streak from dailyActivityLogs
+    const streak = useMemo(() => {
+        if (!dailyActivityLogs || dailyActivityLogs.length === 0) return 0;
+        const todayStr = new Date().toISOString().split('T')[0];
+        const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
+        const yesterdayStr = yesterday.toISOString().split('T')[0];
+        const reversedLogs = [...dailyActivityLogs].reverse();
+        const lastLog = reversedLogs[0];
+        if (!lastLog) return 0;
+        let currentStreak = 0;
+        let checkDate = new Date();
+        if (lastLog.id !== todayStr && lastLog.id !== yesterdayStr) return 0;
+        if (lastLog.id !== todayStr) checkDate.setDate(checkDate.getDate() - 1);
+        for (const log of reversedLogs) {
+            const checkDateStr = checkDate.toISOString().split('T')[0];
+            if (log.id === checkDateStr && (log.newWordsAdded > 0 || log.reviewsDone > 0)) {
+                currentStreak++;
+                checkDate.setDate(checkDate.getDate() - 1);
+            } else break;
+        }
+        return currentStreak;
+    }, [dailyActivityLogs]);
+
+    const streakPct = useMemo(() => {
+        if (streak === 0) return 0;
+        return Math.min(100, Math.max(15, streak * 10));
+    }, [streak]);
+
+    // Load recently studied sets
+    const [recentSets, setRecentSets] = useState([]);
+
+    useEffect(() => {
+        try {
+            const recentKey = 'recently_studied_sets';
+            const recentData = JSON.parse(localStorage.getItem(recentKey) || '[]');
+            
+            const mapped = recentData.map(item => {
+                if (item.id === 'unfiled') {
+                    const count = allCards.filter(c => !cardFolders[c.id]).length;
+                    return {
+                        id: 'unfiled',
+                        name: 'Từ vựng lẻ',
+                        count,
+                        timestamp: item.timestamp
+                    };
+                }
+                const folder = folders.find(f => f.id === item.id);
+                if (folder) {
+                    const count = allCards.filter(c => cardFolders[c.id] === item.id).length;
+                    return {
+                        id: item.id,
+                        name: folder.name,
+                        count,
+                        timestamp: item.timestamp
+                    };
+                }
+                return null;
+            }).filter(Boolean);
+            
+            setRecentSets(mapped);
+        } catch (e) {
+            console.error('Error loading recently studied sets:', e);
+        }
+    }, [folders, allCards, cardFolders]);
+
+    const formatTimeAgo = (timestamp) => {
+        const diffMs = Date.now() - timestamp;
+        if (diffMs < 60000) return 'Vừa xong';
+        const diffMins = Math.floor(diffMs / 60000);
+        if (diffMins < 60) return `${diffMins} phút trước`;
+        const diffHours = Math.floor(diffMins / 60);
+        if (diffHours < 24) return `${diffHours} giờ trước`;
+        const diffDays = Math.floor(diffHours / 24);
+        return `${diffDays} ngày trước`;
+    };
+
+    const mistakeCards = useMemo(() => {
+        return allCards.filter(card => card.needsMistakeReview === true);
+    }, [allCards]);
 
     // Local review queue state
     const [reviewQueue, setReviewQueue] = useState([]);
@@ -75,6 +156,7 @@ const SRSVocabScreen = ({
     // Safely determine if a card is due
     const isDue = (card) => {
         if (card.srsEnabled !== true) return false;
+        if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined || card.intervalIndex_back < 0) return true; // Always due if enabled but never reviewed
         if (!card.nextReview_back) return true; // Due if enabled but has no review time
 
         const reviewTime = card.nextReview_back instanceof Date
@@ -413,10 +495,6 @@ const SRSVocabScreen = ({
                                     <div className="text-2xl font-black text-orange-400 mb-0.5">{globalStats.due}</div>
                                     <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">SRS cần ôn</div>
                                 </div>
-                                <div className="bg-white/5 backdrop-blur-md rounded-2xl p-4 border border-white/10 flex-1 min-w-[120px]">
-                                    <div className="text-2xl font-black text-cyan-400 mb-0.5">{globalStats.new}</div>
-                                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Chưa kích hoạt</div>
-                                </div>
                             </div>
                             {globalStats.due > 0 ? (
                                 <button
@@ -445,12 +523,16 @@ const SRSVocabScreen = ({
                         </div>
                         <div className="space-y-2">
                             <div className="text-3xl font-black text-white flex items-baseline gap-1">
-                                12 <span className="text-xs font-bold text-slate-400 uppercase">Ngày</span>
+                                {streak} <span className="text-xs font-bold text-slate-400 uppercase">Ngày</span>
                             </div>
                             <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                                <div className="h-full bg-gradient-to-r from-amber-400 to-orange-500 rounded-full" style={{ width: '80%' }} />
+                                <div className="h-full bg-gradient-to-r from-amber-400 to-orange-500 rounded-full" style={{ width: `${streakPct}%` }} />
                             </div>
-                            <p className="text-[10px] text-amber-300 font-bold tracking-wide">12 ngày liên tục học tập chăm chỉ!</p>
+                            <p className="text-[10px] text-amber-300 font-bold tracking-wide">
+                                {streak > 0 
+                                    ? `${streak} ngày liên tục học tập chăm chỉ!`
+                                    : "Bắt đầu học tập ngay để thiết lập chuỗi ngày học!"}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -543,7 +625,7 @@ const SRSVocabScreen = ({
                 {/* Quick Actions */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <button
-                        onClick={() => navigate(ROUTES.BOOK)}
+                        onClick={() => navigate(ROUTES.VOCAB_ADD)}
                         className="bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-200/60 dark:border-slate-700/60 shadow-sm hover:shadow-md transition-all flex items-center justify-between group cursor-pointer"
                     >
                         <div className="flex items-center gap-4 text-left">
@@ -560,12 +642,12 @@ const SRSVocabScreen = ({
 
                     <button
                         onClick={() => {
-                            // Collect all due cards
-                            const allDue = allCards.filter(isDue);
-                            if (allDue.length > 0) {
-                                startFolderReview(allDue);
+                            if (mistakeCards.length > 0) {
+                                startFolderReview(mistakeCards);
                             } else {
-                                handleResumeGlobal();
+                                if (setNotification) {
+                                    setNotification("Tuyệt vời! Bạn không có lỗi sai nào cần ôn tập.");
+                                }
                             }
                         }}
                         className="bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-200/60 dark:border-slate-700/60 shadow-sm hover:shadow-md transition-all flex items-center justify-between group cursor-pointer"
@@ -575,7 +657,14 @@ const SRSVocabScreen = ({
                                 <RotateCw className="w-5 h-5 text-red-500" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-gray-800 dark:text-white">Ôn tập lỗi sai</h3>
+                                <div className="flex items-center gap-2">
+                                    <h3 className="font-bold text-gray-800 dark:text-white">Ôn tập lỗi sai</h3>
+                                    {mistakeCards.length > 0 && (
+                                        <span className="bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 px-2 py-0.5 rounded-full text-[10px] font-black">
+                                            {mistakeCards.length}
+                                        </span>
+                                    )}
+                                </div>
                                 <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Tập trung ôn tập những thẻ cần lặp lại.</p>
                             </div>
                         </div>
@@ -589,17 +678,40 @@ const SRSVocabScreen = ({
                         <Calendar className="w-5 h-5 text-indigo-500" />
                         <h3 className="font-bold text-gray-800 dark:text-white text-base">Học gần đây</h3>
                     </div>
-                    <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700/60 pt-4">
-                        <div className="flex items-center gap-3">
-                            <div className="w-9 h-9 rounded-xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-slate-400">
-                                <BookOpen className="w-4 h-4" />
-                            </div>
-                            <div>
-                                <p className="font-bold text-sm text-gray-800 dark:text-white">Ngữ pháp N2: Động từ truyền ý</p>
-                                <p className="text-xs text-gray-400 dark:text-gray-500">Đã hoàn thành phiên ôn tập</p>
-                            </div>
-                        </div>
-                        <span className="text-xs font-bold text-gray-400 dark:text-gray-500">2 giờ trước</span>
+                    <div className="divide-y divide-gray-100 dark:divide-slate-700/60">
+                        {recentSets.length === 0 ? (
+                            <p className="text-xs text-gray-400 dark:text-gray-500 py-2 italic">
+                                Chưa có học phần nào được học gần đây.
+                            </p>
+                        ) : (
+                            recentSets.map(set => (
+                                <div 
+                                    key={set.id}
+                                    onClick={() => navigate(`/vocab/set/${set.id}`)}
+                                    className="flex items-center justify-between py-3.5 hover:bg-slate-50 dark:hover:bg-slate-700/30 px-2 rounded-xl transition-colors cursor-pointer group"
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 flex items-center justify-center text-indigo-500 group-hover:scale-105 transition-transform">
+                                            <BookOpen className="w-4 h-4" />
+                                        </div>
+                                        <div>
+                                            <p className="font-bold text-sm text-gray-800 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                                {set.name}
+                                            </p>
+                                            <p className="text-xs text-gray-400 dark:text-gray-500">
+                                                Học phần • {set.count} từ vựng
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-xs font-bold text-gray-400 dark:text-gray-500">
+                                            {formatTimeAgo(set.timestamp)}
+                                        </span>
+                                        <ArrowRight className="w-4 h-4 text-gray-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                                    </div>
+                                </div>
+                            ))
+                        )}
                     </div>
                 </div>
 

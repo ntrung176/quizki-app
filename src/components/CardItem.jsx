@@ -13,7 +13,13 @@ export const CardItem = memo(({
   getLevelColor
 }) => {
   const levelColor = getLevelColor(card.level);
-  const isDue = card.nextReview_back <= new Date().setHours(0, 0, 0, 0);
+  const isDue = card.srsEnabled === true && (
+    !card.nextReview_back ||
+    card.intervalIndex_back === -1 ||
+    card.intervalIndex_back === undefined ||
+    card.intervalIndex_back < 0 ||
+    (card.nextReview_back instanceof Date ? card.nextReview_back.getTime() : new Date(card.nextReview_back).getTime()) <= new Date().setHours(0, 0, 0, 0)
+  );
 
   return (
     <div className="bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden relative group h-full">

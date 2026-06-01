@@ -131,8 +131,9 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                 const selection = window.getSelection();
                 const text = getSelectedTextClean(selection);
 
-                // Only trigger if selection is between 1 and 25 characters (typical word length)
-                if (text && text.length > 0 && text.length <= 25) {
+                // Only trigger if selection contains Japanese characters and is between 1 and 25 characters (typical word length)
+                const hasJapanese = /[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF\u3400-\u4DBF]/.test(text);
+                if (hasJapanese && text && text.length > 0 && text.length <= 25) {
                     const range = selection.getRangeAt(0);
                     const rect = range.getBoundingClientRect();
                     

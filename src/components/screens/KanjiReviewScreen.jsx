@@ -7,9 +7,10 @@ import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, updateDoc, getDoc, setDoc, increment } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
+import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { formatCountdown } from '../../utils/srs';
 import { flashCorrect, launchConfetti, launchFanfare } from '../../utils/celebrations';
-import { playCorrectSound, playIncorrectSound, playCompletionFanfare, launchFireworks } from '../../utils/soundEffects';
+import { playCorrectSound, playIncorrectSound, playCompletionFanfare, launchFireworks, playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
 
@@ -484,6 +485,11 @@ const KanjiReviewScreen = () => {
             setIsFlipped(false);
         } else {
             launchFanfare(); launchFireworks(); playCompletionFanfare();
+            logKanjiActivity(userId, {
+                type: 'review',
+                title: `Đã ôn tập ${reviewQueue.length} chữ Kanji`,
+                details: `Hoàn thành phiên ôn tập SRS`
+            });
             setReviewMode(false);
         }
     };
@@ -523,8 +529,17 @@ const KanjiReviewScreen = () => {
         const progress = Math.round(((currentReviewIndex + 1) / reviewQueue.length) * 100);
 
         return (
-            <div className="min-h-[calc(100vh-120px)] flex items-center justify-center px-4">
+            <div className="min-h-[calc(100vh-120px)] flex items-center justify-center px-4 animate-fade-in">
                 <div className="w-[600px] max-w-full flex flex-col justify-center items-center space-y-4">
+                    {/* Back button */}
+                    <div className="w-full flex justify-start mb-2">
+                        <button onClick={() => setReviewMode(false)}
+                            className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2">
+                            <ChevronLeft className="w-4 h-4" />
+                            <span className="text-sm font-medium">Trở lại</span>
+                        </button>
+                    </div>
+
                     {/* Progress */}
                     <div className="w-full space-y-2">
                         <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
@@ -537,7 +552,7 @@ const KanjiReviewScreen = () => {
                     </div>
 
                     {/* Flashcard */}
-                    <div className="w-full cursor-pointer" style={{ perspective: '1000px' }} onClick={() => setIsFlipped(f => !f)}>
+                    <div className="w-full cursor-pointer" style={{ perspective: '1000px' }} onClick={() => { setIsFlipped(f => !f); playFlipSound(); }}>
                         <div key={currentCard.id} style={{ position: 'relative', width: '100%', height: '360px', transformStyle: 'preserve-3d', transition: 'transform 0.6s cubic-bezier(0.4,0,0.2,1)', transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
                             {/* Front */}
                             <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none"
@@ -591,7 +606,7 @@ const KanjiReviewScreen = () => {
 
     // ==================== STATS SCREEN ====================
     return (
-        <div className="w-full pb-12 transition-colors duration-300">
+        <div className="w-full pb-12 transition-colors duration-300 animate-fade-in">
             <TopTabBar tabs={KANJI_TABS} />
             <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-6 mt-6">
                 

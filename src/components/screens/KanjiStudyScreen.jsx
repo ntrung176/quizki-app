@@ -174,10 +174,10 @@ const KanjiStudyScreen = () => {
     }
 
     return (
-        <div className="w-full pb-12 transition-colors duration-300">
+        <div className="w-full pb-12 transition-colors duration-300 animate-fade-in">
             <TopTabBar tabs={KANJI_TABS} />
             <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-6 mt-6">
-                
+
                 {/* 1. Header Banner with Circular Progress Gauge */}
                 <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-500 via-purple-600 to-indigo-700 p-8 text-white shadow-lg border border-indigo-500/20 dark:border-indigo-900/50">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent_60%)]"></div>
@@ -235,16 +235,15 @@ const KanjiStudyScreen = () => {
                         const levelData = kanjiList.filter(k => k.level === level);
                         const isSelected = selectedLevel === level;
                         const isCompleted = isLevelCompleted(level);
-                        
+
                         return (
                             <button
                                 key={level}
                                 onClick={() => { setSelectedLevel(level); setCurrentDay(1); }}
-                                className={`flex-1 min-w-[90px] py-3.5 rounded-xl text-center transition-all flex flex-col items-center justify-center gap-1.5 ${
-                                    isSelected
-                                    ? `bg-white dark:bg-slate-800 shadow-sm border border-slate-200/50 dark:border-slate-700/60 scale-[1.01]`
-                                    : 'hover:bg-slate-100/70 dark:hover:bg-slate-800/50'
-                                }`}
+                                className={`flex-1 min-w-[90px] py-3.5 rounded-xl text-center transition-all flex flex-col items-center justify-center gap-1.5 ${isSelected
+                                        ? `bg-white dark:bg-slate-800 shadow-sm border border-slate-200/50 dark:border-slate-700/60 scale-[1.01]`
+                                        : 'hover:bg-slate-100/70 dark:hover:bg-slate-800/50'
+                                    }`}
                             >
                                 <div className="flex items-center gap-1">
                                     <span className={`text-sm font-extrabold ${isSelected ? 'text-slate-800 dark:text-white' : 'text-slate-400 dark:text-slate-500'}`}>
@@ -254,11 +253,10 @@ const KanjiStudyScreen = () => {
                                         <span className="w-3.5 h-3.5 rounded-full bg-emerald-500 flex items-center justify-center text-white text-[8px] font-bold">✓</span>
                                     )}
                                 </div>
-                                <span className={`text-[9px] font-extrabold tracking-wider uppercase ${
-                                    isSelected 
-                                    ? `${cfg.text} bg-${cfg.color}-50 dark:bg-${cfg.color}-950/30 px-2 py-0.5 rounded-full` 
-                                    : 'text-slate-400 dark:text-slate-500'
-                                }`}>
+                                <span className={`text-[9px] font-extrabold tracking-wider uppercase ${isSelected
+                                        ? `${cfg.text} bg-${cfg.color}-50 dark:bg-${cfg.color}-950/30 px-2 py-0.5 rounded-full`
+                                        : 'text-slate-400 dark:text-slate-500'
+                                    }`}>
                                     {cfg.sublabel}
                                 </span>
                             </button>
@@ -296,7 +294,7 @@ const KanjiStudyScreen = () => {
                                         <span>{isDayCompleted(selectedLevel, currentDay) ? 'Đã hoàn thành' : 'Chưa hoàn thành'}</span>
                                     </div>
                                     <div className="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                                        <div 
+                                        <div
                                             className={`h-full bg-gradient-to-r ${config.gradient} rounded-full transition-all duration-500`}
                                             style={{ width: isDayCompleted(selectedLevel, currentDay) ? '100%' : '20%' }}
                                         />
@@ -373,10 +371,10 @@ const KanjiStudyScreen = () => {
                                 const meaningTip = kanji.sinoViet || jData?.sinoViet || '';
                                 const translation = kanji.meaning || jData?.meaningVi || jData?.meanings?.slice(0, 2).join(', ') || '';
                                 const isCompleted = isDayCompleted(selectedLevel, currentDay);
-                                
+
                                 return (
-                                    <div 
-                                        key={kanji.id || index} 
+                                    <div
+                                        key={kanji.id || index}
                                         onClick={handleStartStudy}
                                         className="flex items-center justify-between bg-slate-50/50 dark:bg-slate-900/30 hover:bg-slate-100/70 dark:hover:bg-slate-800/80 border border-slate-100 dark:border-slate-800/50 rounded-2xl p-4 shadow-sm transition-all duration-350 cursor-pointer hover:scale-[1.01]"
                                     >

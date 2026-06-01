@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, ChevronDown, Edit2, PlayCircle, BookOpen, Layers, Search, Volume2, Trash2, Users, Check, Plus, Headphones, FileText } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronDown, Edit2, PlayCircle, BookOpen, Layers, Search, Volume2, Trash2, Users, Check, Plus, Headphones, FileText, RotateCcw } from 'lucide-react';
 import FuriganaText from '../ui/FuriganaText';
 import { playAudio, speakJapanese } from '../../utils/audio';
 import { getSrsProgressText } from '../../utils/srs';
@@ -69,6 +69,48 @@ const StudySetDetail = ({
     const [visibleCount, setVisibleCount] = useState(30);
     const [searchQuery, setSearchQuery] = useState('');
 
+    const [completedStates, setCompletedStates] = useState({
+        flashcard: false,
+        study: false,
+        meaning_input: false,
+        dictation: false,
+        example: false,
+        synonym: false
+    });
+    const [progressStates, setProgressStates] = useState({
+        flashcard: false,
+        study: false,
+        meaning_input: false,
+        dictation: false,
+        example: false,
+        synonym: false
+    });
+    const [showMasteryModal, setShowMasteryModal] = useState({
+        isOpen: false,
+        status: '',
+        cards: []
+    });
+    const [selectedMasteryMode, setSelectedMasteryMode] = useState('flashcard');
+
+    useEffect(() => {
+        setCompletedStates({
+            flashcard: localStorage.getItem(`study_completed_${folderId}_flashcard`) === 'true',
+            study: localStorage.getItem(`study_completed_${folderId}_study`) === 'true',
+            meaning_input: localStorage.getItem(`study_completed_${folderId}_meaning_input`) === 'true',
+            dictation: localStorage.getItem(`study_completed_${folderId}_dictation`) === 'true',
+            example: localStorage.getItem(`study_completed_${folderId}_example`) === 'true',
+            synonym: localStorage.getItem(`study_completed_${folderId}_synonym`) === 'true'
+        });
+        setProgressStates({
+            flashcard: !!localStorage.getItem(`study_progress_${folderId}_flashcard`),
+            study: !!localStorage.getItem(`study_progress_${folderId}_study`),
+            meaning_input: !!localStorage.getItem(`study_progress_${folderId}_meaning_input`),
+            dictation: !!localStorage.getItem(`study_progress_${folderId}_dictation`),
+            example: !!localStorage.getItem(`study_progress_${folderId}_example`),
+            synonym: !!localStorage.getItem(`study_progress_${folderId}_synonym`)
+        });
+    }, [folderId]);
+
     const folder = useMemo(() => {
         if (folderId === 'unfiled') return { id: 'unfiled', name: 'Từ vựng lẻ', description: 'Các từ vựng chưa được phân loại vào học phần nào.' };
         return folders.find(f => f.id === folderId) || { name: 'Học phần không xác định' };
@@ -78,6 +120,46 @@ const StudySetDetail = ({
         if (folderId === 'unfiled') return allCards.filter(c => !cardFolders[c.id] || cardFolders[c.id] === 'unfiled');
         return allCards.filter(c => cardFolders[c.id] === folderId);
     }, [folderId, allCards, cardFolders]);
+
+    const notLearnedCards = useMemo(() => setCards.filter(c => !c.masteryState || c.masteryState === 'not_learned'), [setCards]);
+    const learningCards = useMemo(() => setCards.filter(c => c.masteryState === 'learning'), [setCards]);
+    const memorizedCards = useMemo(() => setCards.filter(c => c.masteryState === 'memorized'), [setCards]);
+
+    const masteryStats = useMemo(() => {
+        const total = setCards.length || 1;
+        return {
+            notLearned: notLearnedCards.length,
+            learning: learningCards.length,
+            memorized: memorizedCards.length,
+            notLearnedPct: Math.round((notLearnedCards.length / total) * 100),
+            learningPct: Math.round((learningCards.length / total) * 100),
+            memorizedPct: Math.round((memorizedCards.length / total) * 100),
+        };
+    }, [setCards, notLearnedCards, learningCards, memorizedCards]);
+
+    const openMasteryTest = (status, cards) => {
+        setShowMasteryModal({
+            isOpen: true,
+            status,
+            cards
+        });
+    };
+
+    const handleStartMasteryTest = () => {
+        if (!showMasteryModal.cards || showMasteryModal.cards.length === 0) return;
+        
+        setShowMasteryModal(prev => ({ ...prev, isOpen: false }));
+
+        if (selectedMasteryMode === 'flashcard') {
+            onFlashcardSet(folderId, showMasteryModal.cards);
+        } else if (selectedMasteryMode === 'study') {
+            onStudySet(folderId, showMasteryModal.cards);
+        } else if (selectedMasteryMode === 'meaning') {
+            onMeaningSet(folderId, showMasteryModal.cards);
+        } else if (selectedMasteryMode === 'dictation') {
+            onDictationSet(folderId, showMasteryModal.cards);
+        }
+    };
 
     const filteredCards = useMemo(() => {
         if (!searchQuery.trim()) return setCards;
@@ -140,7 +222,8 @@ const StudySetDetail = ({
     };
 
     return (
-        <div className="w-full pb-20 min-h-screen bg-gray-50 dark:bg-gray-900 animate-fade-in">
+        <>
+            <div className="w-full pb-20 min-h-screen bg-gray-50 dark:bg-gray-900 animate-fade-in">
             {/* Header */}
             <div className="sticky top-0 z-30 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
                 <div className="max-w-6xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
@@ -149,7 +232,7 @@ const StudySetDetail = ({
                     </button>
                     <div className="flex items-center gap-4">
                         <button onClick={() => onEditSet && onEditSet(folderId)} className="flex items-center gap-1 text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors text-sm font-medium">
-                            <Edit2 className="w-4 h-4" /> Chỉnh sửa
+                            <Plus className="w-4 h-4" /> Thêm từ vựng
                         </button>
                         {/* Folder delete — or unfiled bulk delete */}
                         {folderId === 'unfiled' ? (
@@ -216,38 +299,304 @@ const StudySetDetail = ({
                                 </button>
                             </div>
                         </div>
+                        {/* Bảng trạng thái ghi nhớ (Mastery Status) */}
+                        <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 border border-gray-200 dark:border-slate-700/80 shadow-sm space-y-6">
+                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                <div>
+                                    <h3 className="text-lg font-bold text-gray-800 dark:text-white">Trạng thái từ vựng</h3>
+                                    <p className="text-xs text-gray-500 dark:text-gray-400">Theo dõi mức độ ghi nhớ của các từ vựng trong học phần này</p>
+                                </div>
+                                {/* Consolidated multi-segment progress bar */}
+                                <div className="flex-1 max-w-md bg-gray-100 dark:bg-gray-700 h-4 rounded-full overflow-hidden flex shadow-inner">
+                                    <div 
+                                        style={{ width: `${masteryStats.memorizedPct}%` }} 
+                                        className="h-full bg-emerald-500 transition-all duration-500" 
+                                        title={`Đã nhớ: ${masteryStats.memorizedPct}%`}
+                                    />
+                                    <div 
+                                        style={{ width: `${masteryStats.learningPct}%` }} 
+                                        className="h-full bg-amber-500 transition-all duration-500" 
+                                        title={`Đang học: ${masteryStats.learningPct}%`}
+                                    />
+                                    <div 
+                                        style={{ width: `${masteryStats.notLearnedPct}%` }} 
+                                        className="h-full bg-slate-450 dark:bg-slate-650 transition-all duration-500" 
+                                        title={`Chưa học: ${masteryStats.notLearnedPct}%`}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                {/* Chưa học */}
+                                <div className="p-4 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-slate-150 dark:border-slate-850 flex items-center justify-between shadow-sm">
+                                    <div>
+                                        <div className="flex items-center gap-2">
+                                            <span className="w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-650" />
+                                            <span className="text-sm font-bold text-gray-700 dark:text-gray-300">Chưa học</span>
+                                        </div>
+                                        <p className="text-2xl font-black text-slate-700 dark:text-slate-350 mt-1">
+                                            {masteryStats.notLearned} <span className="text-xs font-normal text-gray-400">từ</span>
+                                        </p>
+                                    </div>
+                                    <button 
+                                        disabled={masteryStats.notLearned === 0}
+                                        onClick={() => openMasteryTest('not_learned', notLearnedCards)}
+                                        className="p-2.5 bg-white dark:bg-slate-800 rounded-xl shadow border border-slate-200 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 hover:text-indigo-650 dark:hover:text-indigo-400 disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:scale-105"
+                                        title="Kiểm tra lại nhóm từ Chưa học"
+                                    >
+                                        <PlayCircle className="w-5 h-5 text-indigo-500" />
+                                    </button>
+                                </div>
+
+                                {/* Đang học */}
+                                <div className="p-4 bg-amber-50/20 dark:bg-amber-950/10 rounded-2xl border border-amber-100/60 dark:border-amber-900/20 flex items-center justify-between shadow-sm">
+                                    <div>
+                                        <div className="flex items-center gap-2">
+                                            <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+                                            <span className="text-sm font-bold text-amber-700 dark:text-amber-400">Đang học</span>
+                                        </div>
+                                        <p className="text-2xl font-black text-amber-605 dark:text-amber-450 mt-1">
+                                            {masteryStats.learning} <span className="text-xs font-normal text-gray-400">từ</span>
+                                        </p>
+                                    </div>
+                                    <button 
+                                        disabled={masteryStats.learning === 0}
+                                        onClick={() => openMasteryTest('learning', learningCards)}
+                                        className="p-2.5 bg-white dark:bg-slate-800 rounded-xl shadow border border-amber-250/30 dark:border-amber-900/30 hover:border-amber-400 hover:text-amber-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:scale-105"
+                                        title="Kiểm tra lại nhóm từ Đang học"
+                                    >
+                                        <PlayCircle className="w-5 h-5 text-amber-500" />
+                                    </button>
+                                </div>
+
+                                {/* Đã nhớ */}
+                                <div className="p-4 bg-emerald-50/20 dark:bg-emerald-950/10 rounded-2xl border border-emerald-100/60 dark:border-emerald-900/20 flex items-center justify-between shadow-sm">
+                                    <div>
+                                        <div className="flex items-center gap-2">
+                                            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                                            <span className="text-sm font-bold text-emerald-700 dark:text-emerald-400">Đã nhớ</span>
+                                        </div>
+                                        <p className="text-2xl font-black text-emerald-600 dark:text-emerald-450 mt-1">
+                                            {masteryStats.memorized} <span className="text-xs font-normal text-gray-400">từ</span>
+                                        </p>
+                                    </div>
+                                    <button 
+                                        disabled={masteryStats.memorized === 0}
+                                        onClick={() => openMasteryTest('memorized', memorizedCards)}
+                                        className="p-2.5 bg-white dark:bg-slate-800 rounded-xl shadow border border-emerald-250/30 dark:border-emerald-900/30 hover:border-emerald-400 hover:text-emerald-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:scale-105"
+                                        title="Kiểm tra lại nhóm từ Đã nhớ"
+                                    >
+                                        <PlayCircle className="w-5 h-5 text-emerald-500" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
                         {/* Action Buttons */}
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-                            <button onClick={() => onFlashcardSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-blue-400 dark:hover:border-blue-600 shadow-sm hover:shadow-lg transition-all group">
-                                <div className="w-11 h-11 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Layers className="w-5 h-5 text-blue-500" /></div>
-                                <span className="font-bold text-sm text-gray-800 dark:text-white">Thẻ ghi nhớ</span>
-                                <span className="text-[11px] text-gray-500 mt-0.5">Lướt thẻ nhanh</span>
-                            </button>
-                            <button onClick={() => onStudySet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-emerald-400 dark:hover:border-emerald-600 shadow-sm hover:shadow-lg transition-all group">
-                                <div className="w-11 h-11 rounded-full bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><BookOpen className="w-5 h-5 text-emerald-500" /></div>
-                                <span className="font-bold text-sm text-gray-800 dark:text-white">Học tập</span>
-                                <span className="text-[11px] text-gray-500 mt-0.5">Trắc nghiệm + Tự luận</span>
-                            </button>
-                            <button onClick={() => onMeaningSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-pink-400 dark:hover:border-pink-600 shadow-sm hover:shadow-lg transition-all group">
-                                <div className="w-11 h-11 rounded-full bg-pink-50 dark:bg-pink-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Edit2 className="w-5 h-5 text-pink-500" /></div>
-                                <span className="font-bold text-sm text-gray-800 dark:text-white">Nhập ý nghĩa</span>
-                                <span className="text-[11px] text-gray-500 mt-0.5">Tự luận dịch nghĩa</span>
-                            </button>
-                            <button onClick={() => onDictationSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-indigo-400 dark:hover:border-indigo-600 shadow-sm hover:shadow-lg transition-all group">
-                                <div className="w-11 h-11 rounded-full bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Headphones className="w-5 h-5 text-indigo-500" /></div>
-                                <span className="font-bold text-sm text-gray-800 dark:text-white">Nghe Chép</span>
-                                <span className="text-[11px] text-gray-500 mt-0.5">Nghe và viết lại</span>
-                            </button>
-                            <button onClick={() => onExampleSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-amber-400 dark:hover:border-amber-600 shadow-sm hover:shadow-lg transition-all group">
-                                <div className="w-11 h-11 rounded-full bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><FileText className="w-5 h-5 text-amber-500" /></div>
-                                <span className="font-bold text-sm text-gray-800 dark:text-white">Câu ví dụ</span>
-                                <span className="text-[11px] text-gray-500 mt-0.5">Điền từ vào câu</span>
-                            </button>
-                            <button onClick={() => onSynonymQuiz && onSynonymQuiz(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-purple-400 dark:hover:border-purple-600 shadow-sm hover:shadow-lg transition-all group">
-                                <div className="w-11 h-11 rounded-full bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Users className="w-5 h-5 text-purple-500" /></div>
-                                <span className="font-bold text-sm text-gray-800 dark:text-white">Đồng nghĩa</span>
-                                <span className="text-[11px] text-gray-500 mt-0.5">Trắc nghiệm đồng nghĩa</span>
-                            </button>
+                            {/* Chế độ 1: Thẻ ghi nhớ */}
+                            {completedStates.flashcard ? (
+                                <div className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-green-500/20 dark:border-green-500/10 shadow-sm relative overflow-hidden group">
+                                    <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-green-500 flex items-center justify-center shadow-sm">
+                                        <Check className="w-2.5 h-2.5 text-white" strokeWidth={4} />
+                                    </div>
+                                    <div className="w-11 h-11 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center mb-2 opacity-55"><Layers className="w-5 h-5 text-green-500" /></div>
+                                    <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Thẻ ghi nhớ</span>
+                                    <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            localStorage.removeItem(`study_completed_${folderId}_flashcard`);
+                                            localStorage.removeItem(`study_progress_${folderId}_flashcard`);
+                                            setCompletedStates(prev => ({ ...prev, flashcard: false }));
+                                        }}
+                                        className="mt-3 text-[11px] bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 text-indigo-650 dark:text-indigo-400 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-850 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
+                                    >
+                                        <RotateCcw className="w-3 h-3" /> Làm lại
+                                    </button>
+                                </div>
+                            ) : (
+                                <button onClick={() => onFlashcardSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-blue-400 dark:hover:border-blue-600 shadow-sm hover:shadow-lg transition-all group relative">
+                                    {progressStates.flashcard && (
+                                        <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-blue-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
+                                            Học dở
+                                        </div>
+                                    )}
+                                    <div className="w-11 h-11 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Layers className="w-5 h-5 text-blue-500" /></div>
+                                    <span className="font-bold text-sm text-gray-800 dark:text-white text-center">Thẻ ghi nhớ</span>
+                                    <span className="text-[11px] text-gray-500 mt-0.5 text-center">Lướt thẻ nhanh</span>
+                                </button>
+                            )}
+
+                            {/* Chế độ 2: Học tập */}
+                            {completedStates.study ? (
+                                <div className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-green-500/20 dark:border-green-500/10 shadow-sm relative overflow-hidden group">
+                                    <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-green-500 flex items-center justify-center shadow-sm">
+                                        <Check className="w-2.5 h-2.5 text-white" strokeWidth={4} />
+                                    </div>
+                                    <div className="w-11 h-11 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center mb-2 opacity-55"><BookOpen className="w-5 h-5 text-green-500" /></div>
+                                    <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Học tập</span>
+                                    <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            localStorage.removeItem(`study_completed_${folderId}_study`);
+                                            localStorage.removeItem(`study_progress_${folderId}_study`);
+                                            setCompletedStates(prev => ({ ...prev, study: false }));
+                                        }}
+                                        className="mt-3 text-[11px] bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 text-indigo-650 dark:text-indigo-400 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-850 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
+                                    >
+                                        <RotateCcw className="w-3 h-3" /> Làm lại
+                                    </button>
+                                </div>
+                            ) : (
+                                <button onClick={() => onStudySet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-emerald-400 dark:hover:border-emerald-600 shadow-sm hover:shadow-lg transition-all group relative">
+                                    {progressStates.study && (
+                                        <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-emerald-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
+                                            Học dở
+                                        </div>
+                                    )}
+                                    <div className="w-11 h-11 rounded-full bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><BookOpen className="w-5 h-5 text-emerald-500" /></div>
+                                    <span className="font-bold text-sm text-gray-800 dark:text-white text-center">Học tập</span>
+                                    <span className="text-[11px] text-gray-500 mt-0.5 text-center">Trắc nghiệm + Tự luận</span>
+                                </button>
+                            )}
+
+                            {/* Chế độ 3: Nhập ý nghĩa */}
+                            {completedStates.meaning_input ? (
+                                <div className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-green-500/20 dark:border-green-500/10 shadow-sm relative overflow-hidden group">
+                                    <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-green-500 flex items-center justify-center shadow-sm">
+                                        <Check className="w-2.5 h-2.5 text-white" strokeWidth={4} />
+                                    </div>
+                                    <div className="w-11 h-11 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center mb-2 opacity-55"><Edit2 className="w-5 h-5 text-green-500" /></div>
+                                    <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Nhập ý nghĩa</span>
+                                    <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            localStorage.removeItem(`study_completed_${folderId}_meaning_input`);
+                                            localStorage.removeItem(`study_progress_${folderId}_meaning_input`);
+                                            setCompletedStates(prev => ({ ...prev, meaning_input: false }));
+                                        }}
+                                        className="mt-3 text-[11px] bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 text-indigo-650 dark:text-indigo-400 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-850 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
+                                    >
+                                        <RotateCcw className="w-3 h-3" /> Làm lại
+                                    </button>
+                                </div>
+                            ) : (
+                                <button onClick={() => onMeaningSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-pink-400 dark:hover:border-pink-600 shadow-sm hover:shadow-lg transition-all group relative">
+                                    {progressStates.meaning_input && (
+                                        <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-pink-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
+                                            Học dở
+                                        </div>
+                                    )}
+                                    <div className="w-11 h-11 rounded-full bg-pink-50 dark:bg-pink-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Edit2 className="w-5 h-5 text-pink-500" /></div>
+                                    <span className="font-bold text-sm text-gray-800 dark:text-white text-center">Nhập ý nghĩa</span>
+                                    <span className="text-[11px] text-gray-500 mt-0.5 text-center">Tự luận dịch nghĩa</span>
+                                </button>
+                            )}
+
+                            {/* Chế độ 4: Nghe Chép */}
+                            {completedStates.dictation ? (
+                                <div className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-green-500/20 dark:border-green-500/10 shadow-sm relative overflow-hidden group">
+                                    <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-green-500 flex items-center justify-center shadow-sm">
+                                        <Check className="w-2.5 h-2.5 text-white" strokeWidth={4} />
+                                    </div>
+                                    <div className="w-11 h-11 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center mb-2 opacity-55"><Headphones className="w-5 h-5 text-green-500" /></div>
+                                    <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Nghe Chép</span>
+                                    <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            localStorage.removeItem(`study_completed_${folderId}_dictation`);
+                                            localStorage.removeItem(`study_progress_${folderId}_dictation`);
+                                            setCompletedStates(prev => ({ ...prev, dictation: false }));
+                                        }}
+                                        className="mt-3 text-[11px] bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 text-indigo-650 dark:text-indigo-400 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-850 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
+                                    >
+                                        <RotateCcw className="w-3 h-3" /> Làm lại
+                                    </button>
+                                </div>
+                            ) : (
+                                <button onClick={() => onDictationSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-indigo-400 dark:hover:border-indigo-600 shadow-sm hover:shadow-lg transition-all group relative">
+                                    {progressStates.dictation && (
+                                        <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-indigo-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
+                                            Học dở
+                                        </div>
+                                    )}
+                                    <div className="w-11 h-11 rounded-full bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Headphones className="w-5 h-5 text-indigo-500" /></div>
+                                    <span className="font-bold text-sm text-gray-800 dark:text-white text-center">Nghe Chép</span>
+                                    <span className="text-[11px] text-gray-500 mt-0.5 text-center">Nghe và viết lại</span>
+                                </button>
+                            )}
+
+                            {/* Chế độ 5: Câu ví dụ */}
+                            {completedStates.example ? (
+                                <div className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-green-500/20 dark:border-green-500/10 shadow-sm relative overflow-hidden group">
+                                    <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-green-500 flex items-center justify-center shadow-sm">
+                                        <Check className="w-2.5 h-2.5 text-white" strokeWidth={4} />
+                                    </div>
+                                    <div className="w-11 h-11 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center mb-2 opacity-55"><FileText className="w-5 h-5 text-green-500" /></div>
+                                    <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Câu ví dụ</span>
+                                    <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            localStorage.removeItem(`study_completed_${folderId}_example`);
+                                            localStorage.removeItem(`study_progress_${folderId}_example`);
+                                            setCompletedStates(prev => ({ ...prev, example: false }));
+                                        }}
+                                        className="mt-3 text-[11px] bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 text-indigo-650 dark:text-indigo-400 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-850 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
+                                    >
+                                        <RotateCcw className="w-3 h-3" /> Làm lại
+                                    </button>
+                                </div>
+                            ) : (
+                                <button onClick={() => onExampleSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-amber-400 dark:hover:border-amber-600 shadow-sm hover:shadow-lg transition-all group relative">
+                                    {progressStates.example && (
+                                        <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-amber-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
+                                            Học dở
+                                        </div>
+                                    )}
+                                    <div className="w-11 h-11 rounded-full bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><FileText className="w-5 h-5 text-amber-500" /></div>
+                                    <span className="font-bold text-sm text-gray-800 dark:text-white text-center">Câu ví dụ</span>
+                                    <span className="text-[11px] text-gray-500 mt-0.5 text-center">Điền từ vào câu</span>
+                                </button>
+                            )}
+
+                            {/* Chế độ 6: Đồng nghĩa */}
+                            {completedStates.synonym ? (
+                                <div className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-green-500/20 dark:border-green-500/10 shadow-sm relative overflow-hidden group">
+                                    <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-green-500 flex items-center justify-center shadow-sm">
+                                        <Check className="w-2.5 h-2.5 text-white" strokeWidth={4} />
+                                    </div>
+                                    <div className="w-11 h-11 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center mb-2 opacity-55"><Users className="w-5 h-5 text-green-500" /></div>
+                                    <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Đồng nghĩa</span>
+                                    <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            localStorage.removeItem(`study_completed_${folderId}_synonym`);
+                                            localStorage.removeItem(`study_progress_${folderId}_synonym`);
+                                            setCompletedStates(prev => ({ ...prev, synonym: false }));
+                                        }}
+                                        className="mt-3 text-[11px] bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 text-indigo-650 dark:text-indigo-400 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-850 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
+                                    >
+                                        <RotateCcw className="w-3 h-3" /> Làm lại
+                                    </button>
+                                </div>
+                            ) : (
+                                <button onClick={() => onSynonymQuiz && onSynonymQuiz(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-purple-400 dark:hover:border-purple-600 shadow-sm hover:shadow-lg transition-all group relative">
+                                    {progressStates.synonym && (
+                                        <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-purple-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
+                                            Học dở
+                                        </div>
+                                    )}
+                                    <div className="w-11 h-11 rounded-full bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Users className="w-5 h-5 text-purple-500" /></div>
+                                    <span className="font-bold text-sm text-gray-800 dark:text-white text-center">Đồng nghĩa</span>
+                                    <span className="text-[11px] text-gray-500 mt-0.5 text-center">Trắc nghiệm đồng nghĩa</span>
+                                </button>
+                            )}
                         </div>
 
                         {/* Term List - Inline Editable */}
@@ -394,6 +743,75 @@ const StudySetDetail = ({
                     </div>
                 )}
             </div>
+            </div>
+
+            {/* Mastery Test Selection Modal */}
+            {showMasteryModal.isOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={() => setShowMasteryModal(prev => ({ ...prev, isOpen: false }))}>
+                    <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-md p-6 space-y-6 border border-gray-200 dark:border-slate-700 animate-scale-in" onClick={e => e.stopPropagation()}>
+                        <div className="text-center">
+                            <h3 className="font-extrabold text-xl text-gray-905 dark:text-white">
+                                Chọn chế độ ôn tập
+                            </h3>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                                Ôn tập {showMasteryModal.cards.length} từ ở trạng thái <span className="font-bold text-indigo-600 dark:text-indigo-400">
+                                    {showMasteryModal.status === 'not_learned' ? 'Chưa học' : showMasteryModal.status === 'learning' ? 'Đang học' : 'Đã nhớ'}
+                                </span>
+                            </p>
+                        </div>
+
+                        {/* List of 4 study modes */}
+                        <div className="grid grid-cols-2 gap-3">
+                            <button 
+                                onClick={() => setSelectedMasteryMode('flashcard')}
+                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMasteryMode === 'flashcard' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-605 dark:text-indigo-400' : 'border-gray-205 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-650 text-gray-700 dark:text-gray-300'}`}
+                            >
+                                <Layers className="w-6 h-6" />
+                                <span className="font-bold text-xs">Thẻ ghi nhớ</span>
+                            </button>
+
+                            <button 
+                                onClick={() => setSelectedMasteryMode('study')}
+                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMasteryMode === 'study' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-605 dark:text-indigo-400' : 'border-gray-205 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-650 text-gray-700 dark:text-gray-300'}`}
+                            >
+                                <BookOpen className="w-6 h-6" />
+                                <span className="font-bold text-xs">Học tập</span>
+                            </button>
+
+                            <button 
+                                onClick={() => setSelectedMasteryMode('meaning')}
+                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMasteryMode === 'meaning' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-605 dark:text-indigo-400' : 'border-gray-205 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-650 text-gray-700 dark:text-gray-300'}`}
+                            >
+                                <Edit2 className="w-6 h-6" />
+                                <span className="font-bold text-xs">Nhập ý nghĩa</span>
+                            </button>
+
+                            <button 
+                                onClick={() => setSelectedMasteryMode('dictation')}
+                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMasteryMode === 'dictation' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-650 dark:text-indigo-400' : 'border-gray-205 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-650 text-gray-700 dark:text-gray-300'}`}
+                            >
+                                <Headphones className="w-6 h-6" />
+                                <span className="font-bold text-xs">Nghe Chép</span>
+                            </button>
+                        </div>
+
+                        <div className="flex gap-3 pt-2">
+                            <button 
+                                onClick={() => setShowMasteryModal(prev => ({ ...prev, isOpen: false }))} 
+                                className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-750 text-gray-750 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-650 transition-colors text-sm cursor-pointer"
+                            >
+                                Huỷ
+                            </button>
+                            <button
+                                onClick={handleStartMasteryTest}
+                                className="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-colors text-sm shadow-md cursor-pointer"
+                            >
+                                Bắt đầu ôn
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Delete Confirm Modal */}
             {showDeleteConfirm && (
@@ -432,7 +850,7 @@ const StudySetDetail = ({
                 .backface-hidden { backface-visibility: hidden; }
                 .rotate-y-180 { transform: rotateY(180deg); }
             `}</style>
-        </div>
+        </>
     );
 };
 

@@ -418,6 +418,10 @@ export const processSrsUpdate = (cardData, isCorrect, reviewType, activityType =
 export const getNextReviewDate = (intervalIndex) => {
     const now = Date.now();
 
+    if (intervalIndex === -1) {
+        return now;
+    }
+
     if (intervalIndex < 0 || intervalIndex >= SRS_INTERVALS.length) {
         // Nếu index vượt quá, sử dụng mức cao nhất
         const maxInterval = SRS_INTERVALS[SRS_INTERVALS.length - 1];

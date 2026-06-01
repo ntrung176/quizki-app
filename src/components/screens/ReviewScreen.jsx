@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
-    Zap, RotateCw, MessageSquare, FileText, Repeat2, Send,
+    Zap, RotateCw, RotateCcw, MessageSquare, FileText, Repeat2, Send,
     ChevronRight, Check, X, Lightbulb, ArrowLeft, Eye, EyeOff, Settings, Volume2, Headphones
 } from 'lucide-react';
 import { POS_TYPES, getPosLabel, getPosColor, getLevelColor } from '../../config/constants';
@@ -25,14 +25,41 @@ const ReviewScreen = ({
     cards: initialCards,
     reviewMode,
     allCards,
+    setId,
     onUpdateCard,
     onCompleteReview,
     vocabCollectionPath,
     onSaveCardAudio,
     onBack
 }) => {
-    const [cards, setCards] = useState(initialCards);
-    const [currentIndex, setCurrentIndex] = useState(0);
+    // Load saved progress from localStorage
+    const getSavedProgress = () => {
+        if (!setId || !reviewMode) return null;
+        try {
+            const key = `study_progress_${setId}_${reviewMode}`;
+            const saved = localStorage.getItem(key);
+            if (saved) {
+                const data = JSON.parse(saved);
+                // Verify saved cards match current cards (same IDs)
+                const savedIds = new Set(data.cardIds || []);
+                const currentIds = initialCards.map(c => c.id);
+                if (currentIds.length === savedIds.size && currentIds.every(id => savedIds.has(id))) {
+                    return data;
+                }
+            }
+        } catch (e) { /* ignore */ }
+        return null;
+    };
+
+    const savedProgress = getSavedProgress();
+
+    const [cards, setCards] = useState(() => {
+        if (savedProgress && savedProgress.cards) {
+            return savedProgress.cards;
+        }
+        return initialCards;
+    });
+    const [currentIndex, setCurrentIndex] = useState(savedProgress?.currentIndex || 0);
     const [inputValue, setInputValue] = useState('');
     const [isRevealed, setIsRevealed] = useState(false);
     const [isLocked, setIsLocked] = useState(false);
@@ -46,7 +73,12 @@ const ReviewScreen = ({
     const [swipeOffset, setSwipeOffset] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [multipleChoiceOptions, setMultipleChoiceOptions] = useState([]);
-    const [failedCards, setFailedCards] = useState(new Set());
+    const [failedCards, setFailedCards] = useState(() => {
+        if (savedProgress?.failedCardsList) {
+            return new Set(savedProgress.failedCardsList);
+        }
+        return new Set();
+    });
     const [showComplete, setShowComplete] = useState(false);
     const [needsRetype, setNeedsRetype] = useState(false); // After wrong: must retype correct answer
     const [hintCount, setHintCount] = useState(0); // Number of characters revealed as hint
@@ -64,6 +96,7 @@ const ReviewScreen = ({
     const isProcessingRef = useRef(false); // Sync guard to prevent double-submit
     const handleNextRef = useRef(null); // Ref to handleNext, allows useEffect before early-return
     const failedCardsRef = useRef(failedCards);
+    const sessionWrongCardIdsRef = useRef(new Set());
     const optionsRef = useRef({});
     const cardShownTimeRef = useRef(Date.now()); // Track thời gian hiển thị card
     const isMountedRef = useRef(true); // Track if component is still mounted
@@ -97,12 +130,28 @@ const ReviewScreen = ({
 
     // Update cards when initialCards change
     useEffect(() => {
+        const saved = getSavedProgress();
+        if (saved) return; // Do not overwrite if we restored saved progress
         setCards(initialCards);
         setCurrentIndex(0);
         setFailedCards(new Set());
         failedCardsRef.current = new Set();
         isCompletingRef.current = false;
     }, [initialCards]);
+
+    // Save progress to localStorage whenever state changes
+    useEffect(() => {
+        if (!setId || !reviewMode || showComplete) return;
+        const progressData = {
+            cardIds: initialCards.map(c => c.id),
+            cards,
+            currentIndex,
+            failedCardsList: Array.from(failedCards),
+            timestamp: Date.now(),
+        };
+        const key = `study_progress_${setId}_${reviewMode}`;
+        localStorage.setItem(key, JSON.stringify(progressData));
+    }, [currentIndex, cards, failedCards, setId, reviewMode, initialCards, showComplete]);
 
     // Update ref when failedCards change
     useEffect(() => {
@@ -455,16 +504,26 @@ const ReviewScreen = ({
         }
     }, [cards.length, currentIndex, handleCompleteReview, failedCards.size, showComplete]);
 
-    // Auto-exit khi hiển thị màn hình hoàn thành
+    const handleRestart = () => {
+        setCards(initialCards);
+        setCurrentIndex(0);
+        setFailedCards(new Set());
+        failedCardsRef.current = new Set();
+        sessionWrongCardIdsRef.current = new Set();
+        setInputValue('');
+        setIsRevealed(false);
+        setIsLocked(false);
+        setFeedback(null);
+        setMessage('');
+        setShowComplete(false);
+    };
+
+    // Launch fireworks on completion
     useEffect(() => {
         if (showComplete) {
             launchFireworks();
-            const timer = setTimeout(() => {
-                if (onBack) onBack();
-            }, 2500);
-            return () => clearTimeout(timer);
         }
-    }, [showComplete, onBack]);
+    }, [showComplete]);
 
     // Keyboard shortcut: Enter to advance (outside input), 1-4 for MC — must be before any early return
     useEffect(() => {
@@ -493,22 +552,37 @@ const ReviewScreen = ({
     if (showComplete) {
         return (
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm animate-fade-in">
-                <div className="flex flex-col items-center justify-center text-center space-y-6 p-6 max-w-md">
-                    <div className="w-28 h-28 bg-gradient-to-br from-emerald-100 to-green-200 dark:from-emerald-900/30 dark:to-green-900/30 rounded-full flex items-center justify-center mb-2 shadow-inner">
-                        <div className="w-20 h-20 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-200 dark:shadow-green-900/50 animate-bounce">
-                            <Check className="w-10 h-10 text-white" strokeWidth={4} />
+                <div className="flex flex-col items-center justify-center text-center space-y-6 p-8 max-w-sm w-full bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl">
+                    <div className="text-6xl mb-2">🎉</div>
+                    <div>
+                        <h2 className="text-3xl font-black text-gray-800 dark:text-white mb-2">Xuất sắc!</h2>
+                        <p className="text-gray-500 dark:text-gray-400 text-lg">
+                            Bạn đã hoàn thành phiên ôn tập này.
+                        </p>
+                    </div>
+                    <div className="w-full max-w-xs bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-indigo-200/60 dark:border-indigo-800/60 shadow-lg">
+                        <div className="flex items-center justify-center gap-2 text-indigo-700 dark:text-indigo-300 font-bold text-lg">
+                            <Zap className="w-5 h-5" />
+                            <span>Hoàn thành 100%</span>
                         </div>
                     </div>
-                    <div>
-                        <h2 className="text-4xl font-black text-gray-800 dark:text-gray-100 mb-3">🎊 Tuyệt vời! 🎊</h2>
-                        <p className="text-gray-500 dark:text-gray-400 font-medium text-lg">Bạn đã hoàn thành phiên ôn tập này.</p>
+                    <div className="flex gap-3 w-full max-w-xs pt-2">
+                        <button 
+                            onClick={handleRestart} 
+                            className="flex-1 py-3 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-bold rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-all flex items-center justify-center gap-1 cursor-pointer"
+                        >
+                            <RotateCcw className="w-4 h-4" /> Ôn lại
+                        </button>
+                        <button 
+                            onClick={() => {
+                                if (onCompleteReview) onCompleteReview(null);
+                                else if (onBack) onBack();
+                            }} 
+                            className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1 cursor-pointer"
+                        >
+                            Xong <ChevronRight className="w-4 h-4" />
+                        </button>
                     </div>
-                    <button
-                        onClick={() => { if (onBack) onBack(); }}
-                        className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white font-bold rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all"
-                    >
-                        Quay lại
-                    </button>
                 </div>
             </div>
         );
@@ -726,6 +800,7 @@ const ReviewScreen = ({
                 await new Promise(resolve => setTimeout(resolve, 700));
                 await moveToNextCard(true);
             } else {
+                sessionWrongCardIdsRef.current.add(currentCard.id);
                 failedCardsRef.current.add(cardKey);
                 setFailedCards(new Set(failedCardsRef.current));
                 setFeedback('incorrect');
@@ -797,7 +872,7 @@ const ReviewScreen = ({
     };
 
     const moveToNextCard = async (shouldUpdateStreak) => {
-        if (shouldUpdateStreak) {
+        if (shouldUpdateStreak && !sessionWrongCardIdsRef.current.has(currentCard.id)) {
             // For synonym mode: use 'synonym_practice' action so main SRS is NOT affected
             const action = reviewMode === 'synonym' ? 'synonym_practice' : 'review';
             // Fire-and-forget: don't await to avoid blocking UI transition
@@ -1284,6 +1359,7 @@ const ReviewScreen = ({
                                                             playCorrectSound();
                                                             celebrateCorrectAnswer();
                                                         } else {
+                                                            sessionWrongCardIdsRef.current.add(currentCard.id);
                                                             failedCardsRef.current.add(cardKey);
                                                             setFailedCards(new Set(failedCardsRef.current));
                                                             setFeedback('incorrect');

@@ -54,7 +54,13 @@ const HomeScreen = ({
     // Calculate stats
     const stats = useMemo(() => {
         const dueCards = allCards.filter(card =>
-            card.srsEnabled === true && card.nextReview_back && card.nextReview_back <= Date.now()
+            card.srsEnabled === true && (
+                !card.nextReview_back ||
+                card.intervalIndex_back === -1 ||
+                card.intervalIndex_back === undefined ||
+                card.intervalIndex_back < 0 ||
+                (card.nextReview_back instanceof Date ? card.nextReview_back.getTime() : new Date(card.nextReview_back).getTime()) <= Date.now()
+            )
         ).length;
         const newCards = allCards.filter(card => !card.srsEnabled).length;
         const masteredCards = allCards.filter(card => card.srsEnabled === true && card.srsReps >= 5).length;
@@ -194,7 +200,7 @@ const HomeScreen = ({
 
 
     return (
-        <div className="flex flex-col h-full max-h-[calc(100vh-80px)] max-w-7xl mx-auto gap-4 p-4 md:p-6 overflow-y-auto scrollbar-hide">
+        <div className="flex flex-col h-full max-h-[calc(100vh-80px)] max-w-7xl mx-auto gap-4 p-4 md:p-6 overflow-y-auto scrollbar-hide animate-fade-in">
             {/* Book Vocab Sync Notification */}
             <BookVocabSyncChecker
                 userId={userId}

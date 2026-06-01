@@ -52,43 +52,60 @@ import {
 
 
 // Wrapper for StudySetDetail
-const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards, setReviewMode, setFlashcardCards, setStudySessionData, navigate, onDeleteFolder, handleSaveChanges, handleSaveCardAudio, handleDeleteCard, onToggleSrs }) => {
+const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards, setReviewMode, setFlashcardCards, setStudySessionData, setFlashcardSetId, setReviewSetId, navigate, onDeleteFolder, handleSaveChanges, handleSaveCardAudio, handleDeleteCard, onToggleSrs }) => {
     const { id } = useParams();
     
-    const handleStudySet = (setId) => {
-        const setCards = id === 'unfiled' 
+    React.useEffect(() => {
+        if (!id) return;
+        try {
+            const recentKey = 'recently_studied_sets';
+            const recent = JSON.parse(localStorage.getItem(recentKey) || '[]');
+            const filtered = recent.filter(item => item.id !== id);
+            filtered.unshift({ id, timestamp: Date.now() });
+            localStorage.setItem(recentKey, JSON.stringify(filtered.slice(0, 5)));
+        } catch (e) {
+            console.error('Error saving recently studied set:', e);
+        }
+    }, [id]);
+    
+    const handleStudySet = (setId, customCards) => {
+        const setCards = customCards || (id === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
-            : allCards.filter(c => cardFolders[c.id] === id);
-        setStudySessionData({ mode: 'learn', cards: setCards });
+            : allCards.filter(c => cardFolders[c.id] === id));
+        setStudySessionData({ mode: 'learn', cards: setCards, setId: id });
         navigate(ROUTES.STUDY);
     };
 
-    const handleFlashcardSet = (setId) => {
-        const setCards = id === 'unfiled' 
+    const handleFlashcardSet = (setId, customCards) => {
+        const setCards = customCards || (id === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
-            : allCards.filter(c => cardFolders[c.id] === id);
+            : allCards.filter(c => cardFolders[c.id] === id));
         setFlashcardCards(setCards);
+        setFlashcardSetId(id);
         navigate(ROUTES.FLASHCARD);
     };
-    const handleMeaningSet = (setId) => {
-        const setCards = id === 'unfiled' 
+
+    const handleMeaningSet = (setId, customCards) => {
+        const setCards = customCards || (id === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
-            : allCards.filter(c => cardFolders[c.id] === id);
+            : allCards.filter(c => cardFolders[c.id] === id));
         if (setCards.length === 0) return;
         const meaningCards = setCards.map(card => ({ ...card, reviewType: 'back' }));
         setReviewCards(shuffleArray(meaningCards));
         if (setReviewMode) setReviewMode('meaning_input');
+        setReviewSetId(id);
         navigate(ROUTES.REVIEW);
     };
 
-    const handleDictationSet = (setId) => {
-        const setCards = id === 'unfiled' 
+    const handleDictationSet = (setId, customCards) => {
+        const setCards = customCards || (id === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
-            : allCards.filter(c => cardFolders[c.id] === id);
+            : allCards.filter(c => cardFolders[c.id] === id));
         if (setCards.length === 0) return;
         const dictationCards = setCards.map(card => ({ ...card, reviewType: 'dictation' }));
         setReviewCards(shuffleArray(dictationCards));
         if (setReviewMode) setReviewMode('dictation');
+        setReviewSetId(id);
         navigate(ROUTES.REVIEW);
     };
 
@@ -106,6 +123,7 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
         }
         setReviewCards(shuffleArray(exampleCards));
         if (setReviewMode) setReviewMode('example');
+        setReviewSetId(id);
         navigate(ROUTES.REVIEW);
     };
 
@@ -114,6 +132,7 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
             ? allCards.filter(c => !cardFolders[c.id]) 
             : allCards.filter(c => cardFolders[c.id] === id);
         setFlashcardCards(setCards);
+        setFlashcardSetId(id);
         navigate(ROUTES.SYNONYM_QUIZ);
     };
 
@@ -276,6 +295,9 @@ const AppRoutes = ({
     const navigate = useNavigate();
     const location = useLocation();
     const aiCreditsRemaining = profile?.aiCreditsRemaining;
+
+    const [flashcardSetId, setFlashcardSetId] = React.useState(null);
+    const [reviewSetId, setReviewSetId] = React.useState(null);
 
     // Dynamically update document title based on current path
     React.useEffect(() => {
@@ -450,6 +472,7 @@ const AppRoutes = ({
                                 onToggleSrs={onToggleSrs}
                                 onUpdateVocabSrsRating={onUpdateVocabSrsRating}
                                 playAudio={playAudio}
+                                dailyActivityLogs={dailyActivityLogs}
                             />
                         </ProtectedRoute>
                     }
@@ -490,6 +513,8 @@ const AppRoutes = ({
                                 setReviewMode={setReviewMode}
                                 setFlashcardCards={setFlashcardCards}
                                 setStudySessionData={setStudySessionData}
+                                setFlashcardSetId={setFlashcardSetId}
+                                setReviewSetId={setReviewSetId}
                                 navigate={navigate}
                                 onDeleteFolder={onDeleteFolder}
                                 handleDeleteCard={handleDeleteCard}
@@ -629,6 +654,7 @@ const AppRoutes = ({
                                     cards={reviewCards}
                                     reviewMode={reviewMode}
                                     allCards={allCards}
+                                    setId={reviewSetId}
                                     onUpdateCard={handleUpdateCard}
                                     vocabCollectionPath={vocabCollectionPath}
                                     onSaveCardAudio={handleSaveCardAudio}
@@ -645,7 +671,20 @@ const AppRoutes = ({
                                             setReviewCards(shuffleArray(failedCardsList));
                                             setReviewMode(reviewMode || 'mixed');
                                         } else {
-                                            setReviewCards([]);
+                                            if (reviewSetId && reviewMode) {
+                                                localStorage.removeItem(`study_progress_${reviewSetId}_${reviewMode}`);
+                                                localStorage.setItem(`study_completed_${reviewSetId}_${reviewMode}`, 'true');
+                                            }
+                                            const canGoBack = window.history.state && window.history.state.idx > 0;
+                                            if (canGoBack) {
+                                                navigate(-1);
+                                            } else {
+                                                navigate(ROUTES.VOCAB_REVIEW);
+                                            }
+                                            setTimeout(() => {
+                                                setReviewCards([]);
+                                                setReviewSetId(null);
+                                            }, 50);
                                         }
                                     }}
                                     onBack={() => {
@@ -657,6 +696,7 @@ const AppRoutes = ({
                                         }
                                         setTimeout(() => {
                                             setReviewCards([]);
+                                            setReviewSetId(null);
                                         }, 50);
                                     }}
                                 />
@@ -678,6 +718,10 @@ const AppRoutes = ({
                                 onUpdateCard={handleUpdateCard}
                                 onSaveCardAudio={handleSaveCardAudio}
                                 onCompleteStudy={() => {
+                                    if (studySessionData?.setId) {
+                                        localStorage.removeItem(`study_progress_${studySessionData.setId}_study`);
+                                        localStorage.setItem(`study_completed_${studySessionData.setId}_study`, 'true');
+                                    }
                                     setStudySessionData({
                                         learning: [],
                                         new: [],
@@ -800,18 +844,29 @@ const AppRoutes = ({
                             {flashcardCards && flashcardCards.length > 0 ? (
                                 <FlashcardScreen
                                     cards={flashcardCards}
+                                    setId={flashcardSetId}
                                     onUpdateCard={handleUpdateCard}
                                     onSaveCardAudio={handleSaveCardAudio}
                                     onComplete={() => {
-                                        setFlashcardCards([]);
+                                        if (flashcardSetId) {
+                                            localStorage.removeItem(`study_progress_${flashcardSetId}_flashcard`);
+                                            localStorage.setItem(`study_completed_${flashcardSetId}_flashcard`, 'true');
+                                        }
                                         const canGoBack = window.history.state && window.history.state.idx > 0;
                                         if (canGoBack) {
                                             navigate(-1);
                                         } else {
                                             navigate(ROUTES.VOCAB_REVIEW);
                                         }
+                                        setTimeout(() => {
+                                            setFlashcardCards([]);
+                                            setFlashcardSetId(null);
+                                        }, 50);
                                     }}
-                                    onBack={() => navigate(-1)}
+                                    onBack={() => {
+                                        setFlashcardSetId(null);
+                                        navigate(-1);
+                                    }}
                                 />
                             ) : (
                                 <Navigate to={ROUTES.VOCAB_REVIEW} replace />
@@ -829,15 +884,35 @@ const AppRoutes = ({
                             {flashcardCards && flashcardCards.length > 0 ? (
                                 <SynonymQuizScreen
                                     cards={flashcardCards}
-                                    onBack={() => navigate(-1)}
-                                    onComplete={() => {
-                                        setFlashcardCards([]);
+                                    setId={flashcardSetId}
+                                    onUpdateCard={handleUpdateCard}
+                                    onBack={() => {
                                         const canGoBack = window.history.state && window.history.state.idx > 0;
                                         if (canGoBack) {
                                             navigate(-1);
                                         } else {
                                             navigate(ROUTES.VOCAB_REVIEW);
                                         }
+                                        setTimeout(() => {
+                                            setFlashcardCards([]);
+                                            setFlashcardSetId(null);
+                                        }, 50);
+                                    }}
+                                    onComplete={() => {
+                                        if (flashcardSetId) {
+                                            localStorage.removeItem(`study_progress_${flashcardSetId}_synonym`);
+                                            localStorage.setItem(`study_completed_${flashcardSetId}_synonym`, 'true');
+                                        }
+                                        const canGoBack = window.history.state && window.history.state.idx > 0;
+                                        if (canGoBack) {
+                                            navigate(-1);
+                                        } else {
+                                            navigate(ROUTES.VOCAB_REVIEW);
+                                        }
+                                        setTimeout(() => {
+                                            setFlashcardCards([]);
+                                            setFlashcardSetId(null);
+                                        }, 50);
                                     }}
                                 />
                             ) : (
@@ -859,6 +934,11 @@ const AppRoutes = ({
                                 onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
                                 allUserCards={allCards}
                                 userId={userId}
+                                folders={folders}
+                                parentFolders={parentFolders}
+                                onDeleteFolder={onDeleteFolder}
+                                onAddFolder={onAddFolder}
+                                onMoveStudySetToParentFolder={onMoveStudySetToParentFolder}
                             />
                         </ProtectedRoute>
                     }

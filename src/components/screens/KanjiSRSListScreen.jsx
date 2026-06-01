@@ -98,6 +98,95 @@ const KanjiSRSListScreen = () => {
     const user = getAuth().currentUser;
     const userId = user?.uid;
 
+    const [recentlyViewed, setRecentlyViewed] = useState([]);
+    const [studyHistory, setStudyHistory] = useState([]);
+
+    const formatTimeAgo = (timestamp) => {
+        if (!timestamp) return '';
+        const diff = Date.now() - timestamp;
+        const mins = Math.floor(diff / 60000);
+        if (mins < 1) return 'Vừa xong';
+        if (mins < 60) return `${mins} phút trước`;
+        const hours = Math.floor(mins / 60);
+        if (hours < 24) return `${hours} giờ trước`;
+        const days = Math.floor(hours / 24);
+        if (days === 1) return 'Hôm qua';
+        return `${days} ngày trước`;
+    };
+
+    // Load Recently Viewed and Study History
+    useEffect(() => {
+        const loadHistoryAndRecents = async () => {
+            let localRecents = [];
+            try {
+                localRecents = JSON.parse(localStorage.getItem('kanji_recently_viewed')) || [];
+            } catch (e) { console.error(e); }
+
+            let localHistory = [];
+            try {
+                localHistory = JSON.parse(localStorage.getItem('kanji_study_history')) || [];
+            } catch (e) { console.error(e); }
+
+            setRecentlyViewed(localRecents);
+            setStudyHistory(localHistory);
+
+            if (userId) {
+                try {
+                    const recentRef = collection(db, `artifacts/${appId}/users/${userId}/kanjiRecent`);
+                    const recentSnap = await getDocs(recentRef);
+                    const fbRecents = recentSnap.docs
+                        .map(d => ({ character: d.id, viewedAt: d.data().viewedAt }))
+                        .sort((a, b) => b.viewedAt - a.viewedAt)
+                        .map(x => x.character);
+                    
+                    if (fbRecents.length > 0) {
+                        setRecentlyViewed(fbRecents.slice(0, 10));
+                        localStorage.setItem('kanji_recently_viewed', JSON.stringify(fbRecents.slice(0, 15)));
+                    }
+                } catch (err) {
+                    console.warn('Could not load recent Kanji from Firebase:', err.message);
+                }
+
+                try {
+                    const historyRef = collection(db, `artifacts/${appId}/users/${userId}/kanjiHistory`);
+                    const historySnap = await getDocs(historyRef);
+                    const fbHistory = historySnap.docs
+                        .map(d => ({ id: d.id, ...d.data() }))
+                        .sort((a, b) => b.timestamp - a.timestamp);
+                    
+                    if (fbHistory.length > 0) {
+                        setStudyHistory(fbHistory.slice(0, 10));
+                        localStorage.setItem('kanji_study_history', JSON.stringify(fbHistory.slice(0, 50)));
+                    }
+                } catch (err) {
+                    console.warn('Could not load history from Firebase:', err.message);
+                }
+            }
+        };
+
+        loadHistoryAndRecents();
+
+        const handleRecentsChange = () => {
+            try {
+                const updated = JSON.parse(localStorage.getItem('kanji_recently_viewed')) || [];
+                setRecentlyViewed(updated);
+            } catch (e) {}
+        };
+        const handleHistoryChange = () => {
+            try {
+                const updated = JSON.parse(localStorage.getItem('kanji_study_history')) || [];
+                setStudyHistory(updated);
+            } catch (e) {}
+        };
+
+        window.addEventListener('kanji_recently_viewed_changed', handleRecentsChange);
+        window.addEventListener('kanji_history_changed', handleHistoryChange);
+        return () => {
+            window.removeEventListener('kanji_recently_viewed_changed', handleRecentsChange);
+            window.removeEventListener('kanji_history_changed', handleHistoryChange);
+        };
+    }, [userId]);
+
     // Load data
     useEffect(() => {
         const load = async () => {
@@ -425,13 +514,90 @@ const KanjiSRSListScreen = () => {
         return { total, due, newCards, mastered };
     }, [kanjiWithSRS]);
 
-    // Recently reviewed/saved cards (sorted by lastReview desc)
+    // Recently viewed cards resolved to full details
     const recentlyAccessed = useMemo(() => {
-        return [...kanjiWithSRS]
-            .filter(k => k.srs?.lastReview)
-            .sort((a, b) => (b.srs?.lastReview || 0) - (a.srs?.lastReview || 0))
-            .slice(0, 3);
-    }, [kanjiWithSRS]);
+        return recentlyViewed.map(char => {
+            const kanjiDoc = kanjiList.find(k => k.character === char);
+            const jData = getJotobaKanjiData(char);
+            if (!kanjiDoc && !jData) return null;
+            const srs = srsData[kanjiDoc?.id || ''];
+            return {
+                id: kanjiDoc?.id || `temp_${char}`,
+                character: char,
+                sinoViet: kanjiDoc?.sinoViet || jData?.sinoViet || '',
+                meaning: kanjiDoc?.meaning || jData?.meaningVi || jData?.meanings?.join(', ') || '',
+                level: kanjiDoc?.level || jData?.level || 'N5',
+                srs,
+                isSaved: !!srs
+            };
+        }).filter(Boolean).slice(0, 3);
+    }, [recentlyViewed, kanjiList, srsData]);
+
+    // Dynamic study recommendation
+    const recommendation = useMemo(() => {
+        // 1. Check due cards
+        const dueCount = kanjiWithSRS.filter(k => (k.nextReview || 0) <= Date.now() && k.reps > 0).length;
+        if (dueCount > 0) {
+            return {
+                tag: 'Cần ôn tập',
+                content: `Bạn đang có ${dueCount} chữ Kanji đến hạn ôn tập trong SRS. Hãy dành 5-10 phút ôn tập ngay để giữ vững tiến độ nhớ nhé!`,
+                actionText: 'Bắt đầu ôn tập',
+                onClick: () => navigate(ROUTES.KANJI_REVIEW)
+            };
+        }
+
+        // 2. Check lapsed cards
+        const lapsedCards = kanjiWithSRS.filter(k => k.srs?.isLapsed);
+        if (lapsedCards.length > 0) {
+            const sampleChars = lapsedCards.slice(0, 3).map(k => k.character).join(', ');
+            const targetChar = lapsedCards[0].character;
+            return {
+                tag: 'Ôn tập trọng tâm',
+                content: `Bạn đang gặp khó khăn với ${lapsedCards.length} chữ Kanji hay bị quên (như: ${sampleChars}). Hãy xem lại chi tiết các chữ này nhé!`,
+                actionText: `Xem chữ '${targetChar}'`,
+                onClick: () => navigate(`${ROUTES.KANJI_LIST}/${targetChar}`)
+            };
+        }
+
+        // 3. Check new cards in SRS not yet studied
+        const newCardsCount = kanjiWithSRS.filter(k => k.reps === 0).length;
+        if (newCardsCount > 0) {
+            return {
+                tag: 'Thẻ mới',
+                content: `Bạn đã thêm ${newCardsCount} chữ Kanji mới vào danh sách ôn tập nhưng chưa học bài. Hãy bắt đầu học ngay nhé!`,
+                actionText: 'Bắt đầu học',
+                onClick: () => navigate(ROUTES.KANJI_REVIEW)
+            };
+        }
+
+        // 4. Level progress
+        const jlptStats = JLPT_LEVELS.map(level => {
+            const totalInDb = kanjiList.filter(k => k.level === level).length || 1;
+            const srsCount = kanjiWithSRS.filter(k => k.level === level).length;
+            const percent = Math.round((srsCount / totalInDb) * 100);
+            return { level, srsCount, totalInDb, percent };
+        });
+
+        const startedLevel = jlptStats.find(s => s.percent > 0 && s.percent < 100);
+        if (startedLevel) {
+            return {
+                tag: `Chinh phục ${startedLevel.level}`,
+                content: `Bạn đã lưu ${startedLevel.srsCount}/${startedLevel.totalInDb} chữ Kanji (${startedLevel.percent}%) của cấp độ ${startedLevel.level} vào SRS. Hãy tiếp tục học các chữ còn lại nhé!`,
+                actionText: `Xem Kanji cấp độ ${startedLevel.level}`,
+                onClick: () => {
+                    navigate(`${ROUTES.KANJI_LIST}?level=${startedLevel.level}`);
+                }
+            };
+        }
+
+        // 5. Default fallback
+        return {
+            tag: 'Quy tắc 80/20',
+            content: 'Quy tắc ôn tập ngắt quãng (SRS) giúp bạn nhớ lâu hơn gấp 5 lần. Hãy duy trì thói quen học và ôn tập Kanji mỗi ngày nhé!',
+            actionText: 'Xem danh sách Kanji',
+            onClick: () => navigate(ROUTES.KANJI_LIST)
+        };
+    }, [kanjiWithSRS, kanjiList, navigate]);
 
     if (loading) {
         return (
@@ -443,7 +609,7 @@ const KanjiSRSListScreen = () => {
     }
 
     return (
-        <div className="w-full pb-10 bg-slate-50/50 min-h-screen dark:bg-slate-900/10">
+        <div className="w-full pb-10 bg-slate-50/50 min-h-screen dark:bg-slate-900/10 animate-fade-in">
             <TopTabBar tabs={KANJI_TABS} />
             
             <div className="max-w-6xl mx-auto space-y-6 px-4 md:px-8 mt-6">
@@ -696,7 +862,11 @@ const KanjiSRSListScreen = () => {
                                                         </div>
                                                     </div>
 
-                                                    <Bookmark className="w-5 h-5 text-[#2E5B70] fill-[#2E5B70] flex-shrink-0" />
+                                                    {kanji.isSaved ? (
+                                                        <Bookmark className="w-5 h-5 text-[#2E5B70] fill-[#2E5B70] flex-shrink-0" />
+                                                    ) : (
+                                                        <Bookmark className="w-5 h-5 text-slate-300 dark:text-slate-600 flex-shrink-0 hover:text-[#2E5B70] transition-colors" />
+                                                    )}
                                                 </div>
                                             );
                                         })
@@ -719,19 +889,19 @@ const KanjiSRSListScreen = () => {
                                     <div className="bg-sky-50/50 dark:bg-sky-950/20 border border-sky-100/50 dark:border-sky-900/30 rounded-2xl p-5 space-y-3">
                                         <div className="flex items-center gap-2">
                                             <span className="bg-sky-100 dark:bg-sky-900 text-sky-800 dark:text-sky-300 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
-                                                Quy tắc 80/20
+                                                {recommendation.tag}
                                             </span>
                                         </div>
                                         
                                         <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
-                                            "Bạn đã thuộc 80% bộ thủ của N3. Hãy dành 15 phút hôm nay để hoàn thành nốt 20% còn lại."
+                                            {recommendation.content}
                                         </p>
                                         
                                         <button 
-                                            onClick={() => navigate(ROUTES.KANJI_REVIEW)}
+                                            onClick={recommendation.onClick}
                                             className="text-xs font-bold text-[#2E5B70] dark:text-[#5aa9cc] hover:underline inline-flex items-center gap-1 cursor-pointer"
                                         >
-                                            Bắt đầu ngay <ArrowRight className="w-3.5 h-3.5" />
+                                            {recommendation.actionText} <ArrowRight className="w-3.5 h-3.5" />
                                         </button>
                                     </div>
                                 </div>
@@ -744,25 +914,43 @@ const KanjiSRSListScreen = () => {
 
                                     <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 rounded-2xl p-5 space-y-4">
                                         <div className="relative border-l border-slate-100 dark:border-slate-700 pl-4 ml-1.5 space-y-4">
-                                            
-                                            <div className="relative">
-                                                <span className="absolute -left-5.5 top-1 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-4 ring-emerald-50 dark:ring-emerald-950"></span>
-                                                <div className="text-xs font-bold text-slate-700 dark:text-slate-300">Hoàn thành N5: Chương 4</div>
-                                                <div className="text-[10px] text-slate-400 font-semibold mt-0.5">2h trước</div>
-                                            </div>
+                                            {studyHistory.length > 0 ? (
+                                                studyHistory.slice(0, 5).map((item) => {
+                                                    let dotBg = 'bg-sky-500';
+                                                    let ringClass = 'ring-sky-50 dark:ring-sky-950';
+                                                    if (item.type === 'lesson') {
+                                                        dotBg = 'bg-emerald-500';
+                                                        ringClass = 'ring-emerald-50 dark:ring-emerald-950';
+                                                    } else if (item.type === 'save') {
+                                                        dotBg = 'bg-indigo-500';
+                                                        ringClass = 'ring-indigo-50 dark:ring-indigo-950';
+                                                    } else if (item.type === 'review') {
+                                                        dotBg = 'bg-purple-500';
+                                                        ringClass = 'ring-purple-50 dark:ring-purple-950';
+                                                    }
 
-                                            <div className="relative">
-                                                <span className="absolute -left-5.5 top-1 w-2.5 h-2.5 rounded-full bg-rose-500 ring-4 ring-rose-50 dark:ring-rose-950"></span>
-                                                <div className="text-xs font-bold text-slate-700 dark:text-slate-300">Đã lưu 12 từ mới N1</div>
-                                                <div className="text-[10px] text-slate-400 font-semibold mt-0.5">Hôm qua</div>
-                                            </div>
-
-                                            <div className="relative">
-                                                <span className="absolute -left-5.5 top-1 w-2.5 h-2.5 rounded-full bg-purple-500 ring-4 ring-purple-50 dark:ring-purple-950"></span>
-                                                <div className="text-xs font-bold text-slate-700 dark:text-slate-300">Học từ mới N3</div>
-                                                <div className="text-[10px] text-slate-400 font-semibold mt-0.5">3 ngày trước</div>
-                                            </div>
-
+                                                    return (
+                                                        <div key={item.id} className="relative">
+                                                            <span className={`absolute -left-5.5 top-1 w-2.5 h-2.5 rounded-full ${dotBg} ring-4 ${ringClass}`}></span>
+                                                            <div className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                                                                {item.title}
+                                                            </div>
+                                                            {item.details && (
+                                                                <div className="text-[10px] text-slate-400 font-semibold mt-0.5">
+                                                                    {item.details}
+                                                                </div>
+                                                            )}
+                                                            <div className="text-[9px] text-slate-350 dark:text-slate-500 mt-0.5">
+                                                                {formatTimeAgo(item.timestamp)}
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })
+                                            ) : (
+                                                <div className="text-center text-slate-400 text-xs py-4">
+                                                    Chưa có hoạt động học tập nào.
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { RotateCcw, Check, X, Undo2, Trophy, RefreshCw, Volume2, ArrowLeft } from 'lucide-react';
+import { RotateCcw, Check, X, Undo2, Trophy, RefreshCw, Volume2, ArrowLeft, ChevronRight, Zap, Layers } from 'lucide-react';
 import { playAudio, speakJapanese } from '../../utils/audio';
 import FuriganaText from '../ui/FuriganaText';
 import { POS_TYPES } from '../../config/constants';
 import { launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
 
-const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSaveCardAudio, onBack }) => {
+const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard, onSaveCardAudio, onBack }) => {
     // Load saved progress from localStorage
     const getSavedProgress = () => {
         try {
-            const saved = localStorage.getItem('flashcard_progress');
+            const key = setId ? `study_progress_${setId}_flashcard` : 'flashcard_progress';
+            const saved = localStorage.getItem(key);
             if (saved) {
                 const data = JSON.parse(saved);
                 // Verify saved cards match current cards (same IDs)
@@ -56,9 +57,11 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
     const [swipeOffset, setSwipeOffset] = useState(0);
     const [buttonPressed, setButtonPressed] = useState(null); // 'known' | 'unknown' | null
     const cardShownTimeRef = useRef(Date.now()); // Track thời gian hiển thị card
+    const sessionWrongCardIdsRef = useRef(new Set());
 
     // Save progress to localStorage whenever state changes
     useEffect(() => {
+        if (!setId || (isComplete && unknownCards.length === 0)) return;
         const progressData = {
             cardIds: initialCards.map(c => c.id),
             currentDeckIds: currentDeck.map(c => c.id),
@@ -69,8 +72,9 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
             round,
             timestamp: Date.now(),
         };
-        localStorage.setItem('flashcard_progress', JSON.stringify(progressData));
-    }, [currentIndex, knownCards, unknownCards, isComplete, round, currentDeck]);
+        const key = setId ? `study_progress_${setId}_flashcard` : 'flashcard_progress';
+        localStorage.setItem(key, JSON.stringify(progressData));
+    }, [currentIndex, knownCards, unknownCards, isComplete, round, currentDeck, setId]);
 
     const currentCard = currentDeck[currentIndex];
     const progress = currentDeck.length > 0 ? Math.round(((currentIndex) / currentDeck.length) * 100) : 100;
@@ -90,11 +94,12 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
             launchFireworks();
             playCompletionFanfare();
             const timer = setTimeout(() => {
-                onBack();
+                if (onComplete) onComplete();
+                else if (onBack) onBack();
             }, 3000);
             return () => clearTimeout(timer);
         }
-    }, [isComplete, unknownCards.length, onBack]);
+    }, [isComplete, unknownCards.length, onComplete, onBack]);
 
     // Format multiple meanings
     const formatMultipleMeanings = (text) => {
@@ -129,8 +134,8 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
 
         setKnownCards(prev => [...prev, currentCard]);
 
-        // Cập nhật SRS: flashcard_known (nhớ)
-        if (onUpdateCard && currentCard.id) {
+        // Cập nhật SRS: flashcard_known (nhớ) - chỉ khi chưa từng trả lời sai trong phiên học này
+        if (onUpdateCard && currentCard.id && !sessionWrongCardIdsRef.current.has(currentCard.id)) {
             onUpdateCard(currentCard.id, true, 'back', 'flashcard_known', Date.now() - cardShownTimeRef.current);
         }
 
@@ -152,6 +157,9 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
     const handleUnknown = useCallback(() => {
         if (!isFlipped || !currentCard || buttonPressed) return;
         setButtonPressed('unknown');
+
+        // Thêm vào danh sách sai trong phiên học
+        sessionWrongCardIdsRef.current.add(currentCard.id);
 
         // Save to history for undo
         setHistory(prev => [...prev, {
@@ -202,6 +210,20 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
         setIsComplete(false);
         setRound(prev => prev + 1);
     }, [unknownCards]);
+
+    const handleRestart = useCallback(() => {
+        setCurrentDeck(initialCards);
+        setCurrentIndex(0);
+        setKnownCards([]);
+        setUnknownCards([]);
+        setHistory([]);
+        setIsComplete(false);
+        setRound(1);
+        sessionWrongCardIdsRef.current = new Set();
+        if (setId) {
+            localStorage.removeItem(`study_progress_${setId}_flashcard`);
+        }
+    }, [initialCards, setId]);
 
     // Undo last action
     const handleUndo = useCallback(() => {
@@ -313,98 +335,69 @@ const FlashcardScreen = ({ cards: initialCards, onComplete, onUpdateCard, onSave
                         <ArrowLeft className="w-5 h-5" />
                     </button>
                 )}
-                <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-6 p-6 border-2 border-indigo-400/30 rounded-2xl">
-                    {/* Header */}
-                    <div className="text-center space-y-3">
-                        {allDone ? (
-                            <>
-                                <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto shadow-lg animate-bounce">
-                                    <Trophy className="w-10 h-10 text-white" />
-                                </div>
-                                <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
-                                    🎉 Xuất sắc!
-                                </h2>
-                                <p className="text-gray-500 dark:text-gray-400 text-sm">
-                                    Bạn đã thuộc hết tất cả {allCards.length} thẻ!
-                                </p>
-                            </>
-                        ) : (
-                            <>
-                                <div className="w-20 h-20 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mx-auto shadow-lg">
-                                    <RefreshCw className="w-10 h-10 text-white" />
-                                </div>
-                                <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
-                                    Hoàn thành vòng {round}!
-                                </h2>
-                                <p className="text-gray-500 dark:text-gray-400 text-sm">
-                                    Hãy tiếp tục ôn luyện những thẻ chưa thuộc
-                                </p>
-                            </>
-                        )}
-                    </div>
-
-                    {/* Stats */}
-                    <div className="w-full grid grid-cols-3 gap-3">
-                        <div className="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
-                            <div className="text-2xl font-bold text-green-600 dark:text-green-400">{knownCount}</div>
-                            <div className="text-xs text-green-600/70 dark:text-green-400/70 mt-1">Đã thuộc</div>
+                {allDone ? (
+                    <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-6 p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl animate-fade-in">
+                        <div className="text-6xl mb-2">🎉</div>
+                        <div>
+                            <h2 className="text-3xl font-black text-gray-800 dark:text-white mb-2">Xuất sắc!</h2>
+                            <p className="text-gray-500 dark:text-gray-400 text-lg">
+                                Bạn đã thuộc hết tất cả <span className="font-black text-emerald-600 dark:text-emerald-400">{allCards.length}</span> thẻ!
+                            </p>
                         </div>
-                        <div className="text-center p-3 bg-red-50 dark:bg-red-900/20 rounded-xl border border-red-200 dark:border-red-800">
-                            <div className="text-2xl font-bold text-red-500">{unknownCount}</div>
-                            <div className="text-xs text-red-500/70 mt-1">Chưa thuộc</div>
+                        <div className="w-full max-w-xs bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-emerald-200/60 dark:border-emerald-800/60 shadow-lg">
+                            <div className="flex items-center justify-center gap-2 text-emerald-700 dark:text-emerald-300 font-bold text-lg">
+                                <Zap className="w-5 h-5" />
+                                <span>100% Thuần thục</span>
+                            </div>
                         </div>
-                        <div className="text-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
-                            <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{totalInRound}</div>
-                            <div className="text-xs text-blue-600/70 dark:text-blue-400/70 mt-1">Tổng thẻ</div>
-                        </div>
-                    </div>
-
-                    {/* Progress bar */}
-                    <div className="w-full">
-                        <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mb-1">
-                            <span>Tiến độ tổng</span>
-                            <span>{totalKnown}/{allCards.length} thẻ đã thuộc</span>
-                        </div>
-                        <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                            <div
-                                className="h-full bg-gradient-to-r from-green-400 to-emerald-500 rounded-full transition-all duration-500"
-                                style={{ width: `${(totalKnown / allCards.length) * 100}%` }}
-                            ></div>
-                        </div>
-                    </div>
-
-                    {/* Action buttons */}
-                    <div className="w-full space-y-3">
-                        {unknownCount > 0 && (
-                            <button
-                                onClick={handleContinueUnknown}
-                                className="w-full py-3.5 rounded-xl font-bold text-base bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
+                        <div className="flex gap-3 w-full max-w-xs pt-2">
+                            <button 
+                                onClick={handleRestart} 
+                                className="flex-1 py-3 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-bold rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-all flex items-center justify-center gap-1 cursor-pointer"
                             >
-                                <RefreshCw className="w-5 h-5" />
-                                Tiếp tục học {unknownCount} thẻ chưa thuộc
+                                <RotateCcw className="w-4 h-4" /> Học lại
                             </button>
-                        )}
-                        <button
-                            onClick={onComplete}
-                            className={`w-full py-3 rounded-xl font-bold text-base transition-all flex items-center justify-center gap-2 ${allDone
-                                ? 'bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white shadow-lg hover:shadow-xl'
-                                : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700'
-                                }`}
-                        >
-                            {allDone ? (
-                                <>
-                                    <Trophy className="w-5 h-5" />
-                                    Hoàn thành
-                                </>
-                            ) : 'Thoát'}
-                        </button>
+                            <button 
+                                onClick={onComplete} 
+                                className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1 cursor-pointer"
+                            >
+                                Xong <ChevronRight className="w-4 h-4" />
+                            </button>
+                        </div>
                     </div>
-
-                    {/* Keyboard hint */}
-                    <div className="text-center text-xs text-gray-400">
-                        Vòng {round} | Tổng {allCards.length} thẻ
+                ) : (
+                    <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-6 p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl animate-fade-in">
+                        <div className="text-6xl mb-2">✨</div>
+                        <div>
+                            <h2 className="text-3xl font-black text-gray-800 dark:text-white mb-2">Hoàn thành vòng {round}!</h2>
+                            <p className="text-gray-500 dark:text-gray-400 text-lg">
+                                Hãy tiếp tục ôn luyện những thẻ chưa thuộc.
+                            </p>
+                        </div>
+                        <div className="w-full max-w-xs bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-indigo-200/60 dark:border-indigo-800/60 shadow-lg">
+                            <div className="flex items-center justify-center gap-2 text-indigo-700 dark:text-indigo-300 font-bold text-lg">
+                                <Layers className="w-5 h-5" />
+                                <span>Đã thuộc: {totalKnown} / {allCards.length}</span>
+                            </div>
+                        </div>
+                        <div className="flex flex-col gap-3 w-full max-w-xs pt-2">
+                            {unknownCount > 0 && (
+                                <button
+                                    onClick={handleContinueUnknown}
+                                    className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-md hover:-translate-y-0.5 transition-all flex items-center justify-center gap-1 cursor-pointer"
+                                >
+                                    <RefreshCw className="w-4 h-4" /> Tiếp tục ({unknownCount} thẻ)
+                                </button>
+                            )}
+                            <button 
+                                onClick={onComplete} 
+                                className="w-full py-3 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-bold rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-all flex items-center justify-center gap-1 cursor-pointer"
+                            >
+                                Thoát <ChevronRight className="w-4 h-4" />
+                            </button>
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
         );
     }

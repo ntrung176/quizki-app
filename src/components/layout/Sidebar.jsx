@@ -84,11 +84,34 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
 
     // Calculate due vocab count
     const dueVocabCount = allCards.filter(card =>
-        card.srsEnabled === true && card.nextReview_back && card.nextReview_back <= Date.now()
+        card.srsEnabled === true && (
+            !card.nextReview_back ||
+            card.intervalIndex_back === -1 ||
+            card.intervalIndex_back === undefined ||
+            card.intervalIndex_back < 0 ||
+            (card.nextReview_back instanceof Date ? card.nextReview_back.getTime() : new Date(card.nextReview_back).getTime()) <= Date.now()
+        )
     ).length;
 
-    // Check if there are any unread notifications (due counts > 0 OR unread global notifications)
-    const hasUnread = dueVocabCount > 0 || kanjiDueCount > 0 || globalNotifications.some(n => !readNotificationIds.includes(n.id));
+    const [lastSeenDueCount, setLastSeenDueCount] = useState(() => {
+        try {
+            return parseInt(localStorage.getItem('quizki_last_seen_due_count') || '0');
+        } catch (e) {
+            return 0;
+        }
+    });
+
+    // Sync lastSeenDueCount when notifications popover is opened
+    useEffect(() => {
+        if (isNotificationsOpen) {
+            const currentDue = dueVocabCount + kanjiDueCount;
+            setLastSeenDueCount(currentDue);
+            localStorage.setItem('quizki_last_seen_due_count', String(currentDue));
+        }
+    }, [isNotificationsOpen, dueVocabCount, kanjiDueCount]);
+
+    // Check if there are any unread notifications (due counts increased OR unread global notifications)
+    const hasUnread = (dueVocabCount + kanjiDueCount) > lastSeenDueCount || globalNotifications.some(n => !readNotificationIds.includes(n.id));
 
     const markAllAsRead = () => {
         const allIds = globalNotifications.map(n => n.id);

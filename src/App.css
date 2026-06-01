@@ -280,3 +280,18 @@
     max-height: 120px;
   }
 }
+
+/* Scrollbar for support chat */
+.support-chat-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.support-chat-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.support-chat-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(46, 91, 112, 0.3);
+  border-radius: 3px;
+}
+.support-chat-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(46, 91, 112, 0.5);
+}

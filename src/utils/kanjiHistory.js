@@ -1,0 +1,83 @@
+import { db, appId } from '../config/firebase';
+import { collection, addDoc, doc, setDoc } from 'firebase/firestore';
+
+/**
+ * Log a Kanji study history activity.
+ * @param {string} userId - Current user authenticated ID.
+ * @param {object} activity - The activity object.
+ * @param {string} activity.type - 'lesson', 'review', 'save'.
+ * @param {string} activity.title - Title of the activity.
+ * @param {string} [activity.details] - Extra details.
+ */
+export const logKanjiActivity = async (userId, activity) => {
+    const record = {
+        id: `act_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+        type: activity.type,
+        title: activity.title,
+        details: activity.details || '',
+        timestamp: Date.now()
+    };
+
+    // 1. Save to LocalStorage
+    try {
+        const localHistory = JSON.parse(localStorage.getItem('kanji_study_history')) || [];
+        // Keep last 50 activities
+        const updated = [record, ...localHistory].slice(0, 50);
+        localStorage.setItem('kanji_study_history', JSON.stringify(updated));
+        
+        // Dispatch custom event for UI updates
+        window.dispatchEvent(new Event('kanji_history_changed'));
+    } catch (e) {
+        console.error('Error saving activity to localStorage:', e);
+    }
+
+    // 2. Save to Firestore if userId is available
+    if (userId) {
+        try {
+            const ref = collection(db, `artifacts/${appId}/users/${userId}/kanjiHistory`);
+            await addDoc(ref, {
+                type: record.type,
+                title: record.title,
+                details: record.details,
+                timestamp: record.timestamp
+            });
+        } catch (e) {
+            console.warn('Could not save activity to Firebase, using local storage only:', e.message);
+        }
+    }
+};
+
+/**
+ * Record a Kanji character being viewed recently.
+ * @param {string} userId - Current user authenticated ID.
+ * @param {string} character - The Kanji character.
+ */
+export const recordRecentKanji = async (userId, character) => {
+    if (!character) return;
+
+    // 1. Save to LocalStorage
+    try {
+        const key = 'kanji_recently_viewed';
+        const existing = JSON.parse(localStorage.getItem(key)) || [];
+        const updated = [character, ...existing.filter(c => c !== character)].slice(0, 15);
+        localStorage.setItem(key, JSON.stringify(updated));
+
+        // Dispatch custom event for UI updates
+        window.dispatchEvent(new Event('kanji_recently_viewed_changed'));
+    } catch (e) {
+        console.error('Error saving recently viewed Kanji to localStorage:', e);
+    }
+
+    // 2. Save to Firestore if userId is available
+    if (userId) {
+        try {
+            const docRef = doc(db, `artifacts/${appId}/users/${userId}/kanjiRecent`, character);
+            await setDoc(docRef, {
+                character,
+                viewedAt: Date.now()
+            });
+        } catch (e) {
+            console.warn('Could not save recent Kanji to Firebase, using local storage only:', e.message);
+        }
+    }
+};

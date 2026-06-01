@@ -220,6 +220,39 @@ export function playClickSound() {
     } catch (e) { }
 }
 
+// ==================== CARD FLIP SOUND ====================
+export function playFlipSound() {
+    if (!isSfxEnabled()) return;
+    const volume = getSfxVolume();
+    try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        const filter = ctx.createBiquadFilter();
+
+        osc.type = 'triangle';
+        // A soft sweeping sound simulating card paper friction
+        osc.frequency.setValueAtTime(320, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(120, ctx.currentTime + 0.16);
+
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(1200, ctx.currentTime);
+        filter.frequency.exponentialRampToValueAtTime(350, ctx.currentTime + 0.16);
+
+        gain.gain.setValueAtTime(0, ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(volume * 0.18, ctx.currentTime + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.16);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(ctx.currentTime);
+        osc.stop(ctx.currentTime + 0.16);
+        setTimeout(() => ctx.close(), 250);
+    } catch (e) { }
+}
+
 // ==================== COMPLETION FANFARE ====================
 export function playCompletionFanfare() {
     if (!isSfxEnabled()) return;

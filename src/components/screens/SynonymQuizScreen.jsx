@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { ArrowLeft, Users, CheckCircle, XCircle, RotateCcw, Trophy, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
+import { ArrowLeft, Users, CheckCircle, XCircle, RotateCcw, Trophy, ChevronRight, Zap } from 'lucide-react';
 import FuriganaText from '../ui/FuriganaText';
 import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
 import { speakJapanese } from '../../utils/audio';
@@ -10,16 +10,44 @@ const shuffleArr = (arr) => {
     return a;
 };
 
-const SynonymQuizScreen = ({ cards, onBack, onComplete }) => {
+const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) => {
+    // Load saved progress from localStorage
+    const getSavedProgress = () => {
+        try {
+            if (!setId) return null;
+            const key = `study_progress_${setId}_synonym`;
+            const saved = localStorage.getItem(key);
+            if (saved) {
+                const data = JSON.parse(saved);
+                return data;
+            }
+        } catch (e) { /* ignore */ }
+        return null;
+    };
+
+    const savedProgress = getSavedProgress();
     // Filter cards that have synonyms
     const quizCards = useMemo(() => shuffleArr(cards.filter(c => c.synonym && c.synonym.trim())), [cards]);
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(savedProgress?.currentIndex || 0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [isRevealed, setIsRevealed] = useState(false);
-    const [score, setScore] = useState({ correct: 0, incorrect: 0 });
-    const [isComplete, setIsComplete] = useState(false);
+    const [score, setScore] = useState(savedProgress?.score || { correct: 0, incorrect: 0 });
+    const [isComplete, setIsComplete] = useState(savedProgress?.isComplete || false);
 
     const currentCard = quizCards[currentIndex];
+    const sessionWrongCardIdsRef = useRef(new Set());
+
+    // Save progress to localStorage whenever state changes
+    useEffect(() => {
+        if (!setId || isComplete) return;
+        const progressData = {
+            currentIndex,
+            score,
+            timestamp: Date.now(),
+        };
+        const key = `study_progress_${setId}_synonym`;
+        localStorage.setItem(key, JSON.stringify(progressData));
+    }, [currentIndex, score, isComplete, setId]);
 
     // Generate multiple choice options
     const options = useMemo(() => {
@@ -73,14 +101,22 @@ const SynonymQuizScreen = ({ cards, onBack, onComplete }) => {
         if (isCorrect) { 
             playCorrectSound(); 
             setScore(s => ({ ...s, correct: s.correct + 1 })); 
+            if (onUpdateCard && currentCard?.id && !sessionWrongCardIdsRef.current.has(currentCard.id)) {
+                onUpdateCard(currentCard.id, true, 'synonym', 'synonym_quiz');
+            }
         } else { 
             playIncorrectSound(); 
             setScore(s => ({ ...s, incorrect: s.incorrect + 1 })); 
+            sessionWrongCardIdsRef.current.add(currentCard.id);
+            if (onUpdateCard && currentCard?.id) {
+                onUpdateCard(currentCard.id, false, 'synonym', 'synonym_quiz');
+            }
         }
+
         setTimeout(() => {
             speakJapanese(currentCard.front, currentCard.audioBase64).catch(e => console.warn(e));
         }, 500);
-    }, [isRevealed, currentCard]);
+    }, [isRevealed, currentCard, onUpdateCard]);
 
     const handleNext = () => {
         if (currentIndex < quizCards.length - 1) {
@@ -95,6 +131,10 @@ const SynonymQuizScreen = ({ cards, onBack, onComplete }) => {
     };
 
     const handleReset = () => {
+        if (setId) {
+            localStorage.removeItem(`study_completed_${setId}_synonym`);
+            localStorage.removeItem(`study_progress_${setId}_synonym`);
+        }
         setCurrentIndex(0);
         setSelectedAnswer(null);
         setIsRevealed(false);
@@ -106,11 +146,12 @@ const SynonymQuizScreen = ({ cards, onBack, onComplete }) => {
     useEffect(() => {
         if (isComplete) {
             const timer = setTimeout(() => {
-                onBack();
+                if (onComplete) onComplete();
+                else if (onBack) onBack();
             }, 3000);
             return () => clearTimeout(timer);
         }
-    }, [isComplete, onBack]);
+    }, [isComplete, onComplete, onBack]);
 
     // Keyboard
     useEffect(() => {
@@ -140,29 +181,36 @@ const SynonymQuizScreen = ({ cards, onBack, onComplete }) => {
     if (isComplete) {
         const pct = Math.round((score.correct / quizCards.length) * 100);
         return (
-            <div className="relative w-full h-full flex flex-col justify-center py-6">
-                <div className="w-[800px] max-w-[95vw] mx-auto my-auto flex flex-col items-center space-y-6 p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl">
-                    <div className="w-20 h-20 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full flex items-center justify-center shadow-lg">
-                        <Trophy className="w-10 h-10 text-white" />
+            <div className="relative w-full h-full flex flex-col justify-center py-6 animate-fade-in">
+                <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col items-center space-y-6 p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl">
+                    <div className="text-6xl mb-2">🎉</div>
+                    <div>
+                        <h2 className="text-3xl font-black text-gray-800 dark:text-white mb-2">Xuất sắc!</h2>
+                        <p className="text-gray-500 dark:text-gray-400 text-lg">
+                            Bạn đã hoàn thành trò chơi đồng nghĩa.
+                        </p>
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Hoàn thành!</h2>
-                    <p className="text-gray-500 dark:text-gray-400">Bạn đã trả lời đúng {score.correct}/{quizCards.length} câu ({pct}%)</p>
-                    <div className="w-full grid grid-cols-2 gap-3">
-                        <div className="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
-                            <div className="text-2xl font-bold text-green-600">{score.correct}</div>
-                            <div className="text-xs text-green-600/70 mt-1">Đúng</div>
-                        </div>
-                        <div className="text-center p-3 bg-red-50 dark:bg-red-900/20 rounded-xl border border-red-200 dark:border-red-800">
-                            <div className="text-2xl font-bold text-red-500">{score.incorrect}</div>
-                            <div className="text-xs text-red-500/70 mt-1">Sai</div>
+                    <div className="w-full max-w-xs bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-indigo-200/60 dark:border-indigo-800/60 shadow-lg">
+                        <div className="flex flex-col items-center justify-center gap-1">
+                            <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-300 font-bold text-lg">
+                                <Zap className="w-5 h-5" />
+                                <span>Chính xác: {pct}%</span>
+                            </div>
+                            <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">Đúng {score.correct} / {quizCards.length} câu</span>
                         </div>
                     </div>
-                    <div className="w-full space-y-3 pt-2">
-                        <button onClick={handleReset} className="w-full py-3.5 rounded-xl font-bold bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white shadow-lg flex items-center justify-center gap-2">
-                            <RotateCcw className="w-5 h-5" /> Làm lại
+                    <div className="flex gap-3 w-full max-w-xs pt-2">
+                        <button 
+                            onClick={handleReset} 
+                            className="flex-1 py-3 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-bold rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-all flex items-center justify-center gap-1 cursor-pointer"
+                        >
+                            <RotateCcw className="w-4 h-4" /> Làm lại
                         </button>
-                        <button onClick={onBack} className="w-full py-3 rounded-xl font-bold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700">
-                            Thoát
+                        <button 
+                            onClick={onComplete || onBack} 
+                            className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1 cursor-pointer"
+                        >
+                            Xong <ChevronRight className="w-4 h-4" />
                         </button>
                     </div>
                 </div>

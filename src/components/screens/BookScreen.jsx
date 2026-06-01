@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import {
     BookOpen, Plus, Trash2, Edit, ChevronRight, ChevronLeft, Check, X, Lightbulb,
     Upload, FolderPlus, FileText, List, Search, ArrowLeft, Image, Save, Layers, Copy, Clipboard, Folder, Volume2,
@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import { db, appId } from '../../config/firebase';
 import {
-    collection, getDocs, addDoc, deleteDoc, doc, updateDoc, writeBatch, setDoc, getDoc
+    collection, getDocs, addDoc, deleteDoc, doc, updateDoc, writeBatch, setDoc, getDoc, serverTimestamp
 } from 'firebase/firestore';
 import { showToast, showConfirm } from '../../utils/toast';
 import { speakJapanese, playAudio, generateAudioSilentWithVoice } from '../../utils/audio';
@@ -110,8 +110,21 @@ const ZenModeView = ({ allUserCards = [], bookGroups = [], onClose }) => {
 };
 
 // ==================== BOOK SCREEN ====================
-const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserCards = [], userId = null }) => {
+const BookScreen = ({ 
+    isAdmin = false, 
+    onAddVocabToSRS, 
+    onGeminiAssist, 
+    onGenerateMoreExample,
+    allUserCards = [], 
+    userId = null,
+    folders = [],
+    parentFolders = [],
+    onDeleteFolder,
+    onAddFolder,
+    onMoveStudySetToParentFolder
+}) => {
     const [searchParams, setSearchParams] = useSearchParams();
+    const navigate = useNavigate();
 
     // Data states
     const [bookGroups, setBookGroups] = useState([]);
@@ -161,9 +174,23 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     const [editingVocabIndex, setEditingVocabIndex] = useState(null);
     const [editingVocabData, setEditingVocabData] = useState(null);
 
-    // Folder selection for SRS
-    const [availableFolders, setAvailableFolders] = useState([]);
+    // Folder selection for SRS (redefined as a useMemo from the real folders prop)
+    const availableFolders = useMemo(() => {
+        return folders.filter(f => f.type !== 'folder');
+    }, [folders]);
     const [selectedFolderId, setSelectedFolderId] = useState('');
+
+    // Study set redesign states
+    const [showCreateStudySetModal, setShowCreateStudySetModal] = useState(false);
+    const [showLinkStudySetModal, setShowLinkStudySetModal] = useState(false);
+    const [studySetName, setStudySetName] = useState('');
+    const [studySetDesc, setStudySetDesc] = useState('');
+    const [selectedParentFolderId, setSelectedParentFolderId] = useState('');
+    const [isCreatingNewParentFolder, setIsCreatingNewParentFolder] = useState(false);
+    const [newParentFolderName, setNewParentFolderName] = useState('');
+    const [selectedVocabIndices, setSelectedVocabIndices] = useState(new Set());
+    const [selectedExistingStudySetId, setSelectedExistingStudySetId] = useState('');
+    const [creationLoading, setCreationLoading] = useState(false);
 
     // Table of contents
     const [showTOC, setShowTOC] = useState(true);
@@ -219,11 +246,6 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
     // ==================== LOAD DATA ====================
     useEffect(() => {
         loadAllData();
-        // Load vocab folders from localStorage
-        try {
-            const saved = localStorage.getItem('vocab_folders');
-            if (saved) setAvailableFolders(JSON.parse(saved));
-        } catch (e) { console.error('Error loading folders:', e); }
     }, []);
 
     // Load audio from subcollection when lesson changes
@@ -278,7 +300,9 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                         return;
                     }
                 } catch (e) {
-                    console.warn('Could not load progress from Firebase, falling back to localStorage:', e);
+                    if (e.code !== 'permission-denied') {
+                        console.warn('Could not load progress from Firebase, falling back to localStorage:', e);
+                    }
                 }
             }
 
@@ -325,7 +349,11 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                         try {
                             const progressDocRef = doc(db, `artifacts/${appId}/users/${userId}/bookProgress`, lessonPersistKey);
                             await setDoc(progressDocRef, { revealed: arr, updatedAt: new Date() }, { merge: true });
-                        } catch (e) { console.warn('Could not save progress to Firebase:', e); }
+                        } catch (e) {
+                            if (e.code !== 'permission-denied') {
+                                console.warn('Could not save progress to Firebase:', e);
+                            }
+                        }
                     }, 1000); // debounce 1 second
                 }
             }
@@ -350,7 +378,11 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
             try {
                 const progressDocRef = doc(db, `artifacts/${appId}/users/${userId}/bookProgress`, lessonPersistKey);
                 await deleteDoc(progressDocRef);
-            } catch (e) { console.warn('Could not delete progress from Firebase:', e); }
+            } catch (e) {
+                if (e.code !== 'permission-denied') {
+                    console.warn('Could not delete progress from Firebase:', e);
+                }
+            }
         }
     }, [lessonPersistKey, userId]);
 
@@ -859,16 +891,74 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
         }
     };
 
+    // Memoized study set linked to this lesson
+    const linkedStudySet = useMemo(() => {
+        if (!folders || !groupId || !bookId || !chapterId || !lessonId) return null;
+        return folders.find(f => 
+            f.type !== 'folder' && 
+            f.sourceLesson && 
+            f.sourceLesson.groupId === groupId && 
+            f.sourceLesson.bookId === bookId && 
+            f.sourceLesson.chapterId === chapterId && 
+            f.sourceLesson.lessonId === lessonId
+        );
+    }, [folders, groupId, bookId, chapterId, lessonId]);
+
+    // Check if the book vocab and linked study set cards are in sync
+    const syncStatus = useMemo(() => {
+        if (!linkedStudySet || !vocabWithAudio.length) return { isSynced: true, missingCount: 0 };
+        
+        let missingCount = 0;
+        for (const v of vocabWithAudio) {
+            const word = v.word || v.front || '';
+            const displayWord = word.split('（')[0].split('(')[0].trim();
+            
+            // Check if there is a card in allUserCards that has front === displayWord AND folderId === linkedStudySet.id
+            const existsInSet = allUserCards.some(c => {
+                const f = c.front.split('（')[0].split('(')[0].trim();
+                return f === displayWord && c.folderId === linkedStudySet.id;
+            });
+            
+            if (!existsInSet) {
+                missingCount++;
+            }
+        }
+        
+        return {
+            isSynced: missingCount === 0,
+            missingCount
+        };
+    }, [linkedStudySet, vocabWithAudio, allUserCards]);
+
     // ==================== ADD VOCAB TO SRS ====================
     const handleAddToSRS = async (vocab, index) => {
         if (!onAddVocabToSRS) return;
         const word = vocab.word || vocab.front || '';
-        const normalizedWord = word.split('（')[0].split('(')[0].trim();
+        const displayWord = word.split('（')[0].split('(')[0].trim();
         const exists = allUserCards.some(c => {
             const f = c.front.split('（')[0].split('(')[0].trim();
-            return f === normalizedWord;
+            return f === displayWord;
         });
-        if (exists) { setAddedVocabSet(prev => new Set([...prev, index])); return; }
+
+        if (exists) { 
+            // If it exists but is not in the linked study set, update its folderId!
+            if (linkedStudySet) {
+                const card = allUserCards.find(c => c.front.split('（')[0].split('(')[0].trim() === displayWord);
+                if (card && card.folderId !== linkedStudySet.id) {
+                    try {
+                        await updateDoc(doc(db, `artifacts/${appId}/users/${userId}/vocabulary`, card.id), {
+                            folderId: linkedStudySet.id
+                        });
+                        showToast(`Đã liên kết「${displayWord}」vào học phần bài học`, 'success');
+                        window.dispatchEvent(new Event('study_sets_updated'));
+                    } catch (e) {
+                        console.error('Error updating card folderId:', e);
+                    }
+                }
+            }
+            setAddedVocabSet(prev => new Set([...prev, index])); 
+            return; 
+        }
 
         setAddingVocabIndex(index);
         try {
@@ -887,7 +977,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                 audioBase64: vocab.audioBase64 || null,
                 exampleAudioBase64: vocab.exampleAudioBase64 || null,
                 action: 'stay',
-                folderId: selectedFolderId || null,
+                folderId: linkedStudySet ? linkedStudySet.id : (selectedFolderId || null),
             });
             setAddedVocabSet(prev => new Set([...prev, index]));
         } catch (e) { console.error('Error adding to SRS:', e); }
@@ -900,6 +990,356 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
             if (!addedVocabSet.has(i)) {
                 await handleAddToSRS(vocabWithAudio[i], i);
             }
+        }
+    };
+
+    // Redesign: create a study set with a batch of cards
+    const handleCreateStudySetFromLesson = async (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        if (!userId) {
+            showToast('Vui lòng đăng nhập để thực hiện chức năng này', 'warning');
+            return;
+        }
+        if (!studySetName.trim()) {
+            showToast('Vui lòng nhập tên học phần', 'warning');
+            return;
+        }
+
+        setCreationLoading(true);
+        try {
+            // 1. Create parent folder if user requested new one
+            let targetParentId = selectedParentFolderId;
+            if (isCreatingNewParentFolder && newParentFolderName.trim()) {
+                const pfRef = await addDoc(collection(db, `artifacts/${appId}/users/${userId}/studySets`), {
+                    name: newParentFolderName.trim(),
+                    type: 'folder',
+                    createdAt: serverTimestamp()
+                });
+                targetParentId = pfRef.id;
+            }
+
+            // 2. Create the study set
+            const setRef = await addDoc(collection(db, `artifacts/${appId}/users/${userId}/studySets`), {
+                name: studySetName.trim(),
+                description: studySetDesc.trim(),
+                parentId: targetParentId || null,
+                sourceLesson: {
+                    groupId,
+                    bookId,
+                    chapterId,
+                    lessonId
+                },
+                createdAt: serverTimestamp()
+            });
+            const newSetId = setRef.id;
+
+            // 3. Batch add/link vocabulary cards
+            const batch = writeBatch(db);
+            let addedCount = 0;
+            let updatedCount = 0;
+
+            const selectedVocabs = vocabWithAudio.filter((_, i) => selectedVocabIndices.has(i));
+
+            for (const v of selectedVocabs) {
+                const word = v.word || v.front || '';
+                const displayWord = word.split('（')[0].split('(')[0].trim();
+
+                const existingCard = allUserCards.find(c => {
+                    const f = c.front.split('（')[0].split('(')[0].trim();
+                    return f === displayWord;
+                });
+
+                if (existingCard) {
+                    if (!existingCard.folderId) {
+                        const cardDocRef = doc(db, `artifacts/${appId}/users/${userId}/vocabulary`, existingCard.id);
+                        batch.update(cardDocRef, { folderId: newSetId });
+                        updatedCount++;
+                    }
+                } else {
+                    const cardDocRef = doc(collection(db, `artifacts/${appId}/users/${userId}/vocabulary`));
+                    
+                    const newCardData = {
+                        front: word.trim(),
+                        back: (v.meaning || v.back || '').trim(),
+                        synonym: (v.synonym || '').trim(),
+                        sinoVietnamese: (v.sinoVietnamese || '').trim(),
+                        synonymSinoVietnamese: '',
+                        example: (v.example || '').trim(),
+                        exampleMeaning: (v.exampleMeaning || '').trim(),
+                        nuance: (v.nuance || v.note || '').trim(),
+                        pos: v.pos || '',
+                        level: v.level || '',
+                        audioBase64: v.audioBase64 || null,
+                        imageBase64: v.imageUrl || null,
+                        createdAt: serverTimestamp(),
+                        userId: userId,
+                        folderId: newSetId,
+                        intervalIndex_back: -1,
+                        correctStreak_back: 0,
+                        nextReview_back: new Date(),
+                        intervalIndex_synonym: v.synonym ? -1 : -999,
+                        correctStreak_synonym: 0,
+                        nextReview_synonym: v.synonym ? new Date() : new Date(9999, 0, 1),
+                        intervalIndex_example: v.example ? -1 : -999,
+                        correctStreak_example: 0,
+                        nextReview_example: v.example ? new Date() : new Date(9999, 0, 1),
+                        easeFactor: 2.5,
+                        totalReps: 0,
+                        srsEnabled: true,
+                    };
+
+                    if (v.exampleAudioBase64) {
+                        newCardData.exampleAudioBase64 = v.exampleAudioBase64;
+                    }
+
+                    if (!newCardData.audioBase64) {
+                        try {
+                            const res = await generateAudioSilentWithVoice(word, 'ryota');
+                            if (res && res.base64) {
+                                newCardData.audioBase64 = res.base64;
+                            }
+                        } catch(e) {}
+                    }
+
+                    batch.set(cardDocRef, newCardData);
+                    addedCount++;
+                }
+            }
+
+            await batch.commit();
+            showToast(`Đã tạo học phần và thêm ${addedCount + updatedCount} từ vựng!`, "success");
+            setShowCreateStudySetModal(false);
+            window.dispatchEvent(new Event('study_sets_updated'));
+        } catch (err) {
+            console.error("Lỗi tạo học phần:", err);
+            showToast("Lỗi: " + err.message, "error");
+        } finally {
+            setCreationLoading(false);
+        }
+    };
+
+    // Redesign: link to an existing study set
+    const handleLinkToExistingStudySet = async () => {
+        if (!selectedExistingStudySetId) {
+            showToast('Vui lòng chọn học phần', 'warning');
+            return;
+        }
+        if (!userId) return;
+
+        setCreationLoading(true);
+        try {
+            // 1. Link study set to this lesson by setting sourceLesson
+            await updateDoc(doc(db, `artifacts/${appId}/users/${userId}/studySets`, selectedExistingStudySetId), {
+                sourceLesson: {
+                    groupId,
+                    bookId,
+                    chapterId,
+                    lessonId
+                }
+            });
+
+            // 2. Add selected words to this study set
+            const batch = writeBatch(db);
+            let addedCount = 0;
+            let updatedCount = 0;
+
+            const selectedVocabs = vocabWithAudio.filter((_, i) => selectedVocabIndices.has(i));
+
+            for (const v of selectedVocabs) {
+                const word = v.word || v.front || '';
+                const displayWord = word.split('（')[0].split('(')[0].trim();
+
+                const existingCard = allUserCards.find(c => {
+                    const f = c.front.split('（')[0].split('(')[0].trim();
+                    return f === displayWord;
+                });
+
+                if (existingCard) {
+                    if (existingCard.folderId !== selectedExistingStudySetId) {
+                        const cardDocRef = doc(db, `artifacts/${appId}/users/${userId}/vocabulary`, existingCard.id);
+                        batch.update(cardDocRef, { folderId: selectedExistingStudySetId });
+                        updatedCount++;
+                    }
+                } else {
+                    const cardDocRef = doc(collection(db, `artifacts/${appId}/users/${userId}/vocabulary`));
+                    
+                    const newCardData = {
+                        front: word.trim(),
+                        back: (v.meaning || v.back || '').trim(),
+                        synonym: (v.synonym || '').trim(),
+                        sinoVietnamese: (v.sinoVietnamese || '').trim(),
+                        synonymSinoVietnamese: '',
+                        example: (v.example || '').trim(),
+                        exampleMeaning: (v.exampleMeaning || '').trim(),
+                        nuance: (v.nuance || v.note || '').trim(),
+                        pos: v.pos || '',
+                        level: v.level || '',
+                        audioBase64: v.audioBase64 || null,
+                        imageBase64: v.imageUrl || null,
+                        createdAt: serverTimestamp(),
+                        userId: userId,
+                        folderId: selectedExistingStudySetId,
+                        intervalIndex_back: -1,
+                        correctStreak_back: 0,
+                        nextReview_back: new Date(),
+                        intervalIndex_synonym: v.synonym ? -1 : -999,
+                        correctStreak_synonym: 0,
+                        nextReview_synonym: v.synonym ? new Date() : new Date(9999, 0, 1),
+                        intervalIndex_example: v.example ? -1 : -999,
+                        correctStreak_example: 0,
+                        nextReview_example: v.example ? new Date() : new Date(9999, 0, 1),
+                        easeFactor: 2.5,
+                        totalReps: 0,
+                        srsEnabled: true,
+                    };
+
+                    if (v.exampleAudioBase64) {
+                        newCardData.exampleAudioBase64 = v.exampleAudioBase64;
+                    }
+
+                    if (!newCardData.audioBase64) {
+                        try {
+                            const res = await generateAudioSilentWithVoice(word, 'ryota');
+                            if (res && res.base64) {
+                                newCardData.audioBase64 = res.base64;
+                            }
+                        } catch(e) {}
+                    }
+
+                    batch.set(cardDocRef, newCardData);
+                    addedCount++;
+                }
+            }
+
+            await batch.commit();
+            showToast(`Đã liên kết và đồng bộ ${addedCount + updatedCount} từ vựng!`, "success");
+            setShowLinkStudySetModal(false);
+            window.dispatchEvent(new Event('study_sets_updated'));
+        } catch (err) {
+            console.error("Lỗi liên kết học phần:", err);
+            showToast("Lỗi: " + err.message, "error");
+        } finally {
+            setCreationLoading(false);
+        }
+    };
+
+    // Redesign: sync vocabulary words between book lesson and study set
+    const handleSyncVocabWithStudySet = async () => {
+        if (!linkedStudySet || !userId) return;
+
+        setCreationLoading(true);
+        try {
+            const batch = writeBatch(db);
+            let addedCount = 0;
+            let updatedCount = 0;
+
+            for (const v of vocabWithAudio) {
+                const word = v.word || v.front || '';
+                const displayWord = word.split('（')[0].split('(')[0].trim();
+
+                const existingCard = allUserCards.find(c => {
+                    const f = c.front.split('（')[0].split('(')[0].trim();
+                    return f === displayWord;
+                });
+
+                if (existingCard) {
+                    if (existingCard.folderId !== linkedStudySet.id) {
+                        const cardDocRef = doc(db, `artifacts/${appId}/users/${userId}/vocabulary`, existingCard.id);
+                        batch.update(cardDocRef, { folderId: linkedStudySet.id });
+                        updatedCount++;
+                    }
+                } else {
+                    const cardDocRef = doc(collection(db, `artifacts/${appId}/users/${userId}/vocabulary`));
+                    
+                    const newCardData = {
+                        front: word.trim(),
+                        back: (v.meaning || v.back || '').trim(),
+                        synonym: (v.synonym || '').trim(),
+                        sinoVietnamese: (v.sinoVietnamese || '').trim(),
+                        synonymSinoVietnamese: '',
+                        example: (v.example || '').trim(),
+                        exampleMeaning: (v.exampleMeaning || '').trim(),
+                        nuance: (v.nuance || v.note || '').trim(),
+                        pos: v.pos || '',
+                        level: v.level || '',
+                        audioBase64: v.audioBase64 || null,
+                        imageBase64: v.imageUrl || null,
+                        createdAt: serverTimestamp(),
+                        userId: userId,
+                        folderId: linkedStudySet.id,
+                        intervalIndex_back: -1,
+                        correctStreak_back: 0,
+                        nextReview_back: new Date(),
+                        intervalIndex_synonym: v.synonym ? -1 : -999,
+                        correctStreak_synonym: 0,
+                        nextReview_synonym: v.synonym ? new Date() : new Date(9999, 0, 1),
+                        intervalIndex_example: v.example ? -1 : -999,
+                        correctStreak_example: 0,
+                        nextReview_example: v.example ? new Date() : new Date(9999, 0, 1),
+                        easeFactor: 2.5,
+                        totalReps: 0,
+                        srsEnabled: true,
+                    };
+
+                    if (v.exampleAudioBase64) {
+                        newCardData.exampleAudioBase64 = v.exampleAudioBase64;
+                    }
+
+                    if (!newCardData.audioBase64) {
+                        try {
+                            const res = await generateAudioSilentWithVoice(word, 'ryota');
+                            if (res && res.base64) {
+                                newCardData.audioBase64 = res.base64;
+                            }
+                        } catch(e) {}
+                    }
+
+                    batch.set(cardDocRef, newCardData);
+                    addedCount++;
+                }
+            }
+
+            await batch.commit();
+            showToast(`Đã đồng bộ từ vựng (thêm mới: ${addedCount}, liên kết lại: ${updatedCount})!`, "success");
+            window.dispatchEvent(new Event('study_sets_updated'));
+        } catch (err) {
+            console.error("Lỗi đồng bộ học phần:", err);
+            showToast("Lỗi: " + err.message, "error");
+        } finally {
+            setCreationLoading(false);
+        }
+    };
+
+    // Redesign: unlink study set from this lesson
+    const handleUnlinkStudySet = async () => {
+        if (!linkedStudySet || !userId) return;
+        if (!await showConfirm('Hủy liên kết học phần này với bài học? Học phần và từ vựng của bạn vẫn sẽ được giữ lại.', { confirmText: 'Hủy liên kết' })) return;
+        
+        try {
+            await updateDoc(doc(db, `artifacts/${appId}/users/${userId}/studySets`, linkedStudySet.id), {
+                sourceLesson: null
+            });
+            showToast('Đã hủy liên kết học phần.', 'success');
+            window.dispatchEvent(new Event('study_sets_updated'));
+        } catch (e) {
+            console.error('Error unlinking study set:', e);
+            showToast('Lỗi: ' + e.message, 'error');
+        }
+    };
+
+    // Redesign: delete linked study set completely
+    const handleDeleteStudySet = async () => {
+        if (!linkedStudySet || !userId) return;
+        if (!onDeleteFolder) return;
+        if (!await showConfirm('Xóa hoàn toàn học phần này? Toàn bộ từ vựng liên kết bên trong sẽ chuyển sang "Chưa phân loại".', { type: 'danger', confirmText: 'Xóa' })) return;
+        
+        try {
+            await onDeleteFolder(linkedStudySet.id);
+            showToast('Đã xóa học phần thành công.', 'success');
+            window.dispatchEvent(new Event('study_sets_updated'));
+        } catch (e) {
+            console.error('Error deleting study set:', e);
+            showToast('Lỗi: ' + e.message, 'error');
         }
     };
 
@@ -1439,28 +1879,6 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                             <p className="text-sm text-gray-500 dark:text-gray-400">{vocab.length} từ vựng</p>
                         </div>
                         <div className="flex items-center gap-2 flex-wrap">
-                            {/* Folder selector for SRS */}
-                            {onAddVocabToSRS && availableFolders.length > 0 && (
-                                <div className="flex items-center gap-1.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-xl px-2 py-1.5">
-                                    <Folder className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
-                                    <select
-                                        value={selectedFolderId}
-                                        onChange={e => setSelectedFolderId(e.target.value)}
-                                        className="text-xs bg-transparent text-gray-700 dark:text-gray-200 outline-none cursor-pointer"
-                                    >
-                                        <option value="">📂 Chưa phân loại</option>
-                                        {availableFolders.map(f => (
-                                            <option key={f.id} value={f.id}>📁 {f.name}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                            )}
-                            {onAddVocabToSRS && vocab.length > 0 && (
-                                <button onClick={handleAddAllToSRS}
-                                    className="flex items-center gap-1.5 px-3 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl text-sm font-medium transition-colors">
-                                    <Plus className="w-4 h-4" /> Thêm tất cả vào học phần
-                                </button>
-                            )}
                             {isAdmin && (
                                 <button onClick={() => { resetForm(); setShowJsonImport(true); }}
                                     className="flex items-center gap-1.5 px-3 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-sm font-medium">
@@ -1468,6 +1886,110 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                                 </button>
                             )}
                         </div>
+                    </div>
+
+                    {/* STUDY SET REDESIGN CONTROL PANEL */}
+                    <div className="bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 p-4 shadow-sm">
+                        {linkedStudySet ? (
+                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                <div className="space-y-1">
+                                    <div className="flex items-center gap-2">
+                                        <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                                        <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Đang liên kết học phần</span>
+                                    </div>
+                                    <h3 className="text-base font-extrabold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
+                                        <Folder className="w-4 h-4 text-sky-500 shrink-0" />
+                                        {linkedStudySet.name}
+                                    </h3>
+                                    {linkedStudySet.description && (
+                                        <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">{linkedStudySet.description}</p>
+                                    )}
+                                    {linkedStudySet.parentId && (
+                                        <div className="text-[11px] text-slate-400 flex items-center gap-1">
+                                            <span>Thư mục cha:</span>
+                                            <span className="font-semibold text-slate-500 dark:text-slate-300">
+                                                {parentFolders.find(pf => pf.id === linkedStudySet.parentId)?.name || 'Thư mục'}
+                                            </span>
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="flex items-center gap-2 flex-wrap">
+                                    {!syncStatus.isSynced && (
+                                        <button
+                                            onClick={handleSyncVocabWithStudySet}
+                                            disabled={creationLoading}
+                                            className="flex items-center gap-1.5 px-3 py-2 bg-amber-500 hover:bg-amber-600 disabled:opacity-50 text-white rounded-xl text-xs font-bold transition-all shadow-sm"
+                                            title={`Có ${syncStatus.missingCount} từ vựng mới trong sách chưa được thêm vào học phần. Click để đồng bộ.`}
+                                        >
+                                            <RefreshCw className={`w-3.5 h-3.5 ${creationLoading ? 'animate-spin' : ''}`} />
+                                            Đồng bộ ({syncStatus.missingCount} từ mới)
+                                        </button>
+                                    )}
+                                    
+                                    <button
+                                        onClick={() => navigate(`/vocab/set/${linkedStudySet.id}`)}
+                                        className="flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 text-white rounded-xl text-xs font-extrabold transition-all shadow-md hover:shadow-lg"
+                                    >
+                                        Học Ngay 🚀
+                                    </button>
+
+                                    <div className="relative group">
+                                        <button className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all border border-slate-200 dark:border-slate-700">
+                                            <Wrench className="w-3.5 h-3.5" />
+                                        </button>
+                                        <div className="absolute right-0 top-full mt-1.5 w-48 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 py-1 hidden group-hover:block z-20 after:content-[''] after:absolute after:-top-2 after:h-2 after:left-0 after:right-0">
+                                            <button
+                                                onClick={handleUnlinkStudySet}
+                                                className="w-full text-left px-3 py-2 text-xs text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 flex items-center gap-2"
+                                            >
+                                                <X className="w-3.5 h-3.5 text-slate-400" /> Hủy liên kết bài học
+                                            </button>
+                                            <button
+                                                onClick={handleDeleteStudySet}
+                                                className="w-full text-left px-3 py-2 text-xs text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/20 flex items-center gap-2 font-semibold"
+                                            >
+                                                <Trash2 className="w-3.5 h-3.5 text-rose-400" /> Xóa học phần
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div className="space-y-1">
+                                    <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300">Chưa tạo học phần cho bài này</h3>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                                        Tạo học phần mới hoặc liên kết bài học này với một học phần đã có để lưu trữ và học tập.
+                                    </p>
+                                </div>
+                                <div className="flex items-center gap-2 shrink-0">
+                                    <button
+                                        onClick={() => {
+                                            setStudySetName(`${currentBook?.name || ''} - ${currentLesson?.name || ''}`);
+                                            setStudySetDesc(`Học phần từ ${currentLesson?.name || ''} của sách ${currentBook?.name || ''}`);
+                                            setSelectedParentFolderId('');
+                                            setIsCreatingNewParentFolder(false);
+                                            setNewParentFolderName('');
+                                            setSelectedVocabIndices(new Set(vocab.map((_, i) => i)));
+                                            setShowCreateStudySetModal(true);
+                                        }}
+                                        className="flex items-center gap-1.5 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-xl text-xs font-bold transition-all shadow-md"
+                                    >
+                                        <Plus className="w-3.5 h-3.5" /> Tạo học phần mới
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            setSelectedExistingStudySetId('');
+                                            setSelectedVocabIndices(new Set(vocab.map((_, i) => i)));
+                                            setShowLinkStudySetModal(true);
+                                        }}
+                                        className="flex items-center gap-1.5 px-4 py-2 bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold transition-all"
+                                    >
+                                        <Layers className="w-3.5 h-3.5" /> Liên kết học phần
+                                    </button>
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     {/* Progress bar + Study controls */}
@@ -1787,18 +2309,7 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
 
                                                 {/* ACTION buttons */}
                                                 <div className="shrink-0 flex flex-col items-center justify-center gap-0.5 px-2 border-l border-gray-100 dark:border-gray-700">
-                                                    {onAddVocabToSRS && (
-                                                        inList ? (
-                                                            <span className="p-1.5 text-emerald-500" title="Đã có trong SRS"><Check className="w-4 h-4" /></span>
-                                                        ) : addingVocabIndex === i ? (
-                                                            <span className="p-1.5"><div className="w-4 h-4 border-2 border-sky-500 border-t-transparent rounded-full animate-spin"></div></span>
-                                                        ) : (
-                                                            <button onClick={(e) => { e.stopPropagation(); handleAddToSRS(v, i); }}
-                                                                className="p-1.5 text-gray-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors" title="Thêm vào SRS">
-                                                                <Plus className="w-4 h-4" />
-                                                            </button>
-                                                        )
-                                                    )}
+
                                                     {(v.nuance || v.note) && (
                                                         <button onClick={(e) => { e.stopPropagation(); setShowNuanceIndex(showNuanceIndex === i ? null : i); }}
                                                             className={`p-1.5 transition-colors ${showNuanceIndex === i ? 'text-amber-500' : 'text-gray-300 hover:text-amber-500'}`}
@@ -2130,6 +2641,311 @@ const BookScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserC
                     </div>
                 </div>
             </FormModal>
+
+
+            {/* Create Study Set Modal */}
+            {showCreateStudySetModal && (
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 animate-fadeIn">
+                    <div className="bg-white dark:bg-slate-800 rounded-3xl max-w-2xl w-full border border-slate-100 dark:border-slate-700 shadow-2xl flex flex-col max-h-[90vh] overflow-hidden">
+                        {/* Header */}
+                        <div className="px-6 py-4 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center">
+                            <div>
+                                <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+                                    <FolderPlus className="w-5 h-5 text-sky-500" />
+                                    Tạo học phần mới từ bài học
+                                </h3>
+                                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                                    Từ vựng của bài học này sẽ được tự động thêm vào học phần mới.
+                                </p>
+                            </div>
+                            <button 
+                                onClick={() => setShowCreateStudySetModal(false)}
+                                className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl text-slate-400 dark:text-slate-500 hover:text-slate-600 transition-all"
+                            >
+                                <X className="w-5 h-5" />
+                            </button>
+                        </div>
+
+                        {/* Content */}
+                        <div className="p-6 overflow-y-auto space-y-4 flex-1">
+                            <div>
+                                <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Tên học phần</label>
+                                <input 
+                                    type="text" 
+                                    value={studySetName} 
+                                    onChange={e => setStudySetName(e.target.value)}
+                                    placeholder="Ví dụ: N5 - Bài 1"
+                                    className="w-full px-3 py-2 border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-500"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Mô tả học phần (tùy chọn)</label>
+                                <textarea 
+                                    value={studySetDesc} 
+                                    onChange={e => setStudySetDesc(e.target.value)}
+                                    placeholder="Nhập mô tả cho học phần này..."
+                                    rows={2}
+                                    className="w-full px-3 py-2 border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-500 resize-none"
+                                />
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Thư mục cha</label>
+                                    <select 
+                                        value={selectedParentFolderId} 
+                                        onChange={e => {
+                                            setSelectedParentFolderId(e.target.value);
+                                            setIsCreatingNewParentFolder(e.target.value === 'NEW_PARENT');
+                                        }}
+                                        className="w-full px-3 py-2 border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-500"
+                                    >
+                                        <option value="">📂 Chưa phân loại (Gốc)</option>
+                                        {parentFolders.map(pf => (
+                                            <option key={pf.id} value={pf.id}>📁 {pf.name}</option>
+                                        ))}
+                                        <option value="NEW_PARENT">➕ Tạo thư mục mới...</option>
+                                    </select>
+                                </div>
+
+                                {isCreatingNewParentFolder && (
+                                    <div className="animate-fadeIn">
+                                        <label className="block text-xs font-bold text-sky-500 dark:text-sky-400 uppercase tracking-wider mb-1.5">Tên thư mục mới</label>
+                                        <input 
+                                            type="text" 
+                                            value={newParentFolderName} 
+                                            onChange={e => setNewParentFolderName(e.target.value)}
+                                            placeholder="Tên thư mục cha mới..."
+                                            className="w-full px-3 py-2 border border-sky-200 dark:border-sky-800 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-500"
+                                        />
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Vocabulary Checklist */}
+                            <div>
+                                <div className="flex items-center justify-between mb-2">
+                                    <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Chọn từ vựng muốn thêm ({selectedVocabIndices.size}/{vocabWithAudio.length})
+                                    </label>
+                                    <button 
+                                        type="button"
+                                        onClick={() => {
+                                            if (selectedVocabIndices.size === vocabWithAudio.length) {
+                                                setSelectedVocabIndices(new Set());
+                                            } else {
+                                                setSelectedVocabIndices(new Set(vocabWithAudio.map((_, i) => i)));
+                                            }
+                                        }}
+                                        className="text-xs text-sky-500 dark:text-sky-400 font-bold hover:underline"
+                                    >
+                                        {selectedVocabIndices.size === vocabWithAudio.length ? 'Bỏ chọn tất cả' : 'Chọn tất cả'}
+                                    </button>
+                                </div>
+                                <div className="border border-slate-100 dark:border-slate-700 rounded-2xl max-h-48 overflow-y-auto divide-y divide-slate-100 dark:divide-slate-700 bg-slate-50/50 dark:bg-slate-900/30">
+                                    {vocabWithAudio.map((v, i) => {
+                                        const word = v.word || v.front || '';
+                                        const displayWord = word.split('（')[0].split('(')[0].trim();
+                                        const isSelected = selectedVocabIndices.has(i);
+                                        const inList = allUserCards.some(c => c.front.split('（')[0].split('(')[0].trim() === displayWord);
+
+                                        return (
+                                            <div 
+                                                key={i} 
+                                                onClick={() => {
+                                                    setSelectedVocabIndices(prev => {
+                                                        const next = new Set(prev);
+                                                        if (next.has(i)) next.delete(i);
+                                                        else next.add(i);
+                                                        return next;
+                                                    });
+                                                }}
+                                                className="flex items-center gap-3 px-4 py-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/30 cursor-pointer transition-colors"
+                                            >
+                                                <input 
+                                                    type="checkbox" 
+                                                    checked={isSelected}
+                                                    onChange={() => {}} // handled by parent click
+                                                    className="w-4 h-4 rounded text-sky-500 border-slate-300 dark:border-slate-600 focus:ring-sky-500 cursor-pointer"
+                                                />
+                                                <div className="flex-1 min-w-0">
+                                                    <p className="text-sm font-bold text-slate-800 dark:text-slate-200 truncate">{displayWord}</p>
+                                                    <p className="text-xs text-slate-400 dark:text-slate-500 truncate">{v.meaning || v.back}</p>
+                                                </div>
+                                                {inList && (
+                                                    <span className="text-[10px] px-2 py-0.5 bg-emerald-100 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 rounded-full font-bold">
+                                                        Đã có trong SRS
+                                                    </span>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Footer */}
+                        <div className="px-6 py-4 border-t border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 flex justify-end gap-3">
+                            <button 
+                                type="button"
+                                onClick={() => setShowCreateStudySetModal(false)}
+                                className="px-4 py-2 border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 rounded-xl text-sm font-bold hover:bg-slate-100 dark:hover:bg-slate-700 transition-all"
+                            >
+                                Hủy
+                            </button>
+                            <button 
+                                type="button"
+                                onClick={handleCreateStudySetFromLesson}
+                                disabled={creationLoading || !studySetName.trim() || selectedVocabIndices.size === 0}
+                                className="px-5 py-2 bg-sky-500 hover:bg-sky-600 disabled:opacity-50 text-white rounded-xl text-sm font-extrabold transition-all shadow-md flex items-center gap-1.5"
+                            >
+                                {creationLoading ? (
+                                    <>
+                                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                        Đang tạo...
+                                    </>
+                                ) : (
+                                    'Tạo học phần 🚀'
+                                )}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Link Existing Study Set Modal */}
+            {showLinkStudySetModal && (
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 animate-fadeIn">
+                    <div className="bg-white dark:bg-slate-800 rounded-3xl max-w-2xl w-full border border-slate-100 dark:border-slate-700 shadow-2xl flex flex-col max-h-[90vh] overflow-hidden">
+                        {/* Header */}
+                        <div className="px-6 py-4 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center">
+                            <div>
+                                <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+                                    <Layers className="w-5 h-5 text-indigo-500" />
+                                    Liên kết với học phần sẵn có
+                                </h3>
+                                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                                    Chọn một học phần trống hoặc chưa liên kết từ thư viện của bạn.
+                                </p>
+                            </div>
+                            <button 
+                                onClick={() => setShowLinkStudySetModal(false)}
+                                className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl text-slate-400 dark:text-slate-500 hover:text-slate-600 transition-all"
+                            >
+                                <X className="w-5 h-5" />
+                            </button>
+                        </div>
+
+                        {/* Content */}
+                        <div className="p-6 overflow-y-auto space-y-4 flex-1">
+                            <div>
+                                <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Chọn học phần</label>
+                                <select 
+                                    value={selectedExistingStudySetId} 
+                                    onChange={e => setSelectedExistingStudySetId(e.target.value)}
+                                    className="w-full px-3 py-2 border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-500"
+                                >
+                                    <option value="">-- Chọn học phần trong danh sách --</option>
+                                    {folders.filter(f => f.type !== 'folder' && !f.sourceLesson).map(f => (
+                                        <option key={f.id} value={f.id}>📚 {f.name} ({allUserCards.filter(c => c.folderId === f.id).length} từ vựng)</option>
+                                    ))}
+                                    {folders.filter(f => f.type !== 'folder' && f.sourceLesson).map(f => (
+                                        <option key={f.id} value={f.id}>🔗 {f.name} (Đang liên kết bài khác - {allUserCards.filter(c => c.folderId === f.id).length} từ vựng)</option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            {/* Vocabulary Checklist */}
+                            <div>
+                                <div className="flex items-center justify-between mb-2">
+                                    <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                        Chọn từ vựng muốn thêm ({selectedVocabIndices.size}/{vocabWithAudio.length})
+                                    </label>
+                                    <button 
+                                        type="button"
+                                        onClick={() => {
+                                            if (selectedVocabIndices.size === vocabWithAudio.length) {
+                                                setSelectedVocabIndices(new Set());
+                                            } else {
+                                                setSelectedVocabIndices(new Set(vocabWithAudio.map((_, i) => i)));
+                                            }
+                                        }}
+                                        className="text-xs text-indigo-500 dark:text-indigo-400 font-bold hover:underline"
+                                    >
+                                        {selectedVocabIndices.size === vocabWithAudio.length ? 'Bỏ chọn tất cả' : 'Chọn tất cả'}
+                                    </button>
+                                </div>
+                                <div className="border border-slate-100 dark:border-slate-700 rounded-2xl max-h-48 overflow-y-auto divide-y divide-slate-100 dark:divide-slate-700 bg-slate-50/50 dark:bg-slate-900/30">
+                                    {vocabWithAudio.map((v, i) => {
+                                        const word = v.word || v.front || '';
+                                        const displayWord = word.split('（')[0].split('(')[0].trim();
+                                        const isSelected = selectedVocabIndices.has(i);
+                                        const inList = allUserCards.some(c => c.front.split('（')[0].split('(')[0].trim() === displayWord);
+
+                                        return (
+                                            <div 
+                                                key={i} 
+                                                onClick={() => {
+                                                    setSelectedVocabIndices(prev => {
+                                                        const next = new Set(prev);
+                                                        if (next.has(i)) next.delete(i);
+                                                        else next.add(i);
+                                                        return next;
+                                                    });
+                                                }}
+                                                className="flex items-center gap-3 px-4 py-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/30 cursor-pointer transition-colors"
+                                            >
+                                                <input 
+                                                    type="checkbox" 
+                                                    checked={isSelected}
+                                                    onChange={() => {}} // handled by parent click
+                                                    className="w-4 h-4 rounded text-indigo-500 border-slate-300 dark:border-slate-600 focus:ring-indigo-500 cursor-pointer"
+                                                />
+                                                <div className="flex-1 min-w-0">
+                                                    <p className="text-sm font-bold text-slate-800 dark:text-slate-200 truncate">{displayWord}</p>
+                                                    <p className="text-xs text-slate-400 dark:text-slate-500 truncate">{v.meaning || v.back}</p>
+                                                </div>
+                                                {inList && (
+                                                    <span className="text-[10px] px-2 py-0.5 bg-emerald-100 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 rounded-full font-bold">
+                                                        Đã có trong SRS
+                                                    </span>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Footer */}
+                        <div className="px-6 py-4 border-t border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 flex justify-end gap-3">
+                            <button 
+                                type="button"
+                                onClick={() => setShowLinkStudySetModal(false)}
+                                className="px-4 py-2 border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 rounded-xl text-sm font-bold hover:bg-slate-100 dark:hover:bg-slate-700 transition-all"
+                            >
+                                Hủy
+                            </button>
+                            <button 
+                                type="button"
+                                onClick={handleLinkToExistingStudySet}
+                                disabled={creationLoading || !selectedExistingStudySetId || selectedVocabIndices.size === 0}
+                                className="px-5 py-2 bg-indigo-500 hover:bg-indigo-600 disabled:opacity-50 text-white rounded-xl text-sm font-extrabold transition-all shadow-md flex items-center gap-1.5"
+                            >
+                                {creationLoading ? (
+                                    <>
+                                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                        Đang liên kết...
+                                    </>
+                                ) : (
+                                    'Liên kết ngay 🔗'
+                                )}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Fix Audio Modal */}
             {FixAudioModal()}

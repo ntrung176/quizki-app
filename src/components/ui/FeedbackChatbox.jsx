@@ -40,13 +40,21 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
                 return aTime - bTime;
             });
 
-            setMessages(list);
+            setMessages(prev => {
+                const isFirstLoad = prev.length === 0;
+                const hasNewMessages = list.length > prev.length;
+                if (isFirstLoad) {
+                    setTimeout(() => {
+                        messagesEndRef.current?.scrollIntoView({ behavior: 'auto' });
+                    }, 50);
+                } else if (hasNewMessages) {
+                    setTimeout(() => {
+                        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+                    }, 50);
+                }
+                return list;
+            });
             setLoading(false);
-            
-            // Scroll to bottom
-            setTimeout(() => {
-                messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
         }, (error) => {
             console.error("Error loading chat messages:", error);
             setLoading(false);
@@ -57,38 +65,39 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
 
     // Keep track of unread messages when chatbox is CLOSED
     useEffect(() => {
-        if (!userId || !db || isOpen) {
-            if (isOpen) {
-                setUnreadCount(0);
-                setHasNewMessage(false);
+        if (!userId || !db || isOpen) return;
+
+        const statusDocRef = doc(db, `artifacts/${appId}/forum`, `support_chat_${userId}`);
+        const unsubscribe = onSnapshot(statusDocRef, (docSnap) => {
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                setHasNewMessage(!!data.hasUnreadUser);
             }
-            return;
-        }
-
-        const q = collection(db, chatPath);
-
-        const unsubscribe = onSnapshot(q, (snapshot) => {
-            if (snapshot.empty) return;
-            
-            const list = snapshot.docs.map(doc => doc.data());
-
-            // Sort client-side
-            list.sort((a, b) => {
-                const aTime = a.createdAt?.toDate ? a.createdAt.toDate().getTime() : (a.createdAt || 0);
-                const bTime = b.createdAt?.toDate ? b.createdAt.toDate().getTime() : (b.createdAt || 0);
-                return bTime - aTime;
-            });
-
-            const latestMsg = list[0];
-            // If the latest message was from admin and sent recently
-            if (latestMsg.isAdmin && latestMsg.createdAt) {
-                setUnreadCount(prev => prev + 1);
-                setHasNewMessage(true);
-            }
+        }, (error) => {
+            console.error("Error listening to unread status:", error);
         });
 
         return () => unsubscribe();
     }, [userId, isOpen]);
+
+    // Mark as read when chatbox is opened
+    useEffect(() => {
+        if (isOpen && userId && db) {
+            const markAsRead = async () => {
+                try {
+                    const statusDocRef = doc(db, `artifacts/${appId}/forum`, `support_chat_${userId}`);
+                    await setDoc(statusDocRef, {
+                        hasUnreadUser: false
+                    }, { merge: true });
+                    setHasNewMessage(false);
+                    setUnreadCount(0);
+                } catch (e) {
+                    console.error("Error marking messages as read:", e);
+                }
+            };
+            markAsRead();
+        }
+    }, [isOpen, userId]);
 
     // Scroll to bottom on open
     useEffect(() => {
@@ -174,6 +183,8 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
                 email: profile?.email || '',
                 text: textToSend,
                 isAdminReply: false,
+                hasUnreadAdmin: true,
+                hasUnreadUser: false,
                 updatedAt: serverTimestamp()
             }, { merge: true });
 

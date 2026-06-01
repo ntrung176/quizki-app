@@ -3,6 +3,8 @@ import LoadingIndicator from '../ui/LoadingIndicator';
 import { useSearchParams, useParams, useNavigate, useLocation } from 'react-router-dom';
 import { Search, Grid, PenTool, Download, BookOpen, Map as MapIcon, Globe, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Play, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw, ChevronUp, ChevronDown, Sparkles } from 'lucide-react';
 import { db } from '../../config/firebase';
+import { getAuth } from 'firebase/auth';
+import { recordRecentKanji } from '../../utils/kanjiHistory';
 import { collection, getDocs, getDocsFromServer, addDoc, deleteDoc, doc, query, where, writeBatch, updateDoc } from 'firebase/firestore';
 import { playAudio } from '../../utils/audio';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
@@ -275,6 +277,18 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         }
     }, [params.char, searchParams]);
 
+    // Handle search query and level parameters from URL
+    useEffect(() => {
+        const queryParam = searchParams.get('search');
+        if (queryParam) {
+            setSearchQuery(queryParam);
+        }
+        const levelParam = searchParams.get('level');
+        if (levelParam && ['N5', 'N4', 'N3', 'N2', 'N1'].includes(levelParam)) {
+            setSelectedLevel(levelParam);
+        }
+    }, [searchParams]);
+
     // Fetch Kanji API data + set up data when kanji is selected
     useEffect(() => {
         if (!selectedKanji) return;
@@ -296,6 +310,14 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             componentMeaning: kanjiData?.meaning || null,
         });
         setLoadingApiData(false);
+    }, [selectedKanji]);
+
+    // Record recently viewed Kanji
+    useEffect(() => {
+        if (!selectedKanji) return;
+        const auth = getAuth();
+        const userId = auth.currentUser?.uid;
+        recordRecentKanji(userId, selectedKanji);
     }, [selectedKanji]);
 
     // Sidebar kanji preview stroke animation (HanziWriter)
@@ -1935,14 +1957,14 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         }
         // Call as function (useCallback result) with isFullPage=true
         return (
-            <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 text-gray-900 dark:text-white">
+            <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 text-gray-900 dark:text-white animate-fade-in">
                 {KanjiDetailModal({ isFullPage: true })}
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950/20 text-gray-900 dark:text-white pb-12 transition-colors duration-300">
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950/20 text-gray-900 dark:text-white pb-12 transition-colors duration-300 animate-fade-in">
             <TopTabBar tabs={KANJI_TABS} />
             <div className="max-w-6xl mx-auto px-4 md:px-8 space-y-6 mt-6">
                 
