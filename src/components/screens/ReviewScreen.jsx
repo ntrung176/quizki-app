@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import {
     Zap, RotateCw, RotateCcw, MessageSquare, FileText, Repeat2, Send,
     ChevronRight, Check, X, Lightbulb, ArrowLeft, Eye, EyeOff, Settings, Volume2, Headphones
@@ -19,6 +20,75 @@ import FuriganaText from '../ui/FuriganaText';
 // Helper function to detect mobile devices
 const isMobileDevice = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+};
+
+const getCardScaleStyles = (card, cardSettings) => {
+    if (!card) return {};
+    
+    // Check if example display setting is enabled
+    const hasFrontExample = !!(cardSettings?.front?.example && card.example);
+    const hasBackExample = !!(cardSettings?.back?.example && card.example);
+    const showExamples = hasFrontExample || hasBackExample;
+    
+    let wordSize = "text-3xl md:text-4xl";
+    let titleSize = "text-xl";
+    let meaningSize = "text-lg";
+    let exampleBoxPadding = "p-4";
+    let exampleItemGap = "space-y-3";
+    let exampleTitleSize = "text-xs";
+    let exampleTextSize = "text-sm";
+    let exampleMeaningSize = "text-xs font-sans mt-0.5";
+    let cardPadding = "p-6";
+    
+    // Only scale down if the user has enabled example display setting
+    if (showExamples) {
+        let textLength = card.example.length + (card.exampleMeaning?.length || 0) + card.back.length;
+        const exampleLines = card.example.split('\n').filter(e => e.trim()).length;
+        
+        if (textLength > 240 || exampleLines >= 3) {
+            wordSize = "text-[20px] md:text-[22px] leading-tight font-extrabold";
+            titleSize = "text-sm font-extrabold";
+            meaningSize = "text-xs px-4 py-2 rounded-xl mt-1.5 font-medium";
+            exampleBoxPadding = "p-2";
+            exampleItemGap = "space-y-1";
+            exampleTitleSize = "text-[9px]";
+            exampleTextSize = "text-[10px] leading-tight";
+            exampleMeaningSize = "text-[9px] font-sans mt-0 leading-tight";
+            cardPadding = "p-4 pb-12";
+        } else if (textLength > 150 || exampleLines >= 2) {
+            wordSize = "text-2xl leading-snug font-extrabold";
+            titleSize = "text-base font-extrabold";
+            meaningSize = "text-sm px-5 py-2.5 rounded-2xl mt-2 font-medium";
+            exampleBoxPadding = "p-2.5";
+            exampleItemGap = "space-y-1.5";
+            exampleTitleSize = "text-[10px]";
+            exampleTextSize = "text-[11.5px] leading-snug";
+            exampleMeaningSize = "text-[10px] font-sans mt-0.5 leading-snug";
+            cardPadding = "p-5 pb-12";
+        } else {
+            wordSize = "text-2xl md:text-3xl leading-normal font-extrabold";
+            titleSize = "text-xl font-extrabold";
+            meaningSize = "text-base px-5 py-2.5 rounded-2xl mt-2 font-medium";
+            exampleBoxPadding = "p-3";
+            exampleItemGap = "space-y-2";
+            exampleTitleSize = "text-[11px]";
+            exampleTextSize = "text-[12.5px] leading-normal";
+            exampleMeaningSize = "text-[11px] font-sans mt-0.5";
+            cardPadding = "p-6 pb-12";
+        }
+    }
+    
+    return {
+        wordSize,
+        titleSize,
+        meaningSize,
+        exampleBoxPadding,
+        exampleItemGap,
+        exampleTitleSize,
+        exampleTextSize,
+        exampleMeaningSize,
+        cardPadding
+    };
 };
 
 const ReviewScreen = ({
@@ -68,6 +138,35 @@ const ReviewScreen = ({
     const [isProcessing, setIsProcessing] = useState(false);
     const [isFlipped, setIsFlipped] = useState(false);
     const [slideDirection, setSlideDirection] = useState('');
+
+    // Card Settings State (stored in localStorage with v2 version to apply new defaults)
+    const [cardSettings, setCardSettings] = useState(() => {
+        try {
+            const saved = localStorage.getItem('quizki_flashcard_settings_v2');
+            if (saved) return JSON.parse(saved);
+        } catch (e) {}
+        return {
+            front: {
+                word: true,
+                furigana: false,
+                hanviet: false,
+                example: false
+            },
+            back: {
+                meaning: true,
+                hanviet: true,
+                synonym: false,
+                example: false
+            },
+            swapSides: false
+        };
+    });
+
+    const [showSettingsMenu, setShowSettingsMenu] = useState(false);
+
+    useEffect(() => {
+        localStorage.setItem('quizki_flashcard_settings_v2', JSON.stringify(cardSettings));
+    }, [cardSettings]);
     const [touchStart, setTouchStart] = useState(null);
     const [touchEnd, setTouchEnd] = useState(null);
     const [swipeOffset, setSwipeOffset] = useState(0);
@@ -351,6 +450,17 @@ const ReviewScreen = ({
         window.addEventListener('keydown', handleMCKeyDown);
         return () => window.removeEventListener('keydown', handleMCKeyDown);
     }, [isMultipleChoice, isRevealed, isProcessing, feedback, multipleChoiceOptions]);
+
+    const handleFlip = useCallback(() => {
+        const newFlippedState = !isFlipped;
+        setIsFlipped(newFlippedState);
+        if (currentCard) {
+            const isJapaneseSideVisible = !cardSettings.swapSides ? !newFlippedState : newFlippedState;
+            if (isJapaneseSideVisible) {
+                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+            }
+        }
+    }, [isFlipped, currentCard, cardSettings.swapSides]);
 
 
     // Swipe handlers
@@ -1035,7 +1145,8 @@ const ReviewScreen = ({
                                         <Settings className="w-4 h-4" />
                                     </button>
                                 )}
-                            </div>                        </div>
+                            </div>
+                        </div>
                         <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                             <div className="h-full bg-indigo-500 progress-bar rounded-full" style={{ width: `${progress}%` }}></div>
                         </div>
@@ -1060,7 +1171,7 @@ const ReviewScreen = ({
                                     onTouchMove={onTouchMove}
                                     onTouchEnd={onTouchEnd}
                                     style={{
-                                        width: '100%',
+                                        width: '105%',
                                         minHeight: '480px',
                                         height: 'auto',
                                         transform: swipeOffset ? `translateX(${swipeOffset}px)` : undefined,
@@ -1068,74 +1179,34 @@ const ReviewScreen = ({
                                         touchAction: 'pan-y',
                                     }}
                                 >
-                                    {/* Front side */}
-                                    <div className="flip-card-front backface-hidden absolute inset-0 w-full h-full">
-                                        <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl shadow-2xl p-6 flex flex-col items-center justify-center w-full h-full border-4 border-white hover:shadow-3xl transition-shadow overflow-hidden">
-                                            <div className="text-center flex-1 flex flex-col justify-center w-full px-2">
-                                                <p className="text-xs text-indigo-200 mb-3 font-medium uppercase tracking-wide">Từ vựng</p>
-                                                <h3 className="flashcard-front-text font-bold text-white mb-4 break-words font-japanese">
-                                                    <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} />
-                                                </h3>
-                                                <div className="flex items-center justify-center gap-2 flex-wrap">
-                                                    {currentCard.level && (
-                                                        <span className="inline-block px-2 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold rounded-full">
-                                                            {currentCard.level}
-                                                        </span>
-                                                    )}
-                                                    {currentCard.pos && (
-                                                        <span className="inline-block px-2 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full">
-                                                            {POS_TYPES[currentCard.pos]?.label || currentCard.pos}
-                                                        </span>
-                                                    )}
-                                                </div>
-                                            </div>
-                                            <div className="absolute bottom-4 right-4 text-white/30">
-                                                <RotateCw className="w-4 h-4 animate-pulse" />
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {(() => {
+                                        const scale = getCardScaleStyles(currentCard, cardSettings);
 
-                                    {/* Back side */}
-                                    <div className="flip-card-back backface-hidden absolute inset-0 w-full h-full rotate-y-180">
-                                        <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl shadow-2xl p-6 w-full h-full border-4 border-white hover:shadow-3xl transition-shadow flex flex-col overflow-y-auto">
-                                            <div className="flex-1 flex items-center justify-center gap-5">
-                                                {/* Image on the left */}
-                                                {currentCard.imageBase64 && (
-                                                    <div className="shrink-0">
-                                                        <img
-                                                            src={currentCard.imageBase64}
-                                                            alt={currentCard.front}
-                                                            className="w-36 h-36 md:w-44 md:h-44 rounded-2xl object-cover border-4 border-white/30 shadow-lg"
-                                                        />
-                                                    </div>
-                                                )}
-                                                <div className={`flex flex-col gap-3 ${currentCard.imageBase64 ? 'text-left' : 'text-center items-center'}`}>
-                                                    <p className="text-xs text-emerald-200 font-medium uppercase tracking-wide">Ý nghĩa</p>
-                                                    <div className="flashcard-back-text font-extrabold text-white break-words whitespace-pre-line text-auto-fit">
-                                                        {formatMultipleMeanings(currentCard.back)}
-                                                    </div>
-                                                    {currentCard.sinoVietnamese && (
-                                                        <p className="text-base font-medium text-yellow-300 mt-2">
-                                                            <span className="text-slate-400 font-normal">Hán Việt: </span>{currentCard.sinoVietnamese}
+                                        const renderFrontContent = () => {
+                                            if (!currentCard) return null;
+                                            return (
+                                                <div className="flex-1 flex flex-col items-center justify-center text-center space-y-4 w-full">
+                                                    {cardSettings.front.word && (
+                                                        <div className={`${scale.wordSize} font-bold text-white font-japanese select-none leading-relaxed`}>
+                                                            <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} forceHide={!cardSettings.front.furigana} />
+                                                        </div>
+                                                    )}
+                                                    {cardSettings.front.hanviet && currentCard.sinoVietnamese && (
+                                                        <p className="text-amber-200 text-sm font-semibold">
+                                                            <span className="text-indigo-200 font-normal">Hán Việt: </span>{currentCard.sinoVietnamese}
                                                         </p>
                                                     )}
-                                                    {currentCard.synonym && (
-                                                        <p className="text-emerald-100 text-lg md:text-xl mt-2 font-bold">
-                                                            <span className="font-semibold opacity-90 text-base md:text-lg">Đồng nghĩa:</span>{' '}
-                                                            <FuriganaText text={currentCard.synonym} className="font-japanese font-black" />
-                                                        </p>
-                                                    )}
-                                                    {currentCard.example && (
-                                                        <div className="mt-3 space-y-3 text-left w-full max-w-md mx-auto">
+                                                    {cardSettings.front.example && currentCard.example && (
+                                                        <div className={`mt-3 ${scale.exampleItemGap} text-left w-full max-w-md mx-auto ${scale.exampleBoxPadding} bg-white/10 border border-white/20 rounded-2xl`}>
                                                             {currentCard.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
                                                                 const meaning = (currentCard.exampleMeaning || '').split('\n')[idx]?.trim();
                                                                 return (
                                                                     <div key={idx} className="border-l-2 border-white/30 pl-3">
-                                                                        <div className="text-sm text-emerald-50 dark:text-emerald-100 font-japanese leading-relaxed">
+                                                                        <div className={`${scale.exampleTextSize} text-indigo-100 font-japanese leading-relaxed`}>
                                                                             <FuriganaText text={ex} />
                                                                         </div>
                                                                         {meaning && (
-                                                                            <p className="text-xs text-emerald-200/90 mt-0.5 font-sans">{meaning}</p>
+                                                                            <p className={`${scale.exampleMeaningSize} text-indigo-200 mt-0.5 font-sans`}>{meaning}</p>
                                                                         )}
                                                                     </div>
                                                                 );
@@ -1143,17 +1214,121 @@ const ReviewScreen = ({
                                                         </div>
                                                     )}
                                                 </div>
-                                            </div>
-                                            <div className="absolute bottom-4 right-4 text-white/30">
-                                                <RotateCw className="w-4 h-4 animate-pulse" />
-                                            </div>
-                                        </div>
-                                    </div>
+                                            );
+                                        };
+
+                                        const renderBackContent = () => {
+                                            if (!currentCard) return null;
+                                            return (
+                                                <div className="flex-1 flex flex-col md:flex-row items-center justify-center gap-6 px-2 w-full">
+                                                    {currentCard.imageBase64 && (
+                                                        <div className="flex-shrink-0">
+                                                            <img
+                                                                src={currentCard.imageBase64}
+                                                                alt={currentCard.front}
+                                                                className="w-36 h-36 md:w-44 md:h-44 rounded-2xl object-cover border-4 border-white/30 shadow-lg"
+                                                            />
+                                                        </div>
+                                                    )}
+                                                    <div className={`flex flex-col gap-2 ${currentCard.imageBase64 ? 'text-left min-w-0 flex-1' : 'text-center items-center w-full'}`}>
+                                                        {cardSettings.back.meaning && (
+                                                            <div className={`${scale.meaningSize} flashcard-back-text font-extrabold text-white break-words whitespace-pre-line text-auto-fit`}>
+                                                                {formatMultipleMeanings(currentCard.back)}
+                                                            </div>
+                                                        )}
+                                                        {cardSettings.back.hanviet && currentCard.sinoVietnamese && (
+                                                            <p className="text-base font-medium text-yellow-300 mt-1">
+                                                                <span className="text-emerald-100 font-normal">Hán Việt: </span>{currentCard.sinoVietnamese}
+                                                            </p>
+                                                        )}
+                                                        {currentCard.pos && (
+                                                            <p className="text-sm mt-1">
+                                                                <span className="inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full">
+                                                                    {POS_TYPES[currentCard.pos]?.label || currentCard.pos}
+                                                                </span>
+                                                            </p>
+                                                        )}
+                                                        {cardSettings.back.synonym && currentCard.synonym && (
+                                                            <p className="text-emerald-105 text-lg mt-2 font-bold">
+                                                                <span className="font-semibold opacity-90 text-base">Đồng nghĩa:</span>{' '}
+                                                                <FuriganaText text={currentCard.synonym} className="font-japanese font-black" />
+                                                            </p>
+                                                        )}
+                                                        {cardSettings.back.example && currentCard.example && (
+                                                            <div className={`mt-3 ${scale.exampleItemGap} text-left w-full max-w-md mx-auto ${scale.exampleBoxPadding} bg-white/10 border border-white/20 rounded-2xl`}>
+                                                                {currentCard.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
+                                                                    const meaning = (currentCard.exampleMeaning || '').split('\n')[idx]?.trim();
+                                                                    return (
+                                                                        <div key={idx} className="border-l-2 border-white/30 pl-3">
+                                                                            <div className={`${scale.exampleTextSize} text-emerald-55 dark:text-emerald-100 font-japanese leading-relaxed`}>
+                                                                                <FuriganaText text={ex} />
+                                                                            </div>
+                                                                            {meaning && (
+                                                                                <p className={`${scale.exampleMeaningSize} text-emerald-200 mt-0.5 font-sans`}>{meaning}</p>
+                                                                            )}
+                                                                        </div>
+                                                                    );
+                                                                })}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            );
+                                        };
+
+                                        return (
+                                            <>
+                                                {/* Front side */}
+                                                <div className="flip-card-front backface-hidden absolute inset-0 w-full h-full">
+                                                    <div className={`bg-gradient-to-br from-indigo-500 to-purple-600 rounded-[32px] border-4 border-white shadow-2xl ${scale.cardPadding || 'p-6'} flex flex-col items-center w-full h-full hover:shadow-3xl transition-shadow relative overflow-hidden`}>
+                                                        <div className="flex flex-col items-center justify-center min-h-full w-full py-4 pb-14 relative">
+                                                            {!cardSettings.swapSides ? renderFrontContent() : renderBackContent()}
+                                                        </div>
+
+                                                        <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
+                                                            <span className="px-3.5 py-1.5 bg-white/20 text-white rounded-full text-xs font-semibold shadow-sm tracking-wide">
+                                                                Nhấn để lật thẻ
+                                                            </span>
+                                                        </div>
+
+                                                        {/* Settings Button */}
+                                                        <button
+                                                            onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
+                                                            className="absolute bottom-4 right-4 p-2 bg-white/20 hover:bg-white/35 backdrop-blur-sm text-white rounded-full transition-all hover:scale-110 z-30 shadow-md border border-white/20"
+                                                            title="Cấu hình hiển thị"
+                                                        >
+                                                            <Settings className="w-4 h-4" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                {/* Back side */}
+                                                <div className="flip-card-back backface-hidden absolute inset-0 w-full h-full rotate-y-180">
+                                                    <div className={`bg-gradient-to-br from-emerald-500 to-teal-600 rounded-[32px] border-4 border-white shadow-2xl ${scale.cardPadding || 'p-6'} flex flex-col items-center w-full h-full hover:shadow-3xl transition-shadow relative overflow-hidden`}>
+                                                        <div className="flex flex-col items-center justify-center min-h-full w-full py-4 pb-14 relative">
+                                                            {!cardSettings.swapSides ? renderBackContent() : renderFrontContent()}
+                                                        </div>
+
+                                                        <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
+                                                            <span className="px-3.5 py-1.5 bg-white/20 text-white rounded-full text-xs font-semibold shadow-sm tracking-wide">
+                                                                Nhấn để lật thẻ
+                                                            </span>
+                                                        </div>
+
+                                                        {/* Settings Button */}
+                                                        <button
+                                                            onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
+                                                            className="absolute bottom-4 right-4 p-2 bg-white/20 hover:bg-white/35 backdrop-blur-sm text-white rounded-full transition-all hover:scale-110 z-30 shadow-md border border-white/20"
+                                                            title="Cấu hình hiển thị"
+                                                        >
+                                                            <Settings className="w-4 h-4" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </>
+                                        );
+                                    })()}
                                 </div>
-                                <p className="text-center text-[10px] md:text-xs text-gray-500 mt-3 flex items-center justify-center gap-1">
-                                    <RotateCw className="w-3 h-3" />
-                                    Click vào card để lật | Space: Lật | ← →: Chuyển thẻ | Trượt trái/phải: Chuyển thẻ
-                                </p>
                             </div>
                         ) : (
                             <div className="w-full bg-slate-800 dark:bg-slate-900 rounded-2xl shadow-xl p-5 flex flex-col text-center relative border-2 border-indigo-500/50">
@@ -1632,7 +1807,7 @@ const ReviewScreen = ({
             </div>
 
             {/* Settings Modal Popup */}
-            {showSettings && (
+            {showSettings && createPortal(
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setShowSettings(false)}>
                     <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
                     <div className="relative bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-sm p-6 space-y-5 border border-gray-200 dark:border-slate-700"
@@ -1662,7 +1837,7 @@ const ReviewScreen = ({
                                         }}
                                         className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${inputMode === 'meaning'
                                             ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
-                                            : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
+                                            : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
                                             }`}
                                     >
                                         🇻🇳 Tiếng Việt
@@ -1676,7 +1851,7 @@ const ReviewScreen = ({
                                         }}
                                         className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${inputMode === 'reading'
                                             ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
-                                            : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
+                                            : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
                                             }`}
                                     >
                                         🇯🇵 Tiếng Nhật
@@ -1691,7 +1866,7 @@ const ReviewScreen = ({
                                         onClick={() => { setReviewTestFormat('multipleChoice'); localStorage.setItem('review_test_format', 'multipleChoice'); }}
                                         className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${reviewTestFormat === 'multipleChoice'
                                             ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
-                                            : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
+                                            : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
                                             }`}
                                     >
                                         📝 Trắc nghiệm
@@ -1700,7 +1875,7 @@ const ReviewScreen = ({
                                         onClick={() => { setReviewTestFormat('written'); localStorage.setItem('review_test_format', 'written'); }}
                                         className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${reviewTestFormat === 'written'
                                             ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
-                                            : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500'
+                                            : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
                                             }`}
                                     >
                                         ✏️ Tự luận
@@ -1717,7 +1892,51 @@ const ReviewScreen = ({
                             Xong
                         </button>
                     </div>
-                </div>
+                </div>,
+                document.body
+            )}
+
+            {/* Flashcard Settings Modal */}
+            {showSettingsMenu && createPortal(
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={() => setShowSettingsMenu(false)}>
+                    <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+                    <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700/80 animate-fade-in text-slate-850 dark:text-slate-200" onClick={e => e.stopPropagation()}>
+                        <h4 className="font-extrabold text-lg border-b border-gray-150 dark:border-slate-700 pb-2.5 mb-3">Cấu hình thẻ ghi nhớ</h4>
+                        <div className="space-y-4 text-xs font-semibold text-slate-750 dark:text-slate-350">
+                            <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
+                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
+                                <label className="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" checked={cardSettings.swapSides} onChange={(e) => setCardSettings(prev => ({ ...prev, swapSides: e.target.checked }))} className="sr-only peer" />
+                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                </label>
+                            </div>
+                            <div>
+                                <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Nhật hiển thị:</p>
+                                <div className="space-y-2.5 pl-1 text-[13px]">
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.word} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Chữ Hán / Từ vựng</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.furigana} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Phiên âm Furigana</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.example} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
+                                </div>
+                            </div>
+                            <div>
+                                <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
+                                <div className="space-y-2.5 pl-1 text-[13px]">
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Đồng nghĩa</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="pt-3">
+                            <button onClick={() => setShowSettingsMenu(false)} className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95 text-sm">
+                                Đóng
+                            </button>
+                        </div>
+                    </div>
+                </div>,
+                document.body
             )}
         </div>
     );

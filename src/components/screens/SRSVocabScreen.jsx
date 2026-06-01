@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Layers, ArrowRight, CheckCircle2, RotateCw, BookOpen, AlertCircle, Calendar, Play, Plus, Zap, Award, ChevronLeft, Target, Volume2, X } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { Layers, ArrowRight, CheckCircle2, RotateCw, BookOpen, AlertCircle, Calendar, Play, Plus, Zap, Award, ChevronLeft, Target, Volume2, X, Settings } from 'lucide-react';
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import { useNavigate } from 'react-router-dom';
@@ -54,6 +55,75 @@ const getPreviewIntervals = (card) => {
     return result;
 };
 
+const getCardScaleStyles = (card, cardSettings) => {
+    if (!card) return {};
+    
+    // Check if example display setting is enabled
+    const hasFrontExample = !!(cardSettings?.front?.example && card.example);
+    const hasBackExample = !!(cardSettings?.back?.example && card.example);
+    const showExamples = hasFrontExample || hasBackExample;
+    
+    let wordSize = "text-4xl md:text-5xl";
+    let titleSize = "text-2xl";
+    let meaningSize = "text-xl";
+    let exampleBoxPadding = "p-4";
+    let exampleItemGap = "space-y-3";
+    let exampleTitleSize = "text-xs";
+    let exampleTextSize = "text-sm";
+    let exampleMeaningSize = "text-xs font-sans mt-0.5";
+    let cardPadding = "p-8";
+    
+    // Only scale down if the user has enabled example display setting
+    if (showExamples) {
+        let textLength = card.example.length + (card.exampleMeaning?.length || 0) + card.back.length;
+        const exampleLines = card.example.split('\n').filter(e => e.trim()).length;
+        
+        if (textLength > 240 || exampleLines >= 3) {
+            wordSize = "text-[20px] md:text-[22px] leading-tight font-extrabold";
+            titleSize = "text-sm font-extrabold";
+            meaningSize = "text-xs px-4 py-2 rounded-xl mt-1.5 font-medium";
+            exampleBoxPadding = "p-2";
+            exampleItemGap = "space-y-1";
+            exampleTitleSize = "text-[9px]";
+            exampleTextSize = "text-[10px] leading-tight";
+            exampleMeaningSize = "text-[9px] font-sans mt-0 leading-tight";
+            cardPadding = "p-4 pb-12";
+        } else if (textLength > 150 || exampleLines >= 2) {
+            wordSize = "text-2xl leading-snug font-extrabold";
+            titleSize = "text-base font-extrabold";
+            meaningSize = "text-sm px-5 py-2.5 rounded-2xl mt-2 font-medium";
+            exampleBoxPadding = "p-2.5";
+            exampleItemGap = "space-y-1.5";
+            exampleTitleSize = "text-[10px]";
+            exampleTextSize = "text-[11.5px] leading-snug";
+            exampleMeaningSize = "text-[10px] font-sans mt-0.5 leading-snug";
+            cardPadding = "p-5 pb-12";
+        } else {
+            wordSize = "text-3xl leading-normal font-extrabold";
+            titleSize = "text-xl font-extrabold";
+            meaningSize = "text-base px-5 py-2.5 rounded-2xl mt-2 font-medium";
+            exampleBoxPadding = "p-3";
+            exampleItemGap = "space-y-2";
+            exampleTitleSize = "text-[11px]";
+            exampleTextSize = "text-[12.5px] leading-normal";
+            exampleMeaningSize = "text-[11px] font-sans mt-0.5";
+            cardPadding = "p-6 pb-12";
+        }
+    }
+    
+    return {
+        wordSize,
+        titleSize,
+        meaningSize,
+        exampleBoxPadding,
+        exampleItemGap,
+        exampleTitleSize,
+        exampleTextSize,
+        exampleMeaningSize,
+        cardPadding
+    };
+};
+
 const SRSVocabScreen = ({
     displayName,
     allCards = [],
@@ -97,6 +167,35 @@ const SRSVocabScreen = ({
 
     // Load recently studied sets
     const [recentSets, setRecentSets] = useState([]);
+
+    // Card Settings State (stored in localStorage with v2 version to apply new defaults)
+    const [cardSettings, setCardSettings] = useState(() => {
+        try {
+            const saved = localStorage.getItem('quizki_flashcard_settings_v2');
+            if (saved) return JSON.parse(saved);
+        } catch (e) {}
+        return {
+            front: {
+                word: true,
+                furigana: false,
+                hanviet: false,
+                example: false
+            },
+            back: {
+                meaning: true,
+                hanviet: true,
+                synonym: false,
+                example: false
+            },
+            swapSides: false
+        };
+    });
+
+    useEffect(() => {
+        localStorage.setItem('quizki_flashcard_settings_v2', JSON.stringify(cardSettings));
+    }, [cardSettings]);
+
+    const [showSettingsMenu, setShowSettingsMenu] = useState(false);
 
     useEffect(() => {
         try {
@@ -329,6 +428,19 @@ const SRSVocabScreen = ({
         return () => window.removeEventListener('keydown', handler);
     }, [reviewMode, currentReviewIndex, reviewQueue]);
 
+    // Auto-play audio when Japanese side is visible
+    useEffect(() => {
+        if (reviewMode && reviewQueue.length > 0) {
+            const currentCard = reviewQueue[currentReviewIndex];
+            if (currentCard && currentCard.audioBase64) {
+                const isJapaneseVisible = !cardSettings.swapSides ? !isFlipped : isFlipped;
+                if (isJapaneseVisible) {
+                    playAudio && playAudio(currentCard.audioBase64);
+                }
+            }
+        }
+    }, [reviewMode, currentReviewIndex, isFlipped, cardSettings.swapSides, reviewQueue]);
+
     // ==================== LOCAL SRS REVIEW MODE ====================
     if (reviewMode && reviewQueue.length > 0) {
         const currentCard = reviewQueue[currentReviewIndex];
@@ -342,8 +454,93 @@ const SRSVocabScreen = ({
             };
             const progress = Math.round(((currentReviewIndex + 1) / reviewQueue.length) * 100);
 
+            const scale = getCardScaleStyles(currentCard, cardSettings);
+
+            const renderFrontContent = () => {
+                return (
+                    <div className="text-center space-y-4">
+                        {cardSettings.front.word && (
+                            <div className={`${scale.wordSize} font-extrabold text-gray-800 dark:text-white select-none font-japanese leading-relaxed`}>
+                                <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} forceHide={!cardSettings.front.furigana} />
+                            </div>
+                        )}
+                        {cardSettings.front.hanviet && currentCard.sinoVietnamese && (
+                            <p className="text-sm font-bold text-amber-600 dark:text-amber-500 uppercase tracking-wider">
+                                Âm Hán: {currentCard.sinoVietnamese}
+                            </p>
+                        )}
+                        {cardSettings.front.example && currentCard.example && (
+                            <div className={`text-sm text-left w-full ${scale.exampleItemGap} bg-slate-50 dark:bg-slate-900/60 rounded-2xl ${scale.exampleBoxPadding} border border-slate-100 dark:border-slate-800 max-w-md mx-auto`}>
+                                <p className={`font-bold text-slate-700 dark:text-slate-300 ${scale.exampleTitleSize} flex items-center gap-1.5 uppercase tracking-wider mb-2`}>
+                                    <span>💡 Ví dụ:</span>
+                                </p>
+                                <div className={`${scale.exampleItemGap} pl-1`}>
+                                    {currentCard.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
+                                        const meaning = (currentCard.exampleMeaning || '').split('\n')[idx]?.trim();
+                                        return (
+                                            <div key={idx} className="border-l-2 border-indigo-500/30 pl-3">
+                                                <div className={`${scale.exampleTextSize} text-slate-700 dark:text-slate-300 font-japanese leading-relaxed`}>
+                                                    <FuriganaText text={ex} />
+                                                </div>
+                                                {meaning && (
+                                                    <p className={scale.exampleMeaningSize}>{meaning}</p>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                );
+            };
+
+            const renderBackContent = () => {
+                return (
+                    <div className="text-center space-y-5 w-full">
+                        {cardSettings.back.meaning && (
+                            <div>
+                                <div className={`${scale.titleSize} font-black text-emerald-600 dark:text-emerald-400 font-japanese`}>
+                                    {currentCard.front}
+                                </div>
+                                <div className={`${scale.meaningSize} font-medium text-gray-800 dark:text-gray-200 bg-indigo-50/50 dark:bg-indigo-950/20 px-6 py-3 rounded-2xl border border-indigo-100/50 dark:border-indigo-900/30 inline-block mt-3`}>
+                                    {currentCard.back}
+                                </div>
+                            </div>
+                        )}
+                        {cardSettings.back.hanviet && currentCard.sinoVietnamese && (
+                            <div className="text-sm font-bold text-yellow-600 dark:text-yellow-500 mt-1 uppercase tracking-wider">
+                                Âm Hán: {currentCard.sinoVietnamese}
+                            </div>
+                        )}
+                        {cardSettings.back.example && currentCard.example && (
+                            <div className={`text-sm text-left w-full ${scale.exampleItemGap} bg-slate-50 dark:bg-slate-900/60 rounded-2xl ${scale.exampleBoxPadding} border border-slate-100 dark:border-slate-800 max-w-md mx-auto`}>
+                                <p className={`font-bold text-slate-700 dark:text-slate-300 ${scale.exampleTitleSize} flex items-center gap-1.5 uppercase tracking-wider mb-2`}>
+                                    <span>💡 Ví dụ:</span>
+                                </p>
+                                <div className={`${scale.exampleItemGap} pl-1`}>
+                                    {currentCard.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
+                                        const meaning = (currentCard.exampleMeaning || '').split('\n')[idx]?.trim();
+                                        return (
+                                            <div key={idx} className="border-l-2 border-indigo-500/30 pl-3">
+                                                <div className={`${scale.exampleTextSize} text-slate-700 dark:text-slate-300 font-japanese leading-relaxed`}>
+                                                    <FuriganaText text={ex} />
+                                                </div>
+                                                {meaning && (
+                                                    <p className={scale.exampleMeaningSize}>{meaning}</p>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                );
+            };
+
             return (
-                <div className="min-h-[calc(100vh-140px)] flex flex-col justify-center items-center px-4 bg-gray-50 dark:bg-gray-950 py-8">
+                <div className="min-h-screen flex flex-col justify-center items-center px-4 bg-transparent py-8">
                     <div className="w-[600px] max-w-full flex flex-col justify-center items-center space-y-6">
                         {/* Header with Exit */}
                         <div className="w-full flex justify-between items-center">
@@ -368,75 +565,59 @@ const SRSVocabScreen = ({
                         </div>
 
                         {/* Flashcard Container */}
-                        <div className="w-full cursor-pointer" style={{ perspective: '1000px' }} onClick={() => setIsFlipped(f => !f)}>
+                        <div className="w-full cursor-pointer" style={{ perspective: '1000px' }} 
+                            onClick={() => {
+                                const nextFlipped = !isFlipped;
+                                setIsFlipped(nextFlipped);
+                                const isJapaneseVisible = !cardSettings.swapSides ? !nextFlipped : nextFlipped;
+                                if (isJapaneseVisible && currentCard && currentCard.audioBase64) {
+                                    playAudio && playAudio(currentCard.audioBase64);
+                                }
+                            }}
+                        >
                             <div key={currentCard.id} style={{ position: 'relative', width: '100%', height: '380px', transformStyle: 'preserve-3d', transition: 'transform 0.6s cubic-bezier(0.4,0,0.2,1)', transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
                                 {/* Front Side */}
-                                <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg p-8 flex flex-col items-center justify-center absolute inset-0"
+                                <div className={`bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg ${scale.cardPadding || 'p-8'} flex flex-col items-center absolute inset-0 overflow-hidden`}
                                     style={{ backfaceVisibility: 'hidden' }}>
 
-                                    <div className="text-center space-y-4">
-                                        <div className="text-4xl md:text-5xl font-extrabold text-gray-800 dark:text-white select-none font-japanese">
-                                            <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} forceHide={false} />
-                                        </div>
-
-                                        {currentCard.audioBase64 && (
-                                            <button
-                                                onClick={(e) => { e.stopPropagation(); playAudio && playAudio(currentCard.audioBase64); }}
-                                                className="p-3 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full hover:scale-105 active:scale-95 transition-all shadow-sm"
-                                            >
-                                                <Volume2 className="w-5 h-5" />
-                                            </button>
-                                        )}
+                                    <div className="flex flex-col items-center justify-center my-auto w-full py-4 pb-14 relative">
+                                        {!cardSettings.swapSides ? renderFrontContent() : renderBackContent()}
                                     </div>
 
-                                    <div className="absolute bottom-6 left-0 right-0 text-center">
+                                    <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
                                         <span className="text-[10px] text-gray-400 dark:text-gray-500 px-3 py-1.5 bg-gray-50 dark:bg-gray-900/30 rounded-full font-semibold shadow-sm tracking-wide">Nhấn vào thẻ hoặc phím Cách để lật</span>
                                     </div>
+
+                                    {/* Settings Button */}
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
+                                        className="absolute bottom-4 right-4 p-2 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-full transition-all hover:scale-110 z-30 shadow-md border border-indigo-100/30 dark:border-indigo-900/20"
+                                        title="Cấu hình hiển thị"
+                                    >
+                                        <Settings className="w-4 h-4" />
+                                    </button>
                                 </div>
 
                                 {/* Back Side */}
-                                <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg p-8 flex flex-col items-center justify-center absolute inset-0 overflow-y-auto"
+                                <div className={`bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg ${scale.cardPadding || 'p-8'} flex flex-col items-center absolute inset-0 overflow-hidden`}
                                     style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
 
-                                    <div className="text-center space-y-5 w-full">
-                                        <div>
-                                            <div className="text-2xl font-black text-emerald-600 dark:text-emerald-400 font-japanese">
-                                                {currentCard.front}
-                                            </div>
-                                            {currentCard.sinoVietnamese && (
-                                                <div className="text-sm font-bold text-yellow-600 dark:text-yellow-500 mt-1 uppercase tracking-wider">
-                                                    Âm Hán: {currentCard.sinoVietnamese}
-                                                </div>
-                                            )}
-                                        </div>
-
-                                        <div className="text-xl font-medium text-gray-800 dark:text-gray-200 bg-indigo-50/50 dark:bg-indigo-950/20 px-6 py-3 rounded-2xl border border-indigo-100/50 dark:border-indigo-900/30 inline-block">
-                                            {currentCard.back}
-                                        </div>
-
-                                        {currentCard.example && (
-                                            <div className="text-sm text-left w-full space-y-1.5 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 border border-slate-100 dark:border-slate-800">
-                                                <div className="font-bold text-slate-700 dark:text-slate-355 font-japanese flex items-start gap-1">
-                                                    <span>💡 Ví dụ:</span>
-                                                    <span className="flex-1">{currentCard.example}</span>
-                                                </div>
-                                                {currentCard.exampleMeaning && (
-                                                    <div className="text-xs text-slate-500 dark:text-slate-400 pl-11">
-                                                        {currentCard.exampleMeaning}
-                                                    </div>
-                                                )}
-                                            </div>
-                                        )}
-
-                                        {currentCard.audioBase64 && (
-                                            <button
-                                                onClick={(e) => { e.stopPropagation(); playAudio && playAudio(currentCard.audioBase64); }}
-                                                className="p-2.5 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full hover:scale-105 active:scale-95 transition-all shadow-sm inline-block animate-pulse"
-                                            >
-                                                <Volume2 className="w-4 h-4" />
-                                            </button>
-                                        )}
+                                    <div className="flex flex-col items-center justify-center my-auto w-full py-4 pb-14 relative">
+                                        {!cardSettings.swapSides ? renderBackContent() : renderFrontContent()}
                                     </div>
+
+                                    <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
+                                        <span className="text-[10px] text-gray-400 dark:text-gray-500 px-3 py-1.5 bg-gray-50 dark:bg-gray-900/30 rounded-full font-semibold shadow-sm tracking-wide">Nhấn vào thẻ hoặc phím Cách để lật</span>
+                                    </div>
+
+                                    {/* Settings Button */}
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
+                                        className="absolute bottom-4 right-4 p-2 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-full transition-all hover:scale-110 z-30 shadow-md border border-indigo-100/30 dark:border-indigo-900/20"
+                                        title="Cấu hình hiển thị"
+                                    >
+                                        <Settings className="w-4 h-4" />
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -463,13 +644,56 @@ const SRSVocabScreen = ({
                             <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-800 rounded text-[10px] mx-0.5">1-4</kbd> đánh giá
                         </div>
                     </div>
+
+                    {/* Flashcard Settings Modal */}
+                    {showSettingsMenu && createPortal(
+                        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={() => setShowSettingsMenu(false)}>
+                            <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+                            <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700/80 animate-fade-in text-slate-850 dark:text-slate-200" onClick={e => e.stopPropagation()}>
+                                <h4 className="font-extrabold text-lg border-b border-gray-150 dark:border-slate-700 pb-2.5 mb-3">Cấu hình thẻ ghi nhớ</h4>
+                                <div className="space-y-4 text-xs font-semibold text-slate-750 dark:text-slate-350">
+                                    <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
+                                        <span className="text-indigo-650 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
+                                        <label className="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked={cardSettings.swapSides} onChange={(e) => setCardSettings(prev => ({ ...prev, swapSides: e.target.checked }))} className="sr-only peer" />
+                                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Nhật hiển thị:</p>
+                                        <div className="space-y-2.5 pl-1 text-[13px]">
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.word} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Chữ Hán / Từ vựng</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.furigana} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Phiên âm Furigana</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.example} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
+                                        <div className="space-y-2.5 pl-1 text-[13px]">
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Đồng nghĩa</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="pt-3">
+                                    <button onClick={() => setShowSettingsMenu(false)} className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95 text-sm">
+                                        Đóng
+                                    </button>
+                                </div>
+                            </div>
+                        </div>,
+                        document.body
+                    )}
                 </div>
             );
         }
     }
 
     return (
-        <div className="min-h-[calc(100vh-140px)] animate-fade-in pb-24 bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen animate-fade-in pb-24 bg-transparent">
             <TopTabBar tabs={VOCAB_TABS} />
             <div className="max-w-5xl mx-auto space-y-8 px-4 md:px-8 mt-6">
 
@@ -717,6 +941,49 @@ const SRSVocabScreen = ({
 
                 <OnboardingTour section="vocabReview" />
             </div>
+
+            {/* Flashcard Settings Modal */}
+            {showSettingsMenu && createPortal(
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={() => setShowSettingsMenu(false)}>
+                    <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+                    <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700/80 animate-fade-in text-slate-850 dark:text-slate-200" onClick={e => e.stopPropagation()}>
+                        <h4 className="font-extrabold text-lg border-b border-gray-150 dark:border-slate-700 pb-2.5 mb-3">Cấu hình thẻ ghi nhớ</h4>
+                        <div className="space-y-4 text-xs font-semibold text-slate-750 dark:text-slate-350">
+                            <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
+                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
+                                <label className="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" checked={cardSettings.swapSides} onChange={(e) => setCardSettings(prev => ({ ...prev, swapSides: e.target.checked }))} className="sr-only peer" />
+                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                </label>
+                            </div>
+                            <div>
+                                <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Nhật hiển thị:</p>
+                                <div className="space-y-2.5 pl-1 text-[13px]">
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.word} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Chữ Hán / Từ vựng</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.furigana} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Phiên âm Furigana</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.example} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
+                                </div>
+                            </div>
+                            <div>
+                                <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
+                                <div className="space-y-2.5 pl-1 text-[13px]">
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Đồng nghĩa</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="pt-3">
+                            <button onClick={() => setShowSettingsMenu(false)} className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95 text-sm">
+                                Đóng
+                            </button>
+                        </div>
+                    </div>
+                </div>,
+                document.body
+            )}
         </div>
     );
 };

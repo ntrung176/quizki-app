@@ -3133,6 +3133,7 @@ const App = () => {
 
     // Check if maintenance mode is active for non-admins
     const isLoginPage = location.pathname === ROUTES.LOGIN || location.pathname === '/login';
+    const isReviewSessionPage = ['REVIEW', 'STUDY', 'FLASHCARD'].includes(view) || (location.pathname.startsWith('/vocab/review/') && location.pathname !== '/vocab/review');
     if (adminConfig?.maintenanceMode && !isAdmin && userId && !isLoginPage) {
         return (
             <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-950 p-6 text-center">
@@ -3261,12 +3262,11 @@ const App = () => {
                 </div>
             )}
 
-            {/* Main content area - responsive for sidebar */}
-            <main className={`lg:ml-64 min-h-screen pt-14 lg:pt-0 flex flex-col ${['REVIEW', 'STUDY', 'FLASHCARD', 'KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
-                <div className={`${['REVIEW', 'STUDY', 'FLASHCARD'].includes(view) ? 'w-full flex-1 flex items-center justify-center bg-transparent py-4 md:py-8' : ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'w-full flex-1' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6'}`}>
+            <main className={`lg:ml-64 min-h-screen pt-14 lg:pt-0 flex flex-col ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
+                <div className={`${isReviewSessionPage ? 'w-full flex-1 flex items-center justify-center bg-transparent py-4 md:py-8' : ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'w-full flex-1' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6'}`}>
                     {/* Main content container - transparent */}
-                    <div className={`w-full ${['REVIEW', 'STUDY', 'FLASHCARD', 'KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
-                        <div className={`w-full ${['REVIEW', 'STUDY', 'FLASHCARD', 'KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
+                    <div className={`w-full ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
+                        <div className={`w-full ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
                             <AppRoutes
                                 isAuthenticated={!!userId}
                                 isLoading={isLoading}
