@@ -62,7 +62,21 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio }) => {
                 <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-3">Nghĩa tiếng Việt</p>
                 <p className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">{card.back}</p>
                 {card.example && (
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-3 italic">"{card.example}"</p>
+                    <div className="mt-3 space-y-3 text-left w-full max-w-md mx-auto">
+                        {card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
+                            const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
+                            return (
+                                <div key={idx} className="border-l-2 border-indigo-500/30 pl-3">
+                                    <div className="text-sm text-gray-700 dark:text-gray-300 font-japanese leading-relaxed">
+                                        <FuriganaText text={ex} />
+                                    </div>
+                                    {meaning && (
+                                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 font-sans">{meaning}</p>
+                                    )}
+                                </div>
+                            );
+                        })}
+                    </div>
                 )}
             </div>
 

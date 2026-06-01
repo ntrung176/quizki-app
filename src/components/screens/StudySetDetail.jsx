@@ -284,7 +284,23 @@ const StudySetDetail = ({
                                     <div className="absolute inset-0 backface-hidden rotate-y-180 bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none flex flex-col items-center justify-center p-8 text-center">
                                         <div className="text-2xl md:text-3xl font-bold text-slate-850 dark:text-white">{activeCard?.back}</div>
                                         {activeCard?.sinoVietnamese && <p className="text-amber-600 dark:text-yellow-300 mt-3 text-base font-semibold"><span className="text-slate-450 dark:text-slate-400 font-normal">Hán Việt: </span>{activeCard.sinoVietnamese}</p>}
-                                        {activeCard?.example && <p className="mt-4 text-sm text-slate-600 dark:text-slate-300 italic">"{activeCard.example}"</p>}
+                                        {activeCard?.example && (
+                                            <div className="mt-4 space-y-3 text-left w-full max-w-md mx-auto">
+                                                {activeCard.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
+                                                    const meaning = (activeCard.exampleMeaning || '').split('\n')[idx]?.trim();
+                                                    return (
+                                                        <div key={idx} className="border-l-2 border-indigo-500/30 pl-3">
+                                                            <div className="text-sm text-slate-700 dark:text-slate-300 font-japanese leading-relaxed">
+                                                                <FuriganaText text={ex} />
+                                                            </div>
+                                                            {meaning && (
+                                                                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-sans">{meaning}</p>
+                                                            )}
+                                                        </div>
+                                                    );
+                                                })}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -676,14 +692,25 @@ const StudySetDetail = ({
                                             </div>
                                             {/* Example sentence row */}
                                             {(card.example || card.exampleMeaning) && (
-                                                <div className="bg-gray-50 dark:bg-gray-900/40 rounded-xl px-4 py-2.5 space-y-0.5">
-                                                    {card.example && (
-                                                        <p className="text-sm text-gray-700 dark:text-gray-300 font-japanese leading-relaxed">
-                                                            <FuriganaText text={card.example} />
-                                                        </p>
-                                                    )}
-                                                    {card.exampleMeaning && (
-                                                        <p className="text-xs text-gray-500 dark:text-gray-400 italic">{card.exampleMeaning}</p>
+                                                <div className="bg-gray-50 dark:bg-gray-900/40 rounded-xl px-4 py-2.5 space-y-2">
+                                                    {card.example ? (
+                                                        card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
+                                                            const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
+                                                            return (
+                                                                <div key={idx} className="border-l border-indigo-500/20 pl-2">
+                                                                    <p className="text-sm text-gray-700 dark:text-gray-300 font-japanese leading-relaxed">
+                                                                        <FuriganaText text={ex} />
+                                                                    </p>
+                                                                    {meaning && (
+                                                                        <p className="text-xs text-gray-500 dark:text-gray-400 font-sans">{meaning}</p>
+                                                                    )}
+                                                                </div>
+                                                            );
+                                                        })
+                                                    ) : (
+                                                        card.exampleMeaning && (
+                                                            <p className="text-xs text-gray-500 dark:text-gray-400 italic">{card.exampleMeaning}</p>
+                                                        )
                                                     )}
                                                 </div>
                                             )}

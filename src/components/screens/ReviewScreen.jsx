@@ -1125,6 +1125,23 @@ const ReviewScreen = ({
                                                             <FuriganaText text={currentCard.synonym} className="font-japanese font-black" />
                                                         </p>
                                                     )}
+                                                    {currentCard.example && (
+                                                        <div className="mt-3 space-y-3 text-left w-full max-w-md mx-auto">
+                                                            {currentCard.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
+                                                                const meaning = (currentCard.exampleMeaning || '').split('\n')[idx]?.trim();
+                                                                return (
+                                                                    <div key={idx} className="border-l-2 border-white/30 pl-3">
+                                                                        <div className="text-sm text-emerald-50 dark:text-emerald-100 font-japanese leading-relaxed">
+                                                                            <FuriganaText text={ex} />
+                                                                        </div>
+                                                                        {meaning && (
+                                                                            <p className="text-xs text-emerald-200/90 mt-0.5 font-sans">{meaning}</p>
+                                                                        )}
+                                                                    </div>
+                                                                );
+                                                            })}
+                                                        </div>
+                                                    )}
                                                 </div>
                                             </div>
                                             <div className="absolute bottom-4 right-4 text-white/30">

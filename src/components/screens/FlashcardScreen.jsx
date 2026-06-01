@@ -534,6 +534,23 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                                         <FuriganaText text={currentCard.synonym} className="font-japanese" />
                                                     </p>
                                                 )}
+                                                {currentCard.example && (
+                                                    <div className="mt-3 space-y-3 text-left w-full max-w-md mx-auto">
+                                                        {currentCard.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
+                                                            const meaning = (currentCard.exampleMeaning || '').split('\n')[idx]?.trim();
+                                                            return (
+                                                                <div key={idx} className="border-l-2 border-indigo-500/30 pl-3">
+                                                                    <div className="text-sm text-slate-700 dark:text-slate-350 font-japanese leading-relaxed">
+                                                                        <FuriganaText text={ex} />
+                                                                    </div>
+                                                                    {meaning && (
+                                                                        <p className="text-xs text-slate-500 dark:text-slate-450 mt-0.5 font-sans">{meaning}</p>
+                                                                    )}
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
                                     </div>
