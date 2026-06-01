@@ -322,12 +322,25 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                     {isCorrect
                                                         ? <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
                                                         : <XCircle className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />}
-                                                    <div className="flex-1">
-                                                        <p className="font-medium text-gray-800 dark:text-gray-200 text-sm">{q.question}</p>
+                                                    <div className="flex-1 space-y-2">
+                                                        {q.passage && (
+                                                            <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2" dangerouslySetInnerHTML={{ __html: q.passage }} />
+                                                        )}
+                                                        {q.audioUrl && (
+                                                            <div className="mb-2">
+                                                                <audio src={q.audioUrl} controls className="h-7 max-w-full text-xs" />
+                                                            </div>
+                                                        )}
+                                                        {q.imageUrl && (
+                                                            <div className="mb-2 max-w-sm rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-white p-1">
+                                                                <img src={q.imageUrl} alt="Câu hỏi" className="max-h-48 object-contain" />
+                                                            </div>
+                                                        )}
+                                                        <p className="font-medium text-gray-800 dark:text-gray-200 text-sm font-japanese" dangerouslySetInnerHTML={{ __html: q.question }} />
                                                         {userAns !== undefined && (
                                                             <p className="text-xs mt-1">
                                                                 <span className="text-gray-500">Bạn chọn: </span>
-                                                                <span className={isCorrect ? 'text-green-600 font-bold' : 'text-red-600 font-bold line-through'}>
+                                                                <span className={isCorrect ? 'text-green-600 font-bold font-japanese' : 'text-red-600 font-bold line-through font-japanese'}>
                                                                     {q.options[userAns]}
                                                                 </span>
                                                             </p>
@@ -335,7 +348,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                         {!isCorrect && (
                                                             <p className="text-xs mt-1">
                                                                 <span className="text-gray-500">Đáp án: </span>
-                                                                <span className="text-green-600 font-bold">{q.options[q.correctAnswer]}</span>
+                                                                <span className="text-green-600 font-bold font-japanese">{q.options[q.correctAnswer]}</span>
                                                             </p>
                                                         )}
                                                         {q.explanation && (
@@ -488,16 +501,19 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                             {/* Reading passage */}
                             {section.type === 'reading' && question?.passage && (
                                 <div className="mb-6 p-5 bg-green-50 dark:bg-green-900/15 border border-green-200 dark:border-green-800 rounded-xl">
-                                    <p className="text-gray-800 dark:text-gray-200 leading-relaxed font-japanese whitespace-pre-wrap">
-                                        {question.passage}
-                                    </p>
+                                    <div className="text-gray-800 dark:text-gray-200 leading-relaxed font-japanese" dangerouslySetInnerHTML={{ __html: question.passage }} />
+                                </div>
+                            )}
+
+                            {/* Question Image */}
+                            {question?.imageUrl && (
+                                <div className="mb-6 max-w-2xl mx-auto rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white p-2 flex justify-center">
+                                    <img src={question.imageUrl} alt="Câu hỏi" className="max-h-96 object-contain" />
                                 </div>
                             )}
 
                             {/* Question */}
-                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-6 leading-relaxed">
-                                {question?.question}
-                            </h3>
+                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-6 leading-relaxed font-japanese" dangerouslySetInnerHTML={{ __html: question?.question }} />
 
                             {/* Options */}
                             <div className="space-y-3 mb-8">

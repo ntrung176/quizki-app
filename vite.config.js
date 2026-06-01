@@ -22,20 +22,6 @@ const create404Plugin = () => ({
   }
 })
 
-// Plugin để tạo version.json cho auto-update detection
-const createVersionPlugin = () => ({
-  name: 'create-version',
-  buildStart() {
-    const versionData = JSON.stringify({
-      version: Date.now().toString(36),
-      buildTime: new Date().toISOString()
-    })
-    // Write to public/ so it's copied to dist/ as-is
-    writeFileSync(resolve(__dirname, 'public', 'version.json'), versionData)
-    console.log('✅ Generated version.json for update detection')
-  }
-})
-
 // https://vite.dev/config/
 // Base path cho GitHub Pages:
 // - Nếu repo là project page (username.github.io/repo-name): đặt base = '/repo-name/'
@@ -45,7 +31,6 @@ export default defineConfig({
   plugins: [
     react(),
     create404Plugin(),
-    createVersionPlugin(),
     nodePolyfills({
       include: ['path', 'fs', 'url', 'os', 'util']
     })

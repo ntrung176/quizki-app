@@ -69,12 +69,10 @@ import {
 
 // Import UI components
 import { SearchInput, SrsStatusCell } from './components/ui';
-import UpdateNotification from './components/ui/UpdateNotification';
 import VocabularySelectionLookup from './components/ui/VocabularySelectionLookup';
 import FeedbackChatbox from './components/ui/FeedbackChatbox';
 
 // Import hooks
-import useVersionCheck from './hooks/useVersionCheck';
 
 // Import routing component
 import AppRoutes from './components/AppRoutes';
@@ -113,9 +111,6 @@ const App = () => {
     // React Router hooks
     const navigate = useNavigate();
     const location = useLocation();
-
-    // Version check for auto-update notification (check every 60s)
-    const { updateAvailable, refresh: refreshApp, dismiss: dismissUpdate } = useVersionCheck(60000);
 
     // Helper function to navigate using route names (backward compatible with setView)
     const navigateTo = useCallback((viewName) => {
@@ -3201,10 +3196,7 @@ const App = () => {
             {/* Onboarding tour for new users */}
             {userId && <OnboardingTour userId={userId} />}
 
-            {/* Update notification when new version is deployed */}
-            {updateAvailable && (
-                <UpdateNotification onRefresh={refreshApp} onDismiss={dismissUpdate} />
-            )}
+
 
             {/* Modal nhập từ vựng hàng loạt */}
             {showBatchImportModal && (

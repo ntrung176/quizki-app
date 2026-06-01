@@ -430,3 +430,16 @@ html[data-jp-size="large"] {
 html, body {
   /* removed overflow-y: scroll to prevent double scrollbars */
 }
+
+/* Custom mark style for JLPT question formatting */
+mark {
+  background-color: #fef08a;
+  color: #1e293b;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  border-radius: 0.125rem;
+}
+html.dark mark {
+  background-color: #854d0e;
+  color: #f8fafc;
+}
