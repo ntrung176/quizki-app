@@ -5,23 +5,26 @@
 
 /* Japanese Mincho font class for JLPT Standard Look */
 .font-japanese {
-  font-family: var(--font-japanese-family, "UD デジタル 教科書体 N-R", "UD Digi Kyokasho N-R", "UD デジタル 教科書体 NP-R", "UD Digi Kyokasho NP-R", "UD デジタル 教科書体 NK-R", "UD Digi Kyokasho NK-R", 'BIZ UDPMincho', 'MS Mincho', 'ＭＳ 明朝', 'Hiragino Mincho ProN', 'Yu Mincho', serif) !important;
+  font-family: var(--font-japanese-family, "BIZ UDPMincho", "MS Mincho", "ＭＳ 明朝", "Yu Mincho", "Hiragino Mincho ProN", serif) !important;
+  letter-spacing: 0.06em !important;
+  line-height: 2.0 !important;
 }
 
 /* Ruby / Furigana annotations */
-ruby.ruby-annotation {
+ruby {
   ruby-align: center;
 }
 
-ruby.ruby-annotation rt {
+ruby rt {
   font-size: 0.55em;
-  color: #8b5cf6;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  color: #e11d48; /* Beautiful rose-600 for light mode */
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding-bottom: 0.1em;
 }
 
-html.dark ruby.ruby-annotation rt {
-  color: #a78bfa;
+html.dark ruby rt {
+  color: #fb7185; /* Beautiful rose-400 for dark mode */
 }
 
 /* Apply Mincho font to Japanese text elements */
@@ -29,7 +32,9 @@ html.dark ruby.ruby-annotation rt {
 .kanji-text,
 .hiragana-text,
 .katakana-text {
-  font-family: var(--font-japanese-family, "UD デジタル 教科書体 N-R", "UD Digi Kyokasho N-R", "UD デジタル 教科書体 NP-R", "UD Digi Kyokasho NP-R", "UD デジタル 教科書体 NK-R", "UD Digi Kyokasho NK-R", 'BIZ UDPMincho', 'MS Mincho', 'ＭＳ 明朝', 'Hiragino Mincho ProN', 'Yu Mincho', serif) !important;
+  font-family: var(--font-japanese-family, "BIZ UDPMincho", "MS Mincho", "ＭＳ 明朝", "Yu Mincho", "Hiragino Mincho ProN", serif) !important;
+  letter-spacing: 0.06em !important;
+  line-height: 2.0 !important;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));

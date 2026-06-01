@@ -318,10 +318,13 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                         const isCorrect = userAns === q.correctAnswer;
                                         return (
                                             <div key={qi} className={`p-4 ${isCorrect ? 'bg-green-50/50 dark:bg-green-900/10' : 'bg-red-50/50 dark:bg-red-900/10'}`}>
-                                                <div className="flex items-start gap-2 mb-2">
+                                                <div className="flex items-start gap-2.5 mb-2">
                                                     {isCorrect
-                                                        ? <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                                                        : <XCircle className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />}
+                                                        ? <CheckCircle className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                                                        : <XCircle className="w-5 h-5 text-red-500 mt-1 flex-shrink-0" />}
+                                                    <div className="w-6 h-6 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-750 dark:text-slate-200 flex items-center justify-center text-[11px] font-extrabold flex-shrink-0 mt-0.5 shadow-sm">
+                                                        {qi + 1}
+                                                    </div>
                                                     <div className="flex-1 space-y-2">
                                                         {q.passage && (
                                                             <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.passage }} />
