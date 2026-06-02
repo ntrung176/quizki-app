@@ -2205,7 +2205,8 @@ const App = () => {
                 reps: cardData.srsReps || 0,
                 lapseCount: cardData.srsLapseCount || 0,
                 prelapseInterval: cardData.srsPrelapseInterval || null,
-                state: cardData.srsState || null
+                state: cardData.srsState || null,
+                intervalIndex_back: typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1
             };
 
              const result = calculateAnkiSRS(srsState, rating);
