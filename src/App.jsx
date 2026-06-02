@@ -2201,58 +2201,162 @@ const App = () => {
         }
     };
 
-    const handleUpdateVocabSrsRating = async (cardId, rating) => {
+    const handleUpdateVocabSrsRating = (cardId, rating) => {
         if (!vocabCollectionPath) return;
         const cardRef = doc(db, vocabCollectionPath, cardId);
 
-        try {
-            const cardSnap = await getDoc(cardRef);
-            if (!cardSnap.exists()) return;
-            const cardData = cardSnap.data();
+        // 1. Optimistically update allCards state immediately
+        setAllCards(prevCards => {
+            const nextCards = [...prevCards];
+            const cardIdx = nextCards.findIndex(c => c.id === cardId);
+            if (cardIdx !== -1) {
+                const cardData = nextCards[cardIdx];
+                const srsState = {
+                    interval: cardData.srsInterval || 0,
+                    ease: cardData.srsEase || 2.5,
+                    learningStep: cardData.srsLearningStep !== undefined ? cardData.srsLearningStep : null,
+                    isLapsed: cardData.srsIsLapsed || false,
+                    reps: cardData.srsReps || 0,
+                    lapseCount: cardData.srsLapseCount || 0,
+                    prelapseInterval: cardData.srsPrelapseInterval || null,
+                    state: cardData.srsState || null,
+                    intervalIndex_back: typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1,
+                    masteryState: cardData.masteryState || 'not_learned',
+                    seenCount: typeof cardData.seenCount === 'number' ? cardData.seenCount : 0,
+                    lastReviewed: cardData.lastReviewed || null
+                };
 
-            const srsState = {
-                interval: cardData.srsInterval || 0,
-                ease: cardData.srsEase || 2.5,
-                learningStep: cardData.srsLearningStep !== undefined ? cardData.srsLearningStep : null,
-                isLapsed: cardData.srsIsLapsed || false,
-                reps: cardData.srsReps || 0,
-                lapseCount: cardData.srsLapseCount || 0,
-                prelapseInterval: cardData.srsPrelapseInterval || null,
-                state: cardData.srsState || null,
-                intervalIndex_back: typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1,
-                masteryState: cardData.masteryState || 'not_learned',
-                seenCount: typeof cardData.seenCount === 'number' ? cardData.seenCount : 0,
-                lastReviewed: cardData.lastReviewed || null
-            };
+                const result = calculateAnkiSRS(srsState, rating);
+                const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
+                const nextReviewDate = new Date(Date.now() + nextReviewOffset);
 
-            const result = calculateAnkiSRS(srsState, rating);
-            const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
-            const nextReviewDate = new Date(Date.now() + nextReviewOffset);
+                const isCorrect = rating !== 'again';
+                const currentMastery = cardData.masteryState || 'not_learned';
+                const newMastery = isCorrect
+                    ? (currentMastery === 'not_learned' ? 'learning' : 'memorized')
+                    : (currentMastery === 'memorized' ? 'learning' : 'not_learned');
 
-            const isCorrect = rating !== 'again';
-            const currentMastery = cardData.masteryState || 'not_learned';
-            const newMastery = isCorrect
-                ? (currentMastery === 'not_learned' ? 'learning' : 'memorized')
-                : (currentMastery === 'memorized' ? 'learning' : 'not_learned');
+                nextCards[cardIdx] = {
+                    ...cardData,
+                    srsInterval: result.interval,
+                    srsEase: result.ease,
+                    srsLearningStep: result.learningStep,
+                    srsIsLapsed: result.isLapsed,
+                    srsReps: result.reps,
+                    srsLapseCount: result.lapseCount,
+                    srsPrelapseInterval: result.prelapseInterval,
+                    srsState: result.state,
+                    intervalIndex_back: result.state === 'NEW' ? -1 : (result.state === 'REVIEW' ? 2 : 0),
+                    nextReview_back: nextReviewDate,
+                    lastReviewed: new Date(),
+                    needsMistakeReview: rating === 'again',
+                    masteryState: newMastery
+                };
+            }
+            return nextCards;
+        });
 
-            await updateDoc(cardRef, {
-                srsInterval: result.interval,
-                srsEase: result.ease,
-                srsLearningStep: result.learningStep,
-                srsIsLapsed: result.isLapsed,
-                srsReps: result.reps,
-                srsLapseCount: result.lapseCount,
-                srsPrelapseInterval: result.prelapseInterval,
-                srsState: result.state,
-                intervalIndex_back: result.state === 'NEW' ? -1 : (result.state === 'REVIEW' ? 2 : 0),
-                nextReview_back: nextReviewDate,
-                lastReviewed: serverTimestamp(),
-                needsMistakeReview: rating === 'again',
-                masteryState: newMastery
-            });
-        } catch (e) {
-            console.error("Lỗi cập nhật đánh giá SRS từ vựng:", e);
+        // 2. Perform Firestore update asynchronously in background
+        (async () => {
+            try {
+                const cardSnap = await getDoc(cardRef);
+                if (!cardSnap.exists()) return;
+                const cardData = cardSnap.data();
+
+                const srsState = {
+                    interval: cardData.srsInterval || 0,
+                    ease: cardData.srsEase || 2.5,
+                    learningStep: cardData.srsLearningStep !== undefined ? cardData.srsLearningStep : null,
+                    isLapsed: cardData.srsIsLapsed || false,
+                    reps: cardData.srsReps || 0,
+                    lapseCount: cardData.srsLapseCount || 0,
+                    prelapseInterval: cardData.srsPrelapseInterval || null,
+                    state: cardData.srsState || null,
+                    intervalIndex_back: typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1,
+                    masteryState: cardData.masteryState || 'not_learned',
+                    seenCount: typeof cardData.seenCount === 'number' ? cardData.seenCount : 0,
+                    lastReviewed: cardData.lastReviewed || null
+                };
+
+                const result = calculateAnkiSRS(srsState, rating);
+                const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
+                const nextReviewDate = new Date(Date.now() + nextReviewOffset);
+
+                const isCorrect = rating !== 'again';
+                const currentMastery = cardData.masteryState || 'not_learned';
+                const newMastery = isCorrect
+                    ? (currentMastery === 'not_learned' ? 'learning' : 'memorized')
+                    : (currentMastery === 'memorized' ? 'learning' : 'not_learned');
+
+                await updateDoc(cardRef, {
+                    srsInterval: result.interval,
+                    srsEase: result.ease,
+                    srsLearningStep: result.learningStep,
+                    srsIsLapsed: result.isLapsed,
+                    srsReps: result.reps,
+                    srsLapseCount: result.lapseCount,
+                    srsPrelapseInterval: result.prelapseInterval,
+                    srsState: result.state,
+                    intervalIndex_back: result.state === 'NEW' ? -1 : (result.state === 'REVIEW' ? 2 : 0),
+                    nextReview_back: nextReviewDate,
+                    lastReviewed: serverTimestamp(),
+                    needsMistakeReview: rating === 'again',
+                    masteryState: newMastery
+                });
+            } catch (e) {
+                console.error("Lỗi cập nhật đánh giá SRS từ vựng:", e);
+            }
+        })();
+    };
+
+    const handleRevertVocabSrsRating = (cardId, prevFields) => {
+        if (!vocabCollectionPath) return;
+        const cardRef = doc(db, vocabCollectionPath, cardId);
+
+        const rawFields = { ...prevFields };
+        if (rawFields.nextReview_back && !(rawFields.nextReview_back instanceof Date)) {
+            rawFields.nextReview_back = new Date(rawFields.nextReview_back);
         }
+        if (rawFields.lastReviewed && !(rawFields.lastReviewed instanceof Date)) {
+            rawFields.lastReviewed = new Date(rawFields.lastReviewed);
+        }
+
+        // 1. Revert allCards state immediately
+        setAllCards(prevCards => {
+            const nextCards = [...prevCards];
+            const idx = nextCards.findIndex(c => c.id === cardId);
+            if (idx !== -1) {
+                nextCards[idx] = {
+                    ...nextCards[idx],
+                    ...rawFields
+                };
+            }
+            return nextCards;
+        });
+
+        // 2. Revert in Firestore doc in background
+        (async () => {
+            try {
+                const updatePayload = {
+                    srsInterval: rawFields.srsInterval,
+                    srsEase: rawFields.srsEase,
+                    srsLearningStep: rawFields.srsLearningStep !== null ? rawFields.srsLearningStep : deleteField(),
+                    srsIsLapsed: rawFields.srsIsLapsed,
+                    srsReps: rawFields.srsReps,
+                    srsLapseCount: rawFields.srsLapseCount,
+                    srsPrelapseInterval: rawFields.srsPrelapseInterval !== null ? rawFields.srsPrelapseInterval : deleteField(),
+                    srsState: rawFields.srsState !== null ? rawFields.srsState : deleteField(),
+                    intervalIndex_back: rawFields.intervalIndex_back,
+                    nextReview_back: rawFields.nextReview_back !== null ? rawFields.nextReview_back : deleteField(),
+                    lastReviewed: rawFields.lastReviewed !== null ? rawFields.lastReviewed : deleteField(),
+                    needsMistakeReview: rawFields.needsMistakeReview,
+                    masteryState: rawFields.masteryState
+                };
+                await updateDoc(cardRef, updatePayload);
+            } catch (e) {
+                console.error("Lỗi khi khôi phục SRS từ vựng:", e);
+            }
+        })();
     };
 
     // Lưu cardId để scroll đến sau khi save
@@ -3450,6 +3554,7 @@ const App = () => {
                                 shuffleArray={shuffleArray}
                                 onToggleSrs={handleToggleSrs}
                                 onUpdateVocabSrsRating={handleUpdateVocabSrsRating}
+                                onRevertVocabSrsRating={handleRevertVocabSrsRating}
                             />
                         </div>
 

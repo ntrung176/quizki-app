@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { Layers, ArrowRight, CheckCircle2, RotateCw, BookOpen, AlertCircle, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, X, Settings } from 'lucide-react';
+import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, AlertCircle, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, X, Settings } from 'lucide-react';
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import { useNavigate } from 'react-router-dom';
@@ -155,6 +155,7 @@ const SRSVocabScreen = ({
     setNotification,
     playAudio,
     onUpdateVocabSrsRating,
+    onRevertVocabSrsRating,
     dailyActivityLogs = []
 }) => {
     const navigate = useNavigate();
@@ -285,6 +286,7 @@ const SRSVocabScreen = ({
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
     const [reviewMode, setReviewModeState] = useState(false);
+    const [reviewHistory, setReviewHistory] = useState([]);
 
     // Safely determine if a card is due
     const isDue = (card) => {
@@ -383,6 +385,7 @@ const SRSVocabScreen = ({
         setReviewQueue(shuffleArray([...dueCards]));
         setCurrentReviewIndex(0);
         setIsFlipped(false);
+        setReviewHistory([]);
         setReviewModeState(true);
     };
 
@@ -412,13 +415,37 @@ const SRSVocabScreen = ({
         }
     };
 
-    const handleRating = async (rating) => {
+    const handleRating = (rating) => {
         const card = reviewQueue[currentReviewIndex];
         if (!card) return;
 
-        // Call parent update vocab srs rating on Firestore
+        // Save card's previous SRS fields to history stack for Undo
+        const prevSrsFields = {
+            srsInterval: card.srsInterval || 0,
+            srsEase: card.srsEase || 2.5,
+            srsLearningStep: card.srsLearningStep !== undefined ? card.srsLearningStep : null,
+            srsIsLapsed: card.srsIsLapsed || false,
+            srsReps: card.srsReps || 0,
+            srsLapseCount: card.srsLapseCount || 0,
+            srsPrelapseInterval: card.srsPrelapseInterval || null,
+            srsState: card.srsState || null,
+            intervalIndex_back: typeof card.intervalIndex_back === 'number' ? card.intervalIndex_back : -1,
+            nextReview_back: card.nextReview_back || null,
+            lastReviewed: card.lastReviewed || null,
+            needsMistakeReview: card.needsMistakeReview || false,
+            masteryState: card.masteryState || 'not_learned'
+        };
+
+        setReviewHistory(prev => [...prev, {
+            cardIndex: currentReviewIndex,
+            cardId: card.id,
+            srsFields: prevSrsFields,
+            isFlipped: isFlipped
+        }]);
+
+        // Call parent update vocab srs rating on Firestore asynchronously (no await!)
         if (onUpdateVocabSrsRating) {
-            await onUpdateVocabSrsRating(card.id, rating);
+            onUpdateVocabSrsRating(card.id, rating);
         }
 
         // Play feedback sounds and animations
@@ -452,6 +479,36 @@ const SRSVocabScreen = ({
         }
     };
 
+    const handleUndo = () => {
+        if (reviewHistory.length === 0) return;
+        const lastAction = reviewHistory[reviewHistory.length - 1];
+        setReviewHistory(prev => prev.slice(0, -1));
+
+        const { cardIndex, cardId, srsFields, isFlipped: wasFlipped } = lastAction;
+
+        // 1. Revert local states immediately in current reviewQueue
+        setReviewQueue(prevQueue => {
+            const nextQueue = [...prevQueue];
+            const idx = nextQueue.findIndex(c => c.id === cardId);
+            if (idx !== -1) {
+                nextQueue[idx] = {
+                    ...nextQueue[idx],
+                    ...srsFields
+                };
+            }
+            return nextQueue;
+        });
+
+        // 2. Revert in App.jsx's setAllCards state immediately & Firestore doc in background
+        if (onRevertVocabSrsRating) {
+            onRevertVocabSrsRating(cardId, srsFields);
+        }
+
+        // Restore index and flipped state
+        setCurrentReviewIndex(cardIndex);
+        setIsFlipped(wasFlipped || false);
+    };
+
     // Keyboard controls for Flashcards review
     useEffect(() => {
         if (!reviewMode) return;
@@ -464,10 +521,14 @@ const SRSVocabScreen = ({
             if (e.key === '2') handleRating('hard');
             if (e.key === '3') handleRating('good');
             if (e.key === '4') handleRating('easy');
+            if (e.key === 'Backspace' || e.key === 'z' || (e.key === 'z' && e.ctrlKey)) {
+                e.preventDefault();
+                handleUndo();
+            }
         };
         window.addEventListener('keydown', handler);
         return () => window.removeEventListener('keydown', handler);
-    }, [reviewMode, currentReviewIndex, reviewQueue]);
+    }, [reviewMode, currentReviewIndex, reviewQueue, reviewHistory]);
 
     // Auto-play audio when card is flipped
     useEffect(() => {
@@ -599,7 +660,16 @@ const SRSVocabScreen = ({
                             >
                                 <ChevronLeft className="w-4 h-4" /> Thoát ôn tập
                             </button>
-                            <span className="text-xs font-semibold text-gray-400 dark:text-gray-500">ÔN TẬP TỪ VỰNG NGẮT QUÃNG</span>
+                            {reviewHistory.length > 0 ? (
+                                <button
+                                    onClick={handleUndo}
+                                    className="flex items-center gap-1 text-sm font-bold text-indigo-500 dark:text-indigo-400 hover:text-indigo-650 dark:hover:text-indigo-300 transition-colors cursor-pointer"
+                                >
+                                    <RotateCcw className="w-4 h-4" /> Quay lại thẻ trước
+                                </button>
+                            ) : (
+                                <span className="text-xs font-semibold text-gray-400 dark:text-gray-500">ÔN TẬP TỪ VỰNG NGẮT QUÃNG</span>
+                            )}
                         </div>
 
                         {/* Progress */}

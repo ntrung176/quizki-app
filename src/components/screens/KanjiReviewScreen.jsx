@@ -48,6 +48,7 @@ const KanjiReviewScreen = () => {
     const [reviewQueue, setReviewQueue] = useState([]);
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
+    const [reviewHistory, setReviewHistory] = useState([]);
 
     const userId = getAuth().currentUser?.uid;
 
@@ -191,15 +192,17 @@ const KanjiReviewScreen = () => {
         setReviewQueue([...dueKanji]);
         setCurrentReviewIndex(0);
         setIsFlipped(false);
+        setReviewHistory([]);
         setReviewMode(true);
     };
 
     const currentCard = reviewQueue[currentReviewIndex] || null;
 
-    const handleRating = async (rating) => {
+    const handleRating = (rating) => {
         if (!currentCard || !userId) return;
-        const srs = srsData[currentCard.id] || { interval: 0, ease: 2.5, nextReview: 0, reps: 0 };
-        const result = calculateAnkiSRS(srs, rating);
+        
+        const srs = srsData[currentCard.id] || null;
+        const result = calculateAnkiSRS(srs || { interval: 0, ease: 2.5, nextReview: 0, reps: 0 }, rating);
         const now = Date.now();
         const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
         const newSrs = {
@@ -214,17 +217,17 @@ const KanjiReviewScreen = () => {
             prelapseInterval: result.prelapseInterval,
             state: result.state,
         };
-        try {
-            await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, currentCard.id), newSrs);
-            setSrsData(prev => ({ ...prev, [currentCard.id]: newSrs }));
 
-            // Cập nhật hoạt động ôn tập Kanji hàng ngày
-            const todayDateString = new Date().toISOString().split('T')[0];
-            const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
-            await setDoc(activityRef, {
-                reviewsDone: increment(1)
-            }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Kanji:', err));
-        } catch (e) { console.error('Error updating SRS:', e); }
+        // Save current card's state to history stack for Undo
+        setReviewHistory(prev => [...prev, {
+            cardIndex: currentReviewIndex,
+            cardId: currentCard.id,
+            srs: srs,
+            isFlipped: isFlipped
+        }]);
+
+        // 1. Update local states immediately (optimistic UI)
+        setSrsData(prev => ({ ...prev, [currentCard.id]: newSrs }));
         if (currentReviewIndex + 1 < reviewQueue.length) {
             if (rating === 'good' || rating === 'easy') { flashCorrect(); playCorrectSound(); }
             else if (rating === 'again') { playIncorrectSound(); }
@@ -239,6 +242,63 @@ const KanjiReviewScreen = () => {
             });
             setReviewMode(false);
         }
+
+        // 2. Perform Firestore writes asynchronously in the background
+        (async () => {
+            try {
+                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, currentCard.id), newSrs);
+
+                // Cập nhật hoạt động ôn tập Kanji hàng ngày
+                const todayDateString = new Date().toISOString().split('T')[0];
+                const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
+                await setDoc(activityRef, {
+                    reviewsDone: increment(1)
+                }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Kanji:', err));
+            } catch (e) {
+                console.error('Error updating SRS in background:', e);
+            }
+        })();
+    };
+
+    const handleUndo = () => {
+        if (reviewHistory.length === 0) return;
+        const lastAction = reviewHistory[reviewHistory.length - 1];
+        setReviewHistory(prev => prev.slice(0, -1));
+
+        const { cardIndex, cardId, srs, isFlipped: wasFlipped } = lastAction;
+
+        // 1. Revert local states immediately
+        setSrsData(prev => {
+            const next = { ...prev };
+            if (srs) {
+                next[cardId] = srs;
+            } else {
+                delete next[cardId];
+            }
+            return next;
+        });
+        setCurrentReviewIndex(cardIndex);
+        setIsFlipped(wasFlipped || false);
+
+        // 2. Revert Firestore writes asynchronously in the background
+        (async () => {
+            try {
+                if (srs) {
+                    await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, cardId), srs);
+                } else {
+                    await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, cardId));
+                }
+
+                // Giảm lượt ôn tập trong ngày
+                const todayDateString = new Date().toISOString().split('T')[0];
+                const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
+                await setDoc(activityRef, {
+                    reviewsDone: increment(-1)
+                }, { merge: true }).catch(err => console.warn('Lỗi revert activity Kanji:', err));
+            } catch (e) {
+                console.error('Error reverting SRS in background:', e);
+            }
+        })();
     };
 
     useEffect(() => {
@@ -249,10 +309,14 @@ const KanjiReviewScreen = () => {
             if (e.key === '2') handleRating('hard');
             if (e.key === '3') handleRating('good');
             if (e.key === '4') handleRating('easy');
+            if (e.key === 'Backspace' || e.key === 'z' || (e.key === 'z' && e.ctrlKey)) {
+                e.preventDefault();
+                handleUndo();
+            }
         };
         window.addEventListener('keydown', handler);
         return () => window.removeEventListener('keydown', handler);
-    }, [reviewMode, currentCard, currentReviewIndex]);
+    }, [reviewMode, currentCard, currentReviewIndex, reviewHistory]);
 
     if (loading) {
         return (
@@ -279,12 +343,20 @@ const KanjiReviewScreen = () => {
             <div className="min-h-[calc(100vh-120px)] flex items-center justify-center px-4 animate-fade-in">
                 <div className="w-[600px] max-w-full flex flex-col justify-center items-center space-y-4">
                     {/* Back button */}
-                    <div className="w-full flex justify-start mb-2">
+                    <div className="w-full flex justify-between mb-2">
                         <button onClick={() => setReviewMode(false)}
                             className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2">
                             <ChevronLeft className="w-4 h-4" />
                             <span className="text-sm font-medium">Trở lại</span>
                         </button>
+
+                        {reviewHistory.length > 0 && (
+                            <button onClick={handleUndo}
+                                className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2">
+                                <RotateCcw className="w-4 h-4" />
+                                <span className="text-sm font-medium">Quay lại</span>
+                            </button>
+                        )}
                     </div>
 
                     {/* Progress */}
