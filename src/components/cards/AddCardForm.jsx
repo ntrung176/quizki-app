@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Search, BookOpen, Languages, MessageSquare, Tag, Sparkles, ChevronDown, CreditCard, Trash2, GripVertical } from 'lucide-react';
 import { JLPT_LEVELS, POS_TYPES } from '../../config/constants';
 import { compressImage } from '../../utils/image';
-import OnboardingTour from '../ui/OnboardingTour';
 import ImageSearchModal from '../ui/ImageSearchModal';
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
@@ -455,47 +454,61 @@ const AddCardForm = ({
         });
     };
 
-    const handleSaveSet = async () => {
+     const handleSaveSet = async () => {
         const validCards = cards.filter(c => c.front.trim() && c.back.trim());
         if (validCards.length === 0) {
             showToast('Học phần phải có ít nhất 1 thẻ hợp lệ (có Thuật ngữ và Định nghĩa)', 'error');
             return;
         }
 
+        if (!title.trim()) {
+            showToast('Vui lòng nhập tiêu đề học phần', 'error');
+            return;
+        }
+
         setIsSaving(true);
         let folderId = null;
         
-        if (title.trim()) {
-            try {
-                if (onAddFolder) {
-                    folderId = await onAddFolder(title.trim(), description.trim(), coverImage);
-                }
-            } catch (e) {
-                console.error("Lỗi khi tạo thư mục:", e);
+        try {
+            if (onAddFolder) {
+                folderId = await onAddFolder(title.trim(), description.trim(), coverImage);
             }
+        } catch (e) {
+            console.error("Lỗi khi tạo thư mục:", e);
+            showToast("Có lỗi xảy ra khi tạo học phần.", 'error');
+            setIsSaving(false);
+            return;
         }
 
-        let successCount = 0;
-        for (let card of validCards) {
-            const success = await onSave({
-                ...card,
-                action: 'continue',
-                folderId: folderId
+        try {
+            const savePromises = validCards.map(async (card) => {
+                const success = await onSave({
+                    ...card,
+                    action: 'continue',
+                    folderId: folderId
+                });
+                return success;
             });
-            if (success) successCount++;
-        }
 
-        setIsSaving(false);
-        
-        if (successCount > 0) {
-            showToast(`Đã lưu thành công ${successCount} từ vựng vào học phần!`, 'success');
-        }
+            const results = await Promise.all(savePromises);
+            const successCount = results.filter(Boolean).length;
 
-        if (batchMode && onBatchSkip) {
-            await onBatchSkip();
+            setIsSaving(false);
+            
+            if (successCount > 0) {
+                showToast(`Đã lưu thành công ${successCount} từ vựng vào học phần!`, 'success');
+            }
+
+            if (batchMode && onBatchSkip) {
+                await onBatchSkip();
+            }
+            
+            onBack();
+        } catch (error) {
+            console.error("Lỗi khi lưu thẻ:", error);
+            showToast("Có lỗi xảy ra khi lưu từ vựng.", 'error');
+            setIsSaving(false);
         }
-        
-        onBack();
     };
 
     return (
@@ -695,8 +708,6 @@ const AddCardForm = ({
                 aiCreditsRemaining={aiCreditsRemaining}
                 onGenerateComplete={handleBatchAiComplete}
             />
-
-            <OnboardingTour section="vocabAdd" />
         </div>
     );
 };

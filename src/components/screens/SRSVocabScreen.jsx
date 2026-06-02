@@ -5,7 +5,6 @@ import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router';
-import OnboardingTour from '../ui/OnboardingTour';
 import FuriganaText from '../ui/FuriganaText';
 import { calculateAnkiSRS } from '../../utils/srs';
 import { flashCorrect, launchConfetti, launchFanfare } from '../../utils/celebrations';
@@ -1095,8 +1094,6 @@ const SRSVocabScreen = ({
                         )}
                     </div>
                 </div>
-
-                <OnboardingTour section="vocabReview" />
             </div>
 
             {/* Flashcard Settings Modal */}

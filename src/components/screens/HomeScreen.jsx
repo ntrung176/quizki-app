@@ -7,7 +7,6 @@ import {
     ArrowRight, Sparkles, Zap
 } from 'lucide-react';
 import { ROUTES } from '../../router';
-import OnboardingTour from '../ui/OnboardingTour';
 import BookVocabSyncChecker from '../ui/BookVocabSyncChecker';
 
 const HomeScreen = ({
@@ -343,8 +342,6 @@ const HomeScreen = ({
                 </div>
             </div>
 
-            {/* Onboarding Tour for new users */}
-            <OnboardingTour section="home" />
         </div>
     );
 };

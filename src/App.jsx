@@ -106,6 +106,21 @@ try {
 
 // --- Component Chính App ---
 
+const getSectionFromPath = (pathname) => {
+    if (pathname === '/' || pathname === '/home') return 'home';
+    if (pathname.includes('/vocab/review')) return 'vocabReview';
+    if (pathname.includes('/vocab/add') || pathname.includes('/vocab/edit-set/')) return 'vocabAdd';
+    if (pathname.includes('/vocab/list')) return 'vocabList';
+    if (pathname.includes('/kanji/study')) return 'kanjiStudy';
+    if (pathname.includes('/kanji/review')) return 'kanjiReview';
+    if (pathname.includes('/kanji/list')) return 'kanjiList';
+    if (pathname.includes('/jlpt/test')) return 'jlptTest';
+    if (pathname.includes('/hub')) return 'hub';
+    if (pathname.includes('/settings')) return 'settings';
+    if (pathname.includes('/feedback')) return 'feedback';
+    return 'home';
+};
+
 // SECURITY: Suppress sensitive console logs in production
 initConsoleProtection();
 
@@ -113,6 +128,7 @@ const App = () => {
     // React Router hooks
     const navigate = useNavigate();
     const location = useLocation();
+    const [tourTrigger, setTourTrigger] = useState(0);
 
     // Version check for auto-update notification (check every 60s)
     const { updateAvailable, refresh: refreshApp, dismiss: dismissUpdate } = useVersionCheck(60000);
@@ -3405,7 +3421,25 @@ const App = () => {
             />
 
             {/* Onboarding tour for new users */}
-            {userId && <OnboardingTour userId={userId} />}
+            {userId && (
+                <OnboardingTour 
+                    userId={userId} 
+                    isAdmin={isAdmin} 
+                    section={getSectionFromPath(location.pathname)} 
+                    forceTrigger={tourTrigger} 
+                />
+            )}
+
+            {/* Restart onboarding guide button */}
+            {userId && location.pathname !== ROUTES.LOGIN && location.pathname !== '/login' && location.pathname !== '/privacy' && location.pathname !== '/terms' && (
+                <button
+                    onClick={() => setTourTrigger(prev => prev + 1)}
+                    className="fixed bottom-6 left-6 lg:left-[18rem] z-55 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer bg-[#2E5B70] shadow-[#2E5B70]/30 border border-slate-100/10"
+                    title="Xem hướng dẫn trang này"
+                >
+                    <HelpCircle className="w-6 h-6" />
+                </button>
+            )}
 
             {/* Update notification when new version is deployed */}
             {updateAvailable && (

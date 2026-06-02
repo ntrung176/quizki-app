@@ -2,12 +2,28 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Search, BookOpen, Languages, MessageSquare, Tag, Sparkles, ChevronDown, CreditCard, Trash2, GripVertical } from 'lucide-react';
 import { JLPT_LEVELS, POS_TYPES } from '../../config/constants';
 import { compressImage } from '../../utils/image';
-import OnboardingTour from '../ui/OnboardingTour';
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import { showToast } from '../../utils/toast';
 import { CardEditorItem } from '../cards/AddCardForm';
 import BatchAiModal from '../cards/BatchAiModal';
+
+const isCardModified = (card, originalCard) => {
+    if (!originalCard) return true;
+    const fields = [
+        'front', 'back', 'synonym', 'example', 'exampleMeaning', 
+        'nuance', 'pos', 'level', 'sinoVietnamese', 'synonymSinoVietnamese', 
+        'imageBase64', 'audioBase64'
+    ];
+    for (const f of fields) {
+        const val1 = card[f] !== undefined && card[f] !== null ? card[f] : '';
+        const val2 = originalCard[f] !== undefined && originalCard[f] !== null ? originalCard[f] : '';
+        if (String(val1).trim() !== String(val2).trim()) {
+            return true;
+        }
+    }
+    return false;
+};
 
 const isMobileDevice = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
@@ -154,6 +170,11 @@ const EditSetScreen = ({
             return;
         }
 
+        if (folderId !== 'unfiled' && !title.trim()) {
+            showToast('Tiêu đề học phần không được để trống', 'error');
+            return;
+        }
+
         setIsSaving(true);
 
         // 1. Check for duplicates within the current screen's inputs
@@ -218,7 +239,7 @@ const EditSetScreen = ({
         }
 
         try {
-            // Save/update cards in parallel
+            // Save/update cards in parallel (only if new or modified)
             const savePromises = validCards.map(async (card) => {
                 if (card.isNew) {
                     const success = await onSaveNewCard({
@@ -233,13 +254,17 @@ const EditSetScreen = ({
                     }
                     return success;
                 } else {
-                    return onUpdateCard(card.id, 'all', {
-                        front: card.front, back: card.back, synonym: card.synonym, 
-                        example: card.example, exampleMeaning: card.exampleMeaning, 
-                        nuance: card.nuance, pos: card.pos, level: card.level, 
-                        sinoVietnamese: card.sinoVietnamese, synonymSinoVietnamese: card.synonymSinoVietnamese, 
-                        imageBase64: card.imageBase64, audioBase64: card.audioBase64
-                    });
+                    const orig = originalSetCards.find(c => c.id === card.id);
+                    if (isCardModified(card, orig)) {
+                        return onUpdateCard(card.id, 'all', {
+                            front: card.front, back: card.back, synonym: card.synonym, 
+                            example: card.example, exampleMeaning: card.exampleMeaning, 
+                            nuance: card.nuance, pos: card.pos, level: card.level, 
+                            sinoVietnamese: card.sinoVietnamese, synonymSinoVietnamese: card.synonymSinoVietnamese, 
+                            imageBase64: card.imageBase64, audioBase64: card.audioBase64
+                        });
+                    }
+                    return Promise.resolve(true);
                 }
             });
 
@@ -459,8 +484,6 @@ const EditSetScreen = ({
                 aiCreditsRemaining={aiCreditsRemaining}
                 onGenerateComplete={handleBatchAiComplete}
             />
-
-            <OnboardingTour section="vocabAdd" />
         </div>
     );
 };
