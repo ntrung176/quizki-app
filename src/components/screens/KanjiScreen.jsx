@@ -1967,7 +1967,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950/20 text-gray-900 dark:text-white pb-12 transition-colors duration-300 animate-fade-in">
             <TopTabBar tabs={KANJI_TABS} />
             <div className="max-w-6xl mx-auto px-4 md:px-8 space-y-6 mt-6">
-                
+
                 {/* Header Section */}
                 <div className="flex flex-col gap-4">
                     <div>
@@ -2069,11 +2069,10 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     <button
                                         key={level}
                                         onClick={() => setSelectedLevel(level)}
-                                        className={`px-4 py-2.5 rounded-xl font-bold text-xs tracking-wider transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm border ${
-                                            isActive
+                                        className={`px-4 py-2.5 rounded-xl font-bold text-xs tracking-wider transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm border ${isActive
                                                 ? LEVEL_TAB_COLORS[level] + ' border-transparent'
                                                 : 'bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50 border-slate-200/80 dark:border-slate-700/50'
-                                        }`}
+                                            }`}
                                     >
                                         {level}
                                     </button>
@@ -2158,13 +2157,12 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             </div>
                             <div className="h-2 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                                 <div
-                                    className={`h-full rounded-full transition-all duration-700 ease-out bg-gradient-to-r ${
-                                        selectedLevel === 'N5' ? 'from-emerald-400 to-teal-500' :
-                                        selectedLevel === 'N4' ? 'from-sky-400 to-cyan-500' :
-                                        selectedLevel === 'N3' ? 'from-violet-400 to-fuchsia-500' :
-                                        selectedLevel === 'N2' ? 'from-amber-400 to-orange-500' :
-                                        selectedLevel === 'N1' ? 'from-rose-400 to-pink-500' : 'from-orange-400 to-amber-500'
-                                    }`}
+                                    className={`h-full rounded-full transition-all duration-700 ease-out bg-gradient-to-r ${selectedLevel === 'N5' ? 'from-emerald-400 to-teal-500' :
+                                            selectedLevel === 'N4' ? 'from-sky-400 to-cyan-500' :
+                                                selectedLevel === 'N3' ? 'from-violet-400 to-fuchsia-500' :
+                                                    selectedLevel === 'N2' ? 'from-amber-400 to-orange-500' :
+                                                        selectedLevel === 'N1' ? 'from-rose-400 to-pink-500' : 'from-orange-400 to-amber-500'
+                                        }`}
                                     style={{ width: `${currentKanjiList.length > 0 ? (completedCount / currentKanjiList.length) * 100 : 0}%` }}
                                 />
                             </div>
@@ -2266,11 +2264,10 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     <div
                                         key={kanji.id}
                                         onClick={() => toggleKanjiSelection(kanji.id)}
-                                        className={`relative aspect-square flex items-center justify-center text-xl font-bold rounded-2xl cursor-pointer transition-all hover:scale-105 active:scale-95 ${
-                                            selectedKanjiIds.includes(kanji.id)
+                                        className={`relative aspect-square flex items-center justify-center text-xl font-bold rounded-2xl cursor-pointer transition-all hover:scale-105 active:scale-95 ${selectedKanjiIds.includes(kanji.id)
                                                 ? 'bg-rose-600 text-white shadow-lg shadow-rose-500/20 ring-2 ring-rose-450'
                                                 : `${LEVEL_COLORS[selectedLevel]?.bg || 'bg-emerald-500 dark:bg-emerald-600/80'} text-white`
-                                        }`}
+                                            }`}
                                     >
                                         <span className="font-japanese">{kanji.character}</span>
                                         {selectedKanjiIds.includes(kanji.id) && (
@@ -2317,11 +2314,10 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                 <div
                                                     key={vocab.id}
                                                     onClick={() => toggleVocabSelection(vocab.id)}
-                                                    className={`flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all border ${
-                                                        selectedVocabIds.includes(vocab.id)
+                                                    className={`flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all border ${selectedVocabIds.includes(vocab.id)
                                                             ? 'bg-rose-50/50 dark:bg-rose-950/20 border-rose-300 dark:border-rose-800'
                                                             : 'bg-slate-50 dark:bg-slate-900 border-transparent hover:border-slate-200 dark:hover:border-slate-700'
-                                                    }`}
+                                                        }`}
                                                 >
                                                     <input
                                                         type="checkbox"
@@ -2363,11 +2359,10 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                     <button
                                                         key={`${radical}-${i}`}
                                                         onClick={() => openKanjiDetail(radical)}
-                                                        className={`group relative aspect-square flex flex-col items-center justify-center rounded-2xl transition-all hover:scale-105 active:scale-95 shadow-sm border ${
-                                                            selectedKanji === radical
+                                                        className={`group relative aspect-square flex flex-col items-center justify-center rounded-2xl transition-all hover:scale-105 active:scale-95 shadow-sm border ${selectedKanji === radical
                                                                 ? 'bg-orange-500 text-white border-transparent shadow-lg shadow-orange-500/20 scale-105'
                                                                 : 'bg-orange-500/10 dark:bg-orange-950/20 border-orange-200/50 dark:border-orange-900/30 text-orange-600 dark:text-orange-400 hover:border-orange-400'
-                                                        }`}
+                                                            }`}
                                                         title={`${info?.name || ''} - ${info?.meaning || ''}`}
                                                     >
                                                         <span className="font-japanese text-xl font-bold">{radical}</span>
@@ -2389,14 +2384,13 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     const fbData = kanjiMap.get(kanji);
                                     const meaningTip = fbData?.sinoViet || jData?.sinoViet || '';
                                     const isSaved = allUserCards.some(card => (card.front || card.character) === kanji);
-                                    
+
                                     return (
                                         <button
                                             key={`${kanji}-${i}`}
                                             onClick={() => openKanjiDetail(kanji)}
-                                            className={`group relative aspect-[4/5] flex flex-col items-center justify-between text-center bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-100 dark:border-slate-700/60 shadow-sm transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/5 select-none ${
-                                                selectedKanji === kanji ? 'ring-2 ring-sky-500 dark:ring-sky-400' : ''
-                                            }`}
+                                            className={`group relative aspect-[4/5] flex flex-col items-center justify-between text-center bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-100 dark:border-slate-700/60 shadow-sm transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/5 select-none ${selectedKanji === kanji ? 'ring-2 ring-sky-500 dark:ring-sky-400' : ''
+                                                }`}
                                         >
                                             {/* Top Corner: Checkmark indicator if Kanji is saved */}
                                             <div className="absolute top-3 right-3 flex items-center justify-center">
@@ -2425,13 +2419,12 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             </div>
 
                                             {/* Progress / Level Accent Bar */}
-                                            <div className={`absolute bottom-0 left-0 right-0 h-1.5 rounded-b-3xl bg-gradient-to-r ${
-                                                selectedLevel === 'N5' ? 'from-emerald-400 to-teal-500' :
-                                                selectedLevel === 'N4' ? 'from-sky-400 to-cyan-500' :
-                                                selectedLevel === 'N3' ? 'from-violet-400 to-fuchsia-500' :
-                                                selectedLevel === 'N2' ? 'from-amber-400 to-orange-500' :
-                                                selectedLevel === 'N1' ? 'from-rose-400 to-pink-500' : 'from-orange-400 to-amber-500'
-                                            }`} />
+                                            <div className={`absolute bottom-0 left-0 right-0 h-1.5 rounded-b-3xl bg-gradient-to-r ${selectedLevel === 'N5' ? 'from-emerald-400 to-teal-500' :
+                                                    selectedLevel === 'N4' ? 'from-sky-400 to-cyan-500' :
+                                                        selectedLevel === 'N3' ? 'from-violet-400 to-fuchsia-500' :
+                                                            selectedLevel === 'N2' ? 'from-amber-400 to-orange-500' :
+                                                                selectedLevel === 'N1' ? 'from-rose-400 to-pink-500' : 'from-orange-400 to-amber-500'
+                                                }`} />
                                         </button>
                                     );
                                 })}

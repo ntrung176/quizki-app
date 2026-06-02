@@ -220,7 +220,7 @@ const KanjiReviewScreen = () => {
 
             // Cập nhật hoạt động ôn tập Kanji hàng ngày
             const todayDateString = new Date().toISOString().split('T')[0];
-            const activityRef = doc(db, `artifacts/${appId}/users/${userId}/activity`, todayDateString);
+            const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
             await setDoc(activityRef, {
                 reviewsDone: increment(1)
             }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Kanji:', err));

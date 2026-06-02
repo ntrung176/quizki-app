@@ -1,5 +1,5 @@
 import { db, appId } from '../config/firebase';
-import { collection, addDoc, doc, setDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 /**
  * Log a Kanji study history activity.
@@ -34,13 +34,14 @@ export const logKanjiActivity = async (userId, activity) => {
     // 2. Save to Firestore if userId is available
     if (userId) {
         try {
-            const ref = collection(db, `artifacts/${appId}/users/${userId}/kanjiHistory`);
-            await addDoc(ref, {
-                type: record.type,
-                title: record.title,
-                details: record.details,
-                timestamp: record.timestamp
-            });
+            const docRef = doc(db, `artifacts/${appId}/users/${userId}/settings`, 'kanjiHistory');
+            const docSnap = await getDoc(docRef);
+            let historyList = [];
+            if (docSnap.exists()) {
+                historyList = docSnap.data().activities || [];
+            }
+            const updated = [record, ...historyList].slice(0, 50);
+            await setDoc(docRef, { activities: updated });
         } catch (e) {
             console.warn('Could not save activity to Firebase, using local storage only:', e.message);
         }
@@ -71,11 +72,14 @@ export const recordRecentKanji = async (userId, character) => {
     // 2. Save to Firestore if userId is available
     if (userId) {
         try {
-            const docRef = doc(db, `artifacts/${appId}/users/${userId}/kanjiRecent`, character);
-            await setDoc(docRef, {
-                character,
-                viewedAt: Date.now()
-            });
+            const docRef = doc(db, `artifacts/${appId}/users/${userId}/settings`, 'kanjiRecent');
+            const docSnap = await getDoc(docRef);
+            let recentList = [];
+            if (docSnap.exists()) {
+                recentList = docSnap.data().characters || [];
+            }
+            const updated = [character, ...recentList.filter(c => c !== character)].slice(0, 15);
+            await setDoc(docRef, { characters: updated });
         } catch (e) {
             console.warn('Could not save recent Kanji to Firebase, using local storage only:', e.message);
         }

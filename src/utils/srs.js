@@ -37,22 +37,26 @@ export const normalizeSRSState = (srs) => {
     let prelapseInterval = srs.prelapseInterval !== undefined ? srs.prelapseInterval : (srs.srsPrelapseInterval !== undefined ? srs.srsPrelapseInterval : null);
     let state = srs.state || srs.srsState || null;
 
-    // 2. Legacy migration check: if no new SRS fields exist but intervalIndex_back is present
+    // 2. Legacy migration check: check if no new SRS fields exist but it was studied in the old system
     const legacyIndex = srs.intervalIndex_back !== undefined ? srs.intervalIndex_back : -1;
-    
-    // If the card has a legacy reviewed index but hasn't been initialized in new SM-2
-    if (reps === 0 && state === null && legacyIndex >= 0) {
-        if (legacyIndex === 0) {
-            state = 'LEARNING';
-            learningStep = 0;
-            interval = 10; // 10 minutes
-        } else {
-            state = 'REVIEW';
-            learningStep = null;
-            reps = legacyIndex;
-            // Map old Leitner index to day intervals: Index 1->1d, 2->3d, 3->7d, 4->30d, 5->90d
-            const indexToDays = [1, 3, 7, 30, 90];
-            interval = indexToDays[legacyIndex - 1] || 1;
+    const seenCount = srs.seenCount !== undefined ? srs.seenCount : 0;
+    const masteryState = srs.masteryState || 'not_learned';
+
+    if (reps === 0 && state === null) {
+        const isLegacy = legacyIndex >= 0 || seenCount > 0 || srs.lastReviewed;
+        if (isLegacy) {
+            const isMastered = masteryState === 'memorized' || legacyIndex >= 4;
+            if (isMastered) {
+                state = 'REVIEW';
+                learningStep = null;
+                reps = 5; // Mastered (stats check reps >= 5)
+                interval = 30; // 30 days
+            } else {
+                state = 'NEW';
+                learningStep = null;
+                reps = 0;
+                interval = 0;
+            }
         }
     }
 

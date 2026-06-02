@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { createPortal } from 'react-dom';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { 
     Search, Trash2, ChevronLeft, ChevronRight, BookOpen, Clock, 
@@ -7,7 +8,7 @@ import {
     FolderOpen, Edit, Plus, List, Bell, Bookmark, ArrowRight, Sparkles 
 } from 'lucide-react';
 import { db, appId } from '../../config/firebase';
-import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
+import { collection, getDocs, getDoc, doc, deleteDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
 import { showToast, showConfirm } from '../../utils/toast';
@@ -132,31 +133,28 @@ const KanjiSRSListScreen = () => {
 
             if (userId) {
                 try {
-                    const recentRef = collection(db, `artifacts/${appId}/users/${userId}/kanjiRecent`);
-                    const recentSnap = await getDocs(recentRef);
-                    const fbRecents = recentSnap.docs
-                        .map(d => ({ character: d.id, viewedAt: d.data().viewedAt }))
-                        .sort((a, b) => b.viewedAt - a.viewedAt)
-                        .map(x => x.character);
-                    
-                    if (fbRecents.length > 0) {
-                        setRecentlyViewed(fbRecents.slice(0, 10));
-                        localStorage.setItem('kanji_recently_viewed', JSON.stringify(fbRecents.slice(0, 15)));
+                    const recentDocRef = doc(db, `artifacts/${appId}/users/${userId}/settings`, 'kanjiRecent');
+                    const recentSnap = await getDoc(recentDocRef);
+                    if (recentSnap.exists()) {
+                        const fbRecents = recentSnap.data().characters || [];
+                        if (fbRecents.length > 0) {
+                            setRecentlyViewed(fbRecents.slice(0, 10));
+                            localStorage.setItem('kanji_recently_viewed', JSON.stringify(fbRecents.slice(0, 15)));
+                        }
                     }
                 } catch (err) {
                     console.warn('Could not load recent Kanji from Firebase:', err.message);
                 }
 
                 try {
-                    const historyRef = collection(db, `artifacts/${appId}/users/${userId}/kanjiHistory`);
-                    const historySnap = await getDocs(historyRef);
-                    const fbHistory = historySnap.docs
-                        .map(d => ({ id: d.id, ...d.data() }))
-                        .sort((a, b) => b.timestamp - a.timestamp);
-                    
-                    if (fbHistory.length > 0) {
-                        setStudyHistory(fbHistory.slice(0, 10));
-                        localStorage.setItem('kanji_study_history', JSON.stringify(fbHistory.slice(0, 50)));
+                    const historyDocRef = doc(db, `artifacts/${appId}/users/${userId}/settings`, 'kanjiHistory');
+                    const historySnap = await getDoc(historyDocRef);
+                    if (historySnap.exists()) {
+                        const fbHistory = historySnap.data().activities || [];
+                        if (fbHistory.length > 0) {
+                            setStudyHistory(fbHistory.slice(0, 10));
+                            localStorage.setItem('kanji_study_history', JSON.stringify(fbHistory.slice(0, 50)));
+                        }
                     }
                 } catch (err) {
                     console.warn('Could not load history from Firebase:', err.message);
@@ -609,10 +607,11 @@ const KanjiSRSListScreen = () => {
     }
 
     return (
-        <div className="w-full pb-10 bg-slate-50/50 min-h-screen dark:bg-slate-900/10 animate-fade-in">
-            <TopTabBar tabs={KANJI_TABS} />
-            
-            <div className="max-w-6xl mx-auto space-y-6 px-4 md:px-8 mt-6">
+        <div className="w-full pb-10 bg-slate-50/50 min-h-screen dark:bg-slate-900/10">
+            <div className="animate-fade-in">
+                <TopTabBar tabs={KANJI_TABS} />
+                
+                <div className="max-w-6xl mx-auto space-y-6 px-4 md:px-8 mt-6">
                 
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -1113,9 +1112,11 @@ const KanjiSRSListScreen = () => {
                         )}
                     </div>
                 )}
+            </div>
+        </div>
 
-                {/* Confirm Delete Dialog */}
-                {showConfirmDelete && (
+        {/* Confirm Delete Dialog */}
+                {showConfirmDelete && createPortal(
                     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                         <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 w-[420px] max-w-full shadow-2xl space-y-4 border border-slate-100 dark:border-slate-700">
                             <div className="flex items-center gap-3">
@@ -1149,7 +1150,8 @@ const KanjiSRSListScreen = () => {
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </div>,
+                    document.body
                 )}
 
                 {/* Batch Move to Folder Modal */}
@@ -1159,7 +1161,7 @@ const KanjiSRSListScreen = () => {
                             .flatMap(f => [{ ...f, depth }, ...buildTree(f.id, depth + 1)]);
                     };
                     const flatTree = buildTree();
-                    return (
+                    return createPortal(
                         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                             <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 w-[360px] max-w-full shadow-2xl space-y-4 border border-slate-100 dark:border-slate-700">
                                 <h3 className="text-base font-bold text-slate-800 dark:text-white flex items-center gap-2">
@@ -1195,7 +1197,8 @@ const KanjiSRSListScreen = () => {
                                     Hủy bỏ
                                 </button>
                             </div>
-                        </div>
+                        </div>,
+                        document.body
                     );
                 })()}
 
@@ -1206,7 +1209,7 @@ const KanjiSRSListScreen = () => {
                             .flatMap(f => [{ ...f, depth }, ...buildTree(f.id, depth + 1)]);
                     };
                     const flatTree = buildTree();
-                    return (
+                    return createPortal(
                         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                             <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 w-[360px] max-w-full shadow-2xl space-y-4 border border-slate-100 dark:border-slate-700">
                                 <h3 className="text-base font-bold text-slate-800 dark:text-white flex items-center gap-2">
@@ -1240,7 +1243,8 @@ const KanjiSRSListScreen = () => {
                                     Hủy bỏ
                                 </button>
                             </div>
-                        </div>
+                        </div>,
+                        document.body
                     );
                 })()}
 
@@ -1252,7 +1256,7 @@ const KanjiSRSListScreen = () => {
                             .flatMap(f => [{ ...f, depth }, ...buildTree(f.id, depth + 1)]);
                     };
                     const flatTree = buildTree();
-                    return (
+                    return createPortal(
                         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                             <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 w-[440px] max-w-full shadow-2xl space-y-4 border border-slate-100 dark:border-slate-700">
                                 <h3 className="text-base font-bold text-slate-800 dark:text-white flex items-center gap-2">
@@ -1338,11 +1342,11 @@ const KanjiSRSListScreen = () => {
                                     Đóng
                                 </button>
                             </div>
-                        </div>
+                        </div>,
+                        document.body
                     );
                 })()}
 
-            </div>
         </div>
     );
 };

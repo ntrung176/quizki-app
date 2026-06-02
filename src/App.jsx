@@ -217,7 +217,7 @@ const App = () => {
             try {
                 const settingsStr = localStorage.getItem('quizki-settings');
                 const settings = settingsStr ? JSON.parse(settingsStr) : {};
-                
+
                 // Set Japanese Font Family
                 const fontPref = settings.jpFontFamily || 'kyokasho';
                 let fontStr = '';
@@ -236,7 +236,7 @@ const App = () => {
                 const sizePref = settings.jpFontSize || 'large';
                 document.documentElement.setAttribute('data-jp-size', sizePref);
 
-            } catch(e){}
+            } catch (e) { }
         };
         handleSettings();
         window.addEventListener('quizki-settings-changed', handleSettings);
@@ -622,18 +622,31 @@ const App = () => {
                 let srsPrelapseInterval = typeof data.srsPrelapseInterval === 'number' ? data.srsPrelapseInterval : null;
                 let srsState = data.srsState || null;
 
+                let nextReviewBack = data.nextReview_back?.toDate ? data.nextReview_back.toDate() : (data.nextReview_back ? new Date(data.nextReview_back) : today);
+
                 // 1. Migration for legacy Leitner cards that were reviewed but have no new SRS progress
-                if (srsEnabled && srsReps === 0 && srsState === null && legacyIndex >= 0) {
-                    if (legacyIndex === 0) {
-                        srsState = 'LEARNING';
-                        srsLearningStep = 0;
-                        srsInterval = 10; // 10 minutes
-                    } else {
-                        srsState = 'REVIEW';
-                        srsLearningStep = null;
-                        srsReps = legacyIndex;
-                        const indexToDays = [1, 3, 7, 30, 90];
-                        srsInterval = indexToDays[legacyIndex - 1] || 1;
+                if (srsEnabled && srsReps === 0 && srsState === null) {
+                    const isLegacy = legacyIndex >= 0 || (data.seenCount || 0) > 0 || data.lastReviewed;
+                    if (isLegacy) {
+                        const isMastered = data.masteryState === 'memorized' || legacyIndex >= 4;
+                        if (isMastered) {
+                            srsState = 'REVIEW';
+                            srsInterval = 30; // 30 days
+                            srsReps = 5; // Mastered (stats check reps >= 5)
+                            srsEase = 2.5;
+                            srsLearningStep = null;
+                            
+                            const lastReviewedDate = data.lastReviewed?.toDate ? data.lastReviewed.toDate() : (data.lastReviewed ? new Date(data.lastReviewed) : null);
+                            const baseTime = lastReviewedDate ? lastReviewedDate.getTime() : today.getTime();
+                            nextReviewBack = new Date(baseTime + 30 * 24 * 60 * 60 * 1000);
+                        } else {
+                            srsState = 'NEW';
+                            srsInterval = 0;
+                            srsReps = 0;
+                            srsEase = 2.5;
+                            srsLearningStep = null;
+                            nextReviewBack = today;
+                        }
                     }
                 }
 
@@ -666,7 +679,7 @@ const App = () => {
                     createdAt: data.createdAt?.toDate ? data.createdAt.toDate() : (data.createdAt ? new Date(data.createdAt) : today),
                     intervalIndex_back: legacyIndex,
                     correctStreak_back: typeof data.correctStreak_back === 'number' ? data.correctStreak_back : 0,
-                    nextReview_back: data.nextReview_back?.toDate ? data.nextReview_back.toDate() : (data.nextReview_back ? new Date(data.nextReview_back) : today),
+                    nextReview_back: nextReviewBack,
                     intervalIndex_synonym: typeof data.intervalIndex_synonym === 'number' ? data.intervalIndex_synonym : -1,
                     correctStreak_synonym: typeof data.correctStreak_synonym === 'number' ? data.correctStreak_synonym : 0,
                     nextReview_synonym: data.nextReview_synonym?.toDate ? data.nextReview_synonym.toDate() : (data.nextReview_synonym ? new Date(data.nextReview_synonym) : today),
@@ -1294,12 +1307,12 @@ const App = () => {
         activityTimeout.current = setTimeout(async () => {
             const todayDateString = new Date().toISOString().split('T')[0];
             const activityRef = doc(db, activityCollectionPath, todayDateString);
-            
+
             const updates = {};
             Object.keys(activityQueue.current).forEach(k => {
                 updates[k] = increment(activityQueue.current[k]);
             });
-            
+
             // Clear queue before async call to avoid race conditions
             activityQueue.current = {};
 
@@ -1562,7 +1575,7 @@ const App = () => {
         if (!studySetsCollectionPath || !folderId) return;
         try {
             await deleteDoc(doc(db, studySetsCollectionPath, folderId));
-            
+
             // Set parentId to null for all study sets inside this folder
             const batch = writeBatch(db);
             let hasUpdates = false;
@@ -1597,9 +1610,9 @@ const App = () => {
             const sameFolder = (folderId === 'unfiled' || !folderId)
                 ? (!card.folderId || card.folderId === 'unfiled')
                 : (card.folderId === folderId);
-            
+
             if (!sameFolder) return false;
-            
+
             const cardFront = card.front.split('（')[0].split('(')[0].trim().toLowerCase();
             return cardFront === normalizedFront;
         });
@@ -2129,7 +2142,7 @@ const App = () => {
         const cardData = cardSnap.data();
 
         const currentMastery = cardData.masteryState || 'not_learned';
-        const newMastery = isCorrect 
+        const newMastery = isCorrect
             ? (currentMastery === 'not_learned' ? 'learning' : 'memorized')
             : (currentMastery === 'memorized' ? 'learning' : 'not_learned');
 
@@ -2206,38 +2219,41 @@ const App = () => {
                 lapseCount: cardData.srsLapseCount || 0,
                 prelapseInterval: cardData.srsPrelapseInterval || null,
                 state: cardData.srsState || null,
-                intervalIndex_back: typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1
+                intervalIndex_back: typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1,
+                masteryState: cardData.masteryState || 'not_learned',
+                seenCount: typeof cardData.seenCount === 'number' ? cardData.seenCount : 0,
+                lastReviewed: cardData.lastReviewed || null
             };
 
-             const result = calculateAnkiSRS(srsState, rating);
-             const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
-             const nextReviewDate = new Date(Date.now() + nextReviewOffset);
- 
-             const isCorrect = rating !== 'again';
-             const currentMastery = cardData.masteryState || 'not_learned';
-             const newMastery = isCorrect 
-                 ? (currentMastery === 'not_learned' ? 'learning' : 'memorized')
-                 : (currentMastery === 'memorized' ? 'learning' : 'not_learned');
- 
-             await updateDoc(cardRef, {
-                 srsInterval: result.interval,
-                 srsEase: result.ease,
-                 srsLearningStep: result.learningStep,
-                 srsIsLapsed: result.isLapsed,
-                 srsReps: result.reps,
-                 srsLapseCount: result.lapseCount,
-                 srsPrelapseInterval: result.prelapseInterval,
-                 srsState: result.state,
-                 intervalIndex_back: result.state === 'NEW' ? -1 : (result.state === 'REVIEW' ? 2 : 0),
-                 nextReview_back: nextReviewDate,
-                 lastReviewed: serverTimestamp(),
-                 needsMistakeReview: rating === 'again',
-                 masteryState: newMastery
-             });
-         } catch (e) {
-             console.error("Lỗi cập nhật đánh giá SRS từ vựng:", e);
-         }
-     };
+            const result = calculateAnkiSRS(srsState, rating);
+            const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
+            const nextReviewDate = new Date(Date.now() + nextReviewOffset);
+
+            const isCorrect = rating !== 'again';
+            const currentMastery = cardData.masteryState || 'not_learned';
+            const newMastery = isCorrect
+                ? (currentMastery === 'not_learned' ? 'learning' : 'memorized')
+                : (currentMastery === 'memorized' ? 'learning' : 'not_learned');
+
+            await updateDoc(cardRef, {
+                srsInterval: result.interval,
+                srsEase: result.ease,
+                srsLearningStep: result.learningStep,
+                srsIsLapsed: result.isLapsed,
+                srsReps: result.reps,
+                srsLapseCount: result.lapseCount,
+                srsPrelapseInterval: result.prelapseInterval,
+                srsState: result.state,
+                intervalIndex_back: result.state === 'NEW' ? -1 : (result.state === 'REVIEW' ? 2 : 0),
+                nextReview_back: nextReviewDate,
+                lastReviewed: serverTimestamp(),
+                needsMistakeReview: rating === 'again',
+                masteryState: newMastery
+            });
+        } catch (e) {
+            console.error("Lỗi cập nhật đánh giá SRS từ vựng:", e);
+        }
+    };
 
     // Lưu cardId để scroll đến sau khi save
     const scrollToCardIdRef = useRef(null);
@@ -3238,12 +3254,12 @@ const App = () => {
                         QuizKi đang thực hiện nâng cấp và bảo trì định kỳ để mang lại trải nghiệm tốt nhất cho bạn. Chúng tôi sẽ trở lại trong thời gian sớm nhất.
                     </p>
                     <div className="w-full h-px bg-slate-100 dark:bg-slate-800 mb-6"></div>
-                    
+
                     <div className="flex flex-col items-center gap-4 w-full">
                         <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">
                             Cảm ơn bạn đã kiên nhẫn và thông cảm!
                         </p>
-                        
+
                         <button
                             onClick={async () => {
                                 try {

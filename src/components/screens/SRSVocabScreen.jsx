@@ -45,7 +45,10 @@ const getPreviewIntervals = (card) => {
         lapseCount: card.srsLapseCount || 0,
         prelapseInterval: card.srsPrelapseInterval || null,
         state: card.srsState || null,
-        intervalIndex_back: typeof card.intervalIndex_back === 'number' ? card.intervalIndex_back : -1
+        intervalIndex_back: typeof card.intervalIndex_back === 'number' ? card.intervalIndex_back : -1,
+        masteryState: card.masteryState || 'not_learned',
+        seenCount: typeof card.seenCount === 'number' ? card.seenCount : 0,
+        lastReviewed: card.lastReviewed || null
     };
 
     const ratings = ['again', 'hard', 'good', 'easy'];
