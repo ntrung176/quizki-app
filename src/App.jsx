@@ -69,10 +69,12 @@ import {
 
 // Import UI components
 import { SearchInput, SrsStatusCell } from './components/ui';
+import UpdateNotification from './components/ui/UpdateNotification';
 import VocabularySelectionLookup from './components/ui/VocabularySelectionLookup';
 import FeedbackChatbox from './components/ui/FeedbackChatbox';
 
 // Import hooks
+import useVersionCheck from './hooks/useVersionCheck';
 
 // Import routing component
 import AppRoutes from './components/AppRoutes';
@@ -111,6 +113,9 @@ const App = () => {
     // React Router hooks
     const navigate = useNavigate();
     const location = useLocation();
+
+    // Version check for auto-update notification (check every 60s)
+    const { updateAvailable, refresh: refreshApp, dismiss: dismissUpdate } = useVersionCheck(60000);
 
     // Helper function to navigate using route names (backward compatible with setView)
     const navigateTo = useCallback((viewName) => {
@@ -172,6 +177,9 @@ const App = () => {
     const setView = useCallback((viewName) => {
         navigateTo(viewName);
     }, [navigateTo]);
+
+    const activityQueue = useRef({});
+    const activityTimeout = useRef(null);
 
     const [authReady, setAuthReady] = useState(false);
     const [userId, setUserId] = useState(null);
@@ -1231,18 +1239,40 @@ const App = () => {
     };
 
 
-    const updateDailyActivity = async (count, field = 'newWordsAdded') => {
-        if (!activityCollectionPath) return;
-        const todayDateString = new Date().toISOString().split('T')[0];
-        const activityRef = doc(db, activityCollectionPath, todayDateString);
-        try {
-            await setDoc(activityRef, {
-                [field]: increment(count)
-            }, { merge: true });
-        } catch (e) {
-            console.error("Lỗi cập nhật hoạt động hàng ngày:", e);
+    const updateDailyActivity = useCallback((count, field = 'newWordsAdded') => {
+        if (!activityCollectionPath) return Promise.resolve();
+
+        // Add to queue
+        activityQueue.current[field] = (activityQueue.current[field] || 0) + count;
+
+        // Clear existing timeout
+        if (activityTimeout.current) {
+            clearTimeout(activityTimeout.current);
         }
-    };
+
+        // Set timeout to write to database after 1 second
+        activityTimeout.current = setTimeout(async () => {
+            const todayDateString = new Date().toISOString().split('T')[0];
+            const activityRef = doc(db, activityCollectionPath, todayDateString);
+            
+            const updates = {};
+            Object.keys(activityQueue.current).forEach(k => {
+                updates[k] = increment(activityQueue.current[k]);
+            });
+            
+            // Clear queue before async call to avoid race conditions
+            activityQueue.current = {};
+
+            try {
+                await setDoc(activityRef, updates, { merge: true });
+                console.log("📈 Consolidated daily activity updated successfully:", updates);
+            } catch (e) {
+                console.error("Lỗi cập nhật hoạt động hàng ngày:", e);
+            }
+        }, 1000);
+
+        return Promise.resolve();
+    }, [activityCollectionPath]);
 
     const createCardObject = (front, back, synonym, example, exampleMeaning, nuance, srsData = {}, createdAtDate = null, imageBase64 = null, audioBase64 = null, pos = null, level = null, sinoVietnamese = null, synonymSinoVietnamese = null) => {
         const hasSynonym = synonym && synonym.trim() !== '';
@@ -1399,9 +1429,9 @@ const App = () => {
             _source: 'fallback',
         };
 
-        // 3. Lưu vào kho dữ liệu chung cho lần sau
+        // 3. Lưu vào kho dữ liệu chung cho lần sau (chạy ngầm không chặn)
         if (fallbackData.meaning || fallbackData.back) {
-            await saveSharedVocab(word, result);
+            saveSharedVocab(word, result).catch(e => console.warn('Error saving shared vocab:', e));
         }
 
         return result;
@@ -1521,15 +1551,21 @@ const App = () => {
     const handleAddCard = async ({ front, back, synonym, example, exampleMeaning, nuance, pos, level, action, imageBase64, audioBase64, exampleAudioBase64, sinoVietnamese, synonymSinoVietnamese, folderId }) => {
         if (!vocabCollectionPath) return false;
 
-        // Kiểm tra trùng lặp với database của user
-        const normalizedFront = front.split('（')[0].split('(')[0].trim();
+        // Kiểm tra trùng lặp với database của user trong cùng học phần
+        const normalizedFront = front.split('（')[0].split('(')[0].trim().toLowerCase();
         const isDuplicate = allCards.some(card => {
-            const cardFront = card.front.split('（')[0].split('(')[0].trim();
+            const sameFolder = (folderId === 'unfiled' || !folderId)
+                ? (!card.folderId || card.folderId === 'unfiled')
+                : (card.folderId === folderId);
+            
+            if (!sameFolder) return false;
+            
+            const cardFront = card.front.split('（')[0].split('(')[0].trim().toLowerCase();
             return cardFront === normalizedFront;
         });
 
         if (isDuplicate) {
-            setNotification(`⚠️ Từ vựng "${normalizedFront}" đã có trong danh sách!`);
+            setNotification(`⚠️ Từ vựng "${front.split('（')[0]}" đã có trong học phần này!`);
             return false;
         }
 
@@ -1558,19 +1594,6 @@ const App = () => {
             newCardData.exampleAudioBase64 = exampleAudioBase64;
         }
 
-        // Tự động tạo audio mới nếu chưa có
-        if (!newCardData.audioBase64) {
-            try {
-                const result = await generateAudioSilent(finalFront);
-                if (result && result.base64) {
-                    newCardData.audioBase64 = result.base64;
-                    newCardData.audioVoiceId = result.voiceId || null;
-                }
-            } catch (e) {
-                console.warn('⚠️ Lỗi tự động tạo audio khi thêm từ vựng mới:', e);
-            }
-        }
-
         let cardRef;
 
         try {
@@ -1593,6 +1616,24 @@ const App = () => {
                 }
             }
 
+            // Tự động tạo audio mới chạy ngầm (không chặn UI để lưu nhanh hơn)
+            if (!newCardData.audioBase64) {
+                (async () => {
+                    try {
+                        const result = await generateAudioSilent(finalFront);
+                        if (result && result.base64) {
+                            await updateDoc(cardRef, {
+                                audioBase64: result.base64,
+                                audioVoiceId: result.voiceId || null
+                            });
+                            console.log("🔊 Generated and updated audio in background for", finalFront);
+                        }
+                    } catch (e) {
+                        console.warn('⚠️ Lỗi tự động tạo audio chạy ngầm:', e);
+                    }
+                })();
+            }
+
             // Nếu đang trong batch mode, chuyển sang từ tiếp theo thay vì về HOME
             // (Logic này đã được xử lý trong nút lưu của AddCardForm)
             if (!batchVocabList.length || currentBatchIndex >= batchVocabList.length) {
@@ -1600,8 +1641,6 @@ const App = () => {
                     setView('HOME');
                 }
             }
-
-
 
             return true;
 
@@ -2006,28 +2045,34 @@ const App = () => {
                 updatedData.audioBase64 = fields.audioBase64;
             }
 
-            // Tự động tạo audio mới nếu đổi front text hoặc chưa có audio
+            // Tự động tạo audio mới nếu đổi front text hoặc chưa có audio (chạy ngầm)
             const oldCard = allCards.find(c => c.id === cardId);
             const oldSpeechText = oldCard ? getSpeechText(oldCard.front) : '';
             const newSpeechText = getSpeechText(updatedData.front);
-
-            if (newSpeechText !== oldSpeechText || (oldCard && !oldCard.audioBase64)) {
-                try {
-                    const result = await generateAudioSilent(updatedData.front);
-                    if (result && result.base64) {
-                        updatedData.audioBase64 = result.base64;
-                        updatedData.audioVoiceId = result.voiceId || null;
-                    }
-                } catch (e) {
-                    console.warn('⚠️ Lỗi tự động tạo audio khi cập nhật thẻ:', e);
-                }
-            }
 
             try {
                 await updateDoc(cardRef, updatedData);
             } catch (e) {
                 console.error("Lỗi khi cập nhật thẻ từ EditSetScreen:", e);
             }
+
+            if (newSpeechText !== oldSpeechText || (oldCard && !oldCard.audioBase64)) {
+                (async () => {
+                    try {
+                        const result = await generateAudioSilent(updatedData.front);
+                        if (result && result.base64) {
+                            await updateDoc(cardRef, {
+                                audioBase64: result.base64,
+                                audioVoiceId: result.voiceId || null
+                            });
+                            console.log("🔊 Generated and updated audio in background for edited card", updatedData.front);
+                        }
+                    } catch (e) {
+                        console.warn('⚠️ Lỗi tự động tạo audio chạy ngầm khi cập nhật thẻ:', e);
+                    }
+                })();
+            }
+
             return;
         }
 
@@ -3196,6 +3241,11 @@ const App = () => {
 
             {/* Onboarding tour for new users */}
             {userId && <OnboardingTour userId={userId} />}
+
+            {/* Update notification when new version is deployed */}
+            {updateAvailable && (
+                <UpdateNotification onRefresh={refreshApp} onDismiss={dismissUpdate} />
+            )}
 
 
 

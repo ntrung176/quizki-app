@@ -26,13 +26,13 @@ const getCardScaleStyles = (card, cardSettings) => {
     if (!card) return {};
     
     // Check if example display setting is enabled
-    const hasFrontExample = !!(cardSettings?.front?.example && card.example);
-    const hasBackExample = !!(cardSettings?.back?.example && card.example);
-    const showExamples = hasFrontExample || hasBackExample;
+    const showFrontExamples = !!(cardSettings?.front?.example && card.example);
+    const showBackExamples = !!(cardSettings?.back?.example && card.example);
+    const showExamples = showFrontExamples || showBackExamples;
     
     let wordSize = "text-3xl md:text-4xl";
     let titleSize = "text-xl";
-    let meaningSize = "text-lg";
+    let meaningSize = "text-2xl md:text-3xl font-bold";
     let exampleBoxPadding = "p-4";
     let exampleItemGap = "space-y-3";
     let exampleTitleSize = "text-xs";
@@ -40,25 +40,43 @@ const getCardScaleStyles = (card, cardSettings) => {
     let exampleMeaningSize = "text-xs font-sans mt-0.5";
     let cardPadding = "p-6";
     
-    // Only scale down if the user has enabled example display setting
-    if (showExamples) {
-        let textLength = card.example.length + (card.exampleMeaning?.length || 0) + card.back.length;
-        const exampleLines = card.example.split('\n').filter(e => e.trim()).length;
-        
-        if (textLength > 240 || exampleLines >= 3) {
+    let textLength = card.example ? (card.example.length + (card.exampleMeaning?.length || 0)) : 0;
+    const exampleLines = card.example ? card.example.split('\n').filter(e => e.trim()).length : 0;
+    
+    // Word size scales down ONLY if front examples are enabled
+    if (showFrontExamples) {
+        if (textLength + card.back.length > 240 || exampleLines >= 3) {
             wordSize = "text-[20px] md:text-[22px] leading-tight font-extrabold";
+        } else if (textLength + card.back.length > 150 || exampleLines >= 2) {
+            wordSize = "text-2xl leading-snug font-extrabold";
+        } else {
+            wordSize = "text-2xl md:text-3xl leading-normal font-extrabold";
+        }
+    }
+    
+    // Meaning size scales down ONLY if back examples are enabled
+    if (showBackExamples) {
+        if (textLength + card.back.length > 240 || exampleLines >= 3) {
+            meaningSize = "text-lg md:text-xl font-bold mt-1.5";
+        } else if (textLength + card.back.length > 150 || exampleLines >= 2) {
+            meaningSize = "text-xl md:text-2xl font-bold mt-2";
+        } else {
+            meaningSize = "text-2xl md:text-3xl font-bold mt-2";
+        }
+    }
+    
+    // Other properties scale if either is enabled
+    if (showExamples) {
+        if (textLength + card.back.length > 240 || exampleLines >= 3) {
             titleSize = "text-sm font-extrabold";
-            meaningSize = "text-xs px-4 py-2 rounded-xl mt-1.5 font-medium";
             exampleBoxPadding = "p-2";
             exampleItemGap = "space-y-1";
             exampleTitleSize = "text-[9px]";
             exampleTextSize = "text-[10px] leading-tight";
             exampleMeaningSize = "text-[9px] font-sans mt-0 leading-tight";
             cardPadding = "p-4 pb-12";
-        } else if (textLength > 150 || exampleLines >= 2) {
-            wordSize = "text-2xl leading-snug font-extrabold";
+        } else if (textLength + card.back.length > 150 || exampleLines >= 2) {
             titleSize = "text-base font-extrabold";
-            meaningSize = "text-sm px-5 py-2.5 rounded-2xl mt-2 font-medium";
             exampleBoxPadding = "p-2.5";
             exampleItemGap = "space-y-1.5";
             exampleTitleSize = "text-[10px]";
@@ -66,9 +84,7 @@ const getCardScaleStyles = (card, cardSettings) => {
             exampleMeaningSize = "text-[10px] font-sans mt-0.5 leading-snug";
             cardPadding = "p-5 pb-12";
         } else {
-            wordSize = "text-2xl md:text-3xl leading-normal font-extrabold";
             titleSize = "text-xl font-extrabold";
-            meaningSize = "text-base px-5 py-2.5 rounded-2xl mt-2 font-medium";
             exampleBoxPadding = "p-3";
             exampleItemGap = "space-y-2";
             exampleTitleSize = "text-[11px]";
@@ -1290,15 +1306,6 @@ const ReviewScreen = ({
                                                                 Nhấn để lật thẻ
                                                             </span>
                                                         </div>
-
-                                                        {/* Settings Button */}
-                                                        <button
-                                                            onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
-                                                            className="absolute bottom-4 right-4 p-2 bg-white/20 hover:bg-white/35 backdrop-blur-sm text-white rounded-full transition-all hover:scale-110 z-30 shadow-md border border-white/20"
-                                                            title="Cấu hình hiển thị"
-                                                        >
-                                                            <Settings className="w-4 h-4" />
-                                                        </button>
                                                     </div>
                                                 </div>
 
@@ -1314,21 +1321,21 @@ const ReviewScreen = ({
                                                                 Nhấn để lật thẻ
                                                             </span>
                                                         </div>
-
-                                                        {/* Settings Button */}
-                                                        <button
-                                                            onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
-                                                            className="absolute bottom-4 right-4 p-2 bg-white/20 hover:bg-white/35 backdrop-blur-sm text-white rounded-full transition-all hover:scale-110 z-30 shadow-md border border-white/20"
-                                                            title="Cấu hình hiển thị"
-                                                        >
-                                                            <Settings className="w-4 h-4" />
-                                                        </button>
                                                     </div>
                                                 </div>
                                             </>
                                         );
                                     })()}
                                 </div>
+
+                                {/* Settings Button - OUTSIDE the flipping container */}
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
+                                    className="absolute top-6 right-6 p-2 bg-white/20 hover:bg-white/35 backdrop-blur-sm text-white rounded-full transition-all hover:scale-110 z-30 shadow-md border border-white/20"
+                                    title="Cấu hình hiển thị"
+                                >
+                                    <Settings className="w-4 h-4" />
+                                </button>
                             </div>
                         ) : (
                             <div className="w-full bg-slate-800 dark:bg-slate-900 rounded-2xl shadow-xl p-5 flex flex-col text-center relative border-2 border-indigo-500/50">

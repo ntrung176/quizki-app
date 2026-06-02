@@ -5,6 +5,7 @@ import { shuffleArray } from '../../utils/textProcessing';
 import FuriganaText from '../ui/FuriganaText';
 import { playAudio, speakJapanese } from '../../utils/audio';
 import { getSrsProgressText } from '../../utils/srs';
+import { POS_TYPES } from '../../config/constants';
 
 // Helper: derive human-readable SRS cycle stage from vocab SM-2 fields
 const getSrsCycleLabel = (card) => {
@@ -61,13 +62,13 @@ const getCardScaleStyles = (card, cardSettings) => {
     if (!card) return {};
     
     // Check if example display setting is enabled
-    const hasFrontExample = !!(cardSettings?.front?.example && card.example);
-    const hasBackExample = !!(cardSettings?.back?.example && card.example);
-    const showExamples = hasFrontExample || hasBackExample;
+    const showFrontExamples = !!(cardSettings?.front?.example && card.example);
+    const showBackExamples = !!(cardSettings?.back?.example && card.example);
+    const showExamples = showFrontExamples || showBackExamples;
     
     let wordSize = "text-3xl md:text-4xl";
     let titleSize = "text-xl";
-    let meaningSize = "text-lg";
+    let meaningSize = "text-2xl md:text-3xl font-bold";
     let exampleBoxPadding = "p-4";
     let exampleItemGap = "space-y-3";
     let exampleTitleSize = "text-xs";
@@ -75,25 +76,43 @@ const getCardScaleStyles = (card, cardSettings) => {
     let exampleMeaningSize = "text-xs font-sans mt-0.5";
     let cardPadding = "p-6";
     
-    // Only scale down if the user has enabled example display setting
-    if (showExamples) {
-        let textLength = card.example.length + (card.exampleMeaning?.length || 0) + card.back.length;
-        const exampleLines = card.example.split('\n').filter(e => e.trim()).length;
-        
-        if (textLength > 240 || exampleLines >= 3) {
+    let textLength = card.example ? (card.example.length + (card.exampleMeaning?.length || 0)) : 0;
+    const exampleLines = card.example ? card.example.split('\n').filter(e => e.trim()).length : 0;
+    
+    // Word size scales down ONLY if front examples are enabled
+    if (showFrontExamples) {
+        if (textLength + card.back.length > 240 || exampleLines >= 3) {
             wordSize = "text-[20px] md:text-[22px] leading-tight font-extrabold";
+        } else if (textLength + card.back.length > 150 || exampleLines >= 2) {
+            wordSize = "text-2xl leading-snug font-extrabold";
+        } else {
+            wordSize = "text-2xl md:text-3xl leading-normal font-extrabold";
+        }
+    }
+    
+    // Meaning size scales down ONLY if back examples are enabled
+    if (showBackExamples) {
+        if (textLength + card.back.length > 240 || exampleLines >= 3) {
+            meaningSize = "text-lg md:text-xl font-bold mt-1.5";
+        } else if (textLength + card.back.length > 150 || exampleLines >= 2) {
+            meaningSize = "text-xl md:text-2xl font-bold mt-2";
+        } else {
+            meaningSize = "text-2xl md:text-3xl font-bold mt-2";
+        }
+    }
+    
+    // Other properties scale if either is enabled
+    if (showExamples) {
+        if (textLength + card.back.length > 240 || exampleLines >= 3) {
             titleSize = "text-sm font-extrabold";
-            meaningSize = "text-xs px-4 py-2 rounded-xl mt-1.5 font-medium";
             exampleBoxPadding = "p-2";
             exampleItemGap = "space-y-1";
             exampleTitleSize = "text-[9px]";
             exampleTextSize = "text-[10px] leading-tight";
             exampleMeaningSize = "text-[9px] font-sans mt-0 leading-tight";
             cardPadding = "p-4 pb-12";
-        } else if (textLength > 150 || exampleLines >= 2) {
-            wordSize = "text-2xl leading-snug font-extrabold";
+        } else if (textLength + card.back.length > 150 || exampleLines >= 2) {
             titleSize = "text-base font-extrabold";
-            meaningSize = "text-sm px-5 py-2.5 rounded-2xl mt-2 font-medium";
             exampleBoxPadding = "p-2.5";
             exampleItemGap = "space-y-1.5";
             exampleTitleSize = "text-[10px]";
@@ -101,9 +120,7 @@ const getCardScaleStyles = (card, cardSettings) => {
             exampleMeaningSize = "text-[10px] font-sans mt-0.5 leading-snug";
             cardPadding = "p-5 pb-12";
         } else {
-            wordSize = "text-2xl md:text-3xl leading-normal font-extrabold";
             titleSize = "text-xl font-extrabold";
-            meaningSize = "text-base px-5 py-2.5 rounded-2xl mt-2 font-medium";
             exampleBoxPadding = "p-3";
             exampleItemGap = "space-y-2";
             exampleTitleSize = "text-[11px]";
@@ -412,45 +429,61 @@ const StudySetDetail = ({
                             const renderBackContent = () => {
                                 if (!activeCard) return null;
                                 return (
-                                    <div className="flex-1 flex flex-col items-center justify-center text-center space-y-4 w-full">
-                                        {cardSettings.back.meaning && (
-                                            <div className={`${scale.meaningSize} font-bold text-slate-850 dark:text-white leading-relaxed break-words max-w-full`}>{activeCard.back}</div>
-                                        )}
-                                        {cardSettings.back.hanviet && activeCard.sinoVietnamese && (
-                                            <p className="text-amber-600 dark:text-yellow-300 text-base font-semibold">
-                                                <span className="text-slate-450 dark:text-slate-400 font-normal">Hán Việt: </span>{activeCard.sinoVietnamese}
-                                            </p>
-                                        )}
-                                        {cardSettings.back.synonym && activeCard.synonym && (
-                                            <p className="text-sm text-slate-750 dark:text-slate-350 mt-2 font-bold">
-                                                <span className="font-semibold text-slate-450 dark:text-slate-400">Đồng nghĩa: </span>
-                                                <FuriganaText text={activeCard.synonym} className="font-japanese" />
-                                            </p>
-                                        )}
-                                        {cardSettings.back.example && activeCard.example && (
-                                            <div className={`mt-3 ${scale.exampleItemGap} text-left w-full max-w-md mx-auto ${scale.exampleBoxPadding} bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 rounded-2xl`}>
-                                                {activeCard.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
-                                                    const meaning = (activeCard.exampleMeaning || '').split('\n')[idx]?.trim();
-                                                    return (
-                                                        <div key={idx} className="border-l-2 border-indigo-500/30 pl-3">
-                                                            <div className={`${scale.exampleTextSize} text-slate-700 dark:text-slate-350 font-japanese leading-relaxed`}>
-                                                                <FuriganaText text={ex} />
-                                                            </div>
-                                                            {meaning && (
-                                                                <p className={scale.exampleMeaningSize}>{meaning}</p>
-                                                            )}
-                                                        </div>
-                                                    );
-                                                })}
+                                    <div className="flex-1 flex flex-row items-center justify-center gap-4 md:gap-8 px-2 w-full h-full min-h-0">
+                                        {activeCard.imageBase64 && (
+                                            <div className="flex-shrink-0">
+                                                <img
+                                                    src={activeCard.imageBase64}
+                                                    alt={activeCard.front}
+                                                    className="w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 rounded-2xl object-cover border border-gray-200 dark:border-slate-600/50 shadow-sm"
+                                                />
                                             </div>
                                         )}
+                                        <div className="flex-1 flex flex-col items-center justify-center text-center min-w-0 space-y-1.5 h-full py-2">
+                                            {cardSettings.back.meaning && (
+                                                <div className={`${scale.meaningSize} font-bold text-slate-850 dark:text-white leading-relaxed break-words max-w-full`}>{activeCard.back}</div>
+                                            )}
+                                            {cardSettings.back.hanviet && activeCard.sinoVietnamese && (
+                                                <p className="text-amber-600 dark:text-yellow-300 text-base font-semibold">
+                                                    <span className="text-slate-450 dark:text-slate-400 font-normal">Hán Việt: </span>{activeCard.sinoVietnamese}
+                                                </p>
+                                            )}
+                                            {activeCard.pos && (
+                                                <p className="text-sm mt-1">
+                                                    <span className="inline-block px-3 py-1 bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100/50 dark:border-indigo-900/30 rounded-full text-xs font-semibold text-indigo-600 dark:text-indigo-300">{POS_TYPES[activeCard.pos]?.label || activeCard.pos}</span>
+                                                </p>
+                                            )}
+                                            {cardSettings.back.synonym && activeCard.synonym && (
+                                                <p className="text-sm text-slate-750 dark:text-slate-350 mt-1 font-bold">
+                                                    <span className="font-semibold text-slate-450 dark:text-slate-400">Đồng nghĩa: </span>
+                                                    <FuriganaText text={activeCard.synonym} className="font-japanese" />
+                                                </p>
+                                            )}
+                                            {cardSettings.back.example && activeCard.example && (
+                                                <div className={`mt-2 ${scale.exampleItemGap} text-left w-full max-w-md mx-auto ${scale.exampleBoxPadding} bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 rounded-2xl overflow-y-auto max-h-[160px] no-scrollbar`}>
+                                                    {activeCard.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
+                                                        const meaning = (activeCard.exampleMeaning || '').split('\n')[idx]?.trim();
+                                                        return (
+                                                            <div key={idx} className="border-l-2 border-indigo-500/30 pl-3">
+                                                                <div className={`${scale.exampleTextSize} text-slate-700 dark:text-slate-350 font-japanese leading-relaxed`}>
+                                                                    <FuriganaText text={ex} />
+                                                                </div>
+                                                                {meaning && (
+                                                                    <p className={scale.exampleMeaningSize}>{meaning}</p>
+                                                                )}
+                                                            </div>
+                                                        );
+                                                    })}
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
                                 );
                             };
 
                             return (
                                 <div className="w-full max-w-3xl mx-auto relative">
-                                    <div className="perspective-1000 w-full" style={{ height: '380px' }}>
+                                    <div className="perspective-1000 w-full" style={{ height: '460px' }}>
                                         <div
                                             onClick={() => {
                                                 setIsAnimatingFlip(true);
@@ -462,7 +495,7 @@ const StudySetDetail = ({
                                                 }
                                             }}
                                             className={`relative w-full cursor-pointer transform-style-preserve-3d ${isAnimatingFlip ? 'transition-transform duration-500' : ''} ${isCardFlipped ? 'rotate-y-180' : ''}`}
-                                            style={{ height: '380px' }}
+                                            style={{ height: '460px' }}
                                         >
                                             {/* Front Side Card Layout */}
                                             <div className={`absolute inset-0 backface-hidden bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none flex flex-col items-center overflow-hidden ${scale.cardPadding || 'p-6'} text-center`}>
@@ -475,15 +508,6 @@ const StudySetDetail = ({
                                                         Nhấn để lật thẻ
                                                     </span>
                                                 </div>
-
-                                                {/* Settings Button */}
-                                                <button
-                                                    onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
-                                                    className="absolute bottom-4 right-4 p-2.5 bg-slate-100/80 hover:bg-indigo-50 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-355 rounded-full transition-all hover:scale-110 z-30 shadow-md border border-gray-200 dark:border-slate-700"
-                                                    title="Cấu hình hiển thị"
-                                                >
-                                                    <Settings className="w-4 h-4" />
-                                                </button>
                                             </div>
 
                                             {/* Back Side Card Layout */}
@@ -497,18 +521,18 @@ const StudySetDetail = ({
                                                         Nhấn để lật thẻ
                                                     </span>
                                                 </div>
-
-                                                {/* Settings Button */}
-                                                <button
-                                                    onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
-                                                    className="absolute bottom-4 right-4 p-2.5 bg-slate-100/80 hover:bg-indigo-50 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-355 rounded-full transition-all hover:scale-110 z-30 shadow-md border border-gray-200 dark:border-slate-700"
-                                                    title="Cấu hình hiển thị"
-                                                >
-                                                    <Settings className="w-4 h-4" />
-                                                </button>
                                             </div>
                                         </div>
                                     </div>
+
+                                    {/* Settings Button - OUTSIDE the flipping container */}
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
+                                        className="absolute top-6 right-6 p-2.5 bg-slate-100/80 hover:bg-indigo-50 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-355 rounded-full transition-all hover:scale-110 z-30 shadow-md border border-gray-200 dark:border-slate-700"
+                                        title="Cấu hình hiển thị"
+                                    >
+                                        <Settings className="w-4 h-4" />
+                                    </button>
 
                                     {/* Navigation */}
                                     <div className="flex items-center justify-center gap-6 mt-5">

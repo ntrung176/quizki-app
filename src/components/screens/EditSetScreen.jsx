@@ -52,6 +52,12 @@ const EditSetScreen = ({
 
     const activeFrontInputRef = useRef(null);
 
+    useEffect(() => {
+        if (activeCardId && activeFrontInputRef.current) {
+            activeFrontInputRef.current.focus();
+        }
+    }, [activeCardId]);
+
     const handleUpdateCard = (id, field, value) => {
         setCards(prev => prev.map(c => c.id === id ? { ...c, [field]: value } : c));
     };
@@ -149,6 +155,48 @@ const EditSetScreen = ({
         }
 
         setIsSaving(true);
+
+        // 1. Check for duplicates within the current screen's inputs
+        const seenInputs = new Set();
+        const screenDuplicates = [];
+        for (const card of validCards) {
+            const normalized = card.front.split('（')[0].split('(')[0].trim().toLowerCase();
+            if (normalized) {
+                if (seenInputs.has(normalized)) {
+                    screenDuplicates.push(card.front.trim());
+                }
+                seenInputs.add(normalized);
+            }
+        }
+
+        if (screenDuplicates.length > 0) {
+            showToast(`Có từ vựng bị trùng lặp trên màn hình: ${screenDuplicates.join(', ')}`, 'error');
+            setIsSaving(false);
+            return;
+        }
+
+        // 2. Check for duplicates against existing cards in this study set
+        const dbDuplicates = [];
+        for (const card of validCards) {
+            const normalized = card.front.split('（')[0].split('(')[0].trim().toLowerCase();
+            
+            // Check if this card (whether new or edited) already exists in originalSetCards with a different ID
+            const existsInSet = originalSetCards.some(dbCard => {
+                if (dbCard.id === card.id) return false; // same card
+                const dbNorm = dbCard.front.split('（')[0].split('(')[0].trim().toLowerCase();
+                return dbNorm === normalized;
+            });
+            
+            if (existsInSet) {
+                dbDuplicates.push(card.front.trim());
+            }
+        }
+
+        if (dbDuplicates.length > 0) {
+            showToast(`Từ vựng đã tồn tại trong học phần này: ${dbDuplicates.join(', ')}`, 'error');
+            setIsSaving(false);
+            return;
+        }
         
         // Rename folder if title, description, or coverImage changed
         if (folder && onRenameFolder && folderId !== 'unfiled') {
@@ -157,40 +205,54 @@ const EditSetScreen = ({
             const hasCoverChanged = coverImage !== (folder.coverImage || null);
             
             if (hasTitleChanged || hasDescChanged || hasCoverChanged) {
-                await onRenameFolder(folderId, { 
-                    name: title.trim(), 
-                    description: description.trim(),
-                    coverImage: coverImage
-                });
+                try {
+                    await onRenameFolder(folderId, { 
+                        name: title.trim(), 
+                        description: description.trim(),
+                        coverImage: coverImage
+                    });
+                } catch (e) {
+                    console.error("Lỗi đổi tên học phần:", e);
+                }
             }
         }
 
-        let successCount = 0;
-        for (let card of validCards) {
-            if (card.isNew) {
-                const success = await onSaveNewCard({
-                    ...card,
-                    id: undefined, // remove temp ID
-                    isNew: undefined,
-                    action: 'continue',
-                    folderId: folderId
-                });
-                if (success) successCount++;
-            } else {
-                await onUpdateCard(card.id, 'all', {
-                    front: card.front, back: card.back, synonym: card.synonym, 
-                    example: card.example, exampleMeaning: card.exampleMeaning, 
-                    nuance: card.nuance, pos: card.pos, level: card.level, 
-                    sinoVietnamese: card.sinoVietnamese, synonymSinoVietnamese: card.synonymSinoVietnamese, 
-                    imageBase64: card.imageBase64, audioBase64: card.audioBase64
-                });
-                successCount++;
-            }
-        }
+        try {
+            // Save/update cards in parallel
+            const savePromises = validCards.map(async (card) => {
+                if (card.isNew) {
+                    const success = await onSaveNewCard({
+                        ...card,
+                        id: undefined, // remove temp ID
+                        isNew: undefined,
+                        action: 'continue',
+                        folderId: folderId
+                    });
+                    if (!success) {
+                        throw new Error(`Không thể lưu từ vựng (có thể bị trùng lặp): ${card.front}`);
+                    }
+                    return success;
+                } else {
+                    return onUpdateCard(card.id, 'all', {
+                        front: card.front, back: card.back, synonym: card.synonym, 
+                        example: card.example, exampleMeaning: card.exampleMeaning, 
+                        nuance: card.nuance, pos: card.pos, level: card.level, 
+                        sinoVietnamese: card.sinoVietnamese, synonymSinoVietnamese: card.synonymSinoVietnamese, 
+                        imageBase64: card.imageBase64, audioBase64: card.audioBase64
+                    });
+                }
+            });
 
-        setIsSaving(false);
-        showToast(`Đã lưu thành công học phần!`, 'success');
-        onBack();
+            await Promise.all(savePromises);
+            
+            setIsSaving(false);
+            showToast(`Đã lưu thành công học phần!`, 'success');
+            onBack();
+        } catch (error) {
+            console.error("Lỗi khi lưu học phần:", error);
+            showToast("Có lỗi xảy ra khi lưu học phần.", 'error');
+            setIsSaving(false);
+        }
     };
 
     return (
@@ -350,6 +412,26 @@ const EditSetScreen = ({
                     >
                         <Plus className="w-5 h-5" />
                         THÊM THẺ MỚI
+                    </button>
+                </div>
+
+                {/* Bottom Actions for Desktop */}
+                <div className="hidden md:flex items-center justify-end gap-3 pt-6 border-t border-slate-200 dark:border-gray-800">
+                    <button
+                        type="button"
+                        onClick={onBack}
+                        className="px-6 py-2.5 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-350 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
+                    >
+                        Hủy
+                    </button>
+                    <button
+                        type="button"
+                        onClick={handleSaveSet}
+                        disabled={isSaving}
+                        className="px-6 py-2.5 text-sm font-bold rounded-xl text-white bg-[#204051] hover:bg-[#1a3543] dark:bg-indigo-600 dark:hover:bg-indigo-700 shadow-md transition-colors disabled:opacity-50 flex items-center gap-2"
+                    >
+                        {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
+                        Lưu học phần
                     </button>
                 </div>
             </div>

@@ -351,6 +351,12 @@ const AddCardForm = ({
 
     const activeFrontInputRef = useRef(null);
 
+    useEffect(() => {
+        if (activeCardId && activeFrontInputRef.current) {
+            activeFrontInputRef.current.focus();
+        }
+    }, [activeCardId]);
+
     // Init from batch mode
     useEffect(() => {
         if (batchMode && batchVocabList && batchVocabList.length > 0) {
@@ -642,6 +648,26 @@ const AddCardForm = ({
                     >
                         <Plus className="w-5 h-5" />
                         THÊM THẺ MỚI
+                    </button>
+                </div>
+
+                {/* Bottom Actions for Desktop */}
+                <div className="hidden md:flex items-center justify-end gap-3 pt-6 border-t border-slate-200 dark:border-gray-800">
+                    <button
+                        type="button"
+                        onClick={onBack}
+                        className="px-6 py-2.5 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-350 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
+                    >
+                        Hủy
+                    </button>
+                    <button
+                        type="button"
+                        onClick={handleSaveSet}
+                        disabled={isSaving}
+                        className="px-6 py-2.5 text-sm font-bold rounded-xl text-white bg-[#204051] hover:bg-[#1a3543] dark:bg-indigo-600 dark:hover:bg-indigo-700 shadow-md transition-colors disabled:opacity-50 flex items-center gap-2"
+                    >
+                        {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
+                        Tạo học phần
                     </button>
                 </div>
             </div>
