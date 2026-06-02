@@ -1595,15 +1595,22 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                             .filter(r => r.status === 'approved')
                             .reduce((sum, r) => sum + (r.amount || 0), 0);
 
+                        const allTimeExpenses = expenses
+                            .reduce((sum, e) => sum + (e.amount || 0), 0);
+
+                        const allTimeProfit = allTimeRevenue - allTimeExpenses;
+
                         return (
                             <>
                                 {/* Overview Cards */}
-                                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                                <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+                                    {/* Monthly group */}
                                     <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
                                         <div className="flex items-center gap-2 mb-1">
                                             <div className="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
                                                 <TrendingUp className="w-4 h-4 text-emerald-600" />
                                             </div>
+                                            <span className="text-[10px] font-bold text-emerald-600 uppercase">Tháng này</span>
                                         </div>
                                         <p className="text-lg font-bold text-emerald-600">{formatVND(monthRevenue)}</p>
                                         <p className="text-[10px] text-gray-500">Doanh thu tháng</p>
@@ -1613,6 +1620,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                             <div className="w-8 h-8 rounded-lg bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
                                                 <TrendingDown className="w-4 h-4 text-red-600" />
                                             </div>
+                                            <span className="text-[10px] font-bold text-red-600 uppercase">Tháng này</span>
                                         </div>
                                         <p className="text-lg font-bold text-red-600">{formatVND(totalExpenses)}</p>
                                         <p className="text-[10px] text-gray-500">Chi phí tháng</p>
@@ -1622,18 +1630,42 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                             <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${profit >= 0 ? 'bg-blue-100 dark:bg-blue-900/30' : 'bg-orange-100 dark:bg-orange-900/30'}`}>
                                                 <DollarSign className={`w-4 h-4 ${profit >= 0 ? 'text-blue-600' : 'text-orange-600'}`} />
                                             </div>
+                                            <span className={`text-[10px] font-bold uppercase ${profit >= 0 ? 'text-blue-600' : 'text-orange-600'}`}>Tháng này</span>
                                         </div>
                                         <p className={`text-lg font-bold ${profit >= 0 ? 'text-blue-600' : 'text-orange-600'}`}>{profit >= 0 ? '+' : ''}{formatVND(profit)}</p>
                                         <p className="text-[10px] text-gray-500">{profit >= 0 ? 'Lợi nhuận' : 'Lỗ'} tháng</p>
                                     </div>
+
+                                    {/* All-time group */}
                                     <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
                                         <div className="flex items-center gap-2 mb-1">
                                             <div className="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
                                                 <CreditCard className="w-4 h-4 text-purple-600" />
                                             </div>
+                                            <span className="text-[10px] font-bold text-purple-600 uppercase">Tất cả</span>
                                         </div>
                                         <p className="text-lg font-bold text-purple-600">{formatVND(allTimeRevenue)}</p>
                                         <p className="text-[10px] text-gray-500">Tổng doanh thu</p>
+                                    </div>
+                                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <div className="w-8 h-8 rounded-lg bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
+                                                <TrendingDown className="w-4 h-4 text-red-600" />
+                                            </div>
+                                            <span className="text-[10px] font-bold text-red-600 uppercase">Tất cả</span>
+                                        </div>
+                                        <p className="text-lg font-bold text-red-600">{formatVND(allTimeExpenses)}</p>
+                                        <p className="text-[10px] text-gray-500">Tổng chi phí</p>
+                                    </div>
+                                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${allTimeProfit >= 0 ? 'bg-emerald-100 dark:bg-emerald-900/30' : 'bg-red-100 dark:bg-red-900/30'}`}>
+                                                <DollarSign className={`w-4 h-4 ${allTimeProfit >= 0 ? 'text-emerald-600' : 'text-red-600'}`} />
+                                            </div>
+                                            <span className={`text-[10px] font-bold uppercase ${allTimeProfit >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>Tất cả</span>
+                                        </div>
+                                        <p className={`text-lg font-bold ${allTimeProfit >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>{allTimeProfit >= 0 ? '+' : ''}{formatVND(allTimeProfit)}</p>
+                                        <p className="text-[10px] text-gray-500">Tổng lợi nhuận</p>
                                     </div>
                                 </div>
 
