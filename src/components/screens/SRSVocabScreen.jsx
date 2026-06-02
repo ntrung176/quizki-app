@@ -683,7 +683,7 @@ const SRSVocabScreen = ({
                         </div>
 
                         {/* Flashcard Container Wrapper */}
-                        <div className="w-full relative">
+                        <div className="w-full relative" data-tour-id="FLASHCARD_CONTAINER">
                             {/* Flashcard Container */}
                             <div className="w-full cursor-pointer" style={{ perspective: '1000px' }} 
                                 onClick={() => {
@@ -728,6 +728,7 @@ const SRSVocabScreen = ({
                                         playAudio && playAudio(currentCard.audioBase64);
                                     }
                                 }}
+                                data-tour-id="FLASHCARD_SPEAKER"
                                 className="absolute top-6 right-18 p-2 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-full transition-all hover:scale-110 z-30 shadow-md border border-indigo-100/30 dark:border-indigo-900/20"
                                 title="Phát âm"
                             >
@@ -745,7 +746,7 @@ const SRSVocabScreen = ({
                         </div>
 
                         {/* Rating Buttons */}
-                        <div className="grid grid-cols-4 gap-3 w-full animate-fade-in">
+                        <div className="grid grid-cols-4 gap-3 w-full animate-fade-in" data-tour-id="RATING_PANEL">
                             {[
                                 { key: 'again', label: 'Quên rồi', interval: intervals.again, bg: 'bg-red-50 dark:bg-red-950/20', border: 'border-red-200 dark:border-red-900/50', text: 'text-red-600 dark:text-red-400', sub: 'text-red-400/80 dark:text-red-500/60' },
                                 { key: 'hard', label: 'Khó', interval: intervals.hard, bg: 'bg-orange-50 dark:bg-orange-950/20', border: 'border-orange-200 dark:border-orange-900/50', text: 'text-orange-600 dark:text-orange-400', sub: 'text-orange-400/80 dark:text-orange-500/60' },

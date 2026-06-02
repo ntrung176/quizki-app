@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { ChevronRight, ChevronLeft, X, Sparkles, Settings, Plus, Trash2, ArrowUp, ArrowDown, Copy, Download, Upload } from 'lucide-react';
 import { auth } from '../../config/firebase';
 
-const ONBOARDING_KEY = 'quizki-onboarding-done';
-const CUSTOM_STEPS_KEY = 'quizki-custom-tour-steps';
+const ONBOARDING_KEY = 'quizki-onboarding-done-v3';
+const CUSTOM_STEPS_KEY = 'quizki-custom-tour-steps-v3';
 
 // Check / mark helpers (export for settings reset)
 export const hasSeenOnboarding = (section) => {
@@ -28,48 +28,89 @@ export const resetAllOnboarding = () => {
 
 // ==================== Tour steps targeting sidebar data-tour-id ====================
 const TOUR_STEPS = [
+    // --- HOME SECTION ---
     {
         target: '[data-tour-id="HOME"]',
         title: '🏠 Trang chủ',
-        desc: 'Xem tổng quan tiến độ học tập, thống kê và truy cập nhanh các chức năng chính của ứng dụng.',
+        desc: 'Xem tổng quan tiến độ học tập, thống kê, số ngày học liên tục (streak) và các hoạt động học tập gần đây.',
         section: 'home'
     },
     {
-        target: '[data-tour-id="VOCAB"]',
+        target: '[data-tour-id="VOCAB_LIST"]',
         title: '📖 Học Từ Vựng',
-        desc: 'Thêm từ mới, ôn tập từ vựng theo SRS (lặp lại ngắt quãng thông minh), xem & quản lý danh sách từ vựng, và học theo sách giáo khoa.',
+        desc: 'Quản lý các học phần cá nhân, thêm từ vựng mới, ôn tập SRS và theo dõi tiến trình học từ vựng theo sách giáo khoa.',
         section: 'home'
     },
     {
-        target: '[data-tour-id="KANJI"]',
-        title: '🈶 Học Kanji',
-        desc: 'Học Kanji theo lộ trình JLPT (N5→N1), ôn tập Kanji bằng SRS, xem Kanji đã lưu và tra cứu hơn 2500 chữ Kanji với nét viết.',
+        target: '[data-tour-id="KANJI_STUDY"]',
+        title: '🈶 Thư viện Kanji',
+        desc: 'Học Kanji theo cấp độ JLPT từ N5 đến N1, tự động ghi nhớ và ôn tập thông qua hệ thống SRS thông minh.',
+        section: 'home'
+    },
+    {
+        target: '[data-tour-id="GRAMMAR"]',
+        title: '📝 Học Ngữ Pháp',
+        desc: 'Học các cấu trúc ngữ pháp chi tiết theo cấp độ JLPT kèm câu ví dụ cụ thể.',
         section: 'home'
     },
     {
         target: '[data-tour-id="JLPT_TEST"]',
-        title: '📝 Luyện thi JLPT',
-        desc: 'Làm bài thi JLPT mô phỏng thực tế với đầy đủ phần từ vựng, ngữ pháp, đọc hiểu. Hỗ trợ từ N5 đến N1.',
-        section: 'home'
-    },
-    {
-        target: '[data-tour-id="HUB"]',
-        title: '🏆 Bảng vinh danh',
-        desc: 'Xem bảng xếp hạng vinh danh học tập và so tài cùng bạn bè!',
+        title: '🏁 Luyện Đề JLPT',
+        desc: 'Tham gia các bài thi mô phỏng JLPT đầy đủ các phần với giới hạn thời gian thực tế.',
         section: 'home'
     },
     {
         target: '[data-tour-id="SETTINGS"]',
-        title: '⚙️ Cài đặt',
-        desc: 'Quản lý tài khoản, đổi tên hiển thị, chọn giao diện sáng/tối, điều chỉnh âm thanh hiệu ứng và nhạc nền.',
+        title: '⚙️ Trang cá nhân & Cài đặt',
+        desc: 'Chỉnh sửa thông tin tài khoản, bật/tắt nhạc nền, âm thanh hiệu ứng và đổi giao diện sáng/tối.',
         section: 'home'
     },
     {
-        target: '[data-tour-id="FEEDBACK"]',
-        title: '💬 Phản hồi',
-        desc: 'Gửi báo lỗi, đề xuất tính năng mới hoặc góp ý. Mọi phản hồi đều được đọc và xử lý!',
+        target: '[data-tour-id="HELP_BTN"]',
+        title: '💡 Xem lại Hướng dẫn',
+        desc: 'Click vào đây bất cứ lúc nào để xem lại hướng dẫn sử dụng cho màn hình hiện tại.',
         section: 'home'
     },
+
+    // --- VOCAB REVIEW SECTION ---
+    {
+        target: '[data-tour-id="FLASHCARD_CONTAINER"]',
+        title: '🎴 Thẻ Ghi Nhớ (Flashcard)',
+        desc: 'Mặt trước hiển thị từ tiếng Nhật. Nhấn trực tiếp vào thẻ hoặc phím Space để lật sang mặt sau xem nghĩa tiếng Việt, Furigana và câu ví dụ.',
+        section: 'vocabReview'
+    },
+    {
+        target: '[data-tour-id="FLASHCARD_SPEAKER"]',
+        title: '🔊 Nghe phát âm',
+        desc: 'Nhấn vào biểu tượng loa để nghe giọng đọc bản xứ phát âm từ vựng này một cách chuẩn xác.',
+        section: 'vocabReview'
+    },
+    {
+        target: '[data-tour-id="RATING_PANEL"]',
+        title: '📊 Đánh giá mức độ nhớ',
+        desc: 'Sau khi lật thẻ, hãy tự chọn: Quên rồi (Again), Khó (Hard), Tốt (Good), hoặc Dễ (Easy). Hệ thống SRS sẽ tự động xếp lịch ôn tập tối ưu cho bạn.',
+        section: 'vocabReview'
+    },
+
+    // --- VOCAB ADD SECTION ---
+    {
+        target: '[data-tour-id="STUDY_SET_TITLE"]',
+        title: '✏️ Tiêu đề học phần',
+        desc: 'Đặt tên cho học phần từ vựng mới của bạn (ví dụ: Từ vựng N3 - Bài 1) trước khi tiến hành lưu.',
+        section: 'vocabAdd'
+    },
+    {
+        target: '[data-tour-id="AI_BATCH_BTN"]',
+        title: '🤖 Tạo hàng loạt bằng AI',
+        desc: 'Nhập danh sách từ vựng dạng văn bản thô, AI sẽ tự động phân tích và tạo toàn bộ thẻ từ vựng cho bạn cực kỳ nhanh chóng.',
+        section: 'vocabAdd'
+    },
+    {
+        target: '[data-tour-id="SAVE_SET_BTN"]',
+        title: '💾 Lưu học phần',
+        desc: 'Sau khi nhập đầy đủ từ vựng và tiêu đề, bấm nút này để tạo và lưu học phần vào kho của bạn.',
+        section: 'vocabAdd'
+    }
 ];
 
 const escapeId = (id) => {
@@ -200,7 +241,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
     useEffect(() => {
         if (authLoading) return;
         if (!userId) return;
-        if (!hasSeenOnboarding(`tour-v2-${section}-${userId}`)) {
+        if (!hasSeenOnboarding(`tour-v3-${section}-${userId}`)) {
             const t = setTimeout(() => {
                 if (activeSteps.length > 0) {
                     setIsActive(true);
@@ -272,7 +313,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
 
     const finish = useCallback(() => {
         setIsActive(false);
-        if (userId) markOnboardingSeen(`tour-v2-${section}-${userId}`);
+        if (userId) markOnboardingSeen(`tour-v3-${section}-${userId}`);
     }, [userId, section]);
 
     const next = () => step < activeSteps.length - 1 ? setStep(s => s + 1) : finish();

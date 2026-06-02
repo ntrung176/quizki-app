@@ -516,6 +516,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                         {/* Profile Capsule */}
                         <Link
                             to={ROUTES.SETTINGS}
+                            data-tour-id="SETTINGS"
                             className="flex items-center gap-1.5 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-full pl-1.5 pr-2.5 py-0.5 shadow-sm overflow-hidden flex-1 cursor-pointer hover:border-slate-300 dark:hover:border-slate-600 transition-colors min-w-0"
                             title="Trang cá nhân"
                         >

@@ -306,6 +306,7 @@ const HomeScreen = ({
                     {quickActions.map((action) => (
                         <button
                             key={action.id}
+                            data-tour-id={`QUICK_ACTION_${action.id.toUpperCase()}`}
                             onClick={() => navigate(action.route)}
                             className={`relative group ${action.bgColor} border rounded-2xl p-5 text-left transition-all duration-300 hover:shadow-md hover:scale-[1.01] overflow-hidden flex flex-col justify-between min-h-[110px] cursor-pointer`}
                         >

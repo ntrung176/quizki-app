@@ -539,6 +539,7 @@ const AddCardForm = ({
                             type="button"
                             onClick={handleSaveSet}
                             disabled={isSaving}
+                            data-tour-id="SAVE_SET_BTN"
                             className="px-6 py-2.5 text-sm font-bold rounded-xl text-white bg-[#204051] hover:bg-[#1a3543] dark:bg-indigo-600 dark:hover:bg-indigo-700 shadow-md transition-colors disabled:opacity-50 flex items-center gap-2"
                         >
                             {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
@@ -555,6 +556,7 @@ const AddCardForm = ({
                             <input
                                 type="text"
                                 value={title}
+                                data-tour-id="STUDY_SET_TITLE"
                                 onChange={(e) => setTitle(e.target.value)}
                                 placeholder="VD: Từ vựng N3 bài 1..."
                                 className="w-full px-0 py-2.5 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 text-2xl font-bold text-slate-850 dark:text-white outline-none placeholder-slate-400 transition-colors"
@@ -612,6 +614,7 @@ const AddCardForm = ({
                                     setBatchModalInitialTab('text');
                                     setIsBatchModalOpen(true);
                                 }}
+                                data-tour-id="AI_BATCH_BTN"
                                 className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-indigo-650 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 dark:text-indigo-400 dark:bg-slate-800 dark:border-indigo-900/50 dark:hover:bg-slate-750 transition-all shadow-sm"
                             >
                                 <Sparkles className="w-4 h-4 text-indigo-500" />
