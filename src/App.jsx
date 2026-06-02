@@ -609,6 +609,45 @@ const App = () => {
             today.setHours(0, 0, 0, 0);
             snapshot.forEach((doc) => {
                 const data = doc.data();
+
+                // Legacy migration and formatting sanitization for SM-2 spaced repetition
+                const legacyIndex = typeof data.intervalIndex_back === 'number' ? data.intervalIndex_back : -1;
+                let srsEnabled = data.srsEnabled !== false;
+                let srsInterval = typeof data.srsInterval === 'number' ? data.srsInterval : 0;
+                let srsEase = typeof data.srsEase === 'number' ? data.srsEase : 2.5;
+                let srsReps = typeof data.srsReps === 'number' ? data.srsReps : 0;
+                let srsLearningStep = data.srsLearningStep !== undefined ? data.srsLearningStep : null;
+                let srsIsLapsed = data.srsIsLapsed === true;
+                let srsLapseCount = typeof data.srsLapseCount === 'number' ? data.srsLapseCount : 0;
+                let srsPrelapseInterval = typeof data.srsPrelapseInterval === 'number' ? data.srsPrelapseInterval : null;
+                let srsState = data.srsState || null;
+
+                // 1. Migration for legacy Leitner cards that were reviewed but have no new SRS progress
+                if (srsEnabled && srsReps === 0 && srsState === null && legacyIndex >= 0) {
+                    if (legacyIndex === 0) {
+                        srsState = 'LEARNING';
+                        srsLearningStep = 0;
+                        srsInterval = 10; // 10 minutes
+                    } else {
+                        srsState = 'REVIEW';
+                        srsLearningStep = null;
+                        srsReps = legacyIndex;
+                        const indexToDays = [1, 3, 7, 30, 90];
+                        srsInterval = indexToDays[legacyIndex - 1] || 1;
+                    }
+                }
+
+                // 2. Fix the minute-to-day mismatch bug (e.g. 5760 mins interpreted as 5760 days in REVIEW state)
+                // If the state is REVIEW, then srsInterval is in DAYS. If it is >= 60, it's definitely stored in minutes (legacy)
+                // and should be converted to days by dividing by 1440.
+                const resolvedState = srsState || (srsReps === 0 && (srsLearningStep === null || srsLearningStep === undefined) ? 'NEW' : (srsReps > 0 ? 'REVIEW' : 'LEARNING'));
+                if (resolvedState === 'REVIEW' && srsInterval >= 60) {
+                    srsInterval = Math.max(1, Math.round(srsInterval / 1440));
+                }
+                if (resolvedState === 'REVIEW' && srsPrelapseInterval && srsPrelapseInterval >= 60) {
+                    srsPrelapseInterval = Math.max(1, Math.round(srsPrelapseInterval / 1440));
+                }
+
                 cards.push({
                     id: doc.id,
                     front: data.front || '',
@@ -625,7 +664,7 @@ const App = () => {
                     audioBase64: data.audioBase64 !== undefined ? data.audioBase64 : null,
                     imageBase64: data.imageBase64 || null,
                     createdAt: data.createdAt?.toDate ? data.createdAt.toDate() : (data.createdAt ? new Date(data.createdAt) : today),
-                    intervalIndex_back: typeof data.intervalIndex_back === 'number' ? data.intervalIndex_back : -1,
+                    intervalIndex_back: legacyIndex,
                     correctStreak_back: typeof data.correctStreak_back === 'number' ? data.correctStreak_back : 0,
                     nextReview_back: data.nextReview_back?.toDate ? data.nextReview_back.toDate() : (data.nextReview_back ? new Date(data.nextReview_back) : today),
                     intervalIndex_synonym: typeof data.intervalIndex_synonym === 'number' ? data.intervalIndex_synonym : -1,
@@ -647,15 +686,15 @@ const App = () => {
                     masteryState: data.masteryState || 'not_learned',
                     needsMistakeReview: data.needsMistakeReview === true,
                     // Vocabulary SRS (SM-2) fields
-                    srsEnabled: data.srsEnabled !== false,
-                    srsInterval: typeof data.srsInterval === 'number' ? data.srsInterval : 0,
-                    srsEase: typeof data.srsEase === 'number' ? data.srsEase : 2.5,
-                    srsReps: typeof data.srsReps === 'number' ? data.srsReps : 0,
-                    srsLearningStep: data.srsLearningStep !== undefined ? data.srsLearningStep : null,
-                    srsIsLapsed: data.srsIsLapsed === true,
-                    srsLapseCount: typeof data.srsLapseCount === 'number' ? data.srsLapseCount : 0,
-                    srsPrelapseInterval: typeof data.srsPrelapseInterval === 'number' ? data.srsPrelapseInterval : null,
-                    srsState: data.srsState || null,
+                    srsEnabled: srsEnabled,
+                    srsInterval: srsInterval,
+                    srsEase: srsEase,
+                    srsReps: srsReps,
+                    srsLearningStep: srsLearningStep,
+                    srsIsLapsed: srsIsLapsed,
+                    srsLapseCount: srsLapseCount,
+                    srsPrelapseInterval: srsPrelapseInterval,
+                    srsState: resolvedState,
                 });
             });
 

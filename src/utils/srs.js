@@ -12,18 +12,77 @@ export const EASY_BONUS = 1.3; // Anki default Easy Bonus multiplier
 
 // ==================== UTILITY FUNCTIONS ====================
 
+// Normalize SRS state and handle migration from legacy Leitner system
+export const normalizeSRSState = (srs) => {
+    if (!srs) {
+        return {
+            interval: 0,
+            ease: 2.5,
+            learningStep: null,
+            isLapsed: false,
+            reps: 0,
+            lapseCount: 0,
+            prelapseInterval: null,
+            state: 'NEW'
+        };
+    }
+
+    // 1. Get raw inputs (handling both direct fields and nested srs prefix fields)
+    let interval = srs.interval !== undefined ? srs.interval : (srs.srsInterval !== undefined ? srs.srsInterval : 0);
+    let ease = srs.ease !== undefined ? srs.ease : (srs.srsEase !== undefined ? srs.srsEase : 2.5);
+    let learningStep = srs.learningStep !== undefined ? srs.learningStep : (srs.srsLearningStep !== undefined ? srs.srsLearningStep : null);
+    let isLapsed = srs.isLapsed !== undefined ? srs.isLapsed : (srs.srsIsLapsed !== undefined ? srs.srsIsLapsed : false);
+    let reps = srs.reps !== undefined ? srs.reps : (srs.srsReps !== undefined ? srs.srsReps : 0);
+    let lapseCount = srs.lapseCount !== undefined ? srs.lapseCount : (srs.srsLapseCount !== undefined ? srs.srsLapseCount : 0);
+    let prelapseInterval = srs.prelapseInterval !== undefined ? srs.prelapseInterval : (srs.srsPrelapseInterval !== undefined ? srs.srsPrelapseInterval : null);
+    let state = srs.state || srs.srsState || null;
+
+    // 2. Legacy migration check: if no new SRS fields exist but intervalIndex_back is present
+    const legacyIndex = srs.intervalIndex_back !== undefined ? srs.intervalIndex_back : -1;
+    
+    // If the card has a legacy reviewed index but hasn't been initialized in new SM-2
+    if (reps === 0 && state === null && legacyIndex >= 0) {
+        if (legacyIndex === 0) {
+            state = 'LEARNING';
+            learningStep = 0;
+            interval = 10; // 10 minutes
+        } else {
+            state = 'REVIEW';
+            learningStep = null;
+            reps = legacyIndex;
+            // Map old Leitner index to day intervals: Index 1->1d, 2->3d, 3->7d, 4->30d, 5->90d
+            const indexToDays = [1, 3, 7, 30, 90];
+            interval = indexToDays[legacyIndex - 1] || 1;
+        }
+    }
+
+    // 3. Fix the minute-to-day mismatch bug (e.g. 5760 mins interpreted as 5760 days in REVIEW state)
+    // In REVIEW state, interval is in DAYS. If it is >= 60, it's definitely stored in minutes (legacy)
+    // and should be converted to days by dividing by 1440.
+    const resolvedState = state || (reps === 0 && (learningStep === null || learningStep === undefined) ? 'NEW' : (reps > 0 ? 'REVIEW' : 'LEARNING'));
+    if (resolvedState === 'REVIEW' && interval >= 60) {
+        interval = Math.max(1, Math.round(interval / 1440));
+    }
+    if (resolvedState === 'REVIEW' && prelapseInterval && prelapseInterval >= 60) {
+        prelapseInterval = Math.max(1, Math.round(prelapseInterval / 1440));
+    }
+
+    return {
+        interval,
+        ease,
+        learningStep,
+        isLapsed,
+        reps,
+        lapseCount,
+        prelapseInterval,
+        state: resolvedState
+    };
+};
+
 // Get card state based on reps, learningStep, isLapsed
 export const getCardState = (srs) => {
-    if (srs.state) return srs.state; // Explicit state name ('NEW', 'LEARNING', 'REVIEW', 'RELEARNING')
-
-    const reps = srs.reps !== undefined ? srs.reps : (srs.srsReps !== undefined ? srs.srsReps : 0);
-    const learningStep = srs.learningStep !== undefined ? srs.learningStep : (srs.srsLearningStep !== undefined ? srs.srsLearningStep : null);
-    const isLapsed = srs.isLapsed !== undefined ? srs.isLapsed : (srs.srsIsLapsed !== undefined ? srs.srsIsLapsed : false);
-
-    if (reps === 0 && (learningStep === null || learningStep === undefined)) return 'NEW';
-    if (isLapsed && typeof learningStep === 'number' && learningStep >= 0) return 'RELEARNING';
-    if (typeof learningStep === 'number' && learningStep >= 0) return 'LEARNING';
-    return 'REVIEW';
+    const normalized = normalizeSRSState(srs);
+    return normalized.state;
 };
 
 // Get next review date based on SRS interval index (now in minutes)
@@ -140,21 +199,21 @@ export const getDifficultyLabel = (ease) => {
 
 // --- ANKI SM-2 SCHEDULER ENGINE FOR VOCABULARY & KANJI ---
 export const calculateAnkiSRS = (srs, rating) => {
-    const currentEase = srs.ease !== undefined ? srs.ease : (srs.srsEase !== undefined ? srs.srsEase : 2.5);
-    const currentInterval = srs.interval !== undefined ? srs.interval : (srs.srsInterval !== undefined ? srs.srsInterval : 0);
-    const currentReps = srs.reps !== undefined ? srs.reps : (srs.srsReps !== undefined ? srs.srsReps : 0);
-    const learningStep = srs.learningStep !== undefined ? srs.learningStep : (srs.srsLearningStep !== undefined ? srs.srsLearningStep : null);
-    const lapseCount = srs.lapseCount !== undefined ? srs.lapseCount : (srs.srsLapseCount !== undefined ? srs.srsLapseCount : 0);
-    const prelapseInterval = srs.prelapseInterval !== undefined ? srs.prelapseInterval : (srs.srsPrelapseInterval !== undefined ? srs.srsPrelapseInterval : null);
-
-    const currentState = getCardState(srs);
+    const norm = normalizeSRSState(srs);
+    const currentEase = norm.ease;
+    const currentInterval = norm.interval;
+    const currentReps = norm.reps;
+    const learningStep = norm.learningStep;
+    const lapseCount = norm.lapseCount;
+    const prelapseInterval = norm.prelapseInterval;
+    const currentState = norm.state;
     const normRating = String(rating).toLowerCase();
 
     let nextState = currentState;
     let newInterval = currentInterval;
     let newEase = currentEase;
     let newLearningStep = learningStep;
-    let newIsLapsed = srs.isLapsed || false;
+    let newIsLapsed = norm.isLapsed;
     let newLapseCount = lapseCount;
     let newPrelapseInterval = prelapseInterval;
 
