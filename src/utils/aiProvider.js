@@ -33,7 +33,7 @@ export const getOpenRouterKeys = () => {
 
 // ============== OPENROUTER API CALL ==============
 
-const OPENROUTER_MODELS = ['google/gemini-2.5-flash'];
+const OPENROUTER_MODELS = ['google/gemini-2.5-flash', 'google/gemini-3.1-flash-lite'];
 
 const buildOpenRouterRequest = (prompt, model, apiKey) => ({
     url: 'https://openrouter.ai/api/v1/chat/completions',
@@ -134,8 +134,22 @@ export const callAI = async (prompt, forcedOpenRouterModel = null) => {
         throw new Error('Không có OpenRouter API key. Vui lòng thêm VITE_OPENROUTER_API_KEY vào file .env');
     }
 
-    console.log(`🤖 OpenRouter (${keys.length} keys) — Model: ${forcedOpenRouterModel || 'google/gemini-2.5-flash'}`);
-    return callWithRetry(prompt, 0, 0, forcedOpenRouterModel);
+    let activeModel = forcedOpenRouterModel;
+    if (!activeModel) {
+        try {
+            const { loadAdminConfig } = await import('./adminSettings');
+            const config = await loadAdminConfig();
+            activeModel = config?.openRouterModel;
+        } catch (e) {
+            console.warn('Failed to load admin config for AI model:', e);
+        }
+    }
+    if (!activeModel) {
+        activeModel = 'google/gemini-2.5-flash';
+    }
+
+    console.log(`🤖 OpenRouter (${keys.length} keys) — Model: ${activeModel}`);
+    return callWithRetry(prompt, 0, 0, activeModel);
 };
 
 
@@ -332,7 +346,7 @@ export const getAIProviderInfo = () => {
     return {
         available: [{
             id: 'openrouter',
-            name: 'OpenRouter (Gemini 2.5 Flash)',
+            name: 'OpenRouter (Gemini)',
             models: OPENROUTER_MODELS,
             keyCount: keys.length
         }],

@@ -7,7 +7,7 @@ import {
     FileCheck, Clock, Play, ChevronRight, ChevronLeft,
     Maximize, Minimize, X, Check, CheckCircle, XCircle,
     Home, Languages, BookOpen, FileText, Headphones,
-    Loader2, Timer, Volume2, AlertTriangle, Award, Lock, Calendar, Edit3
+    Loader2, Timer, Volume2, AlertTriangle, Award, Lock, Calendar, Edit3, Settings
 } from 'lucide-react';
 import { ROUTES } from '../../router';
 
@@ -48,6 +48,71 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
     const [answers, setAnswers] = useState({}); // { "s0_q0": 2 }
     const [showResult, setShowResult] = useState(false);
     const [isFullscreen, setIsFullscreen] = useState(false);
+
+    // Persisted settings for furigana and timer
+    const [showFurigana, setShowFurigana] = useState(() => {
+        const saved = localStorage.getItem('quizki_jlpt_show_furigana');
+        return saved !== 'false'; // default true
+    });
+    const [showTimer, setShowTimer] = useState(() => {
+        const saved = localStorage.getItem('quizki_jlpt_show_timer');
+        return saved !== 'false'; // default true
+    });
+    const [furiganaColor, setFuriganaColor] = useState(() => {
+        return localStorage.getItem('quizki_jlpt_furigana_color') || 'default';
+    });
+    const [showSettingsMenu, setShowSettingsMenu] = useState(false);
+    const settingsMenuRef = useRef(null);
+
+    useEffect(() => {
+        localStorage.setItem('quizki_jlpt_show_furigana', String(showFurigana));
+    }, [showFurigana]);
+
+    useEffect(() => {
+        localStorage.setItem('quizki_jlpt_show_timer', String(showTimer));
+    }, [showTimer]);
+
+    useEffect(() => {
+        localStorage.setItem('quizki_jlpt_furigana_color', furiganaColor);
+    }, [furiganaColor]);
+
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (settingsMenuRef.current && !settingsMenuRef.current.contains(e.target)) {
+                setShowSettingsMenu(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
+    const getFuriganaStyles = () => {
+        let styles = '';
+        if (!showFurigana) {
+            styles += `
+                .font-japanese rt {
+                    display: none !important;
+                }
+            `;
+        } else {
+            const colors = {
+                red: '#EF4444',
+                blue: '#3B82F6',
+                green: '#10B981',
+                purple: '#8B5CF6',
+                orange: '#F59E0B'
+            };
+            const activeColor = colors[furiganaColor];
+            if (activeColor) {
+                styles += `
+                    .font-japanese rt {
+                        color: ${activeColor} !important;
+                    }
+                `;
+            }
+        }
+        return styles;
+    };
 
     // Timer
     const [timeRemaining, setTimeRemaining] = useState(0);
@@ -266,6 +331,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
 
         return (
             <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-6">
+                <style>{getFuriganaStyles()}</style>
                 <div className="max-w-4xl mx-auto space-y-6">
                     {/* Score card */}
                     <div className={`bg-gradient-to-r ${passed ? 'from-emerald-500 to-teal-600' : 'from-orange-500 to-red-600'} rounded-3xl p-8 text-white text-center shadow-xl`}>
@@ -393,6 +459,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
 
         return (
             <div ref={containerRef} className={`min-h-screen flex flex-col ${isFullscreen ? 'bg-white dark:bg-gray-900' : 'bg-gradient-to-br from-slate-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20'}`}>
+                <style>{getFuriganaStyles()}</style>
                 {/* Top bar */}
                 <div className="sticky top-0 z-30 bg-white/95 dark:bg-gray-800/95 backdrop-blur border-b border-gray-200 dark:border-gray-700 px-4 py-2">
                     <div className="max-w-5xl mx-auto flex items-center justify-between">
@@ -408,16 +475,95 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
 
                         <div className="flex items-center gap-3">
                             {/* Timer */}
-                            <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono font-bold text-sm ${timeWarning
-                                ? 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 animate-pulse'
-                                : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
-                                }`}>
-                                <Timer className="w-4 h-4" />
-                                {formatTime(timeRemaining)}
-                            </div>
+                            {showTimer && (
+                                <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono font-bold text-sm ${timeWarning
+                                    ? 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 animate-pulse'
+                                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                                    }`}>
+                                    <Timer className="w-4 h-4" />
+                                    {formatTime(timeRemaining)}
+                                </div>
+                            )}
 
                             {/* Progress */}
                             <span className="text-xs text-gray-500 hidden md:inline">{answeredCount}/{totalQ} đã trả lời</span>
+
+                            {/* Settings */}
+                            <div className="relative" ref={settingsMenuRef}>
+                                <button onClick={() => setShowSettingsMenu(!showSettingsMenu)}
+                                    className={`p-1.5 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 ${showSettingsMenu ? 'bg-slate-100 dark:bg-slate-700' : ''}`}
+                                    title="Cài đặt hiển thị">
+                                    <Settings className="w-5 h-5" />
+                                </button>
+                                {showSettingsMenu && (
+                                    <div className="absolute right-0 mt-2 w-72 bg-white/98 dark:bg-slate-800/98 backdrop-blur border border-slate-200 dark:border-slate-700 rounded-2xl shadow-xl p-4 z-50 text-left space-y-4 font-sans">
+                                        <div className="flex items-center gap-1.5 border-b border-slate-100 dark:border-slate-700/60 pb-2">
+                                            <Settings className="w-4 h-4 text-indigo-500" />
+                                            <span className="font-bold text-xs text-slate-805 dark:text-white uppercase tracking-wider">Cài đặt đề thi</span>
+                                        </div>
+
+                                        {/* Furigana toggle */}
+                                        <div className="flex items-center justify-between">
+                                            <div>
+                                                <p className="text-xs font-bold text-slate-700 dark:text-slate-300">Hiển thị Furigana</p>
+                                                <p className="text-[10px] text-slate-400 dark:text-slate-500">Bật/tắt phiên âm chữ Hán</p>
+                                            </div>
+                                            <button 
+                                                onClick={() => setShowFurigana(!showFurigana)} 
+                                                className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors focus:outline-none ${showFurigana ? 'bg-indigo-600' : 'bg-gray-300 dark:bg-gray-650'}`}
+                                            >
+                                                <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform ${showFurigana ? 'translate-x-5.5' : 'translate-x-1'}`} />
+                                            </button>
+                                        </div>
+
+                                        {/* Timer toggle */}
+                                        <div className="flex items-center justify-between">
+                                            <div>
+                                                <p className="text-xs font-bold text-slate-700 dark:text-slate-300">Thời gian làm bài</p>
+                                                <p className="text-[10px] text-slate-400 dark:text-slate-500">Hiển thị đồng hồ đếm ngược</p>
+                                            </div>
+                                            <button 
+                                                onClick={() => setShowTimer(!showTimer)} 
+                                                className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors focus:outline-none ${showTimer ? 'bg-indigo-600' : 'bg-gray-300 dark:bg-gray-650'}`}
+                                            >
+                                                <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform ${showTimer ? 'translate-x-5.5' : 'translate-x-1'}`} />
+                                            </button>
+                                        </div>
+
+                                        {/* Furigana color */}
+                                        {showFurigana && (
+                                            <div className="space-y-2 pt-1 border-t border-slate-100 dark:border-slate-700/60">
+                                                <div>
+                                                    <p className="text-xs font-bold text-slate-700 dark:text-slate-300">Màu chữ Furigana</p>
+                                                    <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">Chọn màu cho phiên âm</p>
+                                                </div>
+                                                <div className="flex flex-wrap items-center gap-2">
+                                                    {[
+                                                        { id: 'default', color: '', label: 'Mặc định', bgClass: 'bg-slate-400 dark:bg-slate-500 border border-slate-300 dark:border-slate-600' },
+                                                        { id: 'red', color: '#EF4444', label: 'Đỏ', bgClass: 'bg-red-500' },
+                                                        { id: 'blue', color: '#3B82F6', label: 'Xanh', bgClass: 'bg-blue-500' },
+                                                        { id: 'green', color: '#10B981', label: 'Lá', bgClass: 'bg-emerald-500' },
+                                                        { id: 'purple', color: '#8B5CF6', label: 'Tím', bgClass: 'bg-purple-500' },
+                                                        { id: 'orange', color: '#F59E0B', label: 'Cam', bgClass: 'bg-amber-500' }
+                                                    ].map(colorOpt => {
+                                                        const isSelected = furiganaColor === colorOpt.id;
+                                                        return (
+                                                            <button
+                                                                key={colorOpt.id}
+                                                                onClick={() => setFuriganaColor(colorOpt.id)}
+                                                                className={`w-6 h-6 rounded-full flex items-center justify-center text-white transition-all transform hover:scale-110 cursor-pointer ${colorOpt.bgClass} ${isSelected ? 'ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-slate-800 scale-105' : 'opacity-85'}`}
+                                                                title={colorOpt.label}
+                                                            >
+                                                                {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
+                                                            </button>
+                                                        );
+                                                    })}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
 
                             {/* Fullscreen */}
                             <button onClick={toggleFullscreen}

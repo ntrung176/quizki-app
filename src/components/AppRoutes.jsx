@@ -828,7 +828,7 @@ const AppRoutes = ({
                                     onAdminDeleteUserData={handleAdminDeleteUserData}
                                     adminConfig={adminConfig}
                                     isAdmin={isAdmin}
-                                />
+                                  />
                             ) : (
                                 <Navigate to={ROUTES.HOME} replace />
                             )}

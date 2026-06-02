@@ -4,7 +4,7 @@ import LoadingIndicator from '../ui/LoadingIndicator';
 import { 
     Search, Trash2, ChevronLeft, ChevronRight, BookOpen, Clock, 
     CheckCircle, AlertCircle, Filter, X, Eye, Folder, FolderPlus, 
-    FolderOpen, Edit, Plus, List, Bell, Bookmark, ArrowRight, History, Sparkles 
+    FolderOpen, Edit, Plus, List, Bell, Bookmark, ArrowRight, Sparkles 
 } from 'lucide-react';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';

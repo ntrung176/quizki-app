@@ -8,270 +8,11 @@ import { collection, getDocs, doc, updateDoc, getDoc, setDoc, increment } from '
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
 import { logKanjiActivity } from '../../utils/kanjiHistory';
-import { formatCountdown } from '../../utils/srs';
+import { formatCountdown, getCardState, calculateAnkiSRS } from '../../utils/srs';
 import { flashCorrect, launchConfetti, launchFanfare } from '../../utils/celebrations';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare, launchFireworks, playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
-
-// ==================== SRS LOGIC (Anki SM-2 Algorithm) ====================
-// Anki default settings:
-// - Learning steps: [1, 10] phút
-// - Graduating interval: 1 ngày (Good), 4 ngày (Easy)
-// - Relearning steps: [10] phút
-// - Ease start: 2.5, min: 1.3
-// - Hard multiplier: 1.2
-// - Easy bonus: 1.3
-// - Lapse new interval: 70% of old interval (min 1 day)
-// - Max interval: 36500 ngày (~100 năm, thực tế dùng 365 ngày)
-
-const LEARNING_STEPS = [1, 10];         // phút - bước học cho thẻ mới
-const RELEARNING_STEPS = [10];           // phút - bước học lại khi quên
-const GRADUATING_INTERVAL = 1440;        // 1 ngày (phút) - interval khi tốt nghiệp bằng Good
-const EASY_GRADUATING_INTERVAL = 5760;   // 4 ngày (phút) - interval khi tốt nghiệp bằng Easy
-const HARD_MULTIPLIER = 1.2;             // Hệ số nhân cho Hard
-const EASY_BONUS = 1.3;                  // Bonus nhân thêm cho Easy
-const LAPSE_NEW_INTERVAL_PERCENT = 0.7;  // Khi lapse, interval mới = 70% interval cũ
-const MIN_EASE = 1.3;
-const MAX_REVIEW_INTERVAL = 525600;      // 365 ngày (phút)
-
-/**
- * Card states:
- * - 'new': chưa bao giờ ôn (reps === 0, learningStep === undefined)
- * - 'learning': đang trong learning steps (learningStep >= 0)
- * - 'relearning': đang trong relearning steps sau khi lapse (isLapsed === true, learningStep >= 0)
- * - 'review': đã graduated, đang ôn tập bình thường (learningStep === undefined hoặc -1)
- */
-
-const getCardState = (srs) => {
-    const reps = srs.reps || 0;
-    const learningStep = srs.learningStep;
-    const interval = srs.interval || 0;
-
-    if (reps === 0 && (learningStep === undefined || learningStep === null)) return 'new';
-    if (srs.isLapsed && typeof learningStep === 'number' && learningStep >= 0) return 'relearning';
-    if (typeof learningStep === 'number' && learningStep >= 0) return 'learning';
-    return 'review';
-};
-
-/**
- * Tính SRS state mới sau khi đánh giá (Anki SM-2)
- * @returns {{ interval, ease, learningStep, isLapsed, reps, lapseCount }}
- */
-const calculateAnkiSRS = (srs, rating) => {
-    const currentEase = srs.ease || 2.5;
-    const currentInterval = srs.interval || 0;
-    const currentReps = srs.reps || 0;
-    const learningStep = srs.learningStep;
-    const lapseCount = srs.lapseCount || 0;
-    const state = getCardState(srs);
-
-    let newEase = currentEase;
-    let newInterval = currentInterval;
-    let newLearningStep = undefined;     // undefined = graduated / review
-    let newIsLapsed = false;
-    let newReps = currentReps;
-    let newLapseCount = lapseCount;
-
-    // ========== NEW CARD ==========
-    if (state === 'new') {
-        switch (rating) {
-            case 'again':
-                // Bắt đầu learning step 0 (1 phút)
-                newInterval = LEARNING_STEPS[0];
-                newLearningStep = 0;
-                newReps = 0;
-                break;
-            case 'hard':
-                // Anki: Hard on new card = repeat step 0 nhưng với thời gian trung bình
-                // step[0] + (step[1] - step[0]) / 2 = 1 + (10 - 1) / 2 = 5.5 ≈ 6 phút
-                newInterval = LEARNING_STEPS.length > 1
-                    ? Math.round((LEARNING_STEPS[0] + LEARNING_STEPS[1]) / 2)
-                    : LEARNING_STEPS[0];
-                newLearningStep = 0;
-                newReps = 0;
-                break;
-            case 'good':
-                if (LEARNING_STEPS.length > 1) {
-                    // Chuyển sang step tiếp theo (10 phút)
-                    newInterval = LEARNING_STEPS[1];
-                    newLearningStep = 1;
-                } else {
-                    // Chỉ có 1 step → graduate luôn
-                    newInterval = GRADUATING_INTERVAL;
-                    newLearningStep = undefined;
-                }
-                newReps = 1;
-                break;
-            case 'easy':
-                // Skip learning → graduate ngay với easy interval
-                newInterval = EASY_GRADUATING_INTERVAL;
-                newLearningStep = undefined;
-                newEase = Math.min(3.5, currentEase + 0.15);
-                newReps = 1;
-                break;
-            default:
-                newInterval = LEARNING_STEPS[0];
-                newLearningStep = 0;
-        }
-    }
-    // ========== LEARNING STATE ==========
-    else if (state === 'learning') {
-        const steps = LEARNING_STEPS;
-        const currentStepIndex = typeof learningStep === 'number' ? learningStep : 0;
-
-        switch (rating) {
-            case 'again':
-                // Quay lại step đầu tiên
-                newInterval = steps[0];
-                newLearningStep = 0;
-                break;
-            case 'hard':
-                // Lặp lại step hiện tại với thời gian lâu hơn
-                // Anki: trung bình giữa step hiện tại và step tiếp theo
-                if (currentStepIndex + 1 < steps.length) {
-                    newInterval = Math.round((steps[currentStepIndex] + steps[currentStepIndex + 1]) / 2);
-                } else {
-                    // Đang ở step cuối → nhân 1.5x
-                    newInterval = Math.round(steps[currentStepIndex] * 1.5);
-                }
-                newLearningStep = currentStepIndex;
-                break;
-            case 'good':
-                if (currentStepIndex + 1 < steps.length) {
-                    // Chuyển sang step tiếp theo
-                    newLearningStep = currentStepIndex + 1;
-                    newInterval = steps[currentStepIndex + 1];
-                } else {
-                    // Hoàn thành tất cả steps → Graduate!
-                    newInterval = GRADUATING_INTERVAL;
-                    newLearningStep = undefined;
-                    newReps = currentReps + 1;
-                }
-                break;
-            case 'easy':
-                // Graduate ngay với easy interval
-                newInterval = EASY_GRADUATING_INTERVAL;
-                newLearningStep = undefined;
-                newEase = Math.min(3.5, currentEase + 0.15);
-                newReps = currentReps + 1;
-                break;
-            default:
-                newInterval = steps[0];
-                newLearningStep = 0;
-        }
-    }
-    // ========== RELEARNING STATE (Lapsed card) ==========
-    else if (state === 'relearning') {
-        const steps = RELEARNING_STEPS;
-        const currentStepIndex = typeof learningStep === 'number' ? learningStep : 0;
-        const prevGraduatedInterval = srs.prelapseInterval || currentInterval;
-
-        switch (rating) {
-            case 'again':
-                // Quay về step đầu
-                newInterval = steps[0];
-                newLearningStep = 0;
-                newIsLapsed = true;
-                newEase = Math.max(MIN_EASE, currentEase - 0.20);
-                break;
-            case 'hard':
-                if (currentStepIndex + 1 < steps.length) {
-                    newInterval = Math.round((steps[currentStepIndex] + steps[currentStepIndex + 1]) / 2);
-                } else {
-                    newInterval = Math.round(steps[currentStepIndex] * 1.5);
-                }
-                newLearningStep = currentStepIndex;
-                newIsLapsed = true;
-                break;
-            case 'good':
-                if (currentStepIndex + 1 < steps.length) {
-                    newLearningStep = currentStepIndex + 1;
-                    newInterval = steps[currentStepIndex + 1];
-                    newIsLapsed = true;
-                } else {
-                    // Graduate lại: interval = max(1 day, oldInterval * LAPSE_NEW_INTERVAL_PERCENT)
-                    const lapseInterval = Math.max(GRADUATING_INTERVAL, Math.round(prevGraduatedInterval * LAPSE_NEW_INTERVAL_PERCENT));
-                    newInterval = Math.min(lapseInterval, MAX_REVIEW_INTERVAL);
-                    newLearningStep = undefined;
-                    newIsLapsed = false;
-                    newReps = currentReps + 1;
-                }
-                break;
-            case 'easy':
-                // Graduate ngay với interval đầy đủ
-                const easyLapseInterval = Math.max(EASY_GRADUATING_INTERVAL, Math.round(prevGraduatedInterval * LAPSE_NEW_INTERVAL_PERCENT));
-                newInterval = Math.min(easyLapseInterval, MAX_REVIEW_INTERVAL);
-                newLearningStep = undefined;
-                newIsLapsed = false;
-                newEase = Math.min(3.5, currentEase + 0.15);
-                newReps = currentReps + 1;
-                break;
-            default:
-                newInterval = steps[0];
-                newLearningStep = 0;
-                newIsLapsed = true;
-        }
-    }
-    // ========== REVIEW STATE (Graduated) ==========
-    else {
-        // Anki SM-2 core algorithm for review cards
-        switch (rating) {
-            case 'again':
-                // Lapse! → vào relearning
-                newEase = Math.max(MIN_EASE, currentEase - 0.20);
-                newLapseCount = lapseCount + 1;
-                newInterval = RELEARNING_STEPS[0];
-                newLearningStep = 0;
-                newIsLapsed = true;
-                // Lưu interval trước khi lapse để phục hồi sau
-                break;
-            case 'hard':
-                // interval × 1.2 × (interval factor = 1), min = current interval
-                newEase = Math.max(MIN_EASE, currentEase - 0.15);
-                newInterval = Math.max(
-                    currentInterval + 1, // Tối thiểu tăng 1 phút so với cũ
-                    Math.round(currentInterval * HARD_MULTIPLIER)
-                );
-                newInterval = Math.min(newInterval, MAX_REVIEW_INTERVAL);
-                newReps = currentReps + 1;
-                break;
-            case 'good':
-                // interval × ease
-                newInterval = Math.max(
-                    currentInterval + 1,
-                    Math.round(currentInterval * currentEase)
-                );
-                newInterval = Math.min(newInterval, MAX_REVIEW_INTERVAL);
-                newReps = currentReps + 1;
-                break;
-            case 'easy':
-                // interval × ease × easy_bonus
-                newEase = Math.min(3.5, currentEase + 0.15);
-                newInterval = Math.max(
-                    currentInterval + 1,
-                    Math.round(currentInterval * currentEase * EASY_BONUS)
-                );
-                newInterval = Math.min(newInterval, MAX_REVIEW_INTERVAL);
-                newReps = currentReps + 1;
-                break;
-            default:
-                newInterval = currentInterval;
-                newReps = currentReps + 1;
-        }
-    }
-
-    return {
-        interval: newInterval,
-        ease: newEase,
-        learningStep: newLearningStep !== undefined ? newLearningStep : null,
-        isLapsed: newIsLapsed,
-        reps: newReps,
-        lapseCount: newLapseCount,
-        // Lưu interval trước khi lapse (chỉ khi bắt đầu lapse)
-        prelapseInterval: rating === 'again' && state === 'review' ? currentInterval : (srs.prelapseInterval || null),
-    };
-};
 
 /**
  * Lấy interval preview cho mỗi nút đánh giá (hiển thị cho user)
@@ -281,7 +22,7 @@ const getPreviewIntervals = (srs) => {
     const result = {};
     for (const r of ratings) {
         const preview = calculateAnkiSRS(srs, r);
-        result[r] = preview.interval;
+        result[r] = Math.round((preview.nextReviewOffsetMs || 0) / 60000);
     }
     return result;
 };
@@ -351,10 +92,14 @@ const KanjiReviewScreen = () => {
             const reps = srs.reps || 0;
             const state = getCardState(srs);
             totalReps += reps;
-            if (state === 'new') hasNoSRS++;
-            else if (state === 'learning' || state === 'relearning') learning++;
-            else if (interval < 1440 * 7) shortTerm++;
-            else longTerm++;
+            if (state === 'new' || state === 'NEW') hasNoSRS++;
+            else if (state === 'learning' || state === 'LEARNING' || state === 'relearning' || state === 'RELEARNING') learning++;
+            else {
+                const isLegacyMinute = interval >= 1440;
+                const daysInterval = isLegacyMinute ? (interval / 1440) : interval;
+                if (daysInterval < 7) shortTerm++;
+                else longTerm++;
+            }
             if (srs.lastReview) {
                 const d = new Date(srs.lastReview);
                 reviewDays.add(`${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`);
@@ -456,16 +201,18 @@ const KanjiReviewScreen = () => {
         const srs = srsData[currentCard.id] || { interval: 0, ease: 2.5, nextReview: 0, reps: 0 };
         const result = calculateAnkiSRS(srs, rating);
         const now = Date.now();
+        const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
         const newSrs = {
             interval: result.interval,
             ease: result.ease,
-            nextReview: now + result.interval * 60000,
+            nextReview: now + nextReviewOffset,
             lastReview: now,
             reps: result.reps,
             learningStep: result.learningStep,
             isLapsed: result.isLapsed,
             lapseCount: result.lapseCount,
             prelapseInterval: result.prelapseInterval,
+            state: result.state,
         };
         try {
             await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, currentCard.id), newSrs);

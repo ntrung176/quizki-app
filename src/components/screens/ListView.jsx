@@ -1358,7 +1358,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
 
                                             {/* SRS badge */}
                                             <div className="flex-shrink-0">
-                                                <SrsStatusCell intervalIndex={card.intervalIndex_back} nextReview={card.nextReview_back} currentInterval={card.currentInterval_back} hasData={true} asDiv={true} />
+                                                <SrsStatusCell intervalIndex={card.intervalIndex_back} nextReview={card.nextReview_back} currentInterval={card.currentInterval_back} hasData={true} asDiv={true} state={card.srsState} />
                                             </div>
 
                                             {/* Hover action buttons */}

@@ -23,7 +23,7 @@ import {
 } from './config/constants';
 
 import { playAudio, pcmToWav, base64ToArrayBuffer, initSharedAudioCache, generateAudioSilent, getTTSVoice } from './utils/audio';
-import { getNextReviewDate, getSrsProgressText, processSrsUpdate, DEFAULT_EASE, calculateCorrectInterval, calculateAnkiSRS } from './utils/srs';
+import { getNextReviewDate, getSrsProgressText, DEFAULT_EASE, calculateCorrectInterval, calculateAnkiSRS } from './utils/srs';
 import {
     shuffleArray,
     maskWordInExample,
@@ -655,6 +655,7 @@ const App = () => {
                     srsIsLapsed: data.srsIsLapsed === true,
                     srsLapseCount: typeof data.srsLapseCount === 'number' ? data.srsLapseCount : 0,
                     srsPrelapseInterval: typeof data.srsPrelapseInterval === 'number' ? data.srsPrelapseInterval : null,
+                    srsState: data.srsState || null,
                 });
             });
 
@@ -2164,11 +2165,13 @@ const App = () => {
                 isLapsed: cardData.srsIsLapsed || false,
                 reps: cardData.srsReps || 0,
                 lapseCount: cardData.srsLapseCount || 0,
-                prelapseInterval: cardData.srsPrelapseInterval || null
+                prelapseInterval: cardData.srsPrelapseInterval || null,
+                state: cardData.srsState || null
             };
 
              const result = calculateAnkiSRS(srsState, rating);
-             const nextReviewDate = new Date(Date.now() + result.interval * 60000);
+             const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
+             const nextReviewDate = new Date(Date.now() + nextReviewOffset);
  
              const isCorrect = rating !== 'again';
              const currentMastery = cardData.masteryState || 'not_learned';
@@ -2184,6 +2187,8 @@ const App = () => {
                  srsReps: result.reps,
                  srsLapseCount: result.lapseCount,
                  srsPrelapseInterval: result.prelapseInterval,
+                 srsState: result.state,
+                 intervalIndex_back: result.state === 'NEW' ? -1 : (result.state === 'REVIEW' ? 2 : 0),
                  nextReview_back: nextReviewDate,
                  lastReviewed: serverTimestamp(),
                  needsMistakeReview: rating === 'again',

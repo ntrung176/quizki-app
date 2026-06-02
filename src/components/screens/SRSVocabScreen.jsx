@@ -43,14 +43,16 @@ const getPreviewIntervals = (card) => {
         isLapsed: card.srsIsLapsed || false,
         reps: card.srsReps || 0,
         lapseCount: card.srsLapseCount || 0,
-        prelapseInterval: card.srsPrelapseInterval || null
+        prelapseInterval: card.srsPrelapseInterval || null,
+        state: card.srsState || null
     };
 
     const ratings = ['again', 'hard', 'good', 'easy'];
     const result = {};
     for (const r of ratings) {
         const preview = calculateAnkiSRS(srsState, r);
-        result[r] = preview.interval;
+        // Convert offset ms to minutes so formatInterval works seamlessly
+        result[r] = Math.round((preview.nextReviewOffsetMs || 0) / 60000);
     }
     return result;
 };
@@ -187,11 +189,7 @@ const SRSVocabScreen = ({
 
     // Card Settings State (stored in localStorage with v2 version to apply new defaults)
     const [cardSettings, setCardSettings] = useState(() => {
-        try {
-            const saved = localStorage.getItem('quizki_flashcard_settings_v2');
-            if (saved) return JSON.parse(saved);
-        } catch (e) {}
-        return {
+        const defaultSettings = {
             front: {
                 word: true,
                 furigana: false,
@@ -204,8 +202,23 @@ const SRSVocabScreen = ({
                 synonym: false,
                 example: false
             },
-            swapSides: false
+            swapSides: false,
+            autoPlayAudio: true
         };
+        try {
+            const saved = localStorage.getItem('quizki_flashcard_settings_v2');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                return {
+                    ...defaultSettings,
+                    ...parsed,
+                    front: { ...defaultSettings.front, ...parsed.front },
+                    back: { ...defaultSettings.back, ...parsed.back },
+                    autoPlayAudio: parsed.autoPlayAudio !== undefined ? parsed.autoPlayAudio : true
+                };
+            }
+        } catch (e) {}
+        return defaultSettings;
     });
 
     useEffect(() => {
@@ -452,18 +465,15 @@ const SRSVocabScreen = ({
         return () => window.removeEventListener('keydown', handler);
     }, [reviewMode, currentReviewIndex, reviewQueue]);
 
-    // Auto-play audio when Japanese side is visible
+    // Auto-play audio when card is flipped
     useEffect(() => {
-        if (reviewMode && reviewQueue.length > 0) {
+        if (reviewMode && reviewQueue.length > 0 && cardSettings.autoPlayAudio) {
             const currentCard = reviewQueue[currentReviewIndex];
-            if (currentCard && currentCard.audioBase64) {
-                const isJapaneseVisible = !cardSettings.swapSides ? !isFlipped : isFlipped;
-                if (isJapaneseVisible) {
-                    playAudio && playAudio(currentCard.audioBase64);
-                }
+            if (currentCard && currentCard.audioBase64 && isFlipped) {
+                playAudio && playAudio(currentCard.audioBase64);
             }
         }
-    }, [reviewMode, currentReviewIndex, isFlipped, cardSettings.swapSides, reviewQueue]);
+    }, [reviewMode, currentReviewIndex, isFlipped, cardSettings.autoPlayAudio, reviewQueue]);
 
     // ==================== LOCAL SRS REVIEW MODE ====================
     if (reviewMode && reviewQueue.length > 0) {
@@ -606,10 +616,6 @@ const SRSVocabScreen = ({
                                 onClick={() => {
                                     const nextFlipped = !isFlipped;
                                     setIsFlipped(nextFlipped);
-                                    const isJapaneseVisible = !cardSettings.swapSides ? !nextFlipped : nextFlipped;
-                                    if (isJapaneseVisible && currentCard && currentCard.audioBase64) {
-                                        playAudio && playAudio(currentCard.audioBase64);
-                                    }
                                 }}
                             >
                                 <div key={currentCard.id} style={{ position: 'relative', width: '100%', height: '460px', transformStyle: 'preserve-3d', transition: 'transform 0.6s cubic-bezier(0.4,0,0.2,1)', transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
@@ -640,6 +646,20 @@ const SRSVocabScreen = ({
                                     </div>
                                 </div>
                             </div>
+
+                            {/* Speaker Button - OUTSIDE the flipping container */}
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    if (currentCard && currentCard.audioBase64) {
+                                        playAudio && playAudio(currentCard.audioBase64);
+                                    }
+                                }}
+                                className="absolute top-6 right-18 p-2 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-full transition-all hover:scale-110 z-30 shadow-md border border-indigo-100/30 dark:border-indigo-900/20"
+                                title="Phát âm"
+                            >
+                                <Volume2 className="w-4 h-4" />
+                            </button>
 
                             {/* Settings Button - OUTSIDE the flipping container */}
                             <button
@@ -685,6 +705,13 @@ const SRSVocabScreen = ({
                                         <span className="text-indigo-650 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
                                         <label className="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.swapSides} onChange={(e) => setCardSettings(prev => ({ ...prev, swapSides: e.target.checked }))} className="sr-only peer" />
+                                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                        </label>
+                                    </div>
+                                    <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
+                                        <span className="text-indigo-650 dark:text-indigo-400 font-bold">Tự động phát âm thanh khi lật</span>
+                                        <label className="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked={cardSettings.autoPlayAudio} onChange={(e) => setCardSettings(prev => ({ ...prev, autoPlayAudio: e.target.checked }))} className="sr-only peer" />
                                             <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
                                         </label>
                                     </div>

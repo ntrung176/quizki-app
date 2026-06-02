@@ -10,17 +10,16 @@ import { POS_TYPES } from '../../config/constants';
 // Helper: derive human-readable SRS cycle stage from vocab SM-2 fields
 const getSrsCycleLabel = (card) => {
     if (!card.srsEnabled) return null;
-    const interval = card.srsInterval || 0;
-    const reps = card.srsReps || 0;
-    const learningStep = card.srsLearningStep;
-    if (reps === 0 && (learningStep === undefined || learningStep === null)) return 'Mới';
-    if (card.srsIsLapsed) return 'Học lại';
-    if (typeof learningStep === 'number' && learningStep >= 0) {
-        return learningStep === 0 ? '1 phút' : '10 phút';
+    const state = card.srsState || (card.srsReps === 0 && card.srsLearningStep === null ? 'NEW' : (card.srsIsLapsed ? 'RELEARNING' : (card.srsLearningStep !== null ? 'LEARNING' : 'REVIEW')));
+
+    if (state === 'NEW') return 'Mới';
+    if (state === 'RELEARNING') return 'Học lại';
+    if (state === 'LEARNING') {
+        return card.srsLearningStep === 0 ? '1 phút' : '10 phút';
     }
-    if (interval < 1440) return `${Math.round(interval / 60)} giờ`;
-    const days = Math.round(interval / 1440);
-    if (days === 1) return '1 ngày';
+    
+    // REVIEW state - interval is in days
+    const days = card.srsInterval || 1;
     if (days < 30) return `${days} ngày`;
     return `${Math.round(days / 30)} tháng`;
 };
@@ -156,11 +155,7 @@ const StudySetDetail = ({
 
     // Card Settings State (stored in localStorage with v2 version to apply new defaults)
     const [cardSettings, setCardSettings] = useState(() => {
-        try {
-            const saved = localStorage.getItem('quizki_flashcard_settings_v2');
-            if (saved) return JSON.parse(saved);
-        } catch (e) {}
-        return {
+        const defaultSettings = {
             front: {
                 word: true,
                 furigana: false,
@@ -173,8 +168,23 @@ const StudySetDetail = ({
                 synonym: false,
                 example: false
             },
-            swapSides: false
+            swapSides: false,
+            autoPlayAudio: true
         };
+        try {
+            const saved = localStorage.getItem('quizki_flashcard_settings_v2');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                return {
+                    ...defaultSettings,
+                    ...parsed,
+                    front: { ...defaultSettings.front, ...parsed.front },
+                    back: { ...defaultSettings.back, ...parsed.back },
+                    autoPlayAudio: parsed.autoPlayAudio !== undefined ? parsed.autoPlayAudio : true
+                };
+            }
+        } catch (e) {}
+        return defaultSettings;
     });
 
     const [showSettingsMenu, setShowSettingsMenu] = useState(false);
@@ -489,9 +499,11 @@ const StudySetDetail = ({
                                                 setIsAnimatingFlip(true);
                                                 const nextFlippedState = !isCardFlipped;
                                                 setIsCardFlipped(nextFlippedState);
-                                                const isJapaneseSideVisible = !cardSettings.swapSides ? !nextFlippedState : nextFlippedState;
-                                                if (isJapaneseSideVisible && activeCard) {
-                                                    speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null);
+                                                if (activeCard && cardSettings.autoPlayAudio) {
+                                                    // Chỉ phát âm thanh khi lật từ mặt trước sang mặt sau (nextFlippedState === true)
+                                                    if (nextFlippedState) {
+                                                        speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null);
+                                                    }
                                                 }
                                             }}
                                             className={`relative w-full cursor-pointer transform-style-preserve-3d ${isAnimatingFlip ? 'transition-transform duration-500' : ''} ${isCardFlipped ? 'rotate-y-180' : ''}`}
@@ -524,6 +536,18 @@ const StudySetDetail = ({
                                             </div>
                                         </div>
                                     </div>
+
+                                    {/* Speaker Button - OUTSIDE the flipping container */}
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null);
+                                        }}
+                                        className="absolute top-6 right-18 p-2.5 bg-slate-100/80 hover:bg-indigo-50 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-355 rounded-full transition-all hover:scale-110 z-30 shadow-md border border-gray-200 dark:border-slate-700"
+                                        title="Phát âm"
+                                    >
+                                        <Volume2 className="w-4 h-4" />
+                                    </button>
 
                                     {/* Settings Button - OUTSIDE the flipping container */}
                                     <button
@@ -1140,6 +1164,13 @@ const StudySetDetail = ({
                                 <span className="text-indigo-650 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked={cardSettings.swapSides} onChange={(e) => setCardSettings(prev => ({ ...prev, swapSides: e.target.checked }))} className="sr-only peer" />
+                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                </label>
+                            </div>
+                            <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
+                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">Tự động phát âm thanh khi lật</span>
+                                <label className="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" checked={cardSettings.autoPlayAudio} onChange={(e) => setCardSettings(prev => ({ ...prev, autoPlayAudio: e.target.checked }))} className="sr-only peer" />
                                     <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
                                 </label>
                             </div>

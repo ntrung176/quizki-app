@@ -898,7 +898,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                             </div>
                             <div>
                                 <p className="font-bold text-gray-800 dark:text-white">AI Provider: OpenRouter</p>
-                                <p className="text-xs text-gray-500 dark:text-gray-400">Sử dụng Gemini 2.5 Flash qua OpenRouter</p>
+                                <p className="text-xs text-gray-500 dark:text-gray-400">Sử dụng các mô hình Gemini qua OpenRouter</p>
                             </div>
                         </div>
 

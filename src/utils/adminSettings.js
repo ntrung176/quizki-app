@@ -248,11 +248,12 @@ export const revokeAIAccess = async (adminConfig, userId, updatedByUserId) => {
 };
 
 export const AI_PROVIDER_OPTIONS = [
-    { value: 'openrouter', label: 'OpenRouter (Gemini 2.5 Flash)', description: 'Mô hình AI chính, chất lượng cao' },
+    { value: 'openrouter', label: 'OpenRouter (Gemini / Google)', description: 'Mô hình AI từ Google' },
 ];
 
 export const OPENROUTER_MODELS = [
     { value: 'google/gemini-2.5-flash', label: 'Gemini 2.5 Flash' },
+    { value: 'google/gemini-3.1-flash-lite', label: 'Gemini 3.1 Flash-Lite' },
 ];
 
 // ============== AI CREDIT REQUESTS ==============

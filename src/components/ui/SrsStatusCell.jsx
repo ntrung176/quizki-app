@@ -5,7 +5,7 @@ import { SRS_INTERVALS, MASTERED_THRESHOLD } from '../../config/constants';
 
 // SrsStatusCell - displays SRS status for a vocabulary card
 // Use asDiv={true} when rendering outside a <table> (e.g. in flex/grid layouts)
-const SrsStatusCell = ({ intervalIndex, nextReview, hasData, currentInterval, asDiv = false }) => {
+const SrsStatusCell = ({ intervalIndex, nextReview, hasData, currentInterval, asDiv = false, state }) => {
     const Wrapper = asDiv ? 'div' : 'td';
     const wrapperClass = asDiv ? '' : 'px-2 md:px-4 py-2 md:py-3';
 
@@ -25,9 +25,10 @@ const SrsStatusCell = ({ intervalIndex, nextReview, hasData, currentInterval, as
         ? currentInterval
         : (intervalIndex >= 0 && intervalIndex < SRS_INTERVALS.length ? SRS_INTERVALS[intervalIndex] : 0);
 
-    const progress = getSrsProgressText(intervalIndex, null, effectiveInterval);
-    const isDue = nextReview && nextReview <= Date.now();
-    const isMastered = effectiveInterval >= MASTERED_THRESHOLD;
+    const progress = getSrsProgressText(intervalIndex, null, effectiveInterval, state);
+    const resolvedState = state || (intervalIndex === -1 ? 'NEW' : (intervalIndex >= 2 ? 'REVIEW' : 'LEARNING'));
+    const isDue = nextReview && (nextReview instanceof Date ? nextReview.getTime() : new Date(nextReview).getTime()) <= Date.now();
+    const isMastered = resolvedState === 'REVIEW' && effectiveInterval >= 21;
 
     // Color based on status
     let colorClass = 'text-gray-500 dark:text-gray-400';
@@ -35,13 +36,13 @@ const SrsStatusCell = ({ intervalIndex, nextReview, hasData, currentInterval, as
 
     if (isMastered) {
         colorClass = 'text-emerald-600 dark:text-emerald-400';
-        bgClass = 'bg-emerald-100 dark:bg-emerald-900/30';
-    } else if (intervalIndex >= 2) {
+        bgClass = 'bg-emerald-100 dark:bg-emerald-950/30';
+    } else if (resolvedState === 'REVIEW') {
         colorClass = 'text-blue-600 dark:text-blue-400';
-        bgClass = 'bg-blue-100 dark:bg-blue-900/30';
-    } else if (intervalIndex >= 0) {
+        bgClass = 'bg-blue-100 dark:bg-blue-950/30';
+    } else if (resolvedState === 'LEARNING' || resolvedState === 'RELEARNING') {
         colorClass = 'text-orange-600 dark:text-orange-400';
-        bgClass = 'bg-orange-100 dark:bg-orange-900/30';
+        bgClass = 'bg-orange-100 dark:bg-orange-950/30';
     }
 
     return (
