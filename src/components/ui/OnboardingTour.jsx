@@ -113,6 +113,87 @@ const TOUR_STEPS = [
     }
 ];
 
+const MOBILE_TOUR_STEPS = [
+    // --- HOME SECTION ---
+    {
+        target: '',
+        title: '🏠 Trang chủ',
+        desc: 'Theo dõi tiến độ học tập, số ngày học liên tục (streak) và các hoạt động học tập gần đây của bạn.',
+        section: 'home'
+    },
+    {
+        target: '',
+        title: '📖 Học Từ Vựng',
+        desc: 'Quản lý học phần cá nhân, thêm từ vựng mới, ôn tập SRS và theo dõi tiến trình học từ vựng.',
+        section: 'home'
+    },
+    {
+        target: '',
+        title: '🈶 Thư viện Kanji',
+        desc: 'Học và ghi nhớ Kanji từ N5 đến N1 thông qua hệ thống lặp lại ngắt quãng thông minh.',
+        section: 'home'
+    },
+    {
+        target: '',
+        title: '📝 Học Ngữ Pháp',
+        desc: 'Học các cấu trúc ngữ pháp chi tiết theo cấp độ JLPT kèm câu ví dụ cụ thể.',
+        section: 'home'
+    },
+    {
+        target: '',
+        title: '🏁 Luyện Đề JLPT',
+        desc: 'Tham gia thi thử JLPT đầy đủ các phần trực tiếp ngay trên điện thoại với thời gian thực.',
+        section: 'home'
+    },
+    {
+        target: '',
+        title: '⚙️ Cài đặt cá nhân',
+        desc: 'Chỉnh sửa tài khoản, tùy chọn nhạc nền, âm thanh hiệu ứng và đổi giao diện sáng/tối.',
+        section: 'home'
+    },
+
+    // --- VOCAB REVIEW SECTION ---
+    {
+        target: '',
+        title: '🎴 Ôn tập Thẻ Ghi Nhớ',
+        desc: 'Nhấn trực tiếp vào thẻ để lật mặt sau xem nghĩa tiếng Việt, Furigana và ví dụ minh họa.',
+        section: 'vocabReview'
+    },
+    {
+        target: '',
+        title: '🔊 Nghe phát âm',
+        desc: 'Nhấn vào biểu tượng loa để nghe giọng phát âm bản xứ chuẩn xác của từ vựng.',
+        section: 'vocabReview'
+    },
+    {
+        target: '',
+        title: '📊 Đánh giá mức độ nhớ',
+        desc: 'Chọn Quên rồi (Again), Khó (Hard), Tốt (Good), hoặc Dễ (Easy) sau khi lật thẻ để hệ thống SRS lên lịch ôn tập tối ưu.',
+        section: 'vocabReview'
+    },
+
+    // --- VOCAB ADD SECTION ---
+    {
+        target: '',
+        title: '✏️ Tiêu đề học phần',
+        desc: 'Đặt tên cho học phần từ vựng mới của bạn trước khi tiến hành lưu.',
+        section: 'vocabAdd'
+    },
+    {
+        target: '',
+        title: '🤖 Tạo hàng loạt bằng AI',
+        desc: 'Nhập danh sách từ vựng dạng văn bản thô, AI sẽ tự động phân tích và tạo toàn bộ thẻ từ vựng nhanh chóng.',
+        section: 'vocabAdd'
+    },
+    {
+        target: '',
+        title: '💾 Lưu học phần',
+        desc: 'Bấm nút Lưu học phần để tạo và lưu các thẻ từ vựng vào kho của bạn.',
+        section: 'vocabAdd'
+    }
+];
+
+
 const escapeId = (id) => {
     if (typeof CSS !== 'undefined' && CSS.escape) {
         return CSS.escape(id);
@@ -210,8 +291,21 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
 
     const resolvedIsAdmin = propIsAdmin || (userEmail && userEmail === import.meta.env.VITE_ADMIN_EMAIL);
 
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     // Filter steps for the active section (e.g. 'home', 'vocabReview', etc.)
-    const activeSteps = useMemo(() => steps.filter(item => item.section === section), [steps, section]);
+    const activeSteps = useMemo(() => {
+        const baseSteps = isMobile ? MOBILE_TOUR_STEPS : steps;
+        return baseSteps.filter(item => item.section === section);
+    }, [steps, section, isMobile]);
 
     const [isActive, setIsActive] = useState(false);
     const [step, setStep] = useState(0);
@@ -237,20 +331,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
     const [showImportModal, setShowImportModal] = useState(false);
     const [importText, setImportText] = useState('');
 
-    // Activate for first-time users specific to this section
-    useEffect(() => {
-        if (authLoading) return;
-        if (!userId) return;
-        if (!hasSeenOnboarding(`tour-v3-${section}-${userId}`)) {
-            const t = setTimeout(() => {
-                if (activeSteps.length > 0) {
-                    setIsActive(true);
-                    setStep(0);
-                }
-            }, 800);
-            return () => clearTimeout(t);
-        }
-    }, [userId, authLoading, section, activeSteps.length]);
+
 
     // Force trigger tour when restart button is clicked
     useEffect(() => {
@@ -266,6 +347,14 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
 
     // Position tooltip near target
     const reposition = useCallback(() => {
+        if (isMobile) {
+            if (lastRectRef.current !== null) {
+                lastRectRef.current = null;
+                setHighlightRect(null);
+            }
+            return;
+        }
+
         if (!isActive || step >= activeSteps.length) {
             if (lastRectRef.current !== null) {
                 lastRectRef.current = null;
@@ -324,10 +413,12 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
             lastPosRef.current = { top, left };
             setPos({ top, left });
         }
-    }, [isActive, step, activeSteps]);
+    }, [isActive, step, activeSteps, isMobile]);
 
     useEffect(() => {
         reposition();
+        if (isMobile) return;
+
         const id = requestAnimationFrame(reposition);
         window.addEventListener('resize', reposition);
         window.addEventListener('scroll', reposition, true);
@@ -336,7 +427,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
             window.removeEventListener('resize', reposition);
             window.removeEventListener('scroll', reposition, true);
         };
-    }, [reposition]);
+    }, [reposition, isMobile]);
 
     const finish = useCallback(() => {
         setIsActive(false);
@@ -554,7 +645,15 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
             {/* Tour Overlay highlight and Box */}
             {isActive && activeSteps.length > 0 && previewCurrentStep && (
                 <>
-                    {highlightRect && (
+                    {/* Dark backdrop overlay on mobile */}
+                    {isMobile && (
+                        <div
+                            className="fixed inset-0 bg-black/60 z-[10000] backdrop-blur-xs animate-fade-in"
+                            onClick={finish}
+                        />
+                    )}
+
+                    {!isMobile && highlightRect && (
                         <div
                             className="fixed rounded-xl pointer-events-none transition-all duration-300 ease-out"
                             style={{
@@ -566,12 +665,15 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                     )}
 
                     <div
-                        ref={tooltipRef}
-                        className="fixed w-80 z-[10001] animate-fade-in"
-                        style={{ top: pos.top, left: pos.left }}
+                        ref={isMobile ? null : tooltipRef}
+                        className={isMobile
+                            ? "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-sm z-[10001] animate-fade-in text-left"
+                            : "fixed w-80 z-[10001] animate-fade-in"
+                        }
+                        style={isMobile ? {} : { top: pos.top, left: pos.left }}
                     >
                         <div className="bg-slate-800/95 dark:bg-slate-900/95 backdrop-blur-xl text-white rounded-2xl shadow-2xl shadow-black/40 border border-slate-600/40 overflow-hidden">
-                            {highlightRect && pos.left > (highlightRect.left + highlightRect.width) && (
+                            {!isMobile && highlightRect && pos.left > (highlightRect.left + highlightRect.width) && (
                                 <div className="absolute -left-2 top-1/2 -translate-y-1/2" style={{ zIndex: 1 }}>
                                     <div className="w-0 h-0 border-t-[8px] border-b-[8px] border-r-[8px] border-transparent border-r-slate-800/95 dark:border-r-slate-900/95" />
                                 </div>
@@ -634,7 +736,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
             )}
 
             {/* Admin Builder Toggle & Panel */}
-            {resolvedIsAdmin && (
+            {resolvedIsAdmin && !isMobile && (
                 <div className="tour-builder-ui text-left">
                     {/* Floating Design Button */}
                     <button

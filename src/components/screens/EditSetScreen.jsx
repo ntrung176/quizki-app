@@ -125,6 +125,19 @@ const EditSetScreen = ({
             return;
         }
 
+        // Check duplicate in current study set
+        const currentFrontNormalized = card.front.split('（')[0].split('(')[0].trim().toLowerCase();
+        const isDuplicate = cards.some(c => {
+            if (c.id === id) return false;
+            const otherFrontNormalized = c.front.split('（')[0].split('(')[0].trim().toLowerCase();
+            return otherFrontNormalized === currentFrontNormalized;
+        });
+
+        if (isDuplicate) {
+            showToast('Từ vựng đã có trong học phần rồi.', 'warning');
+            return;
+        }
+
         setIsAiLoadingMap(prev => ({ ...prev, [id]: true }));
         const aiData = await onGeminiAssist(card.front, card.pos, card.level, false);
         
@@ -483,6 +496,7 @@ const EditSetScreen = ({
                 onExtractVocabFromImage={onExtractVocabFromImage}
                 aiCreditsRemaining={aiCreditsRemaining}
                 onGenerateComplete={handleBatchAiComplete}
+                existingCards={cards}
             />
         </div>
     );

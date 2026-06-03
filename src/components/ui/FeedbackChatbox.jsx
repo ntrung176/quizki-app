@@ -3,6 +3,48 @@ import { db, appId } from '../../config/firebase';
 import { collection, addDoc, query, where, orderBy, onSnapshot, serverTimestamp, setDoc, doc } from 'firebase/firestore';
 import { MessageSquare, X, Send, Image as ImageIcon, Loader2, Paperclip, Check } from 'lucide-react';
 
+// Hàm nén ảnh về định dạng jpeg chất lượng 0.7 và giới hạn kích thước tối đa 1200px
+const compressImage = (file, maxWidth = 1200, maxHeight = 1200, quality = 0.7) => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = (event) => {
+            const img = new Image();
+            img.src = event.target.result;
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                let width = img.width;
+                let height = img.height;
+
+                // Tính toán kích thước mới duy trì tỷ lệ khung hình
+                if (width > height) {
+                    if (width > maxWidth) {
+                        height = Math.round((height * maxWidth) / width);
+                        width = maxWidth;
+                    }
+                } else {
+                    if (height > maxHeight) {
+                        width = Math.round((width * maxHeight) / height);
+                        height = maxHeight;
+                    }
+                }
+
+                canvas.width = width;
+                canvas.height = height;
+
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+
+                // Xuất ảnh sang định dạng JPEG chất lượng thấp hơn
+                const dataUrl = canvas.toDataURL('image/jpeg', quality);
+                resolve(dataUrl);
+            };
+            img.onerror = (err) => reject(err);
+        };
+        reader.onerror = (err) => reject(err);
+    });
+};
+
 const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([]);
@@ -106,26 +148,31 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
         }
     }, [isOpen]);
 
-    // Handle image select & convert to base64
-    const handleImageSelect = (e) => {
+    // Handle image select & convert to base64 with compression
+    const handleImageSelect = async (e) => {
         const file = e.target.files[0];
         if (!file) return;
 
-        // Limit size to ~1MB for base64 storage in firestore
-        if (file.size > 1.2 * 1024 * 1024) {
-            alert('Hình ảnh quá lớn! Vui lòng chọn ảnh nhỏ hơn 1.2 MB.');
+        // Giới hạn 2MB cho file đầu vào
+        if (file.size > 2 * 1024 * 1024) {
+            alert('Hình ảnh quá lớn! Vui lòng chọn ảnh nhỏ hơn 2 MB.');
             return;
         }
 
-        const reader = new FileReader();
-        reader.onloadend = () => {
-            setSelectedImage(reader.result);
-        };
-        reader.readAsDataURL(file);
+        setLoading(true);
+        try {
+            const compressedBase64 = await compressImage(file);
+            setSelectedImage(compressedBase64);
+        } catch (error) {
+            console.error("Lỗi khi nén ảnh:", error);
+            alert("Lỗi khi xử lý hình ảnh.");
+        } finally {
+            setLoading(false);
+        }
     };
 
-    // Handle paste event (e.g. Ctrl+V image)
-    const handlePaste = (e) => {
+    // Handle paste event (e.g. Ctrl+V image) with compression
+    const handlePaste = async (e) => {
         const items = e.clipboardData?.items;
         if (!items) return;
 
@@ -134,17 +181,21 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
                 const file = items[i].getAsFile();
                 if (!file) continue;
 
-                // Limit size to ~1.2MB for base64 storage
-                if (file.size > 1.2 * 1024 * 1024) {
-                    alert('Hình ảnh dán quá lớn! Vui lòng chọn ảnh nhỏ hơn 1.2 MB.');
+                // Giới hạn 2MB cho file dán vào
+                if (file.size > 2 * 1024 * 1024) {
+                    alert('Hình ảnh dán quá lớn! Vui lòng chọn ảnh nhỏ hơn 2 MB.');
                     return;
                 }
 
-                const reader = new FileReader();
-                reader.onloadend = () => {
-                    setSelectedImage(reader.result);
-                };
-                reader.readAsDataURL(file);
+                setLoading(true);
+                try {
+                    const compressedBase64 = await compressImage(file);
+                    setSelectedImage(compressedBase64);
+                } catch (error) {
+                    console.error("Lỗi khi nén ảnh dán:", error);
+                } finally {
+                    setLoading(false);
+                }
                 e.preventDefault(); // Prevent pasting binary text/file name in text input
                 break;
             }

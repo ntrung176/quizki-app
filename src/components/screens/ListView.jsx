@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useMemo, useCallback, useDeferredVa
 import {
     List, Search, Upload, Download, ArrowDown, GraduationCap, Tag, Volume2,
     X, Edit, Trash2, Loader2, Check, Image as ImageIcon, Music,
-    FolderPlus, Folder, FolderOpen, ChevronRight, ChevronLeft, Filter, Eye, MoreVertical, Plus
+    FolderPlus, Folder, FolderOpen, ChevronRight, ChevronLeft, ChevronDown, ChevronUp, Filter, Eye, MoreVertical, Plus
 } from 'lucide-react';
 import { JLPT_LEVELS, POS_TYPES, getPosLabel, getPosColor, getLevelColor } from '../../config/constants';
 import { SearchInput, TopTabBar } from '../ui';
@@ -14,7 +14,7 @@ import FuriganaText from '../ui/FuriganaText';
 import { VOCAB_TABS } from '../../config/tabs';
 
 // ==================== Edit Modal Component ====================
-const EditCardModal = ({ card, onSave, onClose, onGeminiAssist }) => {
+const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] }) => {
     const [front, setFront] = useState(card?.front || '');
     const [back, setBack] = useState(card?.back || '');
     const [synonym, setSynonym] = useState(card?.synonym || '');
@@ -74,6 +74,20 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist }) => {
     const handleAiAssist = async (e) => {
         e.preventDefault();
         if (!front.trim()) return;
+
+        // Check duplicate
+        const currentFrontNormalized = front.split('（')[0].split('(')[0].trim().toLowerCase();
+        const isDuplicate = allCards.some(c => {
+            if (c.id === card.id) return false;
+            const otherFrontNormalized = c.front.split('（')[0].split('(')[0].trim().toLowerCase();
+            return otherFrontNormalized === currentFrontNormalized;
+        });
+
+        if (isDuplicate) {
+            showToast('Từ vựng đã có trong học phần rồi.', 'warning');
+            return;
+        }
+
         // AI sẽ tự động phân loại cấp độ JLPT, không cần user chọn trước
         setIsAiLoading(true);
         const aiData = await onGeminiAssist(front, pos, level);
@@ -368,6 +382,19 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
 
     // Delete confirmation modal state (replaces window.confirm)
     const [deleteConfirm, setDeleteConfirm] = useState(null); // { type: 'single'|'batch', cardId, cardFront, count }
+
+    const [expandedCardIds, setExpandedCardIds] = useState(new Set());
+    const toggleCardExpanded = (cardId) => {
+        setExpandedCardIds(prev => {
+            const next = new Set(prev);
+            if (next.has(cardId)) {
+                next.delete(cardId);
+            } else {
+                next.add(cardId);
+            }
+            return next;
+        });
+    };
 
     // Folder navigation (Windows Explorer style)
     const [currentFolder, setCurrentFolder] = useState(null); // null = root folder view
@@ -847,7 +874,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
             <div className="max-w-5xl mx-auto space-y-6 px-4 md:px-8 mt-4">
                 {/* Modals */}
                 {editingCard && (
-                    <EditCardModal card={editingCard} onSave={onSaveChanges} onClose={() => setEditingCard(null)} onGeminiAssist={onGeminiAssist} />
+                    <EditCardModal card={editingCard} onSave={onSaveChanges} onClose={() => setEditingCard(null)} onGeminiAssist={onGeminiAssist} allCards={allCards} />
                 )}
                 {showFolderManager && (
                     <FolderManagerModal
@@ -1302,67 +1329,126 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                 {(currentFolder !== null ? effectiveDisplayedCards : displayedCards).map(card => {
                                     const folderName = getFolderName(card.id);
                                     const isSelected = selectedCards.has(card.id);
+                                    const isExpanded = expandedCardIds.has(card.id);
                                     return (
                                         <div
                                             key={card.id}
                                             data-card-id={card.id}
-                                            className={`group relative flex items-center gap-3 p-3 rounded-xl border transition-all cursor-pointer ${isSelected
+                                            onClick={() => toggleCardExpanded(card.id)}
+                                            className={`group relative flex flex-col items-stretch p-3 rounded-xl border transition-all cursor-pointer ${isSelected
                                                 ? 'bg-red-50 dark:bg-red-900/20 border-red-300 dark:border-red-700 ring-1 ring-red-300'
                                                 : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-md'
                                                 }`}
                                         >
-                                            {/* Checkbox */}
-                                            <div
-                                                onClick={(e) => { e.stopPropagation(); toggleCardSelection(card.id); }}
-                                                className="flex-shrink-0"
-                                            >
-                                                <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${isSelected
-                                                    ? 'bg-red-500 border-red-500 text-white'
-                                                    : 'border-gray-300 dark:border-slate-600 group-hover:border-indigo-400'
-                                                    }`}>
-                                                    {isSelected && <span className="text-xs leading-none">✓</span>}
+                                            {/* Main row */}
+                                            <div className="flex items-center gap-3 w-full">
+                                                {/* Checkbox */}
+                                                <div
+                                                    onClick={(e) => { e.stopPropagation(); toggleCardSelection(card.id); }}
+                                                    className="flex-shrink-0"
+                                                >
+                                                    <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${isSelected
+                                                        ? 'bg-red-500 border-red-500 text-white'
+                                                        : 'border-gray-300 dark:border-slate-600 group-hover:border-indigo-400'
+                                                        }`}>
+                                                        {isSelected && <span className="text-xs leading-none">✓</span>}
+                                                    </div>
+                                                </div>
+
+                                                {/* Audio + content */}
+                                                <div className="flex items-center gap-2 flex-1 min-w-0">
+                                                    <button
+                                                        onClick={(e) => { e.stopPropagation(); onPlayAudio(card.audioBase64 || null, card.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null); }}
+                                                        className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors bg-indigo-50 dark:bg-indigo-900/30 text-indigo-500 hover:bg-indigo-100"
+                                                        title="Phát âm thanh"
+                                                    >
+                                                        <Volume2 className="w-3.5 h-3.5" />
+                                                    </button>
+
+                                                    <div className="flex-1 min-w-0">
+                                                        <div className="flex items-center gap-1.5 flex-wrap">
+                                                            <span className="font-bold text-gray-800 dark:text-gray-200 text-sm">
+                                                                <FuriganaText text={card.frontWithFurigana || card.front} forceHide={true} />
+                                                            </span>
+                                                            {card.sinoVietnamese && (
+                                                                <span className="text-[10px] font-medium text-pink-500 dark:text-pink-400 bg-pink-50 dark:bg-pink-900/30 px-1.5 rounded">{card.sinoVietnamese}</span>
+                                                            )}
+                                                            {card.level && (
+                                                                <span className={`text-[10px] px-1.5 py-0.5 rounded-full border font-bold ${getLevelColor(card.level)}`}>{card.level}</span>
+                                                            )}
+                                                        </div>
+                                                        <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{card.back}</div>
+                                                        {folderName && (
+                                                            <div className="flex items-center gap-1 mt-0.5">
+                                                                <Folder className="w-3 h-3 text-indigo-400" />
+                                                                <span className="text-[10px] text-indigo-500 dark:text-indigo-400 font-medium">{folderName}</span>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </div>
+
+                                                {/* SRS badge & details trigger */}
+                                                <div className="flex-shrink-0 flex items-center gap-1.5">
+                                                    <SrsStatusCell intervalIndex={card.intervalIndex_back} nextReview={card.nextReview_back} currentInterval={card.currentInterval_back} hasData={true} asDiv={true} state={card.srsState} />
+                                                    <button
+                                                        onClick={(e) => { e.stopPropagation(); toggleCardExpanded(card.id); }}
+                                                        className="text-gray-400 hover:text-indigo-500 transition-colors p-1"
+                                                        title={isExpanded ? "Thu gọn chi tiết" : "Xem chi tiết"}
+                                                    >
+                                                        {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                                                    </button>
                                                 </div>
                                             </div>
 
-                                            {/* Audio + content */}
-                                            <div className="flex items-center gap-2 flex-1 min-w-0">
-                                                <button
-                                                    onClick={(e) => { e.stopPropagation(); onPlayAudio(card.audioBase64 || null, card.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null); }}
-                                                    className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors bg-indigo-50 dark:bg-indigo-900/30 text-indigo-500 hover:bg-indigo-100"
-                                                    title="Phát âm thanh"
-                                                >
-                                                    <Volume2 className="w-3.5 h-3.5" />
-                                                </button>
-
-                                                <div className="flex-1 min-w-0">
-                                                    <div className="flex items-center gap-1.5 flex-wrap">
-                                                        <span className="font-bold text-gray-800 dark:text-gray-200 text-sm">
-                                                            <FuriganaText text={card.frontWithFurigana || card.front} forceHide={true} />
-                                                        </span>
-                                                        {card.sinoVietnamese && (
-                                                            <span className="text-[10px] font-medium text-pink-500 dark:text-pink-400 bg-pink-50 dark:bg-pink-900/30 px-1.5 rounded">{card.sinoVietnamese}</span>
-                                                        )}
-                                                        {card.level && (
-                                                            <span className={`text-[10px] px-1.5 py-0.5 rounded-full border font-bold ${getLevelColor(card.level)}`}>{card.level}</span>
-                                                        )}
-                                                    </div>
-                                                    <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{card.back}</div>
-                                                    {folderName && (
-                                                        <div className="flex items-center gap-1 mt-0.5">
-                                                            <Folder className="w-3 h-3 text-indigo-400" />
-                                                            <span className="text-[10px] text-indigo-500 dark:text-indigo-400 font-medium">{folderName}</span>
+                                            {/* Expanded details container */}
+                                            {isExpanded && (
+                                                <div className="mt-2.5 border-t border-gray-150 dark:border-slate-700/60 pt-2.5 space-y-2.5 w-full text-left" onClick={(e) => e.stopPropagation()}>
+                                                    {card.synonym && (
+                                                        <div className="flex items-start gap-1.5 text-xs text-slate-650 dark:text-slate-350">
+                                                            <span className="font-semibold text-indigo-500 shrink-0">Đồng nghĩa:</span>
+                                                            <span className="font-japanese font-medium"><FuriganaText text={card.synonym} /></span>
+                                                        </div>
+                                                    )}
+                                                    {card.nuance && (
+                                                        <div className="flex items-start gap-1.5 text-xs text-slate-655 dark:text-slate-355 bg-amber-500/5 dark:bg-amber-500/10 border border-amber-500/20 rounded-xl p-2.5">
+                                                            <span className="text-amber-600 dark:text-amber-400 font-bold shrink-0">💡 Sắc thái/Ngữ cảnh:</span>
+                                                            <span className="leading-relaxed">{card.nuance}</span>
+                                                        </div>
+                                                    )}
+                                                    {(card.example || card.exampleMeaning) && (
+                                                        <div className="space-y-2 mt-1">
+                                                            <div className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Ví dụ minh họa:</div>
+                                                            <div className="bg-slate-50 dark:bg-slate-900/40 rounded-xl p-3 border border-slate-100 dark:border-slate-800 space-y-2.5">
+                                                                {card.example ? (
+                                                                    card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
+                                                                        const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
+                                                                        return (
+                                                                            <div key={idx} className="border-l-2 border-indigo-500/30 pl-2.5">
+                                                                                <div className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-japanese leading-relaxed">
+                                                                                    <FuriganaText text={ex} />
+                                                                                </div>
+                                                                                {meaning && (
+                                                                                    <div className="text-[11px] text-slate-500 dark:text-slate-400 font-sans mt-0.5">{meaning}</div>
+                                                                                )}
+                                                                            </div>
+                                                                        );
+                                                                    })
+                                                                ) : (
+                                                                    card.exampleMeaning && (
+                                                                        <p className="text-xs text-slate-500 dark:text-slate-400 italic">{card.exampleMeaning}</p>
+                                                                    )
+                                                                )}
+                                                            </div>
                                                         </div>
                                                     )}
                                                 </div>
-                                            </div>
-
-                                            {/* SRS badge */}
-                                            <div className="flex-shrink-0">
-                                                <SrsStatusCell intervalIndex={card.intervalIndex_back} nextReview={card.nextReview_back} currentInterval={card.currentInterval_back} hasData={true} asDiv={true} state={card.srsState} />
-                                            </div>
+                                            )}
 
                                             {/* Hover action buttons */}
-                                            <div className="opacity-0 group-hover:opacity-100 absolute top-1 right-1 flex gap-0.5 transition-all bg-white/80 dark:bg-slate-800/80 rounded-lg p-0.5 backdrop-blur-sm">
+                                            <div 
+                                                onClick={(e) => e.stopPropagation()}
+                                                className="opacity-0 group-hover:opacity-100 absolute top-1 right-1 flex gap-0.5 transition-all bg-white/80 dark:bg-slate-800/80 rounded-lg p-0.5 backdrop-blur-sm"
+                                            >
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); setShowMoveModal(card.id); }}
                                                     className="p-1 text-gray-400 hover:text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded transition-colors"

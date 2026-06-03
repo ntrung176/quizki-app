@@ -14,7 +14,8 @@ const BatchAiModal = ({
     onExtractVocabFromImage,
     aiCreditsRemaining,
     onGenerateComplete,
-    initialTab = 'text'
+    initialTab = 'text',
+    existingCards = []
 }) => {
     const [activeTab, setActiveTab] = useState(initialTab); // 'text' | 'image'
     
@@ -152,6 +153,7 @@ const BatchAiModal = ({
         setProcessedWords([]);
 
         const generatedCards = [];
+        let skippedCount = 0;
 
         for (let i = 0; i < words.length; i++) {
             if (isCancelledRef.current) {
@@ -161,6 +163,22 @@ const BatchAiModal = ({
 
             const word = words[i];
             setProgress({ current: i + 1, total: words.length, currentWord: word });
+
+            // Check duplicate in study set
+            const wordNormalized = word.split('（')[0].split('(')[0].trim().toLowerCase();
+            const exists = existingCards.some(c => {
+                if (!c.front) return false;
+                const frontNorm = c.front.split('（')[0].split('(')[0].trim().toLowerCase();
+                return frontNorm === wordNormalized;
+            });
+
+            if (exists) {
+                skippedCount++;
+                setProcessedWords(prev => [...prev, { word, status: 'exists' }]);
+                // Small delay to make the skipping readable in UI logs
+                await new Promise(resolve => setTimeout(resolve, 150));
+                continue;
+            }
 
             try {
                 const aiData = await onGeminiAssist(word, '', '', false);
@@ -236,7 +254,12 @@ const BatchAiModal = ({
 
         setIsGenerating(false);
         onClose();
-        showToast(`Đã tạo thành công ${generatedCards.length} thẻ bằng AI!`, 'success');
+        
+        if (skippedCount > 0) {
+            showToast(`Đã tạo ${generatedCards.length} thẻ. Bỏ qua ${skippedCount} từ đã có trong học phần.`, 'warning');
+        } else {
+            showToast(`Đã tạo thành công ${generatedCards.length} thẻ bằng AI!`, 'success');
+        }
     };
 
     const handleStopGeneration = () => {
@@ -315,6 +338,10 @@ const BatchAiModal = ({
                                         {item.status === 'success' ? (
                                             <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
                                                 <CheckCircle className="w-3.5 h-3.5" /> Thành công
+                                            </span>
+                                        ) : item.status === 'exists' ? (
+                                            <span className="text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1">
+                                                <AlertTriangle className="w-3.5 h-3.5" /> Đã có trong học phần
                                             </span>
                                         ) : (
                                             <span className="text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1">

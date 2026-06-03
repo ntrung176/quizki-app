@@ -5,7 +5,7 @@ import { playAudio } from '../../utils/audio';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 
-const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExample }) => {
+const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExample, allCards = [] }) => {
     // All hooks must be called before any conditional return
     const [front, setFront] = useState(card?.front || '');
     const [back, setBack] = useState(card?.back || '');
@@ -66,6 +66,20 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
     const handleAiAssist = async (e) => {
         e.preventDefault();
         if (!front.trim()) return;
+
+        // Check duplicate
+        const currentFrontNormalized = front.split('（')[0].split('(')[0].trim().toLowerCase();
+        const isDuplicate = allCards.some(c => {
+            if (c.id === card.id) return false;
+            const otherFrontNormalized = c.front.split('（')[0].split('(')[0].trim().toLowerCase();
+            return otherFrontNormalized === currentFrontNormalized;
+        });
+
+        if (isDuplicate) {
+            showToast('Từ vựng đã có trong học phần rồi.', 'warning');
+            return;
+        }
+
         // AI sẽ tự động phân loại cấp độ JLPT, không cần user chọn trước
         setIsAiLoading(true);
         const aiData = await onGeminiAssist(front, pos, level);

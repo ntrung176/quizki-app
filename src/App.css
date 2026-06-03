@@ -26,6 +26,11 @@
   transform-style: preserve-3d;
 }
 
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+
 .flip-card-front,
 .flip-card-back {
   position: absolute;

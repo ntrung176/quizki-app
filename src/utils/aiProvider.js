@@ -183,9 +183,9 @@ export const parseJsonFromAI = (text) => {
 
 export const generateVocabPrompt = (frontText, contextPos = '', contextLevel = '') => {
     // Build example rule dynamically based on level
-    let exampleRule = `4. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. Viết câu tự nhiên bằng tiếng Nhật. KHÔNG thêm phiên âm hay ngoặc furigana vào câu.`;
+    let exampleRule = `4. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. Viết câu ví dụ tự nhiên bằng tiếng Nhật với ngữ cảnh phong phú, rõ ràng để thể hiện rõ nét nghĩa được nêu trong trường "meaning", giúp người học dễ hiểu và phân biệt bối cảnh sử dụng của từ này. Tránh các câu quá ngắn hoặc chung chung (như "Đây là...", "Tôi thích..."). KHÔNG thêm phiên âm hay ngoặc furigana vào câu.`;
     if (contextLevel === 'N5') {
-        exampleRule = `4. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. Viết bằng HIRAGANA chủ yếu, câu ngắn đơn giản dễ hiểu (tối đa 8-10 từ), phân cách từ rõ ràng. KHÔNG thêm ngoặc phiên âm furigana.`;
+        exampleRule = `4. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. Viết bằng HIRAGANA chủ yếu, câu ngắn đơn giản dễ hiểu (tối đa 8-10 từ) nhưng có ngữ cảnh rõ ràng thể hiện đúng nghĩa, phân cách từ rõ ràng. KHÔNG thêm ngoặc phiên âm furigana.`;
     }
 
     return `Từ điển Nhật-Việt. Từ: "${frontText}"${contextPos ? ` (Từ loại: ${contextPos})` : ''}${contextLevel ? ` [Cấp độ: ${contextLevel}]` : ''}
@@ -208,16 +208,25 @@ QUY TẮC BẮT BUỘC:
 
 ${exampleRule}
 5. exampleMeaning: Nghĩa tiếng Việt đầy đủ của câu ví dụ.
-6. sinoVietnamese: IN HOA từng Kanji (VD: 流行→"LƯU HÀNH"). Không Kanji→"". KHÔNG bịa.
+6. sinoVietnamese: BẮT BUỘC dịch ĐẦY ĐỦ TẤT CẢ các chữ Kanji xuất hiện trong từ vựng/cụm từ (bao gồm cả tiền tố, hậu tố hay các Kanji phụ trong cụm dài) sang âm Hán Việt viết IN HOA, ngăn cách bằng dấu cách. Tuyệt đối không được lược bỏ, rút gọn hay dịch thiếu bất kỳ chữ Kanji nào. Không Kanji→"". KHÔNG bịa.
 7. nuance: Chi tiết bối cảnh sử dụng.
-8. synonym/synonymSinoVietnamese: Cùng/dễ hơn JLPT. N5→"". Không bịa. synonymSinoVietnamese = HV của synonym.
+8. synonym/synonymSinoVietnamese: Cùng/dễ hơn JLPT. N5→"". Không bịa. synonymSinoVietnamese = BẮT BUỘC dịch đầy đủ tất cả chữ Kanji của synonym sang âm Hán Việt.
 9. level: N5-N1, không rõ→"".
 
 Không trả lời gì ngoài JSON.`;
 };
 
 export const generateMoreExamplePrompt = (frontText, targetMeaning) => {
-    return `1 câu ví dụ JP cho "${frontText}" nghĩa "${targetMeaning}". Thay "${frontText}" bằng ＿＿＿＿. Viết câu tự nhiên bằng tiếng Nhật. KHÔNG thêm phiên âm hay ngoặc furigana vào câu. JSON only:{"example":"câu JP có ＿＿＿＿","exampleMeaning":"nghĩa VN"}`;
+    return `Bạn là giáo viên tiếng Nhật. Hãy tạo 1 câu ví dụ độc đáo, tự nhiên và giàu ngữ cảnh cho từ vựng "${frontText}" với nghĩa cụ thể là "${targetMeaning}".
+
+YÊU CẦU:
+1. Ngữ cảnh rõ ràng: Câu ví dụ phải có bối cảnh phong phú để làm nổi bật rõ ràng nghĩa "${targetMeaning}" của từ "${frontText}", giúp người học phân biệt rõ bối cảnh này với các ý nghĩa khác của từ. Tránh tuyệt đối các câu chung chung, đơn điệu hoặc quá ngắn (như "Tôi thích...", "Đây là...").
+2. Thay thế từ gốc: Trong câu tiếng Nhật, bắt buộc thay thế từ "${frontText}" (hoặc dạng chia của nó) bằng ký tự "＿＿＿＿" (4 dấu gạch dưới).
+3. Không thêm phiên âm/furigana/romaji hay bất kỳ dấu ngoặc nào vào câu tiếng Nhật.
+4. "exampleMeaning": Dịch nghĩa tiếng Việt tự nhiên, chính xác, thoát ý và thể hiện rõ bối cảnh câu ví dụ.
+
+JSON ONLY (không markdown, không giải thích):
+{"example":"[câu tiếng Nhật có chứa ＿＿＿＿]","exampleMeaning":"[nghĩa tiếng Việt]"}`;
 };
 
 

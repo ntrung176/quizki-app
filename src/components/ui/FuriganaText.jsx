@@ -175,7 +175,7 @@ const parseFuriganaText = (text) => {
  * @param {string} text - Japanese text (with or without brackets)
  * @param {string} className - Optional CSS class for the container
  */
-const FuriganaText = ({ text, className = '', forceHide = false }) => {
+const FuriganaText = ({ text, className = '', forceHide = false, showReadingOnly = false }) => {
     const [processedText, setProcessedText] = useState(text || '');
     const [settingEnabled, setSettingEnabled] = useState(true);
     const [furiganaColor, setFuriganaColor] = useState('#8b5cf6');
@@ -211,8 +211,9 @@ const FuriganaText = ({ text, className = '', forceHide = false }) => {
 
         const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF]/.test(text);
         const hasFuriganaBrackets = /[（\(\[]([\u3040-\u309F\u30A0-\u30FF\s]+)[）\)\]]/.test(text);
+        const needsFuriganaGeneration = (furiganaEnabled || showReadingOnly) && hasKanji && !hasFuriganaBrackets;
 
-        if (furiganaEnabled && hasKanji && !hasFuriganaBrackets) {
+        if (needsFuriganaGeneration) {
             let isMounted = true;
             generateFuriganaText(text).then((res) => {
                 if (isMounted) setProcessedText(res);
@@ -223,7 +224,7 @@ const FuriganaText = ({ text, className = '', forceHide = false }) => {
         } else {
             setProcessedText(text);
         }
-    }, [text, furiganaEnabled]);
+    }, [text, furiganaEnabled, showReadingOnly]);
 
     if (!processedText) return null;
 
@@ -237,6 +238,9 @@ const FuriganaText = ({ text, className = '', forceHide = false }) => {
         <span className={className}>
             {parts.map((part, idx) => {
                 if (part.type === 'ruby') {
+                    if (showReadingOnly) {
+                        return <span key={idx}>{part.reading}</span>;
+                    }
                     if (!furiganaEnabled) {
                         return <span key={idx}>{part.kanji}</span>;
                     }

@@ -1,8 +1,9 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ChevronLeft, ChevronRight, ChevronDown, Edit2, PlayCircle, BookOpen, Layers, Search, Volume2, Trash2, Users, Check, Plus, Headphones, FileText, RotateCcw, Settings, Shuffle } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Edit2, PlayCircle, BookOpen, Layers, Search, Volume2, Trash2, Users, Check, Plus, Headphones, FileText, RotateCcw, Settings, Shuffle } from 'lucide-react';
 import { shuffleArray } from '../../utils/textProcessing';
 import FuriganaText from '../ui/FuriganaText';
+import Flashcard from '../ui/Flashcard';
 import { playAudio, speakJapanese } from '../../utils/audio';
 import { getSrsProgressText } from '../../utils/srs';
 import { POS_TYPES } from '../../config/constants';
@@ -41,6 +42,7 @@ const InlineEditCell = ({ value, onSave, className = '', isJapanese = false }) =
                 onChange={e => setDraft(e.target.value)}
                 onBlur={save}
                 onKeyDown={handleKeyDown}
+                onClick={(e) => e.stopPropagation()}
                 className={`w-full bg-indigo-50 dark:bg-indigo-900/20 border-2 border-indigo-400 dark:border-indigo-500 rounded-lg px-3 py-1.5 outline-none text-gray-900 dark:text-white ${isJapanese ? 'font-japanese' : ''} ${className}`}
             />
         );
@@ -48,98 +50,13 @@ const InlineEditCell = ({ value, onSave, className = '', isJapanese = false }) =
 
     return (
         <div
-            onClick={startEdit}
+            onClick={(e) => { e.stopPropagation(); startEdit(); }}
             className={`cursor-pointer rounded-lg px-3 py-1.5 -mx-3 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors border-2 border-transparent hover:border-indigo-200 dark:hover:border-indigo-800 ${className}`}
             title="Bấm để sửa"
         >
             {isJapanese ? <FuriganaText text={value} forceHide={true} /> : value}
         </div>
     );
-};
-
-const getCardScaleStyles = (card, cardSettings) => {
-    if (!card) return {};
-    
-    // Check if example display setting is enabled
-    const showFrontExamples = !!(cardSettings?.front?.example && card.example);
-    const showBackExamples = !!(cardSettings?.back?.example && card.example);
-    const showExamples = showFrontExamples || showBackExamples;
-    
-    let wordSize = "text-3xl md:text-4xl";
-    let titleSize = "text-xl";
-    let meaningSize = "text-2xl md:text-3xl font-bold";
-    let exampleBoxPadding = "p-4";
-    let exampleItemGap = "space-y-3";
-    let exampleTitleSize = "text-xs";
-    let exampleTextSize = "text-sm";
-    let exampleMeaningSize = "text-xs font-sans mt-0.5";
-    let cardPadding = "p-6";
-    
-    let textLength = card.example ? (card.example.length + (card.exampleMeaning?.length || 0)) : 0;
-    const exampleLines = card.example ? card.example.split('\n').filter(e => e.trim()).length : 0;
-    
-    // Word size scales down ONLY if front examples are enabled
-    if (showFrontExamples) {
-        if (textLength + card.back.length > 240 || exampleLines >= 3) {
-            wordSize = "text-[20px] md:text-[22px] leading-tight font-extrabold";
-        } else if (textLength + card.back.length > 150 || exampleLines >= 2) {
-            wordSize = "text-2xl leading-snug font-extrabold";
-        } else {
-            wordSize = "text-2xl md:text-3xl leading-normal font-extrabold";
-        }
-    }
-    
-    // Meaning size scales down ONLY if back examples are enabled
-    if (showBackExamples) {
-        if (textLength + card.back.length > 240 || exampleLines >= 3) {
-            meaningSize = "text-lg md:text-xl font-bold mt-1.5";
-        } else if (textLength + card.back.length > 150 || exampleLines >= 2) {
-            meaningSize = "text-xl md:text-2xl font-bold mt-2";
-        } else {
-            meaningSize = "text-2xl md:text-3xl font-bold mt-2";
-        }
-    }
-    
-    // Other properties scale if either is enabled
-    if (showExamples) {
-        if (textLength + card.back.length > 240 || exampleLines >= 3) {
-            titleSize = "text-sm font-extrabold";
-            exampleBoxPadding = "p-2";
-            exampleItemGap = "space-y-1";
-            exampleTitleSize = "text-[9px]";
-            exampleTextSize = "text-[10px] leading-tight";
-            exampleMeaningSize = "text-[9px] font-sans mt-0 leading-tight";
-            cardPadding = "p-4 pb-12";
-        } else if (textLength + card.back.length > 150 || exampleLines >= 2) {
-            titleSize = "text-base font-extrabold";
-            exampleBoxPadding = "p-2.5";
-            exampleItemGap = "space-y-1.5";
-            exampleTitleSize = "text-[10px]";
-            exampleTextSize = "text-[11.5px] leading-snug";
-            exampleMeaningSize = "text-[10px] font-sans mt-0.5 leading-snug";
-            cardPadding = "p-5 pb-12";
-        } else {
-            titleSize = "text-xl font-extrabold";
-            exampleBoxPadding = "p-3";
-            exampleItemGap = "space-y-2";
-            exampleTitleSize = "text-[11px]";
-            exampleTextSize = "text-[12.5px] leading-normal";
-            exampleMeaningSize = "text-[11px] font-sans mt-0.5";
-            cardPadding = "p-6 pb-12";
-        }
-    }
-    
-    return {
-        wordSize,
-        titleSize,
-        meaningSize,
-        exampleBoxPadding,
-        exampleItemGap,
-        exampleTitleSize,
-        exampleTextSize,
-        exampleMeaningSize,
-        cardPadding
-    };
 };
 
 const StudySetDetail = ({
@@ -149,6 +66,18 @@ const StudySetDetail = ({
     onDeleteCards, onToggleSrs
 }) => {
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
+    const [expandedCardIds, setExpandedCardIds] = useState(new Set());
+    const toggleCardExpanded = (cardId) => {
+        setExpandedCardIds(prev => {
+            const next = new Set(prev);
+            if (next.has(cardId)) {
+                next.delete(cardId);
+            } else {
+                next.add(cardId);
+            }
+            return next;
+        });
+    };
     const [isCardFlipped, setIsCardFlipped] = useState(false);
     const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -166,7 +95,10 @@ const StudySetDetail = ({
                 meaning: true,
                 hanviet: true,
                 synonym: false,
-                example: false
+                example: false,
+                word: false,
+                furigana: false,
+                reading: false
             },
             swapSides: false,
             autoPlayAudio: true
@@ -398,144 +330,25 @@ const StudySetDetail = ({
             <div className="max-w-6xl mx-auto px-4 md:px-8 mt-8 space-y-10">
                 {setCards.length > 0 ? (
                     <>
-                        {(() => {
-                            const scale = getCardScaleStyles(activeCard, cardSettings);
-
-                            const renderFrontContent = () => {
-                                if (!activeCard) return null;
-                                return (
-                                    <div className="flex-1 flex flex-col items-center justify-center text-center space-y-4 w-full">
-                                        {cardSettings.front.word && (
-                                            <div className={`${scale.wordSize} font-bold text-slate-850 dark:text-white font-japanese select-none leading-relaxed`}>
-                                                <FuriganaText text={activeCard.frontWithFurigana || activeCard.front || ''} forceHide={!cardSettings.front.furigana} />
-                                            </div>
-                                        )}
-                                        {cardSettings.front.hanviet && activeCard.sinoVietnamese && (
-                                            <p className="text-amber-600 dark:text-yellow-300 text-sm font-semibold">
-                                                <span className="text-slate-450 dark:text-slate-400 font-normal">Hán Việt: </span>{activeCard.sinoVietnamese}
-                                            </p>
-                                        )}
-                                        {cardSettings.front.example && activeCard.example && (
-                                            <div className={`mt-3 ${scale.exampleItemGap} text-left w-full max-w-md mx-auto ${scale.exampleBoxPadding} bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 rounded-2xl`}>
-                                                {activeCard.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
-                                                    const meaning = (activeCard.exampleMeaning || '').split('\n')[idx]?.trim();
-                                                    return (
-                                                        <div key={idx} className="border-l-2 border-indigo-500/30 pl-3">
-                                                            <div className={`${scale.exampleTextSize} text-slate-700 dark:text-slate-350 font-japanese leading-relaxed`}>
-                                                                <FuriganaText text={ex} />
-                                                            </div>
-                                                            {meaning && (
-                                                                <p className={scale.exampleMeaningSize}>{meaning}</p>
-                                                            )}
-                                                        </div>
-                                                    );
-                                                })}
-                                            </div>
-                                        )}
-                                    </div>
-                                );
-                            };
-
-                            const renderBackContent = () => {
-                                if (!activeCard) return null;
-                                return (
-                                    <div className="flex-1 flex flex-row items-center justify-center gap-4 md:gap-8 px-2 w-full h-full min-h-0">
-                                        {activeCard.imageBase64 && (
-                                            <div className="flex-shrink-0">
-                                                <img
-                                                    src={activeCard.imageBase64}
-                                                    alt={activeCard.front}
-                                                    className="w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 rounded-2xl object-cover border border-gray-200 dark:border-slate-600/50 shadow-sm"
-                                                />
-                                            </div>
-                                        )}
-                                        <div className="flex-1 flex flex-col items-center justify-center text-center min-w-0 space-y-1.5 h-full py-2">
-                                            {cardSettings.back.meaning && (
-                                                <div className={`${scale.meaningSize} font-bold text-slate-850 dark:text-white leading-relaxed break-words max-w-full`}>{activeCard.back}</div>
-                                            )}
-                                            {cardSettings.back.hanviet && activeCard.sinoVietnamese && (
-                                                <p className="text-amber-600 dark:text-yellow-300 text-base font-semibold">
-                                                    <span className="text-slate-450 dark:text-slate-400 font-normal">Hán Việt: </span>{activeCard.sinoVietnamese}
-                                                </p>
-                                            )}
-                                            {activeCard.pos && (
-                                                <p className="text-sm mt-1">
-                                                    <span className="inline-block px-3 py-1 bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100/50 dark:border-indigo-900/30 rounded-full text-xs font-semibold text-indigo-600 dark:text-indigo-300">{POS_TYPES[activeCard.pos]?.label || activeCard.pos}</span>
-                                                </p>
-                                            )}
-                                            {cardSettings.back.synonym && activeCard.synonym && (
-                                                <p className="text-sm text-slate-750 dark:text-slate-350 mt-1 font-bold">
-                                                    <span className="font-semibold text-slate-450 dark:text-slate-400">Đồng nghĩa: </span>
-                                                    <FuriganaText text={activeCard.synonym} className="font-japanese" />
-                                                </p>
-                                            )}
-                                            {cardSettings.back.example && activeCard.example && (
-                                                <div className={`mt-2 ${scale.exampleItemGap} text-left w-full max-w-md mx-auto ${scale.exampleBoxPadding} bg-slate-50 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800 rounded-2xl overflow-y-auto max-h-[160px] no-scrollbar`}>
-                                                    {activeCard.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
-                                                        const meaning = (activeCard.exampleMeaning || '').split('\n')[idx]?.trim();
-                                                        return (
-                                                            <div key={idx} className="border-l-2 border-indigo-500/30 pl-3">
-                                                                <div className={`${scale.exampleTextSize} text-slate-700 dark:text-slate-350 font-japanese leading-relaxed`}>
-                                                                    <FuriganaText text={ex} />
-                                                                </div>
-                                                                {meaning && (
-                                                                    <p className={scale.exampleMeaningSize}>{meaning}</p>
-                                                                )}
-                                                            </div>
-                                                        );
-                                                    })}
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                );
-                            };
-
-                            return (
-                                <div className="w-full max-w-3xl mx-auto relative">
-                                    <div className="perspective-1000 w-full" style={{ height: '460px' }}>
-                                        <div
-                                            onClick={() => {
-                                                setIsAnimatingFlip(true);
-                                                const nextFlippedState = !isCardFlipped;
-                                                setIsCardFlipped(nextFlippedState);
-                                                if (activeCard && cardSettings.autoPlayAudio) {
-                                                    // Chỉ phát âm thanh khi lật từ mặt trước sang mặt sau (nextFlippedState === true)
-                                                    if (nextFlippedState) {
-                                                        speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null);
-                                                    }
-                                                }
-                                            }}
-                                            className={`relative w-full cursor-pointer transform-style-preserve-3d ${isAnimatingFlip ? 'transition-transform duration-500' : ''} ${isCardFlipped ? 'rotate-y-180' : ''}`}
-                                            style={{ height: '460px' }}
-                                        >
-                                            {/* Front Side Card Layout */}
-                                            <div className={`absolute inset-0 backface-hidden bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none flex flex-col items-center overflow-hidden ${scale.cardPadding || 'p-6'} text-center`}>
-                                                <div className="flex flex-col items-center justify-center min-h-full w-full py-4 pb-14 relative">
-                                                    {!cardSettings.swapSides ? renderFrontContent() : renderBackContent()}
-                                                </div>
-
-                                                <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
-                                                    <span className="px-3.5 py-1.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">
-                                                        Nhấn để lật thẻ
-                                                    </span>
-                                                </div>
-                                            </div>
-
-                                            {/* Back Side Card Layout */}
-                                            <div className={`absolute inset-0 backface-hidden rotate-y-180 bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none flex flex-col items-center overflow-hidden ${scale.cardPadding || 'p-6'} text-center`}>
-                                                <div className="flex flex-col items-center justify-center min-h-full w-full py-4 pb-14 relative">
-                                                    {!cardSettings.swapSides ? renderBackContent() : renderFrontContent()}
-                                                </div>
-
-                                                <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
-                                                    <span className="px-3.5 py-1.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">
-                                                        Nhấn để lật thẻ
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div className="w-full max-w-3xl mx-auto relative">
+                        <Flashcard
+                            card={activeCard}
+                            cardSettings={cardSettings}
+                            isFlipped={isCardFlipped}
+                            onFlip={() => {
+                                setIsAnimatingFlip(true);
+                                const nextFlippedState = !isCardFlipped;
+                                setIsCardFlipped(nextFlippedState);
+                                if (activeCard && cardSettings.autoPlayAudio) {
+                                    // Chỉ phát âm thanh khi lật từ mặt trước sang mặt sau (nextFlippedState === true)
+                                    if (nextFlippedState) {
+                                        speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null);
+                                    }
+                                }
+                            }}
+                            onSaveCardAudio={onSaveCardAudio}
+                            transitionEnabled={isAnimatingFlip}
+                        />
 
                                     {/* Speaker Button - OUTSIDE the flipping container */}
                                     <button
@@ -543,7 +356,7 @@ const StudySetDetail = ({
                                             e.stopPropagation();
                                             speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null);
                                         }}
-                                        className="absolute top-6 right-18 p-2.5 bg-slate-100/80 hover:bg-indigo-50 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-355 rounded-full transition-all hover:scale-110 z-30 shadow-md border border-gray-200 dark:border-slate-700"
+                                        className="absolute top-6 right-18 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
                                         title="Phát âm"
                                     >
                                         <Volume2 className="w-4 h-4" />
@@ -552,7 +365,7 @@ const StudySetDetail = ({
                                     {/* Settings Button - OUTSIDE the flipping container */}
                                     <button
                                         onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
-                                        className="absolute top-6 right-6 p-2.5 bg-slate-100/80 hover:bg-indigo-50 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-355 rounded-full transition-all hover:scale-110 z-30 shadow-md border border-gray-200 dark:border-slate-700"
+                                        className="absolute top-6 right-6 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
                                         title="Cấu hình hiển thị"
                                     >
                                         <Settings className="w-4 h-4" />
@@ -596,8 +409,6 @@ const StudySetDetail = ({
                                         </button>
                                     </div>
                                 </div>
-                            );
-                        })()}
                         {/* Bảng trạng thái ghi nhớ (Mastery Status) */}
                         <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 border border-gray-200 dark:border-slate-700/80 shadow-sm space-y-6">
                             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -633,7 +444,7 @@ const StudySetDetail = ({
                                             <span className="w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-650" />
                                             <span className="text-sm font-bold text-gray-700 dark:text-gray-300">Chưa học</span>
                                         </div>
-                                        <p className="text-2xl font-black text-slate-700 dark:text-slate-350 mt-1">
+                                        <p className="text-2xl font-black text-slate-700 dark:text-slate-300 mt-1">
                                             {masteryStats.notLearned} <span className="text-xs font-normal text-gray-400">từ</span>
                                         </p>
                                     </div>
@@ -929,103 +740,147 @@ const StudySetDetail = ({
                                 </div>
                             ) : (
                                 <div className="space-y-3">
-                                    {visibleCards.map(card => (
-                                        <div key={card.id} className="flex flex-col bg-white dark:bg-gray-800 p-4 md:p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 gap-3">
-                                            <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
-                                                <div className="flex-1 md:w-1/2 flex flex-col justify-center md:border-r border-gray-100 dark:border-gray-700 md:pr-6">
-                                                    <div className="font-bold text-lg text-gray-900 dark:text-white">
-                                                        <InlineEditCell
-                                                            value={card.frontWithFurigana || card.front}
-                                                            isJapanese={true}
-                                                            onSave={(v) => handleInlineSave(card, 'front', v)}
-                                                            className="text-lg font-bold"
-                                                        />
-                                                    </div>
-                                                    {card.sinoVietnamese && (
-                                                        <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium">
+                                    {visibleCards.map(card => {
+                                        const isExpanded = expandedCardIds.has(card.id);
+                                        return (
+                                            <div
+                                                key={card.id}
+                                                onClick={() => toggleCardExpanded(card.id)}
+                                                className="flex flex-col bg-white dark:bg-gray-800 p-4 md:p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 gap-3 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-md transition-all cursor-pointer"
+                                            >
+                                                <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
+                                                    <div className="flex-1 md:w-1/2 flex flex-col justify-center md:border-r border-gray-100 dark:border-gray-700 md:pr-6">
+                                                        <div className="font-bold text-lg text-gray-900 dark:text-white">
                                                             <InlineEditCell
-                                                                value={card.sinoVietnamese}
-                                                                onSave={(v) => handleInlineSave(card, 'sinoVietnamese', v)}
-                                                                className="text-sm font-medium inline-block"
+                                                                value={card.frontWithFurigana || card.front}
+                                                                isJapanese={true}
+                                                                onSave={(v) => handleInlineSave(card, 'front', v)}
+                                                                className="text-lg font-bold"
                                                             />
                                                         </div>
-                                                    )}
-                                                </div>
-                                                <div className="flex-1 md:w-1/2 flex items-center justify-between gap-4">
-                                                    <div className="flex-1 flex flex-col justify-center text-lg text-gray-800 dark:text-gray-200">
-                                                        <InlineEditCell
-                                                            value={card.back}
-                                                            onSave={(v) => handleInlineSave(card, 'back', v)}
-                                                            className="text-lg"
-                                                        />
-                                                    </div>
-                                                    <div className="flex items-center gap-2">
-                                                        {card.imageBase64 && (
-                                                            <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 shadow-sm border border-gray-100 dark:border-gray-700">
-                                                                <img src={card.imageBase64} alt={card.front} className="w-full h-full object-cover" />
+                                                        {card.sinoVietnamese && (
+                                                            <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium">
+                                                                <InlineEditCell
+                                                                    value={card.sinoVietnamese}
+                                                                    onSave={(v) => handleInlineSave(card, 'sinoVietnamese', v)}
+                                                                    className="text-sm font-medium inline-block"
+                                                                />
                                                             </div>
                                                         )}
-                                                        {card.audioBase64 && (
-                                                            <button onClick={() => playAudio(card.audioBase64)} className="p-2.5 text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-full transition-colors flex-shrink-0">
-                                                                <Volume2 className="w-5 h-5" />
-                                                            </button>
-                                                        )}
+                                                    </div>
+                                                    <div className="flex-1 md:w-1/2 flex items-center justify-between gap-4">
+                                                        <div className="flex-1 flex flex-col justify-center text-lg text-gray-800 dark:text-gray-200">
+                                                            <InlineEditCell
+                                                                value={card.back}
+                                                                onSave={(v) => handleInlineSave(card, 'back', v)}
+                                                                className="text-lg"
+                                                            />
+                                                        </div>
+                                                        <div className="flex items-center gap-2">
+                                                            {card.imageBase64 && (
+                                                                <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 shadow-sm border border-gray-100 dark:border-gray-700">
+                                                                    <img src={card.imageBase64} alt={card.front} className="w-full h-full object-cover" />
+                                                                </div>
+                                                            )}
+                                                            {card.audioBase64 && (
+                                                                <button
+                                                                    onClick={(e) => { e.stopPropagation(); playAudio(card.audioBase64); }}
+                                                                    className="p-2.5 text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-full transition-colors flex-shrink-0"
+                                                                >
+                                                                    <Volume2 className="w-5 h-5" />
+                                                                </button>
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            {/* Example sentence row */}
-                                            {(card.example || card.exampleMeaning) && (
-                                                <div className="bg-gray-50 dark:bg-gray-900/40 rounded-xl px-4 py-2.5 space-y-2">
-                                                    {card.example ? (
-                                                        card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
-                                                            const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
-                                                            return (
-                                                                <div key={idx} className="border-l border-indigo-500/20 pl-2">
-                                                                    <p className="text-sm text-gray-700 dark:text-gray-300 font-japanese leading-relaxed">
-                                                                        <FuriganaText text={ex} />
-                                                                    </p>
-                                                                    {meaning && (
-                                                                        <p className="text-xs text-gray-500 dark:text-gray-400 font-sans">{meaning}</p>
+
+                                                {/* Expanded details container */}
+                                                {isExpanded && (
+                                                    <div className="mt-2 border-t border-gray-100 dark:border-gray-700/40 pt-3 space-y-3" onClick={(e) => e.stopPropagation()}>
+                                                        {card.synonym && (
+                                                            <div className="flex items-start gap-1.5 text-xs text-slate-600 dark:text-slate-300">
+                                                                <span className="font-semibold text-indigo-500 shrink-0">Đồng nghĩa:</span>
+                                                                <span className="font-japanese font-medium"><FuriganaText text={card.synonym} /></span>
+                                                            </div>
+                                                        )}
+                                                        {card.nuance && (
+                                                            <div className="flex items-start gap-1.5 text-xs text-slate-600 dark:text-slate-300 bg-amber-500/5 dark:bg-amber-500/10 border border-amber-500/20 rounded-xl p-2.5">
+                                                                <span className="text-amber-600 dark:text-amber-400 font-bold shrink-0">💡 Sắc thái/Ngữ cảnh:</span>
+                                                                <span className="leading-relaxed">{card.nuance}</span>
+                                                            </div>
+                                                        )}
+                                                        {(card.example || card.exampleMeaning) && (
+                                                            <div className="space-y-2 mt-1">
+                                                                <div className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Ví dụ minh họa:</div>
+                                                                <div className="bg-slate-50 dark:bg-slate-900/40 rounded-xl p-3 border border-slate-100 dark:border-slate-800 space-y-2.5">
+                                                                    {card.example ? (
+                                                                        card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
+                                                                            const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
+                                                                            return (
+                                                                                <div key={idx} className="border-l-2 border-indigo-500/30 pl-2.5">
+                                                                                    <div className="text-sm text-slate-800 dark:text-slate-200 font-japanese leading-relaxed">
+                                                                                        <FuriganaText text={ex} />
+                                                                                    </div>
+                                                                                    {meaning && (
+                                                                                        <div className="text-xs text-slate-500 dark:text-slate-400 font-sans mt-0.5">{meaning}</div>
+                                                                                    )}
+                                                                                </div>
+                                                                            );
+                                                                        })
+                                                                    ) : (
+                                                                        card.exampleMeaning && (
+                                                                            <p className="text-xs text-slate-500 dark:text-slate-400 italic">{card.exampleMeaning}</p>
+                                                                        )
                                                                     )}
                                                                 </div>
-                                                            );
-                                                        })
-                                                    ) : (
-                                                        card.exampleMeaning && (
-                                                            <p className="text-xs text-gray-500 dark:text-gray-400 italic">{card.exampleMeaning}</p>
-                                                        )
-                                                    )}
-                                                </div>
-                                            )}
-
-                                            {/* SRS Toggle Footer */}
-                                            <div className="border-t border-gray-100 dark:border-gray-700/60 pt-3 flex justify-between items-center">
-                                                {card.srsEnabled ? (
-                                                    <div className="flex items-center gap-1.5">
-                                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
-                                                        <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-                                                            Ngắt quãng · {getSrsCycleLabel(card)}
-                                                        </span>
+                                                            </div>
+                                                        )}
                                                     </div>
-                                                ) : (
-                                                    <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">
-                                                        Ôn tập ngắt quãng
-                                                    </span>
                                                 )}
-                                                {/* Toggle switch */}
-                                                <button
-                                                    onClick={(e) => { e.stopPropagation(); onToggleSrs && onToggleSrs(card.id, !card.srsEnabled); }}
-                                                    className={`relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${card.srsEnabled ? 'bg-indigo-600' : 'bg-gray-200 dark:bg-gray-600'}`}
-                                                    role="switch"
-                                                    aria-checked={!!card.srsEnabled}
-                                                >
-                                                    <span
-                                                        className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out ${card.srsEnabled ? 'translate-x-4' : 'translate-x-0'}`}
-                                                    />
-                                                </button>
+
+                                                {/* SRS Toggle Footer */}
+                                                <div className="border-t border-gray-100 dark:border-gray-700/60 pt-3 flex justify-between items-center">
+                                                    <div className="flex items-center gap-4">
+                                                        {card.srsEnabled ? (
+                                                            <div className="flex items-center gap-1.5">
+                                                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
+                                                                <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                                                                    Ngắt quãng · {getSrsCycleLabel(card)}
+                                                                </span>
+                                                            </div>
+                                                        ) : (
+                                                            <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">
+                                                                Ôn tập ngắt quãng
+                                                            </span>
+                                                        )}
+                                                        {/* Toggle switch */}
+                                                        <button
+                                                            onClick={(e) => { e.stopPropagation(); onToggleSrs && onToggleSrs(card.id, !card.srsEnabled); }}
+                                                            className={`relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${card.srsEnabled ? 'bg-indigo-600' : 'bg-gray-200 dark:bg-gray-600'}`}
+                                                            role="switch"
+                                                            aria-checked={!!card.srsEnabled}
+                                                        >
+                                                            <span
+                                                                className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out ${card.srsEnabled ? 'translate-x-4' : 'translate-x-0'}`}
+                                                            />
+                                                        </button>
+                                                    </div>
+
+                                                    {/* Toggle details button */}
+                                                    <button
+                                                        onClick={(e) => { e.stopPropagation(); toggleCardExpanded(card.id); }}
+                                                        className="flex items-center gap-1 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
+                                                    >
+                                                        {isExpanded ? (
+                                                            <>Thu gọn <ChevronUp className="w-3.5 h-3.5" /></>
+                                                        ) : (
+                                                            <>Xem chi tiết <ChevronDown className="w-3.5 h-3.5" /></>
+                                                        )}
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    ))}
+                                        );
+                                    })}
                                 </div>
                             )}
 
@@ -1159,7 +1014,7 @@ const StudySetDetail = ({
                     <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
                     <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700/80 animate-fade-in text-slate-850 dark:text-slate-200" onClick={e => e.stopPropagation()}>
                         <h4 className="font-extrabold text-lg border-b border-gray-150 dark:border-slate-700 pb-2.5 mb-3">Cấu hình thẻ ghi nhớ</h4>
-                        <div className="space-y-4 text-xs font-semibold text-slate-750 dark:text-slate-350">
+                        <div className="space-y-4 text-xs font-semibold text-slate-600 dark:text-slate-300">
                             <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
                                 <span className="text-indigo-650 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
@@ -1187,6 +1042,7 @@ const StudySetDetail = ({
                                 <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
                                 <div className="space-y-2.5 pl-1 text-[13px]">
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.reading} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Cách đọc (Hiragana)</span></label>
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Đồng nghĩa</span></label>
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>

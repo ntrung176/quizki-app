@@ -2727,6 +2727,44 @@ const App = () => {
                     result.level = contextLevel;
                 }
 
+                // Tự động kiểm tra và điền âm Hán Việt nếu thiếu
+                if (!result.sinoVietnamese || result.sinoVietnamese.trim() === '') {
+                    const { getSinoVietnamese } = await import('./utils/aiProvider');
+                    const lookupHV = getSinoVietnamese(result.front || frontText);
+                    if (lookupHV) {
+                        console.log(`📘 Hán Việt lookup (Book): "${result.front || frontText}" → "${lookupHV}"`);
+                        result.sinoVietnamese = lookupHV;
+                    } else {
+                        // Nếu tra cứu cứng không có (ví dụ từ không ghi kanji dạng như かける, てんぷら), gọi AI để tạo âm Hán Việt
+                        console.log(`🤖 Hán Việt không có Kanji trong từ gốc hoặc thiếu - Gọi AI tạo âm Hán Việt cho "${result.front || frontText}"`);
+                        try {
+                            const model = adminConfig?.openRouterModel || 'google/gemini-2.5-flash';
+                            const hvPrompt = `Bạn là một chuyên gia ngôn ngữ tiếng Nhật và Hán Việt.
+Hãy tìm chữ Hán (Kanji) tương ứng và dịch sang âm Hán Việt (IN HOA) cho từ vựng tiếng Nhật dưới đây.
+Từ gốc: "${result.front || frontText}"
+Nghĩa: "${result.meaning}"
+Từ loại: "${result.pos || ''}"
+Ví dụ: "${result.example || ''}"
+
+Lưu ý:
+1. Xác định đúng từ Hán tương ứng dựa vào ngữ cảnh nghĩa và từ loại.
+2. Trả về âm Hán Việt IN HOA, ngăn cách bằng dấu cách (Ví dụ: "HỌC SINH"). BẮT BUỘC phải dịch ĐẦY ĐỦ tất cả các chữ Kanji tương ứng có trong cụm từ, tuyệt đối không được bỏ sót hay rút gọn bất kỳ chữ Kanji nào.
+3. Nếu từ vựng hoàn toàn là từ thuần Nhật (wago) hoặc từ mượn ngoại lai (katakana) không có chữ Hán tương ứng (ví dụ: "てんぷら", "パン", "カメラ"), hãy trả về chuỗi rỗng "". Tuyệt đối không bịa đặt âm Hán Việt không có thực.
+
+Chỉ trả về JSON định dạng sau (không giải thích, không markdown):
+{"sinoVietnamese": "..."}`;
+                            const responseText = await callAI(hvPrompt, model);
+                            const parsedJson = parseJsonFromAI(responseText);
+                            if (parsedJson && parsedJson.sinoVietnamese) {
+                                result.sinoVietnamese = parsedJson.sinoVietnamese;
+                                console.log(`🤖 AI generated sinoVietnamese (Book): "${result.sinoVietnamese}"`);
+                            }
+                        } catch (e) {
+                            console.warn('AI Sino-Vietnamese generation for book vocab failed:', e);
+                        }
+                    }
+                }
+
                 // Luôn trừ credit mỗi khi bấm nút theo yêu cầu của user
                 if (!isRetry && settingsDocPath) {
                     try {
@@ -3231,6 +3269,7 @@ const App = () => {
                     onSave={handleSaveChanges}
                     onBack={() => { setEditingCard(null); navigate(ROUTES.VOCAB_REVIEW); }} // Giữ filter khi quay lại
                     onGeminiAssist={handleGeminiAssist}
+                    allCards={allCards}
                 />;
             case 'STUDY':
                 return <StudyScreen

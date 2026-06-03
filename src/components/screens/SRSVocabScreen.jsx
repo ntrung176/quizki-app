@@ -6,9 +6,8 @@ import { VOCAB_TABS } from '../../config/tabs';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router';
 import FuriganaText from '../ui/FuriganaText';
+import Flashcard from '../ui/Flashcard';
 import { calculateAnkiSRS } from '../../utils/srs';
-import { flashCorrect, launchConfetti, launchFanfare } from '../../utils/celebrations';
-import { playCorrectSound, playIncorrectSound, playCompletionFanfare, launchFireworks } from '../../utils/soundEffects';
 
 // Helper to shuffle array
 const shuffleArray = (array) => {
@@ -58,91 +57,6 @@ const getPreviewIntervals = (card) => {
         result[r] = Math.round((preview.nextReviewOffsetMs || 0) / 60000);
     }
     return result;
-};
-
-const getCardScaleStyles = (card, cardSettings) => {
-    if (!card) return {};
-    
-    // Check if example display setting is enabled
-    const showFrontExamples = !!(cardSettings?.front?.example && card.example);
-    const showBackExamples = !!(cardSettings?.back?.example && card.example);
-    const showExamples = showFrontExamples || showBackExamples;
-    
-    let wordSize = "text-4xl md:text-5xl";
-    let titleSize = "text-2xl";
-    let meaningSize = "text-2xl md:text-3xl font-bold";
-    let exampleBoxPadding = "p-4";
-    let exampleItemGap = "space-y-3";
-    let exampleTitleSize = "text-xs";
-    let exampleTextSize = "text-sm";
-    let exampleMeaningSize = "text-xs font-sans mt-0.5";
-    let cardPadding = "p-8";
-    
-    let textLength = card.example ? (card.example.length + (card.exampleMeaning?.length || 0)) : 0;
-    const exampleLines = card.example ? card.example.split('\n').filter(e => e.trim()).length : 0;
-    
-    // Word size scales down ONLY if front examples are enabled
-    if (showFrontExamples) {
-        if (textLength + card.back.length > 240 || exampleLines >= 3) {
-            wordSize = "text-[20px] md:text-[22px] leading-tight font-extrabold";
-        } else if (textLength + card.back.length > 150 || exampleLines >= 2) {
-            wordSize = "text-2xl leading-snug font-extrabold";
-        } else {
-            wordSize = "text-3xl leading-normal font-extrabold";
-        }
-    }
-    
-    // Meaning size scales down ONLY if back examples are enabled
-    if (showBackExamples) {
-        if (textLength + card.back.length > 240 || exampleLines >= 3) {
-            meaningSize = "text-lg md:text-xl font-bold mt-1.5";
-        } else if (textLength + card.back.length > 150 || exampleLines >= 2) {
-            meaningSize = "text-xl md:text-2xl font-bold mt-2";
-        } else {
-            meaningSize = "text-2xl md:text-3xl font-bold mt-2";
-        }
-    }
-    
-    // Other properties scale if either is enabled
-    if (showExamples) {
-        if (textLength + card.back.length > 240 || exampleLines >= 3) {
-            titleSize = "text-sm font-extrabold";
-            exampleBoxPadding = "p-2";
-            exampleItemGap = "space-y-1";
-            exampleTitleSize = "text-[9px]";
-            exampleTextSize = "text-[10px] leading-tight";
-            exampleMeaningSize = "text-[9px] font-sans mt-0 leading-tight";
-            cardPadding = "p-4 pb-12";
-        } else if (textLength + card.back.length > 150 || exampleLines >= 2) {
-            titleSize = "text-base font-extrabold";
-            exampleBoxPadding = "p-2.5";
-            exampleItemGap = "space-y-1.5";
-            exampleTitleSize = "text-[10px]";
-            exampleTextSize = "text-[11.5px] leading-snug";
-            exampleMeaningSize = "text-[10px] font-sans mt-0.5 leading-snug";
-            cardPadding = "p-5 pb-12";
-        } else {
-            titleSize = "text-xl font-extrabold";
-            exampleBoxPadding = "p-3";
-            exampleItemGap = "space-y-2";
-            exampleTitleSize = "text-[11px]";
-            exampleTextSize = "text-[12.5px] leading-normal";
-            exampleMeaningSize = "text-[11px] font-sans mt-0.5";
-            cardPadding = "p-6 pb-12";
-        }
-    }
-    
-    return {
-        wordSize,
-        titleSize,
-        meaningSize,
-        exampleBoxPadding,
-        exampleItemGap,
-        exampleTitleSize,
-        exampleTextSize,
-        exampleMeaningSize,
-        cardPadding
-    };
 };
 
 const SRSVocabScreen = ({
@@ -204,7 +118,10 @@ const SRSVocabScreen = ({
                 meaning: true,
                 hanviet: true,
                 synonym: false,
-                example: false
+                example: false,
+                word: false,
+                furigana: false,
+                reading: false
             },
             swapSides: false,
             autoPlayAudio: true
@@ -551,103 +468,6 @@ const SRSVocabScreen = ({
                 easy: formatInterval(previewIntv.easy),
             };
             const progress = Math.round(((currentReviewIndex + 1) / reviewQueue.length) * 100);
-
-            const scale = getCardScaleStyles(currentCard, cardSettings);
-
-            const renderFrontContent = () => {
-                return (
-                    <div className="text-center space-y-4">
-                        {cardSettings.front.word && (
-                            <div className={`${scale.wordSize} font-extrabold text-gray-800 dark:text-white select-none font-japanese leading-relaxed`}>
-                                <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} forceHide={!cardSettings.front.furigana} />
-                            </div>
-                        )}
-                        {cardSettings.front.hanviet && currentCard.sinoVietnamese && (
-                            <p className="text-sm font-bold text-amber-600 dark:text-amber-500 uppercase tracking-wider">
-                                Âm Hán: {currentCard.sinoVietnamese}
-                            </p>
-                        )}
-                        {cardSettings.front.example && currentCard.example && (
-                            <div className={`text-sm text-left w-full ${scale.exampleItemGap} bg-slate-50 dark:bg-slate-900/60 rounded-2xl ${scale.exampleBoxPadding} border border-slate-100 dark:border-slate-800 max-w-md mx-auto`}>
-                                <p className={`font-bold text-slate-700 dark:text-slate-300 ${scale.exampleTitleSize} flex items-center gap-1.5 uppercase tracking-wider mb-2`}>
-                                    <span>💡 Ví dụ:</span>
-                                </p>
-                                <div className={`${scale.exampleItemGap} pl-1`}>
-                                    {currentCard.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
-                                        const meaning = (currentCard.exampleMeaning || '').split('\n')[idx]?.trim();
-                                        return (
-                                            <div key={idx} className="border-l-2 border-indigo-500/30 pl-3">
-                                                <div className={`${scale.exampleTextSize} text-slate-700 dark:text-slate-300 font-japanese leading-relaxed`}>
-                                                    <FuriganaText text={ex} />
-                                                </div>
-                                                {meaning && (
-                                                    <p className={scale.exampleMeaningSize}>{meaning}</p>
-                                                )}
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                );
-            };
-
-            const renderBackContent = () => {
-                return (
-                    <div className="flex-1 flex flex-row items-center justify-center gap-4 md:gap-8 px-2 w-full h-full min-h-0">
-                        {currentCard.imageBase64 && (
-                            <div className="flex-shrink-0">
-                                <img
-                                    src={currentCard.imageBase64}
-                                    alt={currentCard.front}
-                                    className="w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 rounded-2xl object-cover border border-gray-200 dark:border-slate-600/50 shadow-sm"
-                                />
-                            </div>
-                        )}
-                        <div className="flex-1 flex flex-col items-center justify-center text-center min-w-0 space-y-1.5 h-full py-2">
-                            {cardSettings.back.meaning && (
-                                <div>
-                                    <div className={`${scale.titleSize} font-black text-emerald-600 dark:text-emerald-400 font-japanese`}>
-                                        {currentCard.front}
-                                    </div>
-                                    <div className={`${scale.meaningSize} font-bold text-gray-800 dark:text-gray-200 mt-2 break-words max-w-full`}>
-                                        {currentCard.back}
-                                    </div>
-                                </div>
-                            )}
-                            {cardSettings.back.hanviet && currentCard.sinoVietnamese && (
-                                <div className="text-sm font-bold text-yellow-600 dark:text-yellow-500 mt-1 uppercase tracking-wider">
-                                    Âm Hán: {currentCard.sinoVietnamese}
-                                </div>
-                            )}
-                            {cardSettings.back.example && currentCard.example && (
-                                <div className={`text-sm text-left w-full ${scale.exampleItemGap} bg-slate-50 dark:bg-slate-900/60 rounded-2xl ${scale.exampleBoxPadding} border border-slate-100 dark:border-slate-800 max-w-md mx-auto overflow-y-auto max-h-[160px] no-scrollbar`}>
-                                    <p className={`font-bold text-slate-700 dark:text-slate-300 ${scale.exampleTitleSize} flex items-center gap-1.5 uppercase tracking-wider mb-2`}>
-                                        <span>💡 Ví dụ:</span>
-                                    </p>
-                                    <div className={`${scale.exampleItemGap} pl-1`}>
-                                        {currentCard.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
-                                            const meaning = (currentCard.exampleMeaning || '').split('\n')[idx]?.trim();
-                                            return (
-                                                <div key={idx} className="border-l-2 border-indigo-500/30 pl-3">
-                                                    <div className={`${scale.exampleTextSize} text-slate-700 dark:text-slate-300 font-japanese leading-relaxed`}>
-                                                        <FuriganaText text={ex} />
-                                                    </div>
-                                                    {meaning && (
-                                                        <p className={scale.exampleMeaningSize}>{meaning}</p>
-                                                    )}
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                );
-            };
-
             return (
                 <div className="min-h-screen flex flex-col justify-center items-center px-4 bg-transparent py-8">
                     <div className="w-[800px] max-w-[95vw] mx-auto flex flex-col justify-center items-center space-y-6">
@@ -685,39 +505,17 @@ const SRSVocabScreen = ({
                         {/* Flashcard Container Wrapper */}
                         <div className="w-full relative" data-tour-id="FLASHCARD_CONTAINER">
                             {/* Flashcard Container */}
-                            <div className="w-full cursor-pointer" style={{ perspective: '1000px' }} 
-                                onClick={() => {
-                                    const nextFlipped = !isFlipped;
-                                    setIsFlipped(nextFlipped);
-                                }}
-                            >
-                                <div key={currentCard.id} style={{ position: 'relative', width: '100%', height: '460px', transformStyle: 'preserve-3d', transition: 'transform 0.6s cubic-bezier(0.4,0,0.2,1)', transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
-                                    {/* Front Side */}
-                                    <div className={`bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg ${scale.cardPadding || 'p-8'} flex flex-col items-center absolute inset-0 overflow-hidden`}
-                                        style={{ backfaceVisibility: 'hidden' }}>
-
-                                        <div className="flex flex-col items-center justify-center my-auto w-full py-4 pb-14 relative">
-                                            {!cardSettings.swapSides ? renderFrontContent() : renderBackContent()}
-                                        </div>
-
-                                        <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
-                                            <span className="text-[10px] text-gray-400 dark:text-gray-500 px-3 py-1.5 bg-gray-50 dark:bg-gray-900/30 rounded-full font-semibold shadow-sm tracking-wide">Nhấn vào thẻ hoặc phím Cách để lật</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Back Side */}
-                                    <div className={`bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg ${scale.cardPadding || 'p-8'} flex flex-col items-center absolute inset-0 overflow-hidden`}
-                                        style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
-
-                                        <div className="flex flex-col items-center justify-center my-auto w-full py-4 pb-14 relative">
-                                            {!cardSettings.swapSides ? renderBackContent() : renderFrontContent()}
-                                        </div>
-
-                                        <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
-                                            <span className="text-[10px] text-gray-400 dark:text-gray-500 px-3 py-1.5 bg-gray-50 dark:bg-gray-900/30 rounded-full font-semibold shadow-sm tracking-wide">Nhấn vào thẻ hoặc phím Cách để lật</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div className="w-full relative" style={{ height: '460px' }}>
+                                <Flashcard
+                                    card={currentCard}
+                                    cardSettings={cardSettings}
+                                    isFlipped={isFlipped}
+                                    onFlip={() => {
+                                        setIsFlipped(!isFlipped);
+                                    }}
+                                    variant="emerald"
+                                    transitionEnabled={true}
+                                />
                             </div>
 
                             {/* Speaker Button - OUTSIDE the flipping container */}
@@ -729,7 +527,7 @@ const SRSVocabScreen = ({
                                     }
                                 }}
                                 data-tour-id="FLASHCARD_SPEAKER"
-                                className="absolute top-6 right-18 p-2 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-full transition-all hover:scale-110 z-30 shadow-md border border-indigo-100/30 dark:border-indigo-900/20"
+                                className="absolute top-6 right-18 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
                                 title="Phát âm"
                             >
                                 <Volume2 className="w-4 h-4" />
@@ -738,7 +536,7 @@ const SRSVocabScreen = ({
                             {/* Settings Button - OUTSIDE the flipping container */}
                             <button
                                 onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
-                                className="absolute top-6 right-6 p-2 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-full transition-all hover:scale-110 z-30 shadow-md border border-indigo-100/30 dark:border-indigo-900/20"
+                                className="absolute top-6 right-6 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
                                 title="Cấu hình hiển thị"
                             >
                                 <Settings className="w-4 h-4" />
@@ -802,6 +600,7 @@ const SRSVocabScreen = ({
                                         <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
                                         <div className="space-y-2.5 pl-1 text-[13px]">
                                             <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.reading} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Cách đọc (Hiragana)</span></label>
                                             <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
                                             <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Đồng nghĩa</span></label>
                                             <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
@@ -1103,7 +902,7 @@ const SRSVocabScreen = ({
                     <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
                     <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700/80 animate-fade-in text-slate-850 dark:text-slate-200" onClick={e => e.stopPropagation()}>
                         <h4 className="font-extrabold text-lg border-b border-gray-150 dark:border-slate-700 pb-2.5 mb-3">Cấu hình thẻ ghi nhớ</h4>
-                        <div className="space-y-4 text-xs font-semibold text-slate-750 dark:text-slate-350">
+                        <div className="space-y-4 text-xs font-semibold text-slate-600 dark:text-slate-300">
                             <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
                                 <span className="text-indigo-650 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
@@ -1124,6 +923,7 @@ const SRSVocabScreen = ({
                                 <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
                                 <div className="space-y-2.5 pl-1 text-[13px]">
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.reading} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Cách đọc (Hiragana)</span></label>
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Đồng nghĩa</span></label>
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
