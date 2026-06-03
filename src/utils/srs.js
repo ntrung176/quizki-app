@@ -43,9 +43,9 @@ export const normalizeSRSState = (srs) => {
     const masteryState = srs.masteryState || 'not_learned';
 
     if (reps === 0 && state === null) {
-        const isLegacy = legacyIndex >= 0 || seenCount > 0 || srs.lastReviewed;
+        const isLegacy = legacyIndex >= 0;
         if (isLegacy) {
-            const isMastered = masteryState === 'memorized' || legacyIndex >= 4;
+            const isMastered = legacyIndex >= 4;
             if (isMastered) {
                 state = 'REVIEW';
                 learningStep = null;

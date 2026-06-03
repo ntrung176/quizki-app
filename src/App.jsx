@@ -10,6 +10,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Ba
 
 // Route configuration
 import { ROUTES, getEditRoute } from './router';
+import { showToast } from './utils/toast';
 
 // Import from refactored modules
 import {
@@ -196,6 +197,7 @@ const App = () => {
 
     const activityQueue = useRef({});
     const activityTimeout = useRef(null);
+    const srsToggleClicksRef = useRef({});
 
     const [authReady, setAuthReady] = useState(false);
     const [userId, setUserId] = useState(null);
@@ -642,9 +644,9 @@ const App = () => {
 
                 // 1. Migration for legacy Leitner cards that were reviewed but have no new SRS progress
                 if (srsEnabled && srsReps === 0 && srsState === null) {
-                    const isLegacy = legacyIndex >= 0 || (data.seenCount || 0) > 0 || data.lastReviewed;
+                    const isLegacy = legacyIndex >= 0;
                     if (isLegacy) {
-                        const isMastered = data.masteryState === 'memorized' || legacyIndex >= 4;
+                        const isMastered = legacyIndex >= 4;
                         if (isMastered) {
                             srsState = 'REVIEW';
                             srsInterval = 30; // 30 days
@@ -2184,6 +2186,38 @@ const App = () => {
     const handleToggleSrs = async (cardId, srsEnabled) => {
         if (!vocabCollectionPath) return;
         const cardRef = doc(db, vocabCollectionPath, cardId);
+
+        // Detect 3 rapid clicks to reset SRS parameters to new
+        const now = Date.now();
+        const clicks = srsToggleClicksRef.current[cardId] || [];
+        const recentClicks = clicks.filter(t => now - t < 1500);
+        recentClicks.push(now);
+        srsToggleClicksRef.current[cardId] = recentClicks;
+
+        if (recentClicks.length >= 3) {
+            srsToggleClicksRef.current[cardId] = [];
+            try {
+                await updateDoc(cardRef, {
+                    srsEnabled: true,
+                    srsInterval: 0,
+                    srsEase: 2.5,
+                    srsLearningStep: null,
+                    srsIsLapsed: false,
+                    srsReps: 0,
+                    srsLapseCount: 0,
+                    srsPrelapseInterval: null,
+                    nextReview_back: new Date(),
+                    lastReviewed: serverTimestamp(),
+                    srsState: 'NEW',
+                    intervalIndex_back: -1
+                });
+                showToast("⚡ Đã reset chu kỳ SRS của từ vựng về trạng thái Mới!", "success");
+            } catch (e) {
+                console.error("Lỗi reset chu kỳ SRS:", e);
+                showToast("Lỗi reset chu kỳ: " + e.message, "error");
+            }
+            return;
+        }
 
         try {
             if (srsEnabled) {

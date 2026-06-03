@@ -1,0 +1,339 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ============================================
+    // HELPER FUNCTIONS
+    // ============================================
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && 
+             (request.auth.token.email == 'ntrungforwork@gmail.com' ||
+              request.auth.token.email == 'lynguyennhattrung1706@gmail.com');
+    }
+    
+    function isModerator(appId) {
+      return isAuthenticated() &&
+             exists(/databases/$(database)/documents/artifacts/$(appId)/settings/adminConfig) &&
+             request.auth.uid in get(/databases/$(database)/documents/artifacts/$(appId)/settings/adminConfig).data.moderators;
+    }
+    
+    function hasAdminPrivileges(appId) {
+      return isAdmin() || isModerator(appId);
+    }
+    
+    function isReasonableSize() {
+      // Tăng giới hạn trường dữ liệu lên 80 để tránh lỗi ghi thẻ từ vựng lớn (45+ trường)
+      return request.resource.data.keys().size() <= 80;
+    }
+    
+    // ============================================
+    // 1. USER DATA (Dữ liệu riêng tư của người dùng)
+    // ============================================
+    
+    match /artifacts/{appId}/users/{userId}/settings/{docId} {
+      allow read: if isOwner(userId) || hasAdminPrivileges(appId);
+      allow create: if (isOwner(userId) && isReasonableSize()) || hasAdminPrivileges(appId);
+      allow update: if hasAdminPrivileges(appId) || isOwner(userId);
+      allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
+    }
+    
+    match /artifacts/{appId}/users/{userId}/vocabulary/{vocabId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId) && isReasonableSize();
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
+    }
+    
+    match /artifacts/{appId}/users/{userId}/dailyActivity/{logId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId);
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
+    }
+    
+    match /artifacts/{appId}/users/{userId}/kanjiSRS/{kanjiId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId);
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
+    }
+    
+    match /artifacts/{appId}/users/{userId}/kanjiProgress/{progressId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId);
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
+    }
+
+    match /artifacts/{appId}/users/{userId}/studySets/{studySetId} {
+      allow read: if isOwner(userId) || hasAdminPrivileges(appId);
+      allow create: if isOwner(userId) && isReasonableSize();
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
+    }
+    
+    match /artifacts/{appId}/users/{userId} {
+      allow read: if isOwner(userId) || hasAdminPrivileges(appId);
+      allow write: if isOwner(userId) || hasAdminPrivileges(appId);
+    }
+    
+    // ============================================
+    // 2. SHARED DATA & UPDATES (Dữ liệu chia sẻ)
+    // ============================================
+    
+    match /artifacts/{appId}/sharedVocab/{vocabId} {
+      allow read: if true; // Cho phép xem công khai
+      allow create: if isAuthenticated() && isReasonableSize();
+      allow update: if isAuthenticated();
+      allow delete: if hasAdminPrivileges(appId);
+    }
+    
+    match /artifacts/{appId}/bookVocabUpdates/{updateId} {
+      allow read: if true;
+      allow write: if hasAdminPrivileges(appId);
+    }
+    
+    match /sharedVocabulary/{vocabId} {
+      allow read: if true;
+      allow create: if isAuthenticated() && isReasonableSize();
+      allow update: if isAuthenticated();
+      allow delete: if hasAdminPrivileges(appId);
+    }
+    
+    match /artifacts/{appId}/public/data/userStats/{userId} {
+      allow read: if true;
+      allow create: if isOwner(userId);
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
+    }
+    
+    // ============================================
+    // 3. ADMIN SETTINGS (Cấu hình hệ thống)
+    // ============================================
+    
+    match /artifacts/{appId}/settings/{docId} {
+      allow read: if true; // Cho phép đọc cấu hình hệ thống công khai
+      allow write: if isAdmin();
+    }
+    
+    // ============================================
+    // 4. KANJI DATA (Dữ liệu Kanji)
+    // ============================================
+    
+    match /kanji/{kanjiId} {
+      allow read: if true;
+      allow write: if hasAdminPrivileges(appId); 
+    }
+    
+    match /kanjiVocab/{vocabId} {
+      allow read: if true;
+      allow write: if hasAdminPrivileges(appId);
+    }
+    
+    match /vocabCategories/{catId} {
+      allow read: if true;
+      allow write: if hasAdminPrivileges(appId);
+    }
+    
+    match /kanjiLinkedBooks/{linkId} {
+      allow read: if true;
+      allow write: if hasAdminPrivileges(appId);
+    }
+    
+    match /kanjiImportedBooks/{document} {
+      allow read: if true;
+      allow write: if hasAdminPrivileges(appId);
+    }
+    
+    // ============================================
+    // 5. BOOK DATA & LESSONS (Sách & Bài học)
+    // ============================================
+    
+    match /bookGroups/{groupId} {
+      allow read: if true;
+      allow write: if hasAdminPrivileges(appId);
+      
+      match /books/{bookId} {
+        allow read: if true;
+        allow write: if hasAdminPrivileges(appId);
+        
+        match /chapters/{chapterId} {
+          allow read: if true;
+          allow write: if hasAdminPrivileges(appId);
+          
+          match /lessons/{lessonId} {
+            allow read: if true;
+            allow write: if hasAdminPrivileges(appId);
+            
+            match /vocabulary/{vocabId} {
+              allow read: if true;
+              allow write: if hasAdminPrivileges(appId);
+            }
+            
+            match /vocabAudio/{audioId} {
+              allow read: if true;
+              allow write: if hasAdminPrivileges(appId);
+            }
+          }
+        }
+      }
+    }
+    
+    // Cho phép truy cập bài học theo collection group
+    match /{path=**}/lessons/{lessonId} {
+      allow read: if true;
+    }
+    
+    // ============================================
+    // 6. JLPT TESTS (Đề thi thử)
+    // ============================================
+    
+    match /artifacts/{appId}/jlptTests/{testId} {
+      allow read: if true;
+      allow write: if hasAdminPrivileges(appId);
+      
+      match /{subcollection}/{docId} {
+        allow read: if true;
+        allow write: if hasAdminPrivileges(appId);
+      }
+    }
+    
+    // ============================================
+    // 7. FEEDBACK (Góp ý)
+    // ============================================
+    
+    match /feedback/{feedbackId} {
+      allow create: if isAuthenticated();
+      allow read: if hasAdminPrivileges(appId);
+      allow update, delete: if hasAdminPrivileges(appId);
+    }
+    
+    // ============================================
+    // 8. VOUCHERS (Mã giảm giá)
+    // ============================================
+    
+    match /artifacts/{appId}/vouchers/{voucherId} {
+      allow read: if isAuthenticated();
+      allow create: if hasAdminPrivileges(appId);
+      allow update: if hasAdminPrivileges(appId) || isAuthenticated();
+      allow delete: if hasAdminPrivileges(appId);
+    }
+    
+    // ============================================
+    // 9. CREDIT REQUESTS (Yêu cầu nạp credit)
+    // ============================================
+    
+    match /artifacts/{appId}/creditRequests/{requestId} {
+      allow create: if isAuthenticated();
+      allow read: if hasAdminPrivileges(appId) || (isAuthenticated() && resource.data.userId == request.auth.uid);
+      allow update: if hasAdminPrivileges(appId);
+      allow delete: if hasAdminPrivileges(appId);
+    }
+    
+    // ============================================
+    // 10. PROCESSED TRANSACTIONS (Giao dịch đã xử lý)
+    // ============================================
+    
+    match /artifacts/{appId}/processedTransactions/{txId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow update, delete: if false;
+    }
+    
+    // ============================================
+    // 11. EXPENSES (Quản lý thu chi)
+    // ============================================
+    
+    match /artifacts/{appId}/expenses/{expenseId} {
+      allow read: if isAdmin();
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // ============================================
+    // 12. FORUM & COMMENTS (Mạng xã hội học tập)
+    // ============================================
+    
+    match /artifacts/{appId}/forum/{postId} {
+      allow read: if true;
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated();
+      allow delete: if hasAdminPrivileges(appId) || isOwner(resource.data.authorId);
+      
+      match /comments/{commentId} {
+        allow read: if true;
+        allow create: if isAuthenticated();
+        allow update: if isAuthenticated();
+        allow delete: if hasAdminPrivileges(appId) || isOwner(resource.data.authorId);
+      }
+    }
+    
+    // ============================================
+    // 13. USER PROFILES (Hồ sơ người dùng)
+    // ============================================
+    
+    match /artifacts/{appId}/userProfiles/{userId} {
+      allow read: if true;
+      allow create: if isOwner(userId);
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
+    }
+    
+    // ============================================
+    // 14. FOLLOWS (Theo dõi)
+    // ============================================
+    
+    match /artifacts/{appId}/follows/{docId} {
+      allow read: if true;
+      allow create: if isAuthenticated() 
+        && request.resource.data.followerId == request.auth.uid;
+      allow delete: if isAuthenticated() 
+        && resource.data.followerId == request.auth.uid;
+    }
+
+    // ============================================
+    // 15. GRAMMAR DATA (Ngữ pháp)
+    // ============================================
+    
+    match /artifacts/{appId}/grammarTextbooks/{textbookId} {
+      allow read: if true;
+      allow write: if hasAdminPrivileges(appId);
+      
+      match /lessons/{lessonId} {
+        allow read: if true;
+        allow write: if hasAdminPrivileges(appId);
+        
+        match /points/{pointId} {
+          allow read: if true;
+          allow write: if hasAdminPrivileges(appId);
+        }
+      }
+    }
+
+    // ============================================
+    // 16. GLOBAL NOTIFICATIONS (Thông báo hệ thống)
+    // ============================================
+    
+    match /artifacts/{appId}/globalNotifications/{notificationId} {
+      allow read: if true;
+      allow write: if hasAdminPrivileges(appId);
+    }
+
+    // ============================================
+    // 17. CATCH-ALL DENY (Luôn để cuối cùng)
+    // ============================================
+    
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { ChevronRight, ChevronLeft, X, Sparkles, Settings, Plus, Trash2, ArrowUp, ArrowDown, Copy, Download, Upload } from 'lucide-react';
 import { auth } from '../../config/firebase';
 
@@ -211,7 +211,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
     const resolvedIsAdmin = propIsAdmin || (userEmail && userEmail === import.meta.env.VITE_ADMIN_EMAIL);
 
     // Filter steps for the active section (e.g. 'home', 'vocabReview', etc.)
-    const activeSteps = steps.filter(item => item.section === section);
+    const activeSteps = useMemo(() => steps.filter(item => item.section === section), [steps, section]);
 
     const [isActive, setIsActive] = useState(false);
     const [step, setStep] = useState(0);
@@ -260,23 +260,33 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
         }
     }, [forceTrigger, activeSteps.length]);
 
+    // Refs to compare coordinates and avoid redundant state updates / loops
+    const lastPosRef = useRef({ top: 0, left: 0 });
+    const lastRectRef = useRef(null);
+
     // Position tooltip near target
     const reposition = useCallback(() => {
         if (!isActive || step >= activeSteps.length) {
-            setHighlightRect(null);
+            if (lastRectRef.current !== null) {
+                lastRectRef.current = null;
+                setHighlightRect(null);
+            }
             return;
         }
         const el = document.querySelector(activeSteps[step].target);
         if (!el) {
-            setHighlightRect(null);
+            if (lastRectRef.current !== null) {
+                lastRectRef.current = null;
+                setHighlightRect(null);
+            }
             return;
         }
 
         const rect = el.getBoundingClientRect();
-        setHighlightRect({
+        const newRect = {
             top: rect.top - 3, left: rect.left - 3,
             width: rect.width + 6, height: rect.height + 6,
-        });
+        };
 
         const tt = tooltipRef.current;
         const ttH = tt?.offsetHeight || 180;
@@ -296,7 +306,24 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
             top = rect.bottom + 12;
         }
 
-        setPos({ top, left });
+        // Compare with last values to avoid redundant state updates
+        const rectChanged = !lastRectRef.current ||
+            Math.abs(lastRectRef.current.top - newRect.top) > 0.5 ||
+            Math.abs(lastRectRef.current.left - newRect.left) > 0.5 ||
+            Math.abs(lastRectRef.current.width - newRect.width) > 0.5 ||
+            Math.abs(lastRectRef.current.height - newRect.height) > 0.5;
+
+        const posChanged = Math.abs(lastPosRef.current.top - top) > 0.5 ||
+            Math.abs(lastPosRef.current.left - left) > 0.5;
+
+        if (rectChanged) {
+            lastRectRef.current = newRect;
+            setHighlightRect(newRect);
+        }
+        if (posChanged) {
+            lastPosRef.current = { top, left };
+            setPos({ top, left });
+        }
     }, [isActive, step, activeSteps]);
 
     useEffect(() => {
