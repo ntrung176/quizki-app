@@ -271,7 +271,8 @@ const ReviewScreen = ({
             if (reviewMode === 'flashcard') {
                 setSlideDirection('right');
                 setTimeout(() => {
-                                    setCurrentIndex(currentIndex - 1);
+                                    setIsFlipped(false);
+                    setCurrentIndex(currentIndex - 1);
                     setInputValue('');
                     setIsRevealed(false);
                     setIsLocked(false);
@@ -356,6 +357,7 @@ const ReviewScreen = ({
                 if (currentIndex < cards.length - 1) {
                     setSlideDirection('left');
                     setTimeout(() => {
+                        setIsFlipped(false);
                         setCurrentIndex(currentIndex + 1);
                         setSlideDirection('right');
                         setTimeout(() => setSlideDirection(''), 300);
@@ -444,6 +446,7 @@ const ReviewScreen = ({
         if (isLeftSwipe && currentIndex < cards.length - 1) {
             setSlideDirection('left');
             setTimeout(() => {
+                setIsFlipped(false);
                 setCurrentIndex(currentIndex + 1);
                 setSlideDirection('right');
                 setTimeout(() => setSlideDirection(''), 300);
@@ -451,6 +454,7 @@ const ReviewScreen = ({
         } else if (isRightSwipe && currentIndex > 0) {
             setSlideDirection('right');
             setTimeout(() => {
+                setIsFlipped(false);
                 setCurrentIndex(currentIndex - 1);
                 setInputValue('');
                 setIsRevealed(false);
@@ -1741,7 +1745,6 @@ const ReviewScreen = ({
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.word} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Chữ Hán / Từ vựng</span></label>
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.furigana} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Phiên âm Furigana</span></label>
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
-                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.example} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
                                 </div>
                             </div>
                             <div>

@@ -13,18 +13,34 @@ export const POS_TYPES = {
     other: { label: 'Khác', color: 'bg-gray-100 text-gray-700 border-gray-200' }
 };
 
-// Alias map: AI có thể trả về dạng khác (adj_i thay vì adj-i)
+// Alias map: AI có thể trả về dạng khác
 const POS_ALIASES = {
+    'noun': 'noun',
+    'verb': 'verb',
+    'suru_verb': 'suru_verb',
+    'suru-verb': 'suru_verb',
+    'suru verb': 'suru_verb',
     'adj_i': 'adj-i',
+    'adj-i': 'adj-i',
+    'adjective-i': 'adj-i',
     'adj_na': 'adj-na',
     'adj-na': 'adj-na',
-    'adj-i': 'adj-i',
+    'adjective-na': 'adj-na',
+    'adjective': 'adj-i',
+    'adverb': 'adverb',
+    'conjunction': 'conjunction',
+    'particle': 'particle',
+    'grammar': 'grammar',
+    'phrase': 'phrase',
+    'pronoun': 'noun',
+    'other': 'other'
 };
 
 // Chuẩn hóa pos key từ AI output
 export const normalizePosKey = (posKey) => {
     if (!posKey) return '';
-    return POS_ALIASES[posKey] || posKey;
+    const cleanKey = posKey.trim().toLowerCase();
+    return POS_ALIASES[cleanKey] || cleanKey;
 };
 
 // --- Cấu hình Cấp độ JLPT & Chỉ tiêu (Ước lượng) ---
@@ -58,7 +74,40 @@ export const MASTERED_THRESHOLD = 43200; // 30 ngày = 43200 phút
 export const MAX_INTERVAL = 525600; // 365 ngày = 525600 phút
 
 // Helper functions
-export const getPosLabel = (posKey) => POS_TYPES[posKey]?.label || posKey;
+export const getPosLabel = (posKey) => {
+    if (!posKey) return '';
+    const cleanKey = posKey.trim().toLowerCase();
+    
+    // Bản dịch trực tiếp cho các từ loại tiếng Anh
+    const dict = {
+        'noun': 'Danh từ',
+        'verb': 'Động từ',
+        'suru_verb': 'Danh động từ',
+        'suru-verb': 'Danh động từ',
+        'suru verb': 'Danh động từ',
+        'adj-i': 'Tính từ -い',
+        'adj_i': 'Tính từ -い',
+        'adj-na': 'Tính từ -な',
+        'adj_na': 'Tính từ -な',
+        'adjective': 'Tính từ',
+        'adverb': 'Trạng từ',
+        'conjunction': 'Liên từ',
+        'particle': 'Trợ từ',
+        'grammar': 'Ngữ pháp',
+        'phrase': 'Cụm từ',
+        'pronoun': 'Đại từ',
+        'preposition': 'Giới từ',
+        'interjection': 'Thán từ',
+        'other': 'Khác'
+    };
+    
+    if (dict[cleanKey]) return dict[cleanKey];
+    
+    const matched = Object.keys(POS_TYPES).find(k => k.toLowerCase() === cleanKey);
+    if (matched) return POS_TYPES[matched].label;
+    
+    return posKey;
+};
 export const getPosColor = (posKey) => POS_TYPES[posKey]?.color || 'bg-gray-100 text-gray-700 border-gray-200';
 
 export const getLevelColor = (levelValue) => {

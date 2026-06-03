@@ -5,77 +5,76 @@ import { POS_TYPES } from '../../config/constants';
 
 const getCardScaleStyles = (card, settings) => {
     if (!card) return {};
-    const textLength = card.front.length;
-    const hasExample = card.example && (settings?.front?.example || settings?.back?.example);
+    const textLength = card.front ? card.front.length : 0;
+    
+    // Front side vocabulary font size: much larger, with auto-scaling to prevent wrapping
+    let frontWordSize = "text-5xl md:text-6xl font-black";
+    if (textLength > 12) {
+        frontWordSize = "text-3xl md:text-4xl font-extrabold";
+    } else if (textLength > 6) {
+        frontWordSize = "text-4xl md:text-5xl font-extrabold";
+    }
+
+    const hasExample = card.example && settings?.back?.example;
     const exampleLines = hasExample ? card.example.split('\n').filter(e => e.trim()).length : 0;
 
-    const showFrontExamples = settings?.front?.example;
-    const showBackExamples = settings?.back?.example;
-    const showExamples = showFrontExamples || showBackExamples;
+    const showExamples = settings?.back?.example;
 
-    let wordSize = "text-3xl md:text-4xl leading-normal font-extrabold";
+    // Default sizes (no examples or large mode)
+    let wordSize = "text-3xl md:text-4xl font-extrabold leading-snug";
     let meaningSize = "text-2xl md:text-3xl font-bold mt-2";
-    let exampleBoxPadding = "p-3";
-    let exampleItemGap = "space-y-2";
-    let exampleTitleSize = "text-[11px]";
-    let exampleTextSize = "text-[12.5px] leading-normal font-medium";
-    let exampleMeaningSize = "text-[11px] font-sans mt-0.5";
-    let cardPadding = "p-6";
-    let titleSize = "text-xl font-extrabold";
+    let exampleBoxPadding = "p-5";
+    let exampleItemGap = "space-y-2.5";
+    let exampleTitleSize = "text-[13px]";
+    let exampleTextSize = "text-[18px] md:text-[20px] leading-relaxed font-bold";
+    let exampleMeaningSize = "text-[15px] md:text-[16px] font-sans mt-1.5 leading-relaxed";
+    let cardPadding = "p-6 pb-12";
+    let titleSize = "text-xl font-bold";
 
-    // Word/reading size scales down if either front or back examples are enabled
-    if (showFrontExamples || showBackExamples) {
-        if (textLength + card.back.length > 240 || exampleLines >= 3) {
-            wordSize = "text-lg md:text-xl leading-normal font-extrabold";
-        } else if (textLength + card.back.length > 150 || exampleLines >= 2) {
-            wordSize = "text-xl md:text-2xl leading-snug font-extrabold";
-        } else {
-            wordSize = "text-2xl md:text-3xl leading-normal font-extrabold";
-        }
-    }
-    
-    // Meaning size scales down ONLY if back examples are enabled
-    if (showBackExamples) {
-        if (textLength + card.back.length > 240 || exampleLines >= 3) {
-            meaningSize = "text-base md:text-lg font-bold mt-1";
-        } else if (textLength + card.back.length > 150 || exampleLines >= 2) {
-            meaningSize = "text-lg md:text-xl font-bold mt-1.5";
-        } else {
-            meaningSize = "text-xl md:text-2xl font-bold mt-2";
-        }
-    }
-    
-    // Other properties scale if either is enabled
-    if (showExamples) {
-        if (textLength + card.back.length > 240 || exampleLines >= 3) {
-            titleSize = "text-sm font-extrabold";
-            exampleBoxPadding = "p-2";
-            exampleItemGap = "space-y-1";
-            exampleTitleSize = "text-[9px]";
-            exampleTextSize = "text-[10px] leading-tight";
-            exampleMeaningSize = "text-[9px] font-sans mt-0 leading-tight";
-            cardPadding = "p-4 pb-12";
-        } else if (textLength + card.back.length > 150 || exampleLines >= 2) {
-            titleSize = "text-base font-extrabold";
+    if (showExamples && exampleLines > 0) {
+        if (exampleLines >= 3 || (card.back?.length || 0) > 240) {
+            // Small scale: 3 or more example sentences
+            wordSize = "text-xl md:text-2xl font-semibold leading-normal";
+            meaningSize = "text-lg md:text-xl font-semibold mt-1";
+            titleSize = "text-base font-bold";
             exampleBoxPadding = "p-2.5";
             exampleItemGap = "space-y-1.5";
-            exampleTitleSize = "text-[10px]";
-            exampleTextSize = "text-[11.5px] leading-snug";
-            exampleMeaningSize = "text-[10px] font-sans mt-0.5 leading-snug";
+            exampleTitleSize = "text-[9.5px]";
+            exampleTextSize = "text-[13px] md:text-[14px] leading-normal font-medium";
+            exampleMeaningSize = "text-[11px] md:text-[12px] font-sans mt-0.5 leading-normal";
+            cardPadding = "p-4 pb-12";
+        } else if (exampleLines === 2 || (card.back?.length || 0) > 150) {
+            // Medium scale: 2 example sentences
+            wordSize = "text-2xl md:text-3xl font-bold leading-normal";
+            meaningSize = "text-xl md:text-2xl font-bold mt-1.5";
+            titleSize = "text-lg font-bold";
+            exampleBoxPadding = "p-3.5";
+            exampleItemGap = "space-y-2";
+            exampleTitleSize = "text-[11.5px]";
+            exampleTextSize = "text-[15px] md:text-[16.5px] leading-relaxed font-semibold";
+            exampleMeaningSize = "text-[13px] md:text-[14px] font-sans mt-1 leading-snug";
             cardPadding = "p-5 pb-12";
         } else {
-            titleSize = "text-xl font-extrabold";
-            exampleBoxPadding = "p-3";
-            exampleItemGap = "space-y-2";
-            exampleTitleSize = "text-[11px]";
-            exampleTextSize = "text-[12.5px] leading-normal";
-            exampleMeaningSize = "text-[11px] font-sans mt-0.5";
+            // 1 example sentence: Large scale
+            wordSize = "text-3xl md:text-4xl font-extrabold leading-snug";
+            meaningSize = "text-2xl md:text-3xl font-bold mt-2";
+            titleSize = "text-xl font-bold";
+            exampleBoxPadding = "p-5";
+            exampleItemGap = "space-y-2.5";
+            exampleTitleSize = "text-[13px]";
+            exampleTextSize = "text-[18px] md:text-[20px] leading-relaxed font-bold";
+            exampleMeaningSize = "text-[15px] md:text-[16px] font-sans mt-1.5 leading-relaxed";
             cardPadding = "p-6 pb-12";
         }
+    } else {
+        // If there are no examples, let's keep word and meaning sizes large (default)
+        wordSize = "text-3xl md:text-4xl font-extrabold leading-snug";
+        meaningSize = "text-2xl md:text-3xl font-bold mt-2";
     }
-    
+
     return {
         wordSize,
+        frontWordSize,
         titleSize,
         meaningSize,
         exampleBoxPadding,
@@ -153,51 +152,25 @@ const Flashcard = ({
     const scale = getCardScaleStyles(card, cardSettings);
 
     const renderFrontContent = () => {
-        // Render variant-based front styles
         let wordColorClass = "text-slate-800 dark:text-white";
         let hanvietColorClass = "text-slate-600 dark:text-slate-400";
-        let exampleBoxClass = "bg-slate-50/50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800";
-        let exampleTextClass = "text-slate-700 dark:text-slate-300";
-        let exampleMeaningClass = `${scale.exampleMeaningSize} text-slate-500 dark:text-slate-400 font-sans mt-0.5`;
 
         if (variant === 'review') {
             wordColorClass = "text-white";
             hanvietColorClass = "text-amber-200";
-            exampleBoxClass = "bg-white/10 border border-white/20";
-            exampleTextClass = "text-indigo-105";
-            exampleMeaningClass = `${scale.exampleMeaningSize} text-indigo-200 mt-0.5 font-sans`;
         }
-
-
 
         return (
             <div className="flex-1 flex flex-col items-center justify-center text-center space-y-4 w-full">
                 {cardSettings.front.word && (
-                    <div className={`${scale.wordSize} font-bold ${wordColorClass} font-japanese select-none leading-relaxed`}>
+                    <div className={`${scale.frontWordSize} font-bold ${wordColorClass} font-japanese select-none leading-relaxed`}>
                         <FuriganaText text={card.frontWithFurigana || card.front} forceHide={!cardSettings.front.furigana} />
                     </div>
                 )}
                 {cardSettings.front.hanviet && card.sinoVietnamese && (
-                    <p className={`${hanvietColorClass} text-sm font-semibold`}>
-                        <span className={variant === 'review' ? "text-indigo-200 font-normal" : "text-slate-400 dark:text-slate-400 font-normal"}>Hán Việt: </span>{card.sinoVietnamese}
+                    <p className={`${hanvietColorClass} text-[15px] md:text-base font-bold`}>
+                        <span className={variant === 'review' ? "text-indigo-200 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Hán Việt: </span>{card.sinoVietnamese}
                     </p>
-                )}
-                {cardSettings.front.example && card.example && (
-                    <div className={`mt-3 ${scale.exampleItemGap} text-left w-full max-w-md mx-auto ${scale.exampleBoxPadding} ${exampleBoxClass} rounded-2xl`}>
-                        {card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
-                            const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
-                            return (
-                                <div key={idx} className={`border-l-2 ${variant === 'review' ? 'border-white/30' : 'border-indigo-500/30'} pl-3`}>
-                                    <div className={`${scale.exampleTextSize} ${exampleTextClass} font-japanese leading-relaxed`}>
-                                        <FuriganaText text={ex} />
-                                    </div>
-                                    {meaning && (
-                                        <p className={exampleMeaningClass}>{meaning}</p>
-                                    )}
-                                </div>
-                            );
-                        })}
-                    </div>
                 )}
             </div>
         );
@@ -266,9 +239,9 @@ const Flashcard = ({
                         </div>
                     )}
                     {((cardSettings.back.hanviet && card.sinoVietnamese) || (cardSettings.back.synonym && card.synonym)) && (
-                        <div className="flex items-center justify-center gap-3 text-xs font-semibold mt-0.5 flex-wrap">
+                        <div className="flex items-center justify-center gap-4 text-[14px] md:text-[15px] font-bold mt-1 flex-wrap">
                             {cardSettings.back.hanviet && card.sinoVietnamese && (
-                                <span className={variant === 'review' ? 'text-yellow-300' : 'text-slate-600 dark:text-slate-400'}>
+                                <span className={variant === 'review' ? 'text-yellow-300' : 'text-slate-700 dark:text-slate-300'}>
                                     <span className={variant === 'review' ? "text-emerald-100 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Hán Việt: </span>{card.sinoVietnamese}
                                 </span>
                             )}
@@ -276,15 +249,15 @@ const Flashcard = ({
                                 <span className={variant === 'review' ? 'text-white/25' : 'text-slate-200 dark:text-slate-700'}>|</span>
                             )}
                             {cardSettings.back.synonym && card.synonym && (
-                                <span className={variant === 'review' ? 'text-emerald-105' : 'text-slate-700 dark:text-slate-400'}>
+                                <span className={variant === 'review' ? 'text-emerald-105' : 'text-slate-800 dark:text-slate-300'}>
                                     <span className={variant === 'review' ? "text-emerald-100 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Đồng nghĩa: </span>
-                                    <FuriganaText text={card.synonym} className={`font-japanese font-semibold ${variant === 'review' ? 'text-white' : 'text-slate-750 dark:text-slate-300'}`} />
+                                    <FuriganaText text={card.synonym} className={`font-japanese font-semibold ${variant === 'review' ? 'text-white' : 'text-slate-800 dark:text-slate-200'}`} />
                                 </span>
                             )}
                         </div>
                     )}
                     {cardSettings.back.example && card.example && (
-                        <div className={`mt-1.5 ${scale.exampleItemGap} text-left w-full max-w-md mx-auto ${scale.exampleBoxPadding} ${exampleBoxClass} rounded-2xl overflow-y-auto flex-1 min-h-[60px] max-h-[160px] no-scrollbar`}>
+                        <div className={`mt-1.5 ${scale.exampleItemGap} text-left w-full max-w-full ${scale.exampleBoxPadding} ${exampleBoxClass} rounded-2xl overflow-y-auto flex-1 min-h-[60px] max-h-[160px] no-scrollbar`}>
                             {card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
                                 const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
                                 return (
@@ -319,6 +292,7 @@ const Flashcard = ({
     return (
         <div className="perspective-1000 w-full mx-auto relative select-none" style={{ height: '460px' }}>
             <div
+                key={card?.id}
                 className={`w-full transform-style-preserve-3d card-slide ${isFlipped ? 'rotate-y-180' : ''} ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
                 onClick={(e) => {
                     e.stopPropagation();
