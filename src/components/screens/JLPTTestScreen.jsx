@@ -247,9 +247,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
 
     // Answer handling
     const answerKey = (si, qi) => `s${si}_q${qi}`;
+    const subAnswerKey = (si, qi, sqi) => `s${si}_q${qi}_sq${sqi}`;
     const selectAnswer = (si, qi, optIdx) => {
         if (showResult) return;
         setAnswers(prev => ({ ...prev, [answerKey(si, qi)]: optIdx }));
+    };
+    const selectAnswerSub = (si, qi, sqi, optIdx) => {
+        if (showResult) return;
+        setAnswers(prev => ({ ...prev, [subAnswerKey(si, qi, sqi)]: optIdx }));
     };
 
     // Navigation
@@ -284,14 +289,25 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         let correct = 0, total = 0;
         const sectionResults = activeTest.sections.map((sec, si) => {
             let secCorrect = 0;
+            let secTotal = 0;
             sec.questions.forEach((q, qi) => {
-                total++;
-                const userAns = answers[answerKey(si, qi)];
-                if (userAns === q.correctAnswer) { correct++; secCorrect++; }
+                if (q.subQuestions && q.subQuestions.length > 0) {
+                    q.subQuestions.forEach((sq, sqi) => {
+                        total++;
+                        secTotal++;
+                        const userAns = answers[subAnswerKey(si, qi, sqi)];
+                        if (userAns === sq.correctAnswer) { correct++; secCorrect++; }
+                    });
+                } else {
+                    total++;
+                    secTotal++;
+                    const userAns = answers[answerKey(si, qi)];
+                    if (userAns === q.correctAnswer) { correct++; secCorrect++; }
+                }
             });
-            return { ...sec, correct: secCorrect, total: sec.questions.length };
+            return { ...sec, correct: secCorrect, total: secTotal };
         });
-        return { correct, total, percentage: Math.round((correct / total) * 100), sectionResults };
+        return { correct, total, percentage: total > 0 ? Math.round((correct / total) * 100) : 0, sectionResults };
     };
 
     // Format time
@@ -380,6 +396,72 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                         <span className="font-bold text-sm text-gray-700 dark:text-gray-300">{sec.title}</span>
                                     </div>
                                     {sec.questions.map((q, qi) => {
+                                        if (q.subQuestions && q.subQuestions.length > 0) {
+                                            const allSubCorrect = q.subQuestions.every((sq, sqi) => answers[subAnswerKey(si, qi, sqi)] === sq.correctAnswer);
+                                            return (
+                                                <div key={qi} className={`p-4 border-l-4 border-indigo-500 ${allSubCorrect ? 'bg-green-50/20 dark:bg-green-950/5' : 'bg-red-50/20 dark:bg-red-950/5'} space-y-4`}>
+                                                    <div className="flex items-start gap-2.5">
+                                                        <div className="w-6 h-6 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-750 dark:text-slate-200 flex items-center justify-center text-[11px] font-extrabold flex-shrink-0 mt-0.5 shadow-sm">
+                                                            {qi + 1}
+                                                        </div>
+                                                        <div className="flex-1 space-y-2">
+                                                            {q.passage && (
+                                                                <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.passage }} />
+                                                            )}
+                                                            {q.audioUrl && (
+                                                                <div className="mb-2">
+                                                                    <audio src={q.audioUrl} controls className="h-7 max-w-full text-xs" />
+                                                                </div>
+                                                            )}
+                                                            {q.imageUrl && (
+                                                                <div className="mb-2 max-w-sm rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-white p-1">
+                                                                    <img src={q.imageUrl} alt="Câu hỏi" className="max-h-48 object-contain" />
+                                                                </div>
+                                                            )}
+                                                            {q.question && (
+                                                                <p className="font-bold text-gray-800 dark:text-gray-200 text-sm font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.question }} />
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    {/* Sub-questions Review List */}
+                                                    <div className="pl-8 space-y-3">
+                                                        {q.subQuestions.map((sq, sqi) => {
+                                                            const userAns = answers[subAnswerKey(si, qi, sqi)];
+                                                            const sqCorrect = userAns === sq.correctAnswer;
+                                                            return (
+                                                                <div key={sqi} className={`p-3 rounded-xl border ${sqCorrect ? 'bg-green-50/40 dark:bg-green-950/10 border-green-200' : 'bg-red-50/40 dark:bg-red-950/10 border-red-200'} space-y-1.5`}>
+                                                                    <div className="flex items-start gap-2">
+                                                                        {sqCorrect
+                                                                            ? <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                                                                            : <XCircle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />}
+                                                                        <div className="flex-1">
+                                                                            <p className="text-xs font-bold text-gray-700 dark:text-gray-300 font-japanese leading-relaxed font-semibold" dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
+                                                                            {userAns !== undefined && (
+                                                                                <p className="text-xs mt-1">
+                                                                                    <span className="text-gray-500">Bạn chọn: </span>
+                                                                                    <span className={`${sqCorrect ? 'text-green-600 font-bold font-japanese' : 'text-red-600 font-bold line-through font-japanese'} whitespace-pre-line`} dangerouslySetInnerHTML={{ __html: sq.options[userAns] }} />
+                                                                                </p>
+                                                                            )}
+                                                                            {!sqCorrect && (
+                                                                                <p className="text-xs mt-1">
+                                                                                    <span className="text-gray-500">Đáp án: </span>
+                                                                                    <span className="text-green-600 font-bold font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: sq.options[sq.correctAnswer] }} />
+                                                                                </p>
+                                                                            )}
+                                                                            {sq.explanation && (
+                                                                                <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-1 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${sq.explanation}` }} />
+                                                                            )}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
+
                                         const userAns = answers[answerKey(si, qi)];
                                         const isCorrect = userAns === q.correctAnswer;
                                         return (
@@ -450,8 +532,25 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         const section = activeTest.sections[currentSectionIdx];
         const question = section?.questions?.[currentQuestionIdx];
         const Icon = SECTION_ICONS[section?.type] || FileText;
-        const totalQ = activeTest.sections.reduce((s, sec) => s + sec.questions.length, 0);
-        const answeredCount = Object.keys(answers).length;
+        let totalQ = 0;
+        let answeredCount = 0;
+        activeTest.sections.forEach((sec, si) => {
+            sec.questions.forEach((q, qi) => {
+                if (q.subQuestions && q.subQuestions.length > 0) {
+                    q.subQuestions.forEach((sq, sqi) => {
+                        totalQ++;
+                        if (answers[subAnswerKey(si, qi, sqi)] !== undefined) {
+                            answeredCount++;
+                        }
+                    });
+                } else {
+                    totalQ++;
+                    if (answers[answerKey(si, qi)] !== undefined) {
+                        answeredCount++;
+                    }
+                }
+            });
+        });
         const globalIdx = activeTest.sections.slice(0, currentSectionIdx).reduce((s, sec) => s + sec.questions.length, 0) + currentQuestionIdx;
         const isLast = currentSectionIdx === activeTest.sections.length - 1 && currentQuestionIdx === section.questions.length - 1;
         const isFirst = currentSectionIdx === 0 && currentQuestionIdx === 0;
@@ -585,10 +684,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                         <SIcon className="w-3.5 h-3.5" /> {sec.title}
                                     </div>
                                     <div className="grid grid-cols-5 gap-1 p-2">
-                                        {sec.questions.map((_, qi) => {
-                                            const key = answerKey(si, qi);
+                                        {sec.questions.map((q, qi) => {
                                             const isActive = si === currentSectionIdx && qi === currentQuestionIdx;
-                                            const isAnswered = answers[key] !== undefined;
+                                            let isAnswered = false;
+                                            if (q.subQuestions && q.subQuestions.length > 0) {
+                                                isAnswered = q.subQuestions.every((_, sqi) => answers[subAnswerKey(si, qi, sqi)] !== undefined);
+                                            } else {
+                                                isAnswered = answers[answerKey(si, qi)] !== undefined;
+                                            }
                                             return (
                                                 <button key={qi} onClick={() => goToQuestion(si, qi)}
                                                     className={`w-8 h-8 rounded-lg text-xs font-bold transition ${isActive
@@ -663,29 +766,65 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                             <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-6 leading-relaxed font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: question?.question }} />
 
                             {/* Options */}
-                            <div className="space-y-3 mb-8">
-                                {question?.options?.map((opt, oi) => {
-                                    const key = answerKey(currentSectionIdx, currentQuestionIdx);
-                                    const isSelected = answers[key] === oi;
-                                    return (
-                                        <button key={oi} onClick={() => selectAnswer(currentSectionIdx, currentQuestionIdx, oi)}
-                                            className={`w-full p-4 rounded-xl text-left font-medium transition-all border-2 ${isSelected
-                                                ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
-                                                : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-600 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10'
-                                                }`}>
-                                            <div className="flex items-center gap-3">
-                                                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 ${isSelected
-                                                    ? 'bg-indigo-600 text-white'
-                                                    : 'bg-gray-100 dark:bg-gray-700 text-gray-650 dark:text-gray-400'
-                                                    }`}>
-                                                    {String.fromCharCode(65 + oi)}
+                            {question?.subQuestions && question.subQuestions.length > 0 ? (
+                                <div className="space-y-6 mb-8 pl-4 border-l-2 border-indigo-200 dark:border-indigo-855">
+                                    {question.subQuestions.map((sq, sqi) => {
+                                        return (
+                                            <div key={sqi} className="space-y-3 bg-slate-50/50 dark:bg-slate-900/10 p-4 rounded-xl border border-slate-100 dark:border-slate-800/80">
+                                                <h4 className="text-sm font-bold text-indigo-600 dark:text-indigo-400 font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
+                                                
+                                                <div className="grid grid-cols-1 gap-2.5">
+                                                    {sq.options?.map((opt, oi) => {
+                                                        const key = subAnswerKey(currentSectionIdx, currentQuestionIdx, sqi);
+                                                        const isSelected = answers[key] === oi;
+                                                        return (
+                                                            <button key={oi} onClick={() => selectAnswerSub(currentSectionIdx, currentQuestionIdx, sqi, oi)}
+                                                                className={`w-full p-3.5 rounded-xl text-left text-xs font-medium transition-all border-2 ${isSelected
+                                                                    ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
+                                                                    : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-600 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10'
+                                                                    }`}>
+                                                                <div className="flex items-center gap-2.5">
+                                                                    <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${isSelected
+                                                                        ? 'bg-indigo-600 text-white'
+                                                                        : 'bg-slate-100 dark:bg-slate-700 text-slate-650 dark:text-slate-400'
+                                                                        }`}>
+                                                                        {String.fromCharCode(65 + oi)}
+                                                                    </div>
+                                                                    <span className="font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: opt }} />
+                                                                </div>
+                                                            </button>
+                                                        );
+                                                    })}
                                                 </div>
-                                                <span className="font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: opt }} />
                                             </div>
-                                        </button>
-                                    );
-                                })}
-                            </div>
+                                        );
+                                    })}
+                                </div>
+                            ) : (
+                                <div className="space-y-3 mb-8">
+                                    {question?.options?.map((opt, oi) => {
+                                        const key = answerKey(currentSectionIdx, currentQuestionIdx);
+                                        const isSelected = answers[key] === oi;
+                                        return (
+                                            <button key={oi} onClick={() => selectAnswer(currentSectionIdx, currentQuestionIdx, oi)}
+                                                className={`w-full p-4 rounded-xl text-left font-medium transition-all border-2 ${isSelected
+                                                    ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
+                                                    : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-600 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10'
+                                                    }`}>
+                                                <div className="flex items-center gap-3">
+                                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 ${isSelected
+                                                        ? 'bg-indigo-600 text-white'
+                                                        : 'bg-gray-100 dark:bg-gray-700 text-gray-650 dark:text-gray-400'
+                                                        }`}>
+                                                        {String.fromCharCode(65 + oi)}
+                                                    </div>
+                                                    <span className="font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: opt }} />
+                                                </div>
+                                            </button>
+                                        );
+                                    })}
+                                </div>
+                            )}
 
                             {/* Navigation */}
                             <div className="flex items-center justify-between">

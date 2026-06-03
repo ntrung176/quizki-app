@@ -33,7 +33,8 @@ const SKILL_LABELS = {
 
 const EMPTY_QUESTION = {
     question: '', options: ['', '', '', ''], correctAnswer: 0,
-    explanation: '', audioUrl: '', passage: '', imageUrl: ''
+    explanation: '', audioUrl: '', passage: '', imageUrl: '',
+    subQuestions: []
 };
 
 const EMPTY_SECTION = { type: 'vocabulary', title: '', questions: [{ ...EMPTY_QUESTION }] };
@@ -168,6 +169,24 @@ const getSampleJsonForSkill = (skillType) => {
                                 options: ["が", "を", "に", "で"],
                                 correctAnswer: 1,
                                 explanation: "Trợ từ を dùng để chỉ đối tượng trực tiếp tác động của động từ 勉強します."
+                            },
+                            {
+                                passage: "<b>[Đoạn văn điền từ]</b><br/>きのう私はともだちとレストランへ行きました。...(1)...、とてもおいしい料理を食べました。",
+                                question: "Chọn phương án đúng nhất cho các câu hỏi phụ dưới đây.",
+                                subQuestions: [
+                                    {
+                                        question: "Chỗ trống (1):",
+                                        options: ["그리고 / そして", "하지만 / しかし", "그래서 / だから", "그러므로 / そこで"],
+                                        correctAnswer: 0,
+                                        explanation: "Dùng '그리고 / そして' để biểu thị chuỗi hành động nối tiếp: đi đến nhà hàng rồi ăn đồ ăn ngon."
+                                    },
+                                    {
+                                        question: "Trợ từ điền vào vế sau (料理____食べました):",
+                                        options: ["が", "を", "に", "で"],
+                                        correctAnswer: 1,
+                                        explanation: "Cấu trúc tác động trực tiếp của hành động ăn: 料理を食べます -> đi kèm trợ từ を."
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -213,6 +232,7 @@ const JLPTAdminScreen = ({ userId }) => {
     const [confirmDelete, setConfirmDelete] = useState(null);
     const [importType, setImportType] = useState('full');
     const [importSkillType, setImportSkillType] = useState('vocabulary');
+    const [importMethod, setImportMethod] = useState('overwrite');
 
     const testsPath = `artifacts/${appId}/jlptTests`;
 
@@ -269,8 +289,25 @@ const JLPTAdminScreen = ({ userId }) => {
             if (!sec.title.trim()) { notify('error', `Phần ${sIdx + 1} cần có tiêu đề`); return; }
             for (let qIdx = 0; qIdx < sec.questions.length; qIdx++) {
                 const q = sec.questions[qIdx];
-                if (!q.question.trim()) { notify('error', `Phần "${sec.title}" - Câu ${qIdx + 1} chưa nhập nội dung câu hỏi`); return; }
-                if (q.options.some(o => !o.trim())) { notify('error', `Phần "${sec.title}" - Câu ${qIdx + 1} có đáp án trống`); return; }
+                if (!q.question.trim() && !q.passage?.trim()) { 
+                    notify('error', `Phần "${sec.title}" - Câu ${qIdx + 1} chưa nhập nội dung câu hỏi hoặc đoạn văn`); 
+                    return; 
+                }
+                
+                if (q.subQuestions && q.subQuestions.length > 0) {
+                    for (let sqIdx = 0; sqIdx < q.subQuestions.length; sqIdx++) {
+                        const sq = q.subQuestions[sqIdx];
+                        if (sq.options.some(o => !o.trim())) {
+                            notify('error', `Phần "${sec.title}" - Câu ${qIdx + 1} - Câu hỏi phụ ${sqIdx + 1} có đáp án trống`);
+                            return;
+                        }
+                    }
+                } else {
+                    if (q.options.some(o => !o.trim())) { 
+                        notify('error', `Phần "${sec.title}" - Câu ${qIdx + 1} có đáp án trống`); 
+                        return; 
+                    }
+                }
             }
         }
 
@@ -346,34 +383,95 @@ const JLPTAdminScreen = ({ userId }) => {
     const handleJsonImport = () => {
         try {
             const parsed = JSON.parse(jsonInput);
-            if (!parsed.title || !parsed.sections) throw new Error('JSON thiếu trường title hoặc sections bắt buộc.');
+            if (importMethod === 'overwrite') {
+                if (!parsed.title || !parsed.sections) throw new Error('JSON thiếu trường title hoặc sections bắt buộc.');
+            } else {
+                if (!parsed.sections) throw new Error('JSON thiếu trường sections bắt buộc.');
+            }
             
             const isSkill = importType === 'skill';
             const skillType = isSkill ? importSkillType : '';
 
-            setFormData({
-                title: parsed.title || '',
-                level: parsed.level || 'N5',
-                timeLimit: parsed.timeLimit || 60,
-                isSkillTest: isSkill,
-                skillType: skillType,
-                sections: parsed.sections.map(s => ({
-                    type: isSkill ? skillType : (s.type || 'vocabulary'),
-                    title: isSkill ? (SKILL_LABELS[skillType] || s.title) : (s.title || ''),
-                    questions: (s.questions || []).map(q => ({
+            if (importMethod === 'overwrite') {
+                setFormData({
+                    title: parsed.title || '',
+                    level: parsed.level || 'N5',
+                    timeLimit: parsed.timeLimit || 60,
+                    isSkillTest: isSkill,
+                    skillType: skillType,
+                    sections: parsed.sections.map(s => ({
+                        type: isSkill ? skillType : (s.type || 'vocabulary'),
+                        title: isSkill ? (SKILL_LABELS[skillType] || s.title) : (s.title || ''),
+                        questions: (s.questions || []).map(q => ({
+                            question: q.question || '',
+                            options: q.options || (q.subQuestions && q.subQuestions.length > 0 ? [] : ['', '', '', '']),
+                            correctAnswer: q.correctAnswer ?? 0,
+                            explanation: q.explanation || '',
+                            audioUrl: q.audioUrl || '',
+                            passage: q.passage || '',
+                            imageUrl: q.imageUrl || '',
+                            subQuestions: (q.subQuestions || []).map(sq => ({
+                                question: sq.question || '',
+                                options: sq.options || ['', '', '', ''],
+                                correctAnswer: sq.correctAnswer ?? 0,
+                                explanation: sq.explanation || ''
+                            }))
+                        }))
+                    }))
+                });
+            } else {
+                // APPEND METHOD: Append questions to existing sections
+                const currentSections = [...formData.sections];
+                parsed.sections.forEach(parsedSec => {
+                    const parsedType = isSkill ? skillType : (parsedSec.type || 'vocabulary');
+                    const parsedTitle = isSkill ? (SKILL_LABELS[skillType] || parsedSec.title) : (parsedSec.title || '');
+                    
+                    const newQuestions = (parsedSec.questions || []).map(q => ({
                         question: q.question || '',
-                        options: q.options || ['', '', '', ''],
+                        options: q.options || (q.subQuestions && q.subQuestions.length > 0 ? [] : ['', '', '', '']),
                         correctAnswer: q.correctAnswer ?? 0,
                         explanation: q.explanation || '',
                         audioUrl: q.audioUrl || '',
                         passage: q.passage || '',
                         imageUrl: q.imageUrl || '',
-                    }))
-                }))
-            });
+                        subQuestions: (q.subQuestions || []).map(sq => ({
+                            question: sq.question || '',
+                            options: sq.options || ['', '', '', ''],
+                            correctAnswer: sq.correctAnswer ?? 0,
+                            explanation: sq.explanation || ''
+                        }))
+                    }));
+
+                    const existingSecIdx = currentSections.findIndex(s => s.type === parsedType);
+                    if (existingSecIdx !== -1) {
+                        // Clear the single initial empty placeholder question if it's the only one
+                        let baseQuestions = currentSections[existingSecIdx].questions || [];
+                        if (baseQuestions.length === 1 && !baseQuestions[0].question.trim() && !baseQuestions[0].passage?.trim() && (!baseQuestions[0].subQuestions || baseQuestions[0].subQuestions.length === 0)) {
+                            baseQuestions = [];
+                        }
+                        
+                        currentSections[existingSecIdx] = {
+                            ...currentSections[existingSecIdx],
+                            questions: [...baseQuestions, ...newQuestions]
+                        };
+                    } else {
+                        currentSections.push({
+                            type: parsedType,
+                            title: parsedTitle,
+                            questions: newQuestions
+                        });
+                    }
+                });
+
+                setFormData({
+                    ...formData,
+                    sections: currentSections
+                });
+            }
+
             setShowJsonImport(false);
             setJsonInput('');
-            notify('success', 'Đã nhập dữ liệu JSON thành công!');
+            notify('success', importMethod === 'overwrite' ? 'Đã nhập dữ liệu JSON thành công!' : 'Đã bổ sung câu hỏi từ JSON thành công!');
         } catch (e) {
             notify('error', 'JSON không hợp lệ: ' + e.message);
         }
@@ -795,46 +893,162 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                 )}
 
 
-                                                                {/* Các phương án lựa chọn */}
-                                                                <div>
-                                                                    <label className="block text-[10px] font-bold text-slate-450 uppercase tracking-wider mb-2">Các phương án trả lời & Tích chọn đáp án đúng</label>
-                                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                                                        {q.options.map((opt, oi) => (
-                                                                            <div key={oi} className="flex items-center gap-2">
-                                                                                <button
-                                                                                    type="button"
-                                                                                    onClick={() => updateQuestion(si, qi, 'correctAnswer', oi)}
-                                                                                    className={`w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-extrabold transition-all cursor-pointer ${q.correctAnswer === oi
-                                                                                        ? 'bg-green-500 text-white ring-2 ring-green-150'
-                                                                                        : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-300'
-                                                                                        }`}
-                                                                                >
-                                                                                    {String.fromCharCode(65 + oi)}
-                                                                                </button>
-                                                                                <div className="flex-1 space-y-1">
-                                                                                    <input type="text" value={opt} onChange={e => updateOption(si, qi, oi, e.target.value)}
-                                                                                        placeholder={`Phương án ${String.fromCharCode(65 + oi)}`}
-                                                                                        className="w-full px-3 py-1.5 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none font-japanese" />
-                                                                                    {opt && (
-                                                                                        <div className="px-2.5 py-1 text-[10px] font-japanese text-slate-600 dark:text-slate-350 leading-relaxed whitespace-pre-line bg-slate-100/40 dark:bg-slate-900/20 rounded-lg border border-slate-200/40 dark:border-slate-800/30" dangerouslySetInnerHTML={{ __html: opt }} />
-                                                                                    )}
+                                                                {/* Các phương án lựa chọn (Chỉ hiện khi không có câu hỏi phụ) */}
+                                                                {(!q.subQuestions || q.subQuestions.length === 0) && (
+                                                                    <div>
+                                                                        <label className="block text-[10px] font-bold text-slate-450 uppercase tracking-wider mb-2">Các phương án trả lời & Tích chọn đáp án đúng</label>
+                                                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                                                            {q.options.map((opt, oi) => (
+                                                                                <div key={oi} className="flex items-center gap-2">
+                                                                                    <button
+                                                                                        type="button"
+                                                                                        onClick={() => updateQuestion(si, qi, 'correctAnswer', oi)}
+                                                                                        className={`w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-extrabold transition-all cursor-pointer ${q.correctAnswer === oi
+                                                                                            ? 'bg-green-500 text-white ring-2 ring-green-150'
+                                                                                            : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-300'
+                                                                                            }`}
+                                                                                    >
+                                                                                        {String.fromCharCode(65 + oi)}
+                                                                                    </button>
+                                                                                    <div className="flex-1 space-y-1">
+                                                                                        <input type="text" value={opt} onChange={e => updateOption(si, qi, oi, e.target.value)}
+                                                                                            placeholder={`Phương án ${String.fromCharCode(65 + oi)}`}
+                                                                                            className="w-full px-3 py-1.5 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none font-japanese" />
+                                                                                        {opt && (
+                                                                                            <div className="px-2.5 py-1 text-[10px] font-japanese text-slate-600 dark:text-slate-350 leading-relaxed whitespace-pre-line bg-slate-100/40 dark:bg-slate-900/20 rounded-lg border border-slate-200/40 dark:border-slate-800/30" dangerouslySetInnerHTML={{ __html: opt }} />
+                                                                                        )}
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        ))}
-                                                                    </div>
-                                                                </div>
-
-                                                                {/* Giải thích câu hỏi */}
-                                                                <div>
-                                                                    <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Giải thích chi tiết (Dành cho phần xem lại đề)</label>
-                                                                    <input type="text" value={q.explanation || ''} onChange={e => updateQuestion(si, qi, 'explanation', e.target.value)}
-                                                                        placeholder="Giải thích ngữ pháp hoặc dịch từ vựng..."
-                                                                        className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none" />
-                                                                    {q.explanation && (
-                                                                        <div className="mt-1.5 p-2.5 rounded-xl bg-slate-100/50 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/80">
-                                                                            <span className="block text-[9px] font-bold text-[#2E5B70] dark:text-sky-400 uppercase tracking-wider mb-1">Xem trước giải thích:</span>
-                                                                            <div className="text-xs italic leading-relaxed whitespace-pre-line text-slate-600 dark:text-slate-400" dangerouslySetInnerHTML={{ __html: `💡 ${q.explanation}` }} />
+                                                                            ))}
                                                                         </div>
+                                                                    </div>
+                                                                )}
+
+                                                                {/* Giải thích câu hỏi (Chỉ hiện khi không có câu hỏi phụ) */}
+                                                                {(!q.subQuestions || q.subQuestions.length === 0) && (
+                                                                    <div>
+                                                                        <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Giải thích chi tiết (Dành cho phần xem lại đề)</label>
+                                                                        <input type="text" value={q.explanation || ''} onChange={e => updateQuestion(si, qi, 'explanation', e.target.value)}
+                                                                            placeholder="Giải thích ngữ pháp hoặc dịch từ vựng..."
+                                                                            className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none" />
+                                                                        {q.explanation && (
+                                                                            <div className="mt-1.5 p-2.5 rounded-xl bg-slate-100/50 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/80">
+                                                                                <span className="block text-[9px] font-bold text-[#2E5B70] dark:text-sky-400 uppercase tracking-wider mb-1">Xem trước giải thích:</span>
+                                                                                <div className="text-xs italic leading-relaxed whitespace-pre-line text-slate-600 dark:text-slate-400" dangerouslySetInnerHTML={{ __html: `💡 ${q.explanation}` }} />
+                                                                            </div>
+                                                                        )}
+                                                                    </div>
+                                                                )}
+
+                                                                {/* Sub-questions Section */}
+                                                                <div className="border-t border-slate-200/60 dark:border-slate-700/60 pt-3 mt-3">
+                                                                    <div className="flex items-center justify-between mb-2">
+                                                                        <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5">
+                                                                            <span className="w-2 h-2 rounded-full bg-indigo-500"></span>
+                                                                            Câu hỏi phụ ({q.subQuestions?.length || 0})
+                                                                        </span>
+                                                                        <button
+                                                                            type="button"
+                                                                            onClick={() => {
+                                                                                const sqs = q.subQuestions ? [...q.subQuestions] : [];
+                                                                                sqs.push({ question: '', options: ['', '', '', ''], correctAnswer: 0, explanation: '' });
+                                                                                updateQuestion(si, qi, 'subQuestions', sqs);
+                                                                            }}
+                                                                            className="px-2.5 py-1 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 rounded-lg text-[11px] font-bold flex items-center gap-1 cursor-pointer"
+                                                                        >
+                                                                            <Plus className="w-3.5 h-3.5" /> Thêm câu hỏi phụ
+                                                                        </button>
+                                                                    </div>
+                                                                    
+                                                                    {q.subQuestions && q.subQuestions.length > 0 ? (
+                                                                        <div className="space-y-3 pl-3 border-l-2 border-indigo-200 dark:border-indigo-850">
+                                                                            {q.subQuestions.map((sq, sqi) => (
+                                                                                <div key={sqi} className="bg-white dark:bg-slate-800/40 p-3 rounded-xl border border-slate-150 dark:border-slate-800/60 space-y-3 shadow-sm">
+                                                                                    <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/60 pb-1.5">
+                                                                                        <span className="text-[11px] font-bold text-slate-500">Câu hỏi phụ #{sqi + 1}</span>
+                                                                                        <button
+                                                                                            type="button"
+                                                                                            onClick={() => {
+                                                                                                const sqs = q.subQuestions.filter((_, idx) => idx !== sqi);
+                                                                                                updateQuestion(si, qi, 'subQuestions', sqs);
+                                                                                            }}
+                                                                                            className="p-1 text-slate-400 hover:text-red-500 rounded transition cursor-pointer"
+                                                                                        >
+                                                                                            <Trash2 className="w-3.5 h-3.5" />
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    
+                                                                                    <div>
+                                                                                        <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1">Nội dung câu hỏi phụ</label>
+                                                                                        <input
+                                                                                            type="text"
+                                                                                            value={sq.question}
+                                                                                            onChange={(e) => {
+                                                                                                const sqs = [...q.subQuestions];
+                                                                                                sqs[sqi] = { ...sqs[sqi], question: e.target.value };
+                                                                                                updateQuestion(si, qi, 'subQuestions', sqs);
+                                                                                            }}
+                                                                                            placeholder="VD: Câu hỏi (1) hoặc điền từ vào chỗ trống..."
+                                                                                            className="w-full px-2.5 py-1.5 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/45 text-slate-800 dark:text-white outline-none font-japanese"
+                                                                                        />
+                                                                                    </div>
+
+                                                                                    <div>
+                                                                                        <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1">Các phương án trả lời & Chọn đáp án đúng</label>
+                                                                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                                                            {sq.options.map((opt, oi) => (
+                                                                                                <div key={oi} className="flex items-center gap-1.5">
+                                                                                                    <button
+                                                                                                        type="button"
+                                                                                                        onClick={() => {
+                                                                                                            const sqs = [...q.subQuestions];
+                                                                                                            sqs[sqi] = { ...sqs[sqi], correctAnswer: oi };
+                                                                                                            updateQuestion(si, qi, 'subQuestions', sqs);
+                                                                                                        }}
+                                                                                                        className={`w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center text-[10px] font-bold transition-all cursor-pointer ${sq.correctAnswer === oi
+                                                                                                            ? 'bg-green-500 text-white ring-1 ring-green-150'
+                                                                                                            : 'bg-slate-200 dark:bg-slate-700 text-slate-650 dark:text-slate-400 hover:bg-slate-350'
+                                                                                                            }`}
+                                                                                                    >
+                                                                                                        {String.fromCharCode(65 + oi)}
+                                                                                                    </button>
+                                                                                                    <input
+                                                                                                        type="text"
+                                                                                                        value={opt}
+                                                                                                        onChange={(e) => {
+                                                                                                            const sqs = [...q.subQuestions];
+                                                                                                            const newOpts = [...sqs[sqi].options];
+                                                                                                            newOpts[oi] = e.target.value;
+                                                                                                            sqs[sqi] = { ...sqs[sqi], options: newOpts };
+                                                                                                            updateQuestion(si, qi, 'subQuestions', sqs);
+                                                                                                        }}
+                                                                                                        placeholder={`Phương án ${String.fromCharCode(65 + oi)}`}
+                                                                                                        className="flex-1 px-2.5 py-1 text-[11px] border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/45 text-slate-800 dark:text-white outline-none font-japanese"
+                                                                                                    />
+                                                                                                </div>
+                                                                                            ))}
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div>
+                                                                                        <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1">Giải thích câu hỏi phụ</label>
+                                                                                        <input
+                                                                                            type="text"
+                                                                                            value={sq.explanation || ''}
+                                                                                            onChange={(e) => {
+                                                                                                const sqs = [...q.subQuestions];
+                                                                                                sqs[sqi] = { ...sqs[sqi], explanation: e.target.value };
+                                                                                                updateQuestion(si, qi, 'subQuestions', sqs);
+                                                                                            }}
+                                                                                            placeholder="Giải thích vì sao chọn đáp án này..."
+                                                                                            className="w-full px-2.5 py-1.5 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/45 text-slate-800 dark:text-white outline-none"
+                                                                                        />
+                                                                                    </div>
+                                                                                </div>
+                                                                            ))}
+                                                                        </div>
+                                                                    ) : (
+                                                                        <p className="text-[10px] text-slate-400 dark:text-slate-500 italic pl-3">Không có câu hỏi phụ. Câu hỏi này sẽ được chấm điểm trực tiếp.</p>
                                                                     )}
                                                                 </div>
                                                             </div>
@@ -972,6 +1186,40 @@ const JLPTAdminScreen = ({ userId }) => {
                                     </select>
                                 </div>
                             )}
+                        </div>
+
+                        {/* Selector for Import Method */}
+                        <div className="bg-slate-50 dark:bg-slate-900/30 p-4 rounded-2xl border border-slate-100 dark:border-slate-800 space-y-2">
+                            <label className="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Phương thức nhập (Import Method)</label>
+                            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
+                                <label className="flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-300 cursor-pointer select-none">
+                                    <input 
+                                        type="radio" 
+                                        name="importMethod" 
+                                        value="overwrite" 
+                                        checked={importMethod === 'overwrite'} 
+                                        onChange={() => setImportMethod('overwrite')}
+                                        className="accent-[#2E5B70] w-4 h-4" 
+                                    />
+                                    Ghi đè hoàn toàn (Làm mới nội dung)
+                                </label>
+                                <label className="flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-300 cursor-pointer select-none">
+                                    <input 
+                                        type="radio" 
+                                        name="importMethod" 
+                                        value="append" 
+                                        checked={importMethod === 'append'} 
+                                        onChange={() => setImportMethod('append')}
+                                        className="accent-[#2E5B70] w-4 h-4" 
+                                    />
+                                    Bổ sung câu hỏi (Thêm vào phần hiện có)
+                                </label>
+                            </div>
+                            <p className="text-[10px] text-slate-400 leading-normal font-medium">
+                                {importMethod === 'overwrite' 
+                                    ? '⚠️ Lưu ý: Phương thức ghi đè sẽ xóa toàn bộ các câu hỏi đang nhập trong biểu mẫu hiện tại và thay thế bằng dữ liệu trong file JSON.' 
+                                    : '💡 Gợi ý: Hữu ích khi đề thi quá dài. Bạn có thể chia đề thi thành nhiều file JSON nhỏ để nhập bổ sung từng phần.'}
+                            </p>
                         </div>
 
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
