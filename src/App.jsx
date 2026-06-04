@@ -3507,7 +3507,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             {userId && location.pathname !== ROUTES.LOGIN && location.pathname !== '/login' && location.pathname !== '/privacy' && location.pathname !== '/terms' && (
                 <button
                     onClick={() => setTourTrigger(prev => prev + 1)}
-                    className="fixed bottom-6 left-6 lg:left-[18rem] z-55 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer bg-[#2E5B70] shadow-[#2E5B70]/30 border border-slate-100/10"
+                    className="fixed bottom-6 left-6 lg:left-[18rem] z-55 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl transition-all hover:scale-110 active:scale-95 opacity-50 hover:opacity-100 focus:opacity-100 active:opacity-100 cursor-pointer bg-[#2E5B70] shadow-[#2E5B70]/30 border border-slate-100/10"
                     title="Xem hướng dẫn trang này"
                 >
                     <HelpCircle className="w-6 h-6" />
