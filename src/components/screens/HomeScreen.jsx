@@ -199,7 +199,7 @@ const HomeScreen = ({
 
 
     return (
-        <div className="flex flex-col h-full max-h-[calc(100vh-80px)] max-w-7xl mx-auto gap-4 p-4 md:p-6 overflow-y-auto scrollbar-hide animate-fade-in">
+        <div className="flex flex-col max-w-7xl mx-auto gap-4 p-4 md:p-6 animate-fade-in">
             {/* Book Vocab Sync Notification */}
             <BookVocabSyncChecker
                 userId={userId}
