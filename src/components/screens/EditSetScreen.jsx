@@ -313,7 +313,7 @@ const EditSetScreen = ({
                         <button
                             type="button"
                             onClick={onBack}
-                            className="px-6 py-2.5 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-350 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
+                            className="px-6 py-2.5 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
                         >
                             Hủy
                         </button>
@@ -340,17 +340,17 @@ const EditSetScreen = ({
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
                                     placeholder="VD: Từ vựng N3 bài 1..."
-                                    className="w-full px-0 py-2.5 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 text-2xl font-bold text-slate-850 dark:text-white outline-none placeholder-slate-400 transition-colors"
+                                    className="w-full px-0 py-2.5 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 text-2xl font-bold text-slate-800 dark:text-white outline-none placeholder-slate-400 transition-colors"
                                 />
                             </div>
                             <div>
-                                <label className="block text-[11px] font-bold text-slate-455 dark:text-slate-500 uppercase tracking-wider mb-1.5">THÊM MÔ TẢ</label>
+                                <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">THÊM MÔ TẢ</label>
                                 <input
                                     type="text"
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
                                     placeholder="Mô tả mục tiêu của bộ từ vựng này..."
-                                    className="w-full px-0 py-2 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 text-base text-slate-655 dark:text-slate-200 outline-none placeholder-slate-400 transition-colors"
+                                    className="w-full px-0 py-2 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 text-base text-slate-600 dark:text-slate-200 outline-none placeholder-slate-400 transition-colors"
                                 />
                             </div>
                         </div>
@@ -401,7 +401,7 @@ const EditSetScreen = ({
                                     setBatchModalInitialTab('text');
                                     setIsBatchModalOpen(true);
                                 }}
-                                className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-indigo-650 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 dark:text-indigo-400 dark:bg-slate-800 dark:border-indigo-900/50 dark:hover:bg-slate-750 transition-all shadow-sm"
+                                className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-indigo-650 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 dark:text-indigo-400 dark:bg-slate-800 dark:border-indigo-900/50 dark:hover:bg-slate-700 transition-all shadow-sm"
                             >
                                 <Sparkles className="w-4 h-4 text-indigo-500" />
                                 Tạo bằng AI hàng loạt
@@ -412,7 +412,7 @@ const EditSetScreen = ({
                                     setBatchModalInitialTab('image');
                                     setIsBatchModalOpen(true);
                                 }}
-                                className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-purple-650 bg-purple-50 hover:bg-purple-100 border border-purple-100 dark:text-purple-400 dark:bg-slate-800 dark:border-purple-900/50 dark:hover:bg-slate-750 transition-all shadow-sm"
+                                className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-purple-650 bg-purple-50 hover:bg-purple-100 border border-purple-100 dark:text-purple-400 dark:bg-slate-800 dark:border-purple-900/50 dark:hover:bg-slate-700 transition-all shadow-sm"
                             >
                                 <ImageIcon className="w-4 h-4 text-purple-500" />
                                 Thêm từ vựng theo ảnh
@@ -458,7 +458,7 @@ const EditSetScreen = ({
                     <button
                         type="button"
                         onClick={onBack}
-                        className="px-6 py-2.5 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-350 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
+                        className="px-6 py-2.5 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
                     >
                         Hủy
                     </button>

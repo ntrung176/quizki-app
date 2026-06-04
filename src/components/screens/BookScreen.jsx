@@ -45,69 +45,7 @@ const InputField = ({ label, value, onChange, placeholder, type = 'text' }) => (
     </div>
 );
 
-const ZenModeView = ({ allUserCards = [], bookGroups = [], onClose }) => {
-    const [elapsedTime, setElapsedTime] = useState(0);
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setElapsedTime(prev => prev + 1);
-        }, 1000);
-        return () => clearInterval(interval);
-    }, []);
 
-    const formatTime = (seconds) => {
-        const mins = Math.floor(seconds / 60);
-        const secs = seconds % 60;
-        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-    };
-
-    return (
-        <div className="fixed inset-0 z-50 bg-[#0F172A] text-white flex flex-col items-center justify-center p-6 animate-fadeIn">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.08),transparent_70%)] pointer-events-none" />
-            
-            <div className="relative z-10 text-center max-w-lg w-full space-y-8">
-                {/* Glowing Quietness Character */}
-                <div className="w-32 h-32 mx-auto rounded-3xl bg-slate-800/80 border border-slate-700/50 flex flex-col items-center justify-center shadow-[0_0_50px_rgba(99,102,241,0.15)] animate-pulse">
-                    <span className="text-5xl font-extrabold bg-gradient-to-br from-indigo-300 to-sky-300 bg-clip-text text-transparent">静</span>
-                    <span className="text-[10px] tracking-[0.2em] text-slate-500 font-bold mt-2 uppercase">TẬP TRUNG</span>
-                </div>
-
-                <div className="space-y-3">
-                    <h2 className="text-3xl font-black bg-gradient-to-r from-indigo-200 to-sky-200 bg-clip-text text-transparent tracking-tight">Phiên tập trung sâu</h2>
-                    <p className="text-slate-400 text-sm leading-relaxed max-w-md mx-auto">
-                        "Học tập là kho báu theo chủ nhân đến mọi nơi."
-                    </p>
-                </div>
-
-                {/* Timer */}
-                <div className="space-y-1 py-4">
-                    <div className="text-6xl font-mono font-light text-indigo-400 tracking-wider">
-                        {formatTime(elapsedTime)}
-                    </div>
-                    <p className="text-[10px] tracking-widest text-slate-500 uppercase font-bold">Thời gian tập trung</p>
-                </div>
-
-                {/* Simple Quick Stats */}
-                <div className="grid grid-cols-2 gap-4 py-6 border-y border-slate-800/60 max-w-sm mx-auto">
-                    <div className="text-center">
-                        <p className="text-2xl font-black text-slate-200">{allUserCards?.length || 0}</p>
-                        <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider mt-0.5">Thẻ trong SRS</p>
-                    </div>
-                    <div className="text-center">
-                        <p className="text-2xl font-black text-slate-200">{bookGroups?.length || 0}</p>
-                        <p className="text-[10px] text-slate-500 uppercase font-bold tracking-wider mt-0.5">Bộ sách</p>
-                    </div>
-                </div>
-
-                <button
-                    onClick={onClose}
-                    className="px-8 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-xl border border-slate-700/50 text-sm font-bold shadow-lg transition-all cursor-pointer inline-flex items-center gap-2"
-                >
-                    Thoát chế độ tập trung
-                </button>
-            </div>
-        </div>
-    );
-};
 
 // ==================== BOOK SCREEN ====================
 const BookScreen = ({ 
@@ -198,7 +136,6 @@ const BookScreen = ({
     // Search and filter states
     const [searchQuery, setSearchQuery] = useState('');
     const [activeFilter, setActiveFilter] = useState('ALL');
-    const [isZenMode, setIsZenMode] = useState(false);
 
     const getGroupCategory = (group) => {
         const name = (group.name || '').toLowerCase();
@@ -1446,7 +1383,7 @@ const BookScreen = ({
                 </div>
 
                 {/* Filters & Search Row */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-slate-50 dark:bg-slate-855/40 p-3 rounded-2xl border border-slate-100 dark:border-slate-800">
+                <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-slate-50 dark:bg-slate-800/40 p-3 rounded-2xl border border-slate-100 dark:border-slate-800">
                     {/* Tabs / Filters */}
                     <div className="flex flex-wrap gap-1.5 w-full sm:w-auto">
                         {[
@@ -1508,7 +1445,7 @@ const BookScreen = ({
                         return (
                             <div
                                 key={group.id}
-                                className="bg-white dark:bg-slate-850 rounded-3xl border border-slate-200/60 dark:border-slate-750 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col group"
+                                className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/60 dark:border-slate-700 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col group"
                                 onClick={() => navigateTo({ group: group.id })}
                             >
                                 {group.imageUrl ? (
@@ -1573,7 +1510,7 @@ const BookScreen = ({
                                             <span>Tiến độ</span>
                                             <span className="text-sky-500 font-extrabold">{progress}%</span>
                                         </div>
-                                        <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-750 rounded-full overflow-hidden">
+                                        <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                                             <div
                                                 className="h-full bg-gradient-to-r from-sky-400 to-indigo-500 rounded-full transition-all duration-500"
                                                 style={{ width: `${progress}%` }}
@@ -1602,33 +1539,7 @@ const BookScreen = ({
                     )}
                 </div>
 
-                {/* Zen Mode Bottom Banner */}
-                <div className="bg-slate-900 dark:bg-slate-950 text-white rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800/80 shadow-xl overflow-hidden relative group/banner">
-                    <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-indigo-500/10 to-sky-500/10 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-                    
-                    <div className="space-y-4 max-w-xl z-10">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-500/20 border border-indigo-500/30 rounded-full text-xs font-bold text-indigo-300">
-                            <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-pulse" />
-                            CHẾ ĐỘ TẬP TRUNG
-                        </div>
-                        <h2 className="text-2xl font-black tracking-tight md:text-3xl">Phiên học tập trung sâu</h2>
-                        <p className="text-slate-400 text-sm leading-relaxed">
-                            Giảm thiểu phiền nhiễu và bước vào trạng thái tập trung. Chế độ Tập trung theo dõi cường độ học tập của bạn từ các cuốn sách từ vựng.
-                        </p>
-                        <button
-                            onClick={() => setIsZenMode(true)}
-                            className="px-6 py-3 bg-white hover:bg-slate-100 text-slate-900 rounded-xl text-xs font-black shadow-md hover:shadow-lg transition-all transform active:scale-95 cursor-pointer"
-                        >
-                            Bắt đầu tập trung
-                        </button>
-                    </div>
 
-                    {/* Glow Zen badge graphic */}
-                    <div className="shrink-0 w-32 h-32 rounded-2xl bg-slate-800/55 border border-slate-700/60 flex flex-col items-center justify-center shadow-[0_0_40px_rgba(99,102,241,0.1)] group-hover/banner:scale-105 transition-transform duration-500 z-10">
-                        <span className="text-4xl font-extrabold bg-gradient-to-br from-indigo-200 to-sky-200 bg-clip-text text-transparent">静</span>
-                        <span className="text-[9px] tracking-[0.2em] text-slate-500 font-bold mt-2">TẬP TRUNG</span>
-                    </div>
-                </div>
             </div>
         );
     };
@@ -2491,9 +2402,7 @@ const BookScreen = ({
         );
     }
 
-    if (isZenMode) {
-        return <ZenModeView allUserCards={allUserCards} bookGroups={bookGroups} onClose={() => setIsZenMode(false)} />;
-    }
+
 
     // Determine which view to render (call as functions, NOT as components <View/>)
     // Using <View/> would create new component type each render → unmount/remount → lose focus & scroll

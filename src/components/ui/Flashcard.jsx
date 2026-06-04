@@ -257,7 +257,13 @@ const Flashcard = ({
                         </div>
                     )}
                     {cardSettings.back.example && card.example && (
-                        <div className={`mt-1.5 ${scale.exampleItemGap} text-left w-full max-w-full ${scale.exampleBoxPadding} ${exampleBoxClass} rounded-2xl overflow-y-auto flex-1 min-h-[60px] max-h-[160px] no-scrollbar`}>
+                        <div 
+                            className={`mt-1.5 ${scale.exampleItemGap} text-left w-full max-w-full ${scale.exampleBoxPadding} ${exampleBoxClass} rounded-2xl overflow-y-auto flex-1 min-h-[60px] max-h-[160px] no-scrollbar`}
+                            onClick={(e) => e.stopPropagation()}
+                            onTouchStart={(e) => e.stopPropagation()}
+                            onTouchMove={(e) => e.stopPropagation()}
+                            onTouchEnd={(e) => e.stopPropagation()}
+                        >
                             {card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
                                 const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
                                 return (

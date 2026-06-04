@@ -11,7 +11,8 @@ import {
     getWordForMasking,
     getReadingForMasking,
     maskWordInExample,
-    buildAdjNaAcceptedAnswers
+    buildAdjNaAcceptedAnswers,
+    isMobileDevice
 } from '../../utils/textProcessing';
 import { flashCorrect, launchConfetti, launchFanfare, launchSparkles, celebrateCorrectAnswer } from '../../utils/celebrations';
 import { playCorrectSound, playIncorrectSound, launchFireworks } from '../../utils/soundEffects';

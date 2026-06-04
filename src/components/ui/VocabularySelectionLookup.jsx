@@ -4,6 +4,12 @@ import { aiAssistVocab } from '../../utils/aiProvider';
 import { getSinoVietnamese } from '../../utils/kanjiHVLookup';
 import { playAudio } from '../../utils/audio';
 
+// Helper to format Japanese readings: e.g. "日本語（にほんご）" -> "日本語 (にほんご)"
+const formatReading = (text) => {
+    if (!text) return '';
+    return text.replace(/（/g, ' (').replace(/）/g, ')');
+};
+
 // Helper to check if a node is partially or fully inside a range
 const isNodeInSelection = (range, node) => {
     if (!range || !node) return false;
@@ -428,8 +434,8 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                         <div className="flex items-start justify-between gap-2">
                             <div className="min-w-0">
                                 <div className="flex items-center gap-2 flex-wrap">
-                                    <h3 className="text-lg font-black tracking-tight text-slate-900 dark:text-white truncate font-japanese">
-                                        {aiResult?.frontWithFurigana ? aiResult.frontWithFurigana.split('（')[0] : pendingWord}
+                                    <h3 className="text-lg font-black tracking-tight text-slate-900 dark:text-white font-japanese">
+                                        {formatReading(aiResult?.frontWithFurigana || localMatch?.frontWithFurigana || localMatch?.front || pendingWord)}
                                     </h3>
                                     <button 
                                         onClick={handlePlayAudio}

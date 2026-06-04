@@ -69,43 +69,47 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
     }, [id]);
     
     const handleStudySet = (setId, customCards) => {
-        const setCards = customCards || (id === 'unfiled' 
+        const targetId = setId || id;
+        const setCards = customCards || (targetId === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
-            : allCards.filter(c => cardFolders[c.id] === id));
-        setStudySessionData({ mode: 'learn', cards: setCards, setId: id });
+            : allCards.filter(c => cardFolders[c.id] === targetId));
+        setStudySessionData({ mode: 'learn', cards: setCards, setId: targetId });
         navigate(ROUTES.STUDY);
     };
 
     const handleFlashcardSet = (setId, customCards) => {
-        const setCards = customCards || (id === 'unfiled' 
+        const targetId = setId || id;
+        const setCards = customCards || (targetId === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
-            : allCards.filter(c => cardFolders[c.id] === id));
+            : allCards.filter(c => cardFolders[c.id] === targetId));
         setFlashcardCards(setCards);
-        setFlashcardSetId(id);
+        setFlashcardSetId(targetId);
         navigate(ROUTES.FLASHCARD);
     };
 
     const handleMeaningSet = (setId, customCards) => {
-        const setCards = customCards || (id === 'unfiled' 
+        const targetId = setId || id;
+        const setCards = customCards || (targetId === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
-            : allCards.filter(c => cardFolders[c.id] === id));
+            : allCards.filter(c => cardFolders[c.id] === targetId));
         if (setCards.length === 0) return;
         const meaningCards = setCards.map(card => ({ ...card, reviewType: 'back' }));
         setReviewCards(shuffleArray(meaningCards));
         if (setReviewMode) setReviewMode('meaning_input');
-        setReviewSetId(id);
+        setReviewSetId(targetId);
         navigate(ROUTES.REVIEW);
     };
 
     const handleDictationSet = (setId, customCards) => {
-        const setCards = customCards || (id === 'unfiled' 
+        const targetId = setId || id;
+        const setCards = customCards || (targetId === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
-            : allCards.filter(c => cardFolders[c.id] === id));
+            : allCards.filter(c => cardFolders[c.id] === targetId));
         if (setCards.length === 0) return;
         const dictationCards = setCards.map(card => ({ ...card, reviewType: 'dictation' }));
         setReviewCards(shuffleArray(dictationCards));
         if (setReviewMode) setReviewMode('dictation');
-        setReviewSetId(id);
+        setReviewSetId(targetId);
         navigate(ROUTES.REVIEW);
     };
 
@@ -387,6 +391,47 @@ const AppRoutes = ({
         document.title = title;
     }, [location.pathname]);
 
+    const handleStudySet = (setId, customCards) => {
+        const setCards = customCards || (setId === 'unfiled' 
+            ? allCards.filter(c => !cardFolders[c.id]) 
+            : allCards.filter(c => cardFolders[c.id] === setId));
+        setStudySessionData({ mode: 'learn', cards: setCards, setId });
+        navigate(ROUTES.STUDY);
+    };
+
+    const handleFlashcardSet = (setId, customCards) => {
+        const setCards = customCards || (setId === 'unfiled' 
+            ? allCards.filter(c => !cardFolders[c.id]) 
+            : allCards.filter(c => cardFolders[c.id] === setId));
+        setFlashcardCards(setCards);
+        setFlashcardSetId(setId);
+        navigate(ROUTES.FLASHCARD);
+    };
+
+    const handleMeaningSet = (setId, customCards) => {
+        const setCards = customCards || (setId === 'unfiled' 
+            ? allCards.filter(c => !cardFolders[c.id]) 
+            : allCards.filter(c => cardFolders[c.id] === setId));
+        if (setCards.length === 0) return;
+        const meaningCards = setCards.map(card => ({ ...card, reviewType: 'back' }));
+        setReviewCards(shuffleArray(meaningCards));
+        if (setReviewMode) setReviewMode('meaning_input');
+        setReviewSetId(setId);
+        navigate(ROUTES.REVIEW);
+    };
+
+    const handleDictationSet = (setId, customCards) => {
+        const setCards = customCards || (setId === 'unfiled' 
+            ? allCards.filter(c => !cardFolders[c.id]) 
+            : allCards.filter(c => cardFolders[c.id] === setId));
+        if (setCards.length === 0) return;
+        const dictationCards = setCards.map(card => ({ ...card, reviewType: 'dictation' }));
+        setReviewCards(shuffleArray(dictationCards));
+        if (setReviewMode) setReviewMode('dictation');
+        setReviewSetId(setId);
+        navigate(ROUTES.REVIEW);
+    };
+
     // Handle auth action redirect from static /auth/action/index.html page
     // GitHub Pages can't do SPA routing for /auth/action, so the static page
     // stores params in sessionStorage and redirects to /?authRedirect=true
@@ -473,6 +518,10 @@ const AppRoutes = ({
                                 onUpdateVocabSrsRating={onUpdateVocabSrsRating}
                                 playAudio={playAudio}
                                 dailyActivityLogs={dailyActivityLogs}
+                                onStudySet={handleStudySet}
+                                onFlashcardSet={handleFlashcardSet}
+                                onMeaningSet={handleMeaningSet}
+                                onDictationSet={handleDictationSet}
                             />
                         </ProtectedRoute>
                     }

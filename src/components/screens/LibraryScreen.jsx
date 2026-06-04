@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
     BookOpen, Folder, Plus, Library, Trash2, X, Search, ChevronRight, 
     Layers, GraduationCap, Play, FolderPlus, Edit3, MoreVertical, 
@@ -20,6 +21,7 @@ const LibraryScreen = ({
     onDeleteParentFolder,
     onMoveStudySetToParentFolder
 }) => {
+    const navigate = useNavigate();
     const [deletingFolder, setDeletingFolder] = useState(null); // Study Set deletion
     const [searchQuery, setSearchQuery] = useState('');
     
@@ -229,7 +231,7 @@ const LibraryScreen = ({
                         {onAddParentFolder && (
                             <button
                                 onClick={() => setShowCreateFolderModal(true)}
-                                className="px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-gray-800 dark:hover:bg-gray-750 text-gray-700 dark:text-gray-200 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 shrink-0 border border-gray-200 dark:border-gray-700"
+                                className="px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 shrink-0 border border-gray-200 dark:border-gray-700"
                             >
                                 <FolderPlus className="w-4 h-4 text-indigo-500" />
                                 Thư mục mới
@@ -247,7 +249,7 @@ const LibraryScreen = ({
 
                 {/* Breadcrumb Navigation when inside a Folder */}
                 {activeParentFolderId && (
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-250/60 dark:border-gray-700 shadow-sm">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-200/60 dark:border-gray-700 shadow-sm">
                         <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 font-medium">
                             <button 
                                 onClick={() => setActiveParentFolderId(null)}
@@ -315,7 +317,7 @@ const LibraryScreen = ({
                                 className="px-6 py-2.5 bg-white hover:bg-slate-100 text-slate-900 rounded-xl text-xs font-black shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 cursor-pointer"
                             >
                                 <Play className="w-3.5 h-3.5 fill-current" />
-                                Tiếp tục ôn tập
+                                TIẾP TỤC HỌC
                             </button>
                         </div>
 
@@ -338,7 +340,7 @@ const LibraryScreen = ({
                         </div>
 
                         {parentFoldersWithCounts.length === 0 ? (
-                            <div className="p-8 text-center bg-white dark:bg-gray-800 rounded-3xl border border-gray-250/60 dark:border-gray-700 text-gray-400 dark:text-gray-500 text-xs italic">
+                            <div className="p-8 text-center bg-white dark:bg-gray-800 rounded-3xl border border-gray-200/60 dark:border-gray-700 text-gray-400 dark:text-gray-500 text-xs italic">
                                 {searchQuery ? 'Không tìm thấy thư mục nào phù hợp.' : 'Chưa có thư mục nào. Bạn có thể nhấn "Thư mục mới" ở trên để phân loại học phần.'}
                             </div>
                         ) : (
@@ -352,10 +354,10 @@ const LibraryScreen = ({
                                             onDragOver={(e) => { e.preventDefault(); setDragOverFolderId(folder.id); }}
                                             onDragLeave={() => setDragOverFolderId(null)}
                                             onDrop={(e) => handleDropOnFolder(e, folder.id)}
-                                            className={`bg-white dark:bg-gray-850 p-5 rounded-2xl border cursor-pointer transition-all duration-200 hover:shadow-md flex flex-col justify-between group relative overflow-hidden ${
+                                            className={`bg-white dark:bg-gray-800 p-5 rounded-2xl border cursor-pointer transition-all duration-200 hover:shadow-md flex flex-col justify-between group relative overflow-hidden ${
                                                 isDragOver 
                                                     ? 'border-indigo-500 bg-indigo-50/30 dark:bg-indigo-950/20 scale-102 ring-2 ring-indigo-500/20' 
-                                                    : 'border-gray-200 dark:border-gray-750'
+                                                    : 'border-gray-200 dark:border-gray-700'
                                             }`}
                                         >
                                             {/* Folder icon decoration background */}
@@ -378,7 +380,7 @@ const LibraryScreen = ({
                                                                 e.stopPropagation();
                                                                 setEditingParentFolder({ id: folder.id, name: folder.name });
                                                             }}
-                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-gray-850 rounded text-gray-400 hover:text-indigo-500"
+                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-gray-700 rounded text-gray-400 hover:text-indigo-500"
                                                             title="Sửa tên thư mục"
                                                         >
                                                             <Edit3 className="w-3.5 h-3.5" />
@@ -463,7 +465,7 @@ const LibraryScreen = ({
                                 draggable="true"
                                 onDragStart={(e) => handleDragStart(e, folder.id)}
                                 onDragEnd={handleDragEnd}
-                                className="bg-white dark:bg-gray-800 rounded-3xl p-6 border border-gray-200 dark:border-gray-750 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-350 flex flex-col justify-between group relative overflow-hidden active:scale-98 cursor-grab"
+                                className="bg-white dark:bg-gray-800 rounded-3xl p-6 border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-350 flex flex-col justify-between group relative overflow-hidden active:scale-98 cursor-grab"
                             >
                                 {/* Draggable grip feedback indicator */}
                                 <div className="absolute left-3 top-3 w-1.5 h-6 flex flex-col justify-between opacity-0 group-hover:opacity-30 transition-opacity">
@@ -502,8 +504,8 @@ const LibraryScreen = ({
                                                     
                                                     {/* Accessible Dropdown menu */}
                                                     {activeMenuStudySetId === folder.id && (
-                                                        <div className="absolute right-0 mt-1 w-52 bg-white dark:bg-gray-850 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 py-1.5 z-50 text-left animate-scale-up" onClick={e => e.stopPropagation()}>
-                                                            <div className="px-3 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-gray-750">
+                                                        <div className="absolute right-0 mt-1 w-52 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 py-1.5 z-50 text-left animate-scale-up" onClick={e => e.stopPropagation()}>
+                                                            <div className="px-3 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-gray-700">
                                                                 Di chuyển học phần
                                                             </div>
                                                             {folder.parentId && (
@@ -532,6 +534,17 @@ const LibraryScreen = ({
                                                     )}
                                                 </div>
                                             )}
+
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    navigate(`/vocab/edit-set/${folder.id}`);
+                                                }}
+                                                className="p-1.5 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-gray-400 hover:text-indigo-500 transition-colors"
+                                                title="Thêm từ vựng nhanh vào học phần này"
+                                            >
+                                                <Plus className="w-4 h-4" />
+                                            </button>
 
                                             {onDeleteFolder && (
                                                 <button
@@ -583,7 +596,7 @@ const LibraryScreen = ({
                             onClick={onNavigateToAdd}
                             className="bg-transparent dark:bg-transparent rounded-3xl border-2 border-dashed border-gray-300 dark:border-gray-700 p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:border-gray-400 dark:hover:border-gray-600 transition-all min-h-[190px] group"
                         >
-                            <div className="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-850 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                            <div className="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-700 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                                 <Plus className="w-5 h-5 text-gray-500" />
                             </div>
                             <h3 className="font-bold text-gray-700 dark:text-gray-300 text-sm mb-0.5">Tạo học phần</h3>
@@ -595,7 +608,7 @@ const LibraryScreen = ({
 
                     {/* Empty State */}
                     {filteredStudySets.length === 0 && (!activeParentFolderId ? unfiledCount === 0 : true) && (
-                        <div className="py-16 flex flex-col items-center justify-center text-center bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-750 animate-fade-in">
+                        <div className="py-16 flex flex-col items-center justify-center text-center bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 animate-fade-in">
                             <div className="w-14 h-14 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mb-4">
                                 <Library className="w-7 h-7 text-gray-400" />
                             </div>

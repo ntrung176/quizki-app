@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { 
     Sparkles, Upload, Image as ImageIcon, FileText, 
     X, Play, StopCircle, Loader2, CheckCircle, 
-    AlertTriangle, HelpCircle 
+    AlertTriangle, HelpCircle, Camera 
 } from 'lucide-react';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
@@ -34,6 +34,7 @@ const BatchAiModal = ({
     
     const isCancelledRef = useRef(false);
     const fileInputRef = useRef(null);
+    const cameraInputRef = useRef(null);
 
     // Reset state on open/close
     useEffect(() => {
@@ -273,20 +274,24 @@ const BatchAiModal = ({
                 onClick={e => e.stopPropagation()}
             >
                 {/* Header */}
-                <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-700 bg-gradient-to-r from-indigo-50/50 to-purple-50/55 dark:from-slate-850 dark:to-slate-850">
+                <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-700 bg-gradient-to-r from-indigo-50/50 to-purple-50/55 dark:from-slate-900 dark:to-slate-900">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
-                            <Sparkles className="w-5 h-5 animate-pulse" />
+                            {activeTab === 'image' ? <ImageIcon className="w-5 h-5" /> : <Sparkles className="w-5 h-5 animate-pulse" />}
                         </div>
                         <div>
-                            <h3 className="font-bold text-slate-800 dark:text-white text-lg">Tạo bằng AI hàng loạt</h3>
-                            <p className="text-xs text-slate-500 dark:text-slate-400">Tạo nhiều thẻ từ vựng đầy đủ thông tin cùng lúc</p>
+                            <h3 className="font-bold text-slate-800 dark:text-white text-lg">
+                                {activeTab === 'image' ? 'Quét từ vựng từ ảnh chụp' : 'Tạo bằng AI hàng loạt'}
+                            </h3>
+                            <p className="text-xs text-slate-500 dark:text-slate-400">
+                                {activeTab === 'image' ? 'Trích xuất từ vựng tiếng Nhật từ hình ảnh tài liệu' : 'Tạo nhiều thẻ từ vựng đầy đủ thông tin cùng lúc'}
+                            </p>
                         </div>
                     </div>
                     {(!isGenerating && !isOcrLoading) && (
                         <button 
                             onClick={onClose} 
-                            className="p-2 text-slate-400 hover:text-slate-655 dark:hover:text-slate-200 rounded-full hover:bg-slate-100 dark:hover:bg-slate-750 transition-colors"
+                            className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
                         >
                             <X className="w-5 h-5" />
                         </button>
@@ -333,7 +338,7 @@ const BatchAiModal = ({
                             {/* Real-time word log */}
                             <div className="space-y-2 max-h-[160px] overflow-y-auto pr-1">
                                 {processedWords.map((item, idx) => (
-                                    <div key={idx} className="flex items-center justify-between text-xs px-3 py-2 bg-slate-50 dark:bg-slate-750/30 rounded-lg animate-fade-in">
+                                    <div key={idx} className="flex items-center justify-between text-xs px-3 py-2 bg-slate-50 dark:bg-slate-700/30 rounded-lg animate-fade-in">
                                         <span className="font-semibold text-slate-700 dark:text-slate-300 font-mono">{item.word}</span>
                                         {item.status === 'success' ? (
                                             <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
@@ -354,29 +359,6 @@ const BatchAiModal = ({
                         </div>
                     ) : (
                         <>
-                            {/* Tabs Header */}
-                            <div className="flex rounded-xl bg-slate-105 dark:bg-slate-750 p-1 mb-5">
-                                <button
-                                    onClick={() => !isOcrLoading && setActiveTab('text')}
-                                    className={`flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-sm font-bold transition-all ${activeTab === 'text'
-                                        ? 'bg-white dark:bg-slate-600 text-indigo-650 dark:text-white shadow-sm'
-                                        : 'text-slate-500 hover:text-slate-705 dark:text-slate-400 dark:hover:text-slate-200'
-                                    }`}
-                                >
-                                    <FileText className="w-4 h-4" />
-                                    Nhập danh sách chữ
-                                </button>
-                                <button
-                                    onClick={() => !isOcrLoading && setActiveTab('image')}
-                                    className={`flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-sm font-bold transition-all ${activeTab === 'image'
-                                        ? 'bg-white dark:bg-slate-600 text-indigo-650 dark:text-white shadow-sm'
-                                        : 'text-slate-500 hover:text-slate-705 dark:text-slate-400 dark:hover:text-slate-200'
-                                    }`}
-                                >
-                                    <ImageIcon className="w-4 h-4" />
-                                    Quét từ ảnh chụp
-                                </button>
-                            </div>
 
                             {/* Tab 1: Text List Input */}
                             {activeTab === 'text' && (
@@ -404,7 +386,7 @@ const BatchAiModal = ({
                                             Mỗi từ vựng được tạo sẽ tiêu tốn <strong>1 lượt AI</strong>. Hệ thống sẽ tự động tra cứu từ điển và dùng AI để điền đầy đủ các thông tin: phiên âm, từ loại, cấp độ JLPT, âm Hán Việt, câu ví dụ kèm dịch nghĩa,...
                                         </p>
                                         {aiCreditsRemaining !== undefined && (
-                                            <p className="font-bold mt-1 text-slate-650 dark:text-slate-350">
+                                            <p className="font-bold mt-1 text-slate-600 dark:text-slate-300">
                                                 Lượt AI còn lại của bạn: <span className="text-emerald-600 dark:text-emerald-400 text-sm font-black">{aiCreditsRemaining}</span> lượt.
                                             </p>
                                         )}
@@ -417,7 +399,7 @@ const BatchAiModal = ({
                                 <div className="space-y-4">
                                     {isOcrLoading ? (
                                         <div className="border-2 border-dashed border-indigo-200 dark:border-indigo-800 rounded-2xl p-10 text-center bg-slate-50 dark:bg-slate-900/30">
-                                            <Loader2 className="w-10 h-10 animate-spin mx-auto text-indigo-650 mb-3" />
+                                            <Loader2 className="w-10 h-10 animate-spin mx-auto text-indigo-600 mb-3" />
                                             <p className="text-sm font-bold text-slate-700 dark:text-slate-300">Đang phân tích chữ trong hình ảnh...</p>
                                             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Quá trình này có thể mất vài giây. Vui lòng chờ.</p>
                                         </div>
@@ -434,7 +416,7 @@ const BatchAiModal = ({
                                             </div>
                                             <button
                                                 onClick={handleStartOcr}
-                                                className="w-full py-3 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-650 hover:to-purple-755 text-white text-sm font-bold rounded-xl shadow-md shadow-indigo-200 dark:shadow-none hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                                                className="w-full py-3 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white text-sm font-bold rounded-xl shadow-md shadow-indigo-200 dark:shadow-none hover:shadow-lg transition-all flex items-center justify-center gap-2"
                                             >
                                                 <Sparkles className="w-4 h-4" />
                                                 Bắt đầu quét & trích xuất từ ảnh
@@ -444,21 +426,48 @@ const BatchAiModal = ({
                                         <div 
                                             onDragOver={handleDragOver}
                                             onDrop={handleDrop}
-                                            onClick={triggerFileSelect}
-                                            className="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500/50 rounded-2xl p-8 text-center cursor-pointer bg-slate-50 hover:bg-indigo-50/10 dark:bg-slate-900/20 transition-all group"
+                                            className="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-indigo-400 rounded-2xl p-6 text-center bg-slate-50 dark:bg-slate-900/20 transition-all"
                                         >
-                                            <Upload className="w-10 h-10 mx-auto text-slate-400 dark:text-slate-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 mb-3 transition-colors" />
-                                            <p className="text-sm font-bold text-slate-700 dark:text-slate-300 group-hover:text-indigo-650 dark:group-hover:text-indigo-400 transition-colors">
-                                                Kéo thả ảnh vào đây hoặc bấm để chọn ảnh
+                                            <Upload className="w-8 h-8 mx-auto text-slate-400 dark:text-slate-500 mb-3" />
+                                            <p className="text-sm font-bold text-slate-700 dark:text-slate-300">
+                                                Kéo thả ảnh chụp tài liệu vào đây
                                             </p>
-                                            <p className="text-xs text-slate-505 dark:text-slate-450 mt-1">
-                                                Hỗ trợ JPG, PNG từ sách giáo khoa, ghi chép hoặc màn hình
+                                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 mb-4">
+                                                Hỗ trợ các file định dạng JPG, PNG
                                             </p>
+                                            
+                                            <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-sm mx-auto">
+                                                <button
+                                                    type="button"
+                                                    onClick={() => cameraInputRef.current?.click()}
+                                                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white text-xs font-bold rounded-xl shadow-sm hover:shadow-md transition-all"
+                                                >
+                                                    <Camera className="w-4 h-4" />
+                                                    Chụp ảnh bằng Camera
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => fileInputRef.current?.click()}
+                                                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/60 text-xs font-bold rounded-xl shadow-sm transition-all"
+                                                >
+                                                    <Upload className="w-4 h-4" />
+                                                    Chọn từ thiết bị
+                                                </button>
+                                            </div>
+
                                             <input
                                                 type="file"
                                                 ref={fileInputRef}
                                                 onChange={handleFileSelect}
                                                 accept="image/*"
+                                                className="hidden"
+                                            />
+                                            <input
+                                                type="file"
+                                                ref={cameraInputRef}
+                                                onChange={handleFileSelect}
+                                                accept="image/*"
+                                                capture="environment"
                                                 className="hidden"
                                             />
                                         </div>
@@ -482,11 +491,11 @@ const BatchAiModal = ({
 
                 {/* Footer Controls */}
                 {!isGenerating && (
-                    <div className="flex items-center justify-between p-5 border-t border-slate-100 dark:border-slate-750 bg-slate-50/50 dark:bg-slate-850/50">
+                    <div className="flex items-center justify-between p-5 border-t border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
                         <button
                             onClick={onClose}
                             disabled={isOcrLoading}
-                            className="px-4 py-2.5 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 text-sm font-bold rounded-xl hover:bg-slate-100 dark:hover:bg-slate-850 transition-all disabled:opacity-50"
+                            className="px-4 py-2.5 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 text-sm font-bold rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all disabled:opacity-50"
                         >
                             Hủy bỏ
                         </button>
@@ -494,7 +503,7 @@ const BatchAiModal = ({
                             <button
                                 onClick={handleStartGeneration}
                                 disabled={isOcrLoading || !textInput.trim()}
-                                className="px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-650 hover:to-purple-755 disabled:from-slate-350 disabled:to-slate-350 dark:disabled:from-slate-700 dark:disabled:to-slate-700 text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 disabled:shadow-none"
+                                className="px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 disabled:from-slate-300 disabled:to-slate-300 dark:disabled:from-slate-700 dark:disabled:to-slate-700 text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 disabled:shadow-none"
                             >
                                 <Play className="w-4 h-4 fill-current" />
                                 Bắt đầu tạo bằng AI

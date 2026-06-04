@@ -139,25 +139,7 @@ const KanjiStudyScreen = () => {
         return true;
     };
 
-    const getChapterInfo = (day) => {
-        const chapterNum = Math.ceil(day / 3);
-        const chapterTitles = {
-            1: 'Khởi đầu & Số đếm',
-            2: 'Thời gian & Phương hướng',
-            3: 'Thiên nhiên & Đời sống',
-            4: 'Đời sống & Xã hội',
-            5: 'Giao thông & Di chuyển',
-            6: 'Nhà cửa & Sinh hoạt',
-            7: 'Học tập & Công việc',
-            8: 'Thể thao & Giải trí',
-            9: 'Cơ thể & Sức khỏe',
-            10: 'Môi trường & Khoa học',
-        };
-        return {
-            num: chapterNum,
-            title: chapterTitles[chapterNum] || 'Nâng cao & Tổng hợp'
-        };
-    };
+
 
     const config = JLPT_CONFIG[selectedLevel];
     const progressRadius = 54;
@@ -232,7 +214,6 @@ const KanjiStudyScreen = () => {
                 {/* 2. Horizontal Level Progression Tabs */}
                 <div className="bg-slate-50 dark:bg-slate-900/50 p-1.5 rounded-2xl flex gap-1.5 overflow-x-auto select-none border border-slate-100 dark:border-slate-800/40">
                     {Object.entries(JLPT_CONFIG).map(([level, cfg]) => {
-                        const levelData = kanjiList.filter(k => k.level === level);
                         const isSelected = selectedLevel === level;
                         const isCompleted = isLevelCompleted(level);
 
@@ -264,45 +245,40 @@ const KanjiStudyScreen = () => {
                     })}
                 </div>
 
-                {/* 3. Day Navigation & Active Chapter detailed card */}
+                {/* 3. Day Navigation & Progress Card */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                    {/* Left 2 Cols: Active Chapter details card */}
-                    {(() => {
-                        const chapter = getChapterInfo(currentDay);
-                        return (
-                            <div className="md:col-span-2 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-6 shadow-sm flex flex-col justify-between space-y-4">
-                                <div className="space-y-2">
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-[10px] font-extrabold text-indigo-655 dark:text-sky-400 uppercase tracking-widest">
-                                            Chương đang học
-                                        </span>
-                                        <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                                            {stats.daysProgress} Ngày học
-                                        </span>
-                                    </div>
-                                    <h3 className="text-xl font-bold text-slate-800 dark:text-white">
-                                        Chương {chapter.num}: {chapter.title}
-                                    </h3>
-                                    <p className="text-xs text-slate-450 dark:text-slate-500 leading-relaxed font-medium">
-                                        Nắm vững các chữ Kanji thuộc chủ đề này để mở khóa bài học tiếp theo trong chương trình {selectedLevel}.
-                                    </p>
-                                </div>
-
-                                <div className="space-y-2">
-                                    <div className="flex items-center justify-between text-xs font-bold text-slate-650 dark:text-slate-350">
-                                        <span>Tiến độ ngày {currentDay}</span>
-                                        <span>{isDayCompleted(selectedLevel, currentDay) ? 'Đã hoàn thành' : 'Chưa hoàn thành'}</span>
-                                    </div>
-                                    <div className="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                                        <div
-                                            className={`h-full bg-gradient-to-r ${config.gradient} rounded-full transition-all duration-500`}
-                                            style={{ width: isDayCompleted(selectedLevel, currentDay) ? '100%' : '20%' }}
-                                        />
-                                    </div>
-                                </div>
+                    {/* Left 2 Cols: Progress / Stats Card */}
+                    <div className="md:col-span-2 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-6 shadow-sm flex flex-col justify-between space-y-4">
+                        <div className="space-y-2">
+                            <div className="flex items-center justify-between">
+                                <span className="text-[10px] font-extrabold text-indigo-600 dark:text-cyan-400 uppercase tracking-widest">
+                                    Tiến trình học tập
+                                </span>
+                                <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                                    {stats.daysProgress} Ngày học
+                                </span>
                             </div>
-                        );
-                    })()}
+                            <h3 className="text-xl font-bold text-slate-800 dark:text-white">
+                                Bạn đã hoàn thành {stats.daysProgress} ngày học
+                            </h3>
+                            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+                                Hãy tiếp tục duy trì thói quen học tập hàng ngày để nắm vững toàn bộ {stats.totalKanji} chữ Kanji cấp độ {selectedLevel}.
+                            </p>
+                        </div>
+
+                        <div className="space-y-2">
+                            <div className="flex items-center justify-between text-xs font-bold text-slate-600 dark:text-slate-350">
+                                <span>Tiến độ ngày {currentDay}</span>
+                                <span>{isDayCompleted(selectedLevel, currentDay) ? 'Đã hoàn thành' : 'Chưa hoàn thành'}</span>
+                            </div>
+                            <div className="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                                <div
+                                    className={`h-full bg-gradient-to-r ${config.gradient} rounded-full transition-all duration-500`}
+                                    style={{ width: isDayCompleted(selectedLevel, currentDay) ? '100%' : '20%' }}
+                                />
+                            </div>
+                        </div>
+                    </div>
 
                     {/* Right 1 Col: Day Selector Card */}
                     <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
@@ -333,7 +309,7 @@ const KanjiStudyScreen = () => {
                                 {currentDay}
                             </div>
                             <span className="text-sm font-bold text-slate-800 dark:text-white mt-3">Ngày {currentDay}</span>
-                            <span className="text-xs text-slate-450 dark:text-slate-500 mt-0.5">JLPT {selectedLevel}</span>
+                            <span className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-bold">JLPT {selectedLevel}</span>
                         </div>
 
                         {/* Progress display */}
@@ -352,7 +328,7 @@ const KanjiStudyScreen = () => {
                             </div>
                             <div>
                                 <h3 className="text-sm font-bold text-slate-800 dark:text-white">Kanji ngày {currentDay}</h3>
-                                <p className="text-xs text-slate-455 dark:text-slate-500 font-medium">Danh sách {todayKanji.length} chữ của bài học</p>
+                                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Danh sách {todayKanji.length} chữ của bài học</p>
                             </div>
                         </div>
                         <button
@@ -383,8 +359,8 @@ const KanjiStudyScreen = () => {
                                                 {kanji.character}
                                             </div>
                                             <div>
-                                                <h4 className="text-sm font-extrabold text-indigo-650 dark:text-sky-400 uppercase tracking-widest">{meaningTip || '—'}</h4>
-                                                <p className="text-xs text-slate-450 dark:text-slate-500 font-bold truncate max-w-[180px] mt-0.5">{translation || '—'}</p>
+                                                <h4 className="text-sm font-extrabold text-indigo-600 dark:text-cyan-400 uppercase tracking-widest">{meaningTip || '—'}</h4>
+                                                <p className="text-xs text-slate-500 dark:text-slate-400 font-bold truncate max-w-[180px] mt-0.5">{translation || '—'}</p>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-2.5">

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Search, BookOpen, Languages, MessageSquare, Tag, Sparkles, ChevronDown, CreditCard, Trash2, GripVertical } from 'lucide-react';
 import { JLPT_LEVELS, POS_TYPES } from '../../config/constants';
 import { compressImage } from '../../utils/image';
-import ImageSearchModal from '../ui/ImageSearchModal';
+
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import { showToast } from '../../utils/toast';
@@ -26,7 +26,6 @@ export const CardEditorItem = ({
     frontInputRef
 }) => {
     const [showAdvanced, setShowAdvanced] = useState(false);
-    const [showImageSearch, setShowImageSearch] = useState(false);
     const [isGeneratingExample, setIsGeneratingExample] = useState(false);
 
     const handleImageChange = async (e) => {
@@ -74,13 +73,13 @@ export const CardEditorItem = ({
                 </div>
                 <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="border-b border-slate-100 dark:border-slate-700 pb-2">
-                        <p className={`text-lg font-bold ${card.front ? 'text-slate-800 dark:text-slate-150' : 'text-slate-400 dark:text-slate-500 italic'}`}>
+                        <p className={`text-lg font-bold ${card.front ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 italic'}`}>
                             {card.front || 'Thuật ngữ (Tiếng Nhật)'}
                         </p>
                         <p className="text-[10px] font-bold text-slate-400 mt-1 uppercase tracking-wider">THUẬT NGỮ</p>
                     </div>
                     <div className="border-b border-slate-100 dark:border-slate-700 pb-2">
-                        <p className={`text-lg font-bold ${card.back ? 'text-slate-800 dark:text-slate-150' : 'text-slate-400 dark:text-slate-500 italic'}`}>
+                        <p className={`text-lg font-bold ${card.back ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 italic'}`}>
                             {card.back || 'Định nghĩa (Tiếng Việt)'}
                         </p>
                         <p className="text-[10px] font-bold text-slate-400 mt-1 uppercase tracking-wider">ĐỊNH NGHĨA</p>
@@ -105,12 +104,12 @@ export const CardEditorItem = ({
                     <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-bold text-sm">
                         {index + 1}
                     </div>
-                    <div className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-50 dark:bg-slate-900/65 rounded-lg border border-slate-100 dark:border-slate-850 text-slate-400 dark:text-slate-500 text-xs font-bold">
+                    <div className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-50 dark:bg-slate-900/65 rounded-lg border border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500 text-xs font-bold">
                         <Languages className="w-3.5 h-3.5" />
                         <span>JA-VI</span>
                     </div>
                     {aiCreditsRemaining !== undefined && (
-                        <div className="flex items-center gap-1 bg-indigo-50 dark:bg-indigo-900/25 px-2.5 py-1 rounded-lg border border-indigo-100 dark:border-indigo-850 text-xs text-indigo-600 dark:text-indigo-400" title="Số lượt AI còn lại">
+                        <div className="flex items-center gap-1 bg-indigo-50 dark:bg-indigo-900/25 px-2.5 py-1 rounded-lg border border-indigo-100 dark:border-indigo-800 text-xs text-indigo-600 dark:text-indigo-400" title="Số lượt AI còn lại">
                             <CreditCard className="w-3.5 h-3.5" />
                             <span className="font-bold">{aiCreditsRemaining}</span>
                         </div>
@@ -230,7 +229,7 @@ export const CardEditorItem = ({
                                         key={idx}
                                         onClick={(e) => { e.preventDefault(); handleGenerateExample(meaning); }}
                                         disabled={isGeneratingExample}
-                                        className="px-3 py-1.5 rounded-full bg-white dark:bg-slate-850 text-indigo-600 dark:text-indigo-400 text-xs font-semibold hover:bg-indigo-50 dark:hover:bg-slate-700 transition-colors disabled:opacity-50 flex items-center gap-1.5 border border-indigo-100 dark:border-indigo-800/30"
+                                        className="px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 text-xs font-semibold hover:bg-indigo-50 dark:hover:bg-slate-700 transition-colors disabled:opacity-50 flex items-center gap-1.5 border border-indigo-100 dark:border-indigo-800/30"
                                     >
                                         {isGeneratingExample ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Wand2 className="w-3.5 h-3.5" />}
                                         {meaning}
@@ -288,13 +287,13 @@ export const CardEditorItem = ({
                                         </p>
                                         <input id={`image-upload-${card.id}`} type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
                                     </label>
-                                    <button
-                                        type="button"
-                                        onClick={() => setShowImageSearch(true)}
-                                        className="w-full flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 transition-colors border border-indigo-100 dark:border-indigo-800/30"
-                                    >
-                                        <Search className="w-3.5 h-3.5" /> Tìm ảnh online
-                                    </button>
+                                    <input
+                                        type="text"
+                                        value={card.imageBase64 && card.imageBase64.startsWith('http') ? card.imageBase64 : ''}
+                                        onChange={(e) => onUpdate(card.id, 'imageBase64', e.target.value)}
+                                        placeholder="Hoặc dán URL hình ảnh..."
+                                        className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-500 rounded-xl text-xs text-slate-700 dark:text-slate-200 outline-none transition-colors"
+                                    />
                                 </div>
                                 {card.imageBase64 && (
                                     <div className="relative w-24 h-24 rounded-xl overflow-hidden shadow-sm flex-shrink-0 group">
@@ -309,13 +308,7 @@ export const CardEditorItem = ({
                     )}
                 </div>
 
-                <ImageSearchModal
-                    isOpen={showImageSearch}
-                    onClose={() => setShowImageSearch(false)}
-                    onSelectImage={(base64) => onUpdate(card.id, 'imageBase64', base64)}
-                    defaultQuery={card.front ? card.front.split('（')[0].split('(')[0].trim() : ''}
-                    meaningVi={card.back || ''}
-                />
+
             </div>
         </div>
     );
@@ -544,7 +537,7 @@ const AddCardForm = ({
                         <button
                             type="button"
                             onClick={onBack}
-                            className="px-6 py-2.5 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-350 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
+                            className="px-6 py-2.5 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
                         >
                             Hủy
                         </button>
@@ -572,11 +565,11 @@ const AddCardForm = ({
                                 data-tour-id="STUDY_SET_TITLE"
                                 onChange={(e) => setTitle(e.target.value)}
                                 placeholder="VD: Từ vựng N3 bài 1..."
-                                className="w-full px-0 py-2.5 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 text-2xl font-bold text-slate-850 dark:text-white outline-none placeholder-slate-400 transition-colors"
+                                className="w-full px-0 py-2.5 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 text-2xl font-bold text-slate-800 dark:text-white outline-none placeholder-slate-400 transition-colors"
                             />
                         </div>
                         <div>
-                            <label className="block text-[11px] font-bold text-slate-455 dark:text-slate-500 uppercase tracking-wider mb-1.5">THÊM MÔ TẢ</label>
+                            <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">THÊM MÔ TẢ</label>
                             <input
                                 type="text"
                                 value={description}
@@ -628,7 +621,7 @@ const AddCardForm = ({
                                     setIsBatchModalOpen(true);
                                 }}
                                 data-tour-id="AI_BATCH_BTN"
-                                className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-indigo-650 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 dark:text-indigo-400 dark:bg-slate-800 dark:border-indigo-900/50 dark:hover:bg-slate-750 transition-all shadow-sm"
+                                className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-indigo-650 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 dark:text-indigo-400 dark:bg-slate-800 dark:border-indigo-900/50 dark:hover:bg-slate-700 transition-all shadow-sm"
                             >
                                 <Sparkles className="w-4 h-4 text-indigo-500" />
                                 Tạo bằng AI hàng loạt
@@ -639,7 +632,7 @@ const AddCardForm = ({
                                     setBatchModalInitialTab('image');
                                     setIsBatchModalOpen(true);
                                 }}
-                                className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-purple-650 bg-purple-50 hover:bg-purple-100 border border-purple-100 dark:text-purple-400 dark:bg-slate-800 dark:border-purple-900/50 dark:hover:bg-slate-750 transition-all shadow-sm"
+                                className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-purple-650 bg-purple-50 hover:bg-purple-100 border border-purple-100 dark:text-purple-400 dark:bg-slate-800 dark:border-purple-900/50 dark:hover:bg-slate-700 transition-all shadow-sm"
                             >
                                 <ImageIcon className="w-4 h-4 text-purple-500" />
                                 Thêm từ vựng theo ảnh
@@ -685,7 +678,7 @@ const AddCardForm = ({
                     <button
                         type="button"
                         onClick={onBack}
-                        className="px-6 py-2.5 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-350 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
+                        className="px-6 py-2.5 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
                     >
                         Hủy
                     </button>

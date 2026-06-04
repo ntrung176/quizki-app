@@ -790,25 +790,7 @@ const KanjiLessonScreen = () => {
         );
     }
 
-    const getChapterInfo = (d) => {
-        const chapterNum = Math.ceil(d / 3);
-        const chapterTitles = {
-            1: 'Khởi đầu & Số đếm',
-            2: 'Thời gian & Phương hướng',
-            3: 'Thiên nhiên & Đời sống',
-            4: 'Đời sống & Xã hội',
-            5: 'Giao thông & Di chuyển',
-            6: 'Nhà cửa & Sinh hoạt',
-            7: 'Học tập & Công việc',
-            8: 'Thể thao & Giải trí',
-            9: 'Cơ thể & Sức khỏe',
-            10: 'Môi trường & Khoa học',
-        };
-        return {
-            num: chapterNum,
-            title: chapterTitles[chapterNum] || 'Nâng cao & Tổng hợp'
-        };
-    };
+
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
@@ -842,7 +824,7 @@ const KanjiLessonScreen = () => {
                             Lộ trình {level}
                         </button>
                         <span>/</span>
-                        <span>Chương {getChapterInfo(day).num}: {getChapterInfo(day).title}</span>
+                        <span>Ngày {day}</span>
                         <span>/</span>
                         <span className="text-gray-600 dark:text-gray-200">Chữ Kanji thứ {(day - 1) * 10 + currentIndex + 1}</span>
                     </div>

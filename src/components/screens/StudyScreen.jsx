@@ -61,23 +61,6 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio }) => {
             <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 text-center border border-white/60 dark:border-slate-700/60 shadow-lg min-h-[140px] flex flex-col items-center justify-center">
                 <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-3">Nghĩa tiếng Việt</p>
                 <p className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">{card.back}</p>
-                {card.example && (
-                    <div className="mt-3 space-y-3 text-left w-full max-w-md mx-auto">
-                        {card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
-                            const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
-                            return (
-                                <div key={idx} className="border-l-2 border-indigo-500/30 pl-3">
-                                    <div className="text-sm text-gray-700 dark:text-gray-300 font-japanese leading-relaxed">
-                                        <FuriganaText text={ex} />
-                                    </div>
-                                    {meaning && (
-                                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 font-sans">{meaning}</p>
-                                    )}
-                                </div>
-                            );
-                        })}
-                    </div>
-                )}
             </div>
 
             {/* Options */}
@@ -131,6 +114,8 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio }) => {
 const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio }) => {
     const [input, setInput] = useState('');
     const [feedback, setFeedback] = useState(null); // null | 'correct' | 'incorrect'
+    const [needsRetype, setNeedsRetype] = useState(false);
+    const [lastWrongInput, setLastWrongInput] = useState('');
     const inputRef = useRef(null);
     const correct = card.frontWithFurigana || card.front;
     const correctFront = card.front;
@@ -142,18 +127,43 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio }) => {
     const check = () => {
         if (!input.trim()) return;
         const isCorrect = normalize(input) === normalize(correctFront) || normalize(input) === normalize(correct);
-        setFeedback(isCorrect ? 'correct' : 'incorrect');
         if (isCorrect) {
+            setFeedback('correct');
             playCorrectSound();
             setTimeout(() => {
                 speakJapanese(correctFront, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
             }, 500);
             setTimeout(() => onCorrect(), 1200);
         } else {
+            setFeedback('incorrect');
+            setNeedsRetype(true);
+            setLastWrongInput(input);
+            setInput('');
             playIncorrectSound();
             setTimeout(() => {
                 speakJapanese(correctFront, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
             }, 500);
+            setTimeout(() => {
+                inputRef.current?.focus();
+            }, 100);
+        }
+    };
+
+    const handleRetypeCheck = () => {
+        if (!input.trim()) return;
+        const isCorrect = normalize(input) === normalize(correctFront) || normalize(input) === normalize(correct);
+        if (isCorrect) {
+            setNeedsRetype(false);
+            setFeedback(null);
+            setInput('');
+            setLastWrongInput('');
+            onWrong();
+        } else {
+            setInput('');
+            playIncorrectSound();
+            setTimeout(() => {
+                inputRef.current?.focus();
+            }, 100);
         }
     };
 
@@ -174,16 +184,25 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio }) => {
                 type="text"
                 value={input}
                 onChange={e => setInput(e.target.value)}
-                onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); feedback ? (feedback === 'incorrect' ? onWrong() : null) : check(); } }}
-                disabled={!!feedback}
-                placeholder="Nhập từ vựng tiếng Nhật..."
+                onKeyDown={e => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        if (needsRetype) {
+                            handleRetypeCheck();
+                        } else if (!feedback) {
+                            check();
+                        }
+                    }
+                }}
+                disabled={feedback === 'correct'}
+                placeholder={needsRetype ? "Nhập lại đáp án đúng để tiếp tục..." : "Nhập từ vựng tiếng Nhật..."}
                 className={`w-full px-5 py-4 text-xl font-japanese font-bold rounded-xl border-2 outline-none transition-all shadow-sm
                     ${feedback === 'correct' ? 'border-emerald-400 bg-emerald-50/80 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300'
-                        : feedback === 'incorrect' ? 'border-red-400 bg-red-50/80 dark:bg-red-900/30 text-red-800 dark:text-red-300'
+                        : needsRetype ? 'border-red-400 bg-red-50/80 dark:bg-red-900/30 text-red-800 dark:text-red-300'
                             : 'border-gray-200/80 dark:border-slate-600/80 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:border-emerald-500 focus:bg-white dark:focus:bg-slate-800'}`}
             />
 
-            {!feedback && (
+            {!feedback && !needsRetype && (
                 <button
                     onClick={check}
                     disabled={!input.trim()}
@@ -199,16 +218,17 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio }) => {
                 </div>
             )}
 
-            {feedback === 'incorrect' && (
+            {needsRetype && (
                 <div className="space-y-3 animate-fade-in">
                     <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl">
-                        <p className="text-sm text-red-500 font-medium mb-1">Bạn nhập: <span className="font-bold">{input}</span></p>
-                        <p className="text-red-700 dark:text-red-300 font-bold">
+                        <p className="text-sm text-red-500 font-medium mb-1">Bạn nhập sai: <span className="font-bold">{lastWrongInput}</span></p>
+                        <p className="text-red-700 dark:text-red-300 font-bold mb-2">
                             Đáp án đúng: <span className="font-japanese text-lg"><FuriganaText text={correct} /></span>
                         </p>
+                        <p className="text-xs text-red-500/80 font-bold italic animate-pulse">Vui lòng gõ lại đáp án đúng ở trên để tiếp tục.</p>
                     </div>
-                    <button onClick={() => onWrong()} className="w-full py-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-all">
-                        Tiếp tục →
+                    <button onClick={handleRetypeCheck} disabled={!input.trim()} className="w-full py-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-all">
+                        Kiểm tra & Tiếp tục →
                     </button>
                 </div>
             )}
@@ -286,6 +306,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     // MC queue for current batch
     const [mcQueue, setMcQueue] = useState([]);
     const [mcIdx, setMcIdx] = useState(0);
+    const [mcWrong, setMcWrong] = useState([]);
 
     // Written queue for current batch (including wrong ones)
     const [writtenQueue, setWrittenQueue] = useState([]);
@@ -324,6 +345,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             setBatchPhase(saved.batchPhase || 'mc');
             setMcQueue(saved.mcQueue || []);
             setMcIdx(saved.mcIdx || 0);
+            setMcWrong(saved.mcWrong || []);
             setWrittenQueue(saved.writtenQueue || []);
             setWrittenIdx(saved.writtenIdx || 0);
             setWrittenWrong(saved.writtenWrong || []);
@@ -344,6 +366,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             setBatchPhase('mc');
             setMcQueue(shuffleArray([...b[0]]));
             setMcIdx(0);
+            setMcWrong([]);
             setWrittenQueue([]);
             setWrittenIdx(0);
             setWrittenWrong([]);
@@ -367,6 +390,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             batchPhase,
             mcQueue,
             mcIdx,
+            mcWrong,
             writtenQueue,
             writtenIdx,
             writtenWrong,
@@ -384,6 +408,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         batchPhase,
         mcQueue,
         mcIdx,
+        mcWrong,
         writtenQueue,
         writtenIdx,
         writtenWrong,
@@ -427,14 +452,20 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         }
         const nextIdx = mcIdx + 1;
         if (nextIdx >= mcQueue.length) {
-            setBatchPhase('written');
-            setWrittenQueue(shuffleArray([...currentBatch]));
-            setWrittenIdx(0);
-            setWrittenWrong([]);
+            if (mcWrong.length === 0) {
+                setBatchPhase('written');
+                setWrittenQueue(shuffleArray([...currentBatch]));
+                setWrittenIdx(0);
+                setWrittenWrong([]);
+            } else {
+                setMcQueue(shuffleArray([...mcWrong]));
+                setMcIdx(0);
+                setMcWrong([]);
+            }
         } else {
             setMcIdx(nextIdx);
         }
-    }, [mcIdx, mcQueue.length, currentBatch, onUpdateCard, mcQueue]);
+    }, [mcIdx, mcQueue, currentBatch, onUpdateCard, mcWrong]);
  
     const handleMCWrong = useCallback(() => {
         const cCard = mcQueue[mcIdx];
@@ -444,16 +475,26 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                 onUpdateCard(cCard.id, false, 'back', 'study_mc');
             }
         }
+        setMcWrong(prev => {
+            if (prev.some(c => c.id === cCard.id)) return prev;
+            return [...prev, cCard];
+        });
+ 
         const nextIdx = mcIdx + 1;
         if (nextIdx >= mcQueue.length) {
-            setBatchPhase('written');
-            setWrittenQueue(shuffleArray([...currentBatch]));
-            setWrittenIdx(0);
-            setWrittenWrong([]);
+            setMcWrong(prev => {
+                const updated = [...prev];
+                if (!updated.some(c => c.id === cCard.id)) {
+                    updated.push(cCard);
+                }
+                setMcQueue(shuffleArray(updated));
+                return [];
+            });
+            setMcIdx(0);
         } else {
             setMcIdx(nextIdx);
         }
-    }, [mcIdx, mcQueue.length, currentBatch, onUpdateCard, mcQueue]);
+    }, [mcIdx, mcQueue, onUpdateCard]);
  
     // ── Written handlers ─────────────────────────────────────────────────────
  
@@ -518,6 +559,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             setBatchPhase('mc');
             setMcQueue(shuffleArray([...nextBatch]));
             setMcIdx(0);
+            setMcWrong([]);
             setWrittenQueue([]);
             setWrittenIdx(0);
             setWrittenWrong([]);
@@ -542,6 +584,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             setBatchPhase('mc');
             setMcQueue(shuffleArray([...b[0]]));
             setMcIdx(0);
+            setMcWrong([]);
             setWrittenQueue([]);
             setWrittenIdx(0);
             setWrittenWrong([]);

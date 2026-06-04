@@ -920,7 +920,9 @@ const StudySetDetail = ({
                             </h3>
                             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
                                 Ôn tập {showMasteryModal.cards.length} từ ở trạng thái <span className="font-bold text-indigo-600 dark:text-indigo-400">
-                                    {showMasteryModal.status === 'not_learned' ? 'Chưa học' : showMasteryModal.status === 'learning' ? 'Đang học' : 'Đã nhớ'}
+                                    {showMasteryModal.status === 'not_learned' ? 'Chưa học' : 
+                                     showMasteryModal.status === 'learning' ? 'Đang học' : 
+                                     showMasteryModal.status === 'memorized' ? 'Đã nhớ' : 'Chưa học & Đang học'}
                                 </span>
                             </p>
                         </div>
