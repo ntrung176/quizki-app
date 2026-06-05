@@ -205,6 +205,97 @@ const getSampleJsonForSkill = (skillType) => {
             };
     }
 };
+
+const SAMPLE_FLAT_JSON = {
+    title: "JLPT N5 - Đề mẫu 1 (Dạng phẳng decimal)",
+    level: "N5",
+    timeLimit: 60,
+    isSkillTest: false,
+    sections: [
+        {
+            type: "reading",
+            title: "Đọc hiểu (読解)",
+            questions: [
+                {
+                    id: "1",
+                    passage: "<b>[Đoạn văn đọc hiểu]</b><br/>これは日本語の文章です。質問を読んで答えてください。",
+                    question: "Đọc đoạn văn sau và trả lời các câu hỏi phụ bên dưới."
+                },
+                {
+                    id: "1.1",
+                    question: "質問1：正しいものはどれですか？",
+                    options: ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"],
+                    correctAnswer: 0,
+                    explanation: "Giải thích lý do chọn đáp án A..."
+                },
+                {
+                    id: "1.2",
+                    question: "質問2：下線部はどういう意味ですか？",
+                    options: ["Ý nghĩa A", "Ý nghĩa B", "Ý nghĩa C", "Ý nghĩa D"],
+                    correctAnswer: 2,
+                    explanation: "Giải thích..."
+                }
+            ]
+        }
+    ]
+};
+
+const normalizeQuestions = (rawQuestions) => {
+    if (!Array.isArray(rawQuestions)) return [];
+    
+    const processed = [];
+    let currentParent = null;
+    
+    rawQuestions.forEach((q) => {
+        const idStr = String(q.id || q.number || '');
+        const isSub = idStr.includes('.') || 
+                      q.parentId !== undefined || 
+                      q.parentQuestionId !== undefined || 
+                      (q.question && /^(câu|question|q)?\s*\d+\.\d+/i.test(q.question.trim()));
+                      
+        const questionObj = {
+            question: q.question || '',
+            options: q.options || (q.subQuestions && q.subQuestions.length > 0 ? [] : ['', '', '', '']),
+            correctAnswer: q.correctAnswer ?? 0,
+            explanation: q.explanation || '',
+            audioUrl: q.audioUrl || '',
+            passage: q.passage || '',
+            imageUrl: q.imageUrl || '',
+            subQuestions: []
+        };
+        
+        if (isSub) {
+            const subQuestionObj = {
+                question: q.question || '',
+                options: q.options || ['', '', '', ''],
+                correctAnswer: q.correctAnswer ?? 0,
+                explanation: q.explanation || ''
+            };
+            
+            if (currentParent) {
+                currentParent.options = [];
+                currentParent.subQuestions.push(subQuestionObj);
+            } else {
+                processed.push(questionObj);
+            }
+        } else {
+            if (Array.isArray(q.subQuestions) && q.subQuestions.length > 0) {
+                questionObj.options = [];
+                questionObj.subQuestions = q.subQuestions.map(sq => ({
+                    question: sq.question || '',
+                    options: sq.options || ['', '', '', ''],
+                    correctAnswer: sq.correctAnswer ?? 0,
+                    explanation: sq.explanation || ''
+                }));
+            }
+            currentParent = questionObj;
+            processed.push(currentParent);
+        }
+    });
+    
+    return processed;
+};
+
 const JLPTAdminScreen = ({ userId }) => {
     const location = useLocation();
     const [tests, setTests] = useState([]);
@@ -372,21 +463,7 @@ const JLPTAdminScreen = ({ userId }) => {
                     sections: parsed.sections.map(s => ({
                         type: isSkill ? skillType : (s.type || 'vocabulary'),
                         title: isSkill ? (SKILL_LABELS[skillType] || s.title) : (s.title || ''),
-                        questions: (s.questions || []).map(q => ({
-                            question: q.question || '',
-                            options: q.options || (q.subQuestions && q.subQuestions.length > 0 ? [] : ['', '', '', '']),
-                            correctAnswer: q.correctAnswer ?? 0,
-                            explanation: q.explanation || '',
-                            audioUrl: q.audioUrl || '',
-                            passage: q.passage || '',
-                            imageUrl: q.imageUrl || '',
-                            subQuestions: (q.subQuestions || []).map(sq => ({
-                                question: sq.question || '',
-                                options: sq.options || ['', '', '', ''],
-                                correctAnswer: sq.correctAnswer ?? 0,
-                                explanation: sq.explanation || ''
-                            }))
-                        }))
+                        questions: normalizeQuestions(s.questions)
                     }))
                 });
             } else {
@@ -395,21 +472,7 @@ const JLPTAdminScreen = ({ userId }) => {
                 parsed.sections.forEach(parsedSec => {
                     const parsedType = isSkill ? skillType : (parsedSec.type || 'vocabulary');
                     const parsedTitle = isSkill ? (SKILL_LABELS[skillType] || parsedSec.title) : (parsedSec.title || '');
-                    const newQuestions = (parsedSec.questions || []).map(q => ({
-                        question: q.question || '',
-                        options: q.options || (q.subQuestions && q.subQuestions.length > 0 ? [] : ['', '', '', '']),
-                        correctAnswer: q.correctAnswer ?? 0,
-                        explanation: q.explanation || '',
-                        audioUrl: q.audioUrl || '',
-                        passage: q.passage || '',
-                        imageUrl: q.imageUrl || '',
-                        subQuestions: (q.subQuestions || []).map(sq => ({
-                            question: sq.question || '',
-                            options: sq.options || ['', '', '', ''],
-                            correctAnswer: sq.correctAnswer ?? 0,
-                            explanation: sq.explanation || ''
-                        }))
-                    }));
+                    const newQuestions = normalizeQuestions(parsedSec.questions);
                     const existingSecIdx = currentSections.findIndex(s => s.type === parsedType);
                     if (existingSecIdx !== -1) {
                         // Clear the single initial empty placeholder question if it's the only one
@@ -1139,35 +1202,62 @@ const JLPTAdminScreen = ({ userId }) => {
                                     : '💡 Gợi ý: Hữu ích khi đề thi quá dài. Bạn có thể chia đề thi thành nhiều file JSON nhỏ để nhập bổ sung từng phần.'}
                             </p>
                         </div>
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                            <span className="text-[11px] text-slate-400 font-medium">Mẫu cấu trúc tương ứng ({importType === 'full' ? 'Đề đầy đủ' : SKILL_LABELS[importSkillType]}):</span>
-                            <div className="flex gap-2">
-                                <button
-                                    type="button"
-                                    onClick={() => {
-                                        const sample = importType === 'full' 
-                                            ? SAMPLE_FULL_JSON 
-                                            : getSampleJsonForSkill(importSkillType);
-                                        navigator.clipboard.writeText(JSON.stringify(sample, null, 2));
-                                        notify('success', 'Đã copy JSON mẫu vào Clipboard!');
-                                    }}
-                                    className="px-2.5 py-1.5 text-[10px] font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-300 rounded-xl transition flex items-center gap-1.5 cursor-pointer select-none"
-                                >
-                                    <Copy className="w-3.5 h-3.5" /> Sao chép JSON mẫu
-                                </button>
-                                <button
-                                    type="button"
-                                    onClick={() => {
-                                        const sample = importType === 'full' 
-                                            ? SAMPLE_FULL_JSON 
-                                            : getSampleJsonForSkill(importSkillType);
-                                        setJsonInput(JSON.stringify(sample, null, 2));
-                                        notify('success', 'Đã nạp JSON mẫu vào khung soạn thảo!');
-                                    }}
-                                    className="px-2.5 py-1.5 text-[10px] font-bold bg-sky-50 dark:bg-sky-950/30 text-[#2E5B70] dark:text-sky-400 border border-sky-100 dark:border-sky-900/50 hover:bg-sky-100 dark:hover:bg-sky-900/30 rounded-xl transition cursor-pointer select-none"
-                                >
-                                    Nạp JSON mẫu vào ô nhập
-                                </button>
+                        <div className="flex flex-col gap-3 p-3 bg-slate-50 dark:bg-slate-900/30 rounded-2xl border border-slate-100 dark:border-slate-800">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-150 dark:border-slate-800/80 pb-2">
+                                <span className="text-[11px] text-slate-500 font-bold">Cấu trúc Lồng nhau (Nested JSON):</span>
+                                <div className="flex gap-2">
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            const sample = importType === 'full' 
+                                                ? SAMPLE_FULL_JSON 
+                                                : getSampleJsonForSkill(importSkillType);
+                                            navigator.clipboard.writeText(JSON.stringify(sample, null, 2));
+                                            notify('success', 'Đã copy JSON mẫu lồng nhau vào Clipboard!');
+                                        }}
+                                        className="px-2.5 py-1.5 text-[10px] font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-650 dark:text-slate-300 rounded-xl transition flex items-center gap-1.5 cursor-pointer select-none"
+                                    >
+                                        <Copy className="w-3.5 h-3.5" /> Sao chép mẫu
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            const sample = importType === 'full' 
+                                                ? SAMPLE_FULL_JSON 
+                                                : getSampleJsonForSkill(importSkillType);
+                                            setJsonInput(JSON.stringify(sample, null, 2));
+                                            notify('success', 'Đã nạp JSON mẫu lồng nhau!');
+                                        }}
+                                        className="px-2.5 py-1.5 text-[10px] font-bold bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 rounded-xl transition cursor-pointer select-none"
+                                    >
+                                        Nạp vào ô nhập
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1">
+                                <span className="text-[11px] text-slate-500 font-bold">Cấu trúc Dạng phẳng (Flat Decimal 1.1, 1.2):</span>
+                                <div className="flex gap-2">
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(JSON.stringify(SAMPLE_FLAT_JSON, null, 2));
+                                            notify('success', 'Đã copy JSON mẫu dạng phẳng vào Clipboard!');
+                                        }}
+                                        className="px-2.5 py-1.5 text-[10px] font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-650 dark:text-slate-300 rounded-xl transition flex items-center gap-1.5 cursor-pointer select-none"
+                                    >
+                                        <Copy className="w-3.5 h-3.5" /> Sao chép mẫu
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            setJsonInput(JSON.stringify(SAMPLE_FLAT_JSON, null, 2));
+                                            notify('success', 'Đã nạp JSON mẫu dạng phẳng!');
+                                        }}
+                                        className="px-2.5 py-1.5 text-[10px] font-bold bg-sky-50 dark:bg-sky-950/30 text-[#2E5B70] dark:text-sky-400 border border-sky-100 dark:border-sky-900/50 hover:bg-sky-100 dark:hover:bg-sky-900/30 rounded-xl transition cursor-pointer select-none"
+                                    >
+                                        Nạp vào ô nhập
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <textarea value={jsonInput} onChange={e => setJsonInput(e.target.value)}
