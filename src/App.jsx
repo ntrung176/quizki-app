@@ -234,32 +234,38 @@ const App = () => {
         const overrides = {};
         if (tier === 'free') {
             overrides.isPremiumUnlocked = false;
+            overrides.unlockedSpecializedPackages = [];
             overrides.aiCreditsRemaining = rawProfile.simulatedCredits !== undefined && rawProfile.simulatedCredits !== null 
                 ? rawProfile.simulatedCredits 
                 : 50;
         } else if (tier === 'premium_unlock') {
             overrides.isPremiumUnlocked = true;
+            overrides.unlockedSpecializedPackages = ['premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'];
             overrides.aiCreditsRemaining = rawProfile.simulatedCredits !== undefined && rawProfile.simulatedCredits !== null 
                 ? rawProfile.simulatedCredits 
                 : 200;
         } else if (tier === 'ai_basic_annual') {
             overrides.isPremiumUnlocked = false;
+            overrides.unlockedSpecializedPackages = [];
             overrides.aiCreditsRemaining = rawProfile.simulatedCredits !== undefined && rawProfile.simulatedCredits !== null 
                 ? rawProfile.simulatedCredits 
                 : 2000;
         } else if (tier === 'ai_pro_annual') {
             overrides.isPremiumUnlocked = false;
+            overrides.unlockedSpecializedPackages = [];
             overrides.aiCreditsRemaining = rawProfile.simulatedCredits !== undefined && rawProfile.simulatedCredits !== null 
                 ? rawProfile.simulatedCredits 
                 : 6000;
         } else if (tier === 'combo_ultimate') {
             overrides.isPremiumUnlocked = true;
+            overrides.unlockedSpecializedPackages = ['premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'];
             overrides.aiCreditsRemaining = rawProfile.simulatedCredits !== undefined && rawProfile.simulatedCredits !== null 
                 ? rawProfile.simulatedCredits 
                 : 6000;
         }
         return { ...rawProfile, ...overrides };
     }, [rawProfile]);
+
     // Danh sách API keys cho OpenRouter
     const [geminiApiKeys] = useState(() => {
         return getOpenRouterKeys();

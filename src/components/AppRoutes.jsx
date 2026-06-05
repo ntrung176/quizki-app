@@ -203,6 +203,65 @@ const EditSetScreenWrapper = ({
     />;
 };
 
+const ZenProtectedRoute = ({ children, packageId, profile, isAdmin }) => {
+    const isUnlocked = React.useMemo(() => {
+        if (isAdmin && !profile?.trialPricingTier) return true;
+        if (!profile) return false;
+        
+        // Premium unlock package or Combo Ultimate overrides all individual Zen packages
+        if (profile.isPremiumUnlocked) return true;
+        
+        const unlockedList = profile.unlockedSpecializedPackages || [];
+        return unlockedList.includes(packageId);
+    }, [profile, isAdmin, packageId]);
+
+    const navigate = useNavigate();
+
+    if (isUnlocked) {
+        return children;
+    }
+
+    const packageNames = {
+        vocab_zen: 'Từ vựng chuyên sâu Zen',
+        grammar_zen: 'Ngữ pháp chuyên sâu Zen',
+        kanji_zen: 'Thư viện Kanji Zen',
+        jlpt_prep: 'Luyện đề thi thử JLPT'
+    };
+
+    const pkgName = packageNames[packageId] || packageId;
+
+    return (
+        <div className="w-full min-h-[70vh] flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden bg-slate-50/50 dark:bg-slate-900/30 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">
+            <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+            <div className="relative z-10 max-w-md w-full bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-xl dark:shadow-none border border-slate-100 dark:border-slate-700 text-center space-y-6">
+                <div className="w-16 h-16 rounded-2xl bg-indigo-500/10 dark:bg-indigo-500/10 flex items-center justify-center mx-auto shadow-sm">
+                    <span className="text-3xl">🔒</span>
+                </div>
+                <div className="space-y-2">
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-white">Tính năng Premium</h2>
+                    <p className="text-sm text-gray-500 dark:text-slate-400">
+                        Vui lòng nâng cấp gói <strong>{pkgName}</strong> để học tập đầy đủ các kiến thức và làm bài luyện tập nâng cao.
+                    </p>
+                </div>
+                <div className="flex flex-col gap-3">
+                    <button
+                        onClick={() => navigate(ROUTES.UPGRADE)}
+                        className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-xl transition-all shadow-lg shadow-indigo-200 dark:shadow-none cursor-pointer text-sm"
+                    >
+                        Mở khóa ngay
+                    </button>
+                    <button
+                        onClick={() => navigate(ROUTES.HOME)}
+                        className="w-full py-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-850 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold rounded-xl transition-all cursor-pointer text-sm"
+                    >
+                        Quay lại Trang chủ
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const AppRoutes = ({
     // Auth state
     isAuthenticated,
@@ -627,7 +686,9 @@ const AppRoutes = ({
                     path={ROUTES.KANJI_STUDY}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <KanjiStudyScreen />
+                            <ZenProtectedRoute packageId="kanji_zen" profile={profile} isAdmin={isAdmin}>
+                                <KanjiStudyScreen />
+                            </ZenProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -637,7 +698,9 @@ const AppRoutes = ({
                     path={ROUTES.KANJI_LESSON}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <KanjiLessonScreen />
+                            <ZenProtectedRoute packageId="kanji_zen" profile={profile} isAdmin={isAdmin}>
+                                <KanjiLessonScreen />
+                            </ZenProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -647,7 +710,9 @@ const AppRoutes = ({
                     path={ROUTES.KANJI_REVIEW}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <KanjiReviewScreen />
+                            <ZenProtectedRoute packageId="kanji_zen" profile={profile} isAdmin={isAdmin}>
+                                <KanjiReviewScreen />
+                            </ZenProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -657,7 +722,9 @@ const AppRoutes = ({
                     path={ROUTES.KANJI_SAVED}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <KanjiSRSListScreen />
+                            <ZenProtectedRoute packageId="kanji_zen" profile={profile} isAdmin={isAdmin}>
+                                <KanjiSRSListScreen />
+                            </ZenProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -667,13 +734,15 @@ const AppRoutes = ({
                     path={ROUTES.KANJI_LIST}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <KanjiScreen
-                                isAdmin={userHasAdminPrivileges}
-                                onAddVocabToSRS={handleSaveNewCard}
-                                onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
-                                onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
-                                allUserCards={allCards}
-                            />
+                            <ZenProtectedRoute packageId="kanji_zen" profile={profile} isAdmin={isAdmin}>
+                                <KanjiScreen
+                                    isAdmin={userHasAdminPrivileges}
+                                    onAddVocabToSRS={handleSaveNewCard}
+                                    onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
+                                    onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
+                                    allUserCards={allCards}
+                                />
+                            </ZenProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -683,13 +752,15 @@ const AppRoutes = ({
                     path={`${ROUTES.KANJI_LIST}/:char`}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <KanjiScreen
-                                isAdmin={userHasAdminPrivileges}
-                                onAddVocabToSRS={handleSaveNewCard}
-                                onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
-                                onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
-                                allUserCards={allCards}
-                            />
+                            <ZenProtectedRoute packageId="kanji_zen" profile={profile} isAdmin={isAdmin}>
+                                <KanjiScreen
+                                    isAdmin={userHasAdminPrivileges}
+                                    onAddVocabToSRS={handleSaveNewCard}
+                                    onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
+                                    onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
+                                    allUserCards={allCards}
+                                />
+                            </ZenProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -998,7 +1069,9 @@ const AppRoutes = ({
                     path={ROUTES.GRAMMAR}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <GrammarTextbooksScreen isAdmin={userHasAdminPrivileges} />
+                            <ZenProtectedRoute packageId="grammar_zen" profile={profile} isAdmin={isAdmin}>
+                                <GrammarTextbooksScreen isAdmin={userHasAdminPrivileges} />
+                            </ZenProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -1006,7 +1079,9 @@ const AppRoutes = ({
                     path={ROUTES.GRAMMAR_TEXTBOOK}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <GrammarLessonsScreen isAdmin={userHasAdminPrivileges} />
+                            <ZenProtectedRoute packageId="grammar_zen" profile={profile} isAdmin={isAdmin}>
+                                <GrammarLessonsScreen isAdmin={userHasAdminPrivileges} />
+                            </ZenProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -1014,7 +1089,9 @@ const AppRoutes = ({
                     path={ROUTES.GRAMMAR_LESSON}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <GrammarPointsScreen isAdmin={userHasAdminPrivileges} />
+                            <ZenProtectedRoute packageId="grammar_zen" profile={profile} isAdmin={isAdmin}>
+                                <GrammarPointsScreen isAdmin={userHasAdminPrivileges} />
+                            </ZenProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -1022,7 +1099,9 @@ const AppRoutes = ({
                     path={ROUTES.GRAMMAR_DETAIL}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <GrammarDetailScreen isAdmin={userHasAdminPrivileges} />
+                            <ZenProtectedRoute packageId="grammar_zen" profile={profile} isAdmin={isAdmin}>
+                                <GrammarDetailScreen isAdmin={userHasAdminPrivileges} />
+                            </ZenProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -1030,7 +1109,9 @@ const AppRoutes = ({
                     path={ROUTES.GRAMMAR_PRACTICE}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <GrammarPracticeScreen isAdmin={userHasAdminPrivileges} />
+                            <ZenProtectedRoute packageId="grammar_zen" profile={profile} isAdmin={isAdmin}>
+                                <GrammarPracticeScreen isAdmin={userHasAdminPrivileges} />
+                            </ZenProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -1101,11 +1182,13 @@ const AppRoutes = ({
                     path={ROUTES.JLPT_TEST}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <JLPTTestScreen 
-                                isAdmin={isAdmin} 
-                                allCards={allCards} 
-                                profile={profile} 
-                            />
+                            <ZenProtectedRoute packageId="jlpt_prep" profile={profile} isAdmin={isAdmin}>
+                                <JLPTTestScreen 
+                                    isAdmin={isAdmin} 
+                                    allCards={allCards} 
+                                    profile={profile} 
+                                />
+                            </ZenProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -1115,11 +1198,13 @@ const AppRoutes = ({
                     path={ROUTES.JLPT_ADMIN}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            {isAdmin ? (
-                                <JLPTAdminScreen userId={userId} />
-                            ) : (
-                                <Navigate to={ROUTES.JLPT_TEST} replace />
-                            )}
+                            <ZenProtectedRoute packageId="jlpt_prep" profile={profile} isAdmin={isAdmin}>
+                                {isAdmin ? (
+                                    <JLPTAdminScreen userId={userId} />
+                                ) : (
+                                    <Navigate to={ROUTES.JLPT_TEST} replace />
+                                )}
+                            </ZenProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
