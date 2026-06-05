@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import {
-    FileCheck, X, Check, CheckCircle, XCircle, ChevronRight,
-    Languages, BookOpen, Wrench, Home, ArrowLeft
-} from 'lucide-react';
+import { FileCheck, X, Check, Languages, BookOpen, Wrench, ArrowLeft } from 'lucide-react'
 import { shuffleArray } from '../../utils/textProcessing';
-import { ROUTES } from '../../router';
-import { celebrateCorrectAnswer, flashCorrect, launchFanfare, launchConfetti } from '../../utils/celebrations';
+import { celebrateCorrectAnswer, flashCorrect, launchFanfare } from '../../utils/celebrations'
 import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
 import { showToast } from '../../utils/toast';
-
 const TestScreen = ({ allCards, onBack }) => {
     const [testMode, setTestMode] = useState(null);
     const [testType, setTestType] = useState(null);
@@ -23,28 +17,22 @@ const TestScreen = ({ allCards, onBack }) => {
     const [score, setScore] = useState(0);
     const [showResult, setShowResult] = useState(false);
     const [userAnswers, setUserAnswers] = useState([]);
-
     // Generate questions based on test type
     const generateQuestions = (mode, type, count = 10, level = 'all') => {
         let cardsWithContext = allCards.filter(card =>
             card.example && card.example.trim() !== '' &&
             card.back && card.back.trim() !== ''
         );
-
         if (level !== 'all') {
             cardsWithContext = cardsWithContext.filter(card => card.level === level);
         }
-
         if (cardsWithContext.length === 0) {
             showToast('Không có đủ dữ liệu để tạo câu hỏi. Vui lòng thêm ví dụ và nghĩa cho từ vựng hoặc chọn cấp độ khác.', 'warning');
             return [];
         }
-
         const shuffled = cardsWithContext.sort(() => Math.random() - 0.5);
         const selectedCards = shuffled.slice(0, Math.min(count, shuffled.length));
-
         let generatedQuestions = [];
-
         if (mode === 'kanji') {
             if (type === 1) {
                 generatedQuestions = selectedCards.map(card => {
@@ -52,10 +40,8 @@ const TestScreen = ({ allCards, onBack }) => {
                     const correctAnswer = extractHiragana(card.front);
                     const wrongOptions = generateWrongHiragana(card.front, allCards, 3);
                     const options = shuffleArray([correctAnswer, ...wrongOptions]);
-
                     // Use first example line for context if multiple
                     const firstExample = (card.example || '').split('\n')[0].trim();
-
                     return {
                         question: `Cách đọc của "___BOLD___${kanjiOnly}___BOLD___" là:`,
                         context: firstExample,
@@ -72,11 +58,9 @@ const TestScreen = ({ allCards, onBack }) => {
                     const correctAnswer = kanjiOnly;
                     const wrongOptions = generateWrongKanji(card, allCards, 3);
                     const options = shuffleArray([correctAnswer, ...wrongOptions]);
-
                     // Use first example line for context if multiple
                     const firstExample = (card.example || '').split('\n')[0].trim();
                     const contextWithHiragana = firstExample.replace(kanjiOnly, hiragana);
-
                     return {
                         question: `Kanji của "___BOLD___${hiragana}___BOLD___" là:`,
                         context: contextWithHiragana || '',
@@ -93,13 +77,11 @@ const TestScreen = ({ allCards, onBack }) => {
                     // Split examples by newline - each line becomes an independent question
                     const examples = card.example.split('\n').map(e => e.trim()).filter(e => e);
                     const exampleMeanings = (card.exampleMeaning || card.back || '').split('\n').map(e => e.trim());
-
                     return examples.map((exampleLine, idx) => {
                         const blankSentence = exampleLine.replace(card.front.split('（')[0], '＿＿＿');
                         const correctAnswer = card.front;
                         const wrongOptions = generateSimilarVocab(card, allCards, 3);
                         const options = shuffleArray([correctAnswer, ...wrongOptions]);
-
                         return {
                             question: `Chọn từ phù hợp để điền vào chỗ trống:`,
                             context: blankSentence,
@@ -117,7 +99,6 @@ const TestScreen = ({ allCards, onBack }) => {
                         const correctAnswer = card.synonym.split(',')[0].trim();
                         const wrongOptions = generateWrongSynonyms(card, allCards, 3);
                         const options = shuffleArray([correctAnswer, ...wrongOptions]);
-
                         return {
                             question: `Từ đồng nghĩa với "___BOLD___${card.front}___BOLD___" là:`,
                             context: '',
@@ -131,16 +112,13 @@ const TestScreen = ({ allCards, onBack }) => {
             showToast('Tính năng Ngữ pháp đang được phát triển. Vui lòng thêm dữ liệu ngữ pháp.', 'info');
             return [];
         }
-
         return generatedQuestions;
     };
-
     // Helper functions
     const extractHiragana = (word) => {
         const match = word.match(/（(.+?)）/);
         return match ? match[1] : word;
     };
-
     const generateWrongHiragana = (correctWord, allCards, count) => {
         const correctHira = extractHiragana(correctWord);
         const samePosCards = allCards.filter(c =>
@@ -148,12 +126,10 @@ const TestScreen = ({ allCards, onBack }) => {
             c.front !== correctWord &&
             extractHiragana(c.front) !== correctHira
         );
-
         const options = samePosCards
             .sort(() => Math.random() - 0.5)
             .slice(0, count)
             .map(c => extractHiragana(c.front));
-
         while (options.length < count) {
             const randomCard = allCards[Math.floor(Math.random() * allCards.length)];
             const hira = extractHiragana(randomCard.front);
@@ -161,10 +137,8 @@ const TestScreen = ({ allCards, onBack }) => {
                 options.push(hira);
             }
         }
-
         return options;
     };
-
     const generateWrongKanji = (correctCard, allCards, count) => {
         const correctKanji = correctCard.front.split('（')[0];
         const samePosCards = allCards.filter(c =>
@@ -172,12 +146,10 @@ const TestScreen = ({ allCards, onBack }) => {
             c.front !== correctCard.front &&
             c.front.split('（')[0] !== correctKanji
         );
-
         const options = samePosCards
             .sort(() => Math.random() - 0.5)
             .slice(0, count)
             .map(c => c.front.split('（')[0]);
-
         while (options.length < count) {
             const randomCard = allCards[Math.floor(Math.random() * allCards.length)];
             const kanji = randomCard.front.split('（')[0];
@@ -185,24 +157,19 @@ const TestScreen = ({ allCards, onBack }) => {
                 options.push(kanji);
             }
         }
-
         return options;
     };
-
     const generateSimilarVocab = (correctCard, allCards, count) => {
         const correctWord = correctCard.front;
-
         const samePosCards = allCards.filter(c =>
             c.pos === correctCard.pos &&
             c.front !== correctWord &&
             c.example && c.example.trim() !== ''
         );
-
         let options = samePosCards
             .sort(() => Math.random() - 0.5)
             .slice(0, count)
             .map(c => c.front);
-
         if (options.length < count) {
             const correctLength = correctWord.length;
             const similarLengthCards = allCards.filter(c =>
@@ -211,7 +178,6 @@ const TestScreen = ({ allCards, onBack }) => {
                 !options.includes(c.front) &&
                 c.example && c.example.trim() !== ''
             );
-
             options = options.concat(
                 similarLengthCards
                     .sort(() => Math.random() - 0.5)
@@ -219,31 +185,25 @@ const TestScreen = ({ allCards, onBack }) => {
                     .map(c => c.front)
             );
         }
-
         while (options.length < count) {
             const randomCard = allCards[Math.floor(Math.random() * allCards.length)];
             if (randomCard.front !== correctWord && !options.includes(randomCard.front)) {
                 options.push(randomCard.front);
             }
         }
-
         return options;
     };
-
     const generateWrongSynonyms = (correctCard, allCards, count) => {
         const correctSynonym = correctCard.synonym?.split(',')[0].trim();
-
         const samePosCards = allCards.filter(c =>
             c.pos === correctCard.pos &&
             c.front !== correctCard.front &&
             c.synonym && c.synonym.trim() !== ''
         );
-
         let options = samePosCards
             .sort(() => Math.random() - 0.5)
             .slice(0, count)
             .map(c => c.synonym.split(',')[0].trim());
-
         while (options.length < count) {
             const randomCard = allCards[Math.floor(Math.random() * allCards.length)];
             const syn = randomCard.synonym?.split(',')[0].trim();
@@ -251,20 +211,16 @@ const TestScreen = ({ allCards, onBack }) => {
                 options.push(syn);
             }
         }
-
         return options;
     };
-
     const handleShowConfig = (mode, type) => {
         setTestMode(mode);
         setTestType(type);
         setShowConfig(true);
     };
-
     const handleStartTest = () => {
         const qs = generateQuestions(testMode, testType, questionCount, selectedLevel);
         if (qs.length === 0) return;
-
         setQuestions(qs);
         setShowConfig(false);
         setCurrentQuestionIndex(0);
@@ -274,16 +230,12 @@ const TestScreen = ({ allCards, onBack }) => {
         setIsAnswered(false);
         setShowResult(false);
     };
-
     const handleAnswerSelect = (answer, event) => {
         if (isAnswered) return;
-
         setSelectedAnswer(answer);
         setIsAnswered(true);
-
         const currentQuestion = questions[currentQuestionIndex];
         const isCorrect = answer === currentQuestion.correctAnswer;
-
         if (isCorrect) {
             setScore(score + 1);
             celebrateCorrectAnswer(event);
@@ -292,7 +244,6 @@ const TestScreen = ({ allCards, onBack }) => {
         } else {
             playIncorrectSound();
         }
-
         setUserAnswers([...userAnswers, {
             question: currentQuestion.question,
             context: currentQuestion.context,
@@ -302,7 +253,6 @@ const TestScreen = ({ allCards, onBack }) => {
             explanation: currentQuestion.explanation
         }]);
     };
-
     const handleNextQuestion = () => {
         if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -312,7 +262,6 @@ const TestScreen = ({ allCards, onBack }) => {
             setShowResult(true);
         }
     };
-
     const handleRestart = () => {
         setTestMode(null);
         setTestType(null);
@@ -325,15 +274,12 @@ const TestScreen = ({ allCards, onBack }) => {
         setIsAnswered(false);
         setShowResult(false);
     };
-
     const handleBackToMenu = () => {
         handleRestart();
     };
-
     // Helper function to render bold text
     const renderBoldText = (text) => {
         if (!text) return text;
-
         const parts = text.split('___BOLD___');
         return parts.map((part, idx) => {
             if (idx % 2 === 1) {
@@ -342,7 +288,6 @@ const TestScreen = ({ allCards, onBack }) => {
             return part;
         });
     };
-
     // Trigger fanfare on result screen
     useEffect(() => {
         if (showResult) {
@@ -351,7 +296,6 @@ const TestScreen = ({ allCards, onBack }) => {
             playCompletionFanfare();
         }
     }, [showResult]);
-
     // Auto-exit after 3 seconds when showing results
     useEffect(() => {
         if (showResult) {
@@ -361,12 +305,10 @@ const TestScreen = ({ allCards, onBack }) => {
             return () => clearTimeout(timer);
         }
     }, [showResult, onBack]);
-
     // Render result screen
     if (showResult) {
         const percentage = Math.round((score / questions.length) * 100);
         const passed = percentage >= 70;
-
         return (
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm animate-fade-in">
                 <div className="flex flex-col items-center justify-center text-center space-y-6 p-6 max-w-md">
@@ -396,11 +338,9 @@ const TestScreen = ({ allCards, onBack }) => {
             </div>
         );
     }
-
     // Render question screen
     if (testMode && questions.length > 0) {
         const currentQuestion = questions[currentQuestionIndex];
-
         return (
             <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
                 {onBack && (
@@ -414,7 +354,6 @@ const TestScreen = ({ allCards, onBack }) => {
                 )}
                 <div className="max-w-3xl mx-auto">
                     <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-6 md:p-8">
-
                         {/* Progress bar */}
                         <div className="mb-6">
                             <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-2">
@@ -428,7 +367,6 @@ const TestScreen = ({ allCards, onBack }) => {
                                 />
                             </div>
                         </div>
-
                         {/* Question */}
                         <div className="mb-6">
                             <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-auto-fit">
@@ -440,7 +378,6 @@ const TestScreen = ({ allCards, onBack }) => {
                                 </div>
                             )}
                         </div>
-
                         {/* Options */}
                         <div className="space-y-3 mb-6">
                             {currentQuestion.options.map((option, idx) => {
@@ -448,7 +385,6 @@ const TestScreen = ({ allCards, onBack }) => {
                                 const isCorrect = option === currentQuestion.correctAnswer;
                                 const showCorrect = isAnswered && isCorrect;
                                 const showWrong = isAnswered && isSelected && !isCorrect;
-
                                 return (
                                     <button
                                         key={idx}
@@ -472,7 +408,6 @@ const TestScreen = ({ allCards, onBack }) => {
                                 );
                             })}
                         </div>
-
                         {/* Explanation */}
                         {isAnswered && (
                             <div className={`p-4 rounded-xl mb-6 ${selectedAnswer === currentQuestion.correctAnswer
@@ -485,7 +420,6 @@ const TestScreen = ({ allCards, onBack }) => {
                                 <p className="text-sm text-gray-700 dark:text-gray-300">{currentQuestion.explanation}</p>
                             </div>
                         )}
-
                         {/* Next button */}
                         <button
                             onClick={handleNextQuestion}
@@ -502,7 +436,6 @@ const TestScreen = ({ allCards, onBack }) => {
             </div>
         );
     }
-
     // Render config screen
     if (showConfig) {
         return (
@@ -515,7 +448,6 @@ const TestScreen = ({ allCards, onBack }) => {
                                 <X className="w-6 h-6" />
                             </button>
                         </div>
-
                         {/* JLPT Level Selection */}
                         <div className="mb-6">
                             <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">
@@ -536,7 +468,6 @@ const TestScreen = ({ allCards, onBack }) => {
                                 ))}
                             </div>
                         </div>
-
                         {/* Question Count Selection */}
                         <div className="mb-8">
                             <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">
@@ -557,7 +488,6 @@ const TestScreen = ({ allCards, onBack }) => {
                                 <span>50</span>
                             </div>
                         </div>
-
                         {/* Start button */}
                         <button
                             onClick={handleStartTest}
@@ -570,7 +500,6 @@ const TestScreen = ({ allCards, onBack }) => {
             </div>
         );
     }
-
     // Render menu screen (initial)
     return (
         <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
@@ -591,11 +520,9 @@ const TestScreen = ({ allCards, onBack }) => {
                             Luyện Thi JLPT
                         </h1>
                     </div>
-
                     <p className="text-gray-600 dark:text-gray-400 mb-8 text-center">
                         Chọn dạng bài tập bạn muốn luyện tập
                     </p>
-
                     {/* Kanji Section */}
                     <div className="mb-8">
                         <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center">
@@ -623,7 +550,6 @@ const TestScreen = ({ allCards, onBack }) => {
                             </button>
                         </div>
                     </div>
-
                     {/* Vocab Section */}
                     <div className="mb-8">
                         <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center">
@@ -651,7 +577,6 @@ const TestScreen = ({ allCards, onBack }) => {
                             </button>
                         </div>
                     </div>
-
                     {/* Grammar Section */}
                     <div>
                         <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center">
@@ -684,5 +609,4 @@ const TestScreen = ({ allCards, onBack }) => {
         </div>
     );
 };
-
 export default TestScreen;

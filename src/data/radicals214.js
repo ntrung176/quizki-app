@@ -255,7 +255,7 @@ export const RADICALS_214 = {
 // Mỗi kanji có thể được tách thành các thành phần, và mỗi thành phần lại có thể tách tiếp
 
 // CHIẾT TỰ 214 BỘ THỦ - Các bộ có thể tách sẽ có components
-export const RADICAL_DECOMPOSITION = {
+const RADICAL_DECOMPOSITION = {
     // 1 nét - Không thể tách
     '一': { components: [], meaning: 'một' },
     '丨': { components: [], meaning: 'nét sổ' },
@@ -673,7 +673,7 @@ export const KANJI_TREE = {
 };
 
 // Hàm lấy cây chiết tự đệ quy
-export const getDecompositionTree = (kanji, depth = 0, maxDepth = 3) => {
+const getDecompositionTree = (kanji, depth = 0, maxDepth = 3) => {
     if (depth >= maxDepth) return null;
 
     const data = KANJI_TREE[kanji];
@@ -690,12 +690,12 @@ export const getDecompositionTree = (kanji, depth = 0, maxDepth = 3) => {
 };
 
 // Hàm kiểm tra xem một ký tự có phải là bộ thủ cơ bản không
-export const isBasicRadical = (char) => {
+const isBasicRadical = (char) => {
     return !!RADICALS_214[char];
 };
 
 // Hàm lấy thông tin bộ thủ
-export const getRadicalInfo = (char) => {
+const getRadicalInfo = (char) => {
     return RADICALS_214[char] || null;
 };
 

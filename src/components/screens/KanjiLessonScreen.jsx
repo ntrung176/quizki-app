@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react'
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { useNavigate, useSearchParams, Link } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import HanziWriter from 'hanzi-writer';
-import { ChevronLeft, ChevronRight, Eye, Plus, BookOpen, PenTool, Award, Volume2, Check, X, Sparkles, RotateCcw, Pencil, Keyboard, Languages, Layers, RefreshCw, ArrowLeft, Search, Bell, Moon, Sun, User, Bookmark } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Plus, BookOpen, PenTool, Award, Volume2, Check, X, Sparkles, RotateCcw, Keyboard, Layers, RefreshCw, ArrowLeft, Search, User, Bookmark } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
-import { collection, getDocs, getDocsFromServer, doc, setDoc, getDoc, deleteDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, setDoc, getDoc, deleteDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
 import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
@@ -12,7 +12,6 @@ import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { fetchJotobaWordData } from '../../utils/pitchAccent';
 import { renderMaziiStyleKanji, fetchKanjiSvg } from '../../utils/kanjiStroke';
-
 // ── Module-level data cache ────────────────────────────────────────────────
 // Survives component unmount/remount (e.g. Back from KanjiScreen detail).
 // Cleared only when the browser tab is closed or hard-refreshed.
@@ -26,24 +25,20 @@ const _lessonDataCache = {
     level: null,
     day: null,
 };
-
 // ==================== MAIN COMPONENT ====================
 const KanjiLessonScreen = () => {
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
     const level = searchParams.get('level') || 'N5';
     const day = parseInt(searchParams.get('day') || '1');
-
     // Data — seed from module cache if available (instant restore on back-navigation)
     const [kanjiList, setKanjiList] = useState(() => _lessonDataCache.kanjiList || []);
     const [vocabList, setVocabList] = useState(() => _lessonDataCache.vocabList || []);
     const [loading, setLoading] = useState(() => !_lessonDataCache.kanjiList);
-
     // UI State
     const [activeMode, setActiveMode] = useState('flashcard');
     const [flashcardType, setFlashcardType] = useState('kanji');
     const [testMode, setTestMode] = useState(null);
-
     // Kanji Flip Mode State
     const [showKanjiFlipMode, setShowKanjiFlipMode] = useState(false);
     const [kanjiFlipCards, setKanjiFlipCards] = useState([]);
@@ -65,24 +60,19 @@ const KanjiLessonScreen = () => {
     const [srsDataMap, setSrsDataMap] = useState(new Map());
     const [toastMessage, setToastMessage] = useState(null);
     const [showSrsConfirm, setShowSrsConfirm] = useState(false); // SRS confirmation modal
-
     const showToast = (msg) => {
         setToastMessage(msg);
         setTimeout(() => setToastMessage(null), 2000);
     };
-
     // User Profile, Dark Mode, Search and Notifications
     const [profile, setProfile] = useState(null);
     const [isDarkMode, setIsDarkMode] = useState(() => localStorage.getItem('darkMode') === 'true');
     const [searchTerm, setSearchTerm] = useState('');
     const [showNotifications, setShowNotifications] = useState(false);
-
     // Writer ref
     const writerRef = useRef(null);
     const writerContainerRef = useRef(null);
-
     const userId = getAuth().currentUser?.uid;
-
     useEffect(() => {
         if (!userId) return;
         const loadProfile = async () => {
@@ -98,7 +88,6 @@ const KanjiLessonScreen = () => {
         };
         loadProfile();
     }, [userId]);
-
     useEffect(() => {
         if (!userId) return;
         const loadSrs = async () => {
@@ -118,7 +107,6 @@ const KanjiLessonScreen = () => {
         };
         loadSrs();
     }, [userId]);
-
     // Load data — use getDocsFromServer to always get fresh data, bypassing stale IndexedDB cache
     // Skip fetch entirely when module cache already has data (e.g. back-navigation from detail view)
     useEffect(() => {
@@ -129,19 +117,16 @@ const KanjiLessonScreen = () => {
         const load = async () => {
             try {
                 const [kanjiSnap, vocabSnap] = await Promise.all([
-                    getDocsFromServer(collection(db, 'kanji')),
-                    getDocsFromServer(collection(db, 'kanjiVocab'))
+                    getDocs(collection(db, 'kanji')),
+                    getDocs(collection(db, 'kanjiVocab'))
                 ]);
                 const kanjiData = kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() }));
                 const vocabData = vocabSnap.docs.map(d => ({ id: d.id, ...d.data() }));
-
                 // Populate module-level cache so back-navigation is instant
                 _lessonDataCache.kanjiList = kanjiData;
                 _lessonDataCache.vocabList = vocabData;
-
                 setKanjiList(kanjiData);
                 setVocabList(vocabData);
-
                 // ── INLINE PREFETCH ────────────────────────────────────────────────
                 // Kick off background prefetch immediately after data arrives
                 // so caches (HanziWriter SVGs + Jotoba pitch) are warm before the
@@ -161,7 +146,6 @@ const KanjiLessonScreen = () => {
                 const todayK = filtered.slice(start, start + 10);
                 const todayChars = todayK.map(k => k.character);
                 const todayV = vocabData.filter(v => v.word && todayChars.some(c => v.word.includes(c)));
-
                 // Fire-and-forget background prefetch — don't block UI
                 (async () => {
                     // 1. Mazii-style SVG data for the 10 kanji
@@ -174,7 +158,6 @@ const KanjiLessonScreen = () => {
                     }
                 })();
                 // ── END PREFETCH ───────────────────────────────────────────────────
-
             } catch (e) {
                 console.error('Error loading data:', e);
             } finally {
@@ -183,7 +166,6 @@ const KanjiLessonScreen = () => {
         };
         load();
     }, []);
-
     // Keep module cache in sync with UI state so back-navigation restores correctly
     useEffect(() => {
         _lessonDataCache.currentIndex = currentIndex;
@@ -192,7 +174,6 @@ const KanjiLessonScreen = () => {
         _lessonDataCache.level = level;
         _lessonDataCache.day = day;
     }, [currentIndex, viewedSet, isCompleted, level, day]);
-
     // Reset when day/level changes (new lesson)
     useEffect(() => {
         if (sameLesson) return; // skip reset if restoring from cache
@@ -204,7 +185,6 @@ const KanjiLessonScreen = () => {
         setFlashcardType('kanji');
         setTestMode(null);
     }, [day, level]);
-
     // Today's 10 kanji — MUST use same sorting as KanjiStudyScreen
     const todayKanji = useMemo(() => {
         const filtered = kanjiList.filter(k => k.level === level);
@@ -222,7 +202,6 @@ const KanjiLessonScreen = () => {
         const start = (day - 1) * 10;
         return filtered.slice(start, start + 10);
     }, [kanjiList, level, day]);
-
     // Vocab for today's kanji
     const todayVocab = useMemo(() => {
         const chars = todayKanji.map(k => k.character);
@@ -231,38 +210,30 @@ const KanjiLessonScreen = () => {
             return chars.some(c => v.word.includes(c));
         });
     }, [todayKanji, vocabList]);
-
     // (Prefetch is now handled inline inside the load() above)
-
     const currentKanji = todayKanji[currentIndex] || null;
-
     // Vocab for current kanji
     const currentVocab = useMemo(() => {
         if (!currentKanji) return [];
         return vocabList.filter(v => v.word?.includes(currentKanji.character));
     }, [currentKanji, vocabList]);
-
     // HanziWriter stroke animation
     useEffect(() => {
         if (!currentKanji || !writerContainerRef.current || activeMode !== 'flashcard' || flashcardType !== 'kanji') return;
         let cancelled = false;
         let animTimer = null;
-
         // Cancel previous writer animation
         if (writerRef.current) {
             try { writerRef.current.cancelQuiz?.(); } catch (_) { }
             try { writerRef.current.hideCharacter?.(); } catch (_) { }
             writerRef.current = null;
         }
-
         writerContainerRef.current.innerHTML = '';
-
         const showFallback = () => {
             if (!cancelled && writerContainerRef.current) {
                 writerContainerRef.current.innerHTML = `<span class="fallback-char" style="font-size:120px;color:#0891b2;font-family:'BIZ UDPMincho', 'MS Mincho', 'ＭＳ 明朝', 'Hiragino Mincho ProN', 'Yu Mincho', serif;line-height:1">${currentKanji.character}</span>`;
             }
         };
-
         renderMaziiStyleKanji(writerContainerRef.current, currentKanji.character, {
             animDuration: 0.5,
             delayBetween: 0.2,
@@ -277,28 +248,24 @@ const KanjiLessonScreen = () => {
             console.error('Mazii style render error:', err);
             showFallback();
         });
-
         return () => {
             cancelled = true;
             if (writerRef.current) writerRef.current.stop();
             writerRef.current = null;
         };
     }, [currentKanji, activeMode, flashcardType, showKanjiFlipMode]);
-
     // Navigation
     const goTo = (idx) => {
         if (idx < 0 || idx >= todayKanji.length) return;
         setCurrentIndex(idx);
         setViewedSet(prev => new Set([...prev, idx]));
     };
-
     // Check all viewed
     useEffect(() => {
         if (todayKanji.length > 0 && viewedSet.size >= todayKanji.length) {
             setIsCompleted(true);
         }
     }, [viewedSet, todayKanji]);
-
     // Initialize SRS for studied kanji
     const initializeSRS = async (kanjiIds) => {
         if (!userId) return;
@@ -321,13 +288,11 @@ const KanjiLessonScreen = () => {
             console.error('Error initializing SRS:', e);
         }
     };
-
     // Handle the "Complete day" button click
     const handleCompleteClick = () => {
         // If user has manually added some (but not all) kanji, ask for confirmation
         const allKanjiIds = todayKanji.map(k => k.id).filter(Boolean);
         const addedCount = allKanjiIds.filter(id => srsAddedSet.has(id)).length;
-
         if (addedCount > 0 && addedCount < allKanjiIds.length) {
             // Some kanji were manually added, ask what to do
             setShowSrsConfirm(true);
@@ -336,12 +301,10 @@ const KanjiLessonScreen = () => {
             handleComplete('all');
         }
     };
-
     // Celebration
     const handleComplete = async (srsMode = 'all') => {
         setShowSrsConfirm(false);
         setShowCelebration(true);
-
         // Determine which kanji to add to SRS
         const allKanjiIds = todayKanji.map(k => k.id).filter(Boolean);
         let kanjiIdsToAdd;
@@ -352,11 +315,9 @@ const KanjiLessonScreen = () => {
             // Add all kanji
             kanjiIdsToAdd = allKanjiIds;
         }
-
         if (kanjiIdsToAdd.length > 0) {
             await initializeSRS(kanjiIdsToAdd);
         }
-
         // Save day completion progress
         if (userId) {
             try {
@@ -369,14 +330,12 @@ const KanjiLessonScreen = () => {
                 }, { merge: true });
             } catch (e) { console.error('Error saving progress:', e); }
         }
-
         // Log study history activities
         logKanjiActivity(userId, {
             type: 'lesson',
             title: `Hoàn thành ${level}: Ngày ${day}`,
             details: `Học xong ${todayKanji.length} chữ Kanji`
         });
-
         if (kanjiIdsToAdd.length > 0) {
             logKanjiActivity(userId, {
                 type: 'save',
@@ -384,17 +343,14 @@ const KanjiLessonScreen = () => {
                 details: `Lưu vào danh sách ôn tập`
             });
         }
-
         // Play celebration sound
         launchFireworks();
         playCompletionFanfare();
     };
-
     // Navigate to next day
     const goToNextDay = () => {
         setSearchParams({ level, day: String(day + 1) });
     };
-
     // TTS
     const speakJapanese = (text) => {
         if (!text || !window.speechSynthesis) return;
@@ -407,11 +363,9 @@ const KanjiLessonScreen = () => {
         if (jpVoice) utt.voice = jpVoice;
         window.speechSynthesis.speak(utt);
     };
-
     if (loading) {
         return <LoadingIndicator text="Đang tải dữ liệu bài học..." />;
     }
-
     if (todayKanji.length === 0) {
         return (
             <div className="max-w-4xl mx-auto text-center py-20">
@@ -422,7 +376,6 @@ const KanjiLessonScreen = () => {
             </div>
         );
     }
-
     // ==================== CELEBRATION OVERLAY ====================
     if (showCelebration) {
         return (
@@ -476,7 +429,6 @@ const KanjiLessonScreen = () => {
             </div>
         );
     }
-
     // ==================== TEST MODES ====================
     if (testMode) {
         return <TestModeView
@@ -489,7 +441,6 @@ const KanjiLessonScreen = () => {
             speakJapanese={speakJapanese}
         />;
     }
-
     if (activeMode === 'test') {
         const MODES = [
             { id: 'hanviet', label: 'Hán Việt', icon: BookOpen, desc: 'Kiểm tra nghĩa Hán Việt', color: 'from-emerald-500 to-teal-500', shadow: 'shadow-emerald-500/20' },
@@ -497,7 +448,6 @@ const KanjiLessonScreen = () => {
             { id: 'typing', label: 'Âm đọc', icon: Keyboard, desc: 'Nhập âm Onyomi/Kunyomi', color: 'from-orange-500 to-red-500', shadow: 'shadow-orange-500/20' },
             { id: 'writing', label: 'Viết Kanji', icon: PenTool, desc: 'Luyện viết nét Hán tự', color: 'from-purple-500 to-pink-500', shadow: 'shadow-purple-500/20' },
         ];
-
         return (
             <div className="max-w-4xl mx-auto py-8 px-4 animate-fade-in">
                 <div className="mb-8 flex items-center gap-4">
@@ -510,7 +460,6 @@ const KanjiLessonScreen = () => {
                         <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Chọn một phương thức kiểm tra để củng cố các chữ vừa học</p>
                     </div>
                 </div>
-
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
                     {MODES.map(m => (
                         <button key={m.id} onClick={() => setTestMode(m.id)}
@@ -528,7 +477,6 @@ const KanjiLessonScreen = () => {
             </div>
         );
     }
-
     // ==================== KANJI FLIP MODE HANDLERS ====================
     const startKanjiFlipMode = () => {
         const cards = [...todayKanji];
@@ -542,12 +490,10 @@ const KanjiLessonScreen = () => {
         setKanjiFlipAllDone(false);
         setShowKanjiFlipMode(true);
     };
-
     const handleKanjiFlipCard = () => {
         setKanjiFlipFlipped(!kanjiFlipFlipped);
         playFlipSound();
     };
-
     const handleKanjiFlipKnown = () => {
         if (!kanjiFlipFlipped) return;
         const currentCard = kanjiFlipCards[kanjiFlipIndex];
@@ -561,7 +507,6 @@ const KanjiLessonScreen = () => {
             }
         }, 300);
     };
-
     const handleKanjiFlipUnknown = () => {
         if (!kanjiFlipFlipped) return;
         const currentCard = kanjiFlipCards[kanjiFlipIndex];
@@ -575,11 +520,9 @@ const KanjiLessonScreen = () => {
             }
         }, 300);
     };
-
     const checkKanjiFlipCompletion = () => {
         setKanjiFlipComplete(true);
     };
-
     const continueKanjiFlipUnknown = () => {
         // Filter cards that were marked unknown
         const remainingCards = kanjiFlipCards.filter(k => kanjiFlipUnknownSet.has(k.id));
@@ -595,7 +538,6 @@ const KanjiLessonScreen = () => {
         setKanjiFlipComplete(false);
         setKanjiFlipRound(prev => prev + 1);
     };
-
     const resetKanjiFlip = () => {
         const cards = [...todayKanji];
         setKanjiFlipCards(cards);
@@ -607,21 +549,17 @@ const KanjiLessonScreen = () => {
         setKanjiFlipRound(1);
         setKanjiFlipAllDone(false);
     };
-
     // Count of remaining unknown kanji from last flip session
     const kanjiFlipUnknownCount = kanjiFlipUnknownSet.size;
-
     // ==================== KANJI FLIP MODE (INLINE) ====================
     if (showKanjiFlipMode) {
         const flipCard = kanjiFlipCards[kanjiFlipIndex];
         const flipProgress = kanjiFlipCards.length > 0 ? Math.round(((kanjiFlipIndex) / kanjiFlipCards.length) * 100) : 100;
-
         // Completion screen within flip mode
         if (kanjiFlipComplete || kanjiFlipAllDone) {
             const unknownCount = kanjiFlipUnknownSet.size;
             const knownCount = kanjiFlipKnownSet.size;
             const allDone = unknownCount === 0 || kanjiFlipAllDone;
-
             return (
                 <div className="relative w-full h-full flex flex-col justify-center">
                     <div className="w-[800px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3">
@@ -633,7 +571,6 @@ const KanjiLessonScreen = () => {
                                 <span className="text-sm font-medium">Trở lại</span>
                             </button>
                         </div>
-
                         {/* Completion card */}
                         <div className="w-full rounded-2xl p-6 space-y-5 text-center">
                             {allDone ? (
@@ -653,7 +590,6 @@ const KanjiLessonScreen = () => {
                                     <p className="text-gray-400 text-sm">Còn {unknownCount} thẻ chưa thuộc</p>
                                 </>
                             )}
-
                             <div className="grid grid-cols-2 gap-3 max-w-xs mx-auto">
                                 <div className="p-3 bg-emerald-900/30 rounded-xl border border-emerald-700">
                                     <div className="text-2xl font-bold text-emerald-400">{knownCount}</div>
@@ -664,7 +600,6 @@ const KanjiLessonScreen = () => {
                                     <div className="text-xs text-red-400/70">Chưa thuộc</div>
                                 </div>
                             </div>
-
                             <div className="space-y-2 max-w-sm mx-auto">
                                 {!allDone && unknownCount > 0 && (
                                     <button onClick={continueKanjiFlipUnknown}
@@ -690,12 +625,10 @@ const KanjiLessonScreen = () => {
                 </div>
             );
         }
-
         if (!flipCard) {
             setShowKanjiFlipMode(false);
             return null;
         }
-
         return (
             <div className="relative w-full h-full flex flex-col justify-center">
                 <div className="w-[800px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3">
@@ -707,7 +640,6 @@ const KanjiLessonScreen = () => {
                             <span className="text-sm font-medium">Trở lại</span>
                         </button>
                     </div>
-
                     {/* Main flashcard container */}
                     <div className="w-full rounded-2xl p-4 flex flex-col gap-3">
                         {/* Header: Round + Counter + Progress */}
@@ -719,7 +651,6 @@ const KanjiLessonScreen = () => {
                             <span className="text-emerald-400">{kanjiFlipKnownSet.size} thuộc</span>
                             <span className="text-red-400">{kanjiFlipUnknownSet.size} chưa thuộc</span>
                         </div>
-
                         {/* Flip card - contained with explicit height */}
                         <div className="w-full relative min-h-[380px]" style={{ perspective: '1000px' }}>
                             <div
@@ -736,7 +667,6 @@ const KanjiLessonScreen = () => {
                                         <div className="mt-6 text-gray-500 dark:text-gray-400 text-sm">Nhấn để lật</div>
                                     </div>
                                 </div>
-
                                 {/* Back: Hán Việt + Mnemonic + Image */}
                                 <div className="absolute inset-0 w-full h-full rotate-y-180" style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}>
                                     <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-inner p-5 flex flex-col items-center justify-center w-full h-full border border-emerald-500/30 overflow-y-auto text-center">
@@ -759,7 +689,6 @@ const KanjiLessonScreen = () => {
                                 </div>
                             </div>
                         </div>
-
                         {/* Action buttons - positioned below the card with z-index */}
                         <div className="flex items-center justify-center gap-3 relative z-10 flex-shrink-0">
                             <button onClick={handleKanjiFlipUnknown} disabled={!kanjiFlipFlipped}
@@ -779,7 +708,6 @@ const KanjiLessonScreen = () => {
                                 <RotateCcw className="w-4 h-4" />
                             </button>
                         </div>
-
                         {/* Keyboard shortcuts hint */}
                         <p className="text-center text-[10px] text-gray-500 flex items-center justify-center gap-1 flex-shrink-0">
                             Space: Lật | ←: Chưa thuộc | →: Đã thuộc | Ctrl+Z: Hoàn tác
@@ -789,16 +717,12 @@ const KanjiLessonScreen = () => {
             </div>
         );
     }
-
-
-
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         if (searchTerm.trim()) {
             navigate(`${ROUTES.KANJI_LIST}?search=${encodeURIComponent(searchTerm.trim())}`);
         }
     };
-
     const toggleDarkMode = () => {
         const nextMode = !isDarkMode;
         setIsDarkMode(nextMode);
@@ -811,7 +735,6 @@ const KanjiLessonScreen = () => {
             document.body.classList.remove('dark');
         }
     };
-
     // ==================== MAIN RENDER ====================
     return (
         <div className="max-w-7xl mx-auto px-4 py-6 space-y-6">
@@ -830,7 +753,6 @@ const KanjiLessonScreen = () => {
                     </div>
                 </div>
             </div>
-
             {/* Progress bar */}
             <div className="space-y-2">
                 <div className="flex justify-between items-center text-xs text-gray-400 dark:text-slate-500 font-bold">
@@ -842,7 +764,6 @@ const KanjiLessonScreen = () => {
                         style={{ width: `${((currentIndex + 1) / todayKanji.length) * 100}%` }} />
                 </div>
             </div>
-
             {/* Flip Flashcard Button & Kanji navigation indicators */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <button onClick={startKanjiFlipMode}
@@ -850,7 +771,6 @@ const KanjiLessonScreen = () => {
                     <Layers className="w-4 h-4 text-purple-500" />
                     {kanjiFlipAllDone ? 'Đặt lại thẻ' : kanjiFlipUnknownCount > 0 ? `Lật thẻ (${kanjiFlipUnknownCount} chưa thuộc)` : '🃏 Lật thẻ ghi nhớ'}
                 </button>
-
                 <div className="flex justify-center gap-1.5 py-1">
                     {todayKanji.map((k, i) => (
                         <button
@@ -867,7 +787,6 @@ const KanjiLessonScreen = () => {
                     ))}
                 </div>
             </div>
-
             {/* Kanji Flashcard content - always show kanji flashcard */}
             <KanjiFlashcard
                 kanji={currentKanji}
@@ -892,7 +811,6 @@ const KanjiLessonScreen = () => {
                 level={level}
                 day={day}
             />
-
             {/* Completion button */}
             {isCompleted && (
                 <div className="text-center pt-2">
@@ -902,7 +820,6 @@ const KanjiLessonScreen = () => {
                     </button>
                 </div>
             )}
-
             {/* SRS Confirmation Modal */}
             {showSrsConfirm && (() => {
                 const allKanjiIds = todayKanji.map(k => k.id).filter(Boolean);
@@ -910,7 +827,6 @@ const KanjiLessonScreen = () => {
                 const notAddedCount = allKanjiIds.length - addedCount;
                 const addedKanjiChars = todayKanji.filter(k => srsAddedSet.has(k.id)).map(k => k.character);
                 const notAddedKanjiChars = todayKanji.filter(k => k.id && !srsAddedSet.has(k.id)).map(k => k.character);
-
                 return (
                     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700 p-6 max-w-md w-full shadow-2xl animate-bounce-in">
@@ -918,7 +834,6 @@ const KanjiLessonScreen = () => {
                             <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
                                 Bạn đã thêm <span className="text-emerald-500 font-bold">{addedCount}/{allKanjiIds.length}</span> chữ Kanji vào danh sách ôn tập.
                             </p>
-
                             {/* Show which kanji were added */}
                             <div className="mb-3">
                                 <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Đã thêm:</div>
@@ -936,9 +851,7 @@ const KanjiLessonScreen = () => {
                                     ))}
                                 </div>
                             </div>
-
                             <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 font-medium">Bạn muốn thêm những Kanji nào vào hệ thống ôn tập?</p>
-
                             <div className="flex flex-col gap-2">
                                 <button
                                     onClick={() => handleComplete('all')}
@@ -965,7 +878,6 @@ const KanjiLessonScreen = () => {
                     </div>
                 );
             })()}
-
             {/* Toast notification */}
             {toastMessage && (
                 <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 animate-bounce-in">
@@ -977,7 +889,6 @@ const KanjiLessonScreen = () => {
         </div>
     );
 };
-
 // ==================== KANJI FLASHCARD ====================
 const KanjiFlashcard = ({
     kanji,
@@ -1002,9 +913,7 @@ const KanjiFlashcard = ({
     level,
     day
 }) => {
-
     const isBookmarked = kanji?.id && srsAddedSet.has(kanji.id);
-
     const handleBookmarkToggle = async () => {
         if (!kanji?.id || !userId) return;
         if (isBookmarked) {
@@ -1038,12 +947,9 @@ const KanjiFlashcard = ({
             }
         }
     };
-
     if (!kanji) return null;
-
     const jotobaData = getJotobaKanjiData(kanji.character);
     const isHighFreq = (jotobaData?.frequency && jotobaData.frequency <= 1000) || (kanji.frequency && parseInt(kanji.frequency) <= 1000);
-
     const parseReadings = (str) => {
         if (!str) return [];
         if (Array.isArray(str)) {
@@ -1054,10 +960,8 @@ const KanjiFlashcard = ({
         }
         return str.split(/[,，、\s]+/).map(s => s.trim()).filter(Boolean);
     };
-
     const onyomiList = parseReadings(kanji.onyomi || jotobaData?.onyomi);
     const kunyomiList = parseReadings(kanji.kunyomi || jotobaData?.kunyomi);
-
     const srsCard = srsDataMap ? srsDataMap.get(kanji.id) : null;
     const seenCount = srsCard ? (srsCard.reps || 1) : isBookmarked ? 1 : 0;
     const srsIntervalText = srsCard
@@ -1066,7 +970,6 @@ const KanjiFlashcard = ({
     const masteryPercent = srsCard
         ? Math.min(100, Math.round((srsCard.interval || 0) * 15 + 20))
         : isBookmarked ? 20 : 0;
-
     return (
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6 items-start">
             {/* Left Column: Drawing and Vocabulary */}
@@ -1096,7 +999,6 @@ const KanjiFlashcard = ({
                             <Bookmark className="w-5 h-5" fill={isBookmarked ? 'currentColor' : 'none'} />
                         </button>
                     </div>
-
                     {/* Animated Stroke box */}
                     <div className="relative w-52 h-52 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-gray-100 dark:border-slate-700/50 flex items-center justify-center shadow-inner mx-auto mb-6 overflow-hidden">
                         {/* Plus pattern grid guidelines */}
@@ -1104,10 +1006,8 @@ const KanjiFlashcard = ({
                             <div className="w-full h-full border-b border-dashed border-gray-200 dark:border-slate-700/50 absolute top-1/2 left-0 -translate-y-1/2" />
                             <div className="w-full h-full border-r border-dashed border-gray-200 dark:border-slate-700/50 absolute left-1/2 top-0 -translate-x-1/2" />
                         </div>
-
                         {/* Target for HanziWriter */}
                         <div ref={writerContainerRef} className="z-10 flex items-center justify-center" />
-
                         {/* Replay stroke button */}
                         <button
                             onClick={() => writerRef.current?.replay?.()}
@@ -1117,7 +1017,6 @@ const KanjiFlashcard = ({
                             <RotateCcw className="w-4 h-4" />
                         </button>
                     </div>
-
                     {/* Onyomi & Kunyomi Badges */}
                     <div className="grid grid-cols-2 gap-4 border-t border-gray-100 dark:border-slate-700/50 pt-4">
                         <div>
@@ -1138,7 +1037,6 @@ const KanjiFlashcard = ({
                         </div>
                     </div>
                 </div>
-
                 {/* Usage Examples Section */}
                 <div className="order-5 lg:order-none bg-white dark:bg-slate-800 rounded-3xl border border-gray-100 dark:border-slate-700/60 p-6 shadow-sm">
                     <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-4">Ví dụ sử dụng</span>
@@ -1171,7 +1069,6 @@ const KanjiFlashcard = ({
                     </div>
                 </div>
             </div>
-
             {/* Right Column: Widgets */}
             <div className="contents lg:block lg:space-y-6 lg:sticky lg:top-6 text-left">
                 {/* Meaning Card */}
@@ -1182,7 +1079,6 @@ const KanjiFlashcard = ({
                         <p className="text-base text-gray-700 dark:text-slate-200 font-bold leading-relaxed">{kanji.meaning || '-'}</p>
                     </div>
                 </div>
-
                 {/* Mnemonics Card */}
                 <div className="order-3 lg:order-none bg-white dark:bg-slate-800 rounded-3xl border border-gray-100 dark:border-slate-700/60 p-6 shadow-sm">
                     <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-3">Mẹo ghi nhớ</span>
@@ -1197,11 +1093,9 @@ const KanjiFlashcard = ({
                         </div>
                     )}
                 </div>
-
                 {/* Learning Status Card */}
                 <div className="order-4 lg:order-none bg-white dark:bg-slate-800 rounded-3xl border border-gray-100 dark:border-slate-700/60 p-6 shadow-sm">
                     <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-3">Trạng thái học tập</span>
-
                     {/* Mastery bar */}
                     <div className="space-y-2">
                         <div className="flex justify-between items-center text-xs text-gray-500 dark:text-slate-400 font-bold">
@@ -1215,7 +1109,6 @@ const KanjiFlashcard = ({
                             />
                         </div>
                     </div>
-
                     {/* Status details */}
                     <div className="grid grid-cols-2 gap-4 mt-5 border-t border-gray-50 dark:border-slate-700/30 pt-4 text-xs">
                         <div>
@@ -1228,7 +1121,6 @@ const KanjiFlashcard = ({
                         </div>
                     </div>
                 </div>
-
                 {/* Bottom Action buttons */}
                 <div className="order-6 lg:order-none flex gap-4 pt-2">
                     <button
@@ -1249,12 +1141,10 @@ const KanjiFlashcard = ({
         </div>
     );
 };
-
 // ==================== VOCAB FLASHCARD LIST ====================
 const VocabFlashcardList = ({ vocab, speakJapanese }) => {
     const [flipped, setFlipped] = useState(new Set());
     const toggle = (i) => setFlipped(prev => { const n = new Set(prev); n.has(i) ? n.delete(i) : n.add(i); return n; });
-
     return (
         <div className="space-y-2">
             <p className="text-xs text-gray-500">Bấm vào thẻ để lật xem nghĩa</p>
@@ -1285,7 +1175,6 @@ const VocabFlashcardList = ({ vocab, speakJapanese }) => {
         </div>
     );
 };
-
 // ==================== TEST MODE VIEW (Styled like ReviewScreen) ====================
 const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, level, speakJapanese }) => {
     const [qIndex, setQIndex] = useState(0);
@@ -1296,7 +1185,6 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
     const [testDone, setTestDone] = useState(false);
     const [total, setTotal] = useState(0);
     const [failedCards, setFailedCards] = useState(new Set());
-
     // Writing test state
     const canvasRef = useRef(null);
     const [isDrawing, setIsDrawing] = useState(false);
@@ -1306,7 +1194,6 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
     const writingStrokesRef = useRef([]); // [[{xs,ys}], ...]
     const currentWritingStrokeRef = useRef({ xs: [], ys: [] });
     const inputRef = useRef(null);
-
     // Generate questions
     const questions = useMemo(() => {
         if (testMode === 'hanviet') {
@@ -1340,18 +1227,14 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         }
         return [];
     }, [testMode, todayKanji, todayVocab, vocabList]);
-
     useEffect(() => { setTotal(questions.length); }, [questions]);
-
     // Auto-focus input for typing mode
     useEffect(() => {
         if (testMode === 'typing' && inputRef.current && !answered) {
             setTimeout(() => inputRef.current?.focus(), 100);
         }
     }, [qIndex, answered, testMode]);
-
     const currentQ = questions[qIndex];
-
     // Canvas drawing
     useEffect(() => {
         if (testMode !== 'writing' || !canvasRef.current) return;
@@ -1365,7 +1248,6 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         ctx.beginPath(); ctx.moveTo(125, 0); ctx.lineTo(125, 250); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(0, 125); ctx.lineTo(250, 125); ctx.stroke();
     }, [testMode, qIndex]);
-
     const getCanvasCoords = (e) => {
         if (!canvasRef.current) return { x: 0, y: 0 };
         const rect = canvasRef.current.getBoundingClientRect();
@@ -1484,7 +1366,6 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         overlayCtx.fillText(target, W / 2, H / 2 + 5);
         overlayCtx.globalAlpha = 1.0;
     };
-
     const handleMCAnswer = (opt) => {
         if (answered) return;
         setSelectedAnswer(opt);
@@ -1502,7 +1383,6 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
             nextQuestion();
         }, isCorrect ? 1200 : 2000);
     };
-
     const handleTypingSubmit = () => {
         if (answered) return;
         setAnswered(true);
@@ -1520,7 +1400,6 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
             nextQuestion();
         }, isCorrect ? 1500 : 2500);
     };
-
     const nextQuestion = () => {
         if (qIndex + 1 >= questions.length) { setTestDone(true); return; }
         setQIndex(q => q + 1);
@@ -1533,7 +1412,6 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         writingStrokesRef.current = [];
         currentWritingStrokeRef.current = { xs: [], ys: [] };
     };
-
     // Keyboard shortcut: Enter to advance only in writing mode
     useEffect(() => {
         const handler = (e) => {
@@ -1545,7 +1423,6 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         window.addEventListener('keydown', handler);
         return () => window.removeEventListener('keydown', handler);
     }, [answered, qIndex, questions.length, currentQ]);
-
     if (testDone) {
         const pct = total > 0 ? Math.round((score / total) * 100) : 0;
         return (
@@ -1565,13 +1442,10 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
             </div>
         );
     }
-
     if (!currentQ) return <div className="text-gray-400 text-center py-12">Không có câu hỏi</div>;
-
     const modeLabels = { hanviet: 'Kiểm tra âm Hán Việt', vocab: 'Kiểm tra từ vựng', typing: 'Chế độ khó', writing: 'Kiểm tra viết' };
     const modeColors = { hanviet: 'cyan', vocab: 'emerald', typing: 'orange', writing: 'purple' };
     const progress = Math.round(((qIndex + 1) / total) * 100);
-
     return (
         <div className="min-h-[calc(100vh-120px)] flex items-center justify-center">
             <div className="w-[600px] max-w-[95vw] flex flex-col justify-center items-center space-y-3 p-4 border-2 border-indigo-400/30 rounded-2xl">
@@ -1591,7 +1465,6 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                         <div className="h-full bg-indigo-500 rounded-full transition-all duration-500" style={{ width: `${progress}%` }}></div>
                     </div>
                 </div>
-
                 {/* Card area */}
                 <div className="w-full bg-white dark:bg-slate-900 rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center relative overflow-hidden border-2 border-indigo-500/50" style={{ minHeight: '280px' }}>
                     {/* Display: for writing mode show sinoViet hint only, for others show kanji */}
@@ -1609,7 +1482,6 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                         </>
                     )}
                 </div>
-
                 {/* MC options - styled like ReviewScreen */}
                 {currentQ.type === 'mc' && (
                     <div className="w-full grid grid-cols-2 gap-2">
@@ -1630,7 +1502,6 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                         })}
                     </div>
                 )}
-
                 {/* Typing input - styled like ReviewScreen */}
                 {currentQ.type === 'typing' && (
                     <div className="w-full space-y-3">
@@ -1662,7 +1533,6 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                         )}
                     </div>
                 )}
-
                 {/* Writing canvas */}
                 {currentQ.type === 'writing' && (
                     <div className="w-full flex flex-col items-center gap-3">
@@ -1725,7 +1595,6 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                         )}
                     </div>
                 )}
-
                 {/* Feedback message */}
                 {answered && currentQ.type === 'mc' && (
                     <div className={`w-full p-3 rounded-xl text-center text-sm font-medium ${selectedAnswer === currentQ.correct
@@ -1734,7 +1603,6 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                         {selectedAnswer === currentQ.correct ? `✅ Chính xác!` : `❌ Đáp án đúng: ${currentQ.correct}`}
                     </div>
                 )}
-
                 {/* Next button - only for writing mode */}
                 {answered && currentQ.type === 'writing' && (
                     <button onClick={nextQuestion}
@@ -1747,7 +1615,6 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         </div>
     );
 };
-
 // Shuffle helper
 function shuffle(arr) {
     const a = [...arr];
@@ -1757,5 +1624,4 @@ function shuffle(arr) {
     }
     return a;
 }
-
 export default KanjiLessonScreen;

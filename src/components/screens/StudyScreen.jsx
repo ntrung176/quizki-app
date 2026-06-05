@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import { ArrowLeft, Check, X, BookOpen, RotateCcw, Trophy, Zap, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Check, X, BookOpen, RotateCcw, Zap, ChevronRight } from 'lucide-react'
 import { speakJapanese } from '../../utils/audio';
 import { playCorrectSound, playIncorrectSound, launchFireworks } from '../../utils/soundEffects';
 import FuriganaText from '../ui/FuriganaText';
@@ -299,7 +299,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     const [batches, setBatches] = useState([]);
     const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
     const [currentBatch, setCurrentBatch] = useState([]);
-    
+
     // Sub-phases: 'mc', 'written', 'batchComplete'
     const [batchPhase, setBatchPhase] = useState('mc');
 
@@ -423,13 +423,13 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     const progress = useMemo(() => {
         if (!batches.length) return 0;
         const totalSteps = originalCards.length * 2;
-        
+
         // Steps from completed batches
         let completedSteps = 0;
         for (let i = 0; i < currentBatchIndex; i++) {
             completedSteps += batches[i].length * 2;
         }
-        
+
         // Steps in current batch
         if (batchPhase === 'mc') {
             completedSteps += mcIdx;
@@ -439,12 +439,12 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         } else if (batchPhase === 'batchComplete') {
             completedSteps += currentBatch.length * 2;
         }
-        
+
         return Math.min(100, Math.round((completedSteps / totalSteps) * 100));
     }, [batches, currentBatchIndex, batchPhase, mcIdx, writtenIdx, currentBatch.length, originalCards.length]);
 
     // ── MC handlers ──────────────────────────────────────────────────────────
- 
+
     const handleMCCorrect = useCallback(() => {
         const cCard = mcQueue[mcIdx];
         if (onUpdateCard && cCard?.id && !sessionWrongCardIdsRef.current.has(cCard.id)) {
@@ -466,7 +466,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             setMcIdx(nextIdx);
         }
     }, [mcIdx, mcQueue, currentBatch, onUpdateCard, mcWrong]);
- 
+
     const handleMCWrong = useCallback(() => {
         const cCard = mcQueue[mcIdx];
         if (cCard?.id) {
@@ -479,7 +479,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             if (prev.some(c => c.id === cCard.id)) return prev;
             return [...prev, cCard];
         });
- 
+
         const nextIdx = mcIdx + 1;
         if (nextIdx >= mcQueue.length) {
             setMcWrong(prev => {
@@ -495,9 +495,9 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             setMcIdx(nextIdx);
         }
     }, [mcIdx, mcQueue, onUpdateCard]);
- 
+
     // ── Written handlers ─────────────────────────────────────────────────────
- 
+
     const handleWrittenCorrect = useCallback(() => {
         const cCard = writtenQueue[writtenIdx];
         if (onUpdateCard && cCard?.id && !sessionWrongCardIdsRef.current.has(cCard.id)) {
@@ -517,7 +517,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             setWrittenIdx(nextIdx);
         }
     }, [writtenIdx, writtenQueue.length, writtenWrong, onUpdateCard, writtenQueue]);
- 
+
     const handleWrittenWrong = useCallback(() => {
         const cCard = writtenQueue[writtenIdx];
         if (cCard?.id) {
@@ -530,7 +530,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             if (prev.some(c => c.id === cCard.id)) return prev;
             return [...prev, cCard];
         });
- 
+
         const nextIdx = writtenIdx + 1;
         if (nextIdx >= writtenQueue.length) {
             // Include current wrong card if not already added
@@ -547,7 +547,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             setWrittenIdx(nextIdx);
         }
     }, [writtenIdx, writtenQueue, onUpdateCard]);
- 
+
     const handleNextBatch = useCallback(() => {
         const nextBatchIdx = currentBatchIndex + 1;
         if (nextBatchIdx >= batches.length) {
@@ -565,7 +565,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             setWrittenWrong([]);
         }
     }, [currentBatchIndex, batches]);
- 
+
     const handleRestart = useCallback(() => {
         if (studySessionData?.setId) {
             localStorage.removeItem(`study_progress_${studySessionData.setId}_study`);
@@ -625,7 +625,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                         </button>
                     </div>
                 )}
-                
+
                 <div className="w-full flex flex-col space-y-5 p-6 md:p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl">
                     {/* Progress bar inside the box */}
                     {!done && batchPhase !== 'batchComplete' && (

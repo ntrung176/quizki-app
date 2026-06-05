@@ -1,9 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { 
-    Sparkles, Upload, Image as ImageIcon, FileText, 
-    X, Play, StopCircle, Loader2, CheckCircle, 
-    AlertTriangle, HelpCircle, Camera 
-} from 'lucide-react';
+import { Sparkles, Upload, Image as ImageIcon, X, Play, StopCircle, Loader2, CheckCircle, AlertTriangle, Camera } from 'lucide-react'
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 
@@ -18,20 +14,20 @@ const BatchAiModal = ({
     existingCards = []
 }) => {
     const [activeTab, setActiveTab] = useState(initialTab); // 'text' | 'image'
-    
+
     // Text input state
     const [textInput, setTextInput] = useState('');
-    
+
     // Image OCR state
     const [selectedImage, setSelectedImage] = useState(null);
     const [imagePreview, setImagePreview] = useState(null);
     const [isOcrLoading, setIsOcrLoading] = useState(false);
-    
+
     // Generation progress state
     const [isGenerating, setIsGenerating] = useState(false);
     const [progress, setProgress] = useState({ current: 0, total: 0, currentWord: '' });
     const [processedWords, setProcessedWords] = useState([]); // Array of { word, status: 'success' | 'error' }
-    
+
     const isCancelledRef = useRef(false);
     const fileInputRef = useRef(null);
     const cameraInputRef = useRef(null);
@@ -255,7 +251,7 @@ const BatchAiModal = ({
 
         setIsGenerating(false);
         onClose();
-        
+
         if (skippedCount > 0) {
             showToast(`Đã tạo ${generatedCards.length} thẻ. Bỏ qua ${skippedCount} từ đã có trong học phần.`, 'warning');
         } else {
@@ -375,7 +371,7 @@ const BatchAiModal = ({
                                             className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-xl outline-none text-sm dark:text-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-mono leading-relaxed"
                                         />
                                     </div>
-                                    
+
                                     {/* Warnings/Credits Info */}
                                     <div className="bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/30 rounded-xl p-3.5 text-xs text-indigo-700 dark:text-indigo-300 space-y-1.5">
                                         <div className="flex items-center gap-1.5 font-bold">
@@ -435,7 +431,7 @@ const BatchAiModal = ({
                                             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 mb-4">
                                                 Hỗ trợ các file định dạng JPG, PNG
                                             </p>
-                                            
+
                                             <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-sm mx-auto">
                                                 <button
                                                     type="button"

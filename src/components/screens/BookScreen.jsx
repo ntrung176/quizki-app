@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import {
-    BookOpen, Plus, Trash2, Edit, ChevronRight, ChevronLeft, Check, X, Lightbulb,
-    Upload, FolderPlus, FileText, List, Search, ArrowLeft, Image, Save, Layers, Copy, Clipboard, Folder, Volume2,
-    ChevronUp, ChevronDown, RefreshCw, Mic, Wrench, Eye, EyeOff, RotateCcw, Languages
-} from 'lucide-react';
+import { BookOpen, Plus, Trash2, Edit, ChevronRight, Check, X, Lightbulb, Upload, FolderPlus, FileText, Search, Save, Layers, Copy, Folder, Volume2, ChevronUp, ChevronDown, RefreshCw, Mic, Wrench, EyeOff, RotateCcw, Languages } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
 import {
     collection, getDocs, addDoc, deleteDoc, doc, updateDoc, writeBatch, setDoc, getDoc, serverTimestamp
@@ -16,7 +12,6 @@ import FuriganaText from '../ui/FuriganaText';
 import { accentNumberToPitchParts } from '../../utils/pitchAccent';
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
-
 // ==================== REUSABLE COMPONENTS (outside BookScreen to prevent re-mount) ====================
 const FormModal = ({ show, onClose, title, onSave, children }) => {
     if (!show) return null;
@@ -36,7 +31,6 @@ const FormModal = ({ show, onClose, title, onSave, children }) => {
         </div>
     );
 };
-
 const InputField = ({ label, value, onChange, placeholder, type = 'text' }) => (
     <div>
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{label}</label>
@@ -44,9 +38,6 @@ const InputField = ({ label, value, onChange, placeholder, type = 'text' }) => (
             placeholder={placeholder} className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-sky-500 outline-none" />
     </div>
 );
-
-
-
 // ==================== BOOK SCREEN ====================
 const BookScreen = ({ 
     isAdmin = false, 
@@ -63,17 +54,14 @@ const BookScreen = ({
 }) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
-
     // Data states
     const [bookGroups, setBookGroups] = useState([]);
     const [loading, setLoading] = useState(true);
-
     // Navigation: groupId -> bookId -> chapterId -> lessonId (short param names for cleaner URLs)
     const groupId = searchParams.get('g') || searchParams.get('group') || null;
     const bookId = searchParams.get('b') || searchParams.get('book') || null;
     const chapterId = searchParams.get('c') || searchParams.get('chapter') || null;
     const lessonId = searchParams.get('l') || searchParams.get('lesson') || null;
-
     // Admin states
     const [showAddGroup, setShowAddGroup] = useState(false);
     const [showAddBook, setShowAddBook] = useState(false);
@@ -87,7 +75,6 @@ const BookScreen = ({
     const [showEditGroup, setShowEditGroup] = useState(false);
     const [showEditBook, setShowEditBook] = useState(false);
     const [editTarget, setEditTarget] = useState(null);
-
     // Form states
     const [formName, setFormName] = useState('');
     const [formSubtitle, setFormSubtitle] = useState('');
@@ -96,28 +83,23 @@ const BookScreen = ({
     const [formWordCount, setFormWordCount] = useState('');
     const [formImageUrl, setFormImageUrl] = useState('');
     const [jsonInput, setJsonInput] = useState('');
-
     // Vocab adding states
     const [addingVocabIndex, setAddingVocabIndex] = useState(null);
     const [addedVocabSet, setAddedVocabSet] = useState(new Set());
-
     // Revealed cards for study
     const [revealedCards, setRevealedCards] = useState(new Set());
     // Persisted progress — cards that have been flipped at least once (saved to localStorage)
     const [persistedRevealed, setPersistedRevealed] = useState(new Set());
     // Blur mode: 'vn' = blur Vietnamese (default), 'jp' = blur Japanese
     const [blurMode, setBlurMode] = useState('vn');
-
     // Vocab editing states
     const [editingVocabIndex, setEditingVocabIndex] = useState(null);
     const [editingVocabData, setEditingVocabData] = useState(null);
-
     // Folder selection for SRS (redefined as a useMemo from the real folders prop)
     const availableFolders = useMemo(() => {
         return folders.filter(f => f.type !== 'folder');
     }, [folders]);
     const [selectedFolderId, setSelectedFolderId] = useState('');
-
     // Study set redesign states
     const [showCreateStudySetModal, setShowCreateStudySetModal] = useState(false);
     const [showLinkStudySetModal, setShowLinkStudySetModal] = useState(false);
@@ -129,14 +111,11 @@ const BookScreen = ({
     const [selectedVocabIndices, setSelectedVocabIndices] = useState(new Set());
     const [selectedExistingStudySetId, setSelectedExistingStudySetId] = useState('');
     const [creationLoading, setCreationLoading] = useState(false);
-
     // Table of contents
     const [showTOC, setShowTOC] = useState(true);
-
     // Search and filter states
     const [searchQuery, setSearchQuery] = useState('');
     const [activeFilter, setActiveFilter] = useState('ALL');
-
     const getGroupCategory = (group) => {
         const name = (group.name || '').toLowerCase();
         const subtitle = (group.subtitle || '').toLowerCase();
@@ -148,14 +127,12 @@ const BookScreen = ({
         }
         return 'CUSTOM';
     };
-
     const filteredGroups = useMemo(() => {
         return bookGroups.filter(group => {
             const name = (group.name || '').toLowerCase();
             const subtitle = (group.subtitle || '').toLowerCase();
             const matchesSearch = name.includes(searchQuery.toLowerCase()) || subtitle.includes(searchQuery.toLowerCase());
             if (!matchesSearch) return false;
-            
             if (activeFilter === 'ALL') return true;
             const cat = getGroupCategory(group);
             if (activeFilter === 'JLPT') return cat === 'JLPT';
@@ -164,27 +141,21 @@ const BookScreen = ({
             return true;
         });
     }, [bookGroups, searchQuery, activeFilter]);
-
     // Audio stored separately to avoid Firestore 1MB document limit
     const [lessonAudioMap, setLessonAudioMap] = useState({});
     const bgAudioAbortRef = useRef(false);
     const editingCardRef = useRef(null);
-
     // Fix audio states
     const [fixAudioIndex, setFixAudioIndex] = useState(null);
     const [fixAudioCustomReading, setFixAudioCustomReading] = useState('');
     const [fixAudioLoading, setFixAudioLoading] = useState(false);
-
     // Debounce ref for saving progress to Firebase
     const saveProgressTimerRef = useRef(null);
-
     const COLLECTION = 'bookGroups';
-
     // ==================== LOAD DATA ====================
     useEffect(() => {
         loadAllData();
     }, []);
-
     // Load audio from subcollection when lesson changes
     const loadLessonAudio = useCallback(async () => {
         if (!groupId || !bookId || !chapterId || !lessonId) {
@@ -204,13 +175,11 @@ const BookScreen = ({
             setLessonAudioMap({});
         }
     }, [groupId, bookId, chapterId, lessonId]);
-
     // Build a stable key for persisting reveal state per lesson
     const lessonPersistKey = useMemo(() => {
         if (!groupId || !bookId || !chapterId || !lessonId) return null;
         return `book_reveal_${groupId}_${bookId}_${chapterId}_${lessonId}`;
     }, [groupId, bookId, chapterId, lessonId]);
-
     useEffect(() => {
         loadLessonAudio();
         // Load persisted reveal state: Firebase first, then localStorage fallback
@@ -220,7 +189,6 @@ const BookScreen = ({
                 setRevealedCards(new Set());
                 return;
             }
-
             // Try Firebase first if user is logged in
             if (userId && appId) {
                 try {
@@ -242,7 +210,6 @@ const BookScreen = ({
                     }
                 }
             }
-
             // Fallback: localStorage
             try {
                 const saved = localStorage.getItem(lessonPersistKey);
@@ -254,14 +221,11 @@ const BookScreen = ({
                     return;
                 }
             } catch (e) { console.warn('Error restoring reveal state:', e); }
-
             setPersistedRevealed(new Set());
             setRevealedCards(new Set());
         };
-
         loadProgress();
     }, [loadLessonAudio, lessonId, lessonPersistKey, userId]);
-
     // Persist when a card is revealed
     const revealCard = useCallback((index) => {
         setRevealedCards(prev => {
@@ -297,12 +261,10 @@ const BookScreen = ({
             return next;
         });
     }, [lessonPersistKey, userId]);
-
     // Re-blur all cards (does NOT affect persisted progress)
     const handleReBlurAll = useCallback(() => {
         setRevealedCards(new Set());
     }, []);
-
     // Reset all progress (clear persisted + view)
     const handleResetProgress = useCallback(async () => {
         setRevealedCards(new Set());
@@ -322,45 +284,33 @@ const BookScreen = ({
             }
         }
     }, [lessonPersistKey, userId]);
-
     const loadAllData = async (silent = false) => {
         if (!silent) setLoading(true);
         try {
             const groupsSnap = await getDocs(collection(db, COLLECTION));
-
             const groups = await Promise.all(groupsSnap.docs.map(async (groupDoc) => {
                 const group = { id: groupDoc.id, ...groupDoc.data(), books: [] };
-
                 const booksSnap = await getDocs(collection(db, COLLECTION, groupDoc.id, 'books'));
-
                 group.books = await Promise.all(booksSnap.docs.map(async (bookDoc) => {
                     const book = { id: bookDoc.id, ...bookDoc.data(), chapters: [] };
-
                     const chaptersSnap = await getDocs(collection(db, COLLECTION, groupDoc.id, 'books', bookDoc.id, 'chapters'));
-
                     book.chapters = await Promise.all(chaptersSnap.docs.map(async (chapterDoc) => {
                         const chapter = { id: chapterDoc.id, ...chapterDoc.data(), lessons: [] };
-
                         const lessonsSnap = await getDocs(
                             collection(db, COLLECTION, groupDoc.id, 'books', bookDoc.id, 'chapters', chapterDoc.id, 'lessons')
                         );
-
                         chapter.lessons = lessonsSnap.docs.map(lessonDoc => ({
                             id: lessonDoc.id,
                             ...lessonDoc.data()
                         })).sort((a, b) => (a.order || 0) - (b.order || 0));
-
                         return chapter;
                     }));
-
                     book.chapters.sort((a, b) => (a.order || 0) - (b.order || 0));
                     return book;
                 }));
-
                 group.books.sort((a, b) => (a.order || 0) - (b.order || 0));
                 return group;
             }));
-
             groups.sort((a, b) => (a.order || 0) - (b.order || 0));
             setBookGroups(groups);
         } catch (e) {
@@ -369,13 +319,11 @@ const BookScreen = ({
             setLoading(false);
         }
     };
-
     // ==================== NAVIGATION HELPERS ====================
     const currentGroup = useMemo(() => bookGroups.find(g => g.id === groupId), [bookGroups, groupId]);
     const currentBook = useMemo(() => currentGroup?.books?.find(b => b.id === bookId), [currentGroup, bookId]);
     const currentChapter = useMemo(() => currentBook?.chapters?.find(c => c.id === chapterId), [currentBook, chapterId]);
     const currentLesson = useMemo(() => currentChapter?.lessons?.find(l => l.id === lessonId), [currentChapter, lessonId]);
-
     // Merge vocab with audio from subcollection
     const vocabWithAudio = useMemo(() => {
         const vocab = currentLesson?.vocab || [];
@@ -390,7 +338,6 @@ const BookScreen = ({
             };
         });
     }, [currentLesson, lessonAudioMap]);
-
     const navigateTo = useCallback((params) => {
         const sp = new URLSearchParams();
         if (params.group) sp.set('g', params.group);
@@ -399,7 +346,6 @@ const BookScreen = ({
         if (params.lesson) sp.set('l', params.lesson);
         setSearchParams(sp);
     }, [setSearchParams]);
-
     const goBack = () => {
         if (lessonId) navigateTo({ group: groupId, book: bookId, chapter: chapterId });
         else if (chapterId) navigateTo({ group: groupId, book: bookId });
@@ -407,14 +353,12 @@ const BookScreen = ({
         else if (groupId) navigateTo({});
         else navigateTo({});
     };
-
     // ==================== ADMIN CRUD ====================
     const resetForm = () => {
         setFormName(''); setFormSubtitle(''); setFormColor('#4F87FF');
         setFormDescription(''); setFormWordCount(''); setFormImageUrl('');
         setJsonInput(''); setEditingItem(null); setEditTarget(null);
     };
-
     const handleAddGroup = async () => {
         if (!formName.trim()) return;
         await addDoc(collection(db, COLLECTION), {
@@ -424,7 +368,6 @@ const BookScreen = ({
         });
         resetForm(); setShowAddGroup(false); loadAllData();
     };
-
     const handleAddBook = async () => {
         if (!formName.trim() || !groupId) return;
         const booksCount = currentGroup?.books?.length || 0;
@@ -436,7 +379,6 @@ const BookScreen = ({
         });
         resetForm(); setShowAddBook(false); loadAllData();
     };
-
     const handleAddChapter = async () => {
         if (!formName.trim() || !groupId || !bookId) return;
         const chaptersCount = currentBook?.chapters?.length || 0;
@@ -445,7 +387,6 @@ const BookScreen = ({
         });
         resetForm(); setShowAddChapter(false); loadAllData();
     };
-
     const handleAddLesson = async () => {
         if (!formName.trim() || !groupId || !bookId || !chapterId) return;
         const lessonsCount = currentChapter?.lessons?.length || 0;
@@ -455,7 +396,6 @@ const BookScreen = ({
         );
         resetForm(); setShowAddLesson(false); loadAllData();
     };
-
     // ==================== EDIT GROUP/BOOK ====================
     const handleStartEditGroup = (group) => {
         setEditTarget(group);
@@ -464,7 +404,6 @@ const BookScreen = ({
         setFormImageUrl(group.imageUrl || '');
         setShowEditGroup(true);
     };
-
     const handleSaveEditGroup = async () => {
         if (!editTarget || !formName.trim()) return;
         try {
@@ -475,7 +414,6 @@ const BookScreen = ({
             resetForm(); setShowEditGroup(false); loadAllData();
         } catch (e) { showToast('Lỗi: ' + e.message, 'error'); }
     };
-
     const handleStartEditBook = (book) => {
         setEditTarget(book);
         setFormName(book.name || '');
@@ -485,7 +423,6 @@ const BookScreen = ({
         setFormDescription(book.description || '');
         setShowEditBook(true);
     };
-
     const handleSaveEditBook = async () => {
         if (!editTarget || !formName.trim() || !groupId) return;
         try {
@@ -498,7 +435,6 @@ const BookScreen = ({
             resetForm(); setShowEditBook(false); loadAllData();
         } catch (e) { showToast('Lỗi: ' + e.message, 'error'); }
     };
-
     // ==================== REORDER CHAPTERS/LESSONS ====================
     const handleReorderChapter = async (ci, direction) => {
         const chapters = currentBook?.chapters || [];
@@ -514,7 +450,6 @@ const BookScreen = ({
             loadAllData(true);
         } catch (e) { showToast('Lỗi: ' + e.message, 'error'); }
     };
-
     const handleReorderLesson = async (chId, li, direction) => {
         const chapter = currentBook?.chapters?.find(c => c.id === chId);
         if (!chapter) return;
@@ -531,7 +466,6 @@ const BookScreen = ({
             loadAllData(true);
         } catch (e) { showToast('Lỗi: ' + e.message, 'error'); }
     };
-
     const handleImportJson = async () => {
         if (!jsonInput.trim() || !lessonId) return;
         try {
@@ -539,23 +473,18 @@ const BookScreen = ({
             if (!Array.isArray(vocabArray)) { showToast('JSON phải là mảng []', 'warning'); return; }
             const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
             const existing = [...(currentLesson?.vocab || [])];
-
             // Helper: normalize word for matching (remove furigana in parentheses)
             const normalizeWord = (w) => (w || '').split('（')[0].split('(')[0].trim();
-
             let updatedCount = 0;
             let addedCount = 0;
-
             for (const item of vocabArray) {
                 const itemWord = normalizeWord(item.word || item.front || '');
                 if (!itemWord) continue;
-
                 // Find existing vocab by matching word
                 const existingIndex = existing.findIndex(v => {
                     const vWord = normalizeWord(v.word || v.front || '');
                     return vWord === itemWord;
                 });
-
                 if (existingIndex >= 0) {
                     // Merge: only update fields that are provided and non-empty in the import
                     const merged = { ...existing[existingIndex] };
@@ -572,7 +501,6 @@ const BookScreen = ({
                     addedCount++;
                 }
             }
-
             await updateDoc(lessonRef, { vocab: existing });
             const msgs = [];
             if (addedCount > 0) msgs.push(`Thêm ${addedCount} từ mới`);
@@ -581,35 +509,30 @@ const BookScreen = ({
             resetForm(); setShowJsonImport(false); loadAllData();
         } catch (e) { showToast('JSON không hợp lệ: ' + e.message, 'error'); }
     };
-
     const handleDeleteGroup = async (gId) => {
         if (!await showConfirm('Xóa nhóm sách này?', { type: 'danger', confirmText: 'Xóa' })) return;
         await deleteDoc(doc(db, COLLECTION, gId));
         if (groupId === gId) navigateTo({});
         loadAllData();
     };
-
     const handleDeleteBook = async (bId) => {
         if (!await showConfirm('Xóa sách này?', { type: 'danger', confirmText: 'Xóa' })) return;
         await deleteDoc(doc(db, COLLECTION, groupId, 'books', bId));
         if (bookId === bId) navigateTo({ group: groupId });
         loadAllData();
     };
-
     const handleDeleteChapter = async (cId) => {
         if (!await showConfirm('Xóa chương này?', { type: 'danger', confirmText: 'Xóa' })) return;
         await deleteDoc(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', cId));
         if (chapterId === cId) navigateTo({ group: groupId, book: bookId });
         loadAllData();
     };
-
     const handleDeleteLesson = async (lId) => {
         if (!await showConfirm('Xóa bài này?', { type: 'danger', confirmText: 'Xóa' })) return;
         await deleteDoc(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lId));
         if (lessonId === lId) navigateTo({ group: groupId, book: bookId, chapter: chapterId });
         loadAllData();
     };
-
     const handleDeleteVocab = async (vocabIndex) => {
         if (!await showConfirm('Xóa từ vựng này?', { type: 'danger', confirmText: 'Xóa' })) return;
         const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
@@ -618,14 +541,12 @@ const BookScreen = ({
         await updateDoc(lessonRef, { vocab: newVocab });
         loadAllData();
     };
-
     const handleEditVocab = (vocabIndex) => {
         const v = currentLesson?.vocab?.[vocabIndex];
         if (!v) return;
         setEditingVocabIndex(vocabIndex);
         setEditingVocabData({ ...v });
     };
-
     const handleSaveVocabEdit = async () => {
         if (editingVocabIndex === null || !editingVocabData) return;
         try {
@@ -634,7 +555,6 @@ const BookScreen = ({
             const newVocab = [...(currentLesson?.vocab || [])];
             newVocab[editingVocabIndex] = editingVocabData;
             await updateDoc(lessonRef, { vocab: newVocab });
-
             // === ADMIN SYNC: Track changes for user vocab sync ===
             if (isAdmin && appId) {
                 const word = oldVocab.word || oldVocab.front || editingVocabData.word || editingVocabData.front || '';
@@ -665,7 +585,6 @@ const BookScreen = ({
                     } catch (e) { console.warn('Could not create vocab update record:', e); }
                 }
             }
-
             setEditingVocabIndex(null);
             setEditingVocabData(null);
             showToast('Đã cập nhật từ vựng!', 'success');
@@ -678,13 +597,11 @@ const BookScreen = ({
             showToast('Lỗi khi lưu: ' + e.message, 'error');
         }
     };
-
     // ==================== EDIT NAMES (Group/Book/Chapter/Lesson) ====================
     const handleStartEditName = (type, id, currentName) => {
         setEditingNameItem({ type, id });
         setEditingNameValue(currentName);
     };
-
     const handleSaveEditName = async () => {
         if (!editingNameItem || !editingNameValue.trim()) return;
         try {
@@ -711,7 +628,6 @@ const BookScreen = ({
         setEditingNameItem(null);
         setEditingNameValue('');
     };
-
     // Inline edit name component
     const InlineEditName = ({ type, id, currentName, className = '' }) => {
         if (!isAdmin) return <span className={className}>{currentName}</span>;
@@ -737,22 +653,18 @@ const BookScreen = ({
             </span>
         );
     };
-
     // ==================== BACKGROUND AUDIO GENERATION ====================
     // Tự động tạo audio ngầm cho từ vựng sách: word → giọng nam (không tạo cho ví dụ)
     useEffect(() => {
         if (!lessonId || !currentLesson?.vocab?.length || !groupId || !bookId || !chapterId) return;
         bgAudioAbortRef.current = false;
-
         const generateBookAudio = async () => {
             const vocab = currentLesson.vocab;
             const audioColPath = `${COLLECTION}/${groupId}/books/${bookId}/chapters/${chapterId}/lessons/${lessonId}/vocabAudio`;
-
             for (let i = 0; i < vocab.length; i++) {
                 if (bgAudioAbortRef.current) return;
                 const v = vocab[i];
                 const word = v.word || v.front || '';
-
                 // Generate word audio only (giọng nam - ryota)
                 const wordDocId = `${i}_word`;
                 if (word && !lessonAudioMap[wordDocId]) {
@@ -771,18 +683,15 @@ const BookScreen = ({
                     } catch (e) { console.warn('Book audio word error:', e.message); }
                 }
             }
-
             // Reload audio map after generation
             if (!bgAudioAbortRef.current) {
                 loadLessonAudio();
             }
         };
-
         // Delay 3s before starting background generation
         const timer = setTimeout(generateBookAudio, 3000);
         return () => { bgAudioAbortRef.current = true; clearTimeout(timer); };
     }, [lessonId, currentLesson?.vocab?.length]);
-
     // ==================== FIX AUDIO ====================
     const handleFixAudio = async (vocabIndex, customReading = null) => {
         if (!lessonId || !groupId || !bookId || !chapterId) return;
@@ -791,10 +700,8 @@ const BookScreen = ({
             const vocab = currentLesson?.vocab || [];
             const v = vocab[vocabIndex];
             if (!v) throw new Error('Không tìm thấy từ vựng');
-
             const word = v.word || v.front || '';
             let textToGenerate;
-
             if (customReading) {
                 // Option 2: Manual custom reading input
                 textToGenerate = customReading.trim();
@@ -803,19 +710,15 @@ const BookScreen = ({
                 const readingMatch = word.match(/[（(]([^）)]+)[）)]/);
                 textToGenerate = readingMatch ? readingMatch[1].trim() : (v.reading || word.split('（')[0].split('(')[0].trim());
             }
-
             if (!textToGenerate) throw new Error('Không có dữ liệu phát âm');
-
             const result = await generateAudioSilentWithVoice(textToGenerate, 'ryota');
             if (!result?.base64) throw new Error('Không thể tạo audio. Vui lòng thử lại.');
-
             // Save to Firestore vocabAudio subcollection
             const audioColPath = `${COLLECTION}/${groupId}/books/${bookId}/chapters/${chapterId}/lessons/${lessonId}/vocabAudio`;
             const wordDocId = `${vocabIndex}_word`;
             await setDoc(doc(db, audioColPath, wordDocId), {
                 base64: result.base64, vocabIndex, clipType: 'word', updatedAt: Date.now()
             });
-
             showToast(`Đã tạo lại audio cho「${word.split('（')[0].split('(')[0].trim()}」(đọc: ${textToGenerate})`, 'success');
             setFixAudioIndex(null);
             setFixAudioCustomReading('');
@@ -827,7 +730,6 @@ const BookScreen = ({
             setFixAudioLoading(false);
         }
     };
-
     // Memoized study set linked to this lesson
     const linkedStudySet = useMemo(() => {
         if (!folders || !groupId || !bookId || !chapterId || !lessonId) return null;
@@ -840,33 +742,27 @@ const BookScreen = ({
             f.sourceLesson.lessonId === lessonId
         );
     }, [folders, groupId, bookId, chapterId, lessonId]);
-
     // Check if the book vocab and linked study set cards are in sync
     const syncStatus = useMemo(() => {
         if (!linkedStudySet || !vocabWithAudio.length) return { isSynced: true, missingCount: 0 };
-        
         let missingCount = 0;
         for (const v of vocabWithAudio) {
             const word = v.word || v.front || '';
             const displayWord = word.split('（')[0].split('(')[0].trim();
-            
             // Check if there is a card in allUserCards that has front === displayWord AND folderId === linkedStudySet.id
             const existsInSet = allUserCards.some(c => {
                 const f = c.front.split('（')[0].split('(')[0].trim();
                 return f === displayWord && c.folderId === linkedStudySet.id;
             });
-            
             if (!existsInSet) {
                 missingCount++;
             }
         }
-        
         return {
             isSynced: missingCount === 0,
             missingCount
         };
     }, [linkedStudySet, vocabWithAudio, allUserCards]);
-
     // ==================== ADD VOCAB TO SRS ====================
     const handleAddToSRS = async (vocab, index) => {
         if (!onAddVocabToSRS) return;
@@ -876,7 +772,6 @@ const BookScreen = ({
             const f = c.front.split('（')[0].split('(')[0].trim();
             return f === displayWord;
         });
-
         if (exists) { 
             // If it exists but is not in the linked study set, update its folderId!
             if (linkedStudySet) {
@@ -896,7 +791,6 @@ const BookScreen = ({
             setAddedVocabSet(prev => new Set([...prev, index])); 
             return; 
         }
-
         setAddingVocabIndex(index);
         try {
             await onAddVocabToSRS({
@@ -920,7 +814,6 @@ const BookScreen = ({
         } catch (e) { console.error('Error adding to SRS:', e); }
         finally { setAddingVocabIndex(null); }
     };
-
     const handleAddAllToSRS = async () => {
         if (!vocabWithAudio.length) return;
         for (let i = 0; i < vocabWithAudio.length; i++) {
@@ -929,7 +822,6 @@ const BookScreen = ({
             }
         }
     };
-
     // Redesign: create a study set with a batch of cards
     const handleCreateStudySetFromLesson = async (e) => {
         if (e && e.preventDefault) e.preventDefault();
@@ -941,7 +833,6 @@ const BookScreen = ({
             showToast('Vui lòng nhập tên học phần', 'warning');
             return;
         }
-
         setCreationLoading(true);
         try {
             // 1. Create parent folder if user requested new one
@@ -954,7 +845,6 @@ const BookScreen = ({
                 });
                 targetParentId = pfRef.id;
             }
-
             // 2. Create the study set
             const setRef = await addDoc(collection(db, `artifacts/${appId}/users/${userId}/studySets`), {
                 name: studySetName.trim(),
@@ -969,23 +859,18 @@ const BookScreen = ({
                 createdAt: serverTimestamp()
             });
             const newSetId = setRef.id;
-
             // 3. Batch add/link vocabulary cards
             const batch = writeBatch(db);
             let addedCount = 0;
             let updatedCount = 0;
-
             const selectedVocabs = vocabWithAudio.filter((_, i) => selectedVocabIndices.has(i));
-
             for (const v of selectedVocabs) {
                 const word = v.word || v.front || '';
                 const displayWord = word.split('（')[0].split('(')[0].trim();
-
                 const existingCard = allUserCards.find(c => {
                     const f = c.front.split('（')[0].split('(')[0].trim();
                     return f === displayWord;
                 });
-
                 if (existingCard) {
                     if (!existingCard.folderId) {
                         const cardDocRef = doc(db, `artifacts/${appId}/users/${userId}/vocabulary`, existingCard.id);
@@ -994,7 +879,6 @@ const BookScreen = ({
                     }
                 } else {
                     const cardDocRef = doc(collection(db, `artifacts/${appId}/users/${userId}/vocabulary`));
-                    
                     const newCardData = {
                         front: word.trim(),
                         back: (v.meaning || v.back || '').trim(),
@@ -1024,11 +908,9 @@ const BookScreen = ({
                         totalReps: 0,
                         srsEnabled: true,
                     };
-
                     if (v.exampleAudioBase64) {
                         newCardData.exampleAudioBase64 = v.exampleAudioBase64;
                     }
-
                     if (!newCardData.audioBase64) {
                         try {
                             const res = await generateAudioSilentWithVoice(word, 'ryota');
@@ -1037,12 +919,10 @@ const BookScreen = ({
                             }
                         } catch(e) {}
                     }
-
                     batch.set(cardDocRef, newCardData);
                     addedCount++;
                 }
             }
-
             await batch.commit();
             showToast(`Đã tạo học phần và thêm ${addedCount + updatedCount} từ vựng!`, "success");
             setShowCreateStudySetModal(false);
@@ -1054,7 +934,6 @@ const BookScreen = ({
             setCreationLoading(false);
         }
     };
-
     // Redesign: link to an existing study set
     const handleLinkToExistingStudySet = async () => {
         if (!selectedExistingStudySetId) {
@@ -1062,7 +941,6 @@ const BookScreen = ({
             return;
         }
         if (!userId) return;
-
         setCreationLoading(true);
         try {
             // 1. Link study set to this lesson by setting sourceLesson
@@ -1074,23 +952,18 @@ const BookScreen = ({
                     lessonId
                 }
             });
-
             // 2. Add selected words to this study set
             const batch = writeBatch(db);
             let addedCount = 0;
             let updatedCount = 0;
-
             const selectedVocabs = vocabWithAudio.filter((_, i) => selectedVocabIndices.has(i));
-
             for (const v of selectedVocabs) {
                 const word = v.word || v.front || '';
                 const displayWord = word.split('（')[0].split('(')[0].trim();
-
                 const existingCard = allUserCards.find(c => {
                     const f = c.front.split('（')[0].split('(')[0].trim();
                     return f === displayWord;
                 });
-
                 if (existingCard) {
                     if (existingCard.folderId !== selectedExistingStudySetId) {
                         const cardDocRef = doc(db, `artifacts/${appId}/users/${userId}/vocabulary`, existingCard.id);
@@ -1099,7 +972,6 @@ const BookScreen = ({
                     }
                 } else {
                     const cardDocRef = doc(collection(db, `artifacts/${appId}/users/${userId}/vocabulary`));
-                    
                     const newCardData = {
                         front: word.trim(),
                         back: (v.meaning || v.back || '').trim(),
@@ -1129,11 +1001,9 @@ const BookScreen = ({
                         totalReps: 0,
                         srsEnabled: true,
                     };
-
                     if (v.exampleAudioBase64) {
                         newCardData.exampleAudioBase64 = v.exampleAudioBase64;
                     }
-
                     if (!newCardData.audioBase64) {
                         try {
                             const res = await generateAudioSilentWithVoice(word, 'ryota');
@@ -1142,12 +1012,10 @@ const BookScreen = ({
                             }
                         } catch(e) {}
                     }
-
                     batch.set(cardDocRef, newCardData);
                     addedCount++;
                 }
             }
-
             await batch.commit();
             showToast(`Đã liên kết và đồng bộ ${addedCount + updatedCount} từ vựng!`, "success");
             setShowLinkStudySetModal(false);
@@ -1159,26 +1027,21 @@ const BookScreen = ({
             setCreationLoading(false);
         }
     };
-
     // Redesign: sync vocabulary words between book lesson and study set
     const handleSyncVocabWithStudySet = async () => {
         if (!linkedStudySet || !userId) return;
-
         setCreationLoading(true);
         try {
             const batch = writeBatch(db);
             let addedCount = 0;
             let updatedCount = 0;
-
             for (const v of vocabWithAudio) {
                 const word = v.word || v.front || '';
                 const displayWord = word.split('（')[0].split('(')[0].trim();
-
                 const existingCard = allUserCards.find(c => {
                     const f = c.front.split('（')[0].split('(')[0].trim();
                     return f === displayWord;
                 });
-
                 if (existingCard) {
                     if (existingCard.folderId !== linkedStudySet.id) {
                         const cardDocRef = doc(db, `artifacts/${appId}/users/${userId}/vocabulary`, existingCard.id);
@@ -1187,7 +1050,6 @@ const BookScreen = ({
                     }
                 } else {
                     const cardDocRef = doc(collection(db, `artifacts/${appId}/users/${userId}/vocabulary`));
-                    
                     const newCardData = {
                         front: word.trim(),
                         back: (v.meaning || v.back || '').trim(),
@@ -1217,11 +1079,9 @@ const BookScreen = ({
                         totalReps: 0,
                         srsEnabled: true,
                     };
-
                     if (v.exampleAudioBase64) {
                         newCardData.exampleAudioBase64 = v.exampleAudioBase64;
                     }
-
                     if (!newCardData.audioBase64) {
                         try {
                             const res = await generateAudioSilentWithVoice(word, 'ryota');
@@ -1230,12 +1090,10 @@ const BookScreen = ({
                             }
                         } catch(e) {}
                     }
-
                     batch.set(cardDocRef, newCardData);
                     addedCount++;
                 }
             }
-
             await batch.commit();
             showToast(`Đã đồng bộ từ vựng (thêm mới: ${addedCount}, liên kết lại: ${updatedCount})!`, "success");
             window.dispatchEvent(new Event('study_sets_updated'));
@@ -1246,12 +1104,10 @@ const BookScreen = ({
             setCreationLoading(false);
         }
     };
-
     // Redesign: unlink study set from this lesson
     const handleUnlinkStudySet = async () => {
         if (!linkedStudySet || !userId) return;
         if (!await showConfirm('Hủy liên kết học phần này với bài học? Học phần và từ vựng của bạn vẫn sẽ được giữ lại.', { confirmText: 'Hủy liên kết' })) return;
-        
         try {
             await updateDoc(doc(db, `artifacts/${appId}/users/${userId}/studySets`, linkedStudySet.id), {
                 sourceLesson: null
@@ -1263,13 +1119,11 @@ const BookScreen = ({
             showToast('Lỗi: ' + e.message, 'error');
         }
     };
-
     // Redesign: delete linked study set completely
     const handleDeleteStudySet = async () => {
         if (!linkedStudySet || !userId) return;
         if (!onDeleteFolder) return;
         if (!await showConfirm('Xóa hoàn toàn học phần này? Toàn bộ từ vựng liên kết bên trong sẽ chuyển sang "Chưa phân loại".', { type: 'danger', confirmText: 'Xóa' })) return;
-        
         try {
             await onDeleteFolder(linkedStudySet.id);
             showToast('Đã xóa học phần thành công.', 'success');
@@ -1279,13 +1133,11 @@ const BookScreen = ({
             showToast('Lỗi: ' + e.message, 'error');
         }
     };
-
     const isVocabInUserList = (vocab) => {
         const word = vocab.word || vocab.front || '';
         const n = word.split('（')[0].split('(')[0].trim();
         return allUserCards.some(c => c.front.split('（')[0].split('(')[0].trim() === n);
     };
-
     const getBookProgress = useCallback((gId, book) => {
         let totalVocab = 0;
         let revealedCount = 0;
@@ -1310,7 +1162,6 @@ const BookScreen = ({
         if (totalVocab === 0) return 0;
         return Math.round((revealedCount / totalVocab) * 100);
     }, []);
-
     const getGroupProgress = useCallback((group) => {
         let totalVocab = 0;
         let revealedCount = 0;
@@ -1338,14 +1189,11 @@ const BookScreen = ({
         if (totalVocab === 0) return 0;
         return Math.round((revealedCount / totalVocab) * 100);
     }, []);
-
     // ==================== COLORS ====================
     const BOOK_COLORS = [
         '#4F87FF', '#9B59B6', '#2ECC71', '#FF6B6B', '#F1C40F',
         '#E67E22', '#1ABC9C', '#E91E63', '#00BCD4', '#FF9800'
     ];
-
-
     // ==================== BREADCRUMB ====================
     const Breadcrumb = () => (
         <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 mb-4 flex-wrap">
@@ -1368,7 +1216,6 @@ const BookScreen = ({
             </>}
         </div>
     );
-
     // ==================== VIEWS ====================
     // VIEW 1: Book Groups listing
     const GroupsView = () => {
@@ -1381,7 +1228,6 @@ const BookScreen = ({
                         Tuyển tập các bộ sách cho hành trình học tiếng Nhật. Theo dõi tiến độ qua các giáo trình nền tảng và bộ từ vựng chuyên biệt.
                     </p>
                 </div>
-
                 {/* Filters & Search Row */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-slate-50 dark:bg-slate-800/40 p-3 rounded-2xl border border-slate-100 dark:border-slate-800">
                     {/* Tabs / Filters */}
@@ -1405,7 +1251,6 @@ const BookScreen = ({
                             </button>
                         ))}
                     </div>
-
                     {/* Search Bar */}
                     <div className="relative w-full sm:w-72">
                         <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -1418,7 +1263,6 @@ const BookScreen = ({
                         />
                     </div>
                 </div>
-
                 {filteredGroups.length === 0 && !loading && (
                     <div className="text-center py-16 text-slate-400 dark:text-slate-500 bg-slate-50/50 dark:bg-slate-800/20 rounded-2xl border border-dashed border-slate-200 dark:border-slate-700">
                         <BookOpen className="w-16 h-16 mx-auto mb-4 opacity-30 text-slate-400" />
@@ -1426,7 +1270,6 @@ const BookScreen = ({
                         <p className="text-sm mt-1">Thử điều chỉnh bộ lọc hoặc từ khóa tìm kiếm.</p>
                     </div>
                 )}
-
                 {/* Cards Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredGroups.map(group => {
@@ -1435,13 +1278,11 @@ const BookScreen = ({
                         const isTextbook = category === 'TEXTBOOK';
                         const isJLPT = category === 'JLPT';
                         const badgeText = isTextbook ? 'GIÁO TRÌNH' : isJLPT ? 'JLPT' : 'TÙY CHỈNH';
-                        
                         // Badge levels
                         let levelBadge = '';
                         if (group.name.includes('Daichi')) levelBadge = 'SƠ CẤP';
                         else if (group.name.includes('Irodori')) levelBadge = 'TRÌNH ĐỘ A2';
                         else if (group.name.includes('Mimikara')) levelBadge = 'TRÌNH ĐỘ N2';
-
                         return (
                             <div
                                 key={group.id}
@@ -1478,7 +1319,6 @@ const BookScreen = ({
                                         </div>
                                     </div>
                                 )}
-                                
                                 <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                                     <div className="space-y-1.5">
                                         <div className="flex items-start justify-between gap-4">
@@ -1504,7 +1344,6 @@ const BookScreen = ({
                                             </p>
                                         )}
                                     </div>
-
                                     <div className="space-y-2 pt-2">
                                         <div className="flex items-center justify-between text-xs font-bold text-slate-600 dark:text-slate-300">
                                             <span>Tiến độ</span>
@@ -1521,7 +1360,6 @@ const BookScreen = ({
                             </div>
                         );
                     })}
-
                     {/* Admin Add Card */}
                     {isAdmin && (
                         <div
@@ -1538,19 +1376,15 @@ const BookScreen = ({
                         </div>
                     )}
                 </div>
-
-
             </div>
         );
     };
-
     // VIEW 2: Books in a group (Tango-like cards)
     const BooksView = () => {
         const filteredBooks = (currentGroup?.books || []).filter(book => 
             (book.name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
             (book.subtitle || '').toLowerCase().includes(searchQuery.toLowerCase())
         );
-
         return (
             <div className="space-y-6">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -1565,7 +1399,6 @@ const BookScreen = ({
                         </button>
                     )}
                 </div>
-
                 {/* Books Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredBooks.map(book => {
@@ -1577,14 +1410,12 @@ const BookScreen = ({
                         else if (book.name.includes('N3')) bookLevel = 'TRÌNH ĐỘ N3';
                         else if (book.name.includes('N2')) bookLevel = 'TRÌNH ĐỘ N2';
                         else if (book.name.includes('N1')) bookLevel = 'TRÌNH ĐỘ N1';
-                        
                         return (
                             <div key={book.id}
                                 onClick={() => navigateTo({ group: groupId, book: book.id })}
                                 className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/60 dark:border-slate-700/60 p-6 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-h-[220px] group relative overflow-hidden"
                             >
                                 <div className="absolute inset-x-0 top-0 h-1.5" style={{ backgroundColor: book.color || '#4F87FF' }} />
-                                
                                 <div className="space-y-4">
                                     <div className="flex items-start justify-between gap-4">
                                         <div>
@@ -1610,14 +1441,12 @@ const BookScreen = ({
                                             </div>
                                         )}
                                     </div>
-                                    
                                     {book.description && (
                                         <p className="text-xs text-slate-400 dark:text-slate-500 line-clamp-2">
                                             {book.description}
                                         </p>
                                     )}
                                 </div>
-
                                 <div className="space-y-3 mt-4">
                                     {/* Stats */}
                                     <div className="flex items-center justify-between text-xs">
@@ -1637,7 +1466,6 @@ const BookScreen = ({
                             </div>
                         );
                     })}
-
                     {/* Admin Add Book */}
                     {isAdmin && (
                         <div
@@ -1657,7 +1485,6 @@ const BookScreen = ({
             </div>
         );
     };
-
     // VIEW 3: Chapters & Lessons (with TOC)
     const ChaptersView = () => {
         const chapters = currentBook?.chapters || [];
@@ -1751,7 +1578,6 @@ const BookScreen = ({
                         </div>
                     )}
                 </div>
-
                 {/* Table of Contents - right sidebar */}
                 {showTOC && chapters.length > 0 && (
                     <div className="hidden lg:block w-56 shrink-0">
@@ -1777,7 +1603,6 @@ const BookScreen = ({
             </div>
         );
     };
-
     // VIEW 4: Lesson vocabulary
     const LessonView = () => {
         const vocab = vocabWithAudio;
@@ -1798,7 +1623,6 @@ const BookScreen = ({
                             )}
                         </div>
                     </div>
-
                     {/* STUDY SET REDESIGN CONTROL PANEL */}
                     <div className="bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 p-4 shadow-sm">
                         {linkedStudySet ? (
@@ -1836,14 +1660,12 @@ const BookScreen = ({
                                             Đồng bộ ({syncStatus.missingCount} từ mới)
                                         </button>
                                     )}
-                                    
                                     <button
                                         onClick={() => navigate(`/vocab/set/${linkedStudySet.id}`)}
                                         className="flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 text-white rounded-xl text-xs font-extrabold transition-all shadow-md hover:shadow-lg"
                                     >
                                         Học Ngay 🚀
                                     </button>
-
                                     <div className="relative group">
                                         <button className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all border border-slate-200 dark:border-slate-700">
                                             <Wrench className="w-3.5 h-3.5" />
@@ -1902,7 +1724,6 @@ const BookScreen = ({
                             </div>
                         )}
                     </div>
-
                     {/* Progress bar + Study controls */}
                     {vocab.length > 0 && (() => {
                         const totalWords = vocab.length;
@@ -1930,7 +1751,6 @@ const BookScreen = ({
                                         </div>
                                     </div>
                                 </div>
-
                                 {/* Controls */}
                                 <div className="flex items-center gap-2 flex-wrap">
                                     {/* Toggle blur mode */}
@@ -1945,7 +1765,6 @@ const BookScreen = ({
                                         <Languages className="w-3.5 h-3.5" />
                                         {blurMode === 'vn' ? 'Ẩn: Tiếng Việt' : 'Ẩn: Kanji + Đọc'}
                                     </button>
-
                                     {/* Re-blur all (keep progress) */}
                                     <button
                                         onClick={handleReBlurAll}
@@ -1954,7 +1773,6 @@ const BookScreen = ({
                                     >
                                         <EyeOff className="w-3.5 h-3.5" /> Mờ lại
                                     </button>
-
                                     {/* Reset progress */}
                                     {persistedRevealed.size > 0 && (
                                         <button
@@ -1971,7 +1789,6 @@ const BookScreen = ({
                             </div>
                         );
                     })()}
-
                     {vocab.length === 0 ? (
                         <div className="text-center py-12 text-gray-400">
                             <FileText className="w-12 h-12 mx-auto mb-3 opacity-30" />
@@ -2088,7 +1905,6 @@ const BookScreen = ({
                                                         <div className="w-2 h-2 rounded-full bg-emerald-400" title="Đã lật" />
                                                     )}
                                                 </div>
-
                                                 {/* LEFT: Từ vựng + nghĩa */}
                                                 <div className="w-[30%] p-4 border-r border-gray-100 dark:border-gray-700 flex flex-col">
                                                     <div className="flex-1 flex flex-col justify-center">
@@ -2099,7 +1915,6 @@ const BookScreen = ({
                                                             return (<>
                                                                 <div className="flex items-center gap-2">
                                                                     <p className={`text-xl font-bold text-gray-900 dark:text-white leading-tight transition-all duration-300 ${blurJP ? blurClass : ''}`}>{displayWord}</p>
-
                                                                     {v.specialReading && (
                                                                         <span className="text-[10px] px-1.5 py-0.5 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 rounded" title="Cách đọc đặc biệt">特</span>
                                                                     )}
@@ -2169,19 +1984,14 @@ const BookScreen = ({
                                                                 {v.sinoVietnamese && (
                                                                     <p className={`text-xs text-amber-600 dark:text-amber-400 font-medium mt-1 transition-all duration-300 ${blurVN ? blurClass : ''}`}>{v.sinoVietnamese}</p>
                                                                 )}
-
                                                                 <p className={`text-sm text-sky-600 dark:text-sky-400 mt-2 font-medium transition-all duration-300 ${blurVN ? blurClass : ''}`}>{v.meaning || v.back || ''}</p>
-
                                                                 {v.synonym && (
                                                                     <p className={`text-xs text-purple-500 dark:text-purple-400 mt-1 transition-all duration-300 ${blurVN ? blurClass : ''}`}>🔄 {v.synonym}</p>
                                                                 )}
-
                                                             </>);
                                                         })()}
-
                                                     </div>
                                                 </div>
-
                                                 {/* RIGHT: Ví dụ + nghĩa ví dụ */}
                                                 <div className="flex-1 p-4 flex items-stretch gap-3">
                                                     <div className="flex-1 flex flex-col justify-center">
@@ -2217,10 +2027,8 @@ const BookScreen = ({
                                                         </div>
                                                     )}
                                                 </div>
-
                                                 {/* ACTION buttons */}
                                                 <div className="shrink-0 flex flex-col items-center justify-center gap-0.5 px-2 border-l border-gray-100 dark:border-gray-700">
-
                                                     {(v.nuance || v.note) && (
                                                         <button onClick={(e) => { e.stopPropagation(); setShowNuanceIndex(showNuanceIndex === i ? null : i); }}
                                                             className={`p-1.5 transition-colors ${showNuanceIndex === i ? 'text-amber-500' : 'text-gray-300 hover:text-amber-500'}`}
@@ -2249,7 +2057,6 @@ const BookScreen = ({
                         </div>
                     )}
                 </div>
-
                 {/* TOC sidebar for lesson view */}
                 {showTOC && currentBook?.chapters?.length > 0 && (
                     <div className="hidden lg:block w-56 shrink-0">
@@ -2278,7 +2085,6 @@ const BookScreen = ({
             </div>
         );
     };
-
     // ==================== FIX AUDIO MODAL ====================
     const FixAudioModal = () => {
         if (fixAudioIndex === null) return null;
@@ -2289,7 +2095,6 @@ const BookScreen = ({
         const displayWord = word.split('（')[0].split('(')[0].trim();
         const readingMatch = word.match(/[（(]([^）)]+)[）)]/);
         const autoReading = readingMatch ? readingMatch[1].trim() : (v.reading || '');
-
         return (
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => { if (!fixAudioLoading) { setFixAudioIndex(null); setFixAudioCustomReading(''); } }}>
                 <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden" onClick={e => e.stopPropagation()}>
@@ -2309,7 +2114,6 @@ const BookScreen = ({
                             <X className="w-5 h-5 text-gray-500" />
                         </button>
                     </div>
-
                     {/* Content */}
                     <div className="p-4 space-y-3">
                         {/* Option 1: Auto regenerate */}
@@ -2333,14 +2137,12 @@ const BookScreen = ({
                                 )}
                             </div>
                         </button>
-
                         {/* Divider */}
                         <div className="flex items-center gap-2">
                             <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>
                             <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">HOẶC</span>
                             <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>
                         </div>
-
                         {/* Option 2: Manual input */}
                         <div className="space-y-2">
                             <div className="flex items-center gap-2">
@@ -2378,7 +2180,6 @@ const BookScreen = ({
                             <p className="text-[11px] text-gray-400 dark:text-gray-500 pl-10">Nhập cách đọc bằng hiragana để tạo audio chính xác</p>
                         </div>
                     </div>
-
                     {/* Footer hint */}
                     {v.audioBase64 && (
                         <div className="px-4 pb-3">
@@ -2391,7 +2192,6 @@ const BookScreen = ({
             </div>
         );
     };
-
     // ==================== RENDER ====================
     if (loading) {
         return (
@@ -2401,9 +2201,6 @@ const BookScreen = ({
             </div>
         );
     }
-
-
-
     // Determine which view to render (call as functions, NOT as components <View/>)
     // Using <View/> would create new component type each render → unmount/remount → lose focus & scroll
     const renderCurrentView = () => {
@@ -2412,22 +2209,18 @@ const BookScreen = ({
         if (groupId && currentGroup) return BooksView();
         return GroupsView();
     };
-
     return (
         <div className="w-full pb-8">
             <TopTabBar tabs={VOCAB_TABS} />
             <div className="max-w-6xl mx-auto space-y-4 px-4 md:px-8 mt-4">
                 {(groupId || bookId || chapterId || lessonId) && <Breadcrumb />}
-
             {renderCurrentView()}
-
             {/* Modals */}
             <FormModal show={showAddGroup} onClose={() => { setShowAddGroup(false); resetForm(); }} title="Thêm nhóm sách" onSave={handleAddGroup}>
                 <InputField label="Tên nhóm" value={formName} onChange={setFormName} placeholder="VD: Tango" />
                 <InputField label="Phụ đề" value={formSubtitle} onChange={setFormSubtitle} placeholder="VD: はじめての日本語能力試験" />
                 <InputField label="URL hình ảnh (tùy chọn)" value={formImageUrl} onChange={setFormImageUrl} placeholder="https://..." />
             </FormModal>
-
             <FormModal show={showAddBook} onClose={() => { setShowAddBook(false); resetForm(); }} title="Thêm sách" onSave={handleAddBook}>
                 <InputField label="Tên sách" value={formName} onChange={setFormName} placeholder="VD: N5" />
                 <InputField label="Phụ đề" value={formSubtitle} onChange={setFormSubtitle} placeholder="VD: はじめての日本語能力試験" />
@@ -2444,15 +2237,12 @@ const BookScreen = ({
                     </div>
                 </div>
             </FormModal>
-
             <FormModal show={showAddChapter} onClose={() => { setShowAddChapter(false); resetForm(); }} title="Thêm chương" onSave={handleAddChapter}>
                 <InputField label="Tên chương" value={formName} onChange={setFormName} placeholder="VD: Chương 1 - Chào hỏi" />
             </FormModal>
-
             <FormModal show={showAddLesson} onClose={() => { setShowAddLesson(false); resetForm(); }} title="Thêm bài" onSave={handleAddLesson}>
                 <InputField label="Tên bài" value={formName} onChange={setFormName} placeholder="VD: Bài 1 - Giới thiệu bản thân" />
             </FormModal>
-
             <FormModal show={showJsonImport} onClose={() => { setShowJsonImport(false); resetForm(); }} title="Import / Cập nhật từ vựng (JSON)" onSave={handleImportJson}>
                 <div className="space-y-3">
                     {/* Info about merge behavior */}
@@ -2460,7 +2250,6 @@ const BookScreen = ({
                         <p className="text-xs text-sky-700 dark:text-sky-300 font-medium">💡 Hỗ trợ cập nhật từ vựng đã có</p>
                         <p className="text-[11px] text-sky-600 dark:text-sky-400 mt-1">Nếu <strong>word</strong> đã tồn tại trong bài, chỉ các trường <strong>không trống</strong> trong JSON sẽ được cập nhật. Từ mới sẽ được thêm vào cuối danh sách.</p>
                     </div>
-
                     {/* Sample JSON */}
                     <div>
                         <div className="flex items-center justify-between mb-1">
@@ -2508,13 +2297,11 @@ const BookScreen = ({
   }
 ]`}</pre>
                     </div>
-
                     {/* Partial update example */}
                     <div>
                         <label className="text-xs font-medium text-gray-500 dark:text-gray-400">Ví dụ cập nhật 1 trường cho từ đã có:</label>
                         <pre className="text-[10px] bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-800 rounded-lg p-2 font-mono text-amber-700 dark:text-amber-400 mt-1">{`[{ "word": "漢字（かんじ）", "sinoVietnamese": "HÁN TỰ" }]`}</pre>
                     </div>
-
                     {/* Input area */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Dán JSON vào đây</label>
@@ -2525,14 +2312,12 @@ const BookScreen = ({
                     </div>
                 </div>
             </FormModal>
-
             {/* Edit Group Modal */}
             <FormModal show={showEditGroup} onClose={() => { setShowEditGroup(false); resetForm(); }} title="Chỉnh sửa nhóm sách" onSave={handleSaveEditGroup}>
                 <InputField label="Tên nhóm" value={formName} onChange={setFormName} placeholder="VD: Tango" />
                 <InputField label="Phụ đề" value={formSubtitle} onChange={setFormSubtitle} placeholder="VD: はじめての日本語能力試験" />
                 <InputField label="URL hình ảnh (tùy chọn)" value={formImageUrl} onChange={setFormImageUrl} placeholder="https://..." />
             </FormModal>
-
             {/* Edit Book Modal */}
             <FormModal show={showEditBook} onClose={() => { setShowEditBook(false); resetForm(); }} title="Chỉnh sửa sách" onSave={handleSaveEditBook}>
                 <InputField label="Tên sách" value={formName} onChange={setFormName} placeholder="VD: N5" />
@@ -2550,8 +2335,6 @@ const BookScreen = ({
                     </div>
                 </div>
             </FormModal>
-
-
             {/* Create Study Set Modal */}
             {showCreateStudySetModal && (
                 <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 animate-fadeIn">
@@ -2574,7 +2357,6 @@ const BookScreen = ({
                                 <X className="w-5 h-5" />
                             </button>
                         </div>
-
                         {/* Content */}
                         <div className="p-6 overflow-y-auto space-y-4 flex-1">
                             <div>
@@ -2587,7 +2369,6 @@ const BookScreen = ({
                                     className="w-full px-3 py-2 border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-500"
                                 />
                             </div>
-
                             <div>
                                 <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Mô tả học phần (tùy chọn)</label>
                                 <textarea 
@@ -2598,7 +2379,6 @@ const BookScreen = ({
                                     className="w-full px-3 py-2 border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-sky-500 resize-none"
                                 />
                             </div>
-
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Thư mục cha</label>
@@ -2617,7 +2397,6 @@ const BookScreen = ({
                                         <option value="NEW_PARENT">➕ Tạo thư mục mới...</option>
                                     </select>
                                 </div>
-
                                 {isCreatingNewParentFolder && (
                                     <div className="animate-fadeIn">
                                         <label className="block text-xs font-bold text-sky-500 dark:text-sky-400 uppercase tracking-wider mb-1.5">Tên thư mục mới</label>
@@ -2631,7 +2410,6 @@ const BookScreen = ({
                                     </div>
                                 )}
                             </div>
-
                             {/* Vocabulary Checklist */}
                             <div>
                                 <div className="flex items-center justify-between mb-2">
@@ -2658,7 +2436,6 @@ const BookScreen = ({
                                         const displayWord = word.split('（')[0].split('(')[0].trim();
                                         const isSelected = selectedVocabIndices.has(i);
                                         const inList = allUserCards.some(c => c.front.split('（')[0].split('(')[0].trim() === displayWord);
-
                                         return (
                                             <div 
                                                 key={i} 
@@ -2693,7 +2470,6 @@ const BookScreen = ({
                                 </div>
                             </div>
                         </div>
-
                         {/* Footer */}
                         <div className="px-6 py-4 border-t border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 flex justify-end gap-3">
                             <button 
@@ -2722,7 +2498,6 @@ const BookScreen = ({
                     </div>
                 </div>
             )}
-
             {/* Link Existing Study Set Modal */}
             {showLinkStudySetModal && (
                 <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 animate-fadeIn">
@@ -2745,7 +2520,6 @@ const BookScreen = ({
                                 <X className="w-5 h-5" />
                             </button>
                         </div>
-
                         {/* Content */}
                         <div className="p-6 overflow-y-auto space-y-4 flex-1">
                             <div>
@@ -2764,7 +2538,6 @@ const BookScreen = ({
                                     ))}
                                 </select>
                             </div>
-
                             {/* Vocabulary Checklist */}
                             <div>
                                 <div className="flex items-center justify-between mb-2">
@@ -2791,7 +2564,6 @@ const BookScreen = ({
                                         const displayWord = word.split('（')[0].split('(')[0].trim();
                                         const isSelected = selectedVocabIndices.has(i);
                                         const inList = allUserCards.some(c => c.front.split('（')[0].split('(')[0].trim() === displayWord);
-
                                         return (
                                             <div 
                                                 key={i} 
@@ -2826,7 +2598,6 @@ const BookScreen = ({
                                 </div>
                             </div>
                         </div>
-
                         {/* Footer */}
                         <div className="px-6 py-4 border-t border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 flex justify-end gap-3">
                             <button 
@@ -2855,12 +2626,10 @@ const BookScreen = ({
                     </div>
                 </div>
             )}
-
             {/* Fix Audio Modal */}
             {FixAudioModal()}
             </div>
         </div>
     );
 };
-
 export default BookScreen;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Plus, Trash2, Edit2, Save, ChevronRight, CheckCircle, FileText, FileJson, Clipboard, Check, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Plus, Trash2, Edit2, Save, ChevronRight, FileJson, Clipboard, Check, AlertCircle } from 'lucide-react'
 import { subscribeTextbooks, subscribeLessons, addLesson, updateLesson, deleteLesson, importLessonsFromJson } from '../../utils/grammarService';
 
 const SAMPLE_LESSONS_JSON = `[

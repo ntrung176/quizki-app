@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
-import { ArrowLeft, Users, CheckCircle, XCircle, RotateCcw, Trophy, ChevronRight, Zap } from 'lucide-react';
+import { ArrowLeft, Users, CheckCircle, XCircle, RotateCcw, ChevronRight, Zap } from 'lucide-react'
 import FuriganaText from '../ui/FuriganaText';
 import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
 import { speakJapanese } from '../../utils/audio';
@@ -53,14 +53,14 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
     const options = useMemo(() => {
         if (!currentCard) return [];
         const correctAnswer = currentCard.synonym;
-        
+
         // Get all unique synonyms from other cards
         let synonymPool = Array.from(new Set(
             cards
                 .filter(c => c.synonym && c.synonym.trim() && c.synonym !== correctAnswer)
                 .map(c => c.synonym)
         ));
-        
+
         // If we don't have enough synonyms in the deck, we can pad with other cards' Japanese fronts
         let paddingPool = [];
         if (synonymPool.length < 3) {

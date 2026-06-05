@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import {
-    Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Award,
-    Search, SlidersHorizontal, ArrowUpDown, ChevronDown, ChevronUp, Users, Sparkles
-} from 'lucide-react';
+import { Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Search, Users, Sparkles } from 'lucide-react'
 import { collection, query, onSnapshot } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
 import LoadingIndicator from '../ui/LoadingIndicator';
@@ -224,7 +221,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                 if (sortBy === 'streak') return (b.streak || 0) - (a.streak || 0);
                 return b.computedScore - a.computedScore;
             });
-        
+
         const index = fullSorted.findIndex(u => u.id === userId);
         return {
             rank: index !== -1 ? index + 1 : fullSorted.length + 1,
@@ -256,7 +253,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
             : rank === 2 ? 'bg-gradient-to-r from-gray-50/50 to-slate-50/20 dark:from-gray-800/10 dark:to-transparent'
                 : rank === 3 ? 'bg-gradient-to-r from-orange-50/50 to-amber-50/10 dark:from-orange-950/10 dark:to-transparent'
                     : '';
-        
+
         const rankIcon = rank === 1 ? <Crown className="w-5 h-5 text-yellow-500 fill-yellow-100 dark:fill-yellow-900/30" />
             : rank === 2 ? <Medal className="w-5 h-5 text-slate-400 fill-slate-100 dark:fill-slate-800" />
                 : rank === 3 ? <Medal className="w-5 h-5 text-amber-600 fill-amber-100 dark:fill-amber-900/30" />
@@ -283,11 +280,11 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                     className="flex items-center gap-3 p-3.5 cursor-pointer hover:bg-gray-50/50 dark:hover:bg-gray-700/20 transition-all"
                 >
                     <div className="flex-shrink-0 w-6 flex justify-center">{rankIcon}</div>
-                    
+
                     <div className={`w-9 h-9 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-gray-700 ${isCustomPhoto(user.avatar) ? '' : 'bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40 text-lg font-bold'}`}>
                         {getAvatarDisplayNode(user.avatar, user.displayName || 'U')}
                     </div>
-                    
+
                     <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-1.5">
                             <p className={`text-sm font-bold truncate ${isMe ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-700 dark:text-gray-200'}`}>
@@ -305,7 +302,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                 </span>
                             )}
                         </div>
-                        
+
                         <div className="flex items-center gap-2 text-[10px] text-gray-400 dark:text-gray-500 font-medium mt-0.5">
                             <span>{user.totalCards || 0} từ</span>
                             <span>·</span>
@@ -356,7 +353,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                 </div>
                             </div>
                         </div>
-                        
+
                         {/* Weekly Section */}
                         <div>
                             <span className="text-[10px] font-extrabold text-emerald-500 uppercase tracking-widest block mb-2">Hoạt động tuần này (7 ngày qua)</span>
@@ -404,7 +401,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                         <p className="text-xs text-indigo-100/80 font-medium">Thống kê của bạn</p>
                     </div>
                 </div>
-                
+
                 <div className="grid grid-cols-5 gap-3 bg-white/10 p-3 rounded-2xl border border-white/10">
                     <div className="text-center">
                         <div className="text-xl md:text-2xl font-bold">{totalCards}</div>
@@ -548,7 +545,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                             <Trophy className="w-5 h-5 text-indigo-500 fill-indigo-100 dark:fill-indigo-900/30" />
                             Bảng xếp hạng tổng hợp
                         </h3>
-                        
+
                         {/* Sort options */}
                         <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
                             <span className="text-[11px] font-bold text-gray-400 dark:text-gray-500 whitespace-nowrap">Sắp xếp:</span>
@@ -643,7 +640,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                             <p className="text-[10px] text-gray-400 font-medium">Bạn đang nằm ngoài danh sách hiển thị</p>
                         </div>
                     </div>
-                    
+
                     <div className="flex items-center gap-4 text-xs font-bold">
                         <span className="text-gray-500 dark:text-gray-400">{totalCards} từ</span>
                         <span className="text-gray-500 dark:text-gray-400">{kanjiSrsStats.total} kanji</span>
@@ -690,7 +687,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                     ⚠️ <strong>Lưu ý:</strong> Những người không có hoạt động trong vòng <strong>7 ngày</strong> qua sẽ bị ẩn khỏi bảng vinh danh cho tới khi học lại.
                 </div>
             </div>
-            
+
             {/* Inline animation */}
             <style>{`
                 .animate-fade-in {

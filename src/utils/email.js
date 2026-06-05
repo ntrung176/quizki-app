@@ -2,7 +2,7 @@
  * Gửi email thông qua Cloudflare Worker (Resend proxy)
  * Cách này bảo vệ API Key của bạn trên Server, không lộ cho Hacker
  */
-export const sendEmail = async (toEmail, subject, htmlContent) => {
+const sendEmail = async (toEmail, subject, htmlContent) => {
     const proxyUrl = import.meta.env.VITE_RESEND_PROXY_URL;
 
     console.log('📧 sendEmail called:', { toEmail, subject, proxyUrl: proxyUrl || '(chưa cấu hình)' });

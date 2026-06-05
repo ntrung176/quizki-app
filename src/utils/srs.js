@@ -1,19 +1,19 @@
-import { SRS_INTERVALS, GRADUATION_INTERVAL, MASTERED_THRESHOLD, MAX_INTERVAL, formatIntervalMinutes } from '../config/constants';
+import { SRS_INTERVALS } from '../config/constants'
 
 // ==================== CONSTANTS ====================
 export const DEFAULT_EASE = 2.5;
-export const MIN_EASE = 1.3;
-export const MAX_EASE = 3.5;
-export const LEARNING_STEPS = [1, 10]; // Step 0: 1 min, Step 1: 10 mins
-export const RELEARNING_STEPS = [10];  // Step 0: 10 mins
-export const MAX_INTERVAL_DAYS = 36500; // 100 years, same as Anki default
-export const HARD_MULTIPLIER = 1.2; // Anki default Hard Interval multiplier
-export const EASY_BONUS = 1.3; // Anki default Easy Bonus multiplier
+const MIN_EASE = 1.3;
+const MAX_EASE = 3.5;
+const LEARNING_STEPS = [1, 10]; // Step 0: 1 min, Step 1: 10 mins
+const RELEARNING_STEPS = [10];  // Step 0: 10 mins
+const MAX_INTERVAL_DAYS = 36500; // 100 years, same as Anki default
+const HARD_MULTIPLIER = 1.2; // Anki default Hard Interval multiplier
+const EASY_BONUS = 1.3; // Anki default Easy Bonus multiplier
 
 // ==================== UTILITY FUNCTIONS ====================
 
 // Normalize SRS state and handle migration from legacy Leitner system
-export const normalizeSRSState = (srs) => {
+const normalizeSRSState = (srs) => {
     if (!srs) {
         return {
             interval: 0,
@@ -120,7 +120,7 @@ export const getSrsProgressText = (intervalIndex, ease, currentInterval, state) 
 };
 
 // Check if card is due for review
-export const isCardDue = (nextReviewTimestamp) => {
+const isCardDue = (nextReviewTimestamp) => {
     return nextReviewTimestamp <= Date.now();
 };
 
@@ -145,7 +145,7 @@ export const calculateCorrectInterval = (interval, nextReviewTimestamp) => {
 };
 
 // Get SRS color based on state and currentInterval
-export const getSrsColor = (intervalIndex, currentInterval, state) => {
+const getSrsColor = (intervalIndex, currentInterval, state) => {
     const resolvedState = state || (intervalIndex === -1 ? 'NEW' : (intervalIndex >= 2 ? 'REVIEW' : 'LEARNING'));
 
     if (resolvedState === 'NEW') return 'text-gray-400';
@@ -157,7 +157,7 @@ export const getSrsColor = (intervalIndex, currentInterval, state) => {
 };
 
 // Get SRS badge color
-export const getSrsBadgeColor = (intervalIndex, currentInterval, state) => {
+const getSrsBadgeColor = (intervalIndex, currentInterval, state) => {
     const resolvedState = state || (intervalIndex === -1 ? 'NEW' : (intervalIndex >= 2 ? 'REVIEW' : 'LEARNING'));
 
     if (resolvedState === 'NEW') return 'bg-gray-100 text-gray-600 border-gray-200';
@@ -192,7 +192,7 @@ export const formatCountdown = (targetTimestamp) => {
 };
 
 // Get difficulty label based on ease factor
-export const getDifficultyLabel = (ease) => {
+const getDifficultyLabel = (ease) => {
     if (!ease || ease === DEFAULT_EASE) return { text: 'Bình thường', color: 'text-gray-500' };
     if (ease < 1.5) return { text: 'Rất khó', color: 'text-red-600' };
     if (ease < 2.0) return { text: 'Khó', color: 'text-orange-500' };

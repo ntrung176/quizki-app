@@ -59,7 +59,7 @@ const createPatchedAnalyzer = () => {
  * Get or initialize the Kuroshiro instance.
  * Uses a CDN for the dictionary to avoid bloating the app bundle.
  */
-export const getKuroshiro = async () => {
+const getKuroshiro = async () => {
     if (kuroshiroInstance) return kuroshiroInstance;
     if (initPromise) return initPromise;
 

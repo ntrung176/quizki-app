@@ -1,10 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
-    BookOpen, Folder, Plus, Library, Trash2, X, Search, ChevronRight, 
-    Layers, GraduationCap, Play, FolderPlus, Edit3, MoreVertical, 
-    FolderOpen, ArrowLeft, Move, ChevronDown
-} from 'lucide-react';
+import { Folder, Plus, Library, Trash2, X, Search, ChevronRight, Layers, GraduationCap, Play, FolderPlus, Edit3, FolderOpen, ArrowLeft, Move } from 'lucide-react'
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 
@@ -24,7 +20,7 @@ const LibraryScreen = ({
     const navigate = useNavigate();
     const [deletingFolder, setDeletingFolder] = useState(null); // Study Set deletion
     const [searchQuery, setSearchQuery] = useState('');
-    
+
     // Parent Folder states
     const [activeParentFolderId, setActiveParentFolderId] = useState(null);
     const [dragOverFolderId, setDragOverFolderId] = useState(null);
@@ -44,7 +40,7 @@ const LibraryScreen = ({
         window.addEventListener('click', handleOutsideClick);
         return () => window.removeEventListener('click', handleOutsideClick);
     }, []);
-    
+
     // Calculate counts and stats for Study Sets
     const unfiledCount = useMemo(() => {
         return allCards.filter(c => !cardFolders[c.id]).length;
@@ -54,7 +50,7 @@ const LibraryScreen = ({
         return folders.map(f => {
             const folderCards = allCards.filter(c => cardFolders[c.id] === f.id);
             const count = folderCards.length;
-            
+
             // Calculate progress/mastery (cards with seenCount > 0)
             const masteredCount = folderCards.filter(c => (c.seenCount || 0) > 0).length;
             const masteredPct = count > 0 ? Math.round((masteredCount / count) * 100) : 0;
@@ -78,17 +74,17 @@ const LibraryScreen = ({
                 ? (f.name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
                   (f.description || '').toLowerCase().includes(searchQuery.toLowerCase())
                 : true;
-                
+
             if (!matchesSearch) return false;
-            
+
             // If there's a search query, search globally (ignore parentId)
             if (searchQuery) return true;
-            
+
             // Match parent folder
             const matchesParent = activeParentFolderId 
                 ? f.parentId === activeParentFolderId 
                 : !f.parentId;
-                
+
             return matchesParent;
         });
     }, [foldersWithCounts, activeParentFolderId, searchQuery]);
@@ -198,7 +194,7 @@ const LibraryScreen = ({
     return (
         <div className="w-full pb-16 min-h-screen bg-gray-50 dark:bg-gray-900 animate-fade-in">
             <TopTabBar tabs={VOCAB_TABS} />
-            
+
             <div className="max-w-6xl mx-auto px-4 md:px-8 mt-6 space-y-8">
                 {/* Modern Premium Header */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -281,7 +277,7 @@ const LibraryScreen = ({
                                 Kéo học phần vào đây để đưa ra ngoài thư mục
                             </div>
                         )}
-                        
+
                         <button
                             onClick={() => setActiveParentFolderId(null)}
                             className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-650 text-gray-700 dark:text-gray-200 font-bold text-xs rounded-xl transition-all flex items-center gap-1 self-start sm:self-auto"
@@ -296,7 +292,7 @@ const LibraryScreen = ({
                 {!activeParentFolderId && !searchQuery && featuredFolder && (
                     <div className="bg-slate-900 dark:bg-slate-950 rounded-3xl p-6 md:p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800 shadow-xl overflow-hidden relative">
                         <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-indigo-500/10 to-sky-500/10 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-                        
+
                         <div className="space-y-4 max-w-xl z-10 flex-1">
                             <div className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-500/20 border border-indigo-500/30 rounded-full text-[10px] font-bold text-indigo-300 tracking-wider uppercase">
                                 Học phần đang học
@@ -431,7 +427,7 @@ const LibraryScreen = ({
                             </span>
                         )}
                     </h2>
-                    
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {/* Unfiled cards set - Only show at root level */}
                         {!activeParentFolderId && !searchQuery && unfiledCount > 0 && (
@@ -486,7 +482,7 @@ const LibraryScreen = ({
                                                 <Folder className="w-5 h-5 text-indigo-500" />
                                             </div>
                                         )}
-                                        
+
                                         <div className="flex items-center gap-1.5 shrink-0 z-20">
                                             {/* Move Dropdown Trigger */}
                                             {parentFolders.length > 0 && onMoveStudySetToParentFolder && (
@@ -501,7 +497,7 @@ const LibraryScreen = ({
                                                     >
                                                         <Move className="w-4 h-4" />
                                                     </button>
-                                                    
+
                                                     {/* Accessible Dropdown menu */}
                                                     {activeMenuStudySetId === folder.id && (
                                                         <div className="absolute right-0 mt-1 w-52 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 py-1.5 z-50 text-left animate-scale-up" onClick={e => e.stopPropagation()}>

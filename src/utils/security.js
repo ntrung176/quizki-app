@@ -60,7 +60,7 @@ export const initConsoleProtection = () => {
  * Validate credit operations to prevent manipulation.
  * Returns true if the credit change is valid.
  */
-export const validateCreditChange = (currentCredits, newCredits, operation) => {
+const validateCreditChange = (currentCredits, newCredits, operation) => {
     // Credits must be a number
     if (typeof newCredits !== 'number' || isNaN(newCredits)) return false;
 
@@ -88,7 +88,7 @@ export const validateCreditChange = (currentCredits, newCredits, operation) => {
  *   localStorage.setItem('geminiApiKeys', '["stolen-key"]')
  * This validates that keys match env-provided keys only.
  */
-export const getSecureGeminiKeys = (envKeysFn) => {
+const getSecureGeminiKeys = (envKeysFn) => {
     // ONLY use keys from env variables, NEVER from localStorage
     // This prevents: localStorage.setItem('geminiApiKeys', '["attacker-key"]')
     return envKeysFn();
@@ -150,7 +150,7 @@ export const verifyAdminAtCallTime = (auth, adminEmailEnv) => {
 /**
  * Sanitize user input to prevent XSS via stored data.
  */
-export const sanitizeInput = (input) => {
+const sanitizeInput = (input) => {
     if (typeof input !== 'string') return input;
     return input
         .replace(/</g, '&lt;')
@@ -162,7 +162,7 @@ export const sanitizeInput = (input) => {
 /**
  * Validate Firebase document path to prevent path traversal.
  */
-export const isValidFirebasePath = (path) => {
+const isValidFirebasePath = (path) => {
     if (!path || typeof path !== 'string') return false;
     // Must not contain '..' or '//' 
     if (path.includes('..') || path.includes('//')) return false;

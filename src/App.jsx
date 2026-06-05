@@ -1,75 +1,40 @@
 import './App.css';
-import React, { useState, useEffect, useCallback, useMemo, useRef, useTransition, useDeferredValue } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { useNavigate, useLocation, Navigate } from 'react-router-dom';
-import { useDebounce } from 'use-debounce';
+
 import { initializeApp } from 'firebase/app';
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail, updatePassword, sendEmailVerification } from 'firebase/auth';
-import { getFirestore, doc, setDoc, addDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, getDocs, where, writeBatch, increment, collectionGroup, deleteField } from 'firebase/firestore';
-import { Loader2, Plus, Repeat2, Home, CheckCircle, XCircle, Volume2, Send, BookOpen, Clock, HeartHandshake, List, Calendar, Trash2, Mic, FileText, MessageSquare, HelpCircle, Upload, Wand2, BarChart3, Users, PieChart as PieChartIcon, Target, Save, Edit, Zap, Eye, EyeOff, AlertTriangle, Check, VolumeX, Image as ImageIcon, X, Music, FileAudio, Tag, Sparkles, Filter, ArrowDown, ArrowUp, GraduationCap, Search, Languages, RefreshCw, Settings, ChevronRight, Wrench, LayoutGrid, Flame, TrendingUp, Lightbulb, Brain, Ear, Keyboard, MousePointerClick, Layers, RotateCw, Lock, LogOut, FileCheck, Moon, Sun } from 'lucide-react';
-import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { getAuth, onAuthStateChanged, signOut, updatePassword } from 'firebase/auth'
+import { getFirestore, doc, setDoc, addDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, getDocs, writeBatch, increment, collectionGroup, deleteField } from 'firebase/firestore'
+import { Loader2, CheckCircle, HelpCircle, Save, AlertTriangle, Check, X, Filter, Wrench, LogOut } from 'lucide-react'
+import { PieChart } from 'recharts'
 
 // Route configuration
 import { ROUTES, getEditRoute } from './router';
 import { showToast } from './utils/toast';
 
 // Import from refactored modules
-import {
-    POS_TYPES,
-    JLPT_LEVELS,
-    SRS_INTERVALS,
-    getPosLabel,
-    getPosColor,
-    getLevelColor,
-    normalizePosKey
-} from './config/constants';
+import { normalizePosKey } from './config/constants'
 
-import { playAudio, pcmToWav, base64ToArrayBuffer, initSharedAudioCache, generateAudioSilent, getTTSVoice } from './utils/audio';
-import { getNextReviewDate, getSrsProgressText, DEFAULT_EASE, calculateCorrectInterval, calculateAnkiSRS } from './utils/srs';
-import {
-    shuffleArray,
-    maskWordInExample,
-    getWordForMasking,
-    getSpeechText,
-    buildAdjNaAcceptedAnswers,
-    isMobileDevice
-} from './utils/textProcessing';
+import { playAudio, generateAudioSilent } from './utils/audio'
+import { getNextReviewDate, DEFAULT_EASE, calculateCorrectInterval, calculateAnkiSRS } from './utils/srs'
+import { shuffleArray, getSpeechText } from './utils/textProcessing'
 import { callAI, parseJsonFromAI, getAIProviderInfo, generateVocabPrompt, getOpenRouterKeys } from './utils/aiProvider';
-import { subscribeAdminConfig, canUseAI as checkCanUseAI, hasAdminPrivileges } from './utils/adminSettings';
-import { compressImage } from './utils/image';
-import { initConsoleProtection, aiRateLimiter, verifyAdminAtCallTime, validateCreditChange } from './utils/security';
+import { subscribeAdminConfig, hasAdminPrivileges } from './utils/adminSettings'
+
+import { initConsoleProtection, aiRateLimiter, verifyAdminAtCallTime } from './utils/security'
 
 // Import screens
-import {
-    HomeScreen,
-    LoginScreen,
-    AccountScreen,
-    ProfileScreen,
-    HelpScreen,
-    ImportScreen,
-    StatsScreen,
-    ListView,
-    ReviewScreen,
-    ReviewCompleteScreen,
-    KanjiScreen,
-    StudyScreen,
-    TestScreen,
-    AdminScreen,
-    FlashcardScreen
-} from './components/screens';
+import { HomeScreen, LoginScreen, AccountScreen, HelpScreen, ImportScreen, StatsScreen, ListView, ReviewScreen, ReviewCompleteScreen, KanjiScreen, StudyScreen, TestScreen, AdminScreen, FlashcardScreen } from './components/screens'
 
 // Import layout components
 import { Sidebar } from './components/layout';
 import OnboardingTour from './components/ui/OnboardingTour';
 
 // Import card components
-import {
-    MemoryStatCard,
-    AddCardForm,
-    EditCardForm
-} from './components/cards';
+import { AddCardForm, EditCardForm } from './components/cards'
 
 // Import UI components
-import { SearchInput, SrsStatusCell } from './components/ui';
+
 import UpdateNotification from './components/ui/UpdateNotification';
 import VocabularySelectionLookup from './components/ui/VocabularySelectionLookup';
 import FeedbackChatbox from './components/ui/FeedbackChatbox';
@@ -79,7 +44,6 @@ import useVersionCheck from './hooks/useVersionCheck';
 
 // Import routing component
 import AppRoutes from './components/AppRoutes';
-
 
 // --- Cấu hình và Tiện ích Firebase ---
 const firebaseConfig = {
@@ -653,7 +617,7 @@ const App = () => {
                             srsReps = 5; // Mastered (stats check reps >= 5)
                             srsEase = 2.5;
                             srsLearningStep = null;
-                            
+
                             const lastReviewedDate = data.lastReviewed?.toDate ? data.lastReviewed.toDate() : (data.lastReviewed ? new Date(data.lastReviewed) : null);
                             const baseTime = lastReviewedDate ? lastReviewedDate.getTime() : today.getTime();
                             nextReviewBack = new Date(baseTime + 30 * 24 * 60 * 60 * 1000);
@@ -728,8 +692,6 @@ const App = () => {
                     srsState: resolvedState,
                 });
             });
-
-
 
             // Sort by createdAt desc by default initially
             cards.sort((a, b) => b.createdAt - a.createdAt);
@@ -959,8 +921,6 @@ const App = () => {
         };
     }, [allCards]);
 
-
-
     const prepareReviewCards = useCallback((mode = 'back', category = 'all') => {
         const today = new Date();
         let dueCards = [];
@@ -1091,7 +1051,6 @@ const App = () => {
             setView('HOME');
         }
     }, [allCards]);
-
 
     const handleExport = (cards) => {
         const headers = [
@@ -1308,7 +1267,6 @@ const App = () => {
             setNotification('Lỗi khi nhập file: ' + error.message);
         }
     };
-
 
     const updateDailyActivity = useCallback((count, field = 'newWordsAdded') => {
         if (!activityCollectionPath) return Promise.resolve();
@@ -2522,8 +2480,6 @@ const App = () => {
             setEditingCard(null);
             // KHÔNG navigate — giữ nguyên trang hiện tại (ListView, ReviewScreen, v.v.)
 
-
-
         } catch (e) {
             console.error("Lỗi khi cập nhật thẻ:", e);
             setNotification("Lỗi khi cập nhật thẻ.");
@@ -2635,7 +2591,6 @@ const App = () => {
         }
     };
 
-
     // --- BOOK VOCABULARY LOOKUP ---
     // Cache các bài học trong phiên làm việc để tránh query db liên tục
     const cachedLessonsRef = useRef(null);
@@ -2738,7 +2693,7 @@ const App = () => {
                         // Nếu tra cứu cứng không có (ví dụ từ không ghi kanji dạng như かける, てんぷら), gọi AI để tạo âm Hán Việt
                         console.log(`🤖 Hán Việt không có Kanji trong từ gốc hoặc thiếu - Gọi AI tạo âm Hán Việt cho "${result.front || frontText}"`);
                         try {
-                            const model = adminConfig?.openRouterModel || 'google/gemini-2.5-flash';
+                            const model = adminConfig?.aiFeatureModels?.vocab_sino_viet || adminConfig?.openRouterModel || 'google/gemini-2.5-flash';
                             const hvPrompt = `Bạn là một chuyên gia ngôn ngữ tiếng Nhật và Hán Việt.
 Hãy tìm chữ Hán (Kanji) tương ứng và dịch sang âm Hán Việt (IN HOA) cho từ vựng tiếng Nhật dưới đây.
 Từ gốc: "${result.front || frontText}"
@@ -2819,7 +2774,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             const providerInfo = getAIProviderInfo();
             console.log(`🤖 AI Provider: ${providerInfo.summary}`);
 
-            const forcedModel = adminConfig?.openRouterModel || 'google/gemini-2.5-flash';
+            const forcedModel = adminConfig?.aiFeatureModels?.vocab_gen || adminConfig?.openRouterModel || 'google/gemini-2.5-flash';
             const responseText = await callAI(prompt, forcedModel);
             const parsedJson = parseJsonFromAI(responseText);
 
@@ -2877,7 +2832,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             const { generateMoreExamplePrompt } = await import('./utils/aiProvider');
             const prompt = generateMoreExamplePrompt(frontText, targetMeaning);
 
-            const forcedModel = adminConfig?.openRouterModel || 'google/gemini-2.5-flash';
+            const forcedModel = adminConfig?.aiFeatureModels?.more_examples || adminConfig?.openRouterModel || 'google/gemini-2.5-flash';
             const responseText = await callAI(prompt, forcedModel);
             const parsedJson = parseJsonFromAI(responseText);
             if (parsedJson) return parsedJson;
@@ -2989,50 +2944,50 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
     /*
     const handleAutoSinoVietnameseBatch = async (cardsToProcess) => {
         if (!cardsToProcess || cardsToProcess.length === 0) return;
-    
+
         // Lọc: Chỉ xử lý các từ có chứa Kanji (Sử dụng Regex range cho Kanji)
         const cardsWithKanji = cardsToProcess.filter(card => /[\u4e00-\u9faf]/.test(card.front));
-    
+
         if (cardsWithKanji.length === 0) {
             setNotification("Không tìm thấy từ vựng nào chứa Kanji cần cập nhật Hán Việt.");
             return;
         }
-        
+
         setIsLoading(true);
         setNotification(`Đang tạo âm Hán Việt cho ${cardsWithKanji.length} từ chứa Kanji (Đã bỏ qua ${cardsToProcess.length - cardsWithKanji.length} từ không có Kanji)...`);
-        
+
         const apiKeys = getGeminiApiKeys();
         if (apiKeys.length === 0) {
             setNotification("Chưa cấu hình khóa API Gemini cho Hán Việt. Vui lòng thêm VITE_GEMINI_API_KEY_1, VITE_GEMINI_API_KEY_2, ... vào file .env.");
             setIsLoading(false);
             return;
         }
-        
+
         const delay = (ms) => new Promise(res => setTimeout(res, ms));
         let successCount = 0;
-    
+
         for (const card of cardsWithKanji) {
              try {
                 const text = card.front;
                 const prompt = `Từ vựng tiếng Nhật: "${text}". Hãy cho biết Âm Hán Việt tương ứng của từ này. Chỉ trả về duy nhất từ Hán Việt. Nếu là Katakana hoặc không có Hán Việt rõ ràng, hãy trả về rỗng.`;
-                
+
                 const payload = {
                         contents: [{ parts: [{ text: prompt }] }]
                 };
-    
+
                 // Sử dụng hàm retry tự động
                 const result = await callGeminiApiWithRetry(payload);
                     let sino = result.candidates?.[0]?.content?.parts?.[0]?.text || '';
                     sino = sino.trim();
-                    
+
                     if (sino && sino.toLowerCase() !== 'null' && sino.toLowerCase() !== 'none') {
                         const cardRef = doc(db, vocabCollectionPath, card.id);
                         await updateDoc(cardRef, { sinoVietnamese: sino });
                         successCount++;
                     }
-                
+
                 await delay(1000);
-    
+
              } catch(e) {
                  console.error("Lỗi lấy âm Hán Việt:", e);
              }
@@ -3041,7 +2996,6 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
         setIsLoading(false);
     };
     */
-
 
     const memoryStats = useMemo(() => {
         const stats = { shortTerm: 0, midTerm: 0, longTerm: 0, new: 0 };
@@ -3519,8 +3473,6 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 <UpdateNotification onRefresh={refreshApp} onDismiss={dismissUpdate} />
             )}
 
-
-
             {/* Modal nhập từ vựng hàng loạt */}
             {showBatchImportModal && (
                 <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
@@ -3676,7 +3628,6 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                             </div>
                         )}
 
-
                     </div>
                 </div>
             </main>
@@ -3695,10 +3646,4 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
 };
 
 export default App;
-
-
-
-
-
-
 

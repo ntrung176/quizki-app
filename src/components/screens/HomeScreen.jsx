@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { collection, getDocs, onSnapshot, query } from 'firebase/firestore';
+import { collection, onSnapshot, query } from 'firebase/firestore'
 import { db, appId } from '../../config/firebase';
 import {
     BookOpen, Languages, Target, Flame, Trophy, Clock,
@@ -8,7 +8,6 @@ import {
 } from 'lucide-react';
 import { ROUTES } from '../../router';
 import BookVocabSyncChecker from '../ui/BookVocabSyncChecker';
-
 const HomeScreen = ({
     displayName,
     totalCards,
@@ -19,7 +18,6 @@ const HomeScreen = ({
     const navigate = useNavigate();
     const [kanjiSrsStats, setKanjiSrsStats] = useState({ total: 0, learning: 0, mastered: 0, dueCount: 0 });
     const [kanjiActivityDates, setKanjiActivityDates] = useState([]);
-
     // Fetch kanji SRS stats + activity dates
     useEffect(() => {
         if (!userId || !db) return;
@@ -49,7 +47,6 @@ const HomeScreen = ({
         }, () => { });
         return () => unsub();
     }, [userId]);
-
     // Calculate stats
     const stats = useMemo(() => {
         const dueCards = allCards.filter(card =>
@@ -63,7 +60,6 @@ const HomeScreen = ({
         ).length;
         const newCards = allCards.filter(card => !card.srsEnabled).length;
         const masteredCards = allCards.filter(card => card.srsEnabled === true && card.srsReps >= 5).length;
-
         // Tính streak thực tế dựa trên ngày hoạt động (tạo từ, ôn tập từ vựng)
         const activityDates = new Set();
         const toDateStr = (d) => {
@@ -72,27 +68,22 @@ const HomeScreen = ({
             if (isNaN(date.getTime())) return null;
             return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
         };
-
         allCards.forEach(card => {
             // Ngày tạo từ vựng
             const created = toDateStr(card.createdAt);
             if (created) activityDates.add(created);
-
             // Ngày ôn tập từ vựng
             const reviewed = toDateStr(card.lastReviewed);
             if (reviewed) activityDates.add(reviewed);
         });
-
         // Thêm ngày ôn tập Kanji từ kanjiSrsActivityDates (được tính bên dưới)
         if (kanjiActivityDates.length > 0) {
             kanjiActivityDates.forEach(d => activityDates.add(d));
         }
-
         // Đếm streak: đếm ngược từ hôm nay, mỗi ngày liên tiếp có hoạt động → +1
         let streak = 0;
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-
         for (let i = 0; i < 365; i++) {
             const checkDate = new Date(today);
             checkDate.setDate(checkDate.getDate() - i);
@@ -105,10 +96,8 @@ const HomeScreen = ({
                 break;
             }
         }
-
         return { dueCards, newCards, masteredCards, streak, totalCards };
     }, [allCards, totalCards, kanjiActivityDates]);
-
     // Quick action cards - using softer pastel colors and clean styling properties
     const quickActions = [
         {
@@ -152,7 +141,6 @@ const HomeScreen = ({
             route: ROUTES.KANJI_REVIEW,
         },
     ];
-
     // Get greeting based on time
     const getGreeting = () => {
         const hour = new Date().getHours();
@@ -160,7 +148,6 @@ const HomeScreen = ({
         if (hour < 18) return 'Chào buổi chiều';
         return 'Chào buổi tối';
     };
-
     // Get motivational quote - 30 quotes rotating daily
     const quotes = [
         '継続は力なり — Kế Tục Thị Lực Dã — Kiên trì là sức mạnh',
@@ -175,7 +162,6 @@ const HomeScreen = ({
         '一期一会 — Nhất Kỳ Nhất Hội — Đời người chỉ gặp một lần (Trân quý cơ duyên)',
     ];
     const todayQuote = quotes[new Date().getDate() % quotes.length];
-
     // Learning tips - 15 tips rotating daily
     const learningTips = [
         'Học đều đặn mỗi ngày 15-30 phút hiệu quả hơn học dồn một lần. Hãy ôn tập ngay khi có thẻ đến hạn!',
@@ -195,9 +181,6 @@ const HomeScreen = ({
         'Thưởng cho bản thân khi đạt mục tiêu nhỏ để duy trì động lực học tập dài hạn.',
     ];
     const todayTip = learningTips[new Date().getDate() % learningTips.length];
-
-
-
     return (
         <div className="flex flex-col max-w-7xl mx-auto gap-4 p-4 md:p-6 animate-fade-in">
             {/* Book Vocab Sync Notification */}
@@ -207,29 +190,24 @@ const HomeScreen = ({
                 allCards={allCards}
                 vocabCollectionPath={vocabCollectionPath}
             />
-
             {/* Hero Section - Soft light-blue background card */}
             <div className="relative flex-shrink-0 overflow-hidden bg-[#E8F1FA] dark:bg-slate-900 border border-blue-100/50 dark:border-slate-800/60 rounded-2xl p-5 md:p-6 text-slate-800 dark:text-slate-200">
                 {/* Decorative subtle background shapes */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-blue-200/20 dark:bg-slate-800/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                 <div className="absolute bottom-0 left-0 w-48 h-48 bg-teal-200/10 dark:bg-slate-800/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"></div>
-
                 <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div>
                         <div className="flex items-center gap-1.5 mb-1.5">
                             <Sparkles className="w-4 h-4 text-[#2E5B70] dark:text-sky-400" />
                             <span className="text-xs md:text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">{getGreeting()}</span>
                         </div>
-
                         <h1 className="text-2xl md:text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight mb-2">
                             {displayName ? `${displayName}!` : 'Chào bạn!'}
                         </h1>
-
                         <p className="text-slate-600 dark:text-slate-300 text-sm font-medium italic leading-relaxed">
                             "{todayQuote}"
                         </p>
                     </div>
-
                     {/* Mini Stats Pills inside Hero banner */}
                     <div className="flex flex-wrap gap-2 md:flex-col md:items-end justify-start">
                         <div className="flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 rounded-xl px-4 py-2 shadow-sm">
@@ -247,7 +225,6 @@ const HomeScreen = ({
                     </div>
                 </div>
             </div>
-
             {/* Today's Summary */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 flex-shrink-0">
                 {/* Card 1: Vocab Review */}
@@ -260,7 +237,6 @@ const HomeScreen = ({
                         <div className="text-xs text-slate-400 dark:text-slate-500 font-medium">Từ vựng cần ôn</div>
                     </div>
                 </div>
-
                 {/* Card 2: Kanji Review */}
                 <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-100 dark:border-slate-800/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] dark:shadow-none flex items-center gap-4">
                     <div className="w-12 h-12 bg-amber-50 dark:bg-amber-950/30 rounded-2xl flex items-center justify-center flex-shrink-0">
@@ -271,7 +247,6 @@ const HomeScreen = ({
                         <div className="text-xs text-slate-400 dark:text-slate-500 font-medium">Kanji cần ôn</div>
                     </div>
                 </div>
-
                 {/* Card 3: Total Cards */}
                 <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-100 dark:border-slate-800/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] dark:shadow-none flex items-center gap-4">
                     <div className="w-12 h-12 bg-sky-50 dark:bg-sky-950/30 rounded-2xl flex items-center justify-center flex-shrink-0">
@@ -282,7 +257,6 @@ const HomeScreen = ({
                         <div className="text-xs text-slate-400 dark:text-slate-500 font-medium">Tổng từ vựng</div>
                     </div>
                 </div>
-
                 {/* Card 4: Total Kanji */}
                 <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-100 dark:border-slate-800/80 shadow-[0_2px_8px_rgba(0,0,0,0.02)] dark:shadow-none flex items-center gap-4">
                     <div className="w-12 h-12 bg-emerald-50 dark:bg-emerald-950/30 rounded-2xl flex items-center justify-center flex-shrink-0">
@@ -294,14 +268,12 @@ const HomeScreen = ({
                     </div>
                 </div>
             </div>
-
             {/* Quick Actions */}
             <div className="flex flex-col gap-2.5 flex-shrink-0">
                 <h2 className="text-sm md:text-base font-bold text-slate-800 dark:text-white flex items-center gap-1.5 px-1">
                     <Zap className="w-4 h-4 md:w-5 md:h-5 text-amber-500 animate-pulse" />
                     Bắt đầu nhanh
                 </h2>
-
                 <div className="grid grid-cols-2 gap-4">
                     {quickActions.map((action) => (
                         <button
@@ -327,7 +299,6 @@ const HomeScreen = ({
                     ))}
                 </div>
             </div>
-
             {/* Tips */}
             <div className="bg-[#FFF9E6] dark:bg-amber-950/20 rounded-2xl p-4 border border-amber-200/50 dark:border-amber-900/30 flex-shrink-0 mx-1 mb-1">
                 <div className="flex items-start gap-3">
@@ -342,9 +313,7 @@ const HomeScreen = ({
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };
-
 export default HomeScreen;

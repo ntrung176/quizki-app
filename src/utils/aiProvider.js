@@ -128,7 +128,7 @@ const callWithRetry = async (prompt, keyIndex = 0, modelIndex = 0, preferredMode
 
 // ============== UNIFIED AI CALL ==============
 
-export const callAI = async (prompt, forcedOpenRouterModel = null) => {
+export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = null) => {
     const keys = getOpenRouterKeys();
     if (keys.length === 0) {
         throw new Error('Không có OpenRouter API key. Vui lòng thêm VITE_OPENROUTER_API_KEY vào file .env');
@@ -139,7 +139,11 @@ export const callAI = async (prompt, forcedOpenRouterModel = null) => {
         try {
             const { loadAdminConfig } = await import('./adminSettings');
             const config = await loadAdminConfig();
-            activeModel = config?.openRouterModel;
+            if (featureId && config?.aiFeatureModels?.[featureId]) {
+                activeModel = config.aiFeatureModels[featureId];
+            } else {
+                activeModel = config?.openRouterModel;
+            }
         } catch (e) {
             console.warn('Failed to load admin config for AI model:', e);
         }
@@ -148,7 +152,7 @@ export const callAI = async (prompt, forcedOpenRouterModel = null) => {
         activeModel = 'google/gemini-2.5-flash';
     }
 
-    console.log(`🤖 OpenRouter (${keys.length} keys) — Model: ${activeModel}`);
+    console.log(`🤖 OpenRouter (${keys.length} keys) — Feature: ${featureId || 'default'} — Model: ${activeModel}`);
     return callWithRetry(prompt, 0, 0, activeModel);
 };
 
@@ -235,7 +239,7 @@ export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '
     if (!frontText || frontText.trim() === '') return null;
 
     const prompt = generateVocabPrompt(frontText, contextPos, contextLevel);
-    const responseText = await callAI(prompt);
+    const responseText = await callAI(prompt, null, 'vocab_gen');
     const result = parseJsonFromAI(responseText);
 
     // Ghi đè âm Hán Việt bằng bảng tra cứu cứng (ưu tiên hơn AI)
@@ -290,7 +294,7 @@ QUY TẮC:
 JSON only, không markdown/backtick. Trả về MẢNG JSON:
 [{"character":"英","meaning":"anh hùng, xuất sắc","sinoViet":"ANH"}]`;
 
-    const responseText = await callAI(prompt);
+    const responseText = await callAI(prompt, null, 'kanji_format');
     if (!responseText) return null;
 
     let jsonStr = responseText.trim();
@@ -327,7 +331,7 @@ Không trả về bất kỳ văn bản giải thích nào khác ngoài mảng J
         { type: 'image_url', image_url: { url: imageUrl } }
     ];
 
-    const responseText = await callAI(prompt);
+    const responseText = await callAI(prompt, null, 'ocr_image');
     if (!responseText) return null;
 
     let jsonStr = responseText.trim();
@@ -403,7 +407,7 @@ QUY TẮC CHẤM ĐIỂM (CỰC KỲ KHÁCH QUAN VÀ HỢP LÝ):
 Chỉ trả về JSON hợp lệ.`;
 
     try {
-        const responseText = await callAI(prompt);
+        const responseText = await callAI(prompt, null, 'grammar_check');
         return parseJsonFromAI(responseText);
     } catch (e) {
         console.error('AI grammar check error:', e);

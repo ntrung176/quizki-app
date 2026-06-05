@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Search, BookOpen, Languages, MessageSquare, Tag, Sparkles, ChevronDown, CreditCard, Trash2, GripVertical } from 'lucide-react';
-import { JLPT_LEVELS, POS_TYPES } from '../../config/constants';
+import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Languages, Sparkles, ChevronDown, CreditCard, Trash2 } from 'lucide-react'
+import { POS_TYPES } from '../../config/constants'
 import { compressImage } from '../../utils/image';
 
 import { TopTabBar } from '../ui';
@@ -200,7 +200,7 @@ export const CardEditorItem = ({
                 {/* Ví dụ & Ngữ cảnh */}
                 <div className="bg-slate-50/50 dark:bg-slate-900/20 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/80 space-y-4">
                     <label className="block text-[11px] font-bold text-indigo-400 dark:text-indigo-400 uppercase tracking-wider mb-1">VÍ DỤ & NGỮ CẢNH</label>
-                    
+
                     <div>
                         <input
                             type="text"
@@ -219,7 +219,7 @@ export const CardEditorItem = ({
                             className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-2 text-sm text-slate-500 dark:text-slate-400 outline-none"
                         />
                     </div>
-                    
+
                     {onGenerateMoreExample && card.back.includes(';') && (
                         <div className="pt-2">
                             <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">Tạo thêm ví dụ bằng AI theo nghĩa:</p>
@@ -308,7 +308,6 @@ export const CardEditorItem = ({
                     )}
                 </div>
 
-
             </div>
         </div>
     );
@@ -336,7 +335,7 @@ const AddCardForm = ({
     const [activeCardId, setActiveCardId] = useState(cards[0].id);
     const [isSaving, setIsSaving] = useState(false);
     const [isAiLoadingMap, setIsAiLoadingMap] = useState({});
-    
+
     // Bulk AI Modal State
     const [isBatchModalOpen, setIsBatchModalOpen] = useState(false);
     const [batchModalInitialTab, setBatchModalInitialTab] = useState('text');
@@ -424,7 +423,7 @@ const AddCardForm = ({
 
         setIsAiLoadingMap(prev => ({ ...prev, [id]: true }));
         const aiData = await onGeminiAssist(card.front, card.pos, card.level, false);
-        
+
         if (aiData) {
             setCards(prev => prev.map(c => {
                 if (c.id === id) {
@@ -452,7 +451,7 @@ const AddCardForm = ({
         setCards(prev => {
             const cleanPrev = prev.filter(c => c.front.trim() !== '' || c.back.trim() !== '');
             const combined = [...cleanPrev, ...generatedCards];
-            
+
             if (generatedCards.length > 0) {
                 setActiveCardId(generatedCards[0].id);
             }
@@ -474,7 +473,7 @@ const AddCardForm = ({
 
         setIsSaving(true);
         let folderId = null;
-        
+
         try {
             if (onAddFolder) {
                 folderId = await onAddFolder(title.trim(), description.trim(), coverImage);
@@ -500,7 +499,7 @@ const AddCardForm = ({
             const successCount = results.filter(Boolean).length;
 
             setIsSaving(false);
-            
+
             if (successCount > 0) {
                 showToast(`Đã lưu thành công ${successCount} từ vựng vào học phần!`, 'success');
             }
@@ -508,7 +507,7 @@ const AddCardForm = ({
             if (batchMode && onBatchSkip) {
                 await onBatchSkip();
             }
-            
+
             onBack();
         } catch (error) {
             console.error("Lỗi khi lưu thẻ:", error);
@@ -520,9 +519,9 @@ const AddCardForm = ({
     return (
         <div className="w-full pb-32 animate-fade-in bg-slate-50 dark:bg-gray-900 min-h-screen">
             <TopTabBar tabs={VOCAB_TABS} />
-            
+
             <div className="max-w-4xl mx-auto px-4 lg:px-8 mt-6 space-y-8">
-                
+
                 {/* Header Section */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="space-y-1">

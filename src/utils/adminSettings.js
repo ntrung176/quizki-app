@@ -1,11 +1,9 @@
 // --- Admin Settings & Permissions Utilities ---
-import { doc, getDoc, setDoc, updateDoc, onSnapshot, collection, addDoc, getDocs, deleteDoc, serverTimestamp, query, orderBy, increment, arrayUnion } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc, onSnapshot, collection, addDoc, deleteDoc, serverTimestamp, query, orderBy, increment, arrayUnion } from 'firebase/firestore'
 import { db, appId } from '../config/firebase';
-
 // Firestore path for admin settings
 const getAdminSettingsPath = () => `artifacts/${appId}/settings`;
 const ADMIN_CONFIG_DOC = 'adminConfig';
-
 // Default AI Credit packages (admin can customize)
 export const DEFAULT_AI_PACKAGES = [
     { id: 'starter', name: 'Starter', cards: 100, originalPrice: 19000, salePrice: 19000 },
@@ -13,7 +11,6 @@ export const DEFAULT_AI_PACKAGES = [
     { id: 'best_value', name: 'Best Value', cards: 1000, originalPrice: 190000, salePrice: 89000 },
     { id: 'ultimate', name: 'Ultimate', cards: 3000, originalPrice: 570000, salePrice: 199000 },
 ];
-
 export const DEFAULT_SPECIALIZED_PACKAGES = [
     {
         id: 'vocab_zen',
@@ -72,35 +69,36 @@ export const DEFAULT_SPECIALIZED_PACKAGES = [
         ]
     }
 ];
-
 // Default admin config
 const DEFAULT_ADMIN_CONFIG = {
     // AI Settings
     aiEnabled: true,
     aiProvider: 'openrouter',
     openRouterModel: 'google/gemini-2.5-flash',
+    aiFeatureModels: {
+        vocab_gen: 'google/gemini-2.5-flash',
+        vocab_sino_viet: 'google/gemini-2.5-flash',
+        more_examples: 'google/gemini-2.5-flash',
+        ocr_image: 'google/gemini-2.5-flash',
+        grammar_check: 'google/gemini-2.5-flash'
+    },
     aiAllowedUsers: [],
     aiAllowAll: false,
     aiCreditPackages: DEFAULT_AI_PACKAGES,
     specializedPackages: DEFAULT_SPECIALIZED_PACKAGES,
-
     // Payment Settings (SePay)
     sepayToken: '',                     // SePay API Token
     bankId: '',                         // Mã ngân hàng VietQR (VD: MB, VCB, TCB)
     bankAccountNo: '',                  // Số tài khoản
     bankAccountName: '',                // Tên tài khoản
     autoPayment: false,                 // Tự động xác nhận thanh toán qua SePay
-
     // Moderator list
     moderators: [],
-
     // Metadata
     updatedAt: null,
     updatedBy: null
 };
-
 // ============== READ SETTINGS ==============
-
 // Load admin config once
 export const loadAdminConfig = async () => {
     try {
@@ -115,7 +113,6 @@ export const loadAdminConfig = async () => {
         return { ...DEFAULT_ADMIN_CONFIG };
     }
 };
-
 // Subscribe to admin config changes (realtime)
 export const subscribeAdminConfig = (callback) => {
     try {
@@ -140,9 +137,7 @@ export const subscribeAdminConfig = (callback) => {
         return () => { };
     }
 };
-
 // ============== WRITE SETTINGS ==============
-
 // Save entire admin config
 export const saveAdminConfig = async (config, updatedByUserId) => {
     try {
@@ -158,7 +153,6 @@ export const saveAdminConfig = async (config, updatedByUserId) => {
         return false;
     }
 };
-
 // Update specific fields
 export const updateAdminConfig = async (fields, updatedByUserId) => {
     try {
@@ -174,43 +168,32 @@ export const updateAdminConfig = async (fields, updatedByUserId) => {
         return false;
     }
 };
-
 // ============== PERMISSION CHECKS ==============
-
 // Check if a user can use AI features
 export const canUseAI = (adminConfig, userId, isAdmin) => {
     if (!adminConfig) return false;
     if (!adminConfig.aiEnabled) return false;
-
     // Admin always has access
     if (isAdmin) return true;
-
     // Moderators always have access
     if (adminConfig.moderators?.includes(userId)) return true;
-
     // Check if all users are allowed
     if (adminConfig.aiAllowAll) return true;
-
     // Check if this specific user is allowed
     if (adminConfig.aiAllowedUsers?.includes(userId)) return true;
-
     return false;
 };
-
 // Check if a user is a moderator
 export const isModerator = (adminConfig, userId) => {
     if (!adminConfig) return false;
     return adminConfig.moderators?.includes(userId) || false;
 };
-
 // Check if user has admin-like privileges (admin or moderator)
 export const hasAdminPrivileges = (adminConfig, userId, isAdmin) => {
     if (isAdmin) return true;
     return isModerator(adminConfig, userId);
 };
-
 // ============== MODERATOR MANAGEMENT ==============
-
 // Add a moderator
 export const addModerator = async (adminConfig, userId, updatedByUserId) => {
     const currentMods = adminConfig.moderators || [];
@@ -219,7 +202,6 @@ export const addModerator = async (adminConfig, userId, updatedByUserId) => {
         moderators: [...currentMods, userId]
     }, updatedByUserId);
 };
-
 // Remove a moderator
 export const removeModerator = async (adminConfig, userId, updatedByUserId) => {
     const currentMods = adminConfig.moderators || [];
@@ -227,9 +209,7 @@ export const removeModerator = async (adminConfig, userId, updatedByUserId) => {
         moderators: currentMods.filter(id => id !== userId)
     }, updatedByUserId);
 };
-
 // ============== AI USER MANAGEMENT ==============
-
 // Grant AI access to a specific user
 export const grantAIAccess = async (adminConfig, userId, updatedByUserId) => {
     const currentUsers = adminConfig.aiAllowedUsers || [];
@@ -238,7 +218,6 @@ export const grantAIAccess = async (adminConfig, userId, updatedByUserId) => {
         aiAllowedUsers: [...currentUsers, userId]
     }, updatedByUserId);
 };
-
 // Revoke AI access from a specific user
 export const revokeAIAccess = async (adminConfig, userId, updatedByUserId) => {
     const currentUsers = adminConfig.aiAllowedUsers || [];
@@ -246,19 +225,26 @@ export const revokeAIAccess = async (adminConfig, userId, updatedByUserId) => {
         aiAllowedUsers: currentUsers.filter(id => id !== userId)
     }, updatedByUserId);
 };
-
 export const AI_PROVIDER_OPTIONS = [
-    { value: 'openrouter', label: 'OpenRouter (Gemini / Google)', description: 'Mô hình AI từ Google' },
+    { value: 'openrouter', label: 'OpenRouter (Gemini / OpenAI / DeepSeek / Llama)', description: 'Các mô hình AI hàng đầu qua OpenRouter' },
 ];
-
 export const OPENROUTER_MODELS = [
     { value: 'google/gemini-2.5-flash', label: 'Gemini 2.5 Flash' },
     { value: 'google/gemini-3.1-flash-lite', label: 'Gemini 3.1 Flash-Lite' },
+    { value: 'deepseek/deepseek-chat', label: 'DeepSeek V3' },
+    { value: 'openai/gpt-4o-mini', label: 'GPT-4o Mini' },
+    { value: 'meta-llama/llama-3.3-70b-instruct', label: 'Llama 3.3 70B' },
+    { value: 'meta-llama/llama-3.1-8b-instruct', label: 'Llama 3.1 8B' },
 ];
-
+export const AI_FEATURES = [
+    { id: 'vocab_gen', label: 'Tạo từ vựng (Vocab Gen)', description: 'Tạo nghĩa, âm Hán Việt, ví dụ và ngữ cảnh cho thẻ từ vựng mới.' },
+    { id: 'vocab_sino_viet', label: 'Dịch Hán Việt tự động', description: 'Tự động tra cứu và dịch âm Hán Việt cho từ vựng từ sách.' },
+    { id: 'more_examples', label: 'Tạo thêm ví dụ', description: 'Tạo thêm câu ví dụ tiếng Nhật tự nhiên kèm nghĩa tiếng Việt theo ngữ cảnh.' },
+    { id: 'ocr_image', label: 'Quét chữ từ ảnh (OCR)', description: 'Trích xuất danh sách từ vựng tiếng Nhật từ hình ảnh tải lên.' },
+    { id: 'grammar_check', label: 'Chấm điểm/Phân tích Ngữ pháp', description: 'Chấm điểm câu dịch, phân tích lỗi sai và đối chiếu ngữ pháp.' },
+];
 // ============== AI CREDIT REQUESTS ==============
 const getCreditRequestsPath = () => `artifacts/${appId}/creditRequests`;
-
 // User submits a credit purchase request
 export const submitCreditRequest = async (userId, userName, userEmail, packageInfo) => {
     try {
@@ -282,7 +268,6 @@ export const submitCreditRequest = async (userId, userName, userEmail, packageIn
         return false;
     }
 };
-
 /**
  * Submit và tự động approve credit request (dùng cho thanh toán tự động qua SePay)
  * Ghi status='approved' ngay để admin dashboard hiển thị đúng doanh thu
@@ -311,7 +296,6 @@ export const submitAndApproveCreditRequest = async (userId, userName, userEmail,
         return false;
     }
 };
-
 // Admin loads all pending credit requests
 export const subscribeCreditRequests = (callback) => {
     try {
@@ -326,9 +310,8 @@ export const subscribeCreditRequests = (callback) => {
         return null;
     }
 };
-
 // Admin approves a credit request → add credits to user
-export const approveCreditRequest = async (requestId, userId, credits, adminUserId) => {
+const approveCreditRequest = async (requestId, userId, credits, adminUserId) => {
     try {
         // Update user profile credits or unlock specialized package
         const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
@@ -348,7 +331,6 @@ export const approveCreditRequest = async (requestId, userId, credits, adminUser
             const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
             await updateDoc(profileRef, { aiCreditsRemaining: currentCredits + Number(credits) });
         }
-
         // Mark request as approved
         const reqRef = doc(db, getCreditRequestsPath(), requestId);
         await updateDoc(reqRef, { status: 'approved', processedAt: serverTimestamp(), processedBy: adminUserId });
@@ -358,9 +340,8 @@ export const approveCreditRequest = async (requestId, userId, credits, adminUser
         return false;
     }
 };
-
 // Admin rejects a credit request
-export const rejectCreditRequest = async (requestId, adminUserId) => {
+const rejectCreditRequest = async (requestId, adminUserId) => {
     try {
         const reqRef = doc(db, getCreditRequestsPath(), requestId);
         await updateDoc(reqRef, { status: 'rejected', processedAt: serverTimestamp(), processedBy: adminUserId });
@@ -370,9 +351,8 @@ export const rejectCreditRequest = async (requestId, adminUserId) => {
         return false;
     }
 };
-
 // Admin manually add credits to a user (uses atomic increment)
-export const addCreditsToUser = async (userId, credits) => {
+const addCreditsToUser = async (userId, credits) => {
     try {
         const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
         const profileSnap = await getDoc(profileRef);
@@ -387,7 +367,6 @@ export const addCreditsToUser = async (userId, credits) => {
         return false;
     }
 };
-
 /**
  * Admin manually applies a package (Premium, AI, or specialized) to a user
  */
@@ -396,7 +375,6 @@ export const manuallyApplyPackageToUser = async (userId, userName, userEmail, pa
         // 1. Update user profile settings
         const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
         let creditsValue;
-        
         if (packageInfo.type === 'premium') {
             creditsValue = 'specialized:premium';
             await setDoc(profileRef, {
@@ -415,7 +393,6 @@ export const manuallyApplyPackageToUser = async (userId, userName, userEmail, pa
                 aiCreditsRemaining: currentCredits + Number(packageInfo.credits) 
             }, { merge: true });
         }
-
         // 2. Add approved log request so it shows up in "Gói đã mua" and "Doanh thu" if desired (amount = 0)
         const colRef = collection(db, `artifacts/${appId}/creditRequests`);
         await addDoc(colRef, {
@@ -432,23 +409,20 @@ export const manuallyApplyPackageToUser = async (userId, userName, userEmail, pa
             processedBy: adminUserId,
             isManualAllocation: true
         });
-
         return true;
     } catch (e) {
         console.error('Manually apply package error:', e);
         return false;
     }
 };
-
 // ============== PAYMENT SECURITY ==============
 const getProcessedTxPath = () => `artifacts/${appId}/processedTransactions`;
-
 /**
  * Check if a transaction ID has already been processed (anti-replay)
  * @param {string} transactionId - Unique transaction ID from SePay
  * @returns {boolean} true if already processed
  */
-export const isTransactionProcessed = async (transactionId) => {
+const isTransactionProcessed = async (transactionId) => {
     if (!transactionId) return false;
     try {
         const txRef = doc(db, getProcessedTxPath(), String(transactionId));
@@ -459,7 +433,6 @@ export const isTransactionProcessed = async (transactionId) => {
         return false; // Fail open but log
     }
 };
-
 /**
  * Mark a transaction as processed and atomically add credits
  * Uses Firestore transaction to ensure atomicity (prevents double-spend)
@@ -474,15 +447,11 @@ export const processPaymentSecurely = async (transactionId, orderCode, userId, c
     if (!transactionId || !orderCode || !userId || !credits) {
         return { success: false, error: 'Missing required parameters' };
     }
-
     const txRef = doc(db, getProcessedTxPath(), String(transactionId));
     const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
-
     const MAX_RETRIES = 3;
     const RETRY_DELAY_MS = 2000;
-
     const sleep = (ms) => new Promise(res => setTimeout(res, ms));
-
     for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
         try {
             // Step 1: Check duplicate (simple getDoc, không dùng transaction để tránh quota)
@@ -491,11 +460,9 @@ export const processPaymentSecurely = async (transactionId, orderCode, userId, c
                 console.warn(`⚠️ Duplicate transaction blocked: TX#${transactionId}`);
                 return { success: false, error: 'Giao dịch này đã được xử lý trước đó' };
             }
-
             // Step 2: Read current credits
             const profileSnap = await getDoc(profileRef);
             const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
-
             // Step 3: Mark transaction as processed
             await setDoc(txRef, {
                 transactionId: String(transactionId),
@@ -506,7 +473,6 @@ export const processPaymentSecurely = async (transactionId, orderCode, userId, c
                 processedAt: new Date().toISOString(),
                 timestamp: Date.now(),
             });
-
             // Step 4: Update credits or unlock package
             if (typeof credits === 'string' && credits.startsWith('specialized:')) {
                 const packageId = credits.replace('specialized:', '');
@@ -532,10 +498,8 @@ export const processPaymentSecurely = async (transactionId, orderCode, userId, c
                 console.log(`✅ Payment processed: TX#${transactionId}, +${creditNum} credits → total ${newCredits}`);
                 return { success: true, newCredits };
             }
-
         } catch (e) {
             const isQuotaError = e?.code === 'resource-exhausted' || e?.message?.includes('Quota') || e?.message?.includes('429');
-
             if (isQuotaError) {
                 if (attempt < MAX_RETRIES) {
                     const delay = RETRY_DELAY_MS * attempt; // 2s, 4s, 6s
@@ -547,18 +511,14 @@ export const processPaymentSecurely = async (transactionId, orderCode, userId, c
                     return { success: false, error: 'Firebase quota exceeded. Vui lòng thử lại sau.' };
                 }
             }
-
             console.error('Process payment error:', e);
             return { success: false, error: e.message };
         }
     }
-
     return { success: false, error: 'Max retries exceeded' };
 };
-
 // ============== VOUCHER MANAGEMENT ==============
 const getVouchersPath = () => `artifacts/${appId}/vouchers`;
-
 /**
  * Admin tạo voucher mới
  * @param {Object} voucherData - { code, discountType, discountValue, maxUses, expiresAt, description }
@@ -592,7 +552,6 @@ export const createVoucher = async (voucherData, adminUserId) => {
         return { success: false, error: e.message };
     }
 };
-
 /**
  * Admin subscribe danh sách voucher (realtime)
  */
@@ -609,7 +568,6 @@ export const subscribeVouchers = (callback) => {
         return null;
     }
 };
-
 /**
  * Admin xóa voucher
  */
@@ -622,7 +580,6 @@ export const deleteVoucher = async (voucherCode) => {
         return false;
     }
 };
-
 /**
  * Admin bật/tắt voucher
  */
@@ -635,7 +592,6 @@ export const toggleVoucher = async (voucherCode, active) => {
         return false;
     }
 };
-
 /**
  * User nhập mã voucher → validate và trả về thông tin giảm giá
  * @param {string} code - Mã voucher
@@ -646,21 +602,16 @@ export const validateVoucher = async (code, userId) => {
     try {
         const voucherCode = code.trim().toUpperCase();
         if (!voucherCode) return { valid: false, error: 'Vui lòng nhập mã voucher' };
-
         const voucherRef = doc(db, getVouchersPath(), voucherCode);
         const snap = await getDoc(voucherRef);
-
         if (!snap.exists()) {
             return { valid: false, error: 'Mã voucher không tồn tại' };
         }
-
         const voucher = snap.data();
-
         // Check active
         if (!voucher.active) {
             return { valid: false, error: 'Mã voucher đã hết hiệu lực' };
         }
-
         // Check expiry
         if (voucher.expiresAt) {
             const expiry = voucher.expiresAt.toDate ? voucher.expiresAt.toDate() : new Date(voucher.expiresAt);
@@ -668,24 +619,20 @@ export const validateVoucher = async (code, userId) => {
                 return { valid: false, error: 'Mã voucher đã hết hạn' };
             }
         }
-
         // Check max uses
         if (voucher.maxUses > 0 && voucher.usedCount >= voucher.maxUses) {
             return { valid: false, error: 'Mã voucher đã hết lượt sử dụng' };
         }
-
         // Check if user already used
         if (voucher.usedBy?.some(u => u.userId === userId)) {
             return { valid: false, error: 'Bạn đã sử dụng mã voucher này rồi' };
         }
-
         return { valid: true, voucher: { ...voucher, code: voucherCode } };
     } catch (e) {
         console.error('Validate voucher error:', e);
         return { valid: false, error: 'Lỗi kiểm tra voucher' };
     }
 };
-
 /**
  * Tính giá sau giảm
  */
@@ -700,7 +647,6 @@ export const calculateDiscountedPrice = (originalPrice, voucher) => {
     }
     return originalPrice;
 };
-
 /**
  * Ghi nhận sử dụng voucher (gọi khi thanh toán thành công)
  */
@@ -709,7 +655,6 @@ export const useVoucher = async (voucherCode, userId) => {
         const voucherRef = doc(db, getVouchersPath(), voucherCode);
         const snap = await getDoc(voucherRef);
         if (!snap.exists()) return false;
-
         const data = snap.data();
         await updateDoc(voucherRef, {
             usedCount: (data.usedCount || 0) + 1,
@@ -721,10 +666,8 @@ export const useVoucher = async (voucherCode, userId) => {
         return false;
     }
 };
-
 // ============== EXPENSE / BUSINESS MANAGEMENT ==============
 const getExpensesPath = () => `artifacts/${appId}/expenses`;
-
 /**
  * Add a new expense entry
  * @param {Object} expenseData - { name, amount, type: 'fixed'|'operating'|'other', recurring: 'monthly'|'yearly'|'once', description, month }
@@ -749,7 +692,6 @@ export const addExpense = async (expenseData, adminUserId) => {
         return { success: false, error: e.message };
     }
 };
-
 /**
  * Subscribe to all expenses (realtime)
  */
@@ -766,7 +708,6 @@ export const subscribeExpenses = (callback) => {
         return null;
     }
 };
-
 /**
  * Delete an expense
  */
@@ -779,7 +720,6 @@ export const deleteExpense = async (expenseId) => {
         return false;
     }
 };
-
 // ============== GLOBAL NOTIFICATIONS ==============
 /**
  * Send a global notification to all users
@@ -799,7 +739,6 @@ export const sendGlobalNotification = async (title, message, senderId) => {
         return false;
     }
 };
-
 /**
  * Delete a global notification
  */
@@ -813,5 +752,3 @@ export const deleteGlobalNotification = async (notificationId) => {
         return false;
     }
 };
-
-

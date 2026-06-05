@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { db, appId } from '../../config/firebase';
-import { collection, addDoc, query, where, orderBy, onSnapshot, serverTimestamp, setDoc, doc } from 'firebase/firestore';
-import { MessageSquare, X, Send, Image as ImageIcon, Loader2, Paperclip, Check } from 'lucide-react';
+import { collection, addDoc, onSnapshot, serverTimestamp, setDoc, doc } from 'firebase/firestore'
+import { MessageSquare, X, Send, Image as ImageIcon, Loader2 } from 'lucide-react'
 
 // Hàm nén ảnh về định dạng jpeg chất lượng 0.7 và giới hạn kích thước tối đa 1200px
 const compressImage = (file, maxWidth = 1200, maxHeight = 1200, quality = 0.7) => {
@@ -331,7 +331,7 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
                                             }`}
                                         >
                                             {msg.text && <p className="whitespace-pre-wrap leading-relaxed">{msg.text}</p>}
-                                            
+
                                             {msg.imageUrl && (
                                                 <div className={`mt-2 rounded-lg overflow-hidden max-w-[200px] border border-black/5 dark:border-white/5`}>
                                                     <img 

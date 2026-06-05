@@ -1,18 +1,13 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback, useDeferredValue } from 'react';
-import {
-    List, Search, Upload, Download, ArrowDown, GraduationCap, Tag, Volume2,
-    X, Edit, Trash2, Loader2, Check, Image as ImageIcon, Music,
-    FolderPlus, Folder, FolderOpen, ChevronRight, ChevronLeft, ChevronDown, ChevronUp, Filter, Eye, MoreVertical, Plus
-} from 'lucide-react';
-import { JLPT_LEVELS, POS_TYPES, getPosLabel, getPosColor, getLevelColor } from '../../config/constants';
-import { SearchInput, TopTabBar } from '../ui';
+import { List, Search, Upload, Download, Volume2, X, Edit, Trash2, Loader2, Check, Image as ImageIcon, Music, FolderPlus, Folder, FolderOpen, ChevronLeft, ChevronDown, ChevronUp, Filter, Plus } from 'lucide-react'
+import { POS_TYPES, getLevelColor } from '../../config/constants'
+import { TopTabBar } from '../ui'
 import { SrsStatusCell } from '../ui';
 import { playAudio } from '../../utils/audio';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 import FuriganaText from '../ui/FuriganaText';
 import { VOCAB_TABS } from '../../config/tabs';
-
 // ==================== Edit Modal Component ====================
 const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] }) => {
     const [front, setFront] = useState(card?.front || '');
@@ -30,7 +25,6 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] })
     const [showAudioInput, setShowAudioInput] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
     const [isAiLoading, setIsAiLoading] = useState(false);
-
     const handleImageChange = async (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -42,7 +36,6 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] })
             }
         }
     };
-
     const handleAudioFileChange = (e) => {
         const file = e.target.files[0];
         if (!file) return;
@@ -53,7 +46,6 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] })
         };
         reader.readAsDataURL(file);
     };
-
     const handleSave = async () => {
         if (!front.trim() || !back.trim()) return;
         setIsSaving(true);
@@ -70,11 +62,9 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] })
         setIsSaving(false);
         onClose();
     };
-
     const handleAiAssist = async (e) => {
         e.preventDefault();
         if (!front.trim()) return;
-
         // Check duplicate
         const currentFrontNormalized = front.split('（')[0].split('(')[0].trim().toLowerCase();
         const isDuplicate = allCards.some(c => {
@@ -82,12 +72,10 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] })
             const otherFrontNormalized = c.front.split('（')[0].split('(')[0].trim().toLowerCase();
             return otherFrontNormalized === currentFrontNormalized;
         });
-
         if (isDuplicate) {
             showToast('Từ vựng đã có trong học phần rồi.', 'warning');
             return;
         }
-
         // AI sẽ tự động phân loại cấp độ JLPT, không cần user chọn trước
         setIsAiLoading(true);
         const aiData = await onGeminiAssist(front, pos, level);
@@ -105,13 +93,11 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] })
         }
         setIsAiLoading(false);
     };
-
     useEffect(() => {
         const handleKeyDown = (e) => { if (e.key === 'Escape') onClose(); };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [onClose]);
-
     return (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto">
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
@@ -209,7 +195,6 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] })
         </div>
     );
 };
-
 // ==================== Folder Management Modal ====================
 const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, onDeleteFolder }) => {
     const [newFolderName, setNewFolderName] = useState('');
@@ -217,20 +202,17 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
     const [renameValue, setRenameValue] = useState('');
     const [newSubFolderParent, setNewSubFolderParent] = useState(null);
     const [newSubFolderName, setNewSubFolderName] = useState('');
-
     const handleCreate = () => {
         if (!newFolderName.trim()) return;
         onCreateFolder(newFolderName.trim(), null);
         setNewFolderName('');
     };
-
     const handleCreateSub = (parentId) => {
         if (!newSubFolderName.trim()) return;
         onCreateFolder(newSubFolderName.trim(), parentId);
         setNewSubFolderName('');
         setNewSubFolderParent(null);
     };
-
     // Build hierarchical folder list for display
     const buildTree = (parentId = null, depth = 0) => {
         return folders
@@ -238,7 +220,6 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
             .flatMap(f => [{ ...f, depth }, ...buildTree(f.id, depth + 1)]);
     };
     const flatTree = buildTree();
-
     return (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
             <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[450px] max-w-[90vw] shadow-2xl space-y-4">
@@ -251,7 +232,6 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
                         <X className="w-5 h-5 text-gray-400" />
                     </button>
                 </div>
-
                 {/* Create new root folder */}
                 <div className="flex gap-2">
                     <input
@@ -270,14 +250,12 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
                         <Plus className="w-4 h-4" /> Tạo
                     </button>
                 </div>
-
                 {/* Folder list - hierarchical */}
                 <div className="max-h-[350px] overflow-y-auto space-y-1">
                     <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 dark:bg-slate-700/50">
                         <Folder className="w-4 h-4 text-gray-400" />
                         <span className="text-sm text-gray-500 dark:text-gray-400 italic flex-1">Chưa phân loại (mặc định)</span>
                     </div>
-
                     {flatTree.map(folder => (
                         <React.Fragment key={folder.id}>
                             <div className="flex items-center gap-2 p-2.5 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700/50 group transition-colors"
@@ -338,7 +316,6 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
                             )}
                         </React.Fragment>
                     ))}
-
                     {folders.length === 0 && (
                         <p className="text-center text-sm text-gray-400 dark:text-gray-500 py-4">Chưa có thư mục nào. Tạo thư mục để quản lý từ vựng!</p>
                     )}
@@ -347,7 +324,6 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
         </div>
     );
 };
-
 // ==================== Main ListView Component ====================
 const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAudio, onExport, onSaveChanges, onGeminiAssist, onNavigateToImport, scrollToCardId, onScrollComplete, savedFilters, onFiltersChange, userId }) => {
     const [editingCard, setEditingCard] = useState(null);
@@ -357,32 +333,26 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
     const [sortOrder, setSortOrder] = useState(savedFilters?.sortOrder || 'newest');
     const [searchTerm, setSearchTerm] = useState(savedFilters?.searchTerm || '');
     const deferredSearchTerm = useDeferredValue(searchTerm);
-
     // Folder management — keys are user-specific to avoid cross-user pollution
     const folderStorageKey = userId ? `vocab_folders_${userId}` : 'vocab_folders';
     const cardFolderStorageKey = userId ? `vocab_card_folders_${userId}` : 'vocab_card_folders';
-
     const [folders, setFolders] = useState(() => {
         const saved = localStorage.getItem(folderStorageKey);
         return saved ? JSON.parse(saved) : [];
     });
     const [showFolderManager, setShowFolderManager] = useState(false);
     const [showMoveModal, setShowMoveModal] = useState(null); // card id to move
-
     // Card-to-folder mapping
     const [cardFolders, setCardFolders] = useState(() => {
         const saved = localStorage.getItem(cardFolderStorageKey);
         return saved ? JSON.parse(saved) : {};
     });
-
     // Multi-select state
     const [isSelectMode, setIsSelectMode] = useState(false);
     const [selectedCards, setSelectedCards] = useState(new Set());
     const [showBatchMoveModal, setShowBatchMoveModal] = useState(false);
-
     // Delete confirmation modal state (replaces window.confirm)
     const [deleteConfirm, setDeleteConfirm] = useState(null); // { type: 'single'|'batch', cardId, cardFront, count }
-
     const [expandedCardIds, setExpandedCardIds] = useState(new Set());
     const toggleCardExpanded = (cardId) => {
         setExpandedCardIds(prev => {
@@ -395,19 +365,15 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
             return next;
         });
     };
-
     // Folder navigation (Windows Explorer style)
     const [currentFolder, setCurrentFolder] = useState(null); // null = root folder view
-
     // Save folders and mappings to localStorage (user-specific)
     useEffect(() => {
         localStorage.setItem(folderStorageKey, JSON.stringify(folders));
     }, [folders, folderStorageKey]);
-
     useEffect(() => {
         localStorage.setItem(cardFolderStorageKey, JSON.stringify(cardFolders));
     }, [cardFolders, cardFolderStorageKey]);
-
     // Cleanup stale card-folder mappings (cards that no longer exist)
     useEffect(() => {
         if (allCards.length === 0) return;
@@ -425,10 +391,8 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
             return hasStale ? cleaned : prev;
         });
     }, [allCards]);
-
     // Folder CRUD — now with parentId support
     const MAX_FOLDER_DEPTH = 3; // Limit nesting to avoid UI breakage
-
     const getFolderDepth = useCallback((folderId, allFolders) => {
         let depth = 0;
         let current = folderId;
@@ -440,7 +404,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         }
         return depth;
     }, []);
-
     const createFolder = useCallback((name, parentId = null) => {
         // Validate max depth
         if (parentId) {
@@ -452,12 +415,10 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         }
         setFolders(prev => [...prev, { id: `folder_${Date.now()}`, name, parentId }]);
     }, [folders, getFolderDepth]);
-
     const renameFolder = useCallback((id, newName) => {
         if (!newName.trim()) return;
         setFolders(prev => prev.map(f => f.id === id ? { ...f, name: newName.trim() } : f));
     }, []);
-
     // Recursively get all descendant folder IDs
     const getDescendantIds = useCallback((parentId, allFolders) => {
         const children = allFolders.filter(f => f.parentId === parentId);
@@ -465,7 +426,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         children.forEach(c => { ids = [...ids, ...getDescendantIds(c.id, allFolders)]; });
         return ids;
     }, []);
-
     const deleteFolder = useCallback((id) => {
         setFolders(prev => {
             const idsToDelete = [id, ...getDescendantIds(id, prev)];
@@ -482,7 +442,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         if (filterFolder === id) setFilterFolder('all');
         if (currentFolder === id) setCurrentFolder(null);
     }, [filterFolder, currentFolder, folders, getDescendantIds]);
-
     const moveCardToFolder = useCallback((cardId, folderId) => {
         setCardFolders(prev => {
             const next = { ...prev };
@@ -495,7 +454,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         });
         setShowMoveModal(null);
     }, []);
-
     // Batch move selected cards to folder
     const batchMoveToFolder = useCallback((folderId) => {
         setCardFolders(prev => {
@@ -513,18 +471,15 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         setSelectedCards(new Set());
         setIsSelectMode(false);
     }, [selectedCards]);
-
     // Batch delete selected cards
     const batchDeleteSelected = useCallback(() => {
         if (selectedCards.size === 0) return;
         setDeleteConfirm({ type: 'batch', count: selectedCards.size });
     }, [selectedCards]);
-
     // Request single card delete (shows confirmation modal)
     const requestDeleteCard = useCallback((cardId, cardFront) => {
         setDeleteConfirm({ type: 'single', cardId, cardFront });
     }, []);
-
     // Confirm and execute delete
     const confirmDelete = useCallback(async () => {
         if (!deleteConfirm) return;
@@ -539,7 +494,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         }
         setDeleteConfirm(null);
     }, [deleteConfirm, selectedCards, onDeleteCard]);
-
     // Toggle card selection
     const toggleCardSelection = useCallback((cardId) => {
         setSelectedCards(prev => {
@@ -549,13 +503,10 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
             return next;
         });
     }, []);
-
-
     // Get direct children folders of a parent
     const getChildFolders = useCallback((parentId) => {
         return folders.filter(f => (f.parentId || null) === parentId);
     }, [folders]);
-
     // Get recursive card count for a folder (includes sub-folder cards)
     const getRecursiveCardCount = useCallback((folderId) => {
         let count = Object.values(cardFolders).filter(fId => fId === folderId).length;
@@ -563,12 +514,10 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         children.forEach(c => { count += getRecursiveCardCount(c.id); });
         return count;
     }, [folders, cardFolders]);
-
     // Direct card count for a folder (not sub-folders)
     const getDirectCardCount = useCallback((folderId) => {
         return Object.values(cardFolders).filter(fId => fId === folderId).length;
     }, [cardFolders]);
-
     // Folder counts (root folders with recursive counts)
     const foldersWithCounts = useMemo(() => {
         return folders.filter(f => !f.parentId).map(f => ({
@@ -577,11 +526,9 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
             subFolderCount: folders.filter(sf => sf.parentId === f.id).length
         }));
     }, [folders, cardFolders, getRecursiveCardCount]);
-
     const unfiledCount = useMemo(() => {
         return allCards.filter(c => !cardFolders[c.id]).length;
     }, [allCards, cardFolders]);
-
     // Build breadcrumb path from root to a folder
     const getFolderPath = useCallback((folderId) => {
         const path = [];
@@ -594,19 +541,15 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         }
         return path;
     }, [folders]);
-
     // Progressive loading
     const [displayedCount, setDisplayedCount] = useState(50);
     const [isLoadingMore, setIsLoadingMore] = useState(false);
-
     const handleSearchChange = useCallback((value) => {
         setSearchTerm(value);
     }, []);
-
     // Restore filters
     const previousSavedFiltersRef = useRef(null);
     const isRestoringRef = useRef(false);
-
     useEffect(() => {
         if (savedFilters && JSON.stringify(previousSavedFiltersRef.current) !== JSON.stringify(savedFilters)) {
             isRestoringRef.current = true;
@@ -619,12 +562,10 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
             setTimeout(() => { isRestoringRef.current = false; }, 50);
         }
     }, [savedFilters]);
-
     useEffect(() => {
         if (isRestoringRef.current || !onFiltersChange) return;
         onFiltersChange({ filterLevel, filterPos, filterFolder, sortOrder, searchTerm });
     }, [filterLevel, filterPos, filterFolder, sortOrder, searchTerm, onFiltersChange]);
-
     const resetFilters = useCallback(() => {
         setFilterLevel('all');
         setFilterPos('all');
@@ -632,7 +573,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         setSortOrder('newest');
         setSearchTerm('');
     }, []);
-
     // Pre-compute
     const preprocessedCards = useMemo(() => {
         return allCards.map(card => {
@@ -650,7 +590,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
             return card;
         });
     }, [allCards]);
-
     // Filtering
     // Check if we're in folder browse mode (folders exist, no search/filter active, showing root)
     // Folder browse mode: we're at root or inside a folder, no search/filter active
@@ -666,18 +605,15 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         }
         return false;
     }, [folders, currentFolder, filterLevel, filterPos, filterFolder, deferredSearchTerm]);
-
     const filteredCards = useMemo(() => {
         const searchTermLower = deferredSearchTerm.trim().toLowerCase();
         const hasSearch = searchTermLower.length > 0;
         const hasLevelFilter = filterLevel !== 'all';
         const hasPosFilter = filterPos !== 'all';
         const hasFolderFilter = filterFolder !== 'all';
-
         // When inside a specific folder via folder browse mode, filter by that folder
         const effectiveFolderFilter = currentFolder !== null ? currentFolder : (hasFolderFilter ? filterFolder : null);
         const hasAnyFilter = hasSearch || hasLevelFilter || hasPosFilter || hasFolderFilter;
-
         let result;
         if (!hasAnyFilter) {
             result = [...preprocessedCards];
@@ -703,10 +639,8 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                 result.push(card);
             }
         }
-
         // If in folder browse mode (root view), don't return any cards — the folder grid handles display
         if (isInFolderBrowseMode) return [];
-
         if (sortOrder === 'newest') {
             result.sort((a, b) => b._timestamp - a._timestamp);
         } else {
@@ -714,12 +648,8 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         }
         return result;
     }, [preprocessedCards, filterLevel, filterPos, filterFolder, sortOrder, deferredSearchTerm, cardFolders, currentFolder, isInFolderBrowseMode]);
-
     useEffect(() => { setDisplayedCount(50); }, [filterLevel, filterPos, filterFolder, sortOrder, deferredSearchTerm]);
-
     const displayedCards = useMemo(() => filteredCards.slice(0, displayedCount), [filteredCards, displayedCount]);
-
-
     // Load more on scroll
     const handleScroll = useCallback(() => {
         const scrollY = window.scrollY || window.pageYOffset;
@@ -733,17 +663,14 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
             });
         }
     }, [displayedCount, filteredCards.length, isLoadingMore]);
-
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true });
         document.addEventListener('scroll', handleScroll, { passive: true });
         return () => { window.removeEventListener('scroll', handleScroll); document.removeEventListener('scroll', handleScroll); };
     }, [handleScroll]);
-
     const loadMore = useCallback(() => {
         setDisplayedCount(prev => Math.min(prev + 100, filteredCards.length));
     }, [filteredCards.length]);
-
     // Scroll to card
     useEffect(() => {
         if (scrollToCardId) {
@@ -762,7 +689,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }, [scrollToCardId, filteredCards, onScrollComplete, displayedCount]);
-
     // Stats
     const stats = useMemo(() => {
         const total = allCards.length;
@@ -779,7 +705,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         const newCards = allCards.filter(c => c.intervalIndex_back === -1).length;
         return { total, dueCards, newCards };
     }, [allCards]);
-
     // Get folder name for a card
     const getFolderName = useCallback((cardId) => {
         const folderId = cardFolders[cardId];
@@ -787,9 +712,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         const folder = folders.find(f => f.id === folderId);
         return folder?.name || null;
     }, [cardFolders, folders]);
-
     const hasActiveFilters = filterLevel !== 'all' || filterPos !== 'all' || filterFolder !== 'all' || searchTerm.trim() !== '' || currentFolder !== null;
-
     // Get name of current folder for breadcrumb
     const currentFolderName = useMemo(() => {
         if (currentFolder === null) return null;
@@ -798,7 +721,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         const f = folders.find(f => f.id === currentFolder);
         return f?.name || 'Thư mục';
     }, [currentFolder, folders]);
-
     // Cards directly in current folder (for folder browse mode)
     const currentFolderCards = useMemo(() => {
         if (currentFolder === null) return [];
@@ -818,7 +740,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         }
         return result;
     }, [currentFolder, preprocessedCards, cardFolders, sortOrder]);
-
     // Sub-folders of current folder (for folder browse mode)
     const currentSubFolders = useMemo(() => {
         if (currentFolder === null || currentFolder === '__all__' || currentFolder === 'unfiled') return [];
@@ -826,10 +747,8 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
             .filter(f => f.parentId === currentFolder)
             .map(f => ({ ...f, count: getRecursiveCardCount(f.id), subFolderCount: folders.filter(sf => sf.parentId === f.id).length }));
     }, [currentFolder, folders, getRecursiveCardCount]);
-
     // Override displayedCards when inside a folder browse
     const effectiveDisplayedCards = currentFolder !== null ? currentFolderCards.slice(0, displayedCount) : displayedCards;
-
     // Select/deselect ALL filtered cards (not just displayed/paginated)
     const toggleSelectAll = useCallback(() => {
         const allTargetCards = currentFolder !== null ? currentFolderCards : filteredCards;
@@ -839,11 +758,9 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
             setSelectedCards(new Set(allTargetCards.map(c => c.id)));
         }
     }, [selectedCards.size, currentFolder, currentFolderCards, filteredCards]);
-
     // State for inline sub-folder creation
     const [newSubFolderInput, setNewSubFolderInput] = useState('');
     const [showNewSubFolderInput, setShowNewSubFolderInput] = useState(false);
-
     // Open a folder
     const openFolder = useCallback((folderId) => {
         setCurrentFolder(folderId);
@@ -851,7 +768,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         setDisplayedCount(50);
         setShowNewSubFolderInput(false);
     }, []);
-
     // Go back — to parent folder or root
     const goBackToFolders = useCallback(() => {
         if (currentFolder && currentFolder !== '__all__' && currentFolder !== 'unfiled') {
@@ -867,7 +783,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         setSelectedCards(new Set());
         setShowNewSubFolderInput(false);
     }, [currentFolder, folders]);
-
     return (
         <div className="w-full pb-8">
             <TopTabBar tabs={VOCAB_TABS} />
@@ -885,7 +800,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                         onDeleteFolder={deleteFolder}
                     />
                 )}
-
                 {/* Batch move to folder modal */}
                 {showBatchMoveModal && (
                     <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
@@ -921,7 +835,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                         </div>
                     </div>
                 )}
-
                 {/* Move to folder modal */}
                 {showMoveModal && (
                     <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
@@ -957,7 +870,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                         </div>
                     </div>
                 )}
-
                 {/* Header */}
                 <div className="flex items-center justify-between">
                     <div>
@@ -980,7 +892,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                         </button>
                     </div>
                 </div>
-
                 {/* Stats Cards */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                     <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm">
@@ -1000,7 +911,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                         <div className="text-xs text-gray-500 dark:text-gray-400">Đã học</div>
                     </div>
                 </div>
-
                 {/* Search & Filter Bar */}
                 <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm space-y-3">
                     {/* Search */}
@@ -1019,27 +929,21 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                             </button>
                         )}
                     </div>
-
                     {/* Filters */}
                     <div className="flex flex-wrap items-center gap-2">
                         <Filter className="w-4 h-4 text-gray-400" />
-
                         {/* POS filter */}
                         <select value={filterPos} onChange={(e) => setFilterPos(e.target.value)}
                             className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
                             <option value="all">Từ loại</option>
                             {Object.entries(POS_TYPES).map(([k, v]) => (<option key={k} value={k}>{v.label}</option>))}
                         </select>
-
                         {/* Sort */}
                         <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}
                             className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
                             <option value="newest">Mới nhất</option>
                             <option value="oldest">Cũ nhất</option>
                         </select>
-
-
-
                         {/* Folder filter */}
                         {folders.length > 0 && (
                             <>
@@ -1053,7 +957,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                             </>
                         )}
                     </div>
-
                     {/* Active filter info / search results */}
                     {(hasActiveFilters && !isInFolderBrowseMode) || deferredSearchTerm.trim() ? (
                         <div className="flex justify-between items-center pt-2 border-t border-gray-100 dark:border-gray-700">
@@ -1071,7 +974,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                         </div>
                     ) : null}
                 </div>
-
                 {/* Selection banner (like KanjiSRSListScreen) */}
                 {selectedCards.size > 0 && (
                     <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-3 flex items-center justify-between">
@@ -1102,7 +1004,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                         </div>
                     </div>
                 )}
-
                 {/* ====== FOLDER BROWSE MODE — Windows Explorer style ====== */}
                 {isInFolderBrowseMode ? (
                     <div className="space-y-4">
@@ -1127,7 +1028,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                 ))}
                             </div>
                         )}
-
                         {/* Info bar */}
                         <div className="flex items-center gap-2">
                             <span className="text-sm text-gray-500 dark:text-gray-400 flex-1">
@@ -1170,9 +1070,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                     <Download className="w-3.5 h-3.5" /> Nhập File
                                 </button>
                             )}
-
                         </div>
-
                         {/* Folder Grid */}
                         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                             {/* "All cards" tile - only at root */}
@@ -1188,7 +1086,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                     <span className="text-xs text-indigo-500 dark:text-indigo-400 font-medium">{allCards.length} từ</span>
                                 </button>
                             )}
-
                             {/* Folder tiles (root or sub-folders) */}
                             {(currentFolder === null ? foldersWithCounts : currentSubFolders).map(f => (
                                 <button
@@ -1206,7 +1103,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                     </div>
                                 </button>
                             ))}
-
                             {/* Unfiled tile - only at root */}
                             {currentFolder === null && unfiledCount > 0 && (
                                 <button
@@ -1221,7 +1117,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                 </button>
                             )}
                         </div>
-
                         {/* Cards directly in this folder (if any) */}
                         {currentFolder !== null && currentFolderCards.length > 0 && (
                             <>
@@ -1257,7 +1152,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                 </div>
                             </>
                         )}
-
                         {/* Show message if folder is empty */}
                         {currentFolder !== null && currentSubFolders.length === 0 && currentFolderCards.length === 0 && (
                             <div className="text-center py-12 space-y-3">
@@ -1270,7 +1164,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                 ) : (
                     /* ====== CARD LIST MODE (inside folder, or no folders, or search active) ====== */
                     <div className="space-y-4">
-
                         {/* Breadcrumb when inside a folder */}
                         {currentFolder !== null && (
                             <div className="flex items-center gap-2 text-sm">
@@ -1291,7 +1184,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                 </span>
                             </div>
                         )}
-
                         {/* Import buttons bar */}
                         <div className="flex items-center gap-2">
                             <span className="text-sm text-gray-500 dark:text-gray-400 flex-1">
@@ -1309,9 +1201,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                     <Download className="w-3.5 h-3.5" /> Nhập File
                                 </button>
                             )}
-
                         </div>
-
                         {/* Vocabulary Cards Grid */}
                         {(currentFolder !== null ? currentFolderCards.length : filteredCards.length) === 0 ? (
                             <div className="text-center py-16 space-y-4">
@@ -1354,7 +1244,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                         {isSelected && <span className="text-xs leading-none">✓</span>}
                                                     </div>
                                                 </div>
-
                                                 {/* Audio + content */}
                                                 <div className="flex items-center gap-2 flex-1 min-w-0">
                                                     <button
@@ -1364,7 +1253,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                     >
                                                         <Volume2 className="w-3.5 h-3.5" />
                                                     </button>
-
                                                     <div className="flex-1 min-w-0">
                                                         <div className="flex items-center gap-1.5 flex-wrap">
                                                             <span className="font-bold text-gray-800 dark:text-gray-200 text-sm">
@@ -1386,7 +1274,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                         )}
                                                     </div>
                                                 </div>
-
                                                 {/* SRS badge & details trigger */}
                                                 <div className="flex-shrink-0 flex items-center gap-1.5">
                                                     <SrsStatusCell intervalIndex={card.intervalIndex_back} nextReview={card.nextReview_back} currentInterval={card.currentInterval_back} hasData={true} asDiv={true} state={card.srsState} />
@@ -1399,7 +1286,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                     </button>
                                                 </div>
                                             </div>
-
                                             {/* Expanded details container */}
                                             {isExpanded && (
                                                 <div className="mt-2.5 border-t border-gray-150 dark:border-slate-700/60 pt-2.5 space-y-2.5 w-full text-left" onClick={(e) => e.stopPropagation()}>
@@ -1443,7 +1329,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                     )}
                                                 </div>
                                             )}
-
                                             {/* Hover action buttons */}
                                             <div 
                                                 onClick={(e) => e.stopPropagation()}
@@ -1474,7 +1359,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                         </div>
                                     );
                                 })}
-
                                 {/* Load more */}
                                 {displayedCount < filteredCards.length && (
                                     <div className="col-span-full py-4 text-center space-y-3">
@@ -1501,7 +1385,6 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                     </div>
                 )}
             </div>
-
             {/* Delete Confirmation Modal */}
             {
                 deleteConfirm && (
@@ -1548,7 +1431,5 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         </div>
     );
 });
-
 ListView.displayName = 'ListView';
-
 export default ListView;

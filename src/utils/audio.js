@@ -2,7 +2,7 @@
 // Hỗ trợ SpeechGen.io TTS (Nanami/Keita) với fallback Web Speech API
 
 // Convert base64 to ArrayBuffer
-export const base64ToArrayBuffer = (base64) => {
+const base64ToArrayBuffer = (base64) => {
     const binaryString = atob(base64);
     const len = binaryString.length;
     const bytes = new Uint8Array(len);
@@ -13,7 +13,7 @@ export const base64ToArrayBuffer = (base64) => {
 };
 
 // Convert PCM to WAV format
-export const pcmToWav = (pcm16, sampleRate = 24000) => {
+const pcmToWav = (pcm16, sampleRate = 24000) => {
     const numChannels = 1;
     const bitsPerSample = 16;
     const byteRate = sampleRate * numChannels * (bitsPerSample / 8);
@@ -92,7 +92,7 @@ let _sharedAudioDeps = null;
  * Inject Firestore dependencies cho shared audio cache
  * Gọi 1 lần từ App.jsx khi component mount
  */
-export const initSharedAudioCache = (deps) => {
+const initSharedAudioCache = (deps) => {
     _sharedAudioDeps = deps;
 };
 
@@ -575,7 +575,7 @@ export const speakJapanese = (text, audioBase64 = null, onAudioGenerated = null)
 };
 
 // Stop current audio
-export const stopAudio = () => {
+const stopAudio = () => {
     if (window.speechSynthesis) {
         window.speechSynthesis.cancel();
     }

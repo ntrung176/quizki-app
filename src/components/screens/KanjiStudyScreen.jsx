@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate } from 'react-router-dom';
-import { Calendar, Target, Flame, TrendingUp, ChevronLeft, ChevronRight, BookOpen, CheckCircle, Sparkles, Zap } from 'lucide-react';
+import { ChevronLeft, ChevronRight, BookOpen, CheckCircle, Zap } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -9,7 +9,6 @@ import { ROUTES } from '../../router';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import { TopTabBar } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
-
 // JLPT Levels configuration
 const JLPT_CONFIG = {
     N5: { label: 'N5', sublabel: 'Cơ bản', color: 'emerald', totalDays: 12, kanjiPerDay: 10, gradient: 'from-emerald-500 to-teal-500', bg: 'bg-emerald-500', light: 'bg-emerald-50 dark:bg-emerald-900/20', text: 'text-emerald-600 dark:text-emerald-400', border: 'border-emerald-300 dark:border-emerald-700' },
@@ -18,7 +17,6 @@ const JLPT_CONFIG = {
     N2: { label: 'N2', sublabel: 'Cao cấp', color: 'orange', totalDays: 51, kanjiPerDay: 10, gradient: 'from-orange-500 to-amber-500', bg: 'bg-orange-500', light: 'bg-orange-50 dark:bg-orange-900/20', text: 'text-orange-600 dark:text-orange-400', border: 'border-orange-300 dark:border-orange-700' },
     N1: { label: 'N1', sublabel: 'Thành thạo', color: 'red', totalDays: 131, kanjiPerDay: 10, gradient: 'from-rose-500 to-pink-500', bg: 'bg-rose-500', light: 'bg-rose-50 dark:bg-rose-900/20', text: 'text-rose-600 dark:text-rose-400', border: 'border-rose-300 dark:border-rose-700' },
 };
-
 const KanjiStudyScreen = () => {
     const navigate = useNavigate();
     const [selectedLevel, setSelectedLevel] = useState('N5');
@@ -26,9 +24,7 @@ const KanjiStudyScreen = () => {
     const [kanjiList, setKanjiList] = useState([]);
     const [loading, setLoading] = useState(true);
     const [completedDays, setCompletedDays] = useState({});
-
     const userId = getAuth().currentUser?.uid;
-
     // Load kanji and progress from Firebase
     useEffect(() => {
         const loadData = async () => {
@@ -36,7 +32,6 @@ const KanjiStudyScreen = () => {
                 const kanjiSnap = await getDocs(collection(db, 'kanji'));
                 const kanjiData = kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() }));
                 setKanjiList(kanjiData);
-
                 // Load user progress
                 if (userId) {
                     try {
@@ -58,7 +53,6 @@ const KanjiStudyScreen = () => {
         };
         loadData();
     }, [userId]);
-
     // Get kanji for selected level, sorted from easy to hard (stroke count → frequency)
     const levelKanji = useMemo(() => {
         const filtered = kanjiList.filter(k => k.level === selectedLevel);
@@ -75,23 +69,19 @@ const KanjiStudyScreen = () => {
             return freqA - freqB;
         });
     }, [kanjiList, selectedLevel]);
-
     // Calculate total days for level
     const totalDays = useMemo(() => {
         return Math.ceil(levelKanji.length / 10) || JLPT_CONFIG[selectedLevel]?.totalDays || 12;
     }, [levelKanji, selectedLevel]);
-
     // Get kanji for current day (10 kanji per day)
     const todayKanji = useMemo(() => {
         const startIndex = (currentDay - 1) * 10;
         return levelKanji.slice(startIndex, startIndex + 10);
     }, [levelKanji, currentDay]);
-
     // Check if a specific day is completed
     const isDayCompleted = (lvl, d) => {
         return !!completedDays[`${lvl}_${d}`];
     };
-
     // Count completed days for selected level
     const completedDaysCount = useMemo(() => {
         let count = 0;
@@ -100,7 +90,6 @@ const KanjiStudyScreen = () => {
         }
         return count;
     }, [completedDays, selectedLevel, totalDays]);
-
     // Calculate stats
     const stats = useMemo(() => {
         const totalKanji = levelKanji.length;
@@ -114,7 +103,6 @@ const KanjiStudyScreen = () => {
             totalKanji,
         };
     }, [levelKanji, completedDaysCount, totalDays]);
-
     // Auto-set current day to next uncompleted day
     useEffect(() => {
         for (let d = 1; d <= totalDays; d++) {
@@ -126,11 +114,9 @@ const KanjiStudyScreen = () => {
         // All days completed, stay on last
         setCurrentDay(totalDays);
     }, [selectedLevel, completedDays, totalDays]);
-
     const handleStartStudy = () => {
         navigate(`${ROUTES.KANJI_STUDY}/lesson?level=${selectedLevel}&day=${currentDay}`);
     };
-
     const isLevelCompleted = (levelKey) => {
         const levelDays = Math.ceil(kanjiList.filter(k => k.level === levelKey).length / 10) || JLPT_CONFIG[levelKey]?.totalDays || 12;
         for (let d = 1; d <= levelDays; d++) {
@@ -138,14 +124,10 @@ const KanjiStudyScreen = () => {
         }
         return true;
     };
-
-
-
     const config = JLPT_CONFIG[selectedLevel];
     const progressRadius = 54;
     const progressCircumference = 2 * Math.PI * progressRadius;
     const progressOffset = progressCircumference - (stats.progressPercent / 100) * progressCircumference;
-
     if (loading) {
         return (
             <div className="w-full pb-8">
@@ -154,12 +136,10 @@ const KanjiStudyScreen = () => {
             </div>
         );
     }
-
     return (
         <div className="w-full pb-12 transition-colors duration-300 animate-fade-in">
             <TopTabBar tabs={KANJI_TABS} />
             <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-6 mt-6">
-
                 {/* 1. Header Banner with Circular Progress Gauge */}
                 <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-500 via-purple-600 to-indigo-700 p-8 text-white shadow-lg border border-indigo-500/20 dark:border-indigo-900/50">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent_60%)]"></div>
@@ -194,7 +174,6 @@ const KanjiStudyScreen = () => {
                                 </button>
                             </div>
                         </div>
-
                         {/* Circular Progress Gauge */}
                         <div className="relative w-36 h-36 flex-shrink-0 bg-white/5 backdrop-blur-md rounded-full p-2 border border-white/10 flex items-center justify-center">
                             <svg className="w-full h-full -rotate-90" viewBox="0 0 120 120">
@@ -210,13 +189,11 @@ const KanjiStudyScreen = () => {
                         </div>
                     </div>
                 </div>
-
                 {/* 2. Horizontal Level Progression Tabs */}
                 <div className="bg-slate-50 dark:bg-slate-900/50 p-1.5 rounded-2xl flex gap-1.5 overflow-x-auto select-none border border-slate-100 dark:border-slate-800/40">
                     {Object.entries(JLPT_CONFIG).map(([level, cfg]) => {
                         const isSelected = selectedLevel === level;
                         const isCompleted = isLevelCompleted(level);
-
                         return (
                             <button
                                 key={level}
@@ -244,7 +221,6 @@ const KanjiStudyScreen = () => {
                         );
                     })}
                 </div>
-
                 {/* 3. Day Navigation & Progress Card */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                     {/* Left 2 Cols: Progress / Stats Card */}
@@ -265,7 +241,6 @@ const KanjiStudyScreen = () => {
                                 Hãy tiếp tục duy trì thói quen học tập hàng ngày để nắm vững toàn bộ {stats.totalKanji} chữ Kanji cấp độ {selectedLevel}.
                             </p>
                         </div>
-
                         <div className="space-y-2">
                             <div className="flex items-center justify-between text-xs font-bold text-slate-600 dark:text-slate-350">
                                 <span>Tiến độ ngày {currentDay}</span>
@@ -279,7 +254,6 @@ const KanjiStudyScreen = () => {
                             </div>
                         </div>
                     </div>
-
                     {/* Right 1 Col: Day Selector Card */}
                     <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
                         <div className="flex items-center justify-between mb-4">
@@ -303,7 +277,6 @@ const KanjiStudyScreen = () => {
                                 </button>
                             </div>
                         </div>
-
                         <div className="flex flex-col items-center justify-center my-2">
                             <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${config.gradient} flex items-center justify-center shadow-lg shadow-${config.color}-500/20 text-white text-xl font-bold`}>
                                 {currentDay}
@@ -311,14 +284,12 @@ const KanjiStudyScreen = () => {
                             <span className="text-sm font-bold text-slate-800 dark:text-white mt-3">Ngày {currentDay}</span>
                             <span className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-bold">JLPT {selectedLevel}</span>
                         </div>
-
                         {/* Progress display */}
                         <div className="text-center text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider pt-2 border-t border-slate-50 dark:border-slate-700/40">
                             Ngày {currentDay} / {totalDays}
                         </div>
                     </div>
                 </div>
-
                 {/* 4. "Kanji Hôm Nay" Daily Lesson Panel */}
                 <div id="lesson-panel" className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-6 shadow-sm space-y-6">
                     <div className="flex items-center justify-between border-b border-slate-50 dark:border-slate-700/40 pb-4">
@@ -339,7 +310,6 @@ const KanjiStudyScreen = () => {
                             Học ngay
                         </button>
                     </div>
-
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {todayKanji.length > 0 ? (
                             todayKanji.map((kanji, index) => {
@@ -347,7 +317,6 @@ const KanjiStudyScreen = () => {
                                 const meaningTip = kanji.sinoViet || jData?.sinoViet || '';
                                 const translation = kanji.meaning || jData?.meaningVi || jData?.meanings?.slice(0, 2).join(', ') || '';
                                 const isCompleted = isDayCompleted(selectedLevel, currentDay);
-
                                 return (
                                     <div
                                         key={kanji.id || index}
@@ -394,10 +363,8 @@ const KanjiStudyScreen = () => {
                         )}
                     </div>
                 </div>
-
             </div>
         </div>
     );
 };
-
 export default KanjiStudyScreen;

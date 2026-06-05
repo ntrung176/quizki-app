@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { RefreshCw, Check, X, ChevronDown, ChevronUp, AlertCircle, ArrowRight } from 'lucide-react';
+import { RefreshCw, Check, X, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react'
 import { db } from '../../config/firebase';
-import { collection, getDocs, query, where, doc, updateDoc, getDoc, setDoc, deleteDoc, orderBy, limit } from 'firebase/firestore';
-
+import { collection, getDocs, doc, updateDoc, getDoc, setDoc } from 'firebase/firestore'
 /**
  * BookVocabSyncChecker
  * 
@@ -21,46 +20,36 @@ const BookVocabSyncChecker = ({ userId, appId, allCards = [], vocabCollectionPat
     const [isApplying, setIsApplying] = useState(false);
     const [appliedCount, setAppliedCount] = useState(0);
     const [dismissed, setDismissed] = useState(false);
-
     // Check for pending updates
     useEffect(() => {
         if (!userId || !appId || !vocabCollectionPath || allCards.length === 0) return;
-
         const checkUpdates = async () => {
             try {
                 // Get user's last sync timestamp
                 const syncDocRef = doc(db, `artifacts/${appId}/users/${userId}/settings`, 'bookSync');
                 const syncSnap = await getDoc(syncDocRef);
                 const lastSyncAt = syncSnap.exists() ? (syncSnap.data().lastSyncAt?.toDate?.() || new Date(syncSnap.data().lastSyncAt || 0)) : new Date(0);
-
                 // Get updates newer than last sync
                 const updatesCol = collection(db, `artifacts/${appId}/bookVocabUpdates`);
                 const updatesSnap = await getDocs(updatesCol);
-
                 if (updatesSnap.empty) return;
-
                 // Filter updates newer than last sync and matching user's vocab
                 const userWordSet = new Set(
                     allCards.map(c => c.front.split('（')[0].split('(')[0].trim().toLowerCase())
                 );
-
                 const relevant = [];
                 updatesSnap.forEach(docSnap => {
                     const data = docSnap.data();
                     const updateDate = data.updatedAt?.toDate?.() || new Date(data.updatedAt || 0);
-
                     // Only show updates newer than last sync
                     if (updateDate <= lastSyncAt) return;
-
                     // Only show if user has this word in their SRS
                     const word = (data.word || '').toLowerCase();
                     if (!userWordSet.has(word)) return;
-
                     // Find the matching user card
                     const matchedCard = allCards.find(c =>
                         c.front.split('（')[0].split('(')[0].trim().toLowerCase() === word
                     );
-
                     relevant.push({
                         id: docSnap.id,
                         ...data,
@@ -69,7 +58,6 @@ const BookVocabSyncChecker = ({ userId, appId, allCards = [], vocabCollectionPat
                         updatedAt: updateDate,
                     });
                 });
-
                 // Sort by date, newest first, and deduplicate by word (keep latest)
                 relevant.sort((a, b) => b.updatedAt - a.updatedAt);
                 const seenWords = new Set();
@@ -81,29 +69,23 @@ const BookVocabSyncChecker = ({ userId, appId, allCards = [], vocabCollectionPat
                         deduped.push(up);
                     }
                 }
-
                 setPendingUpdates(deduped);
             } catch (e) {
                 console.error('Error checking book vocab updates:', e);
             }
         };
-
         checkUpdates();
     }, [userId, appId, allCards, vocabCollectionPath]);
-
     // Apply all updates
     const handleApplyAll = useCallback(async () => {
         if (!vocabCollectionPath || isApplying) return;
         setIsApplying(true);
         let applied = 0;
-
         try {
             for (const update of pendingUpdates) {
                 if (!update.matchedCardId || !update.changes) continue;
-
                 const cardDocRef = doc(db, vocabCollectionPath, update.matchedCardId);
                 const updateData = {};
-
                 // Map book fields to SRS card fields  
                 for (const [field, value] of Object.entries(update.changes)) {
                     if (field === 'meaning') {
@@ -114,20 +96,16 @@ const BookVocabSyncChecker = ({ userId, appId, allCards = [], vocabCollectionPat
                         updateData[field] = value;
                     }
                 }
-
                 if (Object.keys(updateData).length > 0) {
                     await updateDoc(cardDocRef, updateData);
                     applied++;
                 }
             }
-
             // Save sync timestamp
             const syncDocRef = doc(db, `artifacts/${appId}/users/${userId}/settings`, 'bookSync');
             await setDoc(syncDocRef, { lastSyncAt: new Date() }, { merge: true });
-
             setAppliedCount(applied);
             setPendingUpdates([]);
-
             // Auto-dismiss after showing success
             setTimeout(() => setDismissed(true), 3000);
         } catch (e) {
@@ -136,7 +114,6 @@ const BookVocabSyncChecker = ({ userId, appId, allCards = [], vocabCollectionPat
             setIsApplying(false);
         }
     }, [pendingUpdates, vocabCollectionPath, appId, userId, isApplying]);
-
     // Dismiss without applying
     const handleDismiss = useCallback(async () => {
         // Save sync timestamp so these updates won't show again
@@ -146,15 +123,12 @@ const BookVocabSyncChecker = ({ userId, appId, allCards = [], vocabCollectionPat
         } catch (e) { /* ignore */ }
         setDismissed(true);
     }, [appId, userId]);
-
     // Apply single update
     const handleApplySingle = useCallback(async (update, index) => {
         if (!vocabCollectionPath || !update.matchedCardId) return;
-
         try {
             const cardDocRef = doc(db, vocabCollectionPath, update.matchedCardId);
             const updateData = {};
-
             for (const [field, value] of Object.entries(update.changes || {})) {
                 if (field === 'meaning') {
                     updateData.back = value;
@@ -164,26 +138,21 @@ const BookVocabSyncChecker = ({ userId, appId, allCards = [], vocabCollectionPat
                     updateData[field] = value;
                 }
             }
-
             if (Object.keys(updateData).length > 0) {
                 await updateDoc(cardDocRef, updateData);
             }
-
             // Remove from pending
             setPendingUpdates(prev => prev.filter((_, i) => i !== index));
         } catch (e) {
             console.error('Error applying single update:', e);
         }
     }, [vocabCollectionPath]);
-
     // Skip single update  
     const handleSkipSingle = useCallback((index) => {
         setPendingUpdates(prev => prev.filter((_, i) => i !== index));
     }, []);
-
     // Don't render if no updates or dismissed
     if (dismissed || (pendingUpdates.length === 0 && appliedCount === 0)) return null;
-
     // Success state
     if (appliedCount > 0 && pendingUpdates.length === 0) {
         return (
@@ -199,7 +168,6 @@ const BookVocabSyncChecker = ({ userId, appId, allCards = [], vocabCollectionPat
             </div>
         );
     }
-
     return (
         <div className="mx-auto max-w-2xl mb-4 animate-fadeIn">
             <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl overflow-hidden">
@@ -246,7 +214,6 @@ const BookVocabSyncChecker = ({ userId, appId, allCards = [], vocabCollectionPat
                         </button>
                     </div>
                 </div>
-
                 {/* Details */}
                 {showDetails && (
                     <div className="border-t border-amber-200 dark:border-amber-800 divide-y divide-amber-100 dark:divide-amber-800/50">
@@ -303,5 +270,4 @@ const BookVocabSyncChecker = ({ userId, appId, allCards = [], vocabCollectionPat
         </div>
     );
 };
-
 export default BookVocabSyncChecker;

@@ -200,7 +200,7 @@ export function launchFireworks() {
 }
 
 // ==================== CLICK SOUND ====================
-export function playClickSound() {
+function playClickSound() {
     if (!isSfxEnabled()) return;
     const volume = getSfxVolume();
     try {

@@ -1,14 +1,12 @@
 import React from 'react';
 import { Clock, CheckCircle, AlertCircle } from 'lucide-react';
 import { getSrsProgressText } from '../../utils/srs';
-import { SRS_INTERVALS, MASTERED_THRESHOLD } from '../../config/constants';
-
+import { SRS_INTERVALS } from '../../config/constants'
 // SrsStatusCell - displays SRS status for a vocabulary card
 // Use asDiv={true} when rendering outside a <table> (e.g. in flex/grid layouts)
 const SrsStatusCell = ({ intervalIndex, nextReview, hasData, currentInterval, asDiv = false, state }) => {
     const Wrapper = asDiv ? 'div' : 'td';
     const wrapperClass = asDiv ? '' : 'px-2 md:px-4 py-2 md:py-3';
-
     if (!hasData) {
         return (
             <Wrapper className={wrapperClass}>
@@ -19,21 +17,17 @@ const SrsStatusCell = ({ intervalIndex, nextReview, hasData, currentInterval, as
             </Wrapper>
         );
     }
-
     // Backward compatible: suy ra effective interval
     const effectiveInterval = (typeof currentInterval === 'number' && currentInterval > 0)
         ? currentInterval
         : (intervalIndex >= 0 && intervalIndex < SRS_INTERVALS.length ? SRS_INTERVALS[intervalIndex] : 0);
-
     const progress = getSrsProgressText(intervalIndex, null, effectiveInterval, state);
     const resolvedState = state || (intervalIndex === -1 ? 'NEW' : (intervalIndex >= 2 ? 'REVIEW' : 'LEARNING'));
     const isDue = nextReview && (nextReview instanceof Date ? nextReview.getTime() : new Date(nextReview).getTime()) <= Date.now();
     const isMastered = resolvedState === 'REVIEW' && effectiveInterval >= 21;
-
     // Color based on status
     let colorClass = 'text-gray-500 dark:text-gray-400';
     let bgClass = 'bg-gray-100 dark:bg-gray-700';
-
     if (isMastered) {
         colorClass = 'text-emerald-600 dark:text-emerald-400';
         bgClass = 'bg-emerald-100 dark:bg-emerald-950/30';
@@ -44,7 +38,6 @@ const SrsStatusCell = ({ intervalIndex, nextReview, hasData, currentInterval, as
         colorClass = 'text-orange-600 dark:text-orange-400';
         bgClass = 'bg-orange-100 dark:bg-orange-950/30';
     }
-
     return (
         <Wrapper className={wrapperClass}>
             <div className="flex flex-col gap-1">
@@ -67,5 +60,4 @@ const SrsStatusCell = ({ intervalIndex, nextReview, hasData, currentInterval, as
         </Wrapper>
     );
 };
-
 export default SrsStatusCell;

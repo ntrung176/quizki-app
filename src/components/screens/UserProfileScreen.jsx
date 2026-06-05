@@ -1,19 +1,9 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import {
-    collection, doc, getDoc, setDoc, updateDoc, deleteDoc,
-    query, where, orderBy, limit, getDocs, onSnapshot,
-    serverTimestamp, increment
-} from 'firebase/firestore';
+import { collection, doc, getDoc, setDoc, updateDoc, deleteDoc, query, where, getDocs, serverTimestamp } from 'firebase/firestore'
 import { db, appId } from '../../config/firebase';
 import { ROUTES } from '../../router';
-import {
-    ArrowLeft, Settings, Pencil, X, Check, MessageSquare,
-    Heart, Users, BookOpen, Award, Flame, ExternalLink,
-    Calendar, MapPin, Link as LinkIcon, ChevronRight,
-    MessageCircle, Eye, Crown, Shield, Loader2
-} from 'lucide-react';
-
+import { ArrowLeft, Settings, Pencil, X, Check, MessageSquare, Heart, Users, Award, ExternalLink, Link as LinkIcon, ChevronRight, MessageCircle, Shield, Loader2 } from 'lucide-react'
 // ==========================
 // AVATAR EMOJIS (reuse)
 // ==========================
@@ -29,9 +19,7 @@ const AVATAR_EMOJIS = {
     rhino: '🦏', hippo: '🦛', camel: '🐫', deer: '🦌', wolf: '🐺',
     bat: '🦇', raccoon: '🦝', sloth: '🦥', hedgehog: '🦔', shrimp: '🦐',
 };
-
 const isCustomPhoto = (v) => typeof v === 'string' && v.startsWith('data:image/');
-
 const AvatarDisplay = ({ avatar, name, size = 'w-20 h-20', textSize = 'text-2xl' }) => {
     if (isCustomPhoto(avatar)) {
         return (
@@ -47,7 +35,6 @@ const AvatarDisplay = ({ avatar, name, size = 'w-20 h-20', textSize = 'text-2xl'
         </div>
     );
 };
-
 // ==========================
 // TIME AGO
 // ==========================
@@ -63,10 +50,8 @@ const timeAgo = (timestamp) => {
     const d = new Date(ts);
     return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
 };
-
 // JLPT Levels
 const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
-
 // ==========================
 // EDIT PROFILE MODAL
 // ==========================
@@ -75,14 +60,12 @@ const EditProfileModal = ({ profileData, onClose, onSave }) => {
     const [jlptLevel, setJlptLevel] = useState(profileData?.jlptLevel || '');
     const [link, setLink] = useState(profileData?.link || '');
     const [saving, setSaving] = useState(false);
-
     const handleSave = async () => {
         setSaving(true);
         await onSave({ bio: bio.trim(), jlptLevel, link: link.trim() });
         setSaving(false);
         onClose();
     };
-
     return (
         <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4" style={{ backgroundColor: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)' }}>
             <div className="bg-white dark:bg-gray-900 w-full sm:max-w-md sm:rounded-2xl rounded-t-3xl shadow-2xl max-h-[90vh] flex flex-col">
@@ -96,7 +79,6 @@ const EditProfileModal = ({ profileData, onClose, onSave }) => {
                         <X className="w-5 h-5 text-gray-400" />
                     </button>
                 </div>
-
                 <div className="p-5 space-y-4 overflow-y-auto flex-1">
                     {/* Bio */}
                     <div>
@@ -111,7 +93,6 @@ const EditProfileModal = ({ profileData, onClose, onSave }) => {
                         />
                         <p className="text-right text-[10px] text-gray-400 mt-0.5">{bio.length}/150</p>
                     </div>
-
                     {/* JLPT Level */}
                     <div>
                         <label className="text-xs font-bold text-gray-600 dark:text-gray-400 mb-1.5 block">Cấp độ JLPT đang học</label>
@@ -130,7 +111,6 @@ const EditProfileModal = ({ profileData, onClose, onSave }) => {
                             ))}
                         </div>
                     </div>
-
                     {/* Link */}
                     <div>
                         <label className="text-xs font-bold text-gray-600 dark:text-gray-400 mb-1.5 block flex items-center gap-1">
@@ -146,7 +126,6 @@ const EditProfileModal = ({ profileData, onClose, onSave }) => {
                         />
                     </div>
                 </div>
-
                 {/* Footer */}
                 <div className="px-5 pb-5 pt-3 border-t border-gray-100 dark:border-gray-800">
                     <button
@@ -166,7 +145,6 @@ const EditProfileModal = ({ profileData, onClose, onSave }) => {
         </div>
     );
 };
-
 // ==========================
 // REPLY MINI CARD (for replies tab)
 // ==========================
@@ -204,7 +182,6 @@ const ReplyMiniCard = ({ reply }) => {
         </Link>
     );
 };
-
 // ==========================
 // POST MINI CARD (for profile feed)
 // ==========================
@@ -219,7 +196,6 @@ const PostMiniCard = ({ post }) => {
         other: { icon: '💬', label: 'Khác', color: 'text-slate-600 bg-slate-50 dark:bg-slate-900/20 dark:text-slate-400' },
     };
     const cat = CATEGORIES[post.category] || CATEGORIES.other;
-
     return (
         <Link
             to={ROUTES.FORUM}
@@ -239,7 +215,6 @@ const PostMiniCard = ({ post }) => {
                         </h4>
                     )}
                     <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2 leading-relaxed">{post.content}</p>
-
                     {/* Tags */}
                     {post.tags?.length > 0 && (
                         <div className="flex flex-wrap gap-1 mt-2">
@@ -248,7 +223,6 @@ const PostMiniCard = ({ post }) => {
                             ))}
                         </div>
                     )}
-
                     {/* Stats */}
                     <div className="flex items-center gap-3 mt-2.5">
                         <span className="flex items-center gap-1 text-[11px] text-gray-400">
@@ -266,18 +240,15 @@ const PostMiniCard = ({ post }) => {
         </Link>
     );
 };
-
 // ==========================
 // MAIN USER PROFILE SCREEN
 // ==========================
 const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isAdmin }) => {
     const { userId: paramUserId } = useParams();
     const navigate = useNavigate();
-
     // Determine which profile to show
     const targetUserId = (!paramUserId || paramUserId === 'me') ? currentUserId : paramUserId;
     const isSelf = targetUserId === currentUserId;
-
     const [profileData, setProfileData] = useState(null);
     const [userPosts, setUserPosts] = useState([]);
     const [userReplies, setUserReplies] = useState([]);
@@ -292,21 +263,17 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
     const [followLoading, setFollowLoading] = useState(false);
     const [followerCount, setFollowerCount] = useState(0);
     const [followingCount, setFollowingCount] = useState(0);
-
     const profilesPath = useMemo(() => `artifacts/${appId}/userProfiles`, []);
     const followsPath = useMemo(() => `artifacts/${appId}/follows`, []);
     const forumPath = useMemo(() => `artifacts/${appId}/forum`, []);
-
     // Load profile data
     useEffect(() => {
         if (!targetUserId) return;
         setLoading(true);
-
         const loadProfile = async () => {
             try {
                 const profileRef = doc(db, profilesPath, targetUserId);
                 const profileSnap = await getDoc(profileRef);
-
                 if (profileSnap.exists()) {
                     const existingData = profileSnap.data();
                     // Auto-sync display name & avatar from main profile if self
@@ -351,15 +318,12 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
             }
             setLoading(false);
         };
-
         loadProfile();
     }, [targetUserId, isSelf, currentProfile, profilesPath]);
-
     // Load user's posts
     useEffect(() => {
         if (!targetUserId) return;
         setLoadingPosts(true);
-
         const loadPosts = async () => {
             try {
                 const postsRef = collection(db, forumPath);
@@ -377,14 +341,11 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
             }
             setLoadingPosts(false);
         };
-
         loadPosts();
     }, [targetUserId, forumPath]);
-
     // Check follow status & counts
     useEffect(() => {
         if (!targetUserId || isSelf) return;
-
         const checkFollow = async () => {
             try {
                 const followDocId = `${currentUserId}_${targetUserId}`;
@@ -395,21 +356,17 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                 console.error('Check follow error:', e);
             }
         };
-
         checkFollow();
     }, [targetUserId, currentUserId, isSelf, followsPath]);
-
     // Load follower/following counts
     useEffect(() => {
         if (!targetUserId) return;
-
         const loadCounts = async () => {
             try {
                 // Followers: docs where followingId == targetUserId
                 const followersQ = query(collection(db, followsPath), where('followingId', '==', targetUserId));
                 const followersSnap = await getDocs(followersQ);
                 setFollowerCount(followersSnap.size);
-
                 // Following: docs where followerId == targetUserId
                 const followingQ = query(collection(db, followsPath), where('followerId', '==', targetUserId));
                 const followingSnap = await getDocs(followingQ);
@@ -418,16 +375,13 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                 console.error('Load counts error:', e);
             }
         };
-
         loadCounts();
     }, [targetUserId, followsPath, isFollowing]);
-
     // Load replies when tab is selected
     useEffect(() => {
         if (activeTab !== 'replies' || !targetUserId) return;
         if (userReplies.length > 0) return; // Already loaded
         setLoadingReplies(true);
-
         const loadReplies = async () => {
             try {
                 // We need to scan all posts' comment subcollections
@@ -436,13 +390,11 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                 const postsRef = collection(db, forumPath);
                 const postsSnap = await getDocs(postsRef);
                 const allReplies = [];
-
                 for (const postDoc of postsSnap.docs) {
                     const postData = postDoc.data();
                     const commentsRef = collection(db, forumPath, postDoc.id, 'comments');
                     const commentsQ = query(commentsRef, where('authorId', '==', targetUserId));
                     const commentsSnap = await getDocs(commentsQ);
-
                     for (const commentDoc of commentsSnap.docs) {
                         allReplies.push({
                             id: commentDoc.id,
@@ -453,66 +405,54 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                         });
                     }
                 }
-
                 allReplies.sort((a, b) => {
                     const ta = a.createdAt?.toDate?.()?.getTime?.() || a.createdAt?.seconds * 1000 || 0;
                     const tb = b.createdAt?.toDate?.()?.getTime?.() || b.createdAt?.seconds * 1000 || 0;
                     return tb - ta;
                 });
-
                 setUserReplies(allReplies);
             } catch (e) {
                 console.error('Load replies error:', e);
             }
             setLoadingReplies(false);
         };
-
         loadReplies();
     }, [activeTab, targetUserId, forumPath, userReplies.length]);
-
     // Load liked posts when tab is selected
     useEffect(() => {
         if (activeTab !== 'likes' || !isSelf || !targetUserId) return;
         if (likedPosts.length > 0) return; // Already loaded
         setLoadingLikes(true);
-
         const loadLikedPosts = async () => {
             try {
                 const postsRef = collection(db, forumPath);
                 const postsSnap = await getDocs(postsRef);
                 const liked = [];
-
                 for (const postDoc of postsSnap.docs) {
                     const postData = postDoc.data();
                     if (postData.likes?.includes(targetUserId)) {
                         liked.push({ id: postDoc.id, ...postData });
                     }
                 }
-
                 liked.sort((a, b) => {
                     const ta = a.createdAt?.toDate?.()?.getTime?.() || a.createdAt?.seconds * 1000 || 0;
                     const tb = b.createdAt?.toDate?.()?.getTime?.() || b.createdAt?.seconds * 1000 || 0;
                     return tb - ta;
                 });
-
                 setLikedPosts(liked);
             } catch (e) {
                 console.error('Load liked posts error:', e);
             }
             setLoadingLikes(false);
         };
-
         loadLikedPosts();
     }, [activeTab, isSelf, targetUserId, forumPath, likedPosts.length]);
-
     // Handle follow/unfollow
     const handleToggleFollow = async () => {
         if (followLoading || isSelf) return;
         setFollowLoading(true);
-
         const followDocId = `${currentUserId}_${targetUserId}`;
         const followRef = doc(db, followsPath, followDocId);
-
         try {
             if (isFollowing) {
                 await deleteDoc(followRef);
@@ -534,7 +474,6 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
         }
         setFollowLoading(false);
     };
-
     // Handle save profile
     const handleSaveProfile = async (updates) => {
         try {
@@ -548,14 +487,12 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
             console.error('Save profile error:', e);
         }
     };
-
     // Get display info (use profile data or fallback to currentProfile for self)
     const displayName = profileData?.displayName || (isSelf ? currentProfile?.displayName : 'Người dùng');
     const displayAvatar = profileData?.avatar || (isSelf ? currentProfile?.avatar : '');
     const displayBio = profileData?.bio || '';
     const displayJlpt = profileData?.jlptLevel || '';
     const displayLink = profileData?.link || '';
-
     // Tabs config
     const tabs = [
         { id: 'posts', label: 'Bài viết', icon: MessageSquare, count: userPosts.length },
@@ -564,7 +501,6 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
     if (isSelf) {
         tabs.push({ id: 'likes', label: 'Đã thích', icon: Heart, count: likedPosts.length > 0 ? likedPosts.length : null });
     }
-
     if (loading) {
         return (
             <div className="max-w-xl mx-auto flex flex-col items-center gap-3 py-20">
@@ -573,7 +509,6 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
             </div>
         );
     }
-
     return (
         <div className="max-w-xl mx-auto space-y-0">
             {/* Header bar */}
@@ -594,7 +529,6 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                     </Link>
                 )}
             </div>
-
             {/* Profile Card */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden">
                 {/* Cover gradient */}
@@ -604,7 +538,6 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                         <AvatarDisplay avatar={displayAvatar} name={displayName} size="w-20 h-20" textSize="text-2xl" />
                     </div>
                 </div>
-
                 {/* Profile info */}
                 <div className="pt-12 px-5 pb-5">
                     {/* Action button */}
@@ -642,16 +575,13 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                             </button>
                         )}
                     </div>
-
                     {/* Name & badges */}
                     <div className="space-y-1.5">
                         <h1 className="text-xl font-black text-gray-900 dark:text-white">{displayName}</h1>
-
                         {/* Bio */}
                         {displayBio && (
                             <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{displayBio}</p>
                         )}
-
                         {/* Badges */}
                         <div className="flex flex-wrap gap-2 pt-1">
                             {displayJlpt && (
@@ -665,7 +595,6 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                                 </span>
                             )}
                         </div>
-
                         {/* Link */}
                         {displayLink && (
                             <a
@@ -680,7 +609,6 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                             </a>
                         )}
                     </div>
-
                     {/* Stats */}
                     <div className="flex items-center gap-6 mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
                         <div className="text-center">
@@ -698,7 +626,6 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                     </div>
                 </div>
             </div>
-
             {/* Tabs */}
             <div className="flex border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-t-none mt-0">
                 {tabs.map(tab => {
@@ -723,7 +650,6 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                     );
                 })}
             </div>
-
             {/* Tab Content */}
             <div className="mt-3 space-y-3 pb-8">
                 {activeTab === 'posts' && (
@@ -754,7 +680,6 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                         )}
                     </>
                 )}
-
                 {activeTab === 'replies' && (
                     <>
                         {loadingReplies ? (
@@ -775,7 +700,6 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                         )}
                     </>
                 )}
-
                 {activeTab === 'likes' && isSelf && (
                     <>
                         {loadingLikes ? (
@@ -803,7 +727,6 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                     </>
                 )}
             </div>
-
             {/* Edit Profile Modal */}
             {showEditModal && (
                 <EditProfileModal
@@ -815,5 +738,4 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
         </div>
     );
 };
-
 export default UserProfileScreen;

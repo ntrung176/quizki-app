@@ -1,16 +1,10 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { collection, query, onSnapshot, orderBy, where } from 'firebase/firestore';
+import { collection, query, onSnapshot, orderBy } from 'firebase/firestore'
 import { db, appId } from '../../config/firebase';
 import { Link, useNavigate } from 'react-router-dom';
-import {
-    FileCheck, Clock, Play, ChevronRight, ChevronLeft,
-    Maximize, Minimize, X, Check, CheckCircle, XCircle,
-    Home, Languages, BookOpen, FileText, Headphones,
-    Loader2, Timer, Volume2, AlertTriangle, Award, Lock, Calendar, Edit3, Settings
-} from 'lucide-react';
+import { FileCheck, Play, ChevronRight, ChevronLeft, Maximize, Minimize, X, Check, CheckCircle, XCircle, Languages, BookOpen, FileText, Headphones, Timer, Volume2, AlertTriangle, Award, Lock, Calendar, Edit3, Settings } from 'lucide-react'
 import { ROUTES } from '../../router';
-
 const SECTION_ICONS = {
     vocabulary: Languages, grammar: BookOpen, kanji: Award,
     reading: FileText, listening: Headphones,
@@ -26,10 +20,8 @@ const LEVEL_GRADIENTS = {
     N2: 'from-violet-500 to-purple-600',
     N1: 'from-rose-500 to-red-600',
 };
-
 const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
     const navigate = useNavigate();
-    
     // State
     const [tests, setTests] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -40,7 +32,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
     const [selectedFullExamLevel, setSelectedFullExamLevel] = useState(null); // 'N5', 'N4', 'N3', 'N2', 'N1'
     const [statusFilter, setStatusFilter] = useState('all');
     const [sortBy, setSortBy] = useState('newest');
-
     // Test taking state
     const [activeTest, setActiveTest] = useState(null);
     const [currentSectionIdx, setCurrentSectionIdx] = useState(0);
@@ -48,7 +39,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
     const [answers, setAnswers] = useState({}); // { "s0_q0": 2 }
     const [showResult, setShowResult] = useState(false);
     const [isFullscreen, setIsFullscreen] = useState(false);
-
     // Persisted settings for furigana and timer
     const [showFurigana, setShowFurigana] = useState(() => {
         const saved = localStorage.getItem('quizki_jlpt_show_furigana');
@@ -63,19 +53,15 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
     });
     const [showSettingsMenu, setShowSettingsMenu] = useState(false);
     const settingsMenuRef = useRef(null);
-
     useEffect(() => {
         localStorage.setItem('quizki_jlpt_show_furigana', String(showFurigana));
     }, [showFurigana]);
-
     useEffect(() => {
         localStorage.setItem('quizki_jlpt_show_timer', String(showTimer));
     }, [showTimer]);
-
     useEffect(() => {
         localStorage.setItem('quizki_jlpt_furigana_color', furiganaColor);
     }, [furiganaColor]);
-
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (settingsMenuRef.current && !settingsMenuRef.current.contains(e.target)) {
@@ -85,7 +71,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
-
     const getFuriganaStyles = () => {
         let styles = '';
         if (!showFurigana) {
@@ -113,17 +98,13 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         }
         return styles;
     };
-
     // Timer
     const [timeRemaining, setTimeRemaining] = useState(0);
     const [timerActive, setTimerActive] = useState(false);
     const timerRef = useRef(null);
-
     // Audio
     const audioRef = useRef(null);
-
     const testsPath = `artifacts/${appId}/jlptTests`;
-
     // Load tests and completed status
     useEffect(() => {
         if (!db) return;
@@ -134,7 +115,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         });
         return () => unsub();
     }, [testsPath]);
-
     useEffect(() => {
         const saved = localStorage.getItem('quizki_completed_tests');
         if (saved) {
@@ -145,7 +125,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             }
         }
     }, []);
-
     // Notification auto-dismiss
     useEffect(() => {
         if (notification) {
@@ -153,7 +132,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             return () => clearTimeout(t);
         }
     }, [notification]);
-
     // Timer countdown
     useEffect(() => {
         if (timerActive && timeRemaining > 0) {
@@ -171,7 +149,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         }
         return () => clearInterval(timerRef.current);
     }, [timerActive]);
-
     // Fullscreen API
     const containerRef = useRef(null);
     const toggleFullscreen = useCallback(async () => {
@@ -185,13 +162,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             }
         } catch (e) { console.error(e); }
     }, []);
-
     useEffect(() => {
         const handler = () => setIsFullscreen(!!document.fullscreenElement);
         document.addEventListener('fullscreenchange', handler);
         return () => document.removeEventListener('fullscreenchange', handler);
     }, []);
-
     // Start test
     const startTest = (test) => {
         setActiveTest(test);
@@ -202,7 +177,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         setTimeRemaining(test.timeLimit * 60);
         setTimerActive(true);
     };
-
     // Review completed test
     const reviewTest = (test) => {
         const saved = completedTests[test.id];
@@ -212,12 +186,10 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             setShowResult(true);
         }
     };
-
     // Submit test
     const submitTest = () => {
         setTimerActive(false);
         clearInterval(timerRef.current);
-        
         const results = getResults();
         const newCompleted = {
             ...completedTests,
@@ -231,10 +203,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         };
         setCompletedTests(newCompleted);
         localStorage.setItem('quizki_completed_tests', JSON.stringify(newCompleted));
-        
         setShowResult(true);
     };
-
     // Exit test
     const exitTest = () => {
         setTimerActive(false);
@@ -244,7 +214,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         setAnswers({});
         if (document.fullscreenElement) document.exitFullscreen?.();
     };
-
     // Answer handling
     const answerKey = (si, qi) => `s${si}_q${qi}`;
     const subAnswerKey = (si, qi, sqi) => `s${si}_q${qi}_sq${sqi}`;
@@ -256,13 +225,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         if (showResult) return;
         setAnswers(prev => ({ ...prev, [subAnswerKey(si, qi, sqi)]: optIdx }));
     };
-
     // Navigation
     const goToQuestion = (si, qi) => {
         setCurrentSectionIdx(si);
         setCurrentQuestionIdx(qi);
     };
-
     const nextQuestion = () => {
         const section = activeTest.sections[currentSectionIdx];
         if (currentQuestionIdx < section.questions.length - 1) {
@@ -272,7 +239,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             setCurrentQuestionIdx(0);
         }
     };
-
     const prevQuestion = () => {
         if (currentQuestionIdx > 0) {
             setCurrentQuestionIdx(currentQuestionIdx - 1);
@@ -282,7 +248,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             setCurrentQuestionIdx(prevSec.questions.length - 1);
         }
     };
-
     // Calculate results
     const getResults = () => {
         if (!activeTest) return null;
@@ -309,7 +274,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         });
         return { correct, total, percentage: total > 0 ? Math.round((correct / total) * 100) : 0, sectionResults };
     };
-
     // Format time
     const formatTime = (s) => {
         const h = Math.floor(s / 3600);
@@ -318,33 +282,27 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         if (h > 0) return `${h}:${String(m).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
         return `${String(m).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
     };
-
     // Filter tests
     const filteredTests = (selectedLevel === 'all' ? tests : tests.filter(t => t.level === selectedLevel))
         .filter(t => !t.isSkillTest);
-
     const getSkillProgress = (skillType) => {
         const skillTests = tests.filter(t => t.isSkillTest && t.skillType === skillType && t.level === selectedLevel);
         if (skillTests.length === 0) return 0;
         const completedCount = skillTests.filter(t => !!completedTests[t.id]).length;
         return Math.round((completedCount / skillTests.length) * 100);
     };
-
     const handleStartPractice = (skillType, skillLabel) => {
         const matchingTests = tests.filter(t => t.isSkillTest && t.skillType === skillType && t.level === selectedLevel);
         setSelectedSkillPractice({ type: skillType, label: skillLabel, tests: matchingTests });
     };
-
     // Render: Loading
     if (loading) {
         return <LoadingIndicator text="Đang tải đề thi..." />;
     }
-
     // ======================== RESULT SCREEN ========================
     if (showResult && activeTest) {
         const results = getResults();
         const passed = results.percentage >= 60;
-
         return (
             <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-6">
                 <style>{getFuriganaStyles()}</style>
@@ -361,7 +319,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                             Thời gian: {formatTime((activeTest.timeLimit * 60) - timeRemaining)} / {activeTest.timeLimit} phút
                         </p>
                     </div>
-
                     {/* Section scores */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {results.sectionResults.map((sec, si) => {
@@ -383,7 +340,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                             );
                         })}
                     </div>
-
                     {/* Detailed review */}
                     <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
                         <div className="p-5 border-b border-gray-100 dark:border-gray-700">
@@ -423,7 +379,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                             )}
                                                         </div>
                                                     </div>
-                                                    
                                                     {/* Sub-questions Review List */}
                                                     <div className="pl-8 space-y-3">
                                                         {q.subQuestions.map((sq, sqi) => {
@@ -461,7 +416,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                 </div>
                                             );
                                         }
-
                                         const userAns = answers[answerKey(si, qi)];
                                         const isCorrect = userAns === q.correctAnswer;
                                         return (
@@ -512,7 +466,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                             ))}
                         </div>
                     </div>
-
                     {/* Actions */}
                     <div className="flex gap-3">
                         <button onClick={() => startTest(activeTest)} className="flex-1 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition">
@@ -526,7 +479,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             </div>
         );
     }
-
     // ======================== TEST TAKING SCREEN ========================
     if (activeTest && !showResult) {
         const section = activeTest.sections[currentSectionIdx];
@@ -555,7 +507,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         const isLast = currentSectionIdx === activeTest.sections.length - 1 && currentQuestionIdx === section.questions.length - 1;
         const isFirst = currentSectionIdx === 0 && currentQuestionIdx === 0;
         const timeWarning = timeRemaining < 300;
-
         return (
             <div ref={containerRef} className={`min-h-screen flex flex-col ${isFullscreen ? 'bg-white dark:bg-gray-900' : 'bg-gradient-to-br from-slate-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20'}`}>
                 <style>{getFuriganaStyles()}</style>
@@ -571,7 +522,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                 <p className="text-xs text-gray-500">{section.title}</p>
                             </div>
                         </div>
-
                         <div className="flex items-center gap-3">
                             {/* Timer */}
                             {showTimer && (
@@ -583,10 +533,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     {formatTime(timeRemaining)}
                                 </div>
                             )}
-
                             {/* Progress */}
                             <span className="text-xs text-gray-500 hidden md:inline">{answeredCount}/{totalQ} đã trả lời</span>
-
                             {/* Settings */}
                             <div className="relative" ref={settingsMenuRef}>
                                 <button onClick={() => setShowSettingsMenu(!showSettingsMenu)}
@@ -600,7 +548,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                             <Settings className="w-4 h-4 text-indigo-500" />
                                             <span className="font-bold text-xs text-slate-805 dark:text-white uppercase tracking-wider">Cài đặt đề thi</span>
                                         </div>
-
                                         {/* Furigana toggle */}
                                         <div className="flex items-center justify-between">
                                             <div>
@@ -614,7 +561,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                 <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform ${showFurigana ? 'translate-x-5.5' : 'translate-x-1'}`} />
                                             </button>
                                         </div>
-
                                         {/* Timer toggle */}
                                         <div className="flex items-center justify-between">
                                             <div>
@@ -628,7 +574,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                 <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform ${showTimer ? 'translate-x-5.5' : 'translate-x-1'}`} />
                                             </button>
                                         </div>
-
                                         {/* Furigana color */}
                                         {showFurigana && (
                                             <div className="space-y-2 pt-1 border-t border-slate-100 dark:border-slate-700/60">
@@ -663,7 +608,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     </div>
                                 )}
                             </div>
-
                             {/* Fullscreen */}
                             <button onClick={toggleFullscreen}
                                 className="p-1.5 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition">
@@ -672,7 +616,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         </div>
                     </div>
                 </div>
-
                 <div className="flex-1 flex">
                     {/* Sidebar - question navigator */}
                     <div className="hidden md:block w-56 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-y-auto">
@@ -708,7 +651,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                 </div>
                             );
                         })}
-
                         {/* Submit button in sidebar */}
                         <div className="p-3 border-t border-gray-200 dark:border-gray-700">
                             <button onClick={submitTest}
@@ -717,7 +659,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                             </button>
                         </div>
                     </div>
-
                     {/* Main question area */}
                     <div className="flex-1 p-4 md:p-8 overflow-y-auto">
                         <div className="max-w-3xl mx-auto">
@@ -728,13 +669,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                 </span>
                                 <span className="text-sm text-gray-500">Câu {currentQuestionIdx + 1}/{section.questions.length}</span>
                             </div>
-
                             {/* Progress bar */}
                             <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 mb-6">
                                 <div className="bg-indigo-600 h-1.5 rounded-full transition-all duration-300"
                                     style={{ width: `${((globalIdx + 1) / totalQ) * 100}%` }} />
                             </div>
-
                             {/* Audio player for listening */}
                             {section.type === 'listening' && question?.audioUrl && (
                                 <div className="mb-6 p-4 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-xl">
@@ -747,24 +686,20 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     </div>
                                 </div>
                             )}
-
                             {/* Reading passage */}
                             {section.type === 'reading' && question?.passage && (
                                 <div className="mb-6 p-5 bg-green-50 dark:bg-green-900/15 border border-green-200 dark:border-green-800 rounded-xl">
                                     <div className="text-gray-800 dark:text-gray-200 leading-relaxed font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: question.passage }} />
                                 </div>
                             )}
-
                             {/* Question Image */}
                             {question?.imageUrl && (
                                 <div className="mb-6 max-w-2xl mx-auto rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white p-2 flex justify-center">
                                     <img src={question.imageUrl} alt="Câu hỏi" className="max-h-96 object-contain" />
                                 </div>
                             )}
-
                             {/* Question */}
                             <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-6 leading-relaxed font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: question?.question }} />
-
                             {/* Options */}
                             {question?.subQuestions && question.subQuestions.length > 0 ? (
                                 <div className="space-y-6 mb-8 pl-4 border-l-2 border-indigo-200 dark:border-indigo-855">
@@ -772,7 +707,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                         return (
                                             <div key={sqi} className="space-y-3 bg-slate-50/50 dark:bg-slate-900/10 p-4 rounded-xl border border-slate-100 dark:border-slate-800/80">
                                                 <h4 className="text-sm font-bold text-indigo-600 dark:text-indigo-400 font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
-                                                
                                                 <div className="grid grid-cols-1 gap-2.5">
                                                     {sq.options?.map((opt, oi) => {
                                                         const key = subAnswerKey(currentSectionIdx, currentQuestionIdx, sqi);
@@ -825,7 +759,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     })}
                                 </div>
                             )}
-
                             {/* Navigation */}
                             <div className="flex items-center justify-between">
                                 <button onClick={prevQuestion} disabled={isFirst}
@@ -835,13 +768,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                         }`}>
                                     <ChevronLeft className="w-4 h-4" /> Câu trước
                                 </button>
-
                                 {/* Mobile submit */}
                                 <button onClick={submitTest}
                                     className="md:hidden px-4 py-2 bg-red-600 text-white rounded-lg text-sm font-bold hover:bg-red-700 transition">
                                     Nộp bài
                                 </button>
-
                                 {isLast ? (
                                     <button onClick={submitTest}
                                         className="flex items-center gap-1 px-6 py-2 bg-red-600 text-white rounded-lg text-sm font-bold hover:bg-red-700 transition">
@@ -860,7 +791,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             </div>
         );
     }
-
     // ======================== TEST LIST SCREEN ========================
     const jlptCountdown = (() => {
         const now = new Date();
@@ -877,9 +807,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         const diffDays = Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
         return diffDays;
     })();
-
     const countdownLevel = selectedLevel === 'all' ? 'N2' : selectedLevel;
-
     // Completed tests stats
     const completedCount = Object.keys(completedTests).length;
     let avgPercentage = 0;
@@ -888,19 +816,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         avgPercentage = sum / completedCount;
     }
     const avgScore = completedCount > 0 ? Math.round((avgPercentage / 100) * 180) : 124;
-
     // Kanji known count
     const kanjiKnownCount = allCards && allCards.length > 0
         ? allCards.filter(c => c.front && c.front.length === 1 && /[\u4e00-\u9faf]/.test(c.front)).length
         : 850;
-
-
-
     const handleSeeAll = () => {
         setSelectedLevel('all');
         setNotification("Hiển thị tất cả các đề thi.");
     };
-
     const getTestStatus = (test) => {
         const completed = completedTests[test.id];
         if (completed) {
@@ -919,7 +842,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         }
         return 'not_started';
     };
-
     const getRelativeTimeString = (dateStr) => {
         if (!dateStr) return '';
         const date = new Date(dateStr);
@@ -934,21 +856,17 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         if (diffDays === 1) return 'Hôm qua';
         return date.toLocaleDateString('vi-VN', { day: 'numeric', month: 'numeric' });
     };
-
     const renderSkillPracticeScreen = () => {
         const skillType = selectedSkillPractice.type;
         const skillLabel = selectedSkillPractice.label;
-
         // Filter tests of this skill type
         const skillTests = tests.filter(t => t.isSkillTest && t.skillType === skillType && (selectedLevel === 'all' || t.level === selectedLevel));
-
         // Filter by Status
         const filteredSkillTests = skillTests.filter(test => {
             if (statusFilter === 'all') return true;
             const status = getTestStatus(test);
             return status === statusFilter;
         });
-
         // Sort
         const sortedSkillTests = [...filteredSkillTests].sort((a, b) => {
             if (sortBy === 'newest') {
@@ -966,25 +884,20 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             }
             return 0;
         });
-
         // Personal stats calculations
         const completedSkillTests = tests.filter(t => t.isSkillTest && t.skillType === skillType && !!completedTests[t.id]);
-        
         // Dynamic Accuracy
         const avgAccuracy = completedSkillTests.length > 0
             ? Math.round(completedSkillTests.reduce((sum, t) => sum + (completedTests[t.id].percentage || 0), 0) / completedSkillTests.length)
             : 0;
-
         // Dynamic Completed Count
         const completedCount = completedSkillTests.length;
-
         // Total Time Limits in hours
         const totalTimeMinutes = completedSkillTests.reduce((sum, t) => sum + (t.timeLimit || 0), 0);
         const totalTimeHours = (totalTimeMinutes / 60).toFixed(1);
         const avgTimePerTest = completedSkillTests.length > 0
             ? (totalTimeMinutes / completedSkillTests.length).toFixed(1)
             : 0;
-
         // Smart Advice
         let adviceText = "Hãy bắt đầu giải bộ đề đầu tiên để đánh giá năng lực của mình!";
         if (completedCount > 0) {
@@ -996,7 +909,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                 adviceText = `Tuyệt vời! Bạn đã nắm vững các kiến thức ${skillLabel} ${selectedLevel !== 'all' ? selectedLevel : ''}. Hãy tiếp tục luyện đề để duy trì phong độ cao nhất.`;
             }
         }
-
         // Recent Activity
         const recentActivities = Object.entries(completedTests)
             .map(([id, info]) => {
@@ -1006,9 +918,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             .filter(t => t && t.isSkillTest && t.skillType === skillType)
             .sort((a, b) => new Date(b.date) - new Date(a.date))
             .slice(0, 3);
-
         const SkillIcon = SECTION_ICONS[skillType] || FileText;
-
         return (
             <div className="min-h-screen bg-[#FAFBFD] dark:bg-slate-900 p-4 md:p-8 font-sans animate-fade-in">
                 {/* Header breadcrumb */}
@@ -1028,7 +938,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         </div>
                     </div>
                 </div>
-
                 {/* Filter and Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                     {/* Left main area: Filters + Cards */}
@@ -1054,7 +963,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     );
                                 })}
                             </div>
-
                             {/* Dropdowns */}
                             <div className="flex items-center gap-3">
                                 {/* Status filter */}
@@ -1074,7 +982,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                         <ChevronRight className="w-3.5 h-3.5 rotate-90" />
                                     </div>
                                 </div>
-
                                 {/* Sort filter */}
                                 <div className="relative">
                                     <select
@@ -1092,14 +999,12 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                 </div>
                             </div>
                         </div>
-
                         {/* Cards Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                             {sortedSkillTests.map((test, index) => {
                                 const status = getTestStatus(test);
                                 const totalQ = (test.sections || []).reduce((s, sec) => s + (sec.questions?.length || 0), 0);
                                 const completedInfo = completedTests[test.id];
-
                                 return (
                                     <div
                                         key={test.id}
@@ -1137,7 +1042,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                     </span>
                                                 )}
                                             </div>
-
                                             {/* Test title and details */}
                                             <h4 className="text-base font-extrabold text-slate-800 dark:text-white leading-tight">
                                                 {test.title}
@@ -1145,7 +1049,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                             <p className="text-xs text-slate-400 dark:text-slate-500 mt-2 line-clamp-2 leading-relaxed">
                                                 {test.description || `Trọng tâm: Các câu hỏi luyện tập chuyên sâu cho kỹ năng ${skillLabel} cấp độ ${test.level}.`}
                                             </p>
-
                                             <div className="flex items-center gap-3 text-slate-400 dark:text-slate-500 text-[11px] font-bold mt-4">
                                                 <span className="flex items-center gap-1">
                                                     <FileText className="w-3.5 h-3.5" />
@@ -1158,7 +1061,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                 </span>
                                             </div>
                                         </div>
-
                                         {/* Bottom Action Section */}
                                         <div className="mt-6 pt-4 border-t border-slate-50 dark:border-slate-700/50 flex items-center justify-between">
                                             {status === 'completed' && (
@@ -1177,7 +1079,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                     </button>
                                                 </>
                                             )}
-
                                             {status === 'retry' && (
                                                 <>
                                                     <span className="text-xs font-bold text-rose-500">
@@ -1191,7 +1092,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                     </button>
                                                 </>
                                             )}
-
                                             {(status === 'new' || status === 'not_started') && (
                                                 <>
                                                     <span className="text-xs font-medium text-slate-400">Chưa có lượt thi</span>
@@ -1203,7 +1103,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                     </button>
                                                 </>
                                             )}
-
                                             {status === 'in_progress' && (
                                                 <>
                                                     <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-1.5 max-w-[100px] mr-2">
@@ -1221,7 +1120,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     </div>
                                 );
                             })}
-
                             {/* Coming Soon Card */}
                             <div className="bg-slate-50/50 dark:bg-slate-800/30 rounded-3xl border border-dashed border-slate-200 dark:border-slate-700/50 p-6 flex flex-col items-center justify-center text-center min-h-[250px] shadow-sm">
                                 <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-800/80 text-slate-400 dark:text-slate-500 flex items-center justify-center mb-4">
@@ -1234,7 +1132,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                             </div>
                         </div>
                     </div>
-
                     {/* Right side panel: Statistics and Recent Activity */}
                     <div className="space-y-6">
                         {/* Statistics Card */}
@@ -1243,7 +1140,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                 <Award className="w-4 h-4 text-amber-500" />
                                 Thống kê cá nhân
                             </h3>
-
                             {/* Accuracy progress */}
                             <div className="space-y-2 mb-6">
                                 <div className="flex justify-between text-xs font-bold text-slate-600 dark:text-slate-400">
@@ -1254,7 +1150,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     <div className="bg-indigo-600 dark:bg-indigo-400 h-2 rounded-full transition-all duration-500" style={{ width: `${avgAccuracy}%` }} />
                                 </div>
                             </div>
-
                             {/* Sub stats grid */}
                             <div className="grid grid-cols-2 gap-4 mb-6">
                                 <div className="bg-slate-50/50 dark:bg-slate-900/30 p-3.5 rounded-2xl border border-slate-100 dark:border-slate-800/80">
@@ -1268,21 +1163,18 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     <span className="text-[9px] text-slate-400 dark:text-slate-500 font-semibold block mt-0.5">{avgTimePerTest} phút/bộ</span>
                                 </div>
                             </div>
-
                             {/* Advice */}
                             <div className="bg-indigo-50/30 dark:bg-indigo-950/10 p-4 rounded-2xl border border-indigo-500/10 text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
                                 <span className="font-extrabold text-indigo-600 dark:text-indigo-400 block mb-1">Lời khuyên:</span>
                                 {adviceText}
                             </div>
                         </div>
-
                         {/* Recent Activity Card */}
                         <div className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 p-6 shadow-sm">
                             <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2 mb-4">
                                 <Calendar className="w-4 h-4 text-blue-500" />
                                 Hoạt động gần đây
                             </h3>
-
                             <div className="space-y-3">
                                 {recentActivities.length === 0 ? (
                                     <p className="text-xs text-slate-400 dark:text-slate-500 text-center py-4">
@@ -1315,25 +1207,21 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             </div>
         );
     };
-
     const getLevelProgress = (lvl) => {
         const lvlTests = tests.filter(t => !t.isSkillTest && t.level === lvl);
         if (lvlTests.length === 0) return 0;
         const completedLvlTests = lvlTests.filter(t => !!completedTests[t.id]);
         return Math.round((completedLvlTests.length / lvlTests.length) * 100);
     };
-
     const renderFullExamPracticeScreen = (level) => {
         // Filter full exams of this level
         const lvlTests = tests.filter(t => !t.isSkillTest && t.level === level);
-
         // Filter by Status
         const filteredLvlTests = lvlTests.filter(test => {
             if (statusFilter === 'all') return true;
             const status = getTestStatus(test);
             return status === statusFilter;
         });
-
         // Sort
         const sortedLvlTests = [...filteredLvlTests].sort((a, b) => {
             if (sortBy === 'newest') {
@@ -1351,25 +1239,20 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             }
             return 0;
         });
-
         // Personal stats calculations for full exams of this level
         const completedLvlTests = lvlTests.filter(t => !!completedTests[t.id]);
-        
         // Dynamic Accuracy
         const avgAccuracy = completedLvlTests.length > 0
             ? Math.round(completedLvlTests.reduce((sum, t) => sum + (completedTests[t.id].percentage || 0), 0) / completedLvlTests.length)
             : 0;
-
         // Dynamic Completed Count
         const completedCount = completedLvlTests.length;
-
         // Total Time Limits in hours
         const totalTimeMinutes = completedLvlTests.reduce((sum, t) => sum + (t.timeLimit || 0), 0);
         const totalTimeHours = (totalTimeMinutes / 60).toFixed(1);
         const avgTimePerTest = completedLvlTests.length > 0
             ? (totalTimeMinutes / completedLvlTests.length).toFixed(1)
             : 0;
-
         // Smart Advice
         let adviceText = `Hãy bắt đầu giải đề thi thử N4 đầu tiên để đánh giá năng lực của mình!`;
         if (completedCount > 0) {
@@ -1381,7 +1264,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                 adviceText = `Tuyệt vời! Bạn đã hoàn thành xuất sắc các đề thi thử ${level}. Bạn đã sẵn sàng cho kỳ thi JLPT chính thức!`;
             }
         }
-
         // Recent Activity
         const recentActivities = Object.entries(completedTests)
             .map(([id, info]) => {
@@ -1391,9 +1273,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             .filter(t => t && !t.isSkillTest && t.level === level)
             .sort((a, b) => new Date(b.date) - new Date(a.date))
             .slice(0, 3);
-
         const lvlGradient = LEVEL_GRADIENTS[level] || 'from-slate-500 to-slate-600';
-
         return (
             <div className="min-h-screen bg-[#FAFBFD] dark:bg-slate-900 p-4 md:p-8 font-sans animate-fade-in">
                 {/* Header breadcrumb */}
@@ -1419,7 +1299,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         </Link>
                     )}
                 </div>
-
                 {/* Filter and Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                     {/* Left main area: Filters + Cards */}
@@ -1429,7 +1308,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                             <div className="text-xs font-bold text-slate-500 dark:text-slate-400 pl-2">
                                 Danh sách đề thi chính thức
                             </div>
-
                             {/* Dropdowns */}
                             <div className="flex items-center gap-3">
                                 {/* Status filter */}
@@ -1449,7 +1327,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                         <ChevronRight className="w-3.5 h-3.5 rotate-90" />
                                     </div>
                                 </div>
-
                                 {/* Sort filter */}
                                 <div className="relative">
                                     <select
@@ -1467,7 +1344,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                 </div>
                             </div>
                         </div>
-
                         {/* Cards Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                             {sortedLvlTests.length === 0 ? (
@@ -1483,7 +1359,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     const status = getTestStatus(test);
                                     const totalQ = (test.sections || []).reduce((s, sec) => s + (sec.questions?.length || 0), 0);
                                     const completedInfo = completedTests[test.id];
-
                                     return (
                                         <div
                                             key={test.id}
@@ -1530,7 +1405,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                         </span>
                                                     )}
                                                 </div>
-
                                                 {/* Test title and details */}
                                                 <h4 className="text-base font-extrabold text-slate-800 dark:text-white leading-tight">
                                                     {test.title}
@@ -1538,7 +1412,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                 <p className="text-xs text-slate-400 dark:text-slate-500 mt-2 line-clamp-2 leading-relaxed">
                                                     {test.description || `Đề thi trọn gói đầy đủ các kỹ năng từ đề thi JLPT chính thức các năm của cấp độ ${test.level}.`}
                                                 </p>
-
                                                 <div className="flex items-center gap-3 text-slate-400 dark:text-slate-500 text-[11px] font-bold mt-4">
                                                     <span className="flex items-center gap-1">
                                                         <FileText className="w-3.5 h-3.5" />
@@ -1551,7 +1424,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                     </span>
                                                 </div>
                                             </div>
-
                                             {/* Bottom Action Section */}
                                             <div className="mt-6 pt-4 border-t border-slate-50 dark:border-slate-700/50 flex items-center justify-between">
                                                 {status === 'completed' && (
@@ -1570,7 +1442,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                         </button>
                                                     </>
                                                 )}
-
                                                 {status === 'retry' && (
                                                     <>
                                                         <span className="text-xs font-bold text-rose-500">
@@ -1584,7 +1455,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                         </button>
                                                     </>
                                                 )}
-
                                                 {(status === 'new' || status === 'not_started') && (
                                                     <>
                                                         <span className="text-xs font-medium text-slate-400">Chưa có lượt thi</span>
@@ -1596,7 +1466,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                         </button>
                                                     </>
                                                 )}
-
                                                 {status === 'in_progress' && (
                                                     <>
                                                         <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-1.5 max-w-[100px] mr-2">
@@ -1615,7 +1484,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     );
                                 })
                             )}
-
                             {/* Coming Soon Card */}
                             <div className="bg-slate-50/50 dark:bg-slate-800/30 rounded-3xl border border-dashed border-slate-200 dark:border-slate-700/50 p-6 flex flex-col items-center justify-center text-center min-h-[250px] shadow-sm">
                                 <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-800/80 text-slate-400 dark:text-slate-500 flex items-center justify-center mb-4">
@@ -1628,7 +1496,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                             </div>
                         </div>
                     </div>
-
                     {/* Right side panel: Statistics and Recent Activity */}
                     <div className="space-y-6">
                         {/* Statistics Card */}
@@ -1637,7 +1504,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                 <Award className="w-4 h-4 text-amber-500" />
                                 Thống kê cá nhân
                             </h3>
-
                             {/* Accuracy progress */}
                             <div className="space-y-2 mb-6">
                                 <div className="flex justify-between text-xs font-bold text-slate-600 dark:text-slate-400">
@@ -1648,7 +1514,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     <div className="bg-indigo-600 dark:bg-indigo-400 h-2 rounded-full transition-all duration-500" style={{ width: `${avgAccuracy}%` }} />
                                 </div>
                             </div>
-
                             {/* Sub stats grid */}
                             <div className="grid grid-cols-2 gap-4 mb-6">
                                 <div className="bg-slate-50/50 dark:bg-slate-900/30 p-3.5 rounded-2xl border border-slate-100 dark:border-slate-800/80">
@@ -1662,21 +1527,18 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     <span className="text-[9px] text-slate-400 dark:text-slate-500 font-semibold block mt-0.5">{avgTimePerTest} phút/bộ</span>
                                 </div>
                             </div>
-
                             {/* Advice */}
                             <div className="bg-indigo-50/30 dark:bg-indigo-950/10 p-4 rounded-2xl border border-indigo-500/10 text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
                                 <span className="font-extrabold text-indigo-600 dark:text-indigo-400 block mb-1">Lời khuyên:</span>
                                 {adviceText}
                             </div>
                         </div>
-
                         {/* Recent Activity Card */}
                         <div className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 p-6 shadow-sm">
                             <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2 mb-4">
                                 <Calendar className="w-4 h-4 text-blue-500" />
                                 Hoạt động gần đây
                             </h3>
-
                             <div className="space-y-3">
                                 {recentActivities.length === 0 ? (
                                     <p className="text-xs text-slate-400 dark:text-slate-500 text-center py-4">
@@ -1709,15 +1571,12 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             </div>
         );
     };
-
     if (selectedFullExamLevel) {
         return renderFullExamPracticeScreen(selectedFullExamLevel);
     }
-
     if (selectedSkillPractice) {
         return renderSkillPracticeScreen();
     }
-
     return (
         <div className="jlpt-screen min-h-screen bg-[#FAFBFD] dark:bg-slate-900 p-4 md:p-8 font-sans animate-fade-in">
             {/* Toast Notification */}
@@ -1726,7 +1585,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                     <span>{notification}</span>
                 </div>
             )}
-
             <div className="max-w-6xl mx-auto space-y-8">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -1738,7 +1596,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                             Môi trường yên tĩnh để tập trung tối đa. Chúc bạn có một kỳ ôn luyện thật hiệu quả và đạt kết quả cao nhất.
                         </p>
                     </div>
-
                     <div className="flex items-center gap-3 self-start md:self-center">
                         {isAdmin && (
                             <Link to={ROUTES.JLPT_ADMIN}
@@ -1751,13 +1608,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         </div>
                     </div>
                 </div>
-
                 {/* Section 1: Đề JLPT Các Năm */}
                 <div>
                     <h3 className="text-base font-bold text-slate-800 dark:text-white flex items-center gap-2 pl-2 border-l-4 border-[#2E5B70] dark:border-sky-500 mb-6">
                         Đề JLPT Các Năm
                     </h3>
-
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
                         {['N5', 'N4', 'N3', 'N2', 'N1'].map(lvl => {
                             const progress = getLevelProgress(lvl);
@@ -1790,13 +1645,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         })}
                     </div>
                 </div>
-
                 {/* Section 2: Luyện từng Kỹ Năng */}
                 <div>
                     <h3 className="text-base font-bold text-slate-800 dark:text-white flex items-center gap-2 pl-2 border-l-4 border-[#2E5B70] dark:border-sky-500 mb-6">
                         Luyện từng Kỹ Năng
                     </h3>
-
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
                         {/* Card 1: Từ vựng */}
                         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700/50 p-6 hover:shadow-md transition-all flex flex-col justify-between min-h-[14rem] relative overflow-hidden group">
@@ -1822,7 +1675,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                 </button>
                             </div>
                         </div>
-
                         {/* Card 2: Ngữ pháp */}
                         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700/50 p-6 hover:shadow-md transition-all flex flex-col justify-between min-h-[14rem] relative overflow-hidden group">
                             <div className="absolute top-0 right-0 w-16 h-16 bg-purple-500/5 rounded-bl-full pointer-events-none" />
@@ -1847,7 +1699,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                 </button>
                             </div>
                         </div>
-
                         {/* Card 3: Hán tự */}
                         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700/50 p-6 hover:shadow-md transition-all flex flex-col justify-between min-h-[14rem] relative overflow-hidden group">
                             <div className="absolute top-0 right-0 w-16 h-16 bg-teal-500/5 rounded-bl-full pointer-events-none" />
@@ -1872,7 +1723,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                 </button>
                             </div>
                         </div>
-
                         {/* Card 4: Đọc hiểu */}
                         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700/50 p-6 hover:shadow-md transition-all flex flex-col justify-between min-h-[14rem] relative overflow-hidden group">
                             <div className="absolute top-0 right-0 w-16 h-16 bg-rose-500/5 rounded-bl-full pointer-events-none" />
@@ -1897,7 +1747,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                 </button>
                             </div>
                         </div>
-
                         {/* Card 5: Nghe hiểu */}
                         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700/50 p-6 hover:shadow-md transition-all flex flex-col justify-between min-h-[14rem] relative overflow-hidden group">
                             <div className="absolute top-0 right-0 w-16 h-16 bg-cyan-500/5 rounded-bl-full pointer-events-none" />
@@ -1924,7 +1773,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         </div>
                     </div>
                 </div>
-
                 {/* Bottom Stats & Registration Grid */}
                 <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700/50 p-6 flex flex-col justify-between shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)]">
                     <div>
@@ -1963,9 +1811,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         </div>
                     </div>
                 </div>
-
             </div>
-
             {/* Modal Luyện kỹ năng */}
             {selectedSkillPractice && (
                 <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -2037,5 +1883,4 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         </div>
     );
 };
-
 export default JLPTTestScreen;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, AlertCircle, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, X, Settings, Headphones, Edit2 } from 'lucide-react';
+import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2 } from 'lucide-react'
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import { useNavigate } from 'react-router-dom';
@@ -158,7 +158,7 @@ const SRSVocabScreen = ({
         try {
             const recentKey = 'recently_studied_sets';
             const recentData = JSON.parse(localStorage.getItem(recentKey) || '[]');
-            
+
             const mapped = recentData.map(item => {
                 if (item.id === 'unfiled') {
                     const count = allCards.filter(c => !cardFolders[c.id]).length;
@@ -181,7 +181,7 @@ const SRSVocabScreen = ({
                 }
                 return null;
             }).filter(Boolean);
-            
+
             setRecentSets(mapped);
         } catch (e) {
             console.error('Error loading recently studied sets:', e);
@@ -966,7 +966,7 @@ const SRSVocabScreen = ({
                         <p className="text-xs text-gray-500 dark:text-gray-400 font-semibold mb-2">
                             Bạn đang ôn tập nhóm: <span className="font-black text-red-650 dark:text-red-400">Từ vựng lỗi sai</span> ({mistakeCards.length} từ)
                         </p>
-                        
+
                         <div className="grid grid-cols-2 gap-3">
                             <button 
                                 onClick={() => setSelectedMistakeMode('flashcard')}

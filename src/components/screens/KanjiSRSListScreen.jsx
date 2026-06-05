@@ -2,11 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { 
-    Search, Trash2, ChevronLeft, ChevronRight, BookOpen, Clock, 
-    CheckCircle, AlertCircle, Filter, X, Eye, Folder, FolderPlus, 
-    FolderOpen, Edit, Plus, List, Bell, Bookmark, ArrowRight, Sparkles 
-} from 'lucide-react';
+import { Search, Trash2, ChevronLeft, ChevronRight, BookOpen, Clock, CheckCircle, AlertCircle, Filter, X, Eye, Folder, FolderPlus, Edit, Plus, List, Bookmark, ArrowRight } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, getDoc, doc, deleteDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -90,7 +86,7 @@ const KanjiSRSListScreen = () => {
     const [newFolderName, setNewFolderName] = useState('');
     const [editingFolderId, setEditingFolderId] = useState(null);
     const [editingFolderName, setEditingFolderName] = useState('');
-    
+
     // Folder browse state
     const [currentFolder, setCurrentFolder] = useState(null);
     const [showNewSubFolderInput, setShowNewSubFolderInput] = useState(false);
@@ -610,9 +606,9 @@ const KanjiSRSListScreen = () => {
         <div className="w-full pb-10 bg-slate-50/50 min-h-screen dark:bg-slate-900/10">
             <div className="animate-fade-in">
                 <TopTabBar tabs={KANJI_TABS} />
-                
+
                 <div className="max-w-6xl mx-auto space-y-6 px-4 md:px-8 mt-6">
-                
+
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
@@ -642,7 +638,7 @@ const KanjiSRSListScreen = () => {
                             </button>
                         )}
                     </div>
-                    
+
                     <div className="flex gap-2 w-full md:w-auto">
                         <button
                             onClick={() => setShowFolderManager(true)}
@@ -650,7 +646,7 @@ const KanjiSRSListScreen = () => {
                         >
                             <FolderPlus className="w-4 h-4 text-slate-500" /> Quản lý thư mục
                         </button>
-                        
+
                         <button
                             onClick={() => navigate(ROUTES.KANJI_REVIEW)}
                             className="px-5 py-3 bg-[#2E5B70] hover:bg-[#234757] text-white rounded-2xl text-sm font-bold transition-all flex items-center justify-center gap-2 shadow-md w-full md:w-auto cursor-pointer"
@@ -697,7 +693,7 @@ const KanjiSRSListScreen = () => {
                     <div className="space-y-8">
                         {/* Folder Navigation Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            
+
                             {/* Left Column: Big "Tất cả Kanji" card */}
                             <div className="md:col-span-1">
                                 <button
@@ -713,7 +709,7 @@ const KanjiSRSListScreen = () => {
                                             {stats.total} ký tự đang được theo dõi
                                         </p>
                                     </div>
-                                    
+
                                     <div className="flex items-center justify-between mt-auto w-full">
                                         <div className="flex items-center gap-1">
                                             {kanjiWithSRS.slice(0, 3).map((k, i) => (
@@ -727,7 +723,7 @@ const KanjiSRSListScreen = () => {
                                                 </span>
                                             )}
                                         </div>
-                                        
+
                                         <div className="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 group-hover:bg-[#2E5B70] group-hover:text-white transition-all">
                                             <ChevronRight className="w-4 h-4" />
                                         </div>
@@ -744,7 +740,7 @@ const KanjiSRSListScreen = () => {
                                     const levelCards = kanjiWithSRS.filter(k => k.level === level);
                                     const levelMastered = levelCards.filter(k => k.interval >= 1440 * 7).length;
                                     const progress = levelCards.length > 0 ? Math.round((levelMastered / levelCards.length) * 100) : 0;
-                                    
+
                                     return (
                                         <button
                                             key={level}
@@ -764,7 +760,7 @@ const KanjiSRSListScreen = () => {
                                                     {level}
                                                 </div>
                                             </div>
-                                            
+
                                             {/* Progress bar */}
                                             <div className="w-full space-y-1">
                                                 <div className="h-1.5 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
@@ -819,7 +815,7 @@ const KanjiSRSListScreen = () => {
 
                         {/* Bottom Columns */}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-4">
-                            
+
                             {/* Left Column: Recent accesses */}
                             <div className="space-y-4">
                                 <div className="flex items-center justify-between">
@@ -884,18 +880,18 @@ const KanjiSRSListScreen = () => {
                                     <h3 className="text-base font-bold text-slate-800 dark:text-white">
                                         Gợi ý ôn tập
                                     </h3>
-                                    
+
                                     <div className="bg-sky-50/50 dark:bg-sky-950/20 border border-sky-100/50 dark:border-sky-900/30 rounded-2xl p-5 space-y-3">
                                         <div className="flex items-center gap-2">
                                             <span className="bg-sky-100 dark:bg-sky-900 text-sky-800 dark:text-sky-300 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
                                                 {recommendation.tag}
                                             </span>
                                         </div>
-                                        
+
                                         <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
                                             {recommendation.content}
                                         </p>
-                                        
+
                                         <button 
                                             onClick={recommendation.onClick}
                                             className="text-xs font-bold text-[#2E5B70] dark:text-[#5aa9cc] hover:underline inline-flex items-center gap-1 cursor-pointer"
@@ -959,7 +955,7 @@ const KanjiSRSListScreen = () => {
                 ) : (
                     /* ====== KANJI LIST VIEWER MODE (inside sub-folders, search, etc) ====== */
                     <div className="space-y-4 bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200/50 dark:border-slate-700 shadow-sm">
-                        
+
                         {/* Breadcrumbs */}
                         <div className="flex flex-wrap items-center gap-1.5 text-xs font-semibold">
                             <button 
@@ -969,7 +965,7 @@ const KanjiSRSListScreen = () => {
                                 <ChevronLeft className="w-4 h-4 mr-0.5" /> Thư mục
                             </button>
                             <span className="text-slate-300">/</span>
-                            
+
                             {currentFolder && currentFolder.startsWith('jlpt_') ? (
                                 <span className={`px-2 py-0.5 rounded-md font-bold ${LEVEL_COLORS[currentFolder.replace('jlpt_', '')]?.text || 'text-slate-700'} bg-slate-50 dark:bg-slate-700`}>
                                     Cấp độ {currentFolderName}
@@ -997,7 +993,7 @@ const KanjiSRSListScreen = () => {
                             <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">
                                 Hiển thị {currentFolder ? currentFolderKanji.length : filteredKanji.length} ký tự
                             </span>
-                            
+
                             <button 
                                 onClick={selectAllVisible}
                                 className="text-xs font-bold text-sky-600 hover:underline"
@@ -1024,7 +1020,7 @@ const KanjiSRSListScreen = () => {
                                     const isSelected = selectedIds.has(kanji.id);
                                     const StatusIcon = kanji.srsStatus.icon;
                                     const levelColor = LEVEL_COLORS[kanji.level] || { bg: 'bg-gray-500', text: 'text-gray-500', light: 'bg-gray-50' };
-                                    
+
                                     // Mastery progress representation (interval max value benchmark 30 days = 43200 mins)
                                     const strengthPercent = Math.min(100, Math.round((kanji.interval / 43200) * 100));
 
@@ -1057,7 +1053,7 @@ const KanjiSRSListScreen = () => {
                                                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl font-bold font-japanese ${levelColor.light} ${levelColor.text}`}>
                                                     {kanji.character}
                                                 </div>
-                                                
+
                                                 <div className="flex-1 min-w-0">
                                                     <div className="flex items-center gap-2">
                                                         <span className="font-extrabold text-slate-800 dark:text-white text-sm">{kanji.sinoViet || '---'}</span>
@@ -1066,7 +1062,7 @@ const KanjiSRSListScreen = () => {
                                                     <p className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">
                                                         {kanji.meaning}
                                                     </p>
-                                                    
+
                                                     {/* Mini progress line representing mastery */}
                                                     <div className="w-16 h-1 bg-slate-100 dark:bg-slate-700 rounded-full mt-2 overflow-hidden">
                                                         <div className="h-full bg-cyan-500 rounded-full" style={{ width: `${strengthPercent}%` }}></div>
@@ -1080,7 +1076,7 @@ const KanjiSRSListScreen = () => {
                                                     <StatusIcon className="w-3 h-3" />
                                                     {kanji.srsStatus.label}
                                                 </span>
-                                                
+
                                                 {kanji.nextReview > 0 && kanji.reps > 0 && (
                                                     <span className="text-[9px] text-slate-400 font-semibold">
                                                         {(kanji.nextReview || 0) <= Date.now() ? 'Cần ôn' : formatNextReview(kanji.nextReview)}
@@ -1128,7 +1124,7 @@ const KanjiSRSListScreen = () => {
                                     <p className="text-xs text-slate-400">Không thể hoàn tác hành động này</p>
                                 </div>
                             </div>
-                            
+
                             <p className="text-sm text-slate-600 dark:text-slate-300">
                                 Bạn có chắc chắn muốn xóa {selectedIds.size} Hán tự đã chọn khỏi danh sách ôn tập? Dữ liệu tiến độ học (SRS) của chúng sẽ bị mất hoàn toàn.
                             </p>
@@ -1262,7 +1258,7 @@ const KanjiSRSListScreen = () => {
                                 <h3 className="text-base font-bold text-slate-800 dark:text-white flex items-center gap-2">
                                     <FolderPlus className="w-5 h-5 text-sky-500" /> Quản lý thư mục Kanji
                                 </h3>
-                                
+
                                 <div className="flex gap-2">
                                     <input 
                                         type="text" 
@@ -1279,7 +1275,7 @@ const KanjiSRSListScreen = () => {
                                         Thêm
                                     </button>
                                 </div>
-                                
+
                                 <div className="max-h-[260px] overflow-y-auto space-y-1 divide-y divide-slate-50 dark:divide-slate-700/50">
                                     {flatTree.length === 0 ? (
                                         <p className="text-center text-xs text-slate-400 py-6">Chưa có thư mục nào.</p>
@@ -1293,7 +1289,7 @@ const KanjiSRSListScreen = () => {
                                             >
                                                 {f.depth > 0 && <span className="text-slate-300">└</span>}
                                                 <Folder className={`w-4 h-4 flex-shrink-0 ${f.depth > 0 ? 'text-amber-400' : 'text-indigo-500'}`} />
-                                                
+
                                                 {editingFolderId === f.id ? (
                                                     <input 
                                                         type="text" 
@@ -1307,9 +1303,9 @@ const KanjiSRSListScreen = () => {
                                                 ) : (
                                                     <span className="flex-1 text-xs font-semibold text-slate-700 dark:text-slate-300 truncate">{f.name}</span>
                                                 )}
-                                                
+
                                                 <span className="text-[10px] text-slate-400 font-bold mr-1">{count} từ</span>
-                                                
+
                                                 <button 
                                                     onClick={() => { setEditingFolderId(f.id); setEditingFolderName(f.name); }}
                                                     className="p-1 text-slate-400 hover:text-sky-600 transition-colors"

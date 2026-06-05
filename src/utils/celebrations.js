@@ -12,7 +12,7 @@ const CONFETTI_COLORS = [
 
 const CONFETTI_SHAPES = ['square', 'circle', 'triangle'];
 
-export function launchConfetti(duration = 2500, count = 80) {
+function launchConfetti(duration = 2500, count = 80) {
     const container = document.createElement('div');
     container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;overflow:hidden;';
     document.body.appendChild(container);
@@ -69,7 +69,7 @@ export function launchConfetti(duration = 2500, count = 80) {
 }
 
 // ==================== SPARKLE BURST (correct answer) ====================
-export function launchSparkles(x, y, count = 12) {
+function launchSparkles(x, y, count = 12) {
     const container = document.createElement('div');
     container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;';
     document.body.appendChild(container);
@@ -136,7 +136,7 @@ export function launchSparkles(x, y, count = 12) {
 }
 
 // ==================== CELEBRATION BANNER (completion) ====================
-export function showCelebrationBanner(text = '🎊 Tuyệt vời! 🎊') {
+function showCelebrationBanner(text = '🎊 Tuyệt vời! 🎊') {
     // Inject keyframes
     if (!document.getElementById('celebration-banner-keyframes')) {
         const style = document.createElement('style');

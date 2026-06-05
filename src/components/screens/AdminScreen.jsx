@@ -1,18 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc, addDoc, where, serverTimestamp, orderBy, setDoc } from 'firebase/firestore';
+import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc, addDoc, where, serverTimestamp, setDoc } from 'firebase/firestore'
 import * as XLSX from 'xlsx';
 import { db, appId } from '../../config/firebase';
-import {
-    Users, Search, Shield, Trash2, BarChart3, Clock,
-    AlertTriangle, CheckCircle, Loader2, Languages, BookOpen,
-    Sparkles, Bot, UserCheck, UserX, ToggleLeft, ToggleRight,
-    ChevronDown, ChevronUp, Settings, Crown, ShieldCheck, ChevronLeft,
-    CreditCard, Plus, Check, X as XIcon, Edit, Ticket,
-    DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send,
-    MessageSquare, Image as ImageIcon
-} from 'lucide-react';
-import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, addModerator, removeModerator, DEFAULT_AI_PACKAGES, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense, manuallyApplyPackageToUser, sendGlobalNotification, deleteGlobalNotification } from '../../utils/adminSettings';
+import { Users, Search, Shield, Trash2, BarChart3, Clock, AlertTriangle, CheckCircle, Loader2, Languages, BookOpen, Sparkles, Bot, UserCheck, UserX, ToggleLeft, ToggleRight, Settings, Crown, ShieldCheck, ChevronLeft, CreditCard, Plus, Check, X as XIcon, Ticket, DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send, MessageSquare, Image as ImageIcon } from 'lucide-react'
+import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, AI_FEATURES, addModerator, removeModerator, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense, manuallyApplyPackageToUser, sendGlobalNotification, deleteGlobalNotification } from '../../utils/adminSettings'
 import { showConfirm } from '../../utils/toast';
 
 const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, adminConfig, isAdmin }) => {
@@ -143,7 +135,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         });
         return () => unsubscribe();
     }, [publicStatsPath]);
-
 
     // Load profile settings for selected user (AI credits & specialized packages)
     useEffect(() => {
@@ -301,6 +292,24 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         setSavingConfig(false);
     };
 
+    const handleChangeFeatureModel = async (featureId, model) => {
+        setSavingConfig(true);
+        const updatedFeatureModels = {
+            ...(adminConfig?.aiFeatureModels || {}),
+            [featureId]: model
+        };
+        const ok = await updateAdminConfig({ aiFeatureModels: updatedFeatureModels }, currentUserId);
+        if (ok) {
+            setNotification({
+                type: 'success',
+                message: `Đã đổi model cho "${AI_FEATURES.find(f => f.id === featureId)?.label || featureId}" sang ${OPENROUTER_MODELS.find(m => m.value === model)?.label || model}`
+            });
+        } else {
+            setNotification({ type: 'error', message: 'Lỗi khi cập nhật model cho tính năng' });
+        }
+        setSavingConfig(false);
+    };
+
     const handleToggleModerator = async (userId, userName) => {
         setSavingConfig(true);
         const isMod = adminConfig?.moderators?.includes(userId);
@@ -312,7 +321,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         setSavingConfig(false);
     };
 
-
     // Clear notification
     useEffect(() => {
         if (notification) {
@@ -320,8 +328,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             return () => clearTimeout(timer);
         }
     }, [notification]);
-
-
 
     // Load vouchers
     useEffect(() => {
@@ -413,13 +419,11 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
 
     const formatVND = (n) => new Intl.NumberFormat('vi-VN').format(n) + 'đ';
 
-
-
     const handleManualApplyPackage = async () => {
         if (!manualCreditUserId || !selectedPackageId) return;
         setSavingConfig(true);
         const user = users.find(u => u.userId === manualCreditUserId);
-        
+
         // Find package info
         const pkgOptions = [
             { id: 'premium', name: 'Gói Premium (Tất cả tính năng)', type: 'premium' },
@@ -432,7 +436,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             { id: 'ai_best_value', name: 'Gói AI Best Value (1000 lượt)', type: 'ai', credits: 1000 },
             { id: 'ai_ultimate', name: 'Gói AI Ultimate (3000 lượt)', type: 'ai', credits: 3000 }
         ];
-        
+
         const pkg = pkgOptions.find(p => p.id === selectedPackageId);
         if (!pkg) {
             setNotification({ type: 'error', message: 'Gói không hợp lệ' });
@@ -447,7 +451,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             pkg, 
             currentUserId
         );
-        
+
         if (ok) {
             setNotification({ 
                 type: 'success', 
@@ -693,7 +697,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                 {/* Active Packages */}
                                                 <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg space-y-1.5">
                                                     <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Trạng thái gói học</p>
-                                                    
+
                                                     {(() => {
                                                         const unlocked = selectedUserProfile?.unlockedSpecializedPackages || [];
                                                         const packageList = [
@@ -851,7 +855,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                 }
                                             </button>
 
-
                                             {/* Delete actions */}
                                             <button
                                                 onClick={() => { setDeleteType('kanji'); setConfirmDelete(selectedUser); }}
@@ -904,11 +907,11 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
 
                         {/* OpenRouter Model Selection */}
                         <div>
-                            <p className="font-bold text-sm text-gray-800 dark:text-white mb-2">Mô hình OpenRouter</p>
+                            <p className="font-bold text-sm text-gray-800 dark:text-white mb-2">Mô hình OpenRouter mặc định (Fallback)</p>
                             <select
                                 value={adminConfig?.openRouterModel || 'google/gemini-2.5-flash'}
                                 onChange={(e) => handleChangeOpenRouterModel(e.target.value)}
-                                className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-xl outline-none text-sm dark:text-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
+                                className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-xl outline-none text-sm dark:text-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium"
                             >
                                 {OPENROUTER_MODELS.map(model => (
                                     <option key={model.value} value={model.value}>{model.label}</option>
@@ -917,6 +920,49 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                         </div>
                     </div>
 
+                    {/* Cấu hình Model theo tính năng */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 space-y-4">
+                        <div className="flex items-center gap-3 border-b border-gray-100 dark:border-gray-700 pb-3">
+                            <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
+                                <Settings className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                            </div>
+                            <div>
+                                <p className="font-bold text-gray-800 dark:text-white">Cấu hình mô hình cho từng tính năng AI</p>
+                                <p className="text-xs text-gray-500 dark:text-gray-400">Chọn mô hình hoạt động riêng biệt cho từng nghiệp vụ</p>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {AI_FEATURES.map((feature) => {
+                                const currentValue = adminConfig?.aiFeatureModels?.[feature.id] || adminConfig?.openRouterModel || 'google/gemini-2.5-flash';
+                                return (
+                                    <div key={feature.id} className="p-4 rounded-xl border border-gray-100 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-900/10 flex flex-col justify-between gap-3 hover:border-indigo-500/20 transition-all duration-200">
+                                        <div>
+                                            <p className="font-bold text-sm text-gray-800 dark:text-white flex items-center gap-2">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                                                {feature.label}
+                                            </p>
+                                            <p className="text-xs text-gray-400 mt-1 leading-relaxed min-h-[32px]">
+                                                {feature.description}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1">Mô hình hoạt động</label>
+                                            <select
+                                                value={currentValue}
+                                                onChange={(e) => handleChangeFeatureModel(feature.id, e.target.value)}
+                                                className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none text-xs dark:text-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium"
+                                            >
+                                                {OPENROUTER_MODELS.map(model => (
+                                                    <option key={model.value} value={model.value}>{model.label}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
 
                     {/* Info note */}
                     <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
@@ -1172,7 +1218,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                     <option value="ai_ultimate">AI Ultimate (+3000 lượt)</option>
                                 </optgroup>
                             </select>
-                            
+
                             <button
                                 onClick={handleManualApplyPackage}
                                 disabled={savingConfig || !manualCreditUserId || !selectedPackageId}
@@ -1384,7 +1430,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                     </div>
                 </div>
             )}
-
 
             {/* ==================== REVENUE / BUSINESS SECTION ==================== */}
             {activeSection === 'revenue' && (
@@ -1940,7 +1985,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                             <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
                                 Khi kích hoạt chế độ bảo trì, chỉ có tài khoản Admin mới có thể truy cập được ứng dụng. Người dùng thông thường khi vào QuizKi sẽ thấy màn hình thông báo bảo trì.
                             </p>
-                            
+
                             <div className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-100 dark:border-slate-800">
                                 <div className="flex flex-col gap-1">
                                     <span className="font-bold text-sm text-slate-800 dark:text-white">Trạng thái bảo trì</span>
@@ -1985,7 +2030,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
                             Gửi một thông báo chung tới hộp thư của tất cả người dùng trên hệ thống.
                         </p>
-                        
+
                         <div className="space-y-4">
                             <div>
                                 <label className="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1.5">Tiêu đề thông báo</label>
@@ -2064,7 +2109,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                 </div>
             )}
 
-
             {/* Notification Toast */}
             {notification && (
                 <div className={`fixed bottom-4 right-4 z-50 px-4 py-3 rounded-xl shadow-lg flex items-center gap-2 animate-fade-in ${notification.type === 'success'
@@ -2090,7 +2134,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
     const [loadingThreads, setLoadingThreads] = React.useState(true);
     const [loadingMessages, setLoadingMessages] = React.useState(false);
     const [activePreviewImage, setActivePreviewImage] = React.useState(null);
-    
+
     const messagesEndRef = React.useRef(null);
     const fileInputRef = React.useRef(null);
     const chatPath = `artifacts/${appId}/public/data/feedbacks`;
@@ -2104,7 +2148,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                 where('isSupportChat', '==', true)
             );
             const snapshot = await getDocs(q);
-            
+
             const threadList = snapshot.docs.map(doc => {
                 const data = doc.data();
                 return {
@@ -2238,7 +2282,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
             if (item.type.indexOf('image') !== -1) {
                 const file = item.getAsFile();
                 if (!file) continue;
-                
+
                 if (file.size > 1.2 * 1024 * 1024) {
                     alert('Hình ảnh dán quá lớn! Vui lòng chọn hoặc chụp ảnh nhỏ hơn 1.2 MB.');
                     return;
@@ -2317,7 +2361,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                         Hội thoại hỗ trợ ({threads.length})
                     </h3>
                 </div>
-                
+
                 <div className="flex-1 overflow-y-auto divide-y divide-gray-100 dark:divide-gray-750 support-chat-scrollbar">
                     {loadingThreads ? (
                         <div className="p-8 text-center">
@@ -2467,7 +2511,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                 accept="image/*"
                                 className="hidden"
                             />
-                            
+
                             <input
                                 type="text"
                                 value={replyText}

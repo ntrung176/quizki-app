@@ -5,8 +5,6 @@ import { shuffleArray } from '../../utils/textProcessing';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
 import { playAudio, speakJapanese } from '../../utils/audio';
-import { getSrsProgressText } from '../../utils/srs';
-import { POS_TYPES } from '../../config/constants';
 
 // Helper: derive human-readable SRS cycle stage from vocab SM-2 fields
 const getSrsCycleLabel = (card) => {
@@ -18,7 +16,7 @@ const getSrsCycleLabel = (card) => {
     if (state === 'LEARNING') {
         return card.srsLearningStep === 0 ? '1 phút' : '10 phút';
     }
-    
+
     // REVIEW state - interval is in days
     const days = card.srsInterval || 1;
     if (days < 30) return `${days} ngày`;
@@ -210,7 +208,7 @@ const StudySetDetail = ({
 
     const handleStartMasteryTest = () => {
         if (!showMasteryModal.cards || showMasteryModal.cards.length === 0) return;
-        
+
         setShowMasteryModal(prev => ({ ...prev, isOpen: false }));
 
         if (selectedMasteryMode === 'flashcard') {
@@ -376,9 +374,9 @@ const StudySetDetail = ({
                                         <button onClick={prevCard} disabled={currentCardIndex === 0} className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow border border-gray-200 dark:border-slate-700 flex items-center justify-center disabled:opacity-30 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors">
                                             <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-300" />
                                         </button>
-                                        
+
                                         <span className="text-sm font-bold text-gray-400 tracking-widest">{currentCardIndex + 1} / {activeCardsList.length}</span>
-                                        
+
                                         <button onClick={nextCard} disabled={currentCardIndex === activeCardsList.length - 1} className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow border border-gray-200 dark:border-slate-700 flex items-center justify-center disabled:opacity-30 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors">
                                             <ChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-300" />
                                         </button>

@@ -1,15 +1,8 @@
-import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react'
 import { Link } from 'react-router-dom';
-import {
-    collection, addDoc, updateDoc, deleteDoc, doc, query, orderBy,
-    onSnapshot, serverTimestamp, arrayUnion, arrayRemove, where, limit, getDocs
-} from 'firebase/firestore';
+import { collection, addDoc, updateDoc, deleteDoc, doc, query, orderBy, onSnapshot, serverTimestamp, arrayUnion, arrayRemove, limit, getDocs } from 'firebase/firestore'
 import { db, appId } from '../../config/firebase';
-import {
-    MessageSquare, Send, Heart, ArrowLeft, Plus, X, ChevronDown,
-    MoreHorizontal, Trash2, Flag, Clock, TrendingUp, Search,
-    Filter, Tag, Edit3, MessageCircle, ThumbsUp, Eye, EyeOff, Pin, Users, Pencil, Check
-} from 'lucide-react';
+import { MessageSquare, Send, Heart, ArrowLeft, Plus, X, MoreHorizontal, Trash2, Clock, TrendingUp, Search, Tag, Edit3, MessageCircle, Eye, EyeOff, Users, Pencil, Check } from 'lucide-react'
 import { ROUTES } from '../../router';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -18,7 +11,6 @@ import remarkBreaks from 'remark-breaks';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
 import MDEditor from '@uiw/react-md-editor';
-
 // ==========================
 // AVATAR EMOJIS (reuse)
 // ==========================
@@ -34,9 +26,7 @@ const AVATAR_EMOJIS = {
     rhino: '🦏', hippo: '🦛', camel: '🐫', deer: '🦌', wolf: '🐺',
     bat: '🦇', raccoon: '🦝', sloth: '🦥', hedgehog: '🦔', shrimp: '🦐',
 };
-
 const isCustomPhoto = (v) => typeof v === 'string' && v.startsWith('data:image/');
-
 const AvatarDisplay = ({ avatar, name, size = 'w-9 h-9', textSize = 'text-sm' }) => {
     if (isCustomPhoto(avatar)) {
         return (
@@ -52,7 +42,6 @@ const AvatarDisplay = ({ avatar, name, size = 'w-9 h-9', textSize = 'text-sm' })
         </div>
     );
 };
-
 // ==========================
 // CATEGORIES
 // ==========================
@@ -66,9 +55,7 @@ const CATEGORIES = [
     { id: 'share', label: 'Chia sẻ', icon: '🌟', color: 'bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300' },
     { id: 'other', label: 'Khác', icon: '💬', color: 'bg-slate-100 dark:bg-slate-900/30 text-slate-700 dark:text-slate-300' },
 ];
-
 const getCategoryById = (id) => CATEGORIES.find(c => c.id === id) || CATEGORIES[0];
-
 // ==========================
 // TIME AGO
 // ==========================
@@ -84,7 +71,6 @@ const timeAgo = (timestamp) => {
     const d = new Date(ts);
     return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
 };
-
 // ==========================
 // MARKDOWN HELPERS
 // ==========================
@@ -97,7 +83,6 @@ const formatContentForMarkdown = (content) => {
     text = text.replace(/\\\[(.*?)\\\]/gs, '$$$$$1$$$$');
     return text;
 };
-
 // ==========================
 // COMMENT COMPONENT
 // ==========================
@@ -110,10 +95,8 @@ const CommentItem = ({ comment, userId, onDelete, onLike, onReply, onEdit, onHid
     const isOwner = comment.authorId === userId;
     const isReply = !!comment.parentId;
     const isHidden = comment.hidden === true;
-
     // If hidden and viewer is not the post owner / admin, don't render
     if (isHidden && !isPostOwner && !isAdmin) return null;
-
     const handleSaveEdit = async () => {
         const trimmed = editText.trim();
         if (!trimmed || saving) return;
@@ -122,7 +105,6 @@ const CommentItem = ({ comment, userId, onDelete, onLike, onReply, onEdit, onHid
         setSaving(false);
         setIsEditing(false);
     };
-
     return (
         <div className={`flex gap-2.5 group ${isReply ? 'ml-8 mt-1.5 relative' : ''} ${isHidden ? 'opacity-50' : ''}`}>
             {isReply && <div className="absolute -left-4 top-0 w-3 h-4 border-l-2 border-b-2 border-gray-200 dark:border-gray-600 rounded-bl-lg" />}
@@ -139,7 +121,6 @@ const CommentItem = ({ comment, userId, onDelete, onLike, onReply, onEdit, onHid
                         {comment.editedAt && <span className="text-[9px] text-gray-400 italic">(đã sửa)</span>}
                         {isHidden && <span className="text-[9px] text-amber-500 font-bold flex items-center gap-0.5"><EyeOff className="w-2.5 h-2.5" /> Đã ẩn</span>}
                     </div>
-
                     {isEditing ? (
                         <div className="flex flex-col gap-1.5">
                             <textarea
@@ -173,7 +154,6 @@ const CommentItem = ({ comment, userId, onDelete, onLike, onReply, onEdit, onHid
                             </ReactMarkdown>
                         </div>
                     )}
-
                     {/* Menu */}
                     {(isOwner || isAdmin || isPostOwner) && !isEditing && (
                         <div className="absolute top-1.5 right-1.5">
@@ -218,7 +198,6 @@ const CommentItem = ({ comment, userId, onDelete, onLike, onReply, onEdit, onHid
                         </div>
                     )}
                 </div>
-
                 {/* Actions */}
                 {!isEditing && (
                     <div className="flex items-center gap-3 mt-1 ml-1">
@@ -241,7 +220,6 @@ const CommentItem = ({ comment, userId, onDelete, onLike, onReply, onEdit, onHid
         </div>
     );
 };
-
 // ==========================
 // POST COMPONENT
 // ==========================
@@ -258,11 +236,9 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
     const [editContent, setEditContent] = useState(post.content || '');
     const [savingEdit, setSavingEdit] = useState(false);
     const commentInputRef = useRef(null);
-
     const isLiked = post.likes?.includes(userId);
     const isOwner = post.authorId === userId;
     const category = getCategoryById(post.category);
-
     // Load comments when expanded
     useEffect(() => {
         if (!showComments) return;
@@ -275,14 +251,12 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
         });
         return () => unsub();
     }, [showComments, post.id, forumPath]);
-
     // Focus comment input when opening comments
     useEffect(() => {
         if (showComments && commentInputRef.current) {
             setTimeout(() => commentInputRef.current?.focus(), 200);
         }
     }, [showComments]);
-
     const handleLikePost = async () => {
         const postRef = doc(db, forumPath, post.id);
         try {
@@ -293,7 +267,6 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
             }
         } catch (e) { console.error('Like error:', e); }
     };
-
     const handleLikeComment = async (commentId) => {
         const commentRef = doc(db, forumPath, post.id, 'comments', commentId);
         const comment = comments.find(c => c.id === commentId);
@@ -306,7 +279,6 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
             }
         } catch (e) { console.error('Like comment error:', e); }
     };
-
     const handleDeleteComment = async (commentId) => {
         if (!confirm('Xóa bình luận này?')) return;
         try {
@@ -316,7 +288,6 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
             });
         } catch (e) { console.error('Delete comment error:', e); }
     };
-
     const handleEditComment = async (commentId, newContent) => {
         try {
             await updateDoc(doc(db, forumPath, post.id, 'comments', commentId), {
@@ -325,7 +296,6 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
             });
         } catch (e) { console.error('Edit comment error:', e); }
     };
-
     const handleHideComment = async (commentId, hide) => {
         try {
             await updateDoc(doc(db, forumPath, post.id, 'comments', commentId), {
@@ -333,21 +303,18 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
             });
         } catch (e) { console.error('Hide comment error:', e); }
     };
-
     const handleReplyClick = (comment) => {
         setReplyingTo(comment);
         if (commentInputRef.current) {
             commentInputRef.current.focus();
         }
     };
-
     const handleDeletePost = async () => {
         if (!confirm('Xóa bài viết này?')) return;
         try {
             await deleteDoc(doc(db, forumPath, post.id));
         } catch (e) { console.error('Delete post error:', e); }
     };
-
     const handleEditPost = async () => {
         if (!editContent.trim() || savingEdit) return;
         setSavingEdit(true);
@@ -361,7 +328,6 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
         } catch (e) { console.error('Edit post error:', e); }
         setSavingEdit(false);
     };
-
     const handleSubmitComment = async (e) => {
         e.preventDefault();
         const trimmed = commentText.trim();
@@ -370,10 +336,8 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
         try {
             const commentsRef = collection(db, forumPath, post.id, 'comments');
             const parentId = replyingTo ? (replyingTo.parentId || replyingTo.id) : null;
-
             // If replying to a reply, prefix the username so people know who it's addressed to
             const finalContent = (replyingTo && replyingTo.parentId) ? `@${replyingTo.authorName} ${trimmed}` : trimmed;
-
             await addDoc(commentsRef, {
                 content: finalContent,
                 authorId: userId,
@@ -392,7 +356,6 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
         } catch (e) { console.error('Comment error:', e); }
         setIsSubmitting(false);
     };
-
     return (
         <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden transition-all hover:shadow-md">
             {/* Post Header */}
@@ -412,7 +375,6 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                         </div>
                         <span className="text-[11px] text-gray-400">{timeAgo(post.createdAt)}</span>
                     </div>
-
                     {/* Post menu */}
                     {(isOwner || isAdmin) && (
                         <div className="relative">
@@ -448,7 +410,6 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                         </div>
                     )}
                 </div>
-
                 {/* Post Content */}
                 {isEditingPost ? (
                     <div className="space-y-2 mt-1">
@@ -511,7 +472,6 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                         {!post.title && post.editedAt && <span className="text-[10px] text-gray-400 italic">(đã sửa)</span>}
                     </>
                 )}
-
                 {/* Tags */}
                 {!isEditingPost && post.tags?.length > 0 && (
                     <div className="flex flex-wrap gap-1.5 mt-2.5">
@@ -521,7 +481,6 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                     </div>
                 )}
             </div>
-
             {/* Actions Bar */}
             <div className="px-4 py-2 flex items-center gap-1 border-t border-gray-50 dark:border-gray-700/50">
                 <button
@@ -545,7 +504,6 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                     <span className="hidden sm:inline">Bình luận</span>
                 </button>
             </div>
-
             {/* Comments Section */}
             {showComments && (
                 <div className="px-4 pb-4 border-t border-gray-100 dark:border-gray-700/50">
@@ -564,7 +522,6 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                                 }
                                 return acc;
                             }, {});
-
                             return parentComments.map(c => (
                                 <div key={c.id} className="space-y-3">
                                     <CommentItem
@@ -598,7 +555,6 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                             <p className="text-center text-xs text-gray-400 py-4">Chưa có bình luận. Hãy là người đầu tiên! 💬</p>
                         )}
                     </div>
-
                     {/* Add comment */}
                     <form onSubmit={handleSubmitComment} className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/50 flex flex-col gap-2">
                         {replyingTo && (
@@ -644,7 +600,6 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
         </div>
     );
 };
-
 // ==========================
 // CREATE POST MODAL
 // ==========================
@@ -657,11 +612,9 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [postStatus, setPostStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
     const contentRef = useRef(null);
-
     useEffect(() => {
         setTimeout(() => contentRef.current?.focus(), 200);
     }, []);
-
     // Tag input: nhập #tag rồi Enter hoặc Space để tạo chip
     const handleTagKeyDown = (e) => {
         if (e.key === 'Enter' || e.key === ' ' || e.key === ',') {
@@ -672,7 +625,6 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
             setTags(prev => prev.slice(0, -1));
         }
     };
-
     const addTag = () => {
         const cleaned = tagInput.trim().replace(/^#/, '').replace(/[,\s]/g, '');
         if (cleaned && !tags.includes(cleaned) && tags.length < 5) {
@@ -680,11 +632,9 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
         }
         setTagInput('');
     };
-
     const removeTag = (idx) => {
         setTags(prev => prev.filter((_, i) => i !== idx));
     };
-
     const handleSubmit = async () => {
         if (!content.trim() || isSubmitting) return;
         setIsSubmitting(true);
@@ -710,7 +660,6 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
             setIsSubmitting(false);
         }
     };
-
     return (
         <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4" style={{ backgroundColor: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)' }}>
             <div className="bg-white dark:bg-gray-900 w-full sm:max-w-lg sm:rounded-2xl rounded-t-3xl shadow-2xl max-h-[90vh] flex flex-col">
@@ -724,7 +673,6 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
                         <X className="w-5 h-5 text-gray-400" />
                     </button>
                 </div>
-
                 <div className="p-5 space-y-4 overflow-y-auto flex-1">
                     {/* Author */}
                     <div className="flex items-center gap-3">
@@ -734,7 +682,6 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
                             <p className="text-[10px] text-gray-400">Đăng công khai</p>
                         </div>
                     </div>
-
                     {/* Category */}
                     <div>
                         <label className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1.5 block">Danh mục</label>
@@ -752,7 +699,6 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
                             ))}
                         </div>
                     </div>
-
                     {/* Title (optional) */}
                     <input
                         type="text"
@@ -762,7 +708,6 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
                         className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm font-bold text-gray-800 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-400"
                         maxLength={150}
                     />
-
                     {/* Content */}
                     <div data-color-mode="light" className="dark:hidden border border-gray-200 rounded-xl overflow-hidden">
                         <MDEditor
@@ -789,7 +734,6 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
                         />
                     </div>
                     <p className="text-right text-[10px] text-gray-400 -mt-2">{content.length}/2000</p>
-
                     {/* Tags - kiểu Facebook: gõ #tag rồi Enter */}
                     <div>
                         <label className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1.5 block flex items-center gap-1">
@@ -822,7 +766,6 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
                         )}
                     </div>
                 </div>
-
                 {/* Footer */}
                 <div className="px-5 pb-5 pt-3 border-t border-gray-100 dark:border-gray-800">
                     {/* Status messages */}
@@ -862,8 +805,6 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
         </div>
     );
 };
-
-
 // ==========================
 // MAIN FORUM SCREEN
 // ==========================
@@ -874,9 +815,7 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [loading, setLoading] = useState(true);
     const [postingStatus, setPostingStatus] = useState('idle'); // 'idle' | 'posting'
-
     const forumPath = useMemo(() => `artifacts/${appId}/forum`, []);
-
     // Load posts - try orderBy first, fallback to no-order if index missing
     useEffect(() => {
         if (!db) return;
@@ -907,7 +846,6 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
         });
         return () => unsub();
     }, [forumPath]);
-
     // Create post handler
     const handleCreatePost = async (postData) => {
         setPostingStatus('posting');
@@ -942,11 +880,9 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
             setPostingStatus('idle');
         }
     };
-
     // Filtered & sorted posts
     const filteredPosts = useMemo(() => {
         let result = [...posts];
-
         // Search
         if (searchQuery.trim()) {
             const q = searchQuery.toLowerCase();
@@ -957,15 +893,12 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
                 (p.tags || []).some(t => t.toLowerCase().includes(q))
             );
         }
-
         // Sort
         if (sortBy === 'popular') {
             result.sort((a, b) => (b.likes?.length || 0) + (b.commentCount || 0) - (a.likes?.length || 0) - (a.commentCount || 0));
         }
-
         return result;
     }, [posts, sortBy, searchQuery]);
-
     return (
         <div className="max-w-2xl mx-auto space-y-4">
             {/* Header */}
@@ -988,7 +921,6 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
                     <span>{posts.length} bài</span>
                 </div>
             </div>
-
             {/* Search & Sort */}
             <div className="flex gap-2">
                 <div className="flex-1 relative">
@@ -1016,9 +948,6 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
                     {sortBy === 'latest' ? 'Mới nhất' : 'Phổ biến'}
                 </button>
             </div>
-
-
-
             {/* Create post button */}
             <button
                 onClick={() => setShowCreateModal(true)}
@@ -1032,7 +961,6 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
                     <Plus className="w-4 h-4" />
                 </div>
             </button>
-
             {/* Posts Feed */}
             <div className="space-y-3">
                 {loading ? (
@@ -1073,7 +1001,6 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
                     </div>
                 )}
             </div>
-
             {/* FAB - Floating Action Button */}
             {posts.length > 0 && (
                 <button
@@ -1083,7 +1010,6 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
                     <Plus className="w-6 h-6" />
                 </button>
             )}
-
             {/* Create Post Modal */}
             {showCreateModal && (
                 <CreatePostModal
@@ -1095,5 +1021,4 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
         </div>
     );
 };
-
 export default ForumScreen;

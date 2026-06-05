@@ -1,19 +1,13 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react'
 import LoadingIndicator from '../ui/LoadingIndicator';
 import {
     collection, query, onSnapshot, doc, setDoc, deleteDoc, serverTimestamp, orderBy
 } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
-import {
-    Plus, Trash2, Edit3, Save, X, ChevronDown, ChevronUp,
-    FileText, Headphones, BookOpen, Languages, AlertTriangle,
-    CheckCircle, Loader2, Copy, Upload, Eye, ArrowLeft, Award,
-    Bold, Underline, Highlighter
-} from 'lucide-react';
+import { Plus, Trash2, Edit3, Save, X, ChevronDown, ChevronUp, FileText, Headphones, BookOpen, Languages, AlertTriangle, CheckCircle, Loader2, Copy, Upload, ArrowLeft, Award, Bold, Underline, Highlighter } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../router';
 import { compressImage, fileToBase64 } from '../../utils/image';
-
 const SECTION_TYPES = [
     { value: 'vocabulary', label: 'Từ vựng (文字・語彙)', icon: Languages, color: 'blue' },
     { value: 'grammar', label: 'Ngữ pháp (文法)', icon: BookOpen, color: 'purple' },
@@ -21,7 +15,6 @@ const SECTION_TYPES = [
     { value: 'reading', label: 'Đọc hiểu (読解)', icon: FileText, color: 'green' },
     { value: 'listening', label: 'Nghe hiểu (聴解)', icon: Headphones, color: 'orange' },
 ];
-
 // Helper to map values
 const SKILL_LABELS = {
     vocabulary: 'Từ vựng',
@@ -30,22 +23,18 @@ const SKILL_LABELS = {
     reading: 'Đọc hiểu',
     listening: 'Nghe hiểu'
 };
-
 const EMPTY_QUESTION = {
     question: '', options: ['', '', '', ''], correctAnswer: 0,
     explanation: '', audioUrl: '', passage: '', imageUrl: '',
     subQuestions: []
 };
-
 const EMPTY_SECTION = { type: 'vocabulary', title: '', questions: [{ ...EMPTY_QUESTION }] };
-
 const EMPTY_TEST = {
     title: '', level: 'N5', timeLimit: 60,
     isSkillTest: false,
     skillType: 'vocabulary',
     sections: [{ ...EMPTY_SECTION, questions: [{ ...EMPTY_QUESTION }] }]
 };
-
 const SAMPLE_FULL_JSON = {
     title: "JLPT N5 - Đề mẫu 1 (Đầy đủ)",
     level: "N5",
@@ -80,7 +69,6 @@ const SAMPLE_FULL_JSON = {
         }
     ]
 };
-
 const getSampleJsonForSkill = (skillType) => {
     switch (skillType) {
         case 'listening':
@@ -217,7 +205,6 @@ const getSampleJsonForSkill = (skillType) => {
             };
     }
 };
-
 const JLPTAdminScreen = ({ userId }) => {
     const location = useLocation();
     const [tests, setTests] = useState([]);
@@ -233,9 +220,7 @@ const JLPTAdminScreen = ({ userId }) => {
     const [importType, setImportType] = useState('full');
     const [importSkillType, setImportSkillType] = useState('vocabulary');
     const [importMethod, setImportMethod] = useState('overwrite');
-
     const testsPath = `artifacts/${appId}/jlptTests`;
-
     // Load tests
     useEffect(() => {
         if (!db) return;
@@ -246,7 +231,6 @@ const JLPTAdminScreen = ({ userId }) => {
         });
         return () => unsub();
     }, [testsPath]);
-
     // Notification auto-clear
     useEffect(() => {
         if (notification) {
@@ -254,9 +238,7 @@ const JLPTAdminScreen = ({ userId }) => {
             return () => clearTimeout(t);
         }
     }, [notification]);
-
     const notify = (type, message) => setNotification({ type, message });
-
     // Handle type change (Full vs Skill)
     const handleTestTypeChange = (isSkill) => {
         const sections = isSkill 
@@ -268,7 +250,6 @@ const JLPTAdminScreen = ({ userId }) => {
             sections
         });
     };
-
     const handleSkillTypeChange = (skill) => {
         const sections = [{ type: skill, title: SKILL_LABELS[skill], questions: [{ ...EMPTY_QUESTION }] }];
         setFormData({
@@ -277,12 +258,10 @@ const JLPTAdminScreen = ({ userId }) => {
             sections
         });
     };
-
     // Save test
     const handleSave = async () => {
         if (!formData.title.trim()) { notify('error', 'Vui lòng nhập tên đề thi'); return; }
         if (formData.sections.length === 0) { notify('error', 'Cần ít nhất 1 phần thi'); return; }
-
         // Validate all sections & questions
         for (let sIdx = 0; sIdx < formData.sections.length; sIdx++) {
             const sec = formData.sections[sIdx];
@@ -293,7 +272,6 @@ const JLPTAdminScreen = ({ userId }) => {
                     notify('error', `Phần "${sec.title}" - Câu ${qIdx + 1} chưa nhập nội dung câu hỏi hoặc đoạn văn`); 
                     return; 
                 }
-                
                 if (q.subQuestions && q.subQuestions.length > 0) {
                     for (let sqIdx = 0; sqIdx < q.subQuestions.length; sqIdx++) {
                         const sq = q.subQuestions[sqIdx];
@@ -310,7 +288,6 @@ const JLPTAdminScreen = ({ userId }) => {
                 }
             }
         }
-
         setSaving(true);
         try {
             const testId = editingTest?.id || `test_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
@@ -338,7 +315,6 @@ const JLPTAdminScreen = ({ userId }) => {
             setSaving(false);
         }
     };
-
     const handleDelete = async () => {
         if (!confirmDelete) return;
         try {
@@ -351,13 +327,11 @@ const JLPTAdminScreen = ({ userId }) => {
             setConfirmDelete(null);
         }
     };
-
     const resetForm = () => {
         setEditingTest(null);
         setFormData(JSON.parse(JSON.stringify(EMPTY_TEST)));
         setExpandedSections({});
     };
-
     const handleEdit = (test) => {
         setEditingTest(test);
         setFormData({
@@ -371,7 +345,6 @@ const JLPTAdminScreen = ({ userId }) => {
         setExpandedSections({ 0: true });
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
-
     useEffect(() => {
         if (location.state?.editTest) {
             handleEdit(location.state.editTest);
@@ -379,7 +352,6 @@ const JLPTAdminScreen = ({ userId }) => {
             window.history.replaceState({}, document.title);
         }
     }, [location.state]);
-
     const handleJsonImport = () => {
         try {
             const parsed = JSON.parse(jsonInput);
@@ -388,10 +360,8 @@ const JLPTAdminScreen = ({ userId }) => {
             } else {
                 if (!parsed.sections) throw new Error('JSON thiếu trường sections bắt buộc.');
             }
-            
             const isSkill = importType === 'skill';
             const skillType = isSkill ? importSkillType : '';
-
             if (importMethod === 'overwrite') {
                 setFormData({
                     title: parsed.title || '',
@@ -425,7 +395,6 @@ const JLPTAdminScreen = ({ userId }) => {
                 parsed.sections.forEach(parsedSec => {
                     const parsedType = isSkill ? skillType : (parsedSec.type || 'vocabulary');
                     const parsedTitle = isSkill ? (SKILL_LABELS[skillType] || parsedSec.title) : (parsedSec.title || '');
-                    
                     const newQuestions = (parsedSec.questions || []).map(q => ({
                         question: q.question || '',
                         options: q.options || (q.subQuestions && q.subQuestions.length > 0 ? [] : ['', '', '', '']),
@@ -441,7 +410,6 @@ const JLPTAdminScreen = ({ userId }) => {
                             explanation: sq.explanation || ''
                         }))
                     }));
-
                     const existingSecIdx = currentSections.findIndex(s => s.type === parsedType);
                     if (existingSecIdx !== -1) {
                         // Clear the single initial empty placeholder question if it's the only one
@@ -449,7 +417,6 @@ const JLPTAdminScreen = ({ userId }) => {
                         if (baseQuestions.length === 1 && !baseQuestions[0].question.trim() && !baseQuestions[0].passage?.trim() && (!baseQuestions[0].subQuestions || baseQuestions[0].subQuestions.length === 0)) {
                             baseQuestions = [];
                         }
-                        
                         currentSections[existingSecIdx] = {
                             ...currentSections[existingSecIdx],
                             questions: [...baseQuestions, ...newQuestions]
@@ -462,13 +429,11 @@ const JLPTAdminScreen = ({ userId }) => {
                         });
                     }
                 });
-
                 setFormData({
                     ...formData,
                     sections: currentSections
                 });
             }
-
             setShowJsonImport(false);
             setJsonInput('');
             notify('success', importMethod === 'overwrite' ? 'Đã nhập dữ liệu JSON thành công!' : 'Đã bổ sung câu hỏi từ JSON thành công!');
@@ -476,7 +441,6 @@ const JLPTAdminScreen = ({ userId }) => {
             notify('error', 'JSON không hợp lệ: ' + e.message);
         }
     };
-
     // Section/Question modifiers
     const updateSection = (si, field, value) => {
         const s = [...formData.sections];
@@ -487,17 +451,14 @@ const JLPTAdminScreen = ({ userId }) => {
         }
         setFormData({ ...formData, sections: s });
     };
-
     const addSection = () => {
         const newSections = [...formData.sections, JSON.parse(JSON.stringify(EMPTY_SECTION))];
         setFormData({ ...formData, sections: newSections });
         setExpandedSections({ ...expandedSections, [newSections.length - 1]: true });
     };
-
     const removeSection = (si) => {
         setFormData({ ...formData, sections: formData.sections.filter((_, i) => i !== si) });
     };
-
     const updateQuestion = (si, qi, field, value) => {
         const s = [...formData.sections];
         const qs = [...s[si].questions];
@@ -505,7 +466,6 @@ const JLPTAdminScreen = ({ userId }) => {
         s[si] = { ...s[si], questions: qs };
         setFormData({ ...formData, sections: s });
     };
-
     const updateOption = (si, qi, oi, value) => {
         const s = [...formData.sections];
         const qs = [...s[si].questions];
@@ -515,29 +475,24 @@ const JLPTAdminScreen = ({ userId }) => {
         s[si] = { ...s[si], questions: qs };
         setFormData({ ...formData, sections: s });
     };
-
     const addQuestion = (si) => {
         const s = [...formData.sections];
         s[si] = { ...s[si], questions: [...s[si].questions, { ...EMPTY_QUESTION }] };
         setFormData({ ...formData, sections: s });
     };
-
     const removeQuestion = (si, qi) => {
         const s = [...formData.sections];
         s[si] = { ...s[si], questions: s[si].questions.filter((_, i) => i !== qi) };
         setFormData({ ...formData, sections: s });
     };
-
     const insertFormatTag = (sectionIdx, questionIdx, field, tag) => {
         const id = `textarea-${sectionIdx}-${questionIdx}-${field}`;
         const textarea = document.getElementById(id);
         if (!textarea) return;
-
         const start = textarea.selectionStart;
         const end = textarea.selectionEnd;
         const text = textarea.value;
         const selectedText = text.substring(start, end);
-        
         let replacement = '';
         if (tag === 'b') {
             replacement = `<b>${selectedText || 'chữ in đậm'}</b>`;
@@ -546,18 +501,14 @@ const JLPTAdminScreen = ({ userId }) => {
         } else if (tag === 'mark') {
             replacement = `<mark>${selectedText || 'chữ highlight'}</mark>`;
         }
-
         const newText = text.substring(0, start) + replacement + text.substring(end);
-        
         updateQuestion(sectionIdx, questionIdx, field, newText);
-
         setTimeout(() => {
             textarea.focus();
             const offset = tag === 'b' || tag === 'u' ? 3 : 6; 
             textarea.setSelectionRange(start + offset, start + offset + selectedText.length);
         }, 0);
     };
-
     const handleAudioUpload = async (si, qi, file) => {
         if (!file) return;
         try {
@@ -569,7 +520,6 @@ const JLPTAdminScreen = ({ userId }) => {
             notify('error', 'Lỗi tải audio: ' + error.message);
         }
     };
-
     const handleImageUpload = async (si, qi, file) => {
         if (!file) return;
         try {
@@ -581,18 +531,13 @@ const JLPTAdminScreen = ({ userId }) => {
             notify('error', 'Lỗi tải hình ảnh: ' + error.message);
         }
     };
-
     const toggleSection = (i) => setExpandedSections(p => ({ ...p, [i]: !p[i] }));
-
     const totalQuestions = formData.sections.reduce((sum, s) => sum + (s.questions?.length || 0), 0);
-
     const getSectionMeta = (type) => SECTION_TYPES.find(s => s.value === type) || SECTION_TYPES[0];
-
     // Render
     if (loading) {
         return <LoadingIndicator text="Đang tải dữ liệu cấu hình..." />;
     }
-
     return (
         <div className="jlpt-screen min-h-screen bg-[#FAFBFD] dark:bg-slate-900 p-4 md:p-8 font-sans">
             <div className="max-w-6xl mx-auto space-y-6">
@@ -617,7 +562,6 @@ const JLPTAdminScreen = ({ userId }) => {
                         </button>
                     </div>
                 </div>
-
                 {/* Form nhập liệu */}
                 <div className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] overflow-hidden">
                     <div className="p-5 border-b border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
@@ -625,7 +569,6 @@ const JLPTAdminScreen = ({ userId }) => {
                             {editingTest ? '✏️ Chỉnh sửa đề thi / bài luyện' : '➕ Thêm đề thi hoặc bài luyện mới'}
                         </h2>
                     </div>
-                    
                     <div className="p-6 space-y-6">
                         {/* Cấu hình loại đề */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-50 dark:bg-slate-900/30 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
@@ -652,7 +595,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                     </button>
                                 </div>
                             </div>
-                            
                             {formData.isSkillTest && (
                                 <div>
                                     <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">Chọn kỹ năng luyện tập</label>
@@ -668,7 +610,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                 </div>
                             )}
                         </div>
-
                         {/* Thông tin cơ bản */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div>
@@ -689,7 +630,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                     min={5} max={300} className="w-full px-3 py-2 text-sm border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/40 text-slate-800 dark:text-white focus:ring-2 focus:ring-[#2E5B70]/20 outline-none" />
                             </div>
                         </div>
-
                         {/* Quản lý các phần thi */}
                         <div className="space-y-4">
                             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
@@ -702,13 +642,11 @@ const JLPTAdminScreen = ({ userId }) => {
                                     </button>
                                 )}
                             </div>
-
                             <div className="space-y-4">
                                 {formData.sections.map((section, si) => {
                                     const meta = getSectionMeta(section.type);
                                     const Icon = meta.icon || FileText;
                                     const isExpanded = expandedSections[si] !== false; // Default expanded
-
                                     return (
                                         <div key={si} className="border border-slate-100 dark:border-slate-700 rounded-2xl overflow-hidden shadow-sm bg-white dark:bg-slate-800">
                                             {/* Header phần */}
@@ -737,7 +675,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                                     </button>
                                                 </div>
                                             </div>
-
                                             {isExpanded && (
                                                 <div className="p-5 space-y-5 bg-white dark:bg-slate-800">
                                                     {/* Loại phần thi (chỉ cho phép sửa nếu không phải là đề luyện kỹ năng chuyên biệt) */}
@@ -757,7 +694,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                                             </div>
                                                         </div>
                                                     )}
-
                                                     {/* Câu hỏi con */}
                                                     <div className="space-y-4 pt-2">
                                                         {section.questions.map((q, qi) => (
@@ -789,7 +725,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                         </div>
                                                                     )}
                                                                 </div>
-
                                                                 {/* Đoạn văn cho Đọc hiểu */}
                                                                 {section.type === 'reading' && (
                                                                     <div>
@@ -812,7 +747,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                         )}
                                                                     </div>
                                                                 )}
-
                                                                 {/* File Audio và Hình ảnh cho Nghe hiểu */}
                                                                 {section.type === 'listening' && (
                                                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-orange-50/20 dark:bg-orange-950/5 p-3 rounded-2xl border border-orange-100 dark:border-orange-900/50">
@@ -851,7 +785,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                                 </div>
                                                                             )}
                                                                         </div>
-
                                                                         {/* Image Upload/URL Section */}
                                                                         <div className="space-y-2">
                                                                             <label className="block text-[10px] font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wider">Hình ảnh câu hỏi (Image)</label>
@@ -891,8 +824,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                         </div>
                                                                     </div>
                                                                 )}
-
-
                                                                 {/* Các phương án lựa chọn (Chỉ hiện khi không có câu hỏi phụ) */}
                                                                 {(!q.subQuestions || q.subQuestions.length === 0) && (
                                                                     <div>
@@ -923,7 +854,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                         </div>
                                                                     </div>
                                                                 )}
-
                                                                 {/* Giải thích câu hỏi (Chỉ hiện khi không có câu hỏi phụ) */}
                                                                 {(!q.subQuestions || q.subQuestions.length === 0) && (
                                                                     <div>
@@ -939,7 +869,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                         )}
                                                                     </div>
                                                                 )}
-
                                                                 {/* Sub-questions Section */}
                                                                 <div className="border-t border-slate-200/60 dark:border-slate-700/60 pt-3 mt-3">
                                                                     <div className="flex items-center justify-between mb-2">
@@ -959,7 +888,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                             <Plus className="w-3.5 h-3.5" /> Thêm câu hỏi phụ
                                                                         </button>
                                                                     </div>
-                                                                    
                                                                     {q.subQuestions && q.subQuestions.length > 0 ? (
                                                                         <div className="space-y-3 pl-3 border-l-2 border-indigo-200 dark:border-indigo-850">
                                                                             {q.subQuestions.map((sq, sqi) => (
@@ -977,7 +905,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                                             <Trash2 className="w-3.5 h-3.5" />
                                                                                         </button>
                                                                                     </div>
-                                                                                    
                                                                                     <div>
                                                                                         <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1">Nội dung câu hỏi phụ</label>
                                                                                         <input
@@ -992,7 +919,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                                             className="w-full px-2.5 py-1.5 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/45 text-slate-800 dark:text-white outline-none font-japanese"
                                                                                         />
                                                                                     </div>
-
                                                                                     <div>
                                                                                         <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1">Các phương án trả lời & Chọn đáp án đúng</label>
                                                                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -1029,7 +955,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                                             ))}
                                                                                         </div>
                                                                                     </div>
-
                                                                                     <div>
                                                                                         <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1">Giải thích câu hỏi phụ</label>
                                                                                         <input
@@ -1054,7 +979,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                                             </div>
                                                         ))}
                                                     </div>
-
                                                     <button onClick={() => addQuestion(si)}
                                                         className="w-full py-2.5 text-xs font-bold text-[#2E5B70] dark:text-sky-400 border-2 border-dashed border-[#2E5B70]/20 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-900/10 transition flex items-center justify-center gap-1 cursor-pointer">
                                                         <Plus className="w-4 h-4" /> Thêm câu hỏi mới cho phần này
@@ -1066,7 +990,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                 })}
                             </div>
                         </div>
-
                         {/* Thao tác lưu / Hủy */}
                         <div className="flex gap-3 pt-2">
                             <button onClick={handleSave} disabled={saving}
@@ -1082,7 +1005,6 @@ const JLPTAdminScreen = ({ userId }) => {
                         </div>
                     </div>
                 </div>
-
                 {/* Danh sách đề thi hiện có */}
                 <div className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] overflow-hidden">
                     <div className="p-5 border-b border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
@@ -1136,7 +1058,6 @@ const JLPTAdminScreen = ({ userId }) => {
                     </div>
                 </div>
             </div>
-
             {/* JSON Import Modal */}
             {showJsonImport && (
                 <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -1145,7 +1066,6 @@ const JLPTAdminScreen = ({ userId }) => {
                             <h3 className="text-base font-extrabold text-slate-800 dark:text-white">Import đề thi / bài luyện từ cấu trúc JSON</h3>
                             <button onClick={() => setShowJsonImport(false)} className="p-1 text-slate-400 hover:text-slate-600 cursor-pointer"><X className="w-5 h-5" /></button>
                         </div>
-                        
                         {/* Selector for Import Type */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-900/30 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
                             <div>
@@ -1171,7 +1091,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                     </button>
                                 </div>
                             </div>
-                            
                             {importType === 'skill' && (
                                 <div>
                                     <label className="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">Kỹ năng chuyên sâu</label>
@@ -1187,7 +1106,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                 </div>
                             )}
                         </div>
-
                         {/* Selector for Import Method */}
                         <div className="bg-slate-50 dark:bg-slate-900/30 p-4 rounded-2xl border border-slate-100 dark:border-slate-800 space-y-2">
                             <label className="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Phương thức nhập (Import Method)</label>
@@ -1221,7 +1139,6 @@ const JLPTAdminScreen = ({ userId }) => {
                                     : '💡 Gợi ý: Hữu ích khi đề thi quá dài. Bạn có thể chia đề thi thành nhiều file JSON nhỏ để nhập bổ sung từng phần.'}
                             </p>
                         </div>
-
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                             <span className="text-[11px] text-slate-400 font-medium">Mẫu cấu trúc tương ứng ({importType === 'full' ? 'Đề đầy đủ' : SKILL_LABELS[importSkillType]}):</span>
                             <div className="flex gap-2">
@@ -1253,11 +1170,9 @@ const JLPTAdminScreen = ({ userId }) => {
                                 </button>
                             </div>
                         </div>
-
                         <textarea value={jsonInput} onChange={e => setJsonInput(e.target.value)}
                             placeholder="Dán mã JSON đề thi vào đây..." rows={10}
                             className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-2xl bg-slate-50 dark:bg-slate-900/50 text-slate-800 dark:text-white outline-none resize-none font-mono" />
-                        
                         <div className="flex gap-3">
                             <button onClick={handleJsonImport} className="flex-1 py-2.5 bg-[#2E5B70] text-white rounded-xl font-bold hover:bg-[#254A5C] transition cursor-pointer text-xs">
                                 Tiến hành Import
@@ -1269,7 +1184,6 @@ const JLPTAdminScreen = ({ userId }) => {
                     </div>
                 </div>
             )}
-
             {/* Xác nhận xóa */}
             {confirmDelete && (
                 <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -1292,7 +1206,6 @@ const JLPTAdminScreen = ({ userId }) => {
                     </div>
                 </div>
             )}
-
             {/* Thông báo góc màn hình */}
             {notification && (
                 <div className={`fixed bottom-4 right-4 z-50 px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2 animate-bounce text-xs font-bold text-white ${notification.type === 'success' ? 'bg-emerald-500' : 'bg-rose-500'}`}>
@@ -1303,5 +1216,4 @@ const JLPTAdminScreen = ({ userId }) => {
         </div>
     );
 };
-
 export default JLPTAdminScreen;

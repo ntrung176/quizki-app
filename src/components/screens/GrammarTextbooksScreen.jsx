@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Search, Plus, Trash2, Edit2, Save, X, FileJson, Clipboard, Check, AlertCircle, ChevronRight } from 'lucide-react';
+import { Search, Plus, Trash2, Edit2, Save, X, FileJson, Clipboard, Check, AlertCircle } from 'lucide-react'
 import { GRAMMAR_CATEGORIES } from '../../data/grammarData';
 import { subscribeTextbooks, addTextbook, updateTextbook, deleteTextbook, importTextbooksFromJson } from '../../utils/grammarService';
 

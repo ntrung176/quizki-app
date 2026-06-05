@@ -1,10 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { Loader2, Image as ImageIcon, Music, Volume2, Trash2, Check, X, Wand2 } from 'lucide-react';
-import { JLPT_LEVELS, POS_TYPES } from '../../config/constants';
-import { playAudio } from '../../utils/audio';
+import { Loader2, Image as ImageIcon, Check, X, Wand2 } from 'lucide-react'
+import { POS_TYPES } from '../../config/constants'
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
-
 const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExample, allCards = [] }) => {
     // All hooks must be called before any conditional return
     const [front, setFront] = useState(card?.front || '');
@@ -22,7 +20,6 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
     const [isAiLoading, setIsAiLoading] = useState(false);
     const [isGeneratingExample, setIsGeneratingExample] = useState(false);
     const frontInputRef = useRef(null);
-
     // Show loading if card is not yet loaded
     if (!card) {
         return (
@@ -34,8 +31,6 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
             </div>
         );
     }
-
-
     const handleImageChange = async (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -47,9 +42,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
             }
         }
     };
-
     const handleRemoveImage = () => { setImagePreview(null); };
-
     const handleSave = async () => {
         if (!front.trim() || !back.trim()) return;
         setIsSaving(true);
@@ -62,11 +55,9 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
         });
         setIsSaving(false);
     };
-
     const handleAiAssist = async (e) => {
         e.preventDefault();
         if (!front.trim()) return;
-
         // Check duplicate
         const currentFrontNormalized = front.split('（')[0].split('(')[0].trim().toLowerCase();
         const isDuplicate = allCards.some(c => {
@@ -74,12 +65,10 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
             const otherFrontNormalized = c.front.split('（')[0].split('(')[0].trim().toLowerCase();
             return otherFrontNormalized === currentFrontNormalized;
         });
-
         if (isDuplicate) {
             showToast('Từ vựng đã có trong học phần rồi.', 'warning');
             return;
         }
-
         // AI sẽ tự động phân loại cấp độ JLPT, không cần user chọn trước
         setIsAiLoading(true);
         const aiData = await onGeminiAssist(front, pos, level);
@@ -97,14 +86,12 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
         }
         setIsAiLoading(false);
     };
-
     const handleKeyDown = (e) => {
         if (e.key === 'g' && (e.altKey || e.metaKey)) {
             e.preventDefault();
             handleAiAssist(e);
         }
     };
-
     const handleGenerateExampleForMeaning = async (meaning) => {
         if (!onGenerateMoreExample || !front || !meaning) return;
         setIsGeneratingExample(true);
@@ -115,13 +102,11 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
         }
         setIsGeneratingExample(false);
     };
-
     return (
         <div className="space-y-8">
             <div className="flex items-center justify-between border-b border-gray-100 dark:border-gray-700 pb-4">
                 <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">Chỉnh Sửa Thẻ</h2>
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-6">
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
@@ -148,7 +133,6 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
                                 </button>
                             )}
                         </div>
-
                         {/* Classification */}
                         <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-xl border border-gray-100 dark:border-gray-700 space-y-3">
                             <label className="block text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Phân loại Từ loại</label>
@@ -159,7 +143,6 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
                                 </select>
                             </div>
                         </div>
-
                         <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Ý nghĩa</label>
                         <input type="text" value={back} onChange={(e) => setBack(e.target.value)} className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-sm md:text-base text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
                         <div className="grid grid-cols-2 gap-2 md:gap-4">
@@ -173,7 +156,6 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
                         <textarea value={example} onChange={(e) => setExample(e.target.value)} rows="2" placeholder="Ví dụ (Nhật)" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
                         <textarea value={exampleMeaning} onChange={(e) => setExampleMeaning(e.target.value)} rows="2" placeholder="Nghĩa ví dụ" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
                         <textarea value={nuance} onChange={(e) => setNuance(e.target.value)} rows="3" placeholder="Ghi chú" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
-
                         {/* Extra examples generator */}
                         {onGenerateMoreExample && back.includes(';') && (
                             <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-700/50">
@@ -197,11 +179,9 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
                             </div>
                         )}
                     </div>
-
                     {/* Media Edit */}
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Media</h3>
-
                         {/* Image Part */}
                         <div className="flex items-center justify-between">
                             <label htmlFor="img-edit" className="cursor-pointer text-indigo-600 dark:text-indigo-400 font-medium text-sm flex items-center hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors">
@@ -215,8 +195,6 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
                                 </div>
                             )}
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -227,5 +205,4 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
         </div>
     );
 };
-
 export default EditCardForm;

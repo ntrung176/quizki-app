@@ -76,7 +76,7 @@ export const fetchJotobaWordData = async (word) => {
 /**
  * Legacy wrapper - fetch pitch accent only
  */
-export const fetchPitchAccent = async (word) => {
+const fetchPitchAccent = async (word) => {
     const data = await fetchJotobaWordData(word);
     return data?.pitch || null;
 };
@@ -85,7 +85,7 @@ export const fetchPitchAccent = async (word) => {
  * Play audio from Jotoba for a given word
  * Falls back to Web Speech TTS if no Jotoba audio available
  */
-export const playJotobaAudio = async (word) => {
+const playJotobaAudio = async (word) => {
     if (!word) return;
 
     const cleanWord = word.split('（')[0].split('(')[0].trim();
@@ -181,6 +181,6 @@ export const accentNumberToPitchParts = (reading, accentNum) => {
 /**
  * Clear the cache
  */
-export const clearPitchCache = () => {
+const clearPitchCache = () => {
     jotobaCache.clear();
 };

@@ -2,7 +2,7 @@
 // Source: jotobaKanjiData.js (2201 kanji, N5-N1)
 // Generated: 2026-02-25T15:09:40.184Z
 
-export const KANJI_HV = {
+const KANJI_HV = {
     '日': 'NHẬT', '一': 'NHẤT', '国': 'QUỐC', '人': 'NHÂN', '年': 'NIÊN', '大': 'ĐẠI', '十': 'THẬP', '二': 'NHỊ', '本': 'BỔN', '中': 'TRUNG',
     '長': 'TRƯỜNG', '出': 'XUẤT', '三': 'TAM', '時': 'THÌ', '行': 'HÀNH', '見': 'KIẾN', '月': 'NGUYỆT', '後': 'HẬU', '前': 'TIỀN', '生': 'SANH',
     '五': 'NGŨ', '間': 'GIAN', '上': 'THƯỢNG', '東': 'ĐÔNG', '四': 'TỨ', '今': 'KIM', '金': 'KIM', '九': 'CỬU', '入': 'NHẬP', '学': 'HỌC', '高': 'CAO',
@@ -209,7 +209,7 @@ export const KANJI_HV = {
 
 // Bảng Kanji có 2+ âm Hán Việt THỰC SỰ KHÁC NHAU — cần kiểm tra thủ công
 // Chỉ liệt kê các trường hợp âm HV thực sự khác nhau khi đứng trong từ khác nhau
-export const KANJI_HV_MULTI = {
+const KANJI_HV_MULTI = {
     // N5
     '行': ['HÀNH', 'HÀNG'],       // 行く HÀNH, 銀行 HÀNG
     '上': ['THƯỢNG', 'THƯỚNG'],   // 上 THƯỢNG, 上手 THƯỚNG

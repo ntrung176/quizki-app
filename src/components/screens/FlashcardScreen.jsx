@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { RotateCcw, Check, X, Undo2, Trophy, RefreshCw, Volume2, ArrowLeft, ChevronRight, Zap, Layers, Settings } from 'lucide-react';
-import { playAudio, speakJapanese } from '../../utils/audio';
+import { RotateCcw, Check, X, Undo2, RefreshCw, Volume2, ArrowLeft, ChevronRight, Zap, Layers, Settings } from 'lucide-react'
+import { speakJapanese } from '../../utils/audio'
+import { launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
-import { POS_TYPES } from '../../config/constants';
-
 const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard, onSaveCardAudio, onBack }) => {
     // Load saved progress from localStorage
     const getSavedProgress = () => {
@@ -24,7 +23,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         } catch (e) { /* ignore */ }
         return null;
     };
-
     const savedProgress = getSavedProgress();
     const [allCards] = useState(initialCards);
     const [currentDeck, setCurrentDeck] = useState(() => {
@@ -53,7 +51,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
     const [history, setHistory] = useState([]); // For undo: {card, action, index}
     const [isComplete, setIsComplete] = useState(savedProgress?.isComplete || false);
     const [round, setRound] = useState(savedProgress?.round || 1);
-
     // Card Settings State (stored in localStorage with v2 version to apply new defaults)
     const [cardSettings, setCardSettings] = useState(() => {
         const defaultSettings = {
@@ -90,9 +87,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         } catch (e) {}
         return defaultSettings;
     });
-
     const [showSettingsMenu, setShowSettingsMenu] = useState(false);
-
     useEffect(() => {
         localStorage.setItem('quizki_flashcard_settings_v2', JSON.stringify(cardSettings));
     }, [cardSettings]);
@@ -102,7 +97,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
     const [buttonPressed, setButtonPressed] = useState(null); // 'known' | 'unknown' | null
     const cardShownTimeRef = useRef(Date.now()); // Track thời gian hiển thị card
     const sessionWrongCardIdsRef = useRef(new Set());
-
     // Save progress to localStorage whenever state changes
     useEffect(() => {
         if (!setId || (isComplete && unknownCards.length === 0)) return;
@@ -119,10 +113,8 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         const key = setId ? `study_progress_${setId}_flashcard` : 'flashcard_progress';
         localStorage.setItem(key, JSON.stringify(progressData));
     }, [currentIndex, knownCards, unknownCards, isComplete, round, currentDeck, setId]);
-
     const currentCard = currentDeck[currentIndex];
     const progress = currentDeck.length > 0 ? Math.round(((currentIndex) / currentDeck.length) * 100) : 100;
-
     // Reset flip when changing card
     useEffect(() => {
         setIsFlipped(false);
@@ -131,7 +123,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         setButtonPressed(null);
         cardShownTimeRef.current = Date.now(); // Reset timer khi đổi card
     }, [currentIndex, round]);
-
     // Auto-exit when all cards are completed in Flashcards
     useEffect(() => {
         if (isComplete && unknownCards.length === 0) {
@@ -144,7 +135,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             return () => clearTimeout(timer);
         }
     }, [isComplete, unknownCards.length, onComplete, onBack]);
-
     // Format multiple meanings
     const formatMultipleMeanings = (text) => {
         if (!text) return text;
@@ -153,7 +143,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         if (meanings.length <= 1) return text;
         return meanings.map((m, i) => `${numberSymbols[i] || `${i + 1}.`} ${m}`).join('\n');
     };
-
     const handleFlip = useCallback(() => {
         const newFlippedState = !isFlipped;
         setIsFlipped(newFlippedState);
@@ -164,12 +153,10 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             }
         }
     }, [isFlipped, currentCard, cardSettings.autoPlayAudio, onSaveCardAudio]);
-
     // Mark card as known
     const handleKnown = useCallback(() => {
         if (!isFlipped || !currentCard || buttonPressed) return;
         setButtonPressed('known');
-
         // Save to history for undo
         setHistory(prev => [...prev, {
             card: currentCard,
@@ -177,14 +164,11 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             index: currentIndex,
             round,
         }]);
-
         setKnownCards(prev => [...prev, currentCard]);
-
         // Cập nhật SRS: flashcard_known (nhớ) - chỉ khi chưa từng trả lời sai trong phiên học này
         if (onUpdateCard && currentCard.id && !sessionWrongCardIdsRef.current.has(currentCard.id)) {
             onUpdateCard(currentCard.id, true, 'back', 'flashcard_known', Date.now() - cardShownTimeRef.current);
         }
-
         setTimeout(() => {
             setSlideDirection('left');
             setTimeout(() => {
@@ -199,15 +183,12 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             }, 200);
         }, 300);
     }, [isFlipped, currentCard, currentIndex, currentDeck.length, buttonPressed, onUpdateCard]);
-
     // Mark card as unknown
     const handleUnknown = useCallback(() => {
         if (!isFlipped || !currentCard || buttonPressed) return;
         setButtonPressed('unknown');
-
         // Thêm vào danh sách sai trong phiên học
         sessionWrongCardIdsRef.current.add(currentCard.id);
-
         // Save to history for undo
         setHistory(prev => [...prev, {
             card: currentCard,
@@ -215,14 +196,11 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             index: currentIndex,
             round,
         }]);
-
         setUnknownCards(prev => [...prev, currentCard]);
-
         // Cập nhật SRS: flashcard_unknown (chưa nhớ)
         if (onUpdateCard && currentCard.id) {
             onUpdateCard(currentCard.id, false, 'back', 'flashcard_unknown', Date.now() - cardShownTimeRef.current);
         }
-
         setTimeout(() => {
             setSlideDirection('left');
             setTimeout(() => {
@@ -237,7 +215,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             }, 200);
         }, 300);
     }, [isFlipped, currentCard, currentIndex, currentDeck.length, buttonPressed, onUpdateCard]);
-
     // Check if round is complete
     const checkCompletion = useCallback(() => {
         // Count unknown cards from this round only
@@ -246,7 +223,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         // Actually, we track via unknownCards state
         setIsComplete(true);
     }, []);
-
     // Continue with unknown cards
     const handleContinueUnknown = useCallback(() => {
         if (unknownCards.length === 0) return;
@@ -258,7 +234,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         setIsComplete(false);
         setRound(prev => prev + 1);
     }, [unknownCards]);
-
     const handleRestart = useCallback(() => {
         setCurrentDeck(initialCards);
         setCurrentIndex(0);
@@ -272,36 +247,29 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             localStorage.removeItem(`study_progress_${setId}_flashcard`);
         }
     }, [initialCards, setId]);
-
     // Undo last action
     const handleUndo = useCallback(() => {
         if (history.length === 0) return;
-
         const lastAction = history[history.length - 1];
         setHistory(prev => prev.slice(0, -1));
-
         // Remove card from known/unknown list
         if (lastAction.action === 'known') {
             setKnownCards(prev => prev.filter(c => c.id !== lastAction.card.id));
         } else {
             setUnknownCards(prev => prev.filter(c => c.id !== lastAction.card.id));
         }
-
         // If we were in completion screen, go back
         if (isComplete) {
             setIsComplete(false);
         }
-
         // Go back to the previous card
         setCurrentIndex(lastAction.index);
         setButtonPressed(null);
     }, [history, isComplete]);
-
     // Keyboard controls
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-
             if (e.key === ' ') {
                 e.preventDefault();
                 if (!isComplete) handleFlip();
@@ -316,19 +284,15 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                 handleUndo();
             }
         };
-
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [handleFlip, handleKnown, handleUnknown, handleUndo, isComplete, isFlipped]);
-
     // Touch handlers
     const minSwipeDistance = 50;
-
     const onTouchStart = (e) => {
         setTouchEnd(null);
         setTouchStart(e.targetTouches[0].clientX);
     };
-
     const onTouchMove = (e) => {
         if (!touchStart) return;
         const currentTouch = e.targetTouches[0].clientX;
@@ -337,7 +301,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         const maxOffset = 200;
         setSwipeOffset(Math.max(-maxOffset, Math.min(maxOffset, diff)));
     };
-
     const onTouchEnd = () => {
         if (!touchStart || !touchEnd) {
             setTouchStart(null);
@@ -345,11 +308,9 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             setSwipeOffset(0);
             return;
         }
-
         const distance = touchStart - touchEnd;
         const isLeftSwipe = distance > minSwipeDistance;
         const isRightSwipe = distance < -minSwipeDistance;
-
         if (isLeftSwipe && isFlipped) {
             // Swipe left = known
             handleKnown();
@@ -357,12 +318,10 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             // Swipe right = unknown
             handleUnknown();
         }
-
         setTouchStart(null);
         setTouchEnd(null);
         setSwipeOffset(0);
     };
-
     // ============ COMPLETION SCREEN ============
     if (isComplete) {
         const totalInRound = currentDeck.length;
@@ -370,7 +329,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         const unknownCount = unknownCards.length;
         const totalKnown = allCards.length - unknownCount;
         const allDone = unknownCount === 0;
-
         return (
             <div className="relative w-full h-full flex flex-col justify-center">
                 {/* Back Button */}
@@ -449,7 +407,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             </div>
         );
     }
-
     // ============ NO CARD ============
     if (!currentCard) {
         return (
@@ -458,7 +415,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             </div>
         );
     }
-
     return (
         <div className="relative w-full h-full flex flex-col justify-center">
             <div className="w-[800px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3">
@@ -490,7 +446,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                             <span className="px-2.5 py-0.5 bg-red-50 text-red-500 dark:bg-red-950/20 dark:text-red-400 rounded-full">{unknownCards.length} chưa thuộc</span>
                         </div>
                     </div>
-
                     {/* Flashcard Area */}
                     <div className="w-full relative group perspective flex-shrink-0">
                         <div className="perspective-1000 w-full mx-auto relative" style={{ height: '460px' }}>
@@ -521,7 +476,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                     transitionEnabled={true}
                                 />
                             </div>
-
                             {/* Speaker Button - OUTSIDE the flipping container */}
                             <button
                                 onClick={(e) => {
@@ -533,7 +487,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                             >
                                 <Volume2 className="w-4 h-4" />
                             </button>
-
                             {/* Settings Button - OUTSIDE the flipping container */}
                             <button
                                 onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
@@ -544,7 +497,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                             </button>
                         </div>
                     </div>
-
                     {/* Action buttons - Know / Don't Know / Undo */}
                     <div className="flex items-center justify-center gap-3 w-full">
                         {/* Don't know button */}
@@ -561,7 +513,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                             <X className="w-5 h-5" />
                             Chưa thuộc
                         </button>
-
                         {/* Known button */}
                         <button
                             onClick={handleKnown}
@@ -576,7 +527,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                             <Check className="w-5 h-5" />
                             Đã thuộc
                         </button>
-
                         {/* Undo button */}
                         <button
                             onClick={handleUndo}
@@ -590,14 +540,12 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                             <Undo2 className="w-5 h-5" />
                         </button>
                     </div>
-
                     {/* Keyboard hint */}
                     <p className="text-center text-[10px] md:text-xs text-gray-500 mt-1 flex items-center justify-center gap-1">
                         Space: Lật | ←/1: Chưa thuộc | →/2: Đã thuộc | Ctrl+Z: Hoàn tác
                     </p>
                 </div>
             </div>
-
             {/* Flashcard Settings Modal */}
             {showSettingsMenu && createPortal(
                 <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={() => setShowSettingsMenu(false)}>
@@ -650,5 +598,4 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         </div>
     );
 };
-
 export default FlashcardScreen;

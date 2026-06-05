@@ -148,4 +148,4 @@ export const GRAMMAR_SUFFIXES = [
 export const PARTICLES = ['は', 'が', 'を', 'に', 'で', 'へ', 'と', 'から', 'まで', 'より', 'の', 'も', 'か', 'ね', 'よ', '。', '、', '！', '？'];
 
 // Types cho Dark Mode
-export const DARK_MODE_KEY = 'quizki-dark-mode';
+const DARK_MODE_KEY = 'quizki-dark-mode';

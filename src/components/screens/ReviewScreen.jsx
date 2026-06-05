@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import {
-    Zap, RotateCw, RotateCcw, MessageSquare, FileText, Repeat2, Send,
-    ChevronRight, Check, X, Lightbulb, ArrowLeft, Eye, EyeOff, Settings, Volume2, Headphones
-} from 'lucide-react';
-import { POS_TYPES, getPosLabel, getPosColor, getLevelColor } from '../../config/constants';
-import { playAudio, speakJapanese } from '../../utils/audio';
+import { Zap, RotateCcw, MessageSquare, FileText, Repeat2, ChevronRight, Check, X, Lightbulb, ArrowLeft, Eye, EyeOff, Settings, Volume2, Headphones } from 'lucide-react'
+import { POS_TYPES } from '../../config/constants'
+import { speakJapanese } from '../../utils/audio'
 import {
     shuffleArray,
     getWordForMasking,
@@ -14,7 +11,7 @@ import {
     buildAdjNaAcceptedAnswers,
     isMobileDevice
 } from '../../utils/textProcessing';
-import { flashCorrect, launchConfetti, launchFanfare, launchSparkles, celebrateCorrectAnswer } from '../../utils/celebrations';
+import { flashCorrect, launchFanfare, celebrateCorrectAnswer } from '../../utils/celebrations'
 import { playCorrectSound, playIncorrectSound, launchFireworks } from '../../utils/soundEffects';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
@@ -257,7 +254,6 @@ const ReviewScreen = ({
         };
     }, [currentIndex]);
 
-
     // Helper: tính thời gian phản hồi (ms)
     const getResponseTime = () => Date.now() - cardShownTimeRef.current;
 
@@ -405,7 +401,6 @@ const ReviewScreen = ({
             }
         }
     }, [isFlipped, currentCard, cardSettings.autoPlayAudio, onSaveCardAudio]);
-
 
     // Swipe handlers
     const minSwipeDistance = 50;
@@ -871,7 +866,7 @@ const ReviewScreen = ({
                     setNeedsRetype(true);
                 }
                 playIncorrectSound();
-                
+
                 // Speak with safe error handling, delayed by 500ms to avoid overlapping incorrect sound
                 setTimeout(() => {
                     if (isMountedRef.current && !audioAbortRef.current) {
@@ -1059,7 +1054,6 @@ const ReviewScreen = ({
             isProcessingRef.current = false; // Release so user can try again
         }
     };
-
 
     const progress = Math.round(((currentIndex) / cards.length) * 100);
 

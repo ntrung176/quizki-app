@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import {
-    Settings, User, Volume2, VolumeX, Music, Sun, Moon,
-    ArrowLeft, Save, Check, X,
-    Palette, Bell, Shield, Info, Trash2, Upload, Play, Pause, Mic, Edit, Type, Camera
-} from 'lucide-react';
+import { Settings, User, Volume2, VolumeX, Music, Sun, Moon, ArrowLeft, Save, Check, X, Palette, Shield, Trash2, Upload, Play, Mic, Edit, Type, Camera } from 'lucide-react'
 import AvatarCropper from '../ui/AvatarCropper';
 import { ROUTES } from '../../router';
 import {
@@ -17,26 +13,20 @@ import { linkWithPopup, GoogleAuthProvider, unlink } from 'firebase/auth';
 import { auth } from '../../config/firebase';
 import { showToast } from '../../utils/toast';
 import { TTS_VOICES, getTTSVoice, setTTSVoice, speakJapanese } from '../../utils/audio';
-
 const SETTINGS_KEY = 'quizki-settings';
-
 const getSettings = () => {
     try {
         const saved = localStorage.getItem(SETTINGS_KEY);
         return saved ? JSON.parse(saved) : {};
     } catch { return {}; }
 };
-
 const saveSettings = (settings) => {
     localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
 };
-
-
 // ==================== Settings Screen ====================
 const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdateProfileName, onUpdateAvatar, onChangePassword, isAdmin }) => {
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('account');
-
     // Account state
     const [displayName, setDisplayName] = useState(profile?.displayName || '');
     const [oldPassword, setOldPassword] = useState('');
@@ -47,7 +37,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
     const [showAvatarPicker, setShowAvatarPicker] = useState(false);
     const [showAvatarCropper, setShowAvatarCropper] = useState(false);
     const [avatarTab, setAvatarTab] = useState('emoji'); // 'emoji' | 'photo'
-
     // 50 cute cartoon animal avatars
     const AVATAR_LIST = [
         { id: 'fox', emoji: '🦊', name: 'Cáo' },
@@ -101,12 +90,9 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         { id: 'hedgehog', emoji: '🦔', name: 'Nhím' },
         { id: 'shrimp', emoji: '🦐', name: 'Tôm' },
     ];
-
     const getAvatarEmoji = (id) => AVATAR_LIST.find(a => a.id === id)?.emoji || '🦊';
-
     // Kiểm tra avatar có phải ảnh custom không
     const isCustomPhoto = (avatarValue) => typeof avatarValue === 'string' && avatarValue.startsWith('data:image/');
-
     // Lấy display content cho avatar
     const getAvatarDisplay = (avatarValue, sizeClass = 'text-5xl') => {
         if (isCustomPhoto(avatarValue)) {
@@ -114,11 +100,9 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         }
         return <span className={sizeClass}>{getAvatarEmoji(avatarValue)}</span>;
     };
-
     // Linked accounts state
     const [linkedProviders, setLinkedProviders] = useState([]);
     const [isLinking, setIsLinking] = useState(false);
-
     // Settings state
     const [sfxVolume, setSfxVolume] = useState(() => getSfxVolume());
     const [bgmVolume, setBgmVolume] = useState(() => getBgmVolume());
@@ -147,30 +131,24 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         const settings = getSettings();
         return settings.jpFontSize || 'large';
     });
-
     // BGM track state
     const [selectedTrack, setSelectedTrackState] = useState(() => getSelectedTrackId());
     const [bgmTracks, setBgmTracks] = useState(() => getAllBgmTracks());
     const [uploadingBgm, setUploadingBgm] = useState(false);
-
     // TTS voice state
     const [ttsVoice, setTtsVoiceState] = useState(() => getTTSVoice());
     const [isPreviewingVoice, setIsPreviewingVoice] = useState(false);
-
     // Feedback state - removed, now in FeedbackScreen
-
     // Update display name when profile changes
     useEffect(() => {
         if (profile?.displayName) setDisplayName(profile.displayName);
     }, [profile]);
-
     // Load available providers
     useEffect(() => {
         if (auth?.currentUser) {
             setLinkedProviders(auth.currentUser.providerData.map(p => p.providerId));
         }
     }, [auth?.currentUser, auth?.currentUser?.providerData]);
-
     // Save settings whenever they change
     useEffect(() => {
         const settings = getSettings();
@@ -184,16 +162,13 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         settings.jpFontFamily = jpFontFamily;
         settings.jpFontSize = jpFontSize;
         saveSettings(settings);
-
         // Dispatch event for other components to react
         window.dispatchEvent(new Event('quizki-settings-changed'));
     }, [sfxVolume, bgmVolume, sfxEnabled, bgmEnabled, furiganaEnabled, furiganaColor, furiganaFontSize, jpFontFamily, jpFontSize]);
-
     // Handle BGM volume changes
     useEffect(() => {
         updateBgmVolume(bgmVolume);
     }, [bgmVolume]);
-
     // Handle BGM toggle
     useEffect(() => {
         if (bgmEnabled && !isBgmPlaying()) {
@@ -202,9 +177,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
             stopBackgroundMusic();
         }
     }, [bgmEnabled]);
-
-
-
     // Handle save profile
     const handleSaveProfile = async () => {
         if (!displayName.trim()) return;
@@ -218,7 +190,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         }
         setIsSaving(false);
     };
-
     // Handle select avatar (emoji id hoặc base64 data URL)
     const handleSelectAvatar = async (avatarValue) => {
         if (!onUpdateAvatar) return;
@@ -232,12 +203,10 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
             setAccountMsg('Lỗi: ' + e.message);
         }
     };
-
     // Handle cropped photo confirm
     const handleCroppedPhoto = async (base64) => {
         await handleSelectAvatar(base64);
     };
-
     // Handle change password
     const handleChangePassword = async () => {
         if (linkedProviders.includes('password') && !oldPassword) {
@@ -272,7 +241,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         }
         setIsSaving(false);
     };
-
     // Handle Link Google
     const handleLinkGoogle = async () => {
         if (!auth?.currentUser) return;
@@ -293,7 +261,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         }
         setIsLinking(false);
     };
-
     // Handle Unlink Google
     const handleUnlinkGoogle = async () => {
         if (!auth?.currentUser) return;
@@ -313,14 +280,10 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         }
         setIsLinking(false);
     };
-
-
-
     const tabs = [
         { id: 'account', label: 'Tài khoản', icon: User },
         { id: 'general', label: 'Cài đặt chung', icon: Settings },
     ];
-
     return (
         <div className="space-y-6">
             {/* Header */}
@@ -339,7 +302,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                     <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Quản lý tài khoản và tùy chỉnh ứng dụng</p>
                 </div>
             </div>
-
             {/* Tab Navigation */}
             <div className="flex rounded-xl bg-gray-100 dark:bg-gray-800 p-1 gap-1">
                 {tabs.map(tab => (
@@ -356,7 +318,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                     </button>
                 ))}
             </div>
-
             {/* ==================== ACCOUNT TAB ==================== */}
             {activeTab === 'account' && (
                 <div className="space-y-4">
@@ -401,7 +362,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                 </div>
                             </div>
                         </div>
-
                         {/* Avatar Picker Grid */}
                         {showAvatarPicker && (
                             <div className="border-t border-gray-100 dark:border-gray-700 pt-4 space-y-3">
@@ -420,7 +380,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                         <Camera className="w-3 h-3" /> Ảnh của bạn
                                     </button>
                                 </div>
-
                                 {avatarTab === 'emoji' && (
                                     <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-2 max-h-64 overflow-y-auto pr-1">
                                         {AVATAR_LIST.map(avatar => (
@@ -443,7 +402,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                         ))}
                                     </div>
                                 )}
-
                                 {avatarTab === 'photo' && (
                                     <div className="space-y-3">
                                         {isCustomPhoto(profile?.avatar) ? (
@@ -485,7 +443,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                             </div>
                         )}
                     </div>
-
                     {/* Avatar Cropper Modal */}
                     {showAvatarCropper && (
                         <AvatarCropper
@@ -494,7 +451,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                             currentAvatarUrl={isCustomPhoto(profile?.avatar) ? profile.avatar : null}
                         />
                     )}
-
                     {/* Display Name */}
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
@@ -518,7 +474,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                             </button>
                         </div>
                     </div>
-
                     {/* Change / Create Password */}
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
@@ -569,7 +524,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                             {linkedProviders.includes('password') ? 'Đổi mật khẩu' : 'Tạo mật khẩu'}
                         </button>
                     </div>
-
                     {/* Associated Accounts */}
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
@@ -582,7 +536,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                         <p className="text-xs text-gray-500 dark:text-gray-400">
                             Liên kết với Google để có thể đăng nhập bằng một chạm, đồng bộ thiết bị.
                         </p>
-
                         <div className="flex items-center justify-between p-3 border border-gray-200 dark:border-gray-700 rounded-xl">
                             <div className="flex items-center gap-3">
                                 <svg className="w-5 h-5" viewBox="0 0 24 24">
@@ -598,7 +551,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                     </p>
                                 </div>
                             </div>
-
                             {linkedProviders.includes('google.com') ? (
                                 <button
                                     onClick={handleUnlinkGoogle}
@@ -618,7 +570,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                             )}
                         </div>
                     </div>
-
                     {/* Message */}
                     {accountMsg && (
                         <div className={`p-3 rounded-xl text-sm font-medium text-center ${accountMsg.includes('Lỗi')
@@ -630,7 +581,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                     )}
                 </div>
             )}
-
             {/* ==================== GENERAL SETTINGS TAB ==================== */}
             {activeTab === 'general' && (
                 <div className="space-y-4">
@@ -639,7 +589,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
                             <Type className="w-4 h-4" /> Hiển thị
                         </h3>
-
                         {/* Furigana Toggle */}
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
@@ -657,7 +606,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                 />
                             </button>
                         </div>
-
                         {/* Furigana Settings (Only when enabled) */}
                         {furiganaEnabled && (
                             <div className="border-t border-gray-100 dark:border-gray-700 pt-4 mt-4 space-y-4">
@@ -688,7 +636,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                         ))}
                                     </div>
                                 </div>
-
                                 <div className="space-y-2">
                                     <div className="flex justify-between items-center">
                                         <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Kích thước chữ phiên âm</span>
@@ -715,13 +662,11 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                 </div>
                             </div>
                         )}
-
                         {/* Font Settings */}
                         <div className="border-t border-gray-100 dark:border-gray-700 pt-4 mt-4 space-y-4">
                             <div className="flex items-center gap-2 mb-2">
                                 <h4 className="text-sm font-bold text-gray-700 dark:text-gray-300">Cài đặt Font chữ tiếng Nhật</h4>
                             </div>
-                            
                             <div className="space-y-2">
                                 <span className="text-xs text-gray-500">Kiểu chữ (Font)</span>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
@@ -751,7 +696,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                     </button>
                                 </div>
                             </div>
-
                             <div className="space-y-2 mt-4">
                                 <span className="text-xs text-gray-500">Cỡ chữ (tương đối cho toàn app)</span>
                                 <div className="grid grid-cols-3 gap-2">
@@ -776,13 +720,11 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                             </div>
                         </div>
                     </div>
-
                     {/* Sound Effects */}
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
                             <Volume2 className="w-4 h-4" /> Âm thanh
                         </h3>
-
                         {/* SFX Toggle */}
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
@@ -801,7 +743,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                 />
                             </button>
                         </div>
-
                         {/* SFX Volume */}
                         {sfxEnabled && (
                             <div className="space-y-2">
@@ -819,9 +760,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                 />
                             </div>
                         )}
-
                         <div className="border-t border-gray-100 dark:border-gray-700 pt-4" />
-
                         {/* BGM Toggle */}
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
@@ -840,7 +779,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                 />
                             </button>
                         </div>
-
                         {/* BGM Volume */}
                         {bgmEnabled && (
                             <div className="space-y-2">
@@ -858,7 +796,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                 />
                             </div>
                         )}
-
                         {/* BGM Track Selector */}
                         {bgmEnabled && (
                             <div className="border-t border-gray-100 dark:border-gray-700 pt-4 space-y-3">
@@ -904,7 +841,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                         </button>
                                     ))}
                                 </div>
-
                                 {/* Admin: Upload custom MP3 */}
                                 {isAdmin && (
                                     <div className="border-t border-gray-100 dark:border-gray-700 pt-3">
@@ -954,7 +890,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                             </div>
                         )}
                     </div>
-
                     {/* TTS Voice Selector */}
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
@@ -1005,7 +940,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                             )}
                         </button>
                     </div>
-
                     {/* Theme */}
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
@@ -1045,5 +979,4 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         </div>
     );
 };
-
 export default SettingsScreen;

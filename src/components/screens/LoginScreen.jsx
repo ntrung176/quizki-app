@@ -10,17 +10,14 @@ import {
 } from 'firebase/auth';
 import { doc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, db } from '../../config/firebase';
-import { Sparkles, Loader2, Eye, EyeOff, Brain, RefreshCw, Trophy, FileText, BookOpen, Gamepad2, Database, Route } from 'lucide-react';
+import { Loader2, Eye, EyeOff, Brain, BookOpen, Gamepad2, Database, Route } from 'lucide-react'
 import { Link } from 'react-router-dom';
-
 // Application ID for Firebase paths
 const appId = typeof __app_id !== 'undefined' ? __app_id : 'quizki-app';
-
 // Cooldown tracking for email sending (prevent too-many-requests)
 let lastVerificationEmailTime = 0;
 let lastPasswordResetTime = 0;
 const EMAIL_COOLDOWN_MS = 60000; // 60 seconds cooldown between emails
-
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -31,13 +28,11 @@ const LoginScreen = () => {
     const [info, setInfo] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!auth) return;
         setError('');
         setInfo('');
-
         if (mode === 'register') {
             if (password.length < 6) {
                 setError('Mật khẩu phải có ít nhất 6 ký tự.');
@@ -48,7 +43,6 @@ const LoginScreen = () => {
                 return;
             }
         }
-
         setIsLoading(true);
         try {
             if (mode === 'login') {
@@ -56,7 +50,6 @@ const LoginScreen = () => {
                 if (!cred.user.emailVerified) {
                     const now = Date.now();
                     const timeSinceLastEmail = now - lastVerificationEmailTime;
-
                     if (timeSinceLastEmail < EMAIL_COOLDOWN_MS) {
                         const waitSeconds = Math.ceil((EMAIL_COOLDOWN_MS - timeSinceLastEmail) / 1000);
                         setError(`Email của bạn chưa được xác thực. Vui lòng kiểm tra hộp thư (và mục Spam/Junk). Bạn có thể yêu cầu gửi lại sau ${waitSeconds} giây.`);
@@ -125,7 +118,6 @@ const LoginScreen = () => {
             setIsLoading(false);
         }
     };
-
     const handleResetPassword = async () => {
         if (!auth) return;
         setError('');
@@ -134,7 +126,6 @@ const LoginScreen = () => {
             setError('Vui lòng nhập email để đặt lại mật khẩu.');
             return;
         }
-
         // Check cooldown
         const now = Date.now();
         const timeSinceLastReset = now - lastPasswordResetTime;
@@ -143,7 +134,6 @@ const LoginScreen = () => {
             setError(`Vui lòng đợi ${waitSeconds} giây trước khi yêu cầu gửi lại email đặt lại mật khẩu.`);
             return;
         }
-
         try {
             await sendPasswordResetEmail(auth, email.trim());
             lastPasswordResetTime = Date.now();
@@ -160,23 +150,19 @@ const LoginScreen = () => {
             setError(msg);
         }
     };
-
     const handleGoogleSignIn = async () => {
         if (!auth) return;
         setError('');
         setInfo('');
         setIsLoading(true);
-
         try {
             const provider = new GoogleAuthProvider();
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
-
             // Check if profile exists, create if not
             if (db) {
                 const profileRef = doc(db, `artifacts/${appId}/users/${user.uid}/settings/profile`);
                 const profileSnap = await getDoc(profileRef);
-
                 if (!profileSnap.exists()) {
                     const defaultName = user.displayName || user.email?.split('@')[0] || 'Người học';
                     await setDoc(profileRef, {
@@ -211,7 +197,6 @@ const LoginScreen = () => {
             setIsLoading(false);
         }
     };
-
     return (
         <div className="min-h-screen w-full grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] bg-[#FAFBFD] text-slate-800 overflow-x-hidden font-sans fixed inset-0 z-50">
             {/* Left Side: Landing / Features */}
@@ -223,7 +208,6 @@ const LoginScreen = () => {
                     </div>
                     <span className="text-xl font-bold tracking-tight text-slate-800">QuizKi</span>
                 </div>
-
                 {/* Center Content */}
                 <div className="flex flex-col justify-center flex-1 py-12 z-10">
                     <h1 className="text-3xl xl:text-[34px] font-extrabold leading-tight mb-4 tracking-tight text-slate-800 max-w-xl">
@@ -232,7 +216,6 @@ const LoginScreen = () => {
                     <p className="text-sm text-slate-500 mb-10 leading-relaxed max-w-lg font-medium">
                         Ứng dụng công nghệ AI và thuật toán lặp lại ngắt quãng (SRS) giúp bạn ghi nhớ tiếng Nhật một cách tự nhiên và bền vững nhất.
                     </p>
-
                     {/* Features Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-[620px]">
                         {/* Card 1 */}
@@ -277,11 +260,9 @@ const LoginScreen = () => {
                         </div>
                     </div>
                 </div>
-
                 {/* Bottom spacer to align nicely */}
                 <div className="h-4" />
             </div>
-
             {/* Right Side: Auth Form */}
             <div className="flex flex-col justify-between min-h-screen p-6 sm:p-10 lg:p-12 xl:p-16 bg-white w-full">
                 {/* Mobile Logo Hidden on Desktop */}
@@ -293,7 +274,6 @@ const LoginScreen = () => {
                         <span className="text-2xl font-bold tracking-tight text-slate-800">QuizKi</span>
                     </div>
                 </div>
-
                 {/* Center Form */}
                 <div className="w-full max-w-sm mx-auto my-auto space-y-6">
                     <div className="text-center">
@@ -304,7 +284,6 @@ const LoginScreen = () => {
                             {mode === 'login' ? 'Chào mừng bạn trở lại với hành trình chinh phục tiếng Nhật.' : 'Đăng ký tài khoản miễn phí ngay hôm nay.'}
                         </p>
                     </div>
-
                     <form onSubmit={handleSubmit} className="space-y-5">
                         {/* Email */}
                         <div className="space-y-1">
@@ -318,7 +297,6 @@ const LoginScreen = () => {
                                 required
                             />
                         </div>
-
                         {/* Password */}
                         <div className="space-y-1">
                             <div className="flex justify-between items-center">
@@ -353,7 +331,6 @@ const LoginScreen = () => {
                                 </button>
                             </div>
                         </div>
-
                         {/* Confirm Password (only for register mode) */}
                         {mode === 'register' && (
                             <div className="space-y-1">
@@ -378,7 +355,6 @@ const LoginScreen = () => {
                                 </div>
                             </div>
                         )}
-
                         {/* Error/Info Messages */}
                         {error && (
                             <div className="text-xs text-red-600 bg-red-50 border border-red-100 rounded-xl px-4 py-3">
@@ -390,7 +366,6 @@ const LoginScreen = () => {
                                 {info}
                             </div>
                         )}
-
                         {/* Submit Button */}
                         <button
                             type="submit"
@@ -406,7 +381,6 @@ const LoginScreen = () => {
                             )}
                         </button>
                     </form>
-
                     {/* Divider */}
                     <div className="relative py-2">
                         <div className="absolute inset-0 flex items-center">
@@ -416,7 +390,6 @@ const LoginScreen = () => {
                             <span className="px-3 bg-white text-slate-300 font-bold tracking-widest">HOẶC</span>
                         </div>
                     </div>
-
                     {/* Google Sign-in */}
                     <button
                         type="button"
@@ -432,7 +405,6 @@ const LoginScreen = () => {
                         </svg>
                         TIẾP TỤC VỚI GOOGLE
                     </button>
-
                     {/* Switch Mode Link */}
                     <div className="text-center pt-2">
                         <span className="text-xs font-semibold text-slate-500">
@@ -447,7 +419,6 @@ const LoginScreen = () => {
                         </span>
                     </div>
                 </div>
-
                 {/* Footer */}
                 <div className="w-full text-center pt-8 text-[10px] text-slate-400 font-bold tracking-widest space-x-6">
                     <Link to="/terms" className="hover:text-slate-600 transition-colors uppercase">Điều khoản</Link>
@@ -458,5 +429,4 @@ const LoginScreen = () => {
         </div>
     );
 };
-
 export default LoginScreen;

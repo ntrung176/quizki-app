@@ -6,14 +6,14 @@ const ONBOARDING_KEY = 'quizki-onboarding-done-v3';
 const CUSTOM_STEPS_KEY = 'quizki-custom-tour-steps-v3';
 
 // Check / mark helpers (export for settings reset)
-export const hasSeenOnboarding = (section) => {
+const hasSeenOnboarding = (section) => {
     try {
         const seen = JSON.parse(localStorage.getItem(ONBOARDING_KEY) || '{}');
         return !!seen[section];
     } catch { return false; }
 };
 
-export const markOnboardingSeen = (section) => {
+const markOnboardingSeen = (section) => {
     try {
         const seen = JSON.parse(localStorage.getItem(ONBOARDING_KEY) || '{}');
         seen[section] = true;
@@ -21,7 +21,7 @@ export const markOnboardingSeen = (section) => {
     } catch { }
 };
 
-export const resetAllOnboarding = () => {
+const resetAllOnboarding = () => {
     localStorage.removeItem(ONBOARDING_KEY);
     localStorage.removeItem(CUSTOM_STEPS_KEY);
 };

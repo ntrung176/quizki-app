@@ -4,13 +4,7 @@ import { signOut } from 'firebase/auth';
 import { auth, db, appId } from '../../config/firebase';
 import { collection, query, onSnapshot } from 'firebase/firestore';
 import { ROUTES } from '../../router';
-import {
-    Home, BookOpen, BarChart3, Users, Settings, Plus,
-    LogOut, Sun, Moon, Sparkles, ChevronRight, X, List,
-    Repeat2, FileCheck, Languages, Shield, ChevronDown,
-    Trophy, Heart, Gamepad2, MessageSquare, Crown, MessageCircle, User, Bell, Clock, Trash2
-} from 'lucide-react';
-
+import { Home, BookOpen, Plus, LogOut, Sun, Moon, Sparkles, ChevronRight, X, List, Repeat2, FileCheck, Languages, Shield, ChevronDown, Trophy, Crown, User, Bell } from 'lucide-react'
 // Sidebar Component - Navigation with submenu support
 const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allCards = [] }) => {
     const navigate = useNavigate();
@@ -19,7 +13,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [expandedMenus, setExpandedMenus] = useState([]); // Start collapsed for cleaner look
     const [flyoutMenu, setFlyoutMenu] = useState(null);
-
     // Notifications state
     const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
     const [kanjiDueCount, setKanjiDueCount] = useState(0);
@@ -31,14 +24,11 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             return [];
         }
     });
-
     const popoverRef = useRef(null);
-
     // Save read notifications to localStorage
     useEffect(() => {
         localStorage.setItem('quizki_read_notifications', JSON.stringify(readNotificationIds));
     }, [readNotificationIds]);
-
     // Close notifications popover when clicking outside
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -49,7 +39,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
-
     // Listen to Kanji SRS due count
     useEffect(() => {
         if (!userId || !db) return;
@@ -65,7 +54,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
         }, () => { });
         return () => unsub();
     }, [userId]);
-
     // Listen to Global Notifications
     useEffect(() => {
         if (!userId || !db) return;
@@ -81,7 +69,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
         }, () => { });
         return () => unsub();
     }, [userId]);
-
     // Calculate due vocab count
     const dueVocabCount = allCards.filter(card =>
         card.srsEnabled === true && (
@@ -92,7 +79,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             (card.nextReview_back instanceof Date ? card.nextReview_back.getTime() : new Date(card.nextReview_back).getTime()) <= Date.now()
         )
     ).length;
-
     const [lastSeenDueCount, setLastSeenDueCount] = useState(() => {
         try {
             return parseInt(localStorage.getItem('quizki_last_seen_due_count') || '0');
@@ -100,7 +86,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             return 0;
         }
     });
-
     // Sync lastSeenDueCount when notifications popover is opened
     useEffect(() => {
         if (isNotificationsOpen) {
@@ -109,15 +94,12 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             localStorage.setItem('quizki_last_seen_due_count', String(currentDue));
         }
     }, [isNotificationsOpen, dueVocabCount, kanjiDueCount]);
-
     // Check if there are any unread notifications (due counts increased OR unread global notifications)
     const hasUnread = (dueVocabCount + kanjiDueCount) > lastSeenDueCount || globalNotifications.some(n => !readNotificationIds.includes(n.id));
-
     const markAllAsRead = () => {
         const allIds = globalNotifications.map(n => n.id);
         setReadNotificationIds(allIds);
     };
-
     const NotificationsPopover = ({ isMobile = false }) => {
         if (!isNotificationsOpen) return null;
         return (
@@ -142,7 +124,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                         </button>
                     )}
                 </div>
-
                 <div className="space-y-3">
                     {/* Due Vocab */}
                     {dueVocabCount > 0 && (
@@ -163,7 +144,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                             </div>
                         </button>
                     )}
-
                     {/* Due Kanji */}
                     {kanjiDueCount > 0 && (
                         <button
@@ -183,7 +163,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                             </div>
                         </button>
                     )}
-
                     {/* Global Admin Notifications */}
                     {globalNotifications.map(notif => {
                         const isRead = readNotificationIds.includes(notif.id);
@@ -223,7 +202,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                             </div>
                         );
                     })}
-
                     {dueVocabCount === 0 && kanjiDueCount === 0 && globalNotifications.length === 0 && (
                         <div className="py-6 text-center text-xs text-slate-400 dark:text-slate-500 italic">
                             Chưa có thông báo nào mới.
@@ -233,12 +211,10 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             </div>
         );
     };
-
     // Hide sidebar completely on login page or when not logged in
     if (!userId || location.pathname === ROUTES.LOGIN || location.pathname === '/login' || location.pathname === '/privacy' || location.pathname === '/terms') {
         return null;
     }
-
     // Get current view from URL path
     const getCurrentView = () => {
         const path = location.pathname;
@@ -265,9 +241,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
         if (path === ROUTES.GRAMMAR || path.startsWith('/grammar')) return 'GRAMMAR';
         return 'HOME';
     };
-
     const currentView = getCurrentView();
-
     const handleLogout = async () => {
         try {
             if (auth) {
@@ -278,7 +252,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             console.error('Lỗi đăng xuất:', e);
         }
     };
-
     const toggleMenu = (menuId) => {
         setExpandedMenus(prev =>
             prev.includes(menuId)
@@ -286,7 +259,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                 : [menuId] // Open only this one (accordion)
         );
     };
-
     // Menu structure matching the new requirements
     const menuItems = [
         { id: 'HOME', icon: Home, label: 'Trang chủ', route: ROUTES.HOME },
@@ -296,16 +268,13 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
         { id: 'JLPT_TEST', icon: FileCheck, label: 'Luyện đề JLPT', route: ROUTES.JLPT_TEST },
         { id: 'HUB', icon: Trophy, label: 'Bảng vinh danh', route: ROUTES.HUB },
     ];
-
     if (isAdmin) {
         menuItems.push({ id: 'ADMIN', icon: Shield, label: 'Quản trị', route: ROUTES.ADMIN });
     }
-
     const mobileMenuItems = [
         ...menuItems,
         { id: 'UPGRADE', icon: Crown, label: 'Nâng cấp tài khoản', route: ROUTES.UPGRADE }
     ];
-
     // Check if a menu or any of its children is active
     const isMenuActive = (item) => {
         if (item.hasSubmenu) {
@@ -325,7 +294,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
         }
         return currentView === item.id;
     };
-
     // Mobile header for small screens
     const MobileHeader = () => (
         <header className="lg:hidden fixed top-0 left-0 right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-gray-200 dark:border-slate-700/50 z-50 h-14 shadow-sm dark:shadow-none">
@@ -336,7 +304,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                     </div>
                     <span className="text-lg font-bold text-slate-800 dark:text-white tracking-tight">QuizKi</span>
                 </Link>
-
                 <div className="flex items-center space-x-2">
                     <Link
                         to={ROUTES.VOCAB_ADD}
@@ -352,7 +319,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                     </button>
                 </div>
             </div>
-
             {/* Mobile menu dropdown */}
             {isMobileMenuOpen && (
                 <div className="absolute top-14 left-0 right-0 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl border-b border-gray-200 dark:border-slate-700/50 shadow-2xl max-h-[calc(100vh-3.5rem)] overflow-y-auto">
@@ -371,7 +337,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                                             <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full animate-pulse"></span>
                                         )}
                                     </button>
-
                                     {/* Profile Capsule */}
                                     <Link
                                         to={ROUTES.SETTINGS}
@@ -390,7 +355,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                                         </span>
                                     </Link>
                                 </div>
-
                                 <NotificationsPopover isMobile={true} />
                             </div>
                         )}
@@ -471,7 +435,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             )}
         </header>
     );
-
     // Desktop sidebar
     const DesktopSidebar = () => (
         <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} bg-[#F8F9FA] dark:bg-slate-900 border-r border-slate-100 dark:border-slate-800/40 shadow-sm`}>
@@ -496,7 +459,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                     )}
                 </Link>
             </div>
-
             {/* User info */}
             {!isCollapsed && displayName && (
                 <div className="px-4 py-4 border-b border-slate-100 dark:border-slate-800/40 flex items-center gap-2 justify-between relative">
@@ -512,7 +474,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                                 <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-rose-500 rounded-full animate-pulse"></span>
                             )}
                         </button>
-
                         {/* Profile Capsule */}
                         <Link
                             to={ROUTES.SETTINGS}
@@ -532,11 +493,9 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                             </span>
                         </Link>
                     </div>
-
                     <NotificationsPopover isMobile={false} />
                 </div>
             )}
-
             {/* Navigation */}
             <nav className="flex-1 p-3 space-y-1 overflow-y-auto sidebar-scroll">
                 {menuItems.map((item) => (
@@ -569,7 +528,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                     </div>
                 ))}
             </nav>
-
             {/* Bottom section */}
             <div className="p-3 border-t border-slate-100 dark:border-slate-800/40 space-y-2">
                 {/* Upgrade Account Link */}
@@ -584,7 +542,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                     <Crown className={`w-5 h-5 ${currentView === 'UPGRADE' ? 'text-white' : 'text-indigo-500'}`} />
                     {!isCollapsed && <span className="text-sm font-semibold">Nâng cấp tài khoản</span>}
                 </Link>
-
                 {/* Collapse toggle */}
                 <button
                     onClick={() => setIsCollapsed(!isCollapsed)}
@@ -593,7 +550,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                     <ChevronRight className={`w-5 h-5 transition-transform duration-300 ${isCollapsed ? '' : 'rotate-180'}`} />
                     {!isCollapsed && <span className="text-sm font-medium">Thu gọn</span>}
                 </button>
-
                 {/* Dark mode toggle */}
                 <button
                     onClick={() => setIsDarkMode(prev => !prev)}
@@ -603,7 +559,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                     {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                     {!isCollapsed && <span className="text-sm font-medium">{isDarkMode ? 'Giao diện sáng' : 'Giao diện tối'}</span>}
                 </button>
-
                 {/* Logout */}
                 <button
                     onClick={handleLogout}
@@ -616,7 +571,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             </div>
         </aside>
     );
-
     return (
         <>
             <MobileHeader />
@@ -624,5 +578,4 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
         </>
     );
 };
-
 export default Sidebar;

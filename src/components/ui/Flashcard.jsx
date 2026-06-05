@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import FuriganaText from './FuriganaText';
-import { speakJapanese } from '../../utils/audio';
+
 import { POS_TYPES } from '../../config/constants';
 
 const getCardScaleStyles = (card, settings) => {
     if (!card) return {};
     const textLength = card.front ? card.front.length : 0;
-    
+
     // Front side vocabulary font size: much larger, with auto-scaling to prevent wrapping
     let frontWordSize = "text-5xl md:text-6xl font-black";
     if (textLength > 12) {
@@ -195,8 +195,6 @@ const Flashcard = ({
             exampleMeaningClass = `${scale.exampleMeaningSize} text-emerald-200 mt-0.5 font-sans`;
             meaningColorClass = "text-white";
         }
-
-
 
         return (
             <div className={`flex-1 flex ${card.imageBase64 && variant !== 'review' ? 'flex-row' : 'flex-col md:flex-row'} items-center justify-center gap-4 md:gap-8 px-2 w-full h-full min-h-0`}>

@@ -128,13 +128,13 @@ export const checkPaymentStatus = async (sepayToken, orderCode, expectedAmount, 
     }
 };
 
-export const DEFAULT_BANK_INFO = {
+const DEFAULT_BANK_INFO = {
     bankId: 'MB',
     accountNo: '0123456789',
     accountName: 'NGUYEN TRUNG'
 };
 
-export const BANK_LIST = [
+const BANK_LIST = [
     { id: 'MB', name: 'MB Bank' },
     { id: 'VCB', name: 'Vietcombank' },
     { id: 'TCB', name: 'Techcombank' },

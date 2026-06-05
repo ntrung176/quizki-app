@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, Eye, Lightbulb, Sparkles, X, Loader2, Award, ClipboardCheck, Settings, Save, Trash2, Edit2, Plus, FileJson, Check } from 'lucide-react';
+import { ArrowLeft, CheckCircle, Eye, Lightbulb, Sparkles, X, Loader2, Award, ClipboardCheck, Save, Trash2, Edit2, FileJson } from 'lucide-react'
 import { fetchGrammarPointById, updateGrammarPoint } from '../../utils/grammarService';
 import { aiCheckGrammarAnswer } from '../../utils/aiProvider';
 
@@ -20,10 +20,10 @@ const formatExplanation = (text) => {
     return lines.map((line, index) => {
         const trimmed = line.trim();
         if (!trimmed) return null;
-        
+
         const isBullet = trimmed.startsWith('-') || trimmed.startsWith('*');
         const content = isBullet ? trimmed.substring(1).trim() : trimmed;
-        
+
         const parts = content.split(/\*\*/g);
         const parsedElements = parts.map((part, i) => {
             if (i % 2 === 1) {
@@ -44,7 +44,7 @@ const formatExplanation = (text) => {
                 </div>
             );
         }
-        
+
         return (
             <p key={index} className="mt-1 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
                 {parsedElements}
@@ -112,7 +112,7 @@ const GrammarPracticeScreen = ({ isAdmin }) => {
     }, [activeTab]);
 
     if (loading) return <div className="p-8 text-center text-slate-500">Đang tải...</div>;
-    
+
     const exercises = gp?.exercises || [];
     const quizzes = gp?.quizzes || [];
 
@@ -505,9 +505,9 @@ const GrammarPracticeScreen = ({ isAdmin }) => {
                                                         <span className="text-xs font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">AI Đánh Giá Chi Tiết</span>
                                                         <span className={`ml-auto text-sm font-black px-2 py-0.5 rounded-full ${ai.score >= 80 ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300' : ai.score >= 50 ? 'bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300' : 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300'}`}>{ai.score}/100</span>
                                                     </div>
-                                                    
+
                                                     <p className="text-sm font-bold text-slate-800 dark:text-slate-100 mb-1">{ai.feedback}</p>
-                                                    
+
                                                     {ai.errors && ai.errors.length > 0 && (
                                                         <div className="mt-2.5">
                                                             <p className="text-[10px] font-bold text-red-500 dark:text-red-400 uppercase tracking-wider mb-1">Các lỗi sai phát hiện:</p>
@@ -516,21 +516,21 @@ const GrammarPracticeScreen = ({ isAdmin }) => {
                                                             </ul>
                                                         </div>
                                                     )}
-                                                    
+
                                                     {ai.explanation && (
                                                         <div className="mt-2.5">
                                                             <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-0.5">Phân tích chuyên sâu:</p>
                                                             <div className="space-y-0.5">{formatExplanation(ai.explanation)}</div>
                                                         </div>
                                                     )}
-                                                    
+
                                                     {ai.correction && (
                                                         <div className="mt-2.5 pt-2 border-t border-slate-200/40 dark:border-slate-700/40">
                                                             <p className="text-[10px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider mb-0.5">Bản dịch gợi ý tốt nhất:</p>
                                                             <p className="text-sm font-bold text-slate-800 dark:text-white select-all">{ai.correction}</p>
                                                         </div>
                                                     )}
-                                                    
+
                                                     {ai.grammarUsed === false && (
                                                         <p className="text-xs text-amber-600 dark:text-amber-400 font-semibold mt-2.5 flex items-center gap-1">
                                                             ⚠️ Chưa sử dụng mẫu ngữ pháp: <span className="font-bold underline">{gp.pattern}</span>

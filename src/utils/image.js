@@ -51,13 +51,13 @@ export const fileToBase64 = (file) => {
 };
 
 // Check if string is valid base64 image
-export const isValidBase64Image = (str) => {
+const isValidBase64Image = (str) => {
     if (!str) return false;
     return str.startsWith('data:image/');
 };
 
 // Get image dimensions from base64
-export const getImageDimensions = (base64) => {
+const getImageDimensions = (base64) => {
     return new Promise((resolve, reject) => {
         const img = new Image();
         img.onload = () => resolve({ width: img.width, height: img.height });

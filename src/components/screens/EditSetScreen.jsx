@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Search, BookOpen, Languages, MessageSquare, Tag, Sparkles, ChevronDown, CreditCard, Trash2, GripVertical } from 'lucide-react';
-import { JLPT_LEVELS, POS_TYPES } from '../../config/constants';
+import { Plus, Loader2, Image as ImageIcon, Check, X, Sparkles } from 'lucide-react'
+
 import { compressImage } from '../../utils/image';
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
@@ -48,20 +48,20 @@ const EditSetScreen = ({
     const [title, setTitle] = useState(folder.name || '');
     const [description, setDescription] = useState(folder.description || '');
     const [coverImage, setCoverImage] = useState(folder.coverImage || null);
-    
+
     // Original cards in this set
     const originalSetCards = folderId === 'unfiled' 
         ? allCards.filter(c => !cardFolders[c.id] || cardFolders[c.id] === 'unfiled')
         : allCards.filter(c => cardFolders[c.id] === folderId);
-    
+
     const [cards, setCards] = useState(originalSetCards.length > 0 ? originalSetCards : [
         { id: `new_${Date.now()}`, isNew: true, front: '', back: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', imageBase64: null, audioBase64: null }
     ]);
-    
+
     const [activeCardId, setActiveCardId] = useState(cards[0]?.id);
     const [isSaving, setIsSaving] = useState(false);
     const [isAiLoadingMap, setIsAiLoadingMap] = useState({});
-    
+
     // Bulk AI Modal State
     const [isBatchModalOpen, setIsBatchModalOpen] = useState(false);
     const [batchModalInitialTab, setBatchModalInitialTab] = useState('text');
@@ -81,7 +81,7 @@ const EditSetScreen = ({
     const handleDeleteCardFromUI = async (e, id) => {
         e.stopPropagation();
         if (cards.length === 1) return;
-        
+
         const card = cards.find(c => c.id === id);
         if (!card.isNew && onDeleteCard) {
             await onDeleteCard(id, '');
@@ -140,7 +140,7 @@ const EditSetScreen = ({
 
         setIsAiLoadingMap(prev => ({ ...prev, [id]: true }));
         const aiData = await onGeminiAssist(card.front, card.pos, card.level, false);
-        
+
         if (aiData) {
             setCards(prev => prev.map(c => {
                 if (c.id === id) {
@@ -168,7 +168,7 @@ const EditSetScreen = ({
         setCards(prev => {
             const cleanPrev = prev.filter(c => c.front.trim() !== '' || c.back.trim() !== '');
             const combined = [...cleanPrev, ...generatedCards];
-            
+
             if (generatedCards.length > 0) {
                 setActiveCardId(generatedCards[0].id);
             }
@@ -213,14 +213,14 @@ const EditSetScreen = ({
         const dbDuplicates = [];
         for (const card of validCards) {
             const normalized = card.front.split('（')[0].split('(')[0].trim().toLowerCase();
-            
+
             // Check if this card (whether new or edited) already exists in originalSetCards with a different ID
             const existsInSet = originalSetCards.some(dbCard => {
                 if (dbCard.id === card.id) return false; // same card
                 const dbNorm = dbCard.front.split('（')[0].split('(')[0].trim().toLowerCase();
                 return dbNorm === normalized;
             });
-            
+
             if (existsInSet) {
                 dbDuplicates.push(card.front.trim());
             }
@@ -231,13 +231,13 @@ const EditSetScreen = ({
             setIsSaving(false);
             return;
         }
-        
+
         // Rename folder if title, description, or coverImage changed
         if (folder && onRenameFolder && folderId !== 'unfiled') {
             const hasTitleChanged = title.trim() !== folder.name;
             const hasDescChanged = description.trim() !== (folder.description || '');
             const hasCoverChanged = coverImage !== (folder.coverImage || null);
-            
+
             if (hasTitleChanged || hasDescChanged || hasCoverChanged) {
                 try {
                     await onRenameFolder(folderId, { 
@@ -282,7 +282,7 @@ const EditSetScreen = ({
             });
 
             await Promise.all(savePromises);
-            
+
             setIsSaving(false);
             showToast(`Đã lưu thành công học phần!`, 'success');
             onBack();
@@ -296,9 +296,9 @@ const EditSetScreen = ({
     return (
         <div className="w-full pb-32 animate-fade-in bg-slate-50 dark:bg-gray-900 min-h-screen">
             <TopTabBar tabs={VOCAB_TABS} />
-            
+
             <div className="max-w-4xl mx-auto px-4 lg:px-8 mt-6 space-y-8">
-                
+
                 {/* Header Section */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="space-y-1">

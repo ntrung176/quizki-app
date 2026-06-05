@@ -1,5 +1,5 @@
 // grammarService.js — Firestore CRUD for Grammar module
-import { doc, getDoc, setDoc, updateDoc, deleteDoc, collection, addDoc, getDocs, onSnapshot, query, orderBy, serverTimestamp, where } from 'firebase/firestore';
+import { doc, getDoc, updateDoc, deleteDoc, collection, addDoc, getDocs, onSnapshot, serverTimestamp } from 'firebase/firestore'
 import { db, appId } from '../config/firebase';
 
 // ============== PATHS ==============
@@ -320,5 +320,4 @@ export const importGrammarPointsFromJson = async (textbookId, lessonId, jsonArra
         return { success: false, error: e.message };
     }
 };
-
 

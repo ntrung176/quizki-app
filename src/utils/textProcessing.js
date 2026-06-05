@@ -50,7 +50,7 @@ export const getReadingForMasking = (text) => {
 };
 
 // Xử lý masking cho động từ với logic hậu tố ngữ pháp
-export const maskVerbInExample = (targetWord, exampleSentence) => {
+const maskVerbInExample = (targetWord, exampleSentence) => {
     if (!targetWord || !exampleSentence) return exampleSentence;
 
     const blank = '_____';
@@ -130,7 +130,7 @@ export const maskVerbInExample = (targetWord, exampleSentence) => {
 };
 
 // Xử lý masking cho tính từ な với logic khớp không hoàn toàn
-export const maskAdjNaInExample = (targetWord, exampleSentence) => {
+const maskAdjNaInExample = (targetWord, exampleSentence) => {
     if (!targetWord || !exampleSentence) return exampleSentence;
 
     const blank = '_____';
@@ -289,7 +289,7 @@ export const isMobileDevice = () => {
 };
 
 // Normalize text for comparison
-export const normalizeText = (text) => {
+const normalizeText = (text) => {
     if (!text) return '';
     return text
         .toLowerCase()

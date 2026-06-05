@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo } from 'react'
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate } from 'react-router-dom';
-import { Calendar, Clock, Target, Flame, ChevronLeft, ExternalLink, RotateCcw, Zap, BarChart3, Sparkles } from 'lucide-react';
+import { Calendar, Clock, Target, ChevronLeft, RotateCcw, BarChart3 } from 'lucide-react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { db, appId } from '../../config/firebase';
-import { collection, getDocs, doc, updateDoc, getDoc, setDoc, increment } from 'firebase/firestore';
+import { collection, getDocs, doc, setDoc, increment } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth';
-import { ROUTES } from '../../router';
+
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { formatCountdown, getCardState, calculateAnkiSRS } from '../../utils/srs';
-import { flashCorrect, launchConfetti, launchFanfare } from '../../utils/celebrations';
+import { flashCorrect, launchFanfare } from '../../utils/celebrations'
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare, launchFireworks, playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
@@ -185,8 +185,6 @@ const KanjiReviewScreen = () => {
         return () => clearInterval(interval);
     }, [srsData]);
 
-
-
     const startReview = () => {
         if (dueKanji.length === 0) return;
         setReviewQueue([...dueKanji]);
@@ -200,7 +198,7 @@ const KanjiReviewScreen = () => {
 
     const handleRating = (rating) => {
         if (!currentCard || !userId) return;
-        
+
         const srs = srsData[currentCard.id] || null;
         const result = calculateAnkiSRS(srs || { interval: 0, ease: 2.5, nextReview: 0, reps: 0 }, rating);
         const now = Date.now();
@@ -428,7 +426,7 @@ const KanjiReviewScreen = () => {
         <div className="w-full pb-12 transition-colors duration-300 animate-fade-in">
             <TopTabBar tabs={KANJI_TABS} />
             <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-6 mt-6">
-                
+
                 {/* Hero Banner */}
                 <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-rose-400 via-pink-500 to-rose-500 p-8 text-white shadow-lg border border-rose-350 dark:border-rose-900/50">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent_60%)]"></div>
@@ -473,7 +471,7 @@ const KanjiReviewScreen = () => {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-5 shadow-sm hover:scale-[1.02] transition-all duration-300">
                         <div className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950 flex items-center justify-center text-amber-600 dark:text-amber-450">
@@ -513,7 +511,7 @@ const KanjiReviewScreen = () => {
                             <div className="h-full bg-sky-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? ((stats.newCards + stats.learning) / stats.kanjiLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
-                    
+
                     <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-sm">
                         <span className="text-[10px] font-bold text-amber-500 uppercase tracking-wider">Trung cấp (Đang ôn tập)</span>
                         <div className="flex items-baseline gap-1 mt-2">

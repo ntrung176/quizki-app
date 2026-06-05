@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Sparkles, Zap, Star, Crown, Gift, Check, ShoppingCart, CreditCard, CheckCircle, Loader2, QrCode, Copy, Ticket, X, ArrowLeft, ChevronRight, MessageCircle, Phone, Mail, ExternalLink, Settings, Shield, BookOpen, Languages, Trophy, Key, AlertTriangle, Trash2, Plus } from 'lucide-react';
+import { Sparkles, Zap, Star, Crown, Gift, Check, CreditCard, CheckCircle, Loader2, QrCode, Copy, Ticket, X, ArrowLeft, ChevronRight, Settings, BookOpen, Languages, Trophy, AlertTriangle, Trash2, Plus } from 'lucide-react'
 import { submitCreditRequest, DEFAULT_AI_PACKAGES, DEFAULT_SPECIALIZED_PACKAGES, validateVoucher, calculateDiscountedPrice, useVoucher, processPaymentSecurely, submitAndApproveCreditRequest, updateAdminConfig } from '../../utils/adminSettings';
 import { generateOrderCode, generateVietQR, checkPaymentStatus, getSepayToken } from '../../utils/sepayPayment';
 import { sendAIPurchaseSuccessEmail } from '../../utils/email';
@@ -76,7 +76,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
     const packagesReady = adminConfig !== null && adminConfig._fromCache === false;
     const packages = adminConfig?.aiCreditPackages || DEFAULT_AI_PACKAGES;
     const specializedPackages = adminConfig?.specializedPackages || DEFAULT_SPECIALIZED_PACKAGES;
-    
+
     // User's unlocked specialized packages
     const unlockedPackages = profile?.unlockedSpecializedPackages || [];
 
@@ -279,7 +279,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
 
         const token = getSepayToken(adminConfig);
         const finalPrice = getFinalPrice(selectedPackage);
-        
+
         // Pass credit string or card count number based on package type
         const paymentCredits = selectedPackage.cards !== undefined 
             ? selectedPackage.cards 
@@ -838,11 +838,11 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     <div className="inline-flex items-center gap-2 bg-[#EEF2FF] dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 px-4 py-1.5 rounded-full text-xs font-extrabold mb-3 tracking-wider uppercase">
                         👑 Nâng cấp tài khoản
                     </div>
-                    
+
                     <h1 className="text-3xl font-black text-gray-900 dark:text-white mb-2 leading-tight">
                         Mở khóa sức mạnh AI để tạo từ vựng tự động
                     </h1>
-                    
+
                     <p className="max-w-2xl mx-auto text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-4">
                         Học tiếng Nhật hiệu quả hơn bao giờ hết với hệ thống thẻ AI thông minh, tự động điền đầy đủ thông tin chỉ trong 1 giây.
                     </p>
@@ -983,7 +983,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         const Icon = ICONS[premiumPkg.id] || Crown;
                         const color = COLORS[premiumPkg.id] || 'from-amber-500 to-orange-600';
                         const bgLight = BG_LIGHT[premiumPkg.id] || 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20';
-                        
+
                         return (
                             <div className="mb-8">
                                 <div
