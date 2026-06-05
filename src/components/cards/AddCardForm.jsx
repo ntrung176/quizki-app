@@ -199,25 +199,85 @@ export const CardEditorItem = ({
 
                 {/* Ví dụ & Ngữ cảnh */}
                 <div className="bg-slate-50/50 dark:bg-slate-900/20 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/80 space-y-4">
-                    <label className="block text-[11px] font-bold text-indigo-400 dark:text-indigo-400 uppercase tracking-wider mb-1">VÍ DỤ & NGỮ CẢNH</label>
-
-                    <div>
-                        <input
-                            type="text"
-                            value={card.example}
-                            onChange={(e) => onUpdate(card.id, 'example', e.target.value)}
-                            placeholder="Câu ví dụ tiếng Nhật"
-                            className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-2 text-sm text-slate-700 dark:text-slate-200 outline-none"
-                        />
+                    <div className="flex items-center justify-between">
+                        <label className="block text-[11px] font-bold text-indigo-400 dark:text-indigo-400 uppercase tracking-wider">VÍ DỤ & NGỮ CẢNH</label>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                const jaLines = (card.example || '').split('\n').filter(Boolean);
+                                const viLines = (card.exampleMeaning || '').split('\n').filter(Boolean);
+                                onUpdate(card.id, 'example', [...jaLines, ''].join('\n'));
+                                onUpdate(card.id, 'exampleMeaning', [...viLines, ''].join('\n'));
+                            }}
+                            className="flex items-center gap-1.5 px-2.5 py-1.5 text-[10px] font-bold rounded-lg text-indigo-650 bg-indigo-50 hover:bg-indigo-100 dark:text-indigo-400 dark:bg-slate-800 dark:hover:bg-slate-700/60 transition-colors shadow-sm"
+                        >
+                            <Plus className="w-3.5 h-3.5" /> Thêm câu ví dụ
+                        </button>
                     </div>
-                    <div>
-                        <input
-                            type="text"
-                            value={card.exampleMeaning}
-                            onChange={(e) => onUpdate(card.id, 'exampleMeaning', e.target.value)}
-                            placeholder="Nghĩa câu ví dụ (Việt)"
-                            className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-2 text-sm text-slate-500 dark:text-slate-400 outline-none"
-                        />
+
+                    <div className="space-y-4 max-h-[300px] overflow-y-auto pr-1">
+                        {(() => {
+                            const jaLines = (card.example || '').split('\n');
+                            const viLines = (card.exampleMeaning || '').split('\n');
+                            const maxLines = Math.max(jaLines.length, viLines.length, 1);
+                            
+                            return Array.from({ length: maxLines }).map((_, idx) => {
+                                const jaVal = jaLines[idx] || '';
+                                const viVal = viLines[idx] || '';
+                                
+                                return (
+                                    <div key={idx} className="space-y-2 border-b border-slate-150 dark:border-slate-800/50 pb-3 last:border-b-0 last:pb-0">
+                                        <div className="flex items-center justify-between">
+                                            <span className="text-[10px] font-bold text-slate-450 dark:text-slate-500 uppercase tracking-wider">Ví dụ #{idx + 1}</span>
+                                            {maxLines > 1 && (
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        const newJaLines = jaLines.filter((_, i) => i !== idx);
+                                                        const newViLines = viLines.filter((_, i) => i !== idx);
+                                                        onUpdate(card.id, 'example', newJaLines.join('\n'));
+                                                        onUpdate(card.id, 'exampleMeaning', newViLines.join('\n'));
+                                                    }}
+                                                    className="text-[10px] font-bold text-red-505 hover:text-red-650 transition-colors cursor-pointer"
+                                                >
+                                                    Xóa ví dụ này
+                                                </button>
+                                            )}
+                                        </div>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <input
+                                                    type="text"
+                                                    value={jaVal}
+                                                    onChange={(e) => {
+                                                        const updated = [...jaLines];
+                                                        while (updated.length < idx) updated.push('');
+                                                        updated[idx] = e.target.value;
+                                                        onUpdate(card.id, 'example', updated.join('\n'));
+                                                    }}
+                                                    placeholder="Câu ví dụ tiếng Nhật"
+                                                    className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-1.5 text-sm text-slate-750 dark:text-slate-250 outline-none"
+                                                />
+                                            </div>
+                                            <div>
+                                                <input
+                                                    type="text"
+                                                    value={viVal}
+                                                    onChange={(e) => {
+                                                        const updated = [...viLines];
+                                                        while (updated.length < idx) updated.push('');
+                                                        updated[idx] = e.target.value;
+                                                        onUpdate(card.id, 'exampleMeaning', updated.join('\n'));
+                                                    }}
+                                                    placeholder="Nghĩa câu ví dụ (Việt)"
+                                                    className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-1.5 text-sm text-slate-500 dark:text-slate-450 outline-none"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            });
+                        })()}
                     </div>
 
                     {onGenerateMoreExample && card.back.includes(';') && (
