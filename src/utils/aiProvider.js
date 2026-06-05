@@ -33,7 +33,13 @@ export const getOpenRouterKeys = () => {
 
 // ============== OPENROUTER API CALL ==============
 
-const OPENROUTER_MODELS = ['google/gemini-2.5-flash', 'google/gemini-3.1-flash-lite'];
+const OPENROUTER_MODELS = [
+    'google/gemini-2.5-flash',
+    'google/gemini-3.1-flash-lite',
+    'openai/gpt-4o-mini',
+    'deepseek/deepseek-chat',
+    'meta-llama/llama-3.1-8b-instruct'
+];
 
 const buildOpenRouterRequest = (prompt, model, apiKey) => ({
     url: 'https://openrouter.ai/api/v1/chat/completions',
@@ -52,7 +58,11 @@ const buildOpenRouterRequest = (prompt, model, apiKey) => ({
                 { role: 'user', content: prompt }
             ],
             temperature: 0.3,
-            max_tokens: 2048
+            max_tokens: 2048,
+            provider: {
+                sort: 'price',
+                allow_fallbacks: true
+            }
         })
     }
 });

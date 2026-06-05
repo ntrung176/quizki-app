@@ -233,7 +233,6 @@ export const OPENROUTER_MODELS = [
     { value: 'google/gemini-3.1-flash-lite', label: 'Gemini 3.1 Flash-Lite' },
     { value: 'deepseek/deepseek-chat', label: 'DeepSeek V3' },
     { value: 'openai/gpt-4o-mini', label: 'GPT-4o Mini' },
-    { value: 'meta-llama/llama-3.3-70b-instruct', label: 'Llama 3.3 70B' },
     { value: 'meta-llama/llama-3.1-8b-instruct', label: 'Llama 3.1 8B' },
 ];
 export const AI_FEATURES = [
