@@ -233,6 +233,42 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
         }
     };
 
+    const handleUpdateTrialTier = async (tier) => {
+        if (!profile) return;
+        try {
+            const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
+            let simulatedCredits = null;
+            if (tier === 'free') simulatedCredits = 50;
+            else if (tier === 'premium_unlock') simulatedCredits = 200;
+            else if (tier === 'ai_basic_annual') simulatedCredits = 2000;
+            else if (tier === 'ai_pro_annual') simulatedCredits = 6000;
+            else if (tier === 'combo_ultimate') simulatedCredits = 6000;
+
+            await updateDoc(profileRef, {
+                trialPricingTier: tier || null,
+                simulatedCredits: simulatedCredits
+            });
+            alert(`Đã đổi gói giả lập thành công sang: ${tier || 'Thực tế'}`);
+        } catch (e) {
+            console.error('Lỗi cập nhật trial tier:', e);
+            alert('Lỗi cập nhật: ' + e.message);
+        }
+    };
+
+    const handleUpdateSimulatedCredits = async (credits) => {
+        if (!profile) return;
+        try {
+            const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
+            await updateDoc(profileRef, {
+                simulatedCredits: Number(credits)
+            });
+            alert(`Đã cập nhật lượt AI giả lập: ${credits}`);
+        } catch (e) {
+            console.error('Lỗi cập nhật lượt AI giả lập:', e);
+            alert('Lỗi: ' + e.message);
+        }
+    };
+
     // Voucher handling
     const handleApplyVoucher = async () => {
         if (!voucherCode.trim()) return;
@@ -747,46 +783,102 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
 
                 {/* Tab: Thử Nghiệm Mở Khóa */}
                 {adminTab === 'simulation' && (
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                         <div className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900 rounded-2xl p-4 flex gap-3 text-xs text-amber-800 dark:text-amber-300">
-                            <AlertTriangle className="w-5 h-5 flex-shrink-0" />
+                            <AlertTriangle className="w-5 h-5 flex-shrink-0 text-amber-500" />
                             <div>
-                                <p className="font-bold mb-1">MÔ PHỎNG MỞ KHÓA TÍNH NĂNG:</p>
-                                <p>Admin có thể tích chọn mở khóa các gói tính năng chuyên sâu ở dưới để xem ngay sự thay đổi giao diện (đã sở hữu) mà không cần tiến hành giao dịch chuyển khoản thật.</p>
+                                <p className="font-bold mb-1">CHẾ ĐỘ GIẢ LẬP GÓI CƯỚC (DÀNH CHO ADMIN):</p>
+                                <p>Admin có thể tự chuyển đổi tài khoản của mình sang các gói cước khác nhau để kiểm tra giới hạn tạo học phần (tối đa 3), từ vựng (tối đa 20/học phần) và lượt AI tương ứng. Các tài khoản người dùng khác hoàn toàn không bị ảnh hưởng.</p>
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
-                            {specializedPackages.map(pkg => {
-                                const isUnlocked = unlockedPackages.includes(pkg.id);
-                                return (
-                                    <div 
-                                        key={pkg.id} 
-                                        onClick={() => handleToggleSimulateUnlock(pkg.id)}
-                                        className={`p-4 rounded-2xl border-2 cursor-pointer transition-all flex items-center justify-between ${
-                                            isUnlocked 
-                                                ? 'border-emerald-500 bg-emerald-50/30 dark:bg-emerald-950/10' 
-                                                : 'border-gray-200 dark:border-slate-700 bg-slate-50/30'
-                                        }`}
+                        {/* Phần 1: Giả lập gói cước chính */}
+                        <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-5 bg-slate-50/50 dark:bg-slate-900/30">
+                            <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-1.5 font-bold">
+                                <Crown className="w-4 h-4 text-indigo-500" />
+                                1. Giả lập Gói cước chính
+                            </h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label className="text-xs font-bold text-gray-600 dark:text-slate-400 block mb-2">Chọn gói cước muốn test</label>
+                                    <select
+                                        value={profile?.trialPricingTier || ''}
+                                        onChange={(e) => handleUpdateTrialTier(e.target.value)}
+                                        className="w-full px-3.5 py-2.5 text-sm bg-white dark:bg-slate-850 border border-gray-300 dark:border-slate-650 rounded-xl dark:text-white font-semibold focus:ring-2 focus:ring-indigo-500"
                                     >
-                                        <div className="flex items-center gap-2.5">
-                                            <div className="w-8 h-8 rounded-lg bg-gray-250 flex items-center justify-center font-bold">
-                                                {isUnlocked ? '✓' : '🔒'}
-                                            </div>
-                                            <div>
-                                                <p className="font-bold text-xs text-gray-900 dark:text-white">{pkg.name}</p>
-                                                <p className="text-[10px] text-gray-500">ID: {pkg.id}</p>
-                                            </div>
+                                        <option value="">Không giả lập (Dùng gói thực tế)</option>
+                                        <option value="free">Gói MIỄN PHÍ (Giới hạn 3 học phần, 20 từ/học phần, 50 AI)</option>
+                                        <option value="premium_unlock">Gói PREMIUM UNLOCK (Mở khóa trọn đời, 200 AI)</option>
+                                        <option value="ai_basic_annual">Gói AI BASIC ANNUAL (Chỉ dùng AI, 2000 AI/năm)</option>
+                                        <option value="ai_pro_annual">Gói AI PRO ANNUAL (Chỉ dùng AI, 6000 AI/năm)</option>
+                                        <option value="combo_ultimate">Gói COMBO ULTIMATE (Mở khóa trọn đời + 6000 AI/năm)</option>
+                                    </select>
+                                </div>
+
+                                {profile?.trialPricingTier && (
+                                    <div>
+                                        <label className="text-xs font-bold text-gray-600 dark:text-slate-400 block mb-2">Số lượt AI giả lập hiện tại</label>
+                                        <div className="flex gap-2">
+                                            <input
+                                                type="number"
+                                                defaultValue={profile?.simulatedCredits ?? 50}
+                                                id="simulatedCreditsInput"
+                                                className="w-32 px-3.5 py-2.5 text-sm bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-xl dark:text-white font-bold"
+                                            />
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    const val = Number(document.getElementById('simulatedCreditsInput')?.value) || 0;
+                                                    handleUpdateSimulatedCredits(val);
+                                                }}
+                                                className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl transition-all shadow-md shadow-indigo-100 dark:shadow-none"
+                                            >
+                                                Cập nhật
+                                            </button>
                                         </div>
-                                        <input 
-                                            type="checkbox" 
-                                            checked={isUnlocked} 
-                                            onChange={() => {}} // handled by div click
-                                            className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 border-gray-300"
-                                        />
                                     </div>
-                                );
-                            })}
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Phần 2: Giả lập các gói chuyên sâu Zen */}
+                        <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-5 bg-slate-50/50 dark:bg-slate-900/30">
+                            <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-1.5 font-bold">
+                                <Sparkles className="w-4 h-4 text-purple-500" />
+                                2. Mở khóa Gói tính năng chuyên sâu Zen
+                            </h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                {specializedPackages.map(pkg => {
+                                    const isUnlocked = unlockedPackages.includes(pkg.id);
+                                    return (
+                                        <div 
+                                            key={pkg.id} 
+                                            onClick={() => handleToggleSimulateUnlock(pkg.id)}
+                                            className={`p-4 rounded-2xl border-2 cursor-pointer transition-all flex items-center justify-between ${
+                                                isUnlocked 
+                                                    ? 'border-emerald-500 bg-emerald-50/30 dark:bg-emerald-950/10' 
+                                                    : 'border-gray-200 dark:border-slate-700 bg-slate-50/30'
+                                            }`}
+                                        >
+                                            <div className="flex items-center gap-2.5">
+                                                <div className="w-8 h-8 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center font-bold">
+                                                    {isUnlocked ? '✓' : '🔒'}
+                                                </div>
+                                                <div>
+                                                    <p className="font-bold text-xs text-gray-900 dark:text-white">{pkg.name}</p>
+                                                    <p className="text-[10px] text-gray-500">ID: {pkg.id}</p>
+                                                </div>
+                                            </div>
+                                            <input 
+                                                type="checkbox" 
+                                                checked={isUnlocked} 
+                                                onChange={() => {}} // handled by div click
+                                                className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 border-gray-300"
+                                            />
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
                 )}

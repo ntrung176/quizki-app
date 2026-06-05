@@ -225,7 +225,41 @@ const App = () => {
         return () => window.removeEventListener('quizki-settings-changed', handleSettings);
     }, []);
 
-    const [profile, setProfile] = useState(null);
+    const [rawProfile, setProfile] = useState(null);
+    const profile = useMemo(() => {
+        if (!rawProfile) return null;
+        const tier = rawProfile.trialPricingTier;
+        if (!tier) return rawProfile;
+
+        const overrides = {};
+        if (tier === 'free') {
+            overrides.isPremiumUnlocked = false;
+            overrides.aiCreditsRemaining = rawProfile.simulatedCredits !== undefined && rawProfile.simulatedCredits !== null 
+                ? rawProfile.simulatedCredits 
+                : 50;
+        } else if (tier === 'premium_unlock') {
+            overrides.isPremiumUnlocked = true;
+            overrides.aiCreditsRemaining = rawProfile.simulatedCredits !== undefined && rawProfile.simulatedCredits !== null 
+                ? rawProfile.simulatedCredits 
+                : 200;
+        } else if (tier === 'ai_basic_annual') {
+            overrides.isPremiumUnlocked = false;
+            overrides.aiCreditsRemaining = rawProfile.simulatedCredits !== undefined && rawProfile.simulatedCredits !== null 
+                ? rawProfile.simulatedCredits 
+                : 2000;
+        } else if (tier === 'ai_pro_annual') {
+            overrides.isPremiumUnlocked = false;
+            overrides.aiCreditsRemaining = rawProfile.simulatedCredits !== undefined && rawProfile.simulatedCredits !== null 
+                ? rawProfile.simulatedCredits 
+                : 6000;
+        } else if (tier === 'combo_ultimate') {
+            overrides.isPremiumUnlocked = true;
+            overrides.aiCreditsRemaining = rawProfile.simulatedCredits !== undefined && rawProfile.simulatedCredits !== null 
+                ? rawProfile.simulatedCredits 
+                : 6000;
+        }
+        return { ...rawProfile, ...overrides };
+    }, [rawProfile]);
     // Danh sách API keys cho OpenRouter
     const [geminiApiKeys] = useState(() => {
         return getOpenRouterKeys();
@@ -1468,6 +1502,14 @@ const App = () => {
 
     const handleAddFolder = async (name, description = '', coverImage = null) => {
         if (!studySetsCollectionPath) return null;
+        
+        // Kiểm tra giới hạn 3 học phần của gói Miễn phí
+        const isRestricted = profile?.trialPricingTier === 'free' || profile?.isPremiumUnlocked === false;
+        if (isRestricted && studySets.length >= 3) {
+            setNotification('⚠️ Bạn đã đạt giới hạn 3 học phần của gói Miễn phí. Vui lòng nâng cấp gói!');
+            return null;
+        }
+
         try {
             const folderRef = await addDoc(collection(db, studySetsCollectionPath), {
                 name,
@@ -1515,6 +1557,17 @@ const App = () => {
 
     const handleMoveCardToFolder = async (cardId, folderId) => {
         if (!vocabCollectionPath || !cardId) return;
+
+        // Kiểm tra giới hạn 20 từ vựng của gói Miễn phí
+        const isRestricted = profile?.trialPricingTier === 'free' || profile?.isPremiumUnlocked === false;
+        if (isRestricted && folderId && folderId !== 'unfiled') {
+            const folderCards = allCards.filter(c => c.folderId === folderId);
+            if (folderCards.length >= 20) {
+                setNotification('⚠️ Học phần mục tiêu đã đạt giới hạn 20 từ vựng của gói Miễn phí!');
+                return;
+            }
+        }
+
         try {
             const val = folderId === 'unfiled' || !folderId ? null : folderId;
             await updateDoc(doc(db, vocabCollectionPath, cardId), { folderId: val });
@@ -1579,6 +1632,16 @@ const App = () => {
 
     const handleAddCard = async ({ front, back, synonym, example, exampleMeaning, nuance, pos, level, action, imageBase64, audioBase64, exampleAudioBase64, sinoVietnamese, synonymSinoVietnamese, folderId }) => {
         if (!vocabCollectionPath) return false;
+
+        // Kiểm tra giới hạn 20 từ vựng của gói Miễn phí
+        const isRestricted = profile?.trialPricingTier === 'free' || profile?.isPremiumUnlocked === false;
+        if (isRestricted && folderId && folderId !== 'unfiled') {
+            const folderCards = allCards.filter(c => c.folderId === folderId);
+            if (folderCards.length >= 20) {
+                setNotification('⚠️ Học phần này đã đạt giới hạn 20 từ vựng của gói Miễn phí. Vui lòng nâng cấp gói!');
+                return false;
+            }
+        }
 
         // Kiểm tra trùng lặp với database của user trong cùng học phần
         const normalizedFront = front.split('（')[0].split('(')[0].trim().toLowerCase();
@@ -2661,6 +2724,24 @@ const App = () => {
         }
     };
 
+    const deductOneAiCredit = async () => {
+        if (!settingsDocPath) return;
+        try {
+            const isTrial = !!profile?.trialPricingTier;
+            if (isTrial) {
+                const newCredits = Math.max(0, (profile?.simulatedCredits || 0) - 1);
+                await updateDoc(doc(db, settingsDocPath), { simulatedCredits: newCredits });
+                setProfile(prev => ({ ...prev, simulatedCredits: newCredits }));
+            } else {
+                const newCredits = Math.max(0, (profile?.aiCreditsRemaining || 0) - 1);
+                await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: newCredits });
+                setProfile(prev => ({ ...prev, aiCreditsRemaining: newCredits }));
+            }
+        } catch (e) {
+            console.warn('Lỗi khấu trừ AI credit:', e);
+        }
+    };
+
     // --- UNIFIED AI ASSISTANT (OpenRouter only) ---
     const handleGeminiAssist = async (frontText, contextPos = '', contextLevel = '', isRetry = false) => {
         if (!frontText) return null;
@@ -2722,12 +2803,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
 
                 // Luôn trừ credit mỗi khi bấm nút theo yêu cầu của user
                 if (!isRetry && settingsDocPath) {
-                    try {
-                        const newCredits = Math.max(0, (profile?.aiCreditsRemaining || 0) - 1);
-                        await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: newCredits });
-                        setProfile(prev => ({ ...prev, aiCreditsRemaining: newCredits }));
-                        console.log(`💳 BookVocab HIT - Vẫn tính AI Credits: ${newCredits} còn lại`);
-                    } catch (e) { console.warn('Deduct credit error:', e); }
+                    await deductOneAiCredit();
                 }
 
                 console.log(`📚 ✅ Dùng dữ liệu từ sách cho "${frontText}"`);
@@ -2792,12 +2868,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
 
                 // Trừ 1 credit: CHỈ trừ khi lần đầu (không phải retry), trừ cho TẤT CẢ (gồm cả admin) để hiển thị số đúng
                 if (!isRetry && settingsDocPath) {
-                    try {
-                        const newCredits = Math.max(0, (profile?.aiCreditsRemaining || 0) - 1);
-                        await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: newCredits });
-                        setProfile(prev => ({ ...prev, aiCreditsRemaining: newCredits }));
-                        console.log(`💳 AI Credits: ${newCredits} còn lại`);
-                    } catch (e) { console.warn('Deduct credit error:', e); }
+                    await deductOneAiCredit();
                 } else if (isRetry) {
                     console.log(`🔄 Retry mode: KHÔNG trừ credit`);
                 }
@@ -2884,12 +2955,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             if (result && Array.isArray(result)) {
                 // Trừ 1 credit
                 if (settingsDocPath) {
-                    try {
-                        const newCredits = Math.max(0, (profile?.aiCreditsRemaining || 0) - 1);
-                        await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: newCredits });
-                        setProfile(prev => ({ ...prev, aiCreditsRemaining: newCredits }));
-                        console.log(`💳 AI Credits: ${newCredits} còn lại sau khi quét ảnh`);
-                    } catch (e) { console.warn('Deduct credit error:', e); }
+                    await deductOneAiCredit();
                 }
                 return result;
             } else {
@@ -3537,6 +3603,27 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             )}
 
             <main className={`lg:ml-64 min-h-screen pt-14 lg:pt-0 flex flex-col ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
+                {profile?.trialPricingTier && (
+                    <div className="bg-indigo-600 text-white text-xs font-semibold px-4 py-2.5 flex items-center justify-between shadow-md relative z-40">
+                        <div className="flex items-center gap-2">
+                            <span className="bg-white/25 text-white px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider">TEST MODE</span>
+                            <span>Đang giả lập gói: <strong className="underline">{profile.trialPricingTier.toUpperCase()}</strong>. {profile.trialPricingTier === 'free' ? 'Giới hạn: 3 học phần, 20 từ/học phần' : 'Không giới hạn học phần/từ vựng'} | Lượt AI giả lập: <strong>{profile.aiCreditsRemaining}</strong></span>
+                        </div>
+                        <button 
+                            onClick={async () => {
+                                try {
+                                    const { doc, updateDoc } = await import('firebase/firestore');
+                                    const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
+                                    await updateDoc(profileRef, { trialPricingTier: null, simulatedCredits: null });
+                                    alert('Đã tắt giả lập, quay về tài khoản thực tế!');
+                                } catch (e) { console.error(e); }
+                            }}
+                            className="bg-white text-indigo-700 font-bold px-2 py-0.5 rounded hover:bg-gray-100 transition-all text-[10px]"
+                        >
+                            Tắt giả lập
+                        </button>
+                    </div>
+                )}
                 <div className={`${isReviewSessionPage ? 'w-full flex-1 flex items-center justify-center bg-transparent py-4 md:py-8' : ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'w-full flex-1' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6'}`}>
                     {/* Main content container - transparent */}
                     <div className={`w-full ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
