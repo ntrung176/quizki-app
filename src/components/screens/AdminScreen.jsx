@@ -921,11 +921,11 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {AI_FEATURES.map((feature) => {
                                 const FEATURE_DEFAULTS = {
-                                    vocab_gen: 'deepseek/deepseek-chat',
+                                    vocab_gen: 'openai/gpt-4o-mini',
                                     vocab_sino_viet: 'google/gemini-3.1-flash-lite',
-                                    more_examples: 'deepseek/deepseek-chat',
+                                    more_examples: 'openai/gpt-4o-mini',
                                     ocr_image: 'openai/gpt-4o-mini',
-                                    grammar_check: 'deepseek/deepseek-chat'
+                                    grammar_check: 'openai/gpt-4o-mini'
                                 };
                                 const currentValue = adminConfig?.aiFeatureModels?.[feature.id] || FEATURE_DEFAULTS[feature.id] || 'google/gemini-2.5-flash';
                                 return (

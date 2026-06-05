@@ -158,11 +158,11 @@ export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = n
     }
     if (!activeModel) {
         const FEATURE_DEFAULTS = {
-            vocab_gen: 'deepseek/deepseek-chat',
+            vocab_gen: 'openai/gpt-4o-mini',
             vocab_sino_viet: 'google/gemini-3.1-flash-lite',
-            more_examples: 'deepseek/deepseek-chat',
+            more_examples: 'openai/gpt-4o-mini',
             ocr_image: 'openai/gpt-4o-mini',
-            grammar_check: 'deepseek/deepseek-chat'
+            grammar_check: 'openai/gpt-4o-mini'
         };
         activeModel = FEATURE_DEFAULTS[featureId] || 'google/gemini-2.5-flash';
     }

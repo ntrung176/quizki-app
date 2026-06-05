@@ -2774,7 +2774,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             const providerInfo = getAIProviderInfo();
             console.log(`🤖 AI Provider: ${providerInfo.summary}`);
 
-            const forcedModel = adminConfig?.aiFeatureModels?.vocab_gen || 'deepseek/deepseek-chat';
+            const forcedModel = adminConfig?.aiFeatureModels?.vocab_gen || 'openai/gpt-4o-mini';
             const responseText = await callAI(prompt, forcedModel);
             const parsedJson = parseJsonFromAI(responseText);
 
@@ -2832,7 +2832,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             const { generateMoreExamplePrompt } = await import('./utils/aiProvider');
             const prompt = generateMoreExamplePrompt(frontText, targetMeaning);
 
-            const forcedModel = adminConfig?.aiFeatureModels?.more_examples || 'deepseek/deepseek-chat';
+            const forcedModel = adminConfig?.aiFeatureModels?.more_examples || 'openai/gpt-4o-mini';
             const responseText = await callAI(prompt, forcedModel);
             const parsedJson = parseJsonFromAI(responseText);
             if (parsedJson) return parsedJson;
