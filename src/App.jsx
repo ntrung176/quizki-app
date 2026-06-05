@@ -2693,7 +2693,7 @@ const App = () => {
                         // Nếu tra cứu cứng không có (ví dụ từ không ghi kanji dạng như かける, てんぷら), gọi AI để tạo âm Hán Việt
                         console.log(`🤖 Hán Việt không có Kanji trong từ gốc hoặc thiếu - Gọi AI tạo âm Hán Việt cho "${result.front || frontText}"`);
                         try {
-                            const model = adminConfig?.aiFeatureModels?.vocab_sino_viet || adminConfig?.openRouterModel || 'google/gemini-2.5-flash';
+                            const model = adminConfig?.aiFeatureModels?.vocab_sino_viet || 'google/gemini-3.1-flash-lite';
                             const hvPrompt = `Bạn là một chuyên gia ngôn ngữ tiếng Nhật và Hán Việt.
 Hãy tìm chữ Hán (Kanji) tương ứng và dịch sang âm Hán Việt (IN HOA) cho từ vựng tiếng Nhật dưới đây.
 Từ gốc: "${result.front || frontText}"
@@ -2774,7 +2774,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             const providerInfo = getAIProviderInfo();
             console.log(`🤖 AI Provider: ${providerInfo.summary}`);
 
-            const forcedModel = adminConfig?.aiFeatureModels?.vocab_gen || adminConfig?.openRouterModel || 'google/gemini-2.5-flash';
+            const forcedModel = adminConfig?.aiFeatureModels?.vocab_gen || 'deepseek/deepseek-chat';
             const responseText = await callAI(prompt, forcedModel);
             const parsedJson = parseJsonFromAI(responseText);
 
@@ -2832,7 +2832,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             const { generateMoreExamplePrompt } = await import('./utils/aiProvider');
             const prompt = generateMoreExamplePrompt(frontText, targetMeaning);
 
-            const forcedModel = adminConfig?.aiFeatureModels?.more_examples || adminConfig?.openRouterModel || 'google/gemini-2.5-flash';
+            const forcedModel = adminConfig?.aiFeatureModels?.more_examples || 'deepseek/deepseek-chat';
             const responseText = await callAI(prompt, forcedModel);
             const parsedJson = parseJsonFromAI(responseText);
             if (parsedJson) return parsedJson;

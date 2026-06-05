@@ -895,28 +895,14 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                 <div className="space-y-4">
                     {/* AI Provider Selection */}
                     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
-                        <div className="flex items-center gap-3 mb-4">
+                        <div className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
                                 <Bot className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                             </div>
                             <div>
                                 <p className="font-bold text-gray-800 dark:text-white">AI Provider: OpenRouter</p>
-                                <p className="text-xs text-gray-500 dark:text-gray-400">Sử dụng các mô hình Gemini qua OpenRouter</p>
+                                <p className="text-xs text-gray-500 dark:text-gray-400">Sử dụng các mô hình AI chất lượng cao thông qua OpenRouter</p>
                             </div>
-                        </div>
-
-                        {/* OpenRouter Model Selection */}
-                        <div>
-                            <p className="font-bold text-sm text-gray-800 dark:text-white mb-2">Mô hình OpenRouter mặc định (Fallback)</p>
-                            <select
-                                value={adminConfig?.openRouterModel || 'google/gemini-2.5-flash'}
-                                onChange={(e) => handleChangeOpenRouterModel(e.target.value)}
-                                className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-xl outline-none text-sm dark:text-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium"
-                            >
-                                {OPENROUTER_MODELS.map(model => (
-                                    <option key={model.value} value={model.value}>{model.label}</option>
-                                ))}
-                            </select>
                         </div>
                     </div>
 
@@ -934,7 +920,14 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {AI_FEATURES.map((feature) => {
-                                const currentValue = adminConfig?.aiFeatureModels?.[feature.id] || adminConfig?.openRouterModel || 'google/gemini-2.5-flash';
+                                const FEATURE_DEFAULTS = {
+                                    vocab_gen: 'deepseek/deepseek-chat',
+                                    vocab_sino_viet: 'google/gemini-3.1-flash-lite',
+                                    more_examples: 'deepseek/deepseek-chat',
+                                    ocr_image: 'openai/gpt-4o-mini',
+                                    grammar_check: 'deepseek/deepseek-chat'
+                                };
+                                const currentValue = adminConfig?.aiFeatureModels?.[feature.id] || FEATURE_DEFAULTS[feature.id] || 'google/gemini-2.5-flash';
                                 return (
                                     <div key={feature.id} className="p-4 rounded-xl border border-gray-100 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-900/10 flex flex-col justify-between gap-3 hover:border-indigo-500/20 transition-all duration-200">
                                         <div>

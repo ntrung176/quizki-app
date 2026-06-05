@@ -76,11 +76,11 @@ const DEFAULT_ADMIN_CONFIG = {
     aiProvider: 'openrouter',
     openRouterModel: 'google/gemini-2.5-flash',
     aiFeatureModels: {
-        vocab_gen: 'google/gemini-2.5-flash',
-        vocab_sino_viet: 'google/gemini-2.5-flash',
-        more_examples: 'google/gemini-2.5-flash',
-        ocr_image: 'google/gemini-2.5-flash',
-        grammar_check: 'google/gemini-2.5-flash'
+        vocab_gen: 'deepseek/deepseek-chat',
+        vocab_sino_viet: 'google/gemini-3.1-flash-lite',
+        more_examples: 'deepseek/deepseek-chat',
+        ocr_image: 'openai/gpt-4o-mini',
+        grammar_check: 'deepseek/deepseek-chat'
     },
     aiAllowedUsers: [],
     aiAllowAll: false,

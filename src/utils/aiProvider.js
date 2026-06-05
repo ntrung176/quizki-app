@@ -151,15 +151,20 @@ export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = n
             const config = await loadAdminConfig();
             if (featureId && config?.aiFeatureModels?.[featureId]) {
                 activeModel = config.aiFeatureModels[featureId];
-            } else {
-                activeModel = config?.openRouterModel;
             }
         } catch (e) {
             console.warn('Failed to load admin config for AI model:', e);
         }
     }
     if (!activeModel) {
-        activeModel = 'google/gemini-2.5-flash';
+        const FEATURE_DEFAULTS = {
+            vocab_gen: 'deepseek/deepseek-chat',
+            vocab_sino_viet: 'google/gemini-3.1-flash-lite',
+            more_examples: 'deepseek/deepseek-chat',
+            ocr_image: 'openai/gpt-4o-mini',
+            grammar_check: 'deepseek/deepseek-chat'
+        };
+        activeModel = FEATURE_DEFAULTS[featureId] || 'google/gemini-2.5-flash';
     }
 
     console.log(`🤖 OpenRouter (${keys.length} keys) — Feature: ${featureId || 'default'} — Model: ${activeModel}`);
