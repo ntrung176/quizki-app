@@ -75,6 +75,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
     const triggerRef = useRef(null);
     const isDraggingRef = useRef(false);
     const startCaretRef = useRef(null);
+    const lastCaretRef = useRef(null);
     const [horizontalOffset, setHorizontalOffset] = useState(0);
     const [placeBelow, setPlaceBelow] = useState(false);
     const [maxHeight, setMaxHeight] = useState('85vh');
@@ -199,6 +200,10 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                         node: range.startContainer,
                         offset: range.startOffset
                     };
+                    lastCaretRef.current = {
+                        node: range.startContainer,
+                        offset: range.startOffset
+                    };
                 }
             }
         };
@@ -211,19 +216,33 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
 
             const range = getCaretRangeFromPoint(clientX, clientY);
             if (range && range.startContainer) {
-                const selection = window.getSelection();
-                try {
-                    selection.removeAllRanges();
-                    selection.collapse(startCaretRef.current.node, startCaretRef.current.offset);
-                    selection.extend(range.startContainer, range.startOffset);
-                } catch (err) {
-                    // Ignore transient DOM exceptions
+                const node = range.startContainer;
+                const offset = range.startOffset;
+
+                // Only adjust selection when the pointer has actually crossed onto a new character/node!
+                // This prevents flickering and makes dragging extremely smooth.
+                if (
+                    !lastCaretRef.current ||
+                    lastCaretRef.current.node !== node ||
+                    lastCaretRef.current.offset !== offset
+                ) {
+                    lastCaretRef.current = { node, offset };
+                    const selection = window.getSelection();
+                    try {
+                        selection.removeAllRanges();
+                        selection.collapse(startCaretRef.current.node, startCaretRef.current.offset);
+                        selection.extend(node, offset);
+                    } catch (err) {
+                        // Ignore transient DOM exceptions
+                    }
                 }
             }
         };
 
         const handleEnd = () => {
             isDraggingRef.current = false;
+            startCaretRef.current = null;
+            lastCaretRef.current = null;
         };
 
         // Mouse listeners
