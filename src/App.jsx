@@ -4,7 +4,7 @@ import { useNavigate, useLocation, Navigate } from 'react-router-dom';
 
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signOut, updatePassword } from 'firebase/auth'
-import { getFirestore, doc, setDoc, addDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, getDocs, writeBatch, increment, collectionGroup, deleteField } from 'firebase/firestore'
+import { getFirestore, doc, setDoc, addDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, getDocs, writeBatch, increment, collectionGroup, deleteField, where } from 'firebase/firestore'
 import { Loader2, CheckCircle, HelpCircle, Save, AlertTriangle, Check, X, Filter, Wrench, LogOut } from 'lucide-react'
 import { PieChart } from 'recharts'
 
@@ -1546,16 +1546,35 @@ const App = () => {
         try {
             // Remove folder
             await deleteDoc(doc(db, studySetsCollectionPath, folderId));
-            // Remove folderId from all cards that had it
+            
+            // Delete all cards inside this folder directly from Firestore
+            const q = query(collection(db, vocabCollectionPath), where("folderId", "==", folderId));
+            const snapshot = await getDocs(q);
             const batch = writeBatch(db);
-            let hasUpdates = false;
-            allCards.forEach(card => {
-                if (card.folderId === folderId) {
-                    batch.update(doc(db, vocabCollectionPath, card.id), { folderId: null });
-                    hasUpdates = true;
-                }
+            snapshot.forEach((doc) => {
+                batch.delete(doc.ref);
             });
-            if (hasUpdates) await batch.commit();
+            if (!snapshot.empty) {
+                await batch.commit();
+            }
+
+            // Clean up card-to-folder mapping cache in local storage
+            try {
+                const folderKey = userId ? `vocab_card_folders_${userId}` : 'vocab_card_folders';
+                const savedFolders = JSON.parse(localStorage.getItem(folderKey) || '{}');
+                let localChanged = false;
+                Object.keys(savedFolders).forEach(cardId => {
+                    if (savedFolders[cardId] === folderId) {
+                        delete savedFolders[cardId];
+                        localChanged = true;
+                    }
+                });
+                if (localChanged) {
+                    localStorage.setItem(folderKey, JSON.stringify(savedFolders));
+                }
+            } catch (localErr) {
+                console.error('Lỗi khi xoá local storage mapping:', localErr);
+            }
         } catch (e) {
             console.error('Lỗi khi xoá học phần:', e);
         }
@@ -2143,6 +2162,10 @@ const App = () => {
                 updatedData.audioBase64 = fields.audioBase64;
             }
 
+            if (fields.folderId !== undefined) {
+                updatedData.folderId = fields.folderId;
+            }
+
             // Tự động tạo audio mới nếu đổi front text hoặc chưa có audio (chạy ngầm)
             const oldCard = allCards.find(c => c.id === cardId);
             const oldSpeechText = oldCard ? getSpeechText(oldCard.front) : '';
@@ -2440,21 +2463,54 @@ const App = () => {
     const scrollToCardIdRef = useRef(null);
     // Lưu view trước đó để phát hiện thay đổi view
     const prevViewRef = useRef(view);
+    const prevPathnameRef = useRef(location.pathname);
 
-    // Scroll về đầu trang khi chuyển view (trừ khi có scrollToCardId)
+    // Scroll về đầu trang khi chuyển view hoặc route (trừ khi có scrollToCardId)
     useEffect(() => {
-        // Nếu view thay đổi và không phải scroll đến card cụ thể
-        if (prevViewRef.current !== view && !scrollToCardIdRef.current) {
-            // Scroll về đầu trang
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            // Nếu có container chính, scroll container đó
-            const mainContainer = document.querySelector('.main-with-header');
-            if (mainContainer) {
-                mainContainer.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+        // Nếu view hoặc pathname thay đổi và không phải scroll đến card cụ thể
+        if ((prevViewRef.current !== view || prevPathnameRef.current !== location.pathname) && !scrollToCardIdRef.current) {
+            const resetScroll = () => {
+                window.scrollTo(0, 0);
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+                document.body.scrollTo(0, 0);
+                document.documentElement.scrollTo(0, 0);
+                
+                const mainContainer = document.querySelector('.main-with-header');
+                if (mainContainer) {
+                    mainContainer.scrollTo(0, 0);
+                }
+
+                const mainEl = document.querySelector('main');
+                if (mainEl) {
+                    mainEl.scrollTo(0, 0);
+                }
+
+                const elements = document.querySelectorAll('*');
+                for (let i = 0; i < elements.length; i++) {
+                    const el = elements[i];
+                    if (el.scrollTop > 0) {
+                        el.scrollTop = 0;
+                    }
+                }
+            };
+
+            // Thực hiện cuộn ngay lập tức
+            resetScroll();
+
+            // Tiếp tục cuộn ở frame tiếp theo và sau đó để ghi đè cơ chế phục hồi scroll mặc định của trình duyệt
+            requestAnimationFrame(resetScroll);
+            const t1 = setTimeout(resetScroll, 50);
+            const t2 = setTimeout(resetScroll, 150);
+
+            return () => {
+                clearTimeout(t1);
+                clearTimeout(t2);
+            };
         }
         prevViewRef.current = view;
-    }, [view]);
+        prevPathnameRef.current = location.pathname;
+    }, [view, location.pathname]);
 
     // Load editingCard from URL parameter when navigating to edit route
     useEffect(() => {

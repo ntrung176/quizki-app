@@ -288,7 +288,11 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
                                                 className="p-1 text-gray-400 hover:text-indigo-500 rounded" title="Đổi tên">
                                                 <Edit className="w-3.5 h-3.5" />
                                             </button>
-                                            <button onClick={() => onDeleteFolder(folder.id)}
+                                            <button onClick={() => {
+                                                if (window.confirm(`Bạn có chắc muốn xoá thư mục "${folder.name}"? Toàn bộ từ vựng trong thư mục này cũng sẽ bị xoá vĩnh viễn.`)) {
+                                                    onDeleteFolder(folder.id);
+                                                }
+                                            }}
                                                 className="p-1 text-gray-400 hover:text-red-500 rounded" title="Xóa thư mục">
                                                 <Trash2 className="w-3.5 h-3.5" />
                                             </button>
@@ -426,7 +430,15 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         children.forEach(c => { ids = [...ids, ...getDescendantIds(c.id, allFolders)]; });
         return ids;
     }, []);
-    const deleteFolder = useCallback((id) => {
+    const deleteFolder = useCallback(async (id) => {
+        const idsToDelete = [id, ...getDescendantIds(id, folders)];
+        // Find all cards inside those folders
+        const cardsToDelete = allCards.filter(c => idsToDelete.includes(cardFolders[c.id]));
+        // Delete each card
+        for (const card of cardsToDelete) {
+            await onDeleteCard(card.id, '');
+        }
+
         setFolders(prev => {
             const idsToDelete = [id, ...getDescendantIds(id, prev)];
             return prev.filter(f => !idsToDelete.includes(f.id));
@@ -441,7 +453,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
         });
         if (filterFolder === id) setFilterFolder('all');
         if (currentFolder === id) setCurrentFolder(null);
-    }, [filterFolder, currentFolder, folders, getDescendantIds]);
+    }, [filterFolder, currentFolder, folders, getDescendantIds, allCards, cardFolders, onDeleteCard]);
     const moveCardToFolder = useCallback((cardId, folderId) => {
         setCardFolders(prev => {
             const next = { ...prev };

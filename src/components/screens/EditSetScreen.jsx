@@ -35,6 +35,7 @@ const EditSetScreen = ({
     cardFolders,
     allCards,
     onRenameFolder,
+    onAddFolder,
     onUpdateCard,
     onDeleteCard,
     onSaveNewCard,
@@ -188,6 +189,11 @@ const EditSetScreen = ({
             return;
         }
 
+        if (folderId === 'unfiled' && !title.trim()) {
+            showToast('Tiêu đề học phần không được để trống', 'error');
+            return;
+        }
+
         setIsSaving(true);
 
         // 1. Check for duplicates within the current screen's inputs
@@ -232,27 +238,46 @@ const EditSetScreen = ({
             return;
         }
 
-        // Rename folder if title, description, or coverImage changed
-        if (folder && onRenameFolder && folderId !== 'unfiled') {
-            const hasTitleChanged = title.trim() !== folder.name;
-            const hasDescChanged = description.trim() !== (folder.description || '');
-            const hasCoverChanged = coverImage !== (folder.coverImage || null);
+        let activeFolderId = folderId;
+        // Create new folder if 'unfiled' was renamed/edited
+        if (folderId === 'unfiled') {
+            const hasTitleChanged = title.trim() !== 'Từ vựng lẻ';
+            const hasDescChanged = description.trim() !== 'Các từ vựng không thuộc học phần nào';
+            const hasCoverChanged = coverImage !== null;
 
             if (hasTitleChanged || hasDescChanged || hasCoverChanged) {
-                try {
-                    await onRenameFolder(folderId, { 
-                        name: title.trim(), 
-                        description: description.trim(),
-                        coverImage: coverImage
-                    });
-                } catch (e) {
-                    console.error("Lỗi đổi tên học phần:", e);
+                if (onAddFolder) {
+                    const newId = await onAddFolder(title.trim(), description.trim(), coverImage);
+                    if (!newId) {
+                        setIsSaving(false);
+                        return; // limits or errors handled inside onAddFolder
+                    }
+                    activeFolderId = newId;
+                }
+            }
+        } else {
+            // Rename folder if title, description, or coverImage changed
+            if (folder && onRenameFolder) {
+                const hasTitleChanged = title.trim() !== folder.name;
+                const hasDescChanged = description.trim() !== (folder.description || '');
+                const hasCoverChanged = coverImage !== (folder.coverImage || null);
+
+                if (hasTitleChanged || hasDescChanged || hasCoverChanged) {
+                    try {
+                        await onRenameFolder(folderId, { 
+                            name: title.trim(), 
+                            description: description.trim(),
+                            coverImage: coverImage
+                        });
+                    } catch (e) {
+                        console.error("Lỗi đổi tên học phần:", e);
+                    }
                 }
             }
         }
 
         try {
-            // Save/update cards in parallel (only if new or modified)
+            // Save/update cards in parallel (only if new or modified or folder changed)
             const savePromises = validCards.map(async (card) => {
                 if (card.isNew) {
                     const success = await onSaveNewCard({
@@ -260,7 +285,7 @@ const EditSetScreen = ({
                         id: undefined, // remove temp ID
                         isNew: undefined,
                         action: 'continue',
-                        folderId: folderId
+                        folderId: activeFolderId
                     });
                     if (!success) {
                         throw new Error(`Không thể lưu từ vựng (có thể bị trùng lặp): ${card.front}`);
@@ -268,14 +293,21 @@ const EditSetScreen = ({
                     return success;
                 } else {
                     const orig = originalSetCards.find(c => c.id === card.id);
-                    if (isCardModified(card, orig)) {
-                        return onUpdateCard(card.id, 'all', {
+                    const isModified = isCardModified(card, orig);
+                    const needsFolderUpdate = activeFolderId !== folderId;
+
+                    if (isModified || needsFolderUpdate) {
+                        const updates = {
                             front: card.front, back: card.back, synonym: card.synonym, 
                             example: card.example, exampleMeaning: card.exampleMeaning, 
                             nuance: card.nuance, pos: card.pos, level: card.level, 
                             sinoVietnamese: card.sinoVietnamese, synonymSinoVietnamese: card.synonymSinoVietnamese, 
                             imageBase64: card.imageBase64, audioBase64: card.audioBase64
-                        });
+                        };
+                        if (needsFolderUpdate) {
+                            updates.folderId = activeFolderId;
+                        }
+                        return onUpdateCard(card.id, 'all', updates);
                     }
                     return Promise.resolve(true);
                 }
@@ -289,7 +321,6 @@ const EditSetScreen = ({
         } catch (error) {
             console.error("Lỗi khi lưu học phần:", error);
             showToast("Có lỗi xảy ra khi lưu học phần.", 'error');
-            setIsSaving(false);
         }
     };
 
@@ -330,58 +361,51 @@ const EditSetScreen = ({
                 </div>
 
                 {/* Metadata Card */}
-                {folderId !== 'unfiled' ? (
-                    <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 shadow-sm border border-slate-100 dark:border-slate-800/80 flex flex-col md:flex-row gap-6 items-stretch">
-                        <div className="flex-1 space-y-5">
-                            <div>
-                                <label className="block text-[11px] font-bold text-slate-450 dark:text-slate-500 uppercase tracking-wider mb-1.5">TIÊU ĐỀ HỌC PHẦN</label>
-                                <input
-                                    type="text"
-                                    value={title}
-                                    onChange={(e) => setTitle(e.target.value)}
-                                    placeholder="VD: Từ vựng N3 bài 1..."
-                                    className="w-full px-0 py-2.5 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 text-2xl font-bold text-slate-800 dark:text-white outline-none placeholder-slate-400 transition-colors"
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">THÊM MÔ TẢ</label>
-                                <input
-                                    type="text"
-                                    value={description}
-                                    onChange={(e) => setDescription(e.target.value)}
-                                    placeholder="Mô tả mục tiêu của bộ từ vựng này..."
-                                    className="w-full px-0 py-2 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 text-base text-slate-600 dark:text-slate-200 outline-none placeholder-slate-400 transition-colors"
-                                />
-                            </div>
+                <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 shadow-sm border border-slate-100 dark:border-slate-800/80 flex flex-col md:flex-row gap-6 items-stretch">
+                    <div className="flex-1 space-y-5">
+                        <div>
+                            <label className="block text-[11px] font-bold text-slate-450 dark:text-slate-500 uppercase tracking-wider mb-1.5">TIÊU ĐỀ HỌC PHẦN</label>
+                            <input
+                                type="text"
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
+                                placeholder="VD: Từ vựng N3 bài 1..."
+                                className="w-full px-0 py-2.5 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 text-2xl font-bold text-slate-800 dark:text-white outline-none placeholder-slate-400 transition-colors"
+                            />
                         </div>
-                        <div className="w-full md:w-64 h-36 md:h-auto shrink-0 relative flex items-center justify-center">
-                            {coverImage ? (
-                                <div className="relative w-full h-full rounded-2xl overflow-hidden group/cover">
-                                    <img src={coverImage} alt="Cover Preview" className="w-full h-full object-cover" />
-                                    <button
-                                        type="button"
-                                        onClick={() => setCoverImage(null)}
-                                        className="absolute top-2 right-2 bg-black/60 backdrop-blur-md p-1.5 rounded-full text-white hover:bg-red-500 transition-colors shadow"
-                                        title="Xóa ảnh bìa"
-                                    >
-                                        <X className="w-4 h-4" />
-                                    </button>
-                                </div>
-                            ) : (
-                                <label className="flex flex-col items-center justify-center w-full h-full border-2 border-dashed border-slate-200 dark:border-slate-700 hover:border-indigo-400 rounded-2xl cursor-pointer transition-all bg-slate-50/50 dark:bg-slate-900/20 group/label">
-                                    <ImageIcon className="w-6 h-6 text-slate-450 group-hover/label:text-indigo-500 transition-colors mb-2" />
-                                    <span className="text-xs font-semibold text-slate-400 group-hover/label:text-indigo-500 transition-colors">Thêm ảnh bìa</span>
-                                    <input type="file" accept="image/*" onChange={handleCoverImageChange} className="hidden" />
-                                </label>
-                            )}
+                        <div>
+                            <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">THÊM MÔ TẢ</label>
+                            <input
+                                type="text"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                                placeholder="Mô tả mục tiêu của bộ từ vựng này..."
+                                className="w-full px-0 py-2 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 text-base text-slate-600 dark:text-slate-200 outline-none placeholder-slate-400 transition-colors"
+                            />
                         </div>
                     </div>
-                ) : (
-                    <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 border border-slate-100 dark:border-slate-800/80 shadow-sm">
-                        <h2 className="text-xl font-bold text-slate-800 dark:text-white mb-1">Từ vựng lẻ</h2>
-                        <p className="text-sm text-slate-500 dark:text-slate-400">Các từ vựng không thuộc học phần nào.</p>
+                    <div className="w-full md:w-64 h-36 md:h-auto shrink-0 relative flex items-center justify-center">
+                        {coverImage ? (
+                            <div className="relative w-full h-full rounded-2xl overflow-hidden group/cover">
+                                <img src={coverImage} alt="Cover Preview" className="w-full h-full object-cover" />
+                                <button
+                                    type="button"
+                                    onClick={() => setCoverImage(null)}
+                                    className="absolute top-2 right-2 bg-black/60 backdrop-blur-md p-1.5 rounded-full text-white hover:bg-red-500 transition-colors shadow"
+                                    title="Xóa ảnh bìa"
+                                >
+                                    <X className="w-4 h-4" />
+                                </button>
+                            </div>
+                        ) : (
+                            <label className="flex flex-col items-center justify-center w-full h-full border-2 border-dashed border-slate-200 dark:border-slate-700 hover:border-indigo-400 rounded-2xl cursor-pointer transition-all bg-slate-50/50 dark:bg-slate-900/20 group/label">
+                                <ImageIcon className="w-6 h-6 text-slate-450 group-hover/label:text-indigo-500 transition-colors mb-2" />
+                                <span className="text-xs font-semibold text-slate-400 group-hover/label:text-indigo-500 transition-colors">Thêm ảnh bìa</span>
+                                <input type="file" accept="image/*" onChange={handleCoverImageChange} className="hidden" />
+                            </label>
+                        )}
                     </div>
-                )}
+                </div>
 
                 {/* Control Action Row */}
                 <div className="flex items-center justify-between pt-2">

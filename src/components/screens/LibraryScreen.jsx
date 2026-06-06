@@ -11,6 +11,7 @@ const LibraryScreen = ({
     onOpenStudySet, 
     onNavigateToAdd, 
     onDeleteFolder,
+    onRenameFolder,
     parentFolders = [],
     onAddParentFolder,
     onRenameParentFolder,
@@ -20,6 +21,9 @@ const LibraryScreen = ({
     const navigate = useNavigate();
     const [deletingFolder, setDeletingFolder] = useState(null); // Study Set deletion
     const [searchQuery, setSearchQuery] = useState('');
+
+    // Study Set editing state
+    const [editingStudySet, setEditingStudySet] = useState(null); // { id, name }
 
     // Parent Folder states
     const [activeParentFolderId, setActiveParentFolderId] = useState(null);
@@ -120,6 +124,13 @@ const LibraryScreen = ({
         if (!editingParentFolder || !editingParentFolder.name.trim() || !onRenameParentFolder) return;
         await onRenameParentFolder(editingParentFolder.id, editingParentFolder.name.trim());
         setEditingParentFolder(null);
+    };
+
+    const handleRenameStudySet = async (e) => {
+        e.preventDefault();
+        if (!editingStudySet || !editingStudySet.name.trim() || !onRenameFolder) return;
+        await onRenameFolder(editingStudySet.id, { name: editingStudySet.name.trim() });
+        setEditingStudySet(null);
     };
 
     const handleDeleteParentFolderConfirm = async () => {
@@ -531,6 +542,19 @@ const LibraryScreen = ({
                                                 </div>
                                             )}
 
+                                            {onRenameFolder && (
+                                                <button
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        setEditingStudySet({ id: folder.id, name: folder.name });
+                                                    }}
+                                                    className="p-1.5 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-gray-400 hover:text-indigo-500 transition-colors"
+                                                    title="Sửa tên học phần"
+                                                >
+                                                    <Edit3 className="w-4 h-4" />
+                                                </button>
+                                            )}
+
                                             <button
                                                 onClick={(e) => {
                                                     e.stopPropagation();
@@ -755,7 +779,7 @@ const LibraryScreen = ({
                             </div>
                         </div>
                         <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">
-                            Bạn có chắc muốn xoá học phần <strong>"{deletingFolder.name}"</strong>? Các từ vựng trong học phần sẽ trở thành từ vựng lẻ.
+                            Bạn có chắc muốn xoá học phần <strong>"{deletingFolder.name}"</strong>? Toàn bộ từ vựng trong học phần này cũng sẽ bị xoá vĩnh viễn.
                         </p>
                         <div className="flex gap-3">
                             <button
@@ -772,6 +796,48 @@ const LibraryScreen = ({
                             </button>
                         </div>
                     </div>
+                </div>
+            )}
+
+            {/* RENAME STUDY SET MODAL */}
+            {editingStudySet && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                    <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setEditingStudySet(null)}></div>
+                    <form onSubmit={handleRenameStudySet} className="relative bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700 animate-scale-up">
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 flex items-center justify-center flex-shrink-0">
+                                <Layers className="w-5 h-5 text-indigo-500" />
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">Đổi tên học phần</h3>
+                                <p className="text-xs text-gray-400">Thay đổi tên gọi của học phần này.</p>
+                            </div>
+                        </div>
+                        <input
+                            type="text"
+                            placeholder="Nhập tên mới..."
+                            value={editingStudySet.name}
+                            onChange={(e) => setEditingStudySet({ ...editingStudySet, name: e.target.value })}
+                            required
+                            autoFocus
+                            className="w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-800 dark:text-white"
+                        />
+                        <div className="flex gap-3 pt-2">
+                            <button
+                                type="button"
+                                onClick={() => setEditingStudySet(null)}
+                                className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-650 transition-colors text-xs"
+                            >
+                                Huỷ
+                            </button>
+                            <button
+                                type="submit"
+                                className="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-colors text-xs shadow-md"
+                            >
+                                Lưu thay đổi
+                            </button>
+                        </div>
+                    </form>
                 </div>
             )}
         </div>

@@ -176,6 +176,7 @@ const EditSetScreenWrapper = ({
     cardFolders,
     allCards,
     onRenameFolder,
+    onAddFolder,
     handleUpdateCard,
     handleDeleteCard,
     handleSaveNewCard,
@@ -192,6 +193,7 @@ const EditSetScreenWrapper = ({
         cardFolders={cardFolders} 
         allCards={allCards} 
         onRenameFolder={onRenameFolder}
+        onAddFolder={onAddFolder}
         onUpdateCard={handleUpdateCard}
         onDeleteCard={handleDeleteCard}
         onSaveNewCard={handleSaveNewCard}
@@ -598,6 +600,7 @@ const AppRoutes = ({
                                 onOpenStudySet={(id) => navigate('/vocab/set/' + id)}
                                 onNavigateToAdd={() => navigate(ROUTES.VOCAB_ADD)}
                                 onDeleteFolder={onDeleteFolder}
+                                onRenameFolder={onRenameFolder}
                                 parentFolders={parentFolders}
                                 onAddParentFolder={onAddParentFolder}
                                 onRenameParentFolder={onRenameParentFolder}
@@ -667,6 +670,7 @@ const AppRoutes = ({
                                 cardFolders={cardFolders}
                                 allCards={allCards}
                                 onRenameFolder={onRenameFolder}
+                                onAddFolder={onAddFolder}
                                 handleUpdateCard={handleUpdateCard}
                                 handleDeleteCard={handleDeleteCard}
                                 handleSaveNewCard={handleSaveNewCard}
