@@ -14,10 +14,16 @@ const formatReading = (text) => {
 const isNodeInSelection = (range, node) => {
     if (!range || !node) return false;
     try {
+        if (typeof range.comparePoint === 'function') {
+            const length = node.nodeType === Node.TEXT_NODE ? (node.textContent || '').length : 0;
+            const endCompare = range.comparePoint(node, length);
+            const startCompare = range.comparePoint(node, 0);
+            return endCompare >= 0 && startCompare <= 0;
+        }
+        // Fallback
         if (typeof range.intersectsNode === 'function') {
             return range.intersectsNode(node);
         }
-        // Fallback for older browsers
         const nodeRange = document.createRange();
         nodeRange.selectNodeContents(node);
         return range.compareBoundaryPoints(Range.START_TO_END, nodeRange) > 0 &&
