@@ -133,9 +133,9 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                 const selection = window.getSelection();
                 const text = getSelectedTextClean(selection);
 
-                // Only trigger if selection contains Japanese characters and is between 1 and 25 characters (typical word length)
+                // Only trigger if selection contains Japanese characters and is between 1 and 300 characters (typical word/phrase/sentence length)
                 const hasJapanese = /[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF\u3400-\u4DBF]/.test(text);
-                if (hasJapanese && text && text.length > 0 && text.length <= 25) {
+                if (hasJapanese && text && text.length > 0 && text.length <= 300) {
                     const range = selection.getRangeAt(0);
                     const rect = range.getBoundingClientRect();
                     
@@ -412,7 +412,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                     style={{ left: `${horizontalOffset}px` }}
                 >
                     <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-amber-300 animate-pulse" />
-                    <span>Tra cứu: "{pendingWord}"</span>
+                    <span>Tra cứu: "{pendingWord.length > 15 ? pendingWord.substring(0, 15) + '...' : pendingWord}"</span>
                 </button>
             )}
 
