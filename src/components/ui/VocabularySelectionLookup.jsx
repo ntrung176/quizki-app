@@ -14,20 +14,13 @@ const formatReading = (text) => {
 const isNodeInSelection = (range, node) => {
     if (!range || !node) return false;
     try {
-        if (typeof range.comparePoint === 'function') {
-            const length = node.nodeType === Node.TEXT_NODE ? (node.textContent || '').length : 0;
-            const endCompare = range.comparePoint(node, length);
-            const startCompare = range.comparePoint(node, 0);
-            return endCompare >= 0 && startCompare <= 0;
-        }
-        // Fallback
-        if (typeof range.intersectsNode === 'function') {
-            return range.intersectsNode(node);
-        }
         const nodeRange = document.createRange();
-        nodeRange.selectNodeContents(node);
-        return range.compareBoundaryPoints(Range.START_TO_END, nodeRange) > 0 &&
-               range.compareBoundaryPoints(Range.END_TO_START, nodeRange) < 0;
+        nodeRange.selectNode(node);
+        
+        const endToStart = range.compareBoundaryPoints(Range.END_TO_START, nodeRange);
+        const startToEnd = range.compareBoundaryPoints(Range.START_TO_END, nodeRange);
+        
+        return endToStart <= 0 && startToEnd >= 0;
     } catch (e) {
         return false;
     }
