@@ -21,6 +21,11 @@ ruby rt {
   font-weight: 600;
   letter-spacing: 0.05em;
   padding-bottom: 0.1em;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  pointer-events: none !important;
 }
 
 html.dark ruby rt {
@@ -28,7 +33,11 @@ html.dark ruby rt {
 }
 
 ruby rp {
-  /* No special selection override to avoid range selection jumps */
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  pointer-events: none !important;
 }
 
 /* Apply Mincho font to Japanese text elements */
