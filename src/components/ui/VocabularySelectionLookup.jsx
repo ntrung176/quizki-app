@@ -33,46 +33,20 @@ const getSelectedTextClean = (selection) => {
         const range = selection.getRangeAt(0);
         if (range.collapsed) return '';
 
-        const container = range.commonAncestorContainer;
-        const textNodes = [];
+        const clone = range.cloneContents();
         
-        const walk = document.createTreeWalker(
-            container.nodeType === Node.TEXT_NODE ? container.parentNode : container,
-            NodeFilter.SHOW_TEXT,
-            null,
-            false
-        );
+        // Remove furigana elements (<rt> and <rp>) from the cloned fragment
+        const rts = clone.querySelectorAll('rt, rp');
+        rts.forEach(el => el.remove());
         
-        let node;
-        while ((node = walk.nextNode())) {
-            if (isNodeInSelection(range, node)) {
-                // Check if text node is inside <rt> or <rp>
-                const parent = node.parentElement;
-                if (parent && (parent.closest('rt') || parent.closest('rp'))) {
-                    continue; // skip furigana
-                }
-                
-                let text = node.textContent;
-                if (node === range.startContainer && node === range.endContainer) {
-                    text = text.substring(range.startOffset, range.endOffset);
-                } else if (node === range.startContainer) {
-                    text = text.substring(range.startOffset);
-                } else if (node === range.endContainer) {
-                    text = text.substring(0, range.endOffset);
-                }
-                
-                textNodes.push(text);
-            }
-        }
+        let cleaned = clone.textContent || '';
         
-        let cleaned = textNodes.join('').trim();
         // If there's any fallback parenthesized furigana remaining (e.g. 漢字（かんじ）), strip it out
         cleaned = cleaned.replace(/([\u4E00-\u9FAF\u3400-\u4DBF]+)[（\(\[].*?[）\)\]]/g, '$1');
         
-        const fallback = selection.toString().trim().replace(/([\u4E00-\u9FAF\u3400-\u4DBF]+)[（\(\[].*?[）\)\]]/g, '$1');
-        return cleaned || fallback;
+        return cleaned.trim();
     } catch (e) {
-        console.warn('Failed to parse selection with DOM traversal:', e);
+        console.warn('Failed to parse selection with DOM clone:', e);
         try {
             return selection.toString().trim().replace(/([\u4E00-\u9FAF\u3400-\u4DBF]+)[（\(\[].*?[）\)\]]/g, '$1');
         } catch (err) {
