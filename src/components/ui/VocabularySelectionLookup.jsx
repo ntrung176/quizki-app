@@ -73,6 +73,8 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
     const popupRef = useRef(null);
     const cardRef = useRef(null);
     const triggerRef = useRef(null);
+    const isDraggingRef = useRef(false);
+    const startCaretRef = useRef(null);
     const [horizontalOffset, setHorizontalOffset] = useState(0);
     const [placeBelow, setPlaceBelow] = useState(false);
     const [maxHeight, setMaxHeight] = useState('85vh');
@@ -142,8 +144,135 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
         };
 
         document.addEventListener('mouseup', handleMouseUp);
-        return () => document.removeEventListener('mouseup', handleMouseUp);
+        document.addEventListener('touchend', handleMouseUp, { passive: true });
+        return () => {
+            document.removeEventListener('mouseup', handleMouseUp);
+            document.removeEventListener('touchend', handleMouseUp);
+        };
     }, [showDetails]);
+
+    // Custom drag selection manager to bypass Chromium/WebKit ruby selection bugs
+    useEffect(() => {
+        const getCaretRangeFromPoint = (x, y) => {
+            if (document.caretRangeFromPoint) {
+                return document.caretRangeFromPoint(x, y);
+            } else if (document.caretPositionFromPoint) {
+                const position = document.caretPositionFromPoint(x, y);
+                if (position) {
+                    const range = document.createRange();
+                    range.setStart(position.offsetNode, position.offset);
+                    range.collapse(true);
+                    return range;
+                }
+            }
+            return null;
+        };
+
+        const isInputOrEditable = (target) => {
+            if (!target) return false;
+            const tagName = target.tagName.toLowerCase();
+            return (
+                tagName === 'input' ||
+                tagName === 'textarea' ||
+                target.isContentEditable ||
+                target.closest('input') ||
+                target.closest('textarea') ||
+                target.closest('[contenteditable="true"]')
+            );
+        };
+
+        const handleStart = (clientX, clientY, target) => {
+            if (popupRef.current && popupRef.current.contains(target)) {
+                return;
+            }
+            if (isInputOrEditable(target)) {
+                return;
+            }
+
+            const range = getCaretRangeFromPoint(clientX, clientY);
+            if (range) {
+                const node = range.startContainer;
+                // Only start drag selection if we click on actual text or text containers
+                if (node && (node.nodeType === Node.TEXT_NODE || (node.nodeType === Node.ELEMENT_NODE && node.textContent.trim().length > 0))) {
+                    isDraggingRef.current = true;
+                    startCaretRef.current = {
+                        node: range.startContainer,
+                        offset: range.startOffset
+                    };
+                }
+            }
+        };
+
+        const handleMove = (clientX, clientY, target) => {
+            if (!isDraggingRef.current || !startCaretRef.current) return;
+            if (isInputOrEditable(target)) {
+                return;
+            }
+
+            const range = getCaretRangeFromPoint(clientX, clientY);
+            if (range && range.startContainer) {
+                const selection = window.getSelection();
+                try {
+                    selection.removeAllRanges();
+                    selection.collapse(startCaretRef.current.node, startCaretRef.current.offset);
+                    selection.extend(range.startContainer, range.startOffset);
+                } catch (err) {
+                    // Ignore transient DOM exceptions
+                }
+            }
+        };
+
+        const handleEnd = () => {
+            isDraggingRef.current = false;
+        };
+
+        // Mouse listeners
+        const onMouseDown = (e) => {
+            if (e.button !== 0) return; // Only left click
+            handleStart(e.clientX, e.clientY, e.target);
+        };
+
+        const onMouseMove = (e) => {
+            handleMove(e.clientX, e.clientY, e.target);
+        };
+
+        const onMouseUp = () => {
+            handleEnd();
+        };
+
+        // Touch listeners
+        const onTouchStart = (e) => {
+            if (e.touches.length !== 1) return;
+            const touch = e.touches[0];
+            handleStart(touch.clientX, touch.clientY, e.target);
+        };
+
+        const onTouchMove = (e) => {
+            if (e.touches.length !== 1) return;
+            const touch = e.touches[0];
+            handleMove(touch.clientX, touch.clientY, e.target);
+        };
+
+        const onTouchEnd = () => {
+            handleEnd();
+        };
+
+        document.addEventListener('mousedown', onMouseDown);
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+        document.addEventListener('touchstart', onTouchStart, { passive: true });
+        document.addEventListener('touchmove', onTouchMove, { passive: true });
+        document.addEventListener('touchend', onTouchEnd);
+
+        return () => {
+            document.removeEventListener('mousedown', onMouseDown);
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+            document.removeEventListener('touchstart', onTouchStart);
+            document.removeEventListener('touchmove', onTouchMove);
+            document.removeEventListener('touchend', onTouchEnd);
+        };
+    }, []);
 
     // Close everything when clicking completely outside of popup when details are open
     useEffect(() => {
