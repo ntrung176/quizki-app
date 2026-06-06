@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import LoadingIndicator from '../ui/LoadingIndicator';
 import {
     collection, query, onSnapshot, doc, setDoc, deleteDoc, serverTimestamp, orderBy
@@ -299,6 +299,9 @@ const normalizeQuestions = (rawQuestions) => {
 const JLPTAdminScreen = ({ userId }) => {
     const location = useLocation();
     const [tests, setTests] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [selectedLevelFilter, setSelectedLevelFilter] = useState('All');
+    const [selectedTypeFilter, setSelectedTypeFilter] = useState('All');
     const [loading, setLoading] = useState(true);
     const [editingTest, setEditingTest] = useState(null);
     const [formData, setFormData] = useState({ ...EMPTY_TEST });
@@ -312,6 +315,25 @@ const JLPTAdminScreen = ({ userId }) => {
     const [importSkillType, setImportSkillType] = useState('vocabulary');
     const [importMethod, setImportMethod] = useState('overwrite');
     const testsPath = `artifacts/${appId}/jlptTests`;
+    
+    const filteredTests = useMemo(() => {
+        return tests.filter(test => {
+            const matchesSearch = searchQuery.trim() === '' || 
+                test.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                (test.level && test.level.toLowerCase().includes(searchQuery.toLowerCase()));
+            
+            const matchesLevel = selectedLevelFilter === 'All' || test.level === selectedLevelFilter;
+
+            let matchesType = true;
+            if (selectedTypeFilter === 'full') {
+                matchesType = !test.isSkillTest;
+            } else if (selectedTypeFilter === 'skill') {
+                matchesType = !!test.isSkillTest;
+            }
+
+            return matchesSearch && matchesLevel && matchesType;
+        });
+    }, [tests, searchQuery, selectedLevelFilter, selectedTypeFilter]);
     // Load tests
     useEffect(() => {
         if (!db) return;
@@ -1070,8 +1092,81 @@ const JLPTAdminScreen = ({ userId }) => {
                 </div>
                 {/* Danh sách đề thi hiện có */}
                 <div className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] overflow-hidden">
-                    <div className="p-5 border-b border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
-                        <h2 className="font-extrabold text-slate-800 dark:text-white text-base">📋 Danh sách đề thi & bài luyện hiện có ({tests.length})</h2>
+                    <div className="p-5 border-b border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 space-y-4">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <h2 className="font-extrabold text-slate-800 dark:text-white text-sm md:text-base">
+                                📋 Danh sách đề thi & bài luyện hiện có ({filteredTests.length})
+                            </h2>
+                            {/* Search bar */}
+                            <div className="relative max-w-xs w-full">
+                                <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                </span>
+                                <input
+                                    type="text"
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    placeholder="Tìm tên đề thi, cấp độ..."
+                                    className="w-full pl-9 pr-8 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-850 text-slate-800 dark:text-white focus:ring-2 focus:ring-[#2E5B70]/20 outline-none"
+                                />
+                                {searchQuery && (
+                                    <button 
+                                        onClick={() => setSearchQuery('')}
+                                        className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-650"
+                                    >
+                                        <X className="w-4 h-4" />
+                                    </button>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Category filtering section */}
+                        <div className="flex flex-wrap items-center gap-4 text-xs pt-3 border-t border-slate-150 dark:border-slate-700/60">
+                            {/* Level tabs */}
+                            <div className="flex flex-wrap items-center gap-1.5">
+                                <span className="font-bold text-slate-400 mr-1">Cấp độ:</span>
+                                {['All', 'N1', 'N2', 'N3', 'N4', 'N5'].map((lvl) => (
+                                    <button
+                                        key={lvl}
+                                        onClick={() => setSelectedLevelFilter(lvl)}
+                                        className={`px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                                            selectedLevelFilter === lvl
+                                                ? 'bg-[#2E5B70] text-white shadow-sm'
+                                                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-700/50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300'
+                                        }`}
+                                    >
+                                        {lvl === 'All' ? 'Tất cả' : lvl}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Separator on desktop */}
+                            <div className="hidden md:block h-4 w-px bg-slate-200 dark:bg-slate-700"></div>
+
+                            {/* Type tabs */}
+                            <div className="flex items-center gap-1.5">
+                                <span className="font-bold text-slate-400 mr-1">Phân loại:</span>
+                                {[
+                                    { value: 'All', label: 'Tất cả' },
+                                    { value: 'full', label: 'Đề thi thử' },
+                                    { value: 'skill', label: 'Luyện kỹ năng' }
+                                ].map((t) => (
+                                    <button
+                                        key={t.value}
+                                        onClick={() => setSelectedTypeFilter(t.value)}
+                                        className={`px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                                            selectedTypeFilter === t.value
+                                                ? 'bg-[#2E5B70] text-white shadow-sm'
+                                                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-700/50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300'
+                                        }`}
+                                    >
+                                        {t.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                     <div className="divide-y divide-slate-100 dark:divide-slate-700">
                         {tests.length === 0 ? (
@@ -1079,7 +1174,12 @@ const JLPTAdminScreen = ({ userId }) => {
                                 <FileText className="w-12 h-12 mx-auto mb-3 opacity-30" />
                                 <p className="text-xs font-medium">Chưa có đề thi nào trong hệ thống. Hãy tạo đề thi đầu tiên!</p>
                             </div>
-                        ) : tests.map(test => {
+                        ) : filteredTests.length === 0 ? (
+                            <div className="p-12 text-center text-slate-400">
+                                <AlertTriangle className="w-12 h-12 mx-auto mb-3 opacity-30 text-amber-500" />
+                                <p className="text-xs font-medium">Không tìm thấy đề thi/bài luyện nào khớp với bộ lọc hiện tại.</p>
+                            </div>
+                        ) : filteredTests.map(test => {
                             const totalQ = (test.sections || []).reduce((s, sec) => s + (sec.questions?.length || 0), 0);
                             const levelColors = {
                                 N5: 'bg-emerald-50 text-emerald-600 dark:bg-emerald-950/20 dark:text-emerald-400 border border-emerald-100/55',

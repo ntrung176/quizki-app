@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { Volume2, Sparkles, BookOpen, Plus, Loader2, X, ChevronDown, Check, AlertCircle } from 'lucide-react';
 import { aiAssistVocab } from '../../utils/aiProvider';
 import { getSinoVietnamese } from '../../utils/kanjiHVLookup';
@@ -56,8 +57,19 @@ const getSelectedTextClean = (selection) => {
 };
 
 
-const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard, setNotification }) => {
+const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard, setNotification, disabled }) => {
     const [pendingWord, setPendingWord] = useState('');
+
+    useEffect(() => {
+        if (disabled) {
+            setShowButton(false);
+            setShowDetails(false);
+            setPendingWord('');
+            setAiResult(null);
+            setError('');
+            setSavedSuccessfully(false);
+        }
+    }, [disabled]);
     const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
     const [showButton, setShowButton] = useState(false);
     const [showDetails, setShowDetails] = useState(false);
@@ -94,9 +106,9 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
         });
     }, [pendingWord, allCards]);
 
-    // Event listener for mouseup (text selection)
     useEffect(() => {
         const handleMouseUp = (e) => {
+            if (disabled) return;
             // Ignore if clicking inside our own popup
             if (popupRef.current && popupRef.current.contains(e.target)) {
                 return;
@@ -113,10 +125,14 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                     const range = selection.getRangeAt(0);
                     const rect = range.getBoundingClientRect();
                     
+                    const isFullscreen = !!document.fullscreenElement;
+                    const scrollX = isFullscreen ? 0 : window.scrollX;
+                    const scrollY = isFullscreen ? 0 : window.scrollY;
+
                     // Position popup above the middle of selection
                     setPopupPosition({
-                        x: rect.left + rect.width / 2 + window.scrollX,
-                        y: rect.top + window.scrollY,
+                        x: rect.left + rect.width / 2 + scrollX,
+                        y: rect.top + scrollY,
                         height: rect.height,
                         rectTop: rect.top,
                         rectBottom: rect.bottom
@@ -147,12 +163,13 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
             document.removeEventListener('mouseup', handleMouseUp);
             document.removeEventListener('touchend', handleMouseUp);
         };
-    }, [showDetails]);
+    }, [showDetails, disabled]);
 
 
     // Close everything when clicking completely outside of popup when details are open
     useEffect(() => {
         const handleClickOutside = (e) => {
+            if (disabled) return;
             if (popupRef.current && !popupRef.current.contains(e.target)) {
                 // Ensure selection is actually gone
                 const selection = window.getSelection();
@@ -170,7 +187,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
 
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, []);
+    }, [disabled]);
 
     // Intercept copy event to strip furigana cleanly when copying text
     useEffect(() => {
@@ -206,13 +223,17 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
 
     // Keep popup fully within screen boundaries
     useEffect(() => {
+        const isFullscreen = !!document.fullscreenElement;
+        const scrollX = isFullscreen ? 0 : window.scrollX;
+        const scrollY = isFullscreen ? 0 : window.scrollY;
+
         if (showDetails && cardRef.current) {
             const cardEl = cardRef.current;
             const rect = cardEl.getBoundingClientRect();
             const cardWidth = rect.width || 320;
             const cardHeight = rect.height || 400;
             
-            const currentViewportX = popupPosition.x - window.scrollX;
+            const currentViewportX = popupPosition.x - scrollX;
             const currentLeft = currentViewportX - cardWidth / 2;
             const currentRight = currentViewportX + cardWidth / 2;
             
@@ -227,7 +248,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
             
             setHorizontalOffset(newOffset);
             
-            const selectionTop = popupPosition.rectTop !== undefined ? popupPosition.rectTop : (popupPosition.y - window.scrollY);
+            const selectionTop = popupPosition.rectTop !== undefined ? popupPosition.rectTop : (popupPosition.y - scrollY);
             const cardTop = selectionTop - 16 - cardHeight;
             
             if (cardTop < padding) {
@@ -252,7 +273,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
             const rect = btnEl.getBoundingClientRect();
             const btnWidth = rect.width || 150;
             
-            const currentViewportX = popupPosition.x - window.scrollX;
+            const currentViewportX = popupPosition.x - scrollX;
             const currentLeft = currentViewportX - btnWidth / 2;
             const currentRight = currentViewportX + btnWidth / 2;
             
@@ -371,9 +392,12 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
         } catch (err) {}
     };
 
-    if (!pendingWord) return null;
+    if (disabled || !pendingWord) return null;
 
-    return (
+    const target = (typeof document !== 'undefined' && (document.fullscreenElement || document.body)) || null;
+    if (!target) return null;
+
+    return createPortal(
         <div 
             ref={popupRef}
             className="absolute z-[9999] select-none font-sans"
@@ -556,7 +580,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                         dangerouslySetInnerHTML={{ __html: aiResult.example }}
                                     />
                                     {aiResult.exampleMeaning && (
-                                        <p className="text-slate-500 dark:text-slate-450 italic leading-relaxed">{aiResult.exampleMeaning}</p>
+                                        <p className="text-slate-500 dark:text-slate-455 italic leading-relaxed">{aiResult.exampleMeaning}</p>
                                     )}
                                 </div>
                             )}
@@ -602,7 +626,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                                     <option key={f.id} value={f.id}>{f.name}</option>
                                                 ))}
                                             </select>
-                                            <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-slate-450 dark:text-slate-500">
+                                            <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-slate-455 dark:text-slate-500">
                                                 <ChevronDown className="w-3.5 h-3.5" />
                                             </div>
                                         </div>
@@ -631,7 +655,8 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                     )}
                 </div>
             )}
-        </div>
+        </div>,
+        target
     );
 };
 

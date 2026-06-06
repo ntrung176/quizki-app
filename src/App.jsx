@@ -2512,6 +2512,28 @@ const App = () => {
         prevPathnameRef.current = location.pathname;
     }, [view, location.pathname]);
 
+    // Tracks if Real Exam mode is active to disable vocabulary lookup
+    const [isRealExamActive, setIsRealExamActive] = useState(false);
+    useEffect(() => {
+        const checkExamMode = () => {
+            setIsRealExamActive(sessionStorage.getItem('realExamModeActive') === 'true');
+        };
+        checkExamMode();
+        window.addEventListener('realExamModeChange', checkExamMode);
+        return () => window.removeEventListener('realExamModeChange', checkExamMode);
+    }, []);
+
+    // Tracks if fullscreen mode is active to hide menu sidebar
+    const [isFullscreen, setIsFullscreen] = useState(false);
+    useEffect(() => {
+        const handleFSChange = () => {
+            setIsFullscreen(!!document.fullscreenElement);
+        };
+        document.addEventListener('fullscreenchange', handleFSChange);
+        handleFSChange();
+        return () => document.removeEventListener('fullscreenchange', handleFSChange);
+    }, []);
+
     // Load editingCard from URL parameter when navigating to edit route
     useEffect(() => {
         // Check if we're on the edit route by looking at the pathname
@@ -3558,14 +3580,16 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-100 via-gray-50 to-indigo-50 dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950 font-sans selection:bg-indigo-100 dark:selection:bg-indigo-900 selection:text-indigo-800 dark:selection:text-indigo-200">
             {/* Sidebar for navigation */}
-            <Sidebar
-                isDarkMode={isDarkMode}
-                setIsDarkMode={setIsDarkMode}
-                displayName={profile?.displayName}
-                isAdmin={isAdmin}
-                userId={userId}
-                allCards={allCards}
-            />
+            {!isFullscreen && (
+                <Sidebar
+                    isDarkMode={isDarkMode}
+                    setIsDarkMode={setIsDarkMode}
+                    displayName={profile?.displayName}
+                    isAdmin={isAdmin}
+                    userId={userId}
+                    allCards={allCards}
+                />
+            )}
 
             {/* Global text selection vocabulary lookup tool */}
             <VocabularySelectionLookup
@@ -3573,6 +3597,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 folders={folders}
                 handleAddCard={handleAddCard}
                 setNotification={setNotification}
+                disabled={isRealExamActive}
             />
 
             {/* Onboarding tour for new users */}
@@ -3664,7 +3689,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 </div>
             )}
 
-            <main className={`lg:ml-64 min-h-screen pt-14 lg:pt-0 flex flex-col ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
+            <main className={`${isFullscreen ? 'ml-0 lg:ml-0 pt-0' : 'lg:ml-64 pt-14 lg:pt-0'} min-h-screen flex flex-col ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
                 {profile?.trialPricingTier && (
                     <div className="bg-indigo-600 text-white text-xs font-semibold px-4 py-2.5 flex items-center justify-between shadow-md relative z-40">
                         <div className="flex items-center gap-2">

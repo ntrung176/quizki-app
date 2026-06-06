@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { collection, query, onSnapshot, orderBy } from 'firebase/firestore'
 import { db, appId } from '../../config/firebase';
 import { Link, useNavigate } from 'react-router-dom';
-import { FileCheck, Play, ChevronRight, ChevronLeft, Maximize, Minimize, X, Check, CheckCircle, XCircle, Languages, BookOpen, FileText, Headphones, Timer, Volume2, AlertTriangle, Award, Lock, Calendar, Edit3, Settings } from 'lucide-react'
+import { FileCheck, Play, ChevronRight, ChevronLeft, Maximize, Minimize, X, Check, CheckCircle, XCircle, Languages, BookOpen, FileText, Headphones, Timer, Volume2, AlertTriangle, Award, Lock, Calendar, Edit3, Settings, Sparkles, ShieldAlert } from 'lucide-react'
 import { ROUTES } from '../../router';
+import { aiTranslateSentence } from '../../utils/aiProvider';
 const SECTION_ICONS = {
     vocabulary: Languages, grammar: BookOpen, kanji: Award,
     reading: FileText, listening: Headphones,
@@ -28,7 +29,8 @@ const QuestionContent = React.memo(({
     currentQuestionIdx,
     selectAnswer,
     selectAnswerSub,
-    audioRef
+    audioRef,
+    isRealExam
 }) => {
     const answerKey = (si, qi) => `s${si}_q${qi}`;
     const subAnswerKey = (si, qi, sqi) => `s${si}_q${qi}_sq${sqi}`;
@@ -60,7 +62,9 @@ const QuestionContent = React.memo(({
                 </div>
             )}
             {/* Question */}
-            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-6 leading-relaxed font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: question?.question }} />
+            <div className="mb-6">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 leading-relaxed font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: question?.question }} />
+            </div>
             {/* Options */}
             {question?.subQuestions && question.subQuestions.length > 0 ? (
                 <div className="space-y-6 mb-8 pl-4 border-l-2 border-indigo-200 dark:border-indigo-855">
@@ -145,6 +149,43 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
     const [answers, setAnswers] = useState({}); // { "s0_q0": 2 }
     const [showResult, setShowResult] = useState(false);
     const [isFullscreen, setIsFullscreen] = useState(false);
+
+    // Real Exam & AI Translation states
+    const [pendingStartTest, setPendingStartTest] = useState(null);
+    const [isRealExam, setIsRealExam] = useState(false);
+    const [violationCount, setViolationCount] = useState(0);
+    const [showViolationWarning, setShowViolationWarning] = useState(false);
+    const [showFullscreenRequired, setShowFullscreenRequired] = useState(false);
+    const [violationType, setViolationType] = useState(''); // 'tab' or 'fullscreen'
+    const [translations, setTranslations] = useState({});
+
+    const stripHtml = (html) => {
+        let clean = html;
+        clean = clean.replace(/<ruby>([\s\S]*?)<rt>[\s\S]*?<\/rt><\/ruby>/g, '$1');
+        clean = clean.replace(/<rp>[\s\S]*?<\/rp>/g, '');
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = clean;
+        return tempDiv.textContent || tempDiv.innerText || '';
+    };
+
+    const handleTranslate = async (htmlText, key) => {
+        if (!htmlText) return;
+        if (translations[key]) return;
+        
+        setTranslations(prev => ({ ...prev, [key]: { loading: true } }));
+        try {
+            const cleanText = stripHtml(htmlText);
+            const result = await aiTranslateSentence(cleanText);
+            if (result) {
+                setTranslations(prev => ({ ...prev, [key]: { loading: false, data: result } }));
+            } else {
+                setTranslations(prev => ({ ...prev, [key]: { loading: false, error: 'Không thể dịch bằng AI.' } }));
+            }
+        } catch (err) {
+            console.error('AI translation error:', err);
+            setTranslations(prev => ({ ...prev, [key]: { loading: false, error: err.message || 'Lỗi kết nối AI.' } }));
+        }
+    };
     // Persisted settings for furigana and timer
     const [showFurigana, setShowFurigana] = useState(() => {
         const saved = localStorage.getItem('quizki_jlpt_show_furigana');
@@ -177,7 +218,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
-    const getFuriganaStyles = () => {
+    const furiganaStyles = useMemo(() => {
         let styles = '';
         if (!showFurigana) {
             styles += `
@@ -203,10 +244,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             }
         }
         return styles;
-    };
+    }, [showFurigana, furiganaColor]);
+    const furiganaStyleElement = useMemo(() => <style>{furiganaStyles}</style>, [furiganaStyles]);
     // Timer
     const [timeRemaining, setTimeRemaining] = useState(0);
     const [timerActive, setTimerActive] = useState(false);
+    const [testStartTime, setTestStartTime] = useState(null);
+    const [timeTaken, setTimeTaken] = useState(0);
+    const [wasRealExam, setWasRealExam] = useState(false);
     const timerRef = useRef(null);
     // Audio
     const audioRef = useRef(null);
@@ -260,7 +305,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
     const toggleFullscreen = useCallback(async () => {
         try {
             if (!document.fullscreenElement) {
-                await containerRef.current?.requestFullscreen?.();
+                await document.documentElement?.requestFullscreen?.();
                 setIsFullscreen(true);
             } else {
                 await document.exitFullscreen?.();
@@ -269,33 +314,147 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         } catch (e) { console.error(e); }
     }, []);
     useEffect(() => {
-        const handler = () => setIsFullscreen(!!document.fullscreenElement);
+        const handler = () => {
+            const isFS = !!document.fullscreenElement;
+            setIsFullscreen(isFS);
+            
+            // In Real Exam mode, exiting fullscreen is a violation
+            if (!isFS && activeTest && !showResult && isRealExam) {
+                setViolationCount(prev => {
+                    const next = prev + 1;
+                    if (next >= 3) {
+                        submitTest();
+                        alert("Bài thi đã tự động nộp do vi phạm quy chế rời màn hình quá 3 lần!");
+                    } else {
+                        setViolationType('fullscreen');
+                        setShowFullscreenRequired(true);
+                    }
+                    return next;
+                });
+            }
+        };
         document.addEventListener('fullscreenchange', handler);
         return () => document.removeEventListener('fullscreenchange', handler);
-    }, []);
+    }, [activeTest, showResult, isRealExam]);
+
+    // Real Exam tab switch detection
+    useEffect(() => {
+        if (!activeTest || showResult || !isRealExam) return;
+
+        const handleVisibilityChange = () => {
+            if (document.hidden || document.visibilityState === 'hidden') {
+                setViolationCount(prev => {
+                    const next = prev + 1;
+                    if (next >= 3) {
+                        submitTest();
+                        alert("Bài thi đã tự động nộp do vi phạm quy chế rời màn hình quá 3 lần!");
+                    } else {
+                        setViolationType('tab');
+                        setShowViolationWarning(true);
+                    }
+                    return next;
+                });
+            }
+        };
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        return () => {
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+        };
+    }, [activeTest, showResult, isRealExam]);
+
+    // Prevent text selection, copy and right-click in Real Exam mode
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!isRealExam || !activeTest || showResult || !container) return;
+        
+        const preventSelection = (e) => {
+            e.preventDefault();
+        };
+        const preventCopy = (e) => {
+            e.preventDefault();
+            alert("Không thể sao chép nội dung trong chế độ thi thực tế!");
+        };
+        
+        container.addEventListener('selectstart', preventSelection);
+        container.addEventListener('copy', preventCopy);
+        container.addEventListener('contextmenu', preventSelection);
+        
+        return () => {
+            container.removeEventListener('selectstart', preventSelection);
+            container.removeEventListener('copy', preventCopy);
+            container.removeEventListener('contextmenu', preventSelection);
+        };
+    }, [isRealExam, activeTest, showResult]);
+
     // Start test
     const startTest = (test) => {
+        setPendingStartTest(test);
+    };
+
+    // Actual test initialization after mode selection
+    const initTest = (test, mode = 'practice') => {
+        setPendingStartTest(null);
         setActiveTest(test);
+        setIsRealExam(mode === 'real');
+        setViolationCount(0);
+        setShowViolationWarning(false);
+        setShowFullscreenRequired(false);
+        setTranslations({}); // Reset translation cache
+        
         setCurrentSectionIdx(0);
         setCurrentQuestionIdx(0);
         setAnswers({});
         setShowResult(false);
-        setTimeRemaining(test.timeLimit * 60);
-        setTimerActive(true);
+        setTestStartTime(Date.now());
+        setWasRealExam(mode === 'real');
+
+        if (mode === 'real') {
+            setTimeRemaining(test.timeLimit * 60);
+            setTimerActive(true);
+            sessionStorage.setItem('realExamModeActive', 'true');
+            window.dispatchEvent(new Event('realExamModeChange'));
+        } else {
+            setTimeRemaining(0);
+            setTimerActive(false);
+            sessionStorage.removeItem('realExamModeActive');
+            window.dispatchEvent(new Event('realExamModeChange'));
+        }
+
     };
+
     // Review completed test
     const reviewTest = (test) => {
         const saved = completedTests[test.id];
         if (saved) {
+            setIsRealExam(false);
+            setWasRealExam(saved.wasRealExam !== undefined ? saved.wasRealExam : true); // default to true for old results
+            setTimeTaken(saved.timeTaken || 0);
             setActiveTest(test);
             setAnswers(saved.answers || {});
             setShowResult(true);
         }
     };
+
     // Submit test
     const submitTest = () => {
         setTimerActive(false);
         clearInterval(timerRef.current);
+        
+        const taken = isRealExam 
+            ? (activeTest.timeLimit * 60) - timeRemaining 
+            : Math.round((Date.now() - (testStartTime || Date.now())) / 1000);
+        setTimeTaken(taken);
+
+        setIsRealExam(false);
+        sessionStorage.removeItem('realExamModeActive');
+        window.dispatchEvent(new Event('realExamModeChange'));
+        if (document.fullscreenElement) {
+            try {
+                document.exitFullscreen?.().catch(() => {});
+            } catch (e) {}
+        }
+
         const results = getResults();
         const newCompleted = {
             ...completedTests,
@@ -304,6 +463,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                 correct: results.correct,
                 total: results.total,
                 answers: answers,
+                wasRealExam: wasRealExam,
+                timeTaken: taken,
                 date: new Date().toISOString()
             }
         };
@@ -311,14 +472,24 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         localStorage.setItem('quizki_completed_tests', JSON.stringify(newCompleted));
         setShowResult(true);
     };
+
     // Exit test
     const exitTest = () => {
         setTimerActive(false);
         clearInterval(timerRef.current);
+        
+        setIsRealExam(false);
+        sessionStorage.removeItem('realExamModeActive');
+        window.dispatchEvent(new Event('realExamModeChange'));
+        if (document.fullscreenElement) {
+            try {
+                document.exitFullscreen?.().catch(() => {});
+            } catch (e) {}
+        }
+
         setActiveTest(null);
         setShowResult(false);
         setAnswers({});
-        if (document.fullscreenElement) document.exitFullscreen?.();
     };
     // Answer handling
     const answerKey = (si, qi) => `s${si}_q${qi}`;
@@ -401,6 +572,145 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         const matchingTests = tests.filter(t => t.isSkillTest && t.skillType === skillType && t.level === selectedLevel);
         setSelectedSkillPractice({ type: skillType, label: skillLabel, tests: matchingTests });
     };
+
+    const renderModeSelectionModal = () => {
+        if (!pendingStartTest) return null;
+        return (
+            <div className="fixed inset-0 z-[9999] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in font-sans">
+                <div className="bg-white dark:bg-slate-800 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-100 dark:border-slate-700/60 transform transition-all scale-100">
+                    {/* Header */}
+                    <div className="p-6 pb-4 border-b border-slate-100 dark:border-slate-700/50 flex items-center justify-between bg-gradient-to-r from-indigo-50/50 to-purple-50/50 dark:from-slate-800 dark:to-slate-800">
+                        <div>
+                            <span className="text-[10px] font-extrabold uppercase bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-400 px-2 py-0.5 rounded-md">Cấu hình bài thi</span>
+                            <h3 className="text-lg font-black text-slate-800 dark:text-white mt-1 leading-snug">{pendingStartTest.title}</h3>
+                        </div>
+                        <button 
+                            onClick={() => setPendingStartTest(null)}
+                            className="p-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition cursor-pointer"
+                        >
+                            <X className="w-5 h-5" />
+                        </button>
+                    </div>
+                    {/* Content */}
+                    <div className="p-6 space-y-4">
+                        <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Vui lòng chọn chế độ làm bài thi phù hợp với nhu cầu của bạn:</p>
+                        
+                        <div className="grid grid-cols-1 gap-4">
+                            {/* Practice Mode Card */}
+                            <div 
+                                onClick={() => {
+                                    document.documentElement?.requestFullscreen?.().catch(err => {
+                                        console.error("Failed to request fullscreen:", err);
+                                    });
+                                    initTest(pendingStartTest, 'practice');
+                                }}
+                                className="group border-2 border-slate-200 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-500 rounded-2xl p-4 cursor-pointer transition-all hover:shadow-md bg-slate-50/50 dark:bg-slate-900/30 hover:bg-white dark:hover:bg-slate-800 flex items-start gap-3.5"
+                            >
+                                <div className="p-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 group-hover:scale-105 transition-transform">
+                                    <BookOpen className="w-5 h-5" />
+                                </div>
+                                <div className="flex-1">
+                                    <div className="flex items-center justify-between">
+                                        <h4 className="text-sm font-extrabold text-slate-800 dark:text-white">Chế độ Luyện tập</h4>
+                                        <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                                    </div>
+                                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">Làm bài thoải mái. Hỗ trợ tra từ vựng AI trực tiếp (bôi đen văn bản) và dịch nghĩa câu hỏi, bài đọc bằng AI helper.</p>
+                                </div>
+                            </div>
+
+                            {/* Real Exam Mode Card */}
+                            <div 
+                                onClick={() => {
+                                    document.documentElement?.requestFullscreen?.().catch(err => {
+                                        console.error("Failed to request fullscreen:", err);
+                                    });
+                                    initTest(pendingStartTest, 'real');
+                                }}
+                                className="group border-2 border-slate-200 dark:border-slate-700 hover:border-rose-500 dark:hover:border-rose-500 rounded-2xl p-4 cursor-pointer transition-all hover:shadow-md bg-slate-50/50 dark:bg-slate-900/30 hover:bg-white dark:hover:bg-slate-800 flex items-start gap-3.5"
+                            >
+                                <div className="p-2.5 rounded-xl bg-rose-50 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 group-hover:scale-105 transition-transform">
+                                    <Lock className="w-5 h-5" />
+                                </div>
+                                <div className="flex-1">
+                                    <div className="flex items-center justify-between">
+                                        <h4 className="text-sm font-extrabold text-slate-800 dark:text-white">Chế độ Thi thực tế</h4>
+                                        <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                                    </div>
+                                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">Giả lập phòng thi thật. Bắt buộc Full màn hình. Khóa tra cứu dịch thuật AI. Tự động nộp bài nếu tab ra ngoài hoặc thoát Fullscreen quá 3 lần.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
+    const renderViolationWarningModal = () => {
+        if (!showViolationWarning) return null;
+        return (
+            <div className="fixed inset-0 z-[10000] bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in font-sans">
+                <div className="bg-white dark:bg-slate-800 rounded-3xl max-w-md w-full p-6 text-center shadow-2xl border border-red-100 dark:border-red-950/30">
+                    <div className="mx-auto w-14 h-14 bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-full flex items-center justify-center mb-4">
+                        <ShieldAlert className="w-8 h-8 animate-pulse" />
+                    </div>
+                    <h3 className="text-lg font-black text-slate-800 dark:text-white">Cảnh báo vi phạm quy chế thi!</h3>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                        Bạn vừa tab ra ngoài hoặc rời khỏi màn hình bài thi. Trong chế độ Thi thực tế, việc rời màn hình thi là vi phạm quy chế.
+                    </p>
+                    <div className="my-5 p-3.5 bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-900/30 rounded-2xl inline-block">
+                        <p className="text-xs text-red-700 dark:text-red-400 font-extrabold">
+                            Số lần vi phạm: <span className="text-sm font-black">{violationCount}/3</span>
+                        </p>
+                        <p className="text-[10px] text-red-655 dark:text-red-550 mt-0.5 font-medium">
+                            (Đạt 3 lần vi phạm, bài thi sẽ tự động được nộp bài)
+                        </p>
+                    </div>
+                    <button
+                        onClick={() => setShowViolationWarning(false)}
+                        className="w-full py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-bold transition shadow-md hover:shadow-lg cursor-pointer animate-pulse"
+                    >
+                        Tôi đã hiểu và tiếp tục làm bài
+                    </button>
+                </div>
+            </div>
+        );
+    };
+
+    const renderFullscreenRequiredModal = () => {
+        if (!showFullscreenRequired) return null;
+        return (
+            <div className="fixed inset-0 z-[10000] bg-slate-900/90 backdrop-blur-lg flex items-center justify-center p-4 animate-fade-in font-sans">
+                <div className="bg-white dark:bg-slate-850 rounded-3xl max-w-md w-full p-6 text-center shadow-2xl border border-slate-100 dark:border-slate-800">
+                    <div className="mx-auto w-14 h-14 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-650 dark:text-indigo-400 rounded-full flex items-center justify-center mb-4">
+                        <Maximize className="w-7 h-7" />
+                    </div>
+                    <h3 className="text-lg font-black text-slate-800 dark:text-white">Yêu cầu Chế độ Toàn màn hình</h3>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                        Chế độ thi thực tế yêu cầu bạn phải giữ màn hình ở chế độ Toàn màn hình (Fullscreen) để tiếp tục làm bài.
+                    </p>
+                    <div className="my-5 p-3 bg-orange-50 dark:bg-orange-950/20 border border-orange-100 dark:border-orange-900/30 rounded-2xl inline-block">
+                        <p className="text-[11px] text-orange-700 dark:text-orange-400 font-bold">
+                            Số lần vi phạm: {violationCount}/3
+                        </p>
+                    </div>
+                    <button
+                        onClick={async () => {
+                            try {
+                                await document.documentElement?.requestFullscreen?.();
+                                setShowFullscreenRequired(false);
+                            } catch (e) {
+                                console.error(e);
+                            }
+                        }}
+                        className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold transition shadow-md cursor-pointer"
+                    >
+                        Quay lại Toàn màn hình
+                    </button>
+                </div>
+            </div>
+        );
+    };
     // Render: Loading
     if (loading) {
         return <LoadingIndicator text="Đang tải đề thi..." />;
@@ -411,7 +721,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         const passed = results.percentage >= 60;
         return (
             <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-6">
-                <style>{getFuriganaStyles()}</style>
+                {furiganaStyleElement}
                 <div className="max-w-4xl mx-auto space-y-6">
                     {/* Score card */}
                     <div className={`bg-gradient-to-r ${passed ? 'from-emerald-500 to-teal-600' : 'from-orange-500 to-red-600'} rounded-3xl p-8 text-white text-center shadow-xl`}>
@@ -422,7 +732,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         <div className="text-6xl font-black my-4">{results.percentage}%</div>
                         <p className="text-xl opacity-90">{results.correct}/{results.total} câu đúng</p>
                         <p className="text-sm opacity-75 mt-2">
-                            Thời gian: {formatTime((activeTest.timeLimit * 60) - timeRemaining)} / {activeTest.timeLimit} phút
+                            {wasRealExam ? (
+                                <>Thời gian: {formatTime(timeTaken)} / {activeTest.timeLimit} phút</>
+                            ) : (
+                                <>Thời gian làm bài: {formatTime(timeTaken)} (Chế độ Luyện tập)</>
+                            )}
                         </p>
                     </div>
                     {/* Section scores */}
@@ -582,6 +896,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         </button>
                     </div>
                 </div>
+                {renderModeSelectionModal()}
             </div>
         );
     }
@@ -614,8 +929,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         const isFirst = currentSectionIdx === 0 && currentQuestionIdx === 0;
         const timeWarning = timeRemaining < 300;
         return (
-            <div ref={containerRef} className={`min-h-screen flex flex-col ${isFullscreen ? 'bg-white dark:bg-gray-900' : 'bg-gradient-to-br from-slate-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20'}`}>
-                <style>{getFuriganaStyles()}</style>
+            <div ref={containerRef} className={`min-h-screen flex flex-col ${isFullscreen ? 'bg-white dark:bg-gray-900 h-screen overflow-hidden' : 'bg-gradient-to-br from-slate-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20'} ${isRealExam ? 'select-none' : ''}`}>
+                {furiganaStyleElement}
                 {/* Top bar */}
                 <div className="sticky top-0 z-30 bg-white/95 dark:bg-gray-800/95 backdrop-blur border-b border-gray-200 dark:border-gray-700 px-4 py-2">
                     <div className="max-w-5xl mx-auto flex items-center justify-between">
@@ -630,7 +945,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         </div>
                         <div className="flex items-center gap-3">
                             {/* Timer */}
-                            {showTimer && (
+                            {isRealExam && showTimer && (
                                 <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono font-bold text-sm ${timeWarning
                                     ? 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 animate-pulse'
                                     : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
@@ -789,6 +1104,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                 selectAnswer={selectAnswer}
                                 selectAnswerSub={selectAnswerSub}
                                 audioRef={audioRef}
+                                isRealExam={isRealExam}
                             />
                             {/* Navigation */}
                             <div className="flex items-center justify-between">
@@ -819,6 +1135,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         </div>
                     </div>
                 </div>
+                {renderViolationWarningModal()}
+                {renderFullscreenRequiredModal()}
+                {renderModeSelectionModal()}
             </div>
         );
     }
@@ -1235,6 +1554,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         </div>
                     </div>
                 </div>
+                {renderModeSelectionModal()}
             </div>
         );
     };
@@ -1599,6 +1919,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         </div>
                     </div>
                 </div>
+                {renderModeSelectionModal()}
             </div>
         );
     };
@@ -1911,6 +2232,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                     </div>
                 </div>
             )}
+            {renderModeSelectionModal()}
         </div>
     );
 };

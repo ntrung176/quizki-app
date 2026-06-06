@@ -429,3 +429,26 @@ Chỉ trả về JSON hợp lệ.`;
         return null;
     }
 };
+
+// ============== SENTENCE TRANSLATION ==============
+export const aiTranslateSentence = async (japaneseText) => {
+    if (!japaneseText || japaneseText.trim() === '') return null;
+    const prompt = `Dịch câu/đoạn văn tiếng Nhật sau sang tiếng Việt tự nhiên và giải thích ngắn gọn các cấu trúc ngữ pháp và từ vựng chính.
+VĂN BẢN TIẾNG NHẬT: "${japaneseText}"
+
+Hãy trả về JSON (không markdown, không bọc ngoài bằng bất cứ gì khác):
+{
+  "translation": "<Bản dịch tiếng Việt tự nhiên, trau chuốt>",
+  "grammarNotes": ["<Giải thích từ vựng hoặc cấu trúc chính 1>", "<Giải thích từ vựng hoặc cấu trúc chính 2>"]
+}
+
+Chỉ trả về JSON hợp lệ.`;
+
+    try {
+        const responseText = await callAI(prompt, null, 'sentence_translate');
+        return parseJsonFromAI(responseText);
+    } catch (e) {
+        console.error('AI sentence translation error:', e);
+        return null;
+    }
+};
