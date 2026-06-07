@@ -3600,6 +3600,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     isAdmin={isAdmin}
                     userId={userId}
                     allCards={allCards}
+                    isPremium={isAdmin || profile?.isPremiumUnlocked === true}
                 />
             )}
 

@@ -6,7 +6,7 @@ import { collection, query, onSnapshot } from 'firebase/firestore';
 import { ROUTES } from '../../router';
 import { Home, BookOpen, Plus, LogOut, Sun, Moon, Sparkles, ChevronRight, X, List, Repeat2, FileCheck, Languages, Shield, ChevronDown, Trophy, Crown, User, Bell } from 'lucide-react'
 // Sidebar Component - Navigation with submenu support
-const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allCards = [] }) => {
+const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allCards = [], isPremium = false }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const [isCollapsed, setIsCollapsed] = useState(false);
@@ -341,18 +341,29 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                                     <Link
                                         to={ROUTES.SETTINGS}
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className="flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-full pl-2 pr-3 py-1 shadow-sm overflow-hidden flex-1 cursor-pointer hover:border-slate-300 dark:hover:border-slate-600 transition-colors"
+                                        className="flex items-center gap-2.5 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-2xl p-2 shadow-sm overflow-hidden flex-1 cursor-pointer hover:border-slate-300 dark:hover:border-slate-600 transition-all min-w-0"
                                     >
-                                        <div className="w-7 h-7 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-slate-700 dark:text-slate-300 overflow-hidden flex-shrink-0">
+                                        <div className="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-slate-700 dark:text-slate-300 overflow-hidden flex-shrink-0 border border-white dark:border-slate-800 shadow-sm">
                                             {auth?.currentUser?.photoURL ? (
                                                 <img src={auth.currentUser.photoURL} alt="Avatar" className="w-full h-full object-cover" />
                                             ) : (
                                                 displayName.charAt(0) || 'U'
                                             )}
                                         </div>
-                                        <span className="text-xs font-bold text-slate-700 dark:text-slate-300 truncate max-w-[100px]">
-                                            {displayName}
-                                        </span>
+                                        <div className="flex flex-col min-w-0 flex-1">
+                                            {isPremium ? (
+                                                <span className="text-[9px] font-extrabold uppercase tracking-widest bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent flex items-center gap-0.5">
+                                                    <Crown className="w-2.5 h-2.5 text-amber-500 fill-amber-500 inline" /> Premium
+                                                </span>
+                                            ) : (
+                                                <span className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 dark:text-slate-500">
+                                                    FREE Account
+                                                </span>
+                                            )}
+                                            <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300 truncate mt-0.5">
+                                                {displayName}
+                                            </span>
+                                        </div>
                                     </Link>
                                 </div>
                                 <NotificationsPopover isMobile={true} />
@@ -486,22 +497,33 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                         </button>
                         {/* Profile Capsule */}
                         <Link
-                            to={ROUTES.SETTINGS}
-                            data-tour-id="SETTINGS"
-                            className="flex items-center gap-1.5 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-full pl-1.5 pr-2.5 py-0.5 shadow-sm overflow-hidden flex-1 cursor-pointer hover:border-slate-300 dark:hover:border-slate-600 transition-colors min-w-0"
-                            title="Trang cá nhân"
-                        >
-                            <div className="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden flex-shrink-0">
-                                {auth?.currentUser?.photoURL ? (
-                                    <img src={auth.currentUser.photoURL} alt="Avatar" className="w-full h-full object-cover" />
-                                ) : (
-                                    displayName.charAt(0) || 'U'
-                                )}
-                            </div>
-                            <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300 truncate">
-                                {displayName}
-                            </span>
-                        </Link>
+                                        to={ROUTES.SETTINGS}
+                                        data-tour-id="SETTINGS"
+                                        className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-2xl p-2 shadow-sm overflow-hidden flex-1 cursor-pointer hover:border-slate-300 dark:hover:border-slate-600 transition-all min-w-0"
+                                        title="Trang cá nhân"
+                                    >
+                                        <div className="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden flex-shrink-0 border border-white dark:border-slate-800 shadow-sm">
+                                            {auth?.currentUser?.photoURL ? (
+                                                <img src={auth.currentUser.photoURL} alt="Avatar" className="w-full h-full object-cover" />
+                                            ) : (
+                                                displayName.charAt(0) || 'U'
+                                            )}
+                                        </div>
+                                        <div className="flex flex-col min-w-0 flex-1">
+                                            {isPremium ? (
+                                                <span className="text-[9px] font-extrabold uppercase tracking-widest bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent flex items-center gap-0.5">
+                                                    <Crown className="w-2.5 h-2.5 text-amber-500 fill-amber-500 inline" /> Premium
+                                                </span>
+                                            ) : (
+                                                <span className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 dark:text-slate-500">
+                                                    FREE Account
+                                                </span>
+                                            )}
+                                            <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300 truncate mt-0.5">
+                                                {displayName}
+                                            </span>
+                                        </div>
+                                    </Link>
                     </div>
                     <NotificationsPopover isMobile={false} />
                 </div>
