@@ -204,7 +204,12 @@ export const OPENROUTER_MODELS = [
     { value: 'deepseek/deepseek-chat', label: 'DeepSeek V3' },
     { value: 'openai/gpt-4o-mini', label: 'GPT-4o Mini' },
     { value: 'openai/gpt-4o', label: 'GPT-4o' },
-    { value: 'anthropic/claude-3.5-sonnet', label: 'Claude 3.5 Sonnet' },
+    { value: 'anthropic/claude-sonnet-4.6', label: 'Claude Sonnet 4.6' },
+    { value: 'anthropic/claude-sonnet-4.5', label: 'Claude Sonnet 4.5' },
+    { value: 'anthropic/claude-sonnet-4', label: 'Claude Sonnet 4' },
+    { value: '~anthropic/claude-sonnet-latest', label: 'Claude Sonnet Latest' },
+    { value: 'anthropic/claude-3.5-haiku', label: 'Claude 3.5 Haiku' },
+    { value: 'anthropic/claude-3.5-sonnet', label: 'Claude 3.5 Sonnet (Tự động chuyển sang Sonnet 4.6)' },
     { value: 'meta-llama/llama-3.1-8b-instruct', label: 'Llama 3.1 8B' },
 ];
 export const AI_FEATURES = [

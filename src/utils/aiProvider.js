@@ -39,10 +39,24 @@ const OPENROUTER_MODELS = [
     'google/gemini-2.5-pro',
     'openai/gpt-4o-mini',
     'openai/gpt-4o',
+    'anthropic/claude-sonnet-4.6',
+    'anthropic/claude-sonnet-4.5',
+    'anthropic/claude-sonnet-4',
+    '~anthropic/claude-sonnet-latest',
+    'anthropic/claude-3.5-haiku',
     'anthropic/claude-3.5-sonnet',
     'deepseek/deepseek-chat',
     'meta-llama/llama-3.1-8b-instruct'
 ];
+
+const MODEL_ALIASES = {
+    'anthropic/claude-3.5-sonnet': 'anthropic/claude-sonnet-4.6'
+};
+
+const getEffectiveModel = (model) => {
+    return MODEL_ALIASES[model] || model;
+};
+
 
 const buildOpenRouterRequest = (prompt, model, apiKey) => ({
     url: 'https://openrouter.ai/api/v1/chat/completions',
@@ -81,8 +95,9 @@ const callWithRetry = async (prompt, keyIndex = 0, modelIndex = 0, preferredMode
     }
 
     let models = [...OPENROUTER_MODELS];
-    if (preferredModel) {
-        models = [preferredModel, ...models.filter(m => m !== preferredModel)];
+    const effectivePreferred = getEffectiveModel(preferredModel);
+    if (effectivePreferred) {
+        models = [effectivePreferred, ...models.filter(m => m !== effectivePreferred)];
     }
 
     const currentKey = keys[keyIndex];
@@ -171,6 +186,7 @@ export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = n
         activeModel = FEATURE_DEFAULTS[featureId] || 'google/gemini-2.5-flash';
     }
 
+    activeModel = getEffectiveModel(activeModel);
     console.log(`🤖 OpenRouter (${keys.length} keys) — Feature: ${featureId || 'default'} — Model: ${activeModel}`);
     return callWithRetry(prompt, 0, 0, activeModel);
 };
