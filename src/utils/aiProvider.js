@@ -653,3 +653,44 @@ export const callWhisperSTT = async (audioBlob) => {
     console.log('🎙️ Whisper STT result:', data.text);
     return data.text || '';
 };
+
+// ============== OPENAI / GOOGLE TRANSLATE TTS CALL ==============
+export const callOpenAITTS = async (text, gender = 'female') => {
+    const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
+    if (!openaiKey) {
+        // Fallback to Google Translate TTS
+        const encodedText = encodeURIComponent(text);
+        return `https://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&q=${encodedText}`;
+    }
+
+    // OpenAI voices: alloy, echo, fable, onyx, nova, shimmer
+    // Female options: nova, shimmer
+    // Male options: onyx, echo
+    const voice = gender === 'female' ? 'shimmer' : 'onyx';
+
+    try {
+        const response = await fetch('https://api.openai.com/v1/audio/speech', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${openaiKey}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                model: 'tts-1',
+                input: text,
+                voice: voice
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`TTS API error: ${response.status}`);
+        }
+
+        const blob = await response.blob();
+        return URL.createObjectURL(blob);
+    } catch (error) {
+        console.error('OpenAI TTS failed, falling back to Google Translate:', error);
+        const encodedText = encodeURIComponent(text);
+        return `https://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&q=${encodedText}`;
+    }
+};

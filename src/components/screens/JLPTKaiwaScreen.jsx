@@ -5,7 +5,7 @@ import {
     ArrowLeft, Settings, Sparkles, AlertCircle, CheckCircle2, 
     Play, Send, RefreshCw, Star, Info, Languages
 } from 'lucide-react';
-import { callKaiwaAI, parseJsonFromAI, callWhisperSTT } from '../../utils/aiProvider';
+import { callKaiwaAI, parseJsonFromAI, callWhisperSTT, callOpenAITTS } from '../../utils/aiProvider';
 import { ROUTES } from '../../router';
 
 // Level configurations with style gradients
@@ -75,12 +75,18 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
     const streamRef = useRef(null);
     const chatEndRef = useRef(null);
     const isRecordingRef = useRef(false);
+    const audioRef = useRef(new Audio());
 
-    // Check MediaRecorder support on mount
+    // Check MediaRecorder support on mount and cleanup audio
     useEffect(() => {
         if (!window.MediaRecorder || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
             setSpeechSupported(false);
         }
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+            }
+        };
     }, []);
 
     // Scroll chat to bottom
@@ -201,41 +207,58 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
     };
 
     // Text-to-Speech (TTS) Reader
-    const speakText = (text) => {
-        if (!window.speechSynthesis || isMuted) return;
+    const speakText = async (text) => {
+        if (isMuted) return;
         
         // Remove ruby/furigana markup if any: e.g. "今日[きょう]" -> "今日"
         const cleanText = text.replace(/([\u4e00-\u9faf\u3005\u3400-\u4dbf]+)\[([^\]]+)\]/g, '$1');
 
-        window.speechSynthesis.cancel(); // stop any current speech
-        const utterance = new SpeechSynthesisUtterance(cleanText);
-        utterance.lang = 'ja-JP';
-        utterance.rate = ttsRate;
+        try {
+            // Stop any playing audio
+            if (audioRef.current) {
+                audioRef.current.pause();
+            }
 
-        // Try to select appropriate voice
-        const voices = window.speechSynthesis.getVoices();
-        const selectedTeacher = TEACHERS.find(t => t.id === teacher);
-        
-        // Find ja-JP voice
-        let voice = null;
-        if (selectedTeacher.gender === 'female') {
-            // Try to find a female ja-JP voice
-            voice = voices.find(v => v.lang.startsWith('ja') && (v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('sakura') || v.name.toLowerCase().includes('haruka') || v.name.toLowerCase().includes('nanami')));
-        } else {
-            // Try to find a male ja-JP voice
-            voice = voices.find(v => v.lang.startsWith('ja') && (v.name.toLowerCase().includes('male') || v.name.toLowerCase().includes('kenji') || v.name.toLowerCase().includes('keita') || v.name.toLowerCase().includes('ichiro')));
+            const selectedTeacher = TEACHERS.find(t => t.id === teacher);
+            const gender = selectedTeacher ? selectedTeacher.gender : 'female';
+            
+            const audioUrl = await callOpenAITTS(cleanText, gender);
+            
+            audioRef.current.src = audioUrl;
+            audioRef.current.playbackRate = ttsRate;
+            audioRef.current.play();
+        } catch (err) {
+            console.error('Failed to play text speech:', err);
+            // Fallback to legacy WebSpeech if audio fails
+            if (window.speechSynthesis) {
+                window.speechSynthesis.cancel(); // stop any current speech
+                const utterance = new SpeechSynthesisUtterance(cleanText);
+                utterance.lang = 'ja-JP';
+                utterance.rate = ttsRate;
+
+                // Try to select appropriate voice
+                const voices = window.speechSynthesis.getVoices();
+                const selectedTeacher = TEACHERS.find(t => t.id === teacher);
+                
+                // Find ja-JP voice
+                let voice = null;
+                if (selectedTeacher.gender === 'female') {
+                    voice = voices.find(v => v.lang.startsWith('ja') && (v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('sakura') || v.name.toLowerCase().includes('haruka') || v.name.toLowerCase().includes('nanami')));
+                } else {
+                    voice = voices.find(v => v.lang.startsWith('ja') && (v.name.toLowerCase().includes('male') || v.name.toLowerCase().includes('kenji') || v.name.toLowerCase().includes('keita') || v.name.toLowerCase().includes('ichiro')));
+                }
+
+                if (!voice) {
+                    voice = voices.find(v => v.lang.startsWith('ja'));
+                }
+
+                if (voice) {
+                    utterance.voice = voice;
+                }
+
+                window.speechSynthesis.speak(utterance);
+            }
         }
-
-        if (!voice) {
-            // Fallback to any ja-JP voice
-            voice = voices.find(v => v.lang.startsWith('ja'));
-        }
-
-        if (voice) {
-            utterance.voice = voice;
-        }
-
-        window.speechSynthesis.speak(utterance);
     };
 
     // Parse Furigana for HTML output
