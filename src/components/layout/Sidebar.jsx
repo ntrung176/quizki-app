@@ -4,7 +4,7 @@ import { signOut } from 'firebase/auth';
 import { auth, db, appId } from '../../config/firebase';
 import { collection, query, onSnapshot } from 'firebase/firestore';
 import { ROUTES } from '../../router';
-import { Home, BookOpen, Plus, LogOut, Sun, Moon, Sparkles, ChevronRight, X, List, Repeat2, FileCheck, Languages, Shield, ChevronDown, Trophy, Crown, User, Bell } from 'lucide-react'
+import { Home, BookOpen, Plus, LogOut, Sun, Moon, Sparkles, ChevronRight, X, List, Repeat2, FileCheck, Languages, Shield, ChevronDown, Trophy, Crown, User, Bell, MessageSquare } from 'lucide-react'
 // Sidebar Component - Navigation with submenu support
 const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allCards = [], isPremium = false, avatar }) => {
     const navigate = useNavigate();
@@ -251,6 +251,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
         if (path === ROUTES.KANJI_LIST || path.startsWith('/kanji/list/')) return 'KANJI_LIST';
         if (path === ROUTES.TEST) return 'TEST';
         if (path === ROUTES.JLPT_TEST) return 'JLPT_TEST';
+        if (path === ROUTES.JLPT_KAIWA) return 'JLPT_KAIWA';
         if (path === ROUTES.JLPT_ADMIN) return 'JLPT_ADMIN';
         if (path === ROUTES.HUB || path.startsWith('/hub')) return 'HUB';
         if (path === ROUTES.ACCOUNT) return 'ACCOUNT';
@@ -289,8 +290,9 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
         { id: 'KANJI_STUDY', icon: Languages, label: 'Thư viện Kanji', route: ROUTES.KANJI_STUDY },
         { id: 'GRAMMAR', icon: Repeat2, label: 'Ngữ pháp', route: ROUTES.GRAMMAR },
         { id: 'JLPT_TEST', icon: FileCheck, label: 'Luyện đề JLPT', route: ROUTES.JLPT_TEST },
+        isAdmin && { id: 'JLPT_KAIWA', icon: MessageSquare, label: 'Luyện KAIWA 1:1', route: ROUTES.JLPT_KAIWA },
         { id: 'HUB', icon: Trophy, label: 'Bảng vinh danh', route: ROUTES.HUB },
-    ];
+    ].filter(Boolean);
     if (isAdmin) {
         menuItems.push({ id: 'ADMIN', icon: Shield, label: 'Quản trị', route: ROUTES.ADMIN });
     }

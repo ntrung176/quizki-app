@@ -181,7 +181,8 @@ export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = n
             vocab_sino_viet: 'google/gemini-3.1-flash-lite',
             more_examples: 'openai/gpt-4o-mini',
             ocr_image: 'openai/gpt-4o-mini',
-            grammar_check: 'openai/gpt-4o-mini'
+            grammar_check: 'openai/gpt-4o-mini',
+            kaiwa_agent: 'google/gemini-2.5-flash'
         };
         activeModel = FEATURE_DEFAULTS[featureId] || 'google/gemini-2.5-flash';
     }
@@ -500,4 +501,155 @@ Chỉ trả về JSON hợp lệ.`;
         console.error('AI sentence translation error:', e);
         return null;
     }
+};
+
+// ============== KAIWA MULTI-TURN AGENT CALL ==============
+export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMessage = '', forcedModel = null) => {
+    const keys = getOpenRouterKeys();
+    if (keys.length === 0) {
+        throw new Error('Không có OpenRouter API key. Vui lòng thêm VITE_OPENROUTER_API_KEY vào file .env');
+    }
+
+    let activeModel = forcedModel;
+    if (!activeModel) {
+        try {
+            const { loadAdminConfig } = await import('./adminSettings');
+            const config = await loadAdminConfig();
+            if (config?.aiFeatureModels?.kaiwa_agent) {
+                activeModel = config.aiFeatureModels.kaiwa_agent;
+            }
+        } catch (e) {
+            console.warn('Failed to load admin config for Kaiwa model:', e);
+        }
+    }
+    if (!activeModel) {
+        activeModel = 'google/gemini-2.5-flash';
+    }
+    activeModel = getEffectiveModel(activeModel);
+
+    // Build message list
+    const messages = [
+        { role: 'system', content: systemPrompt },
+        ...conversationHistory,
+        { role: 'user', content: userMessage }
+    ];
+
+    const callWithMessagesRetry = async (messagesList, keyIndex = 0, modelIndex = 0, preferredModel = null) => {
+        const currentKey = keys[keyIndex];
+        let models = [...OPENROUTER_MODELS];
+        const effectivePreferred = getEffectiveModel(preferredModel);
+        if (effectivePreferred) {
+            models = [effectivePreferred, ...models.filter(m => m !== effectivePreferred)];
+        }
+        const currentModel = models[modelIndex];
+
+        const url = 'https://openrouter.ai/api/v1/chat/completions';
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${currentKey}`,
+                'HTTP-Referer': window.location.origin,
+                'X-Title': 'Quizki Kaiwa'
+            },
+            body: JSON.stringify({
+                model: currentModel,
+                messages: messagesList,
+                temperature: 0.7,
+                max_tokens: 2048,
+                response_format: { type: 'json_object' },
+                provider: {
+                    sort: 'price',
+                    allow_fallbacks: true
+                }
+            })
+        };
+
+        try {
+            const response = await fetch(url, options);
+            if (response.ok) {
+                const result = await response.json();
+                const text = extractOpenRouterText(result);
+                if (text) {
+                    console.log(`✅ OpenRouter Kaiwa (${currentModel}) thành công!`);
+                    return text;
+                }
+            }
+
+            const status = response.status;
+            if ((status === 429 || status === 503) && keyIndex < keys.length - 1) {
+                console.log(`⚠️ OpenRouter Kaiwa key ${keyIndex + 1} rate limited, thử key ${keyIndex + 2}...`);
+                await new Promise(r => setTimeout(r, 500));
+                return callWithMessagesRetry(messagesList, keyIndex + 1, modelIndex, preferredModel);
+            }
+            if ((status === 429 || status === 503) && modelIndex < models.length - 1) {
+                console.log(`⚠️ Hết quota cho ${currentModel}, thử ${models[modelIndex + 1]}...`);
+                await new Promise(r => setTimeout(r, 500));
+                return callWithMessagesRetry(messagesList, 0, modelIndex + 1, preferredModel);
+            }
+            if (status === 404 && modelIndex < models.length - 1) {
+                console.log(`⚠️ Model ${currentModel} không tồn tại, thử ${models[modelIndex + 1]}...`);
+                return callWithMessagesRetry(messagesList, keyIndex, modelIndex + 1, preferredModel);
+            }
+
+            const errorText = await response.text().catch(() => '');
+            console.error(`❌ OpenRouter Kaiwa error (${status}):`, errorText);
+            throw new Error(`OpenRouter API error: ${status}`);
+        } catch (error) {
+            if (error.message?.startsWith('OpenRouter API error')) throw error;
+            console.error(`❌ OpenRouter Kaiwa network error:`, error.message);
+            if (keyIndex < keys.length - 1) {
+                return callWithMessagesRetry(messagesList, keyIndex + 1, modelIndex, preferredModel);
+            }
+            throw error;
+        }
+    };
+
+    return callWithMessagesRetry(messages, 0, 0, activeModel);
+};
+
+// ============== WHISPER STT CALL ==============
+export const callWhisperSTT = async (audioBlob) => {
+    const groqKey = import.meta.env.VITE_GROQ_API_KEY;
+    const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
+
+    if (!groqKey && !openaiKey) {
+        throw new Error('Thiếu API Key cho Whisper STT. Vui lòng cấu hình VITE_GROQ_API_KEY trong file .env');
+    }
+
+    const formData = new FormData();
+    // Name the file 'audio.webm' or 'audio.wav' so the API maps the container type
+    const file = new File([audioBlob], 'audio.webm', { type: audioBlob.type || 'audio/webm' });
+    formData.append('file', file);
+    formData.append('model', 'whisper-large-v3'); // Whisper v3 on Groq
+    formData.append('language', 'ja');
+
+    let url = 'https://api.groq.com/openai/v1/audio/transcriptions';
+    let apiKey = groqKey;
+
+    if (openaiKey) {
+        url = 'https://api.openai.com/v1/audio/transcriptions';
+        apiKey = openaiKey;
+        formData.set('model', 'whisper-1');
+    }
+
+    console.log(`🎙️ Sending speech to Whisper STT via ${openaiKey ? 'OpenAI' : 'Groq'}...`);
+
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${apiKey}`
+        },
+        body: formData
+    });
+
+    if (!response.ok) {
+        const errText = await response.text();
+        console.error('Whisper STT Error:', errText);
+        throw new Error(`Whisper API error: ${response.status} - ${errText}`);
+    }
+
+    const data = await response.json();
+    console.log('🎙️ Whisper STT result:', data.text);
+    return data.text || '';
 };

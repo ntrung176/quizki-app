@@ -36,6 +36,7 @@ export const ROUTES = {
 
     // JLPT Test
     JLPT_TEST: '/jlpt/test',
+    JLPT_KAIWA: '/jlpt/kaiwa',
     JLPT_ADMIN: '/jlpt/admin',
 
     // Grammar: /grammar/*
