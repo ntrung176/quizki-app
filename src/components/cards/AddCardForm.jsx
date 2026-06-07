@@ -108,12 +108,6 @@ export const CardEditorItem = ({
                         <Languages className="w-3.5 h-3.5" />
                         <span>JA-VI</span>
                     </div>
-                    {aiCreditsRemaining !== undefined && (
-                        <div className="flex items-center gap-1 bg-indigo-50 dark:bg-indigo-900/25 px-2.5 py-1 rounded-lg border border-indigo-100 dark:border-indigo-800 text-xs text-indigo-600 dark:text-indigo-400" title="Số lượt AI còn lại">
-                            <CreditCard className="w-3.5 h-3.5" />
-                            <span className="font-bold">{aiCreditsRemaining}</span>
-                        </div>
-                    )}
                 </div>
                 <button 
                     onClick={(e) => onDelete(e, card.id)} 

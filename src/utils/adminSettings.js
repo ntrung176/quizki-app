@@ -5,67 +5,35 @@ import { db, appId } from '../config/firebase';
 const getAdminSettingsPath = () => `artifacts/${appId}/settings`;
 const ADMIN_CONFIG_DOC = 'adminConfig';
 // Default AI Credit packages (admin can customize)
-export const DEFAULT_AI_PACKAGES = [
-    { id: 'starter', name: 'Starter', cards: 100, originalPrice: 19000, salePrice: 19000 },
-    { id: 'popular', name: 'Popular', cards: 500, originalPrice: 95000, salePrice: 49000 },
-    { id: 'best_value', name: 'Best Value', cards: 1000, originalPrice: 190000, salePrice: 89000 },
-    { id: 'ultimate', name: 'Ultimate', cards: 3000, originalPrice: 570000, salePrice: 199000 },
-];
+export const DEFAULT_AI_PACKAGES = [];
 export const DEFAULT_SPECIALIZED_PACKAGES = [
     {
-        id: 'vocab_zen',
-        name: 'Mở khóa Từ vựng Zen',
-        icon: 'BookOpen',
-        description: 'Độc quyền thuật toán ôn tập Spaced Repetition (SRS) tự động tối ưu chu kỳ ghi nhớ và học tập.',
-        originalPrice: 99000,
-        salePrice: 49000,
+        id: 'premium_1y',
+        name: 'Gói Premium 1 Năm',
+        icon: 'Crown',
+        description: 'Mở khóa toàn bộ tính năng cao cấp và học phần chuyên sâu trong thời hạn 1 năm.',
+        originalPrice: 399000,
+        salePrice: 199000,
         unlockedFeatures: [
-            '[Premium] Hệ thống Leitner Box & Spaced Repetition thông minh nhắc nhở ôn tập tự động',
-            '[Premium] Tạo từ vựng không giới hạn bằng AI (tự động điền Hán Việt, ví dụ, bộ thủ)',
-            '🔊 Phát âm từ vựng chuẩn xác giọng bản xứ (Nam/Nữ) qua AI Voice',
-            '📈 Thống kê tiến độ ôn tập & đo lường hiệu quả học tập hàng ngày'
+            '[Premium] Mở khóa tất cả tính năng: Từ vựng Zen, Ngữ pháp Zen, Kanji Zen, Luyện thi JLPT',
+            '[Premium] Thuật toán Spaced Repetition (SRS) nhắc nhở học thông minh tự động',
+            '🤖 Không giới hạn lượt tạo từ vựng và câu ví dụ thông minh bằng AI',
+            '🔊 Phát âm chuẩn giọng đọc bản xứ không giới hạn'
         ]
     },
     {
-        id: 'grammar_zen',
-        name: 'Mở khóa Ngữ pháp Zen',
-        icon: 'Sparkles',
-        description: 'Chinh phục 500+ mẫu ngữ pháp JLPT N5 - N1 với sơ đồ tư duy liên kết và trợ lý giải thích ngữ nghĩa AI.',
-        originalPrice: 99000,
-        salePrice: 49000,
+        id: 'premium_3y',
+        name: 'Gói Premium 3 Năm',
+        icon: 'Crown',
+        description: 'Mở khóa toàn bộ tính năng cao cấp và học phần chuyên sâu trong thời hạn 3 năm. Tiết kiệm tối đa.',
+        originalPrice: 799000,
+        salePrice: 399000,
         unlockedFeatures: [
-            '[Premium] Phân tích & so sánh các mẫu ngữ pháp dễ nhầm lẫn bằng AI',
-            '[Premium] Bản đồ tư duy liên kết các mẫu ngữ pháp tương đồng trực quan',
-            '🔊 5,000+ câu hỏi luyện tập kèm giải thích đáp án chi tiết',
-            '📚 Sách ngữ pháp điện tử JLPT N5 - N1 phân loại rõ ràng'
-        ]
-    },
-    {
-        id: 'kanji_zen',
-        name: 'Mở khóa Kanji Zen',
-        icon: 'Languages',
-        description: 'Bản đồ tư duy Kanji (Kanji Mindmap) liên kết bộ thủ độc quyền. Luyện viết nét đứt sinh động theo thời gian thực.',
-        originalPrice: 99000,
-        salePrice: 49000,
-        unlockedFeatures: [
-            '[Premium] Bản đồ tư duy Kanji liên kết Hán tự & Bộ thủ độc quyền',
-            '[Premium] Luyện viết Kanji từng nét (Stroke Order) sinh động theo thời gian thực',
-            '🔊 Phân tích chi tiết âm Onyomi/Kunyomi & từ ghép thông dụng',
-            '📊 Thống kê tần suất xuất hiện của Kanji trong đề thi thực tế'
-        ]
-    },
-    {
-        id: 'jlpt_prep',
-        name: 'Gói Luyện thi JLPT',
-        icon: 'Trophy',
-        description: 'Trải nghiệm phòng thi ảo tính giờ & chấm điểm tự động. Đánh giá chi tiết năng lực & kỹ năng làm bài thi.',
-        originalPrice: 199000,
-        salePrice: 99000,
-        unlockedFeatures: [
-            '[Premium] Phòng thi ảo bấm giờ và chấm điểm tự động sát đề thật 99%',
-            '[Premium] Biểu đồ phân tích kỹ năng yếu (Moji-Goi, Choukai, Dokkai) sau khi làm đề',
-            '🔊 Kho đề thi thử JLPT N5 - N1 dồi dào, cập nhật mới liên tục',
-            '🏆 Nhận huy hiệu danh giá & lọt Top Bảng Vinh Danh'
+            '[Premium] Mở khóa tất cả tính năng: Từ vựng Zen, Ngữ pháp Zen, Kanji Zen, Luyện thi JLPT',
+            '[Premium] Thuật toán Spaced Repetition (SRS) nhắc nhở học thông minh tự động',
+            '🤖 Không giới hạn lượt tạo từ vựng và câu ví dụ thông minh bằng AI',
+            '🔊 Phát âm chuẩn giọng đọc bản xứ không giới hạn',
+            '⚡ Ưu tiên hỗ trợ học tập và xử lý kỹ thuật 24/7'
         ]
     }
 ];
@@ -316,9 +284,23 @@ const approveCreditRequest = async (requestId, userId, credits, adminUserId) => 
         const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
         if (typeof credits === 'string' && credits.startsWith('specialized:')) {
             const packageId = credits.replace('specialized:', '');
-            if (packageId === 'premium') {
+            if (packageId.startsWith('premium')) {
+                const profileSnap = await getDoc(profileRef);
+                const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
+                const bonusCredits = packageId === 'premium_3y' ? 6000 : (packageId === 'premium_1y' ? 2000 : 0);
+                
+                // Calculate expiration date (extending if already active)
+                const durationMs = packageId === 'premium_3y' ? 3 * 365 * 24 * 60 * 60 * 1000 : 365 * 24 * 60 * 60 * 1000;
+                const currentExpiry = profileSnap.exists() ? (profileSnap.data().premiumExpiresAt || 0) : 0;
+                const currentExpiryMs = currentExpiry?.toDate ? currentExpiry.toDate().getTime() : Number(currentExpiry || 0);
+                const baseTime = currentExpiryMs > Date.now() ? currentExpiryMs : Date.now();
+                const premiumExpiresAt = baseTime + durationMs;
+
                 await setDoc(profileRef, {
-                    unlockedSpecializedPackages: arrayUnion('premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep')
+                    unlockedSpecializedPackages: arrayUnion(packageId, 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'),
+                    isPremiumUnlocked: true,
+                    aiCreditsRemaining: currentCredits + bonusCredits,
+                    premiumExpiresAt
                 }, { merge: true });
             } else {
                 await setDoc(profileRef, {
@@ -373,17 +355,54 @@ export const manuallyApplyPackageToUser = async (userId, userName, userEmail, pa
     try {
         // 1. Update user profile settings
         const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
+        const publicStatsRef = doc(db, `artifacts/${appId}/public/data/userStats/${userId}`);
         let creditsValue;
         if (packageInfo.type === 'premium') {
-            creditsValue = 'specialized:premium';
-            await setDoc(profileRef, {
-                unlockedSpecializedPackages: arrayUnion('premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep')
-            }, { merge: true });
+            creditsValue = 'specialized:' + packageInfo.id;
+            const profileSnap = await getDoc(profileRef);
+            const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
+            const bonusCredits = packageInfo.id === 'premium_3y' ? 6000 : (packageInfo.id === 'premium_1y' ? 2000 : 0);
+            
+            // Calculate expiration date (extending if already active)
+            const durationMs = packageInfo.id === 'premium_3y' ? 3 * 365 * 24 * 60 * 60 * 1000 : 365 * 24 * 60 * 60 * 1000;
+            const currentExpiry = profileSnap.exists() ? (profileSnap.data().premiumExpiresAt || 0) : 0;
+            const currentExpiryMs = currentExpiry?.toDate ? currentExpiry.toDate().getTime() : Number(currentExpiry || 0);
+            const baseTime = currentExpiryMs > Date.now() ? currentExpiryMs : Date.now();
+            const premiumExpiresAt = baseTime + durationMs;
+
+            const updateFields = {
+                unlockedSpecializedPackages: ['premium_1y', 'premium_3y', 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'].filter(p => p === packageInfo.id || p !== 'premium_1y' && p !== 'premium_3y' || p === 'premium_1y' && packageInfo.id === 'premium_1y' || p === 'premium_3y' && packageInfo.id === 'premium_3y'),
+                isPremiumUnlocked: true,
+                aiCreditsRemaining: currentCredits + bonusCredits,
+                premiumExpiresAt
+            };
+
+            await setDoc(profileRef, updateFields, { merge: true });
+
+            // Sync to public stats for instant list update
+            try {
+                await setDoc(publicStatsRef, {
+                    unlockedSpecializedPackages: updateFields.unlockedSpecializedPackages,
+                    isPremiumUnlocked: true,
+                    isPremium: true,
+                    premiumExpiresAt
+                }, { merge: true });
+            } catch (statsErr) {
+                console.warn('Không có quyền cập nhật userStats trực tiếp (sẽ tự động đồng bộ khi user online):', statsErr);
+            }
         } else if (packageInfo.type === 'specialized') {
             creditsValue = 'specialized:' + packageInfo.id;
             await setDoc(profileRef, {
                 unlockedSpecializedPackages: arrayUnion(packageInfo.id)
             }, { merge: true });
+
+            try {
+                await setDoc(publicStatsRef, {
+                    unlockedSpecializedPackages: arrayUnion(packageInfo.id)
+                }, { merge: true });
+            } catch (statsErr) {
+                console.warn('Không có quyền cập nhật userStats trực tiếp:', statsErr);
+            }
         } else if (packageInfo.type === 'ai') {
             creditsValue = packageInfo.credits;
             const profileSnap = await getDoc(profileRef);
@@ -475,17 +494,31 @@ export const processPaymentSecurely = async (transactionId, orderCode, userId, c
             // Step 4: Update credits or unlock package
             if (typeof credits === 'string' && credits.startsWith('specialized:')) {
                 const packageId = credits.replace('specialized:', '');
-                if (packageId === 'premium') {
+                if (packageId.startsWith('premium')) {
+                    const bonusCredits = packageId === 'premium_3y' ? 6000 : (packageId === 'premium_1y' ? 2000 : 0);
+                    
+                    // Calculate expiration date (extending if already active)
+                    const durationMs = packageId === 'premium_3y' ? 3 * 365 * 24 * 60 * 60 * 1000 : 365 * 24 * 60 * 60 * 1000;
+                    const currentExpiry = profileSnap.exists() ? (profileSnap.data().premiumExpiresAt || 0) : 0;
+                    const currentExpiryMs = currentExpiry?.toDate ? currentExpiry.toDate().getTime() : Number(currentExpiry || 0);
+                    const baseTime = currentExpiryMs > Date.now() ? currentExpiryMs : Date.now();
+                    const premiumExpiresAt = baseTime + durationMs;
+
                     await setDoc(profileRef, {
-                        unlockedSpecializedPackages: arrayUnion('premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep')
+                        unlockedSpecializedPackages: arrayUnion(packageId, 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'),
+                        isPremiumUnlocked: true,
+                        aiCreditsRemaining: currentCredits + bonusCredits,
+                        premiumExpiresAt
                     }, { merge: true });
+                    console.log(`✅ Payment processed: TX#${transactionId}, unlocked premium package ${packageId}, added ${bonusCredits} credits, expires at ${new Date(premiumExpiresAt).toISOString()}`);
+                    return { success: true, newCredits: currentCredits + bonusCredits };
                 } else {
                     await setDoc(profileRef, {
                         unlockedSpecializedPackages: arrayUnion(packageId)
                     }, { merge: true });
+                    console.log(`✅ Payment processed: TX#${transactionId}, unlocked specialized package ${packageId}`);
+                    return { success: true, newCredits: currentCredits };
                 }
-                console.log(`✅ Payment processed: TX#${transactionId}, unlocked specialized package ${packageId}`);
-                return { success: true, newCredits: currentCredits };
             } else {
                 const creditNum = Number(credits) || 0;
                 if (profileSnap.exists()) {

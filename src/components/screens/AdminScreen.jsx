@@ -16,6 +16,8 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const [sortOrder, setSortOrder] = useState('desc');
     const [selectedUser, setSelectedUser] = useState(null);
     const [selectedUserProfile, setSelectedUserProfile] = useState(null);
+    const [selectedUserPackageState, setSelectedUserPackageState] = useState('free');
+    const [updatingUserPackage, setUpdatingUserPackage] = useState(false);
     const [loadingProfile, setLoadingProfile] = useState(false);
     const [notification, setNotification] = useState(null);
     const [confirmDelete, setConfirmDelete] = useState(null);
@@ -140,6 +142,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     useEffect(() => {
         if (!selectedUser) {
             setSelectedUserProfile(null);
+            setSelectedUserPackageState('free');
             return;
         }
         const loadProfile = async () => {
@@ -148,9 +151,19 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                 const profileRef = doc(db, `artifacts/${appId}/users/${selectedUser.userId}/settings/profile`);
                 const snap = await getDoc(profileRef);
                 if (snap.exists()) {
-                    setSelectedUserProfile(snap.data());
+                    const data = snap.data();
+                    setSelectedUserProfile(data);
+                    const unlocked = data.unlockedSpecializedPackages || [];
+                    if (unlocked.includes('premium_3y')) {
+                        setSelectedUserPackageState('premium_3y');
+                    } else if (unlocked.includes('premium_1y')) {
+                        setSelectedUserPackageState('premium_1y');
+                    } else {
+                        setSelectedUserPackageState('free');
+                    }
                 } else {
                     setSelectedUserProfile({ aiCreditsRemaining: 0, unlockedSpecializedPackages: [] });
+                    setSelectedUserPackageState('free');
                 }
             } catch (e) {
                 console.error('Error loading user profile:', e);
@@ -160,6 +173,120 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         };
         loadProfile();
     }, [selectedUser]);
+
+    const handleSaveUserPackage = async () => {
+        if (!selectedUser) return;
+        setUpdatingUserPackage(true);
+        try {
+            const profileRef = doc(db, `artifacts/${appId}/users/${selectedUser.userId}/settings/profile`);
+            let unlockedSpecializedPackages = [];
+            let isPremiumUnlocked = false;
+            let premiumExpiresAt = null;
+
+            if (selectedUserPackageState === 'premium_1y') {
+                unlockedSpecializedPackages = ['premium_1y', 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'];
+                isPremiumUnlocked = true;
+                premiumExpiresAt = Date.now() + 365 * 24 * 60 * 60 * 1000;
+            } else if (selectedUserPackageState === 'premium_3y') {
+                unlockedSpecializedPackages = ['premium_3y', 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'];
+                isPremiumUnlocked = true;
+                premiumExpiresAt = Date.now() + 3 * 365 * 24 * 60 * 60 * 1000;
+            }
+
+            const updateData = {
+                unlockedSpecializedPackages,
+                isPremiumUnlocked,
+                premiumExpiresAt
+            };
+
+            await setDoc(profileRef, updateData, { merge: true });
+            
+            if (publicStatsPath) {
+                try {
+                    const publicStatsRef = doc(db, `${publicStatsPath}/${selectedUser.userId}`);
+                    await setDoc(publicStatsRef, {
+                        unlockedSpecializedPackages,
+                        isPremiumUnlocked,
+                        isPremium: isPremiumUnlocked,
+                        premiumExpiresAt
+                    }, { merge: true });
+                } catch (statsErr) {
+                    console.warn('Không có quyền cập nhật userStats trực tiếp (sẽ tự động đồng bộ khi user online):', statsErr);
+                }
+            }
+
+            setSelectedUserProfile(prev => ({
+                ...prev,
+                ...updateData
+            }));
+
+            setNotification({ type: 'success', message: 'Đã cập nhật gói học cho người dùng thành công.' });
+        } catch (e) {
+            console.error('Lỗi cập nhật gói học:', e);
+            setNotification({ type: 'error', message: 'Lỗi cập nhật: ' + e.message });
+        } finally {
+            setUpdatingUserPackage(false);
+        }
+    };
+
+    const getUserActivePlan = (u) => {
+        let activePlan = 'free';
+        
+        // 1. Check profile/public stats fields
+        if (u.unlockedSpecializedPackages && Array.isArray(u.unlockedSpecializedPackages)) {
+            const has1y = u.unlockedSpecializedPackages.includes('premium_1y');
+            const has3y = u.unlockedSpecializedPackages.includes('premium_3y');
+            const hasLegacy = u.unlockedSpecializedPackages.includes('premium') || u.isPremium;
+            
+            let isExpired = false;
+            if (u.premiumExpiresAt) {
+                const expiryTime = u.premiumExpiresAt.toDate ? u.premiumExpiresAt.toDate().getTime() : Number(u.premiumExpiresAt || 0);
+                if (expiryTime && expiryTime < Date.now()) {
+                    isExpired = true;
+                }
+            }
+
+            if (!isExpired) {
+                if (has3y) activePlan = 'premium_3y';
+                else if (has1y) activePlan = 'premium_1y';
+                else if (hasLegacy) activePlan = 'premium';
+            }
+        } else if (u.isPremium) {
+            let isExpired = false;
+            if (u.premiumExpiresAt) {
+                const expiryTime = u.premiumExpiresAt.toDate ? u.premiumExpiresAt.toDate().getTime() : Number(u.premiumExpiresAt || 0);
+                if (expiryTime && expiryTime < Date.now()) {
+                    isExpired = true;
+                }
+            }
+            if (!isExpired) {
+                activePlan = 'premium';
+            }
+        }
+
+        // 2. Fallback to creditRequests if still free but they have a premiumExpiresAt that is valid
+        if (activePlan === 'free') {
+            let isExpired = false;
+            if (u.premiumExpiresAt) {
+                const expiryTime = u.premiumExpiresAt.toDate ? u.premiumExpiresAt.toDate().getTime() : Number(u.premiumExpiresAt || 0);
+                if (expiryTime && expiryTime < Date.now()) {
+                    isExpired = true;
+                }
+            }
+            
+            if (!isExpired && u.premiumExpiresAt) {
+                const userApprovedRequests = creditRequests.filter(r => r.userId === u.userId && r.status === 'approved');
+                const has3yReq = userApprovedRequests.some(r => r.packageId === 'premium_3y');
+                const has1yReq = userApprovedRequests.some(r => r.packageId === 'premium_1y');
+                
+                if (has3yReq) activePlan = 'premium_3y';
+                else if (has1yReq) activePlan = 'premium_1y';
+                else activePlan = 'premium';
+            }
+        }
+
+        return activePlan;
+    };
 
     // Stats
     const stats = useMemo(() => {
@@ -194,19 +321,10 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         }
         // Plan filter
         if (planFilter !== 'all') {
-            const usersWithPlan = new Set(
-                creditRequests
-                    .filter(r => {
-                        if (r.status !== 'approved') return false;
-                        const pId = r.packageId;
-                        if (pId === planFilter) return true;
-                        if (planFilter.startsWith('ai_') && pId === planFilter.substring(3)) return true;
-                        if (pId?.startsWith('ai_') && planFilter === pId.substring(3)) return true;
-                        return false;
-                    })
-                    .map(r => r.userId)
-            );
-            result = result.filter(u => usersWithPlan.has(u.userId));
+            result = result.filter(u => {
+                const activePlan = getUserActivePlan(u);
+                return activePlan === planFilter;
+            });
         }
         result.sort((a, b) => {
             let aVal, bVal;
@@ -426,15 +544,8 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
 
         // Find package info
         const pkgOptions = [
-            { id: 'premium', name: 'Gói Premium (Tất cả tính năng)', type: 'premium' },
-            { id: 'vocab_zen', name: 'Mở khóa Từ vựng Zen', type: 'specialized' },
-            { id: 'grammar_zen', name: 'Mở khóa Ngữ pháp Zen', type: 'specialized' },
-            { id: 'kanji_zen', name: 'Mở khóa Kanji Zen', type: 'specialized' },
-            { id: 'jlpt_prep', name: 'Gói Luyện thi JLPT', type: 'specialized' },
-            { id: 'ai_starter', name: 'Gói AI Starter (100 lượt)', type: 'ai', credits: 100 },
-            { id: 'ai_popular', name: 'Gói AI Popular (500 lượt)', type: 'ai', credits: 500 },
-            { id: 'ai_best_value', name: 'Gói AI Best Value (1000 lượt)', type: 'ai', credits: 1000 },
-            { id: 'ai_ultimate', name: 'Gói AI Ultimate (3000 lượt)', type: 'ai', credits: 3000 }
+            { id: 'premium_1y', name: 'Gói Premium 1 Năm', type: 'premium' },
+            { id: 'premium_3y', name: 'Gói Premium 3 Năm', type: 'premium' }
         ];
 
         const pkg = pkgOptions.find(p => p.id === selectedPackageId);
@@ -471,7 +582,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         { id: 'users', label: 'Người dùng', icon: Users },
         { id: 'support', label: 'Hỗ trợ trực tuyến', icon: MessageSquare },
         { id: 'ai', label: 'AI', icon: Bot },
-        { id: 'credits', label: 'Gói & Lượt AI', icon: CreditCard },
         { id: 'revenue', label: 'Doanh thu', icon: DollarSign },
         { id: 'vouchers', label: 'Voucher', icon: Ticket },
         { id: 'moderators', label: 'QTV', icon: ShieldCheck },
@@ -577,15 +687,9 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg outline-none dark:text-white"
                             >
                                 <option value="all">Tất cả gói</option>
-                                <option value="premium">👑 Gói Premium</option>
-                                <option value="vocab_zen">📖 Từ vựng Zen</option>
-                                <option value="grammar_zen">✍️ Ngữ pháp Zen</option>
-                                <option value="kanji_zen">💮 Kanji Zen</option>
-                                <option value="jlpt_prep">🏆 Gói Luyện thi JLPT</option>
-                                <option value="starter">📦 AI Starter (100 lượt)</option>
-                                <option value="popular">📦 AI Popular (500 lượt)</option>
-                                <option value="best_value">📦 AI Best Value (1000 lượt)</option>
-                                <option value="ultimate">📦 AI Ultimate (3000 lượt)</option>
+                                <option value="premium_1y">👑 Gói Premium 1 Năm</option>
+                                <option value="premium_3y">👑 Gói Premium 3 Năm</option>
+                                <option value="free">👤 Gói Miễn Phí</option>
                             </select>
                             <select
                                 value={`${sortBy}-${sortOrder}`}
@@ -643,8 +747,42 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                                         </span>
                                                                     )}
                                                                 </p>
-                                                                <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
-                                                                    <span>{user.totalCards || 0} thẻ</span>
+                                                                <p className="text-xs text-gray-400 dark:text-gray-500 leading-none mt-0.5">{user.email || 'no-email@example.com'}</p>
+                                                                <div className="flex flex-wrap items-center gap-2 text-xs text-gray-550 dark:text-gray-450 mt-1.5">
+                                                                    <span className="font-semibold">{user.totalCards || 0} thẻ</span>
+                                                                    {(() => {
+                                                                        const activePlan = getUserActivePlan(user);
+                                                                        
+                                                                        let isExpired = false;
+                                                                        if (user.premiumExpiresAt) {
+                                                                            const expiryTime = user.premiumExpiresAt.toDate ? user.premiumExpiresAt.toDate().getTime() : Number(user.premiumExpiresAt || 0);
+                                                                            if (expiryTime && expiryTime < Date.now()) {
+                                                                                isExpired = true;
+                                                                            }
+                                                                        }
+
+                                                                        if (isExpired) {
+                                                                            return <span className="text-[10px] text-red-500 bg-red-50 dark:bg-red-950/20 px-1.5 py-0.5 rounded font-bold">HẾT HẠN</span>;
+                                                                        }
+                                                                        if (activePlan === 'premium_3y') {
+                                                                            return <span className="text-[10px] text-amber-700 bg-amber-50 dark:bg-amber-950/20 px-1.5 py-0.5 rounded font-black">👑 3 NĂM</span>;
+                                                                        }
+                                                                        if (activePlan === 'premium_1y') {
+                                                                            return <span className="text-[10px] text-amber-700 bg-amber-50 dark:bg-amber-950/20 px-1.5 py-0.5 rounded font-black">👑 1 NĂM</span>;
+                                                                        }
+                                                                        if (activePlan === 'premium') {
+                                                                            return <span className="text-[10px] text-indigo-500 bg-indigo-50 dark:bg-indigo-950/20 px-1.5 py-0.5 rounded font-bold">👑 PREMIUM</span>;
+                                                                        }
+                                                                        return <span className="text-[10px] text-gray-400 bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">FREE</span>;
+                                                                    })()}
+                                                                    {user.premiumExpiresAt && (
+                                                                        <span className="text-[10px] text-gray-400">
+                                                                            Hạn: {(() => {
+                                                                                const d = user.premiumExpiresAt.toDate ? user.premiumExpiresAt.toDate() : new Date(user.premiumExpiresAt);
+                                                                                return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
+                                                                            })()}
+                                                                        </span>
+                                                                    )}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -682,57 +820,46 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                 <Loader2 className="w-4 h-4 animate-spin mx-auto text-indigo-500" />
                                             </div>
                                         ) : (
-                                            <div className="space-y-2">
-                                                {/* AI Credits */}
-                                                <div className="p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg flex justify-between items-center">
+                                            <div className="space-y-3">
+                                                {/* Active Package Status Badge */}
+                                                <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg flex items-center justify-between">
                                                     <div>
-                                                        <p className="text-sm font-bold text-indigo-700 dark:text-indigo-400">
-                                                            {(selectedUserProfile?.aiCreditsRemaining ?? 0).toLocaleString()}
+                                                        <p className="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Gói hiện tại</p>
+                                                        <p className="text-sm font-bold text-gray-800 dark:text-white mt-0.5">
+                                                            {selectedUserPackageState === 'premium_3y' ? '👑 Premium 3 Năm' : 
+                                                             selectedUserPackageState === 'premium_1y' ? '👑 Premium 1 Năm' : 
+                                                             'Gói Miễn Phí'}
                                                         </p>
-                                                        <p className="text-[10px] text-gray-500">Lượt AI còn lại</p>
                                                     </div>
-                                                    <Sparkles className="w-5 h-5 text-indigo-555" />
+                                                    <span className={`px-2.5 py-1 rounded-full text-xs font-bold ${
+                                                        selectedUserPackageState !== 'free'
+                                                            ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-450' 
+                                                            : 'bg-gray-100 dark:bg-gray-800 text-gray-500'
+                                                    }`}>
+                                                        {selectedUserPackageState !== 'free' ? 'PREMIUM' : 'FREE'}
+                                                    </span>
                                                 </div>
 
-                                                {/* Active Packages */}
-                                                <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg space-y-1.5">
-                                                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Trạng thái gói học</p>
-
-                                                    {(() => {
-                                                        const unlocked = selectedUserProfile?.unlockedSpecializedPackages || [];
-                                                        const packageList = [
-                                                            { id: 'premium', name: '👑 Gói Premium', color: 'text-amber-600 bg-amber-50 dark:bg-amber-900/20' },
-                                                            { id: 'vocab_zen', name: '📖 Từ vựng Zen', color: 'text-purple-600 bg-purple-50 dark:bg-purple-900/20' },
-                                                            { id: 'grammar_zen', name: '✍️ Ngữ pháp Zen', color: 'text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20' },
-                                                            { id: 'kanji_zen', name: '💮 Kanji Zen', color: 'text-orange-600 bg-orange-50 dark:bg-orange-900/20' },
-                                                            { id: 'jlpt_prep', name: '🏆 Luyện thi JLPT', color: 'text-rose-600 bg-rose-50 dark:bg-rose-900/20' },
-                                                        ];
-
-                                                        return (
-                                                            <div className="grid grid-cols-2 gap-1.5">
-                                                                {packageList.map(pkg => {
-                                                                    const isOwned = unlocked.includes(pkg.id);
-                                                                    return (
-                                                                        <div 
-                                                                            key={pkg.id} 
-                                                                            className={`px-2 py-1 rounded text-[11px] font-medium flex items-center justify-between border ${
-                                                                                isOwned 
-                                                                                    ? `${pkg.color} border-current` 
-                                                                                    : 'text-gray-400 dark:text-gray-600 bg-transparent border-gray-200 dark:border-gray-700'
-                                                                            }`}
-                                                                        >
-                                                                            <span>{pkg.name}</span>
-                                                                            {isOwned ? (
-                                                                                <Check className="w-3 h-3 text-current flex-shrink-0" />
-                                                                            ) : (
-                                                                                <XIcon className="w-2.5 h-2.5 text-current flex-shrink-0" />
-                                                                            )}
-                                                                        </div>
-                                                                    );
-                                                                })}
-                                                            </div>
-                                                        );
-                                                    })()}
+                                                {/* Change Package Dropdown & Update Button */}
+                                                <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg space-y-2">
+                                                    <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Quản lý gói cước</label>
+                                                    <select
+                                                        value={selectedUserPackageState}
+                                                        onChange={(e) => setSelectedUserPackageState(e.target.value)}
+                                                        className="w-full px-3 py-2 bg-white dark:bg-gray-850 border border-gray-250 dark:border-slate-650 rounded-xl text-xs font-semibold text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none"
+                                                    >
+                                                        <option value="free">Gói Miễn Phí (Default)</option>
+                                                        <option value="premium_1y">👑 Gói Premium 1 Năm</option>
+                                                        <option value="premium_3y">👑 Gói Premium 3 Năm</option>
+                                                    </select>
+                                                    <button
+                                                        onClick={handleSaveUserPackage}
+                                                        disabled={updatingUserPackage}
+                                                        className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl transition-all shadow-md flex items-center justify-center gap-1.5 disabled:opacity-50"
+                                                    >
+                                                        {updatingUserPackage ? <Loader2 className="w-3 h-3 animate-spin" /> : null}
+                                                        Cập nhật gói cước
+                                                    </button>
                                                 </div>
                                             </div>
                                         )}
@@ -1091,139 +1218,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                 </div>
             )}
 
-            {/* ==================== CREDITS SECTION ==================== */}
-            {activeSection === 'credits' && (
-                <div className="space-y-4">
-                    {/* Manual Apply Package */}
-                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
-                        <h3 className="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
-                            <Plus className="w-4 h-4 text-emerald-500" />
-                            Áp dụng gói học cho người dùng
-                        </h3>
-
-                        {/* Email search */}
-                        <div className="mb-3">
-                            <div className="relative">
-                                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                                <input
-                                    type="text"
-                                    value={manualCreditEmailSearch}
-                                    onChange={(e) => {
-                                        setManualCreditEmailSearch(e.target.value);
-                                        setManualCreditUserId('');
-                                    }}
-                                    placeholder="Tìm theo email hoặc tên người dùng..."
-                                    className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Search results */}
-                        {manualCreditEmailSearch.trim() && (
-                            <div className="mb-3 max-h-[200px] overflow-y-auto rounded-lg border border-gray-200 dark:border-gray-600">
-                                {(() => {
-                                    const q = manualCreditEmailSearch.toLowerCase().trim();
-                                    const matched = users.filter(u =>
-                                        (u.email || '').toLowerCase().includes(q) ||
-                                        (u.displayName || '').toLowerCase().includes(q)
-                                    );
-                                    if (matched.length === 0) {
-                                        return (
-                                            <div className="p-3 text-center text-sm text-gray-400 italic">
-                                                Không tìm thấy người dùng phù hợp
-                                            </div>
-                                        );
-                                    }
-                                    return matched.map(u => (
-                                        <div
-                                            key={u.userId}
-                                            onClick={() => {
-                                                setManualCreditUserId(u.userId);
-                                                setManualCreditEmailSearch(u.email || u.displayName || '');
-                                            }}
-                                            className={`flex items-center gap-3 p-3 cursor-pointer transition-colors ${manualCreditUserId === u.userId
-                                                ? 'bg-emerald-50 dark:bg-emerald-900/30 border-l-4 border-emerald-500'
-                                                : 'hover:bg-gray-50 dark:hover:bg-gray-700/50 border-l-4 border-transparent'
-                                                }`}
-                                        >
-                                            <div className="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
-                                                {(u.displayName || '?')[0].toUpperCase()}
-                                            </div>
-                                            <div className="min-w-0 flex-1">
-                                                <p className="font-medium text-sm text-gray-800 dark:text-white truncate">
-                                                    {u.displayName || 'Chưa đặt tên'}
-                                                </p>
-                                                <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
-                                                    {u.email || 'Không có email'}
-                                                </p>
-                                            </div>
-                                            {manualCreditUserId === u.userId && (
-                                                <Check className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                                            )}
-                                        </div>
-                                    ));
-                                })()}
-                            </div>
-                        )}
-
-                        {/* Selected user indicator */}
-                        {manualCreditUserId && (() => {
-                            const selectedUser = users.find(u => u.userId === manualCreditUserId);
-                            return selectedUser ? (
-                                <div className="mb-3 flex items-center gap-2 p-2.5 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg">
-                                    <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                                    <span className="text-sm font-medium text-emerald-700 dark:text-emerald-400">
-                                        Đã chọn: {selectedUser.displayName || 'Chưa đặt tên'}
-                                    </span>
-                                    <span className="text-xs text-emerald-600 dark:text-emerald-500">
-                                        ({selectedUser.email || 'N/A'})
-                                    </span>
-                                    <button
-                                        onClick={() => { setManualCreditUserId(''); setManualCreditEmailSearch(''); }}
-                                        className="ml-auto text-gray-400 hover:text-red-500 transition-colors"
-                                    >
-                                        <XIcon className="w-3.5 h-3.5" />
-                                    </button>
-                                </div>
-                            ) : null;
-                        })()}
-
-                        {/* Package Selector + Apply Button */}
-                        <div className="flex flex-col sm:flex-row gap-3">
-                            <select
-                                value={selectedPackageId}
-                                onChange={(e) => setSelectedPackageId(e.target.value)}
-                                className="flex-1 px-3 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm dark:text-white outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
-                            >
-                                <optgroup label="👑 Gói Premium (Tất cả tính năng)">
-                                    <option value="premium">Gói Premium (Mở khóa tất cả)</option>
-                                </optgroup>
-                                <optgroup label="📖 Gói Lẻ (Môn học lẻ)">
-                                    <option value="vocab_zen">Từ vựng Zen</option>
-                                    <option value="grammar_zen">Ngữ pháp Zen</option>
-                                    <option value="kanji_zen">Kanji Zen</option>
-                                    <option value="jlpt_prep">Luyện thi JLPT</option>
-                                </optgroup>
-                                <optgroup label="🤖 Gói AI (Thêm lượt AI)">
-                                    <option value="ai_starter">AI Starter (+100 lượt)</option>
-                                    <option value="ai_popular">AI Popular (+500 lượt)</option>
-                                    <option value="ai_best_value">AI Best Value (+1000 lượt)</option>
-                                    <option value="ai_ultimate">AI Ultimate (+3000 lượt)</option>
-                                </optgroup>
-                            </select>
-
-                            <button
-                                onClick={handleManualApplyPackage}
-                                disabled={savingConfig || !manualCreditUserId || !selectedPackageId}
-                                className="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
-                            >
-                                {savingConfig ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
-                                Áp dụng gói
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
 
             {/* ==================== VOUCHER SECTION ==================== */}
             {activeSection === 'vouchers' && (

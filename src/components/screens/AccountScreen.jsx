@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db, auth } from '../../config/firebase';
-import { Users, Save, Lock, Eye, EyeOff } from 'lucide-react';
+import { Users, Save, Lock, Eye, EyeOff, Crown } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../router';
 
 const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack, publicStatsPath, currentUserId }) => {
+    const navigate = useNavigate();
     const [newDisplayName, setNewDisplayName] = useState(profile.displayName || '');
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
@@ -89,6 +92,47 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack,
                 <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
                     <Users className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                 </div>
+            </div>
+
+            {/* Subscription Box */}
+            <div className="bg-slate-50 dark:bg-slate-900/40 p-5 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="space-y-1">
+                    <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Gói học tập của bạn</h3>
+                    {profile?.isPremiumUnlocked ? (
+                        <div className="flex flex-wrap items-center gap-2 mt-1">
+                            <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[10px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                                <Crown className="w-3 h-3 fill-white text-white" /> PREMIUM HOẠT ĐỘNG
+                            </span>
+                            <span className="text-xs text-gray-500 dark:text-gray-400">
+                                Thời hạn đến: <span className="font-bold text-indigo-650 dark:text-indigo-400">
+                                    {profile.premiumExpiresAt ? (
+                                        (() => {
+                                            const date = profile.premiumExpiresAt.toDate ? profile.premiumExpiresAt.toDate() : new Date(profile.premiumExpiresAt);
+                                            return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+                                        })()
+                                    ) : 'Vĩnh viễn'}
+                                </span>
+                            </span>
+                        </div>
+                    ) : (
+                        <div className="flex flex-wrap items-center gap-2 mt-1">
+                            <span className="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-[10px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider">
+                                THÀNH VIÊN FREE
+                            </span>
+                            <span className="text-xs text-gray-500 dark:text-gray-400">
+                                Đang sử dụng các tính năng cơ bản
+                            </span>
+                        </div>
+                    )}
+                </div>
+                {!profile?.isPremiumUnlocked && (
+                    <button
+                        onClick={() => navigate(ROUTES.UPGRADE)}
+                        className="px-4 py-2 text-xs font-bold bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-xl shadow transition-all hover:scale-[1.02] cursor-pointer"
+                    >
+                        Nâng cấp ngay
+                    </button>
+                )}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

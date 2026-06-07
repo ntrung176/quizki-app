@@ -402,12 +402,22 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                                         }}
                                         className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${item.disabled
                                             ? 'cursor-not-allowed opacity-50 text-gray-400'
-                                            : isMenuActive(item)
-                                                ? 'bg-indigo-100 dark:bg-indigo-600/20 text-indigo-600 dark:text-indigo-400 border border-indigo-300 dark:border-indigo-500/30'
-                                                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50'
+                                            : item.id === 'UPGRADE'
+                                                ? isMenuActive(item)
+                                                    ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold border border-amber-600/30 shadow-sm'
+                                                    : 'bg-amber-50 dark:bg-amber-950/20 text-amber-700 dark:text-amber-400 border border-amber-200/50 dark:border-amber-900/30 hover:bg-amber-100 dark:hover:bg-amber-900/30 font-semibold'
+                                                : isMenuActive(item)
+                                                    ? 'bg-indigo-100 dark:bg-indigo-600/20 text-indigo-600 dark:text-indigo-400 border border-indigo-300 dark:border-indigo-500/30'
+                                                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50'
                                             }`}
                                     >
-                                        <item.icon className="w-5 h-5" />
+                                        <item.icon className={`w-5 h-5 ${
+                                            item.id === 'UPGRADE'
+                                                ? isMenuActive(item)
+                                                    ? 'text-white'
+                                                    : 'text-amber-600 dark:text-amber-400'
+                                                : ''
+                                        }`} />
                                         <span className="font-medium">{item.label}</span>
                                     </Link>
                                 )}
@@ -534,12 +544,12 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                 <Link
                     to={ROUTES.UPGRADE}
                     className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-4 py-3 rounded-xl transition-all duration-200 group relative ${currentView === 'UPGRADE'
-                            ? 'bg-[#6366F1] text-white font-semibold shadow-md shadow-indigo-150 dark:shadow-none'
-                            : 'bg-indigo-50 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/30'
+                            ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold shadow-md shadow-amber-500/20 dark:shadow-none'
+                            : 'bg-amber-50 dark:bg-amber-950/20 text-amber-700 dark:text-amber-400 border border-amber-200/50 dark:border-amber-900/30 hover:bg-amber-100 dark:hover:bg-amber-900/30'
                         }`}
                     title={isCollapsed ? 'Nâng cấp tài khoản' : undefined}
                 >
-                    <Crown className={`w-5 h-5 ${currentView === 'UPGRADE' ? 'text-white' : 'text-indigo-500'}`} />
+                    <Crown className={`w-5 h-5 ${currentView === 'UPGRADE' ? 'text-white' : 'text-amber-600 dark:text-amber-400'}`} />
                     {!isCollapsed && <span className="text-sm font-semibold">Nâng cấp tài khoản</span>}
                 </Link>
                 {/* Collapse toggle */}

@@ -228,40 +228,33 @@ const App = () => {
     const [rawProfile, setProfile] = useState(null);
     const profile = useMemo(() => {
         if (!rawProfile) return null;
-        const tier = rawProfile.trialPricingTier;
-        if (!tier) return rawProfile;
 
         const overrides = {};
-        if (tier === 'free') {
-            overrides.isPremiumUnlocked = false;
-            overrides.unlockedSpecializedPackages = [];
-            overrides.aiCreditsRemaining = rawProfile.simulatedCredits !== undefined && rawProfile.simulatedCredits !== null 
-                ? rawProfile.simulatedCredits 
-                : 50;
-        } else if (tier === 'premium_unlock') {
-            overrides.isPremiumUnlocked = true;
-            overrides.unlockedSpecializedPackages = ['premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'];
-            overrides.aiCreditsRemaining = rawProfile.simulatedCredits !== undefined && rawProfile.simulatedCredits !== null 
-                ? rawProfile.simulatedCredits 
-                : 200;
-        } else if (tier === 'ai_basic_annual') {
-            overrides.isPremiumUnlocked = false;
-            overrides.unlockedSpecializedPackages = [];
-            overrides.aiCreditsRemaining = rawProfile.simulatedCredits !== undefined && rawProfile.simulatedCredits !== null 
-                ? rawProfile.simulatedCredits 
-                : 2000;
-        } else if (tier === 'ai_pro_annual') {
-            overrides.isPremiumUnlocked = false;
-            overrides.unlockedSpecializedPackages = [];
-            overrides.aiCreditsRemaining = rawProfile.simulatedCredits !== undefined && rawProfile.simulatedCredits !== null 
-                ? rawProfile.simulatedCredits 
-                : 6000;
-        } else if (tier === 'combo_ultimate') {
-            overrides.isPremiumUnlocked = true;
-            overrides.unlockedSpecializedPackages = ['premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'];
-            overrides.aiCreditsRemaining = rawProfile.simulatedCredits !== undefined && rawProfile.simulatedCredits !== null 
-                ? rawProfile.simulatedCredits 
-                : 6000;
+
+        // 1. Check expiration for real purchases
+        if (rawProfile.premiumExpiresAt) {
+            const expiryTime = rawProfile.premiumExpiresAt.toDate ? rawProfile.premiumExpiresAt.toDate().getTime() : Number(rawProfile.premiumExpiresAt || 0);
+            if (expiryTime && expiryTime < Date.now()) {
+                overrides.isPremiumUnlocked = false;
+                overrides.unlockedSpecializedPackages = (rawProfile.unlockedSpecializedPackages || []).filter(
+                    pkg => !['premium_1y', 'premium_3y', 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'].includes(pkg)
+                );
+            }
+        }
+
+        // 2. Apply admin simulation overrides if active
+        const tier = rawProfile.trialPricingTier;
+        if (tier) {
+            if (tier === 'free') {
+                overrides.isPremiumUnlocked = false;
+                overrides.unlockedSpecializedPackages = [];
+            } else if (tier === 'premium_1y') {
+                overrides.isPremiumUnlocked = true;
+                overrides.unlockedSpecializedPackages = ['premium_1y', 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'];
+            } else if (tier === 'premium_3y') {
+                overrides.isPremiumUnlocked = true;
+                overrides.unlockedSpecializedPackages = ['premium_3y', 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'];
+            }
         }
         return { ...rawProfile, ...overrides };
     }, [rawProfile]);
@@ -358,10 +351,12 @@ const App = () => {
         return () => { if (unsubscribe) unsubscribe(); };
     }, [userId]);
 
-    // AI giờ kiểm soát bằng credits → tất cả user đều được dùng
+    // AI giờ yêu cầu tài khoản Premium (1 năm / 3 năm) để sử dụng không giới hạn
     const canUserUseAI = useMemo(() => {
-        return !!userId;
-    }, [userId]);
+        if (!userId) return false;
+        if (isAdmin || adminConfig?.moderators?.includes(userId)) return true;
+        return profile?.isPremiumUnlocked === true;
+    }, [userId, isAdmin, adminConfig, profile?.isPremiumUnlocked]);
 
     // Check if current user has admin privileges (admin or moderator)
     const userHasAdminPrivileges = useMemo(() => {
@@ -2809,21 +2804,7 @@ const App = () => {
     };
 
     const deductOneAiCredit = async () => {
-        if (!settingsDocPath) return;
-        try {
-            const isTrial = !!profile?.trialPricingTier;
-            if (isTrial) {
-                const newCredits = Math.max(0, (profile?.simulatedCredits || 0) - 1);
-                await updateDoc(doc(db, settingsDocPath), { simulatedCredits: newCredits });
-                setProfile(prev => ({ ...prev, simulatedCredits: newCredits }));
-            } else {
-                const newCredits = Math.max(0, (profile?.aiCreditsRemaining || 0) - 1);
-                await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: newCredits });
-                setProfile(prev => ({ ...prev, aiCreditsRemaining: newCredits }));
-            }
-        } catch (e) {
-            console.warn('Lỗi khấu trừ AI credit:', e);
-        }
+        // AI credits are unlimited now, no deduction needed
     };
 
     // --- UNIFIED AI ASSISTANT (OpenRouter only) ---
@@ -2910,25 +2891,8 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
 
             // Kiểm tra quyền AI
             if (!canUserUseAI) {
-                setNotification('Bạn chưa được cấp quyền sử dụng AI. Liên hệ admin để được cấp quyền.');
+                setNotification('Bạn cần nâng cấp tài khoản Premium để sử dụng tính năng AI.');
                 return null;
-            }
-
-            // Kiểm tra AI credits (admin/mod không giới hạn) — chỉ check khi KHÔNG phải retry
-            const isUnlimited = isAdmin || adminConfig?.moderators?.includes(userId);
-            if (!isRetry) {
-                const currentCredits = profile?.aiCreditsRemaining;
-                if (!isUnlimited) {
-                    if (currentCredits === undefined || currentCredits === null) {
-                        try {
-                            await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: 100 });
-                            setProfile(prev => ({ ...prev, aiCreditsRemaining: 100 }));
-                        } catch (e) { console.warn('Init credits error:', e); }
-                    } else if (currentCredits <= 0) {
-                        setNotification('Bạn đã hết lượt tạo từ vựng AI miễn phí. Vui lòng mua thêm gói thẻ để tiếp tục sử dụng.');
-                        return null;
-                    }
-                }
             }
 
             const providerInfo = getAIProviderInfo();
@@ -3013,23 +2977,8 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
 
             // Kiểm tra quyền AI
             if (!canUserUseAI) {
-                setNotification('Bạn chưa được cấp quyền sử dụng AI. Liên hệ admin để được cấp quyền.');
+                setNotification('Bạn cần nâng cấp tài khoản Premium để sử dụng tính năng AI.');
                 return null;
-            }
-
-            // Kiểm tra AI credits (admin/mod không giới hạn)
-            const isUnlimited = isAdmin || adminConfig?.moderators?.includes(userId);
-            const currentCredits = profile?.aiCreditsRemaining;
-            if (!isUnlimited) {
-                if (currentCredits === undefined || currentCredits === null) {
-                    try {
-                        await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: 100 });
-                        setProfile(prev => ({ ...prev, aiCreditsRemaining: 100 }));
-                    } catch (e) { console.warn('Init credits error:', e); }
-                } else if (currentCredits <= 0) {
-                    setNotification('Bạn đã hết lượt tạo từ vựng AI miễn phí. Vui lòng mua thêm gói thẻ để tiếp tục sử dụng.');
-                    return null;
-                }
             }
 
             // Call extractVocabFromImage
@@ -3037,10 +2986,6 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             const result = await extractVocabFromImage(imageBase64);
 
             if (result && Array.isArray(result)) {
-                // Trừ 1 credit
-                if (settingsDocPath) {
-                    await deductOneAiCredit();
-                }
                 return result;
             } else {
                 setNotification("Không thể trích xuất từ vựng từ ảnh này. Thử lại với ảnh rõ hơn.");
@@ -3275,11 +3220,16 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     score: score,
                     isPremium: (profile.unlockedSpecializedPackages && (
                         profile.unlockedSpecializedPackages.includes('premium') ||
+                        profile.unlockedSpecializedPackages.includes('premium_1y') ||
+                        profile.unlockedSpecializedPackages.includes('premium_3y') ||
                         profile.unlockedSpecializedPackages.includes('vocab_zen') ||
                         profile.unlockedSpecializedPackages.includes('grammar_zen') ||
                         profile.unlockedSpecializedPackages.includes('kanji_zen') ||
                         profile.unlockedSpecializedPackages.includes('jlpt_prep')
                     )) || false,
+                    unlockedSpecializedPackages: profile.unlockedSpecializedPackages || [],
+                    premiumExpiresAt: profile.premiumExpiresAt || null,
+                    trialPricingTier: profile.trialPricingTier || null,
                     lastUpdated: serverTimestamp()
                 };
                 await setDoc(statsDocRef, publicData, { merge: true }).catch(err => {
@@ -3694,7 +3644,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     <div className="bg-indigo-600 text-white text-xs font-semibold px-4 py-2.5 flex items-center justify-between shadow-md relative z-40">
                         <div className="flex items-center gap-2">
                             <span className="bg-white/25 text-white px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider">TEST MODE</span>
-                            <span>Đang giả lập gói: <strong className="underline">{profile.trialPricingTier.toUpperCase()}</strong>. {profile.trialPricingTier === 'free' ? 'Giới hạn: 3 học phần, 20 từ/học phần' : 'Không giới hạn học phần/từ vựng'} | Lượt AI giả lập: <strong>{profile.aiCreditsRemaining}</strong></span>
+                            <span>Đang giả lập gói: <strong className="underline">{profile.trialPricingTier.toUpperCase()}</strong>. {profile.trialPricingTier === 'free' ? 'Giới hạn: 3 học phần, 20 từ/học phần' : 'Không giới hạn học phần/từ vựng'}</span>
                         </div>
                         <button 
                             onClick={async () => {

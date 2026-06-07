@@ -7,6 +7,8 @@ import { doc, updateDoc } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
 
 const ICONS = {
+    premium_1y: Crown,
+    premium_3y: Crown,
     premium: Crown,
     starter: Zap,
     popular: Star,
@@ -19,6 +21,8 @@ const ICONS = {
 };
 
 const COLORS = {
+    premium_1y: 'from-amber-500 to-orange-500',
+    premium_3y: 'from-amber-500 to-orange-600',
     premium: 'from-amber-500 to-orange-600',
     starter: 'from-blue-500 to-cyan-500',
     popular: 'from-indigo-500 to-purple-600',
@@ -31,6 +35,8 @@ const COLORS = {
 };
 
 const BG_LIGHT = {
+    premium_1y: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
+    premium_3y: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
     premium: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
     starter: 'from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20',
     popular: 'from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20',
@@ -71,11 +77,11 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
     const [adminEditMode, setAdminEditMode] = useState(false);
     const [saveLoading, setSaveLoading] = useState(false);
     const [editedConfig, setEditedConfig] = useState(null);
-    const [adminTab, setAdminTab] = useState('credits'); // 'credits' | 'specialized' | 'general' | 'simulation'
+    const [adminTab, setAdminTab] = useState('specialized'); // 'specialized' | 'general' | 'simulation'
 
     const packagesReady = adminConfig !== null && adminConfig._fromCache === false;
     const packages = adminConfig?.aiCreditPackages || DEFAULT_AI_PACKAGES;
-    const specializedPackages = adminConfig?.specializedPackages || DEFAULT_SPECIALIZED_PACKAGES;
+    const specializedPackages = (adminConfig?.specializedPackages || DEFAULT_SPECIALIZED_PACKAGES).filter(pkg => pkg.id !== 'premium');
 
     // User's unlocked specialized packages
     const unlockedPackages = profile?.unlockedSpecializedPackages || [];
@@ -96,7 +102,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
         if (adminConfig) {
             setEditedConfig({
                 aiCreditPackages: adminConfig.aiCreditPackages || DEFAULT_AI_PACKAGES,
-                specializedPackages: adminConfig.specializedPackages || DEFAULT_SPECIALIZED_PACKAGES,
+                specializedPackages: (adminConfig.specializedPackages || DEFAULT_SPECIALIZED_PACKAGES).filter(pkg => pkg.id !== 'premium'),
                 bankId: adminConfig.bankId || 'MB',
                 bankAccountNo: adminConfig.bankAccountNo || '',
                 bankAccountName: adminConfig.bankAccountName || '',
@@ -237,35 +243,13 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
         if (!profile) return;
         try {
             const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
-            let simulatedCredits = null;
-            if (tier === 'free') simulatedCredits = 50;
-            else if (tier === 'premium_unlock') simulatedCredits = 200;
-            else if (tier === 'ai_basic_annual') simulatedCredits = 2000;
-            else if (tier === 'ai_pro_annual') simulatedCredits = 6000;
-            else if (tier === 'combo_ultimate') simulatedCredits = 6000;
-
             await updateDoc(profileRef, {
-                trialPricingTier: tier || null,
-                simulatedCredits: simulatedCredits
+                trialPricingTier: tier || null
             });
             alert(`Đã đổi gói giả lập thành công sang: ${tier || 'Thực tế'}`);
         } catch (e) {
             console.error('Lỗi cập nhật trial tier:', e);
             alert('Lỗi cập nhật: ' + e.message);
-        }
-    };
-
-    const handleUpdateSimulatedCredits = async (credits) => {
-        if (!profile) return;
-        try {
-            const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
-            await updateDoc(profileRef, {
-                simulatedCredits: Number(credits)
-            });
-            alert(`Đã cập nhật lượt AI giả lập: ${credits}`);
-        } catch (e) {
-            console.error('Lỗi cập nhật lượt AI giả lập:', e);
-            alert('Lỗi: ' + e.message);
         }
     };
 
@@ -443,8 +427,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                 {/* Tabs */}
                 <div className="flex border-b border-gray-100 dark:border-slate-700 mb-6 gap-2">
                     {[
-                        { id: 'credits', label: 'Gói Thẻ AI' },
-                        { id: 'specialized', label: 'Gói Tính Năng Zen' },
+                        { id: 'specialized', label: 'Quản lý Gói Premium' },
                         { id: 'general', label: 'Cấu hình Chung & SePay' },
                         { id: 'simulation', label: 'Thử Nghiệm Mở Khóa' },
                     ].map(tab => (
@@ -462,107 +445,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     ))}
                 </div>
 
-                {/* Tab: Gói Thẻ AI */}
-                {adminTab === 'credits' && (
-                    <div className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {editedConfig.aiCreditPackages.map((pkg, idx) => (
-                                <div key={pkg.id || idx} className="relative border border-gray-200 dark:border-slate-700 rounded-2xl p-4 bg-gray-50/50 dark:bg-slate-900/30">
-                                    <div className="flex items-center justify-between mb-2 pb-2 border-b border-gray-150/40 dark:border-slate-800">
-                                        <p className="text-xs font-bold text-indigo-600 uppercase">Mã gói: {pkg.id}</p>
-                                        <button
-                                            type="button"
-                                            onClick={() => deleteCreditPackage(idx)}
-                                            className="p-1 rounded-lg text-red-550 hover:bg-red-50 dark:hover:bg-red-950/20 text-red-500 hover:text-red-700 transition-colors"
-                                            title="Xóa gói"
-                                        >
-                                            <Trash2 className="w-4 h-4" />
-                                        </button>
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-2">
-                                        <div className="col-span-2">
-                                            <label className="text-[10px] font-bold text-gray-500">Mã gói (ID - Không dấu, viết liền)</label>
-                                            <input
-                                                type="text"
-                                                value={pkg.id}
-                                                onChange={(e) => {
-                                                    const updated = [...editedConfig.aiCreditPackages];
-                                                    updated[idx].id = e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, '');
-                                                    setEditedConfig({ ...editedConfig, aiCreditPackages: updated });
-                                                }}
-                                                className="w-full px-2.5 py-1.5 text-xs bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg dark:text-white"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="text-[10px] font-bold text-gray-500">Tên hiển thị</label>
-                                            <input
-                                                type="text"
-                                                value={pkg.name}
-                                                onChange={(e) => {
-                                                    const updated = [...editedConfig.aiCreditPackages];
-                                                    updated[idx].name = e.target.value;
-                                                    setEditedConfig({ ...editedConfig, aiCreditPackages: updated });
-                                                }}
-                                                className="w-full px-2.5 py-1.5 text-xs bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg dark:text-white"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="text-[10px] font-bold text-gray-500">Số lượng thẻ AI</label>
-                                            <input
-                                                type="number"
-                                                value={pkg.cards}
-                                                onChange={(e) => {
-                                                    const updated = [...editedConfig.aiCreditPackages];
-                                                    updated[idx].cards = Number(e.target.value);
-                                                    setEditedConfig({ ...editedConfig, aiCreditPackages: updated });
-                                                }}
-                                                className="w-full px-2.5 py-1.5 text-xs bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg dark:text-white"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="text-[10px] font-bold text-gray-500">Giá gốc (VND)</label>
-                                            <input
-                                                type="number"
-                                                value={pkg.originalPrice}
-                                                onChange={(e) => {
-                                                    const updated = [...editedConfig.aiCreditPackages];
-                                                    updated[idx].originalPrice = Number(e.target.value);
-                                                    setEditedConfig({ ...editedConfig, aiCreditPackages: updated });
-                                                }}
-                                                className="w-full px-2.5 py-1.5 text-xs bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg dark:text-white"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="text-[10px] font-bold text-gray-500">Giá Sale (VND)</label>
-                                            <input
-                                                type="number"
-                                                value={pkg.salePrice}
-                                                onChange={(e) => {
-                                                    const updated = [...editedConfig.aiCreditPackages];
-                                                    updated[idx].salePrice = Number(e.target.value);
-                                                    setEditedConfig({ ...editedConfig, aiCreditPackages: updated });
-                                                }}
-                                                className="w-full px-2.5 py-1.5 text-xs bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg dark:text-white"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-
-                            {/* Add button block */}
-                            <button
-                                type="button"
-                                onClick={addCreditPackage}
-                                className="flex flex-col items-center justify-center p-6 border-2 border-dashed border-gray-300 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-400 rounded-2xl bg-gray-50/20 dark:bg-slate-900/10 hover:bg-indigo-50/10 transition-all group min-h-[180px]"
-                            >
-                                <Plus className="w-8 h-8 text-gray-400 group-hover:text-indigo-500 transition-colors mb-2" />
-                                <span className="text-xs font-bold text-gray-500 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Thêm gói thẻ AI mới</span>
-                            </button>
-                        </div>
-                    </div>
-                )}
-
-                {/* Tab: Gói Tính Năng Chuyên Sâu */}
+                {/* Tab: Quản lý Gói Premium */}
                 {adminTab === 'specialized' && (
                     <div className="space-y-6">
                         <div className="grid grid-cols-1 gap-4">
@@ -663,14 +546,32 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                             ))}
 
                             {/* Add button block */}
-                            <button
-                                type="button"
-                                onClick={addSpecializedPackage}
-                                className="flex items-center justify-center p-4 border-2 border-dashed border-gray-300 dark:border-slate-700 hover:border-purple-500 dark:hover:border-purple-400 rounded-2xl bg-gray-50/20 dark:bg-slate-900/10 hover:bg-purple-50/10 transition-all group gap-2"
-                            >
-                                <Plus className="w-5 h-5 text-gray-400 group-hover:text-purple-500 transition-colors" />
-                                <span className="text-xs font-bold text-gray-500 group-hover:text-purple-600 dark:group-hover:text-purple-400">Thêm gói tính năng chuyên sâu mới</span>
-                            </button>
+                            <div className="flex flex-col sm:flex-row gap-3">
+                                <button
+                                    type="button"
+                                    onClick={addSpecializedPackage}
+                                    className="flex-1 flex items-center justify-center p-4 border-2 border-dashed border-gray-300 dark:border-slate-700 hover:border-purple-500 dark:hover:border-purple-400 rounded-2xl bg-gray-50/20 dark:bg-slate-900/10 hover:bg-purple-50/10 transition-all group gap-2"
+                                >
+                                    <Plus className="w-5 h-5 text-gray-400 group-hover:text-purple-500 transition-colors" />
+                                    <span className="text-xs font-bold text-gray-500 group-hover:text-purple-600 dark:group-hover:text-purple-400">Thêm gói tính năng chuyên sâu mới</span>
+                                </button>
+                                
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        if (window.confirm("Bạn có chắc chắn muốn nhập 2 gói Premium mặc định (1 năm & 3 năm)? Thao tác này sẽ ghi đè danh sách đang hiển thị.")) {
+                                            setEditedConfig({
+                                                ...editedConfig,
+                                                specializedPackages: [...DEFAULT_SPECIALIZED_PACKAGES]
+                                            });
+                                        }
+                                    }}
+                                    className="flex-1 flex items-center justify-center p-4 border-2 border-dashed border-indigo-300 dark:border-indigo-700 hover:border-indigo-500 rounded-2xl bg-indigo-50/10 hover:bg-indigo-50/20 transition-all group gap-2"
+                                >
+                                    <Crown className="w-5 h-5 text-indigo-400 group-hover:text-indigo-500 transition-colors" />
+                                    <span className="text-xs font-bold text-indigo-500 group-hover:text-indigo-600">Nhập 2 gói Premium mặc định</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 )}
@@ -799,7 +700,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                 1. Giả lập Gói cước chính
                             </h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
+                                <div className="col-span-2">
                                     <label className="text-xs font-bold text-gray-600 dark:text-slate-400 block mb-2">Chọn gói cước muốn test</label>
                                     <select
                                         value={profile?.trialPricingTier || ''}
@@ -807,37 +708,11 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                         className="w-full px-3.5 py-2.5 text-sm bg-white dark:bg-slate-850 border border-gray-300 dark:border-slate-650 rounded-xl dark:text-white font-semibold focus:ring-2 focus:ring-indigo-500"
                                     >
                                         <option value="">Không giả lập (Dùng gói thực tế)</option>
-                                        <option value="free">Gói MIỄN PHÍ (Giới hạn 3 học phần, 20 từ/học phần, 50 AI)</option>
-                                        <option value="premium_unlock">Gói PREMIUM UNLOCK (Mở khóa trọn đời, 200 AI)</option>
-                                        <option value="ai_basic_annual">Gói AI BASIC ANNUAL (Chỉ dùng AI, 2000 AI/năm)</option>
-                                        <option value="ai_pro_annual">Gói AI PRO ANNUAL (Chỉ dùng AI, 6000 AI/năm)</option>
-                                        <option value="combo_ultimate">Gói COMBO ULTIMATE (Mở khóa trọn đời + 6000 AI/năm)</option>
+                                        <option value="free">Gói MIỄN PHÍ (Giới hạn 3 học phần, tối đa 20 từ/học phần)</option>
+                                        <option value="premium_1y">Gói Premium 1 Năm (Mở khóa toàn bộ tính năng, không giới hạn AI)</option>
+                                        <option value="premium_3y">Gói Premium 3 Năm (Mở khóa toàn bộ tính năng, không giới hạn AI)</option>
                                     </select>
                                 </div>
-
-                                {profile?.trialPricingTier && (
-                                    <div>
-                                        <label className="text-xs font-bold text-gray-600 dark:text-slate-400 block mb-2">Số lượt AI giả lập hiện tại</label>
-                                        <div className="flex gap-2">
-                                            <input
-                                                type="number"
-                                                defaultValue={profile?.simulatedCredits ?? 50}
-                                                id="simulatedCreditsInput"
-                                                className="w-32 px-3.5 py-2.5 text-sm bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-xl dark:text-white font-bold"
-                                            />
-                                            <button
-                                                type="button"
-                                                onClick={() => {
-                                                    const val = Number(document.getElementById('simulatedCreditsInput')?.value) || 0;
-                                                    handleUpdateSimulatedCredits(val);
-                                                }}
-                                                className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl transition-all shadow-md shadow-indigo-100 dark:shadow-none"
-                                            >
-                                                Cập nhật
-                                            </button>
-                                        </div>
-                                    </div>
-                                )}
                             </div>
                         </div>
 
@@ -932,20 +807,12 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     </div>
 
                     <h1 className="text-3xl font-black text-gray-900 dark:text-white mb-2 leading-tight">
-                        Mở khóa sức mạnh AI để tạo từ vựng tự động
+                        Mở khóa tài khoản Premium Quizki
                     </h1>
 
-                    <p className="max-w-2xl mx-auto text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-4">
-                        Học tiếng Nhật hiệu quả hơn bao giờ hết với hệ thống thẻ AI thông minh, tự động điền đầy đủ thông tin chỉ trong 1 giây.
+                    <p className="max-w-2xl mx-auto text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+                        Sử dụng không giới hạn tất cả các tính năng thông minh của ứng dụng bao gồm tạo từ vựng bằng AI, luyện đề JLPT, và các phương pháp học tập chuyên sâu Zen.
                     </p>
-
-                    <div className="inline-flex items-center gap-2 bg-[#F3F4F6] dark:bg-slate-800 text-gray-700 dark:text-slate-350 px-4 py-2 rounded-2xl text-xs font-bold shadow-sm">
-                        <CreditCard className="w-4 h-4 text-indigo-500" />
-                        Số lượt còn lại: 
-                        <strong className={`ml-1 text-sm font-extrabold ${creditsRemaining > 20 ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-500'}`}>
-                            {creditsRemaining}
-                        </strong>
-                    </div>
                 </div>
 
                 {/* Admin Live Config Form */}
@@ -964,321 +831,116 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
 
                 {/* Packages Grid */}
                 {!packagesReady ? (
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-                        {[1, 2, 3, 4].map(i => (
-                            <div key={i} className="rounded-3xl border border-gray-100 dark:border-slate-800 p-6 animate-pulse bg-white dark:bg-slate-900 shadow-sm">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12 items-stretch">
+                        {[1, 2].map(i => (
+                            <div key={i} className="rounded-3xl border border-gray-100 dark:border-slate-800 p-8 animate-pulse bg-white dark:bg-slate-900 shadow-sm min-h-[380px]">
                                 <div className="w-12 h-12 rounded-2xl bg-gray-200 dark:bg-slate-850 mb-4" />
-                                <div className="h-5 bg-gray-200 dark:bg-slate-850 rounded w-2/3 mb-3" />
-                                <div className="h-8 bg-gray-200 dark:bg-slate-850 rounded w-3/4 mb-4" />
-                                <div className="h-6 bg-gray-100 dark:bg-slate-850 rounded w-1/2 mb-2" />
-                                <div className="h-4 bg-gray-100 dark:bg-slate-850 rounded w-1/3 mb-6" />
+                                <div className="h-6 bg-gray-200 dark:bg-slate-850 rounded w-2/3 mb-3" />
+                                <div className="h-4 bg-gray-200 dark:bg-slate-850 rounded w-3/4 mb-4" />
+                                <div className="h-24 bg-gray-100 dark:bg-slate-850 rounded w-full mb-6" />
                                 <div className="h-10 bg-gray-200 dark:bg-slate-850 rounded w-full" />
                             </div>
                         ))}
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12 items-stretch">
-                        {packages.map(pkg => {
-                            const Icon = ICONS[pkg.id] || Zap;
-                            const color = COLORS[pkg.id] || COLORS.starter;
-                            const bgLight = BG_LIGHT[pkg.id] || BG_LIGHT.starter;
-                            const hasDiscount = pkg.originalPrice && pkg.salePrice && pkg.originalPrice > pkg.salePrice;
-                            const discount = hasDiscount ? Math.round((1 - pkg.salePrice / pkg.originalPrice) * 100) : 0;
-                            const isPopular = pkg.id === 'popular';
-                            const displayPrice = pkg.salePrice || pkg.originalPrice;
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12 items-stretch">
+                        {specializedPackages.map(pkg => {
+                            const isUnlocked = unlockedPackages.includes(pkg.id);
+                            const Icon = ICONS[pkg.id] || Crown;
+                            const color = COLORS[pkg.id] || 'from-amber-500 to-orange-650';
+                            const bgLight = BG_LIGHT[pkg.id] || 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20';
+                            const is3Y = pkg.id === 'premium_3y';
 
                             return (
                                 <div
                                     key={pkg.id}
-                                    onClick={() => handleSelectPackage(pkg)}
-                                    className={`relative bg-gradient-to-br ${bgLight} rounded-3xl border-2 p-6 cursor-pointer flex flex-col justify-between transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl active:scale-[0.98] ${
-                                        isPopular
-                                            ? 'border-indigo-500 dark:border-indigo-500 shadow-xl shadow-indigo-500/5 ring-4 ring-indigo-200/50 dark:ring-indigo-800/30'
-                                            : 'border-white dark:border-slate-800 hover:border-indigo-200 dark:hover:border-slate-700 shadow-lg'
+                                    onClick={() => {
+                                        if (!isUnlocked) {
+                                            handleSelectPackage(pkg);
+                                        }
+                                    }}
+                                    className={`relative bg-gradient-to-br ${bgLight} rounded-3xl border-2 p-8 flex flex-col justify-between transition-all duration-300 shadow-xl overflow-hidden ${
+                                        isUnlocked 
+                                            ? 'border-emerald-400 dark:border-emerald-500 opacity-95 cursor-default' 
+                                            : `border-amber-400 dark:border-amber-550 hover:border-amber-505 dark:hover:border-amber-400 hover:scale-[1.02] hover:shadow-2xl cursor-pointer ring-4 ring-amber-400/5 ${is3Y ? 'scale-[1.01] border-amber-500 dark:border-amber-400 shadow-amber-500/5 ring-8 ring-amber-500/5' : ''}`
                                     }`}
                                 >
-                                    {isPopular && (
-                                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-[9px] font-black tracking-wider px-3.5 py-1 rounded-full whitespace-nowrap shadow-md uppercase">
-                                            ★ Phổ biến
+                                    {/* Golden Ribbon Badge */}
+                                    {is3Y && (
+                                        <div className="absolute top-0 right-0 bg-gradient-to-l from-amber-600 to-orange-500 text-white text-[9px] font-black tracking-wider px-5 py-1.5 rounded-bl-3xl shadow-md uppercase">
+                                            ★ TIẾT KIỆM NHẤT
                                         </div>
                                     )}
-                                    {hasDiscount && discount > 0 && (
-                                        <div className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-black w-10 h-10 rounded-full flex items-center justify-center shadow-lg border-2 border-white dark:border-slate-800">
-                                            -{discount}%
+                                    {!is3Y && (
+                                        <div className="absolute top-0 right-0 bg-gradient-to-l from-slate-600 to-slate-500 dark:from-slate-800 dark:to-slate-700 text-white text-[9px] font-bold tracking-wider px-5 py-1.5 rounded-bl-3xl shadow-sm uppercase">
+                                            Phổ biến
+                                        </div>
+                                    )}
+
+                                    {isUnlocked && (
+                                        <div className="absolute top-4 left-4 flex items-center gap-1 bg-emerald-100 dark:bg-emerald-950/50 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 text-[10px] font-black px-2.5 py-1 rounded-full shadow-sm">
+                                            Đã sở hữu <Check className="w-3.5 h-3.5" />
                                         </div>
                                     )}
 
                                     <div>
-                                        <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center mb-4 shadow-lg shadow-indigo-500/10`}>
-                                            <Icon className="w-6 h-6 text-white" />
+                                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center mb-6 shadow-lg shadow-amber-500/20`}>
+                                            <Icon className="w-8 h-8 text-white fill-white/10" />
                                         </div>
-                                        <h3 className="font-extrabold text-gray-500 dark:text-slate-400 text-xs tracking-wider uppercase mb-1">
+                                        <h3 className="font-black text-gray-900 dark:text-white text-xl mb-1 flex items-center gap-2">
                                             {pkg.name}
                                         </h3>
-                                        {pkg.cards && (
-                                            <p className={`font-black text-2xl mb-4 bg-gradient-to-r ${color} bg-clip-text text-transparent`}>
-                                                {pkg.cards.toLocaleString()} credit AI
-                                            </p>
-                                        )}
+                                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-6 leading-relaxed font-bold">
+                                            {pkg.description}
+                                        </p>
+
+                                        {/* Unlocked Features list */}
+                                        <div className="border-t border-amber-200/40 dark:border-slate-700/50 pt-5 mt-2 space-y-3 mb-8">
+                                            <p className="text-[10px] font-black text-amber-700 dark:text-amber-400 uppercase tracking-wider">Quyền lợi Premium:</p>
+                                            {pkg.unlockedFeatures?.map((feature, fIdx) => {
+                                                const cleanFeature = feature.replace('[Premium]', '').trim();
+                                                return (
+                                                    <div key={fIdx} className="flex gap-2.5 items-start">
+                                                        <div className="w-4 h-4 rounded-full bg-amber-100 dark:bg-amber-950/40 flex items-center justify-center flex-shrink-0 mt-0.5 border border-amber-200 dark:border-amber-900">
+                                                            <Check className="w-2.5 h-2.5 text-amber-600 dark:text-amber-400" />
+                                                        </div>
+                                                        <span className="text-xs leading-relaxed text-gray-700 dark:text-slate-350 font-semibold">
+                                                            {cleanFeature}
+                                                        </span>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
                                     </div>
 
-                                    <div className="mt-4">
-                                        {pkg.originalPrice && hasDiscount && (
-                                            <p className="text-gray-400 dark:text-slate-500 line-through text-xs font-semibold mb-0.5">
-                                                {formatVND(pkg.originalPrice)}
-                                            </p>
+                                    <div className="mt-auto pt-4 border-t border-amber-250/20 dark:border-slate-800">
+                                        {!isUnlocked ? (
+                                            <>
+                                                <div className="flex items-baseline gap-2 mb-3">
+                                                    <span className="text-gray-900 dark:text-white font-black text-2xl">
+                                                        {formatVND(pkg.salePrice)}
+                                                    </span>
+                                                    {pkg.originalPrice && pkg.originalPrice > pkg.salePrice && (
+                                                        <span className="text-gray-400 dark:text-slate-500 line-through text-xs font-bold">
+                                                            {formatVND(pkg.originalPrice)}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                <div className={`w-full py-3 rounded-2xl text-white font-bold text-sm bg-gradient-to-r ${color} flex items-center justify-center gap-1.5 shadow-lg shadow-amber-500/20 hover:opacity-95 transition-opacity`}>
+                                                    Đăng ký ngay <ChevronRight className="w-4 h-4" />
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <div className="w-full py-3 rounded-2xl bg-emerald-100 dark:bg-emerald-950/20 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 font-black text-sm flex items-center justify-center gap-1.5">
+                                                Đã kích hoạt ✓
+                                            </div>
                                         )}
-                                        {displayPrice && (
-                                            <p className="text-gray-900 dark:text-white font-black text-xl mb-4">
-                                                {formatVND(displayPrice)}
-                                            </p>
-                                        )}
-                                        <div className={`w-full py-2.5 rounded-2xl text-white font-bold text-xs bg-gradient-to-r ${color} flex items-center justify-center gap-1.5 shadow-md shadow-indigo-500/10 hover:opacity-95 transition-opacity`}>
-                                            Chọn gói <ChevronRight className="w-4 h-4" />
-                                        </div>
                                     </div>
                                 </div>
                             );
                         })}
                     </div>
                 )}
-
-                {/* ==================== SECTION 2: GÓI TÍNH NĂNG CHUYÊN SÂU ==================== */}
-                <div className="mt-16 mb-12">
-                    <div className="flex items-center gap-2.5 mb-6">
-                        <div className="w-10 h-10 bg-amber-50 dark:bg-amber-950/40 rounded-2xl flex items-center justify-center">
-                            <Settings className="w-5 h-5 text-amber-500 animate-pulse" />
-                        </div>
-                        <div>
-                            <h2 className="text-xl font-black text-gray-900 dark:text-white">
-                                Gói tính năng chuyên sâu
-                            </h2>
-                            <p className="text-xs text-gray-400">
-                                Mở khóa vĩnh viễn các phương pháp học tập đỉnh cao
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Premium/VIP package banner (at the top, full width) */}
-                    {(() => {
-                        const premiumPkg = specializedPackages.find(pkg => 
-                            pkg.id === 'premium' || 
-                            pkg.id.includes('premium') || 
-                            pkg.id === 'vip' || 
-                            pkg.name.toLowerCase().includes('premium') || 
-                            pkg.name.toLowerCase().includes('trọn bộ')
-                        );
-
-                        if (!premiumPkg) return null;
-
-                        const isUnlocked = unlockedPackages.includes(premiumPkg.id);
-                        const Icon = ICONS[premiumPkg.id] || Crown;
-                        const color = COLORS[premiumPkg.id] || 'from-amber-500 to-orange-600';
-                        const bgLight = BG_LIGHT[premiumPkg.id] || 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20';
-
-                        return (
-                            <div className="mb-8">
-                                <div
-                                    onClick={() => {
-                                        if (!isUnlocked) {
-                                            handleSelectPackage(premiumPkg);
-                                        }
-                                    }}
-                                    className={`relative bg-gradient-to-br ${bgLight} rounded-3xl border-2 p-8 flex flex-col md:flex-row gap-8 justify-between items-center transition-all duration-300 shadow-xl overflow-hidden ${
-                                        isUnlocked 
-                                            ? 'border-emerald-400 opacity-95 cursor-default' 
-                                            : 'border-amber-400 dark:border-amber-500 hover:border-amber-500 dark:hover:border-amber-400 hover:scale-[1.01] hover:shadow-2xl cursor-pointer ring-4 ring-amber-400/10'
-                                    }`}
-                                >
-                                    {/* Golden Ribbon Badge */}
-                                    <div className="absolute top-0 right-0 bg-gradient-to-l from-amber-600 to-orange-500 text-white text-[10px] font-black tracking-wider px-6 py-1.5 rounded-bl-3xl shadow-md uppercase">
-                                        ★ ĐẦY ĐỦ NHẤT - TIẾT KIỆM 65%
-                                    </div>
-
-                                    {isUnlocked && (
-                                        <div className="absolute top-4 left-4 flex items-center gap-1 bg-emerald-100 dark:bg-emerald-950/50 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 text-[10px] font-black px-2.5 py-1 rounded-full shadow-sm">
-                                            Đã sở hữu trọn đời <Check className="w-3.5 h-3.5" />
-                                        </div>
-                                    )}
-
-                                    {/* Left Side: Title & Description */}
-                                    <div className="flex-1 space-y-4">
-                                        <div className="flex items-center gap-4 mt-2">
-                                            <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center shadow-lg shadow-amber-500/25`}>
-                                                <Icon className="w-8 h-8 text-white" />
-                                            </div>
-                                            <div>
-                                                <h3 className="font-black text-gray-900 dark:text-white text-xl">
-                                                    {premiumPkg.name}
-                                                </h3>
-                                                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 max-w-xl leading-relaxed">
-                                                    {premiumPkg.description}
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        {/* Grid of Unlocked Features */}
-                                        <div className="border-t border-gray-250/20 dark:border-slate-700/50 pt-4">
-                                            <p className="text-[10px] font-extrabold text-gray-500 uppercase tracking-wide mb-3">Đặc quyền tối thượng:</p>
-                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
-                                                {premiumPkg.unlockedFeatures?.map((feature, fIdx) => {
-                                                    const isPremiumOnly = feature.includes('[Premium]') || feature.startsWith('👑') || feature.startsWith('⭐') || feature.startsWith('⚡') || feature.startsWith('💎');
-                                                    const cleanFeature = feature.replace('[Premium]', '').trim();
-                                                    return (
-                                                        <div key={fIdx} className="flex gap-2 items-start">
-                                                            {isPremiumOnly ? (
-                                                                <div className="w-4 h-4 rounded-full bg-amber-50 dark:bg-amber-950/40 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm shadow-amber-500/10 border border-amber-250/30 animate-pulse">
-                                                                    <Crown className="w-2.5 h-2.5 text-amber-500 fill-amber-500" />
-                                                                </div>
-                                                            ) : (
-                                                                <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
-                                                            )}
-                                                            <span className={`text-xs leading-relaxed font-bold ${
-                                                                isPremiumOnly 
-                                                                    ? 'text-amber-700 dark:text-amber-400 font-extrabold' 
-                                                                    : 'text-gray-600 dark:text-slate-350 font-medium'
-                                                            }`}>
-                                                                {cleanFeature}
-                                                            </span>
-                                                        </div>
-                                                    );
-                                                })}
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Right Side: Price tag & Purchase button */}
-                                    <div className="w-full md:w-64 border-t md:border-t-0 md:border-l border-gray-250/20 dark:border-slate-700/50 pt-6 md:pt-0 md:pl-8 flex flex-col justify-center items-center text-center">
-                                        {!isUnlocked ? (
-                                            <>
-                                                {premiumPkg.originalPrice && premiumPkg.originalPrice > premiumPkg.salePrice && (
-                                                    <p className="text-gray-400 dark:text-slate-500 line-through text-xs font-semibold mb-1">
-                                                        {formatVND(premiumPkg.originalPrice)}
-                                                    </p>
-                                                )}
-                                                <p className="text-amber-600 dark:text-amber-400 font-black text-3xl mb-4">
-                                                    {formatVND(premiumPkg.salePrice)}
-                                                </p>
-                                                <div className={`w-full py-3 rounded-2xl text-white font-bold text-sm bg-gradient-to-r ${color} flex items-center justify-center gap-1.5 shadow-lg shadow-amber-500/20 hover:opacity-95 transition-opacity`}>
-                                                    Mở khóa ngay <ChevronRight className="w-5 h-5" />
-                                                </div>
-                                            </>
-                                        ) : (
-                                            <div className="w-full py-3 rounded-2xl bg-emerald-100 dark:bg-emerald-950/20 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 font-extrabold text-sm flex items-center justify-center gap-1.5 shadow-sm">
-                                                Đã mở khóa trọn đời ✓
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    })()}
-
-                    {/* Single specialized packages underneath */}
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        {(() => {
-                            const premiumPkg = specializedPackages.find(pkg => 
-                                pkg.id === 'premium' || 
-                                pkg.id.includes('premium') || 
-                                pkg.id === 'vip' || 
-                                pkg.name.toLowerCase().includes('premium') || 
-                                pkg.name.toLowerCase().includes('trọn bộ')
-                            );
-                            const otherPkgs = specializedPackages.filter(pkg => pkg !== premiumPkg);
-
-                            return otherPkgs.map(pkg => {
-                                const isUnlocked = unlockedPackages.includes(pkg.id);
-                                const Icon = ICONS[pkg.id] || Trophy;
-                                const color = COLORS[pkg.id] || 'from-indigo-500 to-purple-600';
-                                const bgLight = BG_LIGHT[pkg.id] || 'from-indigo-50/50 to-purple-50/50';
-
-                                return (
-                                    <div
-                                        key={pkg.id}
-                                        onClick={() => {
-                                            if (!isUnlocked) {
-                                                handleSelectPackage(pkg);
-                                            }
-                                        }}
-                                        className={`relative bg-gradient-to-br ${bgLight} rounded-3xl border-2 p-6 flex flex-col justify-between transition-all duration-300 shadow-md ${
-                                            isUnlocked 
-                                                ? 'border-emerald-400 opacity-90 shadow-none cursor-default' 
-                                                : 'border-white dark:border-slate-800 hover:border-purple-200 dark:hover:border-slate-700 hover:scale-[1.02] hover:shadow-xl cursor-pointer'
-                                        }`}
-                                    >
-                                        {isUnlocked && (
-                                            <div className="absolute top-4 right-4 flex items-center gap-1 bg-emerald-100 dark:bg-emerald-950/50 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 text-[10px] font-black px-2.5 py-1 rounded-full shadow-sm">
-                                                Đã sở hữu <Check className="w-3.5 h-3.5" />
-                                            </div>
-                                        )}
-
-                                        <div>
-                                            <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center mb-4 shadow-lg shadow-purple-500/10`}>
-                                                <Icon className="w-6 h-6 text-white" />
-                                            </div>
-                                            <h3 className="font-extrabold text-gray-800 dark:text-white text-base mb-1">
-                                                {pkg.name}
-                                            </h3>
-                                            <p className="text-xs text-gray-500 dark:text-gray-400 mb-4 min-h-[32px] leading-relaxed">
-                                                {pkg.description}
-                                            </p>
-
-                                            {/* Unlocked Features list */}
-                                            <div className="border-t border-gray-250/20 dark:border-slate-700/50 pt-3 mt-2 space-y-2 mb-6">
-                                                <p className="text-[10px] font-extrabold text-gray-500 uppercase tracking-wide">Quyền lợi mở khóa:</p>
-                                                {pkg.unlockedFeatures?.map((feature, fIdx) => {
-                                                    const isPremiumOnly = feature.includes('[Premium]') || feature.startsWith('👑') || feature.startsWith('⭐') || feature.startsWith('⚡') || feature.startsWith('💎');
-                                                    const cleanFeature = feature.replace('[Premium]', '').trim();
-                                                    return (
-                                                        <div key={fIdx} className="flex gap-1.5 items-start animate-fade-in">
-                                                            {isPremiumOnly ? (
-                                                                <div className="w-3.5 h-3.5 rounded-full bg-amber-50 dark:bg-amber-950/40 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm shadow-amber-500/10 border border-amber-250/30">
-                                                                    <Crown className="w-2 h-2 text-amber-500 fill-amber-500" />
-                                                                </div>
-                                                            ) : (
-                                                                <Check className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                                                            )}
-                                                            <span className={`text-[11px] leading-relaxed font-bold ${
-                                                                isPremiumOnly 
-                                                                    ? 'text-amber-700 dark:text-amber-400 font-extrabold' 
-                                                                    : 'text-gray-600 dark:text-slate-350 font-medium'
-                                                            }`}>
-                                                                {cleanFeature}
-                                                            </span>
-                                                        </div>
-                                                    );
-                                                })}
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            {!isUnlocked ? (
-                                                <>
-                                                    {pkg.originalPrice && pkg.originalPrice > pkg.salePrice && (
-                                                        <p className="text-gray-400 dark:text-slate-500 line-through text-xs font-semibold mb-0.5">
-                                                            {formatVND(pkg.originalPrice)}
-                                                        </p>
-                                                    )}
-                                                    <p className="text-gray-900 dark:text-white font-black text-xl mb-4">
-                                                        {formatVND(pkg.salePrice)}
-                                                    </p>
-                                                    <div className={`w-full py-2.5 rounded-2xl text-white font-bold text-xs bg-gradient-to-r ${color} flex items-center justify-center gap-1.5 shadow-md shadow-purple-500/10`}>
-                                                        Chọn gói <ChevronRight className="w-4 h-4" />
-                                                    </div>
-                                                </>
-                                            ) : (
-                                                <div className="w-full py-2.5 rounded-2xl bg-emerald-100 dark:bg-emerald-950/20 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 font-extrabold text-xs flex items-center justify-center gap-1">
-                                                    Đã mở khóa vĩnh viễn ✓
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                );
-                            });
-                        })()}
-                    </div>
-                </div>
-
             </div>
         );
     }

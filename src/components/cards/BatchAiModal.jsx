@@ -133,17 +133,6 @@ const BatchAiModal = ({
             return;
         }
 
-        if (aiCreditsRemaining !== undefined && aiCreditsRemaining !== null) {
-            if (aiCreditsRemaining <= 0) {
-                showToast('Bạn đã hết lượt AI. Vui lòng liên hệ Admin.', 'error');
-                return;
-            }
-            if (words.length > aiCreditsRemaining) {
-                showToast(`Bạn chỉ còn ${aiCreditsRemaining} lượt AI. Vui lòng nhập tối đa ${aiCreditsRemaining} từ.`, 'error');
-                return;
-            }
-        }
-
         setIsGenerating(true);
         isCancelledRef.current = false;
         setProgress({ current: 0, total: words.length, currentWord: '' });
@@ -379,13 +368,8 @@ const BatchAiModal = ({
                                             Cơ chế hoạt động của AI
                                         </div>
                                         <p className="leading-relaxed">
-                                            Mỗi từ vựng được tạo sẽ tiêu tốn <strong>1 lượt AI</strong>. Hệ thống sẽ tự động tra cứu từ điển và dùng AI để điền đầy đủ các thông tin: phiên âm, từ loại, cấp độ JLPT, âm Hán Việt, câu ví dụ kèm dịch nghĩa,...
+                                            Hệ thống sẽ tự động tra cứu từ điển và dùng AI để điền đầy đủ các thông tin cho thẻ từ vựng: phiên âm, từ loại, cấp độ JLPT, âm Hán Việt, câu ví dụ kèm dịch nghĩa,...
                                         </p>
-                                        {aiCreditsRemaining !== undefined && (
-                                            <p className="font-bold mt-1 text-slate-600 dark:text-slate-300">
-                                                Lượt AI còn lại của bạn: <span className="text-emerald-600 dark:text-emerald-400 text-sm font-black">{aiCreditsRemaining}</span> lượt.
-                                            </p>
-                                        )}
                                     </div>
                                 </div>
                             )}
@@ -470,13 +454,13 @@ const BatchAiModal = ({
                                     )}
 
                                     {/* Image Scan Warning */}
-                                    <div className="bg-amber-50/60 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/30 rounded-xl p-3.5 text-xs text-amber-700 dark:text-amber-300 space-y-1">
+                                    <div className="bg-amber-50/60 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/30 rounded-xl p-3.5 text-xs text-amber-700 dark:text-amber-305 space-y-1">
                                         <div className="flex items-center gap-1.5 font-bold">
-                                            <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
-                                            Lưu ý về credit quét ảnh
+                                            <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
+                                            Lưu ý quét ảnh
                                         </div>
                                         <p className="leading-relaxed">
-                                            Tính năng quét chữ từ ảnh chụp sẽ tiêu tốn <strong>1 lượt AI</strong> của bạn cho mỗi lần quét ảnh. Các từ sau khi trích xuất sẽ tự động xuất hiện ở tab <strong>Nhập danh sách chữ</strong> để bạn có thể xem lại trước khi tạo thẻ.
+                                            Các từ sau khi trích xuất từ ảnh chụp sẽ tự động xuất hiện ở tab <strong>Nhập danh sách chữ</strong> để bạn có thể xem lại trước khi tạo thẻ bằng AI.
                                         </p>
                                     </div>
                                 </div>

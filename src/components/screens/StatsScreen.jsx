@@ -290,7 +290,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                             <p className={`text-sm font-bold truncate ${isMe ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-700 dark:text-gray-200'}`}>
                                 {user.displayName || 'Ẩn danh'}
                             </p>
-                            {user.isPremium && (
+                            {(user.isPremium || user.isPremiumUnlocked) && (
                                 <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[9px] font-black px-1.5 py-0.5 rounded-md uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
                                     <Crown className="w-2.5 h-2.5 fill-white text-white" />
                                     PREMIUM
@@ -451,7 +451,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                             <div className="text-center bg-white dark:bg-gray-800 rounded-2xl p-3 border border-slate-200 dark:border-gray-700 w-full shadow-md group-hover:shadow-lg transition-all duration-300">
                                 <div className="flex flex-col items-center gap-0.5 justify-center mb-1">
                                     <p className="font-bold text-xs truncate text-gray-700 dark:text-gray-200 max-w-full">{podiumList[1].displayName || 'Ẩn danh'}</p>
-                                    {podiumList[1].isPremium && (
+                                    {(podiumList[1].isPremium || podiumList[1].isPremiumUnlocked) && (
                                         <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider flex items-center gap-0.5 shadow-sm scale-90">
                                             <Crown className="w-2 h-2 fill-white text-white" />
                                             PREMIUM
@@ -486,7 +486,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                             <div className="text-center bg-gradient-to-b from-yellow-50 to-white dark:from-yellow-950/20 dark:to-gray-800 rounded-2xl p-4 border-2 border-yellow-300 dark:border-yellow-600/30 w-full shadow-lg group-hover:shadow-xl transition-all duration-300 ring-4 ring-yellow-400/10">
                                 <div className="flex flex-col items-center gap-0.5 justify-center mb-1">
                                     <p className="font-bold text-sm truncate text-yellow-700 dark:text-yellow-400 max-w-full">{podiumList[0].displayName || 'Ẩn danh'}</p>
-                                    {podiumList[0].isPremium && (
+                                    {(podiumList[0].isPremium || podiumList[0].isPremiumUnlocked) && (
                                         <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider flex items-center gap-0.5 shadow-sm scale-90">
                                             <Crown className="w-2.5 h-2.5 fill-white text-white" />
                                             PREMIUM
@@ -518,7 +518,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                             <div className="text-center bg-white dark:bg-gray-800 rounded-2xl p-3 border border-amber-200 dark:border-gray-700 w-full shadow-md group-hover:shadow-lg transition-all duration-300">
                                 <div className="flex flex-col items-center gap-0.5 justify-center mb-1">
                                     <p className="font-bold text-xs truncate text-gray-700 dark:text-gray-200 max-w-full">{podiumList[2].displayName || 'Ẩn danh'}</p>
-                                    {podiumList[2].isPremium && (
+                                    {(podiumList[2].isPremium || podiumList[2].isPremiumUnlocked) && (
                                         <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider flex items-center gap-0.5 shadow-sm scale-90">
                                             <Crown className="w-2 h-2 fill-white text-white" />
                                             PREMIUM
