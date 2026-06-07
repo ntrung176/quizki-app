@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Plus, Trash2, Edit2, Save, ChevronRight, FileJson, Clipboard, Check, AlertCircle } from 'lucide-react'
+import { ArrowLeft, Plus, Trash2, Edit2, Save, ChevronRight, FileJson, Clipboard, Check, AlertCircle, Crown } from 'lucide-react'
 import { subscribeTextbooks, subscribeLessons, addLesson, updateLesson, deleteLesson, importLessonsFromJson } from '../../utils/grammarService';
+import { PremiumLockedModal } from '../ui';
 
 const SAMPLE_LESSONS_JSON = `[
   {
@@ -16,11 +17,15 @@ const SAMPLE_LESSONS_JSON = `[
   }
 ]`;
 
-const GrammarLessonsScreen = ({ isAdmin }) => {
+const GrammarLessonsScreen = ({ isAdmin, profile = null }) => {
     const { textbookId } = useParams();
     const navigate = useNavigate();
     const [textbook, setTextbook] = useState(null);
     const [lessons, setLessons] = useState([]);
+    
+    // Premium locked states
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
+    const [lockedPkgName, setLockedPkgName] = useState('Ngữ pháp chuyên sâu Zen');
     const [showAdd, setShowAdd] = useState(false);
     const [showJsonImport, setShowJsonImport] = useState(false);
     const [jsonText, setJsonText] = useState('');
@@ -76,6 +81,15 @@ const GrammarLessonsScreen = ({ isAdmin }) => {
 
     const handleEdit = (l) => { setForm({ sectionLabel: l.sectionLabel || '', title: l.title || '', meaning: l.meaning || '' }); setEditId(l.id); setShowAdd(true); setShowJsonImport(false); };
     const handleDelete = async (id) => { if (window.confirm('Xoá bài học này?')) await deleteLesson(textbookId, id); };
+    const handleToggleLessonPremium = async (lesson) => {
+        try {
+            await updateLesson(textbookId, lesson.id, {
+                isPremium: !lesson.isPremium
+            });
+        } catch (error) {
+            console.error("Error updating lesson premium status: ", error);
+        }
+    };
 
     if (!textbook) return <div className="p-8 text-center text-slate-500">Đang tải...</div>;
 
@@ -168,25 +182,65 @@ const GrammarLessonsScreen = ({ isAdmin }) => {
 
             {lessons.length === 0 && <p className="text-center text-slate-400 py-12">Chưa có bài học nào. {isAdmin ? 'Nhấn "Thêm bài học" hoặc "Nhập bằng JSON" để bắt đầu.' : ''}</p>}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {lessons.map(lesson => (
-                    <div key={lesson.id} className="group relative text-left p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
-                        <button onClick={() => navigate(`/grammar/textbook/${textbookId}/lesson/${lesson.id}`)} className="w-full text-left">
-                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{lesson.sectionLabel}</p>
-                            <h3 className="text-lg font-extrabold text-slate-800 dark:text-white mt-1 pr-16">{lesson.title}</h3>
-                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{lesson.meaning}</p>
-                        </button>
-                        <div className="absolute top-3 right-3 flex gap-1">
-                            {isAdmin && (
-                                <>
-                                    <button onClick={() => handleEdit(lesson)} className="p-1.5 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900/30 opacity-0 group-hover:opacity-100 transition-all"><Edit2 className="w-3.5 h-3.5 text-indigo-600" /></button>
-                                    <button onClick={() => handleDelete(lesson.id)} className="p-1.5 rounded-lg hover:bg-red-100 dark:hover:bg-red-900/30 opacity-0 group-hover:opacity-100 transition-all"><Trash2 className="w-3.5 h-3.5 text-red-500" /></button>
-                                </>
-                            )}
-                            <ChevronRight className="w-5 h-5 text-slate-300 dark:text-slate-600" />
+                {lessons.map(lesson => {
+                    const isLocked = lesson.isPremium && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('grammar_zen');
+                    const handleLessonClick = () => {
+                        if (isLocked) {
+                            setLockedPkgName('Ngữ pháp chuyên sâu Zen');
+                            setShowPremiumModal(true);
+                        } else {
+                            navigate(`/grammar/textbook/${textbookId}/lesson/${lesson.id}`);
+                        }
+                    };
+                    return (
+                        <div key={lesson.id} className="group relative text-left p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                            <button onClick={handleLessonClick} className="w-full text-left">
+                                <div className="flex items-center gap-2">
+                                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{lesson.sectionLabel}</p>
+                                    {lesson.isPremium && (
+                                        <span className="flex items-center gap-1 px-2 py-0.5 text-[8px] font-black tracking-widest text-amber-600 bg-amber-100 dark:bg-amber-900/30 dark:text-amber-400 rounded-full uppercase">
+                                            <Crown className="w-2.5 h-2.5 fill-current" /> Premium
+                                        </span>
+                                    )}
+                                </div>
+                                <h3 className="text-lg font-extrabold text-slate-800 dark:text-white mt-1 pr-16 flex items-center gap-1.5">
+                                    {lesson.title}
+                                    {isLocked && <span className="text-sm">🔒</span>}
+                                </h3>
+                                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{lesson.meaning}</p>
+                            </button>
+                            <div className="absolute top-3 right-3 flex items-center gap-1">
+                                {isAdmin && (
+                                    <>
+                                        <button 
+                                            onClick={() => handleToggleLessonPremium(lesson)} 
+                                            className="p-1.5 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-900/30 opacity-0 group-hover:opacity-100 transition-all flex items-center gap-1"
+                                            title={lesson.isPremium ? "Đặt làm bài học miễn phí" : "Đặt làm bài học Premium"}
+                                        >
+                                            {lesson.isPremium ? (
+                                                <span className="flex items-center gap-0.5 text-xs text-amber-500 font-bold">
+                                                    <Crown className="w-3.5 h-3.5 fill-current" /> Premium
+                                                </span>
+                                            ) : (
+                                                <span className="text-xs text-slate-400 font-bold">🔓 Free</span>
+                                            )}
+                                        </button>
+                                        <button onClick={() => handleEdit(lesson)} className="p-1.5 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900/30 opacity-0 group-hover:opacity-100 transition-all"><Edit2 className="w-3.5 h-3.5 text-indigo-600" /></button>
+                                        <button onClick={() => handleDelete(lesson.id)} className="p-1.5 rounded-lg hover:bg-red-100 dark:hover:bg-red-900/30 opacity-0 group-hover:opacity-100 transition-all"><Trash2 className="w-3.5 h-3.5 text-red-500" /></button>
+                                    </>
+                                )}
+                                <ChevronRight className="w-5 h-5 text-slate-300 dark:text-slate-600" />
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
+            {/* Premium Locked Modal */}
+            <PremiumLockedModal 
+                isOpen={showPremiumModal} 
+                onClose={() => setShowPremiumModal(false)} 
+                pkgName={lockedPkgName} 
+            />
         </div>
     );
 };

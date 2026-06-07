@@ -262,6 +262,14 @@ const ReviewScreen = ({
         return text.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').replace(/\s+/g, '').toLowerCase();
     }, []);
 
+    const toHiragana = useCallback((str) => {
+        if (!str) return '';
+        return str.replace(/[\u30A1-\u30F6]/g, (match) => {
+            const chr = match.charCodeAt(0) - 0x60;
+            return String.fromCharCode(chr);
+        });
+    }, []);
+
     // Move to previous card
     const moveToPreviousCard = useCallback(() => {
         if (currentIndex > 0 && !isProcessing) {
@@ -770,19 +778,28 @@ const ReviewScreen = ({
             const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
             const kanaPart = kanaPartMatch ? kanaPartMatch[1] : '';
 
-            const normalizedKanji = normalizeAnswer(kanjiPart);
-            const normalizedKana = normalizeAnswer(kanaPart);
-            const normalizedFull = normalizeAnswer(rawFront);
+            const normalizedKanji = toHiragana(normalizeAnswer(kanjiPart));
+            const normalizedKana = toHiragana(normalizeAnswer(kanaPart));
+            const normalizedFull = toHiragana(normalizeAnswer(rawFront));
+            const normalizedUser = toHiragana(userAnswer);
 
-            isCorrect = userAnswer === normalizedKanji || (kanaPart && userAnswer === normalizedKana) || userAnswer === normalizedFull;
+            isCorrect = normalizedUser === normalizedKanji || (kanaPart && normalizedUser === normalizedKana) || normalizedUser === normalizedFull;
 
             if (!isCorrect && currentCard.pos === 'adj_na') {
+                const buildAdjNa = (val) => {
+                    if (!val) return [];
+                    if (val.endsWith('な')) {
+                        return [val, val.slice(0, -1)];
+                    } else {
+                        return [val, val + 'な'];
+                    }
+                };
                 const accepted = new Set([
-                    ...buildAdjNaAcceptedAnswers(normalizedKanji),
-                    ...(kanaPart ? buildAdjNaAcceptedAnswers(normalizedKana) : []),
-                    ...buildAdjNaAcceptedAnswers(normalizedFull),
+                    ...buildAdjNa(normalizedKanji),
+                    ...(kanaPart ? buildAdjNa(normalizedKana) : []),
+                    ...buildAdjNa(normalizedFull),
                 ]);
-                isCorrect = accepted.has(userAnswer);
+                isCorrect = accepted.has(normalizedUser);
             }
         } else {
             // Mode: Hiện từ vựng, nhập nghĩa - chấp nhận đúng 1 trong các nghĩa
@@ -811,9 +828,10 @@ const ReviewScreen = ({
                 const kanjiPart = rawFront.split('（')[0].split('(')[0];
                 const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
                 const kanaPart = kanaPartMatch ? kanaPartMatch[1] : '';
-                const normalizedKanji = normalizeAnswer(kanjiPart);
-                const normalizedKana = normalizeAnswer(kanaPart);
-                isCorrect = userAnswer === normalizedKanji || (kanaPart && userAnswer === normalizedKana);
+                const normalizedKanji = toHiragana(normalizeAnswer(kanjiPart));
+                const normalizedKana = toHiragana(normalizeAnswer(kanaPart));
+                const normalizedUser = toHiragana(userAnswer);
+                isCorrect = normalizedUser === normalizedKanji || (kanaPart && normalizedUser === normalizedKana);
             }
         }
 
@@ -1019,10 +1037,28 @@ const ReviewScreen = ({
             const kanjiPart = rawFront.split('（')[0].split('(')[0];
             const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
             const kanaPart = kanaPartMatch ? kanaPartMatch[1] : '';
-            const normalizedKanji = normalizeAnswer(kanjiPart);
-            const normalizedKana = normalizeAnswer(kanaPart);
-            const normalizedFull = normalizeAnswer(rawFront);
-            isRetypeCorrect = retypeAns === normalizedKanji || (kanaPart && retypeAns === normalizedKana) || retypeAns === normalizedFull;
+            const normalizedKanji = toHiragana(normalizeAnswer(kanjiPart));
+            const normalizedKana = toHiragana(normalizeAnswer(kanaPart));
+            const normalizedFull = toHiragana(normalizeAnswer(rawFront));
+            const normalizedRetype = toHiragana(retypeAns);
+            isRetypeCorrect = normalizedRetype === normalizedKanji || (kanaPart && normalizedRetype === normalizedKana) || normalizedRetype === normalizedFull;
+
+            if (!isRetypeCorrect && currentCard.pos === 'adj_na') {
+                const buildAdjNa = (val) => {
+                    if (!val) return [];
+                    if (val.endsWith('な')) {
+                        return [val, val.slice(0, -1)];
+                    } else {
+                        return [val, val + 'な'];
+                    }
+                };
+                const accepted = new Set([
+                    ...buildAdjNa(normalizedKanji),
+                    ...(kanaPart ? buildAdjNa(normalizedKana) : []),
+                    ...buildAdjNa(normalizedFull),
+                ]);
+                isRetypeCorrect = accepted.has(normalizedRetype);
+            }
         } else {
             const normalizeVietnamese = (text) => text.toLowerCase().trim().replace(/\s+/g, ' ');
             const userAnswerNorm = normalizeVietnamese(inputValue);

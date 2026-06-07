@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { BookOpen, Plus, Trash2, Edit, ChevronRight, Check, X, Lightbulb, Upload, FolderPlus, FileText, Search, Save, Layers, Copy, Folder, Volume2, ChevronUp, ChevronDown, RefreshCw, Mic, Wrench, EyeOff, RotateCcw, Languages } from 'lucide-react'
+import { BookOpen, Plus, Trash2, Edit, ChevronRight, Check, X, Lightbulb, Upload, FolderPlus, FileText, Search, Save, Layers, Copy, Folder, Volume2, ChevronUp, ChevronDown, RefreshCw, Mic, Wrench, EyeOff, RotateCcw, Languages, Lock, Unlock } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
 import {
     collection, getDocs, addDoc, deleteDoc, doc, updateDoc, writeBatch, setDoc, getDoc, serverTimestamp
@@ -10,7 +10,7 @@ import { showToast, showConfirm } from '../../utils/toast';
 import { speakJapanese, playAudio, generateAudioSilentWithVoice } from '../../utils/audio';
 import FuriganaText from '../ui/FuriganaText';
 import { accentNumberToPitchParts } from '../../utils/pitchAccent';
-import { TopTabBar } from '../ui';
+import { TopTabBar, PremiumLockedModal } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 // ==================== REUSABLE COMPONENTS (outside BookScreen to prevent re-mount) ====================
 const FormModal = ({ show, onClose, title, onSave, children }) => {
@@ -50,10 +50,15 @@ const BookScreen = ({
     parentFolders = [],
     onDeleteFolder,
     onAddFolder,
-    onMoveStudySetToParentFolder
+    onMoveStudySetToParentFolder,
+    profile = null
 }) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
+    // Premium Locked states
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
+    const [lockedPkgName, setLockedPkgName] = useState('Premium');
+
     // Data states
     const [bookGroups, setBookGroups] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -532,6 +537,19 @@ const BookScreen = ({
         await deleteDoc(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lId));
         if (lessonId === lId) navigateTo({ group: groupId, book: bookId, chapter: chapterId });
         loadAllData();
+    };
+    const handleToggleLessonPremium = async (e, chId, lesson) => {
+        e.stopPropagation();
+        try {
+            const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chId, 'lessons', lesson.id);
+            const nextVal = !lesson.isPremium;
+            await updateDoc(lessonRef, { isPremium: nextVal });
+            showToast(`Đã chuyển trạng thái bài học thành ${nextVal ? 'Premium' : 'Miễn phí'}`, 'success');
+            await loadAllData(true);
+        } catch (err) {
+            console.error('Lỗi toggle premium:', err);
+            showToast('Lỗi: ' + err.message, 'error');
+        }
     };
     const handleDeleteVocab = async (vocabIndex) => {
         if (!await showConfirm('Xóa từ vựng này?', { type: 'danger', confirmText: 'Xóa' })) return;
@@ -1533,38 +1551,62 @@ const BookScreen = ({
                                 </div>
                             </div>
                             <div className="divide-y divide-gray-100 dark:divide-gray-700">
-                                {chapter.lessons.map((lesson, li) => (
-                                    <div key={lesson.id}
-                                        onClick={() => navigateTo({ group: groupId, book: bookId, chapter: chapter.id, lesson: lesson.id })}
-                                        className="flex items-center justify-between px-4 py-3 hover:bg-sky-50 dark:hover:bg-sky-900/10 cursor-pointer transition-colors">
-                                        <div className="flex items-center gap-3">
-                                            <span className="w-7 h-7 rounded-lg bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center text-xs font-bold text-sky-600 dark:text-sky-400">
-                                                {li + 1}
-                                            </span>
-                                            <span className="text-sm text-gray-800 dark:text-gray-200">{lesson.name}</span>
+                                {chapter.lessons.map((lesson, li) => {
+                                    const isLocked = lesson.isPremium && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('vocab_zen');
+                                    return (
+                                        <div key={lesson.id}
+                                            onClick={() => {
+                                                if (isLocked) {
+                                                    setLockedPkgName('Từ vựng chuyên sâu Zen');
+                                                    setShowPremiumModal(true);
+                                                } else {
+                                                    navigateTo({ group: groupId, book: bookId, chapter: chapter.id, lesson: lesson.id });
+                                                }
+                                            }}
+                                            className="flex items-center justify-between px-4 py-3 hover:bg-sky-50 dark:hover:bg-sky-900/10 cursor-pointer transition-colors">
+                                            <div className="flex items-center gap-3">
+                                                <span className="w-7 h-7 rounded-lg bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center text-xs font-bold text-sky-600 dark:text-sky-400">
+                                                    {li + 1}
+                                                </span>
+                                                <span className="text-sm text-gray-800 dark:text-gray-200 flex items-center gap-2">
+                                                    {lesson.name}
+                                                    {lesson.isPremium && (
+                                                        <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[9px] font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded">
+                                                            👑 Premium
+                                                        </span>
+                                                    )}
+                                                </span>
+                                            </div>
+                                            <div className="flex items-center gap-1">
+                                                <span className="text-xs text-gray-400">{lesson.vocab?.length || 0} từ</span>
+                                                {isAdmin && (
+                                                    <>
+                                                        <button 
+                                                            onClick={(e) => handleToggleLessonPremium(e, chapter.id, lesson)}
+                                                            className={`p-1 rounded transition-colors ${lesson.isPremium ? 'text-amber-500 hover:text-amber-600' : 'text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300'}`}
+                                                            title={lesson.isPremium ? "Đổi thành Miễn phí" : "Đổi thành Premium"}
+                                                        >
+                                                            {lesson.isPremium ? <Lock className="w-3.5 h-3.5" /> : <Unlock className="w-3.5 h-3.5" />}
+                                                        </button>
+                                                        <button onClick={(e) => { e.stopPropagation(); handleReorderLesson(chapter.id, li, -1); }} disabled={li === 0}
+                                                            className={`p-0.5 rounded ${li === 0 ? 'text-gray-250 dark:text-gray-600' : 'text-gray-300 hover:text-sky-500'}`}>
+                                                            <ChevronUp className="w-3 h-3" />
+                                                        </button>
+                                                        <button onClick={(e) => { e.stopPropagation(); handleReorderLesson(chapter.id, li, 1); }} disabled={li === chapter.lessons.length - 1}
+                                                            className={`p-0.5 rounded ${li === chapter.lessons.length - 1 ? 'text-gray-250 dark:text-gray-600' : 'text-gray-300 hover:text-sky-500'}`}>
+                                                            <ChevronDown className="w-3 h-3" />
+                                                        </button>
+                                                        <button onClick={(e) => { e.stopPropagation(); handleDeleteLesson(lesson.id); }}
+                                                            className="p-1 text-gray-300 hover:text-red-500 transition-colors">
+                                                            <Trash2 className="w-3 h-3" />
+                                                        </button>
+                                                    </>
+                                                )}
+                                                <ChevronRight className="w-4 h-4 text-gray-300" />
+                                            </div>
                                         </div>
-                                        <div className="flex items-center gap-1">
-                                            <span className="text-xs text-gray-400">{lesson.vocab?.length || 0} từ</span>
-                                            {isAdmin && (
-                                                <>
-                                                    <button onClick={(e) => { e.stopPropagation(); handleReorderLesson(chapter.id, li, -1); }} disabled={li === 0}
-                                                        className={`p-0.5 rounded ${li === 0 ? 'text-gray-200 dark:text-gray-600' : 'text-gray-300 hover:text-sky-500'}`}>
-                                                        <ChevronUp className="w-3 h-3" />
-                                                    </button>
-                                                    <button onClick={(e) => { e.stopPropagation(); handleReorderLesson(chapter.id, li, 1); }} disabled={li === chapter.lessons.length - 1}
-                                                        className={`p-0.5 rounded ${li === chapter.lessons.length - 1 ? 'text-gray-200 dark:text-gray-600' : 'text-gray-300 hover:text-sky-500'}`}>
-                                                        <ChevronDown className="w-3 h-3" />
-                                                    </button>
-                                                    <button onClick={(e) => { e.stopPropagation(); handleDeleteLesson(lesson.id); }}
-                                                        className="p-1 text-gray-300 hover:text-red-500 transition-colors">
-                                                        <Trash2 className="w-3 h-3" />
-                                                    </button>
-                                                </>
-                                            )}
-                                            <ChevronRight className="w-4 h-4 text-gray-300" />
-                                        </div>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                                 {chapter.lessons.length === 0 && (
                                     <p className="text-center py-4 text-sm text-gray-400">Chưa có bài nào</p>
                                 )}
@@ -1587,13 +1629,24 @@ const BookScreen = ({
                                 {chapters.map((ch, i) => (
                                     <div key={ch.id}>
                                         <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 px-2 py-1">{ch.name}</p>
-                                        {ch.lessons.map((ls, j) => (
-                                            <button key={ls.id}
-                                                onClick={() => navigateTo({ group: groupId, book: bookId, chapter: ch.id, lesson: ls.id })}
-                                                className="w-full text-left text-[11px] px-3 py-1 text-gray-500 dark:text-gray-400 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-sky-50 dark:hover:bg-sky-900/10 rounded transition-colors truncate">
-                                                {ls.name}
-                                            </button>
-                                        ))}
+                                        {ch.lessons.map((ls, j) => {
+                                            const isLocked = ls.isPremium && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('vocab_zen');
+                                            return (
+                                                <button key={ls.id}
+                                                    onClick={() => {
+                                                        if (isLocked) {
+                                                            setLockedPkgName('Từ vựng chuyên sâu Zen');
+                                                            setShowPremiumModal(true);
+                                                        } else {
+                                                            navigateTo({ group: groupId, book: bookId, chapter: ch.id, lesson: ls.id });
+                                                        }
+                                                    }}
+                                                    className="w-full text-left text-[11px] px-3 py-1 text-gray-500 dark:text-gray-400 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-sky-50 dark:hover:bg-sky-900/10 rounded transition-colors truncate flex items-center justify-between gap-1">
+                                                    <span className="truncate">{ls.name}</span>
+                                                    {ls.isPremium && <span className="text-[9px] text-amber-500 shrink-0" title="Bài học Premium">👑</span>}
+                                                </button>
+                                            );
+                                        })}
                                     </div>
                                 ))}
                             </nav>
@@ -2626,6 +2679,12 @@ const BookScreen = ({
                     </div>
                 </div>
             )}
+            {/* Premium Locked Modal */}
+            <PremiumLockedModal 
+                isOpen={showPremiumModal} 
+                onClose={() => setShowPremiumModal(false)} 
+                pkgName={lockedPkgName} 
+            />
             {/* Fix Audio Modal */}
             {FixAudioModal()}
             </div>

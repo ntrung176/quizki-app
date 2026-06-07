@@ -28,7 +28,7 @@ const SAMPLE_POINTS_JSON = `[
   }
 ]`;
 
-const GrammarPointsScreen = ({ isAdmin }) => {
+const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
     const { textbookId, lessonId } = useParams();
     const navigate = useNavigate();
     const [textbook, setTextbook] = useState(null);
@@ -50,6 +50,16 @@ const GrammarPointsScreen = ({ isAdmin }) => {
         const u3 = subscribeGrammarPoints(textbookId, lessonId, setPoints);
         return () => { u1?.(); u2?.(); u3?.(); };
     }, [textbookId, lessonId]);
+
+    useEffect(() => {
+        if (lesson && profile) {
+            const userIsAdmin = profile?.email && ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(profile.email);
+            const isLocked = lesson.isPremium && !userIsAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('grammar_zen');
+            if (isLocked) {
+                navigate(`/grammar/textbook/${textbookId}`);
+            }
+        }
+    }, [lesson, profile, textbookId, navigate]);
 
     // Parse helpers: admin inputs simple text, we convert to arrays
     const parseStructure = (raw) => {

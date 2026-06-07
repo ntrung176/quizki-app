@@ -740,7 +740,7 @@ const SRSVocabScreen = ({
                             </div>
                             <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">Tuyệt vời!</h3>
                             <p className="text-gray-500 dark:text-gray-400">Bạn chưa có thẻ từ vựng nào trong thư viện.</p>
-                            <button onClick={() => navigate(ROUTES.BOOK)} className="mt-6 px-6 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-75 transition-colors text-xs cursor-pointer">
+                            <button onClick={() => navigate(ROUTES.BOOKS)} className="mt-6 px-6 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-75 transition-colors text-xs cursor-pointer">
                                 Đến Thư viện Sách
                             </button>
                         </div>

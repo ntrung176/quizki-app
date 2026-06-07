@@ -51,6 +51,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const [newNotificationText, setNewNotificationText] = useState({ title: '', message: '' });
     const [notificationError, setNotificationError] = useState('');
     const [sendingNotification, setSendingNotification] = useState(false);
+    const [notificationType, setNotificationType] = useState('normal');
 
     // Fetch API balances
     const fetchApiBalances = async () => {
@@ -493,9 +494,10 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         }
         setSendingNotification(true);
         setNotificationError('');
-        const ok = await sendGlobalNotification(newNotificationText.title, newNotificationText.message, currentUserId);
+        const ok = await sendGlobalNotification(newNotificationText.title, newNotificationText.message, currentUserId, notificationType);
         if (ok) {
             setNewNotificationText({ title: '', message: '' });
+            setNotificationType('normal');
             setNotification({ type: 'success', message: 'Đã gửi thông báo đến toàn bộ người dùng' });
         } else {
             setNotificationError('Lỗi khi gửi thông báo');
@@ -2041,6 +2043,19 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 />
                             </div>
 
+                            <div className="flex items-center gap-2 pt-1">
+                                <input
+                                    type="checkbox"
+                                    id="checkbox-notification-type"
+                                    checked={notificationType === 'popup'}
+                                    onChange={(e) => setNotificationType(e.target.checked ? 'popup' : 'normal')}
+                                    className="w-4 h-4 rounded text-indigo-650 border-gray-300 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-800 cursor-pointer"
+                                />
+                                <label htmlFor="checkbox-notification-type" className="text-xs font-bold text-gray-500 dark:text-gray-400 cursor-pointer select-none uppercase">
+                                    Hiện Popup (Modal) khi người dùng truy cập web
+                                </label>
+                            </div>
+
                             {notificationError && (
                                 <p className="text-xs text-red-500 font-medium">{notificationError}</p>
                             )}
@@ -2070,8 +2085,13 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                             <div className="space-y-3 max-h-[300px] overflow-y-auto">
                                 {globalNotifications.map(notif => (
                                     <div key={notif.id} className="p-4 rounded-xl border border-gray-100 dark:border-gray-700 bg-slate-50/50 dark:bg-slate-800/40 flex items-start justify-between gap-4">
-                                        <div className="overflow-hidden">
-                                            <h4 className="font-bold text-sm text-gray-800 dark:text-white truncate">{notif.title}</h4>
+                                        <div className="overflow-hidden flex-1 min-w-0">
+                                            <h4 className="font-bold text-sm text-gray-800 dark:text-white flex items-center gap-2">
+                                                <span className="truncate">{notif.title}</span>
+                                                {notif.type === 'popup' && (
+                                                    <span className="text-[10px] px-1.5 py-0.5 bg-amber-500 text-white rounded-full font-black uppercase flex-shrink-0">Popup</span>
+                                                )}
+                                            </h4>
                                             <p className="text-xs text-gray-600 dark:text-gray-300 mt-1 whitespace-pre-wrap">{notif.message}</p>
                                             <span className="text-[10px] text-gray-400 dark:text-gray-500 mt-2 block">
                                                 Gửi vào: {new Date(notif.createdAt).toLocaleString('vi-VN')}

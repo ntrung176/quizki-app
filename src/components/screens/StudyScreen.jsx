@@ -15,6 +15,46 @@ const normalize = (text = '') =>
         .toLowerCase()
         .trim();
 
+const toHiragana = (str) => {
+    if (!str) return '';
+    return str.replace(/[\u30A1-\u30F6]/g, (match) => {
+        const chr = match.charCodeAt(0) - 0x60;
+        return String.fromCharCode(chr);
+    });
+};
+
+const checkJapaneseAnswer = (userInput, cardFront, pos) => {
+    const rawFront = cardFront || '';
+    const kanjiPart = rawFront.split('（')[0].split('(')[0];
+    const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
+    const kanaPart = kanaPartMatch ? kanaPartMatch[1] : '';
+
+    const normalizedKanji = toHiragana(normalize(kanjiPart));
+    const normalizedKana = toHiragana(normalize(kanaPart));
+    const normalizedFull = toHiragana(normalize(rawFront));
+    const normalizedInput = toHiragana(normalize(userInput));
+
+    let isCorrect = normalizedInput === normalizedKanji || (kanaPart && normalizedInput === normalizedKana) || normalizedInput === normalizedFull;
+
+    if (!isCorrect && pos === 'adj_na') {
+        const buildAdjNa = (val) => {
+            if (!val) return [];
+            if (val.endsWith('な')) {
+                return [val, val.slice(0, -1)];
+            } else {
+                return [val, val + 'な'];
+            }
+        };
+        const accepted = new Set([
+            ...buildAdjNa(normalizedKanji),
+            ...(kanaPart ? buildAdjNa(normalizedKana) : []),
+            ...buildAdjNa(normalizedFull),
+        ]);
+        isCorrect = accepted.has(normalizedInput);
+    }
+    return isCorrect;
+};
+
 // Build 4 MC options: 1 correct + 3 distractors from pool
 const buildOptions = (correctCard, allCards) => {
     const correct = correctCard.frontWithFurigana || correctCard.front;
@@ -126,7 +166,7 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio }) => {
 
     const check = () => {
         if (!input.trim()) return;
-        const isCorrect = normalize(input) === normalize(correctFront) || normalize(input) === normalize(correct);
+        const isCorrect = checkJapaneseAnswer(input, correctFront, card.pos);
         if (isCorrect) {
             setFeedback('correct');
             playCorrectSound();
@@ -151,7 +191,7 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio }) => {
 
     const handleRetypeCheck = () => {
         if (!input.trim()) return;
-        const isCorrect = normalize(input) === normalize(correctFront) || normalize(input) === normalize(correct);
+        const isCorrect = checkJapaneseAnswer(input, correctFront, card.pos);
         if (isCorrect) {
             setNeedsRetype(false);
             setFeedback(null);

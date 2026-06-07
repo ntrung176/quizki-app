@@ -33,6 +33,7 @@ const EMPTY_TEST = {
     title: '', level: 'N5', timeLimit: 60,
     isSkillTest: false,
     skillType: 'vocabulary',
+    isPremium: false,
     sections: [{ ...EMPTY_SECTION, questions: [{ ...EMPTY_QUESTION }] }]
 };
 const SAMPLE_FULL_JSON = {
@@ -408,6 +409,7 @@ const JLPTAdminScreen = ({ userId }) => {
                 ...formData,
                 isSkillTest: !!formData.isSkillTest,
                 skillType: formData.isSkillTest ? formData.skillType : '',
+                isPremium: !!formData.isPremium,
                 updatedAt: serverTimestamp(),
                 updatedBy: userId || 'admin',
             };
@@ -453,6 +455,7 @@ const JLPTAdminScreen = ({ userId }) => {
             timeLimit: test.timeLimit || 60,
             isSkillTest: !!test.isSkillTest,
             skillType: test.skillType || 'vocabulary',
+            isPremium: !!test.isPremium,
             sections: test.sections || [],
         });
         setExpandedSections({ 0: true });
@@ -696,7 +699,7 @@ const JLPTAdminScreen = ({ userId }) => {
                             )}
                         </div>
                         {/* Thông tin cơ bản */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                             <div>
                                 <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Tên đề thi / bài luyện</label>
                                 <input type="text" value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })}
@@ -713,6 +716,17 @@ const JLPTAdminScreen = ({ userId }) => {
                                 <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">Thời gian làm bài (Phút)</label>
                                 <input type="number" value={formData.timeLimit} onChange={e => setFormData({ ...formData, timeLimit: Number(e.target.value) })}
                                     min={5} max={300} className="w-full px-3 py-2 text-sm border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/40 text-slate-800 dark:text-white focus:ring-2 focus:ring-[#2E5B70]/20 outline-none" />
+                            </div>
+                            <div className="flex items-center md:pt-6">
+                                <label className="flex items-center gap-2 cursor-pointer select-none">
+                                    <input 
+                                        type="checkbox" 
+                                        checked={formData.isPremium || false} 
+                                        onChange={e => setFormData({ ...formData, isPremium: e.target.checked })}
+                                        className="w-4 h-4 rounded border-slate-200 text-[#2E5B70] focus:ring-[#2E5B70]/20"
+                                    />
+                                    <span className="text-xs font-bold text-slate-655 dark:text-slate-350 uppercase tracking-wider">Đề thi VIP (Premium)</span>
+                                </label>
                             </div>
                         </div>
                         {/* Quản lý các phần thi */}

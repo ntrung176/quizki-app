@@ -7,7 +7,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
-import { TopTabBar } from '../ui';
+import { TopTabBar, PremiumLockedModal } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
 // JLPT Levels configuration
 const JLPT_CONFIG = {
@@ -17,8 +17,10 @@ const JLPT_CONFIG = {
     N2: { label: 'N2', sublabel: 'Cao cấp', color: 'orange', totalDays: 51, kanjiPerDay: 10, gradient: 'from-orange-500 to-amber-500', bg: 'bg-orange-500', light: 'bg-orange-50 dark:bg-orange-900/20', text: 'text-orange-600 dark:text-orange-400', border: 'border-orange-300 dark:border-orange-700' },
     N1: { label: 'N1', sublabel: 'Thành thạo', color: 'red', totalDays: 131, kanjiPerDay: 10, gradient: 'from-rose-500 to-pink-500', bg: 'bg-rose-500', light: 'bg-rose-50 dark:bg-rose-900/20', text: 'text-rose-600 dark:text-rose-400', border: 'border-rose-300 dark:border-rose-700' },
 };
-const KanjiStudyScreen = () => {
+const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
     const navigate = useNavigate();
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
+    const [lockedPkgName, setLockedPkgName] = useState('Thư viện Kanji Zen');
     const [selectedLevel, setSelectedLevel] = useState('N5');
     const [currentDay, setCurrentDay] = useState(1);
     const [kanjiList, setKanjiList] = useState([]);
@@ -194,18 +196,28 @@ const KanjiStudyScreen = () => {
                     {Object.entries(JLPT_CONFIG).map(([level, cfg]) => {
                         const isSelected = selectedLevel === level;
                         const isCompleted = isLevelCompleted(level);
+                        const isLocked = ['N4', 'N3', 'N2', 'N1'].includes(level) && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
                         return (
                             <button
                                 key={level}
-                                onClick={() => { setSelectedLevel(level); setCurrentDay(1); }}
+                                onClick={() => {
+                                    if (isLocked) {
+                                        setLockedPkgName('Thư viện Kanji Zen');
+                                        setShowPremiumModal(true);
+                                    } else {
+                                        setSelectedLevel(level);
+                                        setCurrentDay(1);
+                                    }
+                                }}
                                 className={`flex-1 min-w-[90px] py-3.5 rounded-xl text-center transition-all flex flex-col items-center justify-center gap-1.5 ${isSelected
                                         ? `bg-white dark:bg-slate-800 shadow-sm border border-slate-200/50 dark:border-slate-700/60 scale-[1.01]`
                                         : 'hover:bg-slate-100/70 dark:hover:bg-slate-800/50'
                                     }`}
                             >
                                 <div className="flex items-center gap-1">
-                                    <span className={`text-sm font-extrabold ${isSelected ? 'text-slate-800 dark:text-white' : 'text-slate-400 dark:text-slate-500'}`}>
+                                    <span className={`text-sm font-extrabold ${isSelected ? 'text-slate-800 dark:text-white' : 'text-slate-400 dark:text-slate-500'} flex items-center gap-1`}>
                                         {cfg.label}
+                                        {isLocked && <span className="text-[10px]">🔒</span>}
                                     </span>
                                     {isCompleted && (
                                         <span className="w-3.5 h-3.5 rounded-full bg-emerald-500 flex items-center justify-center text-white text-[8px] font-bold">✓</span>
@@ -364,6 +376,12 @@ const KanjiStudyScreen = () => {
                     </div>
                 </div>
             </div>
+            {/* Premium Locked Modal */}
+            <PremiumLockedModal 
+                isOpen={showPremiumModal} 
+                onClose={() => setShowPremiumModal(false)} 
+                pkgName={lockedPkgName} 
+            />
         </div>
     );
 };

@@ -13,7 +13,7 @@ import { showToast, showConfirm } from '../../utils/toast';
 import { renderStrokeGuide, renderMaziiStyleKanji } from '../../utils/kanjiStroke';
 import { RADICALS_214, KANJI_TREE } from '../../data/radicals214'
 import { JOTOBA_KANJI_DATA, getJotobaKanjiChars, getJotobaKanjiData } from '../../data/jotobaKanjiData'
-import { TopTabBar } from '../ui';
+import { TopTabBar, PremiumLockedModal } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
 // JLPT Levels
 const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
@@ -35,11 +35,16 @@ const LEVEL_TAB_COLORS = {
     N1: 'bg-rose-500 text-white shadow-md shadow-rose-900/50',
     'Bộ thủ': 'bg-orange-500 text-white shadow-md shadow-orange-200 dark:shadow-orange-900/50',
 };
-const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserCards = [] }) => {
+const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserCards = [], profile = null }) => {
     const [searchParams] = useSearchParams();
     const params = useParams();
     const navigate = useNavigate();
     const location = useLocation();
+    
+    // Premium Locked states
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
+    const [lockedPkgName, setLockedPkgName] = useState('Premium');
+
     const [selectedLevel, setSelectedLevel] = useState('N5');
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedKanji, setSelectedKanji] = useState(null);
@@ -80,12 +85,31 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     const handwritingStrokesRef = useRef([]); // stores [[xs, ys], ...] for each stroke
     const currentStrokeRef = useRef({ xs: [], ys: [] });
     const recognitionTimeoutRef = useRef(null);
+
+    // Build a Map for O(1) kanji lookups (avoid repeated kanjiList.find() calls)
+    const kanjiMap = useMemo(() => {
+        const map = new Map();
+        kanjiList.forEach(k => { if (k.character) map.set(k.character, k); });
+        return map;
+    }, [kanjiList]);
+
     // Helper function to navigate to kanji detail with path params
     const openKanjiDetail = useCallback((char) => {
+        const fbData = kanjiMap.get(char);
+        const jData = getJotobaKanjiData(char);
+        const lvl = fbData?.level || jData?.level || 'N5';
+        const isLvlLocked = ['N4', 'N3', 'N2', 'N1'].includes(lvl) && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
+        
+        if (isLvlLocked) {
+            setLockedPkgName('Thư viện Kanji Zen');
+            setShowPremiumModal(true);
+            return;
+        }
+
         navigate(`/kanji/list/${char}`);
         setSelectedKanji(char);
         setShowDetailModal(true);
-    }, [navigate]);
+    }, [navigate, kanjiMap, isAdmin, profile]);
     // Google handwriting recognition
     const recognizeHandwriting = useCallback(async (strokes, canvasWidth, canvasHeight) => {
         if (!strokes || strokes.length === 0) return;
@@ -349,12 +373,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             if (animTimer) clearTimeout(animTimer);
         };
     }, [selectedKanji, showDetailModal]);
-    // Build a Map for O(1) kanji lookups (avoid repeated kanjiList.find() calls)
-    const kanjiMap = useMemo(() => {
-        const map = new Map();
-        kanjiList.forEach(k => { if (k.character) map.set(k.character, k); });
-        return map;
-    }, [kanjiList]);
+
     // Get kanji for current level: merge Jotoba static data + Firebase data, sorted by stroke count
     const currentKanjiList = useMemo(() => {
         if (selectedLevel === 'Bộ thủ') {
@@ -1477,16 +1496,25 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         <div className="flex flex-wrap gap-2 items-center">
                             {[...JLPT_LEVELS, 'Bộ thủ'].map(level => {
                                 const isActive = selectedLevel === level;
+                                const isLocked = ['N4', 'N3', 'N2', 'N1'].includes(level) && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
                                 return (
                                     <button
                                         key={level}
-                                        onClick={() => setSelectedLevel(level)}
-                                        className={`px-4 py-2.5 rounded-xl font-bold text-xs tracking-wider transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm border ${isActive
+                                        onClick={() => {
+                                            if (isLocked) {
+                                                setLockedPkgName('Thư viện Kanji Zen');
+                                                setShowPremiumModal(true);
+                                            } else {
+                                                setSelectedLevel(level);
+                                            }
+                                        }}
+                                        className={`px-4 py-2.5 rounded-xl font-bold text-xs tracking-wider transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm border flex items-center gap-1.5 ${isActive
                                                 ? LEVEL_TAB_COLORS[level] + ' border-transparent'
                                                 : 'bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50 border-slate-200/80 dark:border-slate-700/50'
                                             }`}
                                     >
-                                        {level}
+                                        <span>{level}</span>
+                                        {isLocked && <span className="text-[10px]" title="Cấp độ Premium">🔒</span>}
                                     </button>
                                 );
                             })}
@@ -2142,7 +2170,12 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                     </div>
                 )
             }
-
+            {/* Premium Locked Modal */}
+            <PremiumLockedModal 
+                isOpen={showPremiumModal} 
+                onClose={() => setShowPremiumModal(false)} 
+                pkgName={lockedPkgName} 
+            />
         </div >
     );
 };

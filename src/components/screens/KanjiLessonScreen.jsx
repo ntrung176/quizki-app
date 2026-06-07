@@ -89,6 +89,15 @@ const KanjiLessonScreen = () => {
         loadProfile();
     }, [userId]);
     useEffect(() => {
+        if (profile) {
+            const userIsAdmin = profile?.email && ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(profile.email);
+            const isLockedLevel = ['N4', 'N3', 'N2', 'N1'].includes(level) && !userIsAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
+            if (isLockedLevel) {
+                navigate(ROUTES.KANJI_STUDY);
+            }
+        }
+    }, [profile, level, navigate]);
+    useEffect(() => {
         if (!userId) return;
         const loadSrs = async () => {
             try {

@@ -5,7 +5,7 @@ import { useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signOut, updatePassword } from 'firebase/auth'
 import { getFirestore, doc, setDoc, addDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, getDocs, writeBatch, increment, collectionGroup, deleteField, where } from 'firebase/firestore'
-import { Loader2, CheckCircle, HelpCircle, Save, AlertTriangle, Check, X, Filter, Wrench, LogOut } from 'lucide-react'
+import { Loader2, CheckCircle, HelpCircle, Save, AlertTriangle, Check, X, Filter, Wrench, LogOut, Bell } from 'lucide-react'
 import { PieChart } from 'recharts'
 
 // Route configuration
@@ -299,6 +299,57 @@ const App = () => {
         });
         return () => unsubscribe();
     }, [authReady, studySetsCollectionPath]);
+
+    const [activePopup, setActivePopup] = useState(null);
+
+    // Listen to Global Notifications for Popup display
+    useEffect(() => {
+        if (!userId || !db) return;
+        const q = query(collection(db, `artifacts/${appId}/globalNotifications`));
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+            const list = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            list.sort((a, b) => {
+                const aTime = a.createdAt?.toDate ? a.createdAt.toDate().getTime() : (a.createdAt || 0);
+                const bTime = b.createdAt?.toDate ? b.createdAt.toDate().getTime() : (b.createdAt || 0);
+                return bTime - aTime;
+            });
+            
+            // Find the latest popup notification
+            const popupNotif = list.find(n => n.type === 'popup');
+            if (popupNotif) {
+                // Check if user has dismissed this popup before
+                let dismissed = [];
+                try {
+                    dismissed = JSON.parse(localStorage.getItem('quizki_dismissed_popups') || '[]');
+                } catch (e) {
+                    dismissed = [];
+                }
+                if (!dismissed.includes(popupNotif.id)) {
+                    setActivePopup(popupNotif);
+                }
+            } else {
+                setActivePopup(null);
+            }
+        }, (error) => {
+            console.error('Error loading global notifications for popup:', error);
+        });
+        return () => unsubscribe();
+    }, [userId]);
+
+    const handleDismissPopup = () => {
+        if (!activePopup) return;
+        let dismissed = [];
+        try {
+            dismissed = JSON.parse(localStorage.getItem('quizki_dismissed_popups') || '[]');
+        } catch (e) {
+            dismissed = [];
+        }
+        if (!dismissed.includes(activePopup.id)) {
+            dismissed.push(activePopup.id);
+            localStorage.setItem('quizki_dismissed_popups', JSON.stringify(dismissed));
+        }
+        setActivePopup(null);
+    };
 
     const parentFolders = useMemo(() => {
         return folders.filter(f => f.type === 'folder');
@@ -3574,6 +3625,47 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             {/* Update notification when new version is deployed */}
             {updateAvailable && (
                 <UpdateNotification onRefresh={refreshApp} onDismiss={dismissUpdate} />
+            )}
+
+            {/* Modal thông báo khẩn cấp / Popup */}
+            {activePopup && (
+                <div className="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-fade-in">
+                    <div className="bg-white/95 dark:bg-slate-900/95 border border-indigo-100/50 dark:border-slate-800/80 rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden transition-all duration-300 transform scale-100 relative">
+                        {/* Header with decorative background */}
+                        <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-6 text-white text-center relative overflow-hidden">
+                            {/* Decorative ambient blobs */}
+                            <div className="absolute -top-10 -left-10 w-24 h-24 bg-white/20 rounded-full blur-xl animate-pulse"></div>
+                            <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-white/20 rounded-full blur-xl"></div>
+                            
+                            <div className="w-12 h-12 bg-white/25 rounded-full flex items-center justify-center mx-auto mb-3 backdrop-blur-sm shadow-inner animate-bounce">
+                                <Bell className="w-6 h-6 text-white" />
+                            </div>
+                            
+                            <h2 className="text-xl font-black tracking-wide uppercase drop-shadow-md">Thông Báo Hệ Thống</h2>
+                        </div>
+                        
+                        {/* Content */}
+                        <div className="p-6 md:p-8 space-y-4">
+                            <h3 className="text-lg font-extrabold text-gray-800 dark:text-slate-100 text-center leading-tight">
+                                {activePopup.title}
+                            </h3>
+                            <div className="text-sm text-gray-600 dark:text-slate-350 leading-relaxed max-h-[40vh] overflow-y-auto whitespace-pre-wrap pr-1 bg-slate-50 dark:bg-slate-950/40 p-4 rounded-2xl border border-gray-100 dark:border-slate-800">
+                                {activePopup.message}
+                            </div>
+                        </div>
+                        
+                        {/* Actions */}
+                        <div className="p-6 bg-slate-50 dark:bg-slate-900/40 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-center">
+                            <button
+                                id="btn-close-popup-notification"
+                                onClick={handleDismissPopup}
+                                className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white font-bold text-sm rounded-2xl transition-all duration-300 transform active:scale-95 shadow-md shadow-indigo-600/10 dark:shadow-none hover:shadow-indigo-600/20 cursor-pointer min-w-[140px] text-center"
+                            >
+                                Đã hiểu
+                            </button>
+                        </div>
+                    </div>
+                </div>
             )}
 
             {/* Modal nhập từ vựng hàng loạt */}

@@ -3,7 +3,7 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, Play, Lightbulb, PenTool, Layers, Settings, Save, Trash2, Plus, X } from 'lucide-react';
 import { fetchGrammarPointById, updateGrammarPoint } from '../../utils/grammarService';
 
-const GrammarDetailScreen = ({ isAdmin }) => {
+const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
     const { grammarId } = useParams();
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
@@ -33,6 +33,18 @@ const GrammarDetailScreen = ({ isAdmin }) => {
         })();
     }, [grammarId]);
 
+    const backUrl = (tb && ls) ? `/grammar/textbook/${tb}/lesson/${ls}` : '/grammar';
+
+    useEffect(() => {
+        if (gp && profile) {
+            const userIsAdmin = profile?.email && ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(profile.email);
+            const isLocked = gp.lesson?.isPremium && !userIsAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('grammar_zen');
+            if (isLocked) {
+                navigate(backUrl);
+            }
+        }
+    }, [gp, profile, backUrl, navigate]);
+
     // Populate edit form when edit mode is toggled or gp changes
     useEffect(() => {
         if (gp) {
@@ -50,7 +62,6 @@ const GrammarDetailScreen = ({ isAdmin }) => {
     if (loading) return <div className="p-8 text-center text-slate-500">Đang tải...</div>;
     if (!gp) return <div className="p-8 text-center text-slate-500">Không tìm thấy ngữ pháp.</div>;
 
-    const backUrl = (tb && ls) ? `/grammar/textbook/${tb}/lesson/${ls}` : '/grammar';
     const totalExercises = (gp.exercises?.length || 0) + (gp.quizzes?.length || 0);
 
     const parseStructure = (raw) => {

@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { collection, query, onSnapshot, orderBy } from 'firebase/firestore'
+import { PremiumLockedModal } from '../ui';
+import { collection, query, onSnapshot, orderBy, doc, updateDoc } from 'firebase/firestore'
 import { db, appId } from '../../config/firebase';
 import { Link, useNavigate } from 'react-router-dom';
-import { FileCheck, Play, ChevronRight, ChevronLeft, Maximize, Minimize, X, Check, CheckCircle, XCircle, Languages, BookOpen, FileText, Headphones, Timer, Volume2, AlertTriangle, Award, Lock, Calendar, Edit3, Settings, Sparkles, ShieldAlert } from 'lucide-react'
+import { FileCheck, Play, ChevronRight, ChevronLeft, Maximize, Minimize, X, Check, CheckCircle, XCircle, Languages, BookOpen, FileText, Headphones, Timer, Volume2, AlertTriangle, Award, Lock, Unlock, Crown, Calendar, Edit3, Settings, Sparkles, ShieldAlert } from 'lucide-react'
 import { ROUTES } from '../../router';
 import { aiTranslateSentence } from '../../utils/aiProvider';
 const SECTION_ICONS = {
@@ -158,6 +159,26 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
     const [showFullscreenRequired, setShowFullscreenRequired] = useState(false);
     const [violationType, setViolationType] = useState(''); // 'tab' or 'fullscreen'
     const [translations, setTranslations] = useState({});
+    
+    // Premium Lock State
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
+    const [lockedPkgName, setLockedPkgName] = useState('');
+    const userIsAdmin = profile?.email && ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(profile.email);
+    const hasPremiumAccess = userIsAdmin || profile?.isPremiumUnlocked || (profile?.unlockedSpecializedPackages || []).includes('jlpt_prep');
+
+    const handleToggleTestPremium = async (e, test) => {
+        e.stopPropagation();
+        if (!isAdmin) return;
+        try {
+            const testRef = doc(db, `artifacts/${appId}/jlptTests`, test.id);
+            const nextVal = !test.isPremium;
+            await updateDoc(testRef, { isPremium: nextVal });
+            setNotification(`Đã chuyển đề thi sang: ${nextVal ? 'Premium' : 'Miễn phí'}`);
+        } catch (err) {
+            console.error('Error toggling premium status:', err);
+            setNotification('Lỗi: ' + err.message);
+        }
+    };
 
     const stripHtml = (html) => {
         let clean = html;
@@ -389,6 +410,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
 
     // Start test
     const startTest = (test) => {
+        if (test?.isPremium && !hasPremiumAccess) {
+            setLockedPkgName('jlpt_prep');
+            setShowPremiumModal(true);
+            return;
+        }
         setPendingStartTest(test);
     };
 
@@ -425,6 +451,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
 
     // Review completed test
     const reviewTest = (test) => {
+        if (test?.isPremium && !hasPremiumAccess) {
+            setLockedPkgName('jlpt_prep');
+            setShowPremiumModal(true);
+            return;
+        }
         const saved = completedTests[test.id];
         if (saved) {
             setIsRealExam(false);
@@ -1360,37 +1391,57 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                         key={test.id}
                                         className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-h-[250px] relative overflow-hidden group shadow-sm"
                                     >
+                                        {isAdmin && (
+                                            <button
+                                                onClick={(e) => handleToggleTestPremium(e, test)}
+                                                className={`absolute top-4 right-4 p-2 rounded-xl transition cursor-pointer border hover:scale-105 z-10 ${
+                                                    test.isPremium
+                                                        ? 'bg-amber-50 dark:bg-amber-950/40 text-amber-500 border-amber-200/50 hover:bg-amber-100 dark:hover:bg-amber-900/40'
+                                                        : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                                }`}
+                                                title={test.isPremium ? "Chuyển thành Miễn phí" : "Chuyển thành Premium"}
+                                            >
+                                                {test.isPremium ? <Lock className="w-3.5 h-3.5" /> : <Unlock className="w-3.5 h-3.5" />}
+                                            </button>
+                                        )}
                                         <div>
                                             {/* Top badges */}
                                             <div className="flex items-center justify-between mb-4">
                                                 <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-300 flex items-center justify-center">
                                                     <SkillIcon className="w-5 h-5" />
                                                 </div>
-                                                {status === 'completed' && (
-                                                    <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/20 px-3 py-1.5 rounded-full">
-                                                        HOÀN THÀNH
-                                                    </span>
-                                                )}
-                                                {status === 'retry' && (
-                                                    <span className="text-[10px] font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/20 px-3 py-1.5 rounded-full">
-                                                        CẦN ÔN LẠI
-                                                    </span>
-                                                )}
-                                                {status === 'in_progress' && (
-                                                    <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/20 px-3 py-1.5 rounded-full">
-                                                        ĐANG LÀM
-                                                    </span>
-                                                )}
-                                                {status === 'new' && (
-                                                    <span className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/20 px-3 py-1.5 rounded-full">
-                                                        MỚI
-                                                    </span>
-                                                )}
-                                                {status === 'not_started' && (
-                                                    <span className="text-[10px] font-bold text-slate-500 dark:text-slate-450 bg-slate-50 dark:bg-slate-700/30 px-3 py-1.5 rounded-full">
-                                                        CHƯA LÀM
-                                                    </span>
-                                                )}
+                                                <div className="flex items-center gap-1.5">
+                                                    {test.isPremium && (
+                                                        <span className="flex items-center gap-1 text-[10px] font-black text-amber-600 bg-amber-50 dark:bg-amber-950/40 px-2.5 py-1.5 rounded-full border border-amber-200/50">
+                                                            <Crown className="w-3 h-3 fill-current" /> Premium
+                                                        </span>
+                                                    )}
+                                                    {status === 'completed' && (
+                                                        <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/20 px-3 py-1.5 rounded-full">
+                                                            HOÀN THÀNH
+                                                        </span>
+                                                    )}
+                                                    {status === 'retry' && (
+                                                        <span className="text-[10px] font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/20 px-3 py-1.5 rounded-full">
+                                                            CẦN ÔN LẠI
+                                                        </span>
+                                                    )}
+                                                    {status === 'in_progress' && (
+                                                        <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/20 px-3 py-1.5 rounded-full">
+                                                            ĐANG LÀM
+                                                        </span>
+                                                    )}
+                                                    {status === 'new' && (
+                                                        <span className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/20 px-3 py-1.5 rounded-full">
+                                                            MỚI
+                                                        </span>
+                                                    )}
+                                                    {status === 'not_started' && (
+                                                        <span className="text-[10px] font-bold text-slate-500 dark:text-slate-450 bg-slate-50 dark:bg-slate-700/30 px-3 py-1.5 rounded-full">
+                                                            CHƯA LÀM
+                                                        </span>
+                                                    )}
+                                                </div>
                                             </div>
                                             {/* Test title and details */}
                                             <h4 className="text-base font-extrabold text-slate-800 dark:text-white leading-tight">
@@ -1716,13 +1767,26 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                             className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-h-[250px] relative overflow-hidden group shadow-sm"
                                         >
                                             {isAdmin && (
-                                                <button
-                                                    onClick={() => navigate(ROUTES.JLPT_ADMIN, { state: { editTest: test } })}
-                                                    className="absolute top-4 right-4 p-2 rounded-xl bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 hover:text-slate-750 dark:text-slate-400 dark:hover:text-slate-200 transition cursor-pointer border border-slate-100 dark:border-slate-800 z-10 hover:scale-105"
-                                                    title="Chỉnh sửa đề thi"
-                                                >
-                                                    <Edit3 className="w-3.5 h-3.5" />
-                                                </button>
+                                                <div className="absolute top-4 right-4 flex items-center gap-1.5 z-10">
+                                                    <button
+                                                        onClick={(e) => handleToggleTestPremium(e, test)}
+                                                        className={`p-2 rounded-xl transition cursor-pointer border hover:scale-105 ${
+                                                            test.isPremium
+                                                                ? 'bg-amber-50 dark:bg-amber-950/40 text-amber-500 border-amber-200/50 hover:bg-amber-100 dark:hover:bg-amber-900/40'
+                                                                : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                                        }`}
+                                                        title={test.isPremium ? "Chuyển thành Miễn phí" : "Chuyển thành Premium"}
+                                                    >
+                                                        {test.isPremium ? <Lock className="w-3.5 h-3.5" /> : <Unlock className="w-3.5 h-3.5" />}
+                                                    </button>
+                                                    <button
+                                                        onClick={() => navigate(ROUTES.JLPT_ADMIN, { state: { editTest: test } })}
+                                                        className="p-2 rounded-xl bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 hover:text-slate-750 dark:text-slate-400 dark:hover:text-slate-200 transition cursor-pointer border border-slate-100 dark:border-slate-800 hover:scale-105"
+                                                        title="Chỉnh sửa đề thi"
+                                                    >
+                                                        <Edit3 className="w-3.5 h-3.5" />
+                                                    </button>
+                                                </div>
                                             )}
                                             <div>
                                                 {/* Top badges */}
@@ -1730,31 +1794,38 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                     <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${lvlGradient} text-white flex items-center justify-center font-black text-[11px]`}>
                                                         {test.level}
                                                     </div>
-                                                    {status === 'completed' && (
-                                                        <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/20 px-3 py-1.5 rounded-full">
-                                                            HOÀN THÀNH
-                                                        </span>
-                                                    )}
-                                                    {status === 'retry' && (
-                                                        <span className="text-[10px] font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/20 px-3 py-1.5 rounded-full">
-                                                            CẦN ÔN LẠI
-                                                        </span>
-                                                    )}
-                                                    {status === 'in_progress' && (
-                                                        <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/20 px-3 py-1.5 rounded-full">
-                                                            ĐANG LÀM
-                                                        </span>
-                                                    )}
-                                                    {status === 'new' && (
-                                                        <span className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/20 px-3 py-1.5 rounded-full">
-                                                            MỚI
-                                                        </span>
-                                                    )}
-                                                    {status === 'not_started' && (
-                                                        <span className="text-[10px] font-bold text-slate-500 dark:text-slate-450 bg-slate-50 dark:bg-slate-700/30 px-3 py-1.5 rounded-full">
-                                                            CHƯA LÀM
-                                                        </span>
-                                                    )}
+                                                    <div className="flex items-center gap-1.5">
+                                                        {test.isPremium && (
+                                                            <span className="flex items-center gap-1 text-[10px] font-black text-amber-600 bg-amber-50 dark:bg-amber-950/40 px-2.5 py-1.5 rounded-full border border-amber-200/50">
+                                                                <Crown className="w-3 h-3 fill-current" /> Premium
+                                                            </span>
+                                                        )}
+                                                        {status === 'completed' && (
+                                                            <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/20 px-3 py-1.5 rounded-full">
+                                                                HOÀN THÀNH
+                                                            </span>
+                                                        )}
+                                                        {status === 'retry' && (
+                                                            <span className="text-[10px] font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/20 px-3 py-1.5 rounded-full">
+                                                                CẦN ÔN LẠI
+                                                            </span>
+                                                        )}
+                                                        {status === 'in_progress' && (
+                                                            <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/20 px-3 py-1.5 rounded-full">
+                                                                ĐANG LÀM
+                                                            </span>
+                                                        )}
+                                                        {status === 'new' && (
+                                                            <span className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/20 px-3 py-1.5 rounded-full">
+                                                                MỚI
+                                                            </span>
+                                                        )}
+                                                        {status === 'not_started' && (
+                                                            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-450 bg-slate-50 dark:bg-slate-700/30 px-3 py-1.5 rounded-full">
+                                                                CHƯA LÀM
+                                                            </span>
+                                                        )}
+                                                    </div>
                                                 </div>
                                                 {/* Test title and details */}
                                                 <h4 className="text-base font-extrabold text-slate-800 dark:text-white leading-tight">
@@ -2189,7 +2260,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     return (
                                         <div key={test.id} className="flex items-center justify-between p-3.5 bg-slate-50/50 dark:bg-slate-900/30 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:bg-slate-100/50 transition gap-4">
                                             <div className="flex-1">
-                                                <h4 className="text-xs font-bold text-slate-800 dark:text-white leading-snug">{test.title}</h4>
+                                                <div className="flex items-center gap-2">
+                                                    <h4 className="text-xs font-bold text-slate-800 dark:text-white leading-snug">{test.title}</h4>
+                                                    {test.isPremium && (
+                                                        <span className="flex items-center gap-0.5 text-[8px] font-black text-amber-600 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200/50 shrink-0">
+                                                            <Crown className="w-2 h-2 fill-current" /> Premium
+                                                        </span>
+                                                    )}
+                                                </div>
                                                 <span className="text-[10px] text-slate-400 dark:text-slate-500 font-semibold flex items-center gap-2 mt-1">
                                                     <span>{totalQ} câu hỏi</span>
                                                     <span>•</span>
@@ -2198,16 +2276,29 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                             </div>
                                             <div className="flex items-center gap-2">
                                                 {isAdmin && (
-                                                    <button
-                                                        onClick={() => {
-                                                            setSelectedSkillPractice(null);
-                                                            navigate(ROUTES.JLPT_ADMIN, { state: { editTest: test } });
-                                                        }}
-                                                        className="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 dark:bg-amber-950/40 dark:hover:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-[10px] font-bold rounded-lg transition cursor-pointer border border-amber-200/30 hover:scale-105 shrink-0 animate-fade-in"
-                                                        title="Chỉnh sửa đề thi"
-                                                    >
-                                                        Sửa
-                                                    </button>
+                                                    <div className="flex items-center gap-1.5 animate-fade-in shrink-0">
+                                                        <button
+                                                            onClick={(e) => handleToggleTestPremium(e, test)}
+                                                            className={`p-1 rounded-md transition cursor-pointer border hover:scale-105 ${
+                                                                test.isPremium
+                                                                    ? 'bg-amber-50 dark:bg-amber-950/40 text-amber-500 border-amber-200/50 hover:bg-amber-100 dark:hover:bg-amber-900/40'
+                                                                    : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                                            }`}
+                                                            title={test.isPremium ? "Chuyển thành Miễn phí" : "Chuyển thành Premium"}
+                                                        >
+                                                            {test.isPremium ? <Lock className="w-3 h-3" /> : <Unlock className="w-3 h-3" />}
+                                                        </button>
+                                                        <button
+                                                            onClick={() => {
+                                                                setSelectedSkillPractice(null);
+                                                                navigate(ROUTES.JLPT_ADMIN, { state: { editTest: test } });
+                                                            }}
+                                                            className="px-2 py-1 bg-amber-50 hover:bg-amber-100 dark:bg-amber-950/40 dark:hover:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-[10px] font-bold rounded-lg transition cursor-pointer border border-amber-200/30 hover:scale-105 shrink-0"
+                                                            title="Chỉnh sửa đề thi"
+                                                        >
+                                                            Sửa
+                                                        </button>
+                                                    </div>
                                                 )}
                                                 {isCompleted ? (
                                                     <div className="flex items-center gap-2">
@@ -2233,6 +2324,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                 </div>
             )}
             {renderModeSelectionModal()}
+            <PremiumLockedModal 
+                isOpen={showPremiumModal} 
+                onClose={() => setShowPremiumModal(false)} 
+                pkgName={lockedPkgName} 
+            />
         </div>
     );
 };

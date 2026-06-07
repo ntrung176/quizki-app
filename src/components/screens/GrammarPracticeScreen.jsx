@@ -53,7 +53,7 @@ const formatExplanation = (text) => {
     }).filter(Boolean);
 };
 
-const GrammarPracticeScreen = ({ isAdmin }) => {
+const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
     const { grammarId } = useParams();
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
@@ -104,6 +104,16 @@ const GrammarPracticeScreen = ({ isAdmin }) => {
             setLoading(false); 
         })();
     }, [grammarId]);
+
+    useEffect(() => {
+        if (gp && profile) {
+            const userIsAdmin = profile?.email && ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(profile.email);
+            const isLocked = gp.lesson?.isPremium && !userIsAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('grammar_zen');
+            if (isLocked) {
+                navigate(`/grammar/textbook/${tb || gp.textbookId}`);
+            }
+        }
+    }, [gp, profile, tb, navigate]);
 
     useEffect(() => { 
         if (activeTab === 'translate') {
