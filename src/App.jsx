@@ -2949,8 +2949,9 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             const providerInfo = getAIProviderInfo();
             console.log(`🤖 AI Provider: ${providerInfo.summary}`);
 
-            const forcedModel = adminConfig?.aiFeatureModels?.vocab_gen || 'openai/gpt-4o-mini';
-            const responseText = await callAI(prompt, forcedModel);
+            const featureId = contextPos === 'grammar' ? 'grammar_gen' : 'vocab_gen';
+            const forcedModel = adminConfig?.aiFeatureModels?.[featureId] || (featureId === 'grammar_gen' ? 'google/gemini-2.5-flash' : 'openai/gpt-4o-mini');
+            const responseText = await callAI(prompt, forcedModel, featureId);
             const parsedJson = parseJsonFromAI(responseText);
 
             if (parsedJson) {

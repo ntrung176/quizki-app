@@ -1051,6 +1051,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                             {AI_FEATURES.map((feature) => {
                                 const FEATURE_DEFAULTS = {
                                     vocab_gen: 'openai/gpt-4o-mini',
+                                    grammar_gen: 'google/gemini-2.5-flash',
                                     vocab_sino_viet: 'google/gemini-3.1-flash-lite',
                                     more_examples: 'openai/gpt-4o-mini',
                                     ocr_image: 'openai/gpt-4o-mini',

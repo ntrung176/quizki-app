@@ -45,6 +45,7 @@ const DEFAULT_ADMIN_CONFIG = {
     openRouterModel: 'google/gemini-2.5-flash',
     aiFeatureModels: {
         vocab_gen: 'openai/gpt-4o-mini',
+        grammar_gen: 'google/gemini-2.5-flash',
         vocab_sino_viet: 'google/gemini-3.1-flash-lite',
         more_examples: 'openai/gpt-4o-mini',
         ocr_image: 'openai/gpt-4o-mini',
@@ -199,12 +200,16 @@ export const AI_PROVIDER_OPTIONS = [
 export const OPENROUTER_MODELS = [
     { value: 'google/gemini-2.5-flash', label: 'Gemini 2.5 Flash' },
     { value: 'google/gemini-3.1-flash-lite', label: 'Gemini 3.1 Flash-Lite' },
+    { value: 'google/gemini-2.5-pro', label: 'Gemini 2.5 Pro' },
     { value: 'deepseek/deepseek-chat', label: 'DeepSeek V3' },
     { value: 'openai/gpt-4o-mini', label: 'GPT-4o Mini' },
+    { value: 'openai/gpt-4o', label: 'GPT-4o' },
+    { value: 'anthropic/claude-3.5-sonnet', label: 'Claude 3.5 Sonnet' },
     { value: 'meta-llama/llama-3.1-8b-instruct', label: 'Llama 3.1 8B' },
 ];
 export const AI_FEATURES = [
     { id: 'vocab_gen', label: 'Tạo từ vựng (Vocab Gen)', description: 'Tạo nghĩa, âm Hán Việt, ví dụ và ngữ cảnh cho thẻ từ vựng mới.' },
+    { id: 'grammar_gen', label: 'Tạo ngữ pháp (Grammar Gen)', description: 'Tạo giải thích cấu trúc, nghĩa, ví dụ và ngữ cảnh cho thẻ ngữ pháp mới.' },
     { id: 'vocab_sino_viet', label: 'Dịch Hán Việt tự động', description: 'Tự động tra cứu và dịch âm Hán Việt cho từ vựng từ sách.' },
     { id: 'more_examples', label: 'Tạo thêm ví dụ', description: 'Tạo thêm câu ví dụ tiếng Nhật tự nhiên kèm nghĩa tiếng Việt theo ngữ cảnh.' },
     { id: 'ocr_image', label: 'Quét chữ từ ảnh (OCR)', description: 'Trích xuất danh sách từ vựng tiếng Nhật từ hình ảnh tải lên.' },

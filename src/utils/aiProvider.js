@@ -36,7 +36,10 @@ export const getOpenRouterKeys = () => {
 const OPENROUTER_MODELS = [
     'google/gemini-2.5-flash',
     'google/gemini-3.1-flash-lite',
+    'google/gemini-2.5-pro',
     'openai/gpt-4o-mini',
+    'openai/gpt-4o',
+    'anthropic/claude-3.5-sonnet',
     'deepseek/deepseek-chat',
     'meta-llama/llama-3.1-8b-instruct'
 ];
@@ -159,6 +162,7 @@ export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = n
     if (!activeModel) {
         const FEATURE_DEFAULTS = {
             vocab_gen: 'openai/gpt-4o-mini',
+            grammar_gen: 'google/gemini-2.5-flash',
             vocab_sino_viet: 'google/gemini-3.1-flash-lite',
             more_examples: 'openai/gpt-4o-mini',
             ocr_image: 'openai/gpt-4o-mini',
@@ -254,7 +258,8 @@ export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '
     if (!frontText || frontText.trim() === '') return null;
 
     const prompt = generateVocabPrompt(frontText, contextPos, contextLevel);
-    const responseText = await callAI(prompt, null, 'vocab_gen');
+    const featureId = contextPos === 'grammar' ? 'grammar_gen' : 'vocab_gen';
+    const responseText = await callAI(prompt, null, featureId);
     const result = parseJsonFromAI(responseText);
 
     // Ghi đè âm Hán Việt bằng bảng tra cứu cứng (ưu tiên hơn AI)
