@@ -82,6 +82,10 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
         if (!window.MediaRecorder || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
             setSpeechSupported(false);
         }
+        // Warm up Web Speech Synthesis voices list for instant availability
+        if (window.speechSynthesis) {
+            window.speechSynthesis.getVoices();
+        }
         return () => {
             if (audioRef.current) {
                 audioRef.current.pause();
@@ -99,6 +103,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
     // Handle Speech-to-Text hold-to-speak logic
     const startRecording = async (e) => {
         if (e) e.preventDefault();
+        unlockAudio();
         if (!speechSupported) {
             alert('Trình duyệt của bạn không hỗ trợ ghi âm trực tiếp. Vui lòng sử dụng Chrome, Edge hoặc Safari.');
             return;
@@ -206,12 +211,48 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
         }
     };
 
+    // Find the best available Japanese voice in the browser
+    const getBestJapaneseVoice = (gender) => {
+        if (!window.speechSynthesis) return null;
+        const voices = window.speechSynthesis.getVoices();
+        const jaVoices = voices.filter(v => v.lang.startsWith('ja') || v.lang === 'ja_JP');
+
+        if (jaVoices.length === 0) return null;
+
+        if (gender === 'female') {
+            // 1. Edge Neural Female Voice
+            let voice = jaVoices.find(v => v.name.toLowerCase().includes('nanami') && v.name.toLowerCase().includes('online'));
+            if (voice) return voice;
+
+            // 2. Google Japanese Voice (Chrome)
+            voice = jaVoices.find(v => v.name.toLowerCase().includes('google') || v.name.includes('日本語'));
+            if (voice) return voice;
+
+            // 3. Standard female voices
+            voice = jaVoices.find(v => v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('sakura') || v.name.toLowerCase().includes('haruka') || v.name.toLowerCase().includes('shiori'));
+            if (voice) return voice;
+        } else {
+            // 1. Edge Neural Male Voice
+            let voice = jaVoices.find(v => v.name.toLowerCase().includes('keita') && v.name.toLowerCase().includes('online'));
+            if (voice) return voice;
+
+            // 2. Standard male voices
+            voice = jaVoices.find(v => v.name.toLowerCase().includes('male') || v.name.toLowerCase().includes('kenji') || v.name.toLowerCase().includes('keita') || v.name.toLowerCase().includes('ichiro'));
+            if (voice) return voice;
+        }
+
+        // Fallback to first available ja-JP voice
+        return jaVoices[0];
+    };
+
     // Text-to-Speech (TTS) Reader
     const speakText = async (text) => {
         if (isMuted) return;
         
         // Remove ruby/furigana markup if any: e.g. "今日[きょう]" -> "今日"
         const cleanText = text.replace(/([\u4e00-\u9faf\u3005\u3400-\u4dbf]+)\[([^\]]+)\]/g, '$1');
+        const selectedTeacher = TEACHERS.find(t => t.id === teacher);
+        const gender = selectedTeacher ? selectedTeacher.gender : 'female';
 
         try {
             // Stop any playing audio
@@ -219,16 +260,18 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                 audioRef.current.pause();
             }
 
-            const selectedTeacher = TEACHERS.find(t => t.id === teacher);
-            const gender = selectedTeacher ? selectedTeacher.gender : 'female';
-            
             const audioUrl = await callOpenAITTS(cleanText, gender);
+            if (!audioUrl) {
+                throw new Error('No premium neural TTS key configured');
+            }
             
             audioRef.current.src = audioUrl;
             audioRef.current.playbackRate = ttsRate;
-            audioRef.current.play();
+            
+            // Await play to handle network or autoplay issues and catch failures in try-catch
+            await audioRef.current.play();
         } catch (err) {
-            console.error('Failed to play text speech:', err);
+            console.log('Neural TTS fallback to browser WebSpeech. Reason:', err.message);
             // Fallback to legacy WebSpeech if audio fails
             if (window.speechSynthesis) {
                 window.speechSynthesis.cancel(); // stop any current speech
@@ -236,28 +279,22 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                 utterance.lang = 'ja-JP';
                 utterance.rate = ttsRate;
 
-                // Try to select appropriate voice
-                const voices = window.speechSynthesis.getVoices();
-                const selectedTeacher = TEACHERS.find(t => t.id === teacher);
-                
-                // Find ja-JP voice
-                let voice = null;
-                if (selectedTeacher.gender === 'female') {
-                    voice = voices.find(v => v.lang.startsWith('ja') && (v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('sakura') || v.name.toLowerCase().includes('haruka') || v.name.toLowerCase().includes('nanami')));
-                } else {
-                    voice = voices.find(v => v.lang.startsWith('ja') && (v.name.toLowerCase().includes('male') || v.name.toLowerCase().includes('kenji') || v.name.toLowerCase().includes('keita') || v.name.toLowerCase().includes('ichiro')));
-                }
-
-                if (!voice) {
-                    voice = voices.find(v => v.lang.startsWith('ja'));
-                }
-
+                // Select the best available Japanese voice
+                const voice = getBestJapaneseVoice(gender);
                 if (voice) {
                     utterance.voice = voice;
                 }
 
                 window.speechSynthesis.speak(utterance);
             }
+        }
+    };
+
+    // Unlock browser audio context on user interaction to bypass Autoplay blocks
+    const unlockAudio = () => {
+        if (audioRef.current && !audioRef.current.src) {
+            audioRef.current.src = "data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAAA";
+            audioRef.current.play().catch((e) => console.log('Audio unlock check:', e.message));
         }
     };
 
@@ -274,6 +311,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
 
     // Helper to start the Kaiwa session
     const handleStartConversation = async () => {
+        unlockAudio();
         setStep('chat');
         setIsGenerating(true);
         setConversation([]);
@@ -335,6 +373,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
 
     // Helper to send message to AI
     const handleSendUserMessage = async (textToSend) => {
+        unlockAudio();
         const messageText = textToSend || inputText;
         if (!messageText.trim()) return;
 

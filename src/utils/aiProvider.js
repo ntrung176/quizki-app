@@ -654,13 +654,11 @@ export const callWhisperSTT = async (audioBlob) => {
     return data.text || '';
 };
 
-// ============== OPENAI / GOOGLE TRANSLATE TTS CALL ==============
+// ============== OPENAI TTS CALL ==============
 export const callOpenAITTS = async (text, gender = 'female') => {
     const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
     if (!openaiKey) {
-        // Fallback to Google Translate TTS
-        const encodedText = encodeURIComponent(text);
-        return `https://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&q=${encodedText}`;
+        return null;
     }
 
     // OpenAI voices: alloy, echo, fable, onyx, nova, shimmer
@@ -689,8 +687,7 @@ export const callOpenAITTS = async (text, gender = 'female') => {
         const blob = await response.blob();
         return URL.createObjectURL(blob);
     } catch (error) {
-        console.error('OpenAI TTS failed, falling back to Google Translate:', error);
-        const encodedText = encodeURIComponent(text);
-        return `https://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&q=${encodedText}`;
+        console.error('OpenAI TTS failed:', error);
+        return null;
     }
 };
