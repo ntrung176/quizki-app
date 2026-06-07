@@ -140,7 +140,7 @@ const EditSetScreen = ({
         }
 
         setIsAiLoadingMap(prev => ({ ...prev, [id]: true }));
-        const aiData = await onGeminiAssist(card.front, card.pos, card.level, false);
+        const aiData = await onGeminiAssist(card.front, card.pos, card.level, card.back, false);
 
         if (aiData) {
             setCards(prev => prev.map(c => {

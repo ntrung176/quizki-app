@@ -2859,8 +2859,18 @@ const App = () => {
     };
 
     // --- UNIFIED AI ASSISTANT (OpenRouter only) ---
-    const handleGeminiAssist = async (frontText, contextPos = '', contextLevel = '', isRetry = false) => {
+    const handleGeminiAssist = async (frontText, contextPos = '', contextLevel = '', contextBack = '', isRetry = false) => {
         if (!frontText) return null;
+
+        let actualBack = '';
+        let actualRetry = isRetry;
+        if (typeof contextBack === 'boolean') {
+            actualRetry = contextBack;
+            actualBack = '';
+        } else {
+            actualBack = contextBack || '';
+            actualRetry = isRetry || false;
+        }
 
         // === BƯỚC 1: Luôn kiểm tra Book Vocabulary database trước ===
         try {
@@ -2930,7 +2940,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
         }
 
         // === BƯỚC 2: Tạo prompt thống nhất từ aiProvider ===
-        const prompt = generateVocabPrompt(frontText, contextPos, contextLevel);
+        const prompt = generateVocabPrompt(frontText, contextPos, contextLevel, actualBack);
 
         try {
             // SECURITY: Rate limiting — max 10 AI calls per minute

@@ -71,7 +71,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
         }
         // AI sẽ tự động phân loại cấp độ JLPT, không cần user chọn trước
         setIsAiLoading(true);
-        const aiData = await onGeminiAssist(front, pos, level);
+        const aiData = await onGeminiAssist(front, pos, level, back);
         if (aiData) {
             if (aiData.frontWithFurigana) setFront(aiData.frontWithFurigana);
             if (aiData.meaning) setBack(aiData.meaning);

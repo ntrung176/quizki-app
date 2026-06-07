@@ -220,16 +220,44 @@ export const parseJsonFromAI = (text) => {
 
 // ============== VOCAB GENERATION PROMPT ==============
 
-export const generateVocabPrompt = (frontText, contextPos = '', contextLevel = '') => {
-    // Build example rule dynamically based on level
-    let exampleRule = `4. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. Viết câu ví dụ tự nhiên bằng tiếng Nhật với ngữ cảnh phong phú, rõ ràng để thể hiện rõ nét nghĩa được nêu trong trường "meaning", giúp người học dễ hiểu và phân biệt bối cảnh sử dụng của từ này. Tránh các câu quá ngắn hoặc chung chung (như "Đây là...", "Tôi thích..."). KHÔNG thêm phiên âm hay ngoặc furigana vào câu.`;
-    if (contextLevel === 'N5') {
-        exampleRule = `4. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. Viết bằng HIRAGANA chủ yếu, câu ngắn đơn giản dễ hiểu (tối đa 8-10 từ) nhưng có ngữ cảnh rõ ràng thể hiện đúng nghĩa, phân cách từ rõ ràng. KHÔNG thêm ngoặc phiên âm furigana.`;
+export const generateVocabPrompt = (frontText, contextPos = '', contextLevel = '', contextMeaning = '') => {
+    const isGrammar = contextPos === 'grammar';
+    const hasMeaning = contextMeaning && contextMeaning.trim() !== '';
+
+    let grammarInstruction = '';
+    let exampleRule = '';
+    let exampleMeaningRule = '5. exampleMeaning: Nghĩa tiếng Việt đầy đủ của câu ví dụ.';
+
+    if (isGrammar) {
+        if (hasMeaning) {
+            grammarInstruction = `Bạn đang tạo thẻ ngữ pháp cho cấu trúc "${frontText}" với nghĩa cụ thể được yêu cầu là: "${contextMeaning}".
+Yêu cầu cấu trúc kết quả:
+- meaning: Giữ nguyên nghĩa "${contextMeaning}".
+- nuance: Giải thích cấu trúc ngữ pháp kết hợp chính xác (cách chia động từ/danh từ/tính từ đi kèm với ngữ pháp này) và cách dùng/sắc thái cụ thể của nghĩa này.`;
+
+            exampleRule = `4. example: CHỈ 1 CÂU ví dụ tiêu biểu xuất sắc nhất thể hiện ĐÚNG nghĩa "${contextMeaning}" của ngữ pháp "${frontText}". Hãy thay thế cấu trúc ngữ pháp "${frontText}" (bao gồm cả các hậu tố/cách chia nếu có) bằng ＿＿＿＿. Câu ví dụ phải tự nhiên, chuẩn Nhật Bản, có ngữ cảnh rõ ràng, phản ánh đúng cấu trúc ngữ pháp kết hợp chính xác. KHÔNG thêm phiên âm hay ngoặc furigana vào câu.`;
+        } else {
+            grammarInstruction = `Bạn đang tạo thẻ ngữ pháp cho cấu trúc "${frontText}". Vì cấu trúc ngữ pháp này có thể có nhiều nghĩa khác nhau, bạn phải:
+Yêu cầu cấu trúc kết quả:
+- meaning: Liệt kê đầy đủ và chính xác tất cả các nghĩa phổ biến của ngữ pháp này, đánh số thứ tự rõ ràng (Ví dụ: "1. Nghĩa A; 2. Nghĩa B; 3. Nghĩa C").
+- nuance: Với mỗi nghĩa ở trên, hãy giải thích rõ cấu trúc ngữ pháp kết hợp chính xác (cách chia động từ, danh từ, tính từ đi kèm) và bối cảnh/sắc thái sử dụng tương ứng.`;
+
+            exampleRule = `4. example: Đối với MỖI nghĩa của ngữ pháp được liệt kê ở trường "meaning", hãy viết 1 câu ví dụ tương ứng tiêu biểu nhất thể hiện đặc trưng của nghĩa đó (đánh số 1, 2, 3... tương ứng trên từng dòng). Hãy thay thế cấu trúc ngữ pháp "${frontText}" trong mỗi câu ví dụ bằng ＿＿＿＿. Các câu ví dụ phải có cấu trúc kết hợp chuẩn xác tuyệt đối, tự nhiên, chuẩn Nhật Bản. KHÔNG thêm phiên âm hay ngoặc furigana vào câu.`;
+            exampleMeaningRule = `5. exampleMeaning: Dịch nghĩa tiếng Việt tương ứng cho từng câu ví dụ ở trên, phân dòng và đánh số 1, 2, 3... khớp hoàn toàn với các câu ví dụ ở trường "example".`;
+        }
+    } else {
+        // Build example rule dynamically based on level
+        exampleRule = `4. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. Viết câu ví dụ tự nhiên bằng tiếng Nhật với ngữ cảnh phong phú, rõ ràng để thể hiện rõ nét nghĩa được nêu trong trường "meaning", giúp người học dễ hiểu và phân biệt bối cảnh sử dụng của từ này. Tránh các câu quá ngắn hoặc chung chung (như "Đây là...", "Tôi thích..."). KHÔNG thêm phiên âm hay ngoặc furigana vào câu.`;
+        if (contextLevel === 'N5') {
+            exampleRule = `4. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. Viết bằng HIRAGANA chủ yếu, câu ngắn đơn giản dễ hiểu (tối đa 8-10 từ) nhưng có ngữ cảnh rõ ràng thể hiện đúng nghĩa, phân cách từ rõ ràng. KHÔNG thêm ngoặc phiên âm furigana.`;
+        }
     }
 
-    return `Từ điển Nhật-Việt. Từ: "${frontText}"${contextPos ? ` (Từ loại: ${contextPos})` : ''}${contextLevel ? ` [Cấp độ: ${contextLevel}]` : ''}
+    return `Từ điển Nhật-Việt. Từ: "${frontText}"${contextPos ? ` (Từ loại: ${contextPos})` : ''}${contextLevel ? ` [Cấp độ: ${contextLevel}]` : ''}${hasMeaning ? ` [Nghĩa yêu cầu: ${contextMeaning}]` : ''}
 JSON only, không markdown/backtick:
-{"frontWithFurigana":"水道（すいどう）","meaning":"đường ống nước","pos":"noun","level":"N3","sinoVietnamese":"THUỶ ĐẠO","synonym":"配管（はいかん）","synonymSinoVietnamese":"PHỐI QUẢN","example":"＿＿＿＿の水が止まった。","exampleMeaning":"Nước đường ống đã ngừng chảy.","nuance":"Chỉ hệ thống cấp nước sinh hoạt."}
+{"frontWithFurigana":"水道（すいどう）","meaning":"đường ống nước","pos":"noun","level":"N3","sinoVietnamese":"THUỶ ĐẠO","synonym":"配管（はいかん）","synonymSinoVietnamese":"PHỐI QUẢN","example":"＿＿＿＿の水가止まった。","exampleMeaning":"Nước đường ống đã ngừng chảy.","nuance":"Chỉ hệ thống cấp nước sinh hoạt."}
+
+${grammarInstruction}
 
 QUY TẮC BẮT BUỘC:
 1. Từ vựng (frontWithFurigana) & Từ đồng nghĩa (synonym):
@@ -240,15 +268,15 @@ QUY TẮC BẮT BUỘC:
    - Từ đồng nghĩa (synonym) CŨNG BẮT BUỘC tuân theo đúng form này. VD: "配管（はいかん）"
    - Trả về trường "frontWithFurigana" cho từ gốc và "synonym" cho từ đồng nghĩa.
 
-2. meaning: Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống.
+2. meaning: ${isGrammar ? 'Định nghĩa ngữ pháp theo hướng dẫn ở trên.' : 'Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống.'}
 
 3. pos/level: Phải khớp ngữ cảnh nếu đã chọn. Grammar→giải thích như ngữ pháp.
    - pos: noun/verb/suru_verb/adj_i/adj_na/adverb/conjunction/particle/grammar/phrase/other.
 
 ${exampleRule}
-5. exampleMeaning: Nghĩa tiếng Việt đầy đủ của câu ví dụ.
+${exampleMeaningRule}
 6. sinoVietnamese: BẮT BUỘC dịch ĐẦY ĐỦ TẤT CẢ các chữ Kanji xuất hiện trong từ vựng/cụm từ (bao gồm cả tiền tố, hậu tố hay các Kanji phụ trong cụm dài) sang âm Hán Việt viết IN HOA, ngăn cách bằng dấu cách. Tuyệt đối không được lược bỏ, rút gọn hay dịch thiếu bất kỳ chữ Kanji nào. Không Kanji→"". KHÔNG bịa.
-7. nuance: Chi tiết bối cảnh sử dụng.
+7. nuance: ${isGrammar ? 'Chi tiết cấu trúc ngữ pháp kết hợp chính xác và sắc thái sử dụng theo hướng dẫn ở trên.' : 'Chi tiết bối cảnh sử dụng.'}
 8. synonym/synonymSinoVietnamese: Cùng/dễ hơn JLPT. N5→"". Không bịa. synonymSinoVietnamese = BẮT BUỘC dịch đầy đủ tất cả chữ Kanji của synonym sang âm Hán Việt.
 9. level: N5-N1, không rõ→"".
 
@@ -270,10 +298,10 @@ JSON ONLY (không markdown, không giải thích):
 
 
 // Hàm chính để tạo vocab với AI
-export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '') => {
+export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '', contextMeaning = '') => {
     if (!frontText || frontText.trim() === '') return null;
 
-    const prompt = generateVocabPrompt(frontText, contextPos, contextLevel);
+    const prompt = generateVocabPrompt(frontText, contextPos, contextLevel, contextMeaning);
     const featureId = contextPos === 'grammar' ? 'grammar_gen' : 'vocab_gen';
     const responseText = await callAI(prompt, null, featureId);
     const result = parseJsonFromAI(responseText);
