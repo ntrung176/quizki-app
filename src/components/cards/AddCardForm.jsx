@@ -139,10 +139,10 @@ export const CardEditorItem = ({
                                     type="button"
                                     onClick={() => onAiAssist(card.id)}
                                     disabled={isAiLoading || !card.front.trim()}
-                                    className="flex items-center justify-center p-2.5 bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-500 dark:to-indigo-500 text-white rounded-xl shadow hover:shadow-md transition-all font-bold disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0"
+                                    className="flex items-center justify-center px-3 py-2 bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-500 dark:to-indigo-500 text-white rounded-xl shadow hover:shadow-md transition-all font-black text-xs disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0 min-w-[38px]"
                                     title="Tự động điền thông tin bằng AI (Alt+G)"
                                 >
-                                    {isAiLoading ? <Loader2 className="animate-spin w-4 h-4" /> : <Sparkles className="w-4 h-4" />}
+                                    {isAiLoading ? <Loader2 className="animate-spin w-4 h-4" /> : <span className="tracking-wide">AI</span>}
                                 </button>
                             )}
                         </div>
@@ -674,9 +674,9 @@ const AddCardForm = ({
                                     setIsBatchModalOpen(true);
                                 }}
                                 data-tour-id="AI_BATCH_BTN"
-                                className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-indigo-650 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 dark:text-indigo-400 dark:bg-slate-800 dark:border-indigo-900/50 dark:hover:bg-slate-700 transition-all shadow-sm"
+                                className="flex items-center gap-2 px-3 py-2 text-xs font-bold rounded-xl text-indigo-650 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 dark:text-indigo-400 dark:bg-slate-800 dark:border-indigo-900/50 dark:hover:bg-slate-700 transition-all shadow-sm"
                             >
-                                <Sparkles className="w-4 h-4 text-indigo-500" />
+                                <span className="text-[9px] font-black bg-indigo-200/60 dark:bg-slate-700 text-indigo-700 dark:text-indigo-300 px-1.5 py-0.5 rounded-md">AI</span>
                                 Tạo bằng AI hàng loạt
                             </button>
                             <button

@@ -3599,6 +3599,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 handleAddCard={handleAddCard}
                 setNotification={setNotification}
                 disabled={isRealExamActive}
+                isPremiumUnlocked={isAdmin || profile?.isPremiumUnlocked === true}
             />
 
             {/* Onboarding tour for new users */}

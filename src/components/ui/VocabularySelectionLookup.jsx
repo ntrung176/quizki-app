@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { Volume2, Sparkles, BookOpen, Plus, Loader2, X, ChevronDown, Check, AlertCircle } from 'lucide-react';
+import { Volume2, Sparkles, BookOpen, Plus, Loader2, X, ChevronDown, Check, AlertCircle, Crown } from 'lucide-react';
+import PremiumLockedModal from './PremiumLockedModal';
 import { aiAssistVocab } from '../../utils/aiProvider';
 import { getSinoVietnamese } from '../../utils/kanjiHVLookup';
 import { playAudio } from '../../utils/audio';
@@ -57,8 +58,9 @@ const getSelectedTextClean = (selection) => {
 };
 
 
-const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard, setNotification, disabled }) => {
+const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard, setNotification, disabled, isPremiumUnlocked }) => {
     const [pendingWord, setPendingWord] = useState('');
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
 
     useEffect(() => {
         if (disabled) {
@@ -304,6 +306,10 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
 
     const handleLookup = async (e) => {
         e.stopPropagation();
+        if (!isPremiumUnlocked) {
+            setShowPremiumModal(true);
+            return;
+        }
         setShowButton(false); // Hide the small button
         setShowDetails(true); // Open the details card
         setLoading(true);
@@ -411,10 +417,14 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                 <button
                     ref={triggerRef}
                     onClick={handleLookup}
-                    className="backdrop-blur-md bg-indigo-600/95 dark:bg-indigo-500/95 hover:bg-indigo-700 dark:hover:bg-indigo-600 text-white rounded-full px-4 py-2 text-xs font-black flex items-center gap-1.5 shadow-[0_8px_24px_rgba(99,102,241,0.4)] transition-all transform hover:scale-105 active:scale-95 duration-200 absolute -translate-x-1/2 -translate-y-full mb-3 cursor-pointer whitespace-nowrap"
+                    className="backdrop-blur-md bg-indigo-600/95 dark:bg-indigo-500/95 hover:bg-indigo-700 dark:hover:bg-indigo-600 text-white rounded-full px-4 py-2 text-xs font-black flex items-center gap-1.5 shadow-[0_8px_24px_rgba(99,102,241,0.4)] transition-all transform hover:scale-105 active:scale-95 duration-200 absolute -translate-x-1/2 -translate-y-full mb-3 cursor-pointer whitespace-nowrap animate-fade-in"
                     style={{ left: `${horizontalOffset}px` }}
                 >
-                    <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-amber-300 animate-pulse" />
+                    {isPremiumUnlocked ? (
+                        <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-amber-300 animate-pulse" />
+                    ) : (
+                        <Crown className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
+                    )}
                     <span>Tra cứu: "{pendingWord.length > 15 ? pendingWord.substring(0, 15) + '...' : pendingWord}"</span>
                 </button>
             )}
@@ -655,6 +665,12 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                     )}
                 </div>
             )}
+            
+            <PremiumLockedModal
+                isOpen={showPremiumModal}
+                onClose={() => setShowPremiumModal(false)}
+                pkgName="Premium"
+            />
         </div>,
         target
     );

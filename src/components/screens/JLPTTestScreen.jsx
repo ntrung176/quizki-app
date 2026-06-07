@@ -68,7 +68,7 @@ const QuestionContent = React.memo(({
             </div>
             {/* Options */}
             {question?.subQuestions && question.subQuestions.length > 0 ? (
-                <div className="space-y-6 mb-8 pl-4 border-l-2 border-indigo-200 dark:border-indigo-855">
+                <div className="space-y-6 mb-8 pl-4 border-l-2 border-indigo-200 dark:border-indigo-800">
                     {question.subQuestions.map((sq, sqi) => {
                         return (
                             <div key={sqi} className="space-y-3 bg-slate-50/50 dark:bg-slate-900/10 p-4 rounded-xl border border-slate-100 dark:border-slate-800/80">
@@ -81,12 +81,12 @@ const QuestionContent = React.memo(({
                                             <button key={oi} onClick={() => selectAnswerSub(currentSectionIdx, currentQuestionIdx, sqi, oi)}
                                                 className={`w-full p-3.5 rounded-xl text-left text-xs font-medium transition-all border-2 ${isSelected
                                                     ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
-                                                    : 'bg-white dark:bg-gray-850 border-gray-200 dark:border-gray-600 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10'
+                                                    : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10'
                                                     }`}>
                                                 <div className="flex items-center gap-2.5">
                                                     <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${isSelected
                                                         ? 'bg-indigo-600 text-white'
-                                                        : 'bg-slate-100 dark:bg-slate-700 text-slate-650 dark:text-slate-400'
+                                                        : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400'
                                                         }`}>
                                                         {String.fromCharCode(65 + oi)}
                                                     </div>
@@ -109,12 +109,12 @@ const QuestionContent = React.memo(({
                             <button key={oi} onClick={() => selectAnswer(currentSectionIdx, currentQuestionIdx, oi)}
                                 className={`w-full p-4 rounded-xl text-left font-medium transition-all border-2 ${isSelected
                                     ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
-                                    : 'bg-white dark:bg-gray-850 border-gray-200 dark:border-gray-600 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10'
+                                    : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10'
                                     }`}>
                                 <div className="flex items-center gap-3">
                                     <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 ${isSelected
                                         ? 'bg-indigo-600 text-white'
-                                        : 'bg-gray-100 dark:bg-gray-700 text-gray-650 dark:text-gray-400'
+                                        : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
                                         }`}>
                                         {String.fromCharCode(65 + oi)}
                                     </div>
@@ -693,7 +693,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         <p className="text-xs text-red-700 dark:text-red-400 font-extrabold">
                             Số lần vi phạm: <span className="text-sm font-black">{violationCount}/3</span>
                         </p>
-                        <p className="text-[10px] text-red-655 dark:text-red-550 mt-0.5 font-medium">
+                        <p className="text-[10px] text-red-600 dark:text-red-400 mt-0.5 font-medium">
                             (Đạt 3 lần vi phạm, bài thi sẽ tự động được nộp bài)
                         </p>
                     </div>
@@ -712,8 +712,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         if (!showFullscreenRequired) return null;
         return (
             <div className="fixed inset-0 z-[10000] bg-slate-900/90 backdrop-blur-lg flex items-center justify-center p-4 animate-fade-in font-sans">
-                <div className="bg-white dark:bg-slate-850 rounded-3xl max-w-md w-full p-6 text-center shadow-2xl border border-slate-100 dark:border-slate-800">
-                    <div className="mx-auto w-14 h-14 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-650 dark:text-indigo-400 rounded-full flex items-center justify-center mb-4">
+                <div className="bg-white dark:bg-slate-800 rounded-3xl max-w-md w-full p-6 text-center shadow-2xl border border-slate-100 dark:border-slate-800">
+                    <div className="mx-auto w-14 h-14 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center mb-4">
                         <Maximize className="w-7 h-7" />
                     </div>
                     <h3 className="text-lg font-black text-slate-800 dark:text-white">Yêu cầu Chế độ Toàn màn hình</h3>
@@ -808,7 +808,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                             return (
                                                 <div key={qi} className={`p-4 border-l-4 border-indigo-500 ${allSubCorrect ? 'bg-green-50/20 dark:bg-green-950/5' : 'bg-red-50/20 dark:bg-red-950/5'} space-y-4`}>
                                                     <div className="flex items-start gap-2.5">
-                                                        <div className="w-6 h-6 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-750 dark:text-slate-200 flex items-center justify-center text-[11px] font-extrabold flex-shrink-0 mt-0.5 shadow-sm">
+                                                        <div className="w-6 h-6 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center text-[11px] font-extrabold flex-shrink-0 mt-0.5 shadow-sm">
                                                             {qi + 1}
                                                         </div>
                                                         <div className="flex-1 space-y-2">
@@ -836,7 +836,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                             const userAns = answers[subAnswerKey(si, qi, sqi)];
                                                             const sqCorrect = userAns === sq.correctAnswer;
                                                             return (
-                                                                <div key={sqi} className={`p-3 rounded-xl border ${sqCorrect ? 'bg-green-50/40 dark:bg-green-950/10 border-green-200' : 'bg-red-50/40 dark:bg-red-950/10 border-red-200'} space-y-1.5`}>
+                                                                <div key={sqi} className={`p-3 rounded-xl border ${sqCorrect ? 'bg-green-50/40 dark:bg-green-950/10 border-green-200 dark:border-green-900/50' : 'bg-red-50/40 dark:bg-red-950/10 border-red-200 dark:border-red-900/50'} space-y-1.5`}>
                                                                     <div className="flex items-start gap-2">
                                                                         {sqCorrect
                                                                             ? <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
@@ -846,13 +846,13 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                                             {userAns !== undefined && (
                                                                                 <p className="text-xs mt-1">
                                                                                     <span className="text-gray-500">Bạn chọn: </span>
-                                                                                    <span className={`${sqCorrect ? 'text-green-600 font-bold font-japanese' : 'text-red-600 font-bold line-through font-japanese'} whitespace-pre-line`} dangerouslySetInnerHTML={{ __html: sq.options[userAns] }} />
+                                                                                    <span className={`${sqCorrect ? 'text-green-600 dark:text-green-400 font-bold font-japanese' : 'text-red-600 dark:text-red-400 font-bold line-through font-japanese'} whitespace-pre-line`} dangerouslySetInnerHTML={{ __html: sq.options[userAns] }} />
                                                                                 </p>
                                                                             )}
                                                                             {!sqCorrect && (
                                                                                 <p className="text-xs mt-1">
                                                                                     <span className="text-gray-500">Đáp án: </span>
-                                                                                    <span className="text-green-600 font-bold font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: sq.options[sq.correctAnswer] }} />
+                                                                                    <span className="text-green-600 dark:text-green-400 font-bold font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: sq.options[sq.correctAnswer] }} />
                                                                                 </p>
                                                                             )}
                                                                             {sq.explanation && (
@@ -875,7 +875,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                     {isCorrect
                                                         ? <CheckCircle className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
                                                         : <XCircle className="w-5 h-5 text-red-500 mt-1 flex-shrink-0" />}
-                                                    <div className="w-6 h-6 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-750 dark:text-slate-200 flex items-center justify-center text-[11px] font-extrabold flex-shrink-0 mt-0.5 shadow-sm">
+                                                    <div className="w-6 h-6 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center text-[11px] font-extrabold flex-shrink-0 mt-0.5 shadow-sm">
                                                         {qi + 1}
                                                     </div>
                                                     <div className="flex-1 space-y-2">
@@ -896,13 +896,13 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                         {userAns !== undefined && (
                                                             <p className="text-xs mt-1">
                                                                 <span className="text-gray-500">Bạn chọn: </span>
-                                                                <span className={`${isCorrect ? 'text-green-600 font-bold font-japanese' : 'text-red-600 font-bold line-through font-japanese'} whitespace-pre-line`} dangerouslySetInnerHTML={{ __html: q.options[userAns] }} />
+                                                                <span className={`${isCorrect ? 'text-green-600 dark:text-green-400 font-bold font-japanese' : 'text-red-600 dark:text-red-400 font-bold line-through font-japanese'} whitespace-pre-line`} dangerouslySetInnerHTML={{ __html: q.options[userAns] }} />
                                                             </p>
                                                         )}
                                                         {!isCorrect && (
                                                             <p className="text-xs mt-1">
                                                                 <span className="text-gray-500">Đáp án: </span>
-                                                                <span className="text-green-600 font-bold font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.options[q.correctAnswer] }} />
+                                                                <span className="text-green-600 dark:text-green-400 font-bold font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.options[q.correctAnswer] }} />
                                                             </p>
                                                         )}
                                                         {q.explanation && (
@@ -998,7 +998,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     <div className="absolute right-0 mt-2 w-72 bg-white/98 dark:bg-slate-800/98 backdrop-blur border border-slate-200 dark:border-slate-700 rounded-2xl shadow-xl p-4 z-50 text-left space-y-4 font-sans">
                                         <div className="flex items-center gap-1.5 border-b border-slate-100 dark:border-slate-700/60 pb-2">
                                             <Settings className="w-4 h-4 text-indigo-500" />
-                                            <span className="font-bold text-xs text-slate-805 dark:text-white uppercase tracking-wider">Cài đặt đề thi</span>
+                                            <span className="font-bold text-xs text-slate-800 dark:text-white uppercase tracking-wider">Cài đặt đề thi</span>
                                         </div>
                                         {/* Furigana toggle */}
                                         <div className="flex items-center justify-between">
@@ -1008,7 +1008,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                             </div>
                                             <button 
                                                 onClick={() => setShowFurigana(!showFurigana)} 
-                                                className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors focus:outline-none ${showFurigana ? 'bg-indigo-600' : 'bg-gray-300 dark:bg-gray-650'}`}
+                                                className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors focus:outline-none ${showFurigana ? 'bg-indigo-600' : 'bg-gray-300 dark:bg-slate-700'}`}
                                             >
                                                 <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform ${showFurigana ? 'translate-x-5.5' : 'translate-x-1'}`} />
                                             </button>
@@ -1021,7 +1021,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                             </div>
                                             <button 
                                                 onClick={() => setShowTimer(!showTimer)} 
-                                                className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors focus:outline-none ${showTimer ? 'bg-indigo-600' : 'bg-gray-300 dark:bg-gray-650'}`}
+                                                className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors focus:outline-none ${showTimer ? 'bg-indigo-600' : 'bg-gray-300 dark:bg-slate-700'}`}
                                             >
                                                 <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform ${showTimer ? 'translate-x-5.5' : 'translate-x-1'}`} />
                                             </button>
@@ -1359,7 +1359,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                         <option value="in_progress">Đang làm</option>
                                         <option value="not_started">Chưa làm</option>
                                     </select>
-                                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-450 dark:text-slate-500">
+                                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 dark:text-slate-500">
                                         <ChevronRight className="w-3.5 h-3.5 rotate-90" />
                                     </div>
                                 </div>
@@ -1374,7 +1374,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                         <option value="questions">Số câu hỏi</option>
                                         <option value="time">Thời gian làm bài</option>
                                     </select>
-                                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-450 dark:text-slate-500">
+                                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 dark:text-slate-500">
                                         <ChevronRight className="w-3.5 h-3.5 rotate-90" />
                                     </div>
                                 </div>
@@ -1437,7 +1437,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                         </span>
                                                     )}
                                                     {status === 'not_started' && (
-                                                        <span className="text-[10px] font-bold text-slate-500 dark:text-slate-450 bg-slate-50 dark:bg-slate-700/30 px-3 py-1.5 rounded-full">
+                                                        <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-700/30 px-3 py-1.5 rounded-full">
                                                             CHƯA LÀM
                                                         </span>
                                                     )}
@@ -1717,7 +1717,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     <select
                                         value={statusFilter}
                                         onChange={(e) => setStatusFilter(e.target.value)}
-                                        className="appearance-none bg-slate-50 dark:bg-slate-955 border border-slate-100 dark:border-slate-700/50 rounded-xl px-4 py-2.5 pr-8 text-xs font-semibold text-slate-700 dark:text-slate-350 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+                                        className="appearance-none bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50 rounded-xl px-4 py-2.5 pr-8 text-xs font-semibold text-slate-700 dark:text-slate-350 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
                                     >
                                         <option value="all">Trạng thái: Tất cả</option>
                                         <option value="completed">Đã hoàn thành</option>
@@ -1725,7 +1725,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                         <option value="in_progress">Đang làm</option>
                                         <option value="not_started">Chưa làm</option>
                                     </select>
-                                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-450 dark:text-slate-500">
+                                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 dark:text-slate-500">
                                         <ChevronRight className="w-3.5 h-3.5 rotate-90" />
                                     </div>
                                 </div>
@@ -1734,13 +1734,13 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     <select
                                         value={sortBy}
                                         onChange={(e) => setSortBy(e.target.value)}
-                                        className="appearance-none bg-slate-50 dark:bg-slate-955 border border-slate-100 dark:border-slate-700/50 rounded-xl px-4 py-2.5 pr-8 text-xs font-semibold text-slate-700 dark:text-slate-350 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+                                        className="appearance-none bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50 rounded-xl px-4 py-2.5 pr-8 text-xs font-semibold text-slate-700 dark:text-slate-350 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
                                     >
                                         <option value="newest">Sắp xếp: Mới nhất</option>
                                         <option value="questions">Số câu hỏi</option>
                                         <option value="time">Thời gian làm bài</option>
                                     </select>
-                                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-450 dark:text-slate-500">
+                                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 dark:text-slate-500">
                                         <ChevronRight className="w-3.5 h-3.5 rotate-90" />
                                     </div>
                                 </div>
@@ -1781,7 +1781,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                     </button>
                                                     <button
                                                         onClick={() => navigate(ROUTES.JLPT_ADMIN, { state: { editTest: test } })}
-                                                        className="p-2 rounded-xl bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 hover:text-slate-750 dark:text-slate-400 dark:hover:text-slate-200 transition cursor-pointer border border-slate-100 dark:border-slate-800 hover:scale-105"
+                                                        className="p-2 rounded-xl bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 transition cursor-pointer border border-slate-100 dark:border-slate-800 hover:scale-105"
                                                         title="Chỉnh sửa đề thi"
                                                     >
                                                         <Edit3 className="w-3.5 h-3.5" />
@@ -1821,7 +1821,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                             </span>
                                                         )}
                                                         {status === 'not_started' && (
-                                                            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-450 bg-slate-50 dark:bg-slate-700/30 px-3 py-1.5 rounded-full">
+                                                            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-700/30 px-3 py-1.5 rounded-full">
                                                                 CHƯA LÀM
                                                             </span>
                                                         )}
