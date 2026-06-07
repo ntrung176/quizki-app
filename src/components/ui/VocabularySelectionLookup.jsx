@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { Volume2, Sparkles, BookOpen, Plus, Loader2, X, ChevronDown, Check, AlertCircle, Crown } from 'lucide-react';
 import PremiumLockedModal from './PremiumLockedModal';
-import { aiAssistVocab } from '../../utils/aiProvider';
+import { aiAssistVocab, aiTranslateSentence } from '../../utils/aiProvider';
 import { getSinoVietnamese } from '../../utils/kanjiHVLookup';
 import { playAudio } from '../../utils/audio';
 
@@ -10,6 +10,17 @@ import { playAudio } from '../../utils/audio';
 const formatReading = (text) => {
     if (!text) return '';
     return text.replace(/（/g, ' (').replace(/）/g, ')');
+};
+
+const isLongSentence = (text) => {
+    if (!text) return false;
+    const cleanText = text.trim();
+    return cleanText.length > 12 || 
+           cleanText.includes('。') || 
+           cleanText.includes('、') || 
+           cleanText.includes('？') || 
+           cleanText.includes('！') ||
+           cleanText.includes('\n');
 };
 
 // Helper to check if a node is partially or fully inside a range
@@ -318,12 +329,24 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
         setSavedSuccessfully(false);
 
         try {
-            // First check local database, if not found or user chooses to query AI
-            const result = await aiAssistVocab(pendingWord);
-            if (result) {
-                setAiResult(result);
+            if (isLongSentence(pendingWord)) {
+                const translation = await aiTranslateSentence(pendingWord);
+                if (translation && translation.translation) {
+                    setAiResult({
+                        isSentence: true,
+                        meaning: translation.translation,
+                        grammarNotes: translation.grammarNotes || []
+                    });
+                } else {
+                    setError('Không thể dịch câu này.');
+                }
             } else {
-                setError('Không thể tra cứu từ vựng này bằng AI.');
+                const result = await aiAssistVocab(pendingWord);
+                if (result) {
+                    setAiResult(result);
+                } else {
+                    setError('Không thể tra cứu từ vựng này bằng AI.');
+                }
             }
         } catch (err) {
             console.error('Selection lookup error:', err);
@@ -447,7 +470,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                             <div className="min-w-0">
                                 <div className="flex items-center gap-2 flex-wrap">
                                     <h3 className="text-lg font-black tracking-tight text-slate-900 dark:text-white font-japanese">
-                                        {formatReading(aiResult?.frontWithFurigana || localMatch?.frontWithFurigana || localMatch?.front || pendingWord)}
+                                        {aiResult?.isSentence ? "Dịch câu dài" : formatReading(aiResult?.frontWithFurigana || localMatch?.frontWithFurigana || localMatch?.front || pendingWord)}
                                     </h3>
                                     <button 
                                         onClick={handlePlayAudio}
@@ -459,7 +482,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                 </div>
                                 
                                 {/* Sino Vietnamese or Reading */}
-                                {(localSinoVietnamese || aiResult?.sinoVietnamese) && (
+                                {!aiResult?.isSentence && (localSinoVietnamese || aiResult?.sinoVietnamese) && (
                                     <p className="text-xs font-bold text-pink-500 mt-0.5 tracking-wide uppercase">
                                         Hán Việt: {aiResult?.sinoVietnamese || localSinoVietnamese}
                                     </p>
@@ -517,7 +540,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                     )}
 
                     {/* Local Match Badge */}
-                    {localMatch && !loading && !aiResult && (
+                    {!aiResult?.isSentence && localMatch && !loading && !aiResult && (
                         <div className="mb-4">
                             <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/40 rounded-full text-[10px] font-bold text-emerald-600 dark:text-emerald-400 mb-3">
                                 <BookOpen className="w-3 h-3" />
@@ -553,68 +576,77 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                     {/* AI Lookup Results */}
                     {aiResult && !loading && (
                         <div className="space-y-3.5 text-xs text-slate-600 dark:text-slate-350">
-                            {/* Badges row */}
-                            <div className="flex gap-2">
-                                {aiResult.pos && (
-                                    <span className="px-2 py-0.5 rounded-md bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100/50 dark:border-indigo-900/40 text-[10px] font-black text-indigo-600 dark:text-indigo-400 uppercase">
-                                        {aiResult.pos}
-                                    </span>
-                                )}
-                                {aiResult.level && (
-                                    <span className="px-2 py-0.5 rounded-md bg-amber-50 dark:bg-amber-950/40 border border-amber-100/50 dark:border-amber-900/40 text-[10px] font-black text-amber-600 dark:text-amber-400">
-                                        {aiResult.level}
-                                    </span>
-                                )}
-                            </div>
-
-                            {/* Meaning */}
-                            <div className="p-3 bg-indigo-50/40 dark:bg-slate-950/40 rounded-xl border border-indigo-100/30 dark:border-slate-850/60">
-                                <span className="text-[10px] font-extrabold text-indigo-500 uppercase tracking-wider block mb-1">Ý nghĩa:</span>
-                                <span className="text-sm font-bold text-slate-800 dark:text-slate-100 leading-relaxed">{aiResult.meaning}</span>
-                            </div>
-
-                            {/* Nuance / context */}
-                            {aiResult.nuance && (
-                                <div className="px-1">
-                                    <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider block mb-0.5">Sắc thái / Cách dùng:</span>
-                                    <p className="leading-relaxed font-medium text-slate-700 dark:text-slate-300">{aiResult.nuance}</p>
+                            {aiResult.isSentence ? (
+                                <div className="p-4 bg-indigo-50/30 dark:bg-indigo-950/10 rounded-2xl border border-indigo-100/30 dark:border-indigo-900/30">
+                                    <span className="text-[10px] font-extrabold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider block mb-1.5">Bản dịch:</span>
+                                    <p className="text-sm font-bold text-slate-800 dark:text-slate-100 leading-relaxed font-sans">{aiResult.meaning}</p>
                                 </div>
-                            )}
-
-                            {/* Example */}
-                            {aiResult.example && (
-                                <div className="p-3 bg-slate-50 dark:bg-slate-950/20 rounded-xl border border-slate-100 dark:border-slate-850/40">
-                                    <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider block mb-1.5">Câu ví dụ:</span>
-                                    <p 
-                                        className="font-japanese text-sm text-slate-850 dark:text-slate-100 font-bold mb-1 leading-relaxed" 
-                                        dangerouslySetInnerHTML={{ __html: aiResult.example }}
-                                    />
-                                    {aiResult.exampleMeaning && (
-                                        <p className="text-slate-500 dark:text-slate-455 italic leading-relaxed">{aiResult.exampleMeaning}</p>
-                                    )}
-                                </div>
-                            )}
-
-                            {/* Synonym */}
-                            {aiResult.synonym && (
-                                <div className="px-1 border-t border-slate-100 dark:border-slate-850 pt-3 flex justify-between items-center">
-                                    <div>
-                                        <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider block">Từ đồng nghĩa:</span>
-                                        <span className="font-japanese font-bold text-slate-800 dark:text-slate-200 mt-0.5 block">{aiResult.synonym}</span>
+                            ) : (
+                                <>
+                                    {/* Badges row */}
+                                    <div className="flex gap-2">
+                                        {aiResult.pos && (
+                                            <span className="px-2 py-0.5 rounded-md bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100/50 dark:border-indigo-900/40 text-[10px] font-black text-indigo-600 dark:text-indigo-400 uppercase">
+                                                {aiResult.pos}
+                                            </span>
+                                        )}
+                                        {aiResult.level && (
+                                            <span className="px-2 py-0.5 rounded-md bg-amber-50 dark:bg-amber-950/40 border border-amber-100/50 dark:border-amber-900/40 text-[10px] font-black text-amber-600 dark:text-amber-400">
+                                                {aiResult.level}
+                                            </span>
+                                        )}
                                     </div>
-                                    {aiResult.synonymSinoVietnamese && (
-                                        <div className="text-right">
-                                            <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider block">Hán Việt đồng nghĩa:</span>
-                                            <span className="text-[11px] font-bold text-pink-500 uppercase tracking-wider block mt-0.5">{aiResult.synonymSinoVietnamese}</span>
+
+                                    {/* Meaning */}
+                                    <div className="p-3 bg-indigo-50/40 dark:bg-slate-950/40 rounded-xl border border-indigo-100/30 dark:border-slate-850/60">
+                                        <span className="text-[10px] font-extrabold text-indigo-500 uppercase tracking-wider block mb-1">Ý nghĩa:</span>
+                                        <span className="text-sm font-bold text-slate-800 dark:text-slate-100 leading-relaxed">{aiResult.meaning}</span>
+                                    </div>
+
+                                    {/* Nuance / context */}
+                                    {aiResult.nuance && (
+                                        <div className="px-1">
+                                            <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider block mb-0.5">Sắc thái / Cách dùng:</span>
+                                            <p className="leading-relaxed font-medium text-slate-700 dark:text-slate-300">{aiResult.nuance}</p>
                                         </div>
                                     )}
-                                </div>
+
+                                    {/* Example */}
+                                    {aiResult.example && (
+                                        <div className="p-3 bg-slate-50 dark:bg-slate-950/20 rounded-xl border border-slate-100 dark:border-slate-850/40">
+                                            <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider block mb-1.5">Câu ví dụ:</span>
+                                            <p 
+                                                className="font-japanese text-sm text-slate-850 dark:text-slate-100 font-bold mb-1 leading-relaxed" 
+                                                dangerouslySetInnerHTML={{ __html: aiResult.example }}
+                                            />
+                                            {aiResult.exampleMeaning && (
+                                                <p className="text-slate-500 dark:text-slate-455 italic leading-relaxed">{aiResult.exampleMeaning}</p>
+                                            )}
+                                        </div>
+                                    )}
+
+                                    {/* Synonym */}
+                                    {aiResult.synonym && (
+                                        <div className="px-1 border-t border-slate-100 dark:border-slate-850 pt-3 flex justify-between items-center">
+                                            <div>
+                                                <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider block">Từ đồng nghĩa:</span>
+                                                <span className="font-japanese font-bold text-slate-800 dark:text-slate-200 mt-0.5 block">{aiResult.synonym}</span>
+                                            </div>
+                                            {aiResult.synonymSinoVietnamese && (
+                                                <div className="text-right">
+                                                    <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider block">Hán Việt đồng nghĩa:</span>
+                                                    <span className="text-[11px] font-bold text-pink-500 uppercase tracking-wider block mt-0.5">{aiResult.synonymSinoVietnamese}</span>
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
+                                </>
                             )}
                         </div>
                     )}
 
                     {/* 3. Add to Study Set Section */}
-                    {handleAddCard && !loading && (
+                    {handleAddCard && !loading && !aiResult?.isSentence && (
                         <div className="border-t border-slate-150 dark:border-slate-800 pt-4 mt-4 space-y-3">
                             {savedSuccessfully ? (
                                 <div className="flex items-center justify-center gap-2 p-2.5 bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/50 rounded-xl text-emerald-600 dark:text-emerald-400 text-xs font-black">

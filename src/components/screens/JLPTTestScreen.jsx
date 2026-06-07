@@ -1073,7 +1073,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         </div>
                     </div>
                 </div>
-                <div className="flex-1 flex">
+                <div className={`flex-1 flex ${isFullscreen ? 'min-h-0 overflow-hidden' : ''}`}>
                     {/* Sidebar - question navigator */}
                     <div className="hidden md:block w-56 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-y-auto">
                         {activeTest.sections.map((sec, si) => {
