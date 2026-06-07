@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Search, Users, Sparkles } from 'lucide-react'
 import { collection, query, onSnapshot } from 'firebase/firestore';
-import { db, appId } from '../../config/firebase';
+import { auth, db, appId } from '../../config/firebase';
 import LoadingIndicator from '../ui/LoadingIndicator';
 
 // Avatar emoji lookup
@@ -16,11 +16,18 @@ const getAvatarEmoji = (id) => AVATAR_EMOJIS[id] || null;
 
 // Helpers cho custom photo avatar
 const isCustomPhoto = (avatarValue) => typeof avatarValue === 'string' && avatarValue.startsWith('data:image/');
-const getAvatarDisplayNode = (avatarValue, textFallback = 'U') => {
-    if (isCustomPhoto(avatarValue)) {
-        return <img src={avatarValue} alt="avatar" className="w-full h-full object-cover" />;
+const isPhotoUrl = (avatarValue) => typeof avatarValue === 'string' && (avatarValue.startsWith('data:image/') || avatarValue.startsWith('http://') || avatarValue.startsWith('https://'));
+
+const getAvatarDisplayNode = (avatarValue, textFallback = 'U', isMe = false) => {
+    let resolvedAvatar = avatarValue;
+    if ((!resolvedAvatar || resolvedAvatar === 'default') && isMe && auth?.currentUser?.photoURL) {
+        resolvedAvatar = auth.currentUser.photoURL;
     }
-    const emoji = getAvatarEmoji(avatarValue);
+
+    if (isPhotoUrl(resolvedAvatar)) {
+        return <img src={resolvedAvatar} alt="avatar" className="w-full h-full object-cover" />;
+    }
+    const emoji = (resolvedAvatar && resolvedAvatar !== 'default') ? getAvatarEmoji(resolvedAvatar) : null;
     if (emoji) return <span>{emoji}</span>;
     return <span>{(textFallback || 'U')[0].toUpperCase()}</span>;
 };
@@ -282,7 +289,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                     <div className="flex-shrink-0 w-6 flex justify-center">{rankIcon}</div>
 
                     <div className={`w-9 h-9 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-gray-700 ${isCustomPhoto(user.avatar) ? '' : 'bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40 text-lg font-bold'}`}>
-                        {getAvatarDisplayNode(user.avatar, user.displayName || 'U')}
+                        {getAvatarDisplayNode(user.avatar, user.displayName || 'U', isMe)}
                     </div>
 
                     <div className="flex-1 min-w-0">
@@ -394,7 +401,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
             <div className="bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] p-6 rounded-3xl text-white shadow-xl">
                 <div className="flex items-center gap-4 mb-5">
                     <div className={`w-14 h-14 overflow-hidden rounded-full flex items-center justify-center flex-shrink-0 bg-white/20 border-2 border-white/40 shadow-inner text-2xl`}>
-                        {getAvatarDisplayNode(profile.avatar, profile.displayName || 'U')}
+                        {getAvatarDisplayNode(profile.avatar, profile.displayName || 'U', true)}
                     </div>
                     <div>
                         <h2 className="text-xl font-bold tracking-tight">{profile.displayName || 'Bạn'}</h2>

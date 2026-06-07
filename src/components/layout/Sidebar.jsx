@@ -6,8 +6,31 @@ import { collection, query, onSnapshot } from 'firebase/firestore';
 import { ROUTES } from '../../router';
 import { Home, BookOpen, Plus, LogOut, Sun, Moon, Sparkles, ChevronRight, X, List, Repeat2, FileCheck, Languages, Shield, ChevronDown, Trophy, Crown, User, Bell } from 'lucide-react'
 // Sidebar Component - Navigation with submenu support
-const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allCards = [], isPremium = false }) => {
+const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allCards = [], isPremium = false, avatar }) => {
     const navigate = useNavigate();
+    // Avatar display helper
+    const renderAvatar = () => {
+        const isPhotoUrl = (v) => typeof v === 'string' && (v.startsWith('data:image/') || v.startsWith('http://') || v.startsWith('https://'));
+        if (isPhotoUrl(avatar)) {
+            return <img src={avatar} alt="Avatar" className="w-full h-full object-cover" />;
+        }
+        const AVATAR_EMOJIS = {
+            fox: '🦊', cat: '🐱', dog: '🐶', rabbit: '🐰', bear: '🐻', panda: '🐼', koala: '🐨', tiger: '🐯', lion: '🦁', cow: '🐮',
+            pig: '🐷', mouse: '🐭', hamster: '🐹', penguin: '🐧', chicken: '🐔', duck: '🦆', owl: '🦉', eagle: '🦅', parrot: '🦜', flamingo: '🦩',
+            frog: '🐸', turtle: '🐢', snake: '🐍', dragon: '🐉', whale: '🐳', dolphin: '🐬', octopus: '🐙', fish: '🐠', shark: '🦈', butterfly: '🦋',
+            bee: '🐝', ladybug: '🐞', snail: '🐌', monkey: '🐵', gorilla: '🦍', horse: '🐴', unicorn: '🦄', zebra: '🦓', giraffe: '🦒', elephant: '🐘',
+            rhino: '🦏', hippo: '🦛', camel: '🐫', deer: '🦌', wolf: '🐺', bat: '🦇', raccoon: '🦝', sloth: '🦥', hedgehog: '🦔', shrimp: '🦐',
+        };
+        const emoji = AVATAR_EMOJIS[avatar];
+        if (emoji) {
+            return <span className="text-lg">{emoji}</span>;
+        }
+        if (auth?.currentUser?.photoURL) {
+            return <img src={auth.currentUser.photoURL} alt="Avatar" className="w-full h-full object-cover" />;
+        }
+        return <span className="text-lg">👤</span>;
+    };
+
     const location = useLocation();
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -344,11 +367,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                                         className="flex items-center gap-2.5 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-2xl p-2 shadow-sm overflow-hidden flex-1 cursor-pointer hover:border-slate-300 dark:hover:border-slate-600 transition-all min-w-0"
                                     >
                                         <div className="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-slate-700 dark:text-slate-300 overflow-hidden flex-shrink-0 border border-white dark:border-slate-800 shadow-sm">
-                                            {auth?.currentUser?.photoURL ? (
-                                                <img src={auth.currentUser.photoURL} alt="Avatar" className="w-full h-full object-cover" />
-                                            ) : (
-                                                displayName.charAt(0) || 'U'
-                                            )}
+                                            {renderAvatar()}
                                         </div>
                                         <div className="flex flex-col min-w-0 flex-1">
                                             {isPremium ? (
@@ -503,11 +522,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                                         title="Trang cá nhân"
                                     >
                                         <div className="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden flex-shrink-0 border border-white dark:border-slate-800 shadow-sm">
-                                            {auth?.currentUser?.photoURL ? (
-                                                <img src={auth.currentUser.photoURL} alt="Avatar" className="w-full h-full object-cover" />
-                                            ) : (
-                                                displayName.charAt(0) || 'U'
-                                            )}
+                                            {renderAvatar()}
                                         </div>
                                         <div className="flex flex-col min-w-0 flex-1">
                                             {isPremium ? (

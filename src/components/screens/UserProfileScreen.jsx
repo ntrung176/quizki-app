@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { collection, doc, getDoc, setDoc, updateDoc, deleteDoc, query, where, getDocs, serverTimestamp } from 'firebase/firestore'
-import { db, appId } from '../../config/firebase';
+import { auth, db, appId } from '../../config/firebase';
 import { ROUTES } from '../../router';
 import { ArrowLeft, Settings, Pencil, X, Check, MessageSquare, Heart, Users, Award, ExternalLink, Link as LinkIcon, ChevronRight, MessageCircle, Shield, Loader2 } from 'lucide-react'
 // ==========================
@@ -20,15 +20,23 @@ const AVATAR_EMOJIS = {
     bat: '🦇', raccoon: '🦝', sloth: '🦥', hedgehog: '🦔', shrimp: '🦐',
 };
 const isCustomPhoto = (v) => typeof v === 'string' && v.startsWith('data:image/');
-const AvatarDisplay = ({ avatar, name, size = 'w-20 h-20', textSize = 'text-2xl' }) => {
-    if (isCustomPhoto(avatar)) {
+const isPhotoUrl = (v) => typeof v === 'string' && (v.startsWith('data:image/') || v.startsWith('http://') || v.startsWith('https://'));
+const AvatarDisplay = ({ avatar, name, size = 'w-20 h-20', textSize = 'text-2xl', isSelf = false }) => {
+    let resolvedAvatar = avatar;
+    if ((!resolvedAvatar || resolvedAvatar === 'default') && isSelf && auth?.currentUser?.photoURL) {
+        resolvedAvatar = auth.currentUser.photoURL;
+    }
+
+    if (isPhotoUrl(resolvedAvatar)) {
         return (
             <div className={`${size} rounded-full overflow-hidden flex-shrink-0 border-[3px] border-white dark:border-gray-700 shadow-lg ring-2 ring-indigo-200 dark:ring-indigo-800`}>
-                <img src={avatar} alt="" className="w-full h-full object-cover" />
+                <img src={resolvedAvatar} alt="" className="w-full h-full object-cover" />
             </div>
         );
     }
-    const emoji = AVATAR_EMOJIS[avatar];
+    
+    // Render default or emoji
+    const emoji = (resolvedAvatar && resolvedAvatar !== 'default') ? AVATAR_EMOJIS[resolvedAvatar] : null;
     return (
         <div className={`${size} rounded-full flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-indigo-200 dark:ring-indigo-800 border-[3px] border-white dark:border-gray-700 ${emoji ? 'bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40' : 'bg-gradient-to-br from-indigo-400 to-purple-500 text-white font-bold'}`}>
             {emoji ? <span className={textSize === 'text-2xl' ? 'text-3xl' : textSize}>{emoji}</span> : <span className={textSize}>{(name || 'U')[0].toUpperCase()}</span>}
@@ -535,7 +543,7 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                 <div className="h-24 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 relative">
                     {/* Avatar - positioned to overlap */}
                     <div className="absolute -bottom-10 left-5">
-                        <AvatarDisplay avatar={displayAvatar} name={displayName} size="w-20 h-20" textSize="text-2xl" />
+                        <AvatarDisplay avatar={displayAvatar} name={displayName} size="w-20 h-20" textSize="text-2xl" isSelf={isSelf} />
                     </div>
                 </div>
                 {/* Profile info */}

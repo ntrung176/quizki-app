@@ -928,6 +928,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                     </div>
                 </div>
                 {renderModeSelectionModal()}
+                <PremiumLockedModal 
+                    isOpen={showPremiumModal} 
+                    onClose={() => setShowPremiumModal(false)} 
+                    pkgName={lockedPkgName} 
+                />
             </div>
         );
     }
@@ -1169,6 +1174,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                 {renderViolationWarningModal()}
                 {renderFullscreenRequiredModal()}
                 {renderModeSelectionModal()}
+                <PremiumLockedModal 
+                    isOpen={showPremiumModal} 
+                    onClose={() => setShowPremiumModal(false)} 
+                    pkgName={lockedPkgName} 
+                />
             </div>
         );
     }
@@ -1995,10 +2005,28 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         );
     };
     if (selectedFullExamLevel) {
-        return renderFullExamPracticeScreen(selectedFullExamLevel);
+        return (
+            <>
+                {renderFullExamPracticeScreen(selectedFullExamLevel)}
+                <PremiumLockedModal 
+                    isOpen={showPremiumModal} 
+                    onClose={() => setShowPremiumModal(false)} 
+                    pkgName={lockedPkgName} 
+                />
+            </>
+        );
     }
     if (selectedSkillPractice) {
-        return renderSkillPracticeScreen();
+        return (
+            <>
+                {renderSkillPracticeScreen()}
+                <PremiumLockedModal 
+                    isOpen={showPremiumModal} 
+                    onClose={() => setShowPremiumModal(false)} 
+                    pkgName={lockedPkgName} 
+                />
+            </>
+        );
     }
     return (
         <div className="jlpt-screen min-h-screen bg-[#FAFBFD] dark:bg-slate-900 p-4 md:p-8 font-sans animate-fade-in">

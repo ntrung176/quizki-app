@@ -39,6 +39,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
     const [avatarTab, setAvatarTab] = useState('emoji'); // 'emoji' | 'photo'
     // 50 cute cartoon animal avatars
     const AVATAR_LIST = [
+        { id: 'default', emoji: '👤', name: 'Mặc định' },
         { id: 'fox', emoji: '🦊', name: 'Cáo' },
         { id: 'cat', emoji: '🐱', name: 'Mèo' },
         { id: 'dog', emoji: '🐶', name: 'Chó' },
@@ -91,12 +92,19 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         { id: 'shrimp', emoji: '🦐', name: 'Tôm' },
     ];
     const getAvatarEmoji = (id) => AVATAR_LIST.find(a => a.id === id)?.emoji || '🦊';
-    // Kiểm tra avatar có phải ảnh custom không
+        // Kiểm tra avatar có phải ảnh custom hoặc URL không
     const isCustomPhoto = (avatarValue) => typeof avatarValue === 'string' && avatarValue.startsWith('data:image/');
+    const isPhotoUrl = (avatarValue) => typeof avatarValue === 'string' && (avatarValue.startsWith('data:image/') || avatarValue.startsWith('http://') || avatarValue.startsWith('https://'));
     // Lấy display content cho avatar
     const getAvatarDisplay = (avatarValue, sizeClass = 'text-5xl') => {
-        if (isCustomPhoto(avatarValue)) {
+        if (isPhotoUrl(avatarValue)) {
             return <img src={avatarValue} alt="avatar" className="w-full h-full object-cover" />;
+        }
+        if (avatarValue === 'default' || !avatarValue) {
+            if (auth?.currentUser?.photoURL) {
+                return <img src={auth.currentUser.photoURL} alt="avatar" className="w-full h-full object-cover" />;
+            }
+            return <span className={sizeClass}>👤</span>;
         }
         return <span className={sizeClass}>{getAvatarEmoji(avatarValue)}</span>;
     };
@@ -382,24 +390,27 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                 </div>
                                 {avatarTab === 'emoji' && (
                                     <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-2 max-h-64 overflow-y-auto pr-1">
-                                        {AVATAR_LIST.map(avatar => (
-                                            <button
-                                                key={avatar.id}
-                                                onClick={() => handleSelectAvatar(avatar.id)}
-                                                className={`group relative flex flex-col items-center p-2 rounded-xl transition-all ${profile?.avatar === avatar.id
-                                                    ? 'bg-indigo-100 dark:bg-indigo-900/40 ring-2 ring-indigo-400 scale-105 shadow-md'
-                                                    : 'bg-gray-50 dark:bg-gray-700/50 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:scale-110 border border-gray-100 dark:border-gray-600'}`}
-                                                title={avatar.name}
-                                            >
-                                                <span className="text-2xl">{avatar.emoji}</span>
-                                                <span className="text-[9px] text-gray-400 dark:text-gray-500 mt-0.5 truncate max-w-full leading-tight">{avatar.name}</span>
-                                                {profile?.avatar === avatar.id && (
-                                                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-indigo-500 rounded-full flex items-center justify-center">
-                                                        <Check className="w-2.5 h-2.5 text-white" />
-                                                    </div>
-                                                )}
-                                            </button>
-                                        ))}
+                                        {AVATAR_LIST.map(avatar => {
+                                             const isActive = profile?.avatar === avatar.id || (!profile?.avatar && avatar.id === 'default');
+                                             return (
+                                                 <button
+                                                     key={avatar.id}
+                                                     onClick={() => handleSelectAvatar(avatar.id)}
+                                                     className={`group relative flex flex-col items-center p-2 rounded-xl transition-all ${isActive
+                                                         ? 'bg-indigo-100 dark:bg-indigo-900/40 ring-2 ring-indigo-400 scale-105 shadow-md'
+                                                         : 'bg-gray-50 dark:bg-gray-700/50 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:scale-110 border border-gray-100 dark:border-gray-600'}`}
+                                                     title={avatar.name}
+                                                 >
+                                                     <span className="text-2xl">{avatar.emoji}</span>
+                                                     <span className="text-[9px] text-gray-400 dark:text-gray-500 mt-0.5 truncate max-w-full leading-tight">{avatar.name}</span>
+                                                     {isActive && (
+                                                         <div className="absolute -top-1 -right-1 w-4 h-4 bg-indigo-500 rounded-full flex items-center justify-center">
+                                                             <Check className="w-2.5 h-2.5 text-white" />
+                                                         </div>
+                                                     )}
+                                                 </button>
+                                             );
+                                         })}
                                     </div>
                                 )}
                                 {avatarTab === 'photo' && (
@@ -414,7 +425,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                                     <p className="text-[10px] text-purple-500 dark:text-purple-400 mt-0.5">Ảnh tùy chỉnh đang được sử dụng</p>
                                                 </div>
                                                 <button
-                                                    onClick={() => handleSelectAvatar('fox')}
+                                                    onClick={() => handleSelectAvatar('default')}
                                                     className="text-xs text-red-500 hover:text-red-600 font-medium px-2 py-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
                                                 >
                                                     Xóa

@@ -3601,6 +3601,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     userId={userId}
                     allCards={allCards}
                     isPremium={isAdmin || profile?.isPremiumUnlocked === true}
+                    avatar={profile?.avatar}
                 />
             )}
 
