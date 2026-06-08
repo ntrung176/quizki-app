@@ -13,13 +13,16 @@
 /* Ruby / Furigana annotations */
 ruby {
   ruby-align: center;
+  ruby-position: over;
+  letter-spacing: normal !important;
 }
 
 ruby rt {
   font-size: 0.55em;
   color: #e11d48; /* Beautiful rose-600 for light mode */
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: normal !important;
+  text-align: center;
   padding-bottom: 0.1em;
   user-select: none !important;
   -webkit-user-select: none !important;

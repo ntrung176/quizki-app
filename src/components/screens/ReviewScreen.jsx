@@ -49,8 +49,22 @@ const ReviewScreen = ({
     const savedProgress = getSavedProgress();
 
     const [cards, setCards] = useState(() => {
-        if (savedProgress && savedProgress.cards) {
-            return savedProgress.cards;
+        if (savedProgress) {
+            if (savedProgress.cardIdsList) {
+                const pool = allCards || initialCards;
+                const cardMap = new Map(pool.map(c => [c.id, c]));
+                return savedProgress.cardIdsList.map(item => {
+                    const id = typeof item === 'string' ? item : (item && item.id ? item.id : null);
+                    const card = cardMap.get(id);
+                    if (card) {
+                        return typeof item === 'string' ? card : { ...card, ...item };
+                    }
+                    return null;
+                }).filter(Boolean);
+            }
+            if (savedProgress.cards) {
+                return savedProgress.cards;
+            }
         }
         return initialCards;
     });
@@ -182,7 +196,7 @@ const ReviewScreen = ({
         if (!setId || !reviewMode || showComplete) return;
         const progressData = {
             cardIds: initialCards.map(c => c.id),
-            cards,
+            cardIdsList: (cards || []).map(c => ({ id: c.id, reviewType: c.reviewType })),
             currentIndex,
             failedCardsList: Array.from(failedCards),
             timestamp: Date.now(),

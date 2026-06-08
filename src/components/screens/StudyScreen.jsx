@@ -379,16 +379,36 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
 
         const saved = getSavedProgress();
         if (saved) {
-            setBatches(saved.batches || []);
+            const cardMap = new Map(originalCards.map(c => [c.id, c]));
+
+            const restoreCards = (savedList) => {
+                if (!savedList) return [];
+                return savedList.map(item => {
+                    if (typeof item === 'string') {
+                        return cardMap.get(item);
+                    }
+                    if (item && item.id) {
+                        return cardMap.get(item.id) || item;
+                    }
+                    return null;
+                }).filter(Boolean);
+            };
+
+            const restoreBatches = (savedBatches) => {
+                if (!savedBatches) return [];
+                return savedBatches.map(batch => restoreCards(batch));
+            };
+
+            setBatches(restoreBatches(saved.batches));
             setCurrentBatchIndex(saved.currentBatchIndex || 0);
-            setCurrentBatch(saved.currentBatch || []);
+            setCurrentBatch(restoreCards(saved.currentBatch));
             setBatchPhase(saved.batchPhase || 'mc');
-            setMcQueue(saved.mcQueue || []);
+            setMcQueue(restoreCards(saved.mcQueue));
             setMcIdx(saved.mcIdx || 0);
-            setMcWrong(saved.mcWrong || []);
-            setWrittenQueue(saved.writtenQueue || []);
+            setMcWrong(restoreCards(saved.mcWrong));
+            setWrittenQueue(restoreCards(saved.writtenQueue));
             setWrittenIdx(saved.writtenIdx || 0);
-            setWrittenWrong(saved.writtenWrong || []);
+            setWrittenWrong(restoreCards(saved.writtenWrong));
             setDone(saved.done || false);
             return;
         }
@@ -424,16 +444,16 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         if (!studySessionData?.setId || batches.length === 0) return;
         const progressData = {
             cardIds: originalCards.map(c => c.id),
-            batches,
+            batches: (batches || []).map(batch => (batch || []).map(c => c?.id).filter(Boolean)),
             currentBatchIndex,
-            currentBatch,
+            currentBatch: (currentBatch || []).map(c => c?.id).filter(Boolean),
             batchPhase,
-            mcQueue,
+            mcQueue: (mcQueue || []).map(c => c?.id).filter(Boolean),
             mcIdx,
-            mcWrong,
-            writtenQueue,
+            mcWrong: (mcWrong || []).map(c => c?.id).filter(Boolean),
+            writtenQueue: (writtenQueue || []).map(c => c?.id).filter(Boolean),
             writtenIdx,
-            writtenWrong,
+            writtenWrong: (writtenWrong || []).map(c => c?.id).filter(Boolean),
             done,
             timestamp: Date.now(),
         };
