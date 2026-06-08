@@ -28,14 +28,15 @@ const getPreviewIntervals = (srs) => {
 };
 
 const formatInterval = (minutes) => {
+    if (minutes === 0) return 'ngay lập tức';
     if (minutes < 60) return `${minutes} phút`;
     if (minutes < 1440) return `${Math.round(minutes / 60)} giờ`;
     if (minutes < 43200) {
         const days = minutes / 1440;
-        return days < 2 ? `${days.toFixed(1)} ngày` : `${Math.round(days)} ngày`;
+        return days < 2 ? `${Number(days.toFixed(1))} ngày` : `${Math.round(days)} ngày`;
     }
     const months = minutes / 43200;
-    return months < 2 ? `${months.toFixed(1)} tháng` : `${Math.round(months)} tháng`;
+    return months < 2 ? `${Number(months.toFixed(1))} tháng` : `${Math.round(months)} tháng`;
 };
 
 // ==================== MAIN COMPONENT ====================

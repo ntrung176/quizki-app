@@ -306,10 +306,13 @@ export const calculateAnkiSRS = (srs, rating) => {
                 newLearningStep = 0;
                 break;
             case 'hard':
-                // Anki: Hard ở relearning = lặp lại bước hiện tại × 1.5
-                nextState = 'RELEARNING';
-                newInterval = Math.round(currentInterval * 1.5);
-                // learningStep giữ nguyên
+                // Thay vì giữ ở Relearning (phút), cho tốt nghiệp với số ngày nhỏ hơn Good
+                nextState = 'REVIEW';
+                newInterval = Math.max(1, Math.floor(refInterval * 0.35));
+                newEase = currentEase - 0.15;
+                newLearningStep = null;
+                newIsLapsed = false;
+                newPrelapseInterval = null;
                 break;
             case 'good':
                 nextState = 'REVIEW';
@@ -320,7 +323,8 @@ export const calculateAnkiSRS = (srs, rating) => {
                 break;
             case 'easy':
                 nextState = 'REVIEW';
-                newInterval = Math.max(4, Math.floor(refInterval * 0.7)); // max(4, Prelapse_I * 0.7) days
+                const goodInt = Math.max(1, Math.floor(refInterval * 0.7));
+                newInterval = Math.max(goodInt + 1, Math.floor(refInterval * 0.7 * EASY_BONUS)); 
                 newEase = currentEase + 0.15;
                 newLearningStep = null;
                 newIsLapsed = false;
@@ -349,25 +353,28 @@ export const calculateAnkiSRS = (srs, rating) => {
             case 'hard':
                 nextState = 'REVIEW';
                 // Anki: Hard = max(1, floor(interval × hardMultiplier))
-                // Không dùng currentInterval + 1 để tránh tăng nhanh hơn mong muốn ở interval nhỏ
-                newInterval = Math.max(1, Math.floor(currentInterval * HARD_MULTIPLIER));
+                newInterval = Math.max(currentInterval + 1, Math.floor(currentInterval * HARD_MULTIPLIER));
                 newEase = currentEase - 0.15;
                 newLearningStep = null;
                 break;
             case 'good':
                 nextState = 'REVIEW';
-                newInterval = Math.max(currentInterval + 1, Math.floor(currentInterval * currentEase));
+                const hardInterval = Math.max(currentInterval + 1, Math.floor(currentInterval * HARD_MULTIPLIER));
+                newInterval = Math.max(hardInterval + 1, Math.floor(currentInterval * currentEase));
                 newLearningStep = null;
                 break;
             case 'easy':
                 nextState = 'REVIEW';
-                newInterval = Math.max(currentInterval + 1, Math.floor(currentInterval * currentEase * EASY_BONUS));
+                const hardInt = Math.max(currentInterval + 1, Math.floor(currentInterval * HARD_MULTIPLIER));
+                const goodInterval = Math.max(hardInt + 1, Math.floor(currentInterval * currentEase));
+                newInterval = Math.max(goodInterval + 1, Math.floor(currentInterval * currentEase * EASY_BONUS));
                 newEase = currentEase + 0.15;
                 newLearningStep = null;
                 break;
             default:
                 nextState = 'REVIEW';
-                newInterval = Math.max(currentInterval + 1, Math.floor(currentInterval * currentEase));
+                const hInt = Math.max(currentInterval + 1, Math.floor(currentInterval * HARD_MULTIPLIER));
+                newInterval = Math.max(hInt + 1, Math.floor(currentInterval * currentEase));
                 newLearningStep = null;
         }
     }
