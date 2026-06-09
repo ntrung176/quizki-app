@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { Volume2, Sparkles, BookOpen, Plus, Loader2, X, ChevronDown, Check, AlertCircle, Crown } from 'lucide-react';
+import { Volume2, Sparkles, BookOpen, Plus, Loader2, X, ChevronDown, Check, AlertCircle, Crown, Folder, ArrowLeft } from 'lucide-react';
 import PremiumLockedModal from './PremiumLockedModal';
 import { aiAssistVocab, aiTranslateSentence } from '../../utils/aiProvider';
 import { getSinoVietnamese } from '../../utils/kanjiHVLookup';
@@ -94,6 +94,8 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
     const [selectedFolderId, setSelectedFolderId] = useState('unfiled');
     const [saving, setSaving] = useState(false);
     const [savedSuccessfully, setSavedSuccessfully] = useState(false);
+    const [showFolderModal, setShowFolderModal] = useState(false);
+    const [selectedModalFolderId, setSelectedModalFolderId] = useState(null);
 
     const popupRef = useRef(null);
     const cardRef = useRef(null);
@@ -356,8 +358,15 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
         }
     };
 
-    const handleSaveCard = async (e) => {
+    const handleOpenFolderModal = (e) => {
         e.stopPropagation();
+        setShowFolderModal(true);
+        setSelectedModalFolderId(null);
+    };
+
+    const handleConfirmSave = async (folderId) => {
+        setShowFolderModal(false);
+        setSelectedModalFolderId(null);
         if (!pendingWord || !handleAddCard) return;
 
         setSaving(true);
@@ -385,7 +394,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                 level,
                 sinoVietnamese,
                 synonymSinoVietnamese,
-                folderId: selectedFolderId,
+                folderId: folderId,
                 action: 'keep' // Keep screen state as is
             });
 
@@ -654,49 +663,119 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                     <span>Đã thêm từ vựng thành công!</span>
                                 </div>
                             ) : (
-                                <>
-                                    <div className="flex items-center justify-between gap-2">
-                                        <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">Thêm vào học phần:</span>
-                                        <div className="relative shrink-0">
-                                            <select
-                                                value={selectedFolderId}
-                                                onChange={(e) => setSelectedFolderId(e.target.value)}
-                                                className="appearance-none bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-700/60 rounded-xl px-3 py-1.5 pr-7 text-xs font-bold text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-1 focus:ring-indigo-500 cursor-pointer min-w-[7rem] max-w-[12rem] truncate"
-                                            >
-                                                <option value="unfiled">Chưa phân loại</option>
-                                                {folders.map(f => (
-                                                    <option key={f.id} value={f.id}>{f.name}</option>
-                                                ))}
-                                            </select>
-                                            <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-slate-455 dark:text-slate-500">
-                                                <ChevronDown className="w-3.5 h-3.5" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <button
-                                        onClick={handleSaveCard}
-                                        disabled={saving}
-                                        className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-black shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-                                    >
-                                        {saving ? (
-                                            <>
-                                                <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                                                <span>Đang lưu...</span>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <Plus className="w-3.5 h-3.5 stroke-[3px]" />
-                                                <span>Lưu vào thư viện</span>
-                                            </>
-                                        )}
-                                    </button>
-                                </>
+                                <button
+                                    onClick={handleOpenFolderModal}
+                                    disabled={saving}
+                                    className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-black shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                                >
+                                    {saving ? (
+                                        <>
+                                            <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                            <span>Đang lưu...</span>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Plus className="w-3.5 h-3.5 stroke-[3px]" />
+                                            <span>Lưu vào thư viện</span>
+                                        </>
+                                    )}
+                                </button>
                             )}
                         </div>
                     )}
                 </div>
             )}
+            
+            {/* Folder Select Modal overlay */}
+            {showFolderModal && (() => {
+                const activeFolder = folders.find(f => f.id === selectedModalFolderId);
+                const parentFolderId = activeFolder ? (activeFolder.parentId || null) : null;
+                const itemsToShow = folders.filter(f => (f.parentId || null) === selectedModalFolderId);
+
+                return (
+                    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[10000] flex items-center justify-center p-4" onClick={(e) => e.stopPropagation()}>
+                        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700 p-6 max-w-md w-full shadow-2xl animate-bounce-in text-left" onClick={(e) => e.stopPropagation()}>
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                {selectedModalFolderId ? `Thư mục: ${activeFolder?.name}` : 'Thêm vào học phần nào?'}
+                            </h3>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                {selectedModalFolderId 
+                                    ? 'Chọn một học phần bên trong thư mục này để lưu từ vựng.' 
+                                    : 'Chọn học phần hoặc thư mục bạn muốn lưu từ vựng này vào để bắt đầu ôn tập.'
+                                }
+                            </p>
+                            <div className="max-h-60 overflow-y-auto space-y-2 mb-6 custom-scrollbar pr-1">
+                                {selectedModalFolderId && (
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); setSelectedModalFolderId(parentFolderId); }}
+                                        className="w-full text-left p-2.5 rounded-xl border border-dashed border-gray-200 dark:border-slate-700/80 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-indigo-500 dark:hover:text-sky-400 transition-all flex items-center gap-2 mb-2 font-medium text-xs text-gray-500 dark:text-gray-400"
+                                    >
+                                        <ArrowLeft className="w-3.5 h-3.5" />
+                                        Quay lại {parentFolderId ? '' : '(Thư mục chính)'}
+                                    </button>
+                                )}
+
+                                {folders.length === 0 ? (
+                                    <p className="text-center text-sm text-gray-500 dark:text-gray-400 py-6">
+                                        Chưa có học phần nào. Vui lòng tạo học phần ở trang Thư viện để lưu từ vựng.
+                                    </p>
+                                ) : itemsToShow.length === 0 ? (
+                                    <p className="text-center text-sm text-gray-500 dark:text-gray-400 py-6">
+                                        Không tìm thấy học phần hoặc thư mục con nào ở đây.
+                                    </p>
+                                ) : (
+                                    <div className="space-y-1.5">
+                                        {itemsToShow.map(folder => (
+                                            <button
+                                                key={folder.id}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    if (folder.type === 'folder') {
+                                                        setSelectedModalFolderId(folder.id);
+                                                    } else {
+                                                        handleConfirmSave(folder.id);
+                                                    }
+                                                }}
+                                                className="w-full text-left p-2.5 rounded-xl border border-gray-100 dark:border-slate-700/80 hover:border-indigo-500 dark:hover:border-sky-400 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all flex items-center gap-2"
+                                            >
+                                                {folder.type === 'folder' ? (
+                                                    <span className="p-2 bg-amber-50 dark:bg-amber-950 text-amber-500 dark:text-amber-400 rounded-lg">
+                                                        <Folder className="w-3.5 h-3.5" />
+                                                    </span>
+                                                ) : (
+                                                    <span className="p-2 bg-indigo-50 dark:bg-indigo-950 text-indigo-500 dark:text-indigo-400 rounded-lg">
+                                                        <BookOpen className="w-3.5 h-3.5" />
+                                                    </span>
+                                                )}
+                                                <div>
+                                                    <div className="text-sm font-semibold text-gray-800 dark:text-slate-200 flex items-center gap-1.5">
+                                                        {folder.name}
+                                                        <span className="text-[9px] px-1 bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-gray-400 rounded font-normal">
+                                                            {folder.type === 'folder' ? 'Thư mục' : 'Học phần'}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                            <div className="flex justify-end gap-2">
+                                <button
+                                    onClick={(e) => { 
+                                        e.stopPropagation();
+                                        setShowFolderModal(false); 
+                                        setSelectedModalFolderId(null); 
+                                    }}
+                                    className="px-4 py-2 bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-700 dark:text-gray-300 rounded-xl font-bold text-sm transition-all"
+                                >
+                                    Hủy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                );
+            })()}
             
             <PremiumLockedModal
                 isOpen={showPremiumModal}

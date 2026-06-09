@@ -1573,7 +1573,8 @@ const ReviewScreen = ({
                                         }
                                     }}
                                     disabled={feedback === 'correct' && !needsRetype}
-                                    className={`w-full px-5 py-3 text-lg font-semibold rounded-xl border-2 transition-all outline-none shadow-md
+                                    className={`w-full px-5 py-3 text-lg rounded-xl border-2 transition-all outline-none shadow-md
+                                ${(inputMode === 'reading' || cardReviewType === 'dictation') ? 'font-japanese font-bold' : 'font-semibold'}
                                 ${needsRetype
                                             ? 'border-orange-400 bg-orange-50 dark:bg-orange-900/20 text-orange-900 dark:text-orange-100 focus:border-orange-500'
                                             : feedback === 'correct'

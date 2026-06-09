@@ -2889,6 +2889,43 @@ const App = () => {
                     result.level = contextLevel;
                 }
 
+                // Tự động kiểm tra và điền từ loại nếu thiếu
+                if (!result.pos || result.pos.trim() === '') {
+                    console.log(`🤖 Từ loại (POS) bị thiếu cho từ sách - Gọi AI xác định từ loại cho "${result.front || frontText}"`);
+                    try {
+                        const model = adminConfig?.aiFeatureModels?.vocab_gen || 'google/gemini-2.5-flash';
+                        const posPrompt = `Bạn là một chuyên gia ngôn ngữ tiếng Nhật.
+Hãy xác định từ loại (Part of Speech - POS) cho từ vựng tiếng Nhật dưới đây.
+Từ gốc: "${result.front || frontText}"
+Nghĩa: "${result.meaning}"
+Ví dụ: "${result.example || ''}"
+
+Lưu ý: Từ loại (pos) BẮT BUỘC phải là một trong các chuỗi sau:
+- "noun" (nếu là danh từ hoặc đại từ)
+- "verb" (nếu là động từ thường)
+- "suru_verb" (nếu là danh động từ)
+- "adj-i" (nếu là tính từ đuôi -i)
+- "adj-na" (nếu là tính từ đuôi -na)
+- "adverb" (nếu là trạng từ)
+- "conjunction" (nếu là liên từ)
+- "particle" (nếu là trợ từ)
+- "grammar" (nếu là cấu trúc ngữ pháp)
+- "phrase" (nếu là cụm từ hoặc câu)
+- "other" (nếu không thuộc các nhóm trên)
+
+Chỉ trả về JSON định dạng sau (không giải thích, không markdown):
+{"pos": "..."}`;
+                        const responseText = await callAI(posPrompt, model);
+                        const parsedJson = parseJsonFromAI(responseText);
+                        if (parsedJson && parsedJson.pos) {
+                            result.pos = normalizePosKey(parsedJson.pos);
+                            console.log(`🤖 AI generated pos (Book): "${result.pos}"`);
+                        }
+                    } catch (e) {
+                        console.warn('AI POS generation for book vocab failed:', e);
+                    }
+                }
+
                 // Tự động kiểm tra và điền âm Hán Việt nếu thiếu
                 if (!result.sinoVietnamese || result.sinoVietnamese.trim() === '') {
                     const { getSinoVietnamese } = await import('./utils/aiProvider');
@@ -3422,7 +3459,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     }}
                 />;
             case 'KANJI':
-                return <KanjiScreen isAdmin={isAdmin} onAddVocabToSRS={handleAddCard} onGeminiAssist={handleGeminiAssist} allUserCards={allCards} folders={studySets} userId={userId} />;
+                return <KanjiScreen isAdmin={isAdmin} onAddVocabToSRS={handleAddCard} onGeminiAssist={handleGeminiAssist} allUserCards={allCards} folders={folders} userId={userId} />;
             case 'REVIEW':
                 if (reviewCards.length === 0) {
                     return <ReviewCompleteScreen onBack={() => setView('HOME')} />;

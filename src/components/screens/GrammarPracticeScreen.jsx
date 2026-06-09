@@ -3,6 +3,7 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, Eye, Lightbulb, Sparkles, X, Loader2, Award, ClipboardCheck, Save, Trash2, Edit2, FileJson } from 'lucide-react'
 import { fetchGrammarPointById, updateGrammarPoint } from '../../utils/grammarService';
 import { aiCheckGrammarAnswer } from '../../utils/aiProvider';
+import { playCorrectSound, playIncorrectSound, playCompletionFanfare } from '../../utils/soundEffects';
 
 const formatExplanation = (text) => {
     if (!text) return null;
@@ -138,8 +139,20 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
             const result = await aiCheckGrammarAnswer(user, ex.questionVi, ex.answers, gp.pattern);
             if (result) {
                 setAiResults(p => ({ ...p, [id]: result }));
-                if (result.isCorrect) setTranslateResults(p => ({ ...p, [id]: 'correct' }));
-                else setTranslateResults(p => ({ ...p, [id]: 'incorrect' }));
+                if (result.isCorrect) {
+                    playCorrectSound();
+                    setTranslateResults(p => {
+                        const next = { ...p, [id]: 'correct' };
+                        const completed = Object.values(next).filter(r => r === 'correct').length;
+                        if (completed === exercises.length) {
+                            playCompletionFanfare();
+                        }
+                        return next;
+                    });
+                } else {
+                    playIncorrectSound();
+                    setTranslateResults(p => ({ ...p, [id]: 'incorrect' }));
+                }
             }
         } catch (e) { 
             console.error(e); 
@@ -325,6 +338,26 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
         } else {
             alert("Lỗi khi xóa dữ liệu.");
         }
+    };
+
+    const handleSelectQuiz = (qIdx, opt, quiz) => {
+        const isCorrect = opt === quiz.answer;
+        if (isCorrect) {
+            playCorrectSound();
+        } else {
+            playIncorrectSound();
+        }
+        setQuizAnswers(p => {
+            const newAnswers = { ...p, [qIdx]: opt };
+            const completed = quizzes.filter((q, idx) => {
+                const ans = idx === qIdx ? opt : newAnswers[idx];
+                return ans === q.answer;
+            }).length;
+            if (completed === quizzes.length) {
+                playCompletionFanfare();
+            }
+            return newAnswers;
+        });
     };
 
     // Calculate progress based on tab
@@ -674,7 +707,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                                                     }
 
                                                     return (
-                                                        <button key={optIdx} onClick={() => { if (!isAnswered) setQuizAnswers(p => ({ ...p, [qIdx]: opt })); }} disabled={isAnswered}
+                                                        <button key={optIdx} onClick={() => { if (!isAnswered) handleSelectQuiz(qIdx, opt, quiz); }} disabled={isAnswered}
                                                             className={`flex items-center gap-3 p-3.5 border rounded-xl text-left text-sm transition-all duration-200 ${btnClass}`}>
                                                             <span className={`w-6 h-6 flex items-center justify-center rounded-lg text-xs font-black shrink-0 ${iconBg}`}>{optionLetter}</span>
                                                             <span className="font-medium">{opt}</span>

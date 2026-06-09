@@ -738,7 +738,7 @@ const AppRoutes = ({
                                 onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
                                 allUserCards={allCards}
                                 profile={profile}
-                                folders={folders}
+                                folders={[...(parentFolders || []), ...(folders || [])]}
                                 userId={userId}
                             />
                         </ProtectedRoute>
@@ -757,7 +757,7 @@ const AppRoutes = ({
                                 onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
                                 allUserCards={allCards}
                                 profile={profile}
-                                folders={folders}
+                                folders={[...(parentFolders || []), ...(folders || [])]}
                                 userId={userId}
                             />
                         </ProtectedRoute>

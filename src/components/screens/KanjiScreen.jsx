@@ -45,6 +45,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     const [userKanjiSRS, setUserKanjiSRS] = useState(new Set());
     const [showFolderSelectModal, setShowFolderSelectModal] = useState(false);
     const [vocabToSave, setVocabToSave] = useState(null);
+    const [selectedModalFolderId, setSelectedModalFolderId] = useState(null);
     
     // Premium Locked states
     const [showPremiumModal, setShowPremiumModal] = useState(false);
@@ -167,6 +168,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         if (!vocabToSave) return;
         const targetFolderId = folderId === 'unfiled' ? null : folderId;
         setShowFolderSelectModal(false);
+        setSelectedModalFolderId(null);
         const items = Array.isArray(vocabToSave) ? vocabToSave : [vocabToSave];
         const isBulk = Array.isArray(vocabToSave);
         setVocabToSave(null);
@@ -1913,12 +1915,21 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             className={`group relative aspect-[4/5] flex flex-col items-center justify-between text-center bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-100 dark:border-slate-700/60 shadow-sm transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/5 select-none cursor-pointer ${selectedKanji === kanji ? 'ring-2 ring-sky-500 dark:ring-sky-400' : ''
                                                 }`}
                                         >
-                                            {/* Left Corner: Green dot if saved in library */}
-                                            {isSaved && (
-                                                <div className="absolute top-3 left-3 flex items-center justify-center">
-                                                    <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/20" title="Đã lưu vào từ vựng" />
-                                                </div>
-                                            )}
+                                            {/* Left Corner: Indicators */}
+                                            <div className="absolute top-3 left-3 flex items-center gap-1.5 z-10">
+                                                {isSaved && (
+                                                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/20 shrink-0" title="Đã lưu vào từ vựng" />
+                                                )}
+                                                {(() => {
+                                                    const kanjiDoc = kanjiMap.get(kanji);
+                                                    const isSRSAdded = kanjiDoc ? userKanjiSRS.has(kanjiDoc.id) : false;
+                                                    return isSRSAdded && (
+                                                        <span className="flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-amber-500/10 dark:bg-amber-500/20 border border-amber-500/30 text-amber-600 dark:text-amber-400 text-[8px] font-black uppercase tracking-wider select-none shrink-0" title="Đã thêm vào học">
+                                                            Đang học
+                                                        </span>
+                                                    );
+                                                })()}
+                                            </div>
                                             {/* Right Corner: Bookmark button to save to SRS */}
                                             <div className="absolute top-2 right-2 flex items-center justify-center z-10 animate-fade-in">
                                                 {(() => {
@@ -1929,7 +1940,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                             onClick={(e) => toggleKanjiSRS(e, kanji)}
                                                             className={`p-1.5 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 ${
                                                                 isSRSAdded
-                                                                    ? 'bg-amber-500/10 dark:bg-amber-500/20 text-amber-500'
+                                                                    ? 'bg-amber-500/10 dark:bg-amber-500/20 text-amber-500 opacity-100 shadow-sm'
                                                                     : 'text-slate-300 dark:text-slate-600 hover:text-indigo-500 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 group-hover:opacity-100 sm:opacity-0 transition-opacity'
                                                             }`}
                                                             title={isSRSAdded ? "Xóa khỏi ôn tập SRS" : "Thêm vào ôn tập SRS"}
@@ -2302,39 +2313,54 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 )
             }
             {/* Folder Select Modal */}
-            {showFolderSelectModal && (
-                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[999] flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700 p-6 max-w-md w-full shadow-2xl animate-bounce-in text-left">
-                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Thêm vào học phần nào?</h3>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-                            Chọn học phần bạn muốn lưu từ vựng này vào để bắt đầu ôn tập.
-                        </p>
-                        <div className="max-h-60 overflow-y-auto space-y-2 mb-6 custom-scrollbar pr-1">
-                            {/* Unfiled option */}
-                            <button
-                                onClick={() => handleConfirmSaveVocab('unfiled')}
-                                className="w-full text-left p-3 rounded-xl border border-dashed border-gray-200 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-sky-400 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all flex items-center gap-2"
-                            >
-                                <span className="p-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-slate-500 dark:text-slate-400">
-                                    <FolderPlus className="w-4 h-4" />
-                                </span>
-                                <div>
-                                    <div className="text-sm font-semibold text-gray-800 dark:text-slate-200">Từ vựng lẻ</div>
-                                    <div className="text-xs text-gray-400 font-normal">Chưa được phân loại vào học phần nào</div>
-                                </div>
-                            </button>
+            {showFolderSelectModal && (() => {
+                const activeFolder = folders.find(f => f.id === selectedModalFolderId);
+                const parentFolderId = activeFolder ? (activeFolder.parentId || null) : null;
+                const itemsToShow = folders.filter(f => (f.parentId || null) === selectedModalFolderId);
 
-                            {/* Section: Học phần (Firestore) */}
-                            {folders.length > 0 && (
-                                <div className="pt-2">
-                                    <div className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1 px-1">
-                                        Học phần / Thư mục đồng bộ
-                                    </div>
+                return (
+                    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[999] flex items-center justify-center p-4">
+                        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700 p-6 max-w-md w-full shadow-2xl animate-bounce-in text-left">
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                {selectedModalFolderId ? `Thư mục: ${activeFolder?.name}` : 'Thêm vào học phần nào?'}
+                            </h3>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                {selectedModalFolderId 
+                                    ? 'Chọn một học phần bên trong thư mục này để lưu từ vựng.' 
+                                    : 'Chọn học phần hoặc thư mục bạn muốn lưu từ vựng này vào để bắt đầu ôn tập.'
+                                }
+                            </p>
+                            <div className="max-h-60 overflow-y-auto space-y-2 mb-6 custom-scrollbar pr-1">
+                                {selectedModalFolderId && (
+                                    <button
+                                        onClick={() => setSelectedModalFolderId(parentFolderId)}
+                                        className="w-full text-left p-2.5 rounded-xl border border-dashed border-gray-200 dark:border-slate-700/80 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-indigo-500 dark:hover:text-sky-400 transition-all flex items-center gap-2 mb-2 font-medium text-xs text-gray-500 dark:text-gray-400"
+                                    >
+                                        <ArrowLeft className="w-3.5 h-3.5" />
+                                        Quay lại {parentFolderId ? '' : '(Thư mục chính)'}
+                                    </button>
+                                )}
+
+                                {folders.length === 0 ? (
+                                    <p className="text-center text-sm text-gray-500 dark:text-gray-400 py-6">
+                                        Chưa có học phần nào. Vui lòng tạo học phần ở trang Thư viện để lưu từ vựng.
+                                    </p>
+                                ) : itemsToShow.length === 0 ? (
+                                    <p className="text-center text-sm text-gray-500 dark:text-gray-400 py-6">
+                                        Không tìm thấy học phần hoặc thư mục con nào ở đây.
+                                    </p>
+                                ) : (
                                     <div className="space-y-1.5">
-                                        {folders.map(folder => (
+                                        {itemsToShow.map(folder => (
                                             <button
                                                 key={folder.id}
-                                                onClick={() => handleConfirmSaveVocab(folder.id)}
+                                                onClick={() => {
+                                                    if (folder.type === 'folder') {
+                                                        setSelectedModalFolderId(folder.id);
+                                                    } else {
+                                                        handleConfirmSaveVocab(folder.id);
+                                                    }
+                                                }}
                                                 className="w-full text-left p-2.5 rounded-xl border border-gray-100 dark:border-slate-700/80 hover:border-indigo-500 dark:hover:border-sky-400 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all flex items-center gap-2"
                                             >
                                                 {folder.type === 'folder' ? (
@@ -2357,22 +2383,24 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             </button>
                                         ))}
                                     </div>
-                                </div>
-                            )}
-
-
-                        </div>
-                        <div className="flex justify-end gap-2">
-                            <button
-                                onClick={() => { setShowFolderSelectModal(false); setVocabToSave(null); }}
-                                className="px-4 py-2 bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-700 dark:text-gray-300 rounded-xl font-bold text-sm transition-all"
-                            >
-                                Hủy
-                            </button>
+                                )}
+                            </div>
+                            <div className="flex justify-end gap-2">
+                                <button
+                                    onClick={() => { 
+                                        setShowFolderSelectModal(false); 
+                                        setVocabToSave(null); 
+                                        setSelectedModalFolderId(null); 
+                                    }}
+                                    className="px-4 py-2 bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-700 dark:text-gray-300 rounded-xl font-bold text-sm transition-all"
+                                >
+                                    Hủy
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
+                );
+            })()}
 
             {/* Premium Locked Modal */}
             <PremiumLockedModal 

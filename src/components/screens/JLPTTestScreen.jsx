@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FileCheck, Play, ChevronRight, ChevronLeft, Maximize, Minimize, X, Check, CheckCircle, XCircle, Languages, BookOpen, FileText, Headphones, Timer, Volume2, AlertTriangle, Award, Lock, Unlock, Crown, Calendar, Edit3, Settings, Sparkles, ShieldAlert } from 'lucide-react'
 import { ROUTES } from '../../router';
 import { aiTranslateSentence } from '../../utils/aiProvider';
+import { playCompletionFanfare } from '../../utils/soundEffects';
 const SECTION_ICONS = {
     vocabulary: Languages, grammar: BookOpen, kanji: Award,
     reading: FileText, listening: Headphones,
@@ -502,6 +503,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         setCompletedTests(newCompleted);
         localStorage.setItem('quizki_completed_tests', JSON.stringify(newCompleted));
         setShowResult(true);
+        playCompletionFanfare();
     };
 
     // Exit test

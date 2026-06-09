@@ -10,6 +10,19 @@
   line-height: 2.0 !important;
 }
 
+/* Ensure placeholder text always uses standard font and does not get styled with Japanese font */
+input::placeholder,
+textarea::placeholder {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* Reset line-height for input fields to avoid vertical alignment issues */
+input.font-japanese,
+textarea.font-japanese {
+  line-height: normal !important;
+}
+
+
 /* Ruby / Furigana annotations */
 ruby {
   ruby-align: center;
