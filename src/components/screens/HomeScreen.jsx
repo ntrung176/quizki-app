@@ -4,7 +4,7 @@ import { collection, onSnapshot, query } from 'firebase/firestore'
 import { db, appId } from '../../config/firebase';
 import {
     BookOpen, Languages, Target, Flame, Trophy, Clock,
-    ArrowRight, Sparkles, Zap
+    ArrowRight, Sparkle, Zap
 } from 'lucide-react';
 import { ROUTES } from '../../router';
 import BookVocabSyncChecker from '../ui/BookVocabSyncChecker';
@@ -104,7 +104,7 @@ const HomeScreen = ({
             id: 'add',
             title: 'Thêm từ vựng',
             subtitle: 'Mở rộng vốn từ của bạn',
-            icon: Sparkles,
+            icon: Sparkle,
             bgColor: 'bg-[#EEF7F6] dark:bg-teal-950/20 border-teal-100/50 dark:border-teal-900/30',
             textColor: 'text-[#1E4D4A] dark:text-teal-300',
             iconColor: 'text-[#2C7A7B] dark:text-teal-400',
@@ -198,7 +198,7 @@ const HomeScreen = ({
                 <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div>
                         <div className="flex items-center gap-1.5 mb-1.5">
-                            <Sparkles className="w-4 h-4 text-[#2E5B70] dark:text-sky-400" />
+                            <Sparkle className="w-4 h-4 text-[#2E5B70] dark:text-sky-400" />
                             <span className="text-xs md:text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">{getGreeting()}</span>
                         </div>
                         <h1 className="text-2xl md:text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight mb-2">
@@ -303,7 +303,7 @@ const HomeScreen = ({
             <div className="bg-[#FFF9E6] dark:bg-amber-950/20 rounded-2xl p-4 border border-amber-200/50 dark:border-amber-900/30 flex-shrink-0 mx-1 mb-1">
                 <div className="flex items-start gap-3">
                     <div className="w-8 h-8 bg-amber-100 dark:bg-amber-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Sparkles className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                        <Sparkle className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                     </div>
                     <div>
                         <p className="text-xs text-amber-800 dark:text-amber-300 font-semibold mb-0.5">Mẹo học tập hôm nay</p>

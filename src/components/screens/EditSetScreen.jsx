@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Plus, Loader2, Image as ImageIcon, Check, X, Sparkles } from 'lucide-react'
+import { Plus, Loader2, Image as ImageIcon, Check, X, Sparkle } from 'lucide-react'
 
 import { compressImage } from '../../utils/image';
 import { TopTabBar } from '../ui';

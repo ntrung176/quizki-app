@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
-import { ChevronRight, ChevronLeft, X, Sparkles, Settings, Plus, Trash2, ArrowUp, ArrowDown, Copy, Download, Upload } from 'lucide-react';
+import { ChevronRight, ChevronLeft, X, Sparkle, Settings, Plus, Trash2, ArrowUp, ArrowDown, Copy, Download, Upload } from 'lucide-react';
 import { auth } from '../../config/firebase';
 
 const ONBOARDING_KEY = 'quizki-onboarding-done-v3';
@@ -694,7 +694,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                             <div className="p-5 pb-3">
                                 <div className="flex items-start gap-3">
                                     <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/30">
-                                        <Sparkles className="w-5 h-5 text-white" />
+                                        <Sparkle className="w-5 h-5 text-white" />
                                     </div>
                                     <div className="flex-1 min-w-0">
                                         <h3 className="text-[15px] font-bold text-white leading-tight">{previewCurrentStep.title}</h3>
@@ -735,7 +735,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                         className="flex items-center gap-1 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-bold transition-colors shadow-lg shadow-indigo-600/30"
                                     >
                                         {step === activeSteps.length - 1 ? (
-                                            <>Hoàn thành <Sparkles className="w-3.5 h-3.5" /></>
+                                            <>Hoàn thành <Sparkle className="w-3.5 h-3.5" /></>
                                         ) : (
                                             <>Tiếp theo <ChevronRight className="w-3.5 h-3.5" /></>
                                         )}

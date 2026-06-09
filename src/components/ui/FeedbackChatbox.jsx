@@ -284,7 +284,7 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
                                 <h3 className="text-sm font-bold leading-none">Hỗ trợ & Báo lỗi</h3>
                                 <div className="flex items-center gap-1 mt-1">
                                     <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-                                    <span className="text-[10px] text-white/80 font-medium">Bản hồi trong vài phút</span>
+                                    <span className="text-[10px] text-white/80 font-medium">Phản hồi trong vài phút</span>
                                 </div>
                             </div>
                         </div>

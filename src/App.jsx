@@ -237,7 +237,7 @@ const App = () => {
             if (expiryTime && expiryTime < Date.now()) {
                 overrides.isPremiumUnlocked = false;
                 overrides.unlockedSpecializedPackages = (rawProfile.unlockedSpecializedPackages || []).filter(
-                    pkg => !['premium_1y', 'premium_3y', 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'].includes(pkg)
+                    pkg => !['premium_1m', 'premium_1y', 'premium_3y', 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'].includes(pkg)
                 );
             }
         }
@@ -248,6 +248,9 @@ const App = () => {
             if (tier === 'free') {
                 overrides.isPremiumUnlocked = false;
                 overrides.unlockedSpecializedPackages = [];
+            } else if (tier === 'premium_1m') {
+                overrides.isPremiumUnlocked = true;
+                overrides.unlockedSpecializedPackages = ['premium_1m', 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'];
             } else if (tier === 'premium_1y') {
                 overrides.isPremiumUnlocked = true;
                 overrides.unlockedSpecializedPackages = ['premium_1y', 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'];
@@ -3319,6 +3322,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     score: score,
                     isPremium: (profile.unlockedSpecializedPackages && (
                         profile.unlockedSpecializedPackages.includes('premium') ||
+                        profile.unlockedSpecializedPackages.includes('premium_1m') ||
                         profile.unlockedSpecializedPackages.includes('premium_1y') ||
                         profile.unlockedSpecializedPackages.includes('premium_3y') ||
                         profile.unlockedSpecializedPackages.includes('vocab_zen') ||

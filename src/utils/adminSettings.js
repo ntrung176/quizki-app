@@ -8,6 +8,20 @@ const ADMIN_CONFIG_DOC = 'adminConfig';
 export const DEFAULT_AI_PACKAGES = [];
 export const DEFAULT_SPECIALIZED_PACKAGES = [
     {
+        id: 'premium_1m',
+        name: 'Gói Premium 1 Tháng',
+        icon: 'Crown',
+        description: 'Mở khóa toàn bộ tính năng cao cấp và học phần chuyên sâu trong thời hạn 1 tháng.',
+        originalPrice: 39000,
+        salePrice: 19000,
+        unlockedFeatures: [
+            '[Premium] Mở khóa tất cả tính năng: Từ vựng Zen, Ngữ pháp Zen, Kanji Zen, Luyện thi JLPT',
+            '[Premium] Thuật toán Spaced Repetition (SRS) nhắc nhở học thông minh tự động',
+            '🤖 Không giới hạn lượt tạo từ vựng và câu ví dụ thông minh bằng AI',
+            '🔊 Phát âm chuẩn giọng đọc bản xứ không giới hạn'
+        ]
+    },
+    {
         id: 'premium_1y',
         name: 'Gói Premium 1 Năm',
         icon: 'Crown',
@@ -299,10 +313,10 @@ const approveCreditRequest = async (requestId, userId, credits, adminUserId) => 
             if (packageId.startsWith('premium')) {
                 const profileSnap = await getDoc(profileRef);
                 const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
-                const bonusCredits = packageId === 'premium_3y' ? 6000 : (packageId === 'premium_1y' ? 2000 : 0);
+                const bonusCredits = packageId === 'premium_3y' ? 6000 : (packageId === 'premium_1y' ? 2000 : (packageId === 'premium_1m' ? 200 : 0));
                 
                 // Calculate expiration date (extending if already active)
-                const durationMs = packageId === 'premium_3y' ? 3 * 365 * 24 * 60 * 60 * 1000 : 365 * 24 * 60 * 60 * 1000;
+                const durationMs = packageId === 'premium_3y' ? 3 * 365 * 24 * 60 * 60 * 1000 : (packageId === 'premium_1y' ? 365 * 24 * 60 * 60 * 1000 : 30 * 24 * 60 * 60 * 1000);
                 const currentExpiry = profileSnap.exists() ? (profileSnap.data().premiumExpiresAt || 0) : 0;
                 const currentExpiryMs = currentExpiry?.toDate ? currentExpiry.toDate().getTime() : Number(currentExpiry || 0);
                 const baseTime = currentExpiryMs > Date.now() ? currentExpiryMs : Date.now();
@@ -373,17 +387,17 @@ export const manuallyApplyPackageToUser = async (userId, userName, userEmail, pa
             creditsValue = 'specialized:' + packageInfo.id;
             const profileSnap = await getDoc(profileRef);
             const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
-            const bonusCredits = packageInfo.id === 'premium_3y' ? 6000 : (packageInfo.id === 'premium_1y' ? 2000 : 0);
+            const bonusCredits = packageInfo.id === 'premium_3y' ? 6000 : (packageInfo.id === 'premium_1y' ? 2000 : (packageInfo.id === 'premium_1m' ? 200 : 0));
             
             // Calculate expiration date (extending if already active)
-            const durationMs = packageInfo.id === 'premium_3y' ? 3 * 365 * 24 * 60 * 60 * 1000 : 365 * 24 * 60 * 60 * 1000;
+            const durationMs = packageInfo.id === 'premium_3y' ? 3 * 365 * 24 * 60 * 60 * 1000 : (packageInfo.id === 'premium_1y' ? 365 * 24 * 60 * 60 * 1000 : 30 * 24 * 60 * 60 * 1000);
             const currentExpiry = profileSnap.exists() ? (profileSnap.data().premiumExpiresAt || 0) : 0;
             const currentExpiryMs = currentExpiry?.toDate ? currentExpiry.toDate().getTime() : Number(currentExpiry || 0);
             const baseTime = currentExpiryMs > Date.now() ? currentExpiryMs : Date.now();
             const premiumExpiresAt = baseTime + durationMs;
 
             const updateFields = {
-                unlockedSpecializedPackages: ['premium_1y', 'premium_3y', 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'].filter(p => p === packageInfo.id || p !== 'premium_1y' && p !== 'premium_3y' || p === 'premium_1y' && packageInfo.id === 'premium_1y' || p === 'premium_3y' && packageInfo.id === 'premium_3y'),
+                unlockedSpecializedPackages: ['premium_1m', 'premium_1y', 'premium_3y', 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'].filter(p => p === packageInfo.id || !['premium_1m', 'premium_1y', 'premium_3y'].includes(p)),
                 isPremiumUnlocked: true,
                 aiCreditsRemaining: currentCredits + bonusCredits,
                 premiumExpiresAt
@@ -507,10 +521,10 @@ export const processPaymentSecurely = async (transactionId, orderCode, userId, c
             if (typeof credits === 'string' && credits.startsWith('specialized:')) {
                 const packageId = credits.replace('specialized:', '');
                 if (packageId.startsWith('premium')) {
-                    const bonusCredits = packageId === 'premium_3y' ? 6000 : (packageId === 'premium_1y' ? 2000 : 0);
+                    const bonusCredits = packageId === 'premium_3y' ? 6000 : (packageId === 'premium_1y' ? 2000 : (packageId === 'premium_1m' ? 200 : 0));
                     
                     // Calculate expiration date (extending if already active)
-                    const durationMs = packageId === 'premium_3y' ? 3 * 365 * 24 * 60 * 60 * 1000 : 365 * 24 * 60 * 60 * 1000;
+                    const durationMs = packageId === 'premium_3y' ? 3 * 365 * 24 * 60 * 60 * 1000 : (packageId === 'premium_1y' ? 365 * 24 * 60 * 60 * 1000 : 30 * 24 * 60 * 60 * 1000);
                     const currentExpiry = profileSnap.exists() ? (profileSnap.data().premiumExpiresAt || 0) : 0;
                     const currentExpiryMs = currentExpiry?.toDate ? currentExpiry.toDate().getTime() : Number(currentExpiry || 0);
                     const baseTime = currentExpiryMs > Date.now() ? currentExpiryMs : Date.now();

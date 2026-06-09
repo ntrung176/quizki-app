@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, ShieldAlert, Zap, Award, Sparkles } from 'lucide-react';
+import { X, ShieldAlert, Zap, Award, Sparkle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router';
 
@@ -41,7 +41,7 @@ const PremiumLockedModal = ({ isOpen, onClose, pkgName = 'Premium' }) => {
                     <div className="relative w-20 h-20 mx-auto flex items-center justify-center">
                         <div className="absolute inset-0 bg-gradient-to-tr from-amber-500 to-rose-500 rounded-3xl opacity-20 blur-lg animate-pulse" />
                         <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 to-rose-500 flex items-center justify-center text-white shadow-xl shadow-amber-500/20">
-                            <Sparkles className="w-8 h-8 animate-bounce" />
+                            <Sparkle className="w-8 h-8 animate-bounce" />
                         </div>
                     </div>
 

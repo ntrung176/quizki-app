@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useSearchParams, useParams, useNavigate, useLocation } from 'react-router-dom';
-import { Search, Grid, PenTool, BookOpen, Folder, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw, ChevronUp, ChevronDown, Sparkles, Bookmark } from 'lucide-react'
+import { Search, Grid, PenTool, BookOpen, Folder, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw, ChevronUp, ChevronDown, Sparkle, Bookmark } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
 import { getAuth } from 'firebase/auth';
 import { recordRecentKanji } from '../../utils/kanjiHistory';
@@ -2090,7 +2090,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             {!editingKanji.id && (
                                 <div className="p-3 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl mb-2">
                                     <label className="text-xs font-bold text-indigo-700 dark:text-indigo-400 mb-1 block flex items-center gap-1">
-                                        <Sparkles className="w-3 h-3" /> Paste dữ liệu JSON Kanji (nếu có)
+                                        <Sparkle className="w-3 h-3" /> Paste dữ liệu JSON Kanji (nếu có)
                                     </label>
                                     <textarea
                                         placeholder={`{ "character": "...", "meaning": "...", "onyomi": "...", "hanViet": "...", ... }`}

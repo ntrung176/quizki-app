@@ -4,7 +4,7 @@ import { PremiumLockedModal } from '../ui';
 import { collection, query, onSnapshot, orderBy, doc, updateDoc } from 'firebase/firestore'
 import { db, appId } from '../../config/firebase';
 import { Link, useNavigate } from 'react-router-dom';
-import { FileCheck, Play, ChevronRight, ChevronLeft, Maximize, Minimize, X, Check, CheckCircle, XCircle, Languages, BookOpen, FileText, Headphones, Timer, Volume2, AlertTriangle, Award, Lock, Unlock, Crown, Calendar, Edit3, Settings, Sparkles, ShieldAlert } from 'lucide-react'
+import { FileCheck, Play, ChevronRight, ChevronLeft, Maximize, Minimize, X, Check, CheckCircle, XCircle, Languages, BookOpen, FileText, Headphones, Timer, Volume2, AlertTriangle, Award, Lock, Unlock, Crown, Calendar, Edit3, Settings, Sparkle, ShieldAlert } from 'lucide-react'
 import { ROUTES } from '../../router';
 import { aiTranslateSentence } from '../../utils/aiProvider';
 import { playCompletionFanfare } from '../../utils/soundEffects';

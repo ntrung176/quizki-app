@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, Eye, Lightbulb, Sparkles, X, Loader2, Award, ClipboardCheck, Save, Trash2, Edit2, FileJson } from 'lucide-react'
+import { ArrowLeft, CheckCircle, Eye, Lightbulb, Sparkle, X, Loader2, Award, ClipboardCheck, Save, Trash2, Edit2, FileJson } from 'lucide-react'
 import { fetchGrammarPointById, updateGrammarPoint } from '../../utils/grammarService';
 import { aiCheckGrammarAnswer } from '../../utils/aiProvider';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare } from '../../utils/soundEffects';
@@ -544,7 +544,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                                             {ai && (
                                                 <div className={`mt-3 px-4 py-3.5 rounded-xl border transition-all ${ai.isCorrect ? 'bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800/40 text-emerald-900 dark:text-emerald-200' : 'bg-amber-50/60 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800/40 text-amber-900 dark:text-amber-200'}`}>
                                                     <div className="flex items-center gap-2 mb-2 pb-1.5 border-b border-slate-200/40 dark:border-slate-700/40">
-                                                        <Sparkles className="w-4 h-4 text-indigo-500 animate-pulse" />
+                                                        <Sparkle className="w-4 h-4 text-indigo-500 animate-pulse" />
                                                         <span className="text-xs font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">AI Đánh Giá Chi Tiết</span>
                                                         <span className={`ml-auto text-sm font-black px-2 py-0.5 rounded-full ${ai.score >= 80 ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300' : ai.score >= 50 ? 'bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300' : 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300'}`}>{ai.score}/100</span>
                                                     </div>
@@ -585,7 +585,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                                             <div className="flex flex-wrap items-center gap-2.5 mt-4">
                                                 <button onClick={() => handleAiCheck(id)} disabled={!translateAnswers[id]?.trim() || isAiLoading}
                                                     className="px-4 py-2 bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white text-sm font-bold rounded-xl disabled:opacity-40 flex items-center gap-1.5">
-                                                    {isAiLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />} AI đánh giá
+                                                    {isAiLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkle className="w-4 h-4" />} AI đánh giá
                                                 </button>
                                                 <button onClick={() => setShowTranslateAnswer(p => ({ ...p, [id]: true }))}
                                                     className="px-4 py-2 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 text-sm font-bold rounded-xl hover:bg-slate-50 flex items-center gap-1.5">

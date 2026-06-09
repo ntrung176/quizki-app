@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Search, Users, Sparkles } from 'lucide-react'
+import { Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Search, Users, Sparkle } from 'lucide-react'
 import { collection, query, onSnapshot } from 'firebase/firestore';
 import { auth, db, appId } from '../../config/firebase';
 import LoadingIndicator from '../ui/LoadingIndicator';
@@ -666,7 +666,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
             {/* Scoring System Info */}
             <div className="bg-indigo-50/50 dark:bg-indigo-900/10 p-5 rounded-3xl border border-indigo-100 dark:border-indigo-950/40">
                 <h4 className="text-sm font-bold text-indigo-700 dark:text-indigo-300 mb-2 flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-indigo-500 fill-indigo-100 dark:fill-indigo-900/30" />
+                    <Sparkle className="w-4 h-4 text-indigo-500 fill-indigo-100 dark:fill-indigo-900/30" />
                     Quy định tính điểm vinh danh (Chăm chỉ) ⭐
                 </h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">

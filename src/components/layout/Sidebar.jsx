@@ -4,7 +4,7 @@ import { signOut } from 'firebase/auth';
 import { auth, db, appId } from '../../config/firebase';
 import { collection, query, onSnapshot } from 'firebase/firestore';
 import { ROUTES } from '../../router';
-import { Home, BookOpen, Plus, LogOut, Sun, Moon, Sparkles, ChevronRight, X, List, Repeat2, FileCheck, Languages, Shield, ChevronDown, Trophy, Crown, User, Bell, MessageSquare } from 'lucide-react'
+import { Home, BookOpen, Plus, LogOut, Sun, Moon, Sparkle, ChevronRight, X, List, Repeat2, FileCheck, Languages, Shield, ChevronDown, Trophy, Crown, User, Bell, MessageSquare } from 'lucide-react'
 // Sidebar Component - Navigation with submenu support
 const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allCards = [], isPremium = false, avatar }) => {
     const navigate = useNavigate();
@@ -208,7 +208,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                                 <div className="flex items-start gap-3">
                                     <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${isRead ? 'bg-slate-200/50 dark:bg-slate-700' : 'bg-indigo-100 dark:bg-indigo-900/40'
                                         }`}>
-                                        <Sparkles className={`w-4 h-4 ${isRead ? 'text-slate-500' : 'text-indigo-600 dark:text-indigo-400'}`} />
+                                        <Sparkle className={`w-4 h-4 ${isRead ? 'text-slate-500' : 'text-indigo-600 dark:text-indigo-400'}`} />
                                     </div>
                                     <div className="overflow-hidden">
                                         <h4 className={`font-bold text-xs truncate ${isRead ? 'text-slate-600 dark:text-slate-400' : 'text-slate-800 dark:text-white'}`}>

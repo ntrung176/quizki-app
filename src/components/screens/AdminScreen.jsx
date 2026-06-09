@@ -3,7 +3,7 @@ import LoadingIndicator from '../ui/LoadingIndicator';
 import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc, addDoc, where, serverTimestamp, setDoc } from 'firebase/firestore'
 import * as XLSX from 'xlsx';
 import { db, appId } from '../../config/firebase';
-import { Users, Search, Shield, Trash2, BarChart3, Clock, AlertTriangle, CheckCircle, Loader2, Languages, BookOpen, Sparkles, Bot, UserCheck, UserX, ToggleLeft, ToggleRight, Settings, Crown, ShieldCheck, ChevronLeft, CreditCard, Plus, Check, X as XIcon, Ticket, DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send, MessageSquare, Image as ImageIcon } from 'lucide-react'
+import { Users, Search, Shield, Trash2, BarChart3, Clock, AlertTriangle, CheckCircle, Loader2, Languages, BookOpen, Sparkle, Bot, UserCheck, UserX, ToggleLeft, ToggleRight, Settings, Crown, ShieldCheck, ChevronLeft, CreditCard, Plus, Check, X as XIcon, Ticket, DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send, MessageSquare, Image as ImageIcon } from 'lucide-react'
 import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, AI_FEATURES, addModerator, removeModerator, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense, manuallyApplyPackageToUser, sendGlobalNotification, deleteGlobalNotification } from '../../utils/adminSettings'
 import { showConfirm } from '../../utils/toast';
 
@@ -159,6 +159,8 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                         setSelectedUserPackageState('premium_3y');
                     } else if (unlocked.includes('premium_1y')) {
                         setSelectedUserPackageState('premium_1y');
+                    } else if (unlocked.includes('premium_1m')) {
+                        setSelectedUserPackageState('premium_1m');
                     } else {
                         setSelectedUserPackageState('free');
                     }
@@ -184,7 +186,11 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             let isPremiumUnlocked = false;
             let premiumExpiresAt = null;
 
-            if (selectedUserPackageState === 'premium_1y') {
+            if (selectedUserPackageState === 'premium_1m') {
+                unlockedSpecializedPackages = ['premium_1m', 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'];
+                isPremiumUnlocked = true;
+                premiumExpiresAt = Date.now() + 30 * 24 * 60 * 60 * 1000;
+            } else if (selectedUserPackageState === 'premium_1y') {
                 unlockedSpecializedPackages = ['premium_1y', 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'];
                 isPremiumUnlocked = true;
                 premiumExpiresAt = Date.now() + 365 * 24 * 60 * 60 * 1000;
@@ -235,6 +241,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         
         // 1. Check profile/public stats fields
         if (u.unlockedSpecializedPackages && Array.isArray(u.unlockedSpecializedPackages)) {
+            const has1m = u.unlockedSpecializedPackages.includes('premium_1m');
             const has1y = u.unlockedSpecializedPackages.includes('premium_1y');
             const has3y = u.unlockedSpecializedPackages.includes('premium_3y');
             const hasLegacy = u.unlockedSpecializedPackages.includes('premium') || u.isPremium;
@@ -250,6 +257,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             if (!isExpired) {
                 if (has3y) activePlan = 'premium_3y';
                 else if (has1y) activePlan = 'premium_1y';
+                else if (has1m) activePlan = 'premium_1m';
                 else if (hasLegacy) activePlan = 'premium';
             }
         } else if (u.isPremium) {
@@ -279,9 +287,11 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                 const userApprovedRequests = creditRequests.filter(r => r.userId === u.userId && r.status === 'approved');
                 const has3yReq = userApprovedRequests.some(r => r.packageId === 'premium_3y');
                 const has1yReq = userApprovedRequests.some(r => r.packageId === 'premium_1y');
+                const has1mReq = userApprovedRequests.some(r => r.packageId === 'premium_1m');
                 
                 if (has3yReq) activePlan = 'premium_3y';
                 else if (has1yReq) activePlan = 'premium_1y';
+                else if (has1mReq) activePlan = 'premium_1m';
                 else activePlan = 'premium';
             }
         }
@@ -546,6 +556,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
 
         // Find package info
         const pkgOptions = [
+            { id: 'premium_1m', name: 'Gói Premium 1 Tháng', type: 'premium' },
             { id: 'premium_1y', name: 'Gói Premium 1 Năm', type: 'premium' },
             { id: 'premium_3y', name: 'Gói Premium 3 Năm', type: 'premium' }
         ];
@@ -689,6 +700,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg outline-none dark:text-white"
                             >
                                 <option value="all">Tất cả gói</option>
+                                <option value="premium_1m">👑 Gói Premium 1 Tháng</option>
                                 <option value="premium_1y">👑 Gói Premium 1 Năm</option>
                                 <option value="premium_3y">👑 Gói Premium 3 Năm</option>
                                 <option value="free">👤 Gói Miễn Phí</option>
@@ -772,6 +784,9 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                                         if (activePlan === 'premium_1y') {
                                                                             return <span className="text-[10px] text-amber-700 bg-amber-50 dark:bg-amber-950/20 px-1.5 py-0.5 rounded font-black">👑 1 NĂM</span>;
                                                                         }
+                                                                        if (activePlan === 'premium_1m') {
+                                                                            return <span className="text-[10px] text-amber-700 bg-amber-50 dark:bg-amber-950/20 px-1.5 py-0.5 rounded font-black">👑 1 THÁNG</span>;
+                                                                        }
                                                                         if (activePlan === 'premium') {
                                                                             return <span className="text-[10px] text-indigo-500 bg-indigo-50 dark:bg-indigo-950/20 px-1.5 py-0.5 rounded font-bold">👑 PREMIUM</span>;
                                                                         }
@@ -830,6 +845,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                         <p className="text-sm font-bold text-gray-800 dark:text-white mt-0.5">
                                                             {selectedUserPackageState === 'premium_3y' ? '👑 Premium 3 Năm' : 
                                                              selectedUserPackageState === 'premium_1y' ? '👑 Premium 1 Năm' : 
+                                                             selectedUserPackageState === 'premium_1m' ? '👑 Premium 1 Tháng' : 
                                                              'Gói Miễn Phí'}
                                                         </p>
                                                     </div>
@@ -851,6 +867,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                         className="w-full px-3 py-2 bg-white dark:bg-gray-850 border border-gray-250 dark:border-slate-650 rounded-xl text-xs font-semibold text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none"
                                                     >
                                                         <option value="free">Gói Miễn Phí (Default)</option>
+                                                        <option value="premium_1m">👑 Gói Premium 1 Tháng</option>
                                                         <option value="premium_1y">👑 Gói Premium 1 Năm</option>
                                                         <option value="premium_3y">👑 Gói Premium 3 Năm</option>
                                                     </select>

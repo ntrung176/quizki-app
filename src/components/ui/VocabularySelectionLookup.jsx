@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { Volume2, Sparkles, BookOpen, Plus, Loader2, X, ChevronDown, Check, AlertCircle, Crown, Folder, ArrowLeft } from 'lucide-react';
+import { Volume2, Sparkle, BookOpen, Plus, Loader2, X, ChevronDown, Check, AlertCircle, Crown, Folder, ArrowLeft } from 'lucide-react';
 import PremiumLockedModal from './PremiumLockedModal';
 import { aiAssistVocab, aiTranslateSentence } from '../../utils/aiProvider';
 import { getSinoVietnamese } from '../../utils/kanjiHVLookup';
@@ -453,7 +453,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                     style={{ left: `${horizontalOffset}px` }}
                 >
                     {isPremiumUnlocked ? (
-                        <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-amber-300 animate-pulse" />
+                        <Sparkle className="w-3.5 h-3.5 text-amber-300 fill-amber-300 animate-pulse" />
                     ) : (
                         <Crown className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
                     )}
@@ -576,7 +576,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                 onClick={handleLookup}
                                 className="w-full mt-3 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white rounded-xl text-xs font-black shadow-md shadow-indigo-100 dark:shadow-none transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                             >
-                                <Sparkles className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
+                                <Sparkle className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
                                 Tra cứu mở rộng bằng AI
                             </button>
                         </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
     MessageSquare, Mic, MicOff, Volume2, VolumeX, Eye, EyeOff, 
-    ArrowLeft, Settings, Sparkles, AlertCircle, CheckCircle2, 
+    ArrowLeft, Settings, Sparkle, AlertCircle, CheckCircle2, 
     Play, Send, RefreshCw, Star, Info, Languages
 } from 'lucide-react';
 import { callKaiwaAI, parseJsonFromAI, callWhisperSTT, callOpenAITTS } from '../../utils/aiProvider';
@@ -488,7 +488,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                     {/* Header */}
                     <div className="text-center md:text-left space-y-2">
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-800 text-indigo-700 dark:text-indigo-400 font-bold text-xs uppercase tracking-wider">
-                            <Sparkles className="w-3.5 h-3.5 animate-pulse" />
+                            <Sparkle className="w-3.5 h-3.5 animate-pulse" />
                             Độc quyền AI Agent
                         </div>
                         <h1 className="text-3xl md:text-4xl font-extrabold text-slate-800 dark:text-white bg-clip-text bg-gradient-to-r from-slate-800 via-indigo-950 to-slate-800 dark:from-white dark:via-indigo-200 dark:to-white">

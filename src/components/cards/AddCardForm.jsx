@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Languages, Sparkles, ChevronDown, CreditCard, Trash2 } from 'lucide-react'
+import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Languages, Sparkle, ChevronDown, CreditCard, Trash2 } from 'lucide-react'
 import { POS_TYPES } from '../../config/constants'
 import { compressImage } from '../../utils/image';
 

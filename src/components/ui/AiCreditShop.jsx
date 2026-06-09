@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Sparkles, Zap, Star, Crown, Gift, Check, CreditCard, CheckCircle, Loader2, QrCode, Copy, Ticket, X, ArrowLeft, ChevronRight, Settings, BookOpen, Languages, Trophy, AlertTriangle, Trash2, Plus } from 'lucide-react'
+import { Sparkle, Zap, Star, Crown, Gift, Check, CreditCard, CheckCircle, Loader2, QrCode, Copy, Ticket, X, ArrowLeft, ChevronRight, Settings, BookOpen, Languages, Trophy, AlertTriangle, Trash2, Plus } from 'lucide-react'
 import { submitCreditRequest, DEFAULT_AI_PACKAGES, DEFAULT_SPECIALIZED_PACKAGES, validateVoucher, calculateDiscountedPrice, useVoucher, processPaymentSecurely, submitAndApproveCreditRequest, updateAdminConfig } from '../../utils/adminSettings';
 import { generateOrderCode, generateVietQR, checkPaymentStatus, getSepayToken } from '../../utils/sepayPayment';
 import { sendAIPurchaseSuccessEmail } from '../../utils/email';
@@ -7,6 +7,7 @@ import { doc, updateDoc } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
 
 const ICONS = {
+    premium_1m: Crown,
     premium_1y: Crown,
     premium_3y: Crown,
     premium: Crown,
@@ -15,12 +16,13 @@ const ICONS = {
     best_value: Crown,
     ultimate: Gift,
     vocab_zen: BookOpen,
-    grammar_zen: Sparkles,
+    grammar_zen: Sparkle,
     kanji_zen: Languages,
     jlpt_prep: Trophy
 };
 
 const COLORS = {
+    premium_1m: 'from-amber-500 to-orange-500',
     premium_1y: 'from-amber-500 to-orange-500',
     premium_3y: 'from-amber-500 to-orange-600',
     premium: 'from-amber-500 to-orange-600',
@@ -35,6 +37,7 @@ const COLORS = {
 };
 
 const BG_LIGHT = {
+    premium_1m: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
     premium_1y: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
     premium_3y: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
     premium: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
@@ -709,6 +712,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                     >
                                         <option value="">Không giả lập (Dùng gói thực tế)</option>
                                         <option value="free">Gói MIỄN PHÍ (Giới hạn 3 học phần, tối đa 20 từ/học phần)</option>
+                                        <option value="premium_1m">Gói Premium 1 Tháng (Mở khóa toàn bộ tính năng, không giới hạn AI)</option>
                                         <option value="premium_1y">Gói Premium 1 Năm (Mở khóa toàn bộ tính năng, không giới hạn AI)</option>
                                         <option value="premium_3y">Gói Premium 3 Năm (Mở khóa toàn bộ tính năng, không giới hạn AI)</option>
                                     </select>
@@ -719,7 +723,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         {/* Phần 2: Giả lập các gói chuyên sâu Zen */}
                         <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-5 bg-slate-50/50 dark:bg-slate-900/30">
                             <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-1.5 font-bold">
-                                <Sparkles className="w-4 h-4 text-purple-500" />
+                                <Sparkle className="w-4 h-4 text-purple-500" />
                                 2. Mở khóa Gói tính năng chuyên sâu Zen
                             </h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">

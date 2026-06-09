@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Sparkles, Upload, Image as ImageIcon, X, Play, StopCircle, Loader2, CheckCircle, AlertTriangle, Camera } from 'lucide-react'
+import { Sparkle, Upload, Image as ImageIcon, X, Play, StopCircle, Loader2, CheckCircle, AlertTriangle, Camera } from 'lucide-react'
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 
@@ -262,7 +262,7 @@ const BatchAiModal = ({
                 <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-700 bg-gradient-to-r from-indigo-50/50 to-purple-50/55 dark:from-slate-900 dark:to-slate-900">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
-                            {activeTab === 'image' ? <ImageIcon className="w-5 h-5" /> : <Sparkles className="w-5 h-5 animate-pulse" />}
+                            {activeTab === 'image' ? <ImageIcon className="w-5 h-5" /> : <Sparkle className="w-5 h-5 animate-pulse" />}
                         </div>
                         <div>
                             <h3 className="font-bold text-slate-800 dark:text-white text-lg">
@@ -364,7 +364,7 @@ const BatchAiModal = ({
                                     {/* Warnings/Credits Info */}
                                     <div className="bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/30 rounded-xl p-3.5 text-xs text-indigo-700 dark:text-indigo-300 space-y-1.5">
                                         <div className="flex items-center gap-1.5 font-bold">
-                                            <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
+                                            <Sparkle className="w-3.5 h-3.5 text-indigo-500" />
                                             Cơ chế hoạt động của AI
                                         </div>
                                         <p className="leading-relaxed">
@@ -398,7 +398,7 @@ const BatchAiModal = ({
                                                 onClick={handleStartOcr}
                                                 className="w-full py-3 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white text-sm font-bold rounded-xl shadow-md shadow-indigo-200 dark:shadow-none hover:shadow-lg transition-all flex items-center justify-center gap-2"
                                             >
-                                                <Sparkles className="w-4 h-4" />
+                                                <Sparkle className="w-4 h-4" />
                                                 Bắt đầu quét & trích xuất từ ảnh
                                             </button>
                                         </div>
@@ -456,7 +456,7 @@ const BatchAiModal = ({
                                     {/* Image Scan Warning */}
                                     <div className="bg-amber-50/60 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/30 rounded-xl p-3.5 text-xs text-amber-700 dark:text-amber-305 space-y-1">
                                         <div className="flex items-center gap-1.5 font-bold">
-                                            <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
+                                            <Sparkle className="w-3.5 h-3.5 text-indigo-500" />
                                             Lưu ý quét ảnh
                                         </div>
                                         <p className="leading-relaxed">
