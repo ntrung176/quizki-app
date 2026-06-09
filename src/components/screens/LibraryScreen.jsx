@@ -67,12 +67,18 @@ const LibraryScreen = ({
     const featuredFolder = useMemo(() => {
         const rootSets = foldersWithCounts.filter(f => !f.parentId);
         if (rootSets.length === 0) return null;
-        return rootSets[0];
+        // Sort root sets by creation time (newest first)
+        const sortedRootSets = [...rootSets].sort((a, b) => {
+            const timeA = a.createdAt?.seconds || (a.createdAt?.toDate ? a.createdAt.toDate().getTime() : 0) || (a.createdAt instanceof Date ? a.createdAt.getTime() : 0) || 0;
+            const timeB = b.createdAt?.seconds || (b.createdAt?.toDate ? b.createdAt.toDate().getTime() : 0) || (b.createdAt instanceof Date ? b.createdAt.getTime() : 0) || 0;
+            return timeB - timeA;
+        });
+        return sortedRootSets[0];
     }, [foldersWithCounts]);
 
-    // Filter Study Sets based on active parent folder and search query
+    // Filter and sort Study Sets based on active parent folder and search query
     const filteredStudySets = useMemo(() => {
-        return foldersWithCounts.filter(f => {
+        const result = foldersWithCounts.filter(f => {
             // Match search
             const matchesSearch = searchQuery 
                 ? (f.name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -91,11 +97,18 @@ const LibraryScreen = ({
 
             return matchesParent;
         });
+
+        // Sắp xếp học phần theo thời gian tạo mới nhất trước đến cũ nhất
+        return result.sort((a, b) => {
+            const timeA = a.createdAt?.seconds || (a.createdAt?.toDate ? a.createdAt.toDate().getTime() : 0) || (a.createdAt instanceof Date ? a.createdAt.getTime() : 0) || 0;
+            const timeB = b.createdAt?.seconds || (b.createdAt?.toDate ? b.createdAt.toDate().getTime() : 0) || (b.createdAt instanceof Date ? b.createdAt.getTime() : 0) || 0;
+            return timeB - timeA;
+        });
     }, [foldersWithCounts, activeParentFolderId, searchQuery]);
 
     // Parent Folders with Study Set counts
     const parentFoldersWithCounts = useMemo(() => {
-        return parentFolders.map(pf => {
+        const result = parentFolders.map(pf => {
             const setsInside = folders.filter(f => f.parentId === pf.id);
             const setsCount = setsInside.length;
             const totalCards = setsInside.reduce((sum, f) => {
@@ -107,6 +120,13 @@ const LibraryScreen = ({
             // Apply search filter if any
             if (!searchQuery) return true;
             return (pf.name || '').toLowerCase().includes(searchQuery.toLowerCase());
+        });
+
+        // Sắp xếp thư mục theo thời gian tạo mới nhất trước đến cũ nhất
+        return result.sort((a, b) => {
+            const timeA = a.createdAt?.seconds || (a.createdAt?.toDate ? a.createdAt.toDate().getTime() : 0) || (a.createdAt instanceof Date ? a.createdAt.getTime() : 0) || 0;
+            const timeB = b.createdAt?.seconds || (b.createdAt?.toDate ? b.createdAt.toDate().getTime() : 0) || (b.createdAt instanceof Date ? b.createdAt.getTime() : 0) || 0;
+            return timeB - timeA;
         });
     }, [parentFolders, folders, allCards, cardFolders, searchQuery]);
 

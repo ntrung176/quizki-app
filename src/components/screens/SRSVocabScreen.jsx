@@ -286,6 +286,14 @@ const SRSVocabScreen = ({
                 };
             })
             .sort((a, b) => {
+                // Ưu tiên hiển thị các học phần có từ vựng ôn tập (dueCards.length > 0)
+                const hasDueA = a.dueCards.length > 0 ? 1 : 0;
+                const hasDueB = b.dueCards.length > 0 ? 1 : 0;
+                if (hasDueB !== hasDueA) {
+                    return hasDueB - hasDueA;
+                }
+
+                // Sắp xếp theo thời gian tạo mới nhất trước đến cũ nhất
                 const timeA = a.createdAt?.seconds || (a.createdAt?.toDate ? a.createdAt.toDate().getTime() : 0) || (a.createdAt instanceof Date ? a.createdAt.getTime() : 0) || 0;
                 const timeB = b.createdAt?.seconds || (b.createdAt?.toDate ? b.createdAt.toDate().getTime() : 0) || (b.createdAt instanceof Date ? b.createdAt.getTime() : 0) || 0;
                 if (timeB !== timeA) {

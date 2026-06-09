@@ -5,6 +5,11 @@ import { shuffleArray } from '../../utils/textProcessing';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
 import { playAudio, speakJapanese } from '../../utils/audio';
+import { db, appId } from '../../config/firebase';
+import { collection, getDocs, doc, writeBatch } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+import { logKanjiActivity } from '../../utils/kanjiHistory';
+import { showToast } from '../../utils/toast';
 
 // Helper: derive human-readable SRS cycle stage from vocab SM-2 fields
 const getSrsCycleLabel = (card) => {
@@ -65,6 +70,144 @@ const StudySetDetail = ({
 }) => {
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [expandedCardIds, setExpandedCardIds] = useState(new Set());
+    const [isAddingKanji, setIsAddingKanji] = useState(false);
+
+    const handleAddKanjiToSrs = async () => {
+        if (isAddingKanji) return;
+        
+        const userId = getAuth().currentUser?.uid;
+        if (!userId) {
+            showToast('Bạn cần đăng nhập để sử dụng tính năng này!', 'error');
+            return;
+        }
+
+        setIsAddingKanji(true);
+        try {
+            // 1. Extract all Kanji characters from card.front
+            const kanjiChars = new Set();
+            setCards.forEach(card => {
+                const matches = card.front?.match(/[\u4e00-\u9faf]/g) || [];
+                matches.forEach(char => kanjiChars.add(char));
+            });
+
+            if (kanjiChars.size === 0) {
+                showToast('Học phần này không chứa chữ Kanji nào!', 'warning');
+                setIsAddingKanji(false);
+                return;
+            }
+
+            // 2. Fetch all Kanji in the Firestore 'kanji' collection
+            const kanjiSnap = await getDocs(collection(db, 'kanji'));
+            const allKanji = kanjiSnap.docs.map(d => ({ id: d.id, character: d.data().character }));
+
+            // Map character to doc ID
+            const kanjiIdMap = {};
+            allKanji.forEach(k => {
+                if (k.character) {
+                    kanjiIdMap[k.character] = k.id;
+                }
+            });
+
+            // Find matching Kanji documents
+            const matchingKanji = [];
+            kanjiChars.forEach(char => {
+                if (kanjiIdMap[char]) {
+                    matchingKanji.push({ id: kanjiIdMap[char], character: char });
+                }
+            });
+
+            if (matchingKanji.length === 0) {
+                showToast('Không tìm thấy chữ Kanji tương ứng trong hệ thống để thêm!', 'warning');
+                setIsAddingKanji(false);
+                return;
+            }
+
+            // 3. Fetch user's existing kanjiSRS
+            const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
+            const existingKanjiIds = new Set(srsSnap.docs.map(doc => doc.id));
+
+            // Filter out already added ones
+            const newKanjiToInitialize = matchingKanji.filter(k => !existingKanjiIds.has(k.id));
+
+            if (newKanjiToInitialize.length === 0) {
+                showToast('Tất cả Kanji trong học phần này đã có trong danh sách học của bạn rồi!', 'info');
+                setIsAddingKanji(false);
+                return;
+            }
+
+            // Open preview modal instead of writing immediately
+            setKanjiPreviewModal({
+                isOpen: true,
+                newKanji: newKanjiToInitialize,
+                selectedIds: new Set(newKanjiToInitialize.map(k => k.id)),
+                allExtractedCount: matchingKanji.length,
+                existingCount: matchingKanji.length - newKanjiToInitialize.length
+            });
+        } catch (e) {
+            console.error('Error preparing Kanji:', e);
+            showToast('Đã xảy ra lỗi khi chuẩn bị danh sách Kanji: ' + e.message, 'error');
+        } finally {
+            setIsAddingKanji(false);
+        }
+    };
+
+    const handleConfirmAddKanji = async () => {
+        const userId = getAuth().currentUser?.uid;
+        if (!userId || kanjiPreviewModal.selectedIds.size === 0) return;
+
+        setIsAddingKanji(true);
+        try {
+            const now = Date.now();
+            const batch = writeBatch(db);
+            
+            // Only write selected Kanji
+            const selectedKanji = kanjiPreviewModal.newKanji.filter(k => kanjiPreviewModal.selectedIds.has(k.id));
+            
+            selectedKanji.forEach(k => {
+                const ref = doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, k.id);
+                batch.set(ref, {
+                    interval: 0,
+                    ease: 2.5,
+                    nextReview: now,
+                    lastReview: now,
+                    reps: 0,
+                    learningStep: null,
+                    isLapsed: false,
+                    lapseCount: 0,
+                    prelapseInterval: null,
+                }, { merge: true });
+            });
+            await batch.commit();
+
+            // Log activity
+            await logKanjiActivity(userId, {
+                type: 'save',
+                title: `Thêm ${selectedKanji.length} Kanji từ học phần`,
+                details: `Thêm từ học phần: ${folder.name || 'Từ vựng lẻ'}`
+            });
+
+            showToast(`Đã thêm thành công ${selectedKanji.length} chữ Kanji mới vào danh sách học!`, 'success');
+            setKanjiPreviewModal(prev => ({ ...prev, isOpen: false }));
+        } catch (e) {
+            console.error('Error adding Kanji to SRS:', e);
+            showToast('Đã xảy ra lỗi khi thêm Kanji vào danh sách: ' + e.message, 'error');
+        } finally {
+            setIsAddingKanji(false);
+        }
+    };
+
+    const togglePreviewKanjiSelect = (id) => {
+        setKanjiPreviewModal(prev => {
+            const nextSelected = new Set(prev.selectedIds);
+            if (nextSelected.has(id)) {
+                nextSelected.delete(id);
+            } else {
+                nextSelected.add(id);
+            }
+            return { ...prev, selectedIds: nextSelected };
+        });
+    };
+
     const toggleCardExpanded = (cardId) => {
         setExpandedCardIds(prev => {
             const next = new Set(prev);
@@ -152,6 +295,13 @@ const StudySetDetail = ({
         cards: []
     });
     const [selectedMasteryMode, setSelectedMasteryMode] = useState('flashcard');
+    const [kanjiPreviewModal, setKanjiPreviewModal] = useState({
+        isOpen: false,
+        newKanji: [],
+        selectedIds: new Set(),
+        allExtractedCount: 0,
+        existingCount: 0
+    });
 
     useEffect(() => {
         setCompletedStates({
@@ -343,6 +493,14 @@ const StudySetDetail = ({
                             <ChevronLeft className="w-5 h-5" /> Trở về Thư viện
                         </button>
                         <div className="flex items-center gap-4">
+                            <button 
+                                onClick={handleAddKanjiToSrs} 
+                                disabled={isAddingKanji}
+                                className="flex items-center gap-1 text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors text-sm font-medium disabled:opacity-50"
+                                title="Thêm các chữ Kanji trong học phần vào danh sách Kanji để học"
+                            >
+                                <BookOpen className="w-4 h-4" /> {isAddingKanji ? 'Đang thêm...' : 'Thêm Kanji học'}
+                            </button>
                             <button onClick={() => onEditSet && onEditSet(folderId)} className="flex items-center gap-1 text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors text-sm font-medium">
                                 <Plus className="w-4 h-4" /> Thêm từ vựng
                             </button>
@@ -1042,6 +1200,100 @@ const StudySetDetail = ({
                                 onClick={folderId === 'unfiled' ? handleDeleteUnfiledCards : handleDeleteFolder}
                                 className="flex-1 py-2.5 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-colors"
                             >Xoá</button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Kanji Preview and Add Confirmation Modal */}
+            {kanjiPreviewModal.isOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setKanjiPreviewModal(prev => ({ ...prev, isOpen: false }))}>
+                    <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+                    <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-lg p-6 space-y-5 border border-gray-200 dark:border-slate-700 animate-fade-in text-slate-800 dark:text-slate-200" onClick={e => e.stopPropagation()}>
+                        <div className="flex items-center gap-3 border-b border-gray-100 dark:border-slate-700/80 pb-3.5">
+                            <div className="w-10 h-10 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 flex items-center justify-center flex-shrink-0">
+                                <BookOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-base text-gray-800 dark:text-white">
+                                    Thêm Kanji vào ôn tập
+                                </h3>
+                                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                                    Học phần: {folder.name}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="space-y-4">
+                            <div className="grid grid-cols-2 gap-3 text-xs">
+                                <div className="p-3 bg-gray-50 dark:bg-slate-750/30 rounded-2xl border border-gray-100 dark:border-slate-700/50">
+                                    <span className="block text-gray-400 dark:text-gray-500 font-semibold mb-0.5">Tổng số Kanji</span>
+                                    <span className="text-base font-extrabold text-slate-750 dark:text-white">{kanjiPreviewModal.allExtractedCount} chữ</span>
+                                </div>
+                                <div className="p-3 bg-gray-50 dark:bg-slate-750/30 rounded-2xl border border-gray-150 dark:border-slate-700/50">
+                                    <span className="block text-gray-400 dark:text-gray-500 font-semibold mb-0.5">Đã học (Bỏ qua)</span>
+                                    <span className="text-base font-extrabold text-emerald-600 dark:text-emerald-450">{kanjiPreviewModal.existingCount} chữ</span>
+                                </div>
+                            </div>
+
+                            <div className="space-y-2">
+                                <div className="flex justify-between items-center text-xs">
+                                    <span className="font-bold text-gray-550 dark:text-gray-400">
+                                        Chọn các chữ muốn thêm ({kanjiPreviewModal.selectedIds.size}/{kanjiPreviewModal.newKanji.length} chữ):
+                                    </span>
+                                    <button 
+                                        type="button"
+                                        onClick={() => {
+                                            setKanjiPreviewModal(prev => {
+                                                const allSelected = prev.selectedIds.size === prev.newKanji.length;
+                                                return {
+                                                    ...prev,
+                                                    selectedIds: allSelected ? new Set() : new Set(prev.newKanji.map(k => k.id))
+                                                };
+                                            });
+                                        }}
+                                        className="text-indigo-650 dark:text-indigo-400 hover:underline font-semibold cursor-pointer"
+                                    >
+                                        {kanjiPreviewModal.selectedIds.size === kanjiPreviewModal.newKanji.length ? 'Bỏ chọn tất cả' : 'Chọn tất cả'}
+                                    </button>
+                                </div>
+                                <div className="flex flex-wrap gap-2.5 max-h-48 overflow-y-auto p-3.5 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-gray-150 dark:border-slate-700/80 no-scrollbar">
+                                    {kanjiPreviewModal.newKanji.map(k => {
+                                        const isSelected = kanjiPreviewModal.selectedIds.has(k.id);
+                                        return (
+                                            <button 
+                                                key={k.id}
+                                                type="button"
+                                                onClick={() => togglePreviewKanjiSelect(k.id)}
+                                                className={`w-11 h-11 rounded-xl border flex items-center justify-center font-bold text-xl font-japanese shadow-sm transition-all duration-200 transform hover:scale-105 active:scale-95 cursor-pointer ${
+                                                    isSelected 
+                                                        ? 'bg-indigo-50 border-indigo-300 text-indigo-700 dark:bg-indigo-950/40 dark:border-indigo-855 dark:text-indigo-305 scale-100 ring-2 ring-indigo-500/15'
+                                                        : 'bg-white border-gray-200 text-gray-400 dark:bg-slate-800/60 dark:border-slate-700/60 opacity-40 line-through'
+                                                }`}
+                                                title={isSelected ? 'Click để bỏ chọn' : 'Click để chọn'}
+                                            >
+                                                {k.character}
+                                            </button>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="flex gap-3 pt-2">
+                            <button 
+                                onClick={() => setKanjiPreviewModal(prev => ({ ...prev, isOpen: false }))} 
+                                className="flex-1 py-3 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-2xl hover:bg-gray-200 dark:hover:bg-slate-650 transition-colors text-sm cursor-pointer"
+                            >
+                                Huỷ
+                            </button>
+                            <button
+                                onClick={handleConfirmAddKanji}
+                                disabled={isAddingKanji || kanjiPreviewModal.selectedIds.size === 0}
+                                className="flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-2xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm shadow-md cursor-pointer"
+                            >
+                                {isAddingKanji ? 'Đang lưu...' : `Xác nhận Lưu (${kanjiPreviewModal.selectedIds.size})`}
+                            </button>
                         </div>
                     </div>
                 </div>
