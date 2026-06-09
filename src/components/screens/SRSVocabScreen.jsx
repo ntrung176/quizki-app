@@ -8,6 +8,8 @@ import { ROUTES } from '../../router';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
 import { calculateAnkiSRS } from '../../utils/srs';
+import { flashCorrect, launchFanfare } from '../../utils/celebrations';
+import { playCorrectSound, playIncorrectSound, playCompletionFanfare } from '../../utils/soundEffects';
 
 // Helper to shuffle array
 const shuffleArray = (array) => {
@@ -397,8 +399,6 @@ const SRSVocabScreen = ({
             // Completed queue
             try {
                 launchFanfare();
-                launchFireworks();
-                playCompletionFanfare();
             } catch (e) {
                 console.error(e);
             }

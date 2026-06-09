@@ -333,11 +333,23 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
 
 
 
-    // Force trigger tour when restart button is clicked
+    const lastTriggerRef = useRef(forceTrigger);
+
+    // Reset tour state and align trigger ref when section changes
     useEffect(() => {
-        if (forceTrigger > 0 && activeSteps.length > 0) {
-            setIsActive(true);
-            setStep(0);
+        setIsActive(false);
+        setStep(0);
+        lastTriggerRef.current = forceTrigger;
+    }, [section]);
+
+    // Force trigger tour when restart button is clicked (only when forceTrigger increments)
+    useEffect(() => {
+        if (forceTrigger > lastTriggerRef.current) {
+            if (activeSteps.length > 0) {
+                setIsActive(prev => !prev);
+                setStep(0);
+            }
+            lastTriggerRef.current = forceTrigger;
         }
     }, [forceTrigger, activeSteps.length]);
 

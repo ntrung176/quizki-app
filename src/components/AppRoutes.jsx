@@ -738,6 +738,8 @@ const AppRoutes = ({
                                 onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
                                 allUserCards={allCards}
                                 profile={profile}
+                                folders={folders}
+                                userId={userId}
                             />
                         </ProtectedRoute>
                     }
@@ -755,6 +757,8 @@ const AppRoutes = ({
                                 onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
                                 allUserCards={allCards}
                                 profile={profile}
+                                folders={folders}
+                                userId={userId}
                             />
                         </ProtectedRoute>
                     }

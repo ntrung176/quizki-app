@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FileCheck, X, Check, Languages, BookOpen, Wrench, ArrowLeft } from 'lucide-react'
 import { shuffleArray } from '../../utils/textProcessing';
 import { celebrateCorrectAnswer, flashCorrect, launchFanfare } from '../../utils/celebrations'
-import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
+import { playCorrectSound, playIncorrectSound } from '../../utils/soundEffects';
 import { showToast } from '../../utils/toast';
 const TestScreen = ({ allCards, onBack }) => {
     const [testMode, setTestMode] = useState(null);
@@ -292,8 +292,6 @@ const TestScreen = ({ allCards, onBack }) => {
     useEffect(() => {
         if (showResult) {
             launchFanfare();
-            launchFireworks();
-            playCompletionFanfare();
         }
     }, [showResult]);
     // Auto-exit after 3 seconds when showing results

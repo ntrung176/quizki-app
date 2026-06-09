@@ -3422,7 +3422,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     }}
                 />;
             case 'KANJI':
-                return <KanjiScreen isAdmin={isAdmin} onAddVocabToSRS={handleSaveNewCard} onGeminiAssist={handleGeminiAssist} allUserCards={allCards} />;
+                return <KanjiScreen isAdmin={isAdmin} onAddVocabToSRS={handleAddCard} onGeminiAssist={handleGeminiAssist} allUserCards={allCards} folders={studySets} userId={userId} />;
             case 'REVIEW':
                 if (reviewCards.length === 0) {
                     return <ReviewCompleteScreen onBack={() => setView('HOME')} />;

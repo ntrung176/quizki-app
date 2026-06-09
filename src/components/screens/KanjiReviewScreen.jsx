@@ -10,7 +10,7 @@ import { getAuth } from 'firebase/auth';
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { formatCountdown, getCardState, calculateAnkiSRS } from '../../utils/srs';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations'
-import { playCorrectSound, playIncorrectSound, playCompletionFanfare, launchFireworks, playFlipSound } from '../../utils/soundEffects';
+import { playCorrectSound, playIncorrectSound, playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
 
@@ -233,7 +233,7 @@ const KanjiReviewScreen = () => {
             setCurrentReviewIndex(prev => prev + 1);
             setIsFlipped(false);
         } else {
-            launchFanfare(); launchFireworks(); playCompletionFanfare();
+            launchFanfare();
             logKanjiActivity(userId, {
                 type: 'review',
                 title: `Đã ôn tập ${reviewQueue.length} chữ Kanji`,

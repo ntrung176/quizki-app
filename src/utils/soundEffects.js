@@ -4,6 +4,26 @@
  * No external audio files needed
  */
 
+// Preload Duolingo sound effects
+let correctAudio = null;
+let wrongAudio = null;
+let completionAudio = null;
+
+try {
+    if (typeof window !== 'undefined') {
+        correctAudio = new Audio('/sfx/duolingo-correct.mp3');
+        correctAudio.preload = 'auto';
+        
+        wrongAudio = new Audio('/sfx/duolingo-wrong.mp3');
+        wrongAudio.preload = 'auto';
+        
+        completionAudio = new Audio('/sfx/duolingo-completed-lesson.mp3');
+        completionAudio.preload = 'auto';
+    }
+} catch (e) {
+    console.warn('Audio preloading failed:', e);
+}
+
 // ==================== SETTINGS ====================
 const SETTINGS_KEY = 'quizki-settings';
 
@@ -34,42 +54,17 @@ export function playCorrectSound() {
     if (!isSfxEnabled()) return;
     const volume = getSfxVolume();
     try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const masterGain = ctx.createGain();
-        masterGain.gain.setValueAtTime(volume * 0.28, ctx.currentTime);
-        masterGain.connect(ctx.destination);
-
-        const now = ctx.currentTime;
-
-        // Bright, premium ascending major 9th chime: C5, E5, G5, B5, D6, G6
-        const notes = [
-            { freq: 523.25, type: 'sine', start: 0, dur: 0.3, vol: 0.5 },
-            { freq: 659.25, type: 'sine', start: 0.04, dur: 0.3, vol: 0.5 },
-            { freq: 783.99, type: 'sine', start: 0.08, dur: 0.3, vol: 0.5 },
-            { freq: 987.77, type: 'triangle', start: 0.12, dur: 0.35, vol: 0.35 },
-            { freq: 1174.66, type: 'triangle', start: 0.16, dur: 0.4, vol: 0.35 },
-            { freq: 1567.98, type: 'sine', start: 0.20, dur: 0.5, vol: 0.45 },
-        ];
-
-        notes.forEach(({ freq, type, start, dur, vol }) => {
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            osc.type = type;
-            osc.frequency.setValueAtTime(freq, now + start);
-
-            gain.gain.setValueAtTime(0, now + start);
-            gain.gain.linearRampToValueAtTime(vol, now + start + 0.02);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + start + dur);
-
-            osc.connect(gain);
-            gain.connect(masterGain);
-            osc.start(now + start);
-            osc.stop(now + start + dur);
-        });
-
-        setTimeout(() => ctx.close(), 1200);
+        let audioToPlay;
+        if (correctAudio) {
+            audioToPlay = correctAudio.paused ? correctAudio : correctAudio.cloneNode(true);
+        } else {
+            audioToPlay = new Audio('/sfx/duolingo-correct.mp3');
+        }
+        audioToPlay.volume = volume;
+        audioToPlay.currentTime = 0;
+        audioToPlay.play().catch(e => console.log('Audio play error:', e));
     } catch (e) {
-        console.log('Sound not available');
+        console.log('Sound not available:', e);
     }
 }
 
@@ -78,125 +73,23 @@ export function playIncorrectSound() {
     if (!isSfxEnabled()) return;
     const volume = getSfxVolume();
     try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const masterGain = ctx.createGain();
-        masterGain.gain.setValueAtTime(volume * 0.35, ctx.currentTime);
-        masterGain.connect(ctx.destination);
-
-        const now = ctx.currentTime;
-
-        // Soft disappointed descending womp: Bb3 -> Gb3
-        const notes = [
-            { freq: 233.08, type: 'triangle', start: 0, dur: 0.18, vol: 0.6 },
-            { freq: 185.00, type: 'triangle', start: 0.12, dur: 0.3, vol: 0.6 },
-        ];
-
-        notes.forEach(({ freq, type, start, dur, vol }) => {
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            const filter = ctx.createBiquadFilter();
-            
-            osc.type = type;
-            osc.frequency.setValueAtTime(freq, now + start);
-            osc.frequency.exponentialRampToValueAtTime(freq * 0.9, now + start + dur);
-
-            filter.type = 'lowpass';
-            filter.frequency.setValueAtTime(600, now + start);
-            filter.frequency.exponentialRampToValueAtTime(150, now + start + dur);
-
-            gain.gain.setValueAtTime(0, now + start);
-            gain.gain.linearRampToValueAtTime(vol, now + start + 0.02);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + start + dur);
-
-            osc.connect(filter);
-            filter.connect(gain);
-            gain.connect(masterGain);
-            osc.start(now + start);
-            osc.stop(now + start + dur);
-        });
-
-        setTimeout(() => ctx.close(), 800);
+        let audioToPlay;
+        if (wrongAudio) {
+            audioToPlay = wrongAudio.paused ? wrongAudio : wrongAudio.cloneNode(true);
+        } else {
+            audioToPlay = new Audio('/sfx/duolingo-wrong.mp3');
+        }
+        audioToPlay.volume = volume;
+        audioToPlay.currentTime = 0;
+        audioToPlay.play().catch(e => console.log('Audio play error:', e));
     } catch (e) {
-        console.log('Sound not available');
+        console.log('Sound not available:', e);
     }
 }
 
 // ==================== FIREWORKS EFFECT (Visual + Sound) ====================
 export function launchFireworks() {
-    if (!isSfxEnabled()) return;
-    const volume = getSfxVolume();
-    try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const masterGain = ctx.createGain();
-        masterGain.gain.setValueAtTime(volume * 0.12, ctx.currentTime);
-        masterGain.connect(ctx.destination);
-
-        // Firework launch whoosh
-        const noise = ctx.createBufferSource();
-        const bufferSize = ctx.sampleRate * 0.5;
-        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-        const data = buffer.getChannelData(0);
-        for (let i = 0; i < bufferSize; i++) {
-            data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.3));
-        }
-        noise.buffer = buffer;
-
-        const noiseFilter = ctx.createBiquadFilter();
-        noiseFilter.type = 'bandpass';
-        noiseFilter.frequency.setValueAtTime(2000, ctx.currentTime);
-        noiseFilter.frequency.linearRampToValueAtTime(6000, ctx.currentTime + 0.3);
-        noiseFilter.Q.setValueAtTime(2, ctx.currentTime);
-
-        const noiseGain = ctx.createGain();
-        noiseGain.gain.setValueAtTime(0.3, ctx.currentTime);
-        noiseGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
-
-        noise.connect(noiseFilter);
-        noiseFilter.connect(noiseGain);
-        noiseGain.connect(masterGain);
-        noise.start(ctx.currentTime);
-
-        // Explosion pops
-        for (let i = 0; i < 3; i++) {
-            const pop = ctx.createOscillator();
-            const popGain = ctx.createGain();
-            const startTime = 0.3 + i * 0.15;
-            pop.type = 'sine';
-            pop.frequency.setValueAtTime(800 + Math.random() * 400, ctx.currentTime + startTime);
-            pop.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + startTime + 0.1);
-
-            popGain.gain.setValueAtTime(0.4, ctx.currentTime + startTime);
-            popGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + startTime + 0.15);
-
-            pop.connect(popGain);
-            popGain.connect(masterGain);
-            pop.start(ctx.currentTime + startTime);
-            pop.stop(ctx.currentTime + startTime + 0.2);
-        }
-
-        // Sparkle cascade
-        const sparkleNotes = [1047, 1175, 1319, 1397, 1568]; // C6 to G6
-        sparkleNotes.forEach((freq, i) => {
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            const startTime = 0.5 + i * 0.06;
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(freq, ctx.currentTime + startTime);
-
-            gain.gain.setValueAtTime(0, ctx.currentTime + startTime);
-            gain.gain.linearRampToValueAtTime(0.2, ctx.currentTime + startTime + 0.01);
-            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + startTime + 0.3);
-
-            osc.connect(gain);
-            gain.connect(masterGain);
-            osc.start(ctx.currentTime + startTime);
-            osc.stop(ctx.currentTime + startTime + 0.35);
-        });
-
-        setTimeout(() => ctx.close(), 2000);
-    } catch (e) {
-        console.log('Sound not available');
-    }
+    // Muted to allow new Duolingo sound effects to play exclusively
 }
 
 // ==================== CLICK SOUND ====================
@@ -258,100 +151,17 @@ export function playCompletionFanfare() {
     if (!isSfxEnabled()) return;
     const volume = getSfxVolume();
     try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const masterGain = ctx.createGain();
-        masterGain.gain.setValueAtTime(volume * 0.22, ctx.currentTime);
-        masterGain.connect(ctx.destination);
-
-        const now = ctx.currentTime;
-
-        // Triumphant chord progression: C major -> F major -> G major -> C major 9th
-        const chords = [
-            {
-                start: 0, dur: 0.18, notes: [
-                    { freq: 261.63, type: 'triangle', vol: 0.3 }, // C4
-                    { freq: 392.00, type: 'triangle', vol: 0.3 }, // G4
-                    { freq: 523.25, type: 'sine', vol: 0.4 },     // C5
-                    { freq: 659.25, type: 'sine', vol: 0.4 },     // E5
-                ]
-            },
-            {
-                start: 0.18, dur: 0.18, notes: [
-                    { freq: 349.23, type: 'triangle', vol: 0.3 }, // F4
-                    { freq: 440.00, type: 'triangle', vol: 0.3 }, // A4
-                    { freq: 523.25, type: 'sine', vol: 0.4 },     // C5
-                    { freq: 698.46, type: 'sine', vol: 0.4 },     // F5
-                ]
-            },
-            {
-                start: 0.36, dur: 0.22, notes: [
-                    { freq: 392.00, type: 'triangle', vol: 0.3 }, // G4
-                    { freq: 493.88, type: 'triangle', vol: 0.3 }, // B4
-                    { freq: 587.33, type: 'sine', vol: 0.4 },     // D5
-                    { freq: 783.99, type: 'sine', vol: 0.4 },     // G5
-                ]
-            },
-            {
-                start: 0.58, dur: 1.2, notes: [
-                    { freq: 261.63, type: 'triangle', vol: 0.3 }, // C4
-                    { freq: 392.00, type: 'triangle', vol: 0.3 }, // G4
-                    { freq: 659.25, type: 'sine', vol: 0.4 },     // E5
-                    { freq: 783.99, type: 'sine', vol: 0.4 },     // G5
-                    { freq: 987.77, type: 'sine', vol: 0.3 },     // B5
-                    { freq: 1174.66, type: 'sine', vol: 0.3 },    // D6
-                    { freq: 1567.98, type: 'sine', vol: 0.2 },    // G6
-                ]
-            }
-        ];
-
-        chords.forEach(({ start, dur, notes }) => {
-            notes.forEach(({ freq, type, vol }) => {
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                const filter = ctx.createBiquadFilter();
-
-                osc.type = type;
-                osc.frequency.setValueAtTime(freq, now + start);
-
-                filter.type = 'lowpass';
-                filter.frequency.setValueAtTime(2000, now + start);
-
-                gain.gain.setValueAtTime(0, now + start);
-                gain.gain.linearRampToValueAtTime(vol, now + start + 0.02);
-                gain.gain.exponentialRampToValueAtTime(0.001, now + start + dur);
-
-                osc.connect(filter);
-                filter.connect(gain);
-                gain.connect(masterGain);
-                osc.start(now + start);
-                osc.stop(now + start + dur);
-            });
-        });
-
-        // Add a sparkling arpeggio sweep at the very end of the final chord
-        const sparkleNotes = [1046.50, 1318.51, 1567.98, 2093.00];
-        sparkleNotes.forEach((freq, idx) => {
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            const start = 0.65 + idx * 0.06;
-            const dur = 0.4;
-
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(freq, now + start);
-
-            gain.gain.setValueAtTime(0, now + start);
-            gain.gain.linearRampToValueAtTime(0.15, now + start + 0.01);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + start + dur);
-
-            osc.connect(gain);
-            gain.connect(masterGain);
-            osc.start(now + start);
-            osc.stop(now + start + dur);
-        });
-
-        setTimeout(() => ctx.close(), 2500);
+        let audioToPlay;
+        if (completionAudio) {
+            audioToPlay = completionAudio.paused ? completionAudio : completionAudio.cloneNode(true);
+        } else {
+            audioToPlay = new Audio('/sfx/duolingo-completed-lesson.mp3');
+        }
+        audioToPlay.volume = volume;
+        audioToPlay.currentTime = 0;
+        audioToPlay.play().catch(e => console.log('Audio play error:', e));
     } catch (e) {
-        console.log('Completion fanfare not available');
+        console.log('Sound not available:', e);
     }
 }
 

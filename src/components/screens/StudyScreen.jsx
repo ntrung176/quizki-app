@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { ArrowLeft, Check, X, BookOpen, RotateCcw, Zap, ChevronRight } from 'lucide-react'
 import { speakJapanese } from '../../utils/audio';
-import { playCorrectSound, playIncorrectSound, launchFireworks } from '../../utils/soundEffects';
+import { playCorrectSound, playIncorrectSound } from '../../utils/soundEffects';
+import { launchFanfare } from '../../utils/celebrations';
 import FuriganaText from '../ui/FuriganaText';
 import { shuffleArray } from '../../utils/textProcessing';
 
@@ -300,7 +301,7 @@ const BatchComplete = ({ batchNum, totalBatches, wordCount, onNext }) => (
 // ─── Session Complete ──────────────────────────────────────────────────────
 const SessionComplete = ({ totalCards, onBack, onRestart }) => {
     useEffect(() => {
-        launchFireworks();
+        launchFanfare();
         const timer = setTimeout(() => {
             onBack();
         }, 3000);

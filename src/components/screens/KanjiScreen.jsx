@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useSearchParams, useParams, useNavigate, useLocation } from 'react-router-dom';
-import { Search, Grid, PenTool, BookOpen, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw, ChevronUp, ChevronDown, Sparkles } from 'lucide-react'
-import { db } from '../../config/firebase';
+import { Search, Grid, PenTool, BookOpen, Folder, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw, ChevronUp, ChevronDown, Sparkles, Bookmark } from 'lucide-react'
+import { db, appId } from '../../config/firebase';
 import { getAuth } from 'firebase/auth';
 import { recordRecentKanji } from '../../utils/kanjiHistory';
-import { collection, getDocs, addDoc, deleteDoc, doc, query, updateDoc } from 'firebase/firestore'
+import { collection, getDocs, addDoc, deleteDoc, doc, query, updateDoc, setDoc } from 'firebase/firestore'
 import { playAudio } from '../../utils/audio';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
 import HanziWriter from 'hanzi-writer';
@@ -35,11 +35,16 @@ const LEVEL_TAB_COLORS = {
     N1: 'bg-rose-500 text-white shadow-md shadow-rose-900/50',
     'Bộ thủ': 'bg-orange-500 text-white shadow-md shadow-orange-200 dark:shadow-orange-900/50',
 };
-const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserCards = [], profile = null }) => {
+const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserCards = [], profile = null, folders = [], userId }) => {
     const [searchParams] = useSearchParams();
     const params = useParams();
     const navigate = useNavigate();
     const location = useLocation();
+
+    // Kanji SRS and Folder select states
+    const [userKanjiSRS, setUserKanjiSRS] = useState(new Set());
+    const [showFolderSelectModal, setShowFolderSelectModal] = useState(false);
+    const [vocabToSave, setVocabToSave] = useState(null);
     
     // Premium Locked states
     const [showPremiumModal, setShowPremiumModal] = useState(false);
@@ -85,6 +90,123 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     const handwritingStrokesRef = useRef([]); // stores [[xs, ys], ...] for each stroke
     const currentStrokeRef = useRef({ xs: [], ys: [] });
     const recognitionTimeoutRef = useRef(null);
+
+    // Load user's saved Kanji SRS items on mount
+    useEffect(() => {
+        const loadUserSRS = async () => {
+            const auth = getAuth();
+            const userId = auth.currentUser?.uid;
+            if (!userId) return;
+            try {
+                const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
+                const ids = srsSnap.docs.map(doc => doc.id);
+                setUserKanjiSRS(new Set(ids));
+            } catch (e) {
+                console.error('Error loading user kanjiSRS:', e);
+            }
+        };
+        loadUserSRS();
+    }, []);
+
+
+    const toggleKanjiSRS = async (e, kanjiChar) => {
+        if (e) e.stopPropagation(); // Stop click from opening detail modal
+        
+        const auth = getAuth();
+        const userId = auth.currentUser?.uid;
+        if (!userId) {
+            showToast('Vui lòng đăng nhập để lưu Kanji', 'error');
+            return;
+        }
+
+        const kanjiDoc = kanjiMap.get(kanjiChar);
+        if (!kanjiDoc || !kanjiDoc.id) {
+            showToast('Chữ Kanji này chưa được khởi tạo trong hệ thống dữ liệu', 'warning');
+            return;
+        }
+
+        const isSRSAdded = userKanjiSRS.has(kanjiDoc.id);
+
+        if (isSRSAdded) {
+            try {
+                await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanjiDoc.id));
+                setUserKanjiSRS(prev => {
+                    const next = new Set(prev);
+                    next.delete(kanjiDoc.id);
+                    return next;
+                });
+                showToast(`Đã xóa ${kanjiChar} khỏi danh sách ôn tập SRS`);
+            } catch (err) {
+                console.error('Error removing from SRS:', err);
+                showToast('Lỗi khi xóa khỏi SRS', 'error');
+            }
+        } else {
+            try {
+                const now = Date.now();
+                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanjiDoc.id), {
+                    interval: 0,
+                    ease: 2.5,
+                    nextReview: now,
+                    lastReview: now,
+                    reps: 0,
+                    learningStep: null,
+                    isLapsed: false,
+                    lapseCount: 0,
+                    prelapseInterval: null,
+                }, { merge: true });
+                setUserKanjiSRS(prev => new Set([...prev, kanjiDoc.id]));
+                showToast(`Đã thêm ${kanjiChar} vào danh sách ôn tập SRS`);
+            } catch (err) {
+                console.error('Error adding to SRS:', err);
+                showToast('Lỗi khi lưu vào SRS', 'error');
+            }
+        }
+    };
+
+    const handleConfirmSaveVocab = async (folderId) => {
+        if (!vocabToSave) return;
+        const targetFolderId = folderId === 'unfiled' ? null : folderId;
+        setShowFolderSelectModal(false);
+        const items = Array.isArray(vocabToSave) ? vocabToSave : [vocabToSave];
+        const isBulk = Array.isArray(vocabToSave);
+        setVocabToSave(null);
+
+        if (isBulk) {
+            setAddingAllVocab(true);
+        } else {
+            setAddingVocabId(items[0].id);
+        }
+
+        try {
+            for (const v of items) {
+                const cardData = {
+                    front: v.word || '',
+                    back: v.meaning || '',
+                    synonym: v.synonym || '',
+                    example: v.example || '',
+                    exampleMeaning: v.exampleMeaning || '',
+                    nuance: v.nuance || '',
+                    pos: v.pos || '',
+                    level: v.level || '',
+                    sinoVietnamese: v.sinoViet || '',
+                    synonymSinoVietnamese: '',
+                    imageBase64: null,
+                    audioBase64: null,
+                    action: 'stay',
+                    folderId: targetFolderId
+                };
+                await onAddVocabToSRS(cardData);
+                setAddedVocabIds(prev => new Set([...prev, v.id]));
+            }
+            showToast(isBulk ? 'Đã lưu tất cả từ vựng vào học phần' : `Đã lưu "${items[0].word}" vào học phần`);
+        } catch (e) {
+            console.error('Error adding vocab to SRS:', e);
+            showToast('Lỗi khi lưu từ vựng: ' + e.message, 'error');
+        } finally {
+            setAddingVocabId(null);
+            setAddingAllVocab(false);
+        }
+    };
 
     // Build a Map for O(1) kanji lookups (avoid repeated kanjiList.find() calls)
     const kanjiMap = useMemo(() => {
@@ -756,7 +878,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         setShowEditVocabModal(true);
     };
     // Add vocabulary to user's personal SRS list
-    const handleAddVocabToSRS = async (vocab) => {
+    const handleAddVocabToSRS = (vocab) => {
         if (!onAddVocabToSRS || !vocab) return;
         // Check if already in user's vocab list
         const normalizedWord = vocab.word.split('（')[0].split('(')[0].trim();
@@ -766,54 +888,28 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         });
         if (alreadyExists) {
             setAddedVocabIds(prev => new Set([...prev, vocab.id]));
+            showToast(`Từ vựng "${vocab.word.split('（')[0]}" đã có trong danh sách ôn tập`, 'warning');
             return;
         }
-        setAddingVocabId(vocab.id);
-        try {
-            // Dùng dữ liệu có sẵn, handleAddCard sẽ tự tra shared DB
-            const cardData = {
-                front: vocab.word || '',
-                back: vocab.meaning || '',
-                synonym: vocab.synonym || '',
-                example: vocab.example || '',
-                exampleMeaning: vocab.exampleMeaning || '',
-                nuance: vocab.nuance || '',
-                pos: vocab.pos || '',
-                level: vocab.level || '',
-                sinoVietnamese: vocab.sinoViet || '',
-                synonymSinoVietnamese: '',
-                imageBase64: null,
-                audioBase64: null,
-                action: 'stay',
-            };
-            await onAddVocabToSRS(cardData);
-            setAddedVocabIds(prev => new Set([...prev, vocab.id]));
-        } catch (e) {
-            console.error('Error adding vocab to SRS:', e);
-            showToast('Lỗi khi thêm từ vựng vào danh sách ôn tập: ' + e.message, 'error');
-        } finally {
-            setAddingVocabId(null);
-        }
+        setVocabToSave(vocab);
+        setShowFolderSelectModal(true);
     };
     // Add ALL vocab for a kanji to SRS
-    const handleAddAllVocabToSRS = async (vocabItems) => {
+    const handleAddAllVocabToSRS = (vocabItems) => {
         if (!onAddVocabToSRS || !vocabItems?.length) return;
-        setAddingAllVocab(true);
-        try {
-            for (const v of vocabItems) {
-                const normalizedWord = v.word.split('（')[0].split('(')[0].trim();
-                const alreadyExists = allUserCards.some(card => {
-                    const cardFront = card.front.split('（')[0].split('(')[0].trim();
-                    return cardFront === normalizedWord;
-                });
-                if (alreadyExists || addedVocabIds.has(v.id)) continue;
-                await handleAddVocabToSRS(v);
-            }
-        } catch (e) {
-            console.error('Error adding all vocab to SRS:', e);
-        } finally {
-            setAddingAllVocab(false);
+        const itemsToSave = vocabItems.filter(v => {
+            const normalizedWord = v.word.split('（')[0].split('(')[0].trim();
+            return !allUserCards.some(card => {
+                const cardFront = card.front.split('（')[0].split('(')[0].trim();
+                return cardFront === normalizedWord;
+            }) && !addedVocabIds.has(v.id);
+        });
+        if (itemsToSave.length === 0) {
+            showToast('Tất cả từ vựng đều đã có trong danh sách ôn tập', 'info');
+            return;
         }
+        setVocabToSave(itemsToSave);
+        setShowFolderSelectModal(true);
     };
     // Auto-fetch pitch accent + audio data from Jotoba when detail modal opens
     useEffect(() => {
@@ -900,10 +996,27 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                     </div>
                     {/* Center: Kanji Info */}
                     <div className="space-y-4">
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 flex-wrap">
                             <span className="text-4xl font-bold text-gray-900 dark:text-white font-japanese">{selectedKanji}</span>
                             <span className="text-2xl text-gray-400">-</span>
                             <span className="text-2xl font-bold text-cyan-600 dark:text-cyan-400">{detail.sinoViet || ''}</span>
+                            {(() => {
+                                const kanjiDoc = kanjiMap.get(selectedKanji);
+                                const isSRSAdded = kanjiDoc ? userKanjiSRS.has(kanjiDoc.id) : false;
+                                return (
+                                    <button
+                                        onClick={(e) => toggleKanjiSRS(e, selectedKanji)}
+                                        className={`py-1.5 px-3 rounded-lg font-bold text-xs transition-all flex items-center justify-center gap-1.5 shadow-sm hover:scale-[1.02] active:scale-95 border ${
+                                            isSRSAdded
+                                                ? 'bg-amber-500 hover:bg-amber-600 text-white border-transparent'
+                                                : 'bg-white hover:bg-gray-50 text-gray-750 border-gray-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-gray-200 dark:border-slate-700'
+                                        }`}
+                                    >
+                                        <Bookmark className="w-3.5 h-3.5" fill={isSRSAdded ? 'currentColor' : 'none'} />
+                                        {isSRSAdded ? 'Đang học Kanji này (Hủy)' : 'Thêm Kanji Vào Học'}
+                                    </button>
+                                );
+                            })()}
                             {isAdmin && (
                                 <div className="ml-auto flex gap-2">
                                     <button
@@ -1794,19 +1907,37 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     const meaningTip = fbData?.sinoViet || jData?.sinoViet || '';
                                     const isSaved = allUserCards.some(card => (card.front || card.character) === kanji);
                                     return (
-                                        <button
+                                        <div
                                             key={`${kanji}-${i}`}
                                             onClick={() => openKanjiDetail(kanji)}
-                                            className={`group relative aspect-[4/5] flex flex-col items-center justify-between text-center bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-100 dark:border-slate-700/60 shadow-sm transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/5 select-none ${selectedKanji === kanji ? 'ring-2 ring-sky-500 dark:ring-sky-400' : ''
+                                            className={`group relative aspect-[4/5] flex flex-col items-center justify-between text-center bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-100 dark:border-slate-700/60 shadow-sm transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/5 select-none cursor-pointer ${selectedKanji === kanji ? 'ring-2 ring-sky-500 dark:ring-sky-400' : ''
                                                 }`}
                                         >
-                                            {/* Top Corner: Checkmark indicator if Kanji is saved */}
-                                            <div className="absolute top-3 right-3 flex items-center justify-center">
-                                                {isSaved ? (
-                                                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/20" title="Đã lưu vào thư viện" />
-                                                ) : (
-                                                    <span className="text-slate-300 dark:text-slate-600 group-hover:text-slate-400 transition-colors text-xs font-bold opacity-0 group-hover:opacity-100 font-mono">...</span>
-                                                )}
+                                            {/* Left Corner: Green dot if saved in library */}
+                                            {isSaved && (
+                                                <div className="absolute top-3 left-3 flex items-center justify-center">
+                                                    <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/20" title="Đã lưu vào từ vựng" />
+                                                </div>
+                                            )}
+                                            {/* Right Corner: Bookmark button to save to SRS */}
+                                            <div className="absolute top-2 right-2 flex items-center justify-center z-10 animate-fade-in">
+                                                {(() => {
+                                                    const kanjiDoc = kanjiMap.get(kanji);
+                                                    const isSRSAdded = kanjiDoc ? userKanjiSRS.has(kanjiDoc.id) : false;
+                                                    return (
+                                                        <button
+                                                            onClick={(e) => toggleKanjiSRS(e, kanji)}
+                                                            className={`p-1.5 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 ${
+                                                                isSRSAdded
+                                                                    ? 'bg-amber-500/10 dark:bg-amber-500/20 text-amber-500'
+                                                                    : 'text-slate-300 dark:text-slate-600 hover:text-indigo-500 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 group-hover:opacity-100 sm:opacity-0 transition-opacity'
+                                                            }`}
+                                                            title={isSRSAdded ? "Xóa khỏi ôn tập SRS" : "Thêm vào ôn tập SRS"}
+                                                        >
+                                                            <Bookmark className="w-3.5 h-3.5" fill={isSRSAdded ? 'currentColor' : 'none'} />
+                                                        </button>
+                                                    );
+                                                })()}
                                             </div>
                                             {/* Center Kanji character */}
                                             <div className="text-5xl font-japanese font-bold text-slate-800 dark:text-white mt-4 tracking-normal">
@@ -1830,7 +1961,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                             selectedLevel === 'N2' ? 'from-amber-400 to-orange-500' :
                                                                 selectedLevel === 'N1' ? 'from-rose-400 to-pink-500' : 'from-orange-400 to-amber-500'
                                                 }`} />
-                                        </button>
+                                        </div>
                                     );
                                 })}
                             </div>
@@ -2170,6 +2301,79 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                     </div>
                 )
             }
+            {/* Folder Select Modal */}
+            {showFolderSelectModal && (
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[999] flex items-center justify-center p-4">
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700 p-6 max-w-md w-full shadow-2xl animate-bounce-in text-left">
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Thêm vào học phần nào?</h3>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                            Chọn học phần bạn muốn lưu từ vựng này vào để bắt đầu ôn tập.
+                        </p>
+                        <div className="max-h-60 overflow-y-auto space-y-2 mb-6 custom-scrollbar pr-1">
+                            {/* Unfiled option */}
+                            <button
+                                onClick={() => handleConfirmSaveVocab('unfiled')}
+                                className="w-full text-left p-3 rounded-xl border border-dashed border-gray-200 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-sky-400 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all flex items-center gap-2"
+                            >
+                                <span className="p-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-slate-500 dark:text-slate-400">
+                                    <FolderPlus className="w-4 h-4" />
+                                </span>
+                                <div>
+                                    <div className="text-sm font-semibold text-gray-800 dark:text-slate-200">Từ vựng lẻ</div>
+                                    <div className="text-xs text-gray-400 font-normal">Chưa được phân loại vào học phần nào</div>
+                                </div>
+                            </button>
+
+                            {/* Section: Học phần (Firestore) */}
+                            {folders.length > 0 && (
+                                <div className="pt-2">
+                                    <div className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1 px-1">
+                                        Học phần / Thư mục đồng bộ
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        {folders.map(folder => (
+                                            <button
+                                                key={folder.id}
+                                                onClick={() => handleConfirmSaveVocab(folder.id)}
+                                                className="w-full text-left p-2.5 rounded-xl border border-gray-100 dark:border-slate-700/80 hover:border-indigo-500 dark:hover:border-sky-400 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all flex items-center gap-2"
+                                            >
+                                                {folder.type === 'folder' ? (
+                                                    <span className="p-2 bg-amber-50 dark:bg-amber-950 text-amber-500 dark:text-amber-400 rounded-lg">
+                                                        <Folder className="w-3.5 h-3.5" />
+                                                    </span>
+                                                ) : (
+                                                    <span className="p-2 bg-indigo-50 dark:bg-indigo-950 text-indigo-500 dark:text-indigo-400 rounded-lg">
+                                                        <BookOpen className="w-3.5 h-3.5" />
+                                                    </span>
+                                                )}
+                                                <div>
+                                                    <div className="text-sm font-semibold text-gray-800 dark:text-slate-200 flex items-center gap-1.5">
+                                                        {folder.name}
+                                                        <span className="text-[9px] px-1 bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-gray-400 rounded font-normal">
+                                                            {folder.type === 'folder' ? 'Thư mục' : 'Học phần'}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+
+                        </div>
+                        <div className="flex justify-end gap-2">
+                            <button
+                                onClick={() => { setShowFolderSelectModal(false); setVocabToSave(null); }}
+                                className="px-4 py-2 bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-700 dark:text-gray-300 rounded-xl font-bold text-sm transition-all"
+                            >
+                                Hủy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* Premium Locked Modal */}
             <PremiumLockedModal 
                 isOpen={showPremiumModal} 

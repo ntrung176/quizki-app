@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { ArrowLeft, Users, CheckCircle, XCircle, RotateCcw, ChevronRight, Zap } from 'lucide-react'
 import FuriganaText from '../ui/FuriganaText';
-import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
+import { playCorrectSound, playIncorrectSound, playCompletionFanfare } from '../../utils/soundEffects';
 import { speakJapanese } from '../../utils/audio';
 
 const shuffleArr = (arr) => {
@@ -125,7 +125,6 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
             setIsRevealed(false);
         } else {
             setIsComplete(true);
-            launchFireworks();
             playCompletionFanfare();
         }
     };

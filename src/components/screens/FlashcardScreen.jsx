@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { RotateCcw, Check, X, Undo2, RefreshCw, Volume2, ArrowLeft, ChevronRight, Zap, Layers, Settings } from 'lucide-react'
 import { speakJapanese } from '../../utils/audio'
-import { launchFireworks, playCompletionFanfare } from '../../utils/soundEffects';
+import { playCompletionFanfare } from '../../utils/soundEffects';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
 const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard, onSaveCardAudio, onBack }) => {
@@ -126,7 +126,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
     // Auto-exit when all cards are completed in Flashcards
     useEffect(() => {
         if (isComplete && unknownCards.length === 0) {
-            launchFireworks();
             playCompletionFanfare();
             const timer = setTimeout(() => {
                 if (onComplete) onComplete();

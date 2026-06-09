@@ -12,7 +12,7 @@ import {
     isMobileDevice
 } from '../../utils/textProcessing';
 import { flashCorrect, launchFanfare, celebrateCorrectAnswer } from '../../utils/celebrations'
-import { playCorrectSound, playIncorrectSound, launchFireworks } from '../../utils/soundEffects';
+import { playCorrectSound, playIncorrectSound } from '../../utils/soundEffects';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
 
@@ -591,10 +591,10 @@ const ReviewScreen = ({
         setShowComplete(false);
     };
 
-    // Launch fireworks on completion
+    // Launch fanfare on completion
     useEffect(() => {
         if (showComplete) {
-            launchFireworks();
+            launchFanfare();
         }
     }, [showComplete]);
 
@@ -1822,8 +1822,6 @@ export const ReviewCompleteScreen = ({ onBack, allCards }) => {
 
     useEffect(() => {
         launchFanfare();
-        launchFireworks();
-        // Không gọi playCompletionFanfare() vì launchFanfare() đã phát âm thanh rồi
 
         // Hiển thị thời gian ôn tập tiếp theo sau 1.5 giây
         const timer = setTimeout(() => {

@@ -3,6 +3,8 @@
  * Pure CSS + JS, no dependencies
  */
 
+import { playCompletionFanfare } from './soundEffects';
+
 // ==================== CONFETTI ====================
 const CONFETTI_COLORS = [
     '#FF6B6B', '#4ECDC4', '#45B7D1', '#FDCB6E', '#6C5CE7',
@@ -200,8 +202,8 @@ export function launchFanfare() {
         launchSideCannon('right');
     }, 300);
 
-    // 4. Play fanfare sound using Web Audio API
-    playFanfareSound();
+    // 4. Play fanfare sound using Duolingo completed lesson sound
+    playCompletionFanfare();
 }
 
 function launchSideCannon(side) {
@@ -253,56 +255,6 @@ function launchSideCannon(side) {
     }
 
     setTimeout(() => container.remove(), 3000);
-}
-
-// ==================== FANFARE SOUND (Web Audio API) ====================
-function playFanfareSound() {
-    try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-
-        // Trumpet-like fanfare notes
-        const notes = [
-            { freq: 523.25, start: 0, dur: 0.15 },      // C5
-            { freq: 659.25, start: 0.15, dur: 0.15 },   // E5
-            { freq: 783.99, start: 0.3, dur: 0.15 },    // G5
-            { freq: 1046.50, start: 0.45, dur: 0.4 },   // C6 (held)
-            { freq: 783.99, start: 0.9, dur: 0.1 },     // G5
-            { freq: 1046.50, start: 1.0, dur: 0.5 },    // C6 (final)
-        ];
-
-        notes.forEach(({ freq, start, dur }) => {
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            const filter = ctx.createBiquadFilter();
-
-            // Sawtooth for trumpet-like timbre
-            osc.type = 'sawtooth';
-            osc.frequency.setValueAtTime(freq, ctx.currentTime + start);
-
-            // Low-pass filter to soften
-            filter.type = 'lowpass';
-            filter.frequency.setValueAtTime(2000, ctx.currentTime + start);
-
-            // Envelope
-            gain.gain.setValueAtTime(0, ctx.currentTime + start);
-            gain.gain.linearRampToValueAtTime(0.15, ctx.currentTime + start + 0.02);
-            gain.gain.linearRampToValueAtTime(0.12, ctx.currentTime + start + dur * 0.6);
-            gain.gain.linearRampToValueAtTime(0, ctx.currentTime + start + dur);
-
-            osc.connect(filter);
-            filter.connect(gain);
-            gain.connect(ctx.destination);
-
-            osc.start(ctx.currentTime + start);
-            osc.stop(ctx.currentTime + start + dur + 0.05);
-        });
-
-        // Close context after fanfare
-        setTimeout(() => ctx.close(), 2500);
-    } catch (e) {
-        // Web Audio not supported, skip silently
-        console.log('Web Audio API not available for fanfare');
-    }
 }
 
 // ==================== CORRECT ANSWER EFFECT ====================

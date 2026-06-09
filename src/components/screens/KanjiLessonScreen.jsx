@@ -7,7 +7,7 @@ import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, getDoc, deleteDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
-import { playCorrectSound, playIncorrectSound, launchFireworks, playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
+import { playCorrectSound, playIncorrectSound, playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { fetchJotobaWordData } from '../../utils/pitchAccent';
@@ -353,7 +353,6 @@ const KanjiLessonScreen = () => {
             });
         }
         // Play celebration sound
-        launchFireworks();
         playCompletionFanfare();
     };
     // Navigate to next day
