@@ -591,7 +591,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                     value={editedConfig.bankId}
                                     onChange={(e) => setEditedConfig({ ...editedConfig, bankId: e.target.value })}
                                     placeholder="MB, VCB, TCB,..."
-                                    className="w-full px-3 py-2 bg-white dark:bg-slate-850 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
+                                    className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
                                 />
                             </div>
                             <div>
@@ -600,7 +600,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                     type="text"
                                     value={editedConfig.bankAccountNo}
                                     onChange={(e) => setEditedConfig({ ...editedConfig, bankAccountNo: e.target.value })}
-                                    className="w-full px-3 py-2 bg-white dark:bg-slate-850 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
+                                    className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
                                 />
                             </div>
                             <div>
@@ -609,7 +609,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                     type="text"
                                     value={editedConfig.bankAccountName}
                                     onChange={(e) => setEditedConfig({ ...editedConfig, bankAccountName: e.target.value.toUpperCase() })}
-                                    className="w-full px-3 py-2 bg-white dark:bg-slate-850 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
+                                    className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
                                 />
                             </div>
                         </div>
@@ -623,7 +623,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                     value={editedConfig.supportZalo}
                                     onChange={(e) => setEditedConfig({ ...editedConfig, supportZalo: e.target.value })}
                                     placeholder="https://zalo.me/..."
-                                    className="w-full px-3 py-2 bg-white dark:bg-slate-850 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
+                                    className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
                                 />
                             </div>
                             <div>
@@ -633,7 +633,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                     value={editedConfig.supportMessenger}
                                     onChange={(e) => setEditedConfig({ ...editedConfig, supportMessenger: e.target.value })}
                                     placeholder="https://m.me/..."
-                                    className="w-full px-3 py-2 bg-white dark:bg-slate-850 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
+                                    className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
                                 />
                             </div>
                             <div>
@@ -642,7 +642,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                     type="email"
                                     value={editedConfig.supportEmail}
                                     onChange={(e) => setEditedConfig({ ...editedConfig, supportEmail: e.target.value })}
-                                    className="w-full px-3 py-2 bg-white dark:bg-slate-850 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
+                                    className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
                                 />
                             </div>
                         </div>
@@ -655,7 +655,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                     type="text"
                                     value={editedConfig.flashSaleText}
                                     onChange={(e) => setEditedConfig({ ...editedConfig, flashSaleText: e.target.value })}
-                                    className="w-full px-3 py-2 bg-white dark:bg-slate-850 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
+                                    className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
                                 />
                             </div>
                             <div>
@@ -665,7 +665,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                         type="number"
                                         defaultValue={161}
                                         id="flashSaleDurationInput"
-                                        className="w-24 px-3 py-2 bg-white dark:bg-slate-850 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
+                                        className="w-24 px-3 py-2 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
                                     />
                                     <button 
                                         type="button"
@@ -708,13 +708,13 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                     <select
                                         value={profile?.trialPricingTier || ''}
                                         onChange={(e) => handleUpdateTrialTier(e.target.value)}
-                                        className="w-full px-3.5 py-2.5 text-sm bg-white dark:bg-slate-850 border border-gray-300 dark:border-slate-650 rounded-xl dark:text-white font-semibold focus:ring-2 focus:ring-indigo-500"
+                                        className="w-full px-3.5 py-2.5 text-sm bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl dark:text-white font-semibold focus:ring-2 focus:ring-indigo-500"
                                     >
-                                        <option value="">Không giả lập (Dùng gói thực tế)</option>
-                                        <option value="free">Gói MIỄN PHÍ (Giới hạn 3 học phần, tối đa 20 từ/học phần)</option>
-                                        <option value="premium_1m">Gói Premium 1 Tháng (Mở khóa toàn bộ tính năng, không giới hạn AI)</option>
-                                        <option value="premium_1y">Gói Premium 1 Năm (Mở khóa toàn bộ tính năng, không giới hạn AI)</option>
-                                        <option value="premium_3y">Gói Premium 3 Năm (Mở khóa toàn bộ tính năng, không giới hạn AI)</option>
+                                        <option value="" className="bg-white dark:bg-slate-800 text-gray-900 dark:text-white">Không giả lập (Dùng gói thực tế)</option>
+                                        <option value="free" className="bg-white dark:bg-slate-800 text-gray-900 dark:text-white">Gói MIỄN PHÍ (Giới hạn 3 học phần, tối đa 20 từ/học phần)</option>
+                                        <option value="premium_1m" className="bg-white dark:bg-slate-800 text-gray-900 dark:text-white">Gói Premium 1 Tháng (Mở khóa toàn bộ tính năng, không giới hạn AI)</option>
+                                        <option value="premium_1y" className="bg-white dark:bg-slate-800 text-gray-900 dark:text-white">Gói Premium 1 Năm (Mở khóa toàn bộ tính năng, không giới hạn AI)</option>
+                                        <option value="premium_3y" className="bg-white dark:bg-slate-800 text-gray-900 dark:text-white">Gói Premium 3 Năm (Mở khóa toàn bộ tính năng, không giới hạn AI)</option>
                                     </select>
                                 </div>
                             </div>
@@ -838,11 +838,11 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12 items-stretch">
                         {[1, 2].map(i => (
                             <div key={i} className="rounded-3xl border border-gray-100 dark:border-slate-800 p-8 animate-pulse bg-white dark:bg-slate-900 shadow-sm min-h-[380px]">
-                                <div className="w-12 h-12 rounded-2xl bg-gray-200 dark:bg-slate-850 mb-4" />
-                                <div className="h-6 bg-gray-200 dark:bg-slate-850 rounded w-2/3 mb-3" />
-                                <div className="h-4 bg-gray-200 dark:bg-slate-850 rounded w-3/4 mb-4" />
-                                <div className="h-24 bg-gray-100 dark:bg-slate-850 rounded w-full mb-6" />
-                                <div className="h-10 bg-gray-200 dark:bg-slate-850 rounded w-full" />
+                                <div className="w-12 h-12 rounded-2xl bg-gray-200 dark:bg-slate-800 mb-4" />
+                                <div className="h-6 bg-gray-200 dark:bg-slate-800 rounded w-2/3 mb-3" />
+                                <div className="h-4 bg-gray-200 dark:bg-slate-800 rounded w-3/4 mb-4" />
+                                <div className="h-24 bg-gray-100 dark:bg-slate-800 rounded w-full mb-6" />
+                                <div className="h-10 bg-gray-200 dark:bg-slate-800 rounded w-full" />
                             </div>
                         ))}
                     </div>
@@ -1013,7 +1013,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         </div>
 
                         {/* Voucher Coupon Section */}
-                        <div className="bg-slate-50 dark:bg-slate-950/40 rounded-2xl p-4 border border-gray-150/40 dark:border-slate-850">
+                        <div className="bg-slate-50 dark:bg-slate-950/40 rounded-2xl p-4 border border-gray-150/40 dark:border-slate-800">
                             <p className="text-xs font-bold text-gray-700 dark:text-slate-300 mb-2.5 flex items-center gap-1">
                                 <Ticket className="w-4 h-4 text-indigo-500" /> Nhập mã giảm giá (Voucher)
                             </p>

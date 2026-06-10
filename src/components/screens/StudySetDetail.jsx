@@ -624,7 +624,7 @@ const StudySetDetail = ({
                                         />
                                         <div
                                             style={{ width: `${masteryStats.notLearnedPct}%` }}
-                                            className="h-full bg-slate-450 dark:bg-slate-650 transition-all duration-500"
+                                            className="h-full bg-slate-400 dark:bg-slate-600 transition-all duration-500"
                                             title={`Chưa học: ${masteryStats.notLearnedPct}%`}
                                         />
                                     </div>
@@ -632,10 +632,10 @@ const StudySetDetail = ({
 
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                     {/* Chưa học */}
-                                    <div className="p-4 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-slate-150 dark:border-slate-850 flex items-center justify-between shadow-sm">
+                                    <div className="p-4 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-slate-150 dark:border-slate-800 flex items-center justify-between shadow-sm">
                                         <div>
                                             <div className="flex items-center gap-2">
-                                                <span className="w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-650" />
+                                                <span className="w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-600" />
                                                 <span className="text-sm font-bold text-gray-700 dark:text-gray-300">Chưa học</span>
                                             </div>
                                             <p className="text-2xl font-black text-slate-700 dark:text-slate-300 mt-1">
@@ -920,7 +920,7 @@ const StudySetDetail = ({
                                                 placeholder="Tìm kiếm từ vựng..."
                                                 value={searchQuery}
                                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                                className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl pl-9 pr-4 py-2 text-sm outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-gray-850 dark:text-white transition-all shadow-sm"
+                                                className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl pl-9 pr-4 py-2 text-sm outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-gray-800 dark:text-white transition-all shadow-sm"
                                             />
                                             <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" />
                                         </div>
@@ -928,8 +928,8 @@ const StudySetDetail = ({
                                 </div>
 
                                 {filteredCards.length === 0 && searchQuery ? (
-                                    <div className="text-center py-12 bg-white dark:bg-gray-850 rounded-2xl border border-gray-150 dark:border-gray-700">
-                                        <Search className="w-12 h-12 text-gray-300 dark:text-gray-650 mx-auto mb-3" />
+                                    <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-2xl border border-gray-150 dark:border-gray-700">
+                                        <Search className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto mb-3" />
                                         <p className="text-gray-500 dark:text-gray-400 text-sm">Không tìm thấy từ vựng nào khớp với "{searchQuery}"</p>
                                     </div>
                                 ) : (
@@ -1125,7 +1125,7 @@ const StudySetDetail = ({
                         <div className="grid grid-cols-2 gap-3">
                             <button
                                 onClick={() => setSelectedMasteryMode('flashcard')}
-                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMasteryMode === 'flashcard' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-605 dark:text-indigo-400' : 'border-gray-205 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-650 text-gray-700 dark:text-gray-300'}`}
+                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMasteryMode === 'flashcard' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600 text-gray-700 dark:text-gray-300'}`}
                             >
                                 <Layers className="w-6 h-6" />
                                 <span className="font-bold text-xs">Thẻ ghi nhớ</span>
@@ -1133,7 +1133,7 @@ const StudySetDetail = ({
 
                             <button
                                 onClick={() => setSelectedMasteryMode('study')}
-                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMasteryMode === 'study' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-605 dark:text-indigo-400' : 'border-gray-205 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-650 text-gray-700 dark:text-gray-300'}`}
+                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMasteryMode === 'study' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600 text-gray-700 dark:text-gray-300'}`}
                             >
                                 <BookOpen className="w-6 h-6" />
                                 <span className="font-bold text-xs">Học tập</span>
@@ -1141,7 +1141,7 @@ const StudySetDetail = ({
 
                             <button
                                 onClick={() => setSelectedMasteryMode('meaning')}
-                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMasteryMode === 'meaning' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-605 dark:text-indigo-400' : 'border-gray-205 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-650 text-gray-700 dark:text-gray-300'}`}
+                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMasteryMode === 'meaning' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600 text-gray-700 dark:text-gray-300'}`}
                             >
                                 <Edit2 className="w-6 h-6" />
                                 <span className="font-bold text-xs">Nhập ý nghĩa</span>
@@ -1149,7 +1149,7 @@ const StudySetDetail = ({
 
                             <button
                                 onClick={() => setSelectedMasteryMode('dictation')}
-                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMasteryMode === 'dictation' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-650 dark:text-indigo-400' : 'border-gray-205 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-650 text-gray-700 dark:text-gray-300'}`}
+                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMasteryMode === 'dictation' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600 text-gray-700 dark:text-gray-300'}`}
                             >
                                 <Headphones className="w-6 h-6" />
                                 <span className="font-bold text-xs">Nghe Chép</span>
@@ -1159,7 +1159,7 @@ const StudySetDetail = ({
                         <div className="flex gap-3 pt-2">
                             <button
                                 onClick={() => setShowMasteryModal(prev => ({ ...prev, isOpen: false }))}
-                                className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-750 text-gray-750 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-650 transition-colors text-sm cursor-pointer"
+                                className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors text-sm cursor-pointer"
                             >
                                 Huỷ
                             </button>
@@ -1226,11 +1226,11 @@ const StudySetDetail = ({
 
                         <div className="space-y-4">
                             <div className="grid grid-cols-2 gap-3 text-xs">
-                                <div className="p-3 bg-gray-50 dark:bg-slate-750/30 rounded-2xl border border-gray-100 dark:border-slate-700/50">
+                                <div className="p-3 bg-gray-50 dark:bg-slate-800/30 rounded-2xl border border-gray-100 dark:border-slate-700/50">
                                     <span className="block text-gray-400 dark:text-gray-500 font-semibold mb-0.5">Tổng số Kanji</span>
-                                    <span className="text-base font-extrabold text-slate-750 dark:text-white">{kanjiPreviewModal.allExtractedCount} chữ</span>
+                                    <span className="text-base font-extrabold text-slate-700 dark:text-white">{kanjiPreviewModal.allExtractedCount} chữ</span>
                                 </div>
-                                <div className="p-3 bg-gray-50 dark:bg-slate-750/30 rounded-2xl border border-gray-150 dark:border-slate-700/50">
+                                <div className="p-3 bg-gray-50 dark:bg-slate-800/30 rounded-2xl border border-gray-150 dark:border-slate-700/50">
                                     <span className="block text-gray-400 dark:text-gray-500 font-semibold mb-0.5">Đã học (Bỏ qua)</span>
                                     <span className="text-base font-extrabold text-emerald-600 dark:text-emerald-450">{kanjiPreviewModal.existingCount} chữ</span>
                                 </div>
@@ -1267,7 +1267,7 @@ const StudySetDetail = ({
                                                 onClick={() => togglePreviewKanjiSelect(k.id)}
                                                 className={`w-11 h-11 rounded-xl border flex items-center justify-center font-bold text-xl font-japanese shadow-sm transition-all duration-200 transform hover:scale-105 active:scale-95 cursor-pointer ${
                                                     isSelected 
-                                                        ? 'bg-indigo-50 border-indigo-300 text-indigo-700 dark:bg-indigo-950/40 dark:border-indigo-855 dark:text-indigo-305 scale-100 ring-2 ring-indigo-500/15'
+                                                        ? 'bg-indigo-50 border-indigo-300 text-indigo-700 dark:bg-indigo-950/40 dark:border-indigo-800 dark:text-indigo-300 scale-100 ring-2 ring-indigo-500/15'
                                                         : 'bg-white border-gray-200 text-gray-400 dark:bg-slate-800/60 dark:border-slate-700/60 opacity-40 line-through'
                                                 }`}
                                                 title={isSelected ? 'Click để bỏ chọn' : 'Click để chọn'}
@@ -1283,7 +1283,7 @@ const StudySetDetail = ({
                         <div className="flex gap-3 pt-2">
                             <button 
                                 onClick={() => setKanjiPreviewModal(prev => ({ ...prev, isOpen: false }))} 
-                                className="flex-1 py-3 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-2xl hover:bg-gray-200 dark:hover:bg-slate-650 transition-colors text-sm cursor-pointer"
+                                className="flex-1 py-3 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-2xl hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors text-sm cursor-pointer"
                             >
                                 Huỷ
                             </button>
@@ -1322,19 +1322,19 @@ const StudySetDetail = ({
                             <div>
                                 <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Nhật hiển thị:</p>
                                 <div className="space-y-2.5 pl-1 text-[13px]">
-                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.word} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Chữ Hán / Từ vựng</span></label>
-                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.furigana} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Phiên âm Furigana</span></label>
-                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.word} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Chữ Hán / Từ vựng</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.furigana} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Phiên âm Furigana</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Âm Hán Việt</span></label>
                                 </div>
                             </div>
                             <div>
                                 <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
                                 <div className="space-y-2.5 pl-1 text-[13px]">
-                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
-                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.reading} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Cách đọc (Hiragana)</span></label>
-                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
-                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Đồng nghĩa</span></label>
-                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.reading} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Cách đọc (Hiragana)</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Âm Hán Việt</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Đồng nghĩa</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
                                 </div>
                             </div>
                         </div>

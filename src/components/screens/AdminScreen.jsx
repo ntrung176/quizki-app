@@ -864,12 +864,12 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                     <select
                                                         value={selectedUserPackageState}
                                                         onChange={(e) => setSelectedUserPackageState(e.target.value)}
-                                                        className="w-full px-3 py-2 bg-white dark:bg-gray-850 border border-gray-250 dark:border-slate-650 rounded-xl text-xs font-semibold text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none"
+                                                        className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-xs font-semibold text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none"
                                                     >
-                                                        <option value="free">Gói Miễn Phí (Default)</option>
-                                                        <option value="premium_1m">👑 Gói Premium 1 Tháng</option>
-                                                        <option value="premium_1y">👑 Gói Premium 1 Năm</option>
-                                                        <option value="premium_3y">👑 Gói Premium 3 Năm</option>
+                                                        <option value="free" className="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">Gói Miễn Phí (Default)</option>
+                                                        <option value="premium_1m" className="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">👑 Gói Premium 1 Tháng</option>
+                                                        <option value="premium_1y" className="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">👑 Gói Premium 1 Năm</option>
+                                                        <option value="premium_3y" className="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">👑 Gói Premium 3 Năm</option>
                                                     </select>
                                                     <button
                                                         onClick={handleSaveUserPackage}
@@ -2381,7 +2381,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
             {/* Thread List */}
             <div className={`border-r border-gray-100 dark:border-gray-700 flex flex-col h-full min-h-0 bg-slate-50/50 dark:bg-slate-900/30 font-sans ${selectedUserId ? 'hidden md:flex' : 'flex'}`}>
                 <div className="p-4 border-b border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800">
-                    <h3 className="font-bold text-gray-850 dark:text-white flex items-center gap-2 text-xs">
+                    <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2 text-xs">
                         <MessageSquare className="w-5 h-5 text-[#2E5B70]" />
                         Hội thoại hỗ trợ ({threads.length})
                     </h3>
