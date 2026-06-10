@@ -3,9 +3,19 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+:root {
+  --font-japanese-family: "UD デジタル 教科書体 N-R", "UD Digi Kyokasho N-R", "UD デジタル 教科書体 NP-R", "UD Digi Kyokasho NP-R", "UD デジタル 教科書体 NK-R", "UD Digi Kyokasho NK-R", "BIZ UDPMincho", "MS Mincho", "ＭＳ 明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --jp-ex-size: 1.125rem;
+  --jp-ex-md-size: 1.25rem;
+  --jp-ex-weight: 900;
+  --jp-q-size: 1.5rem;
+  --jp-q-md-size: 1.875rem;
+  --jp-q-weight: 900;
+}
+
 /* Japanese Mincho font class for JLPT Standard Look */
 .font-japanese {
-  font-family: var(--font-japanese-family, "BIZ UDPMincho", "MS Mincho", "ＭＳ 明朝", "Yu Mincho", "Hiragino Mincho ProN", serif) !important;
+  font-family: var(--font-japanese-family) !important;
   letter-spacing: 0.06em !important;
   line-height: 2.0 !important;
 }
@@ -61,7 +71,7 @@ ruby rp {
 .kanji-text,
 .hiragana-text,
 .katakana-text {
-  font-family: var(--font-japanese-family, "BIZ UDPMincho", "MS Mincho", "ＭＳ 明朝", "Yu Mincho", "Hiragino Mincho ProN", serif) !important;
+  font-family: var(--font-japanese-family) !important;
   letter-spacing: 0.06em !important;
   line-height: 2.0 !important;
 }
@@ -407,38 +417,6 @@ html.dark .input:focus {
 /* JAPANESE FONT SCALING (Review Screen Settings)           */
 /* ======================================================== */
 
-/* SMALL */
-html[data-jp-size="small"] {
-  --jp-ex-size: 0.875rem;
-  --jp-ex-md-size: 1rem;
-  --jp-ex-weight: 700;
-
-  --jp-q-size: 1.125rem;
-  --jp-q-md-size: 1.25rem;
-  --jp-q-weight: 800;
-}
-
-/* MEDIUM */
-html[data-jp-size="medium"] {
-  --jp-ex-size: 1rem;
-  --jp-ex-md-size: 1.125rem;
-  --jp-ex-weight: 800;
-
-  --jp-q-size: 1.25rem;
-  --jp-q-md-size: 1.5rem;
-  --jp-q-weight: 900;
-}
-
-/* LARGE (Default / To & Rõ) */
-html[data-jp-size="large"] {
-  --jp-ex-size: 1.125rem;
-  --jp-ex-md-size: 1.25rem;
-  --jp-ex-weight: 900;
-
-  --jp-q-size: 1.5rem;
-  --jp-q-md-size: 1.875rem;
-  --jp-q-weight: 900;
-}
 
 /* Apply Variables */
 .quiz-example-text {

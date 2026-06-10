@@ -404,21 +404,8 @@ export function removeCustomBgmTrack(trackId) {
     }
 }
 
-// ==================== START BACKGROUND MUSIC ====================
 export function startBackgroundMusic() {
-    if (bgmIsPlaying) return;
-    const settings = getSettings();
-    if (settings.bgmEnabled === false) return;
-
-    const trackId = getSelectedTrackId();
-    const allTracks = getAllBgmTracks();
-    const track = allTracks.find(t => t.id === trackId) || PRESET_TRACKS[0];
-
-    if (track.type === 'mp3' && track.audioData) {
-        _playMp3Track(track);
-    } else {
-        _playGeneratedTrack(track);
-    }
+    return; // Background music has been removed
 }
 
 function _playMp3Track(track) {

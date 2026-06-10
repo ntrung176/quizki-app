@@ -195,36 +195,6 @@ const App = () => {
         return result;
     });
 
-    useEffect(() => {
-        const handleSettings = () => {
-            try {
-                const settingsStr = localStorage.getItem('quizki-settings');
-                const settings = settingsStr ? JSON.parse(settingsStr) : {};
-
-                // Set Japanese Font Family
-                const fontPref = settings.jpFontFamily || 'kyokasho';
-                let fontStr = '';
-                if (fontPref === 'kyokasho') {
-                    fontStr = '"UD デジタル 教科書体 N-R", "UD Digi Kyokasho N-R", "UD デジタル 教科書体 NP-R", "UD Digi Kyokasho NP-R", "UD デジタル 教科書体 NK-R", "UD Digi Kyokasho NK-R", "BIZ UDPMincho", "MS Mincho", "ＭＳ 明朝", "Hiragino Mincho ProN", "Yu Mincho", serif';
-                } else if (fontPref === 'mincho') {
-                    fontStr = '"BIZ UDPMincho", "MS Mincho", "ＭＳ 明朝", "Hiragino Mincho ProN", "Yu Mincho", serif';
-                } else if (fontPref === 'gothic') {
-                    fontStr = '"BIZ UDPGothic", "Meiryo", "MS Gothic", sans-serif';
-                }
-                if (fontStr) {
-                    document.documentElement.style.setProperty('--font-japanese-family', fontStr);
-                }
-
-                // Set Japanese Font Size
-                const sizePref = settings.jpFontSize || 'large';
-                document.documentElement.setAttribute('data-jp-size', sizePref);
-
-            } catch (e) { }
-        };
-        handleSettings();
-        window.addEventListener('quizki-settings-changed', handleSettings);
-        return () => window.removeEventListener('quizki-settings-changed', handleSettings);
-    }, []);
 
     const [rawProfile, setProfile] = useState(null);
     const profile = useMemo(() => {

@@ -4,10 +4,7 @@ import { Settings, User, Volume2, VolumeX, Music, Sun, Moon, ArrowLeft, Save, Ch
 import AvatarCropper from '../ui/AvatarCropper';
 import { ROUTES } from '../../router';
 import {
-    getSfxVolume, getBgmVolume, isSfxEnabled,
-    startBackgroundMusic, stopBackgroundMusic, updateBgmVolume, isBgmPlaying,
-    getAllBgmTracks, getSelectedTrackId, setSelectedTrack,
-    addCustomBgmTrack, removeCustomBgmTrack
+    getSfxVolume, isSfxEnabled
 } from '../../utils/soundEffects';
 import { linkWithPopup, GoogleAuthProvider, unlink } from 'firebase/auth';
 import { auth } from '../../config/firebase';
@@ -29,6 +26,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
     const [activeTab, setActiveTab] = useState('account');
     // Account state
     const [displayName, setDisplayName] = useState(profile?.displayName || '');
+    const [isEditingName, setIsEditingName] = useState(false);
     const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -113,12 +111,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
     const [isLinking, setIsLinking] = useState(false);
     // Settings state
     const [sfxVolume, setSfxVolume] = useState(() => getSfxVolume());
-    const [bgmVolume, setBgmVolume] = useState(() => getBgmVolume());
     const [sfxEnabled, setSfxEnabled] = useState(() => isSfxEnabled());
-    const [bgmEnabled, setBgmEnabled] = useState(() => {
-        const settings = getSettings();
-        return settings.bgmEnabled !== false;
-    });
     const [furiganaEnabled, setFuriganaEnabled] = useState(() => {
         const settings = getSettings();
         return settings.furiganaEnabled !== false;
@@ -131,18 +124,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         const settings = getSettings();
         return settings.furiganaFontSize || '0.6em'; // Default size
     });
-    const [jpFontFamily, setJpFontFamily] = useState(() => {
-        const settings = getSettings();
-        return settings.jpFontFamily || 'kyokasho';
-    });
-    const [jpFontSize, setJpFontSize] = useState(() => {
-        const settings = getSettings();
-        return settings.jpFontSize || 'large';
-    });
-    // BGM track state
-    const [selectedTrack, setSelectedTrackState] = useState(() => getSelectedTrackId());
-    const [bgmTracks, setBgmTracks] = useState(() => getAllBgmTracks());
-    const [uploadingBgm, setUploadingBgm] = useState(false);
+
     // TTS voice state
     const [ttsVoice, setTtsVoiceState] = useState(() => getTTSVoice());
     const [isPreviewingVoice, setIsPreviewingVoice] = useState(false);
@@ -161,30 +143,14 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
     useEffect(() => {
         const settings = getSettings();
         settings.sfxVolume = sfxVolume;
-        settings.bgmVolume = bgmVolume;
         settings.sfxEnabled = sfxEnabled;
-        settings.bgmEnabled = bgmEnabled;
         settings.furiganaEnabled = furiganaEnabled;
         settings.furiganaColor = furiganaColor;
         settings.furiganaFontSize = furiganaFontSize;
-        settings.jpFontFamily = jpFontFamily;
-        settings.jpFontSize = jpFontSize;
         saveSettings(settings);
         // Dispatch event for other components to react
         window.dispatchEvent(new Event('quizki-settings-changed'));
-    }, [sfxVolume, bgmVolume, sfxEnabled, bgmEnabled, furiganaEnabled, furiganaColor, furiganaFontSize, jpFontFamily, jpFontSize]);
-    // Handle BGM volume changes
-    useEffect(() => {
-        updateBgmVolume(bgmVolume);
-    }, [bgmVolume]);
-    // Handle BGM toggle
-    useEffect(() => {
-        if (bgmEnabled && !isBgmPlaying()) {
-            startBackgroundMusic();
-        } else if (!bgmEnabled) {
-            stopBackgroundMusic();
-        }
-    }, [bgmEnabled]);
+    }, [sfxVolume, sfxEnabled, furiganaEnabled, furiganaColor, furiganaFontSize]);
     // Handle save profile
     const handleSaveProfile = async () => {
         if (!displayName.trim()) return;
@@ -350,7 +316,60 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                 </button>
                             </div>
                             <div className="flex-1">
-                                <p className="font-bold text-gray-800 dark:text-white text-lg">{profile?.displayName || 'Chưa đặt tên'}</p>
+                                {isEditingName ? (
+                                    <div className="flex items-center gap-1.5 mb-1">
+                                        <input
+                                            type="text"
+                                            value={displayName}
+                                            onChange={(e) => setDisplayName(e.target.value)}
+                                            onKeyDown={async (e) => {
+                                                if (e.key === 'Enter' && displayName.trim() && displayName !== profile?.displayName) {
+                                                    await handleSaveProfile();
+                                                    setIsEditingName(false);
+                                                } else if (e.key === 'Escape') {
+                                                    setDisplayName(profile?.displayName || '');
+                                                    setIsEditingName(false);
+                                                }
+                                            }}
+                                            className="px-2 py-0.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 text-sm font-bold max-w-[150px] outline-none"
+                                            autoFocus
+                                        />
+                                        <button
+                                            onClick={async () => {
+                                                await handleSaveProfile();
+                                                setIsEditingName(false);
+                                            }}
+                                            disabled={isSaving || !displayName.trim() || displayName === profile?.displayName}
+                                            className="px-2 py-1 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition-colors disabled:opacity-50 flex items-center gap-1"
+                                        >
+                                            {isSaving && (
+                                                <div className="animate-spin w-3 h-3 border-2 border-white border-t-transparent rounded-full" />
+                                            )}
+                                            Lưu
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                setDisplayName(profile?.displayName || '');
+                                                setIsEditingName(false);
+                                            }}
+                                            disabled={isSaving}
+                                            className="px-2 py-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-xs font-bold transition-colors"
+                                        >
+                                            Hủy
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <div className="flex items-center gap-1.5 mb-0.5">
+                                        <p className="font-bold text-gray-800 dark:text-white text-lg leading-none">{profile?.displayName || 'Chưa đặt tên'}</p>
+                                        <button
+                                            onClick={() => setIsEditingName(true)}
+                                            className="p-1 text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-lg transition-colors"
+                                            title="Chỉnh sửa tên"
+                                        >
+                                            <Edit className="w-3.5 h-3.5" />
+                                        </button>
+                                    </div>
+                                )}
                                 <p className="text-gray-500 dark:text-gray-400 text-xs">{profile?.email || 'Không có email'}</p>
                                 <div className="flex items-center gap-2 mt-2">
                                     <button
@@ -462,29 +481,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                             currentAvatarUrl={isCustomPhoto(profile?.avatar) ? profile.avatar : null}
                         />
                     )}
-                    {/* Display Name */}
-                    <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
-                        <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                            <Settings className="w-4 h-4" /> Tên hiển thị
-                        </h3>
-                        <div className="flex gap-2">
-                            <input
-                                type="text"
-                                value={displayName}
-                                onChange={(e) => setDisplayName(e.target.value)}
-                                className="flex-1 px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 text-sm"
-                                placeholder="Tên hiển thị"
-                            />
-                            <button
-                                onClick={handleSaveProfile}
-                                disabled={isSaving || displayName === profile?.displayName}
-                                className="px-4 py-2.5 bg-indigo-600 dark:bg-indigo-500 text-white rounded-xl font-bold text-sm hover:bg-indigo-700 dark:hover:bg-indigo-600 disabled:opacity-50 transition-all flex items-center gap-1.5"
-                            >
-                                {isSaving ? <div className="animate-spin w-4 h-4 border-2 border-white/30 border-t-white rounded-full" /> : <Save className="w-4 h-4" />}
-                                Lưu
-                            </button>
-                        </div>
-                    </div>
+
                     {/* Change / Create Password */}
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
@@ -673,63 +670,6 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                 </div>
                             </div>
                         )}
-                        {/* Font Settings */}
-                        <div className="border-t border-gray-100 dark:border-gray-700 pt-4 mt-4 space-y-4">
-                            <div className="flex items-center gap-2 mb-2">
-                                <h4 className="text-sm font-bold text-gray-700 dark:text-gray-300">Cài đặt Font chữ tiếng Nhật</h4>
-                            </div>
-                            <div className="space-y-2">
-                                <span className="text-xs text-gray-500">Kiểu chữ (Font)</span>
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-                                    <button
-                                        onClick={() => setJpFontFamily('kyokasho')}
-                                        className={`p-3 rounded-xl border text-left transition-colors ${jpFontFamily === 'kyokasho' ? 'bg-indigo-50 border-indigo-400 dark:bg-indigo-900/30 dark:border-indigo-500' : 'bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'}`}
-                                    >
-                                        <p className="font-bold text-indigo-600 dark:text-indigo-400 mb-1 text-lg" style={{fontFamily: '"UD デジタル 教科書体 N-R", "UD Digi Kyokasho N-R"'}}>日本語</p>
-                                        <p className="text-xs font-bold text-gray-700 dark:text-gray-300">UD Kyokasho</p>
-                                        <p className="text-[10px] text-gray-500 mt-0.5">Chuẩn giáo dục, nét đều (Mặc định)</p>
-                                    </button>
-                                    <button
-                                        onClick={() => setJpFontFamily('mincho')}
-                                        className={`p-3 rounded-xl border text-left transition-colors ${jpFontFamily === 'mincho' ? 'bg-indigo-50 border-indigo-400 dark:bg-indigo-900/30 dark:border-indigo-500' : 'bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'}`}
-                                    >
-                                        <p className="font-bold text-indigo-600 dark:text-indigo-400 mb-1 text-lg" style={{fontFamily: '"BIZ UDPMincho", "MS Mincho", serif'}}>日本語</p>
-                                        <p className="text-xs font-bold text-gray-700 dark:text-gray-300">Mincho</p>
-                                        <p className="text-[10px] text-gray-500 mt-0.5">Chuẩn thi JLPT, nét thanh đậm</p>
-                                    </button>
-                                    <button
-                                        onClick={() => setJpFontFamily('gothic')}
-                                        className={`p-3 rounded-xl border text-left transition-colors ${jpFontFamily === 'gothic' ? 'bg-indigo-50 border-indigo-400 dark:bg-indigo-900/30 dark:border-indigo-500' : 'bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700'}`}
-                                    >
-                                        <p className="font-bold text-indigo-600 dark:text-indigo-400 mb-1 text-lg" style={{fontFamily: '"BIZ UDPGothic", "Meiryo", sans-serif'}}>日本語</p>
-                                        <p className="text-xs font-bold text-gray-700 dark:text-gray-300">Gothic</p>
-                                        <p className="text-[10px] text-gray-500 mt-0.5">Hiện đại, nét dễ đọc</p>
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="space-y-2 mt-4">
-                                <span className="text-xs text-gray-500">Cỡ chữ (tương đối cho toàn app)</span>
-                                <div className="grid grid-cols-3 gap-2">
-                                    {[
-                                        { value: 'small', label: 'Gọn gàng', desc: 'Tiết kiệm không gian' },
-                                        { value: 'medium', label: 'Tiêu chuẩn', desc: 'Cân bằng' },
-                                        { value: 'large', label: 'To & Rõ', desc: 'Dễ nhìn, nhấn mạnh' }
-                                    ].map((size) => (
-                                        <button
-                                            key={size.value}
-                                            onClick={() => setJpFontSize(size.value)}
-                                            className={`py-2.5 px-2 rounded-xl border text-center transition-colors ${jpFontSize === size.value
-                                                ? 'bg-indigo-50 border-indigo-400 text-indigo-700 dark:bg-indigo-900/30 dark:border-indigo-500 dark:text-indigo-300 shadow-sm'
-                                                : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700'
-                                                }`}
-                                        >
-                                            <p className="text-sm font-bold">{size.label}</p>
-                                            <p className="text-[10px] mt-0.5 opacity-80 hidden sm:block">{size.desc}</p>
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     {/* Sound Effects */}
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
@@ -771,135 +711,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                 />
                             </div>
                         )}
-                        <div className="border-t border-gray-100 dark:border-gray-700 pt-4" />
-                        {/* BGM Toggle */}
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                                <Music className={`w-5 h-5 ${bgmEnabled ? 'text-purple-500' : 'text-gray-400'}`} />
-                                <div>
-                                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Nhạc nền</p>
-                                    <p className="text-xs text-gray-400 dark:text-gray-500">Nhạc nền Lo-fi trong khi học</p>
-                                </div>
-                            </div>
-                            <button
-                                onClick={() => setBgmEnabled(!bgmEnabled)}
-                                className={`relative w-12 h-6 rounded-full transition-colors ${bgmEnabled ? 'bg-purple-500' : 'bg-gray-300 dark:bg-gray-600'}`}
-                            >
-                                <span className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform`}
-                                    style={{ left: bgmEnabled ? '26px' : '2px' }}
-                                />
-                            </button>
-                        </div>
-                        {/* BGM Volume */}
-                        {bgmEnabled && (
-                            <div className="space-y-2">
-                                <div className="flex justify-between items-center">
-                                    <span className="text-sm text-gray-600 dark:text-gray-400">Âm lượng nhạc nền</span>
-                                    <span className="text-sm font-bold text-purple-600 dark:text-purple-400">{Math.round(bgmVolume * 100)}%</span>
-                                </div>
-                                <input
-                                    type="range"
-                                    min="0"
-                                    max="100"
-                                    value={bgmVolume * 100}
-                                    onChange={(e) => setBgmVolume(Number(e.target.value) / 100)}
-                                    className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full appearance-none cursor-pointer accent-purple-500"
-                                />
-                            </div>
-                        )}
-                        {/* BGM Track Selector */}
-                        {bgmEnabled && (
-                            <div className="border-t border-gray-100 dark:border-gray-700 pt-4 space-y-3">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Chọn nhạc nền</span>
-                                    <span className="text-xs text-gray-400">{bgmTracks.length} bài</span>
-                                </div>
-                                <div className="grid grid-cols-2 gap-2 max-h-64 overflow-y-auto pr-1">
-                                    {bgmTracks.map(track => (
-                                        <button
-                                            key={track.id}
-                                            onClick={() => {
-                                                setSelectedTrack(track.id);
-                                                setSelectedTrackState(track.id);
-                                            }}
-                                            className={`relative p-3 rounded-xl text-left transition-all group ${selectedTrack === track.id
-                                                ? 'ring-2 ring-purple-500 bg-purple-50 dark:bg-purple-900/20 shadow-md'
-                                                : 'bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-100 dark:border-gray-600'
-                                                }`}
-                                        >
-                                            <div className={`w-full h-1.5 rounded-full bg-gradient-to-r ${track.color} mb-2`} />
-                                            <p className="text-xs font-bold text-gray-800 dark:text-white truncate">{track.name}</p>
-                                            <p className="text-[10px] text-gray-400 dark:text-gray-500 truncate">{track.description}</p>
-                                            {selectedTrack === track.id && (
-                                                <div className="absolute top-1.5 right-1.5">
-                                                    <Check className="w-3.5 h-3.5 text-purple-500" />
-                                                </div>
-                                            )}
-                                            {/* Delete button for custom tracks */}
-                                            {track.type === 'mp3' && isAdmin && (
-                                                <button
-                                                    onClick={(e) => {
-                                                        e.stopPropagation();
-                                                        removeCustomBgmTrack(track.id);
-                                                        setBgmTracks(getAllBgmTracks());
-                                                        if (selectedTrack === track.id) setSelectedTrackState('lofi-chill');
-                                                    }}
-                                                    className="absolute bottom-1.5 right-1.5 p-1 rounded-md bg-red-100 dark:bg-red-900/30 text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
-                                                >
-                                                    <Trash2 className="w-3 h-3" />
-                                                </button>
-                                            )}
-                                        </button>
-                                    ))}
-                                </div>
-                                {/* Admin: Upload custom MP3 */}
-                                {isAdmin && (
-                                    <div className="border-t border-gray-100 dark:border-gray-700 pt-3">
-                                        <label className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-1 mb-2">
-                                            <Upload className="w-3.5 h-3.5" /> Thêm nhạc tùy chỉnh (MP3)
-                                        </label>
-                                        <div className="flex gap-2">
-                                            <input
-                                                type="file"
-                                                accept="audio/mp3,audio/mpeg,audio/*"
-                                                className="flex-1 text-xs file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-purple-100 file:dark:bg-purple-900/30 file:text-purple-600 file:dark:text-purple-400 hover:file:bg-purple-200 file:dark:hover:bg-purple-900/50 file:cursor-pointer text-gray-400"
-                                                onChange={async (e) => {
-                                                    const file = e.target.files?.[0];
-                                                    if (!file) return;
-                                                    if (file.size > 10 * 1024 * 1024) {
-                                                        showToast('File quá lớn! Tối đa 10MB.', 'warning');
-                                                        return;
-                                                    }
-                                                    setUploadingBgm(true);
-                                                    try {
-                                                        const reader = new FileReader();
-                                                        reader.onload = () => {
-                                                            const name = file.name.replace(/\.[^/.]+$/, '');
-                                                            addCustomBgmTrack(name, reader.result);
-                                                            setBgmTracks(getAllBgmTracks());
-                                                            e.target.value = '';
-                                                            setUploadingBgm(false);
-                                                        };
-                                                        reader.readAsDataURL(file);
-                                                    } catch (err) {
-                                                        console.error('Error uploading BGM:', err);
-                                                        setUploadingBgm(false);
-                                                    }
-                                                }}
-                                                disabled={uploadingBgm}
-                                            />
-                                        </div>
-                                        {uploadingBgm && (
-                                            <div className="flex items-center gap-2 mt-2 text-xs text-purple-500">
-                                                <div className="animate-spin w-3 h-3 border-2 border-purple-500/30 border-t-purple-500 rounded-full" />
-                                                Đang tải lên...
-                                            </div>
-                                        )}
-                                        <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-1">Hỗ trợ file MP3, tối đa 10MB. Lưu trữ cục bộ trên trình duyệt.</p>
-                                    </div>
-                                )}
-                            </div>
-                        )}
+
                     </div>
                     {/* TTS Voice Selector */}
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
