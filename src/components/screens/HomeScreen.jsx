@@ -106,9 +106,10 @@ const HomeScreen = ({
             title: 'Thêm từ vựng',
             subtitle: 'Mở rộng vốn từ của bạn',
             icon: Sparkle,
-            bgColor: 'bg-[#EEF7F6] dark:bg-teal-950/20 border-teal-100/50 dark:border-teal-900/30',
-            textColor: 'text-[#1E4D4A] dark:text-teal-300',
-            iconColor: 'text-[#2C7A7B] dark:text-teal-400',
+            bgColor: 'bg-teal-500 hover:bg-teal-600 dark:bg-teal-600 dark:hover:bg-teal-500 border-teal-600/30 dark:border-teal-500/30',
+            textColor: 'text-white',
+            iconColor: 'text-white',
+            subTextColor: 'text-teal-50/80',
             route: ROUTES.VOCAB_ADD,
         },
         {
@@ -116,9 +117,10 @@ const HomeScreen = ({
             title: 'Học Kanji',
             subtitle: 'Chinh phục lộ trình chữ Hán',
             icon: Languages,
-            bgColor: 'bg-[#EDF6F0] dark:bg-emerald-950/20 border-emerald-100/50 dark:border-emerald-900/30',
-            textColor: 'text-[#1E4620] dark:text-emerald-300',
-            iconColor: 'text-[#2F855A] dark:text-emerald-400',
+            bgColor: 'bg-emerald-500 hover:bg-emerald-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 border-emerald-600/30 dark:border-emerald-500/30',
+            textColor: 'text-white',
+            iconColor: 'text-white',
+            subTextColor: 'text-emerald-50/80',
             route: ROUTES.KANJI_STUDY,
         },
         {
@@ -126,9 +128,10 @@ const HomeScreen = ({
             title: 'Ôn Tập Từ Vựng',
             subtitle: `${stats.dueCards} thẻ đang đến hạn ôn`,
             icon: BookOpen,
-            bgColor: 'bg-[#E8F2FC] dark:bg-blue-950/20 border-blue-100/50 dark:border-blue-900/30',
-            textColor: 'text-[#1A365D] dark:text-blue-300',
-            iconColor: 'text-[#2B6CB0] dark:text-blue-400',
+            bgColor: 'bg-indigo-500 hover:bg-indigo-600 dark:bg-indigo-600 dark:hover:bg-indigo-500 border-indigo-600/30 dark:border-indigo-500/30',
+            textColor: 'text-white',
+            iconColor: 'text-white',
+            subTextColor: 'text-indigo-50/80',
             route: ROUTES.VOCAB_REVIEW,
         },
         {
@@ -136,9 +139,10 @@ const HomeScreen = ({
             title: 'Ôn Tập Kanji',
             subtitle: `${kanjiSrsStats.dueCount} kanji đang chờ ôn`,
             icon: Target,
-            bgColor: 'bg-[#FDF6ED] dark:bg-amber-950/20 border-amber-100/50 dark:border-amber-900/30',
-            textColor: 'text-[#744210] dark:text-amber-300',
-            iconColor: 'text-[#D69E2E] dark:text-amber-400',
+            bgColor: 'bg-amber-500 hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-500 border-amber-600/30 dark:border-amber-500/30',
+            textColor: 'text-white',
+            iconColor: 'text-white',
+            subTextColor: 'text-amber-50/80',
             route: ROUTES.KANJI_REVIEW,
         },
     ];
@@ -281,19 +285,19 @@ const HomeScreen = ({
                             key={action.id}
                             data-tour-id={`QUICK_ACTION_${action.id.toUpperCase()}`}
                             onClick={() => navigate(action.route)}
-                            className={`relative group ${action.bgColor} border rounded-2xl p-5 text-left transition-all duration-300 hover:shadow-md hover:scale-[1.01] overflow-hidden flex flex-col justify-between min-h-[110px] cursor-pointer`}
+                            className={`relative group ${action.bgColor} border rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-98 overflow-hidden flex flex-col items-center justify-center min-h-[130px] cursor-pointer`}
                         >
-                            <div className="relative z-10 flex flex-col h-full justify-between">
-                                <div>
-                                    <div className="flex items-center gap-2 mb-1">
-                                        <action.icon className={`w-5 h-5 ${action.iconColor}`} />
-                                        <h3 className={`font-bold text-sm md:text-base ${action.textColor}`}>{action.title}</h3>
+                            <div className="relative z-10 flex flex-col items-center justify-center w-full">
+                                <div className="flex flex-col items-center justify-center gap-1.5 w-full">
+                                    <div className="p-2 rounded-xl bg-white/10 mb-0.5 group-hover:scale-110 transition-transform duration-300">
+                                        <action.icon className="w-6 h-6 text-white" />
                                     </div>
-                                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">{action.subtitle}</p>
-                                </div>
-                                <div className="flex items-center gap-1 mt-3 text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <span className={action.textColor}>Học ngay</span>
-                                    <ArrowRight className={`w-3.5 h-3.5 ${action.textColor} translate-x-0 group-hover:translate-x-1 transition-transform`} />
+                                    <h3 className="font-extrabold text-base md:text-lg text-white tracking-tight leading-snug">
+                                        {action.title}
+                                    </h3>
+                                    <p className={`text-xs ${action.subTextColor} font-semibold line-clamp-1`}>
+                                        {action.subtitle}
+                                    </p>
                                 </div>
                             </div>
                         </button>

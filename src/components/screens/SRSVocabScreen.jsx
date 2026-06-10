@@ -81,6 +81,29 @@ const SRSVocabScreen = ({
     const navigate = useNavigate();
     const fadeWholePage = useMenuTransition();
     const [vocabSetStartIndex, setVocabSetStartIndex] = useState(0);
+    const [isAnimating, setIsAnimating] = useState(false);
+    const [animationDirection, setAnimationDirection] = useState('');
+
+    const handlePrev = (e) => {
+        e.stopPropagation();
+        if (vocabSetStartIndex > 0) {
+            setAnimationDirection('right');
+            setIsAnimating(true);
+            setVocabSetStartIndex(prev => Math.max(0, prev - 1));
+            setTimeout(() => setIsAnimating(false), 300);
+        }
+    };
+
+    const handleNext = (e) => {
+        e.stopPropagation();
+        if (vocabSetStartIndex + 3 < folderStats.length) {
+            setAnimationDirection('left');
+            setIsAnimating(true);
+            setVocabSetStartIndex(prev => Math.min(folderStats.length - 3, prev + 1));
+            setTimeout(() => setIsAnimating(false), 300);
+        }
+    };
+
     const [showMistakeModal, setShowMistakeModal] = useState(false);
     const [selectedMistakeMode, setSelectedMistakeMode] = useState('flashcard');
 
@@ -710,27 +733,6 @@ const SRSVocabScreen = ({
                             <p className="text-xs text-gray-500 dark:text-gray-400">Chọn một học phần để bắt đầu phiên học tập.</p>
                         </div>
                         <div className="flex items-center gap-3">
-                            {folderStats.length > 3 && (
-                                <div className="flex items-center gap-1.5 bg-gray-100 dark:bg-slate-800 p-1 rounded-xl border border-gray-200/40 dark:border-slate-700/40">
-                                    <button
-                                        disabled={vocabSetStartIndex === 0}
-                                        onClick={(e) => { e.stopPropagation(); setVocabSetStartIndex(prev => Math.max(0, prev - 1)); }}
-                                        className="p-1 rounded-lg hover:bg-white dark:hover:bg-slate-700 disabled:opacity-40 disabled:hover:bg-transparent text-gray-600 dark:text-gray-300 transition-all cursor-pointer"
-                                    >
-                                        <ChevronLeft className="w-3.5 h-3.5" />
-                                    </button>
-                                    <span className="text-[10px] font-bold text-gray-500 dark:text-gray-400 min-w-[36px] text-center select-none font-sans">
-                                        {vocabSetStartIndex + 1}-{Math.min(vocabSetStartIndex + 3, folderStats.length)} / {folderStats.length}
-                                    </span>
-                                    <button
-                                        disabled={vocabSetStartIndex + 3 >= folderStats.length}
-                                        onClick={(e) => { e.stopPropagation(); setVocabSetStartIndex(prev => Math.min(folderStats.length - 3, prev + 1)); }}
-                                        className="p-1 rounded-lg hover:bg-white dark:hover:bg-slate-700 disabled:opacity-40 disabled:hover:bg-transparent text-gray-600 dark:text-gray-300 transition-all cursor-pointer"
-                                    >
-                                        <ChevronRight className="w-3.5 h-3.5" />
-                                    </button>
-                                </div>
-                            )}
                             <button
                                 onClick={() => navigate(ROUTES.VOCAB_LIST)}
                                 className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1 cursor-pointer"
@@ -752,64 +754,108 @@ const SRSVocabScreen = ({
                             </button>
                         </div>
                     ) : (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {folderStats.slice(vocabSetStartIndex, vocabSetStartIndex + 3).map(folder => (
-                                <div
-                                    key={folder.id}
-                                    onClick={() => navigate(`/vocab/set/${folder.id}`)}
-                                    className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-3xl p-6 border border-slate-200/60 dark:border-slate-700/60 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-305 flex flex-col justify-between space-y-4 cursor-pointer hover:border-indigo-500/50 dark:hover:border-indigo-400/50"
+                        <div className="relative px-8">
+                            <style>{`
+                              @keyframes slideInFromRight {
+                                0% { transform: translateX(35px); opacity: 0.4; filter: blur(2px); }
+                                100% { transform: translateX(0); opacity: 1; filter: blur(0); }
+                              }
+                              @keyframes slideInFromLeft {
+                                0% { transform: translateX(-35px); opacity: 0.4; filter: blur(2px); }
+                                100% { transform: translateX(0); opacity: 1; filter: blur(0); }
+                              }
+                              .animate-slide-in-right {
+                                animation: slideInFromRight 0.35s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+                              }
+                              .animate-slide-in-left {
+                                animation: slideInFromLeft 0.35s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+                              }
+                            `}</style>
+
+                            {/* Left outer arrow */}
+                            {folderStats.length > 3 && (
+                                <button
+                                    disabled={vocabSetStartIndex === 0}
+                                    onClick={handlePrev}
+                                    className="absolute -left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-gray-200/60 dark:border-slate-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:scale-105 transition-all disabled:opacity-30 disabled:pointer-events-none active:scale-95 cursor-pointer z-30"
+                                    title="Trang trước"
                                 >
-                                    <div className="space-y-3">
-                                        <div className="flex justify-between items-start">
-                                            <span className="px-2 py-0.5 rounded bg-indigo-50 dark:bg-indigo-950/40 text-[9px] font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-                                                {folder.levelBadge}
-                                            </span>
-                                            <span className="text-[10px] text-gray-400 dark:text-gray-500 font-bold">{folder.total} Thẻ</span>
-                                        </div>
-                                        <div>
-                                            <h3 className="font-extrabold text-lg text-gray-800 dark:text-white leading-tight">{folder.name}</h3>
-                                            <p className="text-[11px] text-gray-400 dark:text-gray-500 font-bold mt-1 uppercase tracking-wide">
-                                                Đã thuộc {folder.masteredPct}%
-                                            </p>
-                                        </div>
-                                    </div>
+                                    <ChevronLeft className="w-5 h-5" />
+                                </button>
+                            )}
 
-                                    {/* Action Buttons inside Card */}
-                                    <div className="space-y-2 pt-2">
-                                        {folder.newCards.length > 0 && (
-                                            <button
-                                                onClick={(e) => { e.stopPropagation(); navigate(`/vocab/set/${folder.id}`); }}
-                                                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-cyan-50 dark:bg-cyan-950/20 hover:bg-cyan-100 dark:hover:bg-cyan-900/30 text-cyan-700 dark:text-cyan-400 transition-colors border border-cyan-100 dark:border-cyan-900/50 group cursor-pointer"
-                                            >
-                                                <div className="flex items-center gap-2">
-                                                    <Layers className="w-4 h-4" />
-                                                    <span className="font-bold text-xs">Thêm vào ngắt quãng</span>
+                            <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-hidden ${
+                                isAnimating 
+                                    ? (animationDirection === 'left' ? 'animate-slide-in-right' : 'animate-slide-in-left')
+                                    : ''
+                            }`}>
+                                {folderStats.slice(vocabSetStartIndex, vocabSetStartIndex + 3).map(folder => (
+                                    <div
+                                        key={folder.id}
+                                        onClick={() => navigate(`/vocab/set/${folder.id}`)}
+                                        className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-3xl p-6 border border-slate-200/60 dark:border-slate-700/60 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-305 flex flex-col justify-between space-y-4 cursor-pointer hover:border-indigo-500/50 dark:hover:border-indigo-400/50"
+                                    >
+                                        <div className="space-y-3">
+                                            <div className="flex justify-between items-start gap-3 w-full">
+                                                <div className="flex-1 min-w-0">
+                                                    <h3 className="font-extrabold text-lg text-gray-800 dark:text-white leading-tight line-clamp-1">{folder.name}</h3>
+                                                    <p className="text-[11px] text-gray-400 dark:text-gray-500 font-bold mt-1 uppercase tracking-wide">
+                                                        Đã thuộc {folder.masteredPct}%
+                                                    </p>
                                                 </div>
-                                                <span className="bg-cyan-200/60 dark:bg-cyan-900/80 px-2 py-0.5 rounded-full text-[10px] font-black">{folder.newCards.length}</span>
-                                            </button>
-                                        )}
-
-                                        {folder.dueCards.length > 0 && (
-                                            <button
-                                                onClick={(e) => { e.stopPropagation(); startFolderReview(folder.dueCards); }}
-                                                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-orange-50 dark:bg-orange-950/20 hover:bg-orange-100 dark:hover:bg-orange-900/30 text-orange-700 dark:text-orange-400 transition-colors border border-orange-100 dark:border-orange-900/50 group cursor-pointer"
-                                            >
-                                                <div className="flex items-center gap-2">
-                                                    <RotateCw className="w-4 h-4" />
-                                                    <span className="font-bold text-xs">Ôn tập ngắt quãng</span>
-                                                </div>
-                                                <span className="bg-orange-200/60 dark:bg-orange-900/80 px-2 py-0.5 rounded-full text-[10px] font-black">{folder.dueCards.length}</span>
-                                            </button>
-                                        )}
-
-                                        {!folder.hasAction && (
-                                            <div className="w-full text-center py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-bold text-xs border border-dashed border-slate-200 dark:border-slate-700/60">
-                                                ✓ Không có thẻ cần ôn tập hôm nay
+                                                <span className="text-[10px] text-gray-400 dark:text-gray-500 font-bold shrink-0 mt-1">{folder.total} Thẻ</span>
                                             </div>
-                                        )}
+                                        </div>
+
+                                        {/* Action Buttons inside Card */}
+                                        <div className="space-y-2 pt-2">
+                                            {folder.newCards.length > 0 && (
+                                                <button
+                                                    onClick={(e) => { e.stopPropagation(); navigate(`/vocab/set/${folder.id}`); }}
+                                                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-cyan-50 dark:bg-cyan-950/20 hover:bg-cyan-100 dark:hover:bg-cyan-900/30 text-cyan-700 dark:text-cyan-400 transition-colors border border-cyan-100 dark:border-cyan-900/50 group cursor-pointer"
+                                                >
+                                                    <div className="flex items-center gap-2">
+                                                        <Layers className="w-4 h-4" />
+                                                        <span className="font-bold text-xs">Thêm vào ngắt quãng</span>
+                                                    </div>
+                                                    <span className="bg-cyan-200/60 dark:bg-cyan-900/80 px-2 py-0.5 rounded-full text-[10px] font-black">{folder.newCards.length}</span>
+                                                </button>
+                                            )}
+
+                                            {folder.dueCards.length > 0 && (
+                                                <button
+                                                    onClick={(e) => { e.stopPropagation(); startFolderReview(folder.dueCards); }}
+                                                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-orange-50 dark:bg-orange-950/20 hover:bg-orange-100 dark:hover:bg-orange-900/30 text-orange-700 dark:text-orange-400 transition-colors border border-orange-100 dark:border-orange-900/50 group cursor-pointer"
+                                                >
+                                                    <div className="flex items-center gap-2">
+                                                        <RotateCw className="w-4 h-4" />
+                                                        <span className="font-bold text-xs">Ôn tập ngắt quãng</span>
+                                                    </div>
+                                                    <span className="bg-orange-200/60 dark:bg-orange-900/80 px-2 py-0.5 rounded-full text-[10px] font-black">{folder.dueCards.length}</span>
+                                                </button>
+                                            )}
+
+                                            {!folder.hasAction && (
+                                                <div className="w-full text-center py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-bold text-xs border border-dashed border-slate-200 dark:border-slate-700/60">
+                                                    ✓ Không có thẻ cần ôn tập hôm nay
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
+
+                            {/* Right outer arrow */}
+                            {folderStats.length > 3 && (
+                                <button
+                                    disabled={vocabSetStartIndex + 3 >= folderStats.length}
+                                    onClick={handleNext}
+                                    className="absolute -right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-gray-200/60 dark:border-slate-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:scale-105 transition-all disabled:opacity-30 disabled:pointer-events-none active:scale-95 cursor-pointer z-30"
+                                    title="Trang sau"
+                                >
+                                    <ChevronRight className="w-5 h-5" />
+                                </button>
+                            )}
                         </div>
                     )}
                 </div>
