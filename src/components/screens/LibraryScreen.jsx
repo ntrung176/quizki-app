@@ -81,10 +81,22 @@ const LibraryScreen = ({
     // Filter and sort Study Sets based on active parent folder and search query
     const filteredStudySets = useMemo(() => {
         const result = foldersWithCounts.filter(f => {
+            // Match cards/vocab inside this study set if searching
+            const folderCards = allCards.filter(c => cardFolders[c.id] === f.id);
+            const matchesVocab = searchQuery
+                ? folderCards.some(c => 
+                    (c.front || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    (c.back || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    (c.sinoVietnamese || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    (c.synonym || '').toLowerCase().includes(searchQuery.toLowerCase())
+                  )
+                : false;
+
             // Match search
             const matchesSearch = searchQuery 
                 ? (f.name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-                  (f.description || '').toLowerCase().includes(searchQuery.toLowerCase())
+                  (f.description || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                  matchesVocab
                 : true;
 
             if (!matchesSearch) return false;
@@ -106,7 +118,7 @@ const LibraryScreen = ({
             const timeB = b.createdAt?.seconds || (b.createdAt?.toDate ? b.createdAt.toDate().getTime() : 0) || (b.createdAt instanceof Date ? b.createdAt.getTime() : 0) || 0;
             return timeB - timeA;
         });
-    }, [foldersWithCounts, activeParentFolderId, searchQuery]);
+    }, [foldersWithCounts, activeParentFolderId, searchQuery, allCards, cardFolders]);
 
     // Parent Folders with Study Set counts
     const parentFoldersWithCounts = useMemo(() => {
@@ -117,11 +129,31 @@ const LibraryScreen = ({
                 const folderCards = allCards.filter(c => cardFolders[c.id] === f.id);
                 return sum + folderCards.length;
             }, 0);
-            return { ...pf, setsCount, totalCards };
+            return { ...pf, setsCount, totalCards, setsInside };
         }).filter(pf => {
             // Apply search filter if any
             if (!searchQuery) return true;
-            return (pf.name || '').toLowerCase().includes(searchQuery.toLowerCase());
+
+            // 1. Matches folder name directly
+            const matchesFolderName = (pf.name || '').toLowerCase().includes(searchQuery.toLowerCase());
+            if (matchesFolderName) return true;
+
+            // 2. Matches any study set inside this folder (by set name/desc or its vocabulary)
+            const matchesSetOrVocab = pf.setsInside.some(f => {
+                const matchesSetName = (f.name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                      (f.description || '').toLowerCase().includes(searchQuery.toLowerCase());
+                if (matchesSetName) return true;
+
+                const folderCards = allCards.filter(c => cardFolders[c.id] === f.id);
+                return folderCards.some(c => 
+                    (c.front || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    (c.back || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    (c.sinoVietnamese || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    (c.synonym || '').toLowerCase().includes(searchQuery.toLowerCase())
+                );
+            });
+
+            return matchesSetOrVocab;
         });
 
         // Sắp xếp thư mục theo thời gian tạo mới nhất trước đến cũ nhất
@@ -434,6 +466,27 @@ const LibraryScreen = ({
                                                     <p className="text-[10px] text-gray-400 mt-0.5">
                                                         {folder.setsCount} Học phần • {folder.totalCards} Từ
                                                     </p>
+                                                    {searchQuery && (() => {
+                                                        const setsInside = folders.filter(f => f.parentId === folder.id);
+                                                        const matchedCount = setsInside.reduce((sum, f) => {
+                                                            const folderCards = allCards.filter(c => cardFolders[c.id] === f.id);
+                                                            const matches = folderCards.filter(c => 
+                                                                (c.front || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                                                (c.back || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                                                (c.sinoVietnamese || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                                                (c.synonym || '').toLowerCase().includes(searchQuery.toLowerCase())
+                                                            );
+                                                            return sum + matches.length;
+                                                        }, 0);
+                                                        if (matchedCount > 0) {
+                                                            return (
+                                                                <span className="inline-block mt-1 text-[9px] font-extrabold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/45 px-2 py-0.5 rounded-lg border border-indigo-100 dark:border-indigo-900/30">
+                                                                    Khớp {matchedCount} từ vựng
+                                                                </span>
+                                                            );
+                                                        }
+                                                        return null;
+                                                    })()}
                                                 </div>
                                             </div>
                                         </div>
@@ -554,6 +607,34 @@ const LibraryScreen = ({
                                             )}
                                         </div>
                                     )}
+                                    {searchQuery && (() => {
+                                        const matchedCards = allCards.filter(c => cardFolders[c.id] === folder.id).filter(c => 
+                                            (c.front || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                            (c.back || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                            (c.sinoVietnamese || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                            (c.synonym || '').toLowerCase().includes(searchQuery.toLowerCase())
+                                        );
+                                        if (matchedCards.length > 0) {
+                                            return (
+                                                <div className="mt-2 flex flex-wrap gap-1 bg-emerald-50/50 dark:bg-emerald-950/20 p-2 rounded-xl border border-emerald-100 dark:border-emerald-900/30">
+                                                    <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-450 block w-full mb-0.5">
+                                                        Từ vựng khớp ({matchedCards.length}):
+                                                    </span>
+                                                    {matchedCards.slice(0, 2).map((c, idx) => (
+                                                        <span key={idx} className="text-[10px] px-1.5 py-0.5 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300 rounded font-medium">
+                                                            {c.front} ({c.back})
+                                                        </span>
+                                                    ))}
+                                                    {matchedCards.length > 2 && (
+                                                        <span className="text-[9px] text-gray-400 font-medium self-center ml-1">
+                                                            +{matchedCards.length - 2} khác
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            );
+                                        }
+                                        return null;
+                                    })()}
                                 </div>
 
                                 <div className="mt-5 space-y-2">

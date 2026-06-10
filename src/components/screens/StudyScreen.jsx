@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import { ArrowLeft, Check, X, BookOpen, RotateCcw, Zap, ChevronRight } from 'lucide-react'
+import { createPortal } from 'react-dom';
+import { ArrowLeft, Check, X, BookOpen, RotateCcw, Zap, ChevronRight, Settings } from 'lucide-react'
 import { speakJapanese } from '../../utils/audio';
 import { playCorrectSound, playIncorrectSound } from '../../utils/soundEffects';
 import { launchFanfare } from '../../utils/celebrations';
@@ -71,7 +72,7 @@ const buildOptions = (correctCard, allCards) => {
 
 // ─── Phase: Multiple Choice ────────────────────────────────────────────────
 
-const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio }) => {
+const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furiganaEnabled }) => {
     const [options] = useState(() => buildOptions(card, allCards));
     const [selected, setSelected] = useState(null);
     const [answered, setAnswered] = useState(false);
@@ -125,7 +126,7 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio }) => {
                                 {i + 1}
                             </span>
                             <span className="font-japanese text-lg font-bold">
-                                <FuriganaText text={opt} />
+                                <FuriganaText text={opt} forceHide={!furiganaEnabled} />
                             </span>
                             {answered && isCorrectOpt && <Check className="ml-auto w-5 h-5 text-emerald-500 flex-shrink-0" />}
                             {answered && isSelected && !isCorrectOpt && <X className="ml-auto w-5 h-5 text-red-500 flex-shrink-0" />}
@@ -137,9 +138,12 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio }) => {
             {/* Wrong answer: show continue */}
             {answered && normalize(selected) !== normalize(correct) && (
                 <div className="space-y-3 animate-fade-in">
-                    <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-sm text-red-700 dark:text-red-300">
-                        Đáp án đúng: <span className="font-japanese font-bold text-lg"><FuriganaText text={correct} /></span>
-                        {card.sinoVietnamese && <span className="ml-2 text-yellow-600 dark:text-yellow-400">({card.sinoVietnamese})</span>}
+                    <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-sm text-red-700 dark:text-red-300 space-y-1.5">
+                        <p className="font-semibold text-red-800 dark:text-red-300">✗ Chưa đúng!</p>
+                        <div className="space-y-1 text-sm border-t border-red-200 dark:border-red-800/40 pt-2 mt-1">
+                            <p>Từ vựng: <span className="font-japanese font-bold text-lg"><FuriganaText text={correct} forceHide={!furiganaEnabled} /></span> {card.sinoVietnamese && <span className="text-yellow-600 dark:text-yellow-400">({card.sinoVietnamese})</span>}</p>
+                            <p>Ý nghĩa: <span className="font-semibold">{card.back}</span></p>
+                        </div>
                     </div>
                     <button onClick={() => onWrong()} className="w-full py-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-all">
                         Tiếp tục →
@@ -152,7 +156,7 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio }) => {
 
 // ─── Phase: Written (type the answer) ────────────────────────────────────────
 
-const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio }) => {
+const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabled }) => {
     const [input, setInput] = useState('');
     const [feedback, setFeedback] = useState(null); // null | 'correct' | 'incorrect'
     const [needsRetype, setNeedsRetype] = useState(false);
@@ -255,18 +259,23 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio }) => {
 
             {feedback === 'correct' && (
                 <div className="p-4 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl text-emerald-700 dark:text-emerald-300 font-bold text-center animate-fade-in">
-                    ✅ Chính xác! <span className="font-japanese"><FuriganaText text={correct} /></span>
+                    ✅ Chính xác! <span className="font-japanese"><FuriganaText text={correct} forceHide={!furiganaEnabled} /></span>
                 </div>
             )}
 
             {needsRetype && (
                 <div className="space-y-3 animate-fade-in">
-                    <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl">
+                    <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl space-y-1.5">
                         <p className="text-sm text-red-500 font-medium mb-1">Bạn nhập sai: <span className="font-bold">{lastWrongInput}</span></p>
-                        <p className="text-red-700 dark:text-red-300 font-bold mb-2">
-                            Đáp án đúng: <span className="font-japanese text-lg"><FuriganaText text={correct} /></span>
-                        </p>
-                        <p className="text-xs text-red-500/80 font-bold italic animate-pulse">Vui lòng gõ lại đáp án đúng ở trên để tiếp tục.</p>
+                        <div className="space-y-1 text-sm border-t border-red-200 dark:border-red-800/40 pt-2 mt-1">
+                            <p className="text-red-800 dark:text-red-300">
+                                Đáp án đúng: <span className="font-japanese font-bold text-lg"><FuriganaText text={correct} forceHide={!furiganaEnabled} /></span>
+                            </p>
+                            <p className="text-red-800 dark:text-red-300">
+                                Ý nghĩa: <span className="font-semibold">{card.back}</span>
+                            </p>
+                        </div>
+                        <p className="text-xs text-red-500/80 font-bold italic animate-pulse mt-2 pt-1">Vui lòng gõ lại đáp án đúng ở trên để tiếp tục.</p>
                     </div>
                     <button onClick={handleRetypeCheck} disabled={!input.trim()} className="w-full py-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-all">
                         Kiểm tra & Tiếp tục →
@@ -337,6 +346,8 @@ const SessionComplete = ({ totalCards, onBack, onRestart }) => {
 // ─── Main StudyScreen ──────────────────────────────────────────────────────
 const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdateCard, onSaveCardAudio, onCompleteStudy, onBack }) => {
     const originalCards = useMemo(() => studySessionData?.cards || [], [studySessionData]);
+    const [furiganaEnabled, setFuriganaEnabled] = useState(() => localStorage.getItem('study_furigana_enabled') !== 'false');
+    const [showSettings, setShowSettings] = useState(false);
     const [batches, setBatches] = useState([]);
     const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
     const [currentBatch, setCurrentBatch] = useState([]);
@@ -693,7 +704,16 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                         <div className="space-y-1.5 w-full flex-shrink-0">
                             <div className="flex justify-between items-center text-xs font-bold text-indigo-500 dark:text-indigo-400">
                                 <span>{phaseLabel}</span>
-                                <span className="text-gray-500 dark:text-gray-400">{phaseDesc}</span>
+                                <div className="flex items-center gap-2">
+                                    <span className="text-gray-500 dark:text-gray-400">{phaseDesc}</span>
+                                    <button
+                                        onClick={() => setShowSettings(true)}
+                                        className="p-1 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-700 transition-all"
+                                        title="Cài đặt"
+                                    >
+                                        <Settings className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                                    </button>
+                                </div>
                             </div>
                             <div className="h-2 w-full bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
                                 <div
@@ -731,6 +751,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                     onCorrect={handleMCCorrect}
                                     onWrong={handleMCWrong}
                                     onSaveCardAudio={onSaveCardAudio}
+                                    furiganaEnabled={furiganaEnabled}
                                 />
                             </>
                         ) : batchPhase === 'written' && currentCard ? (
@@ -744,12 +765,56 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                     onCorrect={handleWrittenCorrect}
                                     onWrong={handleWrittenWrong}
                                     onSaveCardAudio={onSaveCardAudio}
+                                    furiganaEnabled={furiganaEnabled}
                                 />
                             </>
                         ) : null}
                     </div>
                 </div>
             </div>
+
+            {/* Settings Modal Popup */}
+            {showSettings && createPortal(
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setShowSettings(false)}>
+                    <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+                    <div className="relative bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-sm p-6 space-y-5 border border-gray-200 dark:border-slate-700"
+                        onClick={e => e.stopPropagation()}>
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                                <Settings className="w-5 h-5 text-indigo-500" />
+                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">Cài đặt học tập</h3>
+                            </div>
+                            <button onClick={() => setShowSettings(false)} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition-all">
+                                <X className="w-5 h-5 text-gray-400" />
+                            </button>
+                        </div>
+                        <div className="space-y-4">
+                            <div className="flex items-center justify-between">
+                                <span className="text-sm font-bold text-gray-700 dark:text-gray-350">Hiển thị Furigana</span>
+                                <label className="relative inline-flex items-center cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        checked={furiganaEnabled}
+                                        onChange={(e) => {
+                                            setFuriganaEnabled(e.target.checked);
+                                            localStorage.setItem('study_furigana_enabled', String(e.target.checked));
+                                        }}
+                                        className="sr-only peer"
+                                    />
+                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                </label>
+                            </div>
+                        </div>
+                        <button
+                            onClick={() => setShowSettings(false)}
+                            className="w-full py-2.5 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-xl transition-all text-sm"
+                        >
+                            Xong
+                        </button>
+                    </div>
+                </div>,
+                document.body
+            )}
         </div>
     );
 };

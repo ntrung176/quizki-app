@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
-import { ArrowLeft, Users, CheckCircle, XCircle, RotateCcw, ChevronRight, Zap } from 'lucide-react'
+import { createPortal } from 'react-dom';
+import { ArrowLeft, Users, CheckCircle, XCircle, RotateCcw, ChevronRight, Zap, Settings, X } from 'lucide-react'
 import FuriganaText from '../ui/FuriganaText';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare } from '../../utils/soundEffects';
 import { speakJapanese } from '../../utils/audio';
@@ -35,6 +36,14 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
     const [score, setScore] = useState(savedProgress?.score || { correct: 0, incorrect: 0 });
     const [isComplete, setIsComplete] = useState(savedProgress?.isComplete || false);
     const [isTransitioning, setIsTransitioning] = useState(false);
+
+    const [showSettings, setShowSettings] = useState(false);
+    const [synonymFuriganaEnabled, setSynonymFuriganaEnabled] = useState(() => {
+        return localStorage.getItem('synonym_furigana_enabled') !== 'false';
+    });
+    const [synonymVietnameseEnabled, setSynonymVietnameseEnabled] = useState(() => {
+        return localStorage.getItem('synonym_vietnamese_enabled') !== 'false';
+    });
 
     const currentCard = quizQueue[currentIndex];
     const failedCardsRef = useRef(new Set(savedProgress?.failedCardIdsList || []));
@@ -306,9 +315,14 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                 <div className="w-full flex flex-col space-y-4 p-5 md:p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl">
                     {/* Progress */}
                     <div className="space-y-1">
-                        <div className="flex justify-between text-sm font-bold text-purple-500 dark:text-purple-400">
+                        <div className="flex justify-between items-center text-sm font-bold text-purple-500 dark:text-purple-400">
                             <span className="flex items-center gap-2"><Users className="w-4 h-4" /> ĐỒNG NGHĨA</span>
-                            <span className="text-gray-500">{currentIndex + 1} / {quizQueue.length}</span>
+                            <div className="flex items-center gap-2">
+                                <span className="text-gray-500">{currentIndex + 1} / {quizQueue.length}</span>
+                                <button onClick={() => setShowSettings(true)} className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-gray-500 hover:text-purple-650" title="Cài đặt">
+                                    <Settings className="w-4 h-4" />
+                                </button>
+                            </div>
                         </div>
                         <div className="h-2 bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
                             <div className="h-full bg-purple-500 rounded-full transition-all duration-300" style={{ width: `${progress}%` }}></div>
@@ -319,9 +333,9 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                     <div className="text-center py-6">
                         <p className="text-sm text-gray-400 mb-2">Từ đồng nghĩa của</p>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white font-japanese">
-                            <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} />
+                            <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} forceHide={!synonymFuriganaEnabled} />
                         </h2>
-                        <p className="text-gray-500 dark:text-gray-400 mt-2 text-base">{currentCard.back}</p>
+                        {synonymVietnameseEnabled && <p className="text-gray-500 dark:text-gray-400 mt-2 text-base">{currentCard.back}</p>}
                     </div>
 
                     {/* Options */}
@@ -343,7 +357,7 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                                 <button key={i} onClick={() => handleSelect(option)} className={cls} disabled={isRevealed}>
                                     <span className="flex items-center gap-3">
                                         <span className="w-7 h-7 rounded-full bg-gray-200 dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-gray-500 dark:text-gray-400 flex-shrink-0">{i + 1}</span>
-                                        <span className="font-japanese"><FuriganaText text={option} /></span>
+                                        <span className="font-japanese"><FuriganaText text={option} forceHide={!synonymFuriganaEnabled} /></span>
                                         {isRevealed && isCorrect && <CheckCircle className="w-5 h-5 text-green-500 ml-auto flex-shrink-0" />}
                                         {isRevealed && isSelected && !isCorrect && <XCircle className="w-5 h-5 text-red-500 ml-auto flex-shrink-0" />}
                                     </span>
@@ -354,18 +368,99 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
 
                     {/* Next */}
                     {isRevealed && selectedAnswer !== currentCard?.synonym && (
-                        <button 
-                            onClick={() => handleNext(false)} 
-                            disabled={isTransitioning}
-                            className={`w-full py-4 rounded-xl font-bold text-lg bg-purple-600 hover:bg-purple-700 text-white shadow-lg transition-all flex items-center justify-center gap-2 mt-2 ${isTransitioning ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'}`}
-                        >
-                            {isTransitioning ? 'Đang hoàn tất...' : (currentIndex < quizQueue.length - 1 ? <><span>Tiếp tục</span><ChevronRight className="w-5 h-5" /></> : <span>Hoàn thành 🎉</span>)}
-                        </button>
+                        <>
+                            <div className="w-full p-4 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-300 text-sm space-y-1.5 mt-2">
+                                <p className="font-semibold text-red-650 dark:text-red-350">✗ Chưa đúng!</p>
+                                <div className="space-y-1.5 text-sm border-t border-red-200 dark:border-red-800/40 pt-2 mt-1">
+                                    <p className="text-red-800 dark:text-red-300">
+                                        Từ vựng: <span className="font-japanese font-bold text-base"><FuriganaText text={currentCard.frontWithFurigana || currentCard.front} forceHide={!synonymFuriganaEnabled} /></span>
+                                    </p>
+                                    {synonymVietnameseEnabled && (
+                                        <p className="text-red-800 dark:text-red-300">
+                                            Ý nghĩa: <span className="font-semibold">{currentCard.back}</span>
+                                        </p>
+                                    )}
+                                    <p className="text-red-800 dark:text-red-300">
+                                        Từ đồng nghĩa đúng: <span className="font-japanese font-bold text-base"><FuriganaText text={currentCard.synonym} forceHide={!synonymFuriganaEnabled} /></span>
+                                    </p>
+                                </div>
+                            </div>
+                            <button 
+                                onClick={() => handleNext(false)} 
+                                disabled={isTransitioning}
+                                className={`w-full py-4 rounded-xl font-bold text-lg bg-purple-600 hover:bg-purple-700 text-white shadow-lg transition-all flex items-center justify-center gap-2 mt-2 ${isTransitioning ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'}`}
+                            >
+                                {isTransitioning ? 'Đang hoàn tất...' : (currentIndex < quizQueue.length - 1 ? <><span>Tiếp tục</span><ChevronRight className="w-5 h-5" /></> : <span>Hoàn thành 🎉</span>)}
+                            </button>
+                        </>
                     )}
 
                     <p className="text-center text-[10px] text-gray-400">1-4: Chọn | Enter: Tiếp tục</p>
                 </div>
             </div>
+
+            {/* Settings Modal Popup */}
+            {showSettings && createPortal(
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setShowSettings(false)}>
+                    <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+                    <div className="relative bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-sm p-6 space-y-5 border border-gray-200 dark:border-slate-700"
+                        onClick={e => e.stopPropagation()}>
+                        {/* Header */}
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                                <Settings className="w-5 h-5 text-indigo-500" />
+                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">Cài đặt ôn tập</h3>
+                            </div>
+                            <button onClick={() => setShowSettings(false)} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition-all">
+                                <X className="w-5 h-5 text-gray-400" />
+                            </button>
+                        </div>
+
+                        <div className="space-y-4">
+                            <div className="flex items-center justify-between">
+                                <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Bật Furigana</span>
+                                <label className="relative inline-flex items-center cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        checked={synonymFuriganaEnabled}
+                                        onChange={(e) => {
+                                            setSynonymFuriganaEnabled(e.target.checked);
+                                            localStorage.setItem('synonym_furigana_enabled', e.target.checked);
+                                        }}
+                                        className="sr-only peer"
+                                    />
+                                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-650 peer-checked:bg-indigo-600"></div>
+                                </label>
+                            </div>
+
+                            <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
+                                <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Hiện nghĩa tiếng Việt</span>
+                                <label className="relative inline-flex items-center cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        checked={synonymVietnameseEnabled}
+                                        onChange={(e) => {
+                                            setSynonymVietnameseEnabled(e.target.checked);
+                                            localStorage.setItem('synonym_vietnamese_enabled', e.target.checked);
+                                        }}
+                                        className="sr-only peer"
+                                    />
+                                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-650 peer-checked:bg-indigo-600"></div>
+                                </label>
+                            </div>
+                        </div>
+
+                        {/* Close button */}
+                        <button
+                            onClick={() => setShowSettings(false)}
+                            className="w-full py-2.5 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-xl transition-all text-sm"
+                        >
+                            Xong
+                        </button>
+                    </div>
+                </div>,
+                document.body
+            )}
         </div>
     );
 };

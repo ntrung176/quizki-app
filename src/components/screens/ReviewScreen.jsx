@@ -94,7 +94,10 @@ const ReviewScreen = ({
                 example: false,
                 word: false,
                 furigana: false,
-                reading: false
+                reading: false,
+                exampleFurigana: true,
+                exampleMeaning: true,
+                synonymFurigana: true
             },
             swapSides: false,
             autoPlayAudio: true
@@ -155,6 +158,27 @@ const ReviewScreen = ({
     const audioAbortRef = useRef(false); // Abort in-flight TTS requests
 
     const [showSettings, setShowSettings] = useState(false);
+    const [exampleTestFormat, setExampleTestFormat] = useState(() => {
+        return localStorage.getItem('example_test_format') || 'multipleChoice';
+    });
+    const [exampleFuriganaEnabled, setExampleFuriganaEnabled] = useState(() => {
+        return localStorage.getItem('example_furigana_enabled') !== 'false';
+    });
+    const [exampleVietnameseEnabled, setExampleVietnameseEnabled] = useState(() => {
+        return localStorage.getItem('example_vietnamese_enabled') !== 'false';
+    });
+    const [meaningFuriganaEnabled, setMeaningFuriganaEnabled] = useState(() => {
+        return localStorage.getItem('meaning_furigana_enabled') !== 'false';
+    });
+    const [meaningHanvietEnabled, setMeaningHanvietEnabled] = useState(() => {
+        return localStorage.getItem('meaning_hanviet_enabled') !== 'false';
+    });
+    const [synonymFuriganaEnabled, setSynonymFuriganaEnabled] = useState(() => {
+        return localStorage.getItem('synonym_furigana_enabled') !== 'false';
+    });
+    const [synonymVietnameseEnabled, setSynonymVietnameseEnabled] = useState(() => {
+        return localStorage.getItem('synonym_vietnamese_enabled') !== 'false';
+    });
     const [reviewTestFormat, setReviewTestFormat] = useState(() => {
         if (reviewMode === 'meaning_input' || reviewMode === 'dictation') {
             return 'written';
@@ -216,12 +240,12 @@ const ReviewScreen = ({
     const _rawReviewType = currentCard ? (currentCard.reviewType || reviewMode) : null;
     const KNOWN_REVIEW_TYPES = ['back', 'synonym', 'example', 'dictation', 'flashcard'];
     const cardReviewType = _rawReviewType && KNOWN_REVIEW_TYPES.includes(_rawReviewType) ? _rawReviewType : (_rawReviewType ? 'back' : null);
-    const isMultipleChoice = (cardReviewType === 'synonym' || cardReviewType === 'example' || (cardReviewType === 'back' && reviewTestFormat === 'multipleChoice')) && cardReviewType !== 'dictation';
+    const isMultipleChoice = (cardReviewType === 'synonym' || (cardReviewType === 'example' && exampleTestFormat === 'multipleChoice') || (cardReviewType === 'back' && reviewTestFormat === 'multipleChoice')) && cardReviewType !== 'dictation';
     const currentCardId = currentCard?.id;
 
     // Auto focus logic
     useEffect(() => {
-        if ((cardReviewType === 'back' || cardReviewType === 'dictation') && reviewMode !== 'flashcard' && !isMultipleChoice && inputRef.current && !isRevealed && !isMobileDevice()) {
+        if ((cardReviewType === 'back' || cardReviewType === 'dictation' || cardReviewType === 'example') && reviewMode !== 'flashcard' && !isMultipleChoice && inputRef.current && !isRevealed && !isMobileDevice()) {
             const timer = setTimeout(() => {
                 inputRef.current?.focus();
             }, reviewMode === 'flashcard' ? 450 : 100);
@@ -785,7 +809,7 @@ const ReviewScreen = ({
         const userAnswer = normalizeAnswer(inputValue);
         let isCorrect = false;
 
-        if (inputMode === 'reading' || cardReviewType === 'dictation') {
+        if (inputMode === 'reading' || cardReviewType === 'dictation' || cardReviewType === 'example') {
             // Mode: Hiện nghĩa, nhập từ vựng HOẶC Dictation: nghe, nhập từ vựng
             const rawFront = currentCard.front;
             const kanjiPart = rawFront.split('（')[0].split('(')[0];
@@ -887,13 +911,13 @@ const ReviewScreen = ({
                 failedCardsRef.current.add(cardKey);
                 setFailedCards(new Set(failedCardsRef.current));
                 setFeedback('incorrect');
-                const correctAns = (inputMode === 'reading' || cardReviewType === 'dictation') ? displayFront : currentCard.back;
+                const correctAns = (inputMode === 'reading' || cardReviewType === 'dictation' || cardReviewType === 'example') ? displayFront : currentCard.back;
                 const nuanceText = currentCard.nuance ? ` (${currentCard.nuance})` : '';
                 setMessage(`Đáp án đúng: ${correctAns}${nuanceText}`);
                 setIsRevealed(true);
                 setIsLocked(true);
                 // Clear input and require user to retype correct answer for typing modes
-                if ((cardReviewType === 'back' || cardReviewType === 'dictation') && !isMultipleChoice) {
+                if ((cardReviewType === 'back' || cardReviewType === 'dictation' || cardReviewType === 'example') && !isMultipleChoice) {
                     setInputValue('');
                     setNeedsRetype(true);
                 }
@@ -1015,7 +1039,7 @@ const ReviewScreen = ({
                 setNeedsRetype(false);
                 setIsProcessing(false);
                 isProcessingRef.current = false;
-                if ((cardReviewType === 'back' || cardReviewType === 'dictation') && !isMultipleChoice && inputRef.current && !isMobileDevice()) {
+                if ((cardReviewType === 'back' || cardReviewType === 'dictation' || cardReviewType === 'example') && !isMultipleChoice && inputRef.current && !isMobileDevice()) {
                     setTimeout(() => inputRef.current?.focus(), 100);
                 }
             }
@@ -1046,7 +1070,7 @@ const ReviewScreen = ({
         const retypeAns = normalizeAnswer(inputValue);
         let isRetypeCorrect = false;
 
-        if (inputMode === 'reading' || cardReviewType === 'dictation') {
+        if (inputMode === 'reading' || cardReviewType === 'dictation' || cardReviewType === 'example') {
             const rawFront = currentCard.front;
             const kanjiPart = rawFront.split('（')[0].split('(')[0];
             const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
@@ -1098,7 +1122,7 @@ const ReviewScreen = ({
             await moveToNextCard(false); // Don't update streak since first answer was wrong
         } else {
             setFeedback('incorrect');
-            setMessage(`Chưa đúng! Hãy nhập: ${(inputMode === 'reading' || cardReviewType === 'dictation') ? displayFront : currentCard.back}`);
+            setMessage(`Chưa đúng! Hãy nhập: ${(inputMode === 'reading' || cardReviewType === 'dictation' || cardReviewType === 'example') ? displayFront : currentCard.back}`);
             setInputValue('');
             playIncorrectSound();
             isProcessingRef.current = false; // Release so user can try again
@@ -1130,7 +1154,7 @@ const ReviewScreen = ({
                             <span>{currentIndex + 1} / {cards.length}</span>
                             <div className="flex items-center gap-2">
                                 {failedCards.size > 0 && <span className="text-red-500">({failedCards.size} sai)</span>}
-                                {cardReviewType !== 'example' && reviewMode !== 'dictation' && (
+                                {reviewMode !== 'dictation' && reviewMode !== 'flashcard' && (
                                     <button onClick={() => setShowSettings(true)} className="p-1 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-700 transition-all" title="Cài đặt">
                                         <Settings className="w-4 h-4" />
                                     </button>
@@ -1256,8 +1280,13 @@ const ReviewScreen = ({
                                             <>
                                                 {/* Synonym mode: Show synonym from card */}
                                                 <div className="quiz-question-text-lg font-bold text-white break-words font-japanese text-auto-fit">
-                                                    <FuriganaText text={currentCard.synonym || 'Không có từ đồng nghĩa'} />
+                                                    <FuriganaText text={currentCard.synonym || 'Không có từ đồng nghĩa'} forceHide={!synonymFuriganaEnabled} />
                                                 </div>
+                                                {synonymVietnameseEnabled && currentCard.back && (
+                                                    <div className="text-sm text-gray-400 mt-1 italic">
+                                                        "{currentCard.back}"
+                                                    </div>
+                                                )}
                                                 <div className="text-sm text-gray-400 mt-2">
                                                     Tìm từ đồng nghĩa
                                                 </div>
@@ -1266,9 +1295,9 @@ const ReviewScreen = ({
                                             <>
                                                 {/* Example mode: Show example sentence with masked word */}
                                                 <div className="quiz-example-text font-bold text-lg md:text-xl text-white font-japanese break-words text-auto-fit">
-                                                    <FuriganaText text={promptInfo.text} />
+                                                    <FuriganaText text={promptInfo.text} forceHide={!exampleFuriganaEnabled} />
                                                 </div>
-                                                {promptInfo.meaning && (
+                                                {exampleVietnameseEnabled && promptInfo.meaning && (
                                                     <div
                                                         className={`text-lg md:text-xl font-medium mt-2 italic break-words cursor-pointer transition-all duration-300 select-none ${blurVietnamese && !revealedMeanings.has('main') ? 'blur-[6px] opacity-40 hover:opacity-60' : 'text-gray-400'}`}
                                                         onClick={(e) => { e.stopPropagation(); if (blurVietnamese) { setRevealedMeanings(prev => { const next = new Set(prev); next.has('main') ? next.delete('main') : next.add('main'); return next; }); } }}
@@ -1284,16 +1313,16 @@ const ReviewScreen = ({
                                                     if (exampleLines.length <= 1) return null;
                                                     return (
                                                         <div className="mt-3 pt-3 border-t border-white/20 space-y-2 w-full">
-                                                            {exampleLines.slice(1).map((ex, i) => (
+                                                             {exampleLines.slice(1).map((ex, i) => (
                                                                 <div key={i} className="text-center">
                                                                     <p className="quiz-example-text text-white font-japanese break-words font-bold text-lg md:text-xl text-auto-fit">
                                                                         <FuriganaText text={(() => {
                                                                             const wordToMask = getWordForMasking(currentCard.front);
                                                                             const readingForMask = getReadingForMasking(currentCard.front);
                                                                             return maskWordInExample(wordToMask, ex, currentCard.pos, readingForMask);
-                                                                        })()} />
+                                                                        })()} forceHide={!exampleFuriganaEnabled} />
                                                                     </p>
-                                                                    {exampleMeaningLines[i + 1] && (
+                                                                    {exampleVietnameseEnabled && exampleMeaningLines[i + 1] && (
                                                                         <p
                                                                             className={`text-lg md:text-xl font-medium italic mt-1 break-words cursor-pointer transition-all duration-300 select-none ${blurVietnamese && !revealedMeanings.has(`ex_${i}`) ? 'blur-[6px] opacity-40 hover:opacity-60' : 'text-gray-400'}`}
                                                                             onClick={(e) => { e.stopPropagation(); if (blurVietnamese) { setRevealedMeanings(prev => { const next = new Set(prev); next.has(`ex_${i}`) ? next.delete(`ex_${i}`) : next.add(`ex_${i}`); return next; }); } }}
@@ -1332,14 +1361,14 @@ const ReviewScreen = ({
                                             <>
                                                 {/* Meaning mode: Show word only, user inputs meaning */}
                                                 <div className="quiz-question-text-xl font-black text-white font-japanese text-auto-fit">
-                                                    <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} />
+                                                    <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} forceHide={!meaningFuriganaEnabled} />
                                                 </div>
                                             </>
                                         )}
 
                                             {/* Sino-Vietnamese hint & POS */}
                                             <div className="flex flex-col items-center justify-center gap-2 mt-4 text-center">
-                                                {!['synonym', 'example', 'dictation'].includes(cardReviewType) && currentCard.sinoVietnamese && (
+                                                {!['synonym', 'example', 'dictation'].includes(cardReviewType) && currentCard.sinoVietnamese && (reviewMode !== 'meaning_input' || meaningHanvietEnabled) && (
                                                     <p className="text-base font-medium text-yellow-300">
                                                         <span className="text-slate-400 font-normal">Hán Việt: </span>{currentCard.sinoVietnamese}
                                                     </p>
@@ -1366,7 +1395,7 @@ const ReviewScreen = ({
                             <div className="space-y-3">
                                 <p className="text-base md:text-lg font-bold text-gray-600 dark:text-gray-300 text-center mb-1">
                                     {cardReviewType === 'synonym'
-                                        ? <span>Từ đồng nghĩa của "<FuriganaText text={promptInfo.text} />" là gì?</span>
+                                        ? <span>Từ đồng nghĩa của "<FuriganaText text={promptInfo.text} forceHide={!synonymFuriganaEnabled} />" là gì?</span>
                                         : `Điền từ còn thiếu`
                                     }
                                 </p>
@@ -1479,7 +1508,7 @@ const ReviewScreen = ({
                                                 className={buttonClass}
                                             >
                                                 <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/20 text-xs font-bold flex-shrink-0">{index + 1}</span>
-                                                <span className="font-japanese"><FuriganaText text={option} /></span>
+                                                <span className="font-japanese"><FuriganaText text={option} forceHide={cardReviewType === 'synonym' ? !synonymFuriganaEnabled : (cardReviewType === 'example' ? !exampleFuriganaEnabled : false)} /></span>
                                             </button>
                                         );
                                     })}
@@ -1528,7 +1557,7 @@ const ReviewScreen = ({
                         )}
 
                         {/* Typing Mode UI */}
-                        {(cardReviewType === 'back' || cardReviewType === 'dictation') && reviewMode !== 'flashcard' && !isMultipleChoice && (
+                        {(cardReviewType === 'back' || cardReviewType === 'dictation' || cardReviewType === 'example') && reviewMode !== 'flashcard' && !isMultipleChoice && (
                             <div className="space-y-3">
                                 {/* Hint Display - Only for reading mode (back), show hiragana */}
                                 {!isRevealed && inputMode === 'reading' && cardReviewType === 'back' && (
@@ -1573,16 +1602,16 @@ const ReviewScreen = ({
                                         }
                                     }}
                                     disabled={feedback === 'correct' && !needsRetype}
-                                    className={`w-full px-5 py-3 text-lg rounded-xl border-2 transition-all outline-none shadow-md
-                                ${(inputMode === 'reading' || cardReviewType === 'dictation') ? 'font-japanese font-bold' : 'font-semibold'}
+                                    className={`w-full px-6 py-4.5 text-xl md:text-2xl rounded-2xl border-2 transition-all outline-none shadow-lg focus:ring-4 focus:ring-indigo-500/20
+                                ${(inputMode === 'reading' || cardReviewType === 'dictation' || cardReviewType === 'example') ? 'font-japanese font-bold' : 'font-semibold'}
                                 ${needsRetype
-                                            ? 'border-orange-400 bg-orange-50 dark:bg-orange-900/20 text-orange-900 dark:text-orange-100 focus:border-orange-500'
+                                            ? 'border-orange-400 bg-orange-50 dark:bg-orange-900/20 text-orange-900 dark:text-orange-100 focus:border-orange-500 focus:ring-orange-500/20'
                                             : feedback === 'correct'
                                                 ? 'border-green-400 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300'
                                                 : feedback === 'incorrect'
                                                     ? 'border-red-400 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300'
                                                     : 'border-gray-300 dark:border-gray-600 bg-gray-800 text-white focus:border-indigo-500'}`}
-                                    placeholder={needsRetype ? 'Nhập lại đáp án đúng để tiếp tục...' : (cardReviewType === 'dictation' ? 'Nhập từ vựng bạn nghe được...' : (inputMode === 'reading' ? 'Nhập từ vựng tiếng Nhật...' : 'Nhập ý nghĩa tiếng Việt...'))}
+                                    placeholder={needsRetype ? 'Nhập lại đáp án đúng để tiếp tục...' : (cardReviewType === 'example' ? 'Nhập từ còn thiếu bằng tiếng Nhật...' : (cardReviewType === 'dictation' ? 'Nhập từ vựng bạn nghe được...' : (inputMode === 'reading' ? 'Nhập từ vựng tiếng Nhật...' : 'Nhập ý nghĩa tiếng Việt...')))}
                                 />
 
                                 {/* Hint button and Check button row */}
@@ -1592,9 +1621,9 @@ const ReviewScreen = ({
                                         <button
                                             onClick={handleRetypeSubmit}
                                             disabled={!inputValue.trim() || isProcessing}
-                                            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-bold shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                            className="w-full flex items-center justify-center gap-2 px-6 py-4.5 text-lg md:text-xl bg-orange-500 hover:bg-orange-600 text-white rounded-2xl font-bold shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-[0.98]"
                                         >
-                                            <Check className="w-4 h-4" />
+                                            <Check className="w-5 h-5" />
                                             <span>Xác nhận đáp án đúng</span>
                                         </button>
                                     </div>
@@ -1617,9 +1646,9 @@ const ReviewScreen = ({
                                                     const maxHint = Math.ceil(reading.length / 2);
                                                     return hintCount >= maxHint;
                                                 })()}
-                                                className="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl font-medium hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                                className="flex items-center gap-2 px-5 py-4.5 text-base md:text-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-650 text-gray-700 dark:text-gray-200 rounded-2xl font-semibold hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                                             >
-                                                <Lightbulb className="w-4 h-4" />
+                                                <Lightbulb className="w-5 h-5" />
                                                 <span>Gợi ý ({hintCount}/{(() => {
                                                     const hiraganaMatch = currentCard.front.match(/[（(]([^）)]+)[）)]/);
                                                     const reading = hiraganaMatch ? hiraganaMatch[1] : currentCard.front.split('（')[0].split('(')[0];
@@ -1630,9 +1659,9 @@ const ReviewScreen = ({
                                         <button
                                             onClick={checkAnswer}
                                             disabled={!inputValue.trim() || isProcessing}
-                                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-bold shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                            className="flex-1 flex items-center justify-center gap-2 px-6 py-4.5 text-lg md:text-xl bg-orange-500 hover:bg-orange-600 text-white rounded-2xl font-bold shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-[0.98]"
                                         >
-                                            <Check className="w-4 h-4" />
+                                            <Check className="w-5 h-5" />
                                             <span>Kiểm tra</span>
                                         </button>
                                     </div>
@@ -1645,15 +1674,35 @@ const ReviewScreen = ({
                             <div className="space-y-2 md:space-y-3">
                                 <div className={`transition-all duration-300 ease-out overflow-hidden ${isRevealed ? 'max-h-[120px] md:max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
                                     <div className={`p-3 md:p-5 rounded-xl md:rounded-2xl border flex items-start gap-2 md:gap-4 overflow-y-auto max-h-[120px] md:max-h-40 ${feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : feedback === 'incorrect' ? 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800' : 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700'}`}>
-                                        {(cardReviewType === 'back' || cardReviewType === 'dictation') && reviewMode !== 'flashcard' && !isMultipleChoice && (
+                                        {(cardReviewType === 'back' || cardReviewType === 'dictation' || cardReviewType === 'example') && reviewMode !== 'flashcard' && !isMultipleChoice && (
                                             <div className={`p-1.5 md:p-2 rounded-full flex-shrink-0 ${feedback === 'correct' ? 'bg-green-200 dark:bg-green-800 text-green-700 dark:text-green-300' : 'bg-red-200 dark:bg-red-800 text-red-700 dark:text-red-300'}`}>
                                                 {feedback === 'correct' ? <Check className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3} /> : <X className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3} />}
                                             </div>
                                         )}
                                         <div className="flex-1 min-w-0">
-                                            <div>
-                                                <p className={`font-extrabold text-lg md:text-2xl ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'}`}>{message}</p>
-                                            </div>
+                                            {feedback === 'incorrect' ? (
+                                                <div className="space-y-1 text-sm md:text-base">
+                                                    <p className="font-extrabold text-base md:text-lg text-red-800 dark:text-red-300">✗ Chưa đúng!</p>
+                                                    <div className="space-y-1 border-t border-red-200/50 dark:border-red-800/40 pt-1.5 mt-1">
+                                                        <p className="text-red-800 dark:text-red-300">
+                                                            Từ vựng: <span className="font-japanese font-bold text-base md:text-lg"><FuriganaText text={currentCard.frontWithFurigana || currentCard.front} /></span>
+                                                            {currentCard.sinoVietnamese && <span className="text-yellow-600 dark:text-yellow-400 font-medium ml-1">({currentCard.sinoVietnamese})</span>}
+                                                        </p>
+                                                        <p className="text-red-800 dark:text-red-300">
+                                                            Ý nghĩa: <span className="font-semibold">{currentCard.back}</span>
+                                                        </p>
+                                                        {currentCard.synonym && cardReviewType === 'synonym' && (
+                                                            <p className="text-red-800 dark:text-red-300">
+                                                                Đồng nghĩa đúng: <span className="font-japanese font-semibold"><FuriganaText text={currentCard.synonym} /></span>
+                                                            </p>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <div>
+                                                    <p className={`font-extrabold text-lg md:text-2xl ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'}`}>{message}</p>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
 
@@ -1691,42 +1740,180 @@ const ReviewScreen = ({
                             </button>
                         </div>
 
-                        {/* Test format / Language direction */}
-                        {reviewMode === 'meaning_input' ? (
-                            <div>
-                                <label className="text-sm font-bold text-gray-600 dark:text-gray-300 block mb-3">Ngôn ngữ câu trả lời</label>
-                                <div className="grid grid-cols-2 gap-3">
-                                    <button
-                                        onClick={() => {
-                                            setInputMode('meaning');
-                                            localStorage.setItem('meaning_input_lang', 'vi');
-                                            setInputValue('');
-                                            setHintCount(0);
-                                        }}
-                                        className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${inputMode === 'meaning'
-                                            ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
-                                            : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
-                                            }`}
-                                    >
-                                        🇻🇳 Tiếng Việt
-                                    </button>
-                                    <button
-                                        onClick={() => {
-                                            setInputMode('reading');
-                                            localStorage.setItem('meaning_input_lang', 'ja');
-                                            setInputValue('');
-                                            setHintCount(0);
-                                        }}
-                                        className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${inputMode === 'reading'
-                                            ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
-                                            : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
-                                            }`}
-                                    >
-                                        🇯🇵 Tiếng Nhật
-                                    </button>
+                        {/* Test format / Language direction / Toggle options depending on active mode */}
+                        {reviewMode === 'meaning_input' && (
+                            <div className="space-y-4">
+                                <div>
+                                    <label className="text-sm font-bold text-gray-600 dark:text-gray-300 block mb-3">Ngôn ngữ câu trả lời</label>
+                                    <div className="grid grid-cols-2 gap-3">
+                                        <button
+                                            onClick={() => {
+                                                setInputMode('meaning');
+                                                localStorage.setItem('meaning_input_lang', 'vi');
+                                                setInputValue('');
+                                                setHintCount(0);
+                                            }}
+                                            className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${inputMode === 'meaning'
+                                                ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
+                                                : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
+                                                }`}
+                                        >
+                                            🇻🇳 Tiếng Việt
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                setInputMode('reading');
+                                                localStorage.setItem('meaning_input_lang', 'ja');
+                                                setInputValue('');
+                                                setHintCount(0);
+                                            }}
+                                            className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${inputMode === 'reading'
+                                                ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
+                                                : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
+                                                }`}
+                                        >
+                                            🇯🇵 Tiếng Nhật
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
+                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Bật Furigana</span>
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={meaningFuriganaEnabled}
+                                            onChange={(e) => {
+                                                setMeaningFuriganaEnabled(e.target.checked);
+                                                localStorage.setItem('meaning_furigana_enabled', e.target.checked);
+                                            }}
+                                            className="sr-only peer"
+                                        />
+                                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-650 peer-checked:bg-indigo-600"></div>
+                                    </label>
+                                </div>
+
+                                <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
+                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Hiện âm Hán Việt</span>
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={meaningHanvietEnabled}
+                                            onChange={(e) => {
+                                                setMeaningHanvietEnabled(e.target.checked);
+                                                localStorage.setItem('meaning_hanviet_enabled', e.target.checked);
+                                            }}
+                                            className="sr-only peer"
+                                        />
+                                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-650 peer-checked:bg-indigo-600"></div>
+                                    </label>
                                 </div>
                             </div>
-                        ) : (
+                        )}
+
+                        {cardReviewType === 'synonym' && (
+                            <div className="space-y-4">
+                                <div className="flex items-center justify-between">
+                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Bật Furigana</span>
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={synonymFuriganaEnabled}
+                                            onChange={(e) => {
+                                                setSynonymFuriganaEnabled(e.target.checked);
+                                                localStorage.setItem('synonym_furigana_enabled', e.target.checked);
+                                            }}
+                                            className="sr-only peer"
+                                        />
+                                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-650 peer-checked:bg-indigo-600"></div>
+                                    </label>
+                                </div>
+
+                                <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
+                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Hiện nghĩa tiếng Việt</span>
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={synonymVietnameseEnabled}
+                                            onChange={(e) => {
+                                                setSynonymVietnameseEnabled(e.target.checked);
+                                                localStorage.setItem('synonym_vietnamese_enabled', e.target.checked);
+                                            }}
+                                            className="sr-only peer"
+                                        />
+                                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-650 peer-checked:bg-indigo-600"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        )}
+
+                        {cardReviewType === 'example' && (
+                            <div className="space-y-4">
+                                <div>
+                                    <label className="text-sm font-bold text-gray-600 dark:text-gray-300 block mb-3">Hình thức kiểm tra</label>
+                                    <div className="grid grid-cols-2 gap-3">
+                                        <button
+                                            onClick={() => {
+                                                setExampleTestFormat('multipleChoice');
+                                                localStorage.setItem('example_test_format', 'multipleChoice');
+                                            }}
+                                            className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${exampleTestFormat === 'multipleChoice'
+                                                ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
+                                                : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
+                                                }`}
+                                        >
+                                            📝 Trắc nghiệm
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                setExampleTestFormat('written');
+                                                localStorage.setItem('example_test_format', 'written');
+                                            }}
+                                            className={`py-3 rounded-xl text-sm font-bold transition-all border-2 ${exampleTestFormat === 'written'
+                                                ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
+                                                : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
+                                                }`}
+                                        >
+                                            ✏️ Tự luận
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
+                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Bật Furigana</span>
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={exampleFuriganaEnabled}
+                                            onChange={(e) => {
+                                                setExampleFuriganaEnabled(e.target.checked);
+                                                localStorage.setItem('example_furigana_enabled', e.target.checked);
+                                            }}
+                                            className="sr-only peer"
+                                        />
+                                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-650 peer-checked:bg-indigo-600"></div>
+                                    </label>
+                                </div>
+
+                                <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
+                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Hiện câu tiếng Việt</span>
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={exampleVietnameseEnabled}
+                                            onChange={(e) => {
+                                                setExampleVietnameseEnabled(e.target.checked);
+                                                localStorage.setItem('example_vietnamese_enabled', e.target.checked);
+                                            }}
+                                            className="sr-only peer"
+                                        />
+                                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-650 peer-checked:bg-indigo-600"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        )}
+
+                        {!['synonym', 'example'].includes(cardReviewType) && reviewMode !== 'meaning_input' && (
                             <div>
                                 <label className="text-sm font-bold text-gray-600 dark:text-gray-300 block mb-3">Hình thức kiểm tra ý nghĩa</label>
                                 <div className="grid grid-cols-2 gap-3">
@@ -1800,7 +1987,18 @@ const ReviewScreen = ({
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.reading} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Cách đọc (Hiragana)</span></label>
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Đồng nghĩa</span></label>
+                                    {cardSettings.back.synonym && (
+                                        <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
+                                            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonymFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonymFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana đồng nghĩa</span></label>
+                                        </div>
+                                    )}
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
+                                    {cardSettings.back.example && (
+                                        <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
+                                            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana ví dụ</span></label>
+                                            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span></label>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>

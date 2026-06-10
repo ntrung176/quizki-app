@@ -794,9 +794,8 @@ const AppRoutes = ({
                                                 localStorage.removeItem(`study_progress_${reviewSetId}_${reviewMode}`);
                                                 localStorage.setItem(`study_completed_${reviewSetId}_${reviewMode}`, 'true');
                                             }
-                                            const canGoBack = window.history.state && window.history.state.idx > 0;
-                                            if (canGoBack) {
-                                                navigate(-1);
+                                            if (reviewSetId && reviewSetId !== 'mistakes') {
+                                                navigate(`/vocab/set/${reviewSetId}`);
                                             } else {
                                                 navigate(ROUTES.VOCAB_REVIEW);
                                             }
@@ -807,9 +806,8 @@ const AppRoutes = ({
                                         }
                                     }}
                                     onBack={() => {
-                                        const canGoBack = window.history.state && window.history.state.idx > 0;
-                                        if (canGoBack) {
-                                            navigate(-1);
+                                        if (reviewSetId && reviewSetId !== 'mistakes') {
+                                            navigate(`/vocab/set/${reviewSetId}`);
                                         } else {
                                             navigate(ROUTES.VOCAB_REVIEW);
                                         }
@@ -837,9 +835,10 @@ const AppRoutes = ({
                                 onUpdateCard={handleUpdateCard}
                                 onSaveCardAudio={handleSaveCardAudio}
                                 onCompleteStudy={() => {
-                                    if (studySessionData?.setId) {
-                                        localStorage.removeItem(`study_progress_${studySessionData.setId}_study`);
-                                        localStorage.setItem(`study_completed_${studySessionData.setId}_study`, 'true');
+                                    const setId = studySessionData?.setId;
+                                    if (setId) {
+                                        localStorage.removeItem(`study_progress_${setId}_study`);
+                                        localStorage.setItem(`study_completed_${setId}_study`, 'true');
                                     }
                                     setStudySessionData({
                                         learning: [],
@@ -850,14 +849,20 @@ const AppRoutes = ({
                                         batchIndex: 0,
                                         allNoSrsCards: []
                                     });
-                                    const canGoBack = window.history.state && window.history.state.idx > 0;
-                                    if (canGoBack) {
-                                        navigate(-1);
+                                    if (setId && setId !== 'mistakes') {
+                                        navigate(`/vocab/set/${setId}`);
                                     } else {
                                         navigate(ROUTES.VOCAB_REVIEW);
                                     }
                                 }}
-                                onBack={() => navigate(-1)}
+                                onBack={() => {
+                                    const setId = studySessionData?.setId;
+                                    if (setId && setId !== 'mistakes') {
+                                        navigate(`/vocab/set/${setId}`);
+                                    } else {
+                                        navigate(ROUTES.VOCAB_REVIEW);
+                                    }
+                                }}
                             />
                         </ProtectedRoute>
                     }
@@ -971,9 +976,8 @@ const AppRoutes = ({
                                             localStorage.removeItem(`study_progress_${flashcardSetId}_flashcard`);
                                             localStorage.setItem(`study_completed_${flashcardSetId}_flashcard`, 'true');
                                         }
-                                        const canGoBack = window.history.state && window.history.state.idx > 0;
-                                        if (canGoBack) {
-                                            navigate(-1);
+                                        if (flashcardSetId && flashcardSetId !== 'mistakes') {
+                                            navigate(`/vocab/set/${flashcardSetId}`);
                                         } else {
                                             navigate(ROUTES.VOCAB_REVIEW);
                                         }
@@ -983,8 +987,16 @@ const AppRoutes = ({
                                         }, 50);
                                     }}
                                     onBack={() => {
-                                        setFlashcardSetId(null);
-                                        navigate(-1);
+                                        const targetId = flashcardSetId;
+                                        if (targetId && targetId !== 'mistakes') {
+                                            navigate(`/vocab/set/${targetId}`);
+                                        } else {
+                                            navigate(ROUTES.VOCAB_REVIEW);
+                                        }
+                                        setTimeout(() => {
+                                            setFlashcardCards([]);
+                                            setFlashcardSetId(null);
+                                        }, 50);
                                     }}
                                 />
                             ) : (
@@ -1006,9 +1018,9 @@ const AppRoutes = ({
                                     setId={flashcardSetId}
                                     onUpdateCard={handleUpdateCard}
                                     onBack={() => {
-                                        const canGoBack = window.history.state && window.history.state.idx > 0;
-                                        if (canGoBack) {
-                                            navigate(-1);
+                                        const targetId = flashcardSetId;
+                                        if (targetId && targetId !== 'mistakes') {
+                                            navigate(`/vocab/set/${targetId}`);
                                         } else {
                                             navigate(ROUTES.VOCAB_REVIEW);
                                         }
@@ -1022,9 +1034,9 @@ const AppRoutes = ({
                                             localStorage.removeItem(`study_progress_${flashcardSetId}_synonym`);
                                             localStorage.setItem(`study_completed_${flashcardSetId}_synonym`, 'true');
                                         }
-                                        const canGoBack = window.history.state && window.history.state.idx > 0;
-                                        if (canGoBack) {
-                                            navigate(-1);
+                                        const targetId = flashcardSetId;
+                                        if (targetId && targetId !== 'mistakes') {
+                                            navigate(`/vocab/set/${targetId}`);
                                         } else {
                                             navigate(ROUTES.VOCAB_REVIEW);
                                         }

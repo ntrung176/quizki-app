@@ -362,7 +362,7 @@ const Flashcard = ({
                             {cardSettings.back.synonym && card.synonym && (
                                 <span className={variant === 'review' ? 'text-emerald-105' : 'text-slate-800 dark:text-slate-300'}>
                                     <span className={variant === 'review' ? "text-emerald-100 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Đồng nghĩa: </span>
-                                    <FuriganaText text={card.synonym} className={`font-japanese font-semibold ${variant === 'review' ? 'text-white' : 'text-slate-800 dark:text-slate-200'}`} />
+                                    <FuriganaText text={card.synonym} forceHide={cardSettings.back.synonymFurigana === false} className={`font-japanese font-semibold ${variant === 'review' ? 'text-white' : 'text-slate-800 dark:text-slate-200'}`} />
                                 </span>
                             )}
                         </div>
@@ -380,9 +380,9 @@ const Flashcard = ({
                                 return (
                                     <div key={idx} className={`border-l-2 ${variant === 'review' ? 'border-white/30' : 'border-indigo-500/30'} pl-3`}>
                                         <div className={`${scale.exampleTextSize} ${exampleTextClass} font-japanese leading-relaxed`}>
-                                            <FuriganaText text={ex} />
+                                            <FuriganaText text={ex} forceHide={cardSettings.back.exampleFurigana === false} />
                                         </div>
-                                        {meaning && (
+                                        {meaning && cardSettings.back.exampleMeaning !== false && (
                                             <p className={exampleMeaningClass}>{meaning}</p>
                                         )}
                                     </div>

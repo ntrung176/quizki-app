@@ -48,7 +48,9 @@ const TestScreen = ({ allCards, onBack }) => {
                         options: options,
                         correctAnswer: correctAnswer,
                         explanation: card.back,
-                        highlightWord: kanjiOnly
+                        highlightWord: kanjiOnly,
+                        vocabWord: card.front,
+                        vocabMeaning: card.back
                     };
                 });
             } else if (type === 2) {
@@ -67,7 +69,9 @@ const TestScreen = ({ allCards, onBack }) => {
                         options: options,
                         correctAnswer: correctAnswer,
                         explanation: card.back,
-                        highlightWord: hiragana
+                        highlightWord: hiragana,
+                        vocabWord: card.front,
+                        vocabMeaning: card.back
                     };
                 });
             }
@@ -87,7 +91,9 @@ const TestScreen = ({ allCards, onBack }) => {
                             context: blankSentence,
                             options: options,
                             correctAnswer: correctAnswer,
-                            explanation: exampleMeanings[idx] || card.back
+                            explanation: exampleMeanings[idx] || card.back,
+                            vocabWord: card.front,
+                            vocabMeaning: card.back
                         };
                     });
                 });
@@ -104,7 +110,9 @@ const TestScreen = ({ allCards, onBack }) => {
                             context: '',
                             options: options,
                             correctAnswer: correctAnswer,
-                            explanation: `${card.front} = ${card.synonym}. Nghĩa: ${card.back}`
+                            explanation: `${card.front} = ${card.synonym}. Nghĩa: ${card.back}`,
+                            vocabWord: `${card.front} (Đồng nghĩa: ${card.synonym})`,
+                            vocabMeaning: card.back
                         };
                     });
             }
@@ -415,7 +423,23 @@ const TestScreen = ({ allCards, onBack }) => {
                                 <p className="text-sm font-semibold mb-1 dark:text-gray-200">
                                     {selectedAnswer === currentQuestion.correctAnswer ? '✓ Chính xác!' : '✗ Chưa đúng'}
                                 </p>
-                                <p className="text-sm text-gray-700 dark:text-gray-300">{currentQuestion.explanation}</p>
+                                {selectedAnswer !== currentQuestion.correctAnswer && (currentQuestion.vocabWord || currentQuestion.vocabMeaning) ? (
+                                    <div className="space-y-1 mt-2 text-sm border-t border-red-200 dark:border-red-800/40 pt-2">
+                                        <p className="text-red-800 dark:text-red-300">
+                                            Từ vựng: <span className="font-japanese font-bold text-base">{currentQuestion.vocabWord}</span>
+                                        </p>
+                                        <p className="text-red-800 dark:text-red-300">
+                                            Ý nghĩa: <span className="font-semibold">{currentQuestion.vocabMeaning}</span>
+                                        </p>
+                                        {currentQuestion.explanation && currentQuestion.explanation !== currentQuestion.vocabMeaning && (
+                                            <p className="text-gray-500 dark:text-gray-400 text-xs italic mt-1">
+                                                Giải thích: {currentQuestion.explanation}
+                                            </p>
+                                        )}
+                                    </div>
+                                ) : (
+                                    <p className="text-sm text-gray-700 dark:text-gray-300">{currentQuestion.explanation}</p>
+                                )}
                             </div>
                         )}
                         {/* Next button */}
