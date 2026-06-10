@@ -111,7 +111,7 @@ const ReviewScreen = ({
                     autoPlayAudio: parsed.autoPlayAudio !== undefined ? parsed.autoPlayAudio : true
                 };
             }
-        } catch (e) {}
+        } catch (e) { }
         return defaultSettings;
     });
 
@@ -290,7 +290,7 @@ const ReviewScreen = ({
             if (reviewMode === 'flashcard') {
                 setSlideDirection('right');
                 setTimeout(() => {
-                                    setIsFlipped(false);
+                    setIsFlipped(false);
                     setCurrentIndex(currentIndex - 1);
                     setInputValue('');
                     setIsRevealed(false);
@@ -640,17 +640,17 @@ const ReviewScreen = ({
                         </div>
                     </div>
                     <div className="flex gap-3 w-full max-w-xs pt-2">
-                        <button 
-                            onClick={handleRestart} 
+                        <button
+                            onClick={handleRestart}
                             className="flex-1 py-3 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-bold rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-all flex items-center justify-center gap-1 cursor-pointer"
                         >
                             <RotateCcw className="w-4 h-4" /> Ôn lại
                         </button>
-                        <button 
+                        <button
                             onClick={() => {
                                 if (onCompleteReview) onCompleteReview(null);
                                 else if (onBack) onBack();
-                            }} 
+                            }}
                             className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1 cursor-pointer"
                         >
                             Xong <ChevronRight className="w-4 h-4" />
@@ -902,7 +902,7 @@ const ReviewScreen = ({
                 // Speak with safe error handling, delayed by 500ms to avoid overlapping incorrect sound
                 setTimeout(() => {
                     if (isMountedRef.current && !audioAbortRef.current) {
-                        speakJapanese(currentCard.front, currentCard.audioBase64, 
+                        speakJapanese(currentCard.front, currentCard.audioBase64,
                             onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
                                 if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
                                     onSaveCardAudio(currentCard.id, b64, vid).catch(e => {
@@ -1407,7 +1407,7 @@ const ReviewScreen = ({
                                                         if (isCorrect) {
                                                             if (hasFailedBefore) {
                                                                 failedCardsRef.current.delete(cardKey);
-                                                                 setFailedCards(new Set(failedCardsRef.current));
+                                                                setFailedCards(new Set(failedCardsRef.current));
                                                                 setFeedback('correct');
                                                                 setMessage(`Chính xác! ${displayFront} - Đã hoàn thành!`);
                                                             } else {

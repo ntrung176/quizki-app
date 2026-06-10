@@ -90,10 +90,10 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
     const inputRef = useRef(null);
 
     useEffect(() => {
-        (async () => { 
-            setLoading(true); 
+        (async () => {
+            setLoading(true);
             const data = await fetchGrammarPointById(grammarId);
-            setGp(data); 
+            setGp(data);
             // Choose initial active tab based on what data is available
             if (data) {
                 if (data.exercises?.length > 0) {
@@ -102,7 +102,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                     setActiveTab('quiz');
                 }
             }
-            setLoading(false); 
+            setLoading(false);
         })();
     }, [grammarId]);
 
@@ -116,9 +116,9 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
         }
     }, [gp, profile, tb, navigate]);
 
-    useEffect(() => { 
+    useEffect(() => {
         if (activeTab === 'translate') {
-            inputRef.current?.focus(); 
+            inputRef.current?.focus();
         }
     }, [activeTab]);
 
@@ -154,8 +154,8 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                     setTranslateResults(p => ({ ...p, [id]: 'incorrect' }));
                 }
             }
-        } catch (e) { 
-            console.error(e); 
+        } catch (e) {
+            console.error(e);
         }
         setAiLoading(p => ({ ...p, [id]: false }));
     };
@@ -499,8 +499,8 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                                         );
                                     }
 
-                                    const r = translateResults[id]; 
-                                    const ai = aiResults[id]; 
+                                    const r = translateResults[id];
+                                    const ai = aiResults[id];
                                     const isAiLoading = aiLoading[id];
                                     return (
                                         <div key={id} className={`group relative bg-white dark:bg-slate-800 border rounded-2xl p-5 transition-all ${r === 'correct' ? 'border-emerald-300 dark:border-emerald-700/50' : r === 'incorrect' ? 'border-red-300 dark:border-red-700/50' : 'border-slate-200 dark:border-slate-700'}`}>

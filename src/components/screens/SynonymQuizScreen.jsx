@@ -6,7 +6,7 @@ import { speakJapanese } from '../../utils/audio';
 
 const shuffleArr = (arr) => {
     const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
     return a;
 };
 
@@ -28,14 +28,27 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
     const savedProgress = getSavedProgress();
     // Filter cards that have synonyms
     const quizCards = useMemo(() => shuffleArr(cards.filter(c => c.synonym && c.synonym.trim())), [cards]);
+    const [quizQueue, setQuizQueue] = useState(() => savedProgress?.quizQueue || quizCards);
     const [currentIndex, setCurrentIndex] = useState(savedProgress?.currentIndex || 0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [isRevealed, setIsRevealed] = useState(false);
     const [score, setScore] = useState(savedProgress?.score || { correct: 0, incorrect: 0 });
     const [isComplete, setIsComplete] = useState(savedProgress?.isComplete || false);
+    const [isTransitioning, setIsTransitioning] = useState(false);
 
-    const currentCard = quizCards[currentIndex];
-    const sessionWrongCardIdsRef = useRef(new Set());
+    const currentCard = quizQueue[currentIndex];
+    const failedCardsRef = useRef(new Set(savedProgress?.failedCardIdsList || []));
+    const sessionWrongCardIdsRef = useRef(new Set(savedProgress?.sessionWrongCardIdsList || []));
+    const autoAdvanceTimerRef = useRef(null);
+
+    // Clean up timer on unmount
+    useEffect(() => {
+        return () => {
+            if (autoAdvanceTimerRef.current) {
+                clearTimeout(autoAdvanceTimerRef.current);
+            }
+        };
+    }, []);
 
     // Save progress to localStorage whenever state changes
     useEffect(() => {
@@ -44,10 +57,13 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
             currentIndex,
             score,
             timestamp: Date.now(),
+            quizQueue,
+            failedCardIdsList: Array.from(failedCardsRef.current),
+            sessionWrongCardIdsList: Array.from(sessionWrongCardIdsRef.current)
         };
         const key = `study_progress_${setId}_synonym`;
         localStorage.setItem(key, JSON.stringify(progressData));
-    }, [currentIndex, score, isComplete, setId]);
+    }, [currentIndex, score, isComplete, quizQueue, setId]);
 
     // Generate multiple choice options
     const options = useMemo(() => {
@@ -93,47 +109,100 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
         return shuffleArr(allOptions);
     }, [currentCard, cards, currentIndex]);
 
+    const handleNext = useCallback((isAuto = false) => {
+        if (autoAdvanceTimerRef.current) {
+            clearTimeout(autoAdvanceTimerRef.current);
+            autoAdvanceTimerRef.current = null;
+        }
+
+        if (currentIndex < quizQueue.length - 1) {
+            setCurrentIndex(i => i + 1);
+            setSelectedAnswer(null);
+            setIsRevealed(false);
+        } else {
+            // Reached the end of the current queue
+            const finalFailedIds = Array.from(failedCardsRef.current);
+            const finalFailed = finalFailedIds
+                .map(id => quizCards.find(c => c.id === id))
+                .filter(Boolean);
+
+            if (finalFailed.length > 0) {
+                // There are failed cards, restart queue with them!
+                setIsTransitioning(true);
+                const delay = isAuto ? 100 : 500;
+                setTimeout(() => {
+                    setQuizQueue(shuffleArr(finalFailed));
+                    setCurrentIndex(0);
+                    setSelectedAnswer(null);
+                    setIsRevealed(false);
+                    setIsTransitioning(false);
+                }, delay);
+            } else {
+                // No failed cards, complete the quiz!
+                setIsTransitioning(true);
+                const delay = isAuto ? 100 : 800;
+                setTimeout(() => {
+                    setIsComplete(true);
+                    playCompletionFanfare();
+                    setIsTransitioning(false);
+                }, delay);
+            }
+        }
+    }, [currentIndex, quizQueue, quizCards]);
+
     const handleSelect = useCallback((option) => {
-        if (isRevealed) return;
+        if (isRevealed || !currentCard) return;
         setSelectedAnswer(option);
         setIsRevealed(true);
         const isCorrect = option === currentCard.synonym;
-        if (isCorrect) { 
-            playCorrectSound(); 
-            setScore(s => ({ ...s, correct: s.correct + 1 })); 
-            if (onUpdateCard && currentCard?.id && !sessionWrongCardIdsRef.current.has(currentCard.id)) {
-                onUpdateCard(currentCard.id, true, 'synonym', 'synonym_quiz');
+        const isFirstTry = !sessionWrongCardIdsRef.current.has(currentCard.id);
+
+        if (isCorrect) {
+            playCorrectSound();
+            
+            // Remove from failed list if answered correctly
+            failedCardsRef.current.delete(currentCard.id);
+
+            if (isFirstTry) {
+                setScore(s => ({ ...s, correct: s.correct + 1 }));
+                if (onUpdateCard && currentCard?.id) {
+                    onUpdateCard(currentCard.id, true, 'synonym', 'synonym_quiz');
+                }
             }
-        } else { 
-            playIncorrectSound(); 
-            setScore(s => ({ ...s, incorrect: s.incorrect + 1 })); 
-            sessionWrongCardIdsRef.current.add(currentCard.id);
-            if (onUpdateCard && currentCard?.id) {
-                onUpdateCard(currentCard.id, false, 'synonym', 'synonym_quiz');
+            if (autoAdvanceTimerRef.current) {
+                clearTimeout(autoAdvanceTimerRef.current);
+            }
+            autoAdvanceTimerRef.current = setTimeout(() => {
+                handleNext(true);
+            }, 1500);
+        } else {
+            playIncorrectSound();
+
+            // Add to failed list
+            failedCardsRef.current.add(currentCard.id);
+
+            if (isFirstTry) {
+                setScore(s => ({ ...s, incorrect: s.incorrect + 1 }));
+                sessionWrongCardIdsRef.current.add(currentCard.id);
+                if (onUpdateCard && currentCard?.id) {
+                    onUpdateCard(currentCard.id, false, 'synonym', 'synonym_quiz');
+                }
             }
         }
 
         setTimeout(() => {
             speakJapanese(currentCard.front, currentCard.audioBase64).catch(e => console.warn(e));
         }, 500);
-    }, [isRevealed, currentCard, onUpdateCard]);
-
-    const handleNext = () => {
-        if (currentIndex < quizCards.length - 1) {
-            setCurrentIndex(i => i + 1);
-            setSelectedAnswer(null);
-            setIsRevealed(false);
-        } else {
-            setIsComplete(true);
-            playCompletionFanfare();
-        }
-    };
+    }, [isRevealed, currentCard, onUpdateCard, handleNext]);
 
     const handleReset = () => {
         if (setId) {
             localStorage.removeItem(`study_completed_${setId}_synonym`);
             localStorage.removeItem(`study_progress_${setId}_synonym`);
         }
+        setQuizQueue(quizCards);
+        failedCardsRef.current = new Set();
+        sessionWrongCardIdsRef.current = new Set();
         setCurrentIndex(0);
         setSelectedAnswer(null);
         setIsRevealed(false);
@@ -156,15 +225,15 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
     useEffect(() => {
         const handler = (e) => {
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-            if (!isRevealed && ['1','2','3','4'].includes(e.key)) {
+            if (!isRevealed && ['1', '2', '3', '4'].includes(e.key)) {
                 const idx = parseInt(e.key) - 1;
                 if (options[idx]) handleSelect(options[idx]);
             }
-            if (isRevealed && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); handleNext(); }
+            if (isRevealed && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); handleNext(false); }
         };
         window.addEventListener('keydown', handler);
         return () => window.removeEventListener('keydown', handler);
-    }, [isRevealed, options, handleSelect]);
+    }, [isRevealed, options, handleSelect, handleNext]);
 
     if (quizCards.length === 0) {
         return (
@@ -199,14 +268,14 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                         </div>
                     </div>
                     <div className="flex gap-3 w-full max-w-xs pt-2">
-                        <button 
-                            onClick={handleReset} 
+                        <button
+                            onClick={handleReset}
                             className="flex-1 py-3 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-bold rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-all flex items-center justify-center gap-1 cursor-pointer"
                         >
                             <RotateCcw className="w-4 h-4" /> Làm lại
                         </button>
-                        <button 
-                            onClick={onComplete || onBack} 
+                        <button
+                            onClick={onComplete || onBack}
                             className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1 cursor-pointer"
                         >
                             Xong <ChevronRight className="w-4 h-4" />
@@ -239,7 +308,7 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                     <div className="space-y-1">
                         <div className="flex justify-between text-sm font-bold text-purple-500 dark:text-purple-400">
                             <span className="flex items-center gap-2"><Users className="w-4 h-4" /> ĐỒNG NGHĨA</span>
-                            <span className="text-gray-500">{currentIndex + 1} / {quizCards.length}</span>
+                            <span className="text-gray-500">{currentIndex + 1} / {quizQueue.length}</span>
                         </div>
                         <div className="h-2 bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
                             <div className="h-full bg-purple-500 rounded-full transition-all duration-300" style={{ width: `${progress}%` }}></div>
@@ -284,9 +353,13 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                     </div>
 
                     {/* Next */}
-                    {isRevealed && (
-                        <button onClick={handleNext} className="w-full py-4 rounded-xl font-bold text-lg bg-purple-600 hover:bg-purple-700 text-white shadow-lg transition-all flex items-center justify-center gap-2 mt-2">
-                            {currentIndex < quizCards.length - 1 ? <><span>Tiếp tục</span><ChevronRight className="w-5 h-5" /></> : <span>Hoàn thành 🎉</span>}
+                    {isRevealed && selectedAnswer !== currentCard?.synonym && (
+                        <button 
+                            onClick={() => handleNext(false)} 
+                            disabled={isTransitioning}
+                            className={`w-full py-4 rounded-xl font-bold text-lg bg-purple-600 hover:bg-purple-700 text-white shadow-lg transition-all flex items-center justify-center gap-2 mt-2 ${isTransitioning ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'}`}
+                        >
+                            {isTransitioning ? 'Đang hoàn tất...' : (currentIndex < quizQueue.length - 1 ? <><span>Tiếp tục</span><ChevronRight className="w-5 h-5" /></> : <span>Hoàn thành 🎉</span>)}
                         </button>
                     )}
 

@@ -10,7 +10,7 @@ import { getAuth } from 'firebase/auth';
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { formatCountdown, getCardState, calculateAnkiSRS } from '../../utils/srs';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations'
-import { playCorrectSound, playIncorrectSound, playFlipSound } from '../../utils/soundEffects';
+import { playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
 
@@ -228,8 +228,7 @@ const KanjiReviewScreen = () => {
         // 1. Update local states immediately (optimistic UI)
         setSrsData(prev => ({ ...prev, [currentCard.id]: newSrs }));
         if (currentReviewIndex + 1 < reviewQueue.length) {
-            if (rating === 'good' || rating === 'easy') { flashCorrect(); playCorrectSound(); }
-            else if (rating === 'again') { playIncorrectSound(); }
+            if (rating === 'good' || rating === 'easy') { flashCorrect(); }
             setCurrentReviewIndex(prev => prev + 1);
             setIsFlipped(false);
         } else {
@@ -447,11 +446,10 @@ const KanjiReviewScreen = () => {
                             <button
                                 onClick={startReview}
                                 disabled={stats.dueToday === 0}
-                                className={`mt-4 w-full py-3 rounded-xl text-xs font-bold tracking-wider uppercase transition-all shadow-md ${
-                                    stats.dueToday > 0 
-                                    ? 'bg-white text-rose-600 hover:bg-rose-50 hover:shadow-lg hover:scale-105 active:scale-95' 
-                                    : 'bg-white/25 text-white/50 cursor-not-allowed'
-                                }`}
+                                className={`mt-4 w-full py-3 rounded-xl text-xs font-bold tracking-wider uppercase transition-all shadow-md ${stats.dueToday > 0
+                                        ? 'bg-white text-rose-600 hover:bg-rose-50 hover:shadow-lg hover:scale-105 active:scale-95'
+                                        : 'bg-white/25 text-white/50 cursor-not-allowed'
+                                    }`}
                             >
                                 BẮT ĐẦU ÔN TẬP
                             </button>
@@ -558,20 +556,20 @@ const KanjiReviewScreen = () => {
                                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={document.documentElement.classList.contains('dark') ? '#334155' : '#f1f5f9'} />
                                 <XAxis dataKey="name" stroke="#94a3b8" fontSize={11} tickLine={false} axisLine={false} />
                                 <YAxis stroke="#94a3b8" fontSize={11} tickLine={false} axisLine={false} />
-                                <Tooltip 
+                                <Tooltip
                                     cursor={{ fill: 'transparent' }}
-                                    contentStyle={{ 
+                                    contentStyle={{
                                         backgroundColor: document.documentElement.classList.contains('dark') ? '#1e293b' : '#ffffff',
                                         borderColor: document.documentElement.classList.contains('dark') ? '#475569' : '#e2e8f0',
                                         borderRadius: '12px',
                                         fontSize: '12px'
-                                    }} 
+                                    }}
                                 />
                                 <Bar dataKey="count" fill="url(#colorCount)" radius={[6, 6, 0, 0]} maxBarSize={45}>
                                     <defs>
                                         <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-                                            <stop offset="5%" stopColor="#f43f5e" stopOpacity={0.9}/>
-                                            <stop offset="95%" stopColor="#ec4899" stopOpacity={0.7}/>
+                                            <stop offset="5%" stopColor="#f43f5e" stopOpacity={0.9} />
+                                            <stop offset="95%" stopColor="#ec4899" stopOpacity={0.7} />
                                         </linearGradient>
                                     </defs>
                                 </Bar>

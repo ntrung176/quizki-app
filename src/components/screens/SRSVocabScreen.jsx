@@ -9,7 +9,7 @@ import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
 import { calculateAnkiSRS } from '../../utils/srs';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
-import { playCorrectSound, playIncorrectSound, playCompletionFanfare } from '../../utils/soundEffects';
+import { playCompletionFanfare } from '../../utils/soundEffects';
 
 // Helper to shuffle array
 const shuffleArray = (array) => {
@@ -146,7 +146,7 @@ const SRSVocabScreen = ({
                     autoPlayAudio: parsed.autoPlayAudio !== undefined ? parsed.autoPlayAudio : true
                 };
             }
-        } catch (e) {}
+        } catch (e) { }
         return defaultSettings;
     });
 
@@ -384,9 +384,6 @@ const SRSVocabScreen = ({
         try {
             if (rating === 'good' || rating === 'easy') {
                 flashCorrect();
-                playCorrectSound();
-            } else if (rating === 'again') {
-                playIncorrectSound();
             }
         } catch (e) {
             console.error(e);
@@ -695,7 +692,7 @@ const SRSVocabScreen = ({
                                 <div className="h-full bg-gradient-to-r from-amber-400 to-orange-500 rounded-full" style={{ width: `${streakPct}%` }} />
                             </div>
                             <p className="text-[10px] text-amber-300 font-bold tracking-wide">
-                                {streak > 0 
+                                {streak > 0
                                     ? `${streak} ngày liên tục học tập chăm chỉ!`
                                     : "Bắt đầu học tập ngay để thiết lập chuỗi ngày học!"}
                             </p>
@@ -755,8 +752,8 @@ const SRSVocabScreen = ({
                     ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {folderStats.slice(vocabSetStartIndex, vocabSetStartIndex + 3).map(folder => (
-                                <div 
-                                    key={folder.id} 
+                                <div
+                                    key={folder.id}
                                     onClick={() => navigate(`/vocab/set/${folder.id}`)}
                                     className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-3xl p-6 border border-slate-200/60 dark:border-slate-700/60 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-305 flex flex-col justify-between space-y-4 cursor-pointer hover:border-indigo-500/50 dark:hover:border-indigo-400/50"
                                 >
@@ -878,7 +875,7 @@ const SRSVocabScreen = ({
                             </p>
                         ) : (
                             recentSets.map(set => (
-                                <div 
+                                <div
                                     key={set.id}
                                     onClick={() => navigate(`/vocab/set/${set.id}`)}
                                     className="flex items-center justify-between py-3.5 hover:bg-slate-50 dark:hover:bg-slate-700/30 px-2 rounded-xl transition-colors cursor-pointer group"
@@ -976,7 +973,7 @@ const SRSVocabScreen = ({
                         </p>
 
                         <div className="grid grid-cols-2 gap-3">
-                            <button 
+                            <button
                                 onClick={() => setSelectedMistakeMode('flashcard')}
                                 className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMistakeMode === 'flashcard' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-605 dark:text-indigo-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-650 text-gray-700 dark:text-gray-300'}`}
                             >
@@ -984,7 +981,7 @@ const SRSVocabScreen = ({
                                 <span className="font-bold text-xs">Thẻ ghi nhớ</span>
                             </button>
 
-                            <button 
+                            <button
                                 onClick={() => setSelectedMistakeMode('study')}
                                 className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMistakeMode === 'study' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-605 dark:text-indigo-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-650 text-gray-700 dark:text-gray-300'}`}
                             >
@@ -992,7 +989,7 @@ const SRSVocabScreen = ({
                                 <span className="font-bold text-xs">Học tập</span>
                             </button>
 
-                            <button 
+                            <button
                                 onClick={() => setSelectedMistakeMode('meaning')}
                                 className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMistakeMode === 'meaning' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-605 dark:text-indigo-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-650 text-gray-700 dark:text-gray-300'}`}
                             >
@@ -1000,7 +997,7 @@ const SRSVocabScreen = ({
                                 <span className="font-bold text-xs">Nhập ý nghĩa</span>
                             </button>
 
-                            <button 
+                            <button
                                 onClick={() => setSelectedMistakeMode('dictation')}
                                 className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMistakeMode === 'dictation' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-650 dark:text-indigo-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-650 text-gray-700 dark:text-gray-300'}`}
                             >
@@ -1010,8 +1007,8 @@ const SRSVocabScreen = ({
                         </div>
 
                         <div className="flex gap-3 pt-2">
-                            <button 
-                                onClick={() => setShowMistakeModal(false)} 
+                            <button
+                                onClick={() => setShowMistakeModal(false)}
                                 className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-750 text-gray-750 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-650 transition-colors text-sm cursor-pointer"
                             >
                                 Huỷ

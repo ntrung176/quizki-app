@@ -238,7 +238,7 @@ export const CardEditorItem = ({
                                                 </button>
                                             )}
                                         </div>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div className="flex flex-col space-y-3">
                                             <div>
                                                 <input
                                                     type="text"
