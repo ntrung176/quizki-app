@@ -4,6 +4,7 @@ import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calend
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import { useNavigate } from 'react-router-dom';
+import useMenuTransition from '../../hooks/useMenuTransition';
 import { ROUTES } from '../../router';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
@@ -78,6 +79,7 @@ const SRSVocabScreen = ({
     onDictationSet
 }) => {
     const navigate = useNavigate();
+    const fadeWholePage = useMenuTransition();
     const [vocabSetStartIndex, setVocabSetStartIndex] = useState(0);
     const [showMistakeModal, setShowMistakeModal] = useState(false);
     const [selectedMistakeMode, setSelectedMistakeMode] = useState('flashcard');
@@ -632,9 +634,9 @@ const SRSVocabScreen = ({
     }
 
     return (
-        <div className="min-h-screen animate-fade-in pb-24 bg-transparent">
+        <div className="min-h-screen pb-24 bg-transparent">
             <TopTabBar tabs={VOCAB_TABS} />
-            <div className="max-w-5xl mx-auto space-y-8 px-4 md:px-8 mt-6">
+            <div className="max-w-5xl mx-auto space-y-8 px-4 md:px-8 mt-6 animate-fade-in">
 
                 {/* Today's Focus Overview Banner */}
                 <div className="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-950 text-white rounded-3xl p-6 md:p-8 shadow-xl border border-slate-800 relative overflow-hidden flex flex-col lg:flex-row gap-6 justify-between items-stretch">

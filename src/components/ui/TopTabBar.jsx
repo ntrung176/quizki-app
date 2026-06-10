@@ -30,7 +30,7 @@ const TopTabBar = ({ tabs }) => {
     }, [location.pathname, tabs]);
 
     return (
-        <div className="w-full border-b border-gray-200 dark:border-slate-700/50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md sticky top-14 lg:top-0 z-30 transition-all duration-300">
+        <div className="w-full border-b border-gray-200 dark:border-slate-700/50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md sticky top-14 lg:top-0 z-30">
             <div className="max-w-6xl mx-auto px-4 md:px-8">
                 <div className="relative flex overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth" ref={containerRef}>
                     <div className="flex space-x-1 sm:space-x-2 relative w-full">
@@ -41,20 +41,20 @@ const TopTabBar = ({ tabs }) => {
                                 <Link
                                     key={tab.id}
                                     to={tab.route}
-                                    className={`tab-item relative z-10 flex items-center space-x-2 px-4 py-3 text-sm font-bold whitespace-nowrap transition-colors duration-300 ${
+                                    className={`tab-item relative z-10 flex items-center space-x-2 px-4 py-3 text-sm font-bold whitespace-nowrap ${
                                         isActive
                                             ? 'text-indigo-600 dark:text-indigo-400'
                                             : 'text-gray-500 hover:text-gray-700 dark:text-slate-400 dark:hover:text-slate-200'
                                     }`}
                                 >
-                                    {tab.icon && <tab.icon className={`w-4 h-4 transition-colors duration-300 ${isActive ? 'text-indigo-500 dark:text-indigo-400' : 'text-gray-400 dark:text-slate-500'}`} />}
+                                    {tab.icon && <tab.icon className={`w-4 h-4 ${isActive ? 'text-indigo-500 dark:text-indigo-400' : 'text-gray-400 dark:text-slate-500'}`} />}
                                     <span>{tab.label}</span>
                                 </Link>
                             );
                         })}
                         {/* Animated Sliding Indicator */}
                         <div 
-                            className="absolute bottom-0 h-0.5 bg-indigo-500 dark:bg-indigo-400 transition-all duration-300 ease-out z-20 rounded-t-full"
+                            className="absolute bottom-0 h-0.5 bg-indigo-500 dark:bg-indigo-400 z-20 rounded-t-full"
                             style={{ 
                                 left: `${indicatorStyle.left}px`, 
                                 width: `${indicatorStyle.width}px`,

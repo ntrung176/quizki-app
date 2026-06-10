@@ -14,6 +14,7 @@ import { showToast } from './utils/toast';
 
 // Import from refactored modules
 import { normalizePosKey } from './config/constants'
+import { getSharedBookGroups, getCachedBookGroups } from './utils/bookService';
 
 import { playAudio, generateAudioSilent } from './utils/audio'
 import { getNextReviewDate, DEFAULT_EASE, calculateCorrectInterval, calculateAnkiSRS } from './utils/srs'
@@ -516,6 +517,7 @@ const App = () => {
         });
 
         // Không còn tự động đăng nhập ẩn danh; sẽ để LoginScreen quyết định
+        getSharedBookGroups().catch(() => {});
         return () => unsubscribe();
     }, []);
 
@@ -2804,11 +2806,46 @@ const App = () => {
             let lessonsDocs = cachedLessonsRef.current;
 
             if (!lessonsDocs) {
-                // Lấy tất cả vocab từ tất cả các lessons bằng collectionGroup
-                const lessonsQuery = query(collectionGroup(db, 'lessons'));
-                const lessonsSnap = await getDocs(lessonsQuery);
-                lessonsDocs = lessonsSnap.docs.map(doc => doc.data());
-                cachedLessonsRef.current = lessonsDocs; // Lưu cache lại
+                // Check in-memory book groups cache first
+                const cachedGroups = getCachedBookGroups();
+                if (cachedGroups) {
+                    const lessons = [];
+                    for (const group of cachedGroups) {
+                        for (const book of group.books || []) {
+                            for (const chapter of book.chapters || []) {
+                                for (const lesson of chapter.lessons || []) {
+                                    lessons.push(lesson);
+                                }
+                            }
+                        }
+                    }
+                    lessonsDocs = lessons;
+                    cachedLessonsRef.current = lessonsDocs;
+                } else {
+                    // Fallback to fetch from service
+                    try {
+                        const groups = await getSharedBookGroups();
+                        const lessons = [];
+                        for (const group of groups) {
+                            for (const book of group.books || []) {
+                                for (const chapter of book.chapters || []) {
+                                    for (const lesson of chapter.lessons || []) {
+                                        lessons.push(lesson);
+                                    }
+                                }
+                            }
+                        }
+                        lessonsDocs = lessons;
+                        cachedLessonsRef.current = lessonsDocs;
+                    } catch (err) {
+                        console.warn('Fallback loading shared book groups failed, falling back to collectionGroup:', err);
+                        // Lấy tất cả vocab từ tất cả các lessons bằng collectionGroup
+                        const lessonsQuery = query(collectionGroup(db, 'lessons'));
+                        const lessonsSnap = await getDocs(lessonsQuery);
+                        lessonsDocs = lessonsSnap.docs.map(doc => doc.data());
+                        cachedLessonsRef.current = lessonsDocs;
+                    }
+                }
             }
 
             for (const lessonData of lessonsDocs) {

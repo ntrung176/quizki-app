@@ -3,7 +3,36 @@
 
 // Cache to avoid repeated API calls
 // Stores { pitch: [...], audioUrl: string|null }
-const jotobaCache = new Map();
+const cacheKey = 'quizki_jotoba_cache';
+let jotobaCache = new Map();
+
+// Helper to load cache from localStorage
+const loadCache = () => {
+    try {
+        const cached = localStorage.getItem(cacheKey);
+        if (cached) {
+            const parsed = JSON.parse(cached);
+            jotobaCache = new Map(Object.entries(parsed));
+        }
+    } catch (e) {
+        console.warn('Failed to load Jotoba cache from localStorage:', e);
+    }
+};
+
+// Helper to save cache to localStorage
+const saveCache = () => {
+    try {
+        const obj = Object.fromEntries(jotobaCache.entries());
+        localStorage.setItem(cacheKey, JSON.stringify(obj));
+    } catch (e) {
+        console.warn('Failed to save Jotoba cache to localStorage:', e);
+    }
+};
+
+// Initialize cache
+if (typeof window !== 'undefined') {
+    loadCache();
+}
 
 const JOTOBA_BASE = 'https://jotoba.de';
 
@@ -43,6 +72,7 @@ export const fetchJotobaWordData = async (word) => {
         if (!response.ok) {
             console.warn('Jotoba API error:', response.status);
             jotobaCache.set(cleanWord, null);
+            saveCache();
             return null;
         }
 
@@ -62,14 +92,17 @@ export const fetchJotobaWordData = async (word) => {
             };
 
             jotobaCache.set(cleanWord, result);
+            saveCache();
             return result;
         }
 
         jotobaCache.set(cleanWord, null);
+        saveCache();
         return null;
     } catch (e) {
         console.warn('Failed to fetch Jotoba data:', e);
         jotobaCache.set(cleanWord, null);
+        saveCache();
         return null;
     }
 };
@@ -184,4 +217,9 @@ export const accentNumberToPitchParts = (reading, accentNum) => {
  */
 const clearPitchCache = () => {
     jotobaCache.clear();
+    try {
+        localStorage.removeItem(cacheKey);
+    } catch (e) {
+        console.warn('Failed to clear Jotoba cache from localStorage:', e);
+    }
 };

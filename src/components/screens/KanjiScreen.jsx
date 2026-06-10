@@ -11,10 +11,12 @@ import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitch
 import HanziWriter from 'hanzi-writer';
 import { showToast, showConfirm } from '../../utils/toast';
 import { renderStrokeGuide, renderMaziiStyleKanji } from '../../utils/kanjiStroke';
-import { RADICALS_214, KANJI_TREE } from '../../data/radicals214'
+import { RADICALS_214, KANJI_TREE } from '../../data/radicals214';
+import { getSharedKanjiList, getSharedVocabList, getSharedVocabCategories, updateCachedKanji, deleteCachedKanji, updateCachedVocab, deleteCachedVocab, getCachedKanjiList, getCachedVocabList, getCachedVocabCategories } from '../../utils/kanjiService';
 import { JOTOBA_KANJI_DATA, getJotobaKanjiChars, getJotobaKanjiData } from '../../data/jotobaKanjiData'
 import { TopTabBar, PremiumLockedModal } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
+import useMenuTransition from '../../hooks/useMenuTransition';
 // JLPT Levels
 const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
 // Colors for each JLPT level (grid buttons)
@@ -36,6 +38,7 @@ const LEVEL_TAB_COLORS = {
     'Bộ thủ': 'bg-orange-500 text-white shadow-md shadow-orange-200 dark:shadow-orange-900/50',
 };
 const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserCards = [], profile = null, folders = [], userId }) => {
+    const fadeWholePage = useMenuTransition();
     const [searchParams] = useSearchParams();
     const params = useParams();
     const navigate = useNavigate();
@@ -62,15 +65,15 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     const [editingKanji, setEditingKanji] = useState(null);
     const [editingVocab, setEditingVocab] = useState(null);
     // Vocab Categories
-    const [vocabCategories, setVocabCategories] = useState([]);
+    const [vocabCategories, setVocabCategories] = useState(() => getCachedVocabCategories() || []);
     const [showCategoryModal, setShowCategoryModal] = useState(false);
     const [newCategoryName, setNewCategoryName] = useState('');
     // Firebase data
     // If navigating from KanjiLessonScreen, use the pre-loaded data immediately (zero flash)
     // then update with server data in the background.
-    const [kanjiList, setKanjiList] = useState(() => location.state?.kanjiList || []);
-    const [vocabList, setVocabList] = useState(() => location.state?.vocabList || []);
-    const [loading, setLoading] = useState(() => !location.state?.kanjiList);
+    const [kanjiList, setKanjiList] = useState(() => getCachedKanjiList() || location.state?.kanjiList || []);
+    const [vocabList, setVocabList] = useState(() => getCachedVocabList() || location.state?.vocabList || []);
+    const [loading, setLoading] = useState(() => !getCachedKanjiList() && !location.state?.kanjiList);
     // KanjiVG stroke animation controllers
     const sidebarStrokeCtrl = useRef(null);
     const detailStrokeCtrl = useRef(null);
@@ -338,20 +341,21 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             try {
                 if (hasPreloadedData) {
                     // Only fetch lightweight auxiliary data (categories)
-                    const catSnap = await getDocs(collection(db, 'vocabCategories'));
-                    const catData = catSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+                    const catData = await getSharedVocabCategories();
                     setVocabCategories(catData);
+                    // Also seed the global cache with our preloaded lists so other screens get them immediately
+                    location.state.kanjiList.forEach(k => updateCachedKanji(k));
+                    location.state.vocabList.forEach(v => updateCachedVocab(v));
                 } else {
-                    console.log('Loading kanji data from Firebase...');
-                    // Use getDocs for faster loading via persistence cache
-                    const [kanjiSnap, vocabSnap, catSnap] = await Promise.all([
-                        getDocs(collection(db, 'kanji')),
-                        getDocs(collection(db, 'kanjiVocab')),
-                        getDocs(collection(db, 'vocabCategories'))
+                    console.log('Loading kanji data from shared cache...');
+                    const [kanjiData, vocabData, catData] = await Promise.all([
+                        getSharedKanjiList(),
+                        getSharedVocabList(),
+                        getSharedVocabCategories()
                     ]);
-                    setKanjiList(kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() })));
-                    setVocabList(vocabSnap.docs.map(d => ({ id: d.id, ...d.data() })));
-                    setVocabCategories(catSnap.docs.map(d => ({ id: d.id, ...d.data() })));
+                    setKanjiList(kanjiData);
+                    setVocabList(vocabData);
+                    setVocabCategories(catData);
                 }
             } catch (e) {
                 console.error('Error loading kanji data:', e);
@@ -693,7 +697,9 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         }
         try {
             const docRef = await addDoc(collection(db, 'kanji'), newKanji);
-            setKanjiList([...kanjiList, { ...newKanji, id: docRef.id }]);
+            const addedKanji = { ...newKanji, id: docRef.id };
+            setKanjiList([...kanjiList, addedKanji]);
+            updateCachedKanji(addedKanji);
             setNewKanji({
                 character: '', meaning: '', onyomi: '', kunyomi: '',
                 level: 'N5', sinoViet: '', mnemonic: '', radical: ''
@@ -714,11 +720,14 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         }
         try {
             const kanjiChars = newVocab.word.match(/[\u4e00-\u9faf]/g) || [];
-            const docRef = await addDoc(collection(db, 'kanjiVocab'), {
+            const vocabData = {
                 ...newVocab,
                 kanjiList: kanjiChars
-            });
-            setVocabList([...vocabList, { ...newVocab, id: docRef.id, kanjiList: kanjiChars }]);
+            };
+            const docRef = await addDoc(collection(db, 'kanjiVocab'), vocabData);
+            const addedVocab = { ...vocabData, id: docRef.id };
+            setVocabList([...vocabList, addedVocab]);
+            updateCachedVocab(addedVocab);
             setNewVocab({
                 word: '', reading: '', meaning: '', level: selectedLevel, source: 'Mimikara',
                 sinoViet: '', pos: '', synonym: '', example: '', exampleMeaning: '', nuance: '', category: ''
@@ -771,6 +780,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         try {
             for (const id of selectedKanjiIds) {
                 await deleteDoc(doc(db, 'kanji', id));
+                deleteCachedKanji(id);
             }
             setKanjiList(prev => prev.filter(k => !selectedKanjiIds.includes(k.id)));
             setSelectedKanjiIds([]);
@@ -786,6 +796,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         try {
             for (const id of selectedVocabIds) {
                 await deleteDoc(doc(db, 'kanjiVocab', id));
+                deleteCachedVocab(id);
             }
             setVocabList(prev => prev.filter(v => !selectedVocabIds.includes(v.id)));
             setSelectedVocabIds([]);
@@ -813,11 +824,15 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             if (editingKanji.id) {
                 // Update existing
                 await updateDoc(doc(db, 'kanji', editingKanji.id), kanjiDoc);
-                setKanjiList(kanjiList.map(k => k.id === editingKanji.id ? { ...editingKanji, ...kanjiDoc } : k));
+                const updatedKanji = { ...editingKanji, ...kanjiDoc };
+                setKanjiList(kanjiList.map(k => k.id === editingKanji.id ? updatedKanji : k));
+                updateCachedKanji(updatedKanji);
             } else {
                 // Create new (from Jotoba data that admin customized)
                 const docRef = await addDoc(collection(db, 'kanji'), kanjiDoc);
-                setKanjiList([...kanjiList, { ...kanjiDoc, id: docRef.id }]);
+                const addedKanji = { ...kanjiDoc, id: docRef.id };
+                setKanjiList([...kanjiList, addedKanji]);
+                updateCachedKanji(addedKanji);
             }
             setShowEditKanjiModal(false);
             setEditingKanji(null);
@@ -832,6 +847,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         try {
             await deleteDoc(doc(db, 'kanji', kanjiId));
             setKanjiList(kanjiList.filter(k => k.id !== kanjiId));
+            deleteCachedKanji(kanjiId);
         } catch (e) {
             console.error('Error deleting kanji:', e);
         }
@@ -841,7 +857,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         if (!editingVocab || !editingVocab.id) return;
         try {
             const kanjiChars = editingVocab.word.match(/[\u4e00-\u9faf]/g) || [];
-            await updateDoc(doc(db, 'kanjiVocab', editingVocab.id), {
+            const vocabDoc = {
                 word: editingVocab.word,
                 reading: editingVocab.reading,
                 meaning: editingVocab.meaning,
@@ -850,8 +866,11 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 sinoViet: editingVocab.sinoViet,
                 category: editingVocab.category || '',
                 kanjiList: kanjiChars
-            });
-            setVocabList(vocabList.map(v => v.id === editingVocab.id ? { ...editingVocab, kanjiList: kanjiChars } : v));
+            };
+            await updateDoc(doc(db, 'kanjiVocab', editingVocab.id), vocabDoc);
+            const updatedVocab = { ...editingVocab, ...vocabDoc };
+            setVocabList(vocabList.map(v => v.id === editingVocab.id ? updatedVocab : v));
+            updateCachedVocab(updatedVocab);
             setShowEditVocabModal(false);
             setEditingVocab(null);
         } catch (e) {
@@ -865,6 +884,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         try {
             await deleteDoc(doc(db, 'kanjiVocab', vocabId));
             setVocabList(vocabList.filter(v => v.id !== vocabId));
+            deleteCachedVocab(vocabId);
         } catch (e) {
             console.error('Error deleting vocab:', e);
         }
@@ -923,24 +943,30 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         if (wordsToFetch.length === 0) return;
         let cancelled = false;
         const fetchAll = async () => {
-            const newData = { ...pitchAccentData };
-            for (const v of wordsToFetch) {
-                if (cancelled) break;
-                try {
-                    const jotobaData = await fetchJotobaWordData(v.word);
-                    if (jotobaData?.pitch && !cancelled) {
-                        newData[v.word] = jotobaData.pitch;
+            try {
+                const results = await Promise.all(
+                    wordsToFetch.map(async (v) => {
+                        try {
+                            const jotobaData = await fetchJotobaWordData(v.word);
+                            return { word: v.word, pitch: jotobaData?.pitch || null };
+                        } catch (e) {
+                            return { word: v.word, pitch: null };
+                        }
+                    })
+                );
+
+                if (cancelled) return;
+
+                const newData = { ...pitchAccentData };
+                results.forEach(({ word, pitch }) => {
+                    if (pitch) {
+                        newData[word] = pitch;
                     }
-                } catch (e) {
-                    // Silently fail for individual words
-                }
-                // Small delay between requests to be nice to the API
-                if (wordsToFetch.length > 3) {
-                    await new Promise(r => setTimeout(r, 150));
-                }
-            }
-            if (!cancelled) {
+                });
+
                 setPitchAccentData(newData);
+            } catch (e) {
+                console.error('Error fetching pitch accent in parallel:', e);
             }
         };
         fetchAll();
@@ -1486,7 +1512,9 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         return (
             <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:bg-slate-900 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 text-gray-900 dark:text-white pb-8">
                 <TopTabBar tabs={KANJI_TABS} />
-                <LoadingIndicator text="Đang tải dữ liệu Kanji..." />
+                <div className="animate-fade-in">
+                    <LoadingIndicator text="Đang tải dữ liệu Kanji..." />
+                </div>
             </div>
         );
     }
@@ -1514,9 +1542,9 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         );
     }
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950/20 text-gray-900 dark:text-white pb-12 transition-colors duration-300 animate-fade-in">
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950/20 text-gray-900 dark:text-white pb-12 transition-colors duration-300">
             <TopTabBar tabs={KANJI_TABS} />
-            <div className="max-w-6xl mx-auto px-4 md:px-8 space-y-6 mt-6">
+            <div className="max-w-6xl mx-auto px-4 md:px-8 space-y-6 mt-6 animate-fade-in">
                 {/* Header Section */}
                 <div className="flex flex-col gap-4">
                     <div>

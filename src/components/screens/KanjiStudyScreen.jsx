@@ -5,10 +5,12 @@ import { ChevronLeft, ChevronRight, BookOpen, CheckCircle, Zap } from 'lucide-re
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
+import { getSharedKanjiList } from '../../utils/kanjiService';
 import { ROUTES } from '../../router';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import { TopTabBar, PremiumLockedModal } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
+import useMenuTransition from '../../hooks/useMenuTransition';
 // JLPT Levels configuration
 const JLPT_CONFIG = {
     N5: { label: 'N5', sublabel: 'Cơ bản', color: 'emerald', totalDays: 12, kanjiPerDay: 10, gradient: 'from-emerald-500 to-teal-500', bg: 'bg-emerald-500', light: 'bg-emerald-50 dark:bg-emerald-900/20', text: 'text-emerald-600 dark:text-emerald-400', border: 'border-emerald-300 dark:border-emerald-700' },
@@ -18,6 +20,7 @@ const JLPT_CONFIG = {
     N1: { label: 'N1', sublabel: 'Thành thạo', color: 'red', totalDays: 131, kanjiPerDay: 10, gradient: 'from-rose-500 to-pink-500', bg: 'bg-rose-500', light: 'bg-rose-50 dark:bg-rose-900/20', text: 'text-rose-600 dark:text-rose-400', border: 'border-rose-300 dark:border-rose-700' },
 };
 const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
+    const fadeWholePage = useMenuTransition();
     const navigate = useNavigate();
     const [showPremiumModal, setShowPremiumModal] = useState(false);
     const [lockedPkgName, setLockedPkgName] = useState('Thư viện Kanji Zen');
@@ -31,8 +34,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
     useEffect(() => {
         const loadData = async () => {
             try {
-                const kanjiSnap = await getDocs(collection(db, 'kanji'));
-                const kanjiData = kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+                const kanjiData = await getSharedKanjiList();
                 setKanjiList(kanjiData);
                 // Load user progress
                 if (userId) {
@@ -134,14 +136,16 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
         return (
             <div className="w-full pb-8">
                 <TopTabBar tabs={KANJI_TABS} />
-                <LoadingIndicator text="Đang tải lộ trình học..." />
+                <div className="animate-fade-in">
+                    <LoadingIndicator text="Đang tải lộ trình học..." />
+                </div>
             </div>
         );
     }
     return (
-        <div className="w-full pb-12 transition-colors duration-300 animate-fade-in">
+        <div className="w-full pb-12 transition-colors duration-300">
             <TopTabBar tabs={KANJI_TABS} />
-            <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-6 mt-6">
+            <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-6 mt-6 animate-fade-in">
                 {/* 1. Header Banner with Circular Progress Gauge */}
                 <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-500 via-purple-600 to-indigo-700 p-8 text-white shadow-lg border border-indigo-500/20 dark:border-indigo-900/50">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent_60%)]"></div>

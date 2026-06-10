@@ -6,12 +6,14 @@ import { db, appId } from '../../config/firebase';
 import {
     collection, getDocs, addDoc, deleteDoc, doc, updateDoc, writeBatch, setDoc, getDoc, serverTimestamp
 } from 'firebase/firestore';
+import { getSharedBookGroups, getCachedBookGroups } from '../../utils/bookService';
 import { showToast, showConfirm } from '../../utils/toast';
 import { speakJapanese, playAudio, generateAudioSilentWithVoice } from '../../utils/audio';
 import FuriganaText from '../ui/FuriganaText';
 import { accentNumberToPitchParts } from '../../utils/pitchAccent';
 import { TopTabBar, PremiumLockedModal } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
+import useMenuTransition from '../../hooks/useMenuTransition';
 // ==================== REUSABLE COMPONENTS (outside BookScreen to prevent re-mount) ====================
 const FormModal = ({ show, onClose, title, onSave, children }) => {
     if (!show) return null;
@@ -55,13 +57,14 @@ const BookScreen = ({
 }) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
+    const fadeWholePage = useMenuTransition();
     // Premium Locked states
     const [showPremiumModal, setShowPremiumModal] = useState(false);
     const [lockedPkgName, setLockedPkgName] = useState('Premium');
 
     // Data states
-    const [bookGroups, setBookGroups] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [bookGroups, setBookGroups] = useState(() => getCachedBookGroups() || []);
+    const [loading, setLoading] = useState(!getCachedBookGroups());
     // Navigation: groupId -> bookId -> chapterId -> lessonId (short param names for cleaner URLs)
     const groupId = searchParams.get('g') || searchParams.get('group') || null;
     const bookId = searchParams.get('b') || searchParams.get('book') || null;
@@ -289,34 +292,10 @@ const BookScreen = ({
             }
         }
     }, [lessonPersistKey, userId]);
-    const loadAllData = async (silent = false) => {
+    const loadAllData = async (silent = false, forceRefresh = false) => {
         if (!silent) setLoading(true);
         try {
-            const groupsSnap = await getDocs(collection(db, COLLECTION));
-            const groups = await Promise.all(groupsSnap.docs.map(async (groupDoc) => {
-                const group = { id: groupDoc.id, ...groupDoc.data(), books: [] };
-                const booksSnap = await getDocs(collection(db, COLLECTION, groupDoc.id, 'books'));
-                group.books = await Promise.all(booksSnap.docs.map(async (bookDoc) => {
-                    const book = { id: bookDoc.id, ...bookDoc.data(), chapters: [] };
-                    const chaptersSnap = await getDocs(collection(db, COLLECTION, groupDoc.id, 'books', bookDoc.id, 'chapters'));
-                    book.chapters = await Promise.all(chaptersSnap.docs.map(async (chapterDoc) => {
-                        const chapter = { id: chapterDoc.id, ...chapterDoc.data(), lessons: [] };
-                        const lessonsSnap = await getDocs(
-                            collection(db, COLLECTION, groupDoc.id, 'books', bookDoc.id, 'chapters', chapterDoc.id, 'lessons')
-                        );
-                        chapter.lessons = lessonsSnap.docs.map(lessonDoc => ({
-                            id: lessonDoc.id,
-                            ...lessonDoc.data()
-                        })).sort((a, b) => (a.order || 0) - (b.order || 0));
-                        return chapter;
-                    }));
-                    book.chapters.sort((a, b) => (a.order || 0) - (b.order || 0));
-                    return book;
-                }));
-                group.books.sort((a, b) => (a.order || 0) - (b.order || 0));
-                return group;
-            }));
-            groups.sort((a, b) => (a.order || 0) - (b.order || 0));
+            const groups = await getSharedBookGroups(forceRefresh);
             setBookGroups(groups);
         } catch (e) {
             console.error('Error loading book data:', e);
@@ -371,7 +350,7 @@ const BookScreen = ({
             imageUrl: formImageUrl.trim(), order: bookGroups.length,
             createdAt: Date.now()
         });
-        resetForm(); setShowAddGroup(false); loadAllData();
+        resetForm(); setShowAddGroup(false); loadAllData(false, true);
     };
     const handleAddBook = async () => {
         if (!formName.trim() || !groupId) return;
@@ -382,7 +361,7 @@ const BookScreen = ({
             description: formDescription.trim(), order: booksCount,
             createdAt: Date.now()
         });
-        resetForm(); setShowAddBook(false); loadAllData();
+        resetForm(); setShowAddBook(false); loadAllData(false, true);
     };
     const handleAddChapter = async () => {
         if (!formName.trim() || !groupId || !bookId) return;
@@ -390,7 +369,7 @@ const BookScreen = ({
         await addDoc(collection(db, COLLECTION, groupId, 'books', bookId, 'chapters'), {
             name: formName.trim(), order: chaptersCount, createdAt: Date.now()
         });
-        resetForm(); setShowAddChapter(false); loadAllData();
+        resetForm(); setShowAddChapter(false); loadAllData(false, true);
     };
     const handleAddLesson = async () => {
         if (!formName.trim() || !groupId || !bookId || !chapterId) return;
@@ -399,7 +378,7 @@ const BookScreen = ({
             collection(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons'),
             { name: formName.trim(), vocab: [], order: lessonsCount, createdAt: Date.now() }
         );
-        resetForm(); setShowAddLesson(false); loadAllData();
+        resetForm(); setShowAddLesson(false); loadAllData(false, true);
     };
     // ==================== EDIT GROUP/BOOK ====================
     const handleStartEditGroup = (group) => {
@@ -416,7 +395,7 @@ const BookScreen = ({
                 name: formName.trim(), subtitle: formSubtitle.trim(), imageUrl: formImageUrl.trim()
             });
             showToast('Đã cập nhật nhóm sách!', 'success');
-            resetForm(); setShowEditGroup(false); loadAllData();
+            resetForm(); setShowEditGroup(false); loadAllData(false, true);
         } catch (e) { showToast('Lỗi: ' + e.message, 'error'); }
     };
     const handleStartEditBook = (book) => {
@@ -437,7 +416,7 @@ const BookScreen = ({
                 description: formDescription.trim()
             });
             showToast('Đã cập nhật sách!', 'success');
-            resetForm(); setShowEditBook(false); loadAllData();
+            resetForm(); setShowEditBook(false); loadAllData(false, true);
         } catch (e) { showToast('Lỗi: ' + e.message, 'error'); }
     };
     // ==================== REORDER CHAPTERS/LESSONS ====================
@@ -452,7 +431,7 @@ const BookScreen = ({
             batch.update(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chA.id), { order: swapIdx });
             batch.update(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chB.id), { order: ci });
             await batch.commit();
-            loadAllData(true);
+            loadAllData(true, true);
         } catch (e) { showToast('Lỗi: ' + e.message, 'error'); }
     };
     const handleReorderLesson = async (chId, li, direction) => {
@@ -468,7 +447,7 @@ const BookScreen = ({
             batch.update(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chId, 'lessons', lsA.id), { order: swapIdx });
             batch.update(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chId, 'lessons', lsB.id), { order: li });
             await batch.commit();
-            loadAllData(true);
+            loadAllData(true, true);
         } catch (e) { showToast('Lỗi: ' + e.message, 'error'); }
     };
     const handleImportJson = async () => {
@@ -511,32 +490,32 @@ const BookScreen = ({
             if (addedCount > 0) msgs.push(`Thêm ${addedCount} từ mới`);
             if (updatedCount > 0) msgs.push(`Cập nhật ${updatedCount} từ`);
             showToast(msgs.join(', ') || 'Không có thay đổi', msgs.length > 0 ? 'success' : 'info');
-            resetForm(); setShowJsonImport(false); loadAllData();
+            resetForm(); setShowJsonImport(false); loadAllData(false, true);
         } catch (e) { showToast('JSON không hợp lệ: ' + e.message, 'error'); }
     };
     const handleDeleteGroup = async (gId) => {
         if (!await showConfirm('Xóa nhóm sách này?', { type: 'danger', confirmText: 'Xóa' })) return;
         await deleteDoc(doc(db, COLLECTION, gId));
         if (groupId === gId) navigateTo({});
-        loadAllData();
+        loadAllData(false, true);
     };
     const handleDeleteBook = async (bId) => {
         if (!await showConfirm('Xóa sách này?', { type: 'danger', confirmText: 'Xóa' })) return;
         await deleteDoc(doc(db, COLLECTION, groupId, 'books', bId));
         if (bookId === bId) navigateTo({ group: groupId });
-        loadAllData();
+        loadAllData(false, true);
     };
     const handleDeleteChapter = async (cId) => {
         if (!await showConfirm('Xóa chương này?', { type: 'danger', confirmText: 'Xóa' })) return;
         await deleteDoc(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', cId));
         if (chapterId === cId) navigateTo({ group: groupId, book: bookId });
-        loadAllData();
+        loadAllData(false, true);
     };
     const handleDeleteLesson = async (lId) => {
         if (!await showConfirm('Xóa bài này?', { type: 'danger', confirmText: 'Xóa' })) return;
         await deleteDoc(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lId));
         if (lessonId === lId) navigateTo({ group: groupId, book: bookId, chapter: chapterId });
-        loadAllData();
+        loadAllData(false, true);
     };
     const handleToggleLessonPremium = async (e, chId, lesson) => {
         e.stopPropagation();
@@ -545,7 +524,7 @@ const BookScreen = ({
             const nextVal = !lesson.isPremium;
             await updateDoc(lessonRef, { isPremium: nextVal });
             showToast(`Đã chuyển trạng thái bài học thành ${nextVal ? 'Premium' : 'Miễn phí'}`, 'success');
-            await loadAllData(true);
+            await loadAllData(true, true);
         } catch (err) {
             console.error('Lỗi toggle premium:', err);
             showToast('Lỗi: ' + err.message, 'error');
@@ -557,7 +536,7 @@ const BookScreen = ({
         const newVocab = [...(currentLesson?.vocab || [])];
         newVocab.splice(vocabIndex, 1);
         await updateDoc(lessonRef, { vocab: newVocab });
-        loadAllData();
+        loadAllData(false, true);
     };
     const handleEditVocab = (vocabIndex) => {
         const v = currentLesson?.vocab?.[vocabIndex];
@@ -608,7 +587,7 @@ const BookScreen = ({
             showToast('Đã cập nhật từ vựng!', 'success');
             // Preserve scroll position during reload
             const scrollY = window.scrollY;
-            await loadAllData(true);
+            await loadAllData(true, true);
             requestAnimationFrame(() => { window.scrollTo(0, scrollY); });
         } catch (e) {
             console.error('Error saving vocab edit:', e);
@@ -637,7 +616,7 @@ const BookScreen = ({
             if (ref) {
                 await updateDoc(ref, { name: editingNameValue.trim() });
                 showToast('Đã cập nhật tên!', 'success');
-                loadAllData();
+                loadAllData(false, true);
             }
         } catch (e) {
             console.error('Error saving name edit:', e);
@@ -2250,7 +2229,9 @@ const BookScreen = ({
         return (
             <div className="w-full pb-8">
                 <TopTabBar tabs={VOCAB_TABS} />
-                <LoadingIndicator text="Đang tải dữ liệu Sách..." />
+                <div className="animate-fade-in">
+                    <LoadingIndicator text="Đang tải dữ liệu Sách..." />
+                </div>
             </div>
         );
     }
@@ -2265,7 +2246,7 @@ const BookScreen = ({
     return (
         <div className="w-full pb-8">
             <TopTabBar tabs={VOCAB_TABS} />
-            <div className="max-w-6xl mx-auto space-y-4 px-4 md:px-8 mt-4">
+            <div className="max-w-6xl mx-auto space-y-4 px-4 md:px-8 mt-4 animate-fade-in">
                 {(groupId || bookId || chapterId || lessonId) && <Breadcrumb />}
             {renderCurrentView()}
             {/* Modals */}

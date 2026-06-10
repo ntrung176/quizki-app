@@ -6,6 +6,7 @@ import { Search, Trash2, ChevronLeft, ChevronRight, BookOpen, Clock, CheckCircle
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, getDoc, doc, deleteDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
+import { getSharedKanjiList } from '../../utils/kanjiService';
 import { ROUTES } from '../../router';
 import { showToast, showConfirm } from '../../utils/toast';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
@@ -186,9 +187,7 @@ const KanjiSRSListScreen = () => {
         const load = async () => {
             try {
                 const fetchTasks = [
-                    getDocs(collection(db, 'kanji')).then(snap =>
-                        snap.docs.map(d => ({ id: d.id, ...d.data() }))
-                    )
+                    getSharedKanjiList()
                 ];
 
                 if (userId) {
@@ -604,10 +603,9 @@ const KanjiSRSListScreen = () => {
 
     return (
         <div className="w-full pb-10 bg-slate-50/50 min-h-screen dark:bg-slate-900/10">
-            <div className="animate-fade-in">
-                <TopTabBar tabs={KANJI_TABS} />
+            <TopTabBar tabs={KANJI_TABS} />
 
-                <div className="max-w-6xl mx-auto space-y-6 px-4 md:px-8 mt-6">
+            <div className="max-w-6xl mx-auto space-y-6 px-4 md:px-8 mt-6 animate-fade-in">
 
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -1109,7 +1107,6 @@ const KanjiSRSListScreen = () => {
                     </div>
                 )}
             </div>
-        </div>
 
         {/* Confirm Delete Dialog */}
                 {showConfirmDelete && createPortal(

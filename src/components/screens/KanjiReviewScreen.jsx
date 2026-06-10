@@ -6,6 +6,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGri
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth';
+import { getSharedKanjiList } from '../../utils/kanjiService';
 
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { formatCountdown, getCardState, calculateAnkiSRS } from '../../utils/srs';
@@ -13,6 +14,7 @@ import { flashCorrect, launchFanfare } from '../../utils/celebrations'
 import { playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
+import useMenuTransition from '../../hooks/useMenuTransition';
 
 /**
  * Lấy interval preview cho mỗi nút đánh giá (hiển thị cho user)
@@ -41,6 +43,7 @@ const formatInterval = (minutes) => {
 
 // ==================== MAIN COMPONENT ====================
 const KanjiReviewScreen = () => {
+    const fadeWholePage = useMenuTransition();
     const navigate = useNavigate();
     const [kanjiList, setKanjiList] = useState([]);
     const [srsData, setSrsData] = useState({});
@@ -56,8 +59,7 @@ const KanjiReviewScreen = () => {
     useEffect(() => {
         const load = async () => {
             try {
-                const kanjiSnap = await getDocs(collection(db, 'kanji'));
-                const kanjiData = kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+                const kanjiData = await getSharedKanjiList();
                 setKanjiList(kanjiData);
                 if (userId) {
                     const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
@@ -320,7 +322,9 @@ const KanjiReviewScreen = () => {
         return (
             <div className="w-full pb-8">
                 <TopTabBar tabs={KANJI_TABS} />
-                <LoadingIndicator text="Đang tải dữ liệu ôn tập..." />
+                <div className="animate-fade-in">
+                    <LoadingIndicator text="Đang tải dữ liệu ôn tập..." />
+                </div>
             </div>
         );
     }
@@ -423,9 +427,9 @@ const KanjiReviewScreen = () => {
 
     // ==================== STATS SCREEN ====================
     return (
-        <div className="w-full pb-12 transition-colors duration-300 animate-fade-in">
+        <div className="w-full pb-12 transition-colors duration-300">
             <TopTabBar tabs={KANJI_TABS} />
-            <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-6 mt-6">
+            <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-6 mt-6 animate-fade-in">
 
                 {/* Hero Banner */}
                 <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-rose-400 via-pink-500 to-rose-500 p-8 text-white shadow-lg border border-rose-350 dark:border-rose-900/50">

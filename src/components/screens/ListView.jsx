@@ -4,6 +4,7 @@ import { POS_TYPES, getLevelColor } from '../../config/constants'
 import { TopTabBar } from '../ui'
 import { SrsStatusCell } from '../ui';
 import { playAudio } from '../../utils/audio';
+import useMenuTransition from '../../hooks/useMenuTransition';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 import FuriganaText from '../ui/FuriganaText';
@@ -330,6 +331,7 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
 };
 // ==================== Main ListView Component ====================
 const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAudio, onExport, onSaveChanges, onGeminiAssist, onNavigateToImport, scrollToCardId, onScrollComplete, savedFilters, onFiltersChange, userId }) => {
+    const fadeWholePage = useMenuTransition();
     const [editingCard, setEditingCard] = useState(null);
     const [filterLevel, setFilterLevel] = useState(savedFilters?.filterLevel || 'all');
     const [filterPos, setFilterPos] = useState(savedFilters?.filterPos || 'all');
@@ -798,7 +800,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
     return (
         <div className="w-full pb-8">
             <TopTabBar tabs={VOCAB_TABS} />
-            <div className="max-w-5xl mx-auto space-y-6 px-4 md:px-8 mt-4">
+            <div className="max-w-5xl mx-auto space-y-6 px-4 md:px-8 mt-4 animate-fade-in">
                 {/* Modals */}
                 {editingCard && (
                     <EditCardModal card={editingCard} onSave={onSaveChanges} onClose={() => setEditingCard(null)} onGeminiAssist={onGeminiAssist} allCards={allCards} />

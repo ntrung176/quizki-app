@@ -11,6 +11,7 @@ import { getAuth } from 'firebase/auth';
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { showToast } from '../../utils/toast';
 import { fetchJotobaWordData } from '../../utils/pitchAccent';
+import { getSharedKanjiList } from '../../utils/kanjiService';
 
 const parseWordAndReading = (text) => {
     if (!text) return { word: '', reading: '' };
@@ -115,8 +116,8 @@ const StudySetDetail = ({
             }
 
             // 2. Fetch all Kanji in the Firestore 'kanji' collection
-            const kanjiSnap = await getDocs(collection(db, 'kanji'));
-            const allKanji = kanjiSnap.docs.map(d => ({ id: d.id, character: d.data().character }));
+            const kanjiList = await getSharedKanjiList();
+            const allKanji = kanjiList.map(k => ({ id: k.id, character: k.character }));
 
             // Map character to doc ID
             const kanjiIdMap = {};
@@ -425,31 +426,35 @@ const StudySetDetail = ({
 
         let cancelled = false;
         const fetchAll = async () => {
-            const newData = {};
-            for (const baseWord of wordsToFetch) {
-                if (cancelled) break;
-                try {
-                    const jotobaData = await fetchJotobaWordData(baseWord);
-                    if (jotobaData && !cancelled) {
+            try {
+                const results = await Promise.all(
+                    wordsToFetch.map(async (baseWord) => {
+                        try {
+                            const jotobaData = await fetchJotobaWordData(baseWord);
+                            return { baseWord, jotobaData };
+                        } catch (e) {
+                            return { baseWord, jotobaData: null };
+                        }
+                    })
+                );
+
+                if (cancelled) return;
+
+                const newData = {};
+                results.forEach(({ baseWord, jotobaData }) => {
+                    if (jotobaData) {
                         newData[baseWord] = {
                             pitch: jotobaData.pitch || null,
                             reading: jotobaData.reading || null
                         };
-                    } else if (!cancelled) {
+                    } else {
                         newData[baseWord] = { pitch: null, reading: null };
                     }
-                } catch (e) {
-                    if (!cancelled) {
-                        newData[baseWord] = { pitch: null, reading: null };
-                    }
-                }
-                // Small delay to be polite to Jotoba API
-                if (wordsToFetch.length > 3) {
-                    await new Promise(r => setTimeout(r, 120));
-                }
-            }
-            if (!cancelled) {
+                });
+
                 setPitchAccentData(prev => ({ ...prev, ...newData }));
+            } catch (e) {
+                console.error('Error fetching pitch accent data in parallel:', e);
             }
         };
         fetchAll();

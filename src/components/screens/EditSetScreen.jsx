@@ -325,10 +325,10 @@ const EditSetScreen = ({
     };
 
     return (
-        <div className="w-full pb-32 animate-fade-in bg-slate-50 dark:bg-gray-900 min-h-screen">
+        <div className="w-full pb-32 bg-slate-50 dark:bg-gray-900 min-h-screen">
             <TopTabBar tabs={VOCAB_TABS} />
 
-            <div className="max-w-4xl mx-auto px-4 lg:px-8 mt-6 space-y-8">
+            <div className="max-w-4xl mx-auto px-4 lg:px-8 mt-6 space-y-8 animate-fade-in">
 
                 {/* Header Section */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">

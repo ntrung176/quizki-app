@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { ROUTES } from '../../router';
 import BookVocabSyncChecker from '../ui/BookVocabSyncChecker';
+import StreakCelebration from '../ui/StreakCelebration';
 const HomeScreen = ({
     displayName,
     totalCards,
@@ -313,6 +314,12 @@ const HomeScreen = ({
                     </div>
                 </div>
             </div>
+            {/* Streak celebration popup */}
+            <StreakCelebration 
+                allCards={allCards}
+                kanjiActivityDates={kanjiActivityDates}
+                currentCalculatedStreak={stats.streak}
+            />
         </div>
     );
 };

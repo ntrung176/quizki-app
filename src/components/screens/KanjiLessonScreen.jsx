@@ -12,6 +12,7 @@ import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { fetchJotobaWordData } from '../../utils/pitchAccent';
 import { renderMaziiStyleKanji, fetchKanjiSvg } from '../../utils/kanjiStroke';
+import { getSharedKanjiList, getSharedVocabList } from '../../utils/kanjiService';
 // ── Module-level data cache ────────────────────────────────────────────────
 // Survives component unmount/remount (e.g. Back from KanjiScreen detail).
 // Cleared only when the browser tab is closed or hard-refreshed.
@@ -125,12 +126,10 @@ const KanjiLessonScreen = () => {
         }
         const load = async () => {
             try {
-                const [kanjiSnap, vocabSnap] = await Promise.all([
-                    getDocs(collection(db, 'kanji')),
-                    getDocs(collection(db, 'kanjiVocab'))
+                const [kanjiData, vocabData] = await Promise.all([
+                    getSharedKanjiList(),
+                    getSharedVocabList()
                 ]);
-                const kanjiData = kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() }));
-                const vocabData = vocabSnap.docs.map(d => ({ id: d.id, ...d.data() }));
                 // Populate module-level cache so back-navigation is instant
                 _lessonDataCache.kanjiList = kanjiData;
                 _lessonDataCache.vocabList = vocabData;
@@ -745,7 +744,7 @@ const KanjiLessonScreen = () => {
     };
     // ==================== MAIN RENDER ====================
     return (
-        <div className="max-w-7xl mx-auto px-4 py-6 space-y-6">
+        <div className="max-w-7xl mx-auto px-4 py-6 space-y-6 animate-fade-in">
             {/* Top Navigation Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-100 dark:border-slate-700/50 pb-5">
                 {/* Breadcrumbs */}

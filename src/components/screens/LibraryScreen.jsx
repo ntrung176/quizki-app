@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Folder, Plus, Library, Trash2, X, Search, ChevronRight, Layers, GraduationCap, Play, FolderPlus, Edit3, FolderOpen, ArrowLeft, Move } from 'lucide-react'
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
+import useMenuTransition from '../../hooks/useMenuTransition';
 
 const LibraryScreen = ({ 
     allCards = [], 
@@ -19,6 +20,7 @@ const LibraryScreen = ({
     onMoveStudySetToParentFolder
 }) => {
     const navigate = useNavigate();
+    const fadeWholePage = useMenuTransition();
     const [deletingFolder, setDeletingFolder] = useState(null); // Study Set deletion
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -223,10 +225,10 @@ const LibraryScreen = ({
     }, [activeParentFolderId, parentFolders]);
 
     return (
-        <div className="w-full pb-16 min-h-screen bg-gray-50 dark:bg-gray-900 animate-fade-in">
+        <div className="w-full pb-16 min-h-screen bg-gray-50 dark:bg-gray-900">
             <TopTabBar tabs={VOCAB_TABS} />
 
-            <div className="max-w-6xl mx-auto px-4 md:px-8 mt-6 space-y-8">
+            <div className="max-w-6xl mx-auto px-4 md:px-8 mt-6 space-y-8 animate-fade-in">
                 {/* Modern Premium Header */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="space-y-1">
