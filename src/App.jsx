@@ -409,27 +409,32 @@ const App = () => {
         try {
             setNotification("Đang xóa dữ liệu người dùng...");
 
-            // Helper function to delete documents one by one (to avoid Transaction too big error)
-            const deleteOneByOne = async (collectionPath) => {
+            // Helper function to delete documents in batches (to avoid Transaction too big error)
+            const deleteInBatches = async (collectionPath) => {
                 const snapshot = await getDocs(collection(db, collectionPath));
-                let deleted = 0;
-                for (const docSnap of snapshot.docs) {
-                    await deleteDoc(docSnap.ref);
-                    deleted++;
+                const docsArray = snapshot.docs;
+                const batchSize = 500;
+                for (let i = 0; i < docsArray.length; i += batchSize) {
+                    const batch = writeBatch(db);
+                    const chunk = docsArray.slice(i, i + batchSize);
+                    chunk.forEach(docSnap => {
+                        batch.delete(docSnap.ref);
+                    });
+                    await batch.commit();
                 }
-                return deleted;
+                return docsArray.length;
             };
 
             // Xóa vocabulary
-            const vocabCount = await deleteOneByOne(`artifacts/${appId}/users/${targetUserId}/vocabulary`);
+            const vocabCount = await deleteInBatches(`artifacts/${appId}/users/${targetUserId}/vocabulary`);
             console.log(`Deleted ${vocabCount} vocabulary items`);
 
             // Xóa dailyActivity
-            const actCount = await deleteOneByOne(`artifacts/${appId}/users/${targetUserId}/dailyActivity`);
+            const actCount = await deleteInBatches(`artifacts/${appId}/users/${targetUserId}/dailyActivity`);
             console.log(`Deleted ${actCount} daily activity items`);
 
             // Xóa kanji SRS data
-            const kanjiSrsCount = await deleteOneByOne(`artifacts/${appId}/users/${targetUserId}/kanjiSRS`);
+            const kanjiSrsCount = await deleteInBatches(`artifacts/${appId}/users/${targetUserId}/kanjiSRS`);
             console.log(`Deleted ${kanjiSrsCount} kanji SRS items`);
 
             // Xóa settings/profile

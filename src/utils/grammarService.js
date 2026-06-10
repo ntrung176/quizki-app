@@ -1,5 +1,5 @@
 // grammarService.js — Firestore CRUD for Grammar module
-import { doc, getDoc, updateDoc, deleteDoc, collection, addDoc, getDocs, onSnapshot, serverTimestamp } from 'firebase/firestore'
+import { doc, getDoc, updateDoc, deleteDoc, collection, addDoc, getDocs, onSnapshot, serverTimestamp, writeBatch } from 'firebase/firestore'
 import { db, appId } from '../config/firebase';
 
 // ============== PATHS ==============
@@ -55,14 +55,21 @@ export const deleteTextbook = async (textbookId) => {
     try {
         // Delete all lessons + grammar points first
         const lessonsSnap = await getDocs(collection(db, lessonsPath(textbookId)));
+        const deleteRefs = [];
         for (const lessonDoc of lessonsSnap.docs) {
             const gpSnap = await getDocs(collection(db, grammarPointsPath(textbookId, lessonDoc.id)));
-            for (const gpDoc of gpSnap.docs) {
-                await deleteDoc(gpDoc.ref);
-            }
-            await deleteDoc(lessonDoc.ref);
+            gpSnap.docs.forEach(gpDoc => deleteRefs.push(gpDoc.ref));
+            deleteRefs.push(lessonDoc.ref);
         }
-        await deleteDoc(doc(db, textbooksPath(), textbookId));
+        deleteRefs.push(doc(db, textbooksPath(), textbookId));
+
+        const batchSize = 500;
+        for (let i = 0; i < deleteRefs.length; i += batchSize) {
+            const batch = writeBatch(db);
+            const chunk = deleteRefs.slice(i, i + batchSize);
+            chunk.forEach(ref => batch.delete(ref));
+            await batch.commit();
+        }
         return true;
     } catch (e) {
         console.error('Delete textbook error:', e);
@@ -117,10 +124,12 @@ export const updateLesson = async (textbookId, lessonId, data) => {
 export const deleteLesson = async (textbookId, lessonId) => {
     try {
         const gpSnap = await getDocs(collection(db, grammarPointsPath(textbookId, lessonId)));
-        for (const gpDoc of gpSnap.docs) {
-            await deleteDoc(gpDoc.ref);
-        }
-        await deleteDoc(doc(db, lessonsPath(textbookId), lessonId));
+        const batch = writeBatch(db);
+        gpSnap.docs.forEach(gpDoc => {
+            batch.delete(gpDoc.ref);
+        });
+        batch.delete(doc(db, lessonsPath(textbookId), lessonId));
+        await batch.commit();
         return true;
     } catch (e) {
         console.error('Delete lesson error:', e);

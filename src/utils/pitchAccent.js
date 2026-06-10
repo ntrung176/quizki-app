@@ -20,13 +20,17 @@ const loadCache = () => {
 };
 
 // Helper to save cache to localStorage
+let saveTimeout = null;
 const saveCache = () => {
-    try {
-        const obj = Object.fromEntries(jotobaCache.entries());
-        localStorage.setItem(cacheKey, JSON.stringify(obj));
-    } catch (e) {
-        console.warn('Failed to save Jotoba cache to localStorage:', e);
-    }
+    if (saveTimeout) clearTimeout(saveTimeout);
+    saveTimeout = setTimeout(() => {
+        try {
+            const obj = Object.fromEntries(jotobaCache.entries());
+            localStorage.setItem(cacheKey, JSON.stringify(obj));
+        } catch (e) {
+            console.warn('Failed to save Jotoba cache to localStorage:', e);
+        }
+    }, 500);
 };
 
 // Initialize cache

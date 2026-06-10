@@ -427,16 +427,26 @@ const StudySetDetail = ({
         let cancelled = false;
         const fetchAll = async () => {
             try {
-                const results = await Promise.all(
-                    wordsToFetch.map(async (baseWord) => {
-                        try {
-                            const jotobaData = await fetchJotobaWordData(baseWord);
-                            return { baseWord, jotobaData };
-                        } catch (e) {
-                            return { baseWord, jotobaData: null };
-                        }
-                    })
-                );
+                const results = [];
+                const chunkSize = 3;
+                for (let i = 0; i < wordsToFetch.length; i += chunkSize) {
+                    if (cancelled) return;
+                    const chunk = wordsToFetch.slice(i, i + chunkSize);
+                    const chunkResults = await Promise.all(
+                        chunk.map(async (baseWord) => {
+                            try {
+                                const jotobaData = await fetchJotobaWordData(baseWord);
+                                return { baseWord, jotobaData };
+                            } catch (e) {
+                                return { baseWord, jotobaData: null };
+                            }
+                        })
+                    );
+                    results.push(...chunkResults);
+                    if (i + chunkSize < wordsToFetch.length) {
+                        await new Promise(resolve => setTimeout(resolve, 80));
+                    }
+                }
 
                 if (cancelled) return;
 

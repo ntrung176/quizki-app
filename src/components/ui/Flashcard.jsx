@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FuriganaText from './FuriganaText';
-
+import { fetchJotobaWordData } from '../../utils/pitchAccent';
 import { POS_TYPES } from '../../config/constants';
 
 const getCardScaleStyles = (card, settings) => {
@@ -86,6 +86,23 @@ const getCardScaleStyles = (card, settings) => {
     };
 };
 
+const parseWordAndReading = (text) => {
+    if (!text) return { word: '', reading: '' };
+    const match = text.match(/^([^\s（\(\[）\)\]]+)[（\(\[]([\u3040-\u309F\u30A0-\u30FF\s]+)[）\)\]]$/);
+    if (match) {
+        return {
+            word: match[1].trim(),
+            reading: match[2].trim()
+        };
+    }
+    const word = text.replace(/\s*[（(][^）)]*[）)]/g, '').trim();
+    const parenMatch = text.match(/[（(]([^）)]+)[）)]/);
+    const reading = parenMatch ? parenMatch[1].trim() : '';
+    return { word, reading };
+};
+
+const hasKanji = (str) => /[\u4e00-\u9faf]/.test(str);
+
 const Flashcard = ({
     card,
     cardSettings,
@@ -102,6 +119,35 @@ const Flashcard = ({
     const [touchEnd, setTouchEnd] = useState(null);
     const [swipeOffset, setSwipeOffset] = useState(0);
     const minSwipeDistance = 50;
+
+    const [pitchData, setPitchData] = useState(null);
+
+    useEffect(() => {
+        if (!card) return;
+        const frontText = card.frontWithFurigana || card.front || '';
+        const cleanWord = frontText.split('（')[0].split('(')[0].replace(/\s*[（(][^）)]*[）)]/g, '').trim();
+        if (!cleanWord) {
+            setPitchData(null);
+            return;
+        }
+
+        let isMounted = true;
+        const fetchPitch = async () => {
+            try {
+                const data = await fetchJotobaWordData(cleanWord);
+                if (isMounted) {
+                    setPitchData(data);
+                }
+            } catch (e) {
+                console.warn('Error fetching pitch in Flashcard:', e);
+                if (isMounted) setPitchData(null);
+            }
+        };
+        fetchPitch();
+        return () => {
+            isMounted = false;
+        };
+    }, [card]);
 
     // Reset swipe state when card changes
     useEffect(() => {
@@ -196,6 +242,73 @@ const Flashcard = ({
             meaningColorClass = "text-white";
         }
 
+        const renderReadingWithPitchAccent = () => {
+            const text = card.frontWithFurigana || card.front || '';
+            const { word, reading } = parseWordAndReading(text);
+            
+            const pitchParts = pitchData?.pitch || null;
+            const jotobaReading = pitchData?.reading || null;
+            
+            const finalReading = reading || jotobaReading || (hasKanji(word) ? '' : word);
+            if (!finalReading) {
+                return <FuriganaText text={text} showReadingOnly={true} />;
+            }
+
+            const readingChars = [...finalReading];
+            
+            if (pitchParts && pitchParts.length > 0) {
+                const charPitchMap = [];
+                for (const pp of pitchParts) {
+                    const partChars = [...pp.part];
+                    for (const c of partChars) {
+                        charPitchMap.push({ char: c, high: pp.high });
+                    }
+                }
+                
+                const lineColor = variant === 'review' ? '#fde047' : '#f97316'; // yellow-300 for review, orange-500 for normal
+
+                return (
+                    <span className="font-japanese inline-flex items-end gap-0">
+                        {readingChars.map((char, ci) => {
+                            const pm = charPitchMap[ci];
+                            const isHigh = pm ? pm.high : false;
+                            const nextHigh = ci + 1 < charPitchMap.length ? charPitchMap[ci + 1]?.high : isHigh;
+                            const showDrop = isHigh && !nextHigh && ci < readingChars.length - 1;
+                            const showRise = !isHigh && nextHigh && ci < readingChars.length - 1;
+                            
+                            return (
+                                <span key={ci} className="relative inline-block" style={{ marginRight: '0px' }}>
+                                    <span
+                                        className="block animate-fade-in"
+                                        style={{
+                                            borderTop: isHigh ? `3px solid ${lineColor}` : '3px solid transparent',
+                                            paddingTop: '2px',
+                                            paddingLeft: '1.5px',
+                                            paddingRight: '1.5px',
+                                        }}
+                                    >
+                                        <span className={readingColorClass}>{char}</span>
+                                    </span>
+                                    {showDrop && (
+                                        <span className="absolute -right-[1.5px] top-0 w-[3px]" style={{ height: '100%', backgroundColor: lineColor }}></span>
+                                    )}
+                                    {showRise && (
+                                        <span className="absolute -right-[1.5px] top-0 w-[3px]" style={{ height: '100%', backgroundColor: lineColor }}></span>
+                                    )}
+                                </span>
+                            );
+                        })}
+                    </span>
+                );
+            } else {
+                return (
+                    <span className={`font-japanese ${readingColorClass}`}>
+                        {finalReading}
+                    </span>
+                );
+            }
+        };
+
         return (
             <div className={`flex-1 flex ${card.imageBase64 && variant !== 'review' ? 'flex-row' : 'flex-col md:flex-row'} items-center justify-center gap-4 md:gap-8 px-2 w-full h-full min-h-0`}>
                 {card.imageBase64 && (
@@ -210,7 +323,7 @@ const Flashcard = ({
                 <div className={`flex flex-col items-center justify-center text-center min-w-0 space-y-1 w-full h-full py-1.5 ${card.imageBase64 && variant === 'review' ? 'text-left min-w-0 flex-1' : ''}`}>
                     {cardSettings.back.reading && (
                         <div className={`${scale.wordSize || 'text-3xl font-extrabold'} font-bold ${readingColorClass} font-japanese select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap`}>
-                            <FuriganaText text={card.frontWithFurigana || card.front || ''} showReadingOnly={true} />
+                            {renderReadingWithPitchAccent()}
                             {card.pos && (
                                 <span className={variant === 'review' ? 
                                     "inline-block px-2 py-0.5 bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold rounded-full font-sans" : 

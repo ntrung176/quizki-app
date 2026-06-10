@@ -3,6 +3,34 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@theme {
+  --color-slate-150: #eaeff5;
+  --color-slate-250: #d6dee9;
+  --color-slate-350: #b2c0d3;
+  --color-slate-450: #7c8ba1;
+  --color-slate-455: #77859b;
+  --color-slate-650: #3d4b5f;
+  --color-slate-655: #3a475a;
+  --color-slate-750: #293548;
+  --color-slate-850: #161f30;
+
+  --color-gray-150: #eceeed;
+  --color-gray-255: #d3d6db;
+  --color-gray-350: #b7bbc5;
+  --color-gray-450: #848a97;
+  --color-gray-750: #2b3544;
+  --color-gray-850: #18202e;
+
+  --color-indigo-305: #93a0fa;
+  --color-indigo-550: #5956ec;
+  --color-indigo-555: #5550ea;
+  --color-indigo-605: #493fcf;
+  --color-indigo-650: #493fcf;
+  --color-indigo-855: #342fa0;
+
+  --color-red-650: #cb2121;
+}
+
 :root {
   --font-japanese-family: "UD デジタル 教科書体 N-R", "UD Digi Kyokasho N-R", "UD デジタル 教科書体 NP-R", "UD Digi Kyokasho NP-R", "UD デジタル 教科書体 NK-R", "UD Digi Kyokasho NK-R", "BIZ UDPMincho", "MS Mincho", "ＭＳ 明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
   --jp-ex-size: 1.125rem;

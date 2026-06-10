@@ -5,7 +5,7 @@ import { Search, Grid, PenTool, BookOpen, Folder, Layers, X, Plus, Save, Trash2,
 import { db, appId } from '../../config/firebase';
 import { getAuth } from 'firebase/auth';
 import { recordRecentKanji } from '../../utils/kanjiHistory';
-import { collection, getDocs, addDoc, deleteDoc, doc, query, updateDoc, setDoc } from 'firebase/firestore'
+import { collection, getDocs, addDoc, deleteDoc, doc, query, updateDoc, setDoc, writeBatch } from 'firebase/firestore'
 import { playAudio } from '../../utils/audio';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
 import HanziWriter from 'hanzi-writer';
@@ -778,15 +778,23 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         if (selectedKanjiIds.length === 0) return;
         if (!await showConfirm(`Bạn có chắc muốn xóa ${selectedKanjiIds.length} kanji?`, { type: 'danger', confirmText: 'Xóa' })) return;
         try {
-            for (const id of selectedKanjiIds) {
-                await deleteDoc(doc(db, 'kanji', id));
-                deleteCachedKanji(id);
+            const batchSize = 500;
+            for (let i = 0; i < selectedKanjiIds.length; i += batchSize) {
+                const batch = writeBatch(db);
+                const chunk = selectedKanjiIds.slice(i, i + batchSize);
+                chunk.forEach(id => {
+                    batch.delete(doc(db, 'kanji', id));
+                });
+                await batch.commit();
             }
+            selectedKanjiIds.forEach(id => deleteCachedKanji(id));
             setKanjiList(prev => prev.filter(k => !selectedKanjiIds.includes(k.id)));
             setSelectedKanjiIds([]);
             setBulkSelectMode(false);
+            showToast('Đã xóa Kanji thành công!', 'success');
         } catch (e) {
             console.error('Error bulk deleting kanji:', e);
+            showToast('Lỗi khi xóa: ' + e.message, 'error');
         }
     };
     // Bulk delete vocab
@@ -794,15 +802,23 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         if (selectedVocabIds.length === 0) return;
         if (!await showConfirm(`Bạn có chắc muốn xóa ${selectedVocabIds.length} từ vựng?`, { type: 'danger', confirmText: 'Xóa' })) return;
         try {
-            for (const id of selectedVocabIds) {
-                await deleteDoc(doc(db, 'kanjiVocab', id));
-                deleteCachedVocab(id);
+            const batchSize = 500;
+            for (let i = 0; i < selectedVocabIds.length; i += batchSize) {
+                const batch = writeBatch(db);
+                const chunk = selectedVocabIds.slice(i, i + batchSize);
+                chunk.forEach(id => {
+                    batch.delete(doc(db, 'kanjiVocab', id));
+                });
+                await batch.commit();
             }
+            selectedVocabIds.forEach(id => deleteCachedVocab(id));
             setVocabList(prev => prev.filter(v => !selectedVocabIds.includes(v.id)));
             setSelectedVocabIds([]);
             setBulkSelectMode(false);
+            showToast('Đã xóa từ vựng thành công!', 'success');
         } catch (e) {
             console.error('Error bulk deleting vocab:', e);
+            showToast('Lỗi khi xóa: ' + e.message, 'error');
         }
     };
     // Edit Kanji (update existing or create new from Jotoba data)
@@ -944,16 +960,26 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         let cancelled = false;
         const fetchAll = async () => {
             try {
-                const results = await Promise.all(
-                    wordsToFetch.map(async (v) => {
-                        try {
-                            const jotobaData = await fetchJotobaWordData(v.word);
-                            return { word: v.word, pitch: jotobaData?.pitch || null };
-                        } catch (e) {
-                            return { word: v.word, pitch: null };
-                        }
-                    })
-                );
+                const results = [];
+                const chunkSize = 3;
+                for (let i = 0; i < wordsToFetch.length; i += chunkSize) {
+                    if (cancelled) return;
+                    const chunk = wordsToFetch.slice(i, i + chunkSize);
+                    const chunkResults = await Promise.all(
+                        chunk.map(async (v) => {
+                            try {
+                                const jotobaData = await fetchJotobaWordData(v.word);
+                                return { word: v.word, pitch: jotobaData?.pitch || null };
+                            } catch (e) {
+                                return { word: v.word, pitch: null };
+                            }
+                        })
+                    );
+                    results.push(...chunkResults);
+                    if (i + chunkSize < wordsToFetch.length) {
+                        await new Promise(resolve => setTimeout(resolve, 80));
+                    }
+                }
 
                 if (cancelled) return;
 

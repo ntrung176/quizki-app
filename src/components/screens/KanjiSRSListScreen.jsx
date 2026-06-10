@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { Search, Trash2, ChevronLeft, ChevronRight, BookOpen, Clock, CheckCircle, AlertCircle, Filter, X, Eye, Folder, FolderPlus, Edit, Plus, List, Bookmark, ArrowRight } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
-import { collection, getDocs, getDoc, doc, deleteDoc } from 'firebase/firestore';
+import { collection, getDocs, getDoc, doc, deleteDoc, writeBatch } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { getSharedKanjiList } from '../../utils/kanjiService';
 import { ROUTES } from '../../router';
@@ -476,8 +476,15 @@ const KanjiSRSListScreen = () => {
         if (!userId || selectedIds.size === 0) return;
         setDeleting(true);
         try {
-            for (const id of selectedIds) {
-                await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, id));
+            const idsArray = Array.from(selectedIds);
+            const batchSize = 500;
+            for (let i = 0; i < idsArray.length; i += batchSize) {
+                const batch = writeBatch(db);
+                const chunk = idsArray.slice(i, i + batchSize);
+                chunk.forEach(id => {
+                    batch.delete(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, id));
+                });
+                await batch.commit();
             }
             setSrsData(prev => {
                 const next = { ...prev };
@@ -486,6 +493,7 @@ const KanjiSRSListScreen = () => {
             });
             setSelectedIds(new Set());
             setShowConfirmDelete(false);
+            showToast('Đã xóa thành công!', 'success');
         } catch (e) {
             console.error('Error deleting SRS data:', e);
             showToast('Lỗi khi xóa: ' + e.message, 'error');

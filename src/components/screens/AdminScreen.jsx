@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc, addDoc, where, serverTimestamp, setDoc } from 'firebase/firestore'
+import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc, addDoc, where, serverTimestamp, setDoc, writeBatch } from 'firebase/firestore'
 import * as XLSX from 'xlsx';
 import { db, appId } from '../../config/firebase';
 import { Users, Search, Shield, Trash2, BarChart3, Clock, AlertTriangle, CheckCircle, Loader2, Languages, BookOpen, Sparkle, Bot, UserCheck, UserX, ToggleLeft, ToggleRight, Settings, Crown, ShieldCheck, ChevronLeft, CreditCard, Plus, Check, X as XIcon, Ticket, DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send, MessageSquare, Image as ImageIcon } from 'lucide-react'
@@ -362,16 +362,21 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         try {
             if (deleteType === 'kanji') {
                 const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${confirmDelete.userId}/kanjiSRS`));
-                let deleted = 0;
-                for (const docSnap of srsSnap.docs) {
-                    await deleteDoc(docSnap.ref);
-                    deleted++;
+                const docsArray = srsSnap.docs;
+                const batchSize = 500;
+                for (let i = 0; i < docsArray.length; i += batchSize) {
+                    const batch = writeBatch(db);
+                    const chunk = docsArray.slice(i, i + batchSize);
+                    chunk.forEach(docSnap => {
+                        batch.delete(docSnap.ref);
+                    });
+                    await batch.commit();
                 }
                 setUsers(prev => prev.map(u => u.userId === confirmDelete.userId ? { ...u, kanjiTotal: 0, kanjiMastered: 0 } : u));
                 if (selectedUser?.userId === confirmDelete.userId) {
                     setSelectedUser(prev => prev ? { ...prev, kanjiTotal: 0, kanjiMastered: 0 } : null);
                 }
-                setNotification({ type: 'success', message: `Đã xóa ${deleted} dữ liệu Kanji SRS của ${confirmDelete.displayName}` });
+                setNotification({ type: 'success', message: `Đã xóa ${docsArray.length} dữ liệu Kanji SRS của ${confirmDelete.displayName}` });
             } else {
                 if (onAdminDeleteUserData) await onAdminDeleteUserData(confirmDelete.userId);
                 setUsers(prev => prev.filter(u => u.userId !== confirmDelete.userId));
