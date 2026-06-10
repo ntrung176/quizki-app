@@ -58,6 +58,7 @@ export const fetchJotobaWordData = async (word) => {
             const result = {
                 pitch: (wordData.pitch && wordData.pitch.length > 0) ? wordData.pitch : null,
                 audioUrl: wordData.audio ? `${JOTOBA_BASE}${wordData.audio}` : null,
+                reading: wordData.reading?.kana || null,
             };
 
             jotobaCache.set(cleanWord, result);

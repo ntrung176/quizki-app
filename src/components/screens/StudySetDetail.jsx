@@ -10,6 +10,24 @@ import { collection, getDocs, doc, writeBatch } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { showToast } from '../../utils/toast';
+import { fetchJotobaWordData } from '../../utils/pitchAccent';
+
+const parseWordAndReading = (text) => {
+    if (!text) return { word: '', reading: '' };
+    const match = text.match(/^([^\s（\(\[）\)\]]+)[（\(\[]([\u3040-\u309F\u30A0-\u30FF\s]+)[）\)\]]$/);
+    if (match) {
+        return {
+            word: match[1].trim(),
+            reading: match[2].trim()
+        };
+    }
+    const word = text.replace(/\s*[（(][^）)]*[）)]/g, '').trim();
+    const parenMatch = text.match(/[（(]([^）)]+)[）)]/);
+    const reading = parenMatch ? parenMatch[1].trim() : '';
+    return { word, reading };
+};
+
+const hasKanji = (str) => /[\u4e00-\u9faf]/.test(str);
 
 // Helper: derive human-readable SRS cycle stage from vocab SM-2 fields
 const getSrsCycleLabel = (card) => {
@@ -386,6 +404,129 @@ const StudySetDetail = ({
     const visibleCards = useMemo(() => {
         return filteredCards.slice(0, visibleCount);
     }, [filteredCards, visibleCount]);
+
+    // Fetch pitch accent and reading data from Jotoba for visible cards
+    const [pitchAccentData, setPitchAccentData] = useState({});
+
+    useEffect(() => {
+        if (!visibleCards || visibleCards.length === 0) return;
+
+        // Extract base words that need fetching
+        const wordsToFetch = [];
+        visibleCards.forEach(card => {
+            const frontText = card.frontWithFurigana || card.front || '';
+            const baseWord = frontText.split('（')[0].split('(')[0].trim();
+            if (baseWord && !pitchAccentData[baseWord]) {
+                wordsToFetch.push(baseWord);
+            }
+        });
+
+        if (wordsToFetch.length === 0) return;
+
+        let cancelled = false;
+        const fetchAll = async () => {
+            const newData = {};
+            for (const baseWord of wordsToFetch) {
+                if (cancelled) break;
+                try {
+                    const jotobaData = await fetchJotobaWordData(baseWord);
+                    if (jotobaData && !cancelled) {
+                        newData[baseWord] = {
+                            pitch: jotobaData.pitch || null,
+                            reading: jotobaData.reading || null
+                        };
+                    } else if (!cancelled) {
+                        newData[baseWord] = { pitch: null, reading: null };
+                    }
+                } catch (e) {
+                    if (!cancelled) {
+                        newData[baseWord] = { pitch: null, reading: null };
+                    }
+                }
+                // Small delay to be polite to Jotoba API
+                if (wordsToFetch.length > 3) {
+                    await new Promise(r => setTimeout(r, 120));
+                }
+            }
+            if (!cancelled) {
+                setPitchAccentData(prev => ({ ...prev, ...newData }));
+            }
+        };
+        fetchAll();
+        return () => { cancelled = true; };
+    }, [visibleCards]);
+
+    const renderPitchAccent = (card) => {
+        const text = card.frontWithFurigana || card.front || '';
+        const { word, reading } = parseWordAndReading(text);
+        
+        const jotobaData = pitchAccentData[word];
+        const pitchParts = jotobaData?.pitch || null;
+        const jotobaReading = jotobaData?.reading || null;
+        
+        // Fallback reading
+        const finalReading = reading || jotobaReading || (hasKanji(word) ? '' : word);
+        if (!finalReading) return null;
+
+        const readingChars = [...finalReading];
+        
+        let pitchElements = null;
+        if (pitchParts && pitchParts.length > 0) {
+            const charPitchMap = [];
+            for (const pp of pitchParts) {
+                const partChars = [...pp.part];
+                for (const c of partChars) {
+                    charPitchMap.push({ char: c, high: pp.high });
+                }
+            }
+            
+            pitchElements = (
+                <span className="font-japanese inline-flex items-end gap-0">
+                    {readingChars.map((char, ci) => {
+                        const pm = charPitchMap[ci];
+                        const isHigh = pm ? pm.high : false;
+                        const nextHigh = ci + 1 < charPitchMap.length ? charPitchMap[ci + 1]?.high : isHigh;
+                        const showDrop = isHigh && !nextHigh && ci < readingChars.length - 1;
+                        const showRise = !isHigh && nextHigh && ci < readingChars.length - 1;
+                        
+                        return (
+                            <span key={ci} className="relative inline-block" style={{ marginRight: '0px' }}>
+                                <span
+                                    className="block"
+                                    style={{
+                                        borderTop: isHigh ? '2px solid #f97316' : '2px solid transparent',
+                                        paddingTop: '1px',
+                                        paddingLeft: '1px',
+                                        paddingRight: '1px',
+                                    }}
+                                >
+                                    <span className="text-gray-400 dark:text-gray-500">{char}</span>
+                                </span>
+                                {showDrop && (
+                                    <span className="absolute -right-[1px] top-0 w-[2px] bg-orange-500" style={{ height: '100%' }}></span>
+                                )}
+                                {showRise && (
+                                    <span className="absolute -right-[1px] top-0 w-[2px] bg-orange-500" style={{ height: '100%' }}></span>
+                                )}
+                            </span>
+                        );
+                    })}
+                </span>
+            );
+        } else {
+            pitchElements = (
+                <span className="font-japanese text-gray-400 dark:text-gray-500">
+                    {finalReading}
+                </span>
+            );
+        }
+        
+        return (
+            <span className="text-sm font-normal text-gray-400 dark:text-gray-500 font-sans ml-1 select-none">
+                ({pitchElements})
+            </span>
+        );
+    };
 
     useEffect(() => {
         setVisibleCount(30);
@@ -944,13 +1085,14 @@ const StudySetDetail = ({
                                                 >
                                                     <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
                                                         <div className="flex-1 md:w-1/2 flex flex-col justify-center md:border-r border-gray-100 dark:border-gray-700 md:pr-6">
-                                                            <div className="font-bold text-lg text-gray-900 dark:text-white">
+                                                            <div className="font-bold text-lg text-gray-900 dark:text-white flex items-baseline gap-1.5 flex-wrap">
                                                                 <InlineEditCell
                                                                     value={card.frontWithFurigana || card.front}
                                                                     isJapanese={true}
                                                                     onSave={(v) => handleInlineSave(card, 'front', v)}
-                                                                    className="text-lg font-bold"
+                                                                    className="text-lg font-bold inline-block"
                                                                 />
+                                                                {renderPitchAccent(card)}
                                                             </div>
                                                             {card.sinoVietnamese && (
                                                                 <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium">
