@@ -561,8 +561,8 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                 
                                 <button
                                     type="button"
-                                    onClick={() => {
-                                        if (window.confirm("Bạn có chắc chắn muốn nhập 2 gói Premium mặc định (1 năm & 3 năm)? Thao tác này sẽ ghi đè danh sách đang hiển thị.")) {
+                                    onClick={async () => {
+                                        if (await window.showConfirm("Bạn có chắc chắn muốn nhập 2 gói Premium mặc định (1 năm & 3 năm)? Thao tác này sẽ ghi đè danh sách đang hiển thị.", { type: 'warning' })) {
                                             setEditedConfig({
                                                 ...editedConfig,
                                                 specializedPackages: [...DEFAULT_SPECIALIZED_PACKAGES]

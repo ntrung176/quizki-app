@@ -642,8 +642,8 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
         alert('Đã sao chép vào bộ nhớ tạm!');
     };
 
-    const resetToDefault = () => {
-        if (window.confirm('Bạn có chắc chắn muốn khôi phục về các bước mặc định?')) {
+    const resetToDefault = async () => {
+        if (await window.showConfirm('Bạn có chắc chắn muốn khôi phục về các bước mặc định?')) {
             saveSteps(TOUR_STEPS);
             setStep(0);
         }

@@ -280,7 +280,8 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
         } catch (e) { console.error('Like comment error:', e); }
     };
     const handleDeleteComment = async (commentId) => {
-        if (!confirm('Xóa bình luận này?')) return;
+        const ok = await window.showConfirm('Xóa bình luận này?', { type: 'danger' });
+        if (!ok) return;
         try {
             await deleteDoc(doc(db, forumPath, post.id, 'comments', commentId));
             await updateDoc(doc(db, forumPath, post.id), {
@@ -310,7 +311,8 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
         }
     };
     const handleDeletePost = async () => {
-        if (!confirm('Xóa bài viết này?')) return;
+        const ok = await window.showConfirm('Xóa bài viết này?', { type: 'danger' });
+        if (!ok) return;
         try {
             await deleteDoc(doc(db, forumPath, post.id));
         } catch (e) { console.error('Delete post error:', e); }

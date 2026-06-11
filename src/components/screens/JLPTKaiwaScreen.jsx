@@ -472,8 +472,8 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
     };
 
     // Quit session
-    const handleQuit = () => {
-        if (window.confirm('Bạn có chắc chắn muốn dừng buổi luyện tập Kaiwa này không? Lịch sử cuộc hội thoại sẽ không được lưu.')) {
+    const handleQuit = async () => {
+        if (await window.showConfirm('Bạn có chắc chắn muốn dừng buổi luyện tập Kaiwa này không? Lịch sử cuộc hội thoại sẽ không được lưu.', { type: 'warning' })) {
             window.speechSynthesis.cancel();
             setStep('setup');
             setConversation([]);

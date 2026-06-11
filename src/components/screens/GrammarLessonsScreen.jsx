@@ -80,7 +80,11 @@ const GrammarLessonsScreen = ({ isAdmin, profile = null }) => {
     };
 
     const handleEdit = (l) => { setForm({ sectionLabel: l.sectionLabel || '', title: l.title || '', meaning: l.meaning || '' }); setEditId(l.id); setShowAdd(true); setShowJsonImport(false); };
-    const handleDelete = async (id) => { if (window.confirm('Xoá bài học này?')) await deleteLesson(textbookId, id); };
+    const handleDelete = async (id) => {
+        if (await window.showConfirm('Xoá bài học này?', { type: 'danger' })) {
+            await deleteLesson(textbookId, id);
+        }
+    };
     const handleToggleLessonPremium = async (lesson) => {
         try {
             await updateLesson(textbookId, lesson.id, {

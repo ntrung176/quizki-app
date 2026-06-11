@@ -289,8 +289,8 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
                                                 className="p-1 text-gray-400 hover:text-indigo-500 rounded" title="Đổi tên">
                                                 <Edit className="w-3.5 h-3.5" />
                                             </button>
-                                            <button onClick={() => {
-                                                if (window.confirm(`Bạn có chắc muốn xoá thư mục "${folder.name}"? Toàn bộ từ vựng trong thư mục này cũng sẽ bị xoá vĩnh viễn.`)) {
+                                            <button onClick={async () => {
+                                                if (await window.showConfirm(`Bạn có chắc muốn xoá thư mục "${folder.name}"? Toàn bộ từ vựng trong thư mục này cũng sẽ bị xoá vĩnh viễn.`, { type: 'danger' })) {
                                                     onDeleteFolder(folder.id);
                                                 }
                                             }}

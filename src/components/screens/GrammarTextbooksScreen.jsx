@@ -168,7 +168,9 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
     };
 
     const handleDelete = async (id) => {
-        if (window.confirm('Xoá giáo trình này và tất cả bài học bên trong?')) await deleteTextbook(id);
+        if (await window.showConfirm('Xoá giáo trình này và tất cả bài học bên trong?', { type: 'danger' })) {
+            await deleteTextbook(id);
+        }
     };
 
     return (

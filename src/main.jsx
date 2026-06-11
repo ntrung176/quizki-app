@@ -4,6 +4,14 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import AppErrorBoundary from './components/ErrorBoundary.jsx'
+import { showToast, showConfirm } from './utils/toast';
+
+// Expose toast systems globally to avoid repeating imports
+window.showToast = showToast;
+window.showConfirm = showConfirm;
+window.alert = (message) => {
+  showToast(message, 'info');
+};
 import { QueryProvider } from './providers/QueryProvider.jsx'
 
 // Setup web-vitals for performance monitoring

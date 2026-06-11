@@ -262,7 +262,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                             {isAdmin && (
                                 <>
                                     <button onClick={() => handleEdit(gp)} className="p-1.5 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900/30 opacity-0 group-hover:opacity-100 transition-all"><Edit2 className="w-3.5 h-3.5 text-indigo-600" /></button>
-                                    <button onClick={() => { if (window.confirm('Xoá?')) deleteGrammarPoint(textbookId, lessonId, gp.id); }} className="p-1.5 rounded-lg hover:bg-red-100 opacity-0 group-hover:opacity-100 transition-all"><Trash2 className="w-3.5 h-3.5 text-red-500" /></button>
+                                    <button onClick={async () => { if (await window.showConfirm('Xoá?', { type: 'danger' })) deleteGrammarPoint(textbookId, lessonId, gp.id); }} className="p-1.5 rounded-lg hover:bg-red-100 opacity-0 group-hover:opacity-100 transition-all"><Trash2 className="w-3.5 h-3.5 text-red-500" /></button>
                                 </>
                             )}
                             <button onClick={() => navigate(`/grammar/practice/${gp.id}?tb=${textbookId}&ls=${lessonId}`)} className="p-1.5 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-200 transition-colors" title="Làm bài tập"><PenTool className="w-4 h-4" /></button>

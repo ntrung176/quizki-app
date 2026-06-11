@@ -309,7 +309,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
     };
 
     const deleteQuestion = async (type, index) => {
-        if (!window.confirm("Bạn có chắc chắn muốn xoá câu hỏi này?")) return;
+        if (!await window.showConfirm("Bạn có chắc chắn muốn xoá câu hỏi này?", { type: 'danger' })) return;
         let updatedExercises = [...exercises];
         let updatedQuizzes = [...quizzes];
 
