@@ -153,6 +153,133 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
     const [isFullscreen, setIsFullscreen] = useState(false);
     const [showDetailedReview, setShowDetailedReview] = useState(false);
 
+    // Notes states
+    const [notes, setNotes] = useState(() => {
+        try {
+            return JSON.parse(localStorage.getItem('quizki_jlpt_notes') || '{}');
+        } catch (e) {
+            return {};
+        }
+    });
+    const [isEditingNote, setIsEditingNote] = useState(false);
+    const [noteDraft, setNoteDraft] = useState('');
+    const [editingReviewNoteKey, setEditingReviewNoteKey] = useState(null);
+    const [reviewNoteDraft, setReviewNoteDraft] = useState('');
+
+    const saveNote = (key, text) => {
+        const updated = { ...notes, [key]: text };
+        setNotes(updated);
+        localStorage.setItem('quizki_jlpt_notes', JSON.stringify(updated));
+    };
+
+    const deleteNote = (key) => {
+        const updated = { ...notes };
+        delete updated[key];
+        setNotes(updated);
+        localStorage.setItem('quizki_jlpt_notes', JSON.stringify(updated));
+    };
+
+    const renderReviewNoteContainer = (si, qi) => {
+        const noteKey = `${activeTest.id}_s${si}_q${qi}`;
+        const questionNote = notes[noteKey];
+        const isEditingThisReviewNote = editingReviewNoteKey === noteKey;
+
+        return (
+            <div className="mt-4 border-t border-slate-100 dark:border-slate-800/80 pt-4 max-w-2xl">
+                {isEditingThisReviewNote ? (
+                    <div className="bg-amber-50/40 dark:bg-amber-950/15 border border-amber-250/50 dark:border-amber-900/40 rounded-xl p-3.5 space-y-3">
+                        <div className="flex items-center justify-between">
+                            <span className="text-xs font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1">
+                                <Edit3 className="w-3.5 h-3.5" /> Ghi chú cho câu này
+                            </span>
+                            <button onClick={() => setEditingReviewNoteKey(null)} className="text-slate-400 hover:text-slate-650 dark:hover:text-slate-300">
+                                <X className="w-3.5 h-3.5" />
+                            </button>
+                        </div>
+                        <textarea
+                            value={reviewNoteDraft}
+                            onChange={(e) => setReviewNoteDraft(e.target.value)}
+                            placeholder="Nhập ghi chú cho câu hỏi này..."
+                            className="w-full min-h-[70px] p-2.5 border border-amber-200 dark:border-amber-800/60 rounded-lg text-xs bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 font-sans"
+                        />
+                        <div className="flex items-center justify-end gap-2">
+                            <button 
+                                onClick={() => setEditingReviewNoteKey(null)}
+                                className="px-2.5 py-1 text-[11px] font-bold text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md"
+                            >
+                                Hủy
+                            </button>
+                            <button 
+                                onClick={() => {
+                                    if (reviewNoteDraft.trim()) {
+                                        saveNote(noteKey, reviewNoteDraft);
+                                    } else {
+                                        deleteNote(noteKey);
+                                    }
+                                    setEditingReviewNoteKey(null);
+                                }}
+                                className="px-3.5 py-1 text-[11px] font-bold bg-amber-500 hover:bg-amber-600 text-white rounded-md transition shadow-sm"
+                            >
+                                Lưu ghi chú
+                            </button>
+                        </div>
+                    </div>
+                ) : (
+                    <div>
+                        {questionNote ? (
+                            <div className="bg-amber-50/50 dark:bg-amber-950/10 border border-dashed border-amber-300 dark:border-amber-900/40 rounded-xl p-3.5 shadow-sm relative">
+                                <div className="flex items-center justify-between border-b border-amber-200/40 dark:border-amber-900/20 pb-2 mb-2">
+                                    <span className="text-amber-800 dark:text-amber-400 font-extrabold text-[10px] flex items-center gap-1">
+                                        <FileText className="w-3.5 h-3.5 fill-current" /> GHI CHÚ
+                                    </span>
+                                    <div className="flex items-center gap-2">
+                                        <button 
+                                            onClick={() => {
+                                                setReviewNoteDraft(questionNote);
+                                                setEditingReviewNoteKey(noteKey);
+                                            }} 
+                                            className="p-1 rounded hover:bg-amber-100 dark:hover:bg-amber-900/40 text-amber-700 dark:text-amber-400 transition"
+                                        >
+                                            <Edit3 className="w-3.5 h-3.5" />
+                                        </button>
+                                        <button 
+                                            onClick={() => {
+                                                if (confirm("Bạn có muốn xóa ghi chú này?")) {
+                                                    deleteNote(noteKey);
+                                                }
+                                            }} 
+                                            className="p-1 rounded hover:bg-amber-100 dark:hover:bg-amber-900/40 text-rose-600 dark:text-rose-400 transition"
+                                        >
+                                            <X className="w-3.5 h-3.5" />
+                                        </button>
+                                    </div>
+                                </div>
+                                <p className="text-xs text-slate-750 dark:text-slate-200 font-sans italic whitespace-pre-line leading-relaxed">
+                                    {questionNote}
+                                </p>
+                            </div>
+                        ) : (
+                            <button 
+                                onClick={() => {
+                                    setReviewNoteDraft('');
+                                    setEditingReviewNoteKey(noteKey);
+                                }}
+                                className="py-1.5 px-3 border border-dashed border-slate-200 dark:border-slate-700 hover:border-amber-300 dark:hover:border-amber-800 rounded-lg flex items-center gap-1.5 text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 font-bold text-[10px] transition"
+                            >
+                                <Edit3 className="w-3.5 h-3.5" /> Thêm ghi chú
+                            </button>
+                        )}
+                    </div>
+                )}
+            </div>
+        );
+    };
+
+    useEffect(() => {
+        setIsEditingNote(false);
+        setNoteDraft('');
+    }, [currentSectionIdx, currentQuestionIdx]);
+
     // Real Exam & AI Translation states
     const [pendingStartTest, setPendingStartTest] = useState(null);
     const [isRealExam, setIsRealExam] = useState(false);
@@ -893,6 +1020,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                                 );
                                                             })}
                                                         </div>
+                                                        <div className="pl-8">
+                                                            {renderReviewNoteContainer(si, qi)}
+                                                        </div>
                                                     </div>
                                                 );
                                             }
@@ -960,6 +1090,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                             {q.explanation && (
                                                                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${q.explanation}` }} />
                                                             )}
+                                                            {renderReviewNoteContainer(si, qi)}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1207,6 +1338,101 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                 audioRef={audioRef}
                                 isRealExam={isRealExam}
                             />
+                            
+                            {/* Note Section */}
+                            {activeTest && (
+                                <div className="mt-6 border-t border-slate-100 dark:border-slate-800 pt-4 mb-8">
+                                    {isEditingNote ? (
+                                        <div className="bg-amber-50/40 dark:bg-amber-950/15 border border-amber-200/50 dark:border-amber-900/40 rounded-xl p-4 space-y-3">
+                                            <div className="flex items-center justify-between">
+                                                <div className="flex items-center gap-1.5 text-amber-700 dark:text-amber-400 font-bold text-xs">
+                                                    <Edit3 className="w-4 h-4" /> Viết ghi chú cho câu hỏi này
+                                                </div>
+                                                <button onClick={() => setIsEditingNote(false)} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+                                                    <X className="w-4 h-4" />
+                                                </button>
+                                            </div>
+                                            <textarea
+                                                value={noteDraft}
+                                                onChange={(e) => setNoteDraft(e.target.value)}
+                                                placeholder="Nhập ghi chú của bạn ở đây (ví dụ: cấu trúc ngữ pháp cần nhớ, từ vựng mới...)"
+                                                className="w-full min-h-[80px] p-3 border border-amber-200 dark:border-amber-800/60 rounded-lg text-sm bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 font-sans leading-relaxed"
+                                            />
+                                            <div className="flex items-center justify-end gap-2">
+                                                <button 
+                                                    onClick={() => setIsEditingNote(false)}
+                                                    className="px-3 py-1.5 text-xs font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition"
+                                                >
+                                                    Hủy
+                                                </button>
+                                                <button 
+                                                    onClick={() => {
+                                                        const key = `${activeTest.id}_s${currentSectionIdx}_q${currentQuestionIdx}`;
+                                                        if (noteDraft.trim()) {
+                                                            saveNote(key, noteDraft);
+                                                        } else {
+                                                            deleteNote(key);
+                                                        }
+                                                        setIsEditingNote(false);
+                                                    }}
+                                                    className="px-4 py-1.5 text-xs font-bold bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition shadow-sm"
+                                                >
+                                                    Lưu ghi chú
+                                                </button>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div>
+                                            {notes[`${activeTest.id}_s${currentSectionIdx}_q${currentQuestionIdx}`] ? (
+                                                <div className="bg-amber-50/65 dark:bg-amber-950/20 border border-dashed border-amber-300 dark:border-amber-900/50 rounded-xl p-4 shadow-sm relative">
+                                                    <div className="flex items-center justify-between border-b border-amber-200/50 dark:border-amber-900/30 pb-2 mb-2">
+                                                        <span className="text-amber-800 dark:text-amber-400 font-extrabold text-xs flex items-center gap-1">
+                                                            <FileText className="w-3.5 h-3.5 fill-current" /> GHI CHÚ CỦA BẠN
+                                                        </span>
+                                                        <div className="flex items-center gap-2">
+                                                            <button 
+                                                                onClick={() => {
+                                                                    setNoteDraft(notes[`${activeTest.id}_s${currentSectionIdx}_q${currentQuestionIdx}`]);
+                                                                    setIsEditingNote(true);
+                                                                }} 
+                                                                className="p-1 rounded hover:bg-amber-100 dark:hover:bg-amber-900/40 text-amber-700 dark:text-amber-400 transition"
+                                                                title="Sửa ghi chú"
+                                                            >
+                                                                <Edit3 className="w-3.5 h-3.5" />
+                                                            </button>
+                                                            <button 
+                                                                onClick={() => {
+                                                                    if (confirm("Bạn có chắc chắn muốn xóa ghi chú này?")) {
+                                                                        deleteNote(`${activeTest.id}_s${currentSectionIdx}_q${currentQuestionIdx}`);
+                                                                    }
+                                                                }} 
+                                                                className="p-1 rounded hover:bg-amber-100 dark:hover:bg-amber-900/40 text-rose-600 dark:text-rose-400 transition"
+                                                                title="Xóa ghi chú"
+                                                            >
+                                                                <X className="w-3.5 h-3.5" />
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <p className="text-sm text-slate-750 dark:text-slate-200 font-sans whitespace-pre-line leading-relaxed italic">
+                                                        {notes[`${activeTest.id}_s${currentSectionIdx}_q${currentQuestionIdx}`]}
+                                                    </p>
+                                                </div>
+                                            ) : (
+                                                <button 
+                                                    onClick={() => {
+                                                        setNoteDraft('');
+                                                        setIsEditingNote(true);
+                                                    }}
+                                                    className="w-full py-2.5 px-4 border-2 border-dashed border-slate-200 dark:border-slate-700 hover:border-amber-300 dark:hover:border-amber-800 hover:bg-amber-50/10 dark:hover:bg-amber-950/5 rounded-xl flex items-center justify-center gap-2 text-slate-500 hover:text-amber-600 dark:hover:text-amber-400 font-bold text-xs transition duration-200"
+                                                >
+                                                    <Edit3 className="w-4 h-4" /> Thêm ghi chú cho câu hỏi này
+                                                </button>
+                                            )}
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
                             {/* Navigation */}
                             <div className="flex items-center justify-between">
                                 <button onClick={prevQuestion} disabled={isFirst}
