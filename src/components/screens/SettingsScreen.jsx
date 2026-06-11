@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Settings, User, Volume2, VolumeX, Music, Sun, Moon, ArrowLeft, Save, Check, X, Palette, Shield, Trash2, Upload, Play, Mic, Edit, Type, Camera } from 'lucide-react'
 import AvatarCropper from '../ui/AvatarCropper';
 import { ROUTES } from '../../router';
+import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
 import {
     getSfxVolume, isSfxEnabled
 } from '../../utils/soundEffects';
@@ -24,6 +25,10 @@ const saveSettings = (settings) => {
 const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdateProfileName, onUpdateAvatar, onChangePassword, isAdmin }) => {
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('account');
+    const xpDetails = React.useMemo(() => {
+        const xp = profile?.xp || 0;
+        return getLevelFromXp(xp);
+    }, [profile?.xp]);
     // Account state
     const [displayName, setDisplayName] = useState(profile?.displayName || '');
     const [isEditingName, setIsEditingName] = useState(false);
@@ -359,18 +364,42 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                         </button>
                                     </div>
                                 ) : (
-                                    <div className="flex items-center gap-1.5 mb-0.5">
-                                        <p className="font-bold text-gray-800 dark:text-white text-lg leading-none">{profile?.displayName || 'Chưa đặt tên'}</p>
-                                        <button
-                                            onClick={() => setIsEditingName(true)}
-                                            className="p-1 text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-lg transition-colors"
-                                            title="Chỉnh sửa tên"
-                                        >
-                                            <Edit className="w-3.5 h-3.5" />
-                                        </button>
+                                    <div className="flex flex-col gap-1 mb-1">
+                                        <div className="flex items-center gap-1.5 flex-wrap">
+                                            <p className="font-bold text-gray-800 dark:text-white text-lg leading-none">{profile?.displayName || 'Chưa đặt tên'}</p>
+                                            <button
+                                                onClick={() => setIsEditingName(true)}
+                                                className="p-1 text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-lg transition-colors"
+                                                title="Chỉnh sửa tên"
+                                            >
+                                                <Edit className="w-3.5 h-3.5" />
+                                            </button>
+                                        </div>
+                                        <div className="flex items-center gap-1.5 flex-wrap mt-0.5">
+                                            <span className="bg-sky-500 text-white text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider flex items-center justify-center">
+                                                LV {xpDetails.level}
+                                            </span>
+                                            <span className="bg-purple-500 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded truncate max-w-[120px] flex items-center justify-center" title={getLevelTitle(xpDetails.level)}>
+                                                {getLevelTitle(xpDetails.level)}
+                                            </span>
+                                        </div>
                                     </div>
                                 )}
                                 <p className="text-gray-500 dark:text-gray-400 text-xs">{profile?.email || 'Không có email'}</p>
+                                
+                                {/* XP Progress Bar in Settings */}
+                                <div className="mt-3 max-w-xs space-y-1 bg-slate-50/80 dark:bg-slate-800/40 p-2.5 rounded-xl border border-slate-100 dark:border-slate-700/50 shadow-inner">
+                                    <div className="flex justify-between items-center text-[10px] font-bold text-gray-450 dark:text-gray-500">
+                                        <span>TIẾN TRÌNH CẤP ĐỘ</span>
+                                        <span>{xpDetails.remainingXp}/{xpDetails.nextLevelXp} XP</span>
+                                    </div>
+                                    <div className="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden p-[1px]">
+                                        <div 
+                                            className="h-full bg-gradient-to-r from-amber-400 to-emerald-400 rounded-full transition-all duration-300"
+                                            style={{ width: `${Math.min(100, Math.round((xpDetails.remainingXp / xpDetails.nextLevelXp) * 100))}%` }}
+                                        />
+                                    </div>
+                                </div>
                                 <div className="flex items-center gap-2 mt-2">
                                     <button
                                         onClick={() => { setShowAvatarPicker(!showAvatarPicker); setAvatarTab('emoji'); }}

@@ -5,7 +5,7 @@ import { Search, Grid, PenTool, BookOpen, Folder, Layers, X, Plus, Save, Trash2,
 import { db, appId } from '../../config/firebase';
 import { getAuth } from 'firebase/auth';
 import { recordRecentKanji } from '../../utils/kanjiHistory';
-import { collection, getDocs, addDoc, deleteDoc, doc, query, updateDoc, setDoc, writeBatch } from 'firebase/firestore'
+import { collection, getDocs, addDoc, deleteDoc, doc, query, updateDoc, setDoc, writeBatch, increment } from 'firebase/firestore'
 import { playAudio } from '../../utils/audio';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
 import HanziWriter from 'hanzi-writer';
@@ -37,7 +37,7 @@ const LEVEL_TAB_COLORS = {
     N1: 'bg-rose-500 text-white shadow-md shadow-rose-900/50',
     'Bộ thủ': 'bg-orange-500 text-white shadow-md shadow-orange-200 dark:shadow-orange-900/50',
 };
-const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserCards = [], profile = null, folders = [], userId }) => {
+const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserCards = [], profile = null, folders = [], userId, awardXP }) => {
     const fadeWholePage = useMenuTransition();
     const [searchParams] = useSearchParams();
     const params = useParams();
@@ -157,9 +157,35 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                     isLapsed: false,
                     lapseCount: 0,
                     prelapseInterval: null,
+                    state: 'NEW'
                 }, { merge: true });
                 setUserKanjiSRS(prev => new Set([...prev, kanjiDoc.id]));
                 showToast(`Đã thêm ${kanjiChar} vào danh sách ôn tập SRS`);
+
+                // Award XP for Kanji addition
+                let multiplier = 1.0;
+                const kLevel = kanjiDoc.level || selectedLevel || 'N5';
+                if (kLevel) {
+                    const lvlUpper = String(kLevel).toUpperCase();
+                    if (lvlUpper.includes('N3')) multiplier = 1.2;
+                    else if (lvlUpper.includes('N2')) multiplier = 1.4;
+                    else if (lvlUpper.includes('N1')) multiplier = 1.6;
+                }
+                const xpAmount = Math.round(15 * multiplier);
+                if (xpAmount > 0 && awardXP) {
+                    awardXP(xpAmount);
+                }
+
+                // Cập nhật hoạt động Kanji mới hàng ngày
+                try {
+                    const todayDateString = new Date().toISOString().split('T')[0];
+                    const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
+                    await setDoc(activityRef, {
+                        newKanjiAdded: increment(1)
+                    }, { merge: true });
+                } catch (err) {
+                    console.warn('Lỗi ghi activity Kanji mới:', err);
+                }
             } catch (err) {
                 console.error('Error adding to SRS:', err);
                 showToast('Lỗi khi lưu vào SRS', 'error');

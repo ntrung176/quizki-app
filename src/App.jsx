@@ -22,7 +22,9 @@ import { shuffleArray, getSpeechText } from './utils/textProcessing'
 import { callAI, parseJsonFromAI, getAIProviderInfo, generateVocabPrompt, getOpenRouterKeys } from './utils/aiProvider';
 import { subscribeAdminConfig, hasAdminPrivileges } from './utils/adminSettings'
 
-import { initConsoleProtection, aiRateLimiter, verifyAdminAtCallTime } from './utils/security'
+import { getLevelFromXp, getLevelTitle, getWeekId, generateSimulatedLeague, LEAGUES } from './utils/scoring';
+import { playCompletionFanfare } from './utils/soundEffects';
+import { initConsoleProtection, aiRateLimiter } from './utils/security';
 
 // Import screens
 import { HomeScreen, LoginScreen, AccountScreen, HelpScreen, ImportScreen, StatsScreen, ListView, ReviewScreen, ReviewCompleteScreen, KanjiScreen, StudyScreen, TestScreen, AdminScreen, FlashcardScreen } from './components/screens'
@@ -162,6 +164,8 @@ const App = () => {
 
     const activityQueue = useRef({});
     const activityTimeout = useRef(null);
+    const xpQueue = useRef(0);
+    const xpTimeout = useRef(null);
     const srsToggleClicksRef = useRef({});
 
     const [authReady, setAuthReady] = useState(false);
@@ -579,6 +583,103 @@ const App = () => {
                         await updateDoc(doc(db, settingsDocPath), { aiCreditsRemaining: 100 });
                     } catch (e) { console.warn('Init AI credits for existing user:', e); }
                 }
+
+                // --- Gamification Level Calculations ---
+                const currentXp = profileData.xp || 0;
+                const lvlInfo = getLevelFromXp(currentXp);
+                const calculatedLevel = lvlInfo.level;
+                const calculatedTitle = getLevelTitle(calculatedLevel);
+
+                if (profileData.level !== undefined && calculatedLevel > profileData.level) {
+                    // Level up celebration!
+                    try {
+                        playCompletionFanfare();
+                    } catch (e) {
+                        console.warn('Fanfare sound error:', e);
+                    }
+                    setNotification(`🎉 Chúc mừng! Bạn đã thăng cấp lên Level ${calculatedLevel}: ${calculatedTitle}!`);
+                    
+                    try {
+                        await updateDoc(doc(db, settingsDocPath), {
+                            level: calculatedLevel,
+                            title: calculatedTitle
+                        });
+                    } catch (e) {
+                        console.error("Lỗi cập nhật thăng cấp:", e);
+                    }
+                } else if (profileData.level === undefined || profileData.title === undefined || profileData.xp === undefined || profileData.league === undefined) {
+                    // Initialize fields if they don't exist
+                    try {
+                        await updateDoc(doc(db, settingsDocPath), {
+                            xp: currentXp,
+                            level: calculatedLevel,
+                            title: calculatedTitle,
+                            league: profileData.league || 'Đồng',
+                            lastLeagueWeekId: profileData.lastLeagueWeekId || getWeekId()
+                        });
+                    } catch (e) {
+                        console.error("Lỗi khởi tạo gamification fields:", e);
+                    }
+                }
+
+                // --- League Weekly Evaluation ---
+                const currentWeekId = getWeekId();
+                let userLeague = profileData.league || 'Đồng';
+                let lastLeagueWeekId = profileData.lastLeagueWeekId;
+                let leagueNotification = '';
+
+                if (lastLeagueWeekId && lastLeagueWeekId !== currentWeekId) {
+                    const prevScore = profileData.score || 0;
+                    const simulatedPrevBots = generateSimulatedLeague(userId, lastLeagueWeekId, prevScore);
+                    const allParticipants = [
+                        { id: userId, computedScore: prevScore },
+                        ...simulatedPrevBots
+                    ].sort((a, b) => b.computedScore - a.computedScore);
+                    
+                    const myRank = allParticipants.findIndex(p => p.id === userId) + 1;
+                    const currentIdx = LEAGUES.indexOf(userLeague);
+
+                    if (myRank <= 5 && currentIdx < LEAGUES.length - 1) {
+                        userLeague = LEAGUES[currentIdx + 1];
+                        leagueNotification = `🎉 Tuyệt vời! Tuần trước bạn đạt Hạng ${myRank} ở League ${LEAGUES[currentIdx]} và được THĂNG HẠNG lên League ${userLeague}!`;
+                    } else if (myRank >= 26 && currentIdx > 0) {
+                        userLeague = LEAGUES[currentIdx - 1];
+                        leagueNotification = `⚠️ Rất tiếc! Tuần trước bạn đứng Hạng ${myRank} và đã bị XUỐNG HẠNG xuống League ${userLeague}. Hãy cố gắng thêm tuần này nhé!`;
+                    } else {
+                        leagueNotification = `📅 Tuần mới đã bắt đầu! Bạn tiếp tục tranh tài tại League ${userLeague} (Xếp hạng tuần trước: ${myRank}).`;
+                    }
+                    
+                    lastLeagueWeekId = currentWeekId;
+                    
+                    try {
+                        await updateDoc(doc(db, settingsDocPath), {
+                            league: userLeague,
+                            lastLeagueWeekId: lastLeagueWeekId
+                        });
+                    } catch (e) {
+                        console.error("Lỗi cập nhật thăng/xuống hạng tuần mới:", e);
+                    }
+                    if (leagueNotification) {
+                        setNotification(leagueNotification);
+                    }
+                } else if (!lastLeagueWeekId) {
+                    lastLeagueWeekId = currentWeekId;
+                    try {
+                        await updateDoc(doc(db, settingsDocPath), {
+                            league: userLeague,
+                            lastLeagueWeekId: lastLeagueWeekId
+                        });
+                    } catch (e) {
+                        console.error("Lỗi khởi tạo fields giải đấu:", e);
+                    }
+                }
+
+                profileData.xp = currentXp;
+                profileData.level = calculatedLevel;
+                profileData.title = calculatedTitle;
+                profileData.league = userLeague;
+                profileData.lastLeagueWeekId = lastLeagueWeekId;
+
                 setProfile(profileData);
                 // Lưu vào sessionStorage
                 sessionStorage.setItem(cachedProfileKey, JSON.stringify(profileData));
@@ -594,7 +695,10 @@ const App = () => {
                         dailyGoal: defaultGoal,
                         hasSeenHelp: true,
                         email: auth?.currentUser?.email || '',
-                        aiCreditsRemaining: 100
+                        aiCreditsRemaining: 100,
+                        xp: 0,
+                        level: 1,
+                        title: getLevelTitle(1)
                     };
                     await setDoc(doc(db, settingsDocPath), newProfile);
                     setProfile(newProfile);
@@ -1366,8 +1470,36 @@ const App = () => {
             }
         }, 1000);
 
-        return Promise.resolve();
     }, [activityCollectionPath]);
+
+    const awardXP = useCallback((count) => {
+        if (!settingsDocPath || !userId) return;
+        if (count <= 0) return;
+
+        // Add to queue
+        xpQueue.current = (xpQueue.current || 0) + count;
+
+        // Clear existing timeout
+        if (xpTimeout.current) {
+            clearTimeout(xpTimeout.current);
+        }
+
+        // Set timeout to write to database after 1 second
+        xpTimeout.current = setTimeout(async () => {
+            const addedXp = xpQueue.current;
+            xpQueue.current = 0; // Reset queue
+
+            try {
+                const docRef = doc(db, settingsDocPath);
+                await updateDoc(docRef, {
+                    xp: increment(addedXp)
+                });
+                console.log(`✨ Awarded ${addedXp} XP to user`);
+            } catch (e) {
+                console.error("Lỗi cập nhật XP:", e);
+            }
+        }, 1000);
+    }, [settingsDocPath, userId]);
 
     const createCardObject = (front, back, synonym, example, exampleMeaning, nuance, srsData = {}, createdAtDate = null, imageBase64 = null, audioBase64 = null, pos = null, level = null, sinoVietnamese = null, synonymSinoVietnamese = null) => {
         const hasSynonym = synonym && synonym.trim() !== '';
@@ -1745,6 +1877,18 @@ const App = () => {
 
             setNotification(`Đã thêm thẻ mới: ${newCardData.front}`);
             await updateDailyActivity(1);
+
+            // Award XP
+            const cardLevel = finalLevel || 'N5';
+            let multiplier = 1.0;
+            if (cardLevel) {
+                const lvlUpper = String(cardLevel).toUpperCase();
+                if (lvlUpper.includes('N3')) multiplier = 1.2;
+                else if (lvlUpper.includes('N2')) multiplier = 1.4;
+                else if (lvlUpper.includes('N1')) multiplier = 1.6;
+            }
+            const xpAmount = Math.round(10 * multiplier);
+            awardXP(xpAmount);
 
             // Save folder assignment if selected
             if (folderId && cardRef) {
@@ -2429,6 +2573,37 @@ const App = () => {
                     needsMistakeReview: rating === 'again',
                     masteryState: newMastery
                 });
+
+                await updateDailyActivity(1, 'reviewsDone');
+
+                // Award XP
+                let basePoints = 0;
+                if (rating === 'again') basePoints = 8;
+                else if (rating === 'hard') basePoints = 25;
+                else if (rating === 'good') basePoints = 45;
+                else if (rating === 'easy') basePoints = 60;
+
+                let promotionBonus = 0;
+                const oldState = srsState.state || 'NEW';
+                const newState = result.state;
+                if (oldState === 'NEW' && newState === 'LEARNING') {
+                    promotionBonus = 10;
+                } else if ((oldState === 'LEARNING' || oldState === 'RELEARNING') && newState === 'REVIEW') {
+                    promotionBonus = 100;
+                }
+
+                let multiplier = 1.0;
+                const cardLevel = cardData.level || 'N5';
+                if (cardLevel) {
+                    const lvlUpper = String(cardLevel).toUpperCase();
+                    if (lvlUpper.includes('N3')) multiplier = 1.2;
+                    else if (lvlUpper.includes('N2')) multiplier = 1.4;
+                    else if (lvlUpper.includes('N1')) multiplier = 1.6;
+                }
+                const totalXp = Math.round((basePoints + promotionBonus) * multiplier);
+                if (totalXp > 0) {
+                    awardXP(totalXp);
+                }
             } catch (e) {
                 console.error("Lỗi cập nhật đánh giá SRS từ vựng:", e);
             }
@@ -3265,7 +3440,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                         if (lastLog.id !== todayStr) checkDate.setDate(checkDate.getDate() - 1);
                         for (const log of reversedLogs) {
                             const checkDateStr = checkDate.toISOString().split('T')[0];
-                            if (log.id === checkDateStr && (log.newWordsAdded > 0 || log.reviewsDone > 0)) {
+                            if (log.id === checkDateStr && (log.newWordsAdded > 0 || log.newKanjiAdded > 0 || log.reviewsDone > 0)) {
                                 currentStreak++;
                                 checkDate.setDate(checkDate.getDate() - 1);
                             } else break;
@@ -3275,7 +3450,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
 
                 // Tính tổng ôn tập và ngày hoạt động
                 const totalReviews = (dailyActivityLogs || []).reduce((s, l) => s + (l.reviewsDone || 0), 0);
-                const activeDays = (dailyActivityLogs || []).filter(l => (l.newWordsAdded || 0) > 0 || (l.reviewsDone || 0) > 0).length;
+                const activeDays = (dailyActivityLogs || []).filter(l => (l.newWordsAdded || 0) > 0 || (l.newKanjiAdded || 0) > 0 || (l.reviewsDone || 0) > 0).length;
 
                 // Tính số liệu hoạt động trong 7 ngày qua
                 const today = new Date();
@@ -3293,18 +3468,21 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 });
 
                 const addedLast7Days = last7DaysLogs.reduce((s, l) => s + (l.newWordsAdded || 0), 0);
+                const kanjiLast7Days = last7DaysLogs.reduce((s, l) => s + (l.newKanjiAdded || 0), 0);
                 const reviewsLast7Days = last7DaysLogs.reduce((s, l) => s + (l.reviewsDone || 0), 0);
-                const activeDaysLast7Days = last7DaysLogs.filter(l => (l.newWordsAdded || 0) > 0 || (l.reviewsDone || 0) > 0).length;
+                const activeDaysLast7Days = last7DaysLogs.filter(l => (l.newWordsAdded || 0) > 0 || (l.newKanjiAdded || 0) > 0 || (l.reviewsDone || 0) > 0).length;
 
                 // === CÔNG THỨC TÍNH ĐIỂM VINH DANH MỚI (CHĂM CHỈ) ===
                 // Điểm vinh danh được tính dựa trên hoạt động tích cực trong 7 ngày gần nhất và streak hiện tại:
-                // - Từ vựng mới thêm trong tuần: +15 điểm/từ
-                // - Ôn tập trong tuần: +2 điểm/lượt
+                // - Từ vựng mới thêm trong tuần: +10 điểm/từ
+                // - Kanji mới thêm trong tuần: +15 điểm/chữ
+                // - Ôn tập trong tuần: +20 điểm/lượt
                 // - Số ngày học tích cực trong tuần (max 7 ngày): +50 điểm/ngày
                 // - Chuỗi ngày học liên tục (streak): +20 điểm/ngày streak
                 const score = Math.round(
-                    (addedLast7Days * 15) +
-                    (reviewsLast7Days * 2) +
+                    (addedLast7Days * 10) +
+                    (kanjiLast7Days * 15) +
+                    (reviewsLast7Days * 20) +
                     (activeDaysLast7Days * 50) +
                     (currentStreak * 20)
                 );
@@ -3319,6 +3497,10 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     midTerm: memoryStats.midTerm,
                     longTerm: memoryStats.longTerm,
                     mastered: vocabMastered,
+                    // Gamification
+                    level: profile.level || 1,
+                    title: profile.title || getLevelTitle(1),
+                    league: profile.league || 'Đồng',
                     // Dữ liệu Kanji
                     kanjiTotal: kanjiSrsPublicCount.total,
                     kanjiMastered: kanjiSrsPublicCount.mastered,
@@ -3328,6 +3510,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     streak: currentStreak,
                     // Dữ liệu hoạt động 7 ngày qua
                     addedLast7Days: addedLast7Days,
+                    kanjiAddedLast7Days: kanjiLast7Days,
                     reviewsLast7Days: reviewsLast7Days,
                     activeDaysLast7Days: activeDaysLast7Days,
                     // Điểm vinh danh năng động mới
@@ -3655,6 +3838,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     allCards={allCards}
                     isPremium={isAdmin || profile?.isPremiumUnlocked === true}
                     avatar={profile?.avatar}
+                    profile={profile}
                 />
             )}
 
@@ -3897,6 +4081,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                                 onToggleSrs={handleToggleSrs}
                                 onUpdateVocabSrsRating={handleUpdateVocabSrsRating}
                                 onRevertVocabSrsRating={handleRevertVocabSrsRating}
+                                 awardXP={awardXP}
                             />
                         </div>
 

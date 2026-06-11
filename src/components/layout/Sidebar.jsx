@@ -4,10 +4,16 @@ import { signOut } from 'firebase/auth';
 import { auth, db, appId } from '../../config/firebase';
 import { collection, query, onSnapshot } from 'firebase/firestore';
 import { ROUTES } from '../../router';
+import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
 import { Home, BookOpen, Plus, LogOut, Sun, Moon, Sparkle, ChevronRight, X, List, Repeat2, FileCheck, Languages, Shield, ChevronDown, Trophy, Crown, User, Bell, MessageSquare } from 'lucide-react'
 // Sidebar Component - Navigation with submenu support
-const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allCards = [], isPremium = false, avatar }) => {
+const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allCards = [], isPremium = false, avatar, profile }) => {
     const navigate = useNavigate();
+
+    const xpDetails = React.useMemo(() => {
+        const xp = profile?.xp || 0;
+        return getLevelFromXp(xp);
+    }, [profile?.xp]);
     // Avatar display helper
     const renderAvatar = () => {
         const isPhotoUrl = (v) => typeof v === 'string' && (v.startsWith('data:image/') || v.startsWith('http://') || v.startsWith('https://'));
@@ -384,6 +390,14 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                                             <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300 truncate mt-0.5">
                                                 {displayName}
                                             </span>
+                                            <div className="flex items-center gap-1 mt-0.5">
+                                                <span className="bg-sky-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider flex items-center justify-center">
+                                                    LV {xpDetails.level}
+                                                </span>
+                                                <span className="text-[9px] text-slate-400 dark:text-slate-500 font-semibold truncate max-w-[80px]" title={getLevelTitle(xpDetails.level)}>
+                                                    {getLevelTitle(xpDetails.level)}
+                                                </span>
+                                            </div>
                                         </div>
                                     </Link>
                                 </div>
@@ -503,46 +517,69 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             </div>
             {/* User info */}
             {!isCollapsed && displayName && (
-                <div className="px-4 py-4 border-b border-slate-100 dark:border-slate-800/40 flex items-center gap-2 justify-between relative">
-                    <div className="flex items-center gap-2 flex-1 min-w-0">
-                        {/* Bell Notification Button */}
-                        <button
-                            onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
-                            className="p-2 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-full text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:shadow-sm transition-all relative flex-shrink-0 cursor-pointer"
-                            title="Thông báo"
-                        >
-                            <Bell className="w-4 h-4" />
-                            {hasUnread && (
-                                <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-rose-500 rounded-full animate-pulse"></span>
-                            )}
-                        </button>
-                        {/* Profile Capsule */}
-                        <Link
-                                        to={ROUTES.SETTINGS}
-                                        data-tour-id="SETTINGS"
-                                        className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-2xl p-2 shadow-sm overflow-hidden flex-1 cursor-pointer hover:border-slate-300 dark:hover:border-slate-600 transition-all min-w-0"
-                                        title="Trang cá nhân"
-                                    >
-                                        <div className="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden flex-shrink-0 border border-white dark:border-slate-800 shadow-sm">
-                                            {renderAvatar()}
-                                        </div>
-                                        <div className="flex flex-col min-w-0 flex-1">
-                                            {isPremium ? (
-                                                <span className="text-[9px] font-extrabold uppercase tracking-widest bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent flex items-center gap-0.5">
-                                                    <Crown className="w-2.5 h-2.5 text-amber-500 fill-amber-500 inline" /> Premium
-                                                </span>
-                                            ) : (
-                                                <span className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 dark:text-slate-500">
-                                                    FREE Account
-                                                </span>
-                                            )}
-                                            <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300 truncate mt-0.5">
-                                                {displayName}
-                                            </span>
-                                        </div>
-                                    </Link>
+                <div className="px-4 py-4 border-b border-slate-100 dark:border-slate-800/40 flex flex-col gap-2 relative">
+                    <div className="flex items-center gap-2 justify-between w-full">
+                        <div className="flex items-center gap-2 flex-1 min-w-0">
+                            {/* Bell Notification Button */}
+                            <button
+                                onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
+                                className="p-2 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-full text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:shadow-sm transition-all relative flex-shrink-0 cursor-pointer"
+                                title="Thông báo"
+                            >
+                                <Bell className="w-4 h-4" />
+                                {hasUnread && (
+                                    <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-rose-500 rounded-full animate-pulse"></span>
+                                )}
+                            </button>
+                            {/* Profile Capsule */}
+                            <Link
+                                to={ROUTES.SETTINGS}
+                                data-tour-id="SETTINGS"
+                                className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-2xl p-2 shadow-sm overflow-hidden flex-1 cursor-pointer hover:border-slate-300 dark:hover:border-slate-600 transition-all min-w-0"
+                                title="Trang cá nhân"
+                            >
+                                <div className="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden flex-shrink-0 border border-white dark:border-slate-800 shadow-sm">
+                                    {renderAvatar()}
+                                </div>
+                                <div className="flex flex-col min-w-0 flex-1">
+                                    {isPremium ? (
+                                        <span className="text-[9px] font-extrabold uppercase tracking-widest bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent flex items-center gap-0.5">
+                                            <Crown className="w-2.5 h-2.5 text-amber-500 fill-amber-500 inline" /> Premium
+                                        </span>
+                                    ) : (
+                                        <span className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 dark:text-slate-500">
+                                            FREE Account
+                                        </span>
+                                    )}
+                                    <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300 truncate mt-0.5">
+                                        {displayName}
+                                    </span>
+                                    <div className="flex items-center gap-1 mt-0.5">
+                                        <span className="bg-sky-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider flex items-center justify-center">
+                                            LV {xpDetails.level}
+                                        </span>
+                                        <span className="text-[9px] text-slate-400 dark:text-slate-500 font-semibold truncate max-w-[80px]" title={getLevelTitle(xpDetails.level)}>
+                                            {getLevelTitle(xpDetails.level)}
+                                        </span>
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
+                        <NotificationsPopover isMobile={false} />
                     </div>
-                    <NotificationsPopover isMobile={false} />
+                    {/* XP Progress Bar */}
+                    <div className="w-full mt-1.5 px-1 space-y-1">
+                        <div className="flex justify-between items-center text-[9px] font-bold text-gray-400 dark:text-gray-500">
+                            <span>TIẾN TRÌNH XP</span>
+                            <span>{xpDetails.remainingXp}/{xpDetails.nextLevelXp} XP</span>
+                        </div>
+                        <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800/80 rounded-full overflow-hidden p-[1px] border border-slate-200/50 dark:border-slate-700/50 shadow-inner">
+                            <div 
+                                className="h-full bg-gradient-to-r from-amber-400 to-emerald-400 rounded-full transition-all duration-300"
+                                style={{ width: `${Math.min(100, Math.round((xpDetails.remainingXp / xpDetails.nextLevelXp) * 100))}%` }}
+                            />
+                        </div>
+                    </div>
                 </div>
             )}
             {/* Navigation */}

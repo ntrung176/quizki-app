@@ -356,7 +356,8 @@ const AppRoutes = ({
     onDeleteParentFolder,
     onMoveStudySetToParentFolder,
     onToggleSrs,
-    onUpdateVocabSrsRating
+    onUpdateVocabSrsRating,
+    awardXP
 }) => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -701,7 +702,7 @@ const AppRoutes = ({
                     path={ROUTES.KANJI_LESSON}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <KanjiLessonScreen />
+                            <KanjiLessonScreen awardXP={awardXP} />
                         </ProtectedRoute>
                     }
                 />
@@ -711,7 +712,7 @@ const AppRoutes = ({
                     path={ROUTES.KANJI_REVIEW}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <KanjiReviewScreen />
+                            <KanjiReviewScreen awardXP={awardXP} />
                         </ProtectedRoute>
                     }
                 />
@@ -740,6 +741,7 @@ const AppRoutes = ({
                                 profile={profile}
                                 folders={[...(parentFolders || []), ...(folders || [])]}
                                 userId={userId}
+                                 awardXP={awardXP}
                             />
                         </ProtectedRoute>
                     }
@@ -759,6 +761,7 @@ const AppRoutes = ({
                                 profile={profile}
                                 folders={[...(parentFolders || []), ...(folders || [])]}
                                 userId={userId}
+                                 awardXP={awardXP}
                             />
                         </ProtectedRoute>
                     }

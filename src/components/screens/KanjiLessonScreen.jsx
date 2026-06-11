@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import HanziWriter from 'hanzi-writer';
 import { ChevronLeft, ChevronRight, Plus, BookOpen, PenTool, Award, Volume2, Check, X, Sparkle, RotateCcw, Keyboard, Layers, RefreshCw, ArrowLeft, Search, User, Bookmark } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
-import { collection, getDocs, doc, setDoc, getDoc, deleteDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, setDoc, getDoc, deleteDoc, increment } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
@@ -27,7 +27,7 @@ const _lessonDataCache = {
     day: null,
 };
 // ==================== MAIN COMPONENT ====================
-const KanjiLessonScreen = () => {
+const KanjiLessonScreen = ({ awardXP }) => {
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
     const level = searchParams.get('level') || 'N5';
@@ -279,6 +279,8 @@ const KanjiLessonScreen = () => {
         if (!userId) return;
         const now = Date.now();
         try {
+            const newKanjiIds = kanjiIds.filter(id => !srsAddedSet.has(id));
+
             for (const kanjiId of kanjiIds) {
                 await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanjiId), {
                     interval: 0,
@@ -290,7 +292,36 @@ const KanjiLessonScreen = () => {
                     isLapsed: false,
                     lapseCount: 0,
                     prelapseInterval: null,
+                    state: 'NEW'
                 }, { merge: true });
+            }
+
+            if (newKanjiIds.length > 0) {
+                let totalXp = 0;
+                for (const kanjiId of newKanjiIds) {
+                    const kanjiObj = todayKanji.find(k => k.id === kanjiId);
+                    const kLevel = kanjiObj?.level || level || 'N5';
+                    let multiplier = 1.0;
+                    if (kLevel) {
+                        const lvlUpper = String(kLevel).toUpperCase();
+                        if (lvlUpper.includes('N3')) multiplier = 1.2;
+                        else if (lvlUpper.includes('N2')) multiplier = 1.4;
+                        else if (lvlUpper.includes('N1')) multiplier = 1.6;
+                    }
+                    totalXp += Math.round(15 * multiplier);
+                }
+                if (totalXp > 0 && awardXP) {
+                    awardXP(totalXp);
+                }
+
+                // Cập nhật hoạt động Kanji mới hàng ngày
+                const todayDateString = new Date().toISOString().split('T')[0];
+                const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
+                await setDoc(activityRef, {
+                    newKanjiAdded: increment(newKanjiIds.length)
+                }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Kanji mới:', err));
+
+                setSrsAddedSet(prev => new Set([...prev, ...newKanjiIds]));
             }
         } catch (e) {
             console.error('Error initializing SRS:', e);
@@ -803,6 +834,7 @@ const KanjiLessonScreen = () => {
                 speakJapanese={speakJapanese}
                 navigate={navigate}
                 userId={userId}
+                awardXP={awardXP}
                 srsAddedSet={srsAddedSet}
                 setSrsAddedSet={setSrsAddedSet}
                 srsDataMap={srsDataMap}
@@ -905,6 +937,7 @@ const KanjiFlashcard = ({
     speakJapanese,
     navigate,
     userId,
+    awardXP,
     srsAddedSet,
     setSrsAddedSet,
     srsDataMap,
@@ -941,6 +974,7 @@ const KanjiFlashcard = ({
                 await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanji.id), {
                     interval: 0, ease: 2.5, nextReview: now, lastReview: now, reps: 0,
                     learningStep: null, isLapsed: false, lapseCount: 0, prelapseInterval: null,
+                    state: 'NEW'
                 }, { merge: true });
                 setSrsAddedSet(prev => new Set([...prev, kanji.id]));
                 showToast(`Đã thêm ${kanji.character} vào danh sách ôn tập`);
@@ -949,6 +983,27 @@ const KanjiFlashcard = ({
                     title: `Đã lưu Kanji ${kanji.character}`,
                     details: `Lưu từ mới vào danh sách ôn tập`
                 });
+
+                // Award XP for Kanji manual addition
+                let multiplier = 1.0;
+                const kLevel = kanji.level || level || 'N5';
+                if (kLevel) {
+                    const lvlUpper = String(kLevel).toUpperCase();
+                    if (lvlUpper.includes('N3')) multiplier = 1.2;
+                    else if (lvlUpper.includes('N2')) multiplier = 1.4;
+                    else if (lvlUpper.includes('N1')) multiplier = 1.6;
+                }
+                const xpAmount = Math.round(15 * multiplier);
+                if (xpAmount > 0 && awardXP) {
+                    awardXP(xpAmount);
+                }
+
+                // Cập nhật hoạt động Kanji mới hàng ngày
+                const todayDateString = new Date().toISOString().split('T')[0];
+                const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
+                await setDoc(activityRef, {
+                    newKanjiAdded: increment(1)
+                }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Kanji mới:', err));
             } catch (e) {
                 console.error('Error adding to SRS:', e);
             }

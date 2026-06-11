@@ -475,8 +475,33 @@ const AddCardForm = ({
             return;
         }
 
+        // Keep current selected pos/level/back values to send to AI, but clear the card fields to start fresh
+        const selectedPos = card.pos || '';
+        const selectedLevel = card.level || '';
+        const selectedBack = card.back || '';
+
+        setCards(prev => prev.map(c => {
+            if (c.id === id) {
+                return {
+                    ...c,
+                    back: '',
+                    synonym: '',
+                    example: '',
+                    exampleMeaning: '',
+                    nuance: '',
+                    pos: '',
+                    level: '',
+                    sinoVietnamese: '',
+                    synonymSinoVietnamese: '',
+                    imageBase64: null,
+                    audioBase64: null
+                };
+            }
+            return c;
+        }));
+
         setIsAiLoadingMap(prev => ({ ...prev, [id]: true }));
-        const aiData = await onGeminiAssist(card.front, card.pos, card.level, card.back, false);
+        const aiData = await onGeminiAssist(card.front, selectedPos, selectedLevel, selectedBack, false);
 
         if (aiData) {
             setCards(prev => prev.map(c => {
@@ -484,15 +509,15 @@ const AddCardForm = ({
                     return {
                         ...c,
                         front: aiData.frontWithFurigana || c.front,
-                        back: aiData.meaning || c.back,
-                        sinoVietnamese: aiData.sinoVietnamese || c.sinoVietnamese,
-                        synonym: aiData.synonym || c.synonym,
-                        synonymSinoVietnamese: aiData.synonymSinoVietnamese || c.synonymSinoVietnamese,
-                        example: aiData.example || c.example,
-                        exampleMeaning: aiData.exampleMeaning || c.exampleMeaning,
-                        nuance: aiData.nuance || c.nuance,
-                        pos: aiData.pos || c.pos,
-                        level: aiData.level || c.level
+                        back: aiData.meaning || '',
+                        sinoVietnamese: aiData.sinoVietnamese || '',
+                        synonym: aiData.synonym || '',
+                        synonymSinoVietnamese: aiData.synonymSinoVietnamese || '',
+                        example: aiData.example || '',
+                        exampleMeaning: aiData.exampleMeaning || '',
+                        nuance: aiData.nuance || '',
+                        pos: aiData.pos || '',
+                        level: aiData.level || ''
                     };
                 }
                 return c;

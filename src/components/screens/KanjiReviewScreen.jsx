@@ -42,7 +42,7 @@ const formatInterval = (minutes) => {
 };
 
 // ==================== MAIN COMPONENT ====================
-const KanjiReviewScreen = () => {
+const KanjiReviewScreen = ({ awardXP }) => {
     const fadeWholePage = useMenuTransition();
     const navigate = useNavigate();
     const [kanjiList, setKanjiList] = useState([]);
@@ -254,6 +254,35 @@ const KanjiReviewScreen = () => {
                 await setDoc(activityRef, {
                     reviewsDone: increment(1)
                 }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Kanji:', err));
+
+                // Award XP for Kanji reviews
+                let basePoints = 0;
+                if (rating === 'again') basePoints = 8;
+                else if (rating === 'hard') basePoints = 25;
+                else if (rating === 'good') basePoints = 45;
+                else if (rating === 'easy') basePoints = 60;
+
+                let promotionBonus = 0;
+                const oldState = srs?.state || 'NEW';
+                const newState = result.state;
+                if (oldState === 'NEW' && newState === 'LEARNING') {
+                    promotionBonus = 10;
+                } else if ((oldState === 'LEARNING' || oldState === 'RELEARNING') && newState === 'REVIEW') {
+                    promotionBonus = 100;
+                }
+
+                let multiplier = 1.0;
+                const cardLevel = currentCard.level || currentCard.jlpt || 'N5';
+                if (cardLevel) {
+                    const lvlUpper = String(cardLevel).toUpperCase();
+                    if (lvlUpper.includes('N3')) multiplier = 1.2;
+                    else if (lvlUpper.includes('N2')) multiplier = 1.4;
+                    else if (lvlUpper.includes('N1')) multiplier = 1.6;
+                }
+                const totalXp = Math.round((basePoints + promotionBonus) * multiplier);
+                if (totalXp > 0 && awardXP) {
+                    awardXP(totalXp);
+                }
             } catch (e) {
                 console.error('Error updating SRS in background:', e);
             }

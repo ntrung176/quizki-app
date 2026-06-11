@@ -261,12 +261,13 @@ JSON only, không markdown/backtick:
 ${grammarInstruction}
 
 QUY TẮC BẮT BUỘC:
-1. Từ vựng (frontWithFurigana) & Từ đồng nghĩa (synonym):
+1. Giữ nguyên cụm từ dài: Nếu người dùng nhập cụm từ dài hoặc cả câu (Ví dụ: "日本語を勉強する", "お腹が空いた"), TUYỆT ĐỐI KHÔNG được rút gọn thành từ vựng đơn (như "勉強する", "空く"). Hãy giữ nguyên vẹn cụm từ gốc đó. Nếu cụm từ nhập có lỗi chính tả/ngữ pháp, hãy chuẩn hóa/sửa nó thành cụm từ chuẩn chính xác nhưng giữ nguyên độ dài và ý định gốc.
+2. Từ vựng (frontWithFurigana) & Từ đồng nghĩa (synonym) định dạng cách đọc:
    - BẮT BUỘC dùng định dạng: "Từ gốc（cách đọc hiragana của CẢ TỪ）".
-   - NGOẶC PHIÊN ÂM PHẢI ĐẶT Ở CUỐI CÙNG sau toàn bộ chữ gốc. Tuyệt đối KHÔNG chèn ngoặc vào giữa các nhóm Kanji/Hiragana.
-   - Ví dụ ĐÚNG: "顔認証（かおにんしょう）", "振り込む（ふりこむ）"
-   - Ví dụ SAI: "顔（かお）認証（にんしょう）", "振（ふ）り込（こ）む"
-   - Từ đồng nghĩa (synonym) CŨNG BẮT BUỘC tuân theo đúng form này. VD: "配管（はいかん）"
+   - Ngoặc cách đọc phải đặt duy nhất ở CUỐI CÙNG sau toàn bộ từ gốc. Tuyệt đối KHÔNG chèn ngoặc cách đọc vào giữa các nhóm chữ trong từ gốc.
+   - Đối với từ gốc có chứa Katakana xen lẫn Kanji/Hiragana (Ví dụ: "スマホを使う"), trong ngoặc đọc phải giữ nguyên phần chữ Katakana tương ứng và chuyển các chữ Kanji sang Hiragana (Ví dụ: "スマホを使う（スマホをつかう）", chứ không viết là "スマホを使う（すまほをつかう）" hay cắt ngắn).
+   - Ví dụ ĐÚNG: "顔認証（かおにんしょう）", "振り込む（ふりこむ）", "スマホを使う（スマホをつかう）"
+   - Ví dụ SAI: "顔（かお）認証（にんしょう）", "振（ふ）り込（こ）む", "スマホ（すまほ）を使う（つかう）"
    - Trả về trường "frontWithFurigana" cho từ gốc và "synonym" cho từ đồng nghĩa.
 
 2. meaning: ${isGrammar ? 'Định nghĩa ngữ pháp theo hướng dẫn ở trên.' : 'Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống.'}
@@ -285,16 +286,16 @@ Không trả lời gì ngoài JSON.`;
 };
 
 export const generateMoreExamplePrompt = (frontText, targetMeaning) => {
-    return `Bạn là giáo viên tiếng Nhật. Hãy tạo 1 câu ví dụ độc đáo, tự nhiên và giàu ngữ cảnh cho từ vựng "${frontText}" với nghĩa cụ thể là "${targetMeaning}".
+    return `Bạn là giáo viên tiếng Nhật. Hãy tạo 1 câu ví dụ ngắn gọn, tự nhiên và dễ hiểu cho từ vựng "${frontText}" với nghĩa cụ thể là "${targetMeaning}".
 
 YÊU CẦU:
-1. Ngữ cảnh rõ ràng: Câu ví dụ phải có bối cảnh phong phú để làm nổi bật rõ ràng nghĩa "${targetMeaning}" của từ "${frontText}", giúp người học phân biệt rõ bối cảnh này với các ý nghĩa khác của từ. Tránh tuyệt đối các câu chung chung, đơn điệu hoặc quá ngắn (như "Tôi thích...", "Đây là...").
+1. Ngắn gọn & Tự nhiên: Câu ví dụ phải tự nhiên nhưng NGẮN GỌN, súc tích (tối đa 12-15 từ), có ngữ cảnh rõ ràng thể hiện đúng nghĩa "${targetMeaning}" của từ "${frontText}". Tránh các câu quá dài dòng, dông dài hoặc quá phức tạp.
 2. Thay thế từ gốc: Trong câu tiếng Nhật, bắt buộc thay thế từ "${frontText}" (hoặc dạng chia của nó) bằng ký tự "＿＿＿＿" (4 dấu gạch dưới).
 3. Không thêm phiên âm/furigana/romaji hay bất kỳ dấu ngoặc nào vào câu tiếng Nhật.
-4. "exampleMeaning": Dịch nghĩa tiếng Việt tự nhiên, chính xác, thoát ý và thể hiện rõ bối cảnh câu ví dụ.
+4. "exampleMeaning": Dịch nghĩa tiếng Việt ngắn gọn, tự nhiên và chính xác với câu ví dụ.
 
 JSON ONLY (không markdown, không giải thích):
-{"example":"[câu tiếng Nhật có chứa ＿＿＿＿]","exampleMeaning":"[nghĩa tiếng Việt]"}`;
+{"example":"[câu tiếng Nhật ngắn gọn có chứa ＿＿＿＿]","exampleMeaning":"[nghĩa tiếng Việt ngắn gọn]"}`;
 };
 
 
