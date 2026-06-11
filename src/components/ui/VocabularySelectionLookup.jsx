@@ -236,6 +236,55 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
         return () => document.removeEventListener('copy', handleCopy);
     }, []);
 
+    // Update selection coordinate position dynamically on scroll, resize or pinch zoom (visual viewport)
+    useEffect(() => {
+        if (disabled) return;
+        if (!showButton && !showDetails) return;
+
+        const updatePosition = () => {
+            try {
+                const selection = window.getSelection();
+                if (!selection || selection.rangeCount === 0) return;
+                const range = selection.getRangeAt(0);
+                if (range.collapsed) return;
+
+                const rect = range.getBoundingClientRect();
+                if (rect.width === 0 && rect.height === 0) return;
+
+                const isFullscreen = !!document.fullscreenElement;
+                const scrollX = isFullscreen ? 0 : window.scrollX;
+                const scrollY = isFullscreen ? 0 : window.scrollY;
+
+                setPopupPosition({
+                    x: rect.left + rect.width / 2 + scrollX,
+                    y: rect.top + scrollY,
+                    height: rect.height,
+                    rectTop: rect.top,
+                    rectBottom: rect.bottom
+                });
+            } catch (err) {
+                console.warn('Error updating selection lookup position:', err);
+            }
+        };
+
+        window.addEventListener('resize', updatePosition);
+        window.addEventListener('scroll', updatePosition, { capture: true, passive: true });
+        
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', updatePosition);
+            window.visualViewport.addEventListener('scroll', updatePosition);
+        }
+
+        return () => {
+            window.removeEventListener('resize', updatePosition);
+            window.removeEventListener('scroll', updatePosition, { capture: true });
+            if (window.visualViewport) {
+                window.visualViewport.removeEventListener('resize', updatePosition);
+                window.visualViewport.removeEventListener('scroll', updatePosition);
+            }
+        };
+    }, [showButton, showDetails, disabled]);
+
     // Keep popup fully within screen boundaries
     useEffect(() => {
         const isFullscreen = !!document.fullscreenElement;
@@ -246,7 +295,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
             const cardEl = cardRef.current;
             const rect = cardEl.getBoundingClientRect();
             const cardWidth = rect.width || 320;
-            const cardHeight = rect.height || 400;
+            const cardHeight = cardEl.scrollHeight || 400; // Use scrollHeight to avoid layout feedback loop
             
             const currentViewportX = popupPosition.x - scrollX;
             const currentLeft = currentViewportX - cardWidth / 2;
@@ -264,24 +313,29 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
             setHorizontalOffset(newOffset);
             
             const selectionTop = popupPosition.rectTop !== undefined ? popupPosition.rectTop : (popupPosition.y - scrollY);
-            const cardTop = selectionTop - 16 - cardHeight;
+            const selectionBottom = popupPosition.rectBottom !== undefined ? popupPosition.rectBottom : (selectionTop + (popupPosition.height || 0));
             
-            if (cardTop < padding) {
-                const selectionBottom = popupPosition.rectBottom !== undefined ? popupPosition.rectBottom : (selectionTop + (popupPosition.height || 0));
-                const spaceBelow = window.innerHeight - selectionBottom;
-                
-                if (spaceBelow > cardHeight + padding || spaceBelow > selectionTop) {
-                    setPlaceBelow(true);
-                } else {
-                    setPlaceBelow(false);
-                    const maxPossibleHeight = selectionTop - padding - 16;
-                    if (maxPossibleHeight > 100) {
-                        setMaxHeight(`${maxPossibleHeight}px`);
-                    }
-                }
-            } else {
+            const spaceAbove = selectionTop - padding;
+            const spaceBelow = window.innerHeight - selectionBottom - padding;
+            
+            // Determine placement above or below, and enforce maxHeight to prevent screen overflow
+            if (spaceAbove >= cardHeight) {
                 setPlaceBelow(false);
                 setMaxHeight('85vh');
+            } else if (spaceBelow >= cardHeight) {
+                setPlaceBelow(true);
+                setMaxHeight('85vh');
+            } else {
+                // Not enough space in either direction, place where there is more space and constrain maxHeight
+                if (spaceBelow > spaceAbove) {
+                    setPlaceBelow(true);
+                    const maxPossibleHeight = spaceBelow - 16;
+                    setMaxHeight(`${Math.max(120, maxPossibleHeight)}px`);
+                } else {
+                    setPlaceBelow(false);
+                    const maxPossibleHeight = spaceAbove - 16;
+                    setMaxHeight(`${Math.max(120, maxPossibleHeight)}px`);
+                }
             }
         } else if (showButton && triggerRef.current) {
             const btnEl = triggerRef.current;
