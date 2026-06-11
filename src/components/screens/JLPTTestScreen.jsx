@@ -9,6 +9,7 @@ import { ROUTES } from '../../router';
 import { aiTranslateSentence } from '../../utils/aiProvider';
 import { playCompletionFanfare } from '../../utils/soundEffects';
 import HandwritingCanvas from '../ui/HandwritingCanvas';
+import ExamAnnotationOverlay from './ExamAnnotationOverlay';
 const SECTION_ICONS = {
     vocabulary: Languages, grammar: BookOpen, kanji: Award,
     reading: FileText, listening: Headphones,
@@ -169,6 +170,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
     const [noteTab, setNoteTab] = useState('text'); // 'text' | 'draw'
     const [drawDraftStrokes, setDrawDraftStrokes] = useState([]);
     const [drawDraftDataUrl, setDrawDraftDataUrl] = useState('');
+    const [showScratchpad, setShowScratchpad] = useState(false);
 
     // Review notes draft states
     const [editingReviewNoteKey, setEditingReviewNoteKey] = useState(null);
@@ -1382,6 +1384,16 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     </div>
                                 )}
                             </div>
+                            {/* Scratchpad Toggle */}
+                            <button onClick={() => setShowScratchpad(!showScratchpad)}
+                                className={`p-1.5 transition rounded-lg ${
+                                    showScratchpad 
+                                        ? 'text-indigo-650 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/35 ring-1 ring-indigo-200 dark:ring-indigo-850/80 font-bold scale-105' 
+                                        : 'text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-slate-100 dark:hover:bg-slate-750'
+                                }`}
+                                title="Bật/Tắt nháp trực tiếp trên đề">
+                                <Pencil className="w-5 h-5" />
+                            </button>
                             {/* Fullscreen */}
                             <button onClick={toggleFullscreen}
                                 className="p-1.5 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition">
@@ -1434,7 +1446,13 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         </div>
                     </div>
                     {/* Main question area */}
-                    <div className="flex-1 p-4 md:p-8 overflow-y-auto">
+                    <div className="flex-1 p-4 md:p-8 overflow-y-auto relative" id="jlpt-main-scroll-container">
+                        <ExamAnnotationOverlay
+                            testId={activeTest.id}
+                            sectionIdx={currentSectionIdx}
+                            questionIdx={currentQuestionIdx}
+                            isEnabled={showScratchpad}
+                        />
                         <div className="max-w-3xl mx-auto">
                             {/* Question number */}
                             <div className="flex items-center gap-2 mb-4">
@@ -1448,17 +1466,19 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                 <div className="bg-indigo-600 h-1.5 rounded-full transition-all duration-300"
                                     style={{ width: `${((globalIdx + 1) / totalQ) * 100}%` }} />
                             </div>
-                            <QuestionContent
-                                section={section}
-                                question={question}
-                                answers={answers}
-                                currentSectionIdx={currentSectionIdx}
-                                currentQuestionIdx={currentQuestionIdx}
-                                selectAnswer={selectAnswer}
-                                selectAnswerSub={selectAnswerSub}
-                                audioRef={audioRef}
-                                isRealExam={isRealExam}
-                            />
+                            <div className="relative w-full" id="jlpt-question-content-wrapper">
+                                <QuestionContent
+                                    section={section}
+                                    question={question}
+                                    answers={answers}
+                                    currentSectionIdx={currentSectionIdx}
+                                    currentQuestionIdx={currentQuestionIdx}
+                                    selectAnswer={selectAnswer}
+                                    selectAnswerSub={selectAnswerSub}
+                                    audioRef={audioRef}
+                                    isRealExam={isRealExam}
+                                />
+                            </div>
                             
                             {/* Note Section */}
                             {activeTest && (

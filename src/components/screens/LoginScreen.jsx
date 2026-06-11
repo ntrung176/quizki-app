@@ -9,11 +9,9 @@ import {
     signInWithPopup
 } from 'firebase/auth';
 import { doc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore';
-import { auth, db } from '../../config/firebase';
-import { Loader2, Eye, EyeOff, Brain, BookOpen, Gamepad2, Database, Route } from 'lucide-react'
+import { auth, db, appId } from '../../config/firebase';
+import { Loader2, Eye, EyeOff, Brain, BookOpen, Gamepad2, Database, Route } from 'lucide-react';
 import { Link } from 'react-router-dom';
-// Application ID for Firebase paths
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'quizki-app';
 // Cooldown tracking for email sending (prevent too-many-requests)
 let lastVerificationEmailTime = 0;
 let lastPasswordResetTime = 0;

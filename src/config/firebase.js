@@ -33,7 +33,7 @@ try {
 }
 
 // appId dùng chung cho đường dẫn Firestore (artifacts/${appId}/...)
-const appId = import.meta.env.VITE_FIREBASE_APP_ID;
+const appId = import.meta.env.VITE_FIREBASE_APP_ID || 'quizki-app';
 
 export { app, db, auth, appId };
 

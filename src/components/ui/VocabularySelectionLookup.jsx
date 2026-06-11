@@ -15,12 +15,12 @@ const formatReading = (text) => {
 const isLongSentence = (text) => {
     if (!text) return false;
     const cleanText = text.trim();
-    return cleanText.length > 12 || 
-           cleanText.includes('。') || 
-           cleanText.includes('、') || 
-           cleanText.includes('？') || 
-           cleanText.includes('！') ||
-           cleanText.includes('\n');
+    return cleanText.length > 12 ||
+        cleanText.includes('。') ||
+        cleanText.includes('、') ||
+        cleanText.includes('？') ||
+        cleanText.includes('！') ||
+        cleanText.includes('\n');
 };
 
 // Helper to check if a node is partially or fully inside a range
@@ -29,10 +29,10 @@ const isNodeInSelection = (range, node) => {
     try {
         const nodeRange = document.createRange();
         nodeRange.selectNode(node);
-        
+
         const endToStart = range.compareBoundaryPoints(Range.END_TO_START, nodeRange);
         const startToEnd = range.compareBoundaryPoints(Range.START_TO_END, nodeRange);
-        
+
         return endToStart <= 0 && startToEnd >= 0;
     } catch (e) {
         return false;
@@ -47,16 +47,16 @@ const getSelectedTextClean = (selection) => {
         if (range.collapsed) return '';
 
         const clone = range.cloneContents();
-        
+
         // Remove furigana elements (<rt> and <rp>) from the cloned fragment
         const rts = clone.querySelectorAll('rt, rp');
         rts.forEach(el => el.remove());
-        
+
         let cleaned = clone.textContent || '';
-        
+
         // If there's any fallback parenthesized furigana remaining (e.g. 漢字（かんじ）), strip it out
         cleaned = cleaned.replace(/([\u4E00-\u9FAF\u3400-\u4DBF]+)[（\(\[].*?[）\)\]]/g, '$1');
-        
+
         return cleaned.trim();
     } catch (e) {
         console.warn('Failed to parse selection with DOM clone:', e);
@@ -89,7 +89,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
     const [loading, setLoading] = useState(false);
     const [aiResult, setAiResult] = useState(null);
     const [error, setError] = useState('');
-    
+
     // Save to folder state
     const [selectedFolderId, setSelectedFolderId] = useState('unfiled');
     const [saving, setSaving] = useState(false);
@@ -139,7 +139,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                 if (hasJapanese && text && text.length > 0 && text.length <= 300) {
                     const range = selection.getRangeAt(0);
                     const rect = range.getBoundingClientRect();
-                    
+
                     const isFullscreen = !!document.fullscreenElement;
                     const scrollX = isFullscreen ? 0 : window.scrollX;
                     const scrollY = isFullscreen ? 0 : window.scrollY;
@@ -152,10 +152,10 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                         rectTop: rect.top,
                         rectBottom: rect.bottom
                     });
-                    
+
                     setPendingWord(text);
                     setShowButton(true);
-                    
+
                     // Keep details hidden until they click "Tra từ"
                     if (!showDetails) {
                         setAiResult(null);
@@ -269,7 +269,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
 
         window.addEventListener('resize', updatePosition);
         window.addEventListener('scroll', updatePosition, { capture: true, passive: true });
-        
+
         if (window.visualViewport) {
             window.visualViewport.addEventListener('resize', updatePosition);
             window.visualViewport.addEventListener('scroll', updatePosition);
@@ -296,28 +296,28 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
             const rect = cardEl.getBoundingClientRect();
             const cardWidth = rect.width || 320;
             const cardHeight = cardEl.scrollHeight || 400; // Use scrollHeight to avoid layout feedback loop
-            
+
             const currentViewportX = popupPosition.x - scrollX;
             const currentLeft = currentViewportX - cardWidth / 2;
             const currentRight = currentViewportX + cardWidth / 2;
-            
+
             let newOffset = 0;
             const padding = 12; // safe margin from viewport edges
-            
+
             if (currentLeft < padding) {
                 newOffset = padding - currentLeft;
             } else if (currentRight > window.innerWidth - padding) {
                 newOffset = (window.innerWidth - padding) - currentRight;
             }
-            
+
             setHorizontalOffset(newOffset);
-            
+
             const selectionTop = popupPosition.rectTop !== undefined ? popupPosition.rectTop : (popupPosition.y - scrollY);
             const selectionBottom = popupPosition.rectBottom !== undefined ? popupPosition.rectBottom : (selectionTop + (popupPosition.height || 0));
-            
+
             const spaceAbove = selectionTop - padding;
             const spaceBelow = window.innerHeight - selectionBottom - padding;
-            
+
             // Determine placement above or below, and enforce maxHeight to prevent screen overflow
             if (spaceAbove >= cardHeight) {
                 setPlaceBelow(false);
@@ -341,14 +341,14 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
             const btnEl = triggerRef.current;
             const rect = btnEl.getBoundingClientRect();
             const btnWidth = rect.width || 150;
-            
+
             const currentViewportX = popupPosition.x - scrollX;
             const currentLeft = currentViewportX - btnWidth / 2;
             const currentRight = currentViewportX + btnWidth / 2;
-            
+
             let newOffset = 0;
             const padding = 12;
-            
+
             if (currentLeft < padding) {
                 newOffset = padding - currentLeft;
             } else if (currentRight > window.innerWidth - padding) {
@@ -436,7 +436,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
             const level = aiResult?.level || localMatch?.level || '';
             const sinoVietnamese = aiResult?.sinoVietnamese || localSinoVietnamese || '';
             const synonymSinoVietnamese = aiResult?.synonymSinoVietnamese || '';
-            
+
             const success = await handleAddCard({
                 front,
                 back,
@@ -477,11 +477,11 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
         setAiResult(null);
         setError('');
         setSavedSuccessfully(false);
-        
+
         // Clear window selection
         try {
             window.getSelection().removeAllRanges();
-        } catch (err) {}
+        } catch (err) { }
     };
 
     if (disabled || !pendingWord) return null;
@@ -490,12 +490,12 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
     if (!target) return null;
 
     return createPortal(
-        <div 
+        <div
             ref={popupRef}
             className="absolute z-[9999] select-none font-sans"
-            style={{ 
-                left: `${popupPosition.x}px`, 
-                top: `${popupPosition.y}px` 
+            style={{
+                left: `${popupPosition.x}px`,
+                top: `${popupPosition.y}px`
             }}
         >
             {/* 1. Small Floating Trigger Button */}
@@ -517,14 +517,14 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
 
             {/* 2. Vocabulary Details Card */}
             {showDetails && (
-                <div 
+                <div
                     ref={cardRef}
                     className={`bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg border border-slate-200/80 dark:border-slate-800/80 rounded-2xl shadow-2xl p-5 w-80 md:w-96 absolute -translate-x-1/2 animate-fade-in text-slate-800 dark:text-slate-200 ${placeBelow ? 'translate-y-0 mt-2' : '-translate-y-full mb-4'}`}
-                    style={{ 
-                        left: `${horizontalOffset}px`, 
+                    style={{
+                        left: `${horizontalOffset}px`,
                         top: placeBelow ? `${(popupPosition.height || 0) + 8}px` : undefined,
-                        maxHeight: maxHeight, 
-                        overflowY: 'auto' 
+                        maxHeight: maxHeight,
+                        overflowY: 'auto'
                     }}
                 >
                     {/* Header: Title and controls */}
@@ -535,7 +535,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                     <h3 className="text-lg font-black tracking-tight text-slate-900 dark:text-white font-japanese">
                                         {aiResult?.isSentence ? "Dịch câu dài" : formatReading(aiResult?.frontWithFurigana || localMatch?.frontWithFurigana || localMatch?.front || pendingWord)}
                                     </h3>
-                                    <button 
+                                    <button
                                         onClick={handlePlayAudio}
                                         className="p-1.5 rounded-lg bg-indigo-50 dark:bg-slate-800 hover:bg-indigo-100 dark:hover:bg-slate-700 text-indigo-600 dark:text-indigo-400 transition-colors cursor-pointer"
                                         title="Phát âm tiếng Nhật"
@@ -543,7 +543,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                         <Volume2 className="w-4 h-4" />
                                     </button>
                                 </div>
-                                
+
                                 {/* Sino Vietnamese or Reading */}
                                 {!aiResult?.isSentence && (localSinoVietnamese || aiResult?.sinoVietnamese) && (
                                     <p className="text-xs font-bold text-pink-500 mt-0.5 tracking-wide uppercase">
@@ -552,7 +552,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                 )}
                             </div>
 
-                            <button 
+                            <button
                                 onClick={handleCloseAll}
                                 className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg transition-colors cursor-pointer shrink-0"
                             >
@@ -562,9 +562,9 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
 
                         {/* Adjust Selection / Search Term Input */}
                         <div className="flex gap-1.5 items-center w-full">
-                            <input 
-                                type="text" 
-                                value={pendingWord} 
+                            <input
+                                type="text"
+                                value={pendingWord}
                                 onChange={(e) => setPendingWord(e.target.value)}
                                 onKeyDown={(e) => {
                                     if (e.key === 'Enter') {
@@ -572,9 +572,9 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                     }
                                 }}
                                 placeholder="Sửa lại từ cần tra..."
-                                className="flex-1 px-2.5 py-1 text-xs font-bold font-japanese border border-slate-200 dark:border-slate-700/60 rounded-xl bg-slate-50 dark:bg-slate-950/40 text-slate-800 dark:text-white outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" 
+                                className="flex-1 px-2.5 py-1 text-xs font-bold font-japanese border border-slate-200 dark:border-slate-700/60 rounded-xl bg-slate-50 dark:bg-slate-950/40 text-slate-800 dark:text-white outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
                             />
-                            <button 
+                            <button
                                 onClick={handleLookup}
                                 disabled={loading}
                                 className="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-sm transition-all disabled:opacity-50 shrink-0 cursor-pointer"
@@ -609,7 +609,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                 <BookOpen className="w-3 h-3" />
                                 <span>Có trong thư viện của bạn</span>
                             </div>
-                            
+
                             <div className="space-y-3 p-3.5 bg-slate-50 dark:bg-slate-950/40 rounded-xl border border-slate-100 dark:border-slate-850/60 text-xs">
                                 <div>
                                     <span className="text-slate-400 block mb-0.5">Ý nghĩa:</span>
@@ -678,8 +678,8 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                     {aiResult.example && (
                                         <div className="p-3 bg-slate-50 dark:bg-slate-950/20 rounded-xl border border-slate-100 dark:border-slate-850/40">
                                             <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider block mb-1.5">Câu ví dụ:</span>
-                                            <p 
-                                                className="font-japanese text-sm text-slate-850 dark:text-slate-100 font-bold mb-1 leading-relaxed" 
+                                            <p
+                                                className="font-japanese text-sm text-slate-850 dark:text-slate-100 font-bold mb-1 leading-relaxed"
                                                 dangerouslySetInnerHTML={{ __html: aiResult.example }}
                                             />
                                             {aiResult.exampleMeaning && (
@@ -739,7 +739,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                     )}
                 </div>
             )}
-            
+
             {/* Folder Select Modal overlay */}
             {showFolderModal && (() => {
                 const activeFolder = folders.find(f => f.id === selectedModalFolderId);
@@ -753,8 +753,8 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                 {selectedModalFolderId ? `Thư mục: ${activeFolder?.name}` : 'Thêm vào học phần nào?'}
                             </h3>
                             <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-                                {selectedModalFolderId 
-                                    ? 'Chọn một học phần bên trong thư mục này để lưu từ vựng.' 
+                                {selectedModalFolderId
+                                    ? 'Chọn một học phần bên trong thư mục này để lưu từ vựng.'
                                     : 'Chọn học phần hoặc thư mục bạn muốn lưu từ vựng này vào để bắt đầu ôn tập.'
                                 }
                             </p>
@@ -816,10 +816,10 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                             </div>
                             <div className="flex justify-end gap-2">
                                 <button
-                                    onClick={(e) => { 
+                                    onClick={(e) => {
                                         e.stopPropagation();
-                                        setShowFolderModal(false); 
-                                        setSelectedModalFolderId(null); 
+                                        setShowFolderModal(false);
+                                        setSelectedModalFolderId(null);
                                     }}
                                     className="px-4 py-2 bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-700 dark:text-gray-300 rounded-xl font-bold text-sm transition-all"
                                 >
@@ -830,7 +830,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                     </div>
                 );
             })()}
-            
+
             <PremiumLockedModal
                 isOpen={showPremiumModal}
                 onClose={() => setShowPremiumModal(false)}

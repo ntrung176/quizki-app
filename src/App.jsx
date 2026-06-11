@@ -2,9 +2,9 @@ import './App.css';
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { useNavigate, useLocation, Navigate } from 'react-router-dom';
 
-import { initializeApp } from 'firebase/app';
-import { getAuth, onAuthStateChanged, signOut, updatePassword } from 'firebase/auth'
-import { getFirestore, doc, setDoc, addDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, getDocs, writeBatch, increment, collectionGroup, deleteField, where } from 'firebase/firestore'
+import { onAuthStateChanged, signOut, updatePassword } from 'firebase/auth'
+import { doc, setDoc, addDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, getDocs, writeBatch, increment, collectionGroup, deleteField, where } from 'firebase/firestore'
+import { auth, db, appId } from './config/firebase';
 import { Loader2, CheckCircle, HelpCircle, Save, AlertTriangle, Check, X, Filter, Wrench, LogOut, Bell } from 'lucide-react'
 import { PieChart } from 'recharts'
 
@@ -48,29 +48,7 @@ import useVersionCheck from './hooks/useVersionCheck';
 // Import routing component
 import AppRoutes from './components/AppRoutes';
 
-// --- Cấu hình và Tiện ích Firebase ---
-const firebaseConfig = {
-    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-    appId: import.meta.env.VITE_FIREBASE_APP_ID,
-    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
-};
-const appId = firebaseConfig.appId; // dùng chung cho đường dẫn Firestore 
-
-let app;
-let db;
-let auth;
-
-try {
-    app = initializeApp(firebaseConfig);
-    db = getFirestore(app);
-    auth = getAuth(app);
-} catch (e) {
-    console.error("Lỗi khởi tạo Firebase:", e);
-}
+// --- Firebase configuration and utility variables are imported from config/firebase ---
 
 // --- Component Chính App ---
 
@@ -291,7 +269,7 @@ const App = () => {
                 const bTime = b.createdAt?.toDate ? b.createdAt.toDate().getTime() : (b.createdAt || 0);
                 return bTime - aTime;
             });
-            
+
             // Find the latest popup notification
             const popupNotif = list.find(n => n.type === 'popup');
             if (popupNotif) {
@@ -496,7 +474,7 @@ const App = () => {
         });
 
         // Không còn tự động đăng nhập ẩn danh; sẽ để LoginScreen quyết định
-        getSharedBookGroups().catch(() => {});
+        getSharedBookGroups().catch(() => { });
         return () => unsubscribe();
     }, []);
 
@@ -598,7 +576,7 @@ const App = () => {
                         console.warn('Fanfare sound error:', e);
                     }
                     setNotification(`🎉 Chúc mừng! Bạn đã thăng cấp lên Level ${calculatedLevel}: ${calculatedTitle}!`);
-                    
+
                     try {
                         await updateDoc(doc(db, settingsDocPath), {
                             level: calculatedLevel,
@@ -635,7 +613,7 @@ const App = () => {
                         { id: userId, computedScore: prevScore },
                         ...simulatedPrevBots
                     ].sort((a, b) => b.computedScore - a.computedScore);
-                    
+
                     const myRank = allParticipants.findIndex(p => p.id === userId) + 1;
                     const currentIdx = LEAGUES.indexOf(userLeague);
 
@@ -648,9 +626,9 @@ const App = () => {
                     } else {
                         leagueNotification = `📅 Tuần mới đã bắt đầu! Bạn tiếp tục tranh tài tại League ${userLeague} (Xếp hạng tuần trước: ${myRank}).`;
                     }
-                    
+
                     lastLeagueWeekId = currentWeekId;
-                    
+
                     try {
                         await updateDoc(doc(db, settingsDocPath), {
                             league: userLeague,
@@ -1666,7 +1644,7 @@ const App = () => {
 
     const handleAddFolder = async (name, description = '', coverImage = null) => {
         if (!studySetsCollectionPath) return null;
-        
+
         // Kiểm tra giới hạn 3 học phần của gói Miễn phí
         const isRestricted = profile?.trialPricingTier === 'free' || profile?.isPremiumUnlocked === false;
         if (isRestricted && studySets.length >= 3) {
@@ -1704,7 +1682,7 @@ const App = () => {
         try {
             // Remove folder
             await deleteDoc(doc(db, studySetsCollectionPath, folderId));
-            
+
             // Delete all cards inside this folder directly from Firestore
             const q = query(collection(db, vocabCollectionPath), where("folderId", "==", folderId));
             const snapshot = await getDocs(q);
@@ -2676,7 +2654,7 @@ const App = () => {
                 document.documentElement.scrollTop = 0;
                 document.body.scrollTo(0, 0);
                 document.documentElement.scrollTo(0, 0);
-                
+
                 const mainContainer = document.querySelector('.main-with-header');
                 if (mainContainer) {
                     mainContainer.scrollTo(0, 0);
@@ -3854,11 +3832,11 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
 
             {/* Onboarding tour for new users */}
             {userId && (
-                <OnboardingTour 
-                    userId={userId} 
-                    isAdmin={isAdmin} 
-                    section={getSectionFromPath(location.pathname)} 
-                    forceTrigger={tourTrigger} 
+                <OnboardingTour
+                    userId={userId}
+                    isAdmin={isAdmin}
+                    section={getSectionFromPath(location.pathname)}
+                    forceTrigger={tourTrigger}
                 />
             )}
 
@@ -3887,14 +3865,14 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                             {/* Decorative ambient blobs */}
                             <div className="absolute -top-10 -left-10 w-24 h-24 bg-white/20 rounded-full blur-xl animate-pulse"></div>
                             <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-white/20 rounded-full blur-xl"></div>
-                            
+
                             <div className="w-12 h-12 bg-white/25 rounded-full flex items-center justify-center mx-auto mb-3 backdrop-blur-sm shadow-inner animate-bounce">
                                 <Bell className="w-6 h-6 text-white" />
                             </div>
-                            
+
                             <h2 className="text-xl font-black tracking-wide uppercase drop-shadow-md">Thông Báo Hệ Thống</h2>
                         </div>
-                        
+
                         {/* Content */}
                         <div className="p-6 md:p-8 space-y-4">
                             <h3 className="text-lg font-extrabold text-gray-800 dark:text-slate-100 text-center leading-tight">
@@ -3904,7 +3882,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                                 {activePopup.message}
                             </div>
                         </div>
-                        
+
                         {/* Actions */}
                         <div className="p-6 bg-slate-50 dark:bg-slate-900/40 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-center">
                             <button
@@ -3989,7 +3967,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                             <span className="bg-white/25 text-white px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider">TEST MODE</span>
                             <span>Đang giả lập gói: <strong className="underline">{profile.trialPricingTier.toUpperCase()}</strong>. {profile.trialPricingTier === 'free' ? 'Giới hạn: 3 học phần, 20 từ/học phần' : 'Không giới hạn học phần/từ vựng'}</span>
                         </div>
-                        <button 
+                        <button
                             onClick={async () => {
                                 try {
                                     const { doc, updateDoc } = await import('firebase/firestore');
@@ -4081,7 +4059,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                                 onToggleSrs={handleToggleSrs}
                                 onUpdateVocabSrsRating={handleUpdateVocabSrsRating}
                                 onRevertVocabSrsRating={handleRevertVocabSrsRating}
-                                 awardXP={awardXP}
+                                awardXP={awardXP}
                             />
                         </div>
 
