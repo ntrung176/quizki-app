@@ -151,6 +151,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
     const [answers, setAnswers] = useState({}); // { "s0_q0": 2 }
     const [showResult, setShowResult] = useState(false);
     const [isFullscreen, setIsFullscreen] = useState(false);
+    const [showDetailedReview, setShowDetailedReview] = useState(false);
 
     // Real Exam & AI Translation states
     const [pendingStartTest, setPendingStartTest] = useState(null);
@@ -465,6 +466,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             setActiveTest(test);
             setAnswers(saved.answers || {});
             setShowResult(true);
+            setShowDetailedReview(true);
         }
     };
 
@@ -503,6 +505,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         setCompletedTests(newCompleted);
         localStorage.setItem('quizki_completed_tests', JSON.stringify(newCompleted));
         setShowResult(true);
+        setShowDetailedReview(false);
         playCompletionFanfare();
     };
 
@@ -794,22 +797,113 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         })}
                     </div>
                     {/* Detailed review */}
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
-                        <div className="p-5 border-b border-gray-100 dark:border-gray-700">
-                            <h3 className="font-bold text-gray-800 dark:text-white text-lg">📝 Chi tiết câu trả lời</h3>
-                        </div>
-                        <div className="divide-y divide-gray-100 dark:divide-gray-700">
-                            {activeTest.sections.map((sec, si) => (
-                                <div key={si}>
-                                    <div className="px-5 py-3 bg-gray-50 dark:bg-gray-700/50">
-                                        <span className="font-bold text-sm text-gray-700 dark:text-gray-300">{sec.title}</span>
-                                    </div>
-                                    {sec.questions.map((q, qi) => {
-                                        if (q.subQuestions && q.subQuestions.length > 0) {
-                                            const allSubCorrect = q.subQuestions.every((sq, sqi) => answers[subAnswerKey(si, qi, sqi)] === sq.correctAnswer);
+                    {showDetailedReview && (
+                        <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm mt-6 animate-fade-in">
+                            <div className="p-5 border-b border-gray-100 dark:border-gray-700">
+                                <h3 className="font-bold text-gray-800 dark:text-white text-lg">📝 Chi tiết câu trả lời</h3>
+                            </div>
+                            <div className="divide-y divide-gray-100 dark:divide-gray-700">
+                                {activeTest.sections.map((sec, si) => (
+                                    <div key={si}>
+                                        <div className="px-5 py-3 bg-gray-50 dark:bg-gray-700/50">
+                                            <span className="font-bold text-sm text-gray-700 dark:text-gray-300">{sec.title}</span>
+                                        </div>
+                                        {sec.questions.map((q, qi) => {
+                                            if (q.subQuestions && q.subQuestions.length > 0) {
+                                                const allSubCorrect = q.subQuestions.every((sq, sqi) => answers[subAnswerKey(si, qi, sqi)] === sq.correctAnswer);
+                                                return (
+                                                    <div key={qi} className={`p-4 border-l-4 border-indigo-500 ${allSubCorrect ? 'bg-green-50/20 dark:bg-green-950/5' : 'bg-red-50/20 dark:bg-red-950/5'} space-y-4`}>
+                                                        <div className="flex items-start gap-2.5">
+                                                            <div className="w-6 h-6 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center text-[11px] font-extrabold flex-shrink-0 mt-0.5 shadow-sm">
+                                                                {qi + 1}
+                                                            </div>
+                                                            <div className="flex-1 space-y-2">
+                                                                {q.passage && (
+                                                                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.passage }} />
+                                                                )}
+                                                                {q.audioUrl && (
+                                                                    <div className="mb-2">
+                                                                        <audio src={q.audioUrl} controls className="h-7 max-w-full text-xs" />
+                                                                    </div>
+                                                                )}
+                                                                {q.imageUrl && (
+                                                                    <div className="mb-2 max-w-sm rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-white p-1">
+                                                                        <img src={q.imageUrl} alt="Câu hỏi" className="max-h-48 object-contain" />
+                                                                    </div>
+                                                                )}
+                                                                {q.question && (
+                                                                    <p className="font-bold text-gray-800 dark:text-gray-200 text-sm font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.question }} />
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                        {/* Sub-questions Review List */}
+                                                        <div className="pl-8 space-y-3">
+                                                            {q.subQuestions.map((sq, sqi) => {
+                                                                const userAns = answers[subAnswerKey(si, qi, sqi)];
+                                                                const sqCorrect = userAns === sq.correctAnswer;
+                                                                return (
+                                                                    <div key={sqi} className={`p-3 rounded-xl border ${sqCorrect ? 'bg-green-50/40 dark:bg-green-950/10 border-green-200 dark:border-green-900/50' : 'bg-red-50/40 dark:bg-red-950/10 border-red-200 dark:border-red-900/50'} space-y-2`}>
+                                                                        <div className="flex items-start gap-2">
+                                                                            {sqCorrect
+                                                                                ? <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                                                                                : <XCircle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />}
+                                                                            <div className="flex-1">
+                                                                                <p className="text-xs font-bold text-gray-700 dark:text-gray-300 font-japanese leading-relaxed" dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
+                                                                                
+                                                                                {/* Display choices for sub-question */}
+                                                                                <div className="grid grid-cols-1 gap-1.5 mt-2">
+                                                                                    {sq.options?.map((opt, oi) => {
+                                                                                        const isUserSelected = userAns === oi;
+                                                                                        const isOptCorrect = sq.correctAnswer === oi;
+                                                                                        let optStyle = 'bg-slate-50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-700/50 text-slate-700 dark:text-slate-350';
+                                                                                        
+                                                                                        if (isOptCorrect) {
+                                                                                            optStyle = 'bg-green-50 dark:bg-green-950/20 border-green-300 dark:border-green-800/50 text-green-700 dark:text-green-300 font-semibold';
+                                                                                        } else if (isUserSelected && !isOptCorrect) {
+                                                                                            optStyle = 'bg-red-50 dark:bg-red-950/20 border-red-300 dark:border-red-800/50 text-red-700 dark:text-red-300 font-semibold';
+                                                                                        }
+
+                                                                                        return (
+                                                                                            <div key={oi} className={`flex items-center justify-between p-2 rounded-lg border text-[11px] ${optStyle}`}>
+                                                                                                <div className="flex items-center gap-2">
+                                                                                                    <div className={`w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold shrink-0 ${
+                                                                                                        isOptCorrect 
+                                                                                                            ? 'bg-green-600 text-white' 
+                                                                                                            : isUserSelected 
+                                                                                                                ? 'bg-red-600 text-white' 
+                                                                                                                : 'bg-slate-200 dark:bg-slate-700 text-slate-500'
+                                                                                                    }`}>
+                                                                                                        {String.fromCharCode(65 + oi)}
+                                                                                                    </div>
+                                                                                                    <span className="font-japanese" dangerouslySetInnerHTML={{ __html: opt }} />
+                                                                                                </div>
+                                                                                                {isOptCorrect && <Check className="w-3 h-3 text-green-600 dark:text-green-400 shrink-0" />}
+                                                                                                {isUserSelected && !isOptCorrect && <X className="w-3 h-3 text-red-500 dark:text-red-400 shrink-0" />}
+                                                                                            </div>
+                                                                                        );
+                                                                                    })}
+                                                                                </div>
+
+                                                                                {sq.explanation && (
+                                                                                    <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${sq.explanation}` }} />
+                                                                                )}
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                );
+                                                            })}
+                                                        </div>
+                                                    </div>
+                                                );
+                                            }
+                                            const userAns = answers[answerKey(si, qi)];
+                                            const isCorrect = userAns === q.correctAnswer;
                                             return (
-                                                <div key={qi} className={`p-4 border-l-4 border-indigo-500 ${allSubCorrect ? 'bg-green-50/20 dark:bg-green-950/5' : 'bg-red-50/20 dark:bg-red-950/5'} space-y-4`}>
-                                                    <div className="flex items-start gap-2.5">
+                                                <div key={qi} className={`p-4 ${isCorrect ? 'bg-green-50/50 dark:bg-green-900/10' : 'bg-red-50/50 dark:bg-red-900/10'}`}>
+                                                    <div className="flex items-start gap-2.5 mb-2">
+                                                        {isCorrect
+                                                            ? <CheckCircle className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                                                            : <XCircle className="w-5 h-5 text-red-500 mt-1 flex-shrink-0" />}
                                                         <div className="w-6 h-6 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center text-[11px] font-extrabold flex-shrink-0 mt-0.5 shadow-sm">
                                                             {qi + 1}
                                                         </div>
@@ -827,100 +921,69 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                                     <img src={q.imageUrl} alt="Câu hỏi" className="max-h-48 object-contain" />
                                                                 </div>
                                                             )}
-                                                            {q.question && (
-                                                                <p className="font-bold text-gray-800 dark:text-gray-200 text-sm font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.question }} />
+                                                            <p className="font-medium text-gray-800 dark:text-gray-200 text-sm font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.question }} />
+                                                            
+                                                            {/* Display choices for question */}
+                                                            <div className="grid grid-cols-1 gap-2 mt-3 pl-2">
+                                                                {q.options?.map((opt, oi) => {
+                                                                    const isUserSelected = userAns === oi;
+                                                                    const isOptCorrect = q.correctAnswer === oi;
+                                                                    let optStyle = 'bg-slate-50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-700/50 text-slate-700 dark:text-slate-350';
+                                                                    
+                                                                    if (isOptCorrect) {
+                                                                        optStyle = 'bg-green-50 dark:bg-green-950/20 border-green-300 dark:border-green-800/50 text-green-700 dark:text-green-300 font-semibold';
+                                                                    } else if (isUserSelected && !isOptCorrect) {
+                                                                        optStyle = 'bg-red-50 dark:bg-red-950/20 border-red-300 dark:border-red-800/50 text-red-700 dark:text-red-300 font-semibold';
+                                                                    }
+
+                                                                    return (
+                                                                        <div key={oi} className={`flex items-center justify-between p-3 rounded-xl border text-xs ${optStyle}`}>
+                                                                            <div className="flex items-center gap-2">
+                                                                                <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 ${
+                                                                                    isOptCorrect 
+                                                                                        ? 'bg-green-600 text-white' 
+                                                                                        : isUserSelected 
+                                                                                            ? 'bg-red-600 text-white' 
+                                                                                            : 'bg-slate-200 dark:bg-slate-700 text-slate-500'
+                                                                                }`}>
+                                                                                    {String.fromCharCode(65 + oi)}
+                                                                                </div>
+                                                                                <span className="font-japanese" dangerouslySetInnerHTML={{ __html: opt }} />
+                                                                            </div>
+                                                                            {isOptCorrect && <Check className="w-3.5 h-3.5 text-green-600 dark:text-green-400 shrink-0" />}
+                                                                            {isUserSelected && !isOptCorrect && <X className="w-3.5 h-3.5 text-red-500 dark:text-red-400 shrink-0" />}
+                                                                        </div>
+                                                                    );
+                                                                })}
+                                                            </div>
+
+                                                            {q.explanation && (
+                                                                <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${q.explanation}` }} />
                                                             )}
                                                         </div>
                                                     </div>
-                                                    {/* Sub-questions Review List */}
-                                                    <div className="pl-8 space-y-3">
-                                                        {q.subQuestions.map((sq, sqi) => {
-                                                            const userAns = answers[subAnswerKey(si, qi, sqi)];
-                                                            const sqCorrect = userAns === sq.correctAnswer;
-                                                            return (
-                                                                <div key={sqi} className={`p-3 rounded-xl border ${sqCorrect ? 'bg-green-50/40 dark:bg-green-950/10 border-green-200 dark:border-green-900/50' : 'bg-red-50/40 dark:bg-red-950/10 border-red-200 dark:border-red-900/50'} space-y-1.5`}>
-                                                                    <div className="flex items-start gap-2">
-                                                                        {sqCorrect
-                                                                            ? <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                                                            : <XCircle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />}
-                                                                        <div className="flex-1">
-                                                                            <p className="text-xs font-bold text-gray-700 dark:text-gray-300 font-japanese leading-relaxed font-semibold" dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
-                                                                            {userAns !== undefined && (
-                                                                                <p className="text-xs mt-1">
-                                                                                    <span className="text-gray-500">Bạn chọn: </span>
-                                                                                    <span className={`${sqCorrect ? 'text-green-600 dark:text-green-400 font-bold font-japanese' : 'text-red-600 dark:text-red-400 font-bold line-through font-japanese'} whitespace-pre-line`} dangerouslySetInnerHTML={{ __html: sq.options[userAns] }} />
-                                                                                </p>
-                                                                            )}
-                                                                            {!sqCorrect && (
-                                                                                <p className="text-xs mt-1">
-                                                                                    <span className="text-gray-500">Đáp án: </span>
-                                                                                    <span className="text-green-600 dark:text-green-400 font-bold font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: sq.options[sq.correctAnswer] }} />
-                                                                                </p>
-                                                                            )}
-                                                                            {sq.explanation && (
-                                                                                <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-1 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${sq.explanation}` }} />
-                                                                            )}
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            );
-                                                        })}
-                                                    </div>
                                                 </div>
                                             );
-                                        }
-                                        const userAns = answers[answerKey(si, qi)];
-                                        const isCorrect = userAns === q.correctAnswer;
-                                        return (
-                                            <div key={qi} className={`p-4 ${isCorrect ? 'bg-green-50/50 dark:bg-green-900/10' : 'bg-red-50/50 dark:bg-red-900/10'}`}>
-                                                <div className="flex items-start gap-2.5 mb-2">
-                                                    {isCorrect
-                                                        ? <CheckCircle className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
-                                                        : <XCircle className="w-5 h-5 text-red-500 mt-1 flex-shrink-0" />}
-                                                    <div className="w-6 h-6 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center text-[11px] font-extrabold flex-shrink-0 mt-0.5 shadow-sm">
-                                                        {qi + 1}
-                                                    </div>
-                                                    <div className="flex-1 space-y-2">
-                                                        {q.passage && (
-                                                            <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.passage }} />
-                                                        )}
-                                                        {q.audioUrl && (
-                                                            <div className="mb-2">
-                                                                <audio src={q.audioUrl} controls className="h-7 max-w-full text-xs" />
-                                                            </div>
-                                                        )}
-                                                        {q.imageUrl && (
-                                                            <div className="mb-2 max-w-sm rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-white p-1">
-                                                                <img src={q.imageUrl} alt="Câu hỏi" className="max-h-48 object-contain" />
-                                                            </div>
-                                                        )}
-                                                        <p className="font-medium text-gray-800 dark:text-gray-200 text-sm font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.question }} />
-                                                        {userAns !== undefined && (
-                                                            <p className="text-xs mt-1">
-                                                                <span className="text-gray-500">Bạn chọn: </span>
-                                                                <span className={`${isCorrect ? 'text-green-600 dark:text-green-400 font-bold font-japanese' : 'text-red-600 dark:text-red-400 font-bold line-through font-japanese'} whitespace-pre-line`} dangerouslySetInnerHTML={{ __html: q.options[userAns] }} />
-                                                            </p>
-                                                        )}
-                                                        {!isCorrect && (
-                                                            <p className="text-xs mt-1">
-                                                                <span className="text-gray-500">Đáp án: </span>
-                                                                <span className="text-green-600 dark:text-green-400 font-bold font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.options[q.correctAnswer] }} />
-                                                            </p>
-                                                        )}
-                                                        {q.explanation && (
-                                                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${q.explanation}` }} />
-                                                        )}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            ))}
+                                        })}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    )}
+                    
                     {/* Actions */}
-                    <div className="flex gap-3">
+                    <div className="flex flex-col sm:flex-row gap-3">
+                        <button 
+                            onClick={() => setShowDetailedReview(!showDetailedReview)} 
+                            className={`flex-1 py-3 rounded-xl font-bold transition flex items-center justify-center gap-1.5 border-2 ${
+                                showDetailedReview
+                                    ? 'bg-slate-105 dark:bg-slate-700 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-600'
+                                    : 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800/50 hover:bg-indigo-100'
+                            }`}
+                        >
+                            <FileText className="w-5 h-5" />
+                            {showDetailedReview ? 'Ẩn chi tiết bài làm' : 'Xem lại bài làm & đáp án'}
+                        </button>
                         <button onClick={() => startTest(activeTest)} className="flex-1 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition">
                             Làm lại
                         </button>
@@ -1494,15 +1557,26 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                             )}
                                             {status === 'retry' && (
                                                 <>
-                                                    <span className="text-xs font-bold text-rose-500">
-                                                        Lần cuối: {completedInfo?.percentage}%
-                                                    </span>
-                                                    <button
-                                                        onClick={() => startTest(test)}
-                                                        className="w-8 h-8 rounded-full bg-rose-500 hover:bg-rose-600 text-white flex items-center justify-center transition-all cursor-pointer shadow-md hover:scale-105"
-                                                    >
-                                                        <Play className="w-4 h-4 ml-0.5 fill-current" />
-                                                    </button>
+                                                    <div className="flex items-center gap-1.5">
+                                                        <XCircle className="w-4 h-4 text-rose-500" />
+                                                        <span className="text-xs font-extrabold text-rose-600 dark:text-rose-400">
+                                                            Lần cuối: {completedInfo?.percentage}%
+                                                        </span>
+                                                    </div>
+                                                    <div className="flex items-center gap-2">
+                                                        <button
+                                                            onClick={() => reviewTest(test)}
+                                                            className="text-xs font-bold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 flex items-center gap-1 hover:underline cursor-pointer"
+                                                        >
+                                                            Xem lại <ChevronRight className="w-3.5 h-3.5" />
+                                                        </button>
+                                                        <button
+                                                            onClick={() => startTest(test)}
+                                                            className="w-8 h-8 rounded-full bg-rose-500 hover:bg-rose-600 text-white flex items-center justify-center transition-all cursor-pointer shadow-md hover:scale-105"
+                                                        >
+                                                            <Play className="w-4 h-4 ml-0.5 fill-current" />
+                                                        </button>
+                                                    </div>
                                                 </>
                                             )}
                                             {(status === 'new' || status === 'not_started') && (
@@ -1878,15 +1952,26 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                 )}
                                                 {status === 'retry' && (
                                                     <>
-                                                        <span className="text-xs font-bold text-rose-500">
-                                                            Lần cuối: {completedInfo?.percentage}%
-                                                        </span>
-                                                        <button
-                                                            onClick={() => startTest(test)}
-                                                            className="w-8 h-8 rounded-full bg-rose-500 hover:bg-rose-600 text-white flex items-center justify-center transition-all cursor-pointer shadow-md hover:scale-105"
-                                                        >
-                                                            <Play className="w-4 h-4 ml-0.5 fill-current" />
-                                                        </button>
+                                                        <div className="flex items-center gap-1.5">
+                                                            <XCircle className="w-4 h-4 text-rose-500" />
+                                                            <span className="text-xs font-extrabold text-rose-600 dark:text-rose-400">
+                                                                Lần cuối: {completedInfo?.percentage}%
+                                                            </span>
+                                                        </div>
+                                                        <div className="flex items-center gap-2">
+                                                            <button
+                                                                onClick={() => reviewTest(test)}
+                                                                className="text-xs font-bold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 flex items-center gap-1 hover:underline cursor-pointer"
+                                                            >
+                                                                Xem lại <ChevronRight className="w-3.5 h-3.5" />
+                                                            </button>
+                                                            <button
+                                                                onClick={() => startTest(test)}
+                                                                className="w-8 h-8 rounded-full bg-rose-500 hover:bg-rose-600 text-white flex items-center justify-center transition-all cursor-pointer shadow-md hover:scale-105"
+                                                            >
+                                                                <Play className="w-4 h-4 ml-0.5 fill-current" />
+                                                            </button>
+                                                        </div>
                                                     </>
                                                 )}
                                                 {(status === 'new' || status === 'not_started') && (
