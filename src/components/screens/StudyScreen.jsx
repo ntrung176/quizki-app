@@ -114,15 +114,15 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
                     if (!answered) {
                         cls += 'bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-gray-200/80 dark:border-slate-600/80 hover:border-indigo-400 dark:hover:border-indigo-500 hover:bg-indigo-50/80 dark:hover:bg-indigo-900/30 text-gray-800 dark:text-gray-200 cursor-pointer';
                     } else if (isCorrectOpt) {
-                        cls += 'bg-emerald-50 dark:bg-emerald-900/30 border-emerald-400 text-emerald-800 dark:text-emerald-300';
+                        cls += 'bg-emerald-50 dark:bg-emerald-900/30 border-emerald-400 text-emerald-800 dark:text-emerald-300 cursor-default';
                     } else if (isSelected && !isCorrectOpt) {
-                        cls += 'bg-red-50 dark:bg-red-900/30 border-red-400 text-red-800 dark:text-red-300';
+                        cls += 'bg-red-50 dark:bg-red-900/30 border-red-400 text-red-800 dark:text-red-300 cursor-default';
                     } else {
-                        cls += 'bg-gray-50 dark:bg-slate-800/60 border-gray-200 dark:border-slate-700 text-gray-400 dark:text-gray-500 opacity-60';
+                        cls += 'bg-gray-50 dark:bg-slate-800/60 border-gray-200 dark:border-slate-700 text-gray-400 dark:text-gray-500 opacity-60 cursor-default';
                     }
                     return (
-                        <button key={i} onClick={() => handleSelect(opt)} className={cls} disabled={answered}>
-                            <span className="w-7 h-7 rounded-lg bg-gray-100 dark:bg-slate-700 text-xs font-black flex items-center justify-center flex-shrink-0 text-gray-500 dark:text-gray-400">
+                        <div key={i} onClick={() => { if (!answered) handleSelect(opt); }} className={cls}>
+                            <span className="w-7 h-7 rounded-lg bg-gray-100 dark:bg-slate-700 text-xs font-black flex items-center justify-center flex-shrink-0 text-gray-500 dark:text-gray-400 select-none">
                                 {i + 1}
                             </span>
                             <span className="font-japanese text-lg font-bold">
@@ -130,7 +130,7 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
                             </span>
                             {answered && isCorrectOpt && <Check className="ml-auto w-5 h-5 text-emerald-500 flex-shrink-0" />}
                             {answered && isSelected && !isCorrectOpt && <X className="ml-auto w-5 h-5 text-red-500 flex-shrink-0" />}
-                        </button>
+                        </div>
                     );
                 })}
             </div>

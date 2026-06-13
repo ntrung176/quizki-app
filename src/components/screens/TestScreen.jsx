@@ -392,11 +392,10 @@ const TestScreen = ({ allCards, onBack }) => {
                                 const showCorrect = isAnswered && isCorrect;
                                 const showWrong = isAnswered && isSelected && !isCorrect;
                                 return (
-                                    <button
+                                    <div
                                         key={idx}
-                                        onClick={(e) => handleAnswerSelect(option, e)}
-                                        disabled={isAnswered}
-                                        className={`w-full p-4 rounded-xl text-left font-medium transition-all ${showCorrect
+                                        onClick={(e) => { if (!isAnswered) handleAnswerSelect(option, e); }}
+                                        className={`w-full p-4 rounded-xl text-left font-medium transition-all border-2 ${showCorrect
                                             ? 'bg-green-100 dark:bg-green-900/30 border-2 border-green-500 dark:border-green-600 text-green-800 dark:text-green-300'
                                             : showWrong
                                                 ? 'bg-red-100 dark:bg-red-900/30 border-2 border-red-500 dark:border-red-600 text-red-800 dark:text-red-300'
@@ -410,7 +409,7 @@ const TestScreen = ({ allCards, onBack }) => {
                                             {showCorrect && <Check className="w-5 h-5" />}
                                             {showWrong && <X className="w-5 h-5" />}
                                         </div>
-                                    </button>
+                                    </div>
                                 );
                             })}
                         </div>

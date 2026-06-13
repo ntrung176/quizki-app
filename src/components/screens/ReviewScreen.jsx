@@ -1417,8 +1417,14 @@ const ReviewScreen = ({
                                             buttonClass += "bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:border-indigo-400";
                                         }
 
+                                        if (isRevealed || isProcessing || !!feedback) {
+                                            buttonClass += " cursor-default";
+                                        } else {
+                                            buttonClass += " cursor-pointer";
+                                        }
+
                                         return (
-                                            <button
+                                            <div
                                                 key={index}
                                                 data-mc-option={index}
                                                 onClick={async () => {
@@ -1504,12 +1510,11 @@ const ReviewScreen = ({
                                                         setSelectedAnswer(null);
                                                     }
                                                 }}
-                                                disabled={isRevealed || isProcessing || !!feedback}
                                                 className={buttonClass}
                                             >
-                                                <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/20 text-xs font-bold flex-shrink-0">{index + 1}</span>
+                                                <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/20 text-xs font-bold flex-shrink-0 select-none">{index + 1}</span>
                                                 <span className="font-japanese"><FuriganaText text={option} forceHide={cardReviewType === 'synonym' ? !synonymFuriganaEnabled : (cardReviewType === 'example' ? !exampleFuriganaEnabled : false)} /></span>
-                                            </button>
+                                            </div>
                                         );
                                     })}
                                 </div>

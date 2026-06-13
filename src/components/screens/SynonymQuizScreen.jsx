@@ -347,21 +347,21 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                             if (!isRevealed) {
                                 cls += 'bg-gray-50 dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-purple-400 dark:hover:border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/20 text-gray-800 dark:text-gray-200 cursor-pointer';
                             } else if (isCorrect) {
-                                cls += 'bg-green-50 dark:bg-green-900/20 border-green-400 dark:border-green-600 text-green-700 dark:text-green-400';
+                                cls += 'bg-green-50 dark:bg-green-900/20 border-green-400 dark:border-green-600 text-green-700 dark:text-green-400 cursor-default';
                             } else if (isSelected && !isCorrect) {
-                                cls += 'bg-red-50 dark:bg-red-900/20 border-red-400 dark:border-red-600 text-red-700 dark:text-red-400';
+                                cls += 'bg-red-50 dark:bg-red-900/20 border-red-400 dark:border-red-600 text-red-700 dark:text-red-400 cursor-default';
                             } else {
-                                cls += 'bg-gray-50 dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-400 dark:text-gray-500 opacity-60';
+                                cls += 'bg-gray-50 dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-400 dark:text-gray-500 opacity-60 cursor-default';
                             }
                             return (
-                                <button key={i} onClick={() => handleSelect(option)} className={cls} disabled={isRevealed}>
+                                <div key={i} onClick={() => { if (!isRevealed) handleSelect(option); }} className={cls}>
                                     <span className="flex items-center gap-3">
-                                        <span className="w-7 h-7 rounded-full bg-gray-200 dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-gray-500 dark:text-gray-400 flex-shrink-0">{i + 1}</span>
+                                        <span className="w-7 h-7 rounded-full bg-gray-200 dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-gray-500 dark:text-gray-400 flex-shrink-0 select-none">{i + 1}</span>
                                         <span className="font-japanese"><FuriganaText text={option} forceHide={!synonymFuriganaEnabled} /></span>
                                         {isRevealed && isCorrect && <CheckCircle className="w-5 h-5 text-green-500 ml-auto flex-shrink-0" />}
                                         {isRevealed && isSelected && !isCorrect && <XCircle className="w-5 h-5 text-red-500 ml-auto flex-shrink-0" />}
                                     </span>
-                                </button>
+                                </div>
                             );
                         })}
                     </div>

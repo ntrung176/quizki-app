@@ -4,7 +4,7 @@ import { PremiumLockedModal } from '../ui';
 import { collection, query, onSnapshot, orderBy, doc, updateDoc } from 'firebase/firestore'
 import { db, appId } from '../../config/firebase';
 import { Link, useNavigate } from 'react-router-dom';
-import { FileCheck, Play, ChevronRight, ChevronLeft, Maximize, Minimize, X, Check, CheckCircle, XCircle, Languages, BookOpen, FileText, Headphones, Timer, Volume2, AlertTriangle, Award, Lock, Unlock, Crown, Calendar, Edit3, Settings, Sparkle, ShieldAlert, Pencil } from 'lucide-react'
+import { FileCheck, Play, ChevronRight, ChevronLeft, Maximize, Minimize, X, Check, CheckCircle, XCircle, Languages, BookOpen, FileText, Headphones, Timer, Volume2, AlertTriangle, Award, Lock, Unlock, Crown, Calendar, Edit3, Settings, Sparkle, ShieldAlert, Pencil, Save } from 'lucide-react'
 import { ROUTES } from '../../router';
 import { aiTranslateSentence } from '../../utils/aiProvider';
 import { playCompletionFanfare } from '../../utils/soundEffects';
@@ -81,13 +81,13 @@ const QuestionContent = React.memo(({
                                         const key = subAnswerKey(currentSectionIdx, currentQuestionIdx, sqi);
                                         const isSelected = answers[key] === oi;
                                         return (
-                                            <button key={oi} onClick={() => selectAnswerSub(currentSectionIdx, currentQuestionIdx, sqi, oi)}
-                                                className={`w-full p-3.5 rounded-xl text-left text-xs font-medium transition-all border-2 ${isSelected
+                                            <div key={oi} onClick={() => selectAnswerSub(currentSectionIdx, currentQuestionIdx, sqi, oi)}
+                                                className={`w-full p-3.5 rounded-xl text-left text-xs font-medium transition-all border-2 cursor-pointer ${isSelected
                                                     ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
                                                     : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10'
                                                     }`}>
                                                 <div className="flex items-center gap-2.5">
-                                                    <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${isSelected
+                                                    <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 select-none ${isSelected
                                                         ? 'bg-indigo-600 text-white'
                                                         : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400'
                                                         }`}>
@@ -95,7 +95,7 @@ const QuestionContent = React.memo(({
                                                     </div>
                                                     <span className="font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: opt }} />
                                                 </div>
-                                            </button>
+                                            </div>
                                         );
                                     })}
                                 </div>
@@ -109,13 +109,13 @@ const QuestionContent = React.memo(({
                         const key = answerKey(currentSectionIdx, currentQuestionIdx);
                         const isSelected = answers[key] === oi;
                         return (
-                            <button key={oi} onClick={() => selectAnswer(currentSectionIdx, currentQuestionIdx, oi)}
-                                className={`w-full p-4 rounded-xl text-left font-medium transition-all border-2 ${isSelected
+                            <div key={oi} onClick={() => selectAnswer(currentSectionIdx, currentQuestionIdx, oi)}
+                                className={`w-full p-4 rounded-xl text-left font-medium transition-all border-2 cursor-pointer ${isSelected
                                     ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
                                     : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10'
                                     }`}>
                                 <div className="flex items-center gap-3">
-                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 ${isSelected
+                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 select-none ${isSelected
                                         ? 'bg-indigo-600 text-white'
                                         : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
                                         }`}>
@@ -123,7 +123,7 @@ const QuestionContent = React.memo(({
                                     </div>
                                     <span className="font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: opt }} />
                                 </div>
-                            </button>
+                            </div>
                         );
                     })}
                 </div>
@@ -141,6 +141,13 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
     const [loading, setLoading] = useState(true);
     const [selectedLevel, setSelectedLevel] = useState('N2'); // Set default level filter to N2 matching user's request/screenshot
     const [completedTests, setCompletedTests] = useState({});
+    const [savedProgresses, setSavedProgresses] = useState(() => {
+        try {
+            return JSON.parse(localStorage.getItem('quizki_jlpt_saved_progresses') || '{}');
+        } catch (e) {
+            return {};
+        }
+    });
     const [notification, setNotification] = useState(null);
     const [selectedSkillPractice, setSelectedSkillPractice] = useState(null); // { type, label, tests }
     const [selectedFullExamLevel, setSelectedFullExamLevel] = useState(null); // 'N5', 'N4', 'N3', 'N2', 'N1'
@@ -754,6 +761,13 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         };
         setCompletedTests(newCompleted);
         localStorage.setItem('quizki_completed_tests', JSON.stringify(newCompleted));
+
+        // Clear saved progress for this test
+        const newProgresses = { ...savedProgresses };
+        delete newProgresses[activeTest.id];
+        setSavedProgresses(newProgresses);
+        localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
+
         setShowResult(true);
         setShowDetailedReview(false);
         playCompletionFanfare();
@@ -776,6 +790,149 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         setActiveTest(null);
         setShowResult(false);
         setAnswers({});
+    };
+
+    // Resume saved test progress
+    const resumeTest = (test) => {
+        const progress = savedProgresses[test.id];
+        if (!progress) return;
+        setPendingStartTest(null);
+        setActiveTest(test);
+        setIsRealExam(false);
+        setViolationCount(0);
+        setShowViolationWarning(false);
+        setShowFullscreenRequired(false);
+        setTranslations({});
+        
+        setCurrentSectionIdx(progress.currentSectionIdx || 0);
+        setCurrentQuestionIdx(progress.currentQuestionIdx || 0);
+        setAnswers(progress.answers || {});
+        setShowResult(false);
+        
+        setTestStartTime(Date.now() - (progress.timeSpentSoFar || 0) * 1000);
+        setWasRealExam(false);
+        setTimeRemaining(0);
+        setTimerActive(false);
+        sessionStorage.removeItem('realExamModeActive');
+        window.dispatchEvent(new Event('realExamModeChange'));
+    };
+
+    // Save practice progress and exit
+    const saveProgressAndExit = () => {
+        if (!activeTest) return;
+        
+        const elapsed = Math.round((Date.now() - (testStartTime || Date.now())) / 1000);
+        
+        const progressData = {
+            answers: answers,
+            currentSectionIdx: currentSectionIdx,
+            currentQuestionIdx: currentQuestionIdx,
+            timeSpentSoFar: elapsed,
+            date: new Date().toISOString()
+        };
+        
+        const newProgresses = {
+            ...savedProgresses,
+            [activeTest.id]: progressData
+        };
+        
+        setSavedProgresses(newProgresses);
+        localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
+        
+        setNotification('Đã lưu tiến trình bài làm thành công!');
+        
+        // Exit the test taking screen
+        setTimerActive(false);
+        clearInterval(timerRef.current);
+        setIsRealExam(false);
+        sessionStorage.removeItem('realExamModeActive');
+        window.dispatchEvent(new Event('realExamModeChange'));
+        if (document.fullscreenElement) {
+            try {
+                document.exitFullscreen?.().catch(() => {});
+            } catch (e) {}
+        }
+        setActiveTest(null);
+        setShowResult(false);
+        setAnswers({});
+    };
+
+    // Confirm functions to prevent overwriting
+    const startNewPracticeConfirm = (test) => {
+        const initNew = () => {
+            const newProgresses = { ...savedProgresses };
+            delete newProgresses[test.id];
+            setSavedProgresses(newProgresses);
+            localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
+            initTest(test, 'practice');
+        };
+
+        const hasSaved = !!savedProgresses[test.id];
+        if (hasSaved) {
+            window.showConfirm("Bắt đầu bài mới sẽ xóa tiến trình làm bài đã lưu trước đó của đề này. Bạn có muốn tiếp tục?", {
+                title: "Bắt đầu luyện tập mới",
+                confirmText: "Bắt đầu mới",
+                cancelText: "Hủy bỏ",
+                type: "warning"
+            }).then(ok => {
+                if (ok) initNew();
+            });
+        } else {
+            initNew();
+        }
+    };
+
+    const startRealExamConfirm = (test) => {
+        const initNew = () => {
+            const newProgresses = { ...savedProgresses };
+            delete newProgresses[test.id];
+            setSavedProgresses(newProgresses);
+            localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
+            initTest(test, 'real');
+        };
+
+        const hasSaved = !!savedProgresses[test.id];
+        if (hasSaved) {
+            window.showConfirm("Bắt đầu thi thử thực tế sẽ xóa tiến trình làm bài luyện tập đã lưu của đề này. Bạn có muốn tiếp tục?", {
+                title: "Bắt đầu thi thực tế",
+                confirmText: "Bắt đầu thi",
+                cancelText: "Hủy bỏ",
+                type: "warning"
+            }).then(ok => {
+                if (ok) initNew();
+            });
+        } else {
+            initNew();
+        }
+    };
+
+    // Exit click prompt
+    const handleExitTestClick = () => {
+        if (!isRealExam) {
+            window.showConfirm("Bạn có muốn lưu tiến trình làm bài hiện tại trước khi thoát không?", {
+                title: "Thoát bài thi",
+                confirmText: "Lưu và thoát",
+                cancelText: "Thoát không lưu",
+                type: "info"
+            }).then(ok => {
+                if (ok) {
+                    saveProgressAndExit();
+                } else {
+                    exitTest();
+                }
+            });
+        } else {
+            window.showConfirm("Chế độ thi thực tế không thể lưu tiến trình. Bạn có chắc chắn muốn thoát và hủy bài làm không?", {
+                title: "Thoát bài thi thực tế",
+                confirmText: "Thoát và hủy",
+                cancelText: "Hủy bỏ",
+                type: "danger"
+            }).then(ok => {
+                if (ok) {
+                    exitTest();
+                }
+            });
+        }
     };
     // Answer handling
     const answerKey = (si, qi) => `s${si}_q${qi}`;
@@ -861,6 +1018,25 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
 
     const renderModeSelectionModal = () => {
         if (!pendingStartTest) return null;
+        const savedProgress = savedProgresses[pendingStartTest.id];
+        
+        let totalQ = 0;
+        if (pendingStartTest.sections) {
+            pendingStartTest.sections.forEach(sec => {
+                if (sec.questions) {
+                    sec.questions.forEach(q => {
+                        if (q.subQuestions && q.subQuestions.length > 0) {
+                            totalQ += q.subQuestions.length;
+                        } else {
+                            totalQ++;
+                        }
+                    });
+                }
+            });
+        }
+
+        const answeredSaved = savedProgress ? Object.keys(savedProgress.answers || {}).length : 0;
+
         return (
             <div className="fixed inset-0 z-[9999] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in font-sans">
                 <div className="bg-white dark:bg-slate-800 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-100 dark:border-slate-700/60 transform transition-all scale-100">
@@ -882,13 +1058,43 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                         <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Vui lòng chọn chế độ làm bài thi phù hợp với nhu cầu của bạn:</p>
                         
                         <div className="grid grid-cols-1 gap-4">
+                            {/* Resume Progress Option if available */}
+                            {savedProgress && (
+                                <div 
+                                    onClick={() => {
+                                        document.documentElement?.requestFullscreen?.().catch(err => {
+                                            console.error("Failed to request fullscreen:", err);
+                                        });
+                                        resumeTest(pendingStartTest);
+                                    }}
+                                    className="group border-2 border-emerald-500 dark:border-emerald-500 rounded-2xl p-4 cursor-pointer transition-all hover:shadow-md bg-emerald-50/10 dark:bg-emerald-950/10 hover:bg-white dark:hover:bg-slate-800 flex items-start gap-3.5"
+                                >
+                                    <div className="p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform">
+                                        <Play className="w-5 h-5" />
+                                    </div>
+                                    <div className="flex-1">
+                                        <div className="flex items-center justify-between">
+                                            <h4 className="text-sm font-extrabold text-slate-800 dark:text-white flex items-center gap-1.5">
+                                                Tiếp tục làm bài
+                                                <span className="px-2 py-0.5 text-[9px] font-extrabold uppercase bg-emerald-600 text-white rounded">Tiến trình</span>
+                                            </h4>
+                                            <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                                        </div>
+                                        <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                                            Tiếp tục làm bài từ ngày {new Date(savedProgress.date).toLocaleDateString('vi-VN')} {new Date(savedProgress.date).toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'})}. 
+                                            Đã làm: <strong className="text-emerald-600 dark:text-emerald-400">{answeredSaved}/{totalQ}</strong> câu.
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
+
                             {/* Practice Mode Card */}
                             <div 
                                 onClick={() => {
                                     document.documentElement?.requestFullscreen?.().catch(err => {
                                         console.error("Failed to request fullscreen:", err);
                                     });
-                                    initTest(pendingStartTest, 'practice');
+                                    startNewPracticeConfirm(pendingStartTest);
                                 }}
                                 className="group border-2 border-slate-200 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-500 rounded-2xl p-4 cursor-pointer transition-all hover:shadow-md bg-slate-50/50 dark:bg-slate-900/30 hover:bg-white dark:hover:bg-slate-800 flex items-start gap-3.5"
                             >
@@ -897,10 +1103,15 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                 </div>
                                 <div className="flex-1">
                                     <div className="flex items-center justify-between">
-                                        <h4 className="text-sm font-extrabold text-slate-800 dark:text-white">Chế độ Luyện tập</h4>
+                                        <h4 className="text-sm font-extrabold text-slate-800 dark:text-white">
+                                            {savedProgress ? 'Bắt đầu Luyện tập mới' : 'Chế độ Luyện tập'}
+                                        </h4>
                                         <ChevronRight className="w-4 h-4 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
                                     </div>
-                                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">Làm bài thoải mái. Hỗ trợ tra từ vựng AI trực tiếp (bôi đen văn bản) và dịch nghĩa câu hỏi, bài đọc bằng AI helper.</p>
+                                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                                        Làm bài thoải mái. Hỗ trợ tra từ vựng AI trực tiếp (bôi đen văn bản) và dịch nghĩa câu hỏi, bài đọc bằng AI helper.
+                                        {savedProgress && <span className="block mt-1 text-amber-600 dark:text-amber-500 font-bold">⚠️ Lưu ý: Sẽ ghi đè tiến trình đã lưu của đề này!</span>}
+                                    </p>
                                 </div>
                             </div>
 
@@ -910,7 +1121,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     document.documentElement?.requestFullscreen?.().catch(err => {
                                         console.error("Failed to request fullscreen:", err);
                                     });
-                                    initTest(pendingStartTest, 'real');
+                                    startRealExamConfirm(pendingStartTest);
                                 }}
                                 className="group border-2 border-slate-200 dark:border-slate-700 hover:border-rose-500 dark:hover:border-rose-500 rounded-2xl p-4 cursor-pointer transition-all hover:shadow-md bg-slate-50/50 dark:bg-slate-900/30 hover:bg-white dark:hover:bg-slate-800 flex items-start gap-3.5"
                             >
@@ -1116,7 +1327,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                                                         return (
                                                                                             <div key={oi} className={`flex items-center justify-between p-2 rounded-lg border text-[11px] ${optStyle}`}>
                                                                                                 <div className="flex items-center gap-2">
-                                                                                                    <div className={`w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold shrink-0 ${
+                                                                                                    <div className={`w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold shrink-0 select-none ${
                                                                                                         isOptCorrect 
                                                                                                             ? 'bg-green-600 text-white' 
                                                                                                             : isUserSelected 
@@ -1192,7 +1403,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                                     return (
                                                                         <div key={oi} className={`flex items-center justify-between p-3 rounded-xl border text-xs ${optStyle}`}>
                                                                             <div className="flex items-center gap-2">
-                                                                                <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 ${
+                                                                                <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 select-none ${
                                                                                     isOptCorrect 
                                                                                         ? 'bg-green-600 text-white' 
                                                                                         : isUserSelected 
@@ -1290,7 +1501,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                 <div className="sticky top-0 z-30 bg-white/95 dark:bg-gray-800/95 backdrop-blur border-b border-gray-200 dark:border-gray-700 px-4 py-2">
                     <div className="max-w-5xl mx-auto flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                            <button onClick={exitTest} className="p-1.5 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition">
+                            <button onClick={handleExitTestClick} className="p-1.5 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition">
                                 <X className="w-5 h-5" />
                             </button>
                             <div>
@@ -1302,12 +1513,23 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                             {/* Timer */}
                             {isRealExam && showTimer && (
                                 <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono font-bold text-sm ${timeWarning
-                                    ? 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 animate-pulse'
+                                    ? 'bg-red-100 dark:bg-red-900/30 text-red-650 dark:text-red-400 animate-pulse'
                                     : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
                                     }`}>
                                     <Timer className="w-4 h-4" />
                                     {formatTime(timeRemaining)}
                                 </div>
+                            )}
+                            {/* Save button for practice mode */}
+                            {!isRealExam && (
+                                <button 
+                                    onClick={saveProgressAndExit}
+                                    className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold transition shadow-sm cursor-pointer border-none"
+                                    title="Lưu tiến trình làm bài và thoát"
+                                >
+                                    <Save className="w-3.5 h-3.5" />
+                                    <span>Lưu bài lại</span>
+                                </button>
                             )}
                             {/* Progress */}
                             <span className="text-xs text-gray-500 hidden md:inline">{answeredCount}/{totalQ} đã trả lời</span>
@@ -1745,9 +1967,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         if (completed) {
             return completed.percentage >= 60 ? 'completed' : 'retry';
         }
-        // Check if there is an in-progress draft in localStorage
-        const progress = localStorage.getItem(`quizki_progress_${test.id}`);
-        if (progress) {
+        // Check if there is an in-progress draft in savedProgresses
+        if (savedProgresses[test.id]) {
             return 'in_progress';
         }
         // If created in the last 14 days
@@ -2050,19 +2271,31 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                     </button>
                                                 </>
                                             )}
-                                            {status === 'in_progress' && (
-                                                <>
-                                                    <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-1.5 max-w-[100px] mr-2">
-                                                        <div className="bg-blue-500 h-1.5 rounded-full" style={{ width: '40%' }} />
-                                                    </div>
-                                                    <button
-                                                        onClick={() => startTest(test)}
-                                                        className="w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center transition-all cursor-pointer shadow-md hover:scale-105"
-                                                    >
-                                                        <Play className="w-4 h-4 ml-0.5 fill-current" />
-                                                    </button>
-                                                </>
-                                            )}
+                                            {status === 'in_progress' && (() => {
+                                                const progress = savedProgresses[test.id];
+                                                const answered = progress ? Object.keys(progress.answers || {}).length : 0;
+                                                const pct = totalQ > 0 ? Math.round((answered / totalQ) * 100) : 0;
+                                                return (
+                                                    <>
+                                                        <div className="flex flex-col flex-1 mr-2">
+                                                            <div className="flex justify-between items-center mb-1">
+                                                                <span className="text-[10px] font-bold text-blue-650 dark:text-blue-450">Đã làm: {answered}/{totalQ}</span>
+                                                                <span className="text-[10px] font-bold text-blue-650 dark:text-blue-450">{pct}%</span>
+                                                            </div>
+                                                            <div className="bg-slate-100 dark:bg-slate-700 rounded-full h-1.5 w-full">
+                                                                <div className="bg-blue-500 h-1.5 rounded-full transition-all duration-300" style={{ width: `${pct}%` }} />
+                                                            </div>
+                                                        </div>
+                                                        <button
+                                                            onClick={() => startTest(test)}
+                                                            className="w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center transition-all cursor-pointer shadow-md hover:scale-105 shrink-0"
+                                                            title="Tiếp tục làm bài"
+                                                        >
+                                                            <Play className="w-4 h-4 ml-0.5 fill-current" />
+                                                        </button>
+                                                    </>
+                                                );
+                                            })()}
                                         </div>
                                     </div>
                                 );
@@ -2445,19 +2678,31 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                         </button>
                                                     </>
                                                 )}
-                                                {status === 'in_progress' && (
-                                                    <>
-                                                        <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-1.5 max-w-[100px] mr-2">
-                                                            <div className="bg-blue-500 h-1.5 rounded-full" style={{ width: '40%' }} />
-                                                        </div>
-                                                        <button
-                                                            onClick={() => startTest(test)}
-                                                            className="w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center transition-all cursor-pointer shadow-md hover:scale-105"
-                                                        >
-                                                            <Play className="w-4 h-4 ml-0.5 fill-current" />
-                                                        </button>
-                                                    </>
-                                                )}
+                                                {status === 'in_progress' && (() => {
+                                                    const progress = savedProgresses[test.id];
+                                                    const answered = progress ? Object.keys(progress.answers || {}).length : 0;
+                                                    const pct = totalQ > 0 ? Math.round((answered / totalQ) * 100) : 0;
+                                                    return (
+                                                        <>
+                                                            <div className="flex flex-col flex-1 mr-2">
+                                                                <div className="flex justify-between items-center mb-1">
+                                                                    <span className="text-[10px] font-bold text-blue-650 dark:text-blue-455">Đã làm: {answered}/{totalQ}</span>
+                                                                    <span className="text-[10px] font-bold text-blue-650 dark:text-blue-455">{pct}%</span>
+                                                                </div>
+                                                                <div className="bg-slate-100 dark:bg-slate-700 rounded-full h-1.5 w-full">
+                                                                    <div className="bg-blue-500 h-1.5 rounded-full transition-all duration-300" style={{ width: `${pct}%` }} />
+                                                                </div>
+                                                            </div>
+                                                            <button
+                                                                onClick={() => startTest(test)}
+                                                                className="w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center transition-all cursor-pointer shadow-md hover:scale-105 shrink-0"
+                                                                title="Tiếp tục làm bài"
+                                                            >
+                                                                <Play className="w-4 h-4 ml-0.5 fill-current" />
+                                                            </button>
+                                                        </>
+                                                    );
+                                                })()}
                                             </div>
                                         </div>
                                     );
@@ -2877,11 +3122,20 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                 )}
                                                 {isCompleted ? (
                                                     <div className="flex items-center gap-2">
-                                                        <span className="text-[10px] text-emerald-500 font-bold bg-emerald-50 dark:bg-emerald-950/20 px-2 py-0.5 rounded">
+                                                        <span className="text-[10px] text-emerald-500 font-bold bg-emerald-50 dark:bg-emerald-950/20 px-2 py-0.5 rounded animate-fade-in">
                                                             Đã xong
                                                         </span>
                                                         <button onClick={() => { setSelectedSkillPractice(null); reviewTest(test); }} className="px-3 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-650 text-slate-600 dark:text-slate-300 text-[10px] font-bold rounded-lg transition cursor-pointer">
                                                             Xem lại
+                                                        </button>
+                                                    </div>
+                                                ) : savedProgresses[test.id] ? (
+                                                    <div className="flex items-center gap-2">
+                                                        <span className="text-[10px] text-blue-500 font-bold bg-blue-50 dark:bg-blue-950/25 px-2 py-0.5 rounded animate-fade-in">
+                                                            Đang làm
+                                                        </span>
+                                                        <button onClick={() => { setSelectedSkillPractice(null); startTest(test); }} className="px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold rounded-lg transition cursor-pointer">
+                                                            Tiếp tục
                                                         </button>
                                                     </div>
                                                 ) : (

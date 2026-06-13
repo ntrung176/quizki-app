@@ -691,27 +691,27 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                                                     const isSelectedOpt = selected === opt;
                                                     const isCorrectOpt = quiz.answer === opt;
 
-                                                    let btnClass = "border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50 text-slate-700 dark:text-slate-200";
+                                                    let btnClass = "border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50 text-slate-700 dark:text-slate-200 cursor-pointer";
                                                     let iconBg = "bg-slate-100 dark:bg-slate-700 text-slate-500";
 
                                                     if (isAnswered) {
                                                         if (isCorrectOpt) {
-                                                            btnClass = "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/20 text-emerald-800 dark:text-emerald-300 font-extrabold ring-2 ring-emerald-500/20";
+                                                            btnClass = "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/20 text-emerald-800 dark:text-emerald-300 font-extrabold ring-2 ring-emerald-500/20 cursor-default";
                                                             iconBg = "bg-emerald-500 text-white";
                                                         } else if (isSelectedOpt) {
-                                                            btnClass = "border-red-500 bg-red-50 dark:bg-red-950/20 text-red-800 dark:text-red-300 font-extrabold ring-2 ring-red-500/20";
+                                                            btnClass = "border-red-500 bg-red-50 dark:bg-red-950/20 text-red-800 dark:text-red-300 font-extrabold ring-2 ring-red-500/20 cursor-default";
                                                             iconBg = "bg-red-500 text-white";
                                                         } else {
-                                                            btnClass = "opacity-50 border-slate-200 dark:border-slate-700 text-slate-400";
+                                                            btnClass = "opacity-50 border-slate-200 dark:border-slate-700 text-slate-400 cursor-default";
                                                         }
                                                     }
 
                                                     return (
-                                                        <button key={optIdx} onClick={() => { if (!isAnswered) handleSelectQuiz(qIdx, opt, quiz); }} disabled={isAnswered}
+                                                        <div key={optIdx} onClick={() => { if (!isAnswered) handleSelectQuiz(qIdx, opt, quiz); }}
                                                             className={`flex items-center gap-3 p-3.5 border rounded-xl text-left text-sm transition-all duration-200 ${btnClass}`}>
-                                                            <span className={`w-6 h-6 flex items-center justify-center rounded-lg text-xs font-black shrink-0 ${iconBg}`}>{optionLetter}</span>
+                                                            <span className={`w-6 h-6 flex items-center justify-center rounded-lg text-xs font-black shrink-0 select-none ${iconBg}`}>{optionLetter}</span>
                                                             <span className="font-medium">{opt}</span>
-                                                        </button>
+                                                        </div>
                                                     );
                                                 })}
                                             </div>
