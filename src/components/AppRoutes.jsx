@@ -357,7 +357,10 @@ const AppRoutes = ({
     onMoveStudySetToParentFolder,
     onToggleSrs,
     onUpdateVocabSrsRating,
-    awardXP
+    onRevertVocabSrsRating,
+    awardXP,
+    isReviewActive,
+    setIsReviewActive
 }) => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -579,6 +582,9 @@ const AppRoutes = ({
                                 setFlashcardCards={setFlashcardCards}
                                 onToggleSrs={onToggleSrs}
                                 onUpdateVocabSrsRating={onUpdateVocabSrsRating}
+                                onRevertVocabSrsRating={onRevertVocabSrsRating}
+                                awardXP={awardXP}
+                                setIsReviewActive={setIsReviewActive}
                                 playAudio={playAudio}
                                 dailyActivityLogs={dailyActivityLogs}
                                 onStudySet={handleStudySet}
@@ -712,7 +718,7 @@ const AppRoutes = ({
                     path={ROUTES.KANJI_REVIEW}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <KanjiReviewScreen awardXP={awardXP} />
+                            <KanjiReviewScreen awardXP={awardXP} setIsReviewActive={setIsReviewActive} />
                         </ProtectedRoute>
                     }
                 />

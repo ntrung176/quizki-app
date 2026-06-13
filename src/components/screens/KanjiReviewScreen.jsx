@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo, useRef } from 'react'
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate } from 'react-router-dom';
 import { Calendar, Clock, Target, ChevronLeft, RotateCcw, BarChart3 } from 'lucide-react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { db, appId } from '../../config/firebase';
-import { collection, getDocs, doc, setDoc, increment } from 'firebase/firestore'
+import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth';
 import { getSharedKanjiList } from '../../utils/kanjiService';
 
@@ -42,7 +42,7 @@ const formatInterval = (minutes) => {
 };
 
 // ==================== MAIN COMPONENT ====================
-const KanjiReviewScreen = ({ awardXP }) => {
+const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const fadeWholePage = useMenuTransition();
     const navigate = useNavigate();
     const [kanjiList, setKanjiList] = useState([]);
@@ -53,6 +53,7 @@ const KanjiReviewScreen = ({ awardXP }) => {
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
     const [reviewHistory, setReviewHistory] = useState([]);
+    const sessionXpRef = useRef(0);
 
     const userId = getAuth().currentUser?.uid;
 
@@ -190,11 +191,15 @@ const KanjiReviewScreen = ({ awardXP }) => {
 
     const startReview = () => {
         if (dueKanji.length === 0) return;
+        sessionXpRef.current = 0;
         setReviewQueue([...dueKanji]);
         setCurrentReviewIndex(0);
         setIsFlipped(false);
         setReviewHistory([]);
         setReviewMode(true);
+        if (setIsReviewActive) {
+            setIsReviewActive(true);
+        }
     };
 
     const currentCard = reviewQueue[currentReviewIndex] || null;
@@ -219,12 +224,39 @@ const KanjiReviewScreen = ({ awardXP }) => {
             state: result.state,
         };
 
-        // Save current card's state to history stack for Undo
+        // Calculate XP synchronously to save in history stack for Undo
+        let basePoints = 0;
+        if (rating === 'again') basePoints = 8;
+        else if (rating === 'hard') basePoints = 25;
+        else if (rating === 'good') basePoints = 45;
+        else if (rating === 'easy') basePoints = 60;
+
+        let promotionBonus = 0;
+        const oldState = srs?.state || 'NEW';
+        const newState = result.state;
+        if (oldState === 'NEW' && newState === 'LEARNING') {
+            promotionBonus = 10;
+        } else if ((oldState === 'LEARNING' || oldState === 'RELEARNING') && newState === 'REVIEW') {
+            promotionBonus = 100;
+        }
+
+        let multiplier = 1.0;
+        const cardLevel = currentCard.level || currentCard.jlpt || 'N5';
+        if (cardLevel) {
+            const lvlUpper = String(cardLevel).toUpperCase();
+            if (lvlUpper.includes('N3')) multiplier = 1.2;
+            else if (lvlUpper.includes('N2')) multiplier = 1.4;
+            else if (lvlUpper.includes('N1')) multiplier = 1.6;
+        }
+        const totalXp = Math.round((basePoints + promotionBonus) * multiplier);
+
+        // Save current card's state to history stack for Undo, including totalXp (shallow clone srs)
         setReviewHistory(prev => [...prev, {
             cardIndex: currentReviewIndex,
             cardId: currentCard.id,
-            srs: srs,
-            isFlipped: isFlipped
+            srs: srs ? { ...srs } : null,
+            isFlipped: isFlipped,
+            xpAwarded: totalXp
         }]);
 
         // 1. Update local states immediately (optimistic UI)
@@ -240,8 +272,11 @@ const KanjiReviewScreen = ({ awardXP }) => {
                 title: `Đã ôn tập ${reviewQueue.length} chữ Kanji`,
                 details: `Hoàn thành phiên ôn tập SRS`
             });
-            setReviewMode(false);
+            exitReview();
         }
+
+        // Accumulate session XP
+        sessionXpRef.current += totalXp;
 
         // 2. Perform Firestore writes asynchronously in the background
         (async () => {
@@ -254,39 +289,21 @@ const KanjiReviewScreen = ({ awardXP }) => {
                 await setDoc(activityRef, {
                     reviewsDone: increment(1)
                 }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Kanji:', err));
-
-                // Award XP for Kanji reviews
-                let basePoints = 0;
-                if (rating === 'again') basePoints = 8;
-                else if (rating === 'hard') basePoints = 25;
-                else if (rating === 'good') basePoints = 45;
-                else if (rating === 'easy') basePoints = 60;
-
-                let promotionBonus = 0;
-                const oldState = srs?.state || 'NEW';
-                const newState = result.state;
-                if (oldState === 'NEW' && newState === 'LEARNING') {
-                    promotionBonus = 10;
-                } else if ((oldState === 'LEARNING' || oldState === 'RELEARNING') && newState === 'REVIEW') {
-                    promotionBonus = 100;
-                }
-
-                let multiplier = 1.0;
-                const cardLevel = currentCard.level || currentCard.jlpt || 'N5';
-                if (cardLevel) {
-                    const lvlUpper = String(cardLevel).toUpperCase();
-                    if (lvlUpper.includes('N3')) multiplier = 1.2;
-                    else if (lvlUpper.includes('N2')) multiplier = 1.4;
-                    else if (lvlUpper.includes('N1')) multiplier = 1.6;
-                }
-                const totalXp = Math.round((basePoints + promotionBonus) * multiplier);
-                if (totalXp > 0 && awardXP) {
-                    awardXP(totalXp);
-                }
             } catch (e) {
                 console.error('Error updating SRS in background:', e);
             }
         })();
+    };
+
+    const exitReview = () => {
+        if (sessionXpRef.current > 0 && awardXP) {
+            awardXP(sessionXpRef.current);
+        }
+        sessionXpRef.current = 0;
+        setReviewMode(false);
+        if (setIsReviewActive) {
+            setIsReviewActive(false);
+        }
     };
 
     const handleUndo = () => {
@@ -294,13 +311,13 @@ const KanjiReviewScreen = ({ awardXP }) => {
         const lastAction = reviewHistory[reviewHistory.length - 1];
         setReviewHistory(prev => prev.slice(0, -1));
 
-        const { cardIndex, cardId, srs, isFlipped: wasFlipped } = lastAction;
+        const { cardIndex, cardId, srs, isFlipped: wasFlipped, xpAwarded } = lastAction;
 
         // 1. Revert local states immediately
         setSrsData(prev => {
             const next = { ...prev };
             if (srs) {
-                next[cardId] = srs;
+                next[cardId] = { ...srs };
             } else {
                 delete next[cardId];
             }
@@ -308,6 +325,9 @@ const KanjiReviewScreen = ({ awardXP }) => {
         });
         setCurrentReviewIndex(cardIndex);
         setIsFlipped(wasFlipped || false);
+
+        // Revert session XP
+        sessionXpRef.current -= xpAwarded;
 
         // 2. Revert Firestore writes asynchronously in the background
         (async () => {
@@ -375,7 +395,7 @@ const KanjiReviewScreen = ({ awardXP }) => {
                 <div className="w-[600px] max-w-full flex flex-col justify-center items-center space-y-4">
                     {/* Back button */}
                     <div className="w-full flex justify-between mb-2">
-                        <button onClick={() => setReviewMode(false)}
+                        <button onClick={exitReview}
                             className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2">
                             <ChevronLeft className="w-4 h-4" />
                             <span className="text-sm font-medium">Trở lại</span>

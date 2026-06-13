@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2 } from 'lucide-react'
 import { TopTabBar } from '../ui';
@@ -76,7 +76,9 @@ const SRSVocabScreen = ({
     onStudySet,
     onFlashcardSet,
     onMeaningSet,
-    onDictationSet
+    onDictationSet,
+    awardXP,
+    setIsReviewActive
 }) => {
     const navigate = useNavigate();
     const fadeWholePage = useMenuTransition();
@@ -239,6 +241,7 @@ const SRSVocabScreen = ({
     const [isFlipped, setIsFlipped] = useState(false);
     const [reviewMode, setReviewModeState] = useState(false);
     const [reviewHistory, setReviewHistory] = useState([]);
+    const sessionXpRef = useRef(0);
 
     // Safely determine if a card is due
     const isDue = (card) => {
@@ -342,11 +345,15 @@ const SRSVocabScreen = ({
 
     const startFolderReview = (dueCards) => {
         if (dueCards.length === 0) return;
+        sessionXpRef.current = 0;
         setReviewQueue(shuffleArray([...dueCards]));
         setCurrentReviewIndex(0);
         setIsFlipped(false);
         setReviewHistory([]);
         setReviewModeState(true);
+        if (setIsReviewActive) {
+            setIsReviewActive(true);
+        }
     };
 
     const handleAction = (folderId, actionType, cards) => {
@@ -405,7 +412,8 @@ const SRSVocabScreen = ({
 
         // Call parent update vocab srs rating on Firestore asynchronously (no await!)
         if (onUpdateVocabSrsRating) {
-            onUpdateVocabSrsRating(card.id, rating);
+            const xp = onUpdateVocabSrsRating(card.id, rating, true);
+            sessionXpRef.current += (xp || 0);
         }
 
         // Play feedback sounds and animations
@@ -427,10 +435,21 @@ const SRSVocabScreen = ({
             } catch (e) {
                 console.error(e);
             }
-            setReviewModeState(false);
+            exitReview();
             if (setNotification) {
                 setNotification("Chúc mừng! Bạn đã hoàn thành tất cả các thẻ ôn tập hôm nay.");
             }
+        }
+    };
+
+    const exitReview = () => {
+        if (sessionXpRef.current > 0 && awardXP) {
+            awardXP(sessionXpRef.current);
+        }
+        sessionXpRef.current = 0;
+        setReviewModeState(false);
+        if (setIsReviewActive) {
+            setIsReviewActive(false);
         }
     };
 
@@ -456,7 +475,8 @@ const SRSVocabScreen = ({
 
         // 2. Revert in App.jsx's setAllCards state immediately & Firestore doc in background
         if (onRevertVocabSrsRating) {
-            onRevertVocabSrsRating(cardId, srsFields);
+            const revertedXp = onRevertVocabSrsRating(cardId, srsFields, true);
+            sessionXpRef.current -= (revertedXp || 0);
         }
 
         // Restore index and flipped state
@@ -513,7 +533,7 @@ const SRSVocabScreen = ({
                         {/* Header with Exit */}
                         <div className="w-full flex justify-between items-center">
                             <button
-                                onClick={() => setReviewModeState(false)}
+                                onClick={exitReview}
                                 className="flex items-center gap-1 text-sm font-bold text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer"
                             >
                                 <ChevronLeft className="w-4 h-4" /> Thoát ôn tập

@@ -567,19 +567,6 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                         </div>
                         <NotificationsPopover isMobile={false} />
                     </div>
-                    {/* XP Progress Bar */}
-                    <div className="w-full mt-1.5 px-1 space-y-1">
-                        <div className="flex justify-between items-center text-[9px] font-bold text-gray-400 dark:text-gray-500">
-                            <span>TIẾN TRÌNH XP</span>
-                            <span>{xpDetails.remainingXp}/{xpDetails.nextLevelXp} XP</span>
-                        </div>
-                        <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800/80 rounded-full overflow-hidden p-[1px] border border-slate-200/50 dark:border-slate-700/50 shadow-inner">
-                            <div 
-                                className="h-full bg-gradient-to-r from-amber-400 to-emerald-400 rounded-full transition-all duration-300"
-                                style={{ width: `${Math.min(100, Math.round((xpDetails.remainingXp / xpDetails.nextLevelXp) * 100))}%` }}
-                            />
-                        </div>
-                    </div>
                 </div>
             )}
             {/* Navigation */}
