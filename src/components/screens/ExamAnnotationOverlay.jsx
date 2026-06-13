@@ -323,6 +323,29 @@ const ExamAnnotationOverlay = ({
         }
     };
 
+    // --- Eraser specifically for Highlights (freehand and text) ---
+    const handleHighlightEraserAction = (point) => {
+        let hit = false;
+        const newStrokes = strokes.filter(stroke => {
+            if (stroke.type !== 'highlighter') return true;
+            const isIntersecting = checkIntersection(point, stroke);
+            if (isIntersecting) hit = true;
+            return !isIntersecting;
+        });
+
+        if (hit) {
+            setStrokes(newStrokes);
+            saveAnnotations(newStrokes, textObjects, stickyNotes, selectionHighlights);
+        }
+    };
+
+    const clearAllHighlights = () => {
+        const remainingStrokes = strokes.filter(s => s.type !== 'highlighter');
+        setStrokes(remainingStrokes);
+        setSelectionHighlights([]);
+        saveAnnotations(remainingStrokes, textObjects, stickyNotes, []);
+    };
+
     // --- Canvas Sizing (covers full scroll container height) ---
     const updateSize = useCallback(() => {
         const parent = overlayRef.current?.parentElement || document.getElementById('jlpt-main-scroll-container');
@@ -570,6 +593,13 @@ const ExamAnnotationOverlay = ({
         
         const coords = getCanvasCoords(e);
 
+        if (activeTool === 'eraser-highlighter') {
+            setIsDrawing(true);
+            handleHighlightEraserAction(coords);
+            handleTextEraserAction(e.clientX, e.clientY);
+            return;
+        }
+
         if (activeTool === 'eraser') {
             setIsDrawing(true);
             handleEraserAction(coords);
@@ -638,6 +668,12 @@ const ExamAnnotationOverlay = ({
 
         const coords = getCanvasCoords(e);
 
+        if (activeTool === 'eraser-highlighter' && isDrawing) {
+            handleHighlightEraserAction(coords);
+            handleTextEraserAction(e.clientX, e.clientY);
+            return;
+        }
+
         if (activeTool === 'eraser' && isDrawing) {
             handleEraserAction(coords);
             handleTextEraserAction(e.clientX, e.clientY);
@@ -668,7 +704,7 @@ const ExamAnnotationOverlay = ({
 
         const coords = getCanvasCoords(e);
 
-        if (activeTool === 'eraser') return;
+        if (activeTool === 'eraser' || activeTool === 'eraser-highlighter') return;
 
         if (activeTool === 'curve' && curveState && curveState.step === 0) {
             const controlPoint = {
@@ -916,7 +952,7 @@ const ExamAnnotationOverlay = ({
 
     // --- Render Options Flyout Drawer next to the floating toolbar ---
     const renderOptionsDrawer = () => {
-        const hasOptions = ['pen', 'line', 'curve', 'highlighter', 'text-highlighter'].includes(activeTool);
+        const hasOptions = ['pen', 'line', 'curve', 'highlighter', 'text-highlighter', 'eraser-highlighter'].includes(activeTool);
         if (!hasOptions || isCollapsed) return null;
 
         return (
@@ -986,7 +1022,7 @@ const ExamAnnotationOverlay = ({
                 )}
 
                 {/* Highlighter Type & Color Selector */}
-                {(activeTool === 'text-highlighter' || activeTool === 'highlighter') && (
+                {(activeTool === 'text-highlighter' || activeTool === 'highlighter' || activeTool === 'eraser-highlighter') && (
                     <div className="flex flex-col gap-2.5">
                         <span className="text-[9px] text-slate-400 font-bold px-1 uppercase tracking-wider">Cách highlight</span>
                         <div className="flex flex-col gap-1 border-b border-slate-100 dark:border-slate-850 pb-2">
@@ -1010,16 +1046,31 @@ const ExamAnnotationOverlay = ({
                             >
                                 <Highlighter className="w-3.5 h-3.5 text-amber-550" /> Vẽ tự do
                             </button>
+                            <button
+                                onClick={() => setActiveTool('eraser-highlighter')}
+                                className={`w-full text-left px-2 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 transition ${
+                                    activeTool === 'eraser-highlighter' 
+                                        ? 'bg-amber-50 text-amber-700 dark:bg-amber-955/30 dark:text-amber-400' 
+                                        : 'text-slate-600 hover:bg-slate-50 dark:text-slate-350 dark:hover:bg-slate-800/50'
+                                }`}
+                            >
+                                <Eraser className="w-3.5 h-3.5 text-rose-500" /> Tẩy highlight
+                            </button>
                         </div>
 
                         <span className="text-[9px] text-slate-400 font-bold px-1 uppercase tracking-wider">Màu highlight</span>
-                        <div className="flex gap-1.5 justify-around mt-0.5">
+                        <div className="flex gap-1.5 justify-around mt-0.5 pb-2 border-b border-slate-100 dark:border-slate-850">
                             {COLORS.highlighter.map((col) => {
                                 const isSelected = highlighterColor === col.value;
                                 return (
                                     <button
                                         key={col.name}
-                                        onClick={() => setHighlighterColor(col.value)}
+                                        onClick={() => {
+                                            setHighlighterColor(col.value);
+                                            if (activeTool === 'eraser-highlighter') {
+                                                setActiveTool('text-highlighter');
+                                            }
+                                        }}
                                         className={`w-6 h-6 rounded-full border border-black/10 transition hover:scale-110 flex items-center justify-center cursor-pointer ${
                                             isSelected ? 'ring-2 ring-indigo-550 ring-offset-2 dark:ring-offset-slate-900 scale-105' : 'opacity-85'
                                         }`}
@@ -1030,6 +1081,16 @@ const ExamAnnotationOverlay = ({
                                     </button>
                                 );
                             })}
+                        </div>
+
+                        <div className="pt-0.5">
+                            <button
+                                onClick={clearAllHighlights}
+                                className="w-full text-left px-2 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 text-rose-600 dark:text-rose-455 hover:bg-rose-50 dark:hover:bg-rose-955/20 transition cursor-pointer"
+                                title="Xoá toàn bộ highlight của câu này"
+                            >
+                                <Trash2 className="w-3.5 h-3.5 text-rose-500" /> Xoá tất cả
+                            </button>
                         </div>
                     </div>
                 )}
@@ -1058,7 +1119,7 @@ const ExamAnnotationOverlay = ({
                 className="absolute inset-0 w-full h-full"
                 style={{ 
                     cursor: (activeTool === 'cursor' || activeTool === 'text-highlighter') ? 'default' : 
-                            activeTool === 'eraser' ? 'cell' : 
+                            (activeTool === 'eraser' || activeTool === 'eraser-highlighter') ? 'cell' : 
                             activeTool === 'text' ? 'text' : 'crosshair',
                     pointerEvents: (activeTool === 'cursor' || activeTool === 'text-highlighter') ? 'none' : 'auto'
                 }}
@@ -1287,22 +1348,22 @@ const ExamAnnotationOverlay = ({
                             {/* Highlighter Group Button */}
                             <button
                                 onClick={() => { 
-                                    if (activeTool !== 'text-highlighter' && activeTool !== 'highlighter') {
+                                    if (activeTool !== 'text-highlighter' && activeTool !== 'highlighter' && activeTool !== 'eraser-highlighter') {
                                         setActiveTool('text-highlighter'); 
                                     }
                                 }}
                                 className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all relative ${
-                                    (activeTool === 'text-highlighter' || activeTool === 'highlighter')
+                                    (activeTool === 'text-highlighter' || activeTool === 'highlighter' || activeTool === 'eraser-highlighter')
                                         ? 'bg-amber-400 text-slate-900 shadow-md shadow-amber-400/25 scale-105' 
                                         : 'text-slate-655 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                                 }`}
                                 style={{
-                                    backgroundColor: (activeTool === 'text-highlighter' || activeTool === 'highlighter') ? highlighterColor : 'transparent',
-                                    color: (activeTool === 'text-highlighter' || activeTool === 'highlighter') ? '#0f172a' : 'inherit'
+                                    backgroundColor: (activeTool === 'text-highlighter' || activeTool === 'highlighter' || activeTool === 'eraser-highlighter') ? highlighterColor : 'transparent',
+                                    color: (activeTool === 'text-highlighter' || activeTool === 'highlighter' || activeTool === 'eraser-highlighter') ? '#0f172a' : 'inherit'
                                 }}
                                 title="Bút highlight (Nhấp mở menu phụ chọn cách tô và màu sắc)"
                             >
-                                {activeTool === 'highlighter' ? <Highlighter className="w-4.5 h-4.5" /> : <TextHighlightIcon className="w-4.5 h-4.5" />}
+                                {activeTool === 'highlighter' ? <Highlighter className="w-4.5 h-4.5" /> : activeTool === 'eraser-highlighter' ? <Eraser className="w-4.5 h-4.5 text-rose-600" /> : <TextHighlightIcon className="w-4.5 h-4.5" />}
                                 <span className="absolute bottom-0 right-0 w-1.5 h-1.5 border-r border-b border-current opacity-60" style={{ transform: 'translate(-2px, -2px) rotate(45deg)' }} />
                             </button>
 
