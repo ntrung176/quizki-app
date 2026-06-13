@@ -1197,6 +1197,7 @@ const AppRoutes = ({
                                 isAdmin={isAdmin} 
                                 allCards={allCards} 
                                 profile={profile} 
+                                userId={userId}
                             />
                         </ProtectedRoute>
                     }

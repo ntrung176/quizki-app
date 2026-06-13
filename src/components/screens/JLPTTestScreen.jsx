@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { PremiumLockedModal } from '../ui';
-import { collection, query, onSnapshot, orderBy, doc, updateDoc } from 'firebase/firestore'
+import { collection, query, onSnapshot, orderBy, doc, updateDoc, setDoc, getDoc } from 'firebase/firestore'
 import { db, appId } from '../../config/firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import { FileCheck, Play, ChevronRight, ChevronLeft, Maximize, Minimize, X, Check, CheckCircle, XCircle, Languages, BookOpen, FileText, Headphones, Timer, Volume2, AlertTriangle, Award, Lock, Unlock, Crown, Calendar, Edit3, Settings, Sparkle, ShieldAlert, Pencil, Save } from 'lucide-react'
@@ -56,7 +56,7 @@ const QuestionContent = React.memo(({
             {/* Reading passage */}
             {section.type === 'reading' && question?.passage && (
                 <div className="mb-6 p-5 bg-green-50 dark:bg-green-900/15 border border-green-200 dark:border-green-800 rounded-xl">
-                    <div className="text-gray-800 dark:text-gray-200 leading-relaxed font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: question.passage }} />
+                    <div className="text-gray-800 dark:text-gray-200 text-[15px] md:text-[17px] leading-relaxed font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: question.passage }} />
                 </div>
             )}
             {/* Question Image */}
@@ -75,7 +75,7 @@ const QuestionContent = React.memo(({
                     {question.subQuestions.map((sq, sqi) => {
                         return (
                             <div key={sqi} className="space-y-3 bg-slate-50/50 dark:bg-slate-900/10 p-4 rounded-xl border border-slate-100 dark:border-slate-800/80">
-                                <h4 className="text-sm font-bold text-indigo-600 dark:text-indigo-400 font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
+                                <h4 className="text-[15px] md:text-base font-bold text-indigo-600 dark:text-indigo-400 font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
                                 <div className="grid grid-cols-1 gap-2.5">
                                     {sq.options?.map((opt, oi) => {
                                         const key = subAnswerKey(currentSectionIdx, currentQuestionIdx, sqi);
@@ -88,7 +88,7 @@ const QuestionContent = React.memo(({
                                                 }
                                                 selectAnswerSub(currentSectionIdx, currentQuestionIdx, sqi, oi);
                                             }}
-                                                className={`w-full p-3.5 rounded-xl text-left text-xs font-medium transition-all border-2 cursor-pointer ${isSelected
+                                                className={`w-full p-3.5 rounded-xl text-left text-sm md:text-[15px] font-medium transition-all border-2 cursor-pointer ${isSelected
                                                     ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
                                                     : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10'
                                                     }`}>
@@ -122,7 +122,7 @@ const QuestionContent = React.memo(({
                                 }
                                 selectAnswer(currentSectionIdx, currentQuestionIdx, oi);
                             }}
-                                className={`w-full p-4 rounded-xl text-left font-medium transition-all border-2 cursor-pointer ${isSelected
+                                className={`w-full p-4 rounded-xl text-left text-sm md:text-[15px] font-medium transition-all border-2 cursor-pointer ${isSelected
                                     ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
                                     : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10'
                                     }`}>
@@ -146,7 +146,7 @@ const QuestionContent = React.memo(({
 
 QuestionContent.displayName = 'QuestionContent';
 
-const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
+const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
     const navigate = useNavigate();
     // State
     const [tests, setTests] = useState([]);
@@ -198,10 +198,81 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
     const [reviewDrawDraftStrokes, setReviewDrawDraftStrokes] = useState([]);
     const [reviewDrawDraftDataUrl, setReviewDrawDraftDataUrl] = useState('');
 
+    // Firestore synchronization for JLPT test progress and notes
+    useEffect(() => {
+        if (!userId || !db) return;
+        const progressDocRef = doc(db, `artifacts/${appId}/users/${userId}/settings`, 'jlptProgress');
+        getDoc(progressDocRef).then((snap) => {
+            if (snap.exists()) {
+                const data = snap.data();
+                if (data.completedTests) {
+                    setCompletedTests(prev => {
+                        const merged = { ...prev, ...data.completedTests };
+                        try {
+                            localStorage.setItem('quizki_completed_tests', JSON.stringify(merged));
+                        } catch (e) {}
+                        return merged;
+                    });
+                }
+                if (data.savedProgresses) {
+                    setSavedProgresses(prev => {
+                        const merged = { ...prev, ...data.savedProgresses };
+                        try {
+                            localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(merged));
+                        } catch (e) {}
+                        return merged;
+                    });
+                }
+                if (data.notes) {
+                    setNotes(prev => {
+                        const merged = { ...prev, ...data.notes };
+                        try {
+                            localStorage.setItem('quizki_jlpt_notes', JSON.stringify(merged));
+                        } catch (e) {}
+                        return merged;
+                    });
+                }
+            }
+        }).catch(e => {
+            console.error('Error loading JLPT progress from Firestore:', e);
+        });
+    }, [userId]);
+
+    const saveCompletedTestsToFirestore = async (newCompleted) => {
+        if (!userId || !db) return;
+        try {
+            const progressDocRef = doc(db, `artifacts/${appId}/users/${userId}/settings`, 'jlptProgress');
+            await setDoc(progressDocRef, { completedTests: newCompleted }, { merge: true });
+        } catch (e) {
+            console.error('Error saving completed tests to Firestore:', e);
+        }
+    };
+
+    const saveProgressesToFirestore = async (newProgresses) => {
+        if (!userId || !db) return;
+        try {
+            const progressDocRef = doc(db, `artifacts/${appId}/users/${userId}/settings`, 'jlptProgress');
+            await setDoc(progressDocRef, { savedProgresses: newProgresses }, { merge: true });
+        } catch (e) {
+            console.error('Error saving saved progresses to Firestore:', e);
+        }
+    };
+
+    const saveNotesToFirestore = async (newNotes) => {
+        if (!userId || !db) return;
+        try {
+            const progressDocRef = doc(db, `artifacts/${appId}/users/${userId}/settings`, 'jlptProgress');
+            await setDoc(progressDocRef, { notes: newNotes }, { merge: true });
+        } catch (e) {
+            console.error('Error saving notes to Firestore:', e);
+        }
+    };
+
     const saveNote = (key, text) => {
         const updated = { ...notes, [key]: text };
         setNotes(updated);
         localStorage.setItem('quizki_jlpt_notes', JSON.stringify(updated));
+        saveNotesToFirestore(updated);
     };
 
     const deleteNote = (key) => {
@@ -209,12 +280,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         delete updated[key];
         setNotes(updated);
         localStorage.setItem('quizki_jlpt_notes', JSON.stringify(updated));
+        saveNotesToFirestore(updated);
     };
 
     const saveNotesMultiple = (updates) => {
         setNotes(prev => {
             const updated = { ...prev, ...updates };
             localStorage.setItem('quizki_jlpt_notes', JSON.stringify(updated));
+            saveNotesToFirestore(updated);
             return updated;
         });
     };
@@ -224,6 +297,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             const updated = { ...prev };
             keys.forEach(k => delete updated[k]);
             localStorage.setItem('quizki_jlpt_notes', JSON.stringify(updated));
+            saveNotesToFirestore(updated);
             return updated;
         });
     };
@@ -773,12 +847,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         };
         setCompletedTests(newCompleted);
         localStorage.setItem('quizki_completed_tests', JSON.stringify(newCompleted));
+        saveCompletedTestsToFirestore(newCompleted);
 
         // Clear saved progress for this test
         const newProgresses = { ...savedProgresses };
         delete newProgresses[activeTest.id];
         setSavedProgresses(newProgresses);
         localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
+        saveProgressesToFirestore(newProgresses);
 
         setShowResult(true);
         setShowDetailedReview(false);
@@ -850,6 +926,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
         
         setSavedProgresses(newProgresses);
         localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
+        saveProgressesToFirestore(newProgresses);
         
         setNotification('Đã lưu tiến trình bài làm thành công!');
         
@@ -876,6 +953,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             delete newProgresses[test.id];
             setSavedProgresses(newProgresses);
             localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
+            saveProgressesToFirestore(newProgresses);
             initTest(test, 'practice');
         };
 
@@ -900,6 +978,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
             delete newProgresses[test.id];
             setSavedProgresses(newProgresses);
             localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
+            saveProgressesToFirestore(newProgresses);
             initTest(test, 'real');
         };
 
@@ -1292,7 +1371,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                             </div>
                                                             <div className="flex-1 space-y-2">
                                                                 {q.passage && (
-                                                                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.passage }} />
+                                                                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm md:text-[15px] font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.passage }} />
                                                                 )}
                                                                 {q.audioUrl && (
                                                                     <div className="mb-2">
@@ -1305,7 +1384,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                                     </div>
                                                                 )}
                                                                 {q.question && (
-                                                                    <p className="font-bold text-gray-800 dark:text-gray-200 text-sm font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.question }} />
+                                                                    <p className="font-bold text-gray-800 dark:text-gray-200 text-base font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.question }} />
                                                                 )}
                                                             </div>
                                                         </div>
@@ -1321,7 +1400,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                                                 ? <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
                                                                                 : <XCircle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />}
                                                                             <div className="flex-1">
-                                                                                <p className="text-xs font-bold text-gray-700 dark:text-gray-300 font-japanese leading-relaxed" dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
+                                                                                <p className="text-sm md:text-[15px] font-bold text-gray-700 dark:text-gray-300 font-japanese leading-relaxed" dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
                                                                                 
                                                                                 {/* Display choices for sub-question */}
                                                                                 <div className="grid grid-cols-1 gap-1.5 mt-2">
@@ -1337,7 +1416,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                                                         }
 
                                                                                         return (
-                                                                                            <div key={oi} className={`flex items-center justify-between p-2 rounded-lg border text-[11px] ${optStyle}`}>
+                                                                                            <div key={oi} className={`flex items-center justify-between p-2 rounded-lg border text-xs md:text-sm font-medium ${optStyle}`}>
                                                                                                 <div className="flex items-center gap-2">
                                                                                                     <div className={`w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold shrink-0 select-none ${
                                                                                                         isOptCorrect 
@@ -1358,7 +1437,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                                                 </div>
 
                                                                                 {sq.explanation && (
-                                                                                    <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${sq.explanation}` }} />
+                                                                                    <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${sq.explanation}` }} />
                                                                                 )}
                                                                             </div>
                                                                         </div>
@@ -1385,7 +1464,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                         </div>
                                                         <div className="flex-1 space-y-2">
                                                             {q.passage && (
-                                                                <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.passage }} />
+                                                                <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm md:text-[15px] font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.passage }} />
                                                             )}
                                                             {q.audioUrl && (
                                                                 <div className="mb-2">
@@ -1397,7 +1476,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                                     <img src={q.imageUrl} alt="Câu hỏi" className="max-h-48 object-contain" />
                                                                 </div>
                                                             )}
-                                                            <p className="font-medium text-gray-800 dark:text-gray-200 text-sm font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.question }} />
+                                                            <p className="font-medium text-gray-800 dark:text-gray-200 text-base font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.question }} />
                                                             
                                                             {/* Display choices for question */}
                                                             <div className="grid grid-cols-1 gap-2 mt-3 pl-2">
@@ -1413,7 +1492,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                                     }
 
                                                                     return (
-                                                                        <div key={oi} className={`flex items-center justify-between p-3 rounded-xl border text-xs ${optStyle}`}>
+                                                                        <div key={oi} className={`flex items-center justify-between p-3 rounded-xl border text-sm md:text-[15px] ${optStyle}`}>
                                                                             <div className="flex items-center gap-2">
                                                                                 <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 select-none ${
                                                                                     isOptCorrect 
@@ -1434,7 +1513,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                                             </div>
 
                                                             {q.explanation && (
-                                                                <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${q.explanation}` }} />
+                                                                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${q.explanation}` }} />
                                                             )}
                                                             {renderReviewNoteContainer(si, qi)}
                                                         </div>
@@ -2883,14 +2962,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                             Đề thi trọn gói đầy đủ các kỹ năng từ đề thi JLPT chính thức các năm của cấp độ {lvl}.
                                         </p>
                                     </div>
-                                    <div className="mt-4 flex items-center justify-between gap-3">
-                                        <div className="flex-1 flex items-center gap-2">
+                                    <div className="mt-4 flex flex-col gap-3">
+                                        <div className="flex items-center gap-2">
                                             <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-1.5">
                                                 <div className={`bg-gradient-to-r ${gradient} h-1.5 rounded-full`} style={{ width: `${progress}%` }} />
                                             </div>
                                             <span className="text-[10px] font-extrabold text-slate-450 dark:text-slate-500 w-8 text-right">{progress}%</span>
                                         </div>
-                                        <button onClick={() => setSelectedFullExamLevel(lvl)} className="px-3 py-2 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-750 text-slate-750 dark:text-slate-300 font-extrabold text-[10px] tracking-wider rounded-xl transition cursor-pointer border border-slate-100 dark:border-slate-700/50 hover:scale-105 shrink-0">
+                                        <button onClick={() => setSelectedFullExamLevel(lvl)} className="w-full py-2 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-750 text-slate-750 dark:text-slate-300 font-extrabold text-[10px] tracking-wider rounded-xl transition cursor-pointer border border-slate-100 dark:border-slate-700/50 hover:scale-105 text-center">
                                             BẮT ĐẦU LUYỆN
                                         </button>
                                     </div>
@@ -2917,14 +2996,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     Ôn luyện từ vựng cần thiết cho cấp độ {countdownLevel}, phân loại theo chủ đề và độ thông dụng.
                                 </p>
                             </div>
-                            <div className="mt-4 flex items-center justify-between gap-4">
-                                <div className="flex-1 flex items-center gap-2">
+                            <div className="mt-4 flex flex-col gap-3">
+                                <div className="flex items-center gap-2">
                                     <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-1.5">
                                         <div className="bg-blue-500 h-1.5 rounded-full" style={{ width: `${getSkillProgress('vocabulary')}%` }} />
                                     </div>
                                     <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 w-8 text-right">{getSkillProgress('vocabulary')}%</span>
                                 </div>
-                                <button onClick={() => handleStartPractice('vocabulary', 'Từ vựng')} className="px-4 py-2 bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 dark:hover:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-bold text-[10px] tracking-wider rounded-xl transition cursor-pointer">
+                                <button onClick={() => handleStartPractice('vocabulary', 'Từ vựng')} className="w-full py-2 bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 dark:hover:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-bold text-[10px] tracking-wider rounded-xl transition cursor-pointer text-center">
                                     BẮT ĐẦU LUYỆN
                                 </button>
                             </div>
@@ -2941,14 +3020,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     Tổng hợp cấu trúc câu phức, trợ từ và cách chia động từ nâng cao theo giáo trình chuẩn.
                                 </p>
                             </div>
-                            <div className="mt-4 flex items-center justify-between gap-4">
-                                <div className="flex-1 flex items-center gap-2">
+                            <div className="mt-4 flex flex-col gap-3">
+                                <div className="flex items-center gap-2">
                                     <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-1.5">
                                         <div className="bg-purple-500 h-1.5 rounded-full" style={{ width: `${getSkillProgress('grammar')}%` }} />
                                     </div>
                                     <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 w-8 text-right">{getSkillProgress('grammar')}%</span>
                                 </div>
-                                <button onClick={() => handleStartPractice('grammar', 'Ngữ pháp')} className="px-4 py-2 bg-purple-50 dark:bg-purple-950/40 hover:bg-purple-100 dark:hover:bg-purple-950/60 text-purple-600 dark:text-purple-400 font-bold text-[10px] tracking-wider rounded-xl transition cursor-pointer">
+                                <button onClick={() => handleStartPractice('grammar', 'Ngữ pháp')} className="w-full py-2 bg-purple-50 dark:bg-purple-950/40 hover:bg-purple-100 dark:hover:bg-purple-950/60 text-purple-600 dark:text-purple-400 font-bold text-[10px] tracking-wider rounded-xl transition cursor-pointer text-center">
                                     BẮT ĐẦU LUYỆN
                                 </button>
                             </div>
@@ -2965,14 +3044,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     Trau dồi bộ thủ, âm On-Kun và cách ghép chữ qua hệ thống Flashcard thông minh.
                                 </p>
                             </div>
-                            <div className="mt-4 flex items-center justify-between gap-4">
-                                <div className="flex-1 flex items-center gap-2">
+                            <div className="mt-4 flex flex-col gap-3">
+                                <div className="flex items-center gap-2">
                                     <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-1.5">
                                         <div className="bg-teal-500 h-1.5 rounded-full" style={{ width: `${getSkillProgress('kanji')}%` }} />
                                     </div>
                                     <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 w-8 text-right">{getSkillProgress('kanji')}%</span>
                                 </div>
-                                <button onClick={() => handleStartPractice('kanji', 'Hán tự')} className="px-4 py-2 bg-teal-50 dark:bg-teal-950/40 hover:bg-teal-100 dark:hover:bg-teal-950/60 text-teal-600 dark:text-teal-400 font-bold text-[10px] tracking-wider rounded-xl transition cursor-pointer">
+                                <button onClick={() => handleStartPractice('kanji', 'Hán tự')} className="w-full py-2 bg-teal-50 dark:bg-teal-950/40 hover:bg-teal-100 dark:hover:bg-teal-950/60 text-teal-600 dark:text-teal-400 font-bold text-[10px] tracking-wider rounded-xl transition cursor-pointer text-center">
                                     BẮT ĐẦU LUYỆN
                                 </button>
                             </div>
@@ -2989,14 +3068,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     Rèn luyện kỹ năng đọc lướt, tìm ý chính và trả lời câu hỏi trong các đoạn văn dài.
                                 </p>
                             </div>
-                            <div className="mt-4 flex items-center justify-between gap-4">
-                                <div className="flex-1 flex items-center gap-2">
+                            <div className="mt-4 flex flex-col gap-3">
+                                <div className="flex items-center gap-2">
                                     <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-1.5">
                                         <div className="bg-rose-500 h-1.5 rounded-full" style={{ width: `${getSkillProgress('reading')}%` }} />
                                     </div>
                                     <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 w-8 text-right">{getSkillProgress('reading')}%</span>
                                 </div>
-                                <button onClick={() => handleStartPractice('reading', 'Đọc hiểu')} className="px-4 py-2 bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-950/60 text-rose-600 dark:text-rose-400 font-bold text-[10px] tracking-wider rounded-xl transition cursor-pointer">
+                                <button onClick={() => handleStartPractice('reading', 'Đọc hiểu')} className="w-full py-2 bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-950/60 text-rose-600 dark:text-rose-400 font-bold text-[10px] tracking-wider rounded-xl transition cursor-pointer text-center">
                                     BẮT ĐẦU LUYỆN
                                 </button>
                             </div>
@@ -3013,14 +3092,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     Luyện nghe với giọng người bản xứ đa dạng các tình huống hội thoại thực tế.
                                 </p>
                             </div>
-                            <div className="mt-4 flex items-center justify-between gap-4">
-                                <div className="flex-1 flex items-center gap-2">
+                            <div className="mt-4 flex flex-col gap-3">
+                                <div className="flex items-center gap-2">
                                     <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-1.5">
                                         <div className="bg-cyan-500 h-1.5 rounded-full" style={{ width: `${getSkillProgress('listening')}%` }} />
                                     </div>
                                     <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 w-8 text-right">{getSkillProgress('listening')}%</span>
                                 </div>
-                                <button onClick={() => handleStartPractice('listening', 'Nghe hiểu')} className="px-4 py-2 bg-cyan-50 dark:bg-cyan-950/40 hover:bg-cyan-100 dark:hover:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400 font-bold text-[10px] tracking-wider rounded-xl transition cursor-pointer">
+                                <button onClick={() => handleStartPractice('listening', 'Nghe hiểu')} className="w-full py-2 bg-cyan-50 dark:bg-cyan-950/40 hover:bg-cyan-100 dark:hover:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400 font-bold text-[10px] tracking-wider rounded-xl transition cursor-pointer text-center">
                                     BẮT ĐẦU LUYỆN
                                 </button>
                             </div>
