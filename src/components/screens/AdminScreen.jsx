@@ -6,6 +6,7 @@ import { db, appId } from '../../config/firebase';
 import { Users, Search, Shield, Trash2, BarChart3, Clock, AlertTriangle, CheckCircle, Loader2, Languages, BookOpen, Sparkle, Bot, UserCheck, UserX, ToggleLeft, ToggleRight, Settings, Crown, ShieldCheck, ChevronLeft, CreditCard, Plus, Check, X as XIcon, Ticket, DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send, MessageSquare, Image as ImageIcon } from 'lucide-react'
 import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, AI_FEATURES, addModerator, removeModerator, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense, manuallyApplyPackageToUser, sendGlobalNotification, deleteGlobalNotification } from '../../utils/adminSettings'
 import { showConfirm } from '../../utils/toast';
+import { aiNormalizeVerbs, aiScanVerbsForNormalization, aiFixFuriganaFormat, aiRecreateVocabulary } from '../../utils/aiProvider';
 
 const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, adminConfig, isAdmin }) => {
     // State
@@ -52,6 +53,25 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const [notificationError, setNotificationError] = useState('');
     const [sendingNotification, setSendingNotification] = useState(false);
     const [notificationType, setNotificationType] = useState('normal');
+
+    // Vocabulary manager states
+    const [dictResults, setDictResults] = useState([]);
+    const [isLoadingDict, setIsLoadingDict] = useState(false);
+    const [dictLevelFilter, setDictLevelFilter] = useState('all');
+    const [dictPosFilter, setDictPosFilter] = useState('all');
+    const [dictErrorReportedFilter, setDictErrorReportedFilter] = useState('all');
+    const [dictSearchQuery, setDictSearchQuery] = useState('');
+    const [visibleLimit, setVisibleLimit] = useState(50);
+
+    const [editingDictItem, setEditingDictItem] = useState(null);
+    const [deletingDictItem, setDeletingDictItem] = useState(null);
+    const [recreatingVocabId, setRecreatingVocabId] = useState(null);
+
+    const [scanMode, setScanMode] = useState('verb_normalization');
+    const [scanTargetGroup, setScanTargetGroup] = useState('all');
+    const [scanResults, setScanResults] = useState(null);
+    const [scanning, setScanning] = useState(false);
+    const [applyingScanId, setApplyingScanId] = useState(null);
 
     // Fetch API balances
     const fetchApiBalances = async () => {
@@ -548,6 +568,41 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         return { total, learning, mastered };
     }, [selectedUser]);
 
+    // Vocabulary manager effects & handlers
+    useEffect(() => {
+        if (activeSection === 'vocabulary') {
+            setIsLoadingDict(true);
+            const q = query(collection(db, 'sharedVocabulary'));
+            const unsubscribe = onSnapshot(q, (snapshot) => {
+                const results = [];
+                snapshot.forEach((doc) => {
+                    results.push({ id: doc.id, ...doc.data() });
+                });
+                setDictResults(results);
+                setIsLoadingDict(false);
+            }, (error) => {
+                console.error("Error fetching shared vocabulary:", error);
+                setIsLoadingDict(false);
+            });
+            return () => unsubscribe();
+        }
+    }, [activeSection]);
+
+    const filteredDictResults = useMemo(() => {
+        return dictResults.filter(item => {
+            const matchLevel = dictLevelFilter === 'all' || item.level === dictLevelFilter;
+            const matchPos = dictPosFilter === 'all' || item.pos === dictPosFilter;
+            const matchError = dictErrorReportedFilter === 'all' || 
+                (dictErrorReportedFilter === 'error' && item.reportedError === true) ||
+                (dictErrorReportedFilter === 'normal' && !item.reportedError);
+            const matchSearch = !dictSearchQuery.trim() ||
+                (item.front || '').toLowerCase().includes(dictSearchQuery.toLowerCase()) ||
+                (item.back || '').toLowerCase().includes(dictSearchQuery.toLowerCase()) ||
+                (item.sinoVietnamese || '').toLowerCase().includes(dictSearchQuery.toLowerCase());
+            return matchLevel && matchPos && matchError && matchSearch;
+        });
+    }, [dictResults, dictLevelFilter, dictPosFilter, dictErrorReportedFilter, dictSearchQuery]);
+
     if (isLoading) {
         return <LoadingIndicator text="Đang tải danh sách người dùng..." />;
     }
@@ -595,10 +650,149 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         setSavingConfig(false);
     };
 
+
+    const handleSaveDictItem = async (e) => {
+        if (e) e.preventDefault();
+        if (!editingDictItem) return;
+        try {
+            const docId = editingDictItem.id;
+            const saveData = {
+                front: editingDictItem.front.trim(),
+                back: (editingDictItem.back || editingDictItem.meaning || '').trim(),
+                sinoVietnamese: (editingDictItem.sinoVietnamese || '').trim(),
+                pos: editingDictItem.pos || '',
+                level: editingDictItem.level || '',
+                synonym: (editingDictItem.synonym || '').trim(),
+                nuance: (editingDictItem.nuance || '').trim(),
+                example: (editingDictItem.example || '').trim(),
+                exampleMeaning: (editingDictItem.exampleMeaning || '').trim(),
+                synonymSinoVietnamese: (editingDictItem.synonymSinoVietnamese || '').trim(),
+                reportedError: false,
+                updatedAt: Date.now()
+            };
+            await setDoc(doc(db, 'sharedVocabulary', docId), saveData, { merge: true });
+            setEditingDictItem(null);
+            setNotification({ type: 'success', message: 'Đã cập nhật từ vựng thành công!' });
+        } catch (err) {
+            console.error("Error saving dict item:", err);
+            setNotification({ type: 'error', message: 'Lỗi khi cập nhật từ vựng: ' + err.message });
+        }
+    };
+
+    const handleDeleteDictItem = async () => {
+        if (!deletingDictItem) return;
+        try {
+            await deleteDoc(doc(db, 'sharedVocabulary', deletingDictItem));
+            setDeletingDictItem(null);
+            setNotification({ type: 'success', message: 'Đã xóa từ vựng khỏi kho chung!' });
+        } catch (err) {
+            console.error("Error deleting dict item:", err);
+            setNotification({ type: 'error', message: 'Lỗi khi xóa từ vựng: ' + err.message });
+        }
+    };
+
+    const handleAiRecreateVocabulary = async (item) => {
+        if (!item) return;
+        setRecreatingVocabId(item.id);
+        try {
+            const recreatedData = await aiRecreateVocabulary(item);
+            if (recreatedData) {
+                const docRef = doc(db, 'sharedVocabulary', item.id);
+                await setDoc(docRef, {
+                    ...recreatedData,
+                    reportedError: false,
+                    updatedAt: Date.now()
+                }, { merge: true });
+                setNotification({ type: 'success', message: `Đã dùng AI tạo lại từ vựng "${item.id}" thành công!` });
+            } else {
+                setNotification({ type: 'error', message: 'Không nhận được dữ liệu hợp lệ từ AI.' });
+            }
+        } catch (err) {
+            console.error("Error in handleAiRecreateVocabulary:", err);
+            setNotification({ type: 'error', message: 'Lỗi AI tạo lại từ vựng: ' + err.message });
+        } finally {
+            setRecreatingVocabId(null);
+        }
+    };
+
+    const handleScanSharedVocabulary = async () => {
+        setScanning(true);
+        setScanResults(null);
+        try {
+            let candidates = [...dictResults];
+
+            if (scanMode === 'verb_normalization') {
+                candidates = candidates.filter(item => {
+                    const cleanFront = (item.front || '').split('（')[0].split('(')[0].trim();
+                    if (scanTargetGroup === 'verb') {
+                        return item.pos === 'verb' || cleanFront.endsWith('る') || cleanFront.endsWith('う') || cleanFront.endsWith('く') || cleanFront.endsWith('ぐ') || cleanFront.endsWith('す') || cleanFront.endsWith('つ') || cleanFront.endsWith('nu') || cleanFront.endsWith('bu') || cleanFront.endsWith('mu') || cleanFront.endsWith('ぬ') || cleanFront.endsWith('ぶ') || cleanFront.endsWith('む');
+                    } else if (scanTargetGroup === 'suru_verb') {
+                        return item.pos === 'suru_verb' || cleanFront.endsWith('する');
+                    } else if (scanTargetGroup === 'phrase') {
+                        return item.pos === 'phrase' || cleanFront.length > 5;
+                    }
+                    return true;
+                });
+            }
+
+            candidates = candidates.slice(0, 30);
+
+            if (candidates.length === 0) {
+                setNotification({ type: 'info', message: 'Không tìm thấy từ vựng phù hợp để quét.' });
+                setScanning(false);
+                return;
+            }
+
+            let results = [];
+            if (scanMode === 'verb_normalization') {
+                results = await aiScanVerbsForNormalization(candidates);
+            } else {
+                results = await aiFixFuriganaFormat(candidates);
+            }
+
+            const formattedResults = results.map(r => ({
+                ...r,
+                action: r.action || 'chon_sua'
+            }));
+
+            setScanResults(formattedResults);
+        } catch (err) {
+            console.error("Error scanning vocabulary:", err);
+            setNotification({ type: 'error', message: 'Lỗi khi quét từ vựng: ' + err.message });
+        } finally {
+            setScanning(false);
+        }
+    };
+
+    const handleApplyScanCorrection = async (scanItem) => {
+        setApplyingScanId(scanItem.id);
+        try {
+            const docRef = doc(db, 'sharedVocabulary', scanItem.id);
+            const updateData = {
+                front: scanItem.dictionaryForm,
+                back: scanItem.meaning || '',
+                updatedAt: Date.now()
+            };
+            if (scanItem.sinoVietnamese) {
+                updateData.sinoVietnamese = scanItem.sinoVietnamese;
+            }
+            await setDoc(docRef, updateData, { merge: true });
+
+            setScanResults(prev => prev.filter(item => item.id !== scanItem.id));
+            setNotification({ type: 'success', message: `Đã sửa từ vựng: ${scanItem.front} -> ${scanItem.dictionaryForm}` });
+        } catch (err) {
+            console.error("Error applying scan correction:", err);
+            setNotification({ type: 'error', message: 'Lỗi khi áp dụng sửa đổi: ' + err.message });
+        } finally {
+            setApplyingScanId(null);
+        }
+    };
+
     // Section tabs
     const sections = [
         { id: 'users', label: 'Người dùng', icon: Users },
         { id: 'support', label: 'Hỗ trợ trực tuyến', icon: MessageSquare },
+        { id: 'vocabulary', label: 'Kho từ vựng', icon: BookOpen },
         { id: 'ai', label: 'AI', icon: Bot },
         { id: 'revenue', label: 'Doanh thu', icon: DollarSign },
         { id: 'vouchers', label: 'Voucher', icon: Ticket },
@@ -1984,6 +2178,275 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                 </div>
             )}
 
+            {/* ==================== VOCABULARY SECTION ==================== */}
+            {activeSection === 'vocabulary' && (
+                <div className="space-y-6">
+                    {/* Part 1: AI Scanner */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 space-y-4">
+                        <div className="flex items-center justify-between border-b border-gray-150 dark:border-gray-750 pb-3">
+                            <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2">
+                                <Sparkle className="w-5 h-5 text-indigo-500" />
+                                Quét chuẩn hóa từ vựng bằng AI
+                            </h3>
+                        </div>
+                        <div className="flex flex-wrap items-center gap-4 text-sm">
+                            <div className="flex items-center gap-2">
+                                <span className="font-semibold text-gray-500">Chế độ quét:</span>
+                                <select
+                                    value={scanMode}
+                                    onChange={(e) => {
+                                        setScanMode(e.target.value);
+                                        setScanResults(null);
+                                    }}
+                                    className="px-3 py-1.5 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none"
+                                >
+                                    <option value="verb_normalization">Đưa động từ về thể từ điển gốc (Jishokei)</option>
+                                    <option value="furigana_format">Sửa lỗi định dạng ngoặc phiên âm Furigana</option>
+                                </select>
+                            </div>
+
+                            {scanMode === 'verb_normalization' && (
+                                <div className="flex items-center gap-2">
+                                    <span className="font-semibold text-gray-500">Nhóm quét:</span>
+                                    <select
+                                        value={scanTargetGroup}
+                                        onChange={(e) => setScanTargetGroup(e.target.value)}
+                                        className="px-3 py-1.5 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none"
+                                    >
+                                        <option value="all">Tất cả</option>
+                                        <option value="verb">Động từ nhóm 1 & 2</option>
+                                        <option value="suru_verb">Động từ nhóm 3 (Suru)</option>
+                                        <option value="phrase">Cụm từ dài</option>
+                                    </select>
+                                </div>
+                            )}
+
+                            <button
+                                onClick={handleScanSharedVocabulary}
+                                disabled={scanning}
+                                className="px-4 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold disabled:opacity-50 flex items-center gap-1.5 transition-all"
+                            >
+                                {scanning ? (
+                                    <>
+                                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                        <span>Đang quét...</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Search className="w-3.5 h-3.5" />
+                                        <span>Quét ngay</span>
+                                    </>
+                                )}
+                            </button>
+                        </div>
+
+                        {/* Scan Results Table */}
+                        {scanResults && (
+                            <div className="border border-gray-150 dark:border-gray-750 rounded-xl overflow-hidden mt-4">
+                                <div className="overflow-x-auto">
+                                    <table className="w-full text-left border-collapse text-xs">
+                                        <thead>
+                                            <tr className="bg-gray-50 dark:bg-gray-750/30 border-b border-gray-150 dark:border-gray-750 text-gray-500 font-bold">
+                                                <th className="p-3">Từ gốc</th>
+                                                <th className="p-3">{scanMode === 'furigana_format' ? 'Đề xuất định dạng chuẩn' : 'Đề xuất thể từ điển gốc'}</th>
+                                                <th className="p-3">Giải thích lý do</th>
+                                                <th className="p-3 text-right">Thao tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-gray-150 dark:divide-gray-750">
+                                            {scanResults.length === 0 ? (
+                                                <tr>
+                                                    <td colSpan="4" className="p-8 text-center text-gray-400 italic">Không tìm thấy từ vựng nào cần sửa đổi trong chế độ này.</td>
+                                                </tr>
+                                            ) : (
+                                                scanResults.map((item) => (
+                                                    <tr key={item.id} className="hover:bg-gray-50/50 dark:hover:bg-gray-750/30 transition-colors">
+                                                        <td className="p-3 font-semibold text-gray-900 dark:text-gray-100">{item.front}</td>
+                                                        <td className="p-3 font-semibold text-emerald-600 dark:text-emerald-400">{item.dictionaryForm || 'Giữ nguyên'}</td>
+                                                        <td className="p-3 text-gray-500">{item.reason || 'Đã chuẩn hóa'}</td>
+                                                        <td className="p-3 text-right space-x-2">
+                                                            {item.action === 'chon_sua' && item.dictionaryForm ? (
+                                                                <button
+                                                                    onClick={() => handleApplyScanCorrection(item)}
+                                                                    disabled={applyingScanId === item.id}
+                                                                    className="px-2.5 py-1 bg-emerald-500 hover:bg-emerald-600 text-white rounded text-[10px] font-bold disabled:opacity-50 transition-all"
+                                                                >
+                                                                    {applyingScanId === item.id ? 'Đang sửa...' : 'Đồng ý sửa'}
+                                                                </button>
+                                                            ) : (
+                                                                <span className="text-gray-400 italic text-[10px]">Bỏ qua (hợp lệ)</span>
+                                                            )}
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                            )}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Part 2: Vocabulary List */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 space-y-4">
+                        <div className="flex items-center justify-between border-b border-gray-150 dark:border-gray-750 pb-3">
+                            <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2">
+                                <BookOpen className="w-5 h-5 text-indigo-500" />
+                                Danh sách từ vựng kho chung ({dictResults.length} từ)
+                            </h3>
+                        </div>
+
+                        {/* Filters & Search Row */}
+                        <div className="flex flex-wrap items-center gap-3">
+                            <div className="flex-1 min-w-[200px] relative">
+                                <input
+                                    type="text"
+                                    placeholder="Tìm theo chữ Nhật, nghĩa, Hán Việt..."
+                                    value={dictSearchQuery}
+                                    onChange={(e) => setDictSearchQuery(e.target.value)}
+                                    className="w-full pl-9 pr-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500/25"
+                                />
+                                <Search className="w-4 h-4 text-gray-400 absolute left-3 top-2.5" />
+                            </div>
+
+                            <div className="flex items-center gap-2">
+                                <span className="text-xs font-semibold text-gray-500">JLPT:</span>
+                                <select
+                                    value={dictLevelFilter}
+                                    onChange={(e) => setDictLevelFilter(e.target.value)}
+                                    className="px-2 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs outline-none focus:ring-1 focus:ring-indigo-500"
+                                >
+                                    <option value="all">Tất cả</option>
+                                    <option value="N1">N1</option>
+                                    <option value="N2">N2</option>
+                                    <option value="N3">N3</option>
+                                    <option value="N4">N4</option>
+                                    <option value="N5">N5</option>
+                                </select>
+                            </div>
+
+                            <div className="flex items-center gap-2">
+                                <span className="text-xs font-semibold text-gray-500">Từ loại:</span>
+                                <select
+                                    value={dictPosFilter}
+                                    onChange={(e) => setDictPosFilter(e.target.value)}
+                                    className="px-2 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs outline-none focus:ring-1 focus:ring-indigo-500"
+                                >
+                                    <option value="all">Tất cả</option>
+                                    <option value="noun">Danh từ (Noun)</option>
+                                    <option value="verb">Động từ (Verb)</option>
+                                    <option value="suru_verb">Động từ Suru</option>
+                                    <option value="adjective_i">Tính từ đuôi i</option>
+                                    <option value="adjective_na">Tính từ đuôi na</option>
+                                    <option value="adverb">Phó từ (Adverb)</option>
+                                    <option value="pronoun">Đại từ (Pronoun)</option>
+                                    <option value="grammar">Ngữ pháp (Grammar)</option>
+                                    <option value="phrase">Cụm từ (Phrase)</option>
+                                    <option value="other">Khác (Other)</option>
+                                </select>
+                            </div>
+
+                            <div className="flex items-center gap-2">
+                                <span className="text-xs font-semibold text-gray-500">Trạng thái lỗi:</span>
+                                <select
+                                    value={dictErrorReportedFilter}
+                                    onChange={(e) => setDictErrorReportedFilter(e.target.value)}
+                                    className="px-2 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs outline-none focus:ring-1 focus:ring-indigo-500"
+                                >
+                                    <option value="all">Tất cả</option>
+                                    <option value="error">Có báo cáo lỗi</option>
+                                    <option value="normal">Bình thường</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        {/* Vocabulary List Table */}
+                        <div className="border border-gray-150 dark:border-gray-750 rounded-xl overflow-hidden">
+                            {isLoadingDict ? (
+                                <div className="p-8 text-center text-gray-400 flex flex-col items-center justify-center gap-2">
+                                    <Loader2 className="w-6 h-6 animate-spin text-indigo-500" />
+                                    <span>Đang tải dữ liệu từ vựng kho chung...</span>
+                                </div>
+                            ) : (
+                                <div className="overflow-x-auto">
+                                    <table className="w-full text-left border-collapse text-xs">
+                                        <thead>
+                                            <tr className="bg-gray-50 dark:bg-gray-750/30 border-b border-gray-150 dark:border-gray-750 text-gray-500 font-bold">
+                                                <th className="p-3">Từ vựng (Nhật)</th>
+                                                <th className="p-3">Nghĩa tiếng Việt</th>
+                                                <th className="p-3">Hán Việt</th>
+                                                <th className="p-3">Từ loại</th>
+                                                <th className="p-3">Trình độ</th>
+                                                <th className="p-3 text-right">Thao tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-gray-150 dark:divide-gray-750">
+                                            {filteredDictResults.slice(0, visibleLimit).length === 0 ? (
+                                                <tr>
+                                                    <td colSpan="6" className="p-8 text-center text-gray-400 italic">Không tìm thấy từ vựng nào khớp với bộ lọc.</td>
+                                                </tr>
+                                            ) : (
+                                                filteredDictResults.slice(0, visibleLimit).map((item) => (
+                                                    <tr key={item.id} className="hover:bg-gray-50/50 dark:hover:bg-gray-750/30 transition-colors">
+                                                        <td className="p-3 font-semibold text-gray-900 dark:text-gray-100">
+                                                            <div className="flex items-center gap-1.5 flex-wrap">
+                                                                <span>{item.front}</span>
+                                                                {item.reportedError && (
+                                                                    <span className="px-1.5 py-0.5 rounded bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 text-[9px] font-bold flex items-center gap-0.5 animate-pulse">
+                                                                        <AlertTriangle className="w-2.5 h-2.5" />
+                                                                        Có báo lỗi
+                                                                    </span>
+                                                                )}
+                                                            </div>
+                                                        </td>
+                                                        <td className="p-3 text-gray-650 dark:text-gray-300 max-w-[200px] truncate">{item.back || item.meaning}</td>
+                                                        <td className="p-3 text-pink-600 dark:text-pink-400 font-bold">{item.sinoVietnamese || '-'}</td>
+                                                        <td className="p-3 text-gray-500 font-medium">{item.pos || '-'}</td>
+                                                        <td className="p-3"><span className="px-1.5 py-0.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold rounded">{item.level || '-'}</span></td>
+                                                        <td className="p-3 text-right space-x-1.5 whitespace-nowrap">
+                                                            <button
+                                                                onClick={() => handleAiRecreateVocabulary(item)}
+                                                                disabled={recreatingVocabId === item.id}
+                                                                className="px-2 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 rounded text-[10px] font-bold disabled:opacity-50 transition-all"
+                                                            >
+                                                                {recreatingVocabId === item.id ? 'Đang tạo...' : 'AI tạo từ vựng'}
+                                                            </button>
+                                                            <button
+                                                                onClick={() => setEditingDictItem(item)}
+                                                                className="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-600 rounded text-[10px] font-bold transition-all"
+                                                            >
+                                                                Sửa
+                                                            </button>
+                                                            <button
+                                                                onClick={() => setDeletingDictItem(item.id)}
+                                                                className="px-2 py-1 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/40 rounded text-[10px] font-bold transition-all"
+                                                            >
+                                                                Xóa
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                            )}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            )}
+
+                            {filteredDictResults.length > visibleLimit && (
+                                <div className="p-3 bg-gray-50 dark:bg-gray-750/10 text-center border-t border-gray-150 dark:border-gray-750">
+                                    <button
+                                        onClick={() => setVisibleLimit(prev => prev + 50)}
+                                        className="text-xs font-bold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
+                                    >
+                                        Xem thêm từ vựng (+50)
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* ==================== SYSTEM & NOTIFICATIONS SECTION ==================== */}
             {activeSection === 'system' && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -2135,6 +2598,192 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 ))}
                             </div>
                         )}
+                    </div>
+                </div>
+            )}
+
+            {/* Edit Dictionary Item Modal */}
+            {editingDictItem && (
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[10000] flex items-center justify-center p-4">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 max-w-xl w-full shadow-2xl animate-bounce-in text-left">
+                        <div className="flex items-center justify-between border-b border-gray-150 dark:border-gray-750 pb-3 mb-4">
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                                <BookOpen className="w-5 h-5 text-indigo-500" />
+                                Sửa từ vựng kho chung
+                            </h3>
+                            <button
+                                onClick={() => setEditingDictItem(null)}
+                                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                            >
+                                <XIcon className="w-5 h-5" />
+                            </button>
+                        </div>
+
+                        <form onSubmit={handleSaveDictItem} className="space-y-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Mục từ (Nhật)</label>
+                                    <input
+                                        type="text"
+                                        value={editingDictItem.front}
+                                        onChange={(e) => setEditingDictItem(prev => ({ ...prev, front: e.target.value }))}
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm outline-none dark:text-white"
+                                        required
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Nghĩa tiếng Việt</label>
+                                    <input
+                                        type="text"
+                                        value={editingDictItem.back || editingDictItem.meaning || ''}
+                                        onChange={(e) => setEditingDictItem(prev => ({ ...prev, back: e.target.value, meaning: e.target.value }))}
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm outline-none dark:text-white"
+                                        required
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Hán Việt</label>
+                                    <input
+                                        type="text"
+                                        value={editingDictItem.sinoVietnamese || ''}
+                                        onChange={(e) => setEditingDictItem(prev => ({ ...prev, sinoVietnamese: e.target.value }))}
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm outline-none dark:text-white"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Từ loại (POS)</label>
+                                    <select
+                                        value={editingDictItem.pos || ''}
+                                        onChange={(e) => setEditingDictItem(prev => ({ ...prev, pos: e.target.value }))}
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm outline-none dark:text-white"
+                                    >
+                                        <option value="">Không có</option>
+                                        <option value="noun">Danh từ (Noun)</option>
+                                        <option value="verb">Động từ (Verb)</option>
+                                        <option value="suru_verb">Động từ Suru</option>
+                                        <option value="adjective_i">Tính từ đuôi i</option>
+                                        <option value="adjective_na">Tính từ đuôi na</option>
+                                        <option value="adverb">Phó từ (Adverb)</option>
+                                        <option value="pronoun">Đại từ (Pronoun)</option>
+                                        <option value="grammar">Ngữ pháp (Grammar)</option>
+                                        <option value="phrase">Cụm từ (Phrase)</option>
+                                        <option value="other">Khác (Other)</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">JLPT Level</label>
+                                    <select
+                                        value={editingDictItem.level || ''}
+                                        onChange={(e) => setEditingDictItem(prev => ({ ...prev, level: e.target.value }))}
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm outline-none dark:text-white"
+                                    >
+                                        <option value="">Không rõ</option>
+                                        <option value="N1">N1</option>
+                                        <option value="N2">N2</option>
+                                        <option value="N3">N3</option>
+                                        <option value="N4">N4</option>
+                                        <option value="N5">N5</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Từ đồng nghĩa</label>
+                                    <input
+                                        type="text"
+                                        value={editingDictItem.synonym || ''}
+                                        onChange={(e) => setEditingDictItem(prev => ({ ...prev, synonym: e.target.value }))}
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm outline-none dark:text-white"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Hán Việt đồng nghĩa</label>
+                                    <input
+                                        type="text"
+                                        value={editingDictItem.synonymSinoVietnamese || ''}
+                                        onChange={(e) => setEditingDictItem(prev => ({ ...prev, synonymSinoVietnamese: e.target.value }))}
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm outline-none dark:text-white"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Sắc thái/Nuance</label>
+                                    <input
+                                        type="text"
+                                        value={editingDictItem.nuance || ''}
+                                        onChange={(e) => setEditingDictItem(prev => ({ ...prev, nuance: e.target.value }))}
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm outline-none dark:text-white"
+                                    />
+                                </div>
+                            </div>
+
+                            <div>
+                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Ví dụ</label>
+                                <input
+                                    type="text"
+                                    value={editingDictItem.example || ''}
+                                    onChange={(e) => setEditingDictItem(prev => ({ ...prev, example: e.target.value }))}
+                                    className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm outline-none dark:text-white"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Giải nghĩa ví dụ</label>
+                                <input
+                                    type="text"
+                                    value={editingDictItem.exampleMeaning || ''}
+                                    onChange={(e) => setEditingDictItem(prev => ({ ...prev, exampleMeaning: e.target.value }))}
+                                    className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm outline-none dark:text-white"
+                                />
+                            </div>
+
+                            <div className="flex justify-end gap-3 pt-3 border-t border-gray-150 dark:border-gray-750">
+                                <button
+                                    type="button"
+                                    onClick={() => setEditingDictItem(null)}
+                                    className="px-4 py-2 bg-gray-100 hover:bg-gray-200 dark:bg-gray-750 dark:hover:bg-gray-700 text-gray-700 dark:text-slate-200 rounded-xl text-sm font-bold transition-all"
+                                >
+                                    Hủy
+                                </button>
+                                <button
+                                    type="submit"
+                                    className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-bold transition-all"
+                                >
+                                    Lưu lại
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
+
+            {/* Delete Dictionary Item Modal */}
+            {deletingDictItem && (
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[10000] flex items-center justify-center p-4">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 max-w-sm w-full shadow-2xl animate-bounce-in text-center">
+                        <AlertTriangle className="w-12 h-12 text-red-500 mx-auto mb-4" />
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Xóa khỏi kho từ vựng chung?</h3>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+                            Bạn có chắc chắn muốn xóa từ vựng này khỏi kho từ vựng dùng chung? Người dùng khác sẽ không thể tra cứu từ này nữa (nhưng không mất các từ họ đã lưu về thư viện riêng).
+                        </p>
+                        <div className="flex items-center justify-center gap-3">
+                            <button
+                                onClick={() => setDeletingDictItem(null)}
+                                className="flex-1 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-750 dark:hover:bg-gray-700 text-gray-700 dark:text-slate-200 rounded-xl font-bold text-sm transition-all"
+                            >
+                                Hủy
+                            </button>
+                            <button
+                                onClick={handleDeleteDictItem}
+                                className="flex-1 py-2.5 bg-red-600 hover:bg-red-750 text-white rounded-xl font-bold text-sm transition-all"
+                            >
+                                Xóa ngay
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}

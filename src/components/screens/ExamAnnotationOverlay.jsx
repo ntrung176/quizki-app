@@ -151,6 +151,7 @@ const ExamAnnotationOverlay = ({
     const [editingTextId, setEditingTextId] = useState(null);
     const [textInputPos, setTextInputPos] = useState(null);
     const [textInputValue, setTextInputValue] = useState('');
+    const [editingTextProps, setEditingTextProps] = useState(null); // { width, fontSize }
 
     // --- Dragging & Resizing Notes/Texts State ---
     const [draggedItem, setDraggedItem] = useState(null); 
@@ -464,17 +465,43 @@ const ExamAnnotationOverlay = ({
         return false;
     };
 
-    const handleEraserAction = (point) => {
-        let hit = false;
+    const handleEraserAction = (point, clientX, clientY) => {
+        let strokesHit = false;
         const newStrokes = strokes.filter(stroke => {
             const isIntersecting = checkIntersection(point, stroke);
-            if (isIntersecting) hit = true;
+            if (isIntersecting) strokesHit = true;
             return !isIntersecting;
         });
 
-        if (hit) {
-            setStrokes(newStrokes);
-            saveAnnotations(newStrokes, textObjects, stickyNotes, selectionHighlights);
+        let textsHit = false;
+        const newTexts = textObjects.filter(textObj => {
+            const fs = textObj.fontSize || 14;
+            const w = textObj.width || 150;
+            const lineCount = Math.max(1, Math.ceil((textObj.text.length * (fs * 0.6)) / w));
+            const estimatedHeight = lineCount * (fs * 1.3);
+            
+            const isInside = point.x >= textObj.x - 12 && 
+                             point.x <= textObj.x + w + 12 && 
+                             point.y >= textObj.y - 12 && 
+                             point.y <= textObj.y + estimatedHeight + 12;
+            
+            if (isInside) textsHit = true;
+            return !isInside;
+        });
+
+        if (strokesHit || textsHit) {
+            if (strokesHit) setStrokes(newStrokes);
+            if (textsHit) setTextObjects(newTexts);
+            saveAnnotations(
+                strokesHit ? newStrokes : strokes, 
+                textsHit ? newTexts : textObjects, 
+                stickyNotes, 
+                selectionHighlights
+            );
+        }
+
+        if (clientX !== undefined && clientY !== undefined) {
+            handleTextEraserAction(clientX, clientY);
         }
     };
 
@@ -593,17 +620,9 @@ const ExamAnnotationOverlay = ({
         
         const coords = getCanvasCoords(e);
 
-        if (activeTool === 'eraser-highlighter') {
-            setIsDrawing(true);
-            handleHighlightEraserAction(coords);
-            handleTextEraserAction(e.clientX, e.clientY);
-            return;
-        }
-
         if (activeTool === 'eraser') {
             setIsDrawing(true);
-            handleEraserAction(coords);
-            handleTextEraserAction(e.clientX, e.clientY);
+            handleEraserAction(coords, e.clientX, e.clientY);
             return;
         }
 
@@ -668,15 +687,8 @@ const ExamAnnotationOverlay = ({
 
         const coords = getCanvasCoords(e);
 
-        if (activeTool === 'eraser-highlighter' && isDrawing) {
-            handleHighlightEraserAction(coords);
-            handleTextEraserAction(e.clientX, e.clientY);
-            return;
-        }
-
         if (activeTool === 'eraser' && isDrawing) {
-            handleEraserAction(coords);
-            handleTextEraserAction(e.clientX, e.clientY);
+            handleEraserAction(coords, e.clientX, e.clientY);
             return;
         }
 
@@ -704,7 +716,7 @@ const ExamAnnotationOverlay = ({
 
         const coords = getCanvasCoords(e);
 
-        if (activeTool === 'eraser' || activeTool === 'eraser-highlighter') return;
+        if (activeTool === 'eraser') return;
 
         if (activeTool === 'curve' && curveState && curveState.step === 0) {
             const controlPoint = {
@@ -746,6 +758,7 @@ const ExamAnnotationOverlay = ({
     const saveInlineText = () => {
         if (textInputValue.trim() === '') {
             setTextInputPos(null);
+            setEditingTextProps(null);
             return;
         }
 
@@ -754,6 +767,8 @@ const ExamAnnotationOverlay = ({
             text: textInputValue,
             x: textInputPos.x,
             y: textInputPos.y,
+            width: editingTextProps ? editingTextProps.width : 150,
+            fontSize: editingTextProps ? editingTextProps.fontSize : 14,
             color: getResolvedPenColor()
         };
 
@@ -762,6 +777,7 @@ const ExamAnnotationOverlay = ({
         saveAnnotations(strokes, updated, stickyNotes, selectionHighlights);
         setTextInputPos(null);
         setTextInputValue('');
+        setEditingTextProps(null);
     };
 
     const handleTextEditStart = (textObj, e) => {
@@ -769,11 +785,19 @@ const ExamAnnotationOverlay = ({
         setEditingTextId(textObj.id);
         setTextInputValue(textObj.text);
         setTextInputPos({ x: textObj.x, y: textObj.y });
+        setEditingTextProps({ width: textObj.width || 150, fontSize: textObj.fontSize || 14 });
         
         const filtered = textObjects.filter(t => t.id !== textObj.id);
         setTextObjects(filtered);
 
-        setTimeout(() => document.getElementById('canvas-inline-text-input')?.focus(), 50);
+        setTimeout(() => {
+            const textarea = document.getElementById('canvas-inline-text-input');
+            if (textarea) {
+                textarea.focus();
+                textarea.style.height = 'auto';
+                textarea.style.height = `${textarea.scrollHeight}px`;
+            }
+        }, 50);
     };
 
     // --- Drag/Resize Note Handlers ---
@@ -799,11 +823,29 @@ const ExamAnnotationOverlay = ({
         if (!note) return;
 
         setResizedItem({
+            type: 'sticky',
             id,
             startX: e.clientX,
             startY: e.clientY,
             initialWidth: note.width || 190,
             initialHeight: note.height || 150
+        });
+    };
+
+    const handleTextResizeStart = (id, mode, e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        const textObj = textObjects.find(t => t.id === id);
+        if (!textObj) return;
+
+        setResizedItem({
+            type: 'text',
+            mode,
+            id,
+            startX: e.clientX,
+            startY: e.clientY,
+            initialWidth: textObj.width || 150,
+            initialFontSize: textObj.fontSize || 14
         });
     };
 
@@ -831,13 +873,26 @@ const ExamAnnotationOverlay = ({
             if (resizedItem) {
                 const dx = e.clientX - resizedItem.startX;
                 const dy = e.clientY - resizedItem.startY;
-                const newWidth = Math.max(120, resizedItem.initialWidth + dx);
-                const newHeight = Math.max(80, resizedItem.initialHeight + dy);
 
-                const updated = stickyNotes.map(n => 
-                    n.id === resizedItem.id ? { ...n, width: newWidth, height: newHeight } : n
-                );
-                setStickyNotes(updated);
+                if (resizedItem.type === 'text') {
+                    const newWidth = Math.max(50, resizedItem.initialWidth + dx);
+                    let newFontSize = resizedItem.initialFontSize;
+                    if (resizedItem.mode === 'diagonal') {
+                        newFontSize = Math.max(10, Math.min(72, resizedItem.initialFontSize + dy * 0.25));
+                    }
+                    const updated = textObjects.map(t => 
+                        t.id === resizedItem.id ? { ...t, width: newWidth, fontSize: newFontSize } : t
+                    );
+                    setTextObjects(updated);
+                } else {
+                    const newWidth = Math.max(120, resizedItem.initialWidth + dx);
+                    const newHeight = Math.max(80, resizedItem.initialHeight + dy);
+
+                    const updated = stickyNotes.map(n => 
+                        n.id === resizedItem.id ? { ...n, width: newWidth, height: newHeight } : n
+                    );
+                    setStickyNotes(updated);
+                }
             }
         };
 
@@ -952,7 +1007,7 @@ const ExamAnnotationOverlay = ({
 
     // --- Render Options Flyout Drawer next to the floating toolbar ---
     const renderOptionsDrawer = () => {
-        const hasOptions = ['pen', 'line', 'curve', 'highlighter', 'text-highlighter', 'eraser-highlighter'].includes(activeTool);
+        const hasOptions = ['pen', 'line', 'curve', 'highlighter', 'text-highlighter'].includes(activeTool);
         if (!hasOptions || isCollapsed) return null;
 
         return (
@@ -1022,7 +1077,7 @@ const ExamAnnotationOverlay = ({
                 )}
 
                 {/* Highlighter Type & Color Selector */}
-                {(activeTool === 'text-highlighter' || activeTool === 'highlighter' || activeTool === 'eraser-highlighter') && (
+                {(activeTool === 'text-highlighter' || activeTool === 'highlighter') && (
                     <div className="flex flex-col gap-2.5">
                         <span className="text-[9px] text-slate-400 font-bold px-1 uppercase tracking-wider">Cách highlight</span>
                         <div className="flex flex-col gap-1 border-b border-slate-100 dark:border-slate-850 pb-2">
@@ -1044,17 +1099,7 @@ const ExamAnnotationOverlay = ({
                                         : 'text-slate-600 hover:bg-slate-50 dark:text-slate-350 dark:hover:bg-slate-800/50'
                                 }`}
                             >
-                                <Highlighter className="w-3.5 h-3.5 text-amber-550" /> Vẽ tự do
-                            </button>
-                            <button
-                                onClick={() => setActiveTool('eraser-highlighter')}
-                                className={`w-full text-left px-2 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 transition ${
-                                    activeTool === 'eraser-highlighter' 
-                                        ? 'bg-amber-50 text-amber-700 dark:bg-amber-955/30 dark:text-amber-400' 
-                                        : 'text-slate-600 hover:bg-slate-50 dark:text-slate-350 dark:hover:bg-slate-800/50'
-                                }`}
-                            >
-                                <Eraser className="w-3.5 h-3.5 text-rose-500" /> Tẩy highlight
+                                <Highlighter className="w-3.5 h-3.5 text-amber-555" /> Vẽ tự do
                             </button>
                         </div>
 
@@ -1067,9 +1112,6 @@ const ExamAnnotationOverlay = ({
                                         key={col.name}
                                         onClick={() => {
                                             setHighlighterColor(col.value);
-                                            if (activeTool === 'eraser-highlighter') {
-                                                setActiveTool('text-highlighter');
-                                            }
                                         }}
                                         className={`w-6 h-6 rounded-full border border-black/10 transition hover:scale-110 flex items-center justify-center cursor-pointer ${
                                             isSelected ? 'ring-2 ring-indigo-550 ring-offset-2 dark:ring-offset-slate-900 scale-105' : 'opacity-85'
@@ -1119,7 +1161,7 @@ const ExamAnnotationOverlay = ({
                 className="absolute inset-0 w-full h-full"
                 style={{ 
                     cursor: (activeTool === 'cursor' || activeTool === 'text-highlighter') ? 'default' : 
-                            (activeTool === 'eraser' || activeTool === 'eraser-highlighter') ? 'cell' : 
+                            activeTool === 'eraser' ? 'cell' : 
                             activeTool === 'text' ? 'text' : 'crosshair',
                     pointerEvents: (activeTool === 'cursor' || activeTool === 'text-highlighter') ? 'none' : 'auto'
                 }}
@@ -1189,55 +1231,93 @@ const ExamAnnotationOverlay = ({
             ))}
 
             {/* Draggable transparent text */}
-            {textObjects.map((textObj) => (
-                <div
-                    key={textObj.id}
-                    className="absolute z-25 group font-medium font-sans text-sm select-none text-annotation-box flex items-center gap-1 px-1 rounded hover:bg-slate-100/50 hover:ring-1 hover:ring-slate-300 dark:hover:bg-slate-800/40 dark:hover:ring-slate-700 pointer-events-auto cursor-move"
-                    style={{
-                        left: `${textObj.x}px`,
-                        top: `${textObj.y}px`,
-                        color: textObj.color
-                    }}
-                    onPointerDown={(e) => handleDragStart('text', textObj.id, e)}
-                    onDoubleClick={(e) => handleTextEditStart(textObj, e)}
-                >
-                    <span className="whitespace-pre">{textObj.text}</span>
-                    <button 
-                        onClick={(e) => deleteText(textObj.id, e)}
-                        className="hidden group-hover:block p-0.5 text-slate-400 hover:text-red-500 cursor-pointer"
-                        title="Xóa chữ"
+            {textObjects.map((textObj) => {
+                const fs = textObj.fontSize || 14;
+                const w = textObj.width || 150;
+                return (
+                    <div
+                        key={textObj.id}
+                        className="absolute z-25 group select-none text-annotation-box flex items-center rounded hover:bg-slate-100/30 hover:ring-1 hover:ring-slate-350/50 dark:hover:bg-slate-800/20 dark:hover:ring-slate-700/60 pointer-events-auto"
+                        style={{
+                            left: `${textObj.x}px`,
+                            top: `${textObj.y}px`,
+                            width: `${w}px`,
+                            color: textObj.color,
+                            fontSize: `${fs}px`,
+                            lineHeight: '1.2'
+                        }}
+                        onPointerDown={(e) => {
+                            if (!e.target.closest('.text-resize-handle')) {
+                                handleDragStart('text', textObj.id, e);
+                            }
+                        }}
+                        onDoubleClick={(e) => handleTextEditStart(textObj, e)}
                     >
-                        <X className="w-2.5 h-2.5" />
-                    </button>
-                </div>
-            ))}
+                        <div className="w-full relative min-h-[1.5em] pr-4 break-words whitespace-pre-wrap font-sans text-left">
+                            {textObj.text}
+                            
+                            <button 
+                                onClick={(e) => deleteText(textObj.id, e)}
+                                className="absolute top-0 right-0 hidden group-hover:block p-0.5 text-slate-400 hover:text-red-500 cursor-pointer"
+                                title="Xóa chữ"
+                            >
+                                <X className="w-3 h-3" />
+                            </button>
 
-            {/* Active Inline Text Input Box (Without tick/x buttons) */}
+                            <div
+                                onPointerDown={(e) => handleTextResizeStart(textObj.id, 'horizontal', e)}
+                                className="text-resize-handle absolute top-0 bottom-0 -right-1.5 w-3 cursor-e-resize flex items-center justify-center group-hover:opacity-100 opacity-0 transition-opacity"
+                                title="Kéo ngang để xuống dòng"
+                            >
+                                <div className="w-1 h-3 bg-indigo-500/80 rounded-full" />
+                            </div>
+
+                            <div
+                                onPointerDown={(e) => handleTextResizeStart(textObj.id, 'diagonal', e)}
+                                className="text-resize-handle absolute -bottom-1.5 -right-1.5 w-3.5 h-3.5 cursor-se-resize flex items-center justify-center group-hover:opacity-100 opacity-0 transition-opacity"
+                                title="Kéo góc chéo để phóng to chữ"
+                            >
+                                <div className="w-2 h-2 bg-indigo-500/85 rounded-sm" />
+                            </div>
+                        </div>
+                    </div>
+                );
+            })}
+
+            {/* Active Inline Text Input Box (Auto-growing textarea) */}
             {textInputPos && (
                 <div 
-                    className="absolute z-40 bg-transparent flex items-center border-b border-indigo-500 p-0.5 pointer-events-auto"
+                    className="absolute z-40 bg-transparent flex items-center border border-dashed border-indigo-500 p-1 pointer-events-auto rounded bg-white/40 dark:bg-slate-900/40"
                     style={{
                         left: `${textInputPos.x}px`,
                         top: `${textInputPos.y - 12}px`
                     }}
                 >
-                    <input
+                    <textarea
                         id="canvas-inline-text-input"
-                        type="text"
                         value={textInputValue}
-                        onChange={(e) => setTextInputValue(e.target.value)}
+                        onChange={(e) => {
+                            setTextInputValue(e.target.value);
+                            e.target.style.height = 'auto';
+                            e.target.style.height = `${e.target.scrollHeight}px`;
+                        }}
                         onBlur={saveInlineText}
                         onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
+                            if (e.key === 'Enter' && !e.shiftKey) {
+                                e.preventDefault();
                                 saveInlineText();
                             } else if (e.key === 'Escape') {
-                                setTextInputValue(''); // Set to empty so blur does not save it
+                                setTextInputValue('');
                                 setTextInputPos(null);
                             }
                         }}
                         placeholder="Nhập chữ..."
-                        className="bg-transparent border-none outline-none font-sans text-sm p-0 min-w-[100px]"
-                        style={{ color: getResolvedPenColor() }}
+                        className="bg-transparent border-none outline-none font-sans text-sm p-0 min-w-[150px] resize-none overflow-hidden"
+                        style={{ 
+                            color: getResolvedPenColor(),
+                            height: '24px',
+                            lineHeight: '1.2'
+                        }}
                     />
                 </div>
             )}
@@ -1348,22 +1428,22 @@ const ExamAnnotationOverlay = ({
                             {/* Highlighter Group Button */}
                             <button
                                 onClick={() => { 
-                                    if (activeTool !== 'text-highlighter' && activeTool !== 'highlighter' && activeTool !== 'eraser-highlighter') {
+                                    if (activeTool !== 'text-highlighter' && activeTool !== 'highlighter') {
                                         setActiveTool('text-highlighter'); 
                                     }
                                 }}
                                 className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all relative ${
-                                    (activeTool === 'text-highlighter' || activeTool === 'highlighter' || activeTool === 'eraser-highlighter')
+                                    (activeTool === 'text-highlighter' || activeTool === 'highlighter')
                                         ? 'bg-amber-400 text-slate-900 shadow-md shadow-amber-400/25 scale-105' 
                                         : 'text-slate-655 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                                 }`}
                                 style={{
-                                    backgroundColor: (activeTool === 'text-highlighter' || activeTool === 'highlighter' || activeTool === 'eraser-highlighter') ? highlighterColor : 'transparent',
-                                    color: (activeTool === 'text-highlighter' || activeTool === 'highlighter' || activeTool === 'eraser-highlighter') ? '#0f172a' : 'inherit'
+                                    backgroundColor: (activeTool === 'text-highlighter' || activeTool === 'highlighter') ? highlighterColor : 'transparent',
+                                    color: (activeTool === 'text-highlighter' || activeTool === 'highlighter') ? '#0f172a' : 'inherit'
                                 }}
                                 title="Bút highlight (Nhấp mở menu phụ chọn cách tô và màu sắc)"
                             >
-                                {activeTool === 'highlighter' ? <Highlighter className="w-4.5 h-4.5" /> : activeTool === 'eraser-highlighter' ? <Eraser className="w-4.5 h-4.5 text-rose-600" /> : <TextHighlightIcon className="w-4.5 h-4.5" />}
+                                {activeTool === 'highlighter' ? <Highlighter className="w-4.5 h-4.5" /> : <TextHighlightIcon className="w-4.5 h-4.5" />}
                                 <span className="absolute bottom-0 right-0 w-1.5 h-1.5 border-r border-b border-current opacity-60" style={{ transform: 'translate(-2px, -2px) rotate(45deg)' }} />
                             </button>
 

@@ -344,3 +344,240 @@ export const formatMultipleMeanings = (text) => {
         .map((meaning, index) => `${markers[index] || `(${index + 1})`} ${meaning}`)
         .join('\n');
 };
+
+// Convert Japanese verb/adjective/phrase to dictionary form
+export const convertToDictionaryForm = (text) => {
+    if (!text) return '';
+    let word = text.trim();
+
+    // Remove ending punctuation/spaces
+    word = word.replace(/[。、！？\s]+$/, '');
+
+    // Irregular verbs check (come / do)
+    if (word === 'きまして' || word === 'きます' || word === 'きました' || word === 'きよう' || word === 'こない' || word === 'こさせる' || word === 'こられる' || word === 'きて' || word === 'きた') {
+        return '来る';
+    }
+    if (word === 'します' || word === 'しました' || word === 'しましょう' || word === 'して' || word === 'した' || word === 'しない' || word === 'せず' || word === 'せずに' || word === 'しよう') {
+        return 'する';
+    }
+
+    // Compounds ending in suru / kuru
+    if (word.endsWith('きまして') || word.endsWith('きます') || word.endsWith('きました') || word.endsWith('きよう') || word.endsWith('こない') || word.endsWith('こさせる') || word.endsWith('こられる') || word.endsWith('きて') || word.endsWith('きた')) {
+        const endings = ['きまして', 'きます', 'きました', 'きよう', 'こない', 'こさせる', 'こられる', 'きて', 'きた'];
+        for (const end of endings) {
+            if (word.endsWith(end)) {
+                return word.slice(0, -end.length) + '来る';
+            }
+        }
+    }
+    
+    // Check for standard suru compounds, e.g. 勉強します, 勉強して
+    const suruEndings = ['します', 'しました', 'しましょう', 'して', 'した', 'しない', 'せず', 'せずに', 'しよう', 'させる', 'される', 'されている', 'させること'];
+    for (const end of suruEndings) {
+        if (word.endsWith(end) && word.length > end.length) {
+            const stem = word.slice(0, -end.length);
+            const lastChar = stem.charAt(stem.length - 1);
+            const isHiragana = /[\u3040-\u309F]/.test(lastChar);
+            if (!isHiragana || lastChar === 'っ') {
+                return stem + 'する';
+            }
+        }
+    }
+
+    const A_COLUMN = {
+        'わ': 'う', 'ka': 'く', 'か': 'く', 'が': 'ぐ', 'さ': 'す', 'た': 'つ',
+        'な': 'ぬ', 'ば': 'ぶ', 'ま': 'む', 'ら': 'る'
+    };
+    const I_COLUMN = {
+        'い': 'う', 'ki': 'く', 'き': 'く', 'ぎ': 'ぐ', 'し': 'す', 'ch': 'つ', 'ち': 'つ',
+        'に': 'ぬ', 'び': 'ぶ', 'み': 'む', 'り': 'る'
+    };
+    const E_COLUMN = {
+        'え': 'う', 'ke': 'く', 'け': 'く', 'ge': 'ぐ', 'せ': 'す', 'te': 'つ', 'て': 'つ',
+        'ne': 'ぬ', 'ね': 'ぬ', 'べ': 'ぶ', 'め': 'む', 'れ': 'る'
+    };
+
+    const isAColumn = (char) => !!A_COLUMN[char];
+    const isIColumn = (char) => !!I_COLUMN[char];
+    const isEColumn = (char) => !!E_COLUMN[char];
+
+    const convertAColumnToDictionary = (stem) => {
+        if (!stem) return '';
+        const last = stem.charAt(stem.length - 1);
+        if (A_COLUMN[last]) {
+            return stem.slice(0, -1) + A_COLUMN[last];
+        }
+        return stem;
+    };
+
+    const convertIColumnToDictionary = (stem) => {
+        if (!stem) return '';
+        const last = stem.charAt(stem.length - 1);
+        if (I_COLUMN[last]) {
+            return stem.slice(0, -1) + I_COLUMN[last];
+        }
+        return stem + 'る'; // fallback to ru-verb
+    };
+
+    const convertEColumnToDictionary = (stem) => {
+        if (!stem) return '';
+        const last = stem.charAt(stem.length - 1);
+        if (E_COLUMN[last]) {
+            return stem.slice(0, -1) + E_COLUMN[last];
+        }
+        return stem;
+    };
+
+    // Keep reduction loop going to strip nested helpers
+    let changed = true;
+    let iterations = 0;
+    while (changed && iterations < 5) {
+        iterations++;
+        changed = false;
+
+        // Progressive/State: 〜ている, 〜ていた, etc.
+        const progressiveEndings = ['ていらっしゃいます', 'ていらっしゃった', 'ておられます', 'ております', 'ていました', 'ています', 'ていた', 'ている', 'ておる', 'でいました', 'deimasu', 'でいます', 'deita', 'でいた', 'でいる', 'でおる'];
+        for (const end of progressiveEndings) {
+            if (word.endsWith(end)) {
+                word = word.slice(0, -end.length) + (end.startsWith('đ') || end.startsWith('で') ? 'で' : 'て');
+                changed = true;
+                break;
+            }
+        }
+        if (changed) continue;
+
+        // Try / Preparatory / Completed: 〜てみる, 〜ておく, 〜てしまう, 〜ちゃう
+        const prepEndings = ['てみます', 'てみました', 'てみよう', 'てみた', 'てみる', 'ておきます', 'ておきました', 'ておcon', 'ておこう', 'ておいた', 'ておく', 'てしまいます', 'てしまいました', 'てしまおう', 'てしまった', 'てしまう', 'ちゃいます', 'ちゃいました', 'ちゃおう', 'ちゃった', 'ちゃう', 'じゃいます', 'じゃいました', 'じゃおう', 'じゃった', 'じゃう'];
+        for (const end of prepEndings) {
+            if (word.endsWith(end)) {
+                word = word.slice(0, -end.length) + (end.startsWith('gi') || end.startsWith('じ') || end.startsWith('đ') || end.startsWith('で') ? 'で' : 'て');
+                changed = true;
+                break;
+            }
+        }
+        if (changed) continue;
+
+        // Past polite / polite: 〜ました, 〜ましょう, 〜ます
+        const politeEndings = ['ました', 'ましょう', 'ます'];
+        let matchedPolite = false;
+        for (const end of politeEndings) {
+            if (word.endsWith(end)) {
+                const stem = word.slice(0, -end.length);
+                word = convertIColumnToDictionary(stem);
+                matchedPolite = true;
+                break;
+            }
+        }
+        if (matchedPolite) {
+            if (word.endsWith('行って') || word.endsWith('行った')) {
+                word = word.slice(0, -2) + 'く';
+            }
+            changed = true;
+            continue;
+        }
+
+        // Auxiliary: causative, passive, potential, desire
+        const auxiliaryEndings = ['させられる', 'させられます', 'せられる', 'seられmasu', 'せられます', 'させられた', 'せられた', 'させよう', 'せよう', 'させる', 'される', 'られる', 'れru', 'れる', 'たかった', 'たくない', 'たい'];
+        let matchedAux = false;
+        for (const end of auxiliaryEndings) {
+            if (word.endsWith(end)) {
+                const stem = word.slice(0, -end.length);
+                if (end === 'たい' || end === 'たくない' || end === 'たかった') {
+                    word = convertIColumnToDictionary(stem);
+                } else if (end.startsWith('させ') || end.startsWith('せ') || end.startsWith('さ')) {
+                    word = convertAColumnToDictionary(stem);
+                } else if (end.startsWith('られ') || end.startsWith('れ')) {
+                    const lastChar = stem.charAt(stem.length - 1);
+                    if (isAColumn(lastChar)) {
+                        word = convertAColumnToDictionary(stem);
+                    } else {
+                        word = stem + 'る';
+                    }
+                }
+                matchedAux = true;
+                break;
+            }
+        }
+        if (matchedAux) {
+            if (word.endsWith('行って') || word.endsWith('行った')) {
+                word = word.slice(0, -2) + 'く';
+            }
+            changed = true;
+            continue;
+        }
+
+        // Conditional
+        if (word.endsWith('れば')) {
+            const stem = word.slice(0, -2);
+            const lastChar = stem.charAt(stem.length - 1);
+            if (isEColumn(lastChar)) {
+                word = convertEColumnToDictionary(stem);
+            } else {
+                word = stem + 'る';
+            }
+            changed = true;
+            continue;
+        }
+
+        // Negative past
+        if (word.endsWith('なかった')) {
+            word = word.slice(0, -4) + 'ない';
+            changed = true;
+            continue;
+        }
+        // Negative
+        if (word.endsWith('ない')) {
+            const stem = word.slice(0, -2);
+            const lastChar = stem.charAt(stem.length - 1);
+            if (isAColumn(lastChar)) {
+                word = convertAColumnToDictionary(stem);
+            } else {
+                word = stem + 'る';
+            }
+            changed = true;
+            continue;
+        }
+
+        // Past / Te-form (Godan & Ichidan)
+        if (word.endsWith('行って') || word.endsWith('行った')) {
+            word = word.slice(0, -2) + 'く';
+            changed = true;
+            continue;
+        }
+
+        const pastTeEndings = [
+            { suffix: 'って', replacement: 'う' },
+            { suffix: 'った', replacement: 'う' },
+            { suffix: 'いて', replacement: 'く' },
+            { suffix: 'いた', replacement: 'く' },
+            { suffix: 'いで', replacement: 'ぐ' },
+            { suffix: 'いだ', replacement: 'ぐ' },
+            { suffix: 'して', replacement: 'す' },
+            { suffix: 'した', replacement: 'す' },
+            { suffix: 'んで', replacement: 'む' },
+            { suffix: 'んだ', replacement: 'む' },
+            { suffix: 'て', replacement: 'る' },
+            { suffix: 'た', replacement: 'る' }
+        ];
+
+        let matchedPastTe = false;
+        for (const { suffix, replacement } of pastTeEndings) {
+            if (word.endsWith(suffix)) {
+                const stem = word.slice(0, -suffix.length);
+                if (suffix === 'って' || suffix === 'った') {
+                    word = stem + 'う';
+                } else {
+                    word = stem + replacement;
+                }
+                matchedPastTe = true;
+                break;
+            }
+        }
+        if (matchedPastTe) {
+            changed = true;
+            continue;
+        }
+    }
+
+    return word;
+};

@@ -81,7 +81,13 @@ const QuestionContent = React.memo(({
                                         const key = subAnswerKey(currentSectionIdx, currentQuestionIdx, sqi);
                                         const isSelected = answers[key] === oi;
                                         return (
-                                            <div key={oi} onClick={() => selectAnswerSub(currentSectionIdx, currentQuestionIdx, sqi, oi)}
+                                            <div key={oi} onClick={(e) => {
+                                                const selection = window.getSelection();
+                                                if (selection && selection.toString().trim().length > 0) {
+                                                    return;
+                                                }
+                                                selectAnswerSub(currentSectionIdx, currentQuestionIdx, sqi, oi);
+                                            }}
                                                 className={`w-full p-3.5 rounded-xl text-left text-xs font-medium transition-all border-2 cursor-pointer ${isSelected
                                                     ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
                                                     : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10'
@@ -109,7 +115,13 @@ const QuestionContent = React.memo(({
                         const key = answerKey(currentSectionIdx, currentQuestionIdx);
                         const isSelected = answers[key] === oi;
                         return (
-                            <div key={oi} onClick={() => selectAnswer(currentSectionIdx, currentQuestionIdx, oi)}
+                            <div key={oi} onClick={(e) => {
+                                const selection = window.getSelection();
+                                if (selection && selection.toString().trim().length > 0) {
+                                    return;
+                                }
+                                selectAnswer(currentSectionIdx, currentQuestionIdx, oi);
+                            }}
                                 className={`w-full p-4 rounded-xl text-left font-medium transition-all border-2 cursor-pointer ${isSelected
                                     ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
                                     : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10'
@@ -1520,18 +1532,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                                     {formatTime(timeRemaining)}
                                 </div>
                             )}
-                            {/* Save button for practice mode */}
-                            {!isRealExam && (
-                                <button 
-                                    onClick={saveProgressAndExit}
-                                    className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold transition shadow-sm cursor-pointer border-none"
-                                    title="Lưu tiến trình làm bài và thoát"
-                                >
-                                    <Save className="w-3.5 h-3.5" />
-                                    <span>Lưu bài lại</span>
-                                </button>
-                            )}
-                            {/* Progress */}
+                             {/* Progress */}
                             <span className="text-xs text-gray-500 hidden md:inline">{answeredCount}/{totalQ} đã trả lời</span>
                             {/* Settings */}
                             <div className="relative" ref={settingsMenuRef}>
@@ -1660,11 +1661,21 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {} }) => {
                             );
                         })}
                         {/* Submit button in sidebar */}
-                        <div className="p-3 border-t border-gray-200 dark:border-gray-700">
+                        <div className="p-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-2">
                             <button onClick={submitTest}
                                 className="w-full py-2 bg-red-600 text-white rounded-lg text-sm font-bold hover:bg-red-700 transition">
                                 Nộp bài ({answeredCount}/{totalQ})
                             </button>
+                            {!isRealExam && (
+                                <button 
+                                    onClick={saveProgressAndExit}
+                                    className="w-full py-2 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-700 dark:hover:bg-emerald-600 text-white rounded-lg text-sm font-bold transition shadow-sm flex items-center justify-center gap-1.5 cursor-pointer border-none"
+                                    title="Lưu tiến trình làm bài và thoát"
+                                >
+                                    <Save className="w-4 h-4" />
+                                    <span>Lưu bài lại</span>
+                                </button>
+                            )}
                         </div>
                     </div>
                     {/* Main question area */}

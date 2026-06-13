@@ -206,9 +206,14 @@ export const parseJsonFromAI = (text) => {
     if (jsonStr.endsWith('```')) jsonStr = jsonStr.slice(0, -3);
     jsonStr = jsonStr.trim();
 
-    // Try to extract JSON from mixed content
-    const jsonMatch = jsonStr.match(/\{[\s\S]*\}/);
-    if (jsonMatch) jsonStr = jsonMatch[0];
+    // Try to extract JSON array first, then object from mixed content
+    const arrayMatch = jsonStr.match(/\[[\s\S]*\]/);
+    if (arrayMatch) {
+        jsonStr = arrayMatch[0];
+    } else {
+        const objectMatch = jsonStr.match(/\{[\s\S]*\}/);
+        if (objectMatch) jsonStr = objectMatch[0];
+    }
 
     try {
         return JSON.parse(jsonStr);
@@ -690,5 +695,161 @@ export const callOpenAITTS = async (text, gender = 'female') => {
     } catch (error) {
         console.error('OpenAI TTS failed:', error);
         return null;
+    }
+};
+
+// ============== AI VERB NORMALIZATION TOOL ==============
+export const aiNormalizeVerbs = async (verbsInput) => {
+    if (!verbsInput) return null;
+    const verbsList = Array.isArray(verbsInput) ? verbsInput : [verbsInput];
+    
+    const prompt = `Bạn là một chuyên gia ngôn ngữ tiếng Nhật. Hãy chuẩn hoá các động từ tiếng Nhật đã bị chia ở các thể khác nhau dưới đây trở về thể từ điển (dictionary form - jishokei).
+Danh sách động từ cần chuẩn hoá:
+${verbsList.map((v, i) => `${i + 1}. ${v}`).join('\n')}
+
+QUY TẮC PHẢN HỒI:
+1. Hãy trả về kết quả dưới dạng JSON hợp lệ duy nhất, KHÔNG chứa thêm giải thích hay chữ thừa nào khác ngoài JSON block.
+2. Cấu trúc JSON trả về là một mảng các đối tượng có định dạng sau:
+[
+  {
+    "original": "Động từ đã chia gốc mà người dùng nhập vào",
+    "dictionaryForm": "Thể từ điển của động từ đó (ví dụ: 行く, 食べる, 勉強する)",
+    "reading": "Thể từ điển kèm cách đọc furigana định dạng '漢字（かんじ）' hoặc viết bằng Hiragana nếu không có Kanji (ví dụ: 行く（いく）, 食べる（たべる）)",
+    "meaning": "Nghĩa tiếng Việt chính xác và ngắn gọn của động từ thể từ điển đó",
+    "sinoVietnamese": "Âm Hán Việt viết hoa của động từ (ví dụ: HÀNH, THỰC, MIỄN CƯỜNG)",
+    "pos": "Từ loại động từ, chỉ chọn 1 trong: 'verb' (động từ nhóm 1/2) hoặc 'suru_verb' (động từ nhóm 3/suru)",
+    "level": "Cấp độ JLPT phù hợp nhất (N5, N4, N3, N2, N1)",
+    "conjugation": "Tên tiếng Việt của thể/cách chia mà động từ gốc đang sử dụng (ví dụ: thể bị động sai khiến, thể lịch sự quá khứ ます, thể tiếp diễn ている)",
+    "example": "Một câu ví dụ tiếng Nhật ngắn gọn sử dụng động từ đó (sử dụng thể từ điển hoặc thể đã chia, ưu tiên dạng hay dùng thực tế)",
+    "exampleMeaning": "Dịch nghĩa tiếng Việt câu ví dụ trên"
+  }
+]
+`;
+
+    try {
+        const responseText = await callAI(prompt, null, 'vocab_gen');
+        const result = parseJsonFromAI(responseText);
+        return result;
+    } catch (e) {
+        console.error('Error in aiNormalizeVerbs:', e);
+        throw e;
+    }
+};
+
+// ============== AI VERB SCANNER TOOL ==============
+export const aiScanVerbsForNormalization = async (items) => {
+    if (!items || items.length === 0) return [];
+    
+    const prompt = `Bạn là một chuyên gia ngôn ngữ tiếng Nhật. Dưới đây là danh sách các mục từ vựng trong từ điển. Hãy quét và phát hiện các động từ đã bị chia thể hoặc các cụm từ chứa động từ chưa ở thể từ điển, sau đó gợi ý sửa chúng về thể từ điển gốc (Jishokei).
+
+LƯU Ý QUAN TRỌNG:
+1. Hãy bỏ qua (không sửa, gắn hành động là "bo_qua") các cụm từ giao tiếp (Kaiwa), từ chào hỏi, cụm cố định hoặc câu chúc phổ biến (ví dụ: "ありがとうございます", "こんにちは", "すみません", "おめでとうございます", "よろしくおねがいします", "ありがとうございます"). Đối với các cụm này, TUYỆT ĐỐI không đưa về thể từ điển.
+2. Chỉ gợi ý sửa cho các động từ đơn hoặc cụm động từ thực sự bị chia và cần đưa về thể từ điển (ví dụ: "行きました" -> "行く", "食べさせる" -> "食べる", "勉強している" -> "勉強する").
+3. Đối với mỗi mục từ, hãy trả về kết quả phân tích.
+
+Danh sách từ vựng cần quét:
+${items.map((it, i) => `${i + 1}. ID: ${it.id} | Chữ: ${it.front} | Nghĩa: ${it.back}`).join('\n')}
+
+QUY TẮC PHẢN HỒI:
+Trả về duy nhất một mảng JSON có định dạng sau:
+[
+  {
+    "id": "ID tương ứng từ danh sách đầu vào",
+    "front": "Từ gốc đầu vào",
+    "action": "chon_sua" hoặc "bo_qua",
+    "dictionaryForm": "Từ điển gốc gợi ý (ví dụ: 行く, 食べる) nếu action là chon_sua, còn lại để trống",
+    "reading": "Cách đọc furigana gợi ý dạng '漢字（かんじ）' (ví dụ: 行く（いく）) nếu action là chon_sua, còn lại để trống",
+    "meaning": "Nghĩa tiếng Việt của thể từ điển",
+    "sinoVietnamese": "Âm Hán Việt",
+    "reason": "Giải thích ngắn gọn lý do (ví dụ: thể bị động, cụm giao tiếp chào hỏi, đã là thể từ điển...)"
+  }
+]
+`;
+
+    try {
+        const responseText = await callAI(prompt, null, 'vocab_gen');
+        const result = parseJsonFromAI(responseText);
+        return result || [];
+    } catch (e) {
+        console.error('Error in aiScanVerbsForNormalization:', e);
+        throw e;
+    }
+};
+
+// ============== AI FURIGANA FORMAT FIXER ==============
+export const aiFixFuriganaFormat = async (items) => {
+    if (!items || items.length === 0) return [];
+    
+    const prompt = `Bạn là một chuyên gia tiếng Nhật. Dưới đây là danh sách từ vựng có cách viết phiên âm/Furigana không chuẩn (ví dụ: thiếu phiên âm ở cuối, viết sai vị trí mở ngoặc hoặc lẫn lộn).
+Hãy chuyển đổi/sửa các từ này về định dạng từ vựng tiếng Nhật chuẩn:
+- Nếu từ có chứa chữ Hán (Kanji), định dạng chuẩn bắt buộc phải là: 'ChữHán漢字（かな）' ở cuối từ (ví dụ: '日本語（にほんご）', '勉強する（べんきょうする）').
+- Không được đặt dấu ngoặc ở giữa từ (ví dụ: '勉強（べんきょう）する' phải chuyển thành '勉強する（べんきょうする）').
+- Nếu từ thuần chữ Kana (Hiragana/Katakana) không có Kanji, thì giữ nguyên từ đó không cần ngoặc (ví dụ: 'あたま', 'カメラ').
+
+Danh sách từ vựng cần sửa định dạng:
+${items.map((it, i) => `${i + 1}. ID: ${it.id} | Chữ hiện tại: ${it.front} | Nghĩa: ${it.back || it.meaning || ''}`).join('\n')}
+
+QUY TẮC PHẢN HỒI:
+Trả về duy nhất một mảng JSON có định dạng sau:
+[
+  {
+    "id": "ID tương ứng từ danh sách đầu vào",
+    "front": "Từ gốc đầu vào",
+    "dictionaryForm": "Từ vựng định dạng chuẩn (ví dụ: '勉強する（べんきょうする）' hoặc '日本語（にほんご）')",
+    "reading": "Chỉ phần cách đọc Hiragana/Katakana (ví dụ: 'べんきょうする' hoặc 'にほんご')",
+    "meaning": "Nghĩa tiếng Việt",
+    "sinoVietnamese": "Âm Hán Việt tương ứng",
+    "reason": "Giải thích ngắn gọn lỗi định dạng đã sửa (ví dụ: Chuyển ngoặc từ giữa về cuối, Thêm phiên âm bị thiếu...)"
+  }
+]
+`;
+
+    try {
+        const responseText = await callAI(prompt, null, 'vocab_gen');
+        const result = parseJsonFromAI(responseText);
+        return result || [];
+    } catch (e) {
+        console.error('Error in aiFixFuriganaFormat:', e);
+        throw e;
+    }
+};
+
+// ============== AI RECREATE VOCABULARY ==============
+export const aiRecreateVocabulary = async (item) => {
+    if (!item) return null;
+    
+    const prompt = `Bạn là một chuyên gia tiếng Nhật kiêm biên dịch viên Nhật-Việt xuất sắc.
+Dưới đây là một từ vựng đang bị lỗi hoặc thiếu thông tin trong hệ thống:
+- Chữ Kanji/Kana gốc: ${item.front || ''}
+- Nghĩa tiếng Việt: ${item.back || item.meaning || ''}
+- Hán Việt: ${item.sinoVietnamese || ''}
+- Part of Speech: ${item.pos || ''}
+- Trình độ: ${item.level || ''}
+
+Hãy dùng trí tuệ nhân tạo để sửa chữa, hoàn thiện và tạo lại từ vựng này thành một từ vựng tiếng Nhật chuẩn chỉnh, đầy đủ trường thông tin.
+
+QUY TẮC PHÁN HỒI:
+Trả về duy nhất một đối tượng JSON có định dạng sau:
+{
+  "front": "Từ gốc chuẩn hóa định dạng Kanji(Hiragana) hoặc Katakana, bắt buộc đặt ngoặc phiên âm ở cuối từ nếu chứa Kanji (ví dụ: '勉強する（べんきょうする）', '日本語（にほんご）', '美味しい（おいしい）'). Nếu thuần Kana thì không cần ngoặc (ví dụ: 'あたま', 'カメラ').",
+  "back": "Nghĩa tiếng Việt chuẩn, gọn gàng, dịch đúng ngữ pháp/ngữ nghĩa.",
+  "sinoVietnamese": "Chữ Hán Việt viết hoa của từ (ví dụ: 'MIỄN CƯỜNG', 'NHẬT BẢN', 'MỸ VỊ'). Nếu từ không chứa Kanji thì để trống.",
+  "pos": "Một trong các phân loại sau: 'noun', 'verb', 'adjective_i', 'adjective_na', 'adverb', 'pronoun', 'phrase', 'suru_verb'. Hãy chọn phân loại chính xác nhất.",
+  "level": "Trình độ JLPT tương ứng của từ ('N5', 'N4', 'N3', 'N2', 'N1'), hoặc để trống nếu không rõ.",
+  "nuance": "Giải thích ngắn gọn sắc thái hoặc ngữ cảnh sử dụng (ví dụ: Dùng lịch sự, Dùng thân mật, Chỉ cảm giác...), nếu không có thì để trống.",
+  "example": "Một câu ví dụ bằng tiếng Nhật đơn giản, thực tế, có kèm ngoặc phiên âm ở cuối câu nếu chứa Kanji (ví dụ: '日本語を勉強する（にほんごをべんきょうする）。')",
+  "exampleMeaning": "Nghĩa tiếng Việt của câu ví dụ.",
+  "synonym": "Từ đồng nghĩa tiếng Nhật nếu có, cũng theo định dạng Kanji(Hiragana) hoặc để trống.",
+  "synonymSinoVietnamese": "Hán Việt của từ đồng nghĩa viết hoa nếu có, hoặc để trống."
+}
+`;
+
+    try {
+        const responseText = await callAI(prompt, null, 'vocab_gen');
+        const result = parseJsonFromAI(responseText);
+        return result || null;
+    } catch (e) {
+        console.error('Error in aiRecreateVocabulary:', e);
+        throw e;
     }
 };

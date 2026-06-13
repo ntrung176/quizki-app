@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { Volume2, Sparkle, BookOpen, Plus, Loader2, X, ChevronDown, Check, AlertCircle, Crown, Folder, ArrowLeft } from 'lucide-react';
+import { Volume2, Sparkle, BookOpen, Plus, Loader2, X, ChevronDown, Check, AlertCircle, Crown, Folder, ArrowLeft, AlertTriangle } from 'lucide-react';
 import PremiumLockedModal from './PremiumLockedModal';
 import { aiAssistVocab, aiTranslateSentence } from '../../utils/aiProvider';
 import { getSinoVietnamese } from '../../utils/kanjiHVLookup';
 import { playAudio } from '../../utils/audio';
+import { convertToDictionaryForm } from '../../utils/textProcessing';
+import { db } from '../../config/firebase';
+import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 
 // Helper to format Japanese readings: e.g. "日本語（にほんご）" -> "日本語 (にほんご)"
 const formatReading = (text) => {
@@ -132,7 +135,8 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
             // Small timeout to ensure window.getSelection() is populated
             setTimeout(() => {
                 const selection = window.getSelection();
-                const text = getSelectedTextClean(selection);
+                const rawText = getSelectedTextClean(selection);
+                const text = isLongSentence(rawText) ? rawText : convertToDictionaryForm(rawText);
 
                 // Only trigger if selection contains Japanese characters and is between 1 and 300 characters (typical word/phrase/sentence length)
                 const hasJapanese = /[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF\u3400-\u4DBF]/.test(text);
@@ -397,11 +401,63 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                     setError('Không thể dịch câu này.');
                 }
             } else {
-                const result = await aiAssistVocab(pendingWord);
-                if (result) {
-                    setAiResult(result);
+                // Check shared dictionary first
+                const normalizedKey = pendingWord.split('（')[0].split('(')[0].trim().toLowerCase();
+                const docRef = doc(db, 'sharedVocabulary', normalizedKey);
+                let fetchedResult = null;
+
+                try {
+                    const docSnap = await getDoc(docRef);
+                    if (docSnap.exists()) {
+                        const data = docSnap.data();
+                        fetchedResult = {
+                            frontWithFurigana: data.front || data.frontWithFurigana || pendingWord,
+                            meaning: data.back || data.meaning || '',
+                            synonym: data.synonym || '',
+                            sinoVietnamese: data.sinoVietnamese || '',
+                            synonymSinoVietnamese: data.synonymSinoVietnamese || '',
+                            example: data.example || '',
+                            exampleMeaning: data.exampleMeaning || '',
+                            nuance: data.nuance || '',
+                            pos: data.pos || '',
+                            level: data.level || '',
+                            isShared: true,
+                            reportedError: data.reportedError || false
+                        };
+                        console.log('📚 Found shared dictionary match:', fetchedResult);
+                    }
+                } catch (dbErr) {
+                    console.warn('Error reading from sharedVocabulary:', dbErr);
+                }
+
+                if (fetchedResult) {
+                    setAiResult(fetchedResult);
                 } else {
-                    setError('Không thể tra cứu từ vựng này bằng AI.');
+                    const result = await aiAssistVocab(pendingWord);
+                    if (result) {
+                        setAiResult(result);
+                        // Save to shared dictionary so other users can fetch it
+                        try {
+                            await setDoc(docRef, {
+                                front: result.frontWithFurigana || pendingWord,
+                                back: result.meaning || '',
+                                synonym: result.synonym || '',
+                                sinoVietnamese: result.sinoVietnamese || '',
+                                synonymSinoVietnamese: result.synonymSinoVietnamese || '',
+                                example: result.example || '',
+                                exampleMeaning: result.exampleMeaning || '',
+                                nuance: result.nuance || '',
+                                pos: result.pos || '',
+                                level: result.level || '',
+                                updatedAt: Date.now()
+                            }, { merge: true });
+                            console.log('📚 Saved vocabulary to sharedVocabulary:', normalizedKey);
+                        } catch (saveErr) {
+                            console.warn('Error saving to sharedVocabulary:', saveErr);
+                        }
+                    } else {
+                        setError('Không thể tra cứu từ vựng này bằng AI.');
+                    }
                 }
             }
         } catch (err) {
@@ -416,6 +472,25 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
         e.stopPropagation();
         setShowFolderModal(true);
         setSelectedModalFolderId(null);
+    };
+
+    const handleReportError = async (e) => {
+        e.stopPropagation();
+        if (!aiResult || !aiResult.isShared) return;
+        const normalizedKey = pendingWord.split('（')[0].split('(')[0].trim().toLowerCase();
+        const docRef = doc(db, 'sharedVocabulary', normalizedKey);
+        try {
+            await updateDoc(docRef, { reportedError: true });
+            if (setNotification) {
+                setNotification("Cảm ơn bạn! Đã gửi báo cáo lỗi từ vựng đến hệ thống.");
+            }
+            setAiResult(prev => prev ? { ...prev, reportedError: true } : null);
+        } catch (err) {
+            console.error("Error reporting vocabulary:", err);
+            if (setNotification) {
+                setNotification("Lỗi khi báo cáo: " + err.message);
+            }
+        }
     };
 
     const handleConfirmSave = async (folderId) => {
@@ -734,6 +809,25 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                         </>
                                     )}
                                 </button>
+                            )}
+
+                            {aiResult?.isShared && (
+                                <div className="flex justify-center pt-1">
+                                    {aiResult.reportedError ? (
+                                        <div className="flex items-center gap-1.5 text-xs text-red-500 font-bold bg-red-50 dark:bg-red-950/20 border border-red-100 dark:border-red-900/40 rounded-xl p-2 w-full justify-center">
+                                            <AlertTriangle className="w-3.5 h-3.5" />
+                                            <span>Đã báo cáo lỗi từ vựng này</span>
+                                        </div>
+                                    ) : (
+                                        <button
+                                            onClick={handleReportError}
+                                            className="w-full py-2 border border-red-200 dark:border-red-900/45 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/25 rounded-xl text-xs font-black transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-transparent"
+                                        >
+                                            <AlertTriangle className="w-3.5 h-3.5" />
+                                            <span>Báo cáo lỗi từ vựng</span>
+                                        </button>
+                                    )}
+                                </div>
                             )}
                         </div>
                     )}
