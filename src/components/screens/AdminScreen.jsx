@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc, addDoc, where, serverTimestamp, setDoc, writeBatch } from 'firebase/firestore'
 import * as XLSX from 'xlsx';
@@ -60,8 +60,13 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const [dictLevelFilter, setDictLevelFilter] = useState('all');
     const [dictPosFilter, setDictPosFilter] = useState('all');
     const [dictErrorReportedFilter, setDictErrorReportedFilter] = useState('all');
+    const [dictKanjiFilter, setDictKanjiFilter] = useState('all');
     const [dictSearchQuery, setDictSearchQuery] = useState('');
     const [visibleLimit, setVisibleLimit] = useState(50);
+
+    const [isBulkRecreating, setIsBulkRecreating] = useState(false);
+    const [bulkProgress, setBulkProgress] = useState({ current: 0, total: 0 });
+    const bulkCancelRef = useRef(false);
 
     const [editingDictItem, setEditingDictItem] = useState(null);
     const [deletingDictItem, setDeletingDictItem] = useState(null);
@@ -589,19 +594,41 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     }, [activeSection]);
 
     const filteredDictResults = useMemo(() => {
+        const hasKanji = (text) => {
+            if (!text) return false;
+            return /[\u4e00-\u9faf\u3400-\u4dbf]/.test(text);
+        };
+
         return dictResults.filter(item => {
             const matchLevel = dictLevelFilter === 'all' || item.level === dictLevelFilter;
             const matchPos = dictPosFilter === 'all' || item.pos === dictPosFilter;
             const matchError = dictErrorReportedFilter === 'all' || 
                 (dictErrorReportedFilter === 'error' && item.reportedError === true) ||
                 (dictErrorReportedFilter === 'normal' && !item.reportedError);
+            
+            // Kanji/Hán Việt Filter
+            let matchKanji = true;
+            if (dictKanjiFilter !== 'all') {
+                const hasK = hasKanji(item.front);
+                const hasL = (item.sinoVietnamese && item.sinoVietnamese !== item.sinoVietnamese.toUpperCase()) ||
+                             (item.synonymSinoVietnamese && item.synonymSinoVietnamese !== item.synonymSinoVietnamese.toUpperCase());
+                
+                if (dictKanjiFilter === 'no_kanji') {
+                    matchKanji = !hasK;
+                } else if (dictKanjiFilter === 'lowercase_sino') {
+                    matchKanji = hasK && hasL;
+                } else if (dictKanjiFilter === 'no_kanji_or_lowercase_sino') {
+                    matchKanji = !hasK || hasL;
+                }
+            }
+
             const matchSearch = !dictSearchQuery.trim() ||
                 (item.front || '').toLowerCase().includes(dictSearchQuery.toLowerCase()) ||
                 (item.back || '').toLowerCase().includes(dictSearchQuery.toLowerCase()) ||
                 (item.sinoVietnamese || '').toLowerCase().includes(dictSearchQuery.toLowerCase());
-            return matchLevel && matchPos && matchError && matchSearch;
+            return matchLevel && matchPos && matchError && matchKanji && matchSearch;
         });
-    }, [dictResults, dictLevelFilter, dictPosFilter, dictErrorReportedFilter, dictSearchQuery]);
+    }, [dictResults, dictLevelFilter, dictPosFilter, dictErrorReportedFilter, dictKanjiFilter, dictSearchQuery]);
 
     if (isLoading) {
         return <LoadingIndicator text="Đang tải danh sách người dùng..." />;
@@ -713,6 +740,63 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         } finally {
             setRecreatingVocabId(null);
         }
+    };
+
+    const handleBulkAiRecreate = async () => {
+        const targets = filteredDictResults;
+        if (targets.length === 0) {
+            setNotification({ type: 'info', message: 'Không có từ vựng nào khớp với bộ lọc hiện tại để tạo hàng loạt.' });
+            return;
+        }
+
+        const confirmMessage = `Bạn có chắc muốn dùng AI tạo lại ${targets.length} từ vựng đang lọc? Quá trình này sẽ gọi API và tiêu hao credit.`;
+        if (!window.confirm(confirmMessage)) return;
+
+        setIsBulkRecreating(true);
+        bulkCancelRef.current = false;
+        setBulkProgress({ current: 0, total: targets.length });
+
+        let successCount = 0;
+        let failCount = 0;
+
+        for (let i = 0; i < targets.length; i++) {
+            if (bulkCancelRef.current) {
+                setNotification({ type: 'info', message: `Đã dừng tạo hàng loạt. Thành công ${successCount}, Thất bại ${failCount}.` });
+                break;
+            }
+
+            const item = targets[i];
+            setBulkProgress({ current: i + 1, total: targets.length });
+            try {
+                const recreatedData = await aiRecreateVocabulary(item);
+                if (recreatedData) {
+                    const docRef = doc(db, 'sharedVocabulary', item.id);
+                    await setDoc(docRef, {
+                        ...recreatedData,
+                        reportedError: false,
+                        updatedAt: Date.now()
+                    }, { merge: true });
+                    successCount++;
+                } else {
+                    failCount++;
+                }
+            } catch (err) {
+                console.error(`Error recreating vocab ${item.id} in bulk:`, err);
+                failCount++;
+            }
+        }
+
+        setIsBulkRecreating(false);
+        if (!bulkCancelRef.current) {
+            setNotification({
+                type: 'success',
+                message: `Hoàn thành tạo hàng loạt: Thành công ${successCount}, Thất bại ${failCount}`
+            });
+        }
+    };
+
+    const handleCancelBulkRecreate = () => {
+        bulkCancelRef.current = true;
     };
 
     const handleScanSharedVocabulary = async () => {
@@ -2357,6 +2441,61 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                     <option value="error">Có báo cáo lỗi</option>
                                     <option value="normal">Bình thường</option>
                                 </select>
+                            </div>
+
+                            <div className="flex items-center gap-2">
+                                <span className="text-xs font-semibold text-gray-500">Bộ lọc Kanji:</span>
+                                <select
+                                    value={dictKanjiFilter}
+                                    onChange={(e) => setDictKanjiFilter(e.target.value)}
+                                    className="px-2 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs outline-none focus:ring-1 focus:ring-indigo-500"
+                                >
+                                    <option value="all">Tất cả</option>
+                                    <option value="no_kanji">Không có Kanji</option>
+                                    <option value="lowercase_sino">Hán Việt viết thường</option>
+                                    <option value="no_kanji_or_lowercase_sino">Không Kanji hoặc Hán Việt viết thường</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        {/* Bulk AI Action Bar */}
+                        <div className="flex flex-wrap items-center justify-between gap-3 p-4 bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100/50 dark:border-indigo-900/30 rounded-xl">
+                            <div className="text-xs text-gray-600 dark:text-gray-350">
+                                <span>Bộ lọc hiện tại có <strong>{filteredDictResults.length}</strong> từ vựng.</span>
+                                {isBulkRecreating && (
+                                    <span className="ml-2 text-indigo-600 dark:text-indigo-400 font-bold animate-pulse">
+                                        (Đang xử lý: {bulkProgress.current}/{bulkProgress.total})
+                                    </span>
+                                )}
+                            </div>
+
+                            <div className="flex items-center gap-3">
+                                {isBulkRecreating ? (
+                                    <>
+                                        <div className="w-32 bg-gray-200 dark:bg-gray-700 h-2 rounded-full overflow-hidden">
+                                            <div 
+                                                className="bg-indigo-600 h-full transition-all duration-300"
+                                                style={{ width: `${(bulkProgress.current / bulkProgress.total) * 100}%` }}
+                                            />
+                                        </div>
+                                        <button
+                                            onClick={handleCancelBulkRecreate}
+                                            className="px-3 py-1.5 bg-red-500 hover:bg-red-650 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm cursor-pointer"
+                                        >
+                                            <XIcon className="w-3.5 h-3.5" />
+                                            Dừng lại
+                                        </button>
+                                    </>
+                                ) : (
+                                    <button
+                                        onClick={handleBulkAiRecreate}
+                                        disabled={filteredDictResults.length === 0}
+                                        className="px-4 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold disabled:opacity-50 flex items-center gap-1.5 transition-all shadow-sm cursor-pointer"
+                                    >
+                                        <Sparkle className="w-3.5 h-3.5 text-amber-300 fill-amber-300 animate-pulse" />
+                                        <span>AI tạo hàng loạt ({filteredDictResults.length})</span>
+                                    </button>
+                                )}
                             </div>
                         </div>
 

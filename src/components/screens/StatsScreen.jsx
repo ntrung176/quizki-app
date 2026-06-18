@@ -143,19 +143,25 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
     // ==================== STREAK CALCULATION ====================
     const streak = useMemo(() => {
         if (!dailyActivityLogs || dailyActivityLogs.length === 0) return 0;
+        const activeLogs = dailyActivityLogs.filter(log => 
+            (log.newWordsAdded || 0) > 0 || 
+            (log.newKanjiAdded || 0) > 0 || 
+            (log.reviewsDone || 0) > 0
+        );
+        if (activeLogs.length === 0) return 0;
         const todayStr = new Date().toISOString().split('T')[0];
         const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
         const yesterdayStr = yesterday.toISOString().split('T')[0];
-        const reversedLogs = [...dailyActivityLogs].reverse();
+        const reversedLogs = [...activeLogs].reverse();
         const lastLog = reversedLogs[0];
-        if (!lastLog) return 0;
+        if (lastLog.id !== todayStr && lastLog.id !== yesterdayStr) return 0;
+        
         let currentStreak = 0;
         let checkDate = new Date();
-        if (lastLog.id !== todayStr && lastLog.id !== yesterdayStr) return 0;
         if (lastLog.id !== todayStr) checkDate.setDate(checkDate.getDate() - 1);
         for (const log of reversedLogs) {
             const checkDateStr = checkDate.toISOString().split('T')[0];
-            if (log.id === checkDateStr && (log.newWordsAdded > 0 || log.newKanjiAdded > 0 || log.reviewsDone > 0)) {
+            if (log.id === checkDateStr) {
                 currentStreak++;
                 checkDate.setDate(checkDate.getDate() - 1);
             } else break;

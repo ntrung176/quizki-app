@@ -4,7 +4,7 @@ import { collection, onSnapshot, query } from 'firebase/firestore'
 import { db, appId } from '../../config/firebase';
 import {
     BookOpen, Languages, Target, Flame, Trophy, Clock,
-    ArrowRight, Sparkle, Zap
+    ArrowRight, Sparkle, Zap, FolderPlus, ListPlus, X
 } from 'lucide-react';
 import { ROUTES } from '../../router';
 import BookVocabSyncChecker from '../ui/BookVocabSyncChecker';
@@ -15,10 +15,15 @@ const HomeScreen = ({
     allCards = [],
     userId,
     vocabCollectionPath,
+    dailyActivityLogs = [],
+    calculatedStreak = 0,
+    isActivityLogsLoaded = false,
 }) => {
     const navigate = useNavigate();
     const [kanjiSrsStats, setKanjiSrsStats] = useState({ total: 0, learning: 0, mastered: 0, dueCount: 0 });
     const [kanjiActivityDates, setKanjiActivityDates] = useState([]);
+    const [showAddOptions, setShowAddOptions] = useState(false);
+
     // Fetch kanji SRS stats + activity dates
     useEffect(() => {
         if (!userId || !db) return;
@@ -48,6 +53,7 @@ const HomeScreen = ({
         }, () => { });
         return () => unsub();
     }, [userId]);
+
     // Calculate stats
     const stats = useMemo(() => {
         const dueCards = allCards.filter(card =>
@@ -61,44 +67,8 @@ const HomeScreen = ({
         ).length;
         const newCards = allCards.filter(card => !card.srsEnabled).length;
         const masteredCards = allCards.filter(card => card.srsEnabled === true && card.srsReps >= 5).length;
-        // Tính streak thực tế dựa trên ngày hoạt động (tạo từ, ôn tập từ vựng)
-        const activityDates = new Set();
-        const toDateStr = (d) => {
-            if (!d) return null;
-            const date = d instanceof Date ? d : new Date(d);
-            if (isNaN(date.getTime())) return null;
-            return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-        };
-        allCards.forEach(card => {
-            // Ngày tạo từ vựng
-            const created = toDateStr(card.createdAt);
-            if (created) activityDates.add(created);
-            // Ngày ôn tập từ vựng
-            const reviewed = toDateStr(card.lastReviewed);
-            if (reviewed) activityDates.add(reviewed);
-        });
-        // Thêm ngày ôn tập Kanji từ kanjiSrsActivityDates (được tính bên dưới)
-        if (kanjiActivityDates.length > 0) {
-            kanjiActivityDates.forEach(d => activityDates.add(d));
-        }
-        // Đếm streak: đếm ngược từ hôm nay, mỗi ngày liên tiếp có hoạt động → +1
-        let streak = 0;
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        for (let i = 0; i < 365; i++) {
-            const checkDate = new Date(today);
-            checkDate.setDate(checkDate.getDate() - i);
-            const dateStr = toDateStr(checkDate);
-            if (activityDates.has(dateStr)) {
-                streak++;
-            } else {
-                // Nếu hôm nay chưa hoạt động, cho phép bỏ qua hôm nay (streak vẫn tính từ hôm qua)
-                if (i === 0) continue;
-                break;
-            }
-        }
-        return { dueCards, newCards, masteredCards, streak, totalCards };
-    }, [allCards, totalCards, kanjiActivityDates]);
+        return { dueCards, newCards, masteredCards, streak: calculatedStreak, totalCards };
+    }, [allCards, totalCards, calculatedStreak]);
     // Quick action cards - using softer pastel colors and clean styling properties
     const quickActions = [
         {
@@ -284,7 +254,7 @@ const HomeScreen = ({
                         <button
                             key={action.id}
                             data-tour-id={`QUICK_ACTION_${action.id.toUpperCase()}`}
-                            onClick={() => navigate(action.route)}
+                            onClick={() => action.id === 'add' ? setShowAddOptions(true) : navigate(action.route)}
                             className={`relative group ${action.bgColor} border rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-98 overflow-hidden flex flex-col items-center justify-center min-h-[130px] cursor-pointer`}
                         >
                             <div className="relative z-10 flex flex-col items-center justify-center w-full">
@@ -318,11 +288,75 @@ const HomeScreen = ({
                     </div>
                 </div>
             </div>
+            {/* Modal Lựa chọn Thêm từ vựng */}
+            {showAddOptions && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+                    <div className="bg-white dark:bg-gray-800 rounded-3xl w-full max-w-md shadow-2xl border border-slate-100 dark:border-slate-700 overflow-hidden p-6 relative">
+                        <button
+                            type="button"
+                            onClick={() => setShowAddOptions(false)}
+                            className="absolute right-4 top-4 p-1.5 hover:bg-slate-100 dark:hover:bg-slate-755 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg transition-colors"
+                        >
+                            <X className="w-5 h-5" />
+                        </button>
+
+                        <h3 className="text-xl font-extrabold text-slate-800 dark:text-white mb-2 pr-8">
+                            Thêm từ vựng mới
+                        </h3>
+                        <p className="text-xs text-slate-500 dark:text-slate-400 mb-6">
+                            Chọn phương thức thêm từ vựng phù hợp với nhu cầu của bạn
+                        </p>
+
+                        <div className="space-y-4">
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    setShowAddOptions(false);
+                                    navigate(ROUTES.VOCAB_ADD);
+                                }}
+                                className="w-full flex items-center gap-4 p-4 text-left rounded-2xl border border-slate-100 hover:border-teal-200 dark:border-slate-700/60 dark:hover:border-teal-900/50 bg-slate-50/50 hover:bg-teal-50/10 dark:bg-slate-900/30 dark:hover:bg-teal-950/10 transition-all group"
+                            >
+                                <div className="w-12 h-12 rounded-xl bg-teal-500 hover:bg-teal-600 text-white shrink-0 flex items-center justify-center shadow-md">
+                                    <FolderPlus className="w-6 h-6" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <h4 className="font-bold text-slate-800 dark:text-slate-150 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                                        Tạo học phần mới
+                                    </h4>
+                                    <p className="text-[11px] text-slate-450 dark:text-slate-400 font-medium mt-0.5">
+                                        Tạo học phần mới hoàn chỉnh với tên, mô tả và hình ảnh bìa.
+                                    </p>
+                                </div>
+                            </button>
+
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    setShowAddOptions(false);
+                                    navigate(ROUTES.VOCAB_QUICK_ADD);
+                                }}
+                                className="w-full flex items-center gap-4 p-4 text-left rounded-2xl border border-slate-100 hover:border-amber-200 dark:border-slate-700/60 dark:hover:border-amber-900/50 bg-slate-50/50 hover:bg-amber-50/10 dark:bg-slate-900/30 dark:hover:bg-amber-955/10 transition-all group"
+                            >
+                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 text-white shrink-0 flex items-center justify-center shadow-md">
+                                    <ListPlus className="w-6 h-6" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <h4 className="font-bold text-slate-800 dark:text-slate-150 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                                        Thêm nhanh từ vựng
+                                    </h4>
+                                    <p className="text-[11px] text-slate-450 dark:text-slate-400 font-medium mt-0.5">
+                                        Nhập nhanh danh sách từ vựng và chọn lưu vào học phần cũ sau.
+                                    </p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
             {/* Streak celebration popup */}
             <StreakCelebration 
-                allCards={allCards}
-                kanjiActivityDates={kanjiActivityDates}
-                currentCalculatedStreak={stats.streak}
+                dailyActivityLogs={dailyActivityLogs}
+                currentCalculatedStreak={calculatedStreak}
             />
         </div>
     );

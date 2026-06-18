@@ -119,10 +119,15 @@ const ReviewScreen = ({
     });
 
     const [showSettingsMenu, setShowSettingsMenu] = useState(false);
+    const [showNuancePopup, setShowNuancePopup] = useState(false);
 
     useEffect(() => {
         localStorage.setItem('quizki_flashcard_settings_v2', JSON.stringify(cardSettings));
     }, [cardSettings]);
+
+    useEffect(() => {
+        setShowNuancePopup(false);
+    }, [currentIndex, reviewMode]);
     const [touchStart, setTouchStart] = useState(null);
     const [touchEnd, setTouchEnd] = useState(null);
     const [swipeOffset, setSwipeOffset] = useState(0);
@@ -1199,6 +1204,46 @@ const ReviewScreen = ({
                                         transitionEnabled={true}
                                     />
                                 </div>
+
+                                {/* Nuance Button - OUTSIDE the flipping container */}
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setShowNuancePopup(prev => !prev);
+                                    }}
+                                    className={`absolute top-6 right-[120px] p-2 backdrop-blur-sm rounded-full transition-all hover:scale-110 z-30 shadow-md border ${
+                                        currentCard.nuance 
+                                            ? 'bg-amber-500/30 hover:bg-amber-500/40 text-amber-300 border-amber-500/40' 
+                                            : 'bg-white/20 hover:bg-white/35 text-white border-white/20'
+                                    }`}
+                                    title="Sắc thái từ vựng"
+                                >
+                                    <Lightbulb className="w-4 h-4" />
+                                </button>
+
+                                {/* Nuance Text Box */}
+                                {showNuancePopup && (
+                                    <div 
+                                        onClick={(e) => e.stopPropagation()} 
+                                        className="absolute top-20 right-6 left-6 z-40 bg-amber-50/95 dark:bg-amber-955/95 border-2 border-amber-200 dark:border-amber-900/60 rounded-2xl p-4 shadow-xl animate-fade-in text-slate-850 dark:text-slate-200"
+                                    >
+                                        <div className="flex items-center justify-between border-b border-amber-200/50 dark:border-amber-900/40 pb-2 mb-2">
+                                            <div className="flex items-center gap-1.5 text-amber-700 dark:text-amber-400 font-extrabold text-sm">
+                                                <Lightbulb className="w-4 h-4 fill-amber-300 animate-pulse" />
+                                                <span>Sắc thái từ vựng</span>
+                                            </div>
+                                            <button 
+                                                onClick={(e) => { e.stopPropagation(); setShowNuancePopup(false); }}
+                                                className="text-amber-600 hover:text-amber-800 dark:text-amber-400 dark:hover:text-amber-305 text-xs font-bold px-2 py-1 hover:bg-amber-100/50 dark:hover:bg-amber-900/30 rounded-lg transition-colors"
+                                            >
+                                                Đóng
+                                            </button>
+                                        </div>
+                                        <p className="text-xs md:text-sm leading-relaxed whitespace-pre-wrap font-semibold">
+                                            {currentCard.nuance || "Chưa có thông tin sắc thái cho từ vựng này."}
+                                        </p>
+                                    </div>
+                                )}
 
                                 {/* Speaker Button - OUTSIDE the flipping container */}
                                 <button

@@ -55,7 +55,7 @@ import AppRoutes from './components/AppRoutes';
 const getSectionFromPath = (pathname) => {
     if (pathname === '/' || pathname === '/home') return 'home';
     if (pathname.includes('/vocab/review')) return 'vocabReview';
-    if (pathname.includes('/vocab/add') || pathname.includes('/vocab/edit-set/')) return 'vocabAdd';
+    if (pathname.includes('/vocab/add') || pathname.includes('/vocab/quick-add') || pathname.includes('/vocab/edit-set/')) return 'vocabAdd';
     if (pathname.includes('/vocab/list')) return 'vocabList';
     if (pathname.includes('/kanji/study')) return 'kanjiStudy';
     if (pathname.includes('/kanji/review')) return 'kanjiReview';
@@ -112,6 +112,7 @@ const App = () => {
         if (path === ROUTES.VOCAB_REVIEW) return 'VOCAB_REVIEW';
         if (path === ROUTES.VOCAB_LIST || path.startsWith('/vocab/list')) return 'VOCAB_LIST';
         if (path === ROUTES.VOCAB_ADD) return 'VOCAB_ADD';
+        if (path === ROUTES.VOCAB_QUICK_ADD) return 'VOCAB_QUICK_ADD';
         if (path.startsWith('/vocab/edit/')) return 'EDIT_CARD';
         if (path === ROUTES.REVIEW) return 'REVIEW';
         if (path === ROUTES.FLASHCARD) return 'FLASHCARD';
@@ -227,6 +228,7 @@ const App = () => {
     });
     const [isProfileLoading, setIsProfileLoading] = useState(true);
     const [dailyActivityLogs, setDailyActivityLogs] = useState([]);
+    const [isActivityLogsLoaded, setIsActivityLogsLoaded] = useState(false);
     const [kanjiSrsPublicCount, setKanjiSrsPublicCount] = useState({ total: 0, mastered: 0 });
     const [studySessionData, setStudySessionData] = useState({
         learning: [], // Từ sai trong session (ưu tiên 1)
@@ -910,7 +912,11 @@ const App = () => {
     }, [authReady, vocabCollectionPath, userId]);
 
     useEffect(() => {
-        if (!authReady || !activityCollectionPath) return;
+        if (!authReady || !activityCollectionPath) {
+            setIsActivityLogsLoaded(false);
+            setDailyActivityLogs([]);
+            return;
+        }
 
         // Khôi phục dailyActivityLogs từ sessionStorage nếu có
         const cachedLogsKey = `dailyActivityLogs_${userId}`;
@@ -919,6 +925,7 @@ const App = () => {
             try {
                 const parsedLogs = JSON.parse(cachedLogs);
                 setDailyActivityLogs(parsedLogs);
+                setIsActivityLogsLoaded(true);
             } catch (e) {
                 console.error('Lỗi parse cached logs:', e);
             }
@@ -933,6 +940,7 @@ const App = () => {
             // Sort logs by date string (ID) just in case
             logs.sort((a, b) => a.id.localeCompare(b.id));
             setDailyActivityLogs(logs);
+            setIsActivityLogsLoaded(true);
             // Lưu vào sessionStorage
             try {
                 const jsonString = JSON.stringify(logs);
@@ -946,10 +954,39 @@ const App = () => {
             }
         }, (error) => {
             console.error("Lỗi khi tải hoạt động hàng ngày:", error);
+            setIsActivityLogsLoaded(true);
         });
 
         return () => unsubscribe();
     }, [authReady, activityCollectionPath, userId]);
+
+    const calculatedStreak = useMemo(() => {
+        if (!dailyActivityLogs || dailyActivityLogs.length === 0) return 0;
+        const activeLogs = dailyActivityLogs.filter(log => 
+            (log.newWordsAdded || 0) > 0 || 
+            (log.newKanjiAdded || 0) > 0 || 
+            (log.reviewsDone || 0) > 0
+        );
+        if (activeLogs.length === 0) return 0;
+        const todayStr = new Date().toISOString().split('T')[0];
+        const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
+        const yesterdayStr = yesterday.toISOString().split('T')[0];
+        const reversedLogs = [...activeLogs].reverse();
+        const lastLog = reversedLogs[0];
+        if (lastLog.id !== todayStr && lastLog.id !== yesterdayStr) return 0;
+        
+        let currentStreak = 0;
+        let checkDate = new Date();
+        if (lastLog.id !== todayStr) checkDate.setDate(checkDate.getDate() - 1);
+        for (const log of reversedLogs) {
+            const checkDateStr = checkDate.toISOString().split('T')[0];
+            if (log.id === checkDateStr) {
+                currentStreak++;
+                checkDate.setDate(checkDate.getDate() - 1);
+            } else break;
+        }
+        return currentStreak;
+    }, [dailyActivityLogs]);
 
     const dueCounts = useMemo(() => {
         const now = new Date();
@@ -3460,26 +3497,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 const statsDocRef = doc(db, publicStatsCollectionPath, userId);
                 const vocabMastered = allCards.filter(c => c.intervalIndex_back >= 4).length;
 
-                // Tính streak từ dailyActivityLogs
-                let currentStreak = 0;
-                if (dailyActivityLogs && dailyActivityLogs.length > 0) {
-                    const todayStr = new Date().toISOString().split('T')[0];
-                    const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
-                    const yesterdayStr = yesterday.toISOString().split('T')[0];
-                    const reversedLogs = [...dailyActivityLogs].reverse();
-                    const lastLog = reversedLogs[0];
-                    if (lastLog && (lastLog.id === todayStr || lastLog.id === yesterdayStr)) {
-                        let checkDate = new Date();
-                        if (lastLog.id !== todayStr) checkDate.setDate(checkDate.getDate() - 1);
-                        for (const log of reversedLogs) {
-                            const checkDateStr = checkDate.toISOString().split('T')[0];
-                            if (log.id === checkDateStr && (log.newWordsAdded > 0 || log.newKanjiAdded > 0 || log.reviewsDone > 0)) {
-                                currentStreak++;
-                                checkDate.setDate(checkDate.getDate() - 1);
-                            } else break;
-                        }
-                    }
-                }
+                const currentStreak = calculatedStreak;
 
                 // Tính tổng ôn tập và ngày hoạt động
                 const totalReviews = (dailyActivityLogs || []).reduce((s, l) => s + (l.reviewsDone || 0), 0);
@@ -3584,7 +3602,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
 
         return () => clearTimeout(timeoutId);
 
-    }, [memoryStats, allCards.length, profile, userId, authReady, publicStatsCollectionPath, dailyActivityLogs, kanjiSrsPublicCount]);
+    }, [memoryStats, allCards.length, profile, userId, authReady, publicStatsCollectionPath, dailyActivityLogs, kanjiSrsPublicCount, calculatedStreak]);
 
     // Nếu chưa biết trạng thái auth, show loading
     if (!authReady) {
@@ -3811,6 +3829,9 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     onStartReview={prepareReviewCards}
                     onNavigate={setView}
                     setFlashcardCards={setFlashcardCards}
+                    dailyActivityLogs={dailyActivityLogs}
+                    calculatedStreak={calculatedStreak}
+                    isActivityLogsLoaded={isActivityLogsLoaded}
                 />;
         }
     };
@@ -4014,7 +4035,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 </div>
             )}
 
-            <main className={`${isFullscreen ? 'ml-0 lg:ml-0 pt-0' : 'lg:ml-64 pt-14 lg:pt-0'} min-h-screen flex flex-col ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
+            <main className={`${isFullscreen ? 'ml-0 lg:ml-0 pt-0' : 'lg:ml-64 pt-14 lg:pt-0'} min-h-screen flex flex-col ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
                 {profile?.trialPricingTier && (
                     <div className="bg-indigo-600 text-white text-xs font-semibold px-4 py-2.5 flex items-center justify-between shadow-md relative z-40">
                         <div className="flex items-center gap-2">
@@ -4036,10 +4057,10 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                         </button>
                     </div>
                 )}
-                <div className={`${isReviewSessionPage ? 'w-full flex-1 flex items-center justify-center bg-transparent py-4 md:py-8' : ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'w-full flex-1' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6'}`}>
+                <div className={`${isReviewSessionPage ? 'w-full flex-1 flex items-center justify-center bg-transparent py-4 md:py-8' : ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'w-full flex-1' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6'}`}>
                     {/* Main content container - transparent */}
-                    <div className={`w-full ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
-                        <div className={`w-full ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
+                    <div className={`w-full ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
+                        <div className={`w-full ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') ? 'bg-transparent' : ''}`}>
                             <AppRoutes
                                 isAuthenticated={!!userId}
                                 isLoading={isLoading}
@@ -4052,6 +4073,8 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                                 dueCounts={dueCounts}
                                 memoryStats={memoryStats}
                                 dailyActivityLogs={dailyActivityLogs}
+                                calculatedStreak={calculatedStreak}
+                                isActivityLogsLoaded={isActivityLogsLoaded}
                                 studySessionData={studySessionData}
                                 savedFilters={savedFilters}
                                 scrollToCardId={scrollToCardIdRef?.current}

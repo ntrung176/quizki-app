@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Flame, Sparkles } from 'lucide-react';
 
-const StreakCelebration = ({ allCards = [], kanjiActivityDates = [], currentCalculatedStreak = 0 }) => {
+const StreakCelebration = ({ dailyActivityLogs = [], currentCalculatedStreak = 0 }) => {
     const [show, setShow] = useState(false);
     const [displayStreak, setDisplayStreak] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
@@ -13,33 +13,17 @@ const StreakCelebration = ({ allCards = [], kanjiActivityDates = [], currentCalc
         return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
     };
 
-    // Calculate dates with activity
-    const activityDates = useMemo(() => {
-        const dates = new Set();
-        const toDateStr = (d) => {
-            if (!d) return null;
-            const date = d instanceof Date ? d : new Date(d);
-            if (isNaN(date.getTime())) return null;
-            return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-        };
-
-        allCards.forEach(card => {
-            const created = toDateStr(card.createdAt);
-            if (created) dates.add(created);
-            const reviewed = toDateStr(card.lastReviewed);
-            if (reviewed) dates.add(reviewed);
-        });
-
-        if (kanjiActivityDates && kanjiActivityDates.length > 0) {
-            kanjiActivityDates.forEach(d => dates.add(d));
-        }
-
-        return dates;
-    }, [allCards, kanjiActivityDates]);
+    // Check if there is active study today (using today's UTC string since logs are saved in UTC dates)
+    const hasActivityToday = useMemo(() => {
+        const todayUTCStr = new Date().toISOString().split('T')[0];
+        const todayLog = dailyActivityLogs.find(log => log.id === todayUTCStr);
+        if (!todayLog) return false;
+        return (todayLog.newWordsAdded || 0) > 0 || 
+               (todayLog.newKanjiAdded || 0) > 0 || 
+               (todayLog.reviewsDone || 0) > 0;
+    }, [dailyActivityLogs]);
 
     const triggerCelebration = () => {
-        const todayStr = getTodayStr();
-        const hasActivityToday = activityDates.has(todayStr);
         const target = hasActivityToday ? currentCalculatedStreak : (currentCalculatedStreak + 1);
         const start = hasActivityToday ? Math.max(0, currentCalculatedStreak - 1) : currentCalculatedStreak;
 
@@ -84,17 +68,22 @@ const StreakCelebration = ({ allCards = [], kanjiActivityDates = [], currentCalc
     };
 
     useEffect(() => {
+        // Only run if dailyActivityLogs is loaded and the user has an active streak (or has active study today)
+        if (currentCalculatedStreak === 0 && !hasActivityToday) {
+            return;
+        }
+
         const todayStr = getTodayStr();
         const lastCelebrated = localStorage.getItem('streak_last_celebrated');
 
         // Check if already celebrated today
         if (lastCelebrated !== todayStr) {
             localStorage.setItem('streak_last_celebrated', todayStr);
-            const target = activityDates.has(todayStr) ? currentCalculatedStreak : (currentCalculatedStreak + 1);
+            const target = hasActivityToday ? currentCalculatedStreak : (currentCalculatedStreak + 1);
             localStorage.setItem('streak_count_backup', String(target));
             triggerCelebration();
         }
-    }, [activityDates, currentCalculatedStreak]);
+    }, [hasActivityToday, currentCalculatedStreak]);
 
     // Keyboard shortcut for testing: Shift + Alt + S
     useEffect(() => {
@@ -107,7 +96,7 @@ const StreakCelebration = ({ allCards = [], kanjiActivityDates = [], currentCalc
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [activityDates, currentCalculatedStreak]);
+    }, [hasActivityToday, currentCalculatedStreak]);
 
     if (!show) return null;
 

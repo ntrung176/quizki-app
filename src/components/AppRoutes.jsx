@@ -48,7 +48,8 @@ import {
 
 // Import card components
 import {
-    AddCardForm
+    AddCardForm,
+    QuickAddVocabForm
 } from './cards';
 
 
@@ -280,6 +281,8 @@ const AppRoutes = ({
     dueCounts,
     memoryStats,
     dailyActivityLogs,
+    calculatedStreak,
+    isActivityLogsLoaded,
     studySessionData,
     savedFilters,
     scrollToCardId,
@@ -552,6 +555,9 @@ const AppRoutes = ({
                                 allCards={allCards}
                                 userId={userId}
                                 vocabCollectionPath={vocabCollectionPath}
+                                dailyActivityLogs={dailyActivityLogs}
+                                calculatedStreak={calculatedStreak}
+                                isActivityLogsLoaded={isActivityLogsLoaded}
                             />
                         ) : (
                             <LoginScreen />
@@ -663,6 +669,25 @@ const AppRoutes = ({
                                 onBatchSkip={handleBatchSkip}
                                 editingCard={editingCard}
                                 onOpenBatchImport={() => setShowBatchImportModal(true)}
+                                aiCreditsRemaining={aiCreditsRemaining}
+                            />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path={ROUTES.VOCAB_QUICK_ADD}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <QuickAddVocabForm
+                                folders={folders}
+                                parentFolders={parentFolders}
+                                cardFolders={cardFolders}
+                                allCards={allCards}
+                                onSave={handleSaveNewCard}
+                                onBack={() => navigate('/')}
+                                onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
+                                onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
                                 aiCreditsRemaining={aiCreditsRemaining}
                             />
                         </ProtectedRoute>

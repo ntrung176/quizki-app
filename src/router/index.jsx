@@ -17,6 +17,7 @@ export const ROUTES = {
     VOCAB_LIST: '/vocab/list',           // Danh sách từ vựng
     VOCAB_SET_DETAIL: '/vocab/set/:id',  // Chi tiết học phần
     VOCAB_ADD: '/vocab/add',             // Thêm từ vựng mới
+    VOCAB_QUICK_ADD: '/vocab/quick-add', // Thêm nhanh từ vựng
     VOCAB_EDIT: '/vocab/edit/:id',       // Chỉnh sửa từ vựng
     VOCAB_EDIT_SET: '/vocab/edit-set/:id',// Chỉnh sửa học phần
 
