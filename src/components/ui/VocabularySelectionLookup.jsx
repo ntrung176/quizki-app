@@ -4,6 +4,7 @@ import { Volume2, Sparkle, BookOpen, Plus, Loader2, X, ChevronDown, Check, Alert
 import PremiumLockedModal from './PremiumLockedModal';
 import { aiAssistVocab, aiTranslateSentence } from '../../utils/aiProvider';
 import { getSinoVietnamese } from '../../utils/kanjiHVLookup';
+import { ensureFuriganaFormat } from '../../utils/furiganaHelper';
 import { playAudio } from '../../utils/audio';
 import { convertToDictionaryForm } from '../../utils/textProcessing';
 import { db } from '../../config/firebase';
@@ -431,6 +432,44 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                 }
 
                 if (fetchedResult) {
+                    // Standardize front and synonym with ensureFuriganaFormat
+                    const oldFront = fetchedResult.frontWithFurigana;
+                    const oldSynonym = fetchedResult.synonym;
+                    const oldSino = fetchedResult.sinoVietnamese;
+
+                    fetchedResult.frontWithFurigana = await ensureFuriganaFormat(fetchedResult.frontWithFurigana);
+                    if (fetchedResult.synonym) {
+                        fetchedResult.synonym = await ensureFuriganaFormat(fetchedResult.synonym);
+                    }
+                    if (!fetchedResult.sinoVietnamese && fetchedResult.frontWithFurigana) {
+                        const lookupSino = getSinoVietnamese(fetchedResult.frontWithFurigana);
+                        if (lookupSino) {
+                            fetchedResult.sinoVietnamese = lookupSino;
+                        }
+                    }
+
+                    // If changed, save back to sharedVocabulary
+                    if (fetchedResult.frontWithFurigana !== oldFront || fetchedResult.synonym !== oldSynonym || fetchedResult.sinoVietnamese !== oldSino) {
+                        try {
+                            await setDoc(docRef, {
+                                front: fetchedResult.frontWithFurigana,
+                                back: fetchedResult.meaning,
+                                synonym: fetchedResult.synonym,
+                                sinoVietnamese: fetchedResult.sinoVietnamese,
+                                synonymSinoVietnamese: fetchedResult.synonymSinoVietnamese || '',
+                                example: fetchedResult.example || '',
+                                exampleMeaning: fetchedResult.exampleMeaning || '',
+                                nuance: fetchedResult.nuance || '',
+                                pos: fetchedResult.pos || '',
+                                level: fetchedResult.level || '',
+                                updatedAt: Date.now()
+                            }, { merge: true });
+                            console.log('📚 Auto-healed and updated sharedVocabulary in lookup:', normalizedKey);
+                        } catch (saveErr) {
+                            console.warn('Error saving healed sharedVocab:', saveErr);
+                        }
+                    }
+
                     setAiResult(fetchedResult);
                 } else {
                     const result = await aiAssistVocab(pendingWord);
@@ -501,9 +540,11 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
         setSaving(true);
         try {
             // Extract values to save
-            const front = aiResult?.frontWithFurigana || pendingWord;
+            const rawFront = aiResult?.frontWithFurigana || pendingWord;
+            const front = await ensureFuriganaFormat(rawFront);
             const back = aiResult?.meaning || localMatch?.back || '';
-            const synonym = aiResult?.synonym || localMatch?.synonym || '';
+            const rawSynonym = aiResult?.synonym || localMatch?.synonym || '';
+            const synonym = rawSynonym ? await ensureFuriganaFormat(rawSynonym) : '';
             const example = aiResult?.example || localMatch?.example || '';
             const exampleMeaning = aiResult?.exampleMeaning || localMatch?.exampleMeaning || '';
             const nuance = aiResult?.nuance || localMatch?.nuance || '';

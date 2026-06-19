@@ -11,6 +11,7 @@ import { showToast, showConfirm } from '../../utils/toast';
 import { speakJapanese, playAudio, generateAudioSilentWithVoice } from '../../utils/audio';
 import FuriganaText from '../ui/FuriganaText';
 import { accentNumberToPitchParts } from '../../utils/pitchAccent';
+import { ensureFuriganaFormat } from '../../utils/furiganaHelper';
 import { TopTabBar, PremiumLockedModal } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
@@ -790,10 +791,13 @@ const BookScreen = ({
         }
         setAddingVocabIndex(index);
         try {
+            const formattedWord = await ensureFuriganaFormat(word, vocab.reading);
+            const formattedSynonym = vocab.synonym ? await ensureFuriganaFormat(vocab.synonym) : '';
+
             await onAddVocabToSRS({
-                front: word,
+                front: formattedWord,
                 back: vocab.meaning || vocab.back || '',
-                synonym: vocab.synonym || '',
+                synonym: formattedSynonym,
                 example: vocab.example || '',
                 exampleMeaning: vocab.exampleMeaning || '',
                 nuance: vocab.nuance || vocab.note || '',

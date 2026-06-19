@@ -91,3 +91,44 @@ export const generateFuriganaText = async (text) => {
         return text;
     }
 };
+
+/**
+ * Convert a word to standard format: "Word（reading）" if it contains Kanji and is missing brackets.
+ * If the word has no Kanji, it keeps it as is (no brackets).
+ * If the word already has brackets, it preserves/standardizes them.
+ * If knownReading is provided and word is missing brackets, it uses knownReading instead of Kuroshiro.
+ */
+export const ensureFuriganaFormat = async (word, knownReading = '') => {
+    if (!word) return '';
+    const trimmedWord = word.trim();
+    
+    // Check if it already has full-width or half-width brackets
+    if (trimmedWord.includes('（') || trimmedWord.includes('(')) {
+        // Just standardize brackets to full-width and return
+        // E.g. "日本語 (にほんご)" -> "日本語（にほんご）"
+        return trimmedWord.replace(/\s*[\(（]([^\)）]+)[\)）]/g, '（$1）');
+    }
+
+    // Check if it contains Kanji
+    const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF]/.test(trimmedWord);
+    if (!hasKanji) {
+        return trimmedWord; // Pure Kana/Romaji doesn't need brackets
+    }
+
+    // If knownReading is provided, use it
+    if (knownReading && knownReading.trim()) {
+        return `${trimmedWord}（${knownReading.trim()}）`;
+    }
+
+    try {
+        const kuro = await getKuroshiro();
+        // Convert the word to hiragana
+        const reading = await kuro.convert(trimmedWord, { mode: "normal", to: "hiragana" });
+        if (reading && reading !== trimmedWord) {
+            return `${trimmedWord}（${reading}）`;
+        }
+    } catch (e) {
+        console.error("Failed to generate reading for word:", trimmedWord, e);
+    }
+    return trimmedWord;
+};

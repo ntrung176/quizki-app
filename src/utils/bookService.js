@@ -44,6 +44,7 @@ export const getSharedBookGroups = async (forceRefresh = false) => {
                         
                         chapter.lessons = lessonsSnap.docs.map(lessonDoc => ({
                             id: lessonDoc.id,
+                            _docPath: lessonDoc.ref.path,
                             ...lessonDoc.data()
                         })).sort((a, b) => (a.order || 0) - (b.order || 0));
                         

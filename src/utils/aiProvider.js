@@ -4,10 +4,10 @@
 // ============== KANJI → HÁN VIỆT LOOKUP ==============
 export { getSinoVietnamese } from './kanjiHVLookup';
 import { getSinoVietnamese } from './kanjiHVLookup';
-import { generateFuriganaText } from './furiganaHelper';
-
-
-
+import { generateFuriganaText, ensureFuriganaFormat } from './furiganaHelper';
+import { db } from '../config/firebase';
+import { doc, getDoc, getDocs, collection, query, collectionGroup, setDoc, updateDoc, where } from 'firebase/firestore';
+import { normalizePosKey } from '../config/constants';
 // ============== KEY MANAGEMENT ==============
 
 // Lấy tất cả OpenRouter keys
@@ -304,28 +304,556 @@ JSON ONLY (không markdown, không giải thích):
 };
 
 
+// Helpers for DB updates inside aiProvider.js
+const updateBookVocabInFirestore = async (docPath, originalWord, updatedFields) => {
+    if (!docPath || !originalWord) return;
+    try {
+        const docRef = doc(db, docPath);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            const data = docSnap.data();
+            if (data.vocab && Array.isArray(data.vocab)) {
+                let changed = false;
+                const updatedVocab = data.vocab.map(v => {
+                    const word = v.word || v.front || '';
+                    if (word === originalWord) {
+                        changed = true;
+                        return {
+                            ...v,
+                            word: updatedFields.front || v.word,
+                            front: updatedFields.front || v.front,
+                            synonym: updatedFields.synonym !== undefined ? updatedFields.synonym : (v.synonym || ''),
+                            pos: updatedFields.pos || v.pos || '',
+                            sinoVietnamese: updatedFields.sinoVietnamese || v.sinoVietnamese || '',
+                            meaning: updatedFields.meaning || v.meaning || '',
+                            example: updatedFields.example || v.example || '',
+                            exampleMeaning: updatedFields.exampleMeaning || v.exampleMeaning || '',
+                            nuance: updatedFields.nuance || v.nuance || '',
+                        };
+                    }
+                    return v;
+                });
+
+                if (changed) {
+                    await updateDoc(docRef, { vocab: updatedVocab });
+                    console.log(`✅ [aiAssistVocab] Automatically updated/standardized book vocabulary in Firestore path: ${docPath} for "${originalWord}"`);
+                }
+            }
+        }
+    } catch (e) {
+        console.warn(`[aiAssistVocab] Failed to update book vocabulary in Firestore:`, e);
+    }
+};
+
+const saveSharedVocab = async (word, data) => {
+    try {
+        const normalized = word.split('（')[0].split('(')[0].trim();
+        const normalizedLower = normalized.toLowerCase();
+        
+        let matchedId = null;
+        
+        // 1. Kiểm tra ID normalized chính xác
+        let docRef = doc(db, 'sharedVocabulary', normalized);
+        let docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            matchedId = normalized;
+        } else {
+            // 2. Kiểm tra ID normalized chữ thường
+            if (normalized !== normalizedLower) {
+                docRef = doc(db, 'sharedVocabulary', normalizedLower);
+                docSnap = await getDoc(docRef);
+                if (docSnap.exists()) {
+                    matchedId = normalizedLower;
+                }
+            }
+            // 3. Kiểm tra ID nguyên bản đầy đủ
+            if (!matchedId) {
+                const originalTrimmed = word.trim();
+                if (originalTrimmed !== normalized) {
+                    docRef = doc(db, 'sharedVocabulary', originalTrimmed);
+                    docSnap = await getDoc(docRef);
+                    if (docSnap.exists()) {
+                        matchedId = originalTrimmed;
+                    }
+                }
+            }
+            // 4. Tìm qua query range (prefix)
+            if (!matchedId) {
+                const q = query(
+                    collection(db, 'sharedVocabulary'),
+                    where('front', '>=', normalized),
+                    where('front', '<=', normalized + '\uf8ff')
+                );
+                const querySnap = await getDocs(q);
+                if (!querySnap.empty) {
+                    const matchedDoc = querySnap.docs.find(doc => {
+                        const dbFront = doc.data().front || doc.data().frontWithFurigana || '';
+                        const dbNormalized = dbFront.split('（')[0].split('(')[0].trim().toLowerCase();
+                        return dbNormalized === normalizedLower;
+                    });
+                    if (matchedDoc) {
+                        matchedId = matchedDoc.id;
+                    }
+                }
+            }
+        }
+
+        if (!matchedId) {
+            console.log(`⚠️ [aiAssistVocab] saveSharedVocab: "${word}" không tồn tại trong sharedVocabulary. Bỏ qua không lưu.`);
+            return;
+        }
+
+        const finalDocRef = doc(db, 'sharedVocabulary', matchedId);
+        await setDoc(finalDocRef, {
+            front: data.front || data.frontWithFurigana || word,
+            back: data.back || data.meaning || '',
+            synonym: data.synonym || '',
+            sinoVietnamese: data.sinoVietnamese || '',
+            synonymSinoVietnamese: data.synonymSinoVietnamese || '',
+            example: data.example || '',
+            exampleMeaning: data.exampleMeaning || '',
+            nuance: data.nuance || '',
+            pos: data.pos || '',
+            level: data.level || '',
+            updatedAt: Date.now(),
+        }, { merge: true });
+        console.log(`✅ [aiAssistVocab] Saved/Updated sharedVocabulary: ${matchedId}`);
+    } catch (e) {
+        console.warn('[aiAssistVocab] Error saving shared vocab:', e);
+    }
+};
+
+// Variable to store cached lesson documents for book vocab lookup
+let cachedLessons = null;
+
+const lookupBookVocabInAI = async (key) => {
+    try {
+        const normalizedKey = key.split('（')[0].split('(')[0].trim().toLowerCase();
+        
+        if (!cachedLessons) {
+            const lessonsQuery = query(collectionGroup(db, 'lessons'));
+            const lessonsSnap = await getDocs(lessonsQuery);
+            cachedLessons = lessonsSnap.docs.map(doc => ({
+                id: doc.id,
+                _docPath: doc.ref.path,
+                ...doc.data()
+            }));
+        }
+        
+        for (const lessonData of cachedLessons) {
+            if (lessonData.vocab && Array.isArray(lessonData.vocab)) {
+                const match = lessonData.vocab.find(v => {
+                    const word = v.word || v.front || '';
+                    const normalizedWord = word.split('（')[0].split('(')[0].trim().toLowerCase();
+                    return normalizedWord === normalizedKey;
+                });
+                
+                if (match) {
+                    console.log(`📚 aiAssistVocab: Found "${key}" in book database!`);
+                    const rawFront = match.word || match.front || key;
+                    const formattedFront = await ensureFuriganaFormat(rawFront, match.reading);
+                    const formattedSynonym = match.synonym ? await ensureFuriganaFormat(match.synonym) : '';
+                    
+                    return {
+                        front: formattedFront,
+                        frontWithFurigana: formattedFront,
+                        meaning: match.meaning || match.back || match.meaningVi || match.vietnamese || '',
+                        synonym: formattedSynonym,
+                        example: match.example || '',
+                        exampleMeaning: match.exampleMeaning || '',
+                        nuance: match.nuance || match.note || '',
+                        pos: match.pos || '',
+                        level: match.level || '',
+                        sinoVietnamese: match.sinoVietnamese || '',
+                        synonymSinoVietnamese: '',
+                        _fromBook: true,
+                        _docPath: lessonData._docPath,
+                        _originalWord: match.word || match.front || key
+                    };
+                }
+            }
+        }
+    } catch (e) {
+        console.warn('Error in lookupBookVocabInAI:', e);
+    }
+    return null;
+};
+
+const lookupSharedVocabInAI = async (key) => {
+    try {
+        if (!key) return null;
+        const normalized = key.split('（')[0].split('(')[0].trim();
+        const normalizedLower = normalized.toLowerCase();
+        
+        // 1. Tìm theo ID normalized chính xác (phân biệt hoa thường)
+        let docRef = doc(db, 'sharedVocabulary', normalized);
+        let docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            console.log(`📚 aiAssistVocab: Found "${key}" in sharedVocabulary (exact ID)!`);
+            const data = docSnap.data();
+            const formattedFront = await ensureFuriganaFormat(data.front || data.frontWithFurigana || key);
+            const formattedSynonym = data.synonym ? await ensureFuriganaFormat(data.synonym) : '';
+            return {
+                front: formattedFront,
+                frontWithFurigana: formattedFront,
+                meaning: data.back || data.meaning || '',
+                synonym: formattedSynonym,
+                example: data.example || '',
+                exampleMeaning: data.exampleMeaning || '',
+                nuance: data.nuance || '',
+                pos: data.pos || '',
+                level: data.level || '',
+                sinoVietnamese: data.sinoVietnamese || '',
+                synonymSinoVietnamese: data.synonymSinoVietnamese || '',
+                _fromShared: true
+            };
+        }
+        
+        // 2. Tìm theo ID normalized chữ thường (nếu khác biệt)
+        if (normalized !== normalizedLower) {
+            docRef = doc(db, 'sharedVocabulary', normalizedLower);
+            docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+                console.log(`📚 aiAssistVocab: Found "${key}" in sharedVocabulary (lower ID)!`);
+                const data = docSnap.data();
+                const formattedFront = await ensureFuriganaFormat(data.front || data.frontWithFurigana || key);
+                const formattedSynonym = data.synonym ? await ensureFuriganaFormat(data.synonym) : '';
+                return {
+                    front: formattedFront,
+                    frontWithFurigana: formattedFront,
+                    meaning: data.back || data.meaning || '',
+                    synonym: formattedSynonym,
+                    example: data.example || '',
+                    exampleMeaning: data.exampleMeaning || '',
+                    nuance: data.nuance || '',
+                    pos: data.pos || '',
+                    level: data.level || '',
+                    sinoVietnamese: data.sinoVietnamese || '',
+                    synonymSinoVietnamese: data.synonymSinoVietnamese || '',
+                    _fromShared: true
+                };
+            }
+        }
+
+        // 3. Tìm theo ID nguyên bản đầy đủ (chứa cả ngoặc đọc nếu có)
+        const originalTrimmed = key.trim();
+        if (originalTrimmed !== normalized) {
+            docRef = doc(db, 'sharedVocabulary', originalTrimmed);
+            docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+                console.log(`📚 aiAssistVocab: Found "${key}" in sharedVocabulary (original ID)!`);
+                const data = docSnap.data();
+                const formattedFront = await ensureFuriganaFormat(data.front || data.frontWithFurigana || key);
+                const formattedSynonym = data.synonym ? await ensureFuriganaFormat(data.synonym) : '';
+                return {
+                    front: formattedFront,
+                    frontWithFurigana: formattedFront,
+                    meaning: data.back || data.meaning || '',
+                    synonym: formattedSynonym,
+                    example: data.example || '',
+                    exampleMeaning: data.exampleMeaning || '',
+                    nuance: data.nuance || '',
+                    pos: data.pos || '',
+                    level: data.level || '',
+                    sinoVietnamese: data.sinoVietnamese || '',
+                    synonymSinoVietnamese: data.synonymSinoVietnamese || '',
+                    _fromShared: true
+                };
+            }
+        }
+
+        // 4. Tìm bằng câu lệnh truy vấn range (prefix) để khớp các từ có ngoặc cách đọc (ví dụ: "段目" khớp "段目（だんめ）")
+        const q = query(
+            collection(db, 'sharedVocabulary'),
+            where('front', '>=', normalized),
+            where('front', '<=', normalized + '\uf8ff')
+        );
+        const querySnap = await getDocs(q);
+        if (!querySnap.empty) {
+            const matchedDoc = querySnap.docs.find(doc => {
+                const dbFront = doc.data().front || doc.data().frontWithFurigana || '';
+                const dbNormalized = dbFront.split('（')[0].split('(')[0].trim().toLowerCase();
+                return dbNormalized === normalizedLower;
+            });
+            if (matchedDoc) {
+                console.log(`📚 aiAssistVocab: Found "${key}" in sharedVocabulary via query!`);
+                const data = matchedDoc.data();
+                const formattedFront = await ensureFuriganaFormat(data.front || data.frontWithFurigana || key);
+                const formattedSynonym = data.synonym ? await ensureFuriganaFormat(data.synonym) : '';
+                return {
+                    front: formattedFront,
+                    frontWithFurigana: formattedFront,
+                    meaning: data.back || data.meaning || '',
+                    synonym: formattedSynonym,
+                    example: data.example || '',
+                    exampleMeaning: data.exampleMeaning || '',
+                    nuance: data.nuance || '',
+                    pos: data.pos || '',
+                    level: data.level || '',
+                    sinoVietnamese: data.sinoVietnamese || '',
+                    synonymSinoVietnamese: data.synonymSinoVietnamese || '',
+                    _fromShared: true
+                };
+            }
+        }
+    } catch (e) {
+        console.warn('Error in lookupSharedVocabInAI:', e);
+    }
+    return null;
+};
+
+// Variable to track duplicate clicks to force AI recreate
+let lastAssistedWordInAI = { word: '', timestamp: 0 };
+
 // Hàm chính để tạo vocab với AI
 export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '', contextMeaning = '') => {
     if (!frontText || frontText.trim() === '') return null;
 
+    const now = Date.now();
+    let forceRefresh = false;
+    if (lastAssistedWordInAI.word === frontText && (now - lastAssistedWordInAI.timestamp) < 15000) {
+        forceRefresh = true;
+        console.log(`🔄 [aiAssistVocab] Same word "${frontText}" requested again within 15s. Forcing AI generation (Retry/Recreate mode).`);
+    }
+    lastAssistedWordInAI = { word: frontText, timestamp: now };
+
+    if (!forceRefresh) {
+        // 1. Kiểm tra kho sách trước
+    try {
+        const bookMatch = await lookupBookVocabInAI(frontText);
+        if (bookMatch) {
+            const result = { ...bookMatch };
+            if (result.pos) result.pos = normalizePosKey(result.pos);
+
+            if (contextPos && contextPos !== result.pos) {
+                result.pos = contextPos;
+            }
+            if (contextLevel && contextLevel !== result.level) {
+                result.level = contextLevel;
+            }
+
+            let isBookVocabUpdated = false;
+
+            // Điền từ loại nếu thiếu
+            if (!result.pos || result.pos.trim() === '') {
+                try {
+                    const posPrompt = `Bạn là một chuyên gia ngôn ngữ tiếng Nhật.
+Hãy xác định từ loại (Part of Speech - POS) cho từ vựng tiếng Nhật dưới đây.
+Từ gốc: "${result.front || frontText}"
+Nghĩa: "${result.meaning}"
+Ví dụ: "${result.example || ''}"
+
+Lưu ý: Từ loại (pos) BẮT BUỘC phải là một trong các chuỗi sau:
+- "noun"
+- "verb"
+- "suru_verb"
+- "adj-i"
+- "adj-na"
+- "adverb"
+- "conjunction"
+- "particle"
+- "grammar"
+- "phrase"
+- "other"
+
+Chỉ trả về JSON định dạng sau (không giải thích, không markdown):
+{"pos": "..."}`;
+                    const responseText = await callAI(posPrompt, 'google/gemini-2.5-flash');
+                    const parsedJson = parseJsonFromAI(responseText);
+                    if (parsedJson && parsedJson.pos) {
+                        result.pos = normalizePosKey(parsedJson.pos);
+                        isBookVocabUpdated = true;
+                    }
+                } catch (e) {
+                    console.warn('AI POS generation in aiAssistVocab (Book) failed:', e);
+                }
+            }
+
+            // Điền Hán Việt nếu thiếu
+            if (!result.sinoVietnamese || result.sinoVietnamese.trim() === '') {
+                const lookupHV = getSinoVietnamese(result.front || frontText);
+                if (lookupHV) {
+                    result.sinoVietnamese = lookupHV;
+                    isBookVocabUpdated = true;
+                } else {
+                    try {
+                        const hvPrompt = `Bạn là một chuyên gia ngôn ngữ tiếng Nhật và Hán Việt.
+Hãy tìm chữ Hán (Kanji) tương ứng và dịch sang âm Hán Việt (IN HOA) cho từ vựng tiếng Nhật dưới đây.
+Từ gốc: "${result.front || frontText}"
+Nghĩa: "${result.meaning}"
+Từ loại: "${result.pos || ''}"
+Ví dụ: "${result.example || ''}"
+
+Lưu ý:
+1. Trả về âm Hán Việt IN HOA, cách nhau bởi dấu cách.
+2. Nếu không có chữ Hán, trả về chuỗi rỗng "".
+
+Chỉ trả về JSON định dạng sau:
+{"sinoVietnamese": "..."}`;
+                        const responseText = await callAI(hvPrompt, 'google/gemini-3.1-flash-lite');
+                        const parsedJson = parseJsonFromAI(responseText);
+                        if (parsedJson && parsedJson.sinoVietnamese) {
+                            result.sinoVietnamese = parsedJson.sinoVietnamese;
+                            isBookVocabUpdated = true;
+                        }
+                    } catch (e) {
+                        console.warn('AI Sino-Vietnamese generation in aiAssistVocab (Book) failed:', e);
+                    }
+                }
+            }
+
+            // Ghi đè lại nếu thay đổi
+            if (isBookVocabUpdated || result.front !== bookMatch.front || result.synonym !== bookMatch.synonym) {
+                const updatedFields = {
+                    front: result.front,
+                    synonym: result.synonym,
+                    pos: result.pos,
+                    sinoVietnamese: result.sinoVietnamese,
+                    meaning: result.meaning,
+                    example: result.example,
+                    exampleMeaning: result.exampleMeaning,
+                    nuance: result.nuance,
+                };
+                if (bookMatch._docPath && bookMatch._originalWord) {
+                    updateBookVocabInFirestore(bookMatch._docPath, bookMatch._originalWord, updatedFields)
+                        .catch(e => console.warn('Error updating book vocab back in aiAssistVocab:', e));
+                }
+            }
+
+            // Đồng bộ sang shared vocab
+            saveSharedVocab(frontText, result, true)
+                .catch(e => console.warn('Error syncing book vocab to shared in aiAssistVocab:', e));
+
+            return result;
+        }
+    } catch (e) {
+        console.warn('aiAssistVocab: Book lookup error:', e);
+    }
+
+    // 2. Kiểm tra kho shared vocab
+    try {
+        const sharedMatch = await lookupSharedVocabInAI(frontText);
+        if (sharedMatch) {
+            const result = { ...sharedMatch };
+            if (result.pos) result.pos = normalizePosKey(result.pos);
+
+            if (contextPos && contextPos !== result.pos) {
+                result.pos = contextPos;
+            }
+            if (contextLevel && contextLevel !== result.level) {
+                result.level = contextLevel;
+            }
+
+            let isSharedVocabUpdated = false;
+
+            // Điền từ loại nếu thiếu
+            if (!result.pos || result.pos.trim() === '') {
+                try {
+                    const posPrompt = `Bạn là một chuyên gia ngôn ngữ tiếng Nhật.
+Hãy xác định từ loại (Part of Speech - POS) cho từ vựng tiếng Nhật dưới đây.
+Từ gốc: "${result.front || frontText}"
+Nghĩa: "${result.meaning}"
+Ví dụ: "${result.example || ''}"
+
+Lưu ý: Từ loại (pos) BẮT BUỘC phải là một trong các chuỗi sau:
+- "noun"
+- "verb"
+- "suru_verb"
+- "adj-i"
+- "adj-na"
+- "adverb"
+- "conjunction"
+- "particle"
+- "grammar"
+- "phrase"
+- "other"
+
+Chỉ trả về JSON định dạng sau:
+{"pos": "..."}`;
+                    const responseText = await callAI(posPrompt, 'google/gemini-2.5-flash');
+                    const parsedJson = parseJsonFromAI(responseText);
+                    if (parsedJson && parsedJson.pos) {
+                        result.pos = normalizePosKey(parsedJson.pos);
+                        isSharedVocabUpdated = true;
+                    }
+                } catch (e) {
+                    console.warn('AI POS generation in aiAssistVocab (Shared) failed:', e);
+                }
+            }
+
+            // Điền Hán Việt nếu thiếu
+            if (!result.sinoVietnamese || result.sinoVietnamese.trim() === '') {
+                const lookupHV = getSinoVietnamese(result.front || frontText);
+                if (lookupHV) {
+                    result.sinoVietnamese = lookupHV;
+                    isSharedVocabUpdated = true;
+                } else {
+                    try {
+                        const hvPrompt = `Bạn là một chuyên gia ngôn ngữ tiếng Nhật và Hán Việt.
+Hãy tìm chữ Hán (Kanji) tương ứng và dịch sang âm Hán Việt (IN HOA) cho từ vựng tiếng Nhật dưới đây.
+Từ gốc: "${result.front || frontText}"
+Nghĩa: "${result.meaning}"
+Từ loại: "${result.pos || ''}"
+Ví dụ: "${result.example || ''}"
+
+Lưu ý:
+1. Trả về âm Hán Việt IN HOA, cách nhau bởi dấu cách.
+2. Nếu không có chữ Hán, trả về chuỗi rỗng "".
+
+Chỉ trả về JSON định dạng sau:
+{"sinoVietnamese": "..."}`;
+                        const responseText = await callAI(hvPrompt, 'google/gemini-3.1-flash-lite');
+                        const parsedJson = parseJsonFromAI(responseText);
+                        if (parsedJson && parsedJson.sinoVietnamese) {
+                            result.sinoVietnamese = parsedJson.sinoVietnamese;
+                            isSharedVocabUpdated = true;
+                        }
+                    } catch (e) {
+                        console.warn('AI Sino-Vietnamese generation in aiAssistVocab (Shared) failed:', e);
+                    }
+                }
+            }
+
+            // Ghi đè lại nếu thay đổi
+            if (isSharedVocabUpdated || result.front !== sharedMatch.front || result.synonym !== sharedMatch.synonym) {
+                saveSharedVocab(frontText, result, true)
+                    .catch(e => console.warn('Error updating shared vocab back in aiAssistVocab:', e));
+            }
+
+            return result;
+        }
+    } catch (e) {
+        console.warn('aiAssistVocab: Shared lookup error:', e);
+    }
+    }
+
+    // 3. Không tìm thấy ở cả 2 kho -> Gọi AI để tạo mới
     const prompt = generateVocabPrompt(frontText, contextPos, contextLevel, contextMeaning);
     const featureId = contextPos === 'grammar' ? 'grammar_gen' : 'vocab_gen';
     const responseText = await callAI(prompt, null, featureId);
     const result = parseJsonFromAI(responseText);
 
-    // Ghi đè âm Hán Việt bằng bảng tra cứu cứng (ưu tiên hơn AI)
     if (result) {
+        if (result.pos) result.pos = normalizePosKey(result.pos);
+
+        // Ghi đè âm Hán Việt bằng bảng tra cứu cứng (ưu tiên hơn AI)
         const lookupHV = getSinoVietnamese(frontText);
         if (lookupHV) {
             console.log(`📘 Hán Việt lookup: "${frontText}" → "${lookupHV}" (AI: "${result.sinoVietnamese || ''}")`);
             result.sinoVietnamese = lookupHV;
         }
 
-        // Tự động phân tích Furigana chuẩn bằng kuroshiro CHỈ CHO CÂU VÍ DỤ, KHÔNG xử lý từ vựng và từ đồng nghĩa
         try {
-            // Đảm bảo AI đã gán đúng frontWithFurigana. Nếu thiếu thì fallback
             if (!result.frontWithFurigana) {
                 result.frontWithFurigana = result.frontText || frontText;
+            }
+
+            // Định dạng ngoặc Hiragana
+            if (result.frontWithFurigana) {
+                result.frontWithFurigana = await ensureFuriganaFormat(result.frontWithFurigana);
+            }
+            if (result.synonym) {
+                result.synonym = await ensureFuriganaFormat(result.synonym);
             }
 
             // Xử lý câu ví dụ
@@ -335,6 +863,10 @@ export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '
         } catch (e) {
             console.error("Kuroshiro conversion failed:", e);
         }
+
+        // Lưu vào shared vocab để lưu trữ chung
+        saveSharedVocab(frontText, result, forceRefresh)
+            .catch(e => console.warn('Error saving newly generated vocab in aiAssistVocab:', e));
     }
 
     return result;
@@ -847,6 +1379,14 @@ Trả về duy nhất một đối tượng JSON có định dạng sau:
     try {
         const responseText = await callAI(prompt, null, 'vocab_gen');
         const result = parseJsonFromAI(responseText);
+        if (result) {
+            if (result.front) {
+                result.front = await ensureFuriganaFormat(result.front);
+            }
+            if (result.synonym) {
+                result.synonym = await ensureFuriganaFormat(result.synonym);
+            }
+        }
         return result || null;
     } catch (e) {
         console.error('Error in aiRecreateVocabulary:', e);
