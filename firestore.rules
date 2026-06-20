@@ -21,8 +21,10 @@ service cloud.firestore {
     
     function isModerator(appId) {
       return isAuthenticated() &&
-             exists(/databases/$(database)/documents/artifacts/$(appId)/settings/adminConfig) &&
-             request.auth.uid in get(/databases/$(database)/documents/artifacts/$(appId)/settings/adminConfig).data.moderators;
+             (
+               (appId != null && exists(/databases/$(database)/documents/artifacts/$(appId)/settings/adminConfig) && request.auth.uid in get(/databases/$(database)/documents/artifacts/$(appId)/settings/adminConfig).data.moderators) ||
+               (exists(/databases/$(database)/documents/artifacts/1:28989364918:web:a2a99ad33fc0c23fca6417/settings/adminConfig) && request.auth.uid in get(/databases/$(database)/documents/artifacts/1:28989364918:web:a2a99ad33fc0c23fca6417/settings/adminConfig).data.moderators)
+             );
     }
     
     function hasAdminPrivileges(appId) {
@@ -41,7 +43,9 @@ service cloud.firestore {
     match /artifacts/{appId}/users/{userId}/settings/{docId} {
       allow read: if isOwner(userId) || hasAdminPrivileges(appId);
       allow create: if (isOwner(userId) && isReasonableSize()) || hasAdminPrivileges(appId);
-      allow update: if hasAdminPrivileges(appId) || isOwner(userId);
+      // LƯU Ý BẢO MẬT: Đã chặn quyền update profile/credits từ client
+      // Luồng cộng tiền hiện tại được xử lý hoàn toàn qua Cloudflare Workers Webhook (Admin SDK) bảo mật.
+      allow update: if hasAdminPrivileges(appId) || (isOwner(userId) && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['aiCreditsRemaining', 'isPremiumUnlocked', 'premiumExpiresAt', 'unlockedSpecializedPackages']));
       allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
     }
     
@@ -91,8 +95,12 @@ service cloud.firestore {
     
     match /artifacts/{appId}/sharedVocab/{vocabId} {
       allow read: if true; // Cho phép xem công khai
-      allow create: if isAuthenticated() && isReasonableSize();
-      allow update: if isAuthenticated();
+      allow create: if isAuthenticated() && isReasonableSize() &&
+                    request.resource.data.word is string && request.resource.data.word.size() > 0 &&
+                    request.resource.data.meaning is string && request.resource.data.meaning.size() > 0;
+      allow update: if isAuthenticated() &&
+                    (!request.resource.data.keys().hasAny(['word']) || request.resource.data.word == resource.data.word) &&
+                    request.resource.data.meaning is string && request.resource.data.meaning.size() > 0;
       allow delete: if hasAdminPrivileges(appId);
     }
     
@@ -103,8 +111,12 @@ service cloud.firestore {
     
     match /sharedVocabulary/{vocabId} {
       allow read: if true;
-      allow create: if isAuthenticated() && isReasonableSize();
-      allow update: if isAuthenticated();
+      allow create: if isAuthenticated() && isReasonableSize() &&
+                    request.resource.data.word is string && request.resource.data.word.size() > 0 &&
+                    request.resource.data.meaning is string && request.resource.data.meaning.size() > 0;
+      allow update: if isAuthenticated() &&
+                    (!request.resource.data.keys().hasAny(['word']) || request.resource.data.word == resource.data.word) &&
+                    request.resource.data.meaning is string && request.resource.data.meaning.size() > 0;
       allow delete: if hasAdminPrivileges(appId);
     }
     
@@ -223,7 +235,10 @@ service cloud.firestore {
     match /artifacts/{appId}/vouchers/{voucherId} {
       allow read: if isAuthenticated();
       allow create: if hasAdminPrivileges(appId);
-      allow update: if hasAdminPrivileges(appId) || isAuthenticated();
+      allow update: if hasAdminPrivileges(appId) || (
+        isAuthenticated() && 
+        !request.resource.data.diff(resource.data).affectedKeys().hasAny(['discountValue', 'discountType', 'maxUses', 'expiresAt', 'code', 'active', 'createdAt', 'createdBy'])
+      );
       allow delete: if hasAdminPrivileges(appId);
     }
     
@@ -232,7 +247,21 @@ service cloud.firestore {
     // ============================================
     
     match /artifacts/{appId}/creditRequests/{requestId} {
-      allow create: if isAuthenticated();
+      allow create: if isAuthenticated() && (
+        hasAdminPrivileges(appId) ||
+        (
+          request.resource.data.userId == request.auth.uid &&
+          (
+            request.resource.data.status == 'pending' ||
+            (
+              request.resource.data.status == 'approved' &&
+              request.resource.data.autoApproved == true &&
+              request.resource.data.transactionId != null &&
+              exists(/databases/$(database)/documents/artifacts/$(appId)/processedTransactions/$(request.resource.data.transactionId))
+            )
+          )
+        )
+      );
       allow read: if hasAdminPrivileges(appId) || (isAuthenticated() && resource.data.userId == request.auth.uid);
       allow update: if hasAdminPrivileges(appId);
       allow delete: if hasAdminPrivileges(appId);
@@ -243,8 +272,8 @@ service cloud.firestore {
     // ============================================
     
     match /artifacts/{appId}/processedTransactions/{txId} {
-      allow read: if isAuthenticated();
-      allow create: if isAuthenticated();
+      allow read: if isAuthenticated() && (resource.data.userId == request.auth.uid || hasAdminPrivileges(appId));
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
       allow update, delete: if false;
     }
     
@@ -265,14 +294,20 @@ service cloud.firestore {
     
     match /artifacts/{appId}/forum/{postId} {
       allow read: if true;
-      allow create: if isAuthenticated();
-      allow update: if isAuthenticated();
+      allow create: if isAuthenticated() && isOwner(request.resource.data.authorId);
+      allow update: if hasAdminPrivileges(appId) || (
+        isOwner(resource.data.authorId) && 
+        (!request.resource.data.keys().hasAny(['authorId']) || request.resource.data.authorId == resource.data.authorId)
+      );
       allow delete: if hasAdminPrivileges(appId) || isOwner(resource.data.authorId);
       
       match /comments/{commentId} {
         allow read: if true;
-        allow create: if isAuthenticated();
-        allow update: if isAuthenticated();
+        allow create: if isAuthenticated() && isOwner(request.resource.data.authorId);
+        allow update: if hasAdminPrivileges(appId) || (
+          isOwner(resource.data.authorId) && 
+          (!request.resource.data.keys().hasAny(['authorId']) || request.resource.data.authorId == resource.data.authorId)
+        );
         allow delete: if hasAdminPrivileges(appId) || isOwner(resource.data.authorId);
       }
     }

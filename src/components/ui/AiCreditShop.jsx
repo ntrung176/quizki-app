@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Sparkle, Zap, Star, Crown, Gift, Check, CreditCard, CheckCircle, Loader2, QrCode, Copy, Ticket, X, ArrowLeft, ChevronRight, Settings, BookOpen, Languages, Trophy, AlertTriangle, Trash2, Plus } from 'lucide-react'
-import { submitCreditRequest, DEFAULT_AI_PACKAGES, DEFAULT_SPECIALIZED_PACKAGES, validateVoucher, calculateDiscountedPrice, useVoucher, processPaymentSecurely, submitAndApproveCreditRequest, updateAdminConfig } from '../../utils/adminSettings';
+import { submitCreditRequest, createPendingAutoPayment, DEFAULT_AI_PACKAGES, DEFAULT_SPECIALIZED_PACKAGES, validateVoucher, calculateDiscountedPrice, useVoucher, processPaymentSecurely, submitAndApproveCreditRequest, updateAdminConfig } from '../../utils/adminSettings';
 import { generateOrderCode, generateVietQR, checkPaymentStatus, getSepayToken } from '../../utils/sepayPayment';
-import { sendAIPurchaseSuccessEmail } from '../../utils/email';
-import { doc, updateDoc } from 'firebase/firestore';
+import { sendAIPurchaseSuccessEmail, sendAIPendingConfirmationEmail } from '../../utils/email';
+import { doc, updateDoc, onSnapshot } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
 
 const ICONS = {
@@ -69,6 +69,17 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
     const [copied, setCopied] = useState('');
     const pollingRef = useRef(null);
     const countdownRef = useRef(null);
+
+    const clearPolling = () => {
+        if (pollingRef.current) {
+            if (typeof pollingRef.current === 'function') {
+                pollingRef.current();
+            } else {
+                clearInterval(pollingRef.current);
+            }
+            pollingRef.current = null;
+        }
+    };
 
     // Voucher
     const [voucherCode, setVoucherCode] = useState('');
@@ -142,7 +153,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
     // Cleanup timers on unmount
     useEffect(() => {
         return () => {
-            if (pollingRef.current) clearInterval(pollingRef.current);
+            clearPolling();
             if (countdownRef.current) clearInterval(countdownRef.current);
         };
     }, []);
@@ -288,9 +299,9 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
     };
 
     // Proceed to payment
-    const handleProceedToPayment = () => {
+    const handleProceedToPayment = async () => {
         if (!selectedPackage) return;
-        if (pollingRef.current) clearInterval(pollingRef.current);
+        clearPolling();
         if (countdownRef.current) clearInterval(countdownRef.current);
         setPaymentSuccess(false);
         setSubmitted(false);
@@ -300,54 +311,39 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
         setOrderCode(code);
         setStep('payment');
 
-        const token = getSepayToken(adminConfig);
         const finalPrice = getFinalPrice(selectedPackage);
 
-        // Pass credit string or card count number based on package type
-        const paymentCredits = selectedPackage.cards !== undefined 
-            ? selectedPackage.cards 
-            : `specialized:${selectedPackage.id}`;
-
-        if (token) {
-            setChecking(true);
-            setPaymentCountdown(600); // 10 minutes
-            startPolling(code, selectedPackage, token, finalPrice, paymentCredits);
+        setChecking(true);
+        // Register the pending auto payment request as the foundation for the Webhook to verify
+        const ok = await createPendingAutoPayment(code, userId, userName, userEmail, { ...selectedPackage, salePrice: finalPrice });
+        if (ok) {
+            startWebhookListening(code, selectedPackage, finalPrice);
+        } else {
+            setChecking(false);
+            alert("Có lỗi xảy ra khi tạo đơn hàng thanh toán tự động. Vui lòng thử lại!");
         }
     };
 
-    const startPolling = (code, pkg, token, finalPrice, paymentCredits) => {
-        const pollingStartTime = new Date();
-        pollingRef.current = setInterval(async () => {
-            const result = await checkPaymentStatus(token, code, finalPrice, pollingStartTime);
-            if (result && result.success) {
-                clearInterval(pollingRef.current);
-                clearInterval(countdownRef.current);
-                setChecking(false);
+    const startWebhookListening = (code, pkg, finalPrice) => {
+        setChecking(true);
+        setPaymentCountdown(600); // 10 minutes
 
-                const txId = result.transactionId || result.referenceNumber;
-                if (!txId) {
-                    console.error('❌ No transaction ID found in payment result');
-                    return;
-                }
-
-                const secureResult = await processPaymentSecurely(
-                    txId, code, userId, paymentCredits, finalPrice
-                );
-
-                if (secureResult.success) {
+        const docRef = doc(db, `artifacts/${appId}/creditRequests`, code);
+        
+        // Listen to the specific creditRequest document whose ID matches the orderCode
+        const unsubscribe = onSnapshot(docRef, async (snapshot) => {
+            if (snapshot.exists()) {
+                const data = snapshot.data();
+                if (data.status === 'approved') {
+                    clearPolling();
+                    if (countdownRef.current) clearInterval(countdownRef.current);
+                    setChecking(false);
                     setPaymentSuccess(true);
-                    try { 
-                        await submitAndApproveCreditRequest(
-                            userId, userName, userEmail, 
-                            { ...pkg, cards: pkg.cards ?? null, salePrice: finalPrice }, 
-                            txId
-                        ); 
-                    } catch (e) { 
-                        console.warn(e); 
-                    }
+
                     if (appliedVoucher) {
                         try { await useVoucher(appliedVoucher.code, userId); } catch (e) { console.warn(e); }
                     }
+                    
                     try {
                         const packageDisplayName = pkg.cards !== undefined 
                             ? `Gói ${pkg.name} (${pkg.cards.toLocaleString()} thẻ AI)`
@@ -356,19 +352,18 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     } catch (e) {
                         console.warn('Failed to send success email:', e);
                     }
-                } else {
-                    console.warn('⚠️ Payment already processed or failed:', secureResult.error);
-                    if (secureResult.error?.includes('đã được xử lý')) {
-                        setPaymentSuccess(true);
-                    }
                 }
             }
-        }, 3000);
+        }, (error) => {
+            console.error("Error listening to payment status:", error);
+        });
+
+        pollingRef.current = unsubscribe;
 
         countdownRef.current = setInterval(() => {
             setPaymentCountdown(prev => {
                 if (prev <= 1) { 
-                    clearInterval(pollingRef.current); 
+                    clearPolling();
                     clearInterval(countdownRef.current); 
                     setChecking(false); 
                     return 0; 
@@ -389,10 +384,10 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     const packageDisplayName = selectedPackage.cards !== undefined 
                         ? `Gói ${selectedPackage.name} (${selectedPackage.cards.toLocaleString()} thẻ AI)`
                         : `Gói tính năng ${selectedPackage.name}`;
-                    await sendAIPurchaseSuccessEmail(userEmail, userName, packageDisplayName, manualFinalPrice, selectedPackage.cards || 0);
-                    console.log('✅ Email xác nhận đã gửi tới:', userEmail);
+                    await sendAIPendingConfirmationEmail(userEmail, userName, packageDisplayName, manualFinalPrice);
+                    console.log('✅ Email chờ duyệt đã gửi tới:', userEmail);
                 } catch (e) {
-                    console.warn('⚠️ Gửi email xác nhận thất bại:', e);
+                    console.warn('⚠️ Gửi email báo cáo giao dịch thất bại:', e);
                 }
             }
             setSubmitted(true);
@@ -1154,7 +1149,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                 <button 
                     onClick={() => { 
                         setStep('info'); 
-                        if (pollingRef.current) clearInterval(pollingRef.current); 
+                        clearPolling(); 
                         if (countdownRef.current) clearInterval(countdownRef.current); 
                         setChecking(false); 
                     }} 

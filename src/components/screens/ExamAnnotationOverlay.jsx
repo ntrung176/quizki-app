@@ -1085,7 +1085,7 @@ const ExamAnnotationOverlay = ({
                                 onClick={() => setActiveTool('text-highlighter')}
                                 className={`w-full text-left px-2 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 transition ${
                                     activeTool === 'text-highlighter' 
-                                        ? 'bg-amber-50 text-amber-700 dark:bg-amber-955/30 dark:text-amber-400' 
+                                        ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400' 
                                         : 'text-slate-600 hover:bg-slate-50 dark:text-slate-350 dark:hover:bg-slate-800/50'
                                 }`}
                             >
@@ -1095,7 +1095,7 @@ const ExamAnnotationOverlay = ({
                                 onClick={() => setActiveTool('highlighter')}
                                 className={`w-full text-left px-2 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 transition ${
                                     activeTool === 'highlighter' 
-                                        ? 'bg-amber-50 text-amber-700 dark:bg-amber-955/30 dark:text-amber-400' 
+                                        ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400' 
                                         : 'text-slate-600 hover:bg-slate-50 dark:text-slate-350 dark:hover:bg-slate-800/50'
                                 }`}
                             >

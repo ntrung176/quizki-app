@@ -1225,7 +1225,7 @@ const ReviewScreen = ({
                                 {showNuancePopup && (
                                     <div 
                                         onClick={(e) => e.stopPropagation()} 
-                                        className="absolute top-20 right-6 left-6 z-40 bg-amber-50/95 dark:bg-amber-955/95 border-2 border-amber-200 dark:border-amber-900/60 rounded-2xl p-4 shadow-xl animate-fade-in text-slate-850 dark:text-slate-200"
+                                        className="absolute top-20 right-6 left-6 z-40 bg-amber-50/95 dark:bg-amber-950/95 border-2 border-amber-200 dark:border-amber-900/60 rounded-2xl p-4 shadow-xl animate-fade-in text-slate-850 dark:text-slate-200"
                                     >
                                         <div className="flex items-center justify-between border-b border-amber-200/50 dark:border-amber-900/40 pb-2 mb-2">
                                             <div className="flex items-center gap-1.5 text-amber-700 dark:text-amber-400 font-extrabold text-sm">

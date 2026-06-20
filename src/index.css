@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
@@ -32,7 +32,7 @@
 }
 
 :root {
-  --font-japanese-family: "UD デジタル 教科書体 N-R", "UD Digi Kyokasho N-R", "UD デジタル 教科書体 NP-R", "UD Digi Kyokasho NP-R", "UD デジタル 教科書体 NK-R", "UD Digi Kyokasho NK-R", "BIZ UDPMincho", "MS Mincho", "ＭＳ 明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-japanese-family: "UD デジタル 教科書体 N-R", "UD Digi Kyokasho N-R", "UD デジタル 教科書体 NP-R", "UD Digi Kyokasho NP-R", "UD デジタル 教科書体 NK-R", "UD Digi Kyokasho NK-R", "BIZ UDPMincho", "MS Mincho", "ＭＳ 明朝", "Hiragino Mincho ProN", "Yu Mincho", "Inter", system-ui, -apple-system, sans-serif;
   --jp-ex-size: 1.125rem;
   --jp-ex-md-size: 1.25rem;
   --jp-ex-weight: 900;

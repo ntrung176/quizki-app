@@ -79,3 +79,40 @@ export const sendAIPurchaseSuccessEmail = async (userEmail, userName, packageNam
 
     return await sendEmail(userEmail, subject, htmlContent);
 };
+
+/**
+ * Gửi mail thông báo đã nhận yêu cầu xác nhận chuyển khoản thủ công
+ */
+export const sendAIPendingConfirmationEmail = async (userEmail, userName, packageName, amountVND) => {
+    const subject = `⏳ Nhận yêu cầu xác nhận thanh toán gói ${packageName} - Quizki App`;
+
+    const htmlContent = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
+        <div style="background-color: #f59e0b; padding: 24px; text-align: center;">
+            <h1 style="color: #ffffff; margin: 0; font-size: 24px;">Yêu Cầu Đang Chờ Xử Lý</h1>
+        </div>
+        
+        <div style="padding: 32px; background-color: #ffffff;">
+            <p style="font-size: 16px; color: #374151;">Chào <strong>${userName || 'bạn'}</strong>,</p>
+            <p style="font-size: 16px; color: #4b5563; line-height: 1.5;">Hệ thống đã nhận được báo cáo xác nhận chuyển khoản thủ công từ bạn cho gói <strong>${packageName}</strong>.</p>
+            
+            <div style="margin: 32px 0; padding: 20px; background-color: #fffbeb; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                <p style="margin: 0 0 12px 0; font-size: 14px; color: #b45309; text-transform: uppercase; font-weight: bold;">Thông Tin Đơn Hàng Chờ Duyệt</p>
+                <p style="margin: 8px 0; font-size: 16px;"><strong>🔹 Tên Gói:</strong> ${packageName}</p>
+                <p style="margin: 8px 0; font-size: 16px;"><strong>💰 Số tiền chuyển khoản:</strong> ${Number(amountVND).toLocaleString('vi-VN')}đ</p>
+                <p style="margin: 8px 0; font-size: 16px;"><strong>⚙️ Trạng thái:</strong> <span style="color: #d97706; font-weight: bold;">Đang chờ Admin kiểm tra</span></p>
+                <p style="margin: 8px 0; font-size: 14px; color: #6b7280;">Yêu cầu gửi lúc: ${new Date().toLocaleString('vi-VN')}</p>
+            </div>
+            
+            <p style="font-size: 16px; color: #4b5563; line-height: 1.5;">Vui lòng đợi trong giây lát. Admin sẽ đối soát giao dịch ngân hàng của bạn và kích hoạt tài khoản thủ công trong vòng 5 - 15 phút.</p>
+            <p style="font-size: 16px; color: #4b5563; line-height: 1.5;">Nếu có bất kỳ thắc mắc nào, vui lòng liên hệ bộ phận hỗ trợ Zalo/Messenger hiển thị trên trang của cửa hàng.</p>
+        </div>
+        
+        <div style="background-color: #f9fafb; padding: 20px; text-align: center; border-top: 1px solid #e2e8f0;">
+            <p style="color: #9ca3af; font-size: 14px; margin: 0;">Trân trọng,<br>Đội ngũ phát triển Quizki App</p>
+        </div>
+    </div>
+    `;
+
+    return await sendEmail(userEmail, subject, htmlContent);
+};

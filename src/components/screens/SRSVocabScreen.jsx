@@ -596,7 +596,7 @@ const SRSVocabScreen = ({
                                 }}
                                 className={`absolute top-6 right-[120px] p-2.5 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border ${
                                     currentCard.nuance 
-                                        ? 'bg-amber-50 dark:bg-amber-955/40 border-amber-200 dark:border-amber-900/50 text-amber-600 dark:text-amber-400 hover:bg-amber-100/80 dark:hover:bg-amber-900/60' 
+                                        ? 'bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-900/50 text-amber-600 dark:text-amber-400 hover:bg-amber-100/80 dark:hover:bg-amber-900/60' 
                                         : 'bg-slate-50 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-550 hover:bg-slate-100 dark:hover:bg-slate-700/90'
                                 }`}
                                 title="Sắc thái từ vựng"
@@ -608,7 +608,7 @@ const SRSVocabScreen = ({
                             {showNuancePopup && (
                                 <div 
                                     onClick={(e) => e.stopPropagation()} 
-                                    className="absolute top-20 right-6 left-6 z-40 bg-amber-50/95 dark:bg-amber-955/95 border-2 border-amber-200 dark:border-amber-900/60 rounded-2xl p-4 shadow-xl animate-fade-in text-slate-850 dark:text-slate-200"
+                                    className="absolute top-20 right-6 left-6 z-40 bg-amber-50/95 dark:bg-amber-950/95 border-2 border-amber-200 dark:border-amber-900/60 rounded-2xl p-4 shadow-xl animate-fade-in text-slate-850 dark:text-slate-200"
                                 >
                                     <div className="flex items-center justify-between border-b border-amber-200/50 dark:border-amber-900/40 pb-2 mb-2">
                                         <div className="flex items-center gap-1.5 text-amber-700 dark:text-amber-400 font-extrabold text-sm">

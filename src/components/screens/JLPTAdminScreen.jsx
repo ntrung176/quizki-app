@@ -4,7 +4,7 @@ import {
     collection, query, onSnapshot, doc, setDoc, deleteDoc, serverTimestamp, orderBy
 } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
-import { Plus, Trash2, Edit3, Save, X, ChevronDown, ChevronUp, FileText, Headphones, BookOpen, Languages, AlertTriangle, CheckCircle, Loader2, Copy, Upload, ArrowLeft, Award, Bold, Underline, Highlighter } from 'lucide-react'
+import { Plus, Trash2, Edit3, Save, X, ChevronDown, ChevronUp, FileText, Headphones, BookOpen, Languages, AlertTriangle, CheckCircle, Loader2, Copy, Upload, ArrowLeft, Award, Bold, Underline, Highlighter, Italic, Strikethrough, AlignCenter, CornerDownLeft, Palette, Eraser, Type } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../router';
 import { compressImage, fileToBase64 } from '../../utils/image';
@@ -241,6 +241,80 @@ const SAMPLE_FLAT_JSON = {
     ]
 };
 
+const HighlightedHtmlTextarea = ({ value, onChange, placeholder, id }) => {
+    const [text, setText] = useState(value || '');
+
+    useEffect(() => {
+        setText(value || '');
+    }, [value]);
+
+    const textareaRef = React.useRef(null);
+
+    const adjustHeight = () => {
+        const textarea = textareaRef.current;
+        if (textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = `${textarea.scrollHeight}px`;
+        }
+    };
+
+    useEffect(() => {
+        adjustHeight();
+    }, [text]);
+
+    const getHighlightedHtml = (rawText) => {
+        if (!rawText) return '';
+        let escaped = rawText
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+        
+        return escaped.replace(/(&lt;\/?[a-zA-Z0-9]+(?: [^&]*)?&gt;)/g, (match) => {
+            const lower = match.toLowerCase();
+            if (lower.includes('ruby')) {
+                return `<span class="text-rose-600 dark:text-rose-455 font-extrabold">${match}</span>`;
+            } else if (lower.includes('rt')) {
+                return `<span class="text-emerald-600 dark:text-emerald-455 font-extrabold">${match}</span>`;
+            } else if (lower.includes('br')) {
+                return `<span class="text-purple-650 dark:text-purple-400 font-extrabold">${match}</span>`;
+            } else if (lower.includes('span') || lower.includes('div')) {
+                return `<span class="text-blue-650 dark:text-sky-400 font-bold">${match}</span>`;
+            } else {
+                return `<span class="text-amber-650 dark:text-amber-400 font-bold">${match}</span>`;
+            }
+        });
+    };
+
+    return (
+        <div className="relative w-full overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800">
+            {/* Highlights container */}
+            <div
+                className="absolute inset-0 p-3.5 text-sm font-mono leading-relaxed whitespace-pre-wrap break-all pointer-events-none overflow-hidden text-slate-850 dark:text-slate-200"
+                style={{
+                    fontFamily: 'Consolas, Monaco, monospace',
+                }}
+                dangerouslySetInnerHTML={{ __html: getHighlightedHtml(text) + '\n' }}
+            />
+            {/* The Textarea */}
+            <textarea
+                id={id}
+                ref={textareaRef}
+                value={text}
+                onChange={(e) => {
+                    onChange(e);
+                    setText(e.target.value);
+                }}
+                placeholder={placeholder}
+                className="relative w-full p-3.5 text-sm font-mono leading-relaxed whitespace-pre-wrap break-all bg-transparent border-0 outline-none ring-0 focus:ring-0 resize-none overflow-hidden caret-slate-800 dark:caret-white text-transparent selection:bg-[#2E5B70]/25"
+                style={{
+                    fontFamily: 'Consolas, Monaco, monospace',
+                    WebkitTextFillColor: 'transparent',
+                }}
+            />
+        </div>
+    );
+};
+
 const normalizeQuestions = (rawQuestions) => {
     if (!Array.isArray(rawQuestions)) return [];
     
@@ -316,6 +390,35 @@ const JLPTAdminScreen = ({ userId }) => {
     const [importSkillType, setImportSkillType] = useState('vocabulary');
     const [importMethod, setImportMethod] = useState('overwrite');
     const testsPath = `artifacts/${appId}/jlptTests`;
+    const [activeFieldsTabs, setActiveFieldsTabs] = useState({});
+
+    const getTab = (sectionIdx, questionIdx, field) => {
+        return activeFieldsTabs[`${sectionIdx}-${questionIdx}-${field}`] || 'preview';
+    };
+
+    const setActiveTab = (sectionIdx, questionIdx, field, tab) => {
+        if (tab === 'html') {
+            setFormData(prev => {
+                const updated = { ...prev };
+                const section = updated.sections[sectionIdx];
+                if (section && section.questions) {
+                    const q = section.questions[questionIdx];
+                    if (q) {
+                        const currentVal = q[field] || '';
+                        const formatted = currentVal.replace(/(<br\s*\/?>)(?!\s*\n)/gi, '$1\n');
+                        if (formatted !== currentVal) {
+                            q[field] = formatted;
+                        }
+                    }
+                }
+                return updated;
+            });
+        }
+        setActiveFieldsTabs(prev => ({
+            ...prev,
+            [`${sectionIdx}-${questionIdx}-${field}`]: tab
+        }));
+    };
     
     const filteredTests = useMemo(() => {
         return tests.filter(test => {
@@ -581,22 +684,149 @@ const JLPTAdminScreen = ({ userId }) => {
         const end = textarea.selectionEnd;
         const text = textarea.value;
         const selectedText = text.substring(start, end);
+        
         let replacement = '';
-        if (tag === 'b') {
-            replacement = `<b>${selectedText || 'chữ in đậm'}</b>`;
-        } else if (tag === 'u') {
-            replacement = `<u>${selectedText || 'chữ gạch chân'}</u>`;
-        } else if (tag === 'mark') {
-            replacement = `<mark>${selectedText || 'chữ highlight'}</mark>`;
+        let cursorOffset = 0;
+        let cursorLength = 0;
+
+        switch (tag) {
+            case 'b':
+                replacement = `<b>${selectedText || 'chữ in đậm'}</b>`;
+                cursorOffset = 3;
+                cursorLength = (selectedText || 'chữ in đậm').length;
+                break;
+            case 'i':
+                replacement = `<i>${selectedText || 'chữ in nghiêng'}</i>`;
+                cursorOffset = 3;
+                cursorLength = (selectedText || 'chữ in nghiêng').length;
+                break;
+            case 'u':
+                replacement = `<u>${selectedText || 'chữ gạch chân'}</u>`;
+                cursorOffset = 3;
+                cursorLength = (selectedText || 'chữ gạch chân').length;
+                break;
+            case 's':
+                replacement = `<s>${selectedText || 'chữ gạch ngang'}</s>`;
+                cursorOffset = 3;
+                cursorLength = (selectedText || 'chữ gạch ngang').length;
+                break;
+            case 'mark':
+                replacement = `<mark>${selectedText || 'chữ highlight'}</mark>`;
+                cursorOffset = 6;
+                cursorLength = (selectedText || 'chữ highlight').length;
+                break;
+            case 'center':
+                replacement = `<div style="text-align: center;">${selectedText || 'nội dung căn giữa'}</div>`;
+                cursorOffset = 32;
+                cursorLength = (selectedText || 'nội dung căn giữa').length;
+                break;
+            case 'red':
+                replacement = `<span style="color: #ef4444;">${selectedText || 'chữ màu đỏ'}</span>`;
+                cursorOffset = 29;
+                cursorLength = (selectedText || 'chữ màu đỏ').length;
+                break;
+            case 'blue':
+                replacement = `<span style="color: #3b82f6;">${selectedText || 'chữ màu xanh'}</span>`;
+                cursorOffset = 29;
+                cursorLength = (selectedText || 'chữ màu xanh').length;
+                break;
+            case 'large':
+                replacement = `<span style="font-size: 1.25em;">${selectedText || 'chữ lớn'}</span>`;
+                cursorOffset = 30;
+                cursorLength = (selectedText || 'chữ lớn').length;
+                break;
+            case 'br':
+                replacement = `${selectedText}<br/>\n`;
+                cursorOffset = selectedText.length + 6;
+                cursorLength = 0;
+                break;
+            case 'ruby':
+                replacement = `<ruby>${selectedText || '漢字'}<rt>かんじ</rt></ruby>`;
+                cursorOffset = 6;
+                cursorLength = (selectedText || '漢字').length;
+                break;
+            case 'clear':
+                replacement = selectedText.replace(/<\/?[^>]+(>|$)/g, "");
+                cursorOffset = 0;
+                cursorLength = replacement.length;
+                break;
+            default:
+                replacement = selectedText;
+                cursorOffset = 0;
+                cursorLength = selectedText.length;
         }
+
         const newText = text.substring(0, start) + replacement + text.substring(end);
         updateQuestion(sectionIdx, questionIdx, field, newText);
         setTimeout(() => {
             textarea.focus();
-            const offset = tag === 'b' || tag === 'u' ? 3 : 6; 
-            textarea.setSelectionRange(start + offset, start + offset + selectedText.length);
+            textarea.setSelectionRange(start + cursorOffset, start + cursorOffset + cursorLength);
+            textarea.style.height = 'auto';
+            textarea.style.height = `${textarea.scrollHeight}px`;
         }, 0);
     };
+
+    const applyRichFormat = (sectionIdx, questionIdx, field, tag) => {
+        const isHtmlTab = getTab(sectionIdx, questionIdx, field) === 'html';
+        
+        if (isHtmlTab) {
+            insertFormatTag(sectionIdx, questionIdx, field, tag);
+            return;
+        }
+
+        const editorId = `editor-${sectionIdx}-${questionIdx}-${field}`;
+        const editor = document.getElementById(editorId);
+        if (!editor) return;
+
+        editor.focus();
+        document.execCommand('styleWithCSS', false, true);
+
+        switch (tag) {
+            case 'b':
+                document.execCommand('bold', false, null);
+                break;
+            case 'i':
+                document.execCommand('italic', false, null);
+                break;
+            case 'u':
+                document.execCommand('underline', false, null);
+                break;
+            case 's':
+                document.execCommand('strikeThrough', false, null);
+                break;
+            case 'mark':
+                document.execCommand('backColor', false, '#fef08a');
+                break;
+            case 'center':
+                document.execCommand('justifyCenter', false, null);
+                break;
+            case 'red':
+                document.execCommand('foreColor', false, '#ef4444');
+                break;
+            case 'blue':
+                document.execCommand('foreColor', false, '#3b82f6');
+                break;
+            case 'large':
+                document.execCommand('fontSize', false, '4');
+                break;
+            case 'br':
+                document.execCommand('insertHTML', false, '<br/>');
+                break;
+            case 'ruby':
+                const selection = window.getSelection().toString();
+                const rubyHtml = `<ruby>${selection || '漢字'}<rt>かんじ</rt></ruby>`;
+                document.execCommand('insertHTML', false, rubyHtml);
+                break;
+            case 'clear':
+                document.execCommand('removeFormat', false, null);
+                break;
+            default:
+                break;
+        }
+
+        updateQuestion(sectionIdx, questionIdx, field, editor.innerHTML);
+    };
+
     const handleAudioUpload = async (si, qi, file) => {
         if (!file) return;
         try {
@@ -806,43 +1036,131 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                     )}
                                                                 </div>
                                                                 <div>
-                                                                    <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 flex items-center justify-between">
-                                                                        <span>Đề bài / Câu hỏi</span>
-                                                                        <div className="flex gap-1.5 bg-slate-100 dark:bg-slate-700/50 px-1.5 py-0.5 rounded-lg border border-slate-200 dark:border-slate-600">
-                                                                            <button type="button" onClick={() => insertFormatTag(si, qi, 'question', 'b')} title="In đậm (Bold)" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-300 rounded cursor-pointer"><Bold className="w-3.5 h-3.5" /></button>
-                                                                            <button type="button" onClick={() => insertFormatTag(si, qi, 'question', 'u')} title="Gạch chân (Underline)" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-300 rounded cursor-pointer"><Underline className="w-3.5 h-3.5" /></button>
-                                                                            <button type="button" onClick={() => insertFormatTag(si, qi, 'question', 'mark')} title="Tô sáng (Highlight)" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-300 rounded cursor-pointer"><Highlighter className="w-3.5 h-3.5" /></button>
+                                                                    <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-700/60 pb-1 mb-2">
+                                                                        <div className="flex gap-1">
+                                                                            <button
+                                                                                type="button"
+                                                                                onClick={() => setActiveTab(si, qi, 'question', 'preview')}
+                                                                                className={`px-3 py-1 text-[11px] font-bold rounded-t-lg transition-all ${
+                                                                                    getTab(si, qi, 'question') === 'preview'
+                                                                                        ? 'bg-[#2E5B70] text-white'
+                                                                                        : 'bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                                                                                }`}
+                                                                            >
+                                                                                Nội dung
+                                                                            </button>
+                                                                            <button
+                                                                                type="button"
+                                                                                onClick={() => setActiveTab(si, qi, 'question', 'html')}
+                                                                                className={`px-3 py-1 text-[11px] font-bold rounded-t-lg transition-all ${
+                                                                                    getTab(si, qi, 'question') === 'html'
+                                                                                        ? 'bg-[#2E5B70] text-white'
+                                                                                        : 'bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                                                                                }`}
+                                                                            >
+                                                                                Mã HTML (Câu hỏi)
+                                                                            </button>
                                                                         </div>
-                                                                    </label>
-                                                                    <textarea id={`textarea-${si}-${qi}-question`} value={q.question} onChange={e => updateQuestion(si, qi, 'question', e.target.value)}
-                                                                        placeholder="Nhập nội dung câu hỏi..." rows={2}
-                                                                        className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none resize-none font-japanese" />
-                                                                    {q.question && (
-                                                                        <div className="mt-1.5 p-2.5 rounded-xl bg-slate-100/50 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/80">
-                                                                            <span className="block text-[9px] font-bold text-[#2E5B70] dark:text-sky-400 uppercase tracking-wider mb-1">Xem trước câu hỏi:</span>
-                                                                            <div className="text-xs font-japanese leading-relaxed whitespace-pre-line text-slate-800 dark:text-slate-200" dangerouslySetInnerHTML={{ __html: q.question }} />
+                                                                        <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-600">
+                                                                            <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'question', 'b')} title="In đậm (Bold)" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><Bold className="w-3.5 h-3.5" /></button>
+                                                                            <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'question', 'i')} title="In nghiêng (Italic)" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><Italic className="w-3.5 h-3.5" /></button>
+                                                                            <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'question', 'u')} title="Gạch chân (Underline)" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><Underline className="w-3.5 h-3.5" /></button>
+                                                                            <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'question', 's')} title="Gạch ngang (Strikethrough)" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><Strikethrough className="w-3.5 h-3.5" /></button>
+                                                                            <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'question', 'mark')} title="Tô sáng (Highlight)" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><Highlighter className="w-3.5 h-3.5" /></button>
+                                                                            <div className="w-px h-3.5 bg-slate-300 dark:bg-slate-600 mx-1"></div>
+                                                                            <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'question', 'red')} title="Màu đỏ" className="px-1 py-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-red-500 rounded cursor-pointer transition font-extrabold text-[10px]">Đỏ</button>
+                                                                            <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'question', 'blue')} title="Màu xanh" className="px-1 py-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-blue-500 rounded cursor-pointer transition font-extrabold text-[10px]">Xanh</button>
+                                                                            <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'question', 'large')} title="Cỡ chữ lớn" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><Type className="w-3.5 h-3.5" /></button>
+                                                                            <div className="w-px h-3.5 bg-slate-300 dark:bg-slate-600 mx-1"></div>
+                                                                            <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'question', 'center')} title="Căn giữa" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><AlignCenter className="w-3.5 h-3.5" /></button>
+                                                                            <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'question', 'br')} title="Xuống dòng" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><CornerDownLeft className="w-3.5 h-3.5" /></button>
+                                                                            <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'question', 'ruby')} title="Thêm Furigana (phiên âm)" className="px-1 py-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition font-bold text-[10px] bg-slate-200/50 dark:bg-slate-600/50">漢(かん)</button>
+                                                                            <div className="w-px h-3.5 bg-slate-300 dark:bg-slate-600 mx-1"></div>
+                                                                            <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'question', 'clear')} title="Xóa định dạng HTML" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><Eraser className="w-3.5 h-3.5" /></button>
                                                                         </div>
+                                                                    </div>
+                                                                    {getTab(si, qi, 'question') === 'html' ? (
+                                                                        <HighlightedHtmlTextarea
+                                                                            id={`textarea-${si}-${qi}-question`}
+                                                                            value={q.question}
+                                                                            onChange={e => updateQuestion(si, qi, 'question', e.target.value)}
+                                                                            placeholder="Nhập nội dung câu hỏi..."
+                                                                        />
+                                                                    ) : (
+                                                                        <div
+                                                                            id={`editor-${si}-${qi}-question`}
+                                                                            contentEditable
+                                                                            suppressContentEditableWarning
+                                                                            onBlur={(e) => updateQuestion(si, qi, 'question', e.currentTarget.innerHTML)}
+                                                                            className="p-3.5 min-h-[50px] rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 outline-none text-sm font-japanese leading-relaxed text-slate-800 dark:text-slate-200 focus:ring-1 focus:ring-[#2E5B70]"
+                                                                            dangerouslySetInnerHTML={{ __html: q.question || '' }}
+                                                                            placeholder="Nhập nội dung câu hỏi..."
+                                                                        />
                                                                     )}
                                                                 </div>
                                                                 {/* Đoạn văn cho Đọc hiểu */}
                                                                 {section.type === 'reading' && (
                                                                     <div>
-                                                                        <label className="block text-[10px] font-bold text-slate-450 uppercase tracking-wider mb-1 flex items-center justify-between">
-                                                                            <span>Đoạn văn đọc hiểu (Nếu có)</span>
-                                                                            <div className="flex gap-1.5 bg-slate-100 dark:bg-slate-700/50 px-1.5 py-0.5 rounded-lg border border-slate-200 dark:border-slate-600">
-                                                                                <button type="button" onClick={() => insertFormatTag(si, qi, 'passage', 'b')} title="In đậm (Bold)" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-300 rounded cursor-pointer"><Bold className="w-3.5 h-3.5" /></button>
-                                                                                <button type="button" onClick={() => insertFormatTag(si, qi, 'passage', 'u')} title="Gạch chân (Underline)" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-300 rounded cursor-pointer"><Underline className="w-3.5 h-3.5" /></button>
-                                                                                <button type="button" onClick={() => insertFormatTag(si, qi, 'passage', 'mark')} title="Tô sáng (Highlight)" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-300 rounded cursor-pointer"><Highlighter className="w-3.5 h-3.5" /></button>
+                                                                        <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-700/60 pb-1 mb-2">
+                                                                            <div className="flex gap-1">
+                                                                                <button
+                                                                                    type="button"
+                                                                                    onClick={() => setActiveTab(si, qi, 'passage', 'preview')}
+                                                                                    className={`px-3 py-1 text-[11px] font-bold rounded-t-lg transition-all ${
+                                                                                        getTab(si, qi, 'passage') === 'preview'
+                                                                                            ? 'bg-[#2E5B70] text-white'
+                                                                                            : 'bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                                                                                    }`}
+                                                                                >
+                                                                                    Nội dung
+                                                                                </button>
+                                                                                <button
+                                                                                    type="button"
+                                                                                    onClick={() => setActiveTab(si, qi, 'passage', 'html')}
+                                                                                    className={`px-3 py-1 text-[11px] font-bold rounded-t-lg transition-all ${
+                                                                                        getTab(si, qi, 'passage') === 'html'
+                                                                                            ? 'bg-[#2E5B70] text-white'
+                                                                                            : 'bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                                                                                    }`}
+                                                                                >
+                                                                                    Mã HTML (Đoạn văn)
+                                                                                </button>
                                                                             </div>
-                                                                        </label>
-                                                                        <textarea id={`textarea-${si}-${qi}-passage`} value={q.passage || ''} onChange={e => updateQuestion(si, qi, 'passage', e.target.value)}
-                                                                            placeholder="Nhập đoạn văn bản tiếng Nhật..." rows={4}
-                                                                            className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none resize-none font-japanese leading-relaxed" />
-                                                                        {q.passage && (
-                                                                            <div className="mt-1.5 p-2.5 rounded-xl bg-slate-100/50 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/80">
-                                                                                <span className="block text-[9px] font-bold text-[#2E5B70] dark:text-sky-400 uppercase tracking-wider mb-1">Xem trước đoạn văn:</span>
-                                                                                <div className="text-xs font-japanese leading-relaxed whitespace-pre-line text-slate-800 dark:text-slate-200" dangerouslySetInnerHTML={{ __html: q.passage }} />
+                                                                            <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-600">
+                                                                                <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'passage', 'b')} title="In đậm (Bold)" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><Bold className="w-3.5 h-3.5" /></button>
+                                                                                <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'passage', 'i')} title="In nghiêng (Italic)" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><Italic className="w-3.5 h-3.5" /></button>
+                                                                                <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'passage', 'u')} title="Gạch chân (Underline)" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><Underline className="w-3.5 h-3.5" /></button>
+                                                                                <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'passage', 's')} title="Gạch ngang (Strikethrough)" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><Strikethrough className="w-3.5 h-3.5" /></button>
+                                                                                <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'passage', 'mark')} title="Tô sáng (Highlight)" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><Highlighter className="w-3.5 h-3.5" /></button>
+                                                                                <div className="w-px h-3.5 bg-slate-300 dark:bg-slate-600 mx-1"></div>
+                                                                                <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'passage', 'red')} title="Màu đỏ" className="px-1 py-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-red-500 rounded cursor-pointer transition font-extrabold text-[10px]">Đỏ</button>
+                                                                                <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'passage', 'blue')} title="Màu xanh" className="px-1 py-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-blue-500 rounded cursor-pointer transition font-extrabold text-[10px]">Xanh</button>
+                                                                                <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'passage', 'large')} title="Cỡ chữ lớn" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><Type className="w-3.5 h-3.5" /></button>
+                                                                                <div className="w-px h-3.5 bg-slate-300 dark:bg-slate-600 mx-1"></div>
+                                                                                <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'passage', 'center')} title="Căn giữa" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><AlignCenter className="w-3.5 h-3.5" /></button>
+                                                                                <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'passage', 'br')} title="Xuống dòng" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><CornerDownLeft className="w-3.5 h-3.5" /></button>
+                                                                                <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'passage', 'ruby')} title="Thêm Furigana (phiên âm)" className="px-1 py-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition font-bold text-[10px] bg-slate-200/50 dark:bg-slate-600/50">漢(かん)</button>
+                                                                                <div className="w-px h-3.5 bg-slate-300 dark:bg-slate-600 mx-1"></div>
+                                                                                <button type="button" onMouseDown={e => e.preventDefault()} onClick={() => applyRichFormat(si, qi, 'passage', 'clear')} title="Xóa định dạng HTML" className="p-0.5 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded cursor-pointer transition"><Eraser className="w-3.5 h-3.5" /></button>
                                                                             </div>
+                                                                        </div>
+                                                                        {getTab(si, qi, 'passage') === 'html' ? (
+                                                                            <HighlightedHtmlTextarea
+                                                                                id={`textarea-${si}-${qi}-passage`}
+                                                                                value={q.passage || ''}
+                                                                                onChange={e => updateQuestion(si, qi, 'passage', e.target.value)}
+                                                                                placeholder="Nhập đoạn văn bản tiếng Nhật..."
+                                                                            />
+                                                                        ) : (
+                                                                            <div
+                                                                                id={`editor-${si}-${qi}-passage`}
+                                                                                contentEditable
+                                                                                suppressContentEditableWarning
+                                                                                onBlur={(e) => updateQuestion(si, qi, 'passage', e.currentTarget.innerHTML)}
+                                                                                className="p-3.5 min-h-[96px] rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 outline-none text-sm font-japanese leading-relaxed text-slate-800 dark:text-slate-200 focus:ring-1 focus:ring-[#2E5B70]"
+                                                                                dangerouslySetInnerHTML={{ __html: q.passage || '' }}
+                                                                                placeholder="Nhập đoạn văn đọc hiểu..."
+                                                                            />
                                                                         )}
                                                                     </div>
                                                                 )}
@@ -943,9 +1261,9 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                                     <div className="flex-1 space-y-1">
                                                                                         <input type="text" value={opt} onChange={e => updateOption(si, qi, oi, e.target.value)}
                                                                                             placeholder={`Phương án ${String.fromCharCode(65 + oi)}`}
-                                                                                            className="w-full px-3 py-1.5 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none font-japanese" />
+                                                                                            className="w-full px-3 py-1.5 text-sm border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none font-japanese" />
                                                                                         {opt && (
-                                                                                            <div className="px-2.5 py-1 text-[10px] font-japanese text-slate-600 dark:text-slate-350 leading-relaxed whitespace-pre-line bg-slate-100/40 dark:bg-slate-900/20 rounded-lg border border-slate-200/40 dark:border-slate-800/30" dangerouslySetInnerHTML={{ __html: opt }} />
+                                                                                            <div className="px-2.5 py-1 text-xs md:text-sm font-japanese text-slate-600 dark:text-slate-350 leading-relaxed whitespace-pre-line bg-slate-100/40 dark:bg-slate-900/20 rounded-lg border border-slate-200/40 dark:border-slate-800/30" dangerouslySetInnerHTML={{ __html: opt }} />
                                                                                         )}
                                                                                     </div>
                                                                                 </div>
@@ -959,11 +1277,11 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                         <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Giải thích chi tiết (Dành cho phần xem lại đề)</label>
                                                                         <input type="text" value={q.explanation || ''} onChange={e => updateQuestion(si, qi, 'explanation', e.target.value)}
                                                                             placeholder="Giải thích ngữ pháp hoặc dịch từ vựng..."
-                                                                            className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none" />
+                                                                            className="w-full px-3 py-2 text-sm border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none" />
                                                                         {q.explanation && (
                                                                             <div className="mt-1.5 p-2.5 rounded-xl bg-slate-100/50 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/80">
                                                                                 <span className="block text-[9px] font-bold text-[#2E5B70] dark:text-sky-400 uppercase tracking-wider mb-1">Xem trước giải thích:</span>
-                                                                                <div className="text-xs italic leading-relaxed whitespace-pre-line text-slate-600 dark:text-slate-400" dangerouslySetInnerHTML={{ __html: `💡 ${q.explanation}` }} />
+                                                                                <div className="text-sm italic leading-relaxed whitespace-pre-line text-slate-600 dark:text-slate-400" dangerouslySetInnerHTML={{ __html: `💡 ${q.explanation}` }} />
                                                                             </div>
                                                                         )}
                                                                     </div>
@@ -1015,7 +1333,7 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                                                 updateQuestion(si, qi, 'subQuestions', sqs);
                                                                                             }}
                                                                                             placeholder="VD: Câu hỏi (1) hoặc điền từ vào chỗ trống..."
-                                                                                            className="w-full px-2.5 py-1.5 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/45 text-slate-800 dark:text-white outline-none font-japanese"
+                                                                                            className="w-full px-2.5 py-1.5 text-sm border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/45 text-slate-800 dark:text-white outline-none font-japanese"
                                                                                         />
                                                                                     </div>
                                                                                     <div>
@@ -1048,7 +1366,7 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                                                             updateQuestion(si, qi, 'subQuestions', sqs);
                                                                                                         }}
                                                                                                         placeholder={`Phương án ${String.fromCharCode(65 + oi)}`}
-                                                                                                        className="flex-1 px-2.5 py-1 text-[11px] border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/45 text-slate-800 dark:text-white outline-none font-japanese"
+                                                                                                        className="flex-1 px-2.5 py-1 text-sm border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/45 text-slate-800 dark:text-white outline-none font-japanese"
                                                                                                     />
                                                                                                 </div>
                                                                                             ))}

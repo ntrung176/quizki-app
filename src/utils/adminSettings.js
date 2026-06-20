@@ -261,6 +261,31 @@ export const submitCreditRequest = async (userId, userName, userEmail, packageIn
         return false;
     }
 };
+
+// Create a pending payment request using orderCode as the Document ID for Webhook tracking
+export const createPendingAutoPayment = async (orderCode, userId, userName, userEmail, packageInfo) => {
+    try {
+        const docRef = doc(db, getCreditRequestsPath(), orderCode);
+        await setDoc(docRef, {
+            userId,
+            userName: userName || '',
+            userEmail: userEmail || '',
+            packageId: packageInfo.id,
+            packageName: packageInfo.name,
+            credits: packageInfo.cards !== undefined ? packageInfo.cards : ('specialized:' + packageInfo.id),
+            amount: packageInfo.salePrice,
+            status: 'pending', // 'pending' | 'approved' | 'rejected'
+            orderCode,
+            createdAt: serverTimestamp(),
+            processedAt: null,
+            processedBy: null
+        });
+        return true;
+    } catch (e) {
+        console.error('Create pending auto payment error:', e);
+        return false;
+    }
+};
 /**
  * Submit và tự động approve credit request (dùng cho thanh toán tự động qua SePay)
  * Ghi status='approved' ngay để admin dashboard hiển thị đúng doanh thu

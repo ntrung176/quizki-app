@@ -34,7 +34,8 @@ const QuestionContent = React.memo(({
     selectAnswer,
     selectAnswerSub,
     audioRef,
-    isRealExam
+    isRealExam,
+    isReview = false
 }) => {
     const answerKey = (si, qi) => `s${si}_q${qi}`;
     const subAnswerKey = (si, qi, sqi) => `s${si}_q${qi}_sq${sqi}`;
@@ -56,7 +57,7 @@ const QuestionContent = React.memo(({
             {/* Reading passage */}
             {section.type === 'reading' && question?.passage && (
                 <div className="mb-6 p-5 bg-green-50 dark:bg-green-900/15 border border-green-200 dark:border-green-800 rounded-xl">
-                    <div className="text-gray-800 dark:text-gray-200 text-[15px] md:text-[17px] leading-relaxed font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: question.passage }} />
+                    <div className="text-gray-800 dark:text-gray-200 text-[17px] md:text-[19px] leading-relaxed font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: question.passage }} />
                 </div>
             )}
             {/* Question Image */}
@@ -67,44 +68,85 @@ const QuestionContent = React.memo(({
             )}
             {/* Question */}
             <div className="mb-6">
-                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 leading-relaxed font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: question?.question }} />
+                <h3 className="text-xl md:text-2xl font-normal text-gray-800 dark:text-gray-100 leading-relaxed font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: question?.question }} />
             </div>
             {/* Options */}
             {question?.subQuestions && question.subQuestions.length > 0 ? (
                 <div className="space-y-6 mb-8 pl-4 border-l-2 border-indigo-200 dark:border-indigo-800">
                     {question.subQuestions.map((sq, sqi) => {
+                        const subAns = answers[subAnswerKey(currentSectionIdx, currentQuestionIdx, sqi)];
+                        const isSqCorrect = subAns === sq.correctAnswer;
                         return (
-                            <div key={sqi} className="space-y-3 bg-slate-50/50 dark:bg-slate-900/10 p-4 rounded-xl border border-slate-100 dark:border-slate-800/80">
-                                <h4 className="text-[15px] md:text-base font-bold text-indigo-600 dark:text-indigo-400 font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
+                            <div key={sqi} className={`space-y-3 p-4 rounded-xl border ${
+                                isReview
+                                    ? isSqCorrect
+                                        ? 'bg-green-50/40 dark:bg-green-950/10 border-green-250 dark:border-green-900/40'
+                                        : 'bg-red-50/40 dark:bg-red-950/10 border-red-250 dark:border-red-900/40'
+                                    : 'bg-slate-50/50 dark:bg-slate-900/10 border-slate-100 dark:border-slate-800/80'
+                            }`}>
+                                <h4 className="text-[17px] md:text-[19px] font-normal text-indigo-650 dark:text-indigo-400 font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
                                 <div className="grid grid-cols-1 gap-2.5">
                                     {sq.options?.map((opt, oi) => {
                                         const key = subAnswerKey(currentSectionIdx, currentQuestionIdx, sqi);
                                         const isSelected = answers[key] === oi;
+                                        const isOptCorrect = sq.correctAnswer === oi;
+
+                                        let optStyle = '';
+                                        let circleStyle = '';
+
+                                        if (isReview) {
+                                            if (isOptCorrect) {
+                                                optStyle = 'bg-green-50 dark:bg-green-950/20 border-green-300 dark:border-green-800/50 text-green-750 dark:text-green-350 font-semibold';
+                                                circleStyle = 'bg-green-600 text-white';
+                                            } else if (isSelected && !isOptCorrect) {
+                                                optStyle = 'bg-red-50 dark:bg-red-950/20 border-red-300 dark:border-red-800/50 text-red-750 dark:text-red-300 font-semibold';
+                                                circleStyle = 'bg-red-600 text-white';
+                                            } else {
+                                                optStyle = 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-550 dark:text-slate-400 opacity-60';
+                                                circleStyle = 'bg-slate-200 dark:bg-slate-700 text-slate-500';
+                                            }
+                                        } else {
+                                            optStyle = isSelected
+                                                ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
+                                                : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10';
+                                            circleStyle = isSelected
+                                                ? 'bg-indigo-600 text-white'
+                                                : 'bg-slate-100 dark:bg-slate-700 text-slate-650 dark:text-slate-400';
+                                        }
+
                                         return (
                                             <div key={oi} onClick={(e) => {
+                                                if (isReview) return;
                                                 const selection = window.getSelection();
                                                 if (selection && selection.toString().trim().length > 0) {
                                                     return;
                                                 }
                                                 selectAnswerSub(currentSectionIdx, currentQuestionIdx, sqi, oi);
                                             }}
-                                                className={`w-full p-3.5 rounded-xl text-left text-sm md:text-[15px] font-medium transition-all border-2 cursor-pointer ${isSelected
-                                                    ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
-                                                    : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10'
-                                                    }`}>
-                                                <div className="flex items-center gap-2.5">
-                                                    <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 select-none ${isSelected
-                                                        ? 'bg-indigo-600 text-white'
-                                                        : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400'
-                                                        }`}>
-                                                        {String.fromCharCode(65 + oi)}
+                                                className={`w-full p-3.5 rounded-xl text-left text-[15px] md:text-[17px] font-medium transition-all border-2 ${
+                                                    isReview ? 'cursor-default' : 'cursor-pointer'
+                                                } ${optStyle}`}>
+                                                <div className="flex items-center justify-between">
+                                                    <div className="flex items-center gap-2.5">
+                                                        <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 select-none ${circleStyle}`}>
+                                                            {String.fromCharCode(65 + oi)}
+                                                        </div>
+                                                        <span className="font-japanese whitespace-pre-line animate-fade-in" dangerouslySetInnerHTML={{ __html: opt }} />
                                                     </div>
-                                                    <span className="font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: opt }} />
+                                                    {isReview && (
+                                                        <>
+                                                            {isOptCorrect && <Check className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0" />}
+                                                            {isSelected && !isOptCorrect && <X className="w-4 h-4 text-red-500 dark:text-red-400 shrink-0" />}
+                                                        </>
+                                                    )}
                                                 </div>
                                             </div>
                                         );
                                     })}
                                 </div>
+                                {isReview && sq.explanation && (
+                                    <p className="text-[15px] md:text-[16px] text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${sq.explanation}` }} />
+                                )}
                             </div>
                         );
                     })}
@@ -114,31 +156,64 @@ const QuestionContent = React.memo(({
                     {question?.options?.map((opt, oi) => {
                         const key = answerKey(currentSectionIdx, currentQuestionIdx);
                         const isSelected = answers[key] === oi;
+                        const isOptCorrect = question.correctAnswer === oi;
+
+                        let optStyle = '';
+                        let circleStyle = '';
+
+                        if (isReview) {
+                            if (isOptCorrect) {
+                                optStyle = 'bg-green-50 dark:bg-green-950/20 border-green-300 dark:border-green-800/50 text-green-750 dark:text-green-350 font-semibold';
+                                circleStyle = 'bg-green-600 text-white';
+                            } else if (isSelected && !isOptCorrect) {
+                                optStyle = 'bg-red-50 dark:bg-red-950/20 border-red-300 dark:border-red-800/50 text-red-750 dark:text-red-300 font-semibold';
+                                circleStyle = 'bg-red-600 text-white';
+                            } else {
+                                optStyle = 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-550 dark:text-slate-400 opacity-60';
+                                circleStyle = 'bg-slate-200 dark:bg-slate-700 text-slate-500';
+                            }
+                        } else {
+                            optStyle = isSelected
+                                ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
+                                : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10';
+                            circleStyle = isSelected
+                                ? 'bg-indigo-600 text-white'
+                                : 'bg-slate-100 dark:bg-slate-700 text-slate-650 dark:text-slate-400';
+                        }
+
                         return (
                             <div key={oi} onClick={(e) => {
+                                if (isReview) return;
                                 const selection = window.getSelection();
                                 if (selection && selection.toString().trim().length > 0) {
                                     return;
                                 }
                                 selectAnswer(currentSectionIdx, currentQuestionIdx, oi);
                             }}
-                                className={`w-full p-4 rounded-xl text-left text-sm md:text-[15px] font-medium transition-all border-2 cursor-pointer ${isSelected
-                                    ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
-                                    : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10'
-                                    }`}>
-                                <div className="flex items-center gap-3">
-                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 select-none ${isSelected
-                                        ? 'bg-indigo-600 text-white'
-                                        : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
-                                        }`}>
-                                        {String.fromCharCode(65 + oi)}
+                                className={`w-full p-4 rounded-xl text-left text-[15px] md:text-[17px] font-medium transition-all border-2 ${
+                                    isReview ? 'cursor-default' : 'cursor-pointer'
+                                } ${optStyle}`}>
+                                <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-3">
+                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 select-none ${circleStyle}`}>
+                                            {String.fromCharCode(65 + oi)}
+                                        </div>
+                                        <span className="font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: opt }} />
                                     </div>
-                                    <span className="font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: opt }} />
+                                    {isReview && (
+                                        <>
+                                            {isOptCorrect && <Check className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0" />}
+                                            {isSelected && !isOptCorrect && <X className="w-4 h-4 text-red-500 dark:text-red-400 shrink-0" />}
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         );
                     })}
                 </div>
+            )}
+            {isReview && !question?.subQuestions && question?.explanation && (
+                <p className="text-[15px] md:text-[16px] text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line pl-2 mb-8" dangerouslySetInnerHTML={{ __html: `💡 ${question.explanation}` }} />
             )}
         </>
     );
@@ -584,6 +659,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
+
     const furiganaStyles = useMemo(() => {
         let styles = '';
         if (!showFurigana) {
@@ -808,6 +884,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
             setTimeTaken(saved.timeTaken || 0);
             setActiveTest(test);
             setAnswers(saved.answers || {});
+            setCurrentSectionIdx(0);
+            setCurrentQuestionIdx(0);
             setShowResult(true);
             setShowDetailedReview(true);
         }
@@ -1059,6 +1137,67 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
             setCurrentQuestionIdx(prevSec.questions.length - 1);
         }
     };
+
+    // Keyboard shortcuts for exam/practice questions
+    useEffect(() => {
+        if (!activeTest) return;
+        if (showResult && !showDetailedReview) return;
+
+        const handleKeyDown = (e) => {
+            // Ignore if typing in input fields, textareas, or content-editable elements
+            const target = e.target;
+            if (
+                target &&
+                (target.tagName === 'INPUT' ||
+                 target.tagName === 'TEXTAREA' ||
+                 target.isContentEditable)
+            ) {
+                return;
+            }
+
+            // ArrowLeft / ArrowRight for navigating questions
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevQuestion();
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                nextQuestion();
+            }
+
+            // Options selection: 1, 2, 3, 4 or a, b, c, d (disabled in review mode)
+            if (showResult) return;
+
+            const key = e.key.toLowerCase();
+            let optIdx = -1;
+            if (key === '1' || key === 'a') optIdx = 0;
+            else if (key === '2' || key === 'b') optIdx = 1;
+            else if (key === '3' || key === 'c') optIdx = 2;
+            else if (key === '4' || key === 'd') optIdx = 3;
+
+            if (optIdx !== -1) {
+                e.preventDefault();
+                const section = activeTest.sections[currentSectionIdx];
+                const question = section.questions[currentQuestionIdx];
+
+                if (question.subQuestions && question.subQuestions.length > 0) {
+                    // Find first unanswered subquestion
+                    const firstUnansweredSqi = question.subQuestions.findIndex(
+                        (_, sqi) => answers[subAnswerKey(currentSectionIdx, currentQuestionIdx, sqi)] === undefined
+                    );
+                    const targetSqi = firstUnansweredSqi !== -1 ? firstUnansweredSqi : 0;
+                    selectAnswerSub(currentSectionIdx, currentQuestionIdx, targetSqi, optIdx);
+                } else {
+                    selectAnswer(currentSectionIdx, currentQuestionIdx, optIdx);
+                }
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [activeTest, showResult, showDetailedReview, currentSectionIdx, currentQuestionIdx, answers, prevQuestion, nextQuestion, selectAnswer, selectAnswerSub]);
+
     // Calculate results
     const getResults = () => {
         if (!activeTest) return null;
@@ -1304,9 +1443,243 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
         return <LoadingIndicator text="Đang tải đề thi..." />;
     }
     // ======================== RESULT SCREEN ========================
+    // ======================== RESULT SCREEN ========================
     if (showResult && activeTest) {
         const results = getResults();
         const passed = results.percentage >= 60;
+
+        if (showDetailedReview) {
+            const section = activeTest.sections[currentSectionIdx];
+            const question = section?.questions?.[currentQuestionIdx];
+            const Icon = SECTION_ICONS[section?.type] || FileText;
+
+            let totalQ = 0;
+            let correctCount = 0;
+            activeTest.sections.forEach((sec, si) => {
+                sec.questions.forEach((q, qi) => {
+                    if (q.subQuestions && q.subQuestions.length > 0) {
+                        q.subQuestions.forEach((sq, sqi) => {
+                            totalQ++;
+                            if (answers[subAnswerKey(si, qi, sqi)] === sq.correctAnswer) {
+                                correctCount++;
+                            }
+                        });
+                    } else {
+                        totalQ++;
+                        if (answers[answerKey(si, qi)] === q.correctAnswer) {
+                            correctCount++;
+                        }
+                    }
+                });
+            });
+
+            const globalIdx = activeTest.sections.slice(0, currentSectionIdx).reduce((s, sec) => s + sec.questions.length, 0) + currentQuestionIdx;
+            const isLast = currentSectionIdx === activeTest.sections.length - 1 && currentQuestionIdx === section.questions.length - 1;
+            const isFirst = currentSectionIdx === 0 && currentQuestionIdx === 0;
+
+            return (
+                <div ref={containerRef} className={`min-h-screen flex flex-col ${isFullscreen ? 'bg-white dark:bg-gray-900 h-screen overflow-hidden' : 'bg-gradient-to-br from-slate-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20'}`}>
+                    {furiganaStyleElement}
+                    {/* Top bar */}
+                    <div className="sticky top-0 z-30 bg-white/95 dark:bg-gray-800/95 backdrop-blur border-b border-gray-200 dark:border-gray-700 px-4 py-2">
+                        <div className="max-w-5xl mx-auto flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <button onClick={() => setShowDetailedReview(false)} className="p-1.5 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition flex items-center gap-1 text-xs font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 px-3 py-1.5 rounded-lg">
+                                    <X className="w-4 h-4" />
+                                    <span>Thoát xem lại</span>
+                                </button>
+                                <div>
+                                    <p className="text-sm font-bold text-gray-800 dark:text-white">{activeTest.title} (Xem lại đáp án)</p>
+                                    <p className="text-xs text-gray-500">{section.title}</p>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                {/* Score info */}
+                                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-450 bg-emerald-50 dark:bg-emerald-950/20 px-2.5 py-1.5 rounded-xl border border-emerald-100 dark:border-emerald-900/40">{correctCount}/{totalQ} câu đúng ({results.percentage}%)</span>
+                                {/* Settings */}
+                                <div className="relative" ref={settingsMenuRef}>
+                                    <button onClick={() => setShowSettingsMenu(!showSettingsMenu)}
+                                        className={`p-1.5 text-gray-500 hover:text-gray-700 dark:hover:text-gray-305 transition rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 ${showSettingsMenu ? 'bg-slate-100 dark:bg-slate-700' : ''}`}
+                                        title="Cài đặt hiển thị">
+                                        <Settings className="w-5 h-5" />
+                                    </button>
+                                    {showSettingsMenu && (
+                                        <div className="absolute right-0 mt-2 w-72 bg-white/98 dark:bg-slate-800/98 backdrop-blur border border-slate-200 dark:border-slate-700 rounded-2xl shadow-xl p-4 z-50 text-left space-y-4 font-sans">
+                                            <div className="flex items-center gap-1.5 border-b border-slate-100 dark:border-slate-700/60 pb-2">
+                                                <Settings className="w-4 h-4 text-indigo-500" />
+                                                <span className="font-bold text-xs text-slate-800 dark:text-white uppercase tracking-wider">Cài đặt đề thi</span>
+                                            </div>
+                                            {/* Furigana toggle */}
+                                            <div className="flex items-center justify-between">
+                                                <div>
+                                                    <p className="text-xs font-bold text-slate-700 dark:text-slate-300">Hiển thị Furigana</p>
+                                                    <p className="text-[10px] text-slate-400 dark:text-slate-500">Bật/tắt phiên âm chữ Hán</p>
+                                                </div>
+                                                <button 
+                                                    onClick={() => setShowFurigana(!showFurigana)} 
+                                                    className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors focus:outline-none ${showFurigana ? 'bg-indigo-600' : 'bg-gray-300 dark:bg-slate-700'}`}
+                                                >
+                                                    <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform ${showFurigana ? 'translate-x-5.5' : 'translate-x-1'}`} />
+                                                </button>
+                                            </div>
+                                            {/* Furigana color */}
+                                            {showFurigana && (
+                                                <div className="space-y-2 pt-1 border-t border-slate-100 dark:border-slate-700/60">
+                                                    <div>
+                                                        <p className="text-xs font-bold text-slate-700 dark:text-slate-300">Màu chữ Furigana</p>
+                                                        <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">Chọn màu cho phiên âm</p>
+                                                    </div>
+                                                    <div className="flex flex-wrap items-center gap-2">
+                                                        {[
+                                                            { id: 'default', color: '', label: 'Mặc định', bgClass: 'bg-slate-400 dark:bg-slate-500 border border-slate-300 dark:border-slate-600' },
+                                                            { id: 'red', color: '#EF4444', label: 'Đỏ', bgClass: 'bg-red-500' },
+                                                            { id: 'blue', color: '#3B82F6', label: 'Xanh', bgClass: 'bg-blue-500' },
+                                                            { id: 'green', color: '#10B981', label: 'Lá', bgClass: 'bg-emerald-500' },
+                                                            { id: 'purple', color: '#8B5CF6', label: 'Tím', bgClass: 'bg-purple-500' },
+                                                            { id: 'orange', color: '#F59E0B', label: 'Cam', bgClass: 'bg-amber-500' }
+                                                        ].map(colorOpt => {
+                                                            const isSelected = furiganaColor === colorOpt.id;
+                                                            return (
+                                                                <button
+                                                                    key={colorOpt.id}
+                                                                    onClick={() => setFuriganaColor(colorOpt.id)}
+                                                                    className={`w-6 h-6 rounded-full flex items-center justify-center text-white transition-all transform hover:scale-110 cursor-pointer ${colorOpt.bgClass} ${isSelected ? 'ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-slate-800 scale-105' : 'opacity-85'}`}
+                                                                    title={colorOpt.label}
+                                                                >
+                                                                    {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
+                                                                </button>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
+                                </div>
+                                {/* Fullscreen */}
+                                <button onClick={toggleFullscreen}
+                                    className="p-1.5 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition">
+                                    {isFullscreen ? <Minimize className="w-5 h-5" /> : <Maximize className="w-5 h-5" />}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={`flex-1 flex ${isFullscreen ? 'min-h-0 overflow-hidden' : ''}`}>
+                        {/* Sidebar - question navigator */}
+                        <div className="hidden md:block w-56 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-y-auto">
+                            {activeTest.sections.map((sec, si) => {
+                                const SIcon = SECTION_ICONS[sec.type] || FileText;
+                                return (
+                                    <div key={si}>
+                                        <div className="px-3 py-2 bg-gray-50 dark:bg-gray-700/50 text-xs font-bold text-gray-600 dark:text-gray-400 flex items-center gap-1.5">
+                                            <SIcon className="w-3.5 h-3.5" /> {sec.title}
+                                        </div>
+                                        <div className="grid grid-cols-5 gap-1 p-2">
+                                            {sec.questions.map((q, qi) => {
+                                                const isActive = si === currentSectionIdx && qi === currentQuestionIdx;
+                                                
+                                                // Check correctness of this question
+                                                let isCorrect = false;
+                                                if (q.subQuestions && q.subQuestions.length > 0) {
+                                                    isCorrect = q.subQuestions.every((sq, sqi) => answers[subAnswerKey(si, qi, sqi)] === sq.correctAnswer);
+                                                } else {
+                                                    isCorrect = answers[answerKey(si, qi)] === q.correctAnswer;
+                                                }
+
+                                                return (
+                                                    <button key={qi} onClick={() => goToQuestion(si, qi)}
+                                                        className={`w-8 h-8 rounded-lg text-xs font-bold transition flex items-center justify-center cursor-pointer ${
+                                                            isActive
+                                                                ? isCorrect
+                                                                    ? 'bg-green-600 text-white ring-2 ring-green-400 dark:ring-green-500 ring-offset-2 dark:ring-offset-slate-900 shadow-md font-black scale-105'
+                                                                    : 'bg-red-600 text-white ring-2 ring-red-400 dark:ring-red-500 ring-offset-2 dark:ring-offset-slate-900 shadow-md font-black scale-105'
+                                                                : isCorrect
+                                                                    ? 'bg-green-100 dark:bg-green-950/30 text-green-700 dark:text-green-400 border border-green-200/55 dark:border-green-900/50 hover:bg-green-200'
+                                                                    : 'bg-red-100 dark:bg-red-950/30 text-red-705 dark:text-red-400 border border-red-200/55 dark:border-red-900/50 hover:bg-red-200'
+                                                        }`}>
+                                                        {qi + 1}
+                                                    </button>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                            {/* Exit review button in sidebar */}
+                            <div className="p-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-2">
+                                <button onClick={() => setShowDetailedReview(false)}
+                                    className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-bold transition">
+                                    Quay lại bảng điểm
+                                </button>
+                            </div>
+                        </div>
+                        {/* Main question area */}
+                        <div className="flex-1 p-4 md:p-8 overflow-y-auto relative" id="jlpt-main-scroll-container">
+                            <div className="max-w-3xl mx-auto">
+                                {/* Question number */}
+                                <div className="flex items-center gap-2 mb-4">
+                                    <span className={`px-3 py-1 rounded-lg text-xs font-bold bg-${SECTION_COLORS[section.type]}-100 dark:bg-${SECTION_COLORS[section.type]}-900/30 text-${SECTION_COLORS[section.type]}-700 dark:text-${SECTION_COLORS[section.type]}-400`}>
+                                        {section.title}
+                                    </span>
+                                    <span className="text-sm text-gray-500">Câu {currentQuestionIdx + 1}/{section.questions.length}</span>
+                                </div>
+                                {/* Progress bar */}
+                                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 mb-6">
+                                    <div className="bg-indigo-600 h-1.5 rounded-full transition-all duration-300"
+                                        style={{ width: `${((globalIdx + 1) / totalQ) * 100}%` }} />
+                                </div>
+                                <div className="relative w-full" id="jlpt-question-content-wrapper">
+                                    <QuestionContent
+                                        section={section}
+                                        question={question}
+                                        answers={answers}
+                                        currentSectionIdx={currentSectionIdx}
+                                        currentQuestionIdx={currentQuestionIdx}
+                                        selectAnswer={selectAnswer}
+                                        selectAnswerSub={selectAnswerSub}
+                                        audioRef={audioRef}
+                                        isRealExam={isRealExam}
+                                        isReview={true}
+                                    />
+                                </div>
+                                
+                                {/* Note Section for Review */}
+                                {activeTest && (
+                                    <div className="mt-6 border-t border-slate-100 dark:border-slate-800 pt-4 mb-8">
+                                        {renderReviewNoteContainer(currentSectionIdx, currentQuestionIdx)}
+                                    </div>
+                                )}
+
+                                {/* Navigation */}
+                                <div className="flex items-center justify-between mt-8 border-t border-slate-100 dark:border-slate-800/80 pt-4">
+                                    <button onClick={prevQuestion} disabled={isFirst}
+                                        className={`flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-sm font-bold transition-all transform active:scale-95 shadow-sm border ${
+                                            isFirst
+                                                ? 'bg-slate-100 dark:bg-slate-800/50 text-slate-350 dark:text-slate-650 border-slate-200/50 dark:border-slate-800/50 cursor-not-allowed'
+                                                : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-750 hover:bg-slate-50 dark:hover:bg-slate-700/80 hover:scale-[1.02] cursor-pointer'
+                                        }`}>
+                                        <ChevronLeft className="w-4 h-4 stroke-[2.5]" /> Câu trước
+                                    </button>
+                                    <button onClick={() => setShowDetailedReview(false)}
+                                        className="md:hidden px-5 py-2.5 bg-[#2E5B70] text-white rounded-xl text-sm font-bold hover:bg-[#254A5C] transition active:scale-95 shadow-md">
+                                        Bảng điểm
+                                    </button>
+                                    <button onClick={nextQuestion} disabled={isLast}
+                                        className={`flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-sm font-bold transition-all transform active:scale-95 shadow-md ${
+                                            isLast
+                                                ? 'bg-slate-100 dark:bg-slate-800/50 text-slate-350 dark:text-slate-650 border border-slate-200/50 dark:border-slate-800/50 cursor-not-allowed shadow-none'
+                                                : 'bg-[#2E5B70] hover:bg-[#254A5C] text-white hover:scale-[1.02] cursor-pointer'
+                                        }`}>
+                                        Câu tiếp <ChevronRight className="w-4 h-4 stroke-[2.5]" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
         return (
             <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-6">
                 {furiganaStyleElement}
@@ -1371,7 +1744,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                             </div>
                                                             <div className="flex-1 space-y-2">
                                                                 {q.passage && (
-                                                                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm md:text-[15px] font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.passage }} />
+                                                                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-[17px] md:text-[19px] font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.passage }} />
                                                                 )}
                                                                 {q.audioUrl && (
                                                                     <div className="mb-2">
@@ -1384,7 +1757,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                                     </div>
                                                                 )}
                                                                 {q.question && (
-                                                                    <p className="font-bold text-gray-800 dark:text-gray-200 text-base font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.question }} />
+                                                                    <p className="font-bold text-gray-800 dark:text-gray-200 text-lg md:text-xl font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.question }} />
                                                                 )}
                                                             </div>
                                                         </div>
@@ -1400,7 +1773,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                                                 ? <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
                                                                                 : <XCircle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />}
                                                                             <div className="flex-1">
-                                                                                <p className="text-sm md:text-[15px] font-bold text-gray-700 dark:text-gray-300 font-japanese leading-relaxed" dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
+                                                                                <p className="text-[16px] md:text-[18px] font-bold text-gray-700 dark:text-gray-300 font-japanese leading-relaxed" dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
                                                                                 
                                                                                 {/* Display choices for sub-question */}
                                                                                 <div className="grid grid-cols-1 gap-1.5 mt-2">
@@ -1416,7 +1789,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                                                         }
 
                                                                                         return (
-                                                                                            <div key={oi} className={`flex items-center justify-between p-2 rounded-lg border text-xs md:text-sm font-medium ${optStyle}`}>
+                                                                                            <div key={oi} className={`flex items-center justify-between p-2 rounded-lg border text-[15px] md:text-[16px] font-medium ${optStyle}`}>
                                                                                                 <div className="flex items-center gap-2">
                                                                                                     <div className={`w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold shrink-0 select-none ${
                                                                                                         isOptCorrect 
@@ -1437,7 +1810,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                                                 </div>
 
                                                                                 {sq.explanation && (
-                                                                                    <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${sq.explanation}` }} />
+                                                                                    <p className="text-[15px] md:text-[16px] text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${sq.explanation}` }} />
                                                                                 )}
                                                                             </div>
                                                                         </div>
@@ -1464,7 +1837,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                         </div>
                                                         <div className="flex-1 space-y-2">
                                                             {q.passage && (
-                                                                <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm md:text-[15px] font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.passage }} />
+                                                                <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-[17px] md:text-[19px] font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.passage }} />
                                                             )}
                                                             {q.audioUrl && (
                                                                 <div className="mb-2">
@@ -1476,7 +1849,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                                     <img src={q.imageUrl} alt="Câu hỏi" className="max-h-48 object-contain" />
                                                                 </div>
                                                             )}
-                                                            <p className="font-medium text-gray-800 dark:text-gray-200 text-base font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.question }} />
+                                                            <p className="font-medium text-gray-800 dark:text-gray-200 text-lg md:text-xl font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.question }} />
                                                             
                                                             {/* Display choices for question */}
                                                             <div className="grid grid-cols-1 gap-2 mt-3 pl-2">
@@ -1492,7 +1865,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                                     }
 
                                                                     return (
-                                                                        <div key={oi} className={`flex items-center justify-between p-3 rounded-xl border text-sm md:text-[15px] ${optStyle}`}>
+                                                                        <div key={oi} className={`flex items-center justify-between p-3 rounded-xl border text-[15px] md:text-[17px] ${optStyle}`}>
                                                                             <div className="flex items-center gap-2">
                                                                                 <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 select-none ${
                                                                                     isOptCorrect 
@@ -1513,7 +1886,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                             </div>
 
                                                             {q.explanation && (
-                                                                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${q.explanation}` }} />
+                                                                <p className="text-[15px] md:text-[16px] text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${q.explanation}` }} />
                                                             )}
                                                             {renderReviewNoteContainer(si, qi)}
                                                         </div>
@@ -1530,7 +1903,13 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                     {/* Actions */}
                     <div className="flex flex-col sm:flex-row gap-3">
                         <button 
-                            onClick={() => setShowDetailedReview(!showDetailedReview)} 
+                            onClick={() => {
+                                if (!showDetailedReview) {
+                                    setCurrentSectionIdx(0);
+                                    setCurrentQuestionIdx(0);
+                                }
+                                setShowDetailedReview(!showDetailedReview);
+                            }} 
                             className={`flex-1 py-3 rounded-xl font-bold transition flex items-center justify-center gap-1.5 border-2 ${
                                 showDetailedReview
                                     ? 'bg-slate-105 dark:bg-slate-700 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-600'
@@ -1980,28 +2359,29 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                             )}
 
                             {/* Navigation */}
-                            <div className="flex items-center justify-between">
+                            <div className="flex items-center justify-between mt-8 border-t border-slate-100 dark:border-slate-800/80 pt-6">
                                 <button onClick={prevQuestion} disabled={isFirst}
-                                    className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition ${isFirst
-                                        ? 'text-gray-300 dark:text-gray-600 cursor-not-allowed'
-                                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                                        }`}>
-                                    <ChevronLeft className="w-4 h-4" /> Câu trước
+                                    className={`flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-sm font-bold transition-all transform active:scale-95 shadow-sm border ${
+                                        isFirst
+                                            ? 'bg-slate-100 dark:bg-slate-800/50 text-slate-350 dark:text-slate-650 border-slate-200/50 dark:border-slate-800/50 cursor-not-allowed'
+                                            : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-750 hover:bg-slate-50 dark:hover:bg-slate-700/80 hover:scale-[1.02] cursor-pointer'
+                                    }`}>
+                                    <ChevronLeft className="w-4 h-4 stroke-[2.5]" /> Câu trước
                                 </button>
                                 {/* Mobile submit */}
                                 <button onClick={submitTest}
-                                    className="md:hidden px-4 py-2 bg-red-600 text-white rounded-lg text-sm font-bold hover:bg-red-700 transition">
+                                    className="md:hidden px-5 py-2.5 bg-rose-600 text-white rounded-xl text-sm font-bold hover:bg-rose-700 transition active:scale-95 shadow-md">
                                     Nộp bài
                                 </button>
                                 {isLast ? (
                                     <button onClick={submitTest}
-                                        className="flex items-center gap-1 px-6 py-2 bg-red-600 text-white rounded-lg text-sm font-bold hover:bg-red-700 transition">
-                                        Nộp bài <Check className="w-4 h-4" />
+                                        className="flex items-center gap-1.5 px-6 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-sm font-bold transition-all transform hover:scale-[1.02] active:scale-95 shadow-md cursor-pointer">
+                                        Nộp bài <Check className="w-4 h-4 stroke-[2.5]" />
                                     </button>
                                 ) : (
                                     <button onClick={nextQuestion}
-                                        className="flex items-center gap-1 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
-                                        Câu tiếp <ChevronRight className="w-4 h-4" />
+                                        className="flex items-center gap-1.5 px-5 py-2.5 bg-[#2E5B70] hover:bg-[#254A5C] text-white rounded-xl text-sm font-bold transition-all transform hover:scale-[1.02] active:scale-95 shadow-md cursor-pointer">
+                                        Câu tiếp <ChevronRight className="w-4 h-4 stroke-[2.5]" />
                                     </button>
                                 )}
                             </div>

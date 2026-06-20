@@ -75,7 +75,7 @@ const HomeScreen = ({
             id: 'add',
             title: 'Thêm từ vựng',
             subtitle: 'Mở rộng vốn từ của bạn',
-            icon: Sparkle,
+            icon: ({ className }) => <span className={`inline-flex items-center justify-center font-bold text-xl select-none ${className}`}>あ</span>,
             bgColor: 'bg-teal-500 hover:bg-teal-600 dark:bg-teal-600 dark:hover:bg-teal-500 border-teal-600/30 dark:border-teal-500/30',
             textColor: 'text-white',
             iconColor: 'text-white',
@@ -335,7 +335,7 @@ const HomeScreen = ({
                                     setShowAddOptions(false);
                                     navigate(ROUTES.VOCAB_QUICK_ADD);
                                 }}
-                                className="w-full flex items-center gap-4 p-4 text-left rounded-2xl border border-slate-100 hover:border-amber-200 dark:border-slate-700/60 dark:hover:border-amber-900/50 bg-slate-50/50 hover:bg-amber-50/10 dark:bg-slate-900/30 dark:hover:bg-amber-955/10 transition-all group"
+                                className="w-full flex items-center gap-4 p-4 text-left rounded-2xl border border-slate-100 hover:border-amber-200 dark:border-slate-700/60 dark:hover:border-amber-900/50 bg-slate-50/50 hover:bg-amber-50/10 dark:bg-slate-900/30 dark:hover:bg-amber-950/10 transition-all group"
                             >
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 text-white shrink-0 flex items-center justify-center shadow-md">
                                     <ListPlus className="w-6 h-6" />
