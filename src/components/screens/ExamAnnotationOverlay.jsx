@@ -161,14 +161,19 @@ const ExamAnnotationOverlay = ({
 
     // --- Canvas Dimensions & Scaling Reference ---
     const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
+    const [wrapperSize, setWrapperSize] = useState({ width: 768, height: 800 });
     const [refSize, setRefSize] = useState({ width: 768, height: 800 });
+    const [offsetLeft, setOffsetLeft] = useState(0);
+    const [offsetTop, setOffsetTop] = useState(0);
     const [penThickness, setPenThickness] = useState(3.5);
 
-    const ratio = (canvasSize.width && refSize.width) ? (canvasSize.width / refSize.width) : 1;
+    const ratioX = (wrapperSize.width && refSize.width) ? (wrapperSize.width / refSize.width) : 1;
+    const ratioY = (wrapperSize.height && refSize.height) ? (wrapperSize.height / refSize.height) : 1;
+    const ratio = ratioX;
 
     const getCurrentToRefCoords = (coords) => ({
-        x: coords.x / ratio,
-        y: coords.y / ratio
+        x: (coords.x - offsetLeft) / ratioX,
+        y: (coords.y - offsetTop) / ratioY
     });
 
     // Detect dark mode
@@ -203,7 +208,7 @@ const ExamAnnotationOverlay = ({
             setTextObjects([]);
             setStickyNotes([]);
             setSelectionHighlights([]);
-            setRefSize({ width: canvasSize.width || 768, height: canvasSize.height || 800 });
+            setRefSize({ width: wrapperSize.width || 768, height: wrapperSize.height || 800 });
         }
         setIsDrawing(false);
         setCurrentPoints([]);
@@ -367,35 +372,66 @@ const ExamAnnotationOverlay = ({
 
     // --- Canvas Sizing (covers full scroll container height) ---
     const updateSize = useCallback(() => {
-        const parent = overlayRef.current?.parentElement || document.getElementById('jlpt-main-scroll-container');
-        if (parent) {
-            const width = parent.scrollWidth || parent.clientWidth || parent.offsetWidth;
-            const height = parent.scrollHeight || parent.clientHeight || parent.offsetHeight;
+        const parent = document.getElementById('jlpt-main-scroll-container') || overlayRef.current?.parentElement;
+        const wrapper = document.getElementById('jlpt-question-content-wrapper');
+        
+        if (parent && wrapper) {
+            const parentWidth = parent.scrollWidth || parent.clientWidth || parent.offsetWidth;
+            const parentHeight = parent.scrollHeight || parent.clientHeight || parent.offsetHeight;
+            const wrapperWidth = wrapper.clientWidth || wrapper.offsetWidth;
+            const wrapperHeight = wrapper.clientHeight || wrapper.offsetHeight;
             
-            if (width > 0 && height > 0) {
-                setCanvasSize({ width, height });
+            if (parentWidth > 0 && parentHeight > 0 && wrapperWidth > 0 && wrapperHeight > 0) {
+                const parentRect = parent.getBoundingClientRect();
+                const wrapperRect = wrapper.getBoundingClientRect();
+                
+                // Position of wrapper relative to parent scrollable content area
+                const currentOffsetLeft = wrapperRect.left - parentRect.left + parent.scrollLeft;
+                const currentOffsetTop = wrapperRect.top - parentRect.top + parent.scrollTop;
+                
+                setOffsetLeft(currentOffsetLeft);
+                setOffsetTop(currentOffsetTop);
+                setCanvasSize({ width: parentWidth, height: parentHeight });
+                setWrapperSize({ width: wrapperWidth, height: wrapperHeight });
+                
                 setRefSize(prev => {
                     if (prev.width === 768 && prev.height === 800) {
-                        return { width, height };
+                        return { width: wrapperWidth, height: wrapperHeight };
                     }
                     return prev;
                 });
             } else {
                 let retries = 0;
                 const check = () => {
-                    const w = parent.scrollWidth || parent.clientWidth;
-                    const h = parent.scrollHeight || parent.clientHeight;
-                    if (w > 0 && h > 0) {
-                        setCanvasSize({ width: w, height: h });
-                        setRefSize(prev => {
-                            if (prev.width === 768 && prev.height === 800) {
-                                return { width: w, height: h };
-                            }
-                            return prev;
-                        });
-                    } else if (retries < 5) {
-                        retries++;
-                        setTimeout(check, 50 * retries);
+                    const p = document.getElementById('jlpt-main-scroll-container') || overlayRef.current?.parentElement;
+                    const w = document.getElementById('jlpt-question-content-wrapper');
+                    if (p && w) {
+                        const pW = p.scrollWidth || p.clientWidth;
+                        const pH = p.scrollHeight || p.clientHeight;
+                        const wW = w.clientWidth;
+                        const wH = w.clientHeight;
+                        if (pW > 0 && pH > 0 && wW > 0 && wH > 0) {
+                            const pRect = p.getBoundingClientRect();
+                            const wRect = w.getBoundingClientRect();
+                            
+                            const currentOffsetLeft = wRect.left - pRect.left + p.scrollLeft;
+                            const currentOffsetTop = wRect.top - pRect.top + p.scrollTop;
+                            
+                            setOffsetLeft(currentOffsetLeft);
+                            setOffsetTop(currentOffsetTop);
+                            setCanvasSize({ width: pW, height: pH });
+                            setWrapperSize({ width: wW, height: wH });
+                            
+                            setRefSize(prev => {
+                                if (prev.width === 768 && prev.height === 800) {
+                                    return { width: wW, height: wH };
+                                }
+                                return prev;
+                            });
+                        } else if (retries < 5) {
+                            retries++;
+                            setTimeout(check, 50 * retries);
+                        }
                     }
                 };
                 setTimeout(check, 50);
@@ -409,13 +445,17 @@ const ExamAnnotationOverlay = ({
         updateSize();
         const initialTimer = setTimeout(updateSize, 100);
 
-        const parent = overlayRef.current?.parentElement || document.getElementById('jlpt-main-scroll-container');
+        const parent = document.getElementById('jlpt-main-scroll-container') || overlayRef.current?.parentElement;
+        const wrapper = document.getElementById('jlpt-question-content-wrapper');
         if (!parent) return () => clearTimeout(initialTimer);
 
         const observer = new ResizeObserver(() => {
             updateSize();
         });
         observer.observe(parent);
+        if (wrapper) {
+            observer.observe(wrapper);
+        }
 
         window.addEventListener('resize', updateSize);
 
@@ -430,7 +470,7 @@ const ExamAnnotationOverlay = ({
     useEffect(() => {
         if (!shouldRender) return;
         drawCanvas();
-    }, [canvasSize, strokes, currentPoints, curveState, activeTool, penColor, highlighterColor, shouldRender, ratio, penThickness]);
+    }, [canvasSize, strokes, currentPoints, curveState, activeTool, penColor, highlighterColor, shouldRender, ratioX, ratioY, penThickness, offsetLeft]);
 
     // --- Drawing Maths Helpers ---
     const getDistance = (p1, p2) => Math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2);
@@ -559,22 +599,25 @@ const ExamAnnotationOverlay = ({
 
             if (stroke.type === 'pen' || stroke.type === 'highlighter') {
                 if (stroke.points.length > 0) {
-                    ctx.moveTo(stroke.points[0].x * ratio, stroke.points[0].y * ratio);
+                    ctx.moveTo(stroke.points[0].x * ratioX + offsetLeft, stroke.points[0].y * ratioY + offsetTop);
                     for (let i = 1; i < stroke.points.length; i++) {
-                        ctx.lineTo(stroke.points[i].x * ratio, stroke.points[i].y * ratio);
+                        ctx.lineTo(stroke.points[i].x * ratioX + offsetLeft, stroke.points[i].y * ratioY + offsetTop);
                     }
                     ctx.stroke();
                 }
             } else if (stroke.type === 'line') {
                 if (stroke.points.length >= 2) {
-                    ctx.moveTo(stroke.points[0].x * ratio, stroke.points[0].y * ratio);
-                    ctx.lineTo(stroke.points[1].x * ratio, stroke.points[1].y * ratio);
+                    ctx.moveTo(stroke.points[0].x * ratioX + offsetLeft, stroke.points[0].y * ratioY + offsetTop);
+                    ctx.lineTo(stroke.points[1].x * ratioX + offsetLeft, stroke.points[1].y * ratioY + offsetTop);
                     ctx.stroke();
                 }
             } else if (stroke.type === 'curve') {
                 if (stroke.points.length >= 3) {
-                    ctx.moveTo(stroke.points[0].x * ratio, stroke.points[0].y * ratio);
-                    ctx.quadraticCurveTo(stroke.points[1].x * ratio, stroke.points[1].y * ratio, stroke.points[2].x * ratio, stroke.points[2].y * ratio);
+                    ctx.moveTo(stroke.points[0].x * ratioX + offsetLeft, stroke.points[0].y * ratioY + offsetTop);
+                    ctx.quadraticCurveTo(
+                        stroke.points[1].x * ratioX + offsetLeft, stroke.points[1].y * ratioY + offsetTop, 
+                        stroke.points[2].x * ratioX + offsetLeft, stroke.points[2].y * ratioY + offsetTop
+                    );
                     ctx.stroke();
                 }
             }
@@ -673,8 +716,8 @@ const ExamAnnotationOverlay = ({
             const newNote = {
                 id: `sticky_${Date.now()}`,
                 text: '',
-                x: (coords.x - 20) / ratio,
-                y: (coords.y - 20) / ratio,
+                x: (coords.x - offsetLeft - 20) / ratioX,
+                y: (coords.y - offsetTop - 20) / ratioY,
                 width: 190,
                 height: 150,
                 color: '#fef08a'
@@ -801,10 +844,10 @@ const ExamAnnotationOverlay = ({
         const newText = {
             id: `text_${Date.now()}`,
             text: textInputValue,
-            x: textInputPos.x / ratio,
-            y: textInputPos.y / ratio,
-            width: (editingTextProps ? editingTextProps.width : 150) / ratio,
-            fontSize: (editingTextProps ? editingTextProps.fontSize : 14) / ratio,
+            x: (textInputPos.x - offsetLeft) / ratioX,
+            y: (textInputPos.y - offsetTop) / ratioY,
+            width: (editingTextProps ? editingTextProps.width : 150) / ratioX,
+            fontSize: (editingTextProps ? editingTextProps.fontSize : 14) / ratioX,
             color: getResolvedPenColor()
         };
 
@@ -820,8 +863,8 @@ const ExamAnnotationOverlay = ({
         e.stopPropagation();
         setEditingTextId(textObj.id);
         setTextInputValue(textObj.text);
-        setTextInputPos({ x: textObj.x * ratio, y: textObj.y * ratio });
-        setEditingTextProps({ width: (textObj.width || 150) * ratio, fontSize: (textObj.fontSize || 14) * ratio });
+        setTextInputPos({ x: textObj.x * ratioX + offsetLeft, y: textObj.y * ratioY + offsetTop });
+        setEditingTextProps({ width: (textObj.width || 150) * ratioX, fontSize: (textObj.fontSize || 14) * ratioX });
         
         const filtered = textObjects.filter(t => t.id !== textObj.id);
         setTextObjects(filtered);
@@ -888,8 +931,8 @@ const ExamAnnotationOverlay = ({
     useEffect(() => {
         const handleGlobalPointerMove = (e) => {
             if (draggedItem) {
-                const dx = (e.clientX - draggedItem.startX) / ratio;
-                const dy = (e.clientY - draggedItem.startY) / ratio;
+                const dx = (e.clientX - draggedItem.startX) / ratioX;
+                const dy = (e.clientY - draggedItem.startY) / ratioY;
                 const newX = Math.max(0, draggedItem.initialX + dx);
                 const newY = Math.max(0, draggedItem.initialY + dy);
 
@@ -907,8 +950,8 @@ const ExamAnnotationOverlay = ({
             }
 
             if (resizedItem) {
-                const dx = (e.clientX - resizedItem.startX) / ratio;
-                const dy = (e.clientY - resizedItem.startY) / ratio;
+                const dx = (e.clientX - resizedItem.startX) / ratioX;
+                const dy = (e.clientY - resizedItem.startY) / ratioY;
 
                 if (resizedItem.type === 'text') {
                     const newWidth = Math.max(50, resizedItem.initialWidth + dx);
@@ -949,7 +992,7 @@ const ExamAnnotationOverlay = ({
             document.removeEventListener('pointermove', handleGlobalPointerMove);
             document.removeEventListener('pointerup', handleGlobalPointerUp);
         };
-    }, [draggedItem, resizedItem, stickyNotes, textObjects, strokes, selectionHighlights, ratio]);
+    }, [draggedItem, resizedItem, stickyNotes, textObjects, strokes, selectionHighlights, ratioX, ratioY]);
 
     const handleStickyTextChange = (id, val) => {
         const updated = stickyNotes.map(n => 
@@ -1215,9 +1258,11 @@ const ExamAnnotationOverlay = ({
     return (
         <div 
             ref={overlayRef} 
-            className="absolute inset-0 z-20 overflow-visible pointer-events-none"
+            className="absolute z-20 overflow-visible pointer-events-none"
             style={{ 
-                width: '100%', 
+                left: 0,
+                top: 0,
+                width: `${canvasSize.width}px`, 
                 height: `${canvasSize.height}px`
             }}
         >
@@ -1228,8 +1273,12 @@ const ExamAnnotationOverlay = ({
                 ref={canvasRef}
                 width={canvasSize.width}
                 height={canvasSize.height}
-                className="absolute inset-0 w-full h-full"
+                className="absolute"
                 style={{ 
+                    left: 0,
+                    top: 0,
+                    width: `${canvasSize.width}px`,
+                    height: `${canvasSize.height}px`,
                     cursor: readOnly ? 'default' : ((activeTool === 'cursor' || activeTool === 'text-highlighter') ? 'default' : 
                             activeTool === 'eraser' ? 'cell' : 
                             activeTool === 'text' ? 'text' : 'crosshair'),
@@ -1246,10 +1295,10 @@ const ExamAnnotationOverlay = ({
                     key={note.id}
                     className="absolute z-30 flex flex-col rounded-xl border shadow-lg overflow-hidden group select-none"
                     style={{
-                        left: `${note.x * ratio}px`,
-                        top: `${note.y * ratio}px`,
-                        width: `${(note.width || 190) * ratio}px`,
-                        height: `${(note.height || 150) * ratio}px`,
+                        left: `${note.x * ratioX + offsetLeft}px`,
+                        top: `${note.y * ratioY + offsetTop}px`,
+                        width: `${(note.width || 190) * ratioX}px`,
+                        height: `${(note.height || 150) * ratioY}px`,
                         backgroundColor: note.color,
                         borderColor: 'rgba(0, 0, 0, 0.08)',
                         pointerEvents: readOnly ? 'none' : 'auto'
@@ -1307,15 +1356,15 @@ const ExamAnnotationOverlay = ({
 
             {/* Draggable transparent text */}
             {textObjects.map((textObj) => {
-                const fs = (textObj.fontSize || 14) * ratio;
-                const w = (textObj.width || 150) * ratio;
+                const fs = (textObj.fontSize || 14) * ratioX;
+                const w = (textObj.width || 150) * ratioX;
                 return (
                     <div
                         key={textObj.id}
                         className="absolute z-25 group select-none text-annotation-box flex items-center rounded hover:bg-slate-100/30 hover:ring-1 hover:ring-slate-350/50 dark:hover:bg-slate-800/20 dark:hover:ring-slate-700/60"
                         style={{
-                            left: `${textObj.x * ratio}px`,
-                            top: `${textObj.y * ratio}px`,
+                            left: `${textObj.x * ratioX + offsetLeft}px`,
+                            top: `${textObj.y * ratioY + offsetTop}px`,
                             width: `${w}px`,
                             color: textObj.color,
                             fontSize: `${fs}px`,
