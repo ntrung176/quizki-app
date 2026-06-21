@@ -54,6 +54,19 @@ const getDayTask = (dayNum) => {
         ...ROADMAP_TASKS[taskType]
     };
 };
+
+const hasHtmlTags = (str) => {
+    if (!str) return false;
+    return /<\/?[a-z][\s\S]*>/i.test(str);
+};
+
+const getCleanClassName = (baseClass, text) => {
+    if (hasHtmlTags(text)) {
+        return baseClass;
+    }
+    return `${baseClass} whitespace-pre-line`;
+};
+
 const QuestionContent = React.memo(({
     section,
     question,
@@ -64,13 +77,26 @@ const QuestionContent = React.memo(({
     selectAnswerSub,
     audioRef,
     isRealExam,
-    isReview = false
+    isReview = false,
+    canEdit = false,
+    onEditQuestion = null
 }) => {
     const answerKey = (si, qi) => `s${si}_q${qi}`;
     const subAnswerKey = (si, qi, sqi) => `s${si}_q${qi}_sq${sqi}`;
 
     return (
         <>
+            {canEdit && onEditQuestion && (
+                <div className="flex justify-end mb-4">
+                    <button
+                        onClick={() => onEditQuestion(question, currentSectionIdx, currentQuestionIdx)}
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-500 hover:bg-amber-600 text-white rounded-lg text-xs font-bold transition shadow-sm hover:shadow cursor-pointer select-none"
+                    >
+                        <Edit3 className="w-3.5 h-3.5" />
+                        <span>Sửa HTML câu hỏi</span>
+                    </button>
+                </div>
+            )}
             {/* Audio player for listening */}
             {section.type === 'listening' && question?.audioUrl && (
                 <div className="mb-6 p-4 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-xl">
@@ -86,7 +112,7 @@ const QuestionContent = React.memo(({
             {/* Reading passage */}
             {section.type === 'reading' && question?.passage && (
                 <div className="mb-6 p-5 bg-green-50 dark:bg-green-900/15 border border-green-200 dark:border-green-800 rounded-xl">
-                    <div className="text-gray-800 dark:text-gray-200 text-[17px] md:text-[19px] leading-relaxed font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: question.passage }} />
+                    <div className={getCleanClassName("text-gray-800 dark:text-gray-200 text-[17px] md:text-[19px] leading-relaxed font-japanese", question.passage)} dangerouslySetInnerHTML={{ __html: question.passage }} />
                 </div>
             )}
             {/* Question Image */}
@@ -97,7 +123,7 @@ const QuestionContent = React.memo(({
             )}
             {/* Question */}
             <div className="mb-6">
-                <h3 className="text-xl md:text-2xl font-normal text-gray-800 dark:text-gray-100 leading-relaxed font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: question?.question }} />
+                <h3 className={getCleanClassName("text-xl md:text-2xl font-normal text-gray-800 dark:text-gray-100 leading-relaxed font-japanese", question?.question)} dangerouslySetInnerHTML={{ __html: question?.question }} />
             </div>
             {/* Options */}
             {question?.subQuestions && question.subQuestions.length > 0 ? (
@@ -113,7 +139,7 @@ const QuestionContent = React.memo(({
                                         : 'bg-red-50/40 dark:bg-red-950/10 border-red-250 dark:border-red-900/40'
                                     : 'bg-slate-50/50 dark:bg-slate-900/10 border-slate-100 dark:border-slate-800/80'
                             }`}>
-                                <h4 className="text-[17px] md:text-[19px] font-normal text-indigo-650 dark:text-indigo-400 font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
+                                <h4 className={getCleanClassName("text-[17px] md:text-[19px] font-normal text-indigo-650 dark:text-indigo-400 font-japanese", sq.question)} dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
                                 <div className="grid grid-cols-1 gap-2.5">
                                     {sq.options?.map((opt, oi) => {
                                         const key = subAnswerKey(currentSectionIdx, currentQuestionIdx, sqi);
@@ -160,7 +186,7 @@ const QuestionContent = React.memo(({
                                                         <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 select-none ${circleStyle}`}>
                                                             {String.fromCharCode(65 + oi)}
                                                         </div>
-                                                        <span className="font-japanese whitespace-pre-line animate-fade-in" dangerouslySetInnerHTML={{ __html: opt }} />
+                                                        <span className={getCleanClassName("font-japanese animate-fade-in", opt)} dangerouslySetInnerHTML={{ __html: opt }} />
                                                     </div>
                                                     {isReview && (
                                                         <>
@@ -174,7 +200,7 @@ const QuestionContent = React.memo(({
                                     })}
                                 </div>
                                 {isReview && sq.explanation && (
-                                    <p className="text-[15px] md:text-[16px] text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${sq.explanation}` }} />
+                                    <p className={getCleanClassName("text-[15px] md:text-[16px] text-gray-500 dark:text-gray-400 mt-2 italic", sq.explanation)} dangerouslySetInnerHTML={{ __html: `💡 ${sq.explanation}` }} />
                                 )}
                             </div>
                         );
@@ -227,12 +253,12 @@ const QuestionContent = React.memo(({
                                         <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 select-none ${circleStyle}`}>
                                             {String.fromCharCode(65 + oi)}
                                         </div>
-                                        <span className="font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: opt }} />
+                                        <span className={getCleanClassName("font-japanese", opt)} dangerouslySetInnerHTML={{ __html: opt }} />
                                     </div>
                                     {isReview && (
                                         <>
-                                            {isOptCorrect && <Check className="w-4 h-4 text-green-600 dark:text-green-400 shrink-0" />}
-                                            {isSelected && !isOptCorrect && <X className="w-4 h-4 text-red-500 dark:text-red-400 shrink-0" />}
+                                            {isOptCorrect && <Check className="w-4 h-4 text-green-600 dark:text-green-405 shrink-0" />}
+                                            {isSelected && !isOptCorrect && <X className="w-4 h-4 text-red-500 dark:text-red-405 shrink-0" />}
                                         </>
                                     )}
                                 </div>
@@ -242,13 +268,280 @@ const QuestionContent = React.memo(({
                 </div>
             )}
             {isReview && (!question?.subQuestions || question.subQuestions.length === 0) && question?.explanation && (
-                <p className="text-[15px] md:text-[16px] text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line pl-2 mb-8" dangerouslySetInnerHTML={{ __html: `💡 ${question.explanation}` }} />
+                <p className={getCleanClassName("text-[15px] md:text-[16px] text-gray-500 dark:text-gray-400 mt-2 italic pl-2 mb-8", question.explanation)} dangerouslySetInnerHTML={{ __html: `💡 ${question.explanation}` }} />
             )}
         </>
     );
 });
 
 QuestionContent.displayName = 'QuestionContent';
+
+const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
+    const [formData, setFormData] = useState(null);
+
+    useEffect(() => {
+        if (initialQuestion) {
+            setFormData(JSON.parse(JSON.stringify(initialQuestion)));
+        } else {
+            setFormData(null);
+        }
+    }, [initialQuestion]);
+
+    if (!isOpen || !formData) return null;
+
+    const handleFieldChange = (field, val) => {
+        setFormData(prev => ({
+            ...prev,
+            [field]: val
+        }));
+    };
+
+    const handleOptionChange = (optIdx, val) => {
+        setFormData(prev => {
+            const opts = [...(prev.options || ['', '', '', ''])];
+            opts[optIdx] = val;
+            return { ...prev, options: opts };
+        });
+    };
+
+    const handleSubQuestionFieldChange = (sqi, field, val) => {
+        setFormData(prev => {
+            const subQs = [...(prev.subQuestions || [])];
+            if (subQs[sqi]) {
+                subQs[sqi] = { ...subQs[sqi], [field]: val };
+            }
+            return { ...prev, subQuestions: subQs };
+        });
+    };
+
+    const handleSubQuestionOptionChange = (sqi, optIdx, val) => {
+        setFormData(prev => {
+            const subQs = [...(prev.subQuestions || [])];
+            if (subQs[sqi]) {
+                const opts = [...(subQs[sqi].options || ['', '', '', ''])];
+                opts[optIdx] = val;
+                subQs[sqi] = { ...subQs[sqi], options: opts };
+            }
+            return { ...prev, subQuestions: subQs };
+        });
+    };
+
+    const insertTag = (elementId, startTag, endTag) => {
+        const textarea = document.getElementById(elementId);
+        if (!textarea) return;
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        const text = textarea.value;
+        const selectedText = text.substring(start, end);
+        const replacement = startTag + selectedText + endTag;
+        const newVal = text.substring(0, start) + replacement + text.substring(end);
+        
+        if (elementId === 'edit-passage') {
+            handleFieldChange('passage', newVal);
+        } else if (elementId === 'edit-question') {
+            handleFieldChange('question', newVal);
+        } else if (elementId === 'edit-explanation') {
+            handleFieldChange('explanation', newVal);
+        } else if (elementId.startsWith('edit-option-')) {
+            const oi = parseInt(elementId.replace('edit-option-', ''), 10);
+            handleOptionChange(oi, newVal);
+        } else if (elementId.startsWith('edit-sq-')) {
+            const parts = elementId.split('-');
+            const sqi = parseInt(parts[2], 10);
+            const fieldType = parts[3];
+            if (fieldType === 'question') {
+                handleSubQuestionFieldChange(sqi, 'question', newVal);
+            } else if (fieldType === 'explanation') {
+                handleSubQuestionFieldChange(sqi, 'explanation', newVal);
+            } else if (fieldType === 'option') {
+                const oi = parseInt(parts[4], 10);
+                handleSubQuestionOptionChange(sqi, oi, newVal);
+            }
+        }
+
+        setTimeout(() => {
+            textarea.focus();
+            textarea.setSelectionRange(start + startTag.length, start + startTag.length + selectedText.length);
+        }, 0);
+    };
+
+    const renderToolbar = (elementId) => {
+        return (
+            <div className="flex flex-wrap gap-1 p-1 bg-slate-100 dark:bg-slate-800 rounded-t-lg border-b border-slate-200 dark:border-slate-700">
+                <button type="button" onClick={() => insertTag(elementId, '<b>', '</b>')} className="px-2 py-1 text-xs font-bold hover:bg-slate-250 dark:hover:bg-slate-700 rounded text-slate-700 dark:text-slate-300" title="In đậm">B</button>
+                <button type="button" onClick={() => insertTag(elementId, '<i>', '</i>')} className="px-2 py-1 text-xs italic hover:bg-slate-250 dark:hover:bg-slate-700 rounded text-slate-700 dark:text-slate-300" title="In nghiêng">I</button>
+                <button type="button" onClick={() => insertTag(elementId, '<u>', '</u>')} className="px-2 py-1 text-xs underline hover:bg-slate-250 dark:hover:bg-slate-700 rounded text-slate-700 dark:text-slate-300" title="Gạch chân">U</button>
+                <button type="button" onClick={() => insertTag(elementId, '<ruby>', '<rt>よみかた</rt></ruby>')} className="px-2 py-1 text-xs hover:bg-slate-250 dark:hover:bg-slate-700 rounded text-rose-600 dark:text-rose-400 font-bold" title="Thêm Furigana">Ruby</button>
+                <button type="button" onClick={() => insertTag(elementId, '<br/>', '')} className="px-2 py-1 text-xs hover:bg-slate-250 dark:hover:bg-slate-700 rounded text-purple-600 dark:text-purple-400 font-bold" title="Xuống dòng">BR</button>
+            </div>
+        );
+    };
+
+    return (
+        <div className="fixed inset-0 z-[10000] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto font-sans">
+            <div className="bg-white dark:bg-slate-800 rounded-3xl max-w-3xl w-full max-h-[90vh] flex flex-col overflow-hidden shadow-2xl border border-slate-100 dark:border-slate-700/60 my-8">
+                {/* Header */}
+                <div className="p-6 pb-4 border-b border-slate-100 dark:border-slate-700/50 flex items-center justify-between bg-slate-50 dark:bg-slate-800">
+                    <div>
+                        <span className="text-[10px] font-extrabold uppercase bg-amber-100 text-amber-750 dark:bg-amber-900/40 dark:text-amber-400 px-2 py-0.5 rounded-md">Chế độ Admin</span>
+                        <h3 className="text-lg font-black text-slate-800 dark:text-white mt-1 leading-snug">Chỉnh sửa HTML câu hỏi</h3>
+                    </div>
+                    <button 
+                        onClick={onClose}
+                        className="p-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition cursor-pointer"
+                    >
+                        <X className="w-5 h-5" />
+                    </button>
+                </div>
+                
+                {/* Content */}
+                <div className="flex-1 p-6 overflow-y-auto space-y-5 text-left">
+                    {/* Passage */}
+                    <div className="space-y-1.5">
+                        <label className="block text-xs font-extrabold text-slate-700 dark:text-slate-300">Đoạn văn đọc hiểu (Passage HTML)</label>
+                        <div className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
+                            {renderToolbar('edit-passage')}
+                            <textarea
+                                id="edit-passage"
+                                value={formData.passage || ''}
+                                onChange={(e) => handleFieldChange('passage', e.target.value)}
+                                placeholder="Nhập HTML của đoạn văn đọc hiểu..."
+                                className="w-full min-h-[100px] p-3 text-sm font-mono bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-0 border-0"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Question */}
+                    <div className="space-y-1.5">
+                        <label className="block text-xs font-extrabold text-slate-700 dark:text-slate-300">Nội dung câu hỏi (Question HTML)</label>
+                        <div className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
+                            {renderToolbar('edit-question')}
+                            <textarea
+                                id="edit-question"
+                                value={formData.question || ''}
+                                onChange={(e) => handleFieldChange('question', e.target.value)}
+                                placeholder="Nhập HTML của câu hỏi..."
+                                className="w-full min-h-[80px] p-3 text-sm font-mono bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-0 border-0"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Options (if no subquestions) */}
+                    {(!formData.subQuestions || formData.subQuestions.length === 0) && (
+                        <div className="space-y-4">
+                            <label className="block text-xs font-extrabold text-slate-700 dark:text-slate-300">Các đáp án lựa chọn (Options HTML)</label>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {[0, 1, 2, 3].map((oi) => (
+                                    <div key={oi} className="space-y-1">
+                                        <span className="text-[10px] font-bold text-slate-500">Đáp án {String.fromCharCode(65 + oi)}</span>
+                                        <div className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
+                                            {renderToolbar(`edit-option-${oi}`)}
+                                            <textarea
+                                                id={`edit-option-${oi}`}
+                                                value={formData.options?.[oi] || ''}
+                                                onChange={(e) => handleOptionChange(oi, e.target.value)}
+                                                className="w-full min-h-[60px] p-2 text-sm font-mono bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-0 border-0"
+                                            />
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Explanation (if no subquestions) */}
+                    {(!formData.subQuestions || formData.subQuestions.length === 0) && (
+                        <div className="space-y-1.5">
+                            <label className="block text-xs font-extrabold text-slate-700 dark:text-slate-300">Giải thích đáp án (Explanation HTML)</label>
+                            <div className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
+                                {renderToolbar('edit-explanation')}
+                                <textarea
+                                    id="edit-explanation"
+                                    value={formData.explanation || ''}
+                                    onChange={(e) => handleFieldChange('explanation', e.target.value)}
+                                    placeholder="Nhập giải thích cho câu hỏi..."
+                                    className="w-full min-h-[80px] p-3 text-sm font-mono bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-0 border-0"
+                                />
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Sub-questions */}
+                    {formData.subQuestions && formData.subQuestions.length > 0 && (
+                        <div className="space-y-6 border-t border-slate-200 dark:border-slate-700 pt-4">
+                            <h4 className="text-sm font-black text-slate-800 dark:text-white font-sans">Các câu hỏi phụ</h4>
+                            {formData.subQuestions.map((sq, sqi) => (
+                                <div key={sqi} className="p-4 bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-700 rounded-2xl space-y-4">
+                                    <div className="space-y-1.5">
+                                        <label className="block text-xs font-extrabold text-slate-700 dark:text-slate-300 font-sans">Câu hỏi phụ {sqi + 1} (HTML)</label>
+                                        <div className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
+                                            {renderToolbar(`edit-sq-${sqi}-question`)}
+                                            <textarea
+                                                id={`edit-sq-${sqi}-question`}
+                                                value={sq.question || ''}
+                                                onChange={(e) => handleSubQuestionFieldChange(sqi, 'question', e.target.value)}
+                                                className="w-full min-h-[60px] p-2 text-sm font-mono bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-0 border-0"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-3">
+                                        <span className="text-[10px] font-bold text-slate-500 font-sans">Các đáp án lựa chọn câu phụ {sqi + 1}</span>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                            {[0, 1, 2, 3].map((oi) => (
+                                                <div key={oi} className="space-y-1">
+                                                    <span className="text-[10px] font-bold text-slate-400">Đáp án {String.fromCharCode(65 + oi)}</span>
+                                                    <div className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
+                                                        {renderToolbar(`edit-sq-${sqi}-option-${oi}`)}
+                                                        <textarea
+                                                            id={`edit-sq-${sqi}-option-${oi}`}
+                                                            value={sq.options?.[oi] || ''}
+                                                            onChange={(e) => handleSubQuestionOptionChange(sqi, oi, e.target.value)}
+                                                            className="w-full min-h-[60px] p-2 text-sm font-mono bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-0 border-0"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-1.5">
+                                        <label className="block text-xs font-extrabold text-slate-700 dark:text-slate-300 font-sans">Giải thích câu phụ {sqi + 1} (HTML)</label>
+                                        <div className="border border-slate-205 dark:border-slate-700 rounded-lg overflow-hidden">
+                                            {renderToolbar(`edit-sq-${sqi}-explanation`)}
+                                            <textarea
+                                                id={`edit-sq-${sqi}-explanation`}
+                                                value={sq.explanation || ''}
+                                                onChange={(e) => handleSubQuestionFieldChange(sqi, 'explanation', e.target.value)}
+                                                className="w-full min-h-[60px] p-2 text-sm font-mono bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-0 border-0"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+
+                {/* Footer */}
+                <div className="p-6 border-t border-slate-100 dark:border-slate-700/50 flex items-center justify-end gap-3 bg-slate-50 dark:bg-slate-800">
+                    <button 
+                        onClick={onClose}
+                        className="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-650 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition text-sm font-bold"
+                    >
+                        Hủy
+                    </button>
+                    <button 
+                        onClick={() => onSave(formData)}
+                        className="px-5 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl transition text-sm font-bold shadow-md hover:shadow-lg"
+                    >
+                        Lưu thay đổi
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+};
 
 const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
     const navigate = useNavigate();
@@ -348,6 +641,10 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
     const [showResult, setShowResult] = useState(false);
     const [isFullscreen, setIsFullscreen] = useState(false);
     const [showDetailedReview, setShowDetailedReview] = useState(false);
+
+    // Admin Edit HTML states
+    const [editingQuestionData, setEditingQuestionData] = useState(null); // { question, sectionIdx, questionIdx }
+    const [savingHtml, setSavingHtml] = useState(false);
 
     // Notes states
     const [notes, setNotes] = useState(() => {
@@ -694,6 +991,45 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
     const [lockedPkgName, setLockedPkgName] = useState('');
     const userIsAdmin = profile?.email && ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(profile.email);
     const hasPremiumAccess = userIsAdmin || profile?.isPremiumUnlocked || (profile?.unlockedSpecializedPackages || []).includes('jlpt_prep');
+    const canEdit = isAdmin || userIsAdmin;
+
+    const handleSaveQuestionHtml = async (updatedQuestion) => {
+        if (!activeTest || !editingQuestionData) return;
+        const { sectionIdx, questionIdx } = editingQuestionData;
+        setSavingHtml(true);
+        try {
+            // Clone sections array
+            const updatedSections = JSON.parse(JSON.stringify(activeTest.sections));
+            // Update the question
+            updatedSections[sectionIdx].questions[questionIdx] = updatedQuestion;
+            
+            // Save to Firestore
+            const testRef = doc(db, `artifacts/${appId}/jlptTests`, activeTest.id);
+            await updateDoc(testRef, { sections: updatedSections });
+
+            // Update activeTest locally
+            setActiveTest(prev => ({
+                ...prev,
+                sections: updatedSections
+            }));
+
+            // Also update the tests list state
+            setTests(prevTests => prevTests.map(t => {
+                if (t.id === activeTest.id) {
+                    return { ...t, sections: updatedSections };
+                }
+                return t;
+            }));
+
+            setEditingQuestionData(null);
+            setNotification('Đã lưu thay đổi HTML câu hỏi thành công!');
+        } catch (err) {
+            console.error('Error updating question HTML:', err);
+            alert('Lỗi khi lưu HTML câu hỏi: ' + err.message);
+        } finally {
+            setSavingHtml(false);
+        }
+    };
 
     const handleToggleTestPremium = async (e, test) => {
         e.stopPropagation();
@@ -1749,6 +2085,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                         audioRef={audioRef}
                                         isRealExam={isRealExam}
                                         isReview={true}
+                                        canEdit={canEdit}
+                                        onEditQuestion={(q, sIdx, qIdx) => setEditingQuestionData({ question: q, sectionIdx: sIdx, questionIdx: qIdx })}
                                     />
                                 </div>
                                 
@@ -1785,6 +2123,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                             </div>
                         </div>
                     </div>
+                    {editingQuestionData && (
+                        <QuestionEditModal 
+                            isOpen={!!editingQuestionData} 
+                            onClose={() => setEditingQuestionData(null)} 
+                            initialQuestion={editingQuestionData.question} 
+                            onSave={handleSaveQuestionHtml} 
+                        />
+                    )}
                 </div>
             );
         }
@@ -1852,8 +2198,19 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                                 {qi + 1}
                                                             </div>
                                                             <div className="flex-1 space-y-2">
+                                                                {canEdit && (
+                                                                    <div className="flex justify-end mb-2">
+                                                                        <button
+                                                                            onClick={() => setEditingQuestionData({ question: q, sectionIdx: si, questionIdx: qi })}
+                                                                            className="flex items-center gap-1 px-2.5 py-1 bg-amber-500 hover:bg-amber-600 text-white rounded-lg text-[10px] font-bold transition shadow-sm hover:shadow cursor-pointer select-none"
+                                                                        >
+                                                                            <Edit3 className="w-3 h-3" />
+                                                                            <span>Sửa HTML</span>
+                                                                        </button>
+                                                                    </div>
+                                                                )}
                                                                 {q.passage && (
-                                                                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-[17px] md:text-[19px] font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.passage }} />
+                                                                    <div className={getCleanClassName("p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-[17px] md:text-[19px] font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2", q.passage)} dangerouslySetInnerHTML={{ __html: q.passage }} />
                                                                 )}
                                                                 {q.audioUrl && (
                                                                     <div className="mb-2">
@@ -1866,7 +2223,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                                     </div>
                                                                 )}
                                                                 {q.question && (
-                                                                    <p className="font-bold text-gray-800 dark:text-gray-200 text-lg md:text-xl font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.question }} />
+                                                                    <p className={getCleanClassName("font-bold text-gray-800 dark:text-gray-200 text-lg md:text-xl font-japanese", q.question)} dangerouslySetInnerHTML={{ __html: q.question }} />
                                                                 )}
                                                             </div>
                                                         </div>
@@ -1882,7 +2239,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                                                 ? <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
                                                                                 : <XCircle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />}
                                                                             <div className="flex-1">
-                                                                                <p className="text-[16px] md:text-[18px] font-bold text-gray-700 dark:text-gray-300 font-japanese leading-relaxed" dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
+                                                                                <p className={getCleanClassName("text-[16px] md:text-[18px] font-bold text-gray-700 dark:text-gray-300 font-japanese leading-relaxed", sq.question)} dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
                                                                                 
                                                                                 {/* Display choices for sub-question */}
                                                                                 <div className="grid grid-cols-1 gap-1.5 mt-2">
@@ -1919,7 +2276,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                                                 </div>
 
                                                                                 {sq.explanation && (
-                                                                                    <p className="text-[15px] md:text-[16px] text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${sq.explanation}` }} />
+                                                                                    <p className={getCleanClassName("text-[15px] md:text-[16px] text-gray-500 dark:text-gray-400 mt-2 italic", sq.explanation)} dangerouslySetInnerHTML={{ __html: `💡 ${sq.explanation}` }} />
                                                                                 )}
                                                                             </div>
                                                                         </div>
@@ -1945,8 +2302,19 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                             {qi + 1}
                                                         </div>
                                                         <div className="flex-1 space-y-2">
+                                                            {canEdit && (
+                                                                <div className="flex justify-end mb-2">
+                                                                    <button
+                                                                        onClick={() => setEditingQuestionData({ question: q, sectionIdx: si, questionIdx: qi })}
+                                                                        className="flex items-center gap-1 px-2.5 py-1 bg-amber-500 hover:bg-amber-600 text-white rounded-lg text-[10px] font-bold transition shadow-sm hover:shadow cursor-pointer select-none"
+                                                                    >
+                                                                        <Edit3 className="w-3 h-3" />
+                                                                        <span>Sửa HTML</span>
+                                                                    </button>
+                                                                </div>
+                                                            )}
                                                             {q.passage && (
-                                                                <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-[17px] md:text-[19px] font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2 whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.passage }} />
+                                                                <div className={getCleanClassName("p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-[17px] md:text-[19px] font-japanese leading-relaxed max-h-40 overflow-y-auto mb-2", q.passage)} dangerouslySetInnerHTML={{ __html: q.passage }} />
                                                             )}
                                                             {q.audioUrl && (
                                                                 <div className="mb-2">
@@ -1958,7 +2326,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                                     <img src={q.imageUrl} alt="Câu hỏi" className="max-h-48 object-contain" />
                                                                 </div>
                                                             )}
-                                                            <p className="font-medium text-gray-800 dark:text-gray-200 text-lg md:text-xl font-japanese whitespace-pre-line" dangerouslySetInnerHTML={{ __html: q.question }} />
+                                                            <p className={getCleanClassName("font-medium text-gray-800 dark:text-gray-200 text-lg md:text-xl font-japanese", q.question)} dangerouslySetInnerHTML={{ __html: q.question }} />
                                                             
                                                             {/* Display choices for question */}
                                                             <div className="grid grid-cols-1 gap-2 mt-3 pl-2">
@@ -1995,7 +2363,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                             </div>
 
                                                             {q.explanation && (
-                                                                <p className="text-[15px] md:text-[16px] text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line" dangerouslySetInnerHTML={{ __html: `💡 ${q.explanation}` }} />
+                                                                <p className={getCleanClassName("text-[15px] md:text-[16px] text-gray-500 dark:text-gray-400 mt-2 italic", q.explanation)} dangerouslySetInnerHTML={{ __html: `💡 ${q.explanation}` }} />
                                                             )}
                                                             {renderReviewNoteContainer(si, qi)}
                                                         </div>
@@ -2042,6 +2410,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                     onClose={() => setShowPremiumModal(false)} 
                     pkgName={lockedPkgName} 
                 />
+                {editingQuestionData && (
+                    <QuestionEditModal 
+                        isOpen={!!editingQuestionData} 
+                        onClose={() => setEditingQuestionData(null)} 
+                        initialQuestion={editingQuestionData.question} 
+                        onSave={handleSaveQuestionHtml} 
+                    />
+                )}
             </div>
         );
     }
@@ -2277,6 +2653,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                     selectAnswerSub={selectAnswerSub}
                                     audioRef={audioRef}
                                     isRealExam={isRealExam}
+                                    canEdit={canEdit}
+                                    onEditQuestion={(q, sIdx, qIdx) => setEditingQuestionData({ question: q, sectionIdx: sIdx, questionIdx: qIdx })}
                                 />
                             </div>
                             
@@ -2505,6 +2883,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                     onClose={() => setShowPremiumModal(false)} 
                     pkgName={lockedPkgName} 
                 />
+                {editingQuestionData && (
+                    <QuestionEditModal 
+                        isOpen={!!editingQuestionData} 
+                        onClose={() => setEditingQuestionData(null)} 
+                        initialQuestion={editingQuestionData.question} 
+                        onSave={handleSaveQuestionHtml} 
+                    />
+                )}
             </div>
         );
     }
