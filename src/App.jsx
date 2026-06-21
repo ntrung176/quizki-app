@@ -510,6 +510,50 @@ const App = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []); // Chạy một lần khi mount để khởi tạo, isDarkMode đã được capture từ initial state
 
+    // Capture referral code from URL search query on mount
+    useEffect(() => {
+        let refCode = new URLSearchParams(window.location.search).get('ref');
+        if (!refCode && window.location.hash.includes('?')) {
+            const hashQuery = window.location.hash.split('?')[1];
+            refCode = new URLSearchParams(hashQuery).get('ref');
+        }
+        if (refCode) {
+            localStorage.setItem('pendingReferralCode', refCode.trim().toUpperCase());
+            // Clean URL query parameters
+            const urlWithoutParams = window.location.href.split('?')[0];
+            window.history.replaceState({}, document.title, urlWithoutParams);
+            console.log("Captured pending referral code:", refCode);
+        }
+    }, []);
+
+    // Auto-apply referral code if stored in localStorage
+    useEffect(() => {
+        if (!userId || !profile || profile.referredBy) return;
+
+        const pendingCode = localStorage.getItem('pendingReferralCode');
+        if (pendingCode) {
+            // Remove from localStorage first to prevent duplicate trigger loops
+            localStorage.removeItem('pendingReferralCode');
+            
+            const applyReferral = async () => {
+                try {
+                    const { submitReferralCode } = await import('./utils/referralService');
+                    console.log(`Auto-submitting referral code ${pendingCode} for user ${userId}...`);
+                    const res = await submitReferralCode(userId, profile.displayName, pendingCode);
+                    if (res.success) {
+                        showToast(`Áp dụng mã giới thiệu thành công! Bạn nhận được 15 ngày Premium miễn phí từ ${res.referrerName || 'bạn bè'}.`, 'success');
+                    } else {
+                        console.warn('Auto-submit referral code failed:', res.error);
+                    }
+                } catch (err) {
+                    console.error('Error auto-submitting referral code:', err);
+                }
+            };
+            
+            applyReferral();
+        }
+    }, [userId, profile]);
+
     // Quản lý dark mode khi state thay đổi - INSTANT switch
     useEffect(() => {
         // Lưu vào localStorage
@@ -720,6 +764,15 @@ const App = () => {
                 profileData.league = userLeague;
                 profileData.lastLeagueWeekId = lastLeagueWeekId;
 
+                // Tự động sinh mã giới thiệu nếu chưa có
+                if (!profileData.referralCode) {
+                    const { generateReferralCode } = await import('./utils/referralService');
+                    const code = generateReferralCode(userId);
+                    profileData.referralCode = code;
+                    updateDoc(doc(db, settingsDocPath), { referralCode: code }).catch(err => console.error("Lỗi cập nhật mã giới thiệu:", err));
+                    setDoc(doc(db, publicStatsCollectionPath, userId), { referralCode: code }, { merge: true }).catch(err => console.error("Lỗi đồng bộ mã giới thiệu:", err));
+                }
+
                 setProfile(profileData);
                 // Lưu vào sessionStorage
                 sessionStorage.setItem(cachedProfileKey, JSON.stringify(profileData));
@@ -730,6 +783,8 @@ const App = () => {
                         ? auth.currentUser.email.split('@')[0]
                         : 'Người học';
                     const defaultGoal = 10;
+                    const { generateReferralCode } = await import('./utils/referralService');
+                    const code = generateReferralCode(userId);
                     const newProfile = {
                         displayName: defaultName,
                         dailyGoal: defaultGoal,
@@ -738,12 +793,21 @@ const App = () => {
                         aiCreditsRemaining: 100,
                         xp: 0,
                         level: 1,
-                        title: getLevelTitle(1)
+                        title: getLevelTitle(1),
+                        referralCode: code
                     };
                     await setDoc(doc(db, settingsDocPath), newProfile);
                     setProfile(newProfile);
                     // Lưu vào sessionStorage
                     sessionStorage.setItem(cachedProfileKey, JSON.stringify(newProfile));
+                    // Đồng bộ lên public stats
+                    await setDoc(doc(db, publicStatsCollectionPath, userId), { 
+                        displayName: defaultName, 
+                        referralCode: code,
+                        xp: 0,
+                        level: 1,
+                        league: 'Sắt'
+                    }, { merge: true });
                 } catch (e) {
                     console.error("Lỗi tạo hồ sơ mặc định:", e);
                     setProfile(null);

@@ -430,6 +430,14 @@ export const manuallyApplyPackageToUser = async (userId, userName, userEmail, pa
 
             await setDoc(profileRef, updateFields, { merge: true });
 
+            // Check and apply referral rewards for referrer
+            try {
+                const { checkAndApplyReferralRewards } = await import('./referralService');
+                await checkAndApplyReferralRewards(userId, userName || 'Người học');
+            } catch (refErr) {
+                console.error('Lỗi cộng thưởng giới thiệu:', refErr);
+            }
+
             // Sync to public stats for instant list update
             try {
                 await setDoc(publicStatsRef, {
@@ -562,6 +570,15 @@ export const processPaymentSecurely = async (transactionId, orderCode, userId, c
                         premiumExpiresAt
                     }, { merge: true });
                     console.log(`✅ Payment processed: TX#${transactionId}, unlocked premium package ${packageId}, added ${bonusCredits} credits, expires at ${new Date(premiumExpiresAt).toISOString()}`);
+
+                    // Check and apply referral rewards for referrer
+                    try {
+                        const { checkAndApplyReferralRewards } = await import('./referralService');
+                        await checkAndApplyReferralRewards(userId, profileSnap.exists() ? (profileSnap.data().displayName || 'Người học') : 'Người học');
+                    } catch (refErr) {
+                        console.error('Lỗi cộng thưởng giới thiệu:', refErr);
+                    }
+
                     return { success: true, newCredits: currentCredits + bonusCredits };
                 } else {
                     await setDoc(profileRef, {

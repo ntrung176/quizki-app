@@ -38,6 +38,9 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     // Credit requests (for user subscription info)
     const [creditRequests, setCreditRequests] = useState([]);
 
+    // Lưu trữ thông tin gói cước thực tế từ profile khi load hoặc update để đồng bộ với danh sách bên trái
+    const [localUserUpdates, setLocalUserUpdates] = useState({});
+
     // Expense state
     const [expenses, setExpenses] = useState([]);
     const [newExpense, setNewExpense] = useState({ name: '', amount: '', type: 'operating', recurring: 'monthly', description: '', month: new Date().toISOString().slice(0, 7) });
@@ -189,9 +192,28 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                     } else {
                         setSelectedUserPackageState('free');
                     }
+                    // Đồng bộ thông tin thực tế từ profile của user sang danh sách bên trái
+                    setLocalUserUpdates(prev => ({
+                        ...prev,
+                        [selectedUser.userId]: {
+                            unlockedSpecializedPackages: data.unlockedSpecializedPackages || [],
+                            isPremiumUnlocked: data.isPremiumUnlocked || false,
+                            isPremium: data.isPremiumUnlocked || false,
+                            premiumExpiresAt: data.premiumExpiresAt || null
+                        }
+                    }));
                 } else {
                     setSelectedUserProfile({ aiCreditsRemaining: 0, unlockedSpecializedPackages: [] });
                     setSelectedUserPackageState('free');
+                    setLocalUserUpdates(prev => ({
+                        ...prev,
+                        [selectedUser.userId]: {
+                            unlockedSpecializedPackages: [],
+                            isPremiumUnlocked: false,
+                            isPremium: false,
+                            premiumExpiresAt: null
+                        }
+                    }));
                 }
             } catch (e) {
                 console.error('Error loading user profile:', e);
@@ -252,6 +274,26 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                 ...updateData
             }));
 
+            // Cập nhật localUserUpdates để đồng bộ giao diện danh sách bên trái ngay lập tức
+            setLocalUserUpdates(prev => ({
+                ...prev,
+                [selectedUser.userId]: {
+                    unlockedSpecializedPackages,
+                    isPremiumUnlocked,
+                    isPremium: isPremiumUnlocked,
+                    premiumExpiresAt
+                }
+            }));
+
+            // Cập nhật selectedUser để đồng bộ thông tin hiển thị trên panel chi tiết
+            setSelectedUser(prev => prev ? {
+                ...prev,
+                unlockedSpecializedPackages,
+                isPremiumUnlocked,
+                isPremium: isPremiumUnlocked,
+                premiumExpiresAt
+            } : null);
+
             setNotification({ type: 'success', message: 'Đã cập nhật gói học cho người dùng thành công.' });
         } catch (e) {
             console.error('Lỗi cập nhật gói học:', e);
@@ -299,25 +341,28 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         }
 
         // 2. Fallback to creditRequests if still free but they have a premiumExpiresAt that is valid
+        // Chỉ fallback khi tài khoản không bị admin hạ cấp/đánh dấu là FREE (isPremiumUnlocked hoặc isPremium khác false)
         if (activePlan === 'free') {
-            let isExpired = false;
-            if (u.premiumExpiresAt) {
-                const expiryTime = u.premiumExpiresAt.toDate ? u.premiumExpiresAt.toDate().getTime() : Number(u.premiumExpiresAt || 0);
-                if (expiryTime && expiryTime < Date.now()) {
-                    isExpired = true;
+            if (u.isPremiumUnlocked !== false && u.isPremium !== false) {
+                let isExpired = false;
+                if (u.premiumExpiresAt) {
+                    const expiryTime = u.premiumExpiresAt.toDate ? u.premiumExpiresAt.toDate().getTime() : Number(u.premiumExpiresAt || 0);
+                    if (expiryTime && expiryTime < Date.now()) {
+                        isExpired = true;
+                    }
                 }
-            }
-            
-            if (!isExpired && u.premiumExpiresAt) {
-                const userApprovedRequests = creditRequests.filter(r => r.userId === u.userId && r.status === 'approved');
-                const has3yReq = userApprovedRequests.some(r => r.packageId === 'premium_3y');
-                const has1yReq = userApprovedRequests.some(r => r.packageId === 'premium_1y');
-                const has1mReq = userApprovedRequests.some(r => r.packageId === 'premium_1m');
                 
-                if (has3yReq) activePlan = 'premium_3y';
-                else if (has1yReq) activePlan = 'premium_1y';
-                else if (has1mReq) activePlan = 'premium_1m';
-                else activePlan = 'premium';
+                if (!isExpired && u.premiumExpiresAt) {
+                    const userApprovedRequests = creditRequests.filter(r => r.userId === u.userId && r.status === 'approved');
+                    const has3yReq = userApprovedRequests.some(r => r.packageId === 'premium_3y');
+                    const has1yReq = userApprovedRequests.some(r => r.packageId === 'premium_1y');
+                    const has1mReq = userApprovedRequests.some(r => r.packageId === 'premium_1m');
+                    
+                    if (has3yReq) activePlan = 'premium_3y';
+                    else if (has1yReq) activePlan = 'premium_1y';
+                    else if (has1mReq) activePlan = 'premium_1m';
+                    else activePlan = 'premium';
+                }
             }
         }
 
@@ -338,7 +383,10 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
 
     // Filtered and sorted users
     const filteredUsers = useMemo(() => {
-        let result = [...users];
+        let result = users.map(u => ({
+            ...u,
+            ...(localUserUpdates[u.userId] || {})
+        }));
         if (searchQuery.trim()) {
             const q = searchQuery.toLowerCase();
             result = result.filter(u =>
@@ -376,7 +424,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             return sortOrder === 'asc' ? (aVal > bVal ? 1 : -1) : (aVal < bVal ? 1 : -1);
         });
         return result;
-    }, [users, searchQuery, sortBy, sortOrder, roleFilter, planFilter, adminConfig, currentUserId, creditRequests]);
+    }, [users, searchQuery, sortBy, sortOrder, roleFilter, planFilter, adminConfig, currentUserId, creditRequests, localUserUpdates]);
 
     const handleSelectUser = (user) => setSelectedUser(user);
 
@@ -664,6 +712,21 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         );
 
         if (ok) {
+            // Cập nhật localUserUpdates để đồng bộ danh sách bên trái ngay lập tức
+            const durationMs = pkg.id === 'premium_3y' ? 3 * 365 * 24 * 60 * 60 * 1000 : (pkg.id === 'premium_1y' ? 365 * 24 * 60 * 60 * 1000 : 30 * 24 * 60 * 60 * 1000);
+            const premiumExpiresAt = Date.now() + durationMs;
+            const unlockedSpecializedPackages = ['premium_1m', 'premium_1y', 'premium_3y', 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'].filter(p => p === pkg.id || !['premium_1m', 'premium_1y', 'premium_3y'].includes(p));
+
+            setLocalUserUpdates(prev => ({
+                ...prev,
+                [manualCreditUserId]: {
+                    unlockedSpecializedPackages,
+                    isPremiumUnlocked: true,
+                    isPremium: true,
+                    premiumExpiresAt
+                }
+            }));
+
             setNotification({ 
                 type: 'success', 
                 message: `Đã áp dụng ${pkg.name} cho ${user?.displayName || manualCreditUserId}` 

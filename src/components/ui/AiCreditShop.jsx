@@ -976,7 +976,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                             <div>
                                 <h2 className="font-black text-xl leading-tight">Cấu hình thanh toán</h2>
                                 <p className="text-white/80 text-xs mt-0.5">
-                                    {isSpecialized ? `Mở khóa tính năng: ${selectedPackage.name}` : `Nạp ${selectedPackage.cards.toLocaleString()} credit AI`}
+                                    Mở khóa gói: {selectedPackage.name}
                                 </p>
                             </div>
                         </div>
@@ -1090,11 +1090,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     </div>
                     <h2 className="text-3xl font-black text-emerald-600 dark:text-emerald-400 mb-2">Thanh toán thành công! 🎉</h2>
                     <p className="text-sm text-gray-600 dark:text-slate-350 mb-4 leading-relaxed">
-                        {selectedPackage.cards !== undefined ? (
-                            <span>Đã nạp thành công <strong>{selectedPackage.cards.toLocaleString()} credit AI</strong> vào tài khoản của bạn.</span>
-                        ) : (
-                            <span>Đã kích hoạt thành công trọn đời gói tính năng <strong>{selectedPackage.name}</strong>.</span>
-                        )}
+                        <span>Đã kích hoạt thành công gói Premium <strong>{selectedPackage.name}</strong>.</span>
                     </p>
                     {appliedVoucher && (
                         <p className="text-xs text-emerald-500 mb-6 bg-emerald-50 dark:bg-emerald-950/20 py-1.5 px-4 rounded-xl inline-block font-semibold">
@@ -1168,7 +1164,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                             <div>
                                 <h3 className="font-extrabold text-gray-800 dark:text-white text-base leading-snug">Gói {selectedPackage.name}</h3>
                                 <p className="text-xs text-gray-500">
-                                    {isSpecialized ? 'Mở khóa tính năng chuyên sâu' : `${selectedPackage.cards.toLocaleString()} credit AI`}
+                                    Mở khóa toàn bộ tính năng cao cấp Premium
                                 </p>
                             </div>
                         </div>
