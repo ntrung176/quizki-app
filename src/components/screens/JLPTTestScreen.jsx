@@ -212,7 +212,7 @@ const QuestionContent = React.memo(({
                     })}
                 </div>
             )}
-            {isReview && !question?.subQuestions && question?.explanation && (
+            {isReview && (!question?.subQuestions || question.subQuestions.length === 0) && question?.explanation && (
                 <p className="text-[15px] md:text-[16px] text-gray-500 dark:text-gray-400 mt-2 italic whitespace-pre-line pl-2 mb-8" dangerouslySetInnerHTML={{ __html: `💡 ${question.explanation}` }} />
             )}
         </>

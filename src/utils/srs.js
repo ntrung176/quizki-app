@@ -61,13 +61,13 @@ const normalizeSRSState = (srs) => {
     }
 
     // 3. Fix the minute-to-day mismatch bug (e.g. 5760 mins interpreted as 5760 days in REVIEW state)
-    // In REVIEW state, interval is in DAYS. If it is >= 60, it's definitely stored in minutes (legacy)
+    // In REVIEW state, interval is in DAYS. If it is >= 1000, it's definitely stored in minutes (legacy)
     // and should be converted to days by dividing by 1440.
     const resolvedState = state || (reps === 0 && (learningStep === null || learningStep === undefined) ? 'NEW' : (reps > 0 ? 'REVIEW' : 'LEARNING'));
-    if (resolvedState === 'REVIEW' && interval >= 60) {
+    if (resolvedState === 'REVIEW' && interval >= 1000) {
         interval = Math.max(1, Math.round(interval / 1440));
     }
-    if (resolvedState === 'REVIEW' && prelapseInterval && prelapseInterval >= 60) {
+    if (resolvedState === 'REVIEW' && prelapseInterval && prelapseInterval >= 1000) {
         prelapseInterval = Math.max(1, Math.round(prelapseInterval / 1440));
     }
 
@@ -308,7 +308,7 @@ export const calculateAnkiSRS = (srs, rating) => {
             case 'hard':
                 // Thay vì giữ ở Relearning (phút), cho tốt nghiệp với số ngày nhỏ hơn Good
                 nextState = 'REVIEW';
-                newInterval = Math.max(1, Math.floor(refInterval * 0.35));
+                newInterval = Math.max(1, Math.floor(refInterval * 0.1)); // Giảm xuống 10% chu kỳ trước khi quên
                 newEase = currentEase - 0.15;
                 newLearningStep = null;
                 newIsLapsed = false;
@@ -316,15 +316,15 @@ export const calculateAnkiSRS = (srs, rating) => {
                 break;
             case 'good':
                 nextState = 'REVIEW';
-                newInterval = Math.max(1, Math.floor(refInterval * 0.7)); // max(1, Prelapse_I * 0.7) days
+                newInterval = Math.max(1, Math.floor(refInterval * 0.2)); // Giảm xuống 20% chu kỳ trước khi quên (phạt 80%)
                 newLearningStep = null;
                 newIsLapsed = false;
                 newPrelapseInterval = null;
                 break;
             case 'easy':
                 nextState = 'REVIEW';
-                const goodInt = Math.max(1, Math.floor(refInterval * 0.7));
-                newInterval = Math.max(goodInt + 1, Math.floor(refInterval * 0.7 * EASY_BONUS)); 
+                const goodInt = Math.max(1, Math.floor(refInterval * 0.2));
+                newInterval = Math.max(goodInt + 1, Math.floor(refInterval * 0.2 * EASY_BONUS)); 
                 newEase = currentEase + 0.15;
                 newLearningStep = null;
                 newIsLapsed = false;
@@ -332,7 +332,7 @@ export const calculateAnkiSRS = (srs, rating) => {
                 break;
             default:
                 nextState = 'REVIEW';
-                newInterval = Math.max(1, Math.floor(refInterval * 0.7));
+                newInterval = Math.max(1, Math.floor(refInterval * 0.2));
                 newLearningStep = null;
                 newIsLapsed = false;
                 newPrelapseInterval = null;

@@ -23,7 +23,7 @@ import { callAI, parseJsonFromAI, getAIProviderInfo, generateVocabPrompt, getOpe
 import { subscribeAdminConfig, hasAdminPrivileges } from './utils/adminSettings'
 import { ensureFuriganaFormat } from './utils/furiganaHelper';
 
-import { getLevelFromXp, getLevelTitle, getWeekId, generateSimulatedLeague, LEAGUES } from './utils/scoring';
+import { getLevelFromXp, getLevelTitle, getWeekId, generateSimulatedLeague, LEAGUES, getLeagueTierRules } from './utils/scoring';
 import { playCompletionFanfare } from './utils/soundEffects';
 import { initConsoleProtection, aiRateLimiter } from './utils/security';
 
@@ -612,7 +612,7 @@ const App = () => {
                             xp: currentXp,
                             level: calculatedLevel,
                             title: calculatedTitle,
-                            league: profileData.league || 'Đồng',
+                            league: profileData.league || 'Sắt',
                             lastLeagueWeekId: profileData.lastLeagueWeekId || getWeekId()
                         });
                     } catch (e) {
@@ -622,29 +622,71 @@ const App = () => {
 
                 // --- League Weekly Evaluation ---
                 const currentWeekId = getWeekId();
-                let userLeague = profileData.league || 'Đồng';
+                let userLeague = profileData.league || 'Sắt';
                 let lastLeagueWeekId = profileData.lastLeagueWeekId;
                 let leagueNotification = '';
 
                 if (lastLeagueWeekId && lastLeagueWeekId !== currentWeekId) {
                     const prevScore = profileData.score || 0;
-                    const simulatedPrevBots = generateSimulatedLeague(userId, lastLeagueWeekId, prevScore);
-                    const allParticipants = [
-                        { id: userId, computedScore: prevScore },
-                        ...simulatedPrevBots
-                    ].sort((a, b) => b.computedScore - a.computedScore);
+                    const prevLeague = userLeague;
+                    const isBotEnabledForPrevLeague = prevLeague === 'Sắt' || prevLeague === 'Đồng';
+
+                    let allParticipants = [{ id: userId, computedScore: prevScore }];
+
+                    if (isBotEnabledForPrevLeague) {
+                        const simulatedPrevBots = generateSimulatedLeague(userId, lastLeagueWeekId, prevScore);
+                        allParticipants = [...allParticipants, ...simulatedPrevBots];
+                    } else {
+                        // For Bạc and above: only compare against real users in the same league
+                        try {
+                            const q = query(
+                                collection(db, publicStatsCollectionPath),
+                                where('league', '==', prevLeague)
+                            );
+                            const snap = await getDocs(q);
+                            snap.docs.forEach(d => {
+                                if (d.id !== userId) {
+                                    const data = d.data();
+                                    allParticipants.push({
+                                        id: d.id,
+                                        computedScore: data.score || 0
+                                    });
+                                }
+                            });
+                        } catch (e) {
+                            console.error("Lỗi lấy dữ liệu người dùng thực để xếp hạng giải đấu:", e);
+                        }
+                    }
+
+                    allParticipants.sort((a, b) => b.computedScore - a.computedScore);
 
                     const myRank = allParticipants.findIndex(p => p.id === userId) + 1;
                     const currentIdx = LEAGUES.indexOf(userLeague);
 
-                    if (myRank <= 5 && currentIdx < LEAGUES.length - 1) {
+                    const tierRules = getLeagueTierRules(prevLeague, allParticipants.length);
+
+                    const qualifiesForPromotion = prevScore >= tierRules.minScoreForPromotion;
+                    const isInPromotionRank = myRank <= tierRules.promoteCount;
+                    const isPromoted = isInPromotionRank && qualifiesForPromotion && currentIdx < LEAGUES.length - 1;
+
+                    const isUnderSafetyScore = prevScore < tierRules.minScoreForSafety;
+                    const isInDemotionRank = tierRules.demoteCount > 0 && myRank > allParticipants.length - tierRules.demoteCount;
+                    const isDemoted = (prevLeague !== 'Sắt' && currentIdx > 0) && (isUnderSafetyScore || isInDemotionRank);
+
+                    if (isPromoted) {
                         userLeague = LEAGUES[currentIdx + 1];
                         leagueNotification = `🎉 Tuyệt vời! Tuần trước bạn đạt Hạng ${myRank} ở League ${LEAGUES[currentIdx]} và được THĂNG HẠNG lên League ${userLeague}!`;
-                    } else if (myRank >= 26 && currentIdx > 0) {
+                    } else if (isDemoted) {
                         userLeague = LEAGUES[currentIdx - 1];
-                        leagueNotification = `⚠️ Rất tiếc! Tuần trước bạn đứng Hạng ${myRank} và đã bị XUỐNG HẠNG xuống League ${userLeague}. Hãy cố gắng thêm tuần này nhé!`;
+                        if (isUnderSafetyScore) {
+                            leagueNotification = `⚠️ Bạn bị XUỐNG HẠNG xuống League ${userLeague} do điểm số tuần trước dưới mức tối thiểu (${prevScore}/${tierRules.minScoreForSafety} điểm). Cố gắng học đều đặn tuần này nhé!`;
+                        } else {
+                            leagueNotification = `⚠️ Rất tiếc! Tuần trước bạn đứng Hạng ${myRank}/${allParticipants.length} và đã bị XUỐNG HẠNG xuống League ${userLeague}. Hãy cố gắng thêm tuần này nhé!`;
+                        }
+                    } else if (isInPromotionRank && !qualifiesForPromotion) {
+                        leagueNotification = `📅 Tuần mới bắt đầu! Dù đứng Hạng ${myRank} nhưng điểm vinh danh của bạn (${prevScore}) chưa đủ tối thiểu (${tierRules.minScoreForPromotion} điểm) để thăng hạng. Bạn tiếp tục ở lại League ${userLeague}.`;
                     } else {
-                        leagueNotification = `📅 Tuần mới đã bắt đầu! Bạn tiếp tục tranh tài tại League ${userLeague} (Xếp hạng tuần trước: ${myRank}).`;
+                        leagueNotification = `📅 Tuần mới đã bắt đầu! Bạn tiếp tục tranh tài tại League ${userLeague} (Xếp hạng tuần trước: ${myRank}/${allParticipants.length}).`;
                     }
 
                     lastLeagueWeekId = currentWeekId;
@@ -801,13 +843,13 @@ const App = () => {
                 }
 
                 // 2. Fix the minute-to-day mismatch bug (e.g. 5760 mins interpreted as 5760 days in REVIEW state)
-                // If the state is REVIEW, then srsInterval is in DAYS. If it is >= 60, it's definitely stored in minutes (legacy)
+                // If the state is REVIEW, then srsInterval is in DAYS. If it is >= 1000, it's definitely stored in minutes (legacy)
                 // and should be converted to days by dividing by 1440.
                 const resolvedState = srsState || (srsReps === 0 && (srsLearningStep === null || srsLearningStep === undefined) ? 'NEW' : (srsReps > 0 ? 'REVIEW' : 'LEARNING'));
-                if (resolvedState === 'REVIEW' && srsInterval >= 60) {
+                if (resolvedState === 'REVIEW' && srsInterval >= 1000) {
                     srsInterval = Math.max(1, Math.round(srsInterval / 1440));
                 }
-                if (resolvedState === 'REVIEW' && srsPrelapseInterval && srsPrelapseInterval >= 60) {
+                if (resolvedState === 'REVIEW' && srsPrelapseInterval && srsPrelapseInterval >= 1000) {
                     srsPrelapseInterval = Math.max(1, Math.round(srsPrelapseInterval / 1440));
                 }
 
@@ -3903,7 +3945,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     // Gamification
                     level: profile.level || 1,
                     title: profile.title || getLevelTitle(1),
-                    league: profile.league || 'Đồng',
+                    league: profile.league || 'Sắt',
                     // Dữ liệu Kanji
                     kanjiTotal: kanjiSrsPublicCount.total,
                     kanjiMastered: kanjiSrsPublicCount.mastered,

@@ -62,20 +62,43 @@ export const POINTS = {
 };
 
 // Leagues configuration
-export const LEAGUES = ['Đồng', 'Bạc', 'Vàng', 'Kim Cương'];
+export const LEAGUES = [
+    'Sắt',
+    'Đồng',
+    'Bạc',
+    'Vàng',
+    'Bạch Kim',
+    'Lục Bảo',
+    'Kim Cương',
+    'Cao Thủ',
+    'Đại Cao Thủ',
+    'Thách Đấu'
+];
 
 export const LEAGUE_ICONS = {
-    'Đồng': 'https://cdn.jsdelivr.net/gh/magisteriis/lol-icons-and-emblems/ranked-emblems/Emblem_Bronze.png',
-    'Bạc': 'https://cdn.jsdelivr.net/gh/magisteriis/lol-icons-and-emblems/ranked-emblems/Emblem_Silver.png',
-    'Vàng': 'https://cdn.jsdelivr.net/gh/magisteriis/lol-icons-and-emblems/ranked-emblems/Emblem_Gold.png',
-    'Kim Cương': 'https://cdn.jsdelivr.net/gh/magisteriis/lol-icons-and-emblems/ranked-emblems/Emblem_Diamond.png'
+    'Sắt': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/iron.svg',
+    'Đồng': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/bronze.svg',
+    'Bạc': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/silver.svg',
+    'Vàng': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/gold.svg',
+    'Bạch Kim': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/platinum.svg',
+    'Lục Bảo': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/emerald.svg',
+    'Kim Cương': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/diamond.svg',
+    'Cao Thủ': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/master.svg',
+    'Đại Cao Thủ': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/grandmaster.svg',
+    'Thách Đấu': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/challenger.svg'
 };
 
 export const LEAGUE_COLORS = {
+    'Sắt': 'from-zinc-550 to-zinc-700 text-zinc-100 border-zinc-600',
     'Đồng': 'from-amber-600 to-amber-800 text-amber-100 border-amber-700',
     'Bạc': 'from-slate-400 to-slate-600 text-slate-100 border-slate-500',
-    'Vàng': 'from-yellow-400 to-amber-500 text-amber-950 border-yellow-500',
-    'Kim Cương': 'from-sky-400 to-indigo-500 text-indigo-50 border-sky-400'
+    'Vàng': 'from-yellow-450 to-amber-500 text-amber-950 border-yellow-500',
+    'Bạch Kim': 'from-teal-400 to-emerald-600 text-teal-50 border-teal-500',
+    'Lục Bảo': 'from-emerald-500 to-green-700 text-emerald-50 border-emerald-600',
+    'Kim Cương': 'from-sky-400 to-indigo-500 text-indigo-50 border-sky-400',
+    'Cao Thủ': 'from-purple-500 to-pink-650 text-purple-50 border-purple-500',
+    'Đại Cao Thủ': 'from-red-500 to-rose-700 text-rose-50 border-red-600',
+    'Thách Đấu': 'from-indigo-600 via-purple-650 to-amber-500 text-amber-100 border-amber-400'
 };
 
 // Returns a stable Sunday-based week identifier string (e.g. "2026-06-14")
@@ -142,5 +165,41 @@ export const generateSimulatedLeague = (userId, weekId, userScore) => {
         });
     }
     return bots;
+};
+
+// Dynamic Promotion/Demotion rules based on active user counts (ideal for small user bases)
+export const getLeagueTierRules = (leagueName, totalParticipants) => {
+    const isBotEnabled = leagueName === 'Sắt' || leagueName === 'Đồng';
+    
+    if (isBotEnabled) {
+        return {
+            minScoreForPromotion: 100, // Phải đạt tối thiểu 100 điểm để thăng hạng
+            minScoreForSafety: 20,     // Dưới 20 điểm hoặc đứng chót sẽ xuống hạng
+            promoteCount: 5,
+            demoteCount: leagueName === 'Sắt' ? 0 : 5,
+            isBotEnabled: true
+        };
+    }
+
+    // For Bạc and above (real users only):
+    // Promote count based on N (totalParticipants)
+    let promoteCount = 1;
+    if (totalParticipants > 20) promoteCount = 5;
+    else if (totalParticipants > 10) promoteCount = 3;
+    else if (totalParticipants > 5) promoteCount = 2;
+
+    // Demote count based on N
+    let demoteCount = 0;
+    if (totalParticipants > 25) demoteCount = 5;
+    else if (totalParticipants > 15) demoteCount = 2;
+    else if (totalParticipants > 8) demoteCount = 1;
+
+    return {
+        minScoreForPromotion: 200, // Phải đạt tối thiểu 200 điểm mới được thăng hạng
+        minScoreForSafety: 30,     // Dưới 30 điểm sẽ bị tự động xuống hạng (coi như không hoạt động)
+        promoteCount,
+        demoteCount,
+        isBotEnabled: false
+    };
 };
 

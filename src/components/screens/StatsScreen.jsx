@@ -3,7 +3,7 @@ import { Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Search, Users, 
 import { collection, query, onSnapshot } from 'firebase/firestore';
 import { auth, db, appId } from '../../config/firebase';
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { getLevelFromXp, getLevelTitle, LEAGUES, LEAGUE_ICONS, LEAGUE_COLORS, getWeekId, generateSimulatedLeague } from '../../utils/scoring';
+import { getLevelFromXp, getLevelTitle, LEAGUES, LEAGUE_ICONS, LEAGUE_COLORS, getWeekId, generateSimulatedLeague, getLeagueTierRules } from '../../utils/scoring';
 
 // Avatar emoji lookup
 const AVATAR_EMOJIS = {
@@ -57,7 +57,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
     const [displayCount, setDisplayCount] = useState(15);
     const [expandedUser, setExpandedUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [selectedLeague, setSelectedLeague] = useState(profile?.league || 'Đồng');
+    const [selectedLeague, setSelectedLeague] = useState(profile?.league || 'Sắt');
     const [timeLeft, setTimeLeft] = useState('');
 
     // Sync selected league when profile updates
@@ -233,19 +233,19 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
 
     const currentWeekId = useMemo(() => getWeekId(), []);
 
-    // Filter real users and fill with bots to form exactly 30 participants
+    // Filter real users and fill with bots to form exactly 30 participants (only for Sắt and Đồng)
     const leagueParticipants = useMemo(() => {
         let realUsersInLeague = leaderboardData.map(u => ({
             ...u,
             computedScore: computeScore(u)
-        })).filter(u => (u.league || 'Đồng') === selectedLeague);
+        })).filter(u => (u.league || 'Sắt') === selectedLeague);
 
         // Remove the current user to avoid duplicates
         const currentUserId = userId;
         realUsersInLeague = realUsersInLeague.filter(u => u.id !== currentUserId);
 
         // Include current user with their latest computed score if they are in this league
-        const userBelongsToThisLeague = (profile?.league || 'Đồng') === selectedLeague;
+        const userBelongsToThisLeague = (profile?.league || 'Sắt') === selectedLeague;
         let finalParticipants = [...realUsersInLeague];
         if (userBelongsToThisLeague) {
             finalParticipants.push({
@@ -263,11 +263,14 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
             });
         }
 
-        // Fill remaining spaces with deterministic competitive bots
-        const needed = 30 - finalParticipants.length;
-        if (needed > 0) {
-            const bots = generateSimulatedLeague(currentUserId + selectedLeague, currentWeekId, myScore);
-            finalParticipants = [...finalParticipants, ...bots.slice(0, needed)];
+        // Fill remaining spaces with deterministic competitive bots only for entry-level leagues (Sắt, Đồng)
+        const isBotEnabled = selectedLeague === 'Sắt' || selectedLeague === 'Đồng';
+        if (isBotEnabled) {
+            const needed = 30 - finalParticipants.length;
+            if (needed > 0) {
+                const bots = generateSimulatedLeague(currentUserId + selectedLeague, currentWeekId, myScore);
+                finalParticipants = [...finalParticipants, ...bots.slice(0, needed)];
+            }
         }
 
         // Filter out inactive real users (inactive > 7 days)
@@ -332,18 +335,39 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
 
         let zoneBadge = null;
         if (!searchTerm.trim()) {
-            if (rank <= 5) {
-                zoneBadge = (
-                    <span className="bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-450 text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 border border-emerald-100/30 dark:border-emerald-900/30 shadow-sm animate-pulse">
-                        ▲ THĂNG HẠNG
-                    </span>
-                );
-            } else if (rank >= 26) {
-                zoneBadge = (
-                    <span className="bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-450 text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 border border-rose-100/30 dark:border-rose-900/30 shadow-sm">
-                        ▼ XUỐNG HẠNG
-                    </span>
-                );
+            const tierRules = getLeagueTierRules(selectedLeague, leagueParticipants.length);
+            
+            if (rank <= tierRules.promoteCount) {
+                if (user.computedScore >= tierRules.minScoreForPromotion) {
+                    zoneBadge = (
+                        <span className="bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-450 text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 border border-emerald-100/30 dark:border-emerald-900/30 shadow-sm animate-pulse">
+                            ▲ THĂNG HẠNG
+                        </span>
+                    );
+                } else {
+                    zoneBadge = (
+                        <span className="bg-amber-50 dark:bg-amber-950/30 text-amber-600 dark:text-amber-450 text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 border border-amber-100/30 dark:border-amber-900/30 shadow-sm" title={`Cần tối thiểu ${tierRules.minScoreForPromotion} điểm vinh danh để thăng hạng`}>
+                            🔒 THIẾU ĐIỂM ({user.computedScore}/{tierRules.minScoreForPromotion})
+                        </span>
+                    );
+                }
+            } else if (selectedLeague !== 'Sắt') {
+                const isUnderSafetyScore = user.computedScore < tierRules.minScoreForSafety;
+                const isInDemotionRank = tierRules.demoteCount > 0 && rank > leagueParticipants.length - tierRules.demoteCount;
+                
+                if (isUnderSafetyScore) {
+                    zoneBadge = (
+                        <span className="bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-450 text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 border border-rose-100/30 dark:border-rose-900/30 shadow-sm" title={`Điểm vinh danh dưới ${tierRules.minScoreForSafety} sẽ bị tự động xuống hạng`}>
+                            ▼ XUỐNG HẠNG (ÍT HỌC)
+                        </span>
+                    );
+                } else if (isInDemotionRank) {
+                    zoneBadge = (
+                        <span className="bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-450 text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 border border-rose-100/30 dark:border-rose-900/30 shadow-sm">
+                            ▼ XUỐNG HẠNG
+                        </span>
+                    );
+                }
             }
         }
 
@@ -582,25 +606,25 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                 </div>
 
                 {/* Leagues Tab Buttons */}
-                <div className="grid grid-cols-4 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
                     {LEAGUES.map(lg => {
                         const icon = LEAGUE_ICONS[lg];
                         const colors = LEAGUE_COLORS[lg];
                         const isSelected = selectedLeague === lg;
-                        const isUserLeague = (profile?.league || 'Đồng') === lg;
+                        const isUserLeague = (profile?.league || 'Sắt') === lg;
                         
                         return (
                             <button
                                 key={lg}
                                 onClick={() => { setSelectedLeague(lg); setDisplayCount(15); }}
-                                className={`relative flex flex-col items-center justify-center p-3 rounded-2xl border transition-all duration-300 ${
+                                className={`relative flex flex-col items-center justify-center p-2.5 sm:p-3.5 rounded-2xl border transition-all duration-305 ${
                                     isSelected 
                                         ? `bg-gradient-to-br ${colors} shadow-md scale-102 border-transparent font-black` 
-                                        : 'bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-700 border-gray-200/60 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-bold'
+                                        : 'bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-705 border-gray-205/60 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-bold'
                                 }`}
                             >
-                                <img src={icon} alt={lg} className="w-12 h-12 object-contain mb-1 drop-shadow-md" />
-                                <span className="text-xs uppercase tracking-wider">{lg}</span>
+                                <img src={icon} alt={lg} className="w-12 h-12 sm:w-14 sm:h-14 object-contain mb-1 drop-shadow-md" />
+                                <span className="text-[10px] sm:text-xs uppercase tracking-wider truncate max-w-full px-0.5">{lg}</span>
                                 
                                 {isUserLeague && (
                                     <span className={`absolute -top-1 -right-1 text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider border shadow-sm ${
@@ -765,7 +789,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                         <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2 text-base">
                             <Trophy className="w-5 h-5 text-indigo-500 fill-indigo-100 dark:fill-indigo-900/30" />
                             Bảng xếp hạng Giải đấu: League {selectedLeague}
-                            <img src={LEAGUE_ICONS[selectedLeague]} alt={selectedLeague} className="w-7 h-7 object-contain inline-block ml-1.5 align-middle" />
+                            <img src={LEAGUE_ICONS[selectedLeague]} alt={selectedLeague} className="w-9 h-9 object-contain inline-block ml-2 align-middle drop-shadow-sm" />
                         </h3>
 
                         {/* Sort options */}
@@ -930,16 +954,22 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
                     <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-emerald-100/50 dark:border-emerald-950/20 space-y-1">
-                        <p className="font-bold text-emerald-700 dark:text-emerald-400">🛡️ Cấp hạng Giải đấu</p>
-                        <p className="text-gray-600 dark:text-gray-400">Có 4 cấp hạng tăng dần: <strong>Đồng 🟤 → Bạc ⚪ → Vàng 🟡 → Kim Cương 💎</strong></p>
+                        <p className="font-bold text-emerald-700 dark:text-emerald-400">🛡️ Cấp hạng Giải đấu (10 Ranks)</p>
+                        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Có 10 cấp hạng tăng dần: <strong>Sắt 🔘 → Đồng 🥉 → Bạc 🥈 → Vàng 🥇 → Bạch Kim 💎 → Lục Bảo 🟢 → Kim Cương 💠 → Cao Thủ 🟣 → Đại Cao Thủ 🔴 → Thách Đấu 👑</strong>
+                        </p>
                     </div>
                     <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-emerald-100/50 dark:border-emerald-950/20 space-y-1">
-                        <p className="font-bold text-emerald-700 dark:text-emerald-400">📈 Thăng hạng (Top 5)</p>
-                        <p className="text-gray-600 dark:text-gray-400">Kết thúc tuần (chủ nhật), <strong>Top 5</strong> người có điểm vinh danh cao nhất sẽ được thăng lên giải đấu cao hơn.</p>
+                        <p className="font-bold text-emerald-700 dark:text-emerald-400">📈 Thăng / Xuống hạng</p>
+                        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Quy chế động theo số người tham gia: Sắt/Đồng lấy <strong>Top 5</strong> (tối thiểu 100đ). Bạc trở lên lấy <strong>Top 1-5</strong> tùy quy mô giải đấu (tối thiểu 200đ). Tự động xuống hạng nếu không tích cực học tập (dưới 30đ).
+                        </p>
                     </div>
                     <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-emerald-100/50 dark:border-emerald-950/20 space-y-1">
-                        <p className="font-bold text-emerald-700 dark:text-emerald-400">📉 Xuống hạng (Bottom 5)</p>
-                        <p className="text-gray-600 dark:text-gray-400"><strong>Bottom 5</strong> (Hạng 26-30) hoạt động kém nhất sẽ bị xuống hạng. Đảm bảo bạn duy trì ôn tập hàng ngày nhé!</p>
+                        <p className="font-bold text-emerald-700 dark:text-emerald-400">🔥 Đấu trường thực tế</p>
+                        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Từ giải <strong>Bạc trở lên</strong>, hệ thống loại bỏ hoàn toàn các tài khoản bot. Bạn sẽ cạnh tranh trực tiếp với những người học thực tế.
+                        </p>
                     </div>
                 </div>
             </div>
