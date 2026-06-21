@@ -118,8 +118,10 @@ const ExamAnnotationOverlay = ({
     testId, 
     sectionIdx, 
     questionIdx, 
-    isEnabled
+    isEnabled,
+    readOnly = false
 }) => {
+    const shouldRender = isEnabled || readOnly;
     const canvasRef = useRef(null);
     const overlayRef = useRef(null);
     const toolbarRef = useRef(null);
@@ -213,7 +215,7 @@ const ExamAnnotationOverlay = ({
 
     // --- Dynamic Text Highlight Rendering via CSS Custom Highlights API ---
     useEffect(() => {
-        if (!isEnabled) return;
+        if (!shouldRender) return;
         
         if (typeof CSS === 'undefined' || !CSS.highlights || typeof Highlight === 'undefined') {
             return;
@@ -245,7 +247,7 @@ const ExamAnnotationOverlay = ({
         if (yellowRanges.length > 0) CSS.highlights.set('hl-yellow', new Highlight(...yellowRanges));
         if (greenRanges.length > 0) CSS.highlights.set('hl-green', new Highlight(...greenRanges));
         if (pinkRanges.length > 0) CSS.highlights.set('hl-pink', new Highlight(...pinkRanges));
-    }, [selectionHighlights, isEnabled, questionKey]);
+    }, [selectionHighlights, shouldRender, questionKey]);
 
     // --- Text Selection Highlight Handler ---
     useEffect(() => {
@@ -374,7 +376,7 @@ const ExamAnnotationOverlay = ({
     }, []);
 
     useEffect(() => {
-        if (!isEnabled) return;
+        if (!shouldRender) return;
         
         updateSize();
         const initialTimer = setTimeout(updateSize, 100);
@@ -394,13 +396,13 @@ const ExamAnnotationOverlay = ({
             observer.disconnect();
             window.removeEventListener('resize', updateSize);
         };
-    }, [updateSize, questionKey, isEnabled]);
+    }, [updateSize, questionKey, shouldRender]);
 
     // Redraw on change
     useEffect(() => {
-        if (!isEnabled) return;
+        if (!shouldRender) return;
         drawCanvas();
-    }, [canvasSize, strokes, currentPoints, curveState, activeTool, penColor, highlighterColor, isEnabled]);
+    }, [canvasSize, strokes, currentPoints, curveState, activeTool, penColor, highlighterColor, shouldRender]);
 
     // --- Drawing Maths Helpers ---
     const getDistance = (p1, p2) => Math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2);
@@ -1140,7 +1142,7 @@ const ExamAnnotationOverlay = ({
         );
     };
 
-    if (!isEnabled) return null;
+    if (!shouldRender) return null;
 
     return (
         <div 
@@ -1160,14 +1162,14 @@ const ExamAnnotationOverlay = ({
                 height={canvasSize.height}
                 className="absolute inset-0 w-full h-full"
                 style={{ 
-                    cursor: (activeTool === 'cursor' || activeTool === 'text-highlighter') ? 'default' : 
+                    cursor: readOnly ? 'default' : ((activeTool === 'cursor' || activeTool === 'text-highlighter') ? 'default' : 
                             activeTool === 'eraser' ? 'cell' : 
-                            activeTool === 'text' ? 'text' : 'crosshair',
-                    pointerEvents: (activeTool === 'cursor' || activeTool === 'text-highlighter') ? 'none' : 'auto'
+                            activeTool === 'text' ? 'text' : 'crosshair'),
+                    pointerEvents: readOnly ? 'none' : ((activeTool === 'cursor' || activeTool === 'text-highlighter') ? 'none' : 'auto')
                 }}
-                onPointerDown={handlePointerDown}
-                onPointerMove={handlePointerMove}
-                onPointerUp={handlePointerUp}
+                onPointerDown={readOnly ? undefined : handlePointerDown}
+                onPointerMove={readOnly ? undefined : handlePointerMove}
+                onPointerUp={readOnly ? undefined : handlePointerUp}
             />
 
             {/* Sticky Notes */}
@@ -1182,51 +1184,56 @@ const ExamAnnotationOverlay = ({
                         height: `${note.height || 150}px`,
                         backgroundColor: note.color,
                         borderColor: 'rgba(0, 0, 0, 0.08)',
-                        pointerEvents: 'auto'
+                        pointerEvents: readOnly ? 'none' : 'auto'
                     }}
                 >
-                    <div 
-                        onPointerDown={(e) => handleDragStart('sticky', note.id, e)}
-                        className="h-6 flex items-center justify-between px-2 cursor-move select-none"
-                        style={{ backgroundColor: 'rgba(0, 0, 0, 0.04)' }}
-                    >
-                        <GripVertical className="w-3.5 h-3.5 text-slate-500 opacity-60 group-hover:opacity-100" />
-                        
-                        <div className="flex items-center gap-1.5 opacity-40 group-hover:opacity-100 transition-opacity">
-                            <button 
-                                onClick={(e) => handleStickyColorToggle(note.id, e)}
-                                className="w-3.5 h-3.5 rounded-full border border-black/10 flex items-center justify-center bg-white hover:scale-110 cursor-pointer"
-                                title="Đổi màu"
-                            >
-                                <Palette className="w-2 h-2 text-slate-600" />
-                            </button>
-                            <button 
-                                onClick={(e) => deleteSticky(note.id, e)}
-                                className="text-slate-600 hover:text-red-600 transition"
-                                title="Xoá giấy note"
-                            >
-                                <X className="w-3.5 h-3.5" />
-                            </button>
+                    {!readOnly && (
+                        <div 
+                            onPointerDown={(e) => handleDragStart('sticky', note.id, e)}
+                            className="h-6 flex items-center justify-between px-2 cursor-move select-none"
+                            style={{ backgroundColor: 'rgba(0, 0, 0, 0.04)' }}
+                        >
+                            <GripVertical className="w-3.5 h-3.5 text-slate-500 opacity-60 group-hover:opacity-100" />
+                            
+                            <div className="flex items-center gap-1.5 opacity-40 group-hover:opacity-100 transition-opacity">
+                                <button 
+                                    onClick={(e) => handleStickyColorToggle(note.id, e)}
+                                    className="w-3.5 h-3.5 rounded-full border border-black/10 flex items-center justify-center bg-white hover:scale-110 cursor-pointer"
+                                    title="Đổi màu"
+                                >
+                                    <Palette className="w-2 h-2 text-slate-600" />
+                                </button>
+                                <button 
+                                    onClick={(e) => deleteSticky(note.id, e)}
+                                    className="text-slate-600 hover:text-red-600 transition"
+                                    title="Xoá giấy note"
+                                >
+                                    <X className="w-3.5 h-3.5" />
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    )}
 
                     <textarea
                         value={note.text}
                         onChange={(e) => handleStickyTextChange(note.id, e.target.value)}
-                        placeholder="Ghi chú..."
+                        placeholder={readOnly ? "" : "Ghi chú..."}
                         className="flex-1 p-2 bg-transparent resize-none border-none outline-none font-sans text-xs text-slate-800 placeholder-slate-500/60 leading-normal"
                         onPointerDown={(e) => e.stopPropagation()} 
+                        readOnly={readOnly}
                     />
 
-                    <div 
-                        onPointerDown={(e) => handleResizeStart(note.id, e)}
-                        className="absolute bottom-0 right-0 w-3.5 h-3.5 cursor-se-resize flex items-end justify-end p-0.5 pointer-events-auto"
-                        title="Kéo rộng note"
-                    >
-                        <svg width="6" height="6" viewBox="0 0 6 6" className="text-slate-500 opacity-50">
-                            <path d="M6 0 L0 6 M6 3 L3 6" stroke="currentColor" strokeWidth="1" />
-                        </svg>
-                    </div>
+                    {!readOnly && (
+                        <div 
+                            onPointerDown={(e) => handleResizeStart(note.id, e)}
+                            className="absolute bottom-0 right-0 w-3.5 h-3.5 cursor-se-resize flex items-end justify-end p-0.5 pointer-events-auto"
+                            title="Kéo rộng note"
+                        >
+                            <svg width="6" height="6" viewBox="0 0 6 6" className="text-slate-500 opacity-50">
+                                <path d="M6 0 L0 6 M6 3 L3 6" stroke="currentColor" strokeWidth="1" />
+                            </svg>
+                        </div>
+                    )}
                 </div>
             ))}
 
@@ -1237,48 +1244,57 @@ const ExamAnnotationOverlay = ({
                 return (
                     <div
                         key={textObj.id}
-                        className="absolute z-25 group select-none text-annotation-box flex items-center rounded hover:bg-slate-100/30 hover:ring-1 hover:ring-slate-350/50 dark:hover:bg-slate-800/20 dark:hover:ring-slate-700/60 pointer-events-auto"
+                        className="absolute z-25 group select-none text-annotation-box flex items-center rounded hover:bg-slate-100/30 hover:ring-1 hover:ring-slate-350/50 dark:hover:bg-slate-800/20 dark:hover:ring-slate-700/60"
                         style={{
                             left: `${textObj.x}px`,
                             top: `${textObj.y}px`,
                             width: `${w}px`,
                             color: textObj.color,
                             fontSize: `${fs}px`,
-                            lineHeight: '1.2'
+                            lineHeight: '1.2',
+                            pointerEvents: readOnly ? 'none' : 'auto'
                         }}
                         onPointerDown={(e) => {
+                            if (readOnly) return;
                             if (!e.target.closest('.text-resize-handle')) {
                                 handleDragStart('text', textObj.id, e);
                             }
                         }}
-                        onDoubleClick={(e) => handleTextEditStart(textObj, e)}
+                        onDoubleClick={(e) => {
+                            if (readOnly) return;
+                            handleTextEditStart(textObj, e);
+                        }}
                     >
                         <div className="w-full relative min-h-[1.5em] pr-4 break-words whitespace-pre-wrap font-sans text-left">
                             {textObj.text}
                             
-                            <button 
-                                onClick={(e) => deleteText(textObj.id, e)}
-                                className="absolute top-0 right-0 hidden group-hover:block p-0.5 text-slate-400 hover:text-red-500 cursor-pointer"
-                                title="Xóa chữ"
-                            >
-                                <X className="w-3 h-3" />
-                            </button>
+                            {!readOnly && (
+                                <>
+                                    <button 
+                                        onClick={(e) => deleteText(textObj.id, e)}
+                                        className="absolute top-0 right-0 hidden group-hover:block p-0.5 text-slate-400 hover:text-red-500 cursor-pointer"
+                                        title="Xóa chữ"
+                                    >
+                                        <X className="w-3 h-3" />
+                                    </button>
 
-                            <div
-                                onPointerDown={(e) => handleTextResizeStart(textObj.id, 'horizontal', e)}
-                                className="text-resize-handle absolute top-0 bottom-0 -right-1.5 w-3 cursor-e-resize flex items-center justify-center group-hover:opacity-100 opacity-0 transition-opacity"
-                                title="Kéo ngang để xuống dòng"
-                            >
-                                <div className="w-1 h-3 bg-indigo-500/80 rounded-full" />
-                            </div>
+                                    <div
+                                        onPointerDown={(e) => handleTextResizeStart(textObj.id, 'horizontal', e)}
+                                        className="text-resize-handle absolute top-0 bottom-0 -right-1.5 w-3 cursor-e-resize flex items-center justify-center group-hover:opacity-100 opacity-0 transition-opacity"
+                                        title="Kéo ngang để xuống dòng"
+                                    >
+                                        <div className="w-1 h-3 bg-indigo-500/80 rounded-full" />
+                                    </div>
 
-                            <div
-                                onPointerDown={(e) => handleTextResizeStart(textObj.id, 'diagonal', e)}
-                                className="text-resize-handle absolute -bottom-1.5 -right-1.5 w-3.5 h-3.5 cursor-se-resize flex items-center justify-center group-hover:opacity-100 opacity-0 transition-opacity"
-                                title="Kéo góc chéo để phóng to chữ"
-                            >
-                                <div className="w-2 h-2 bg-indigo-500/85 rounded-sm" />
-                            </div>
+                                    <div
+                                        onPointerDown={(e) => handleTextResizeStart(textObj.id, 'diagonal', e)}
+                                        className="text-resize-handle absolute -bottom-1.5 -right-1.5 w-3.5 h-3.5 cursor-se-resize flex items-center justify-center group-hover:opacity-100 opacity-0 transition-opacity"
+                                        title="Kéo góc chéo để phóng to chữ"
+                                    >
+                                        <div className="w-2 h-2 bg-indigo-500/85 rounded-sm" />
+                                    </div>
+                                </>
+                            )}
                         </div>
                     </div>
                 );
@@ -1336,7 +1352,7 @@ const ExamAnnotationOverlay = ({
             )}
 
             {/* Floating Toolbar and its options flyout drawer rendered in Portal */}
-            {createPortal(
+            {!readOnly && createPortal(
                 <>
                     {/* Floating Options Flyout Drawer */}
                     {renderOptionsDrawer()}
@@ -1515,7 +1531,7 @@ const ExamAnnotationOverlay = ({
             )}
 
             {/* Help Dialog Modal */}
-            {showHelp && !isCollapsed && createPortal(
+            {showHelp && !isCollapsed && !readOnly && createPortal(
                 <div className="fixed inset-0 z-55 flex items-center justify-center p-4 bg-black/45 backdrop-blur-xs font-sans">
                     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 max-w-sm shadow-2xl space-y-4 text-left animate-fade-in">
                         <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">

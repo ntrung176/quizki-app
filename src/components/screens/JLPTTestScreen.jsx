@@ -897,10 +897,10 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                 ) : (
                     <div>
                         {hasAnyReviewNote ? (
-                            <div className="bg-amber-50/50 dark:bg-amber-950/10 border border-dashed border-amber-300 dark:border-amber-900/40 rounded-xl p-3.5 shadow-sm relative">
-                                <div className="flex items-center justify-between border-b border-amber-200/40 dark:border-amber-900/20 pb-2 mb-2">
-                                    <span className="text-amber-800 dark:text-amber-400 font-extrabold text-[10px] flex items-center gap-1">
-                                        <FileText className="w-3.5 h-3.5 fill-current" /> GHI CHÚ
+                            <div className="bg-rose-50/60 dark:bg-rose-950/15 border border-dashed border-rose-300 dark:border-rose-900/40 rounded-xl p-3.5 shadow-sm relative animate-fade-in">
+                                <div className="flex items-center justify-between border-b border-rose-200/40 dark:border-rose-900/20 pb-2 mb-2">
+                                    <span className="text-rose-700 dark:text-rose-455 font-extrabold text-[10px] flex items-center gap-1.5 uppercase tracking-wider">
+                                        <span className="text-sm">✍️</span> Lời phê / Sửa bài
                                     </span>
                                     <div className="flex items-center gap-2">
                                         <button 
@@ -915,18 +915,20 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                 setReviewNoteTab(questionDraw ? 'draw' : 'text');
                                                 setEditingReviewNoteKey(noteKey);
                                             }} 
-                                            className="p-1 rounded hover:bg-amber-100 dark:hover:bg-amber-900/40 text-amber-700 dark:text-amber-400 transition"
+                                            className="p-1 rounded hover:bg-rose-100 dark:hover:bg-rose-900/40 text-rose-700 dark:text-rose-400 transition"
+                                            title="Sửa ghi chú"
                                         >
                                             <Edit3 className="w-3.5 h-3.5" />
                                         </button>
                                         <button 
                                             onClick={async () => {
-                                                const ok = await window.showConfirm("Bạn có muốn xóa ghi chú này?", { type: 'danger' });
+                                                const ok = await window.showConfirm("Bạn có muốn xóa ghi chú sửa bài này?", { type: 'danger' });
                                                 if (ok) {
                                                     deleteNotesMultiple([noteKey, drawKey, strokesKey]);
                                                 }
                                             }} 
-                                            className="p-1 rounded hover:bg-amber-100 dark:hover:bg-amber-900/40 text-rose-600 dark:text-rose-400 transition"
+                                            className="p-1 rounded hover:bg-rose-100 dark:hover:bg-rose-900/40 text-rose-600 dark:text-rose-400 transition"
+                                            title="Xóa ghi chú"
                                         >
                                             <X className="w-3.5 h-3.5" />
                                         </button>
@@ -934,16 +936,17 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                 </div>
                                 <div className="space-y-3.5">
                                     {questionNote && (
-                                        <p className="text-xs text-slate-750 dark:text-slate-200 font-sans italic whitespace-pre-line leading-relaxed">
-                                            {questionNote}
+                                        <p className="text-sm text-rose-800 dark:text-rose-300 font-serif italic whitespace-pre-line leading-relaxed pl-1 border-l-2 border-rose-300/40">
+                                            "{questionNote}"
                                         </p>
                                     )}
                                     {questionDraw && (
-                                        <div className="flex justify-center bg-white dark:bg-slate-900/35 p-2 rounded-lg border border-slate-150 dark:border-slate-800/60 shadow-inner">
+                                        <div className="flex justify-center bg-rose-50/20 dark:bg-rose-950/5 p-2 rounded-lg border border-rose-100 dark:border-rose-900/30 shadow-inner">
                                             <img 
                                                 src={questionDraw} 
-                                                alt="Ghi chú viết tay" 
+                                                alt="Sửa bài viết tay" 
                                                 className="max-h-40 object-contain dark:invert-[0.1]" 
+                                                style={{ filter: 'hue-rotate(330deg) saturate(1.5)' }}
                                             />
                                         </div>
                                     )}
@@ -958,9 +961,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                     setReviewNoteTab('text');
                                     setEditingReviewNoteKey(noteKey);
                                 }}
-                                className="py-1.5 px-3 border border-dashed border-slate-200 dark:border-slate-700 hover:border-amber-300 dark:hover:border-amber-800 rounded-lg flex items-center gap-1.5 text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 font-bold text-[10px] transition"
+                                className="py-1.5 px-3 border border-dashed border-rose-250 dark:border-rose-900/40 hover:bg-rose-50 dark:hover:bg-rose-950/10 rounded-lg flex items-center gap-1.5 text-rose-650 hover:text-rose-700 dark:text-rose-400 dark:hover:text-rose-300 font-bold text-[10px] transition cursor-pointer select-none"
                             >
-                                <Edit3 className="w-3.5 h-3.5" /> Thêm ghi chú
+                                <Edit3 className="w-3.5 h-3.5" /> Viết lời phê / Sửa đề
                             </button>
                         )}
                     </div>
@@ -1041,6 +1044,23 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
             setNotification(`Đã chuyển đề thi sang: ${nextVal ? 'Premium' : 'Miễn phí'}`);
         } catch (err) {
             console.error('Error toggling premium status:', err);
+            setNotification('Lỗi: ' + err.message);
+        }
+    };
+
+    const handleToggleTestFixed = async (e, test) => {
+        if (e) e.stopPropagation();
+        if (!isAdmin) return;
+        try {
+            const testRef = doc(db, `artifacts/${appId}/jlptTests`, test.id);
+            const nextVal = !test.isFixed;
+            await updateDoc(testRef, { isFixed: nextVal });
+            setNotification(`Đã đánh dấu đề thi: ${nextVal ? 'Đã sửa' : 'Chưa sửa'}`);
+            if (activeTest && activeTest.id === test.id) {
+                setActiveTest(prev => ({ ...prev, isFixed: nextVal }));
+            }
+        } catch (err) {
+            console.error('Error toggling fixed status:', err);
             setNotification('Lỗi: ' + err.message);
         }
     };
@@ -1934,7 +1954,20 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                     <span>Thoát xem lại</span>
                                 </button>
                                 <div>
-                                    <p className="text-sm font-bold text-gray-800 dark:text-white">{activeTest.title} (Xem lại đáp án)</p>
+                                    <div className="flex items-center gap-2">
+                                        <p className="text-sm font-bold text-gray-800 dark:text-white">{activeTest.title} (Xem lại đáp án)</p>
+                                        {isAdmin && (
+                                            <label className="flex items-center gap-1.5 cursor-pointer select-none text-[10px] font-bold text-emerald-650 dark:text-emerald-450 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 px-2 py-0.5 rounded-lg border border-emerald-200/30 transition shrink-0 select-none">
+                                                <input 
+                                                    type="checkbox" 
+                                                    checked={!!activeTest.isFixed} 
+                                                    onChange={(e) => handleToggleTestFixed(e, activeTest)}
+                                                    className="w-3.5 h-3.5 rounded border-emerald-350 text-emerald-500 focus:ring-emerald-500 cursor-pointer"
+                                                />
+                                                <span>Đã sửa đề</span>
+                                            </label>
+                                        )}
+                                    </div>
                                     <p className="text-xs text-gray-500">{section.title}</p>
                                 </div>
                             </div>
@@ -2060,6 +2093,13 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                         </div>
                         {/* Main question area */}
                         <div className="flex-1 p-4 md:p-8 overflow-y-auto relative" id="jlpt-main-scroll-container">
+                            <ExamAnnotationOverlay
+                                testId={activeTest.id}
+                                sectionIdx={currentSectionIdx}
+                                questionIdx={currentQuestionIdx}
+                                isEnabled={false}
+                                readOnly={true}
+                            />
                             <div className="max-w-3xl mx-auto">
                                 {/* Question number */}
                                 <div className="flex items-center gap-2 mb-4">
@@ -2460,7 +2500,20 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                 <X className="w-5 h-5" />
                             </button>
                             <div>
-                                <p className="text-sm font-bold text-gray-800 dark:text-white">{activeTest.title}</p>
+                                <div className="flex items-center gap-2">
+                                    <p className="text-sm font-bold text-gray-800 dark:text-white">{activeTest.title}</p>
+                                    {isAdmin && (
+                                        <label className="flex items-center gap-1.5 cursor-pointer select-none text-[10px] font-bold text-emerald-650 dark:text-emerald-450 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 px-2 py-0.5 rounded-lg border border-emerald-200/30 transition shrink-0 select-none">
+                                            <input 
+                                                type="checkbox" 
+                                                checked={!!activeTest.isFixed} 
+                                                onChange={(e) => handleToggleTestFixed(e, activeTest)}
+                                                className="w-3.5 h-3.5 rounded border-emerald-350 text-emerald-500 focus:ring-emerald-500 cursor-pointer"
+                                            />
+                                            <span>Đã sửa đề</span>
+                                        </label>
+                                    )}
+                                </div>
                                 <p className="text-xs text-gray-500">{section.title}</p>
                             </div>
                         </div>
@@ -3115,17 +3168,28 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                         className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-h-[250px] relative overflow-hidden group shadow-sm"
                                     >
                                         {isAdmin && (
-                                            <button
-                                                onClick={(e) => handleToggleTestPremium(e, test)}
-                                                className={`absolute top-4 right-4 p-2 rounded-xl transition cursor-pointer border hover:scale-105 z-10 ${
-                                                    test.isPremium
-                                                        ? 'bg-amber-50 dark:bg-amber-950/40 text-amber-500 border-amber-200/50 hover:bg-amber-100 dark:hover:bg-amber-900/40'
-                                                        : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800'
-                                                }`}
-                                                title={test.isPremium ? "Chuyển thành Miễn phí" : "Chuyển thành Premium"}
-                                            >
-                                                {test.isPremium ? <Lock className="w-3.5 h-3.5" /> : <Unlock className="w-3.5 h-3.5" />}
-                                            </button>
+                                            <div className="absolute top-4 right-4 flex items-center gap-1.5 z-10 animate-fade-in">
+                                                <label className="flex items-center gap-1 cursor-pointer select-none text-[10px] font-bold text-emerald-650 dark:text-emerald-450 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 px-2 py-1 rounded-lg border border-emerald-200/30 transition shrink-0 select-none">
+                                                    <input 
+                                                        type="checkbox" 
+                                                        checked={!!test.isFixed} 
+                                                        onChange={(e) => handleToggleTestFixed(e, test)}
+                                                        className="w-3 h-3 rounded border-emerald-355 text-emerald-500 focus:ring-emerald-500 cursor-pointer"
+                                                    />
+                                                    <span>Đã sửa</span>
+                                                </label>
+                                                <button
+                                                    onClick={(e) => handleToggleTestPremium(e, test)}
+                                                    className={`p-2 rounded-xl transition cursor-pointer border hover:scale-105 ${
+                                                        test.isPremium
+                                                            ? 'bg-amber-50 dark:bg-amber-950/40 text-amber-500 border-amber-200/50 hover:bg-amber-100 dark:hover:bg-amber-900/40'
+                                                            : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                                    }`}
+                                                    title={test.isPremium ? "Chuyển thành Miễn phí" : "Chuyển thành Premium"}
+                                                >
+                                                    {test.isPremium ? <Lock className="w-3.5 h-3.5" /> : <Unlock className="w-3.5 h-3.5" />}
+                                                </button>
+                                            </div>
                                         )}
                                         <div>
                                             {/* Top badges */}
@@ -3514,6 +3578,15 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                         >
                                             {isAdmin && (
                                                 <div className="absolute top-4 right-4 flex items-center gap-1.5 z-10">
+                                                    <label className="flex items-center gap-1 cursor-pointer select-none text-[10px] font-bold text-emerald-650 dark:text-emerald-455 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 px-2 py-1 rounded-lg border border-emerald-200/30 transition shrink-0 select-none">
+                                                        <input 
+                                                            type="checkbox" 
+                                                            checked={!!test.isFixed} 
+                                                            onChange={(e) => handleToggleTestFixed(e, test)}
+                                                            className="w-3 h-3 rounded border-emerald-355 text-emerald-500 focus:ring-emerald-500 cursor-pointer"
+                                                        />
+                                                        <span>Đã sửa</span>
+                                                    </label>
                                                     <button
                                                         onClick={(e) => handleToggleTestPremium(e, test)}
                                                         className={`p-2 rounded-xl transition cursor-pointer border hover:scale-105 ${
@@ -4242,6 +4315,15 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                             <div className="flex items-center gap-2">
                                                 {isAdmin && (
                                                     <div className="flex items-center gap-1.5 animate-fade-in shrink-0">
+                                                        <label className="flex items-center gap-1 cursor-pointer select-none text-[10px] font-bold text-emerald-650 dark:text-emerald-450 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 px-2 py-1 rounded-lg border border-emerald-200/30 transition shrink-0 select-none">
+                                                            <input 
+                                                                type="checkbox" 
+                                                                checked={!!test.isFixed} 
+                                                                onChange={(e) => handleToggleTestFixed(e, test)}
+                                                                className="w-3 h-3 rounded border-emerald-350 text-emerald-500 focus:ring-emerald-500 cursor-pointer"
+                                                            />
+                                                            <span>Đã sửa</span>
+                                                        </label>
                                                         <button
                                                             onClick={(e) => handleToggleTestPremium(e, test)}
                                                             className={`p-1 rounded-md transition cursor-pointer border hover:scale-105 ${
