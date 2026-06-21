@@ -199,6 +199,35 @@ const speechgenTTS = async (text) => {
     }
 
     // === Bước 2: Không có cache → gọi SpeechGen API ===
+    // Kiểm tra giới hạn số lượt gọi API của người dùng trong ngày (chống lạm dụng/spam)
+    const checkAndIncrementQuota = () => {
+        try {
+            const today = new Date().toDateString();
+            const storedDate = localStorage.getItem('quizki-tts-quota-date');
+            let count = parseInt(localStorage.getItem('quizki-tts-quota-count') || '0');
+            
+            if (storedDate !== today) {
+                count = 0;
+                localStorage.setItem('quizki-tts-quota-date', today);
+            }
+            
+            if (count >= 50) { // Giới hạn tối đa 50 lượt tạo mới từ API mỗi ngày
+                console.warn('⚠️ Hạn mức tạo âm thanh mới SpeechGen trong ngày đã hết (50 lượt). Tự động dùng Web Speech API làm fallback.');
+                return false;
+            }
+            
+            localStorage.setItem('quizki-tts-quota-count', (count + 1).toString());
+            return true;
+        } catch (e) {
+            console.error('Error checking quota:', e);
+            return true; // Cho phép nếu gặp lỗi hệ thống local
+        }
+    };
+
+    if (!checkAndIncrementQuota()) {
+        return null; // Trực tiếp chuyển sang Web Speech API fallback
+    }
+
     try {
         // Step 1: Gọi SpeechGen API qua proxy để lấy URL file MP3
         const response = await fetch(proxyUrl, {
