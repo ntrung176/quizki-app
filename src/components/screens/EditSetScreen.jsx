@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Plus, Loader2, Image as ImageIcon, Check, X, Sparkle } from 'lucide-react'
+import { Plus, Loader2, Image as ImageIcon, Check, X, Sparkle, Folder } from 'lucide-react'
 
 import { compressImage } from '../../utils/image';
 import { TopTabBar } from '../ui';
@@ -43,7 +43,8 @@ const EditSetScreen = ({
     onGeminiAssist,
     onGenerateMoreExample,
     onExtractVocabFromImage,
-    aiCreditsRemaining
+    aiCreditsRemaining,
+    parentFolders = []
 }) => {
     const folder = folderId === 'unfiled' ? { name: 'Từ vựng lẻ', description: 'Các từ vựng không thuộc học phần nào', coverImage: null } : (folders.find(f => f.id === folderId) || { name: 'Học phần', description: '', coverImage: null });
     const [title, setTitle] = useState(folder.name || '');
@@ -62,6 +63,7 @@ const EditSetScreen = ({
     const [activeCardId, setActiveCardId] = useState(cards[0]?.id);
     const [isSaving, setIsSaving] = useState(false);
     const [isAiLoadingMap, setIsAiLoadingMap] = useState({});
+    const [showFolderSelector, setShowFolderSelector] = useState(false);
 
     // Bulk AI Modal State
     const [isBatchModalOpen, setIsBatchModalOpen] = useState(false);
@@ -177,7 +179,7 @@ const EditSetScreen = ({
         });
     };
 
-    const handleSaveSet = async () => {
+    const handleSaveSet = () => {
         const validCards = cards.filter(c => c.front.trim() && c.back.trim());
         if (validCards.length === 0) {
             showToast('Học phần phải có ít nhất 1 thẻ hợp lệ (có Thuật ngữ và Định nghĩa)', 'error');
@@ -194,6 +196,12 @@ const EditSetScreen = ({
             return;
         }
 
+        setShowFolderSelector(true);
+    };
+
+    const handleConfirmSaveSet = async (parentFolderId) => {
+        setShowFolderSelector(false);
+        const validCards = cards.filter(c => c.front.trim() && c.back.trim());
         setIsSaving(true);
 
         // 1. Check for duplicates within the current screen's inputs
@@ -247,7 +255,7 @@ const EditSetScreen = ({
 
             if (hasTitleChanged || hasDescChanged || hasCoverChanged) {
                 if (onAddFolder) {
-                    const newId = await onAddFolder(title.trim(), description.trim(), coverImage);
+                    const newId = await onAddFolder(title.trim(), description.trim(), coverImage, parentFolderId);
                     if (!newId) {
                         setIsSaving(false);
                         return; // limits or errors handled inside onAddFolder
@@ -261,13 +269,15 @@ const EditSetScreen = ({
                 const hasTitleChanged = title.trim() !== folder.name;
                 const hasDescChanged = description.trim() !== (folder.description || '');
                 const hasCoverChanged = coverImage !== (folder.coverImage || null);
+                const hasParentChanged = parentFolderId !== (folder.parentId || null);
 
-                if (hasTitleChanged || hasDescChanged || hasCoverChanged) {
+                if (hasTitleChanged || hasDescChanged || hasCoverChanged || hasParentChanged) {
                     try {
                         await onRenameFolder(folderId, { 
                             name: title.trim(), 
                             description: description.trim(),
-                            coverImage: coverImage
+                            coverImage: coverImage,
+                            parentId: parentFolderId || null
                         });
                     } catch (e) {
                         console.error("Lỗi đổi tên học phần:", e);
@@ -321,6 +331,7 @@ const EditSetScreen = ({
         } catch (error) {
             console.error("Lỗi khi lưu học phần:", error);
             showToast("Có lỗi xảy ra khi lưu học phần.", 'error');
+            setIsSaving(false);
         }
     };
 
@@ -529,6 +540,118 @@ const EditSetScreen = ({
                 onGenerateComplete={handleBatchAiComplete}
                 existingCards={cards}
             />
+
+            {/* Folder Selector Dialog */}
+            {showFolderSelector && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+                    <div className="bg-white dark:bg-gray-800 rounded-3xl w-full max-w-md max-h-[80vh] flex flex-col shadow-2xl border border-slate-100 dark:border-slate-700 overflow-hidden">
+                        
+                        {/* Dialog Header */}
+                        <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-750">
+                            <div>
+                                <h3 className="text-lg font-bold text-slate-800 dark:text-white">
+                                    Chọn thư mục lưu học phần
+                                </h3>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">
+                                    Chọn thư mục để sắp xếp học phần này của bạn.
+                                </p>
+                            </div>
+                            <button
+                                type="button"
+                                onClick={() => setShowFolderSelector(false)}
+                                className="p-1.5 hover:bg-slate-105 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-605 dark:hover:text-slate-200 rounded-lg transition-colors"
+                            >
+                                <X className="w-5 h-5" />
+                            </button>
+                        </div>
+
+                        {/* Folder List */}
+                        <div className="flex-1 overflow-y-auto p-4 space-y-2.5 max-h-[50vh] custom-scrollbar">
+                            {/* Option: Không phân loại (Root level) */}
+                            <button
+                                type="button"
+                                onClick={() => handleConfirmSaveSet(null)}
+                                className={`w-full flex items-center gap-4 p-3.5 text-left rounded-2xl border transition-all group ${(!folder || !folder.parentId) ? 'border-indigo-600 bg-indigo-50/20 dark:bg-indigo-900/10' : 'border-slate-100 dark:border-slate-800 hover:border-indigo-200 dark:hover:border-indigo-900/50 bg-slate-50/30 dark:bg-slate-850/30 hover:bg-indigo-50/10 dark:hover:bg-indigo-950/10'}`}
+                            >
+                                <div className="w-10 h-10 rounded-xl bg-slate-105 dark:bg-slate-700 shrink-0 flex items-center justify-center">
+                                    <Folder className="w-5 h-5 text-slate-450 dark:text-slate-400" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex items-center gap-2">
+                                        <h4 className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-indigo-650 dark:group-hover:text-indigo-400 transition-colors">
+                                            Không phân loại (Thư mục gốc)
+                                        </h4>
+                                        {(!folder || !folder.parentId) && (
+                                            <span className="text-[8px] font-bold px-1.5 py-0.5 rounded uppercase bg-indigo-105 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-400">
+                                                Hiện tại
+                                            </span>
+                                        )}
+                                    </div>
+                                    <p className="text-[10px] text-slate-450 dark:text-slate-400 font-semibold mt-0.5">
+                                        Lưu ở ngoài cùng thư viện học tập
+                                    </p>
+                                </div>
+                                <div className={`w-8 h-8 rounded-lg transition-all flex items-center justify-center shrink-0 ${(!folder || !folder.parentId) ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-850 group-hover:bg-indigo-600 group-hover:text-white text-slate-400'}`}>
+                                    <Check className="w-4 h-4" />
+                                </div>
+                            </button>
+
+                            {/* Parent Folders */}
+                            {parentFolders.length > 0 && (
+                                <div className="pt-2 border-t border-slate-100 dark:border-slate-750/50">
+                                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Thư mục của bạn</p>
+                                    <div className="space-y-2">
+                                        {parentFolders.map((pf) => {
+                                            const isSelected = folder && folder.parentId === pf.id;
+                                            return (
+                                                <button
+                                                    key={pf.id}
+                                                    type="button"
+                                                    onClick={() => handleConfirmSaveSet(pf.id)}
+                                                    className={`w-full flex items-center gap-4 p-3.5 text-left rounded-2xl border transition-all group ${isSelected ? 'border-indigo-600 bg-indigo-50/20 dark:bg-indigo-900/10' : 'border-slate-100 dark:border-slate-80 border-slate-200 dark:border-slate-700 hover:border-indigo-200 dark:hover:border-indigo-900/50 bg-slate-50/30 dark:bg-slate-850/30 hover:bg-indigo-50/10 dark:hover:bg-indigo-950/10'}`}
+                                                >
+                                                    <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-705 shrink-0 flex items-center justify-center">
+                                                        <Folder className="w-5 h-5 text-amber-500 dark:text-amber-405" />
+                                                    </div>
+                                                    <div className="flex-1 min-w-0">
+                                                        <div className="flex items-center gap-2">
+                                                            <h4 className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-indigo-650 dark:group-hover:text-indigo-400 transition-colors truncate">
+                                                                {pf.name}
+                                                            </h4>
+                                                            {isSelected && (
+                                                                <span className="text-[8px] font-bold px-1.5 py-0.5 rounded uppercase bg-indigo-100 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-400">
+                                                                    Hiện tại
+                                                                </span>
+                                                            )}
+                                                        </div>
+                                                        <p className="text-[10px] text-slate-450 dark:text-slate-400 font-semibold mt-0.5">
+                                                            Thư mục lưu trữ
+                                                        </p>
+                                                    </div>
+                                                    <div className={`w-8 h-8 rounded-lg transition-all flex items-center justify-center shrink-0 ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-850 group-hover:bg-indigo-600 group-hover:text-white text-slate-400'}`}>
+                                                        <Check className="w-4 h-4" />
+                                                    </div>
+                                                </button>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Dialog Footer */}
+                        <div className="p-4 bg-slate-50 dark:bg-slate-900/40 border-t border-slate-100 dark:border-slate-750/50 flex justify-end gap-2.5">
+                            <button
+                                type="button"
+                                onClick={() => setShowFolderSelector(false)}
+                                className="px-5 py-2 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-250 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
+                            >
+                                Hủy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

@@ -25,6 +25,35 @@ const LEVEL_GRADIENTS = {
     N2: 'from-violet-500 to-purple-600',
     N1: 'from-rose-500 to-red-600',
 };
+
+const WEEK_GROUPS = [
+    { label: "Tuần 1-2", range: [1, 10], theme: "Từ vựng & Hán tự cơ bản" },
+    { label: "Tuần 3-4", range: [11, 20], theme: "Ngữ pháp & Từ vựng nâng cao" },
+    { label: "Tuần 5-6", range: [21, 30], theme: "Kỹ năng Đọc & Nghe hiểu" },
+    { label: "Tuần 7-8", range: [31, 40], theme: "Luyện chuyên sâu đề ngắn" },
+    { label: "Tuần 9-10", range: [41, 50], theme: "Đọc hiểu & Nghe hiểu tổng hợp" },
+    { label: "Tuần 11-12", range: [51, 60], theme: "Giải đề Mock Exam trọn bộ" }
+];
+
+const ROADMAP_TASKS = {
+    vocabulary: { title: "Từ vựng & Hán tự", desc: "Học 20 từ vựng mới & ôn tập Hán tự theo chủ đề." },
+    grammar: { title: "Ngữ pháp trọng tâm", desc: "Luyện 3 mẫu cấu trúc ngữ pháp phổ biến và đặt câu." },
+    reading: { title: "Kỹ năng Đọc hiểu", desc: "Luyện 1 bài đọc ngắn, phân tích ngữ pháp cấu trúc câu." },
+    listening: { title: "Kỹ năng Nghe hiểu", desc: "Nghe hội thoại ngắn 10 phút và trả lời câu hỏi." },
+    practice: { title: "Luyện đề thi thử", desc: "Làm 1 bài thi mini test kiểm tra năng lực tổng quát." }
+};
+
+const getDayTask = (dayNum) => {
+    const taskType = dayNum % 5 === 1 ? 'vocabulary'
+                  : dayNum % 5 === 2 ? 'grammar'
+                  : dayNum % 5 === 3 ? 'reading'
+                  : dayNum % 5 === 4 ? 'listening'
+                  : 'practice';
+    return {
+        day: dayNum,
+        ...ROADMAP_TASKS[taskType]
+    };
+};
 const QuestionContent = React.memo(({
     section,
     question,
@@ -227,7 +256,78 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
     const [tests, setTests] = useState([]);
     const [loading, setLoading] = useState(true);
     const [selectedLevel, setSelectedLevel] = useState('N2'); // Set default level filter to N2 matching user's request/screenshot
+    const [targetLevel, setTargetLevel] = useState(profile?.jlptTargetLevel || 'N2');
+    const [showRoadmapDetails, setShowRoadmapDetails] = useState(false);
+    const [activeWeekGroup, setActiveWeekGroup] = useState(0);
+
+    useEffect(() => {
+        if (profile?.jlptTargetLevel) {
+            setTargetLevel(profile.jlptTargetLevel);
+        }
+    }, [profile?.jlptTargetLevel]);
+
+    const handleUpdateTargetLevel = async (newLevel) => {
+        setTargetLevel(newLevel);
+        if (userId) {
+            try {
+                const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
+                await updateDoc(profileRef, { jlptTargetLevel: newLevel });
+            } catch (e) {
+                console.error("Lỗi cập nhật mục tiêu JLPT:", e);
+            }
+        }
+    };
+
     const [completedTests, setCompletedTests] = useState({});
+    const [roadmapProgress, setRoadmapProgress] = useState(() => {
+        try {
+            const cached = localStorage.getItem('quizki_jlpt_roadmap_progress');
+            if (cached) return JSON.parse(cached);
+        } catch (e) {}
+        // Pre-populate N2 with 24 days completed to look nice initially
+        return {
+            N2: Array.from({ length: 24 }, (_, i) => i + 1)
+        };
+    });
+
+    const toggleRoadmapDay = async (level, dayNum) => {
+        const currentCompletedDays = roadmapProgress[level] || [];
+        let newCompletedDays;
+        if (currentCompletedDays.includes(dayNum)) {
+            newCompletedDays = currentCompletedDays.filter(d => d !== dayNum);
+        } else {
+            newCompletedDays = [...currentCompletedDays, dayNum].sort((a, b) => a - b);
+        }
+
+        const updatedProgress = {
+            ...roadmapProgress,
+            [level]: newCompletedDays
+        };
+
+        setRoadmapProgress(updatedProgress);
+        try {
+            localStorage.setItem('quizki_jlpt_roadmap_progress', JSON.stringify(updatedProgress));
+        } catch (e) {}
+
+        if (userId && db) {
+            try {
+                const progressDocRef = doc(db, `artifacts/${appId}/users/${userId}/settings`, 'jlptProgress');
+                await setDoc(progressDocRef, { roadmapProgress: updatedProgress }, { merge: true });
+            } catch (e) {
+                console.error('Error saving roadmap progress to Firestore:', e);
+            }
+        }
+    };
+
+    // Roadmap progress based on targetLevel
+    const targetProgress = useMemo(() => {
+        const completedList = roadmapProgress[targetLevel] || [];
+        return Math.round((completedList.length / 60) * 100);
+    }, [roadmapProgress, targetLevel]);
+
+    const completedDays = useMemo(() => {
+        return (roadmapProgress[targetLevel] || []).length;
+    }, [roadmapProgress, targetLevel]);
     const [savedProgresses, setSavedProgresses] = useState(() => {
         try {
             return JSON.parse(localStorage.getItem('quizki_jlpt_saved_progresses') || '{}');
@@ -303,6 +403,15 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                         const merged = { ...prev, ...data.notes };
                         try {
                             localStorage.setItem('quizki_jlpt_notes', JSON.stringify(merged));
+                        } catch (e) {}
+                        return merged;
+                    });
+                }
+                if (data.roadmapProgress) {
+                    setRoadmapProgress(prev => {
+                        const merged = { ...prev, ...data.roadmapProgress };
+                        try {
+                            localStorage.setItem('quizki_jlpt_roadmap_progress', JSON.stringify(merged));
                         } catch (e) {}
                         return merged;
                     });
@@ -2416,6 +2525,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
         return diffDays;
     })();
     const countdownLevel = selectedLevel === 'all' ? 'N2' : selectedLevel;
+
+
     // Completed tests stats
     const completedCount = Object.keys(completedTests).length;
     let avgPercentage = 0;
@@ -3266,6 +3377,147 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
             </div>
         );
     };
+    const renderRoadmapDetails = () => {
+        const currentGroup = WEEK_GROUPS[activeWeekGroup];
+        const days = Array.from(
+            { length: currentGroup.range[1] - currentGroup.range[0] + 1 },
+            (_, i) => currentGroup.range[0] + i
+        );
+
+        return (
+            <div className="mt-6 pt-6 border-t border-slate-100 dark:border-slate-700/50 space-y-6 animate-fade-in">
+                {/* Week Tabs */}
+                <div className="flex flex-wrap gap-2">
+                    {WEEK_GROUPS.map((group, idx) => {
+                        const isSelected = activeWeekGroup === idx;
+                        // Count completed days in this group
+                        const groupCompletedCount = (roadmapProgress[targetLevel] || []).filter(
+                            d => d >= group.range[0] && d <= group.range[1]
+                        ).length;
+
+                        return (
+                            <button
+                                key={idx}
+                                onClick={() => setActiveWeekGroup(idx)}
+                                className={`px-3 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 border shadow-sm cursor-pointer ${
+                                    isSelected
+                                        ? 'bg-[#2E5B70] text-white border-[#2E5B70]'
+                                        : 'bg-slate-50 dark:bg-slate-900 text-slate-655 dark:text-slate-400 border-slate-205 dark:border-slate-750 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                }`}
+                            >
+                                <span>{group.label}</span>
+                                <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                                    isSelected ? 'bg-white/20 text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                                }`}>
+                                    {groupCompletedCount}/10
+                                </span>
+                            </button>
+                        );
+                    })}
+                </div>
+
+                {/* Week Title & Theme */}
+                <div className="bg-slate-50/50 dark:bg-slate-900/35 border border-slate-100 dark:border-slate-700/20 rounded-2xl p-4 flex items-center justify-between flex-wrap gap-3">
+                    <div>
+                        <span className="text-[10px] font-bold text-slate-400 dark:text-slate-550 uppercase tracking-wider">Chủ đề tuần học</span>
+                        <h5 className="text-sm font-bold text-slate-800 dark:text-white mt-0.5">
+                            {currentGroup.theme} (Ngày {currentGroup.range[0]} - {currentGroup.range[1]})
+                        </h5>
+                    </div>
+                    {/* Progress indicator */}
+                    <div className="flex items-center gap-2">
+                        <span className="text-xs font-extrabold text-[#2E5B70] dark:text-sky-400">
+                            {Math.round(((roadmapProgress[targetLevel] || []).filter(
+                                d => d >= currentGroup.range[0] && d <= currentGroup.range[1]
+                            ).length / 10) * 100)}%
+                        </span>
+                        <div className="w-24 bg-slate-100 dark:bg-slate-700/60 rounded-full h-2 overflow-hidden">
+                            <div
+                                className="bg-[#2E5B70] dark:bg-sky-500 h-2 rounded-full transition-all duration-300"
+                                style={{
+                                    width: `${((roadmapProgress[targetLevel] || []).filter(
+                                        d => d >= currentGroup.range[0] && d <= currentGroup.range[1]
+                                    ).length / 10) * 100}%`
+                                }}
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Days Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    {days.map((dayNum) => {
+                        const isCompleted = (roadmapProgress[targetLevel] || []).includes(dayNum);
+                        const task = getDayTask(dayNum);
+
+                        return (
+                            <div
+                                key={dayNum}
+                                className={`p-4 rounded-2xl border transition-all duration-200 flex flex-col justify-between min-h-[140px] relative overflow-hidden group shadow-sm ${
+                                    isCompleted
+                                        ? 'bg-emerald-50/20 dark:bg-emerald-950/5 border-emerald-250 dark:border-emerald-900/45'
+                                        : 'bg-white dark:bg-slate-800 border-slate-150 dark:border-slate-750/80 hover:border-slate-300 dark:hover:border-slate-650'
+                                }`}
+                            >
+                                <div>
+                                    {/* Header: Day number & status */}
+                                    <div className="flex items-center justify-between mb-2">
+                                        <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-full ${
+                                            isCompleted
+                                                ? 'bg-emerald-100 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-450'
+                                                : 'bg-slate-100 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400'
+                                        }`}>
+                                            Ngày {dayNum < 10 ? `0${dayNum}` : dayNum}
+                                        </span>
+                                        <button
+                                            onClick={() => toggleRoadmapDay(targetLevel, dayNum)}
+                                            className={`p-1.5 rounded-full transition-all duration-150 cursor-pointer ${
+                                                isCompleted
+                                                    ? 'bg-emerald-500 text-white hover:bg-emerald-600'
+                                                    : 'bg-slate-100 dark:bg-slate-700/60 text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600 hover:text-slate-600 dark:hover:text-slate-200'
+                                            }`}
+                                            title={isCompleted ? "Đánh dấu chưa hoàn thành" : "Đánh dấu đã hoàn thành"}
+                                        >
+                                            <Check className="w-3.5 h-3.5 stroke-[3]" />
+                                        </button>
+                                    </div>
+                                    {/* Task description */}
+                                    <h6 className={`text-xs font-bold ${
+                                        isCompleted ? 'text-emerald-900 dark:text-emerald-350' : 'text-slate-800 dark:text-white'
+                                    }`}>
+                                        {task.title}
+                                    </h6>
+                                    <p className="text-[10px] text-slate-500 dark:text-slate-450 mt-1 leading-relaxed line-clamp-3">
+                                        {task.desc}
+                                    </p>
+                                </div>
+                                <div className="mt-3 pt-2 border-t border-slate-100/50 dark:border-slate-700/30 flex items-center justify-between">
+                                    <button
+                                        onClick={() => {
+                                            if (task.title.includes("tự")) {
+                                                navigate(ROUTES.VOCAB_LIST);
+                                            } else {
+                                                setSelectedLevel(targetLevel);
+                                                document.getElementById("test-list-section")?.scrollIntoView({ behavior: 'smooth' });
+                                            }
+                                        }}
+                                        className={`text-[10px] font-extrabold flex items-center gap-1 transition cursor-pointer ${
+                                            isCompleted
+                                                ? 'text-emerald-600 dark:text-emerald-400 hover:underline'
+                                                : 'text-[#2E5B70] dark:text-sky-400 hover:underline'
+                                        }`}
+                                    >
+                                        Học ngay <ChevronRight className="w-3 h-3" />
+                                    </button>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        );
+    };
+
     if (selectedFullExamLevel) {
         return (
             <>
@@ -3316,8 +3568,27 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                 <FileText className="w-3.5 h-3.5" /> Quản lý đề thi
                             </Link>
                         )}
-                        <div className="flex items-center gap-1.5 px-3 py-2 bg-emerald-50 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-400 font-bold rounded-xl text-[10px] border border-emerald-100/50 dark:border-emerald-900/30 uppercase tracking-wide">
-                            <Calendar className="w-3.5 h-3.5 text-emerald-500" /> CẤP ĐỘ {countdownLevel} - CÒN {jlptCountdown} NGÀY THI
+                        <div className="flex items-center gap-2">
+                            <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Mục tiêu:</span>
+                            <div className="relative">
+                                <select
+                                    value={targetLevel}
+                                    onChange={(e) => handleUpdateTargetLevel(e.target.value)}
+                                    className="appearance-none bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/20 text-emerald-700 dark:text-emerald-400 border border-emerald-100/50 dark:border-emerald-900/30 rounded-xl pl-3 pr-8 py-1.5 text-[10px] font-bold focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer uppercase tracking-wider"
+                                >
+                                    <option value="N1" className="bg-white dark:bg-slate-800 text-slate-800 dark:text-white">Cấp độ N1</option>
+                                    <option value="N2" className="bg-white dark:bg-slate-800 text-slate-800 dark:text-white">Cấp độ N2</option>
+                                    <option value="N3" className="bg-white dark:bg-slate-800 text-slate-800 dark:text-white">Cấp độ N3</option>
+                                    <option value="N4" className="bg-white dark:bg-slate-800 text-slate-800 dark:text-white">Cấp độ N4</option>
+                                    <option value="N5" className="bg-white dark:bg-slate-800 text-slate-800 dark:text-white">Cấp độ N5</option>
+                                </select>
+                                <div className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-emerald-600 dark:text-emerald-450">
+                                    <ChevronRight className="w-3 h-3 rotate-90" />
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-400 font-bold rounded-xl text-[10px] border border-emerald-100/50 dark:border-emerald-900/30 uppercase tracking-wide">
+                                <Calendar className="w-3.5 h-3.5 text-emerald-500" /> CÒN {jlptCountdown} NGÀY THI
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -3489,12 +3760,29 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                 {/* Bottom Stats & Registration Grid */}
                 <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700/50 p-6 flex flex-col justify-between shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)]">
                     <div>
-                        <div className="flex items-center justify-between mb-4">
-                            <h4 className="text-base font-bold text-slate-800 dark:text-white">Lộ trình 60 ngày chinh phục {countdownLevel}</h4>
-                            <span className="text-xs text-slate-500 dark:text-slate-400 font-bold">Đã hoàn thành 24/60 ngày</span>
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                            <div>
+                                <h4 className="text-base font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                                    Lộ trình 60 ngày chinh phục {targetLevel}
+                                </h4>
+                                <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">
+                                    Lộ trình luyện thi JLPT hàng ngày theo giáo án khoa học và toàn diện
+                                </p>
+                            </div>
+                            <div className="flex items-center gap-2 self-end sm:self-center">
+                                <span className="text-[10px] text-[#2E5B70] dark:text-sky-400 font-extrabold bg-[#2E5B70]/10 dark:bg-sky-500/10 px-2.5 py-1 rounded-xl uppercase tracking-wider">
+                                    Đã hoàn thành {completedDays}/60 ngày ({targetProgress}%)
+                                </span>
+                                <button
+                                    onClick={() => setShowRoadmapDetails(!showRoadmapDetails)}
+                                    className="px-3 py-1 bg-slate-100 dark:bg-slate-700 hover:bg-[#2E5B70] hover:text-white dark:hover:bg-[#2E5B70] text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold transition-all shadow-sm cursor-pointer"
+                                >
+                                    {showRoadmapDetails ? 'Thu gọn' : 'Chi tiết'}
+                                </button>
+                            </div>
                         </div>
-                        <div className="w-full bg-slate-100 dark:bg-slate-700/60 rounded-full h-3 mb-6">
-                            <div className="bg-slate-700 dark:bg-sky-500 h-3 rounded-full transition-all duration-500" style={{ width: '40%' }} />
+                        <div className="w-full bg-slate-100 dark:bg-slate-700/60 rounded-full h-3 mb-6 overflow-hidden">
+                            <div className="bg-[#2E5B70] dark:bg-sky-500 h-3 rounded-full transition-all duration-500" style={{ width: `${targetProgress}%` }} />
                         </div>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -3523,6 +3811,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                             </div>
                         </div>
                     </div>
+                    {showRoadmapDetails && renderRoadmapDetails()}
                 </div>
             </div>
             {/* Modal Luyện kỹ năng */}

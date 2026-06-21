@@ -1837,7 +1837,7 @@ const App = () => {
         return result;
     };
 
-    const handleAddFolder = async (name, description = '', coverImage = null) => {
+    const handleAddFolder = async (name, description = '', coverImage = null, parentId = null) => {
         if (!studySetsCollectionPath) return null;
 
         // Kiểm tra giới hạn 3 học phần của gói Miễn phí
@@ -1851,7 +1851,7 @@ const App = () => {
             const folderRef = await addDoc(collection(db, studySetsCollectionPath), {
                 name,
                 description,
-                parentId: null,
+                parentId: parentId || null,
                 coverImage,
                 createdAt: serverTimestamp()
             });

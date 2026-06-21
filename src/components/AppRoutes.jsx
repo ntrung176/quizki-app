@@ -185,7 +185,8 @@ const EditSetScreenWrapper = ({
     handleGeminiAssist,
     handleGenerateMoreExample,
     handleExtractVocabFromImage,
-    aiCreditsRemaining
+    aiCreditsRemaining,
+    parentFolders
 }) => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -204,6 +205,7 @@ const EditSetScreenWrapper = ({
         onGenerateMoreExample={handleGenerateMoreExample}
         onExtractVocabFromImage={handleExtractVocabFromImage}
         aiCreditsRemaining={aiCreditsRemaining}
+        parentFolders={parentFolders}
     />;
 };
 
@@ -670,6 +672,7 @@ const AppRoutes = ({
                                 editingCard={editingCard}
                                 onOpenBatchImport={() => setShowBatchImportModal(true)}
                                 aiCreditsRemaining={aiCreditsRemaining}
+                                parentFolders={parentFolders}
                             />
                         </ProtectedRoute>
                     }
@@ -712,6 +715,7 @@ const AppRoutes = ({
                                 handleExtractVocabFromImage={canUserUseAI ? handleExtractVocabFromImage : null}
                                 aiCreditsRemaining={aiCreditsRemaining}
                                 navigate={navigate}
+                                parentFolders={parentFolders}
                             />
                         </ProtectedRoute>
                     }

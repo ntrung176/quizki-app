@@ -668,16 +668,25 @@ const LibraryScreen = ({
                     </div>
 
                     {/* Empty State */}
-                    {filteredStudySets.length === 0 && (!activeParentFolderId ? unfiledCount === 0 : true) && (
+                    {((activeParentFolderId && filteredStudySets.length === 0) || 
+                      (!activeParentFolderId && (
+                          searchQuery 
+                              ? filteredStudySets.length === 0 
+                              : (parentFolders.length === 0 && filteredStudySets.length === 0 && unfiledCount === 0)
+                      ))) && (
                         <div className="py-16 flex flex-col items-center justify-center text-center bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 animate-fade-in">
                             <div className="w-14 h-14 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mb-4">
                                 <Library className="w-7 h-7 text-gray-400" />
                             </div>
-                            <h2 className="text-lg font-bold text-gray-800 dark:text-white mb-2">Thư mục trống</h2>
+                            <h2 className="text-lg font-bold text-gray-800 dark:text-white mb-2">
+                                {searchQuery ? 'Không tìm thấy kết quả' : 'Thư mục trống'}
+                            </h2>
                             <p className="text-gray-500 dark:text-gray-400 max-w-xs text-xs font-medium">
-                                {activeParentFolderId 
-                                    ? 'Thư mục này chưa chứa học phần nào. Hãy kéo thả học phần bên ngoài vào đây hoặc bấm di chuyển.' 
-                                    : 'Bạn chưa có học phần cá nhân nào. Hãy bấm "Tạo học phần mới" nhé!'}
+                                {searchQuery 
+                                    ? 'Không tìm thấy học phần nào phù hợp với tìm kiếm của bạn.'
+                                    : (activeParentFolderId 
+                                        ? 'Thư mục này chưa chứa học phần nào. Hãy kéo thả học phần bên ngoài vào đây hoặc bấm di chuyển.' 
+                                        : 'Bạn chưa có học phần cá nhân nào. Hãy bấm "Tạo học phần mới" nhé!')}
                             </p>
                         </div>
                     )}

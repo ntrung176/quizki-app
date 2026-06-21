@@ -288,11 +288,8 @@ const SRSVocabScreen = ({
             }
             stats[fId].total++;
 
-            // Seen / Mastered calculation
-            if (card.srsEnabled === true && (card.srsReps || 0) >= 5) {
-                stats[fId].masteredCount++;
-            } else if (card.srsEnabled !== true && (card.seenCount || 0) > 0) {
-                // Fallback for non-SRS cards
+            // Seen / Mastered calculation based on masteryState 'memorized'
+            if (card.masteryState === 'memorized') {
                 stats[fId].masteredCount++;
             }
 
@@ -307,7 +304,7 @@ const SRSVocabScreen = ({
         });
 
         return Object.values(stats)
-            .filter(f => f.total > 0) // only folders that have cards
+            .filter(f => f.total > 0 && f.dueCards.length > 0) // only folders that have due cards for spaced repetition
             .map(f => {
                 const masteredPct = f.total > 0 ? Math.round((f.masteredCount / f.total) * 100) : 0;
 
@@ -346,6 +343,12 @@ const SRSVocabScreen = ({
                 return b.total - a.total;
             });
     }, [allCards, folders, cardFolders]);
+
+    useEffect(() => {
+        if (vocabSetStartIndex >= folderStats.length) {
+            setVocabSetStartIndex(Math.max(0, folderStats.length - 3));
+        }
+    }, [folderStats.length, vocabSetStartIndex]);
 
     const globalStats = useMemo(() => {
         return folderStats.reduce((acc, curr) => ({
@@ -814,8 +817,8 @@ const SRSVocabScreen = ({
                 <div className="space-y-4">
                     <div className="flex items-center justify-between">
                         <div>
-                            <h2 className="text-2xl font-extrabold text-gray-800 dark:text-white tracking-tight">Học phần từ vựng</h2>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">Chọn một học phần để bắt đầu phiên học tập.</p>
+                            <h2 className="text-2xl font-extrabold text-gray-800 dark:text-white tracking-tight">Học phần cần ôn</h2>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">Các học phần có từ vựng đã đến hạn ôn tập.</p>
                         </div>
                         <div className="flex items-center gap-3">
                             <button
@@ -833,10 +836,16 @@ const SRSVocabScreen = ({
                                 <CheckCircle2 className="w-8 h-8 text-emerald-500" />
                             </div>
                             <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">Tuyệt vời!</h3>
-                            <p className="text-gray-500 dark:text-gray-400">Bạn chưa có thẻ từ vựng nào trong thư viện.</p>
-                            <button onClick={() => navigate(ROUTES.BOOKS)} className="mt-6 px-6 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-75 transition-colors text-xs cursor-pointer">
-                                Đến Thư viện Sách
-                            </button>
+                            <p className="text-gray-500 dark:text-gray-400">
+                                {allCards.length > 0 
+                                    ? "Bạn đã ôn tập hết các từ vựng cần học hôm nay. Hãy học thêm bài mới nhé!" 
+                                    : "Bạn chưa có thẻ từ vựng nào trong thư viện."}
+                            </p>
+                            {allCards.length === 0 && (
+                                <button onClick={() => navigate(ROUTES.BOOKS)} className="mt-6 px-6 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-75 transition-colors text-xs cursor-pointer">
+                                    Đến Thư viện Sách
+                                </button>
+                            )}
                         </div>
                     ) : (
                         <div className="relative px-8">
@@ -885,7 +894,7 @@ const SRSVocabScreen = ({
                                                 <div className="flex-1 min-w-0">
                                                     <h3 className="font-extrabold text-lg text-gray-800 dark:text-white leading-tight line-clamp-1">{folder.name}</h3>
                                                     <p className="text-[11px] text-gray-400 dark:text-gray-500 font-bold mt-1 uppercase tracking-wide">
-                                                        Đã thuộc {folder.masteredPct}%
+                                                        {folder.masteredPct === 0 ? "CHƯA HỌC" : `Đã thuộc ${folder.masteredPct}%`}
                                                     </p>
                                                 </div>
                                                 <span className="text-[10px] text-gray-400 dark:text-gray-500 font-bold shrink-0 mt-1">{folder.total} Thẻ</span>
