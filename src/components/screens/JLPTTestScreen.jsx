@@ -2093,13 +2093,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                         </div>
                         {/* Main question area */}
                         <div className="flex-1 p-4 md:p-8 overflow-y-auto relative" id="jlpt-main-scroll-container">
-                            <ExamAnnotationOverlay
-                                testId={activeTest.id}
-                                sectionIdx={currentSectionIdx}
-                                questionIdx={currentQuestionIdx}
-                                isEnabled={false}
-                                readOnly={true}
-                            />
                             <div className="max-w-3xl mx-auto">
                                 {/* Question number */}
                                 <div className="flex items-center gap-2 mb-4">
@@ -2114,6 +2107,13 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                         style={{ width: `${((globalIdx + 1) / totalQ) * 100}%` }} />
                                 </div>
                                 <div className="relative w-full" id="jlpt-question-content-wrapper">
+                                    <ExamAnnotationOverlay
+                                        testId={activeTest.id}
+                                        sectionIdx={currentSectionIdx}
+                                        questionIdx={currentQuestionIdx}
+                                        isEnabled={false}
+                                        readOnly={true}
+                                    />
                                     <QuestionContent
                                         section={section}
                                         question={question}
@@ -2676,12 +2676,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                     </div>
                     {/* Main question area */}
                     <div className="flex-1 p-4 md:p-8 overflow-y-auto relative" id="jlpt-main-scroll-container">
-                        <ExamAnnotationOverlay
-                            testId={activeTest.id}
-                            sectionIdx={currentSectionIdx}
-                            questionIdx={currentQuestionIdx}
-                            isEnabled={showScratchpad}
-                        />
                         <div className="max-w-3xl mx-auto">
                             {/* Question number */}
                             <div className="flex items-center gap-2 mb-4">
@@ -2696,6 +2690,12 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                     style={{ width: `${((globalIdx + 1) / totalQ) * 100}%` }} />
                             </div>
                             <div className="relative w-full" id="jlpt-question-content-wrapper">
+                                <ExamAnnotationOverlay
+                                    testId={activeTest.id}
+                                    sectionIdx={currentSectionIdx}
+                                    questionIdx={currentQuestionIdx}
+                                    isEnabled={showScratchpad}
+                                />
                                 <QuestionContent
                                     section={section}
                                     question={question}

@@ -159,8 +159,17 @@ const ExamAnnotationOverlay = ({
     const [draggedItem, setDraggedItem] = useState(null); 
     const [resizedItem, setResizedItem] = useState(null); 
 
-    // --- Canvas Dimensions ---
+    // --- Canvas Dimensions & Scaling Reference ---
     const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
+    const [refSize, setRefSize] = useState({ width: 768, height: 800 });
+    const [penThickness, setPenThickness] = useState(3.5);
+
+    const ratio = (canvasSize.width && refSize.width) ? (canvasSize.width / refSize.width) : 1;
+
+    const getCurrentToRefCoords = (coords) => ({
+        x: coords.x / ratio,
+        y: coords.y / ratio
+    });
 
     // Detect dark mode
     const isDarkMode = () => document.documentElement.classList.contains('dark');
@@ -182,6 +191,10 @@ const ExamAnnotationOverlay = ({
                 setTextObjects(parsed.textObjects || []);
                 setStickyNotes(parsed.stickyNotes || []);
                 setSelectionHighlights(parsed.selectionHighlights || []);
+                
+                const rWidth = parsed.refWidth || parsed.canvasWidth || 768;
+                const rHeight = parsed.refHeight || parsed.canvasHeight || 800;
+                setRefSize({ width: rWidth, height: rHeight });
             } catch (e) {
                 console.error("Error loading annotations:", e);
             }
@@ -190,6 +203,7 @@ const ExamAnnotationOverlay = ({
             setTextObjects([]);
             setStickyNotes([]);
             setSelectionHighlights([]);
+            setRefSize({ width: canvasSize.width || 768, height: canvasSize.height || 800 });
         }
         setIsDrawing(false);
         setCurrentPoints([]);
@@ -204,7 +218,9 @@ const ExamAnnotationOverlay = ({
             strokes: updatedStrokes,
             textObjects: updatedTexts,
             stickyNotes: updatedStickies,
-            selectionHighlights: updatedSelections
+            selectionHighlights: updatedSelections,
+            refWidth: refSize.width,
+            refHeight: refSize.height
         };
         if (updatedStrokes.length === 0 && updatedTexts.length === 0 && updatedStickies.length === 0 && updatedSelections.length === 0) {
             localStorage.removeItem(`quizki_annotations_${questionKey}`);
@@ -358,6 +374,12 @@ const ExamAnnotationOverlay = ({
             
             if (width > 0 && height > 0) {
                 setCanvasSize({ width, height });
+                setRefSize(prev => {
+                    if (prev.width === 768 && prev.height === 800) {
+                        return { width, height };
+                    }
+                    return prev;
+                });
             } else {
                 let retries = 0;
                 const check = () => {
@@ -365,6 +387,12 @@ const ExamAnnotationOverlay = ({
                     const h = parent.scrollHeight || parent.clientHeight;
                     if (w > 0 && h > 0) {
                         setCanvasSize({ width: w, height: h });
+                        setRefSize(prev => {
+                            if (prev.width === 768 && prev.height === 800) {
+                                return { width: w, height: h };
+                            }
+                            return prev;
+                        });
                     } else if (retries < 5) {
                         retries++;
                         setTimeout(check, 50 * retries);
@@ -402,7 +430,7 @@ const ExamAnnotationOverlay = ({
     useEffect(() => {
         if (!shouldRender) return;
         drawCanvas();
-    }, [canvasSize, strokes, currentPoints, curveState, activeTool, penColor, highlighterColor, shouldRender]);
+    }, [canvasSize, strokes, currentPoints, curveState, activeTool, penColor, highlighterColor, shouldRender, ratio, penThickness]);
 
     // --- Drawing Maths Helpers ---
     const getDistance = (p1, p2) => Math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2);
@@ -468,9 +496,10 @@ const ExamAnnotationOverlay = ({
     };
 
     const handleEraserAction = (point, clientX, clientY) => {
+        const refPoint = getCurrentToRefCoords(point);
         let strokesHit = false;
         const newStrokes = strokes.filter(stroke => {
-            const isIntersecting = checkIntersection(point, stroke);
+            const isIntersecting = checkIntersection(refPoint, stroke);
             if (isIntersecting) strokesHit = true;
             return !isIntersecting;
         });
@@ -482,10 +511,10 @@ const ExamAnnotationOverlay = ({
             const lineCount = Math.max(1, Math.ceil((textObj.text.length * (fs * 0.6)) / w));
             const estimatedHeight = lineCount * (fs * 1.3);
             
-            const isInside = point.x >= textObj.x - 12 && 
-                             point.x <= textObj.x + w + 12 && 
-                             point.y >= textObj.y - 12 && 
-                             point.y <= textObj.y + estimatedHeight + 12;
+            const isInside = refPoint.x >= textObj.x - 12 && 
+                             refPoint.x <= textObj.x + w + 12 && 
+                             refPoint.y >= textObj.y - 12 && 
+                             refPoint.y <= textObj.y + estimatedHeight + 12;
             
             if (isInside) textsHit = true;
             return !isInside;
@@ -518,7 +547,7 @@ const ExamAnnotationOverlay = ({
         strokes.forEach(stroke => {
             ctx.beginPath();
             ctx.strokeStyle = stroke.color;
-            ctx.lineWidth = stroke.width;
+            ctx.lineWidth = stroke.width * ratio;
             ctx.lineCap = 'round';
             ctx.lineJoin = 'round';
 
@@ -530,22 +559,22 @@ const ExamAnnotationOverlay = ({
 
             if (stroke.type === 'pen' || stroke.type === 'highlighter') {
                 if (stroke.points.length > 0) {
-                    ctx.moveTo(stroke.points[0].x, stroke.points[0].y);
+                    ctx.moveTo(stroke.points[0].x * ratio, stroke.points[0].y * ratio);
                     for (let i = 1; i < stroke.points.length; i++) {
-                        ctx.lineTo(stroke.points[i].x, stroke.points[i].y);
+                        ctx.lineTo(stroke.points[i].x * ratio, stroke.points[i].y * ratio);
                     }
                     ctx.stroke();
                 }
             } else if (stroke.type === 'line') {
                 if (stroke.points.length >= 2) {
-                    ctx.moveTo(stroke.points[0].x, stroke.points[0].y);
-                    ctx.lineTo(stroke.points[1].x, stroke.points[1].y);
+                    ctx.moveTo(stroke.points[0].x * ratio, stroke.points[0].y * ratio);
+                    ctx.lineTo(stroke.points[1].x * ratio, stroke.points[1].y * ratio);
                     ctx.stroke();
                 }
             } else if (stroke.type === 'curve') {
                 if (stroke.points.length >= 3) {
-                    ctx.moveTo(stroke.points[0].x, stroke.points[0].y);
-                    ctx.quadraticCurveTo(stroke.points[1].x, stroke.points[1].y, stroke.points[2].x, stroke.points[2].y);
+                    ctx.moveTo(stroke.points[0].x * ratio, stroke.points[0].y * ratio);
+                    ctx.quadraticCurveTo(stroke.points[1].x * ratio, stroke.points[1].y * ratio, stroke.points[2].x * ratio, stroke.points[2].y * ratio);
                     ctx.stroke();
                 }
             }
@@ -559,7 +588,7 @@ const ExamAnnotationOverlay = ({
         if (isDrawing && currentPoints.length > 0) {
             ctx.beginPath();
             ctx.strokeStyle = activeTool === 'highlighter' ? highlighterColor : getResolvedPenColor();
-            ctx.lineWidth = activeTool === 'highlighter' ? 18 : 3.5;
+            ctx.lineWidth = activeTool === 'highlighter' ? 18 : penThickness;
             
             if (activeTool === 'highlighter') {
                 ctx.globalAlpha = 0.45;
@@ -572,6 +601,7 @@ const ExamAnnotationOverlay = ({
                 }
                 ctx.stroke();
             } else if (activeTool === 'line') {
+                ctx.lineWidth = penThickness;
                 if (currentPoints.length >= 2) {
                     ctx.moveTo(currentPoints[0].x, currentPoints[0].y);
                     ctx.lineTo(currentPoints[1].x, currentPoints[1].y);
@@ -643,8 +673,8 @@ const ExamAnnotationOverlay = ({
             const newNote = {
                 id: `sticky_${Date.now()}`,
                 text: '',
-                x: coords.x - 20,
-                y: coords.y - 20,
+                x: (coords.x - 20) / ratio,
+                y: (coords.y - 20) / ratio,
                 width: 190,
                 height: 150,
                 color: '#fef08a'
@@ -667,9 +697,13 @@ const ExamAnnotationOverlay = ({
                 const newStroke = {
                     id: `stroke_${Date.now()}`,
                     type: 'curve',
-                    points: [curveState.start, curveState.control, curveState.end],
+                    points: [
+                        getCurrentToRefCoords(curveState.start),
+                        getCurrentToRefCoords(curveState.control),
+                        getCurrentToRefCoords(curveState.end)
+                    ],
                     color: getResolvedPenColor(),
-                    width: 3.5
+                    width: penThickness
                 };
                 const updated = [...strokes, newStroke];
                 setStrokes(updated);
@@ -743,9 +777,9 @@ const ExamAnnotationOverlay = ({
             const newStroke = {
                 id: `stroke_${Date.now()}`,
                 type: activeTool,
-                points: pointsToSave,
+                points: pointsToSave.map(getCurrentToRefCoords),
                 color: activeTool === 'highlighter' ? highlighterColor : getResolvedPenColor(),
-                width: activeTool === 'highlighter' ? 18 : 3.5
+                width: activeTool === 'highlighter' ? 18 : penThickness
             };
 
             const updated = [...strokes, newStroke];
@@ -767,10 +801,10 @@ const ExamAnnotationOverlay = ({
         const newText = {
             id: `text_${Date.now()}`,
             text: textInputValue,
-            x: textInputPos.x,
-            y: textInputPos.y,
-            width: editingTextProps ? editingTextProps.width : 150,
-            fontSize: editingTextProps ? editingTextProps.fontSize : 14,
+            x: textInputPos.x / ratio,
+            y: textInputPos.y / ratio,
+            width: (editingTextProps ? editingTextProps.width : 150) / ratio,
+            fontSize: (editingTextProps ? editingTextProps.fontSize : 14) / ratio,
             color: getResolvedPenColor()
         };
 
@@ -786,8 +820,8 @@ const ExamAnnotationOverlay = ({
         e.stopPropagation();
         setEditingTextId(textObj.id);
         setTextInputValue(textObj.text);
-        setTextInputPos({ x: textObj.x, y: textObj.y });
-        setEditingTextProps({ width: textObj.width || 150, fontSize: textObj.fontSize || 14 });
+        setTextInputPos({ x: textObj.x * ratio, y: textObj.y * ratio });
+        setEditingTextProps({ width: (textObj.width || 150) * ratio, fontSize: (textObj.fontSize || 14) * ratio });
         
         const filtered = textObjects.filter(t => t.id !== textObj.id);
         setTextObjects(filtered);
@@ -854,8 +888,8 @@ const ExamAnnotationOverlay = ({
     useEffect(() => {
         const handleGlobalPointerMove = (e) => {
             if (draggedItem) {
-                const dx = e.clientX - draggedItem.startX;
-                const dy = e.clientY - draggedItem.startY;
+                const dx = (e.clientX - draggedItem.startX) / ratio;
+                const dy = (e.clientY - draggedItem.startY) / ratio;
                 const newX = Math.max(0, draggedItem.initialX + dx);
                 const newY = Math.max(0, draggedItem.initialY + dy);
 
@@ -873,8 +907,8 @@ const ExamAnnotationOverlay = ({
             }
 
             if (resizedItem) {
-                const dx = e.clientX - resizedItem.startX;
-                const dy = e.clientY - resizedItem.startY;
+                const dx = (e.clientX - resizedItem.startX) / ratio;
+                const dy = (e.clientY - resizedItem.startY) / ratio;
 
                 if (resizedItem.type === 'text') {
                     const newWidth = Math.max(50, resizedItem.initialWidth + dx);
@@ -915,7 +949,7 @@ const ExamAnnotationOverlay = ({
             document.removeEventListener('pointermove', handleGlobalPointerMove);
             document.removeEventListener('pointerup', handleGlobalPointerUp);
         };
-    }, [draggedItem, resizedItem, stickyNotes, textObjects, strokes, selectionHighlights]);
+    }, [draggedItem, resizedItem, stickyNotes, textObjects, strokes, selectionHighlights, ratio]);
 
     const handleStickyTextChange = (id, val) => {
         const updated = stickyNotes.map(n => 
@@ -1138,6 +1172,40 @@ const ExamAnnotationOverlay = ({
                         </div>
                     </div>
                 )}
+
+                {/* Pen thickness selector */}
+                {['pen', 'line', 'curve'].includes(activeTool) && (
+                    <div className="flex flex-col gap-1.5 border-t border-slate-100 dark:border-slate-800/85 pt-2.5 mt-1.5">
+                        <div className="flex items-center justify-between px-1">
+                            <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Cỡ ngòi bút</span>
+                            <span className="text-[10px] text-slate-500 font-bold dark:text-slate-400">{penThickness}px</span>
+                        </div>
+                        <input 
+                            type="range" 
+                            min="1.5" 
+                            max="12" 
+                            step="0.5"
+                            value={penThickness} 
+                            onChange={(e) => setPenThickness(parseFloat(e.target.value))}
+                            className="w-full accent-indigo-500 h-1 bg-slate-100 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer"
+                        />
+                        <div className="flex justify-between mt-1 px-1">
+                            {[2, 3.5, 6, 10].map(size => (
+                                <button
+                                    key={size}
+                                    onClick={() => setPenThickness(size)}
+                                    className={`text-[9px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center border transition cursor-pointer ${
+                                        penThickness === size
+                                            ? 'bg-indigo-55 border-indigo-300 text-indigo-600 dark:bg-indigo-950/45 dark:border-indigo-800 dark:text-indigo-400 font-black'
+                                            : 'border-transparent text-slate-400 hover:text-slate-600 dark:hover:text-slate-305'
+                                    }`}
+                                >
+                                    {size}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
         );
     };
@@ -1178,10 +1246,10 @@ const ExamAnnotationOverlay = ({
                     key={note.id}
                     className="absolute z-30 flex flex-col rounded-xl border shadow-lg overflow-hidden group select-none"
                     style={{
-                        left: `${note.x}px`,
-                        top: `${note.y}px`,
-                        width: `${note.width || 190}px`,
-                        height: `${note.height || 150}px`,
+                        left: `${note.x * ratio}px`,
+                        top: `${note.y * ratio}px`,
+                        width: `${(note.width || 190) * ratio}px`,
+                        height: `${(note.height || 150) * ratio}px`,
                         backgroundColor: note.color,
                         borderColor: 'rgba(0, 0, 0, 0.08)',
                         pointerEvents: readOnly ? 'none' : 'auto'
@@ -1239,15 +1307,15 @@ const ExamAnnotationOverlay = ({
 
             {/* Draggable transparent text */}
             {textObjects.map((textObj) => {
-                const fs = textObj.fontSize || 14;
-                const w = textObj.width || 150;
+                const fs = (textObj.fontSize || 14) * ratio;
+                const w = (textObj.width || 150) * ratio;
                 return (
                     <div
                         key={textObj.id}
                         className="absolute z-25 group select-none text-annotation-box flex items-center rounded hover:bg-slate-100/30 hover:ring-1 hover:ring-slate-350/50 dark:hover:bg-slate-800/20 dark:hover:ring-slate-700/60"
                         style={{
-                            left: `${textObj.x}px`,
-                            top: `${textObj.y}px`,
+                            left: `${textObj.x * ratio}px`,
+                            top: `${textObj.y * ratio}px`,
                             width: `${w}px`,
                             color: textObj.color,
                             fontSize: `${fs}px`,
