@@ -58,8 +58,8 @@ const VOICE_STORAGE_KEY = 'quizki-tts-voice';
 
 // Available voices (SpeechGen.io Japanese voices)
 export const TTS_VOICES = {
-    mayu: { id: 'mayu', label: 'Mayu (Nữ)', speechgenName: 'Mayu', gender: 'Female' },
-    ryota: { id: 'ryota', label: 'Ryota (Nam)', speechgenName: 'Ryota', gender: 'Male' },
+    mayu: { id: 'mayu', label: 'Tomoko plus (Nữ)', speechgenName: 'Tomoko plus', gender: 'Female' },
+    ryota: { id: 'ryota', label: 'Takumi plus (Nam)', speechgenName: 'Takumi plus', gender: 'Male' },
 };
 
 // Get current voice preference
@@ -279,10 +279,19 @@ const speechgenTTS = async (text) => {
 // Trích xuất phần đọc từ text: ưu tiên hiragana trong ngoặc, fallback lấy phần trước ngoặc
 const extractReadingText = (text) => {
     if (!text) return '';
-    // Ưu tiên hiragana/katakana trong ngoặc: 食べる（たべる） → たべる
+    
+    // Ưu tiên hiragana/katakana trong ngoặc nếu đó là tiếng Nhật, tránh ghi chú tiếng Anh/loại từ
     const readingMatch = text.match(/[（(]([^）)]+)[）)]/);
-    if (readingMatch) return readingMatch[1].trim();
-    // Không có ngoặc → lấy nguyên text (bỏ ngoặc nếu có)
+    if (readingMatch) {
+        const candidate = readingMatch[1].trim();
+        const hasJapanese = /[\u3040-\u309F\u30A0-\u30FF]/.test(candidate);
+        const hasLatin = /[a-zA-Z]/.test(candidate);
+        
+        if (hasJapanese && !hasLatin) {
+            return candidate;
+        }
+    }
+    // Không có ngoặc hoặc ngoặc chứa ghi chú khác -> lấy nguyên text ngoài ngoặc
     return text.split('（')[0].split('(')[0].trim();
 };
 
@@ -421,9 +430,9 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
                         safeResolve();
                     }
 
-                    // Gọi callback để component lưu audio vào database
+                    // Gọi callback để component lưu audio vào database (đánh dấu |cleaned để tránh sinh lại)
                     if (onAudioGenerated && result.base64) {
-                        onAudioGenerated(result.base64, result.voiceId);
+                        onAudioGenerated(result.base64 + '|cleaned', result.voiceId);
                     }
                     return;
                 }
@@ -446,6 +455,13 @@ let globalAudioSessionId = 0;
 export const playAudio = (base64Data, text = '', onAudioGenerated = null) => {
     globalAudioSessionId++;
     const currentSessionId = globalAudioSessionId;
+
+    // Check if this audio has already been cleaned/regenerated
+    let isAudioCleaned = false;
+    if (base64Data && base64Data.includes('|cleaned')) {
+        isAudioCleaned = true;
+        base64Data = base64Data.replace('|cleaned', '');
+    }
 
     return new Promise((resolve) => {
         let isResolved = false;
@@ -477,6 +493,17 @@ export const playAudio = (base64Data, text = '', onAudioGenerated = null) => {
         // Dừng speech đang nói (nếu có)
         if (window.speechSynthesis) {
             window.speechSynthesis.cancel();
+        }
+
+        // Kiểm tra xem text (chứa từ và ngoặc đơn) có chứa ghi chú tiếng Anh hay không.
+        // Nếu có, ta sẽ bỏ qua base64Data để buộc hệ thống sinh lại âm thanh chuẩn xác bằng Japanese TTS.
+        if (base64Data && text && !isAudioCleaned) {
+            const match = text.match(/[（(]([^）)]+)[）)]/);
+            const hasLatinInBrackets = match && /[a-zA-Z]/.test(match[1]);
+            if (hasLatinInBrackets) {
+                console.warn(`[playAudio] Polluted base64 audio detected for "${text}" (contains Latin characters in brackets). Forcing regeneration.`);
+                base64Data = null;
+            }
         }
 
         // Nếu có base64Data, phát audio (đã lưu trước đó, không cần tạo mới)
@@ -558,14 +585,13 @@ export const playAudio = (base64Data, text = '', onAudioGenerated = null) => {
 export const speakJapanese = (text, audioBase64 = null, onAudioGenerated = null) => {
     if (!text && !audioBase64) return Promise.resolve();
 
-    // Nếu có audioBase64 lưu sẵn, dùng nó (không cần callback vì đã lưu rồi)
+    // Nếu có audioBase64 lưu sẵn, dùng nó (truyền thêm callback để lưu lại nếu phát hiện và sửa được audio lỗi)
     if (audioBase64) {
-        return playAudio(audioBase64, text || '');
+        return playAudio(audioBase64, text || '', onAudioGenerated);
     }
 
-    // Ưu tiên đọc phần hiragana/katakana trong ngoặc để tránh sai phát âm kanji
-    const readingMatch = text.match(/[（(]([^）)]+)[）)]/);
-    const textToSpeak = readingMatch ? readingMatch[1] : text.split('（')[0].split('(')[0].trim();
+    // Trích xuất phần chữ tiếng Nhật cần đọc
+    const textToSpeak = extractReadingText(text);
 
     if (textToSpeak) {
         return playAudio(null, textToSpeak, onAudioGenerated);

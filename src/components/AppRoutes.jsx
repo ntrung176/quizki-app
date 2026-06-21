@@ -594,6 +594,7 @@ const AppRoutes = ({
                                 awardXP={awardXP}
                                 setIsReviewActive={setIsReviewActive}
                                 playAudio={playAudio}
+                                onSaveCardAudio={handleSaveCardAudio}
                                 dailyActivityLogs={dailyActivityLogs}
                                 onStudySet={handleStudySet}
                                 onFlashcardSet={handleFlashcardSet}

@@ -45,7 +45,46 @@ service cloud.firestore {
       allow create: if (isOwner(userId) && isReasonableSize()) || hasAdminPrivileges(appId);
       // LƯU Ý BẢO MẬT: Đã chặn quyền update profile/credits từ client
       // Luồng cộng tiền hiện tại được xử lý hoàn toàn qua Cloudflare Workers Webhook (Admin SDK) bảo mật.
-      allow update: if hasAdminPrivileges(appId) || (isOwner(userId) && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['aiCreditsRemaining', 'isPremiumUnlocked', 'premiumExpiresAt', 'unlockedSpecializedPackages']));
+      allow update: if hasAdminPrivileges(appId) || 
+                    (
+                      isOwner(userId) && 
+                      (
+                        // Trường hợp 1: Cập nhật thông tin thông thường (không chạm đến credits và premium)
+                        !request.resource.data.diff(resource.data).affectedKeys().hasAny(['aiCreditsRemaining', 'isPremiumUnlocked', 'premiumExpiresAt', 'unlockedSpecializedPackages']) ||
+                        
+                        // Trường hợp 2: Khởi tạo aiCreditsRemaining từ null/undefined thành 100
+                        (
+                          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['aiCreditsRemaining']) &&
+                          (!('aiCreditsRemaining' in resource.data) || resource.data.aiCreditsRemaining == null) &&
+                          request.resource.data.aiCreditsRemaining == 100
+                        ) ||
+                        
+                        // Trường hợp 3: Người được giới thiệu tự động kích hoạt 15 ngày Premium dùng thử khi nhập mã giới thiệu
+                        (
+                          // Phải có trường referredBy lần đầu tiên
+                          request.resource.data.referredBy != null &&
+                          (!('referredBy' in resource.data) || resource.data.referredBy == null) &&
+                          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['referredBy', 'isPremiumUnlocked', 'premiumExpiresAt', 'unlockedSpecializedPackages']) &&
+                          // Giới hạn số ngày dùng thử tối đa là 15 ngày (15 * 24 * 60 * 60 * 1000 = 1296000000 ms) + 1 phút đệm
+                          (
+                            (!('premiumExpiresAt' in resource.data) || resource.data.premiumExpiresAt == null || resource.data.premiumExpiresAt < request.time.toMillis()) ? 
+                            request.resource.data.premiumExpiresAt <= request.time.toMillis() + 1296060000 : 
+                            request.resource.data.premiumExpiresAt <= resource.data.premiumExpiresAt + 1296060000
+                          )
+                        )
+                      )
+                    ) ||
+                    (
+                      // Trường hợp 4: Cho phép người được giới thiệu cộng 3 ngày Premium cho người giới thiệu (chủ tài khoản profile này)
+                      isAuthenticated() &&
+                      request.resource.data.diff(resource.data).affectedKeys().hasOnly(['isPremiumUnlocked', 'premiumExpiresAt', 'unlockedSpecializedPackages']) &&
+                      // Giới hạn số ngày cộng thêm tối đa là 3 ngày (3 * 24 * 60 * 60 * 1000 = 259200000 ms) + 1 phút đệm
+                      (
+                        (!('premiumExpiresAt' in resource.data) || resource.data.premiumExpiresAt == null || resource.data.premiumExpiresAt < request.time.toMillis()) ? 
+                        request.resource.data.premiumExpiresAt <= request.time.toMillis() + 259260000 : 
+                        request.resource.data.premiumExpiresAt <= resource.data.premiumExpiresAt + 259260000
+                      )
+                    );
       allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
     }
     
@@ -119,11 +158,30 @@ service cloud.firestore {
                     request.resource.data.meaning is string && request.resource.data.meaning.size() > 0;
       allow delete: if hasAdminPrivileges(appId);
     }
+
+    match /artifacts/{appId}/referrals/{referredId} {
+      allow read: if isAuthenticated() && (request.auth.uid == referredId || resource.data.referrerId == request.auth.uid || hasAdminPrivileges(appId));
+      allow create: if isAuthenticated() && request.auth.uid == referredId &&
+                    request.resource.data.referredId == referredId &&
+                    request.resource.data.status == 'pending' &&
+                    request.resource.data.rewarded == false;
+      allow update: if hasAdminPrivileges(appId);
+      allow delete: if hasAdminPrivileges(appId);
+    }
     
     match /artifacts/{appId}/public/data/userStats/{userId} {
       allow read: if true;
-      allow create: if isOwner(userId);
-      allow update: if isOwner(userId);
+      allow create: if isOwner(userId) || hasAdminPrivileges(appId);
+      allow update: if isOwner(userId) || hasAdminPrivileges(appId) || (
+                      // Cho phép cập nhật thông tin premium của người khác khi cộng thưởng giới thiệu
+                      isAuthenticated() &&
+                      request.resource.data.diff(resource.data).affectedKeys().hasOnly(['isPremiumUnlocked', 'isPremium', 'premiumExpiresAt', 'unlockedSpecializedPackages']) &&
+                      (
+                        (!('premiumExpiresAt' in resource.data) || resource.data.premiumExpiresAt == null || resource.data.premiumExpiresAt < request.time.toMillis()) ? 
+                        request.resource.data.premiumExpiresAt <= request.time.toMillis() + 259260000 : 
+                        request.resource.data.premiumExpiresAt <= resource.data.premiumExpiresAt + 259260000
+                      )
+                    );
       allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
     }
     

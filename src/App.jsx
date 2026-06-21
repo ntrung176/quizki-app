@@ -2499,9 +2499,22 @@ const App = () => {
         }
     };
 
-    // Lưu audio TTS đã tạo vào card trong Firestore
+    // Lưu audio TTS đã tạo vào card trong Firestore và cập nhật state local
     const handleSaveCardAudio = async (cardId, audioBase64, voiceId) => {
         if (!vocabCollectionPath || !cardId || !audioBase64) return;
+
+        // Cập nhật local state ngay lập tức để đồng bộ UI
+        setAllCards(prevCards => prevCards.map(card => {
+            if (card.id === cardId) {
+                return {
+                    ...card,
+                    audioBase64,
+                    audioVoiceId: voiceId || null
+                };
+            }
+            return card;
+        }));
+
         try {
             await updateDoc(doc(db, vocabCollectionPath, cardId), {
                 audioBase64,

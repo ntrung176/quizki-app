@@ -1138,7 +1138,7 @@ const StudySetDetail = ({
                                                                 )}
                                                                 {card.audioBase64 && (
                                                                     <button
-                                                                        onClick={(e) => { e.stopPropagation(); playAudio(card.audioBase64); }}
+                                                                        onClick={(e) => { e.stopPropagation(); playAudio(card.audioBase64, card.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null); }}
                                                                         className="p-2.5 text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-full transition-colors flex-shrink-0"
                                                                     >
                                                                         <Volume2 className="w-5 h-5" />

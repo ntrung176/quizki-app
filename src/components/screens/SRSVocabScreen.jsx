@@ -70,6 +70,7 @@ const SRSVocabScreen = ({
     setFlashcardCards,
     setNotification,
     playAudio,
+    onSaveCardAudio,
     onUpdateVocabSrsRating,
     onRevertVocabSrsRating,
     dailyActivityLogs = [],
@@ -524,7 +525,7 @@ const SRSVocabScreen = ({
         if (reviewMode && reviewQueue.length > 0 && cardSettings.autoPlayAudio) {
             const currentCard = reviewQueue[currentReviewIndex];
             if (currentCard && currentCard.audioBase64 && isFlipped) {
-                playAudio && playAudio(currentCard.audioBase64);
+                playAudio && playAudio(currentCard.audioBase64, currentCard.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
             }
         }
     }, [reviewMode, currentReviewIndex, isFlipped, cardSettings.autoPlayAudio, reviewQueue]);
@@ -635,8 +636,8 @@ const SRSVocabScreen = ({
                             <button
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    if (currentCard && currentCard.audioBase64) {
-                                        playAudio && playAudio(currentCard.audioBase64);
+                                    if (currentCard) {
+                                        playAudio && playAudio(currentCard.audioBase64, currentCard.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
                                     }
                                 }}
                                 data-tour-id="FLASHCARD_SPEAKER"
