@@ -276,23 +276,51 @@ const speechgenTTS = async (text) => {
 
 // ============== FALLBACK: Web Speech API ==============
 
-// Trích xuất phần đọc từ text: ưu tiên hiragana trong ngoặc, fallback lấy phần trước ngoặc
+// Bản đồ các từ Kanji có nhiều cách đọc khác nhau (Homographs) để tránh phát âm sai
+const JAP_HOMOGRAPHS = {
+    '来る': { default: 'くる', alternatives: ['きたる', 'きた'] },
+    '行く': { default: 'いく', alternatives: ['おこなう', 'ゆく'] },
+    '開く': { default: 'ひらく', alternatives: ['あく'] },
+    '一日': { default: 'いちにち', alternatives: ['ついたち'] },
+    '中': { default: 'なか', alternatives: ['ちゅう', 'じゅう'] },
+    '下': { default: 'した', alternatives: ['もと', 'しも', 'くだ'] },
+    '本': { default: 'ほん', alternatives: ['もと'] },
+    '人気': { default: 'にんき', alternatives: ['ひとけ'] },
+    '上手': { default: 'じょうず', alternatives: ['うわて', 'かみて'] },
+    '下手': { default: 'へた', alternatives: ['したて', 'しもて'] },
+    '十分': { default: 'じゅうぶん', alternatives: ['じゅっぷん'] },
+    '生': { default: 'なま', alternatives: ['せい', 'しょう', 'き'] },
+    '昨日': { default: 'きのう', alternatives: ['さくじつ'] },
+    '明日': { default: 'あした', alternatives: ['あす', 'みょうにち'] },
+    '今日': { default: 'きょう', alternatives: ['こんにち'] },
+    '最中': { default: 'さいちゅう', alternatives: ['もなか'] },
+    '辛い': { default: 'からい', alternatives: ['つらい'] },
+    '汚れ': { default: 'よごれ', alternatives: ['けがれ'] },
+};
+
+// Trích xuất phần đọc từ text: ưu tiên từ Kanji chính ngoài ngoặc, so sánh đối chiếu với hiragana trong ngoặc để sửa đổi âm đọc đặc biệt
 const extractReadingText = (text) => {
     if (!text) return '';
     
-    // Ưu tiên hiragana/katakana trong ngoặc nếu đó là tiếng Nhật, tránh ghi chú tiếng Anh/loại từ
+    const mainText = text.split('（')[0].split('(')[0].trim();
     const readingMatch = text.match(/[（(]([^）)]+)[）)]/);
+    
     if (readingMatch) {
         const candidate = readingMatch[1].trim();
         const hasJapanese = /[\u3040-\u309F\u30A0-\u30FF]/.test(candidate);
         const hasLatin = /[a-zA-Z]/.test(candidate);
         
         if (hasJapanese && !hasLatin) {
-            return candidate;
+            const homograph = JAP_HOMOGRAPHS[mainText];
+            if (homograph) {
+                if (homograph.alternatives.includes(candidate)) {
+                    return candidate;
+                }
+            }
+            return mainText;
         }
     }
-    // Không có ngoặc hoặc ngoặc chứa ghi chú khác -> lấy nguyên text ngoài ngoặc
-    return text.split('（')[0].split('(')[0].trim();
+    return mainText;
 };
 
 // Cache for Japanese voices (loaded once)
