@@ -135,11 +135,19 @@ service cloud.firestore {
     match /artifacts/{appId}/sharedVocab/{vocabId} {
       allow read: if true; // Cho phép xem công khai
       allow create: if isAuthenticated() && isReasonableSize() &&
-                    request.resource.data.word is string && request.resource.data.word.size() > 0 &&
-                    request.resource.data.meaning is string && request.resource.data.meaning.size() > 0;
+                    (
+                      (request.resource.data.word is string && request.resource.data.word.size() > 0) ||
+                      (request.resource.data.front is string && request.resource.data.front.size() > 0)
+                    ) &&
+                    (
+                      (request.resource.data.meaning is string && request.resource.data.meaning.size() > 0) ||
+                      (request.resource.data.back is string && request.resource.data.back.size() > 0)
+                    );
       allow update: if isAuthenticated() &&
-                    (!request.resource.data.keys().hasAny(['word']) || request.resource.data.word == resource.data.word) &&
-                    request.resource.data.meaning is string && request.resource.data.meaning.size() > 0;
+                    (
+                      (request.resource.data.meaning is string && request.resource.data.meaning.size() > 0) ||
+                      (request.resource.data.back is string && request.resource.data.back.size() > 0)
+                    );
       allow delete: if hasAdminPrivileges(appId);
     }
     
@@ -151,11 +159,19 @@ service cloud.firestore {
     match /sharedVocabulary/{vocabId} {
       allow read: if true;
       allow create: if isAuthenticated() && isReasonableSize() &&
-                    request.resource.data.word is string && request.resource.data.word.size() > 0 &&
-                    request.resource.data.meaning is string && request.resource.data.meaning.size() > 0;
+                    (
+                      (request.resource.data.word is string && request.resource.data.word.size() > 0) ||
+                      (request.resource.data.front is string && request.resource.data.front.size() > 0)
+                    ) &&
+                    (
+                      (request.resource.data.meaning is string && request.resource.data.meaning.size() > 0) ||
+                      (request.resource.data.back is string && request.resource.data.back.size() > 0)
+                    );
       allow update: if isAuthenticated() &&
-                    (!request.resource.data.keys().hasAny(['word']) || request.resource.data.word == resource.data.word) &&
-                    request.resource.data.meaning is string && request.resource.data.meaning.size() > 0;
+                    (
+                      (request.resource.data.meaning is string && request.resource.data.meaning.size() > 0) ||
+                      (request.resource.data.back is string && request.resource.data.back.size() > 0)
+                    );
       allow delete: if hasAdminPrivileges(appId);
     }
 

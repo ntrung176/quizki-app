@@ -48,7 +48,7 @@ export default {
             // 2. Tìm mã đơn hàng QKxxxx trong nội dung chuyển khoản
             const orderMatch = content.match(/QK([A-Z0-9]{10,20})/);
             if (!orderMatch) {
-                return jsonResponse({ status: 'skipped', reason: 'No QK order code found', version: WORKER_VERSION }, 200);
+                return jsonResponse({ success: true, status: 'skipped', reason: 'No QK order code found', version: WORKER_VERSION }, 200);
             }
             const orderCode = `QK${orderMatch[1]}`;
 
@@ -83,6 +83,7 @@ export default {
 
             if (!requestInfo.found) {
                 return jsonResponse({
+                    success: true,
                     status: 'not_found',
                     orderCode,
                     primaryStatus: requestInfo.statusPrimary,
@@ -98,13 +99,14 @@ export default {
             const { userId, credits, status, docPath, appIdFound } = requestInfo;
 
             if (status === 'approved') {
-                return jsonResponse({ status: 'already_approved', orderCode, version: WORKER_VERSION }, 200);
+                return jsonResponse({ success: true, status: 'already_approved', orderCode, version: WORKER_VERSION }, 200);
             }
 
             // 5. Cập nhật Firestore: cộng credit, ghi log, đánh dấu approved
             await executeFirestoreBillingTransaction(accessToken, userId, credits, transactionId, orderCode, transferAmount, docPath, appIdFound);
 
             return jsonResponse({
+                success: true,
                 status: 'success',
                 message: 'Credits updated via Webhook!',
                 orderCode,
@@ -263,11 +265,13 @@ async function executeFirestoreBillingTransaction(token, userId, credits, transa
     const profileRes = await fetch(profileUrl, { headers: { Authorization: `Bearer ${token}` } });
     let currentCredits = 0;
     let unlockedPackages = [];
+    let existingExpiresAt = 0;
 
     if (profileRes.ok) {
         const profile = await profileRes.json();
         currentCredits = Number(profile.fields?.aiCreditsRemaining?.integerValue || 0);
         unlockedPackages = profile.fields?.unlockedSpecializedPackages?.arrayValue?.values?.map(v => v.stringValue) || [];
+        existingExpiresAt = Number(profile.fields?.premiumExpiresAt?.integerValue || profile.fields?.premiumExpiresAt?.doubleValue || profile.fields?.premiumExpiresAt?.stringValue || 0);
     }
 
     // 3. Tính toán update
@@ -283,9 +287,10 @@ async function executeFirestoreBillingTransaction(token, userId, credits, transa
             });
             const bonus = pkgId === 'premium_3y' ? 6000 : (pkgId === 'premium_1y' ? 2000 : 200);
             const durationMs = pkgId === 'premium_3y' ? 3 * 365 * 24 * 3600 * 1000 : (pkgId === 'premium_1y' ? 365 * 24 * 3600 * 1000 : 30 * 24 * 3600 * 1000);
+            const baseTime = existingExpiresAt > Date.now() ? existingExpiresAt : Date.now();
             updateFields.fields.aiCreditsRemaining = { integerValue: currentCredits + bonus };
             updateFields.fields.isPremiumUnlocked = { booleanValue: true };
-            updateFields.fields.premiumExpiresAt = { integerValue: Date.now() + durationMs };
+            updateFields.fields.premiumExpiresAt = { integerValue: baseTime + durationMs };
         }
         updateFields.fields.unlockedSpecializedPackages = {
             arrayValue: { values: Array.from(new Set(unlockedPackages)).map(p => ({ stringValue: p })) }
@@ -300,6 +305,13 @@ async function executeFirestoreBillingTransaction(token, userId, credits, transa
         body: JSON.stringify(updateFields)
     });
 
+    // NEW: Check and process referral rewards
+    try {
+        await processReferralRewardsInWorker(token, baseUrl, encodedAppId, userId);
+    } catch (refErr) {
+        console.error('Error processing referral rewards in webhook:', refErr);
+    }
+
     // 4. Đánh dấu creditRequest approved
     await fetch(`https://firestore.googleapis.com/v1/${requestDocPath}?updateMask.fieldPaths=status&updateMask.fieldPaths=processedAt&updateMask.fieldPaths=processedBy`, {
         method: 'PATCH',
@@ -312,6 +324,146 @@ async function executeFirestoreBillingTransaction(token, userId, credits, transa
             }
         })
     });
+}
+
+// ==================== Referral Rewards Helper ====================
+async function processReferralRewardsInWorker(token, baseUrl, encodedAppId, userId) {
+    const referralUrl = `${baseUrl}/artifacts/${encodedAppId}/referrals/${userId}`;
+    const referralRes = await fetch(referralUrl, { headers: { Authorization: `Bearer ${token}` } });
+    if (!referralRes.ok) {
+        return; // No referral record found or not readable
+    }
+    const referralDoc = await referralRes.json();
+    const refFields = referralDoc.fields;
+    if (!refFields) return;
+
+    const status = refFields.status?.stringValue || 'pending';
+    const rewarded = refFields.rewarded?.booleanValue || false;
+    const referrerId = refFields.referrerId?.stringValue;
+    const referredName = refFields.referredName?.stringValue || 'Người học';
+
+    if (status === 'pending' && !rewarded && referrerId) {
+        // 1. Update referral status to premium and rewarded: true
+        await fetch(referralUrl + '?updateMask.fieldPaths=status&updateMask.fieldPaths=rewarded&updateMask.fieldPaths=updatedAt', {
+            method: 'PATCH',
+            headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                fields: {
+                    status: { stringValue: 'premium' },
+                    rewarded: { booleanValue: true },
+                    updatedAt: { integerValue: Date.now() }
+                }
+            })
+        });
+
+        // 2. Count total premium referrals for this referrer
+        const queryUrl = `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents/artifacts/${encodedAppId}:runQuery`;
+        const queryRes = await fetch(queryUrl, {
+            method: 'POST',
+            headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                structuredQuery: {
+                    from: [{ collectionId: 'referrals' }],
+                    where: {
+                        compositeFilter: {
+                            op: 'AND',
+                            filters: [
+                                {
+                                    fieldFilter: {
+                                        field: { fieldPath: 'referrerId' },
+                                        op: 'EQUAL',
+                                        value: { stringValue: referrerId }
+                                    }
+                                },
+                                {
+                                    fieldFilter: {
+                                        field: { fieldPath: 'status' },
+                                        op: 'EQUAL',
+                                        value: { stringValue: 'premium' }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            })
+        });
+
+        let premiumCount = 0;
+        if (queryRes.ok) {
+            const queryData = await queryRes.json();
+            if (Array.isArray(queryData)) {
+                premiumCount = queryData.filter(item => item.document).length;
+            }
+        }
+        if (premiumCount === 0) premiumCount = 1;
+
+        // 3. Calculate rewards based on progressive scale
+        let premiumDays = 15;
+        if (premiumCount === 1) {
+            premiumDays = 15;
+        } else if (premiumCount === 2) {
+            premiumDays = 30;
+        } else if (premiumCount === 3) {
+            premiumDays = 45;
+        } else {
+            premiumDays = 60;
+        }
+        const durationMs = premiumDays * 24 * 60 * 60 * 1000;
+
+        // 4. Update Referrer Profile
+        const referrerProfileUrl = `${baseUrl}/artifacts/${encodedAppId}/users/${referrerId}/settings/profile`;
+        const referrerProfileRes = await fetch(referrerProfileUrl, { headers: { Authorization: `Bearer ${token}` } });
+        if (referrerProfileRes.ok) {
+            const referrerProfile = await referrerProfileRes.json();
+            const referrerFields = referrerProfile.fields || {};
+            const refExistingExpiresAt = Number(referrerFields.premiumExpiresAt?.integerValue || referrerFields.premiumExpiresAt?.doubleValue || referrerFields.premiumExpiresAt?.stringValue || 0);
+            const refUnlockedPackages = referrerFields.unlockedSpecializedPackages?.arrayValue?.values?.map(v => v.stringValue) || [];
+
+            const refBaseTime = refExistingExpiresAt > Date.now() ? refExistingExpiresAt : Date.now();
+            const newRefExpiresAt = refBaseTime + durationMs;
+
+            // Ensure all packages are unlocked for referrer
+            const packagesToAdd = ['premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'];
+            packagesToAdd.forEach(p => {
+                if (!refUnlockedPackages.includes(p)) refUnlockedPackages.push(p);
+            });
+
+            // Patch Referrer Profile
+            const refPatchPayload = {
+                fields: {
+                    isPremiumUnlocked: { booleanValue: true },
+                    premiumExpiresAt: { integerValue: newRefExpiresAt },
+                    unlockedSpecializedPackages: {
+                        arrayValue: { values: refUnlockedPackages.map(p => ({ stringValue: p })) }
+                    }
+                }
+            };
+            await fetch(referrerProfileUrl + '?updateMask.fieldPaths=isPremiumUnlocked&updateMask.fieldPaths=premiumExpiresAt&updateMask.fieldPaths=unlockedSpecializedPackages', {
+                method: 'PATCH',
+                headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+                body: JSON.stringify(refPatchPayload)
+            });
+
+            // Sync to Referrer's public userStats
+            const referrerStatsUrl = `${baseUrl}/artifacts/${encodedAppId}/public/data/userStats/${referrerId}`;
+            const refStatsPatchPayload = {
+                fields: {
+                    isPremiumUnlocked: { booleanValue: true },
+                    isPremium: { booleanValue: true },
+                    premiumExpiresAt: { integerValue: newRefExpiresAt },
+                    unlockedSpecializedPackages: {
+                        arrayValue: { values: refUnlockedPackages.map(p => ({ stringValue: p })) }
+                    }
+                }
+            };
+            await fetch(referrerStatsUrl + '?updateMask.fieldPaths=isPremiumUnlocked&updateMask.fieldPaths=isPremium&updateMask.fieldPaths=premiumExpiresAt&updateMask.fieldPaths=unlockedSpecializedPackages', {
+                method: 'PATCH',
+                headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+                body: JSON.stringify(refStatsPatchPayload)
+            });
+        }
+    }
 }
 
 // ==================== Crypto Helpers ====================

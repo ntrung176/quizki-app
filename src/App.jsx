@@ -367,12 +367,41 @@ const App = () => {
         return () => { if (unsubscribe) unsubscribe(); };
     }, [userId]);
 
+    // Computed premium state checking multiple DB flags
+    const hasPremium = useMemo(() => {
+        if (!profile) return false;
+        const isPremiumUser = (profile.unlockedSpecializedPackages && (
+            profile.unlockedSpecializedPackages.includes('premium') ||
+            profile.unlockedSpecializedPackages.includes('premium_1m') ||
+            profile.unlockedSpecializedPackages.includes('premium_1y') ||
+            profile.unlockedSpecializedPackages.includes('premium_3y') ||
+            profile.unlockedSpecializedPackages.includes('vocab_zen') ||
+            profile.unlockedSpecializedPackages.includes('grammar_zen') ||
+            profile.unlockedSpecializedPackages.includes('kanji_zen') ||
+            profile.unlockedSpecializedPackages.includes('jlpt_prep')
+        )) || false;
+
+        return (
+            profile.isPremiumUnlocked === true ||
+            profile.isPremium === true ||
+            isPremiumUser ||
+            (profile.premiumExpiresAt && (() => {
+                try {
+                    const exp = profile.premiumExpiresAt.toDate ? profile.premiumExpiresAt.toDate() : new Date(profile.premiumExpiresAt);
+                    return exp > new Date();
+                } catch (e) {
+                    return false;
+                }
+            })())
+        ) || false;
+    }, [profile]);
+
     // AI giờ yêu cầu tài khoản Premium (1 năm / 3 năm) để sử dụng không giới hạn
     const canUserUseAI = useMemo(() => {
         if (!userId) return false;
         if (isAdmin || adminConfig?.moderators?.includes(userId)) return true;
-        return profile?.isPremiumUnlocked === true;
-    }, [userId, isAdmin, adminConfig, profile?.isPremiumUnlocked]);
+        return hasPremium;
+    }, [userId, isAdmin, adminConfig, hasPremium]);
 
     // Check if current user has admin privileges (admin or moderator)
     const userHasAdminPrivileges = useMemo(() => {
@@ -1905,7 +1934,7 @@ const App = () => {
         if (!studySetsCollectionPath) return null;
 
         // Kiểm tra giới hạn 3 học phần của gói Miễn phí
-        const isRestricted = profile?.trialPricingTier === 'free' || profile?.isPremiumUnlocked === false;
+        const isRestricted = profile?.trialPricingTier === 'free' || !hasPremium;
         if (isRestricted && studySets.length >= 3) {
             setNotification('⚠️ Bạn đã đạt giới hạn 3 học phần của gói Miễn phí. Vui lòng nâng cấp gói!');
             return null;
@@ -1979,7 +2008,7 @@ const App = () => {
         if (!vocabCollectionPath || !cardId) return;
 
         // Kiểm tra giới hạn 20 từ vựng của gói Miễn phí
-        const isRestricted = profile?.trialPricingTier === 'free' || profile?.isPremiumUnlocked === false;
+        const isRestricted = profile?.trialPricingTier === 'free' || !hasPremium;
         if (isRestricted && folderId && folderId !== 'unfiled') {
             const folderCards = allCards.filter(c => c.folderId === folderId);
             if (folderCards.length >= 20) {
@@ -2054,7 +2083,7 @@ const App = () => {
         if (!vocabCollectionPath) return false;
 
         // Kiểm tra giới hạn 20 từ vựng của gói Miễn phí
-        const isRestricted = profile?.trialPricingTier === 'free' || profile?.isPremiumUnlocked === false;
+        const isRestricted = profile?.trialPricingTier === 'free' || !hasPremium;
         if (isRestricted && folderId && folderId !== 'unfiled') {
             const folderCards = allCards.filter(c => c.folderId === folderId);
             if (folderCards.length >= 20) {
@@ -4360,7 +4389,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     isAdmin={isAdmin}
                     userId={userId}
                     allCards={allCards}
-                    isPremium={isAdmin || profile?.isPremiumUnlocked === true}
+                    isPremium={isAdmin || hasPremium}
                     avatar={profile?.avatar}
                     profile={profile}
                 />
@@ -4373,7 +4402,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 handleAddCard={handleAddCard}
                 setNotification={setNotification}
                 disabled={isRealExamActive}
-                isPremiumUnlocked={isAdmin || profile?.isPremiumUnlocked === true}
+                isPremiumUnlocked={isAdmin || hasPremium}
             />
 
             {/* Onboarding tour for new users */}

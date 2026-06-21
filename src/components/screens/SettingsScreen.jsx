@@ -37,6 +37,37 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         profile.unlockedSpecializedPackages.includes('jlpt_prep')
     )) || false;
 
+    const hasPremium = (
+        profile?.isPremiumUnlocked === true ||
+        profile?.isPremium === true ||
+        isPremiumUser ||
+        (profile?.premiumExpiresAt && (() => {
+            try {
+                const exp = profile.premiumExpiresAt.toDate ? profile.premiumExpiresAt.toDate() : new Date(profile.premiumExpiresAt);
+                return exp > new Date();
+            } catch (e) {
+                return false;
+            }
+        })())
+    ) || false;
+
+    const getActivePackageName = () => {
+        if (!hasPremium) return 'Thành viên Free';
+        const packages = profile?.unlockedSpecializedPackages || [];
+        if (packages.includes('premium_3y')) return 'Premium 3 Năm';
+        if (packages.includes('premium_1y')) return 'Premium 1 Năm';
+        if (packages.includes('premium_1m')) return 'Premium 1 Tháng';
+        if (packages.includes('premium')) return 'Premium';
+        
+        const zenPkgs = [];
+        if (packages.includes('vocab_zen')) zenPkgs.push('Từ vựng Zen');
+        if (packages.includes('grammar_zen')) zenPkgs.push('Ngữ pháp Zen');
+        if (packages.includes('kanji_zen')) zenPkgs.push('Kanji Zen');
+        if (packages.includes('jlpt_prep')) zenPkgs.push('Luyện thi JLPT');
+        if (zenPkgs.length > 0) return `Zen (${zenPkgs.join(', ')})`;
+        return 'Premium';
+    };
+
     // Referral States
     const [refStats, setRefStats] = useState({ totalInvited: 0, premiumInvited: 0, friends: [] });
     const [loadingStats, setLoadingStats] = useState(true);
@@ -45,6 +76,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
     const [successMsg, setSuccessMsg] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
     const [copied, setCopied] = useState(false);
+    const [copiedRaw, setCopiedRaw] = useState(false);
 
     // Fetch Referral Stats
     useEffect(() => {
@@ -71,6 +103,14 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         setTimeout(() => setCopied(false), 2000);
     };
 
+    const handleCopyRawCode = () => {
+        const code = profile?.referralCode || '';
+        if (!code) return;
+        navigator.clipboard.writeText(code);
+        setCopiedRaw(true);
+        setTimeout(() => setCopiedRaw(false), 2000);
+    };
+
     const handleApplyReferral = async () => {
         if (!enteredCode.trim() || !userId) return;
         setSubmitLoading(true);
@@ -78,12 +118,16 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
         setSuccessMsg('');
         try {
             const { submitReferralCode } = await import('../../utils/referralService');
-            await submitReferralCode(userId, enteredCode.trim(), profile?.displayName || 'Người dùng');
-            setSuccessMsg('Áp dụng mã giới thiệu thành công! Bạn nhận được 15 ngày Premium.');
-            showToast('Thành công', 'Áp dụng mã giới thiệu thành công!');
-            setTimeout(() => {
-                window.location.reload();
-            }, 1000);
+            const res = await submitReferralCode(userId, profile?.displayName || 'Người dùng', enteredCode.trim());
+            if (res.success) {
+                setSuccessMsg('Áp dụng mã giới thiệu thành công! Bạn nhận được 15 ngày Premium.');
+                showToast('Thành công', 'Áp dụng mã giới thiệu thành công!');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            } else {
+                setErrorMsg(res.error || 'Mã không hợp lệ hoặc đã xảy ra lỗi.');
+            }
         } catch (e) {
             setErrorMsg(e.message || 'Mã không hợp lệ hoặc đã xảy ra lỗi.');
         } finally {
@@ -366,127 +410,211 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
             {/* ==================== ACCOUNT TAB ==================== */}
             {activeTab === 'account' && (
                 <div className="space-y-4">
-                    {/* Avatar Section */}
-                    <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
-                        <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                            <User className="w-4 h-4" /> Ảnh đại diện & Thông tin
-                        </h3>
-                        <div className="flex items-center gap-5">
-                            <div className="relative group">
-                                <div
-                                    className="w-20 h-20 rounded-full overflow-hidden bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40 flex items-center justify-center text-5xl shadow-lg border-2 border-white dark:border-gray-600 cursor-pointer hover:scale-105 transition-transform"
-                                    onClick={() => setShowAvatarPicker(!showAvatarPicker)}
-                                >
-                                    {getAvatarDisplay(profile?.avatar)}
+                    {/* Avatar Section & Subscription Info */}
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+                            {/* Left Column: Avatar & User Details */}
+                            <div className="lg:col-span-7 flex flex-col sm:flex-row gap-5 items-start">
+                                <div className="relative group shrink-0">
+                                    <div
+                                        className="w-20 h-20 rounded-full overflow-hidden bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40 flex items-center justify-center text-5xl shadow-lg border-2 border-white dark:border-gray-600 cursor-pointer hover:scale-105 transition-transform"
+                                        onClick={() => setShowAvatarPicker(!showAvatarPicker)}
+                                    >
+                                        {getAvatarDisplay(profile?.avatar)}
+                                    </div>
+                                    <button
+                                        onClick={() => setShowAvatarPicker(!showAvatarPicker)}
+                                        className="absolute -bottom-1 -right-1 w-7 h-7 bg-indigo-500 hover:bg-indigo-600 text-white rounded-full flex items-center justify-center shadow-md transition-colors"
+                                    >
+                                        <Edit className="w-3.5 h-3.5" />
+                                    </button>
                                 </div>
-                                <button
-                                    onClick={() => setShowAvatarPicker(!showAvatarPicker)}
-                                    className="absolute -bottom-1 -right-1 w-7 h-7 bg-indigo-500 hover:bg-indigo-600 text-white rounded-full flex items-center justify-center shadow-md transition-colors"
-                                >
-                                    <Edit className="w-3.5 h-3.5" />
-                                </button>
+                                <div className="flex-1 space-y-2.5 min-w-0 w-full">
+                                    <div>
+                                        {isEditingName ? (
+                                            <div className="flex items-center gap-1.5 mb-1">
+                                                <input
+                                                    type="text"
+                                                    value={displayName}
+                                                    onChange={(e) => setDisplayName(e.target.value)}
+                                                    onKeyDown={async (e) => {
+                                                        if (e.key === 'Enter' && displayName.trim() && displayName !== profile?.displayName) {
+                                                            await handleSaveProfile();
+                                                            setIsEditingName(false);
+                                                        } else if (e.key === 'Escape') {
+                                                            setDisplayName(profile?.displayName || '');
+                                                            setIsEditingName(false);
+                                                        }
+                                                    }}
+                                                    className="px-2 py-0.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 text-sm font-bold max-w-[150px] outline-none"
+                                                    autoFocus
+                                                />
+                                                <button
+                                                    onClick={async () => {
+                                                        await handleSaveProfile();
+                                                        setIsEditingName(false);
+                                                    }}
+                                                    disabled={isSaving || !displayName.trim() || displayName === profile?.displayName}
+                                                    className="px-2 py-1 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition-colors disabled:opacity-50 flex items-center gap-1"
+                                                >
+                                                    {isSaving && (
+                                                        <div className="animate-spin w-3 h-3 border-2 border-white border-t-transparent rounded-full" />
+                                                    )}
+                                                    Lưu
+                                                </button>
+                                                <button
+                                                    onClick={() => {
+                                                        setDisplayName(profile?.displayName || '');
+                                                        setIsEditingName(false);
+                                                    }}
+                                                    disabled={isSaving}
+                                                    className="px-2 py-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-xs font-bold transition-colors"
+                                                >
+                                                    Hủy
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            <div className="flex flex-col gap-1 mb-1">
+                                                <div className="flex items-center gap-1.5 flex-wrap">
+                                                    <p className="font-bold text-gray-800 dark:text-white text-lg leading-none">{profile?.displayName || 'Chưa đặt tên'}</p>
+                                                    <button
+                                                        onClick={() => setIsEditingName(true)}
+                                                        className="p-1 text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-lg transition-colors"
+                                                        title="Chỉnh sửa tên"
+                                                    >
+                                                        <Edit className="w-3.5 h-3.5" />
+                                                    </button>
+                                                </div>
+                                                <div className="flex items-center gap-1.5 flex-wrap mt-0.5">
+                                                    <span className="bg-sky-500 text-white text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider flex items-center justify-center">
+                                                        LV {xpDetails.level}
+                                                    </span>
+                                                    <span className="bg-purple-500 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded truncate max-w-[120px] flex items-center justify-center" title={getLevelTitle(xpDetails.level)}>
+                                                        {getLevelTitle(xpDetails.level)}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        <p className="text-gray-550 dark:text-gray-400 text-xs">{profile?.email || 'Không có email'}</p>
+                                    </div>
+                                    
+                                    {/* XP Progress Bar */}
+                                    <div className="w-full max-w-sm space-y-1 bg-slate-50/80 dark:bg-slate-800/40 p-2.5 rounded-xl border border-slate-100 dark:border-slate-700/50 shadow-inner">
+                                        <div className="flex justify-between items-center text-[10px] font-bold text-gray-450 dark:text-gray-500">
+                                            <span>TIẾN TRÌNH CẤP ĐỘ</span>
+                                            <span>{xpDetails.remainingXp}/{xpDetails.nextLevelXp} XP</span>
+                                        </div>
+                                        <div className="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden p-[1px]">
+                                            <div 
+                                                className="h-full bg-gradient-to-r from-amber-400 to-emerald-400 rounded-full transition-all duration-300"
+                                                style={{ width: `${Math.min(100, Math.round((xpDetails.remainingXp / xpDetails.nextLevelXp) * 100))}%` }}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    {/* Avatar Change Actions */}
+                                    <div className="flex items-center gap-2 text-xs">
+                                        <button
+                                            onClick={() => { setShowAvatarPicker(!showAvatarPicker); setAvatarTab('emoji'); }}
+                                            className="text-indigo-500 hover:text-indigo-600 dark:text-indigo-400 font-medium transition-colors"
+                                        >
+                                            {showAvatarPicker ? 'Đóng' : '🎨 Đổi avatar'}
+                                        </button>
+                                        <span className="text-gray-205 dark:text-gray-700">|</span>
+                                        <button
+                                            onClick={() => setShowAvatarCropper(true)}
+                                            className="text-purple-500 hover:text-purple-600 dark:text-purple-400 font-medium transition-colors flex items-center gap-1"
+                                        >
+                                            <Camera className="w-3 h-3" />
+                                            Tải ảnh lên
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="flex-1">
-                                {isEditingName ? (
-                                    <div className="flex items-center gap-1.5 mb-1">
-                                        <input
-                                            type="text"
-                                            value={displayName}
-                                            onChange={(e) => setDisplayName(e.target.value)}
-                                            onKeyDown={async (e) => {
-                                                if (e.key === 'Enter' && displayName.trim() && displayName !== profile?.displayName) {
-                                                    await handleSaveProfile();
-                                                    setIsEditingName(false);
-                                                } else if (e.key === 'Escape') {
-                                                    setDisplayName(profile?.displayName || '');
-                                                    setIsEditingName(false);
-                                                }
-                                            }}
-                                            className="px-2 py-0.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 text-sm font-bold max-w-[150px] outline-none"
-                                            autoFocus
-                                        />
-                                        <button
-                                            onClick={async () => {
-                                                await handleSaveProfile();
-                                                setIsEditingName(false);
-                                            }}
-                                            disabled={isSaving || !displayName.trim() || displayName === profile?.displayName}
-                                            className="px-2 py-1 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition-colors disabled:opacity-50 flex items-center gap-1"
-                                        >
-                                            {isSaving && (
-                                                <div className="animate-spin w-3 h-3 border-2 border-white border-t-transparent rounded-full" />
-                                            )}
-                                            Lưu
-                                        </button>
-                                        <button
-                                            onClick={() => {
-                                                setDisplayName(profile?.displayName || '');
-                                                setIsEditingName(false);
-                                            }}
-                                            disabled={isSaving}
-                                            className="px-2 py-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-xs font-bold transition-colors"
-                                        >
-                                            Hủy
-                                        </button>
+
+                            {/* Divider for desktop screen */}
+                            <div className="hidden lg:flex lg:col-span-1 justify-center items-center">
+                                <div className="w-[1px] h-3/4 bg-gray-100 dark:bg-gray-700" />
+                            </div>
+
+                            {/* Right Column: Premium Subscription Info */}
+                            <div className="lg:col-span-4 flex flex-col justify-between py-1 space-y-4">
+                                <div className="space-y-3">
+                                    <h4 className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider font-semibold">Gói học tập hiện tại</h4>
+                                    <div className="flex items-center gap-2">
+                                        {hasPremium ? (
+                                            <>
+                                                <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[10px] font-black px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                                                    <Crown className="w-3 h-3 fill-white text-white animate-pulse" /> PREMIUM
+                                                </span>
+                                                <span className="font-extrabold text-sm text-gray-850 dark:text-white">
+                                                    {getActivePackageName()}
+                                                </span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <span className="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-[10px] font-black px-2.5 py-1 rounded-lg uppercase tracking-wider">
+                                                    FREE
+                                                </span>
+                                                <span className="font-extrabold text-sm text-gray-855 dark:text-white">
+                                                    Thành viên Miễn phí
+                                                </span>
+                                            </>
+                                        )}
                                     </div>
-                                ) : (
-                                    <div className="flex flex-col gap-1 mb-1">
-                                        <div className="flex items-center gap-1.5 flex-wrap">
-                                            <p className="font-bold text-gray-800 dark:text-white text-lg leading-none">{profile?.displayName || 'Chưa đặt tên'}</p>
-                                            <button
-                                                onClick={() => setIsEditingName(true)}
-                                                className="p-1 text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-lg transition-colors"
-                                                title="Chỉnh sửa tên"
-                                            >
-                                                <Edit className="w-3.5 h-3.5" />
-                                            </button>
-                                        </div>
-                                        <div className="flex items-center gap-1.5 flex-wrap mt-0.5">
-                                            <span className="bg-sky-500 text-white text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider flex items-center justify-center">
-                                                LV {xpDetails.level}
-                                            </span>
-                                            <span className="bg-purple-500 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded truncate max-w-[120px] flex items-center justify-center" title={getLevelTitle(xpDetails.level)}>
-                                                {getLevelTitle(xpDetails.level)}
-                                            </span>
-                                        </div>
-                                    </div>
-                                )}
-                                <p className="text-gray-500 dark:text-gray-400 text-xs">{profile?.email || 'Không có email'}</p>
-                                
-                                {/* XP Progress Bar in Settings */}
-                                <div className="mt-3 max-w-xs space-y-1 bg-slate-50/80 dark:bg-slate-800/40 p-2.5 rounded-xl border border-slate-100 dark:border-slate-700/50 shadow-inner">
-                                    <div className="flex justify-between items-center text-[10px] font-bold text-gray-450 dark:text-gray-500">
-                                        <span>TIẾN TRÌNH CẤP ĐỘ</span>
-                                        <span>{xpDetails.remainingXp}/{xpDetails.nextLevelXp} XP</span>
-                                    </div>
-                                    <div className="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden p-[1px]">
-                                        <div 
-                                            className="h-full bg-gradient-to-r from-amber-400 to-emerald-400 rounded-full transition-all duration-300"
-                                            style={{ width: `${Math.min(100, Math.round((xpDetails.remainingXp / xpDetails.nextLevelXp) * 100))}%` }}
-                                        />
+
+                                    <div className="space-y-1.5 text-xs text-gray-500 dark:text-gray-400">
+                                        {hasPremium ? (
+                                            <>
+                                                <div className="flex items-center gap-1.5">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                                    <span>Trạng thái: <strong className="text-emerald-600 dark:text-emerald-450">Đang hoạt động</strong></span>
+                                                </div>
+                                                <div className="flex items-center gap-1.5">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                                                    <span>Hạn dùng: <strong className="text-indigo-650 dark:text-indigo-400">
+                                                        {profile.premiumExpiresAt ? (
+                                                            (() => {
+                                                                const date = profile.premiumExpiresAt.toDate ? profile.premiumExpiresAt.toDate() : new Date(profile.premiumExpiresAt);
+                                                                return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+                                                            })()
+                                                        ) : 'Vĩnh viễn'}
+                                                    </strong></span>
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <p className="leading-relaxed">
+                                                Mở khóa không giới hạn các tính năng AI, Từ vựng, Ngữ pháp và Kanji Zen.
+                                            </p>
+                                        )}
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-2 mt-2">
-                                    <button
-                                        onClick={() => { setShowAvatarPicker(!showAvatarPicker); setAvatarTab('emoji'); }}
-                                        className="text-xs text-indigo-500 hover:text-indigo-600 dark:text-indigo-400 font-medium transition-colors"
-                                    >
-                                        {showAvatarPicker ? 'Đóng' : '🎨 Đổi avatar'}
-                                    </button>
-                                    <span className="text-gray-200 dark:text-gray-700">|</span>
-                                    <button
-                                        onClick={() => setShowAvatarCropper(true)}
-                                        className="text-xs text-purple-500 hover:text-purple-600 dark:text-purple-400 font-medium transition-colors flex items-center gap-1"
-                                    >
-                                        <Camera className="w-3 h-3" />
-                                        Tải ảnh lên
-                                    </button>
+
+                                <div>
+                                    {!hasPremium ? (
+                                        <button
+                                            onClick={() => navigate(ROUTES.UPGRADE)}
+                                            className="w-full py-2.5 px-4 text-xs font-bold bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-xl shadow-md transition-all hover:scale-[1.02] cursor-pointer flex items-center justify-center gap-1.5"
+                                        >
+                                            <Crown className="w-3.5 h-3.5 fill-white text-white" />
+                                            Nâng cấp Premium ngay
+                                        </button>
+                                    ) : (
+                                        <button
+                                            onClick={() => navigate(ROUTES.UPGRADE)}
+                                            className="w-full py-2.5 px-4 text-xs font-bold bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-xl shadow-md transition-all hover:scale-[1.02] cursor-pointer flex items-center justify-center gap-1.5"
+                                        >
+                                            <Crown className="w-3.5 h-3.5 fill-white text-white" />
+                                            Gia hạn / Mua thêm gói
+                                        </button>
+                                    )}
                                 </div>
                             </div>
                         </div>
+
                         {/* Avatar Picker Grid */}
                         {showAvatarPicker && (
-                            <div className="border-t border-gray-100 dark:border-gray-700 pt-4 space-y-3">
+                            <div className="border-t border-gray-100 dark:border-gray-700 mt-5 pt-4 space-y-3">
                                 {/* Tabs: Emoji / Ảnh */}
                                 <div className="flex rounded-xl bg-gray-100 dark:bg-gray-700 p-1 gap-1">
                                     <button
@@ -540,7 +668,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                                 </div>
                                                 <button
                                                     onClick={() => handleSelectAvatar('default')}
-                                                    className="text-xs text-red-500 hover:text-red-600 font-medium px-2 py-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                                    className="text-xs text-red-500 hover:text-red-650 font-medium px-2 py-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
                                                 >
                                                     Xóa
                                                 </button>
@@ -568,6 +696,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                             </div>
                         )}
                     </div>
+
                     {/* Avatar Cropper Modal */}
                     {showAvatarCropper && (
                         <AvatarCropper
@@ -739,19 +868,38 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                         Sao chép link này gửi cho bạn bè. Khi họ đăng ký tài khoản mới qua link của bạn, bạn nhận ngay **3 ngày Premium** và bạn bè nhận ngay **15 ngày Premium dùng thử**!
                                     </p>
                                 </div>
-                                <div className="space-y-2">
-                                    <div className="w-full flex items-center justify-between bg-white dark:bg-slate-850 px-3 py-2 rounded-xl border border-indigo-150/40 dark:border-slate-700 font-mono text-xs font-semibold text-indigo-650 dark:text-indigo-400 shadow-sm relative overflow-hidden break-all select-all">
-                                        <span>{profile?.referralCode ? `${window.location.origin}/?ref=${profile.referralCode}` : 'ĐANG KHỞI TẠO...'}</span>
-                                        <button
-                                            type="button"
-                                            onClick={handleCopyCode}
-                                            className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg text-gray-500 hover:text-indigo-600 transition-colors flex-shrink-0 ml-1"
-                                            title="Copy link giới thiệu"
-                                        >
-                                            {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
-                                        </button>
+                                <div className="space-y-3">
+                                    <div className="space-y-1">
+                                        <label className="text-[9px] font-bold text-indigo-500/80 dark:text-indigo-400/80 uppercase tracking-wider">Link chia sẻ</label>
+                                        <div className="w-full flex items-center justify-between bg-white dark:bg-slate-850 px-3 py-2 rounded-xl border border-indigo-150/40 dark:border-slate-700 font-mono text-[11px] font-semibold text-indigo-650 dark:text-indigo-400 shadow-sm relative overflow-hidden break-all select-all">
+                                            <span>{profile?.referralCode ? `${window.location.origin}/?ref=${profile.referralCode}` : 'ĐANG KHỞI TẠO...'}</span>
+                                            <button
+                                                type="button"
+                                                onClick={handleCopyCode}
+                                                className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg text-gray-500 hover:text-indigo-600 transition-colors flex-shrink-0 ml-1"
+                                                title="Copy link giới thiệu"
+                                            >
+                                                {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
+                                            </button>
+                                        </div>
+                                        {copied && <p className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 text-center">✓ Đã copy link thành công!</p>}
                                     </div>
-                                    {copied && <p className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 text-center">✓ Đã copy link vào Clipboard!</p>}
+
+                                    <div className="space-y-1">
+                                        <label className="text-[9px] font-bold text-indigo-500/80 dark:text-indigo-400/80 uppercase tracking-wider">Mã giới thiệu riêng</label>
+                                        <div className="w-full flex items-center justify-between bg-white dark:bg-slate-850 px-3 py-2 rounded-xl border border-indigo-150/40 dark:border-slate-700 font-mono text-[11px] font-bold text-indigo-650 dark:text-indigo-400 shadow-sm relative overflow-hidden select-all">
+                                            <span>{profile?.referralCode || 'ĐANG KHỞI TẠO...'}</span>
+                                            <button
+                                                type="button"
+                                                onClick={handleCopyRawCode}
+                                                className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg text-gray-500 hover:text-indigo-600 transition-colors flex-shrink-0 ml-1"
+                                                title="Copy mã giới thiệu"
+                                            >
+                                                {copiedRaw ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
+                                            </button>
+                                        </div>
+                                        {copiedRaw && <p className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 text-center">✓ Đã copy mã thành công!</p>}
+                                    </div>
                                 </div>
                             </div>
 

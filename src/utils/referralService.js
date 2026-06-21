@@ -28,6 +28,20 @@ export const submitReferralCode = async (userId, displayName, enteredCode) => {
     const code = enteredCode.trim().toUpperCase();
 
     try {
+        // Direct check: prevent user from entering their own referral code
+        const myProfileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
+        const myProfileSnap = await getDoc(myProfileRef);
+        if (myProfileSnap.exists()) {
+            const myCode = myProfileSnap.data().referralCode;
+            if (myCode && myCode.toUpperCase() === code) {
+                return { success: false, error: 'Bạn không thể nhập mã giới thiệu của chính mình.' };
+            }
+        }
+    } catch (err) {
+        console.warn('Check self referral code error:', err);
+    }
+
+    try {
         // 1. Find referrer with this referralCode in public userStats
         const statsRef = collection(db, `artifacts/${appId}/public/data/userStats`);
         const q = query(statsRef, where('referralCode', '==', code));
@@ -60,12 +74,21 @@ export const submitReferralCode = async (userId, displayName, enteredCode) => {
 
         const referrerProfileRef = doc(db, `artifacts/${appId}/users/${referrerId}/settings/profile`);
 
+        // Read referrer's current premium expiry from their public userStats (since referee has no read permission on referrer's private profile settings)
+        const referrerStatsRefDoc = doc(db, `artifacts/${appId}/public/data/userStats`, referrerId);
+        const referrerStatsSnap = await getDoc(referrerStatsRefDoc);
+        let referrerExpiry = 0;
+        if (referrerStatsSnap.exists()) {
+            const statsData = referrerStatsSnap.data();
+            const exp = statsData.premiumExpiresAt || 0;
+            referrerExpiry = exp?.toDate ? exp.toDate().getTime() : Number(exp || 0);
+        }
+
         // 3. Execute transaction to safely award 15 days Premium to referee, save referredBy, award 3 days to referrer and create referral document
         let newExpiryReferee = Date.now() + 15 * 24 * 60 * 60 * 1000;
         let newExpiryReferrer = Date.now() + 3 * 24 * 60 * 60 * 1000;
         await runTransaction(db, async (transaction) => {
             const refereeProfileDoc = await transaction.get(profileRef);
-            const referrerProfileDoc = await transaction.get(referrerProfileRef);
 
             if (!refereeProfileDoc.exists()) {
                 throw new Error('Hồ sơ của bạn không tồn tại.');
@@ -76,12 +99,6 @@ export const submitReferralCode = async (userId, displayName, enteredCode) => {
             const baseTime = currentExpiryMs > Date.now() ? currentExpiryMs : Date.now();
             newExpiryReferee = baseTime + 15 * 24 * 60 * 60 * 1000;
 
-            let referrerExpiry = 0;
-            if (referrerProfileDoc.exists()) {
-                const data = referrerProfileDoc.data();
-                const exp = data.premiumExpiresAt || 0;
-                referrerExpiry = exp?.toDate ? exp.toDate().getTime() : Number(exp || 0);
-            }
             const referrerBase = referrerExpiry > Date.now() ? referrerExpiry : Date.now();
             newExpiryReferrer = referrerBase + 3 * 24 * 60 * 60 * 1000;
 
@@ -99,13 +116,12 @@ export const submitReferralCode = async (userId, displayName, enteredCode) => {
             });
 
             // Update Referrer Profile (award 3 days Premium immediately)
-            if (referrerProfileDoc.exists()) {
-                transaction.update(referrerProfileRef, {
-                    isPremiumUnlocked: true,
-                    premiumExpiresAt: newExpiryReferrer,
-                    unlockedSpecializedPackages: arrayUnion('premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep')
-                });
-            }
+            // Note: Since we verified the referrer user exists via userStats lookup, we perform the update directly
+            transaction.update(referrerProfileRef, {
+                isPremiumUnlocked: true,
+                premiumExpiresAt: newExpiryReferrer,
+                unlockedSpecializedPackages: arrayUnion('premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep')
+            });
 
             // Create Referral Log document
             transaction.set(referralDocRef, {

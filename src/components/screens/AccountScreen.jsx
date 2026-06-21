@@ -18,6 +18,23 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack,
         profile.unlockedSpecializedPackages.includes('jlpt_prep')
     )) || false;
 
+    const getActivePackageName = () => {
+        if (!profile?.isPremiumUnlocked) return 'Thành viên Free';
+        const packages = profile.unlockedSpecializedPackages || [];
+        if (packages.includes('premium_3y')) return 'Premium 3 Năm';
+        if (packages.includes('premium_1y')) return 'Premium 1 Năm';
+        if (packages.includes('premium_1m')) return 'Premium 1 Tháng';
+        if (packages.includes('premium')) return 'Premium';
+        
+        const zenPkgs = [];
+        if (packages.includes('vocab_zen')) zenPkgs.push('Từ vựng Zen');
+        if (packages.includes('grammar_zen')) zenPkgs.push('Ngữ pháp Zen');
+        if (packages.includes('kanji_zen')) zenPkgs.push('Kanji Zen');
+        if (packages.includes('jlpt_prep')) zenPkgs.push('Luyện thi JLPT');
+        if (zenPkgs.length > 0) return `Zen (${zenPkgs.join(', ')})`;
+        return 'Premium';
+    };
+
     const [newDisplayName, setNewDisplayName] = useState(profile.displayName || '');
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
@@ -165,44 +182,77 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack,
             </div>
 
             {/* Subscription Box */}
-            <div className="bg-slate-50 dark:bg-slate-900/40 p-5 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="space-y-1">
-                    <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Gói học tập của bạn</h3>
-                    {profile?.isPremiumUnlocked ? (
-                        <div className="flex flex-wrap items-center gap-2 mt-1">
-                            <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[10px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider flex items-center gap-1 shadow-sm">
-                                <Crown className="w-3 h-3 fill-white text-white" /> PREMIUM HOẠT ĐỘNG
-                            </span>
-                            <span className="text-xs text-gray-500 dark:text-gray-400">
-                                Thời hạn đến: <span className="font-bold text-indigo-650 dark:text-indigo-400">
-                                    {profile.premiumExpiresAt ? (
-                                        (() => {
-                                            const date = profile.premiumExpiresAt.toDate ? profile.premiumExpiresAt.toDate() : new Date(profile.premiumExpiresAt);
-                                            return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-                                        })()
-                                    ) : 'Vĩnh viễn'}
-                                </span>
-                            </span>
+            <div className="bg-gradient-to-r from-slate-50 to-indigo-50/30 dark:from-slate-900/40 dark:to-slate-800/20 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div className="space-y-3">
+                        <div>
+                            <h3 className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider font-semibold">Thông tin gói học tập</h3>
+                            <div className="flex items-center gap-2 mt-1.5">
+                                {profile?.isPremiumUnlocked ? (
+                                    <>
+                                        <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[10px] font-black px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                                            <Crown className="w-3 h-3 fill-white text-white" /> PREMIUM
+                                        </span>
+                                        <span className="font-extrabold text-lg text-gray-800 dark:text-white">
+                                            {getActivePackageName()}
+                                        </span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <span className="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-[10px] font-black px-2.5 py-1 rounded-lg uppercase tracking-wider">
+                                            FREE
+                                        </span>
+                                        <span className="font-extrabold text-lg text-gray-800 dark:text-white">
+                                            Thành viên Miễn phí
+                                        </span>
+                                    </>
+                                )}
+                            </div>
                         </div>
+
+                        <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                            {profile?.isPremiumUnlocked ? (
+                                <>
+                                    <div className="flex items-center gap-1 text-gray-500 dark:text-gray-400">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                        <span>Trạng thái: <strong className="text-emerald-600 dark:text-emerald-450">Đang hoạt động</strong></span>
+                                    </div>
+                                    <div className="flex items-center gap-1 text-gray-500 dark:text-gray-400">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                                        <span>Hạn dùng: <strong className="text-indigo-650 dark:text-indigo-400">
+                                            {profile.premiumExpiresAt ? (
+                                                (() => {
+                                                    const date = profile.premiumExpiresAt.toDate ? profile.premiumExpiresAt.toDate() : new Date(profile.premiumExpiresAt);
+                                                    return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+                                                })()
+                                            ) : 'Vĩnh viễn'}
+                                        </strong></span>
+                                    </div>
+                                </>
+                            ) : (
+                                <div className="text-gray-500 dark:text-gray-400">
+                                    Nâng cấp Premium để mở khóa không giới hạn AI, Từ vựng, Ngữ pháp và Kanji Zen.
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+                    {!profile?.isPremiumUnlocked ? (
+                        <button
+                            onClick={() => navigate(ROUTES.UPGRADE)}
+                            className="w-full md:w-auto px-6 py-3 text-sm font-bold bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-xl shadow-md transition-all hover:scale-[1.02] cursor-pointer"
+                        >
+                            Nâng cấp Premium ngay
+                        </button>
                     ) : (
-                        <div className="flex flex-wrap items-center gap-2 mt-1">
-                            <span className="bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-[10px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider">
-                                THÀNH VIÊN FREE
-                            </span>
-                            <span className="text-xs text-gray-500 dark:text-gray-400">
-                                Đang sử dụng các tính năng cơ bản
-                            </span>
-                        </div>
+                        <button
+                            onClick={() => navigate(ROUTES.UPGRADE)}
+                            className="w-full md:w-auto px-5 py-2.5 text-xs font-bold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 border border-indigo-200 dark:border-indigo-900/60 bg-white dark:bg-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm transition-all cursor-pointer"
+                        >
+                            Gia hạn / Mua thêm gói
+                        </button>
                     )}
                 </div>
-                {!profile?.isPremiumUnlocked && (
-                    <button
-                        onClick={() => navigate(ROUTES.UPGRADE)}
-                        className="px-4 py-2 text-xs font-bold bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-xl shadow transition-all hover:scale-[1.02] cursor-pointer"
-                    >
-                        Nâng cấp ngay
-                    </button>
-                )}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
