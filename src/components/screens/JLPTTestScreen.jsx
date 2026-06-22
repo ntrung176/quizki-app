@@ -548,7 +548,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
     // State
     const [tests, setTests] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [selectedLevel, setSelectedLevel] = useState('N2'); // Set default level filter to N2 matching user's request/screenshot
+    const [selectedLevel, setSelectedLevel] = useState('all'); // Set default level filter to all matching user's request
     const [targetLevel, setTargetLevel] = useState(profile?.jlptTargetLevel || 'N2');
     const [showRoadmapDetails, setShowRoadmapDetails] = useState(false);
     const [activeWeekGroup, setActiveWeekGroup] = useState(0);
@@ -1701,13 +1701,13 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
     const filteredTests = (selectedLevel === 'all' ? tests : tests.filter(t => t.level === selectedLevel))
         .filter(t => !t.isSkillTest);
     const getSkillProgress = (skillType) => {
-        const skillTests = tests.filter(t => t.isSkillTest && t.skillType === skillType && t.level === selectedLevel);
+        const skillTests = tests.filter(t => t.isSkillTest && t.skillType === skillType && (selectedLevel === 'all' || t.level === selectedLevel));
         if (skillTests.length === 0) return 0;
         const completedCount = skillTests.filter(t => !!completedTests[t.id]).length;
         return Math.round((completedCount / skillTests.length) * 100);
     };
     const handleStartPractice = (skillType, skillLabel) => {
-        const matchingTests = tests.filter(t => t.isSkillTest && t.skillType === skillType && t.level === selectedLevel);
+        const matchingTests = tests.filter(t => t.isSkillTest && t.skillType === skillType && (selectedLevel === 'all' || t.level === selectedLevel));
         setSelectedSkillPractice({ type: skillType, label: skillLabel, tests: matchingTests });
     };
 

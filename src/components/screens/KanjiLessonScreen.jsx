@@ -8,6 +8,7 @@ import { collection, getDocs, doc, setDoc, getDoc, deleteDoc, increment } from '
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
+import { speakJapanese } from '../../utils/audio';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { fetchJotobaWordData } from '../../utils/pitchAccent';
@@ -389,18 +390,6 @@ const KanjiLessonScreen = ({ awardXP }) => {
     const goToNextDay = () => {
         setSearchParams({ level, day: String(day + 1) });
     };
-    // TTS
-    const speakJapanese = (text) => {
-        if (!text || !window.speechSynthesis) return;
-        window.speechSynthesis.cancel();
-        const utt = new SpeechSynthesisUtterance(text.split('（')[0].split('(')[0].trim());
-        utt.lang = 'ja-JP';
-        utt.rate = 0.85;
-        const voices = window.speechSynthesis.getVoices();
-        const jpVoice = voices.find(v => v.lang.startsWith('ja'));
-        if (jpVoice) utt.voice = jpVoice;
-        window.speechSynthesis.speak(utt);
-    };
     if (loading) {
         return <LoadingIndicator text="Đang tải dữ liệu bài học..." />;
     }
@@ -775,7 +764,7 @@ const KanjiLessonScreen = ({ awardXP }) => {
     };
     // ==================== MAIN RENDER ====================
     return (
-        <div className="max-w-7xl mx-auto px-4 py-6 space-y-6 animate-fade-in">
+        <div className="max-w-7xl mx-auto px-4 py-6 pb-24 lg:pb-6 space-y-6 animate-fade-in">
             {/* Top Navigation Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-100 dark:border-slate-700/50 pb-5">
                 {/* Breadcrumbs */}
@@ -1116,7 +1105,7 @@ const KanjiFlashcard = ({
                                     <div className="text-sm text-gray-600 dark:text-slate-300 font-medium mt-1">{v.meaning}</div>
                                 </div>
                                 <button
-                                    onClick={() => speakJapanese(v.word)}
+                                    onClick={() => speakJapanese(v.word, v.audioBase64)}
                                     className="p-2 bg-gray-50 dark:bg-slate-700 hover:bg-gray-100 dark:hover:bg-slate-600 rounded-xl text-gray-400 hover:text-gray-600 dark:hover:text-white transition-all shadow-sm flex-shrink-0"
                                     title="Nghe phát âm"
                                 >
@@ -1184,7 +1173,7 @@ const KanjiFlashcard = ({
                     </div>
                 </div>
                 {/* Bottom Action buttons */}
-                <div className="order-6 lg:order-none flex gap-4 pt-2">
+                <div className="order-6 lg:order-none lg:static fixed bottom-0 left-0 right-0 lg:p-0 p-4 lg:bg-transparent bg-white/95 dark:bg-slate-900/95 backdrop-blur-md lg:border-0 border-t border-gray-100 dark:border-slate-800/80 lg:shadow-none shadow-[0_-8px_25px_rgba(0,0,0,0.08)] flex gap-4 z-40">
                     <button
                         onClick={onPrev}
                         disabled={currentIndex === 0}
@@ -1225,7 +1214,7 @@ const VocabFlashcardList = ({ vocab, speakJapanese }) => {
                                     </div>
                                 )}
                             </div>
-                            <button onClick={(e) => { e.stopPropagation(); speakJapanese(v.word); }}
+                            <button onClick={(e) => { e.stopPropagation(); speakJapanese(v.word, v.audioBase64); }}
                                 className="p-2 hover:bg-gray-200 dark:hover:bg-slate-700 rounded-full transition-colors">
                                 <Volume2 className="w-4 h-4 text-gray-400" />
                             </button>

@@ -148,6 +148,18 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
         }
     }, [isOpen]);
 
+    // Listen to custom events to toggle/open chat from mobile header
+    useEffect(() => {
+        const handleToggleChat = () => setIsOpen(prev => !prev);
+        const handleOpenChat = () => setIsOpen(true);
+        window.addEventListener('toggle-support-chat', handleToggleChat);
+        window.addEventListener('open-support-chat', handleOpenChat);
+        return () => {
+            window.removeEventListener('toggle-support-chat', handleToggleChat);
+            window.removeEventListener('open-support-chat', handleOpenChat);
+        };
+    }, []);
+
     // Handle image select & convert to base64 with compression
     const handleImageSelect = async (e) => {
         const file = e.target.files[0];
@@ -257,7 +269,7 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
             {/* Floating Bubble Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`fixed bottom-6 right-6 z-55 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer bg-[#2E5B70] shadow-[#2E5B70]/30 ${isOpen ? 'opacity-100' : 'opacity-50 hover:opacity-100 focus:opacity-100 active:opacity-100'}`}
+                className={`hidden lg:flex fixed bottom-6 right-6 z-55 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer bg-[#2E5B70] shadow-[#2E5B70]/30 ${isOpen ? 'opacity-100' : 'opacity-50 hover:opacity-100 focus:opacity-100 active:opacity-100'}`}
             >
                 {isOpen ? (
                     <X className="w-6 h-6 animate-fade-in" />

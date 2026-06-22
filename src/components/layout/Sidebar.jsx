@@ -2,10 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth, db, appId } from '../../config/firebase';
-import { collection, query, onSnapshot } from 'firebase/firestore';
+import { collection, query, onSnapshot, doc } from 'firebase/firestore';
 import { ROUTES } from '../../router';
 import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
-import { Home, BookOpen, Plus, LogOut, Sun, Moon, Sparkle, ChevronRight, X, List, Repeat2, FileCheck, Languages, Shield, ChevronDown, Trophy, Crown, User, Bell, MessageSquare } from 'lucide-react'
+import { Home, BookOpen, Plus, LogOut, Sun, Moon, Sparkle, ChevronRight, X, List, Repeat2, FileCheck, Languages, Shield, ChevronDown, Trophy, Crown, User, Bell, MessageSquare, HelpCircle } from 'lucide-react'
 // Sidebar Component - Navigation with submenu support
 const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allCards = [], isPremium = false, avatar, profile }) => {
     const navigate = useNavigate();
@@ -82,6 +82,21 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             setKanjiDueCount(dueCount);
         }, () => { });
         return () => unsub();
+    }, [userId]);
+    // Listen to Support Chat unread status for current user
+    const [hasUnreadSupport, setHasUnreadSupport] = useState(false);
+    useEffect(() => {
+        if (!userId || !db) return;
+        const statusDocRef = doc(db, `artifacts/${appId}/forum`, `support_chat_${userId}`);
+        const unsubscribe = onSnapshot(statusDocRef, (docSnap) => {
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                setHasUnreadSupport(!!data.hasUnreadUser);
+            }
+        }, (error) => {
+            // Ignore offline/permission errors silently
+        });
+        return () => unsubscribe();
     }, [userId]);
     // Listen to Global Notifications
     useEffect(() => {
@@ -329,12 +344,39 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
     const MobileHeader = () => (
         <header className="lg:hidden fixed top-0 left-0 right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-gray-200 dark:border-slate-700/50 z-50 h-14 shadow-sm dark:shadow-none">
             <div className="h-full px-4 flex items-center justify-between">
-                <Link to={ROUTES.VOCAB_REVIEW} className="flex items-center space-x-3.5">
-                    <div className="w-9 h-9 bg-[#2E5B70] rounded-xl flex items-center justify-center text-white shadow-md shadow-[#2E5B70]/20">
-                        <BookOpen className="w-5 h-5" />
+                <div className="flex items-center space-x-2">
+                    <Link to={ROUTES.VOCAB_REVIEW} className="flex items-center space-x-3.5">
+                        <div className="w-9 h-9 bg-[#2E5B70] rounded-xl flex items-center justify-center text-white shadow-md shadow-[#2E5B70]/20">
+                            <BookOpen className="w-5 h-5" />
+                        </div>
+                        <span className="text-lg font-bold text-slate-800 dark:text-white tracking-tight">QuizKi</span>
+                    </Link>
+                    <div className="flex items-center space-x-1 ml-1">
+                        <button
+                            onClick={() => {
+                                window.dispatchEvent(new CustomEvent('trigger-tour'));
+                            }}
+                            className="p-1.5 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors cursor-pointer"
+                            title="Xem hướng dẫn trang này"
+                        >
+                            <HelpCircle className="w-5 h-5" />
+                        </button>
+                        {!isAdmin && (
+                            <button
+                                onClick={() => {
+                                    window.dispatchEvent(new CustomEvent('toggle-support-chat'));
+                                }}
+                                className="p-1.5 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors cursor-pointer relative"
+                                title="Hỗ trợ & Báo lỗi"
+                            >
+                                <MessageSquare className="w-5 h-5" />
+                                {hasUnreadSupport && (
+                                    <span className="absolute top-1 right-1 w-2 h-2 bg-rose-500 rounded-full animate-pulse" />
+                                )}
+                            </button>
+                        )}
                     </div>
-                    <span className="text-lg font-bold text-slate-800 dark:text-white tracking-tight">QuizKi</span>
-                </Link>
+                </div>
                 <div className="flex items-center space-x-2">
                     <Link
                         to={ROUTES.VOCAB_ADD}
