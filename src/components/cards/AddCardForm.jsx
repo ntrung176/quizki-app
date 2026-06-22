@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Languages, Sparkle, ChevronDown, CreditCard, Trash2, Folder } from 'lucide-react'
+import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Languages, Sparkle, ChevronDown, CreditCard, Trash2, Folder, PenTool, RotateCcw } from 'lucide-react'
 import { POS_TYPES } from '../../config/constants'
 import { compressImage } from '../../utils/image';
 
@@ -27,6 +27,45 @@ export const CardEditorItem = ({
 }) => {
     const [showAdvanced, setShowAdvanced] = useState(false);
     const [isGeneratingExample, setIsGeneratingExample] = useState(false);
+    const [showHandwriting, setShowHandwriting] = useState(false);
+    const [handwritingSuggestions, setHandwritingSuggestions] = useState([]);
+    const handwritingStrokesRef = useRef([]);
+    const currentStrokeRef = useRef({ xs: [], ys: [] });
+    const recognitionTimeoutRef = useRef(null);
+
+    const recognizeHandwriting = async (strokes, canvasWidth, canvasHeight) => {
+        if (!strokes || strokes.length === 0) return;
+        try {
+            const ink = strokes.map(s => [s.xs, s.ys]);
+            const payload = JSON.stringify({
+                options: 'enable_pre_space',
+                requests: [{
+                    writing_guide: { writing_area_width: canvasWidth, writing_area_height: canvasHeight },
+                    ink: ink,
+                    language: 'ja'
+                }]
+            });
+            const resp = await fetch('https://inputtools.google.com/request?itc=ja-t-i0-handwrit&app=translate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: payload
+            });
+            const data = await resp.json();
+            if (data && data[0] === 'SUCCESS' && data[1] && data[1][0]) {
+                const candidates = data[1][0][1] || [];
+                const suggestions = candidates
+                    .filter(char => char.length === 1)
+                    .map((char, idx) => ({
+                        id: `hw_${idx}`,
+                        character: char
+                    }))
+                    .slice(0, 18);
+                setHandwritingSuggestions(suggestions);
+            }
+        } catch (err) {
+            console.warn('Google handwriting API failed:', err.message);
+        }
+    };
 
     const handleImageChange = async (e) => {
         const file = e.target.files[0];
@@ -134,6 +173,27 @@ export const CardEditorItem = ({
                                 placeholder="Ví dụ: 食べる"
                                 className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 py-2.5 text-2xl font-bold text-slate-800 dark:text-white outline-none transition-colors"
                             />
+                            
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    setShowHandwriting(!showHandwriting);
+                                    if (!showHandwriting) {
+                                        setHandwritingSuggestions([]);
+                                        handwritingStrokesRef.current = [];
+                                        currentStrokeRef.current = { xs: [], ys: [] };
+                                    }
+                                }}
+                                className={`flex items-center justify-center px-3.5 py-2 rounded-xl border font-bold text-sm shadow hover:shadow-md transition-all flex-shrink-0 min-w-[38px] ${
+                                    showHandwriting
+                                        ? 'bg-sky-100 dark:bg-sky-950 border-sky-200 dark:border-sky-855 text-sky-600 dark:text-sky-400'
+                                        : 'bg-white hover:bg-slate-50 dark:bg-gray-800 dark:border-gray-700 text-slate-500 dark:text-slate-300'
+                                }`}
+                                title="Vẽ để chọn Kanji"
+                            >
+                                <span className="font-japanese font-bold text-base">あ</span>
+                            </button>
+
                             {onAiAssist && (
                                 <button
                                     type="button"
@@ -146,6 +206,182 @@ export const CardEditorItem = ({
                                 </button>
                             )}
                         </div>
+
+                        {/* Handwriting Recognition Section */}
+                        {showHandwriting && (
+                            <div className="mt-3 bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-3.5 shadow-sm space-y-3 relative z-10">
+                                <div className="flex items-center justify-between">
+                                    <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                                        <PenTool className="w-3.5 h-3.5 text-sky-500" /> Vẽ chữ Kanji để nhập
+                                    </span>
+                                    <div className="flex items-center gap-2">
+                                        {handwritingStrokesRef.current.length > 0 && (
+                                            <span className="text-[9px] text-gray-400 font-mono">{handwritingStrokesRef.current.length} nét</span>
+                                        )}
+                                        <button
+                                            type="button"
+                                            onClick={() => {
+                                                const canvas = document.getElementById(`handwriting-canvas-${card.id}`);
+                                                if (canvas) {
+                                                    const ctx = canvas.getContext('2d');
+                                                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                                                }
+                                                handwritingStrokesRef.current = [];
+                                                currentStrokeRef.current = { xs: [], ys: [] };
+                                                if (recognitionTimeoutRef.current) clearTimeout(recognitionTimeoutRef.current);
+                                                setHandwritingSuggestions([]);
+                                            }}
+                                            className="p-1 hover:bg-slate-200 dark:hover:bg-slate-800 rounded text-slate-500 transition-colors"
+                                            title="Xóa và vẽ lại"
+                                        >
+                                            <RotateCcw className="w-3.5 h-3.5" />
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={() => setShowHandwriting(false)}
+                                            className="p-1 hover:bg-slate-200 dark:hover:bg-slate-800 rounded text-slate-500 transition-colors"
+                                        >
+                                            <X className="w-3.5 h-3.5" />
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div className="relative w-full h-[180px] bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden cursor-crosshair touch-none">
+                                    <canvas
+                                        id={`handwriting-canvas-${card.id}`}
+                                        width="380"
+                                        height="180"
+                                        className="w-full h-full"
+                                        style={{ touchAction: 'none' }}
+                                        onMouseDown={(e) => {
+                                            const canvas = e.currentTarget;
+                                            const rect = canvas.getBoundingClientRect();
+                                            const x = (e.clientX - rect.left) * (canvas.width / rect.width);
+                                            const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+                                            const ctx = canvas.getContext('2d');
+                                            ctx.beginPath();
+                                            ctx.moveTo(x, y);
+                                            canvas.dataset.drawing = 'true';
+                                            currentStrokeRef.current = { xs: [Math.round(x)], ys: [Math.round(y)] };
+                                        }}
+                                        onMouseMove={(e) => {
+                                            const canvas = e.currentTarget;
+                                            if (canvas.dataset.drawing !== 'true') return;
+                                            const rect = canvas.getBoundingClientRect();
+                                            const x = (e.clientX - rect.left) * (canvas.width / rect.width);
+                                            const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+                                            const ctx = canvas.getContext('2d');
+                                            ctx.lineTo(x, y);
+                                            ctx.strokeStyle = document.documentElement.classList.contains('dark') ? '#38bdf8' : '#0284c7';
+                                            ctx.lineWidth = 4;
+                                            ctx.lineCap = 'round';
+                                            ctx.lineJoin = 'round';
+                                            ctx.stroke();
+                                            currentStrokeRef.current.xs.push(Math.round(x));
+                                            currentStrokeRef.current.ys.push(Math.round(y));
+                                        }}
+                                        onMouseUp={(e) => {
+                                            const canvas = e.currentTarget;
+                                            canvas.dataset.drawing = 'false';
+                                            if (currentStrokeRef.current.xs.length > 1) {
+                                                handwritingStrokesRef.current = [...handwritingStrokesRef.current, { ...currentStrokeRef.current }];
+                                                currentStrokeRef.current = { xs: [], ys: [] };
+                                                if (recognitionTimeoutRef.current) clearTimeout(recognitionTimeoutRef.current);
+                                                recognitionTimeoutRef.current = setTimeout(() => {
+                                                    recognizeHandwriting(handwritingStrokesRef.current, canvas.width, canvas.height);
+                                                }, 300);
+                                            }
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            const canvas = e.currentTarget;
+                                            if (canvas.dataset.drawing === 'true') {
+                                                canvas.dataset.drawing = 'false';
+                                                if (currentStrokeRef.current.xs.length > 1) {
+                                                    handwritingStrokesRef.current = [...handwritingStrokesRef.current, { ...currentStrokeRef.current }];
+                                                    currentStrokeRef.current = { xs: [], ys: [] };
+                                                    if (recognitionTimeoutRef.current) clearTimeout(recognitionTimeoutRef.current);
+                                                    recognitionTimeoutRef.current = setTimeout(() => {
+                                                        recognizeHandwriting(handwritingStrokesRef.current, canvas.width, canvas.height);
+                                                    }, 300);
+                                                }
+                                            }
+                                        }}
+                                        onTouchStart={(e) => {
+                                            e.preventDefault();
+                                            const canvas = e.currentTarget;
+                                            const rect = canvas.getBoundingClientRect();
+                                            const touch = e.touches[0];
+                                            const x = (touch.clientX - rect.left) * (canvas.width / rect.width);
+                                            const y = (touch.clientY - rect.top) * (canvas.height / rect.height);
+                                            const ctx = canvas.getContext('2d');
+                                            ctx.beginPath();
+                                            ctx.moveTo(x, y);
+                                            canvas.dataset.drawing = 'true';
+                                            currentStrokeRef.current = { xs: [Math.round(x)], ys: [Math.round(y)] };
+                                        }}
+                                        onTouchMove={(e) => {
+                                            e.preventDefault();
+                                            const canvas = e.currentTarget;
+                                            if (canvas.dataset.drawing !== 'true') return;
+                                            const rect = canvas.getBoundingClientRect();
+                                            const touch = e.touches[0];
+                                            const x = (touch.clientX - rect.left) * (canvas.width / rect.width);
+                                            const y = (touch.clientY - rect.top) * (canvas.height / rect.height);
+                                            const ctx = canvas.getContext('2d');
+                                            ctx.lineTo(x, y);
+                                            ctx.strokeStyle = document.documentElement.classList.contains('dark') ? '#38bdf8' : '#0284c7';
+                                            ctx.lineWidth = 4;
+                                            ctx.lineCap = 'round';
+                                            ctx.lineJoin = 'round';
+                                            ctx.stroke();
+                                            currentStrokeRef.current.xs.push(Math.round(x));
+                                            currentStrokeRef.current.ys.push(Math.round(y));
+                                        }}
+                                        onTouchEnd={(e) => {
+                                            const canvas = e.currentTarget;
+                                            canvas.dataset.drawing = 'false';
+                                            if (currentStrokeRef.current.xs.length > 1) {
+                                                handwritingStrokesRef.current = [...handwritingStrokesRef.current, { ...currentStrokeRef.current }];
+                                                currentStrokeRef.current = { xs: [], ys: [] };
+                                                if (recognitionTimeoutRef.current) clearTimeout(recognitionTimeoutRef.current);
+                                                recognitionTimeoutRef.current = setTimeout(() => {
+                                                    recognizeHandwriting(handwritingStrokesRef.current, canvas.width, canvas.height);
+                                                }, 300);
+                                            }
+                                        }}
+                                    />
+                                </div>
+
+                                {handwritingSuggestions.length > 0 && (
+                                    <div className="border-t border-slate-200 dark:border-slate-800 pt-2 bg-slate-50/50 dark:bg-slate-900/30 max-h-36 overflow-y-auto">
+                                        <div className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">Đề xuất Kanji (Bấm để thêm):</div>
+                                        <div className="flex flex-wrap gap-2">
+                                            {handwritingSuggestions.map((sug) => (
+                                                <button
+                                                    key={sug.id}
+                                                    type="button"
+                                                    onClick={() => {
+                                                        const newVal = (card.front || '') + sug.character;
+                                                        onUpdate(card.id, 'front', newVal);
+                                                        
+                                                        const canvas = document.getElementById(`handwriting-canvas-${card.id}`);
+                                                        if (canvas) {
+                                                            const ctx = canvas.getContext('2d');
+                                                            ctx.clearRect(0, 0, canvas.width, canvas.height);
+                                                        }
+                                                        handwritingStrokesRef.current = [];
+                                                        setHandwritingSuggestions([]);
+                                                    }}
+                                                    className="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-lg font-japanese font-bold transition-all hover:scale-105 active:scale-95 text-slate-800 dark:text-white shadow-sm"
+                                                >
+                                                    {sug.character}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        )}
                     </div>
 
                     <div>

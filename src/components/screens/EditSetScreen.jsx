@@ -186,17 +186,16 @@ const EditSetScreen = ({
             return;
         }
 
-        if (folderId !== 'unfiled' && !title.trim()) {
+        if (!title.trim()) {
             showToast('Tiêu đề học phần không được để trống', 'error');
             return;
         }
 
-        if (folderId === 'unfiled' && !title.trim()) {
-            showToast('Tiêu đề học phần không được để trống', 'error');
-            return;
+        if (folderId !== 'unfiled') {
+            handleConfirmSaveSet(folder?.parentId || null);
+        } else {
+            setShowFolderSelector(true);
         }
-
-        setShowFolderSelector(true);
     };
 
     const handleConfirmSaveSet = async (parentFolderId) => {
