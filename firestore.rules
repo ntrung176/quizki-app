@@ -89,28 +89,28 @@ service cloud.firestore {
     }
     
     match /artifacts/{appId}/users/{userId}/vocabulary/{vocabId} {
-      allow read: if isOwner(userId);
+      allow read: if isOwner(userId) || hasAdminPrivileges(appId);
       allow create: if isOwner(userId) && isReasonableSize();
       allow update: if isOwner(userId);
       allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
     }
     
     match /artifacts/{appId}/users/{userId}/dailyActivity/{logId} {
-      allow read: if isOwner(userId);
+      allow read: if isOwner(userId) || hasAdminPrivileges(appId);
       allow create: if isOwner(userId);
       allow update: if isOwner(userId);
       allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
     }
     
     match /artifacts/{appId}/users/{userId}/kanjiSRS/{kanjiId} {
-      allow read: if isOwner(userId);
+      allow read: if isOwner(userId) || hasAdminPrivileges(appId);
       allow create: if isOwner(userId);
       allow update: if isOwner(userId);
       allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
     }
     
     match /artifacts/{appId}/users/{userId}/kanjiProgress/{progressId} {
-      allow read: if isOwner(userId);
+      allow read: if isOwner(userId) || hasAdminPrivileges(appId);
       allow create: if isOwner(userId);
       allow update: if isOwner(userId);
       allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
@@ -368,21 +368,35 @@ service cloud.firestore {
     
     match /artifacts/{appId}/forum/{postId} {
       allow read: if true;
-      allow create: if isAuthenticated() && isOwner(request.resource.data.authorId);
+      allow create: if isAuthenticated() && (
+        isOwner(request.resource.data.authorId) || 
+        postId == 'support_chat_' + request.auth.uid ||
+        hasAdminPrivileges(appId)
+      );
       allow update: if hasAdminPrivileges(appId) || (
         isOwner(resource.data.authorId) && 
         (!request.resource.data.keys().hasAny(['authorId']) || request.resource.data.authorId == resource.data.authorId)
+      ) || (
+        postId == 'support_chat_' + request.auth.uid
       );
-      allow delete: if hasAdminPrivileges(appId) || isOwner(resource.data.authorId);
+      allow delete: if hasAdminPrivileges(appId) || isOwner(resource.data.authorId) || postId == 'support_chat_' + request.auth.uid;
       
       match /comments/{commentId} {
         allow read: if true;
-        allow create: if isAuthenticated() && isOwner(request.resource.data.authorId);
+        allow create: if isAuthenticated() && (
+          isOwner(request.resource.data.authorId) || 
+          isOwner(request.resource.data.senderId) || 
+          isOwner(request.resource.data.userId) || 
+          postId == 'support_chat_' + request.auth.uid ||
+          hasAdminPrivileges(appId)
+        );
         allow update: if hasAdminPrivileges(appId) || (
           isOwner(resource.data.authorId) && 
           (!request.resource.data.keys().hasAny(['authorId']) || request.resource.data.authorId == resource.data.authorId)
+        ) || (
+          postId == 'support_chat_' + request.auth.uid
         );
-        allow delete: if hasAdminPrivileges(appId) || isOwner(resource.data.authorId);
+        allow delete: if hasAdminPrivileges(appId) || isOwner(resource.data.authorId) || postId == 'support_chat_' + request.auth.uid;
       }
     }
     

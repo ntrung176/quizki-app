@@ -503,6 +503,7 @@ const SRSVocabScreen = ({
     useEffect(() => {
         if (!reviewMode) return;
         const handler = (e) => {
+            if (e.repeat) return;
             if (e.key === ' ') {
                 e.preventDefault();
                 setIsFlipped(f => !f);

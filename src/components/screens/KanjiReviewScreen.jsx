@@ -353,6 +353,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     useEffect(() => {
         if (!reviewMode) return;
         const handler = (e) => {
+            if (e.repeat) return;
             if (e.key === ' ') { e.preventDefault(); setIsFlipped(f => !f); }
             if (e.key === '1') handleRating('again');
             if (e.key === '2') handleRating('hard');

@@ -384,6 +384,7 @@ const ReviewScreen = ({
         if (reviewMode !== 'flashcard') return;
 
         const handleKeyDown = (e) => {
+            if (e.repeat) return;
             if ((e.key === ' ' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') &&
                 e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
                 e.preventDefault();
@@ -425,6 +426,7 @@ const ReviewScreen = ({
         if (!isMultipleChoice || isRevealed || isProcessing || feedback || multipleChoiceOptions.length === 0) return;
 
         const handleMCKeyDown = (e) => {
+            if (e.repeat) return;
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
             const keyNum = parseInt(e.key);
             if (keyNum >= 1 && keyNum <= multipleChoiceOptions.length) {
@@ -630,6 +632,7 @@ const ReviewScreen = ({
     // Keyboard shortcut: Enter to advance (outside input), 1-4 for MC — must be before any early return
     useEffect(() => {
         const handleKeyDown = (e) => {
+            if (e.repeat) return;
             if (e.key === 'Enter' && isRevealed && !isProcessing) {
                 if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
                     e.preventDefault();

@@ -58,6 +58,15 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
     const messagesEndRef = useRef(null);
     const fileInputRef = useRef(null);
     const chatContainerRef = useRef(null);
+    const textareaRef = useRef(null);
+
+    // Auto-resize textarea height
+    useEffect(() => {
+        if (textareaRef.current) {
+            textareaRef.current.style.height = 'auto';
+            textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 120)}px`;
+        }
+    }, [inputText]);
 
     const chatPath = `artifacts/${appId}/forum/support_chat_${userId}/comments`;
     const statusDocRef = doc(db, `artifacts/${appId}/forum`, `support_chat_${userId}`);
@@ -216,12 +225,17 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
 
     // Send Message
     const handleSendMessage = async (e) => {
-        e.preventDefault();
+        if (e && e.preventDefault) e.preventDefault();
         if ((!inputText.trim() && !selectedImage) || sending || !userId) return;
 
         setSending(true);
         const textToSend = inputText.trim();
         const imageToSend = selectedImage;
+
+        // Reset textarea height to default
+        if (textareaRef.current) {
+            textareaRef.current.style.height = '36px';
+        }
 
         // Clear input early for better UX
         setInputText('');
@@ -397,13 +411,19 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
                             className="hidden"
                         />
 
-                        {/* Text Field */}
-                        <input
-                            type="text"
+                        <textarea
+                            ref={textareaRef}
+                            rows={1}
                             value={inputText}
                             onChange={(e) => setInputText(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' && !e.shiftKey) {
+                                    e.preventDefault();
+                                    handleSendMessage(e);
+                                }
+                            }}
                             onPaste={handlePaste}
-                            className="flex-1 py-2 px-3 text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-[#2E5B70] text-slate-800 dark:text-slate-200 placeholder-slate-400"
+                            className="flex-1 py-2 px-3 text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-[#2E5B70] text-slate-800 dark:text-slate-200 placeholder-slate-400 resize-none max-h-[120px] min-h-[36px] leading-relaxed scrollbar-hide"
                             placeholder="Nhập nội dung tin nhắn..."
                         />
 
