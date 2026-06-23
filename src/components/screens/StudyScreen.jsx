@@ -72,7 +72,7 @@ const buildOptions = (correctCard, allCards) => {
 
 // ─── Phase: Multiple Choice ────────────────────────────────────────────────
 
-const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furiganaEnabled }) => {
+const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furiganaEnabled, audioEnabled }) => {
     const [options] = useState(() => buildOptions(card, allCards));
     const [selected, setSelected] = useState(null);
     const [answered, setAnswered] = useState(false);
@@ -85,15 +85,19 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
         const isCorrect = normalize(opt) === normalize(correct);
         if (isCorrect) {
             playCorrectSound();
-            setTimeout(() => {
-                speakJapanese(card.front, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
-            }, 500);
+            if (audioEnabled) {
+                setTimeout(() => {
+                    speakJapanese(card.front, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
+                }, 500);
+            }
             setTimeout(() => onCorrect(), 1200);
         } else {
             playIncorrectSound();
-            setTimeout(() => {
-                speakJapanese(card.front, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
-            }, 500);
+            if (audioEnabled) {
+                setTimeout(() => {
+                    speakJapanese(card.front, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
+                }, 500);
+            }
         }
     };
 
@@ -156,7 +160,7 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
 
 // ─── Phase: Written (type the answer) ────────────────────────────────────────
 
-const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabled }) => {
+const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabled, audioEnabled }) => {
     const [input, setInput] = useState('');
     const [feedback, setFeedback] = useState(null); // null | 'correct' | 'incorrect'
     const [needsRetype, setNeedsRetype] = useState(false);
@@ -175,9 +179,11 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
         if (isCorrect) {
             setFeedback('correct');
             playCorrectSound();
-            setTimeout(() => {
-                speakJapanese(correctFront, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
-            }, 500);
+            if (audioEnabled) {
+                setTimeout(() => {
+                    speakJapanese(correctFront, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
+                }, 500);
+            }
             setTimeout(() => onCorrect(), 1200);
         } else {
             setFeedback('incorrect');
@@ -185,9 +191,11 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
             setLastWrongInput(input);
             setInput('');
             playIncorrectSound();
-            setTimeout(() => {
-                speakJapanese(correctFront, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
-            }, 500);
+            if (audioEnabled) {
+                setTimeout(() => {
+                    speakJapanese(correctFront, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
+                }, 500);
+            }
             setTimeout(() => {
                 inputRef.current?.focus();
             }, 100);
@@ -347,6 +355,7 @@ const SessionComplete = ({ totalCards, onBack, onRestart }) => {
 const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdateCard, onSaveCardAudio, onCompleteStudy, onBack }) => {
     const originalCards = useMemo(() => studySessionData?.cards || [], [studySessionData]);
     const [furiganaEnabled, setFuriganaEnabled] = useState(() => localStorage.getItem('study_furigana_enabled') !== 'false');
+    const [audioEnabled, setAudioEnabled] = useState(() => localStorage.getItem('study_audio_enabled') !== 'false');
     const [showSettings, setShowSettings] = useState(false);
     const [batches, setBatches] = useState([]);
     const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
@@ -752,6 +761,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                     onWrong={handleMCWrong}
                                     onSaveCardAudio={onSaveCardAudio}
                                     furiganaEnabled={furiganaEnabled}
+                                    audioEnabled={audioEnabled}
                                 />
                             </>
                         ) : batchPhase === 'written' && currentCard ? (
@@ -766,6 +776,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                     onWrong={handleWrittenWrong}
                                     onSaveCardAudio={onSaveCardAudio}
                                     furiganaEnabled={furiganaEnabled}
+                                    audioEnabled={audioEnabled}
                                 />
                             </>
                         ) : null}
@@ -798,6 +809,22 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                         onChange={(e) => {
                                             setFuriganaEnabled(e.target.checked);
                                             localStorage.setItem('study_furigana_enabled', String(e.target.checked));
+                                        }}
+                                        className="sr-only peer"
+                                    />
+                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                </label>
+                            </div>
+
+                            <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
+                                <span className="text-sm font-bold text-gray-700 dark:text-gray-350">Phát âm thanh từ vựng</span>
+                                <label className="relative inline-flex items-center cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        checked={audioEnabled}
+                                        onChange={(e) => {
+                                            setAudioEnabled(e.target.checked);
+                                            localStorage.setItem('study_audio_enabled', String(e.target.checked));
                                         }}
                                         className="sr-only peer"
                                     />

@@ -169,7 +169,8 @@ const SRSVocabScreen = ({
                 synonymFurigana: true
             },
             swapSides: false,
-            autoPlayAudio: true
+            autoPlayAudio: true,
+            audioEnabled: true
         };
         try {
             const saved = localStorage.getItem('quizki_flashcard_settings_v2');
@@ -180,7 +181,8 @@ const SRSVocabScreen = ({
                     ...parsed,
                     front: { ...defaultSettings.front, ...parsed.front },
                     back: { ...defaultSettings.back, ...parsed.back },
-                    autoPlayAudio: parsed.autoPlayAudio !== undefined ? parsed.autoPlayAudio : true
+                    autoPlayAudio: parsed.autoPlayAudio !== undefined ? parsed.autoPlayAudio : true,
+                    audioEnabled: parsed.audioEnabled !== undefined ? parsed.audioEnabled : true
                 };
             }
         } catch (e) { }
@@ -523,13 +525,13 @@ const SRSVocabScreen = ({
 
     // Auto-play audio when card is flipped
     useEffect(() => {
-        if (reviewMode && reviewQueue.length > 0 && cardSettings.autoPlayAudio) {
+        if (reviewMode && reviewQueue.length > 0 && cardSettings.autoPlayAudio && cardSettings.audioEnabled !== false) {
             const currentCard = reviewQueue[currentReviewIndex];
             if (currentCard && currentCard.audioBase64 && isFlipped) {
                 playAudio && playAudio(currentCard.audioBase64, currentCard.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
             }
         }
-    }, [reviewMode, currentReviewIndex, isFlipped, cardSettings.autoPlayAudio, reviewQueue]);
+    }, [reviewMode, currentReviewIndex, isFlipped, cardSettings.autoPlayAudio, cardSettings.audioEnabled, reviewQueue]);
 
     // ==================== LOCAL SRS REVIEW MODE ====================
     if (reviewMode && reviewQueue.length > 0) {
@@ -634,19 +636,21 @@ const SRSVocabScreen = ({
                             )}
 
                             {/* Speaker Button - OUTSIDE the flipping container */}
-                            <button
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    if (currentCard) {
-                                        playAudio && playAudio(currentCard.audioBase64, currentCard.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-                                    }
-                                }}
-                                data-tour-id="FLASHCARD_SPEAKER"
-                                className="absolute top-6 right-18 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
-                                title="Phát âm"
-                            >
-                                <Volume2 className="w-4 h-4" />
-                            </button>
+                             {cardSettings.audioEnabled !== false && (
+                                 <button
+                                     onClick={(e) => {
+                                         e.stopPropagation();
+                                         if (currentCard) {
+                                             playAudio && playAudio(currentCard.audioBase64, currentCard.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+                                         }
+                                     }}
+                                     data-tour-id="FLASHCARD_SPEAKER"
+                                     className="absolute top-6 right-18 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
+                                     title="Phát âm"
+                                 >
+                                     <Volume2 className="w-4 h-4" />
+                                 </button>
+                             )}
 
                             {/* Settings Button - OUTSIDE the flipping container */}
                             <button
@@ -692,6 +696,13 @@ const SRSVocabScreen = ({
                                         <span className="text-indigo-600 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
                                         <label className="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.swapSides} onChange={(e) => setCardSettings(prev => ({ ...prev, swapSides: e.target.checked }))} className="sr-only peer" />
+                                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                        </label>
+                                    </div>
+                                    <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
+                                        <span className="text-indigo-600 dark:text-indigo-400 font-bold">Phát âm thanh từ vựng</span>
+                                        <label className="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked={cardSettings.audioEnabled !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, audioEnabled: e.target.checked }))} className="sr-only peer" />
                                             <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
                                         </label>
                                     </div>

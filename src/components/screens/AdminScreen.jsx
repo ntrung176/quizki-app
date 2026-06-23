@@ -254,7 +254,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             };
 
             await setDoc(profileRef, updateData, { merge: true });
-            
+
             if (publicStatsPath) {
                 try {
                     const publicStatsRef = doc(db, `${publicStatsPath}/${selectedUser.userId}`);
@@ -305,14 +305,14 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
 
     const getUserActivePlan = (u) => {
         let activePlan = 'free';
-        
+
         // 1. Check profile/public stats fields
         if (u.unlockedSpecializedPackages && Array.isArray(u.unlockedSpecializedPackages)) {
             const has1m = u.unlockedSpecializedPackages.includes('premium_1m');
             const has1y = u.unlockedSpecializedPackages.includes('premium_1y');
             const has3y = u.unlockedSpecializedPackages.includes('premium_3y');
             const hasLegacy = u.unlockedSpecializedPackages.includes('premium') || u.isPremium;
-            
+
             let isExpired = false;
             if (u.premiumExpiresAt) {
                 const expiryTime = u.premiumExpiresAt.toDate ? u.premiumExpiresAt.toDate().getTime() : Number(u.premiumExpiresAt || 0);
@@ -351,13 +351,13 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                         isExpired = true;
                     }
                 }
-                
+
                 if (!isExpired && u.premiumExpiresAt) {
                     const userApprovedRequests = creditRequests.filter(r => r.userId === u.userId && r.status === 'approved');
                     const has3yReq = userApprovedRequests.some(r => r.packageId === 'premium_3y');
                     const has1yReq = userApprovedRequests.some(r => r.packageId === 'premium_1y');
                     const has1mReq = userApprovedRequests.some(r => r.packageId === 'premium_1m');
-                    
+
                     if (has3yReq) activePlan = 'premium_3y';
                     else if (has1yReq) activePlan = 'premium_1y';
                     else if (has1mReq) activePlan = 'premium_1m';
@@ -650,17 +650,17 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         return dictResults.filter(item => {
             const matchLevel = dictLevelFilter === 'all' || item.level === dictLevelFilter;
             const matchPos = dictPosFilter === 'all' || item.pos === dictPosFilter;
-            const matchError = dictErrorReportedFilter === 'all' || 
+            const matchError = dictErrorReportedFilter === 'all' ||
                 (dictErrorReportedFilter === 'error' && item.reportedError === true) ||
                 (dictErrorReportedFilter === 'normal' && !item.reportedError);
-            
+
             // Kanji/Hán Việt Filter
             let matchKanji = true;
             if (dictKanjiFilter !== 'all') {
                 const hasK = hasKanji(item.front);
                 const hasL = (item.sinoVietnamese && item.sinoVietnamese !== item.sinoVietnamese.toUpperCase()) ||
-                             (item.synonymSinoVietnamese && item.synonymSinoVietnamese !== item.synonymSinoVietnamese.toUpperCase());
-                
+                    (item.synonymSinoVietnamese && item.synonymSinoVietnamese !== item.synonymSinoVietnamese.toUpperCase());
+
                 if (dictKanjiFilter === 'no_kanji') {
                     matchKanji = !hasK;
                 } else if (dictKanjiFilter === 'lowercase_sino') {
@@ -704,10 +704,10 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         }
 
         const ok = await manuallyApplyPackageToUser(
-            manualCreditUserId, 
-            user?.displayName || '', 
-            user?.email || '', 
-            pkg, 
+            manualCreditUserId,
+            user?.displayName || '',
+            user?.email || '',
+            pkg,
             currentUserId
         );
 
@@ -727,9 +727,9 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                 }
             }));
 
-            setNotification({ 
-                type: 'success', 
-                message: `Đã áp dụng ${pkg.name} cho ${user?.displayName || manualCreditUserId}` 
+            setNotification({
+                type: 'success',
+                message: `Đã áp dụng ${pkg.name} cho ${user?.displayName || manualCreditUserId}`
             });
             setManualCreditUserId('');
             setManualCreditEmailSearch('');
@@ -1112,7 +1112,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                                     <span className="font-semibold">{user.totalCards || 0} thẻ</span>
                                                                     {(() => {
                                                                         const activePlan = getUserActivePlan(user);
-                                                                        
+
                                                                         let isExpired = false;
                                                                         if (user.premiumExpiresAt) {
                                                                             const expiryTime = user.premiumExpiresAt.toDate ? user.premiumExpiresAt.toDate().getTime() : Number(user.premiumExpiresAt || 0);
@@ -1189,17 +1189,16 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                     <div>
                                                         <p className="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Gói hiện tại</p>
                                                         <p className="text-sm font-bold text-gray-800 dark:text-white mt-0.5">
-                                                            {selectedUserPackageState === 'premium_3y' ? '👑 Premium 3 Năm' : 
-                                                             selectedUserPackageState === 'premium_1y' ? '👑 Premium 1 Năm' : 
-                                                             selectedUserPackageState === 'premium_1m' ? '👑 Premium 1 Tháng' : 
-                                                             'Gói Miễn Phí'}
+                                                            {selectedUserPackageState === 'premium_3y' ? '👑 Premium 3 Năm' :
+                                                                selectedUserPackageState === 'premium_1y' ? '👑 Premium 1 Năm' :
+                                                                    selectedUserPackageState === 'premium_1m' ? '👑 Premium 1 Tháng' :
+                                                                        'Gói Miễn Phí'}
                                                         </p>
                                                     </div>
-                                                    <span className={`px-2.5 py-1 rounded-full text-xs font-bold ${
-                                                        selectedUserPackageState !== 'free'
-                                                            ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-450' 
+                                                    <span className={`px-2.5 py-1 rounded-full text-xs font-bold ${selectedUserPackageState !== 'free'
+                                                            ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-450'
                                                             : 'bg-gray-100 dark:bg-gray-800 text-gray-500'
-                                                    }`}>
+                                                        }`}>
                                                         {selectedUserPackageState !== 'free' ? 'PREMIUM' : 'FREE'}
                                                     </span>
                                                 </div>
@@ -2536,7 +2535,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 {isBulkRecreating ? (
                                     <>
                                         <div className="w-32 bg-gray-200 dark:bg-gray-700 h-2 rounded-full overflow-hidden">
-                                            <div 
+                                            <div
                                                 className="bg-indigo-600 h-full transition-all duration-300"
                                                 style={{ width: `${(bulkProgress.current / bulkProgress.total) * 100}%` }}
                                             />
@@ -2676,9 +2675,9 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                         const newStatus = !adminConfig?.maintenanceMode;
                                         const ok = await updateAdminConfig({ maintenanceMode: newStatus }, currentUserId);
                                         if (ok) {
-                                            setNotification({ 
-                                                type: 'success', 
-                                                message: newStatus ? 'Đã bật chế độ bảo trì' : 'Đã tắt chế độ bảo trì' 
+                                            setNotification({
+                                                type: 'success',
+                                                message: newStatus ? 'Đã bật chế độ bảo trì' : 'Đã tắt chế độ bảo trì'
                                             });
                                         } else {
                                             setNotification({ type: 'error', message: 'Lỗi khi cập nhật trạng thái bảo trì' });
@@ -3260,9 +3259,8 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                 <div
                                     key={thread.userId}
                                     onClick={() => setSelectedUserId(thread.userId)}
-                                    className={`p-4 cursor-pointer hover:bg-white dark:hover:bg-gray-800 transition-all flex items-start gap-3 relative ${
-                                        isSelected ? 'bg-white dark:bg-gray-800 border-l-4 border-[#2E5B70]' : ''
-                                    }`}
+                                    className={`p-4 cursor-pointer hover:bg-white dark:hover:bg-gray-800 transition-all flex items-start gap-3 relative ${isSelected ? 'bg-white dark:bg-gray-800 border-l-4 border-[#2E5B70]' : ''
+                                        }`}
                                 >
                                     <div className="w-10 h-10 rounded-xl bg-[#2E5B70]/10 dark:bg-[#2E5B70]/20 flex items-center justify-center font-bold text-[#2E5B70] dark:text-[#3B728C] flex-shrink-0">
                                         {(thread.displayName || '?')[0].toUpperCase()}
@@ -3299,7 +3297,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                         {/* Chat Header */}
                         <div className="p-4 border-b border-gray-105 dark:border-gray-700 flex items-center justify-between">
                             <div className="flex items-center gap-3">
-                                <button 
+                                <button
                                     onClick={() => setSelectedUserId(null)}
                                     className="md:hidden p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg cursor-pointer text-gray-500"
                                 >
@@ -3334,18 +3332,17 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                                 {isSelf ? 'Ban quản trị' : selectedThread.displayName}
                                             </span>
                                             <div
-                                                className={`max-w-[75%] rounded-2xl px-3.5 py-2.5 text-xs shadow-sm ${
-                                                    isSelf
+                                                className={`max-w-[75%] rounded-2xl px-3.5 py-2.5 text-xs shadow-sm ${isSelf
                                                         ? 'bg-[#2E5B70] text-white rounded-tr-none'
                                                         : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none border border-gray-150/40 dark:border-slate-700/50'
-                                                }`}
+                                                    }`}
                                             >
                                                 {msg.text && <p className="whitespace-pre-wrap leading-relaxed">{msg.text}</p>}
                                                 {msg.imageUrl && (
                                                     <div className="mt-2 rounded-lg overflow-hidden border border-black/5 dark:border-white/5 max-w-[260px]">
-                                                        <img 
-                                                            src={msg.imageUrl} 
-                                                            alt="Đính kèm" 
+                                                        <img
+                                                            src={msg.imageUrl}
+                                                            alt="Đính kèm"
                                                             className="w-full h-auto object-cover max-h-56 cursor-pointer hover:opacity-90 transition-opacity"
                                                             onClick={() => setActivePreviewImage(msg.imageUrl)}
                                                         />
@@ -3366,7 +3363,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                     <img src={selectedImage} className="w-14 h-14 object-cover rounded-md border border-gray-200" alt="Preview" />
                                     <span className="text-xs text-slate-400 font-medium">Đính kèm 1 ảnh</span>
                                 </div>
-                                <button 
+                                <button
                                     onClick={() => setSelectedImage(null)}
                                     className="p-1 hover:bg-slate-200 dark:hover:bg-slate-750 text-slate-400 dark:text-slate-500 rounded-full cursor-pointer"
                                 >
@@ -3431,17 +3428,17 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
 
             {/* Fullscreen Image Preview Modal */}
             {activePreviewImage && (
-                <div 
+                <div
                     className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 cursor-zoom-out animate-fadeIn"
                     onClick={() => setActivePreviewImage(null)}
                 >
                     <div className="relative max-w-full max-h-full flex items-center justify-center" onClick={e => e.stopPropagation()}>
-                        <img 
-                            src={activePreviewImage} 
-                            alt="Xem ảnh đính kèm" 
-                            className="max-w-full max-h-[90vh] rounded-2xl shadow-2xl object-contain border border-white/10" 
+                        <img
+                            src={activePreviewImage}
+                            alt="Xem ảnh đính kèm"
+                            className="max-w-full max-h-[90vh] rounded-2xl shadow-2xl object-contain border border-white/10"
                         />
-                        <button 
+                        <button
                             onClick={() => setActivePreviewImage(null)}
                             className="absolute top-4 right-4 bg-black/50 hover:bg-black/75 text-white p-2.5 rounded-full shadow-lg transition-all border border-white/10 cursor-pointer"
                             title="Đóng"

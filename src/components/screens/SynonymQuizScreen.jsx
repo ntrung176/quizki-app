@@ -44,6 +44,9 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
     const [synonymVietnameseEnabled, setSynonymVietnameseEnabled] = useState(() => {
         return localStorage.getItem('synonym_vietnamese_enabled') !== 'false';
     });
+    const [synonymAudioEnabled, setSynonymAudioEnabled] = useState(() => {
+        return localStorage.getItem('synonym_audio_enabled') !== 'false';
+    });
 
     const currentCard = quizQueue[currentIndex];
     const failedCardsRef = useRef(new Set(savedProgress?.failedCardIdsList || []));
@@ -199,10 +202,12 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
             }
         }
 
-        setTimeout(() => {
-            speakJapanese(currentCard.front, currentCard.audioBase64).catch(e => console.warn(e));
-        }, 500);
-    }, [isRevealed, currentCard, onUpdateCard, handleNext]);
+        if (synonymAudioEnabled) {
+            setTimeout(() => {
+                speakJapanese(currentCard.front, currentCard.audioBase64).catch(e => console.warn(e));
+            }, 500);
+        }
+    }, [isRevealed, currentCard, onUpdateCard, handleNext, synonymAudioEnabled]);
 
     const handleReset = () => {
         if (setId) {
@@ -442,6 +447,22 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                                         onChange={(e) => {
                                             setSynonymVietnameseEnabled(e.target.checked);
                                             localStorage.setItem('synonym_vietnamese_enabled', e.target.checked);
+                                        }}
+                                        className="sr-only peer"
+                                    />
+                                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-650 peer-checked:bg-indigo-600"></div>
+                                </label>
+                            </div>
+
+                            <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
+                                <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Phát âm thanh từ vựng</span>
+                                <label className="relative inline-flex items-center cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        checked={synonymAudioEnabled}
+                                        onChange={(e) => {
+                                            setSynonymAudioEnabled(e.target.checked);
+                                            localStorage.setItem('synonym_audio_enabled', String(e.target.checked));
                                         }}
                                         className="sr-only peer"
                                     />

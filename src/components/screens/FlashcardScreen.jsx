@@ -73,7 +73,8 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                 synonymFurigana: true
             },
             swapSides: false,
-            autoPlayAudio: true
+            autoPlayAudio: true,
+            audioEnabled: true
         };
         try {
             const saved = localStorage.getItem('quizki_flashcard_settings_v2');
@@ -84,7 +85,8 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                     ...parsed,
                     front: { ...defaultSettings.front, ...parsed.front },
                     back: { ...defaultSettings.back, ...parsed.back },
-                    autoPlayAudio: parsed.autoPlayAudio !== undefined ? parsed.autoPlayAudio : true
+                    autoPlayAudio: parsed.autoPlayAudio !== undefined ? parsed.autoPlayAudio : true,
+                    audioEnabled: parsed.audioEnabled !== undefined ? parsed.audioEnabled : true
                 };
             }
         } catch (e) {}
@@ -150,13 +152,13 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
     const handleFlip = useCallback(() => {
         const newFlippedState = !isFlipped;
         setIsFlipped(newFlippedState);
-        if (currentCard && cardSettings.autoPlayAudio) {
+        if (currentCard && cardSettings.autoPlayAudio && cardSettings.audioEnabled !== false) {
             // Chỉ phát âm thanh khi lật từ mặt trước sang mặt sau (newFlippedState === true)
             if (newFlippedState) {
                 speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
             }
         }
-    }, [isFlipped, currentCard, cardSettings.autoPlayAudio, onSaveCardAudio]);
+    }, [isFlipped, currentCard, cardSettings.autoPlayAudio, cardSettings.audioEnabled, onSaveCardAudio]);
     // Mark card as known
     const handleKnown = useCallback(() => {
         if (!isFlipped || !currentCard || buttonPressed) return;
@@ -521,16 +523,18 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                 </div>
                             )}
                             {/* Speaker Button - OUTSIDE the flipping container */}
-                            <button
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-                                }}
-                                className="absolute top-6 right-18 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
-                                title="Phát âm"
-                            >
-                                <Volume2 className="w-4 h-4" />
-                            </button>
+                            {cardSettings.audioEnabled !== false && (
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+                                    }}
+                                    className="absolute top-6 right-18 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
+                                    title="Phát âm"
+                                >
+                                    <Volume2 className="w-4 h-4" />
+                                </button>
+                            )}
                             {/* Settings Button - OUTSIDE the flipping container */}
                             <button
                                 onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
@@ -601,6 +605,13 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                 <span className="text-indigo-650 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked={cardSettings.swapSides} onChange={(e) => setCardSettings(prev => ({ ...prev, swapSides: e.target.checked }))} className="sr-only peer" />
+                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                </label>
+                            </div>
+                            <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
+                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">Phát âm thanh từ vựng</span>
+                                <label className="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" checked={cardSettings.audioEnabled !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, audioEnabled: e.target.checked }))} className="sr-only peer" />
                                     <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
                                 </label>
                             </div>

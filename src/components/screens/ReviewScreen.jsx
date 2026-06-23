@@ -100,7 +100,8 @@ const ReviewScreen = ({
                 synonymFurigana: true
             },
             swapSides: false,
-            autoPlayAudio: true
+            autoPlayAudio: true,
+            audioEnabled: true
         };
         try {
             const saved = localStorage.getItem('quizki_flashcard_settings_v2');
@@ -111,7 +112,8 @@ const ReviewScreen = ({
                     ...parsed,
                     front: { ...defaultSettings.front, ...parsed.front },
                     back: { ...defaultSettings.back, ...parsed.back },
-                    autoPlayAudio: parsed.autoPlayAudio !== undefined ? parsed.autoPlayAudio : true
+                    autoPlayAudio: parsed.autoPlayAudio !== undefined ? parsed.autoPlayAudio : true,
+                    audioEnabled: parsed.audioEnabled !== undefined ? parsed.audioEnabled : true
                 };
             }
         } catch (e) { }
@@ -163,6 +165,9 @@ const ReviewScreen = ({
     const audioAbortRef = useRef(false); // Abort in-flight TTS requests
 
     const [showSettings, setShowSettings] = useState(false);
+    const [reviewAudioEnabled, setReviewAudioEnabled] = useState(() => {
+        return localStorage.getItem('review_audio_enabled') !== 'false';
+    });
     const [exampleTestFormat, setExampleTestFormat] = useState(() => {
         return localStorage.getItem('example_test_format') || 'multipleChoice';
     });
@@ -287,15 +292,17 @@ const ReviewScreen = ({
         // Auto-play audio for dictation mode (both when card has reviewType === 'dictation' or reviewMode === 'dictation')
         const card = cards[currentIndex];
         if (card && (card.reviewType === 'dictation' || reviewMode === 'dictation')) {
-            timeoutId = setTimeout(() => {
-                speakJapanese(card.front, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
-            }, 300);
+            if (reviewAudioEnabled) {
+                timeoutId = setTimeout(() => {
+                    speakJapanese(card.front, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
+                }, 300);
+            }
         }
 
         return () => {
             if (timeoutId) clearTimeout(timeoutId);
         };
-    }, [currentIndex]);
+    }, [currentIndex, reviewAudioEnabled]);
 
     // Helper: tính thời gian phản hồi (ms)
     const getResponseTime = () => Date.now() - cardShownTimeRef.current;
@@ -447,13 +454,13 @@ const ReviewScreen = ({
     const handleFlip = useCallback(() => {
         const newFlippedState = !isFlipped;
         setIsFlipped(newFlippedState);
-        if (currentCard && cardSettings.autoPlayAudio) {
+        if (currentCard && cardSettings.autoPlayAudio && cardSettings.audioEnabled !== false) {
             // Chỉ phát âm thanh khi lật từ mặt trước sang mặt sau (newFlippedState === true)
             if (newFlippedState) {
                 speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
             }
         }
-    }, [isFlipped, currentCard, cardSettings.autoPlayAudio, onSaveCardAudio]);
+    }, [isFlipped, currentCard, cardSettings.autoPlayAudio, cardSettings.audioEnabled, onSaveCardAudio]);
 
     // Swipe handlers
     const minSwipeDistance = 50;
@@ -901,15 +908,17 @@ const ReviewScreen = ({
                 celebrateCorrectAnswer();
 
                 // Fire-and-forget audio — do NOT await so auto-advance is not blocked
-                speakJapanese(currentCard.front, currentCard.audioBase64,
-                    onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
-                        if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
-                            onSaveCardAudio(currentCard.id, b64, vid).catch(e => {
-                                console.warn('⚠️ Failed to persist audio:', e.message);
-                            });
-                        }
-                    } : null
-                ).catch(e => console.warn('⚠️ Audio playback error (continuing):', e.message));
+                if (reviewAudioEnabled) {
+                    speakJapanese(currentCard.front, currentCard.audioBase64,
+                        onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
+                            if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
+                                onSaveCardAudio(currentCard.id, b64, vid).catch(e => {
+                                    console.warn('⚠️ Failed to persist audio:', e.message);
+                                });
+                            }
+                        } : null
+                    ).catch(e => console.warn('⚠️ Audio playback error (continuing):', e.message));
+                }
 
                 // Auto-advance after short fixed delay regardless of audio
                 await new Promise(resolve => setTimeout(resolve, 700));
@@ -932,21 +941,23 @@ const ReviewScreen = ({
                 playIncorrectSound();
 
                 // Speak with safe error handling, delayed by 500ms to avoid overlapping incorrect sound
-                setTimeout(() => {
-                    if (isMountedRef.current && !audioAbortRef.current) {
-                        speakJapanese(currentCard.front, currentCard.audioBase64,
-                            onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
-                                if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
-                                    onSaveCardAudio(currentCard.id, b64, vid).catch(e => {
-                                        console.warn('⚠️ Failed to persist audio:', e.message);
-                                    });
-                                }
-                            } : null
-                        ).catch(e => {
-                            console.warn('⚠️ Audio playback error:', e.message);
-                        });
-                    }
-                }, 500);
+                if (reviewAudioEnabled) {
+                    setTimeout(() => {
+                        if (isMountedRef.current && !audioAbortRef.current) {
+                            speakJapanese(currentCard.front, currentCard.audioBase64,
+                                onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
+                                    if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
+                                        onSaveCardAudio(currentCard.id, b64, vid).catch(e => {
+                                            console.warn('⚠️ Failed to persist audio:', e.message);
+                                        });
+                                    }
+                                } : null
+                            ).catch(e => {
+                                console.warn('⚠️ Audio playback error:', e.message);
+                            });
+                        }
+                    }, 500);
+                }
 
                 setCards(prevCards => {
                     return prevCards.map(card => {
@@ -1249,16 +1260,18 @@ const ReviewScreen = ({
                                 )}
 
                                 {/* Speaker Button - OUTSIDE the flipping container */}
-                                <button
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-                                    }}
-                                    className="absolute top-6 right-18 p-2 bg-white/20 hover:bg-white/35 backdrop-blur-sm text-white rounded-full transition-all hover:scale-110 z-30 shadow-md border border-white/20"
-                                    title="Phát âm"
-                                >
-                                    <Volume2 className="w-4 h-4" />
-                                </button>
+                                {cardSettings.audioEnabled !== false && (
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+                                        }}
+                                        className="absolute top-6 right-18 p-2 bg-white/20 hover:bg-white/35 backdrop-blur-sm text-white rounded-full transition-all hover:scale-110 z-30 shadow-md border border-white/20"
+                                        title="Phát âm"
+                                    >
+                                        <Volume2 className="w-4 h-4" />
+                                    </button>
+                                )}
 
                                 {/* Settings Button - OUTSIDE the flipping container */}
                                 <button
@@ -1536,16 +1549,20 @@ const ReviewScreen = ({
                                                         setIsRevealed(true);
                                                         if (isCorrect) {
                                                             // Fire-and-forget audio, then auto-advance
-                                                            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null)
-                                                                .catch(e => console.warn('⚠️ Audio error:', e.message));
+                                                            if (reviewAudioEnabled) {
+                                                                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null)
+                                                                    .catch(e => console.warn('⚠️ Audio error:', e.message));
+                                                            }
                                                             await new Promise(resolve => setTimeout(resolve, 700));
                                                             await moveToNextCard(true);
                                                         } else {
                                                             // Fire-and-forget audio for incorrect answer
-                                                            setTimeout(() => {
-                                                                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null)
-                                                                    .catch(e => console.warn('⚠️ Audio error:', e.message));
-                                                            }, 500);
+                                                            if (reviewAudioEnabled) {
+                                                                setTimeout(() => {
+                                                                    speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null)
+                                                                        .catch(e => console.warn('⚠️ Audio error:', e.message));
+                                                                }, 500);
+                                                            }
                                                             isProcessingRef.current = false;
                                                             setIsProcessing(false);
                                                         }
@@ -1992,10 +2009,27 @@ const ReviewScreen = ({
                             </div>
                         )}
 
+                        {/* Global audio toggle */}
+                        <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
+                            <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Phát âm thanh từ vựng</span>
+                            <label className="relative inline-flex items-center cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    checked={reviewAudioEnabled}
+                                    onChange={(e) => {
+                                        setReviewAudioEnabled(e.target.checked);
+                                        localStorage.setItem('review_audio_enabled', String(e.target.checked));
+                                    }}
+                                    className="sr-only peer"
+                                />
+                                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-650 peer-checked:bg-indigo-600"></div>
+                            </label>
+                        </div>
+
                         {/* Close button */}
                         <button
                             onClick={() => setShowSettings(false)}
-                            className="w-full py-2.5 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-xl transition-all text-sm"
+                            className="w-full py-2.5 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-xl transition-all text-sm mt-2"
                         >
                             Xong
                         </button>
@@ -2015,6 +2049,13 @@ const ReviewScreen = ({
                                 <span className="text-indigo-650 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked={cardSettings.swapSides} onChange={(e) => setCardSettings(prev => ({ ...prev, swapSides: e.target.checked }))} className="sr-only peer" />
+                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                </label>
+                            </div>
+                            <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
+                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">Phát âm thanh từ vựng</span>
+                                <label className="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" checked={cardSettings.audioEnabled !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, audioEnabled: e.target.checked }))} className="sr-only peer" />
                                     <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
                                 </label>
                             </div>
