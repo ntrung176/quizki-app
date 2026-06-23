@@ -86,12 +86,13 @@ const StudySetDetail = ({
     folderId, folders, cardFolders, allCards,
     onBack, onEditSet, onStudySet, onFlashcardSet, onMeaningSet, onDictationSet, onExampleSet, onSynonymQuiz,
     onNavigateToAdd, onDeleteFolder, onSaveChanges, onSaveCardAudio,
-    onDeleteCards, onToggleSrs, onGeminiAssist
+    onDeleteCards, onDeleteCard, onToggleSrs, onGeminiAssist
 }) => {
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [expandedCardIds, setExpandedCardIds] = useState(new Set());
     const [isAddingKanji, setIsAddingKanji] = useState(false);
     const [editingCard, setEditingCard] = useState(null);
+    const [cardToDelete, setCardToDelete] = useState(null);
 
     const handleAddKanjiToSrs = async () => {
         if (isAddingKanji) return;
@@ -1197,6 +1198,18 @@ const StudySetDetail = ({
                                                                 >
                                                                     <Edit className="w-5 h-5" />
                                                                 </button>
+                                                                {onDeleteCard && (
+                                                                    <button
+                                                                        onClick={(e) => {
+                                                                            e.stopPropagation();
+                                                                            setCardToDelete(card);
+                                                                        }}
+                                                                        className="p-2.5 text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-full transition-colors flex-shrink-0"
+                                                                        title="Xóa từ vựng"
+                                                                    >
+                                                                        <Trash2 className="w-5 h-5" />
+                                                                    </button>
+                                                                )}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1411,6 +1424,36 @@ const StudySetDetail = ({
                             <button onClick={() => setShowDeleteConfirm(false)} className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">Huỷ</button>
                             <button
                                 onClick={folderId === 'unfiled' ? handleDeleteUnfiledCards : handleDeleteFolder}
+                                className="flex-1 py-2.5 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-colors"
+                            >Xoá</button>
+                        </div>
+                    </div>
+                </div>
+            )}
+            {/* Delete Card Confirm Modal */}
+            {cardToDelete && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setCardToDelete(null)}>
+                    <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+                    <div className="relative bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700 animate-scale-in" onClick={e => e.stopPropagation()}>
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center flex-shrink-0"><Trash2 className="w-5 h-5 text-red-500" /></div>
+                            <div>
+                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">
+                                    Xoá từ vựng
+                                </h3>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">Không thể hoàn tác.</p>
+                            </div>
+                        </div>
+                        <p className="text-gray-600 dark:text-gray-300">
+                            Bạn có chắc chắn muốn xoá từ vựng <strong className="text-red-500">"{cardToDelete.front}"</strong> khỏi học phần này?
+                        </p>
+                        <div className="flex gap-3">
+                            <button onClick={() => setCardToDelete(null)} className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">Huỷ</button>
+                            <button
+                                onClick={() => {
+                                    onDeleteCard(cardToDelete.id, cardToDelete.front);
+                                    setCardToDelete(null);
+                                }}
                                 className="flex-1 py-2.5 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-colors"
                             >Xoá</button>
                         </div>

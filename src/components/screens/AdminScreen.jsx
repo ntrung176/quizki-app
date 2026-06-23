@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc, addDoc, where, serverTimestamp, setDoc, writeBatch } from 'firebase/firestore'
+import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc, addDoc, where, serverTimestamp, setDoc, writeBatch, collectionGroup } from 'firebase/firestore'
 import * as XLSX from 'xlsx';
 import { db, appId } from '../../config/firebase';
-import { Users, Search, Shield, Trash2, BarChart3, Clock, AlertTriangle, CheckCircle, Loader2, Languages, BookOpen, Sparkle, Bot, UserCheck, UserX, ToggleLeft, ToggleRight, Settings, Crown, ShieldCheck, ChevronLeft, CreditCard, Plus, Check, X as XIcon, Ticket, DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send, MessageSquare, Image as ImageIcon } from 'lucide-react'
+import { Users, Search, Shield, Trash2, BarChart3, Clock, AlertTriangle, CheckCircle, Loader2, Languages, BookOpen, Sparkle, Bot, UserCheck, UserX, ToggleLeft, ToggleRight, Settings, Crown, ShieldCheck, ChevronLeft, CreditCard, Plus, Check, X as XIcon, Ticket, DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send, MessageSquare, Image as ImageIcon, Volume2, Music } from 'lucide-react'
 import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, AI_FEATURES, addModerator, removeModerator, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense, manuallyApplyPackageToUser, sendGlobalNotification, deleteGlobalNotification } from '../../utils/adminSettings'
 import { showConfirm } from '../../utils/toast';
+import { playAudio } from '../../utils/audio';
 import { aiNormalizeVerbs, aiScanVerbsForNormalization, aiFixFuriganaFormat, aiRecreateVocabulary } from '../../utils/aiProvider';
 
 const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, adminConfig, isAdmin }) => {
@@ -651,8 +652,8 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             const matchLevel = dictLevelFilter === 'all' || item.level === dictLevelFilter;
             const matchPos = dictPosFilter === 'all' || item.pos === dictPosFilter;
             const matchError = dictErrorReportedFilter === 'all' ||
-                (dictErrorReportedFilter === 'error' && item.reportedError === true) ||
-                (dictErrorReportedFilter === 'normal' && !item.reportedError);
+                (dictErrorReportedFilter === 'error' && (item.reportedError === true || item.reportedAudioError === true)) ||
+                (dictErrorReportedFilter === 'normal' && !item.reportedError && !item.reportedAudioError);
 
             // Kanji/Hán Việt Filter
             let matchKanji = true;
@@ -757,12 +758,51 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                 example: (editingDictItem.example || '').trim(),
                 exampleMeaning: (editingDictItem.exampleMeaning || '').trim(),
                 synonymSinoVietnamese: (editingDictItem.synonymSinoVietnamese || '').trim(),
+                audioBase64: editingDictItem.audioBase64 || null,
                 reportedError: false,
+                reportedAudioError: false,
                 updatedAt: Date.now()
             };
             await setDoc(doc(db, 'sharedVocabulary', docId), saveData, { merge: true });
+
+            // Sync audio updates to all users' matching cards
+            const normalizedWord = editingDictItem.front.split('（')[0].split('(')[0].trim().toLowerCase();
+            const q = query(collectionGroup(db, 'vocabulary'));
+            const snap = await getDocs(q);
+
+            const matchedRefs = [];
+            snap.forEach((vocabDoc) => {
+                if (vocabDoc.ref.path.includes(`artifacts/${appId}/`)) {
+                    const cardData = vocabDoc.data();
+                    const cardFrontNormalized = (cardData.front || '').split('（')[0].split('(')[0].trim().toLowerCase();
+                    if (cardFrontNormalized === normalizedWord) {
+                        matchedRefs.push(vocabDoc.ref);
+                    }
+                }
+            });
+
+            if (matchedRefs.length > 0) {
+                let currentBatch = writeBatch(db);
+                let opCount = 0;
+                for (const docRef of matchedRefs) {
+                    if (opCount >= 500) {
+                        await currentBatch.commit();
+                        currentBatch = writeBatch(db);
+                        opCount = 0;
+                    }
+                    currentBatch.update(docRef, {
+                        audioBase64: editingDictItem.audioBase64 || null
+                    });
+                    opCount++;
+                }
+                if (opCount > 0) {
+                    await currentBatch.commit();
+                }
+                console.log(`Sync'd audio for ${matchedRefs.length} user cards.`);
+            }
+
             setEditingDictItem(null);
-            setNotification({ type: 'success', message: 'Đã cập nhật từ vựng thành công!' });
+            setNotification({ type: 'success', message: 'Đã cập nhật từ vựng và đồng bộ âm thanh đến học phần người dùng!' });
         } catch (err) {
             console.error("Error saving dict item:", err);
             setNotification({ type: 'error', message: 'Lỗi khi cập nhật từ vựng: ' + err.message });
@@ -813,7 +853,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         }
 
         const confirmMessage = `Bạn có chắc muốn dùng AI tạo lại ${targets.length} từ vựng đang lọc? Quá trình này sẽ gọi API và tiêu hao credit.`;
-        if (!window.confirm(confirmMessage)) return;
+        if (!await window.showConfirm(confirmMessage)) return;
 
         setIsBulkRecreating(true);
         bulkCancelRef.current = false;
@@ -2598,6 +2638,12 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                                         Có báo lỗi
                                                                     </span>
                                                                 )}
+                                                                {item.reportedAudioError && (
+                                                                    <span className="px-1.5 py-0.5 rounded bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 text-[9px] font-bold flex items-center gap-0.5 animate-pulse">
+                                                                        <Volume2 className="w-2.5 h-2.5" />
+                                                                        Lỗi Audio
+                                                                    </span>
+                                                                )}
                                                             </div>
                                                         </td>
                                                         <td className="p-3 text-gray-650 dark:text-gray-300 max-w-[200px] truncate">{item.back || item.meaning}</td>
@@ -2940,6 +2986,63 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                     onChange={(e) => setEditingDictItem(prev => ({ ...prev, exampleMeaning: e.target.value }))}
                                     className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm outline-none dark:text-white"
                                 />
+                            </div>
+
+                            {/* Audio Section for Admin */}
+                            <div className="pt-3 border-t border-gray-150 dark:border-gray-750">
+                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Audio kho chung</label>
+                                <div className="flex items-center gap-3 bg-gray-50 dark:bg-gray-700/30 p-3 rounded-xl border border-gray-150 dark:border-gray-700">
+                                    <input 
+                                        id="admin-audio-upload" 
+                                        type="file" 
+                                        accept=".wav,.mp3,audio/wav,audio/mpeg" 
+                                        onChange={(e) => {
+                                            const file = e.target.files[0];
+                                            if (!file) return;
+                                            const reader = new FileReader();
+                                            reader.onload = (event) => {
+                                                const res = event.target.result;
+                                                setEditingDictItem(prev => ({ ...prev, audioBase64: res.split(',')[1] }));
+                                            };
+                                            reader.readAsDataURL(file);
+                                        }} 
+                                        className="hidden" 
+                                    />
+                                    
+                                    <label 
+                                        htmlFor="admin-audio-upload" 
+                                        className="cursor-pointer px-3 py-2 bg-white dark:bg-gray-800 border border-gray-350 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm dark:text-gray-200"
+                                    >
+                                        <Music className="w-3.5 h-3.5 text-indigo-500" />
+                                        {editingDictItem.audioBase64 ? "Thay đổi Audio" : "Tải Audio lên"}
+                                    </label>
+
+                                    {editingDictItem.audioBase64 ? (
+                                        <div className="flex items-center gap-1.5">
+                                            <span className="text-xs text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-0.5">
+                                                <Check className="w-3.5 h-3.5" /> Có sẵn
+                                            </span>
+                                            <button 
+                                                type="button" 
+                                                onClick={() => playAudio(editingDictItem.audioBase64)} 
+                                                className="p-1.5 text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 rounded-lg transition-colors cursor-pointer"
+                                                title="Nghe thử"
+                                            >
+                                                <Volume2 className="w-4 h-4" />
+                                            </button>
+                                            <button 
+                                                type="button" 
+                                                onClick={() => setEditingDictItem(prev => ({ ...prev, audioBase64: null }))} 
+                                                className="p-1.5 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors cursor-pointer"
+                                                title="Xóa audio"
+                                            >
+                                                <Trash2 className="w-4 h-4" />
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <span className="text-xs text-gray-400 italic">Chưa có audio</span>
+                                    )}
+                                </div>
                             </div>
 
                             <div className="flex justify-end gap-3 pt-3 border-t border-gray-150 dark:border-gray-750">

@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Loader2, X, Image as ImageIcon, Music, Volume2, Trash2, Check, ChevronDown } from 'lucide-react';
+import { Loader2, X, Image as ImageIcon, Music, Volume2, Trash2, Check, ChevronDown, AlertTriangle } from 'lucide-react';
 import { POS_TYPES, JLPT_LEVELS } from '../../config/constants';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 import { playAudio } from '../../utils/audio';
+import { db } from '../../config/firebase';
+import { doc, getDoc, updateDoc, setDoc } from 'firebase/firestore';
 
 const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] }) => {
     const [front, setFront] = useState(card?.front || '');
@@ -20,11 +22,62 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] })
     const [accent, setAccent] = useState(card?.accent || '');
     const [imagePreview, setImagePreview] = useState(card?.imageBase64 || null);
     const [customAudio, setCustomAudio] = useState(card?.audioBase64 || '');
-    const [showAudioInput, setShowAudioInput] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
     const [isAiLoading, setIsAiLoading] = useState(false);
     const [posDropdownOpen, setPosDropdownOpen] = useState(false);
     const [showLevels, setShowLevels] = useState(false);
+    const [isReportingAudio, setIsReportingAudio] = useState(false);
+    const [reportedAudio, setReportedAudio] = useState(false);
+
+    const handleReportAudioError = async () => {
+        setIsReportingAudio(true);
+        try {
+            const normalizedWord = front.split('（')[0].split('(')[0].trim();
+            const normalizedLower = normalizedWord.toLowerCase();
+            
+            // 1. Try finding in sharedVocabulary
+            let docRef = doc(db, 'sharedVocabulary', normalizedWord);
+            let docSnap = await getDoc(docRef);
+            
+            if (!docSnap.exists() && normalizedWord !== normalizedLower) {
+                docRef = doc(db, 'sharedVocabulary', normalizedLower);
+                docSnap = await getDoc(docRef);
+            }
+            
+            if (docSnap.exists()) {
+                await updateDoc(docRef, {
+                    reportedAudioError: true,
+                    reportedError: true
+                });
+            } else {
+                // If it doesn't exist, create a draft in sharedVocabulary
+                await setDoc(docRef, {
+                    front: front.trim(),
+                    back: back.trim(),
+                    sinoVietnamese: sinoVietnamese.trim(),
+                    pos: pos,
+                    level: level,
+                    synonym: synonym.trim(),
+                    nuance: nuance.trim(),
+                    example: example.trim(),
+                    exampleMeaning: exampleMeaning.trim(),
+                    synonymSinoVietnamese: synonymSinoVietnamese.trim(),
+                    reportedAudioError: true,
+                    reportedError: true,
+                    createdAt: Date.now(),
+                    updatedAt: Date.now()
+                });
+            }
+            
+            setReportedAudio(true);
+            showToast("Đã gửi báo cáo lỗi audio thành công!", "success");
+        } catch (error) {
+            console.error("Lỗi khi báo cáo lỗi audio:", error);
+            showToast("Không thể gửi báo cáo lỗi audio: " + error.message, "error");
+        } finally {
+            setIsReportingAudio(false);
+        }
+    };
 
     useEffect(() => {
         if (!posDropdownOpen) {
@@ -44,23 +97,9 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] })
         }
     };
 
-    const handleAudioFileChange = (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = (event) => {
-            const res = event.target.result;
-            setCustomAudio(res.split(',')[1]);
-        };
-        reader.readAsDataURL(file);
-    };
-
     const handleSave = async () => {
         if (!front.trim() || !back.trim()) return;
         setIsSaving(true);
-        const hasOriginalAudio = card.audioBase64 && card.audioBase64.trim() !== '';
-        const hasNewAudio = customAudio.trim() !== '';
-        const audioToSave = hasNewAudio ? customAudio.trim() : (hasOriginalAudio ? undefined : null);
         await onSave({
             cardId: card.id,
             front, back, synonym, example, exampleMeaning, nuance, pos, level,
@@ -68,7 +107,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] })
             reading: reading.trim(),
             accent: accent.trim(),
             imageBase64: imagePreview,
-            audioBase64: audioToSave
+            audioBase64: card?.audioBase64 || null
         });
         setIsSaving(false);
         onClose();
@@ -265,25 +304,51 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] })
                                     )}
                                 </div>
                                 <div className="pt-2 border-t border-gray-200 dark:border-gray-600">
-                                    <button type="button" onClick={() => setShowAudioInput(!showAudioInput)} className="text-indigo-650 dark:text-indigo-400 text-sm font-medium flex items-center w-full justify-between">
-                                        <div className="flex items-center"><Music className="w-4 h-4 mr-2" /> {customAudio ? "Có Audio" : "Thêm Audio"}</div>
-                                        <span className="text-xs text-gray-400">{showAudioInput ? '▲' : '▼'}</span>
-                                    </button>
-                                    {showAudioInput && (
-                                        <div className="mt-2 space-y-2">
-                                            <label htmlFor="audio-edit-modal" className="cursor-pointer px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-xs font-medium inline-block">
-                                                {customAudio ? "Chọn file khác" : "Chọn file .mp3/wav"}
-                                            </label>
-                                            <input id="audio-edit-modal" type="file" accept=".wav,.mp3,audio/wav,audio/mpeg" onChange={handleAudioFileChange} className="hidden" />
-                                            {customAudio && (
-                                                <div className="flex items-center gap-2">
-                                                    <span className="text-xs text-emerald-600 font-bold flex items-center"><Check className="w-3 h-3 mr-1" /> Đã có</span>
-                                                    <button type="button" onClick={() => playAudio(customAudio)} className="p-1 text-indigo-600 hover:bg-indigo-50 rounded"><Volume2 className="w-4 h-4" /></button>
-                                                    <button type="button" onClick={() => setCustomAudio('')} className="p-1 text-red-500 hover:bg-red-50 rounded"><Trash2 className="w-4 h-4" /></button>
-                                                </div>
-                                            )}
+                                    <div className="text-indigo-650 dark:text-indigo-400 text-sm font-medium flex items-center justify-between">
+                                        <div className="flex items-center">
+                                            <Music className="w-4 h-4 mr-2" />
+                                            <span>Audio</span>
                                         </div>
-                                    )}
+                                    </div>
+                                    <div className="mt-2 flex items-center justify-between bg-gray-50 dark:bg-gray-700/30 p-2 rounded-lg">
+                                        {customAudio ? (
+                                            <>
+                                                <div className="flex items-center gap-2">
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => playAudio(customAudio)}
+                                                        className="p-2 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-lg flex items-center gap-1.5 text-xs font-bold transition-all cursor-pointer"
+                                                    >
+                                                        <Volume2 className="w-3.5 h-3.5" />
+                                                        Nghe thử
+                                                    </button>
+                                                </div>
+                                                
+                                                {reportedAudio ? (
+                                                    <span className="text-xs text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1">
+                                                        <Check className="w-3.5 h-3.5" />
+                                                        Đã báo cáo lỗi
+                                                    </span>
+                                                ) : (
+                                                    <button
+                                                        type="button"
+                                                        onClick={handleReportAudioError}
+                                                        disabled={isReportingAudio}
+                                                        className="px-3 py-1.5 bg-red-50 hover:bg-red-100 text-red-650 dark:bg-red-900/20 dark:hover:bg-red-900/30 dark:text-red-400 rounded-lg text-xs font-bold flex items-center gap-1 transition-all cursor-pointer"
+                                                    >
+                                                        {isReportingAudio ? (
+                                                            <Loader2 className="w-3 h-3 animate-spin" />
+                                                        ) : (
+                                                            <AlertTriangle className="w-3.5 h-3.5" />
+                                                        )}
+                                                        Báo cáo lỗi audio
+                                                    </button>
+                                                )}
+                                            </>
+                                        ) : (
+                                            <span className="text-xs text-gray-400 italic">Không có file audio</span>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>

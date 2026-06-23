@@ -166,6 +166,7 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
         onSynonymQuiz={handleSynonymQuiz}
         onNavigateToAdd={() => navigate(ROUTES.VOCAB_ADD)}
         onDeleteFolder={onDeleteFolder}
+        onDeleteCard={handleDeleteCard}
         onDeleteCards={handleDeleteCards}
         onSaveChanges={handleSaveChanges}
         onSaveCardAudio={handleSaveCardAudio}
