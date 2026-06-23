@@ -568,6 +568,8 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                 sinoVietnamese,
                 synonymSinoVietnamese,
                 folderId: folderId,
+                reading: aiResult?.reading || '',
+                accent: aiResult?.accent !== undefined ? String(aiResult.accent) : '',
                 action: 'keep' // Keep screen state as is
             });
 

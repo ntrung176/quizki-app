@@ -1,17 +1,18 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Edit2, PlayCircle, BookOpen, Layers, Search, Volume2, Trash2, Users, Check, Plus, Headphones, FileText, RotateCcw, Settings, Shuffle } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Edit, Edit2, PlayCircle, BookOpen, Layers, Search, Volume2, Trash2, Users, Check, Plus, Headphones, FileText, RotateCcw, Settings, Shuffle } from 'lucide-react';
 import { shuffleArray } from '../../utils/textProcessing';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
 import { playAudio, speakJapanese } from '../../utils/audio';
 import { db, appId } from '../../config/firebase';
-import { collection, getDocs, doc, writeBatch } from 'firebase/firestore';
+import { collection, getDocs, doc, writeBatch, updateDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { showToast } from '../../utils/toast';
-import { fetchJotobaWordData } from '../../utils/pitchAccent';
+import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
 import { getSharedKanjiList } from '../../utils/kanjiService';
+import EditCardModal from '../cards/EditCardModal';
 
 const parseWordAndReading = (text) => {
     if (!text) return { word: '', reading: '' };
@@ -85,11 +86,12 @@ const StudySetDetail = ({
     folderId, folders, cardFolders, allCards,
     onBack, onEditSet, onStudySet, onFlashcardSet, onMeaningSet, onDictationSet, onExampleSet, onSynonymQuiz,
     onNavigateToAdd, onDeleteFolder, onSaveChanges, onSaveCardAudio,
-    onDeleteCards, onToggleSrs
+    onDeleteCards, onToggleSrs, onGeminiAssist
 }) => {
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [expandedCardIds, setExpandedCardIds] = useState(new Set());
     const [isAddingKanji, setIsAddingKanji] = useState(false);
+    const [editingCard, setEditingCard] = useState(null);
 
     const handleAddKanjiToSrs = async () => {
         if (isAddingKanji) return;
@@ -261,7 +263,8 @@ const StudySetDetail = ({
                 reading: false,
                 exampleFurigana: true,
                 exampleMeaning: true,
-                synonymFurigana: true
+                synonymFurigana: true,
+                pitchAccent: true
             },
             swapSides: false,
             autoPlayAudio: true,
@@ -411,19 +414,22 @@ const StudySetDetail = ({
         return filteredCards.slice(0, visibleCount);
     }, [filteredCards, visibleCount]);
 
-    // Fetch pitch accent and reading data from Jotoba for visible cards
+    // Fetch pitch accent and reading data from Jotoba for visible cards (ON DEMAND ONLY)
     const [pitchAccentData, setPitchAccentData] = useState({});
 
     useEffect(() => {
         if (!visibleCards || visibleCards.length === 0) return;
+        if (cardSettings.back.pitchAccent === false) return;
 
-        // Extract base words that need fetching
+        // Extract base words that need fetching (ONLY if the card is expanded)
         const wordsToFetch = [];
         visibleCards.forEach(card => {
-            const frontText = card.frontWithFurigana || card.front || '';
-            const baseWord = frontText.split('（')[0].split('(')[0].trim();
-            if (baseWord && !pitchAccentData[baseWord]) {
-                wordsToFetch.push(baseWord);
+            if (expandedCardIds.has(card.id)) {
+                const frontText = card.frontWithFurigana || card.front || '';
+                const baseWord = frontText.split('（')[0].split('(')[0].trim();
+                if (baseWord && !pitchAccentData[baseWord]) {
+                    wordsToFetch.push(baseWord);
+                }
             }
         });
 
@@ -455,6 +461,8 @@ const StudySetDetail = ({
 
                 if (cancelled) return;
 
+                const auth = getAuth();
+                const userId = auth.currentUser?.uid;
                 const newData = {};
                 results.forEach(({ baseWord, jotobaData }) => {
                     if (jotobaData) {
@@ -462,6 +470,33 @@ const StudySetDetail = ({
                             pitch: jotobaData.pitch || null,
                             reading: jotobaData.reading || null
                         };
+
+                        // Auto save to Firestore for cards that match this baseWord
+                        if (userId) {
+                            visibleCards.forEach(async (card) => {
+                                const cardFrontText = card.frontWithFurigana || card.front || '';
+                                const cardBaseWord = cardFrontText.split('（')[0].split('(')[0].trim();
+                                if (cardBaseWord === baseWord) {
+                                    const hasLocalPitch = card.pitch || (card.accent !== undefined && card.accent !== '' && card.accent !== null);
+                                    if (!hasLocalPitch) {
+                                        try {
+                                            const cardRef = doc(db, `artifacts/${appId}/users/${userId}/vocabulary`, card.id);
+                                            const updatePayload = {};
+                                            if (jotobaData.pitch) updatePayload.pitch = jotobaData.pitch;
+                                            if (jotobaData.reading) updatePayload.reading = jotobaData.reading;
+                                            if (Object.keys(updatePayload).length > 0) {
+                                                await updateDoc(cardRef, updatePayload);
+                                                card.pitch = jotobaData.pitch || null;
+                                                card.reading = jotobaData.reading || null;
+                                                console.log(`💾 Auto-saved pitch accent to Firestore for card: ${baseWord}`);
+                                            }
+                                        } catch (err) {
+                                            console.warn(`Failed to auto-save pitch accent for card ${card.id}:`, err);
+                                        }
+                                    }
+                                }
+                            });
+                        }
                     } else {
                         newData[baseWord] = { pitch: null, reading: null };
                     }
@@ -474,19 +509,26 @@ const StudySetDetail = ({
         };
         fetchAll();
         return () => { cancelled = true; };
-    }, [visibleCards]);
+    }, [visibleCards, expandedCardIds, cardSettings.back.pitchAccent]);
 
     const renderPitchAccent = (card) => {
+        if (cardSettings.back.pitchAccent === false) return null;
+
         const text = card.frontWithFurigana || card.front || '';
         const { word, reading } = parseWordAndReading(text);
         
         const jotobaData = pitchAccentData[word];
-        const pitchParts = jotobaData?.pitch || null;
         const jotobaReading = jotobaData?.reading || null;
         
         // Fallback reading
-        const finalReading = reading || jotobaReading || (hasKanji(word) ? '' : word);
+        const finalReading = card.reading || reading || jotobaReading || (hasKanji(word) ? '' : word);
         if (!finalReading) return null;
+
+        // Support local card pitch or accent if stored in Firestore
+        const storedPitch = card.accent !== undefined && card.accent !== '' && card.accent !== null
+            ? accentNumberToPitchParts(finalReading, card.accent)
+            : null;
+        const pitchParts = card.pitch || storedPitch || jotobaData?.pitch || null;
 
         const readingChars = [...finalReading];
         
@@ -501,7 +543,7 @@ const StudySetDetail = ({
             }
             
             pitchElements = (
-                <span className="font-japanese inline-flex items-end gap-0">
+                <span className="font-japanese inline-flex items-end gap-0 animate-fade-in">
                     {readingChars.map((char, ci) => {
                         const pm = charPitchMap[ci];
                         const isHigh = pm ? pm.high : false;
@@ -1148,6 +1190,13 @@ const StudySetDetail = ({
                                                                         <Volume2 className="w-5 h-5" />
                                                                     </button>
                                                                 )}
+                                                                <button
+                                                                    onClick={(e) => { e.stopPropagation(); setEditingCard(card); }}
+                                                                    className="p-2.5 text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-full transition-colors flex-shrink-0"
+                                                                    title="Sửa từ vựng"
+                                                                >
+                                                                    <Edit className="w-5 h-5" />
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1503,6 +1552,7 @@ const StudySetDetail = ({
                                 <div className="space-y-2.5 pl-1 text-[13px]">
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.reading} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Cách đọc (Hiragana)</span></label>
+                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.pitchAccent !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pitchAccent: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Hiển thị cao độ (Pitch Accent)</span></label>
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Âm Hán Việt</span></label>
                                     <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Đồng nghĩa</span></label>
                                     {cardSettings.back.synonym && (
@@ -1528,6 +1578,16 @@ const StudySetDetail = ({
                     </div>
                 </div>,
                 document.body
+            )}
+
+            {editingCard && (
+                <EditCardModal
+                    card={editingCard}
+                    onSave={onSaveChanges}
+                    onClose={() => setEditingCard(null)}
+                    onGeminiAssist={onGeminiAssist}
+                    allCards={setCards}
+                />
             )}
 
             <style>{`

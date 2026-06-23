@@ -1680,7 +1680,7 @@ const App = () => {
         }, 1000);
     }, [settingsDocPath, userId]);
 
-    const createCardObject = (front, back, synonym, example, exampleMeaning, nuance, srsData = {}, createdAtDate = null, imageBase64 = null, audioBase64 = null, pos = null, level = null, sinoVietnamese = null, synonymSinoVietnamese = null) => {
+    const createCardObject = (front, back, synonym, example, exampleMeaning, nuance, srsData = {}, createdAtDate = null, imageBase64 = null, audioBase64 = null, pos = null, level = null, sinoVietnamese = null, synonymSinoVietnamese = null, reading = null, accent = null) => {
         const hasSynonym = synonym && synonym.trim() !== '';
         const hasExample = example && example.trim() !== '';
         const today = getNextReviewDate(-1);
@@ -1754,6 +1754,8 @@ const App = () => {
             easeFactor: DEFAULT_EASE,
             totalReps: 0,
             srsEnabled: true,
+            reading: reading ? reading.trim() : '',
+            accent: accent ? accent.trim() : '',
         };
     };
     // ==================== SHARED VOCABULARY ====================
@@ -2090,7 +2092,7 @@ const App = () => {
         }
     };
 
-    const handleAddCard = async ({ front, back, synonym, example, exampleMeaning, nuance, pos, level, action, imageBase64, audioBase64, exampleAudioBase64, sinoVietnamese, synonymSinoVietnamese, folderId }) => {
+    const handleAddCard = async ({ front, back, synonym, example, exampleMeaning, nuance, pos, level, action, imageBase64, audioBase64, exampleAudioBase64, sinoVietnamese, synonymSinoVietnamese, folderId, reading, accent }) => {
         if (!vocabCollectionPath) return false;
 
         // Kiểm tra giới hạn 20 từ vựng của gói Miễn phí
@@ -2134,8 +2136,10 @@ const App = () => {
         let finalLevel = level || vocabData.level || '';
         let finalSinoVietnamese = sinoVietnamese || vocabData.sinoVietnamese || '';
         let finalSynonymSinoVietnamese = synonymSinoVietnamese || vocabData.synonymSinoVietnamese || '';
+        let finalReading = reading || vocabData.reading || '';
+        let finalAccent = accent !== undefined && accent !== null ? String(accent) : (vocabData.accent !== undefined && vocabData.accent !== null ? String(vocabData.accent) : '');
 
-        const newCardData = createCardObject(finalFront, finalBack, finalSynonym, finalExample, finalExampleMeaning, finalNuance, {}, null, imageBase64, audioBase64, finalPos, finalLevel, finalSinoVietnamese, finalSynonymSinoVietnamese);
+        const newCardData = createCardObject(finalFront, finalBack, finalSynonym, finalExample, finalExampleMeaning, finalNuance, {}, null, imageBase64, audioBase64, finalPos, finalLevel, finalSinoVietnamese, finalSynonymSinoVietnamese, finalReading, finalAccent);
 
         if (folderId && folderId !== 'unfiled') {
             newCardData.folderId = folderId;
@@ -3102,7 +3106,7 @@ const App = () => {
         navigate(getEditRoute(card.id));
     };
 
-    const handleSaveChanges = async ({ cardId, front, back, synonym, example, exampleMeaning, nuance, pos, level, imageBase64, audioBase64, sinoVietnamese, synonymSinoVietnamese }) => {
+    const handleSaveChanges = async ({ cardId, front, back, synonym, example, exampleMeaning, nuance, pos, level, imageBase64, audioBase64, sinoVietnamese, synonymSinoVietnamese, reading, accent }) => {
         if (!vocabCollectionPath || !cardId) return;
 
         const oldCard = allCards.find(c => c.id === cardId);
@@ -3123,6 +3127,8 @@ const App = () => {
             pos: pos || '',
             level: level || '', // Update Level
             imageBase64: imageBase64,
+            reading: (reading || '').trim(),
+            accent: (accent || '').trim(),
         };
 
         // CHỈ cập nhật audioBase64 nếu có giá trị mới (không null/undefined)
@@ -3454,18 +3460,15 @@ const App = () => {
             try {
                 const cachedVocab = await lookupBookVocab(frontText);
                 if (cachedVocab) {
-                    const result = { ...cachedVocab };
+                    const cachedPosNormalized = cachedVocab.pos ? normalizePosKey(cachedVocab.pos) : '';
+                    const contextPosNormalized = contextPos ? normalizePosKey(contextPos) : '';
+                    const posMatch = !contextPosNormalized || cachedPosNormalized === contextPosNormalized;
+                    const levelMatch = !contextLevel || cachedVocab.level === contextLevel;
 
-                    if (result.pos) result.pos = normalizePosKey(result.pos);
+                    if (posMatch && levelMatch) {
+                        const result = { ...cachedVocab };
 
-                    if (contextPos && contextPos !== result.pos) {
-                        console.log(`📚 Book HIT: ghi đè pos="${result.pos}" → "${contextPos}" theo user chọn`);
-                        result.pos = contextPos;
-                    }
-                    if (contextLevel && contextLevel !== result.level) {
-                        console.log(`📚 Book HIT: ghi đè level="${result.level}" → "${contextLevel}" theo user chọn`);
-                        result.level = contextLevel;
-                    }
+                        if (result.pos) result.pos = normalizePosKey(result.pos);
 
                     // Tự động kiểm tra và điền từ loại nếu thiếu
                     if (!result.pos || result.pos.trim() === '') {
@@ -3578,6 +3581,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
 
                     console.log(`📚 ✅ Dùng dữ liệu từ sách cho "${frontText}"`);
                     return result;
+                    }
                 }
             } catch (e) {
                 console.warn('Book vocab lookup error:', e);
@@ -3587,32 +3591,29 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             try {
                 const shared = await findSharedVocab(frontText);
                 if (shared) {
-                    console.log(`📚 sharedVocabulary HIT: Dùng dữ liệu dùng chung cho "${frontText}"`);
-                    const result = {
-                        front: shared.front || frontText,
-                        frontWithFurigana: shared.front || shared.frontWithFurigana || frontText,
-                        meaning: shared.back || shared.meaning || '',
-                        synonym: shared.synonym || '',
-                        example: shared.example || '',
-                        exampleMeaning: shared.exampleMeaning || '',
-                        nuance: shared.nuance || '',
-                        pos: shared.pos || '',
-                        level: shared.level || '',
-                        sinoVietnamese: shared.sinoVietnamese || '',
-                        synonymSinoVietnamese: shared.synonymSinoVietnamese || '',
-                        _fromShared: true
-                    };
+                    const cachedPosNormalized = shared.pos ? normalizePosKey(shared.pos) : '';
+                    const contextPosNormalized = contextPos ? normalizePosKey(contextPos) : '';
+                    const posMatch = !contextPosNormalized || cachedPosNormalized === contextPosNormalized;
+                    const levelMatch = !contextLevel || shared.level === contextLevel;
 
-                    if (result.pos) result.pos = normalizePosKey(result.pos);
+                    if (posMatch && levelMatch) {
+                        console.log(`📚 sharedVocabulary HIT: Dùng dữ liệu dùng chung cho "${frontText}"`);
+                        const result = {
+                            front: shared.front || frontText,
+                            frontWithFurigana: shared.front || shared.frontWithFurigana || frontText,
+                            meaning: shared.back || shared.meaning || '',
+                            synonym: shared.synonym || '',
+                            example: shared.example || '',
+                            exampleMeaning: shared.exampleMeaning || '',
+                            nuance: shared.nuance || '',
+                            pos: shared.pos || '',
+                            level: shared.level || '',
+                            sinoVietnamese: shared.sinoVietnamese || '',
+                            synonymSinoVietnamese: shared.synonymSinoVietnamese || '',
+                            _fromShared: true
+                        };
 
-                    if (contextPos && contextPos !== result.pos) {
-                        console.log(`📚 Shared HIT: ghi đè pos="${result.pos}" → "${contextPos}" theo user chọn`);
-                        result.pos = contextPos;
-                    }
-                    if (contextLevel && contextLevel !== result.level) {
-                        console.log(`📚 Shared HIT: ghi đè level="${result.level}" → "${contextLevel}" theo user chọn`);
-                        result.level = contextLevel;
-                    }
+                        if (result.pos) result.pos = normalizePosKey(result.pos);
 
                     let isSharedVocabUpdated = false;
 
@@ -3718,6 +3719,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     }
 
                     return result;
+                    }
                 }
             } catch (e) {
                 console.warn('Shared vocab lookup error:', e);

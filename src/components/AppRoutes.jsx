@@ -54,7 +54,7 @@ import {
 
 
 // Wrapper for StudySetDetail
-const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards, setReviewMode, setFlashcardCards, setStudySessionData, setFlashcardSetId, setReviewSetId, navigate, onDeleteFolder, handleSaveChanges, handleSaveCardAudio, handleDeleteCard, onToggleSrs }) => {
+const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards, setReviewMode, setFlashcardCards, setStudySessionData, setFlashcardSetId, setReviewSetId, navigate, onDeleteFolder, handleSaveChanges, handleSaveCardAudio, handleDeleteCard, onToggleSrs, handleGeminiAssist, canUserUseAI }) => {
     const { id } = useParams();
     
     React.useEffect(() => {
@@ -170,6 +170,7 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
         onSaveChanges={handleSaveChanges}
         onSaveCardAudio={handleSaveCardAudio}
         onToggleSrs={onToggleSrs}
+        onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
     />;
 };
 
@@ -649,6 +650,8 @@ const AppRoutes = ({
                                 handleSaveChanges={handleSaveChanges}
                                 handleSaveCardAudio={handleSaveCardAudio}
                                 onToggleSrs={onToggleSrs}
+                                handleGeminiAssist={handleGeminiAssist}
+                                canUserUseAI={canUserUseAI}
                             />
                         </ProtectedRoute>
                     }

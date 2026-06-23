@@ -261,12 +261,12 @@ Yêu cầu cấu trúc kết quả:
 
     return `Từ điển Nhật-Việt. Từ: "${frontText}"${contextPos ? ` (Từ loại: ${contextPos})` : ''}${contextLevel ? ` [Cấp độ: ${contextLevel}]` : ''}${hasMeaning ? ` [Nghĩa yêu cầu: ${contextMeaning}]` : ''}
 JSON only, không markdown/backtick:
-{"frontWithFurigana":"水道（すいどう）","meaning":"đường ống nước","pos":"noun","level":"N3","sinoVietnamese":"THUỶ ĐẠO","synonym":"配管（はいかん）","synonymSinoVietnamese":"PHỐI QUẢN","example":"＿＿＿＿の水가止まった。","exampleMeaning":"Nước đường ống đã ngừng chảy.","nuance":"Chỉ hệ thống cấp nước sinh hoạt."}
+{"frontWithFurigana":"水道（すいどう）","meaning":"đường ống nước","pos":"noun","level":"N3","sinoVietnamese":"THUỶ ĐẠO","synonym":"配管（はいかん）","synonymSinoVietnamese":"PHỐI QUẢN","example":"＿＿＿＿の水が止まった。","exampleMeaning":"Nước đường ống đã ngừng chảy.","nuance":"Chỉ hệ thống cấp nước sinh hoạt.","reading":"すいどう","accent":"0"}
 
 ${grammarInstruction}
 
 QUY TẮC BẮT BUỘC:
-1. Giữ nguyên cụm từ dài: Nếu người dùng nhập cụm từ dài hoặc cả câu (Ví dụ: "日本語を勉強する", "お腹が空いた"), TUYỆT ĐỐI KHÔNG được rút gọn thành từ vựng đơn (như "勉強する", "空く"). Hãy giữ nguyên vẹn cụm từ gốc đó. Nếu cụm từ nhập có lỗi chính tả/ngữ pháp, hãy chuẩn hóa/sửa nó thành cụm từ chuẩn chính xác nhưng giữ nguyên độ dài và ý định gốc.
+1. Giữ nguyên cụm từ dài: Nếu người dùng nhập cụm từ dài hoặc cả câu (Ví dụ: "日本語を勉強する", "お腹gã空いた"), TUYỆT ĐỐI KHÔNG được rút gọn thành từ vựng đơn (như "勉強する", "空く"). Hãy giữ nguyên vẹn cụm từ gốc đó. Nếu cụm từ nhập có lỗi chính tả/ngữ pháp, hãy chuẩn hóa/sửa nó thành cụm từ chuẩn chính xác nhưng giữ nguyên độ dài và ý định gốc.
 2. Từ vựng (frontWithFurigana) & Từ đồng nghĩa (synonym) định dạng cách đọc:
    - BẮT BUỘC dùng định dạng: "Từ gốc（cách đọc hiragana của CẢ TỪ）".
    - Ngoặc cách đọc phải đặt duy nhất ở CUỐI CÙNG sau toàn bộ từ gốc. Tuyệt đối KHÔNG chèn ngoặc cách đọc vào giữa các nhóm chữ trong từ gốc.
@@ -286,6 +286,8 @@ ${exampleMeaningRule}
 7. nuance: ${isGrammar ? 'Chi tiết cấu trúc ngữ pháp kết hợp chính xác và sắc thái sử dụng theo hướng dẫn ở trên.' : 'Chi tiết bối cảnh sử dụng.'}
 8. synonym/synonymSinoVietnamese: Cùng/dễ hơn JLPT. N5→"". Không bịa. synonymSinoVietnamese = BẮT BUỘC dịch đầy đủ tất cả chữ Kanji của synonym sang âm Hán Việt.
 9. level: N5-N1, không rõ→"".
+10. reading: Bắt buộc điền cách đọc chỉ bằng chữ Hiragana/Katakana của từ gốc (không chứa Kanji, ví dụ: "すいどう", "たべる").
+11. accent: Bắt buộc điền số biểu thị cao độ từ vựng (Pitch Accent), ví dụ: '0', '1', '2', '3' (0=bình bình Heiban, 1=đầu cao Atamadaka, v.v.). Nếu không có hoặc không rõ, điền "0".
 
 Không trả lời gì ngoài JSON.`;
 };
@@ -622,15 +624,14 @@ export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '
     try {
         const bookMatch = await lookupBookVocabInAI(frontText);
         if (bookMatch) {
-            const result = { ...bookMatch };
-            if (result.pos) result.pos = normalizePosKey(result.pos);
+            const cachedPosNormalized = bookMatch.pos ? normalizePosKey(bookMatch.pos) : '';
+            const contextPosNormalized = contextPos ? normalizePosKey(contextPos) : '';
+            const posMatch = !contextPosNormalized || cachedPosNormalized === contextPosNormalized;
+            const levelMatch = !contextLevel || bookMatch.level === contextLevel;
 
-            if (contextPos && contextPos !== result.pos) {
-                result.pos = contextPos;
-            }
-            if (contextLevel && contextLevel !== result.level) {
-                result.level = contextLevel;
-            }
+            if (posMatch && levelMatch) {
+                const result = { ...bookMatch };
+                if (result.pos) result.pos = normalizePosKey(result.pos);
 
             let isBookVocabUpdated = false;
 
@@ -725,6 +726,7 @@ Chỉ trả về JSON định dạng sau:
                 .catch(e => console.warn('Error syncing book vocab to shared in aiAssistVocab:', e));
 
             return result;
+            }
         }
     } catch (e) {
         console.warn('aiAssistVocab: Book lookup error:', e);
@@ -734,15 +736,14 @@ Chỉ trả về JSON định dạng sau:
     try {
         const sharedMatch = await lookupSharedVocabInAI(frontText);
         if (sharedMatch) {
-            const result = { ...sharedMatch };
-            if (result.pos) result.pos = normalizePosKey(result.pos);
+            const cachedPosNormalized = sharedMatch.pos ? normalizePosKey(sharedMatch.pos) : '';
+            const contextPosNormalized = contextPos ? normalizePosKey(contextPos) : '';
+            const posMatch = !contextPosNormalized || cachedPosNormalized === contextPosNormalized;
+            const levelMatch = !contextLevel || sharedMatch.level === contextLevel;
 
-            if (contextPos && contextPos !== result.pos) {
-                result.pos = contextPos;
-            }
-            if (contextLevel && contextLevel !== result.level) {
-                result.level = contextLevel;
-            }
+            if (posMatch && levelMatch) {
+                const result = { ...sharedMatch };
+                if (result.pos) result.pos = normalizePosKey(result.pos);
 
             let isSharedVocabUpdated = false;
 
@@ -821,6 +822,7 @@ Chỉ trả về JSON định dạng sau:
             }
 
             return result;
+            }
         }
     } catch (e) {
         console.warn('aiAssistVocab: Shared lookup error:', e);

@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
-import { Loader2, Image as ImageIcon, Check, X, Wand2 } from 'lucide-react'
-import { POS_TYPES } from '../../config/constants'
+import React, { useState, useEffect, useRef } from 'react';
+import { Loader2, Image as ImageIcon, Check, X, Wand2, ChevronDown } from 'lucide-react'
+import { POS_TYPES, JLPT_LEVELS } from '../../config/constants'
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExample, allCards = [] }) => {
@@ -19,7 +19,15 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
     const [_isSaving, setIsSaving] = useState(false); // eslint-disable-line no-unused-vars
     const [isAiLoading, setIsAiLoading] = useState(false);
     const [isGeneratingExample, setIsGeneratingExample] = useState(false);
+    const [posDropdownOpen, setPosDropdownOpen] = useState(false);
+    const [showLevels, setShowLevels] = useState(false);
     const frontInputRef = useRef(null);
+
+    useEffect(() => {
+        if (!posDropdownOpen) {
+            setShowLevels(false);
+        }
+    }, [posDropdownOpen]);
     // Show loading if card is not yet loaded
     if (!card) {
         return (
@@ -136,11 +144,98 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
                         {/* Classification */}
                         <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-xl border border-gray-100 dark:border-gray-700 space-y-3">
                             <label className="block text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Phân loại Từ loại</label>
-                            <div className="flex flex-col gap-3">
-                                <select value={pos} onChange={(e) => setPos(e.target.value)} className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-sm font-medium text-gray-700 dark:text-gray-100">
-                                    <option value="">-- Chọn Từ Loại --</option>
-                                    {Object.entries(POS_TYPES).map(([key, value]) => (<option key={key} value={key}>{value.label}</option>))}
-                                </select>
+                            <div className="relative">
+                                {/* Trigger Button */}
+                                <button
+                                    type="button"
+                                    onClick={() => setPosDropdownOpen(!posDropdownOpen)}
+                                    className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-sm font-medium text-gray-700 dark:text-gray-100 text-left flex justify-between items-center cursor-pointer"
+                                >
+                                    <span>
+                                        {pos ? (
+                                            pos === 'grammar' ? (
+                                                `Ngữ pháp ${level ? `(${level})` : ''}`
+                                            ) : (
+                                                POS_TYPES[pos]?.label || pos
+                                            )
+                                        ) : (
+                                            '-- Chọn Từ Loại --'
+                                        )}
+                                    </span>
+                                    <ChevronDown className="w-4 h-4 text-gray-400 transition-transform duration-200" style={{ transform: posDropdownOpen ? 'rotate(180deg)' : 'none' }} />
+                                </button>
+
+                                {/* Dropdown Menu */}
+                                {posDropdownOpen && (
+                                    <>
+                                        <div 
+                                            className="fixed inset-0 z-40" 
+                                            onClick={() => setPosDropdownOpen(false)} 
+                                        />
+                                        
+                                        <div className="absolute left-0 mt-1.5 w-56 rounded-xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 py-1.5 z-50 text-sm font-medium text-slate-700 dark:text-slate-200">
+                                            {Object.entries(POS_TYPES).map(([key, value]) => {
+                                                if (key === 'grammar') {
+                                                    return (
+                                                        <div key={key} className="relative group/grammar">
+                                                            <button
+                                                                type="button"
+                                                                onClick={(e) => {
+                                                                    if (window.innerWidth <= 768) {
+                                                                        e.preventDefault();
+                                                                        e.stopPropagation();
+                                                                        setShowLevels(!showLevels);
+                                                                    } else {
+                                                                        setPos('grammar');
+                                                                        setLevel('');
+                                                                        setPosDropdownOpen(false);
+                                                                    }
+                                                                }}
+                                                                className="w-full px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700/50 text-left flex justify-between items-center"
+                                                            >
+                                                                <span>Ngữ pháp</span>
+                                                                <span className="text-[10px] text-slate-400">▶</span>
+                                                            </button>
+
+                                                            {/* Sub-menu for JLPT levels */}
+                                                            <div className={`absolute left-full top-0 ml-1 w-24 rounded-lg bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 py-1 ${showLevels ? 'block' : 'hidden md:group-hover/grammar:block'}`}>
+                                                                {JLPT_LEVELS.map((lvl) => (
+                                                                    <button
+                                                                        key={lvl.value}
+                                                                        type="button"
+                                                                        onClick={(e) => {
+                                                                            e.stopPropagation();
+                                                                            setPos('grammar');
+                                                                            setLevel(lvl.value);
+                                                                            setPosDropdownOpen(false);
+                                                                        }}
+                                                                        className="w-full px-3 py-1.5 hover:bg-slate-100 dark:hover:bg-slate-700/50 text-left text-xs font-semibold"
+                                                                    >
+                                                                        {lvl.label}
+                                                                    </button>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                }
+                                                return (
+                                                    <button
+                                                        key={key}
+                                                        type="button"
+                                                        onClick={() => {
+                                                            setPos(key);
+                                                            setLevel('');
+                                                            setPosDropdownOpen(false);
+                                                        }}
+                                                        className="w-full px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700/50 text-left"
+                                                    >
+                                                        {value.label}
+                                                    </button>
+                                                );
+                                            })}
+                                        </div>
+                                    </>
+                                )}
                             </div>
                         </div>
                         <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Ý nghĩa</label>

@@ -38,6 +38,38 @@ if (typeof window !== 'undefined') {
     loadCache();
 }
 
+// Circuit breaker to prevent flooding when Jotoba is down/blocked
+let isJotobaOffline = false;
+let offlineUntil = 0;
+
+const disableJotobaTemporarily = () => {
+    isJotobaOffline = true;
+    const until = Date.now() + 30 * 60 * 1000; // Disable for 30 minutes
+    offlineUntil = until;
+    try {
+        localStorage.setItem('jotoba_offline_until', String(until));
+    } catch (_) {}
+};
+
+const checkJotobaOffline = () => {
+    if (isJotobaOffline && Date.now() < offlineUntil) {
+        return true;
+    }
+    try {
+        const stored = localStorage.getItem('jotoba_offline_until');
+        if (stored) {
+            const until = parseInt(stored, 10);
+            if (!isNaN(until) && Date.now() < until) {
+                isJotobaOffline = true;
+                offlineUntil = until;
+                return true;
+            }
+        }
+    } catch (_) {}
+    isJotobaOffline = false;
+    return false;
+};
+
 const JOTOBA_BASE = 'https://jotoba.de';
 
 /**
@@ -54,6 +86,11 @@ export const fetchJotobaWordData = async (word) => {
     // Check cache first
     if (jotobaCache.has(cleanWord)) {
         return jotobaCache.get(cleanWord);
+    }
+
+    // Circuit breaker check
+    if (checkJotobaOffline()) {
+        return null;
     }
 
     try {
@@ -75,6 +112,9 @@ export const fetchJotobaWordData = async (word) => {
 
         if (!response.ok) {
             console.warn('Jotoba API error:', response.status);
+            if (response.status === 500 || response.status === 429 || response.status === 503) {
+                disableJotobaTemporarily();
+            }
             jotobaCache.set(cleanWord, null);
             saveCache();
             return null;
@@ -105,6 +145,7 @@ export const fetchJotobaWordData = async (word) => {
         return null;
     } catch (e) {
         console.warn('Failed to fetch Jotoba data:', e);
+        disableJotobaTemporarily();
         jotobaCache.set(cleanWord, null);
         saveCache();
         return null;
