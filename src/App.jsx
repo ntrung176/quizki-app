@@ -834,7 +834,10 @@ const App = () => {
                         xp: 0,
                         level: 1,
                         title: getLevelTitle(1),
-                        referralCode: code
+                        referralCode: code,
+                        league: 'Sắt',
+                        score: 0,
+                        lastLeagueWeekId: getWeekId()
                     };
                     await setDoc(doc(db, settingsDocPath), newProfile);
                     setProfile(newProfile);
@@ -4111,6 +4114,14 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                         console.error("Lỗi cập nhật public stats:", err);
                     }
                 });
+
+                if (profile.score !== score) {
+                    await updateDoc(doc(db, settingsDocPath), { score: score }).catch(err => {
+                        if (err?.code !== 'unavailable' && err?.code !== 'resource-exhausted' && err?.message?.includes('ERR_INSUFFICIENT_RESOURCES') === false) {
+                            console.error("Lỗi cập nhật score vào profile:", err);
+                        }
+                    });
+                }
             } catch (e) {
                 // Ignore network/resource errors to prevent console spam
                 if (e?.code !== 'unavailable' && e?.code !== 'resource-exhausted' && e?.message?.includes('ERR_INSUFFICIENT_RESOURCES') === false) {

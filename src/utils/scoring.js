@@ -76,16 +76,16 @@ export const LEAGUES = [
 ];
 
 export const LEAGUE_ICONS = {
-    'Sắt': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/iron.svg',
-    'Đồng': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/bronze.svg',
-    'Bạc': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/silver.svg',
-    'Vàng': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/gold.svg',
-    'Bạch Kim': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/platinum.svg',
-    'Lục Bảo': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/emerald.svg',
-    'Kim Cương': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/diamond.svg',
-    'Cao Thủ': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/master.svg',
-    'Đại Cao Thủ': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/grandmaster.svg',
-    'Thách Đấu': 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-mini-crests/challenger.svg'
+    'Sắt': '/ranks/iron.svg',
+    'Đồng': '/ranks/bronze.svg',
+    'Bạc': '/ranks/silver.svg',
+    'Vàng': '/ranks/gold.svg',
+    'Bạch Kim': '/ranks/platinum.svg',
+    'Lục Bảo': '/ranks/emerald.svg',
+    'Kim Cương': '/ranks/diamond.svg',
+    'Cao Thủ': '/ranks/master.svg',
+    'Đại Cao Thủ': '/ranks/grandmaster.svg',
+    'Thách Đấu': '/ranks/challenger.svg'
 };
 
 export const LEAGUE_COLORS = {

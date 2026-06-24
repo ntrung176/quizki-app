@@ -263,8 +263,8 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
             });
         }
 
-        // Fill remaining spaces with deterministic competitive bots only for entry-level leagues (Sắt, Đồng)
-        const isBotEnabled = selectedLeague === 'Sắt' || selectedLeague === 'Đồng';
+        // Fill remaining spaces with deterministic competitive bots only for entry-level leagues (Sắt, Đồng) and only if it matches the user's active league
+        const isBotEnabled = (selectedLeague === 'Sắt' || selectedLeague === 'Đồng') && (profile?.league || 'Sắt') === selectedLeague;
         if (isBotEnabled) {
             const needed = 30 - finalParticipants.length;
             if (needed > 0) {
