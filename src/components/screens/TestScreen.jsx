@@ -311,6 +311,18 @@ const TestScreen = ({ allCards, onBack }) => {
             return () => clearTimeout(timer);
         }
     }, [showResult, onBack]);
+    // Enter key handler for test result screen
+    useEffect(() => {
+        const handleResultKeyDown = (e) => {
+            if (showResult && e.key === 'Enter') {
+                e.preventDefault();
+                if (onBack) onBack();
+            }
+        };
+        window.addEventListener('keydown', handleResultKeyDown);
+        return () => window.removeEventListener('keydown', handleResultKeyDown);
+    }, [showResult, onBack]);
+
     // Render result screen
     if (showResult) {
         const percentage = Math.round((score / questions.length) * 100);

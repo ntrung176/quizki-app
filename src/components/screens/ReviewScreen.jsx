@@ -660,6 +660,22 @@ const ReviewScreen = ({
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [isMultipleChoice, isRevealed, isProcessing, feedback, multipleChoiceOptions]);
 
+    // Keyboard shortcut: Enter to finish when review is done
+    useEffect(() => {
+        const handleCompleteKeyDown = (e) => {
+            if (showComplete && e.key === 'Enter') {
+                e.preventDefault();
+                if (onCompleteReview) {
+                    onCompleteReview(null);
+                } else if (onBack) {
+                    onBack();
+                }
+            }
+        };
+        window.addEventListener('keydown', handleCompleteKeyDown);
+        return () => window.removeEventListener('keydown', handleCompleteKeyDown);
+    }, [showComplete, onCompleteReview, onBack]);
+
     // Màn hình hoàn thành nội bộ
     if (showComplete) {
         return (
@@ -2159,6 +2175,17 @@ export const ReviewCompleteScreen = ({ onBack, allCards }) => {
             clearTimeout(exitTimer);
         };
     }, [allCards, onBack]);
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                onBack();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [onBack]);
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm animate-fade-in">

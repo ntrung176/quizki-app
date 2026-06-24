@@ -1663,6 +1663,18 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
         };
     }, [activeTest, showResult, showDetailedReview, currentSectionIdx, currentQuestionIdx, answers, prevQuestion, nextQuestion, selectAnswer, selectAnswerSub]);
 
+    // Enter key handler for JLPT test result screen
+    useEffect(() => {
+        const handleResultKeyDown = (e) => {
+            if (showResult && !showDetailedReview && e.key === 'Enter') {
+                e.preventDefault();
+                exitTest();
+            }
+        };
+        window.addEventListener('keydown', handleResultKeyDown);
+        return () => window.removeEventListener('keydown', handleResultKeyDown);
+    }, [showResult, showDetailedReview, exitTest]);
+
     // Calculate results
     const getResults = () => {
         if (!activeTest) return null;

@@ -672,6 +672,29 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         }
     }, [originalCards, studySessionData?.setId]);
 
+    // Handle Enter key for BatchComplete and SessionComplete screens
+    useEffect(() => {
+        const handleGlobalKeyDown = (e) => {
+            if (e.key === 'Enter') {
+                if (done) {
+                    e.preventDefault();
+                    if (onCompleteStudy) {
+                        onCompleteStudy();
+                    } else if (onBack) {
+                        onBack();
+                    }
+                } else if (batchPhase === 'batchComplete') {
+                    e.preventDefault();
+                    handleNextBatch();
+                }
+            }
+        };
+        window.addEventListener('keydown', handleGlobalKeyDown);
+        return () => {
+            window.removeEventListener('keydown', handleGlobalKeyDown);
+        };
+    }, [done, batchPhase, onCompleteStudy, onBack, handleNextBatch]);
+
     if (!originalCards.length) {
         return (
             <div className="flex flex-col items-center justify-center h-full gap-4">

@@ -390,6 +390,17 @@ const KanjiLessonScreen = ({ awardXP }) => {
     const goToNextDay = () => {
         setSearchParams({ level, day: String(day + 1) });
     };
+    // Enter key handler for celebration overlay
+    useEffect(() => {
+        const handleCelebrationKeyDown = (e) => {
+            if (showCelebration && e.key === 'Enter') {
+                e.preventDefault();
+                goToNextDay();
+            }
+        };
+        window.addEventListener('keydown', handleCelebrationKeyDown);
+        return () => window.removeEventListener('keydown', handleCelebrationKeyDown);
+    }, [showCelebration, goToNextDay]);
     if (loading) {
         return <LoadingIndicator text="Đang tải dữ liệu bài học..." />;
     }
@@ -1474,6 +1485,18 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         window.addEventListener('keydown', handler);
         return () => window.removeEventListener('keydown', handler);
     }, [answered, qIndex, questions.length, currentQ]);
+    // Keyboard shortcut: Enter to go back when test is done
+    useEffect(() => {
+        const handler = (e) => {
+            if (testDone && e.key === 'Enter') {
+                e.preventDefault();
+                onBack();
+            }
+        };
+        window.addEventListener('keydown', handler);
+        return () => window.removeEventListener('keydown', handler);
+    }, [testDone, onBack]);
+
     if (testDone) {
         const pct = total > 0 ? Math.round((score / total) * 100) : 0;
         return (
