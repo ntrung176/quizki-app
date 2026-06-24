@@ -73,10 +73,11 @@ export default {
             }
 
             try {
+                const formBody = new URLSearchParams({ token, email }).toString();
                 const response = await fetch('https://speechgen.io/index.php?r=api/balance', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ token, email }),
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: formBody,
                 });
 
                 const data = await response.text();
@@ -96,11 +97,12 @@ export default {
         if (request.method === 'POST') {
             try {
                 const body = await request.json();
+                const formBody = new URLSearchParams(body).toString();
 
                 const response = await fetch('https://speechgen.io/index.php?r=api/text', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(body),
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: formBody,
                 });
 
                 const data = await response.text();

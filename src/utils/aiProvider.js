@@ -1435,3 +1435,42 @@ Chỉ trả về duy nhất JSON theo định dạng sau (không viết markdown
         return null;
     }
 };
+
+export const fetchPitchAccentBatchWithAI = async (words) => {
+    if (!words || words.length === 0) return {};
+    try {
+        const cleanWords = words.map(w => w.split('（')[0].split('(')[0].trim()).filter(Boolean);
+        if (cleanWords.length === 0) return {};
+
+        const prompt = `Bạn là chuyên gia tiếng Nhật. Hãy tìm cách đọc (Hiragana/Katakana) và cao độ (accent - một số nguyên biểu thị accent, ví dụ: 0 cho heiban, 1 cho atamadaka, 2 cho nakadaka, v.v.) của danh sách từ vựng dưới đây.
+Danh sách từ vựng: ${JSON.stringify(cleanWords)}
+
+Chỉ trả về duy nhất một đối tượng JSON với các khóa là các từ vựng và giá trị là cách đọc và accent tương ứng (không viết markdown, không giải thích):
+{
+  "từ_1": {"reading": "...", "accent": "..."},
+  "từ_2": {"reading": "...", "accent": "..."}
+}`;
+
+        // Use google/gemini-3.1-flash-lite for maximum speed and lower latency
+        const responseText = await callAI(prompt, 'google/gemini-3.1-flash-lite', 'vocab_sino_viet');
+        if (!responseText) return {};
+        
+        const cleaned = responseText.replace(/```json/gi, '').replace(/```/g, '').trim();
+        const parsed = JSON.parse(cleaned);
+        
+        const results = {};
+        cleanWords.forEach(w => {
+            const item = parsed[w];
+            if (item) {
+                results[w] = {
+                    reading: item.reading || null,
+                    accent: item.accent !== undefined && item.accent !== null ? String(item.accent) : null
+                };
+            }
+        });
+        return results;
+    } catch (e) {
+        console.warn('Error fetching batch pitch accent with AI:', e);
+        return {};
+    }
+};

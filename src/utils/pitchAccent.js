@@ -71,31 +71,50 @@ const checkJotobaOffline = () => {
     return false;
 };
 
-let aiQueue = [];
-let aiRunning = false;
+let aiBatchQueue = [];
+let aiBatchTimeout = null;
+let aiBatchRunning = false;
 
-const processAiQueue = async () => {
-    if (aiRunning || aiQueue.length === 0) return;
-    aiRunning = true;
-    
-    const { word, resolve, reject } = aiQueue.shift();
+const processAiBatchQueue = async () => {
+    if (aiBatchRunning || aiBatchQueue.length === 0) return;
+    aiBatchRunning = true;
+
+    // Take up to 15 words for this batch
+    const batchSize = 15;
+    const currentBatch = aiBatchQueue.splice(0, batchSize);
+    const words = currentBatch.map(item => item.word);
+
     try {
-        const { fetchPitchAccentWithAI } = await import('./aiProvider');
-        const data = await fetchPitchAccentWithAI(word);
-        resolve(data);
+        console.log(`🤖 [Pitch Accent] Sending AI batch request for ${words.length} words:`, words);
+        const { fetchPitchAccentBatchWithAI } = await import('./aiProvider');
+        const batchResults = await fetchPitchAccentBatchWithAI(words);
+
+        // Resolve each word in the batch
+        currentBatch.forEach(item => {
+            const cleanWord = item.word.split('（')[0].split('(')[0].trim();
+            const result = batchResults[cleanWord] || null;
+            item.resolve(result);
+        });
     } catch (e) {
-        reject(e);
+        console.error('🤖 [Pitch Accent] Batch AI request failed:', e);
+        // Reject all in this batch
+        currentBatch.forEach(item => item.reject(e));
     } finally {
-        await new Promise(r => setTimeout(r, 1200));
-        aiRunning = false;
-        processAiQueue();
+        // Wait 1.5 seconds between batches to avoid rate limits
+        await new Promise(r => setTimeout(r, 1500));
+        aiBatchRunning = false;
+        processAiBatchQueue();
     }
 };
 
 const fetchPitchAccentWithAIQueued = (word) => {
     return new Promise((resolve, reject) => {
-        aiQueue.push({ word, resolve, reject });
-        processAiQueue();
+        aiBatchQueue.push({ word, resolve, reject });
+        
+        if (aiBatchTimeout) clearTimeout(aiBatchTimeout);
+        aiBatchTimeout = setTimeout(() => {
+            processAiBatchQueue();
+        }, 150); // Wait 150ms to gather multiple calls into a batch
     });
 };
 
@@ -114,11 +133,40 @@ export const fetchJotobaWordData = async (word) => {
 
     // Check cache first
     if (jotobaCache.has(cleanWord)) {
-        return jotobaCache.get(cleanWord);
+        const cached = jotobaCache.get(cleanWord);
+        if (cached) {
+            // If the cached entry has valid pitch accent data, return it
+            if (cached.pitch && cached.pitch.length > 0) {
+                return cached;
+            }
+            // If it has no pitch accent data, and we haven't attempted AI for it yet, try AI!
+            if (!cached._aiAttempted) {
+                try {
+                    console.log(`🤖 [Pitch Accent] Cached entry for "${cleanWord}" has no pitch. Attempting AI generation...`);
+                    const aiData = await fetchPitchAccentWithAIQueued(cleanWord);
+                    if (aiData && aiData.reading) {
+                        const pitchParts = accentNumberToPitchParts(aiData.reading, aiData.accent);
+                        cached.pitch = pitchParts;
+                        cached.reading = cached.reading || aiData.reading;
+                        cached._fromAI = true;
+                        console.log(`🤖 [Pitch Accent] AI generated pitch for cached word "${cleanWord}":`, pitchParts);
+                    }
+                } catch (e) {
+                    console.warn(`🤖 [Pitch Accent] Failed to generate AI pitch for cached word "${cleanWord}":`, e);
+                }
+                cached._aiAttempted = true;
+                jotobaCache.set(cleanWord, cached);
+                saveCache();
+            }
+            return cached;
+        }
     }
+
+    console.log(`🔍 [Pitch Accent] Fetching fresh data for: "${cleanWord}"`);
 
     // Circuit breaker check
     if (checkJotobaOffline()) {
+        console.log(`⚠️ [Pitch Accent] Jotoba is temporarily offline/rate-limited. Directing "${cleanWord}" to AI...`);
         try {
             const aiData = await fetchPitchAccentWithAIQueued(cleanWord);
             if (aiData && aiData.reading) {
@@ -127,13 +175,17 @@ export const fetchJotobaWordData = async (word) => {
                     pitch: pitchParts,
                     audioUrl: null,
                     reading: aiData.reading,
-                    _fromAI: true
+                    _fromAI: true,
+                    _aiAttempted: true
                 };
                 jotobaCache.set(cleanWord, result);
                 saveCache();
+                console.log(`🤖 [Pitch Accent] AI successfully generated pitch for "${cleanWord}":`, pitchParts);
                 return result;
             }
-        } catch (_) {}
+        } catch (e) {
+            console.warn(`🤖 [Pitch Accent] AI generation failed for "${cleanWord}":`, e);
+        }
         return null;
     }
 
@@ -160,6 +212,7 @@ export const fetchJotobaWordData = async (word) => {
                 disableJotobaTemporarily();
             }
 
+            console.log(`⚠️ [Pitch Accent] Jotoba API failed for "${cleanWord}". Falling back to AI...`);
             try {
                 const aiData = await fetchPitchAccentWithAIQueued(cleanWord);
                 if (aiData && aiData.reading) {
@@ -168,7 +221,8 @@ export const fetchJotobaWordData = async (word) => {
                         pitch: pitchParts,
                         audioUrl: null,
                         reading: aiData.reading,
-                        _fromAI: true
+                        _fromAI: true,
+                        _aiAttempted: true
                     };
                     jotobaCache.set(cleanWord, result);
                     saveCache();
@@ -176,8 +230,6 @@ export const fetchJotobaWordData = async (word) => {
                 }
             } catch (_) {}
 
-            jotobaCache.set(cleanWord, null);
-            saveCache();
             return null;
         }
 
@@ -196,11 +248,30 @@ export const fetchJotobaWordData = async (word) => {
                 reading: wordData.reading?.kana || null,
             };
 
+            // If Jotoba has no pitch accent data, call AI to generate it
+            if (!result.pitch) {
+                console.log(`🤖 [Pitch Accent] Jotoba found "${cleanWord}" but has no pitch. Fetching AI pitch...`);
+                try {
+                    const aiData = await fetchPitchAccentWithAIQueued(cleanWord);
+                    if (aiData && aiData.reading) {
+                        result.pitch = accentNumberToPitchParts(aiData.reading, aiData.accent);
+                        result._fromAI = true;
+                        if (!result.reading) result.reading = aiData.reading;
+                        console.log(`🤖 [Pitch Accent] AI generated pitch for Jotoba word "${cleanWord}":`, result.pitch);
+                    }
+                } catch (e) {
+                    console.warn(`🤖 [Pitch Accent] Failed to fetch AI pitch for Jotoba word "${cleanWord}":`, e);
+                }
+            }
+
+            result._aiAttempted = true;
             jotobaCache.set(cleanWord, result);
             saveCache();
             return result;
         }
 
+        // Jotoba returned no words - fallback to AI
+        console.log(`🤖 [Pitch Accent] Jotoba has no results for "${cleanWord}". Falling back to AI...`);
         try {
             const aiData = await fetchPitchAccentWithAIQueued(cleanWord);
             if (aiData && aiData.reading) {
@@ -209,7 +280,8 @@ export const fetchJotobaWordData = async (word) => {
                     pitch: pitchParts,
                     audioUrl: null,
                     reading: aiData.reading,
-                    _fromAI: true
+                    _fromAI: true,
+                    _aiAttempted: true
                 };
                 jotobaCache.set(cleanWord, result);
                 saveCache();
@@ -217,13 +289,12 @@ export const fetchJotobaWordData = async (word) => {
             }
         } catch (_) {}
 
-        jotobaCache.set(cleanWord, null);
-        saveCache();
         return null;
     } catch (e) {
         console.warn('Failed to fetch Jotoba data:', e);
         disableJotobaTemporarily();
 
+        console.log(`⚠️ [Pitch Accent] Network error fetching Jotoba for "${cleanWord}". Falling back to AI...`);
         try {
             const aiData = await fetchPitchAccentWithAIQueued(cleanWord);
             if (aiData && aiData.reading) {
@@ -232,7 +303,8 @@ export const fetchJotobaWordData = async (word) => {
                     pitch: pitchParts,
                     audioUrl: null,
                     reading: aiData.reading,
-                    _fromAI: true
+                    _fromAI: true,
+                    _aiAttempted: true
                 };
                 jotobaCache.set(cleanWord, result);
                 saveCache();
@@ -240,8 +312,6 @@ export const fetchJotobaWordData = async (word) => {
             }
         } catch (_) {}
 
-        jotobaCache.set(cleanWord, null);
-        saveCache();
         return null;
     }
 };

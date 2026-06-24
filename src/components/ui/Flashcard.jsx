@@ -277,7 +277,7 @@ const Flashcard = ({
                     }
                 }
                 
-                const lineColor = variant === 'review' ? '#fde047' : '#f97316'; // yellow-300 for review, orange-500 for normal
+                const lineColor = '#ef4444'; // Standard NHK Red
 
                 return (
                     <span className="font-japanese inline-flex items-end gap-0">
@@ -285,27 +285,29 @@ const Flashcard = ({
                             const pm = charPitchMap[ci];
                             const isHigh = pm ? pm.high : false;
                             const nextHigh = ci + 1 < charPitchMap.length ? charPitchMap[ci + 1]?.high : isHigh;
-                            const showDrop = isHigh && !nextHigh && ci < readingChars.length - 1;
-                            const showRise = !isHigh && nextHigh && ci < readingChars.length - 1;
+                            const showTransition = ci + 1 < charPitchMap.length && isHigh !== nextHigh;
                             
                             return (
                                 <span key={ci} className="relative inline-block" style={{ marginRight: '0px' }}>
                                     <span
                                         className="block animate-fade-in"
                                         style={{
-                                            borderTop: isHigh ? `3px solid ${lineColor}` : '3px solid transparent',
-                                            paddingTop: '2px',
+                                            borderTop: `2px solid ${isHigh ? lineColor : 'transparent'}`,
+                                            borderBottom: `2px solid ${!isHigh ? lineColor : 'transparent'}`,
+                                            paddingTop: '0px',
+                                            paddingBottom: '0px',
                                             paddingLeft: '1.5px',
                                             paddingRight: '1.5px',
+                                            lineHeight: '1.1',
                                         }}
                                     >
                                         <span className={readingColorClass}>{char}</span>
                                     </span>
-                                    {showDrop && (
-                                        <span className="absolute -right-[1.5px] top-0 w-[3px]" style={{ height: '100%', backgroundColor: lineColor }}></span>
-                                    )}
-                                    {showRise && (
-                                        <span className="absolute -right-[1.5px] top-0 w-[3px]" style={{ height: '100%', backgroundColor: lineColor }}></span>
+                                    {showTransition && (
+                                        <span 
+                                            className="absolute -right-[1px] top-0 bottom-0 w-[2px]" 
+                                            style={{ backgroundColor: lineColor }}
+                                        />
                                     )}
                                 </span>
                             );

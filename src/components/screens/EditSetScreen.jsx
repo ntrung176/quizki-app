@@ -224,28 +224,7 @@ const EditSetScreen = ({
             return;
         }
 
-        // 2. Check for duplicates against existing cards in this study set
-        const dbDuplicates = [];
-        for (const card of validCards) {
-            const normalized = card.front.split('（')[0].split('(')[0].trim().toLowerCase();
 
-            // Check if this card (whether new or edited) already exists in originalSetCards with a different ID
-            const existsInSet = originalSetCards.some(dbCard => {
-                if (dbCard.id === card.id) return false; // same card
-                const dbNorm = dbCard.front.split('（')[0].split('(')[0].trim().toLowerCase();
-                return dbNorm === normalized;
-            });
-
-            if (existsInSet) {
-                dbDuplicates.push(card.front.trim());
-            }
-        }
-
-        if (dbDuplicates.length > 0) {
-            showToast(`Từ vựng đã tồn tại trong học phần này: ${dbDuplicates.join(', ')}`, 'error');
-            setIsSaving(false);
-            return;
-        }
 
         let activeFolderId = folderId;
         // Create new folder if 'unfiled' was renamed/edited

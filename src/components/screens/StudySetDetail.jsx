@@ -414,17 +414,19 @@ const StudySetDetail = ({
     const visibleCards = useMemo(() => {
         return filteredCards.slice(0, visibleCount);
     }, [filteredCards, visibleCount]);
-
-    // Fetch pitch accent and reading data from Jotoba for visible cards (ON DEMAND ONLY)
+    // Fetch pitch accent and reading data from Jotoba for ALL cards in the set (loads hidden cards in the background)
     const [pitchAccentData, setPitchAccentData] = useState({});
 
     useEffect(() => {
-        if (!visibleCards || visibleCards.length === 0) return;
-        if (cardSettings.back.pitchAccent === false) return;
+        if (!setCards || setCards.length === 0) return;
+        if (cardSettings.back.pitchAccent === false) {
+            console.log("🔍 [Pitch Accent] Display is disabled in settings.");
+            return;
+        }
 
         // Extract base words that need fetching
         const wordsToFetch = [];
-        visibleCards.forEach(card => {
+        setCards.forEach(card => {
             const frontText = card.frontWithFurigana || card.front || '';
             const baseWord = frontText.split('（')[0].split('(')[0].trim();
             const { reading } = parseWordAndReading(frontText);
@@ -435,15 +437,16 @@ const StudySetDetail = ({
             }
         });
 
+        console.log(`🔍 [Pitch Accent] Checked ${setCards.length} cards. Words to fetch:`, wordsToFetch);
+
         if (wordsToFetch.length === 0) return;
 
-        let cancelled = false;
+        let isMounted = true;
         const fetchAll = async () => {
             try {
                 const results = [];
                 const chunkSize = 3;
                 for (let i = 0; i < wordsToFetch.length; i += chunkSize) {
-                    if (cancelled) return;
                     const chunk = wordsToFetch.slice(i, i + chunkSize);
                     const chunkResults = await Promise.all(
                         chunk.map(async (baseWord) => {
@@ -461,8 +464,6 @@ const StudySetDetail = ({
                     }
                 }
 
-                if (cancelled) return;
-
                 const auth = getAuth();
                 const userId = auth.currentUser?.uid;
                 const newData = {};
@@ -475,12 +476,14 @@ const StudySetDetail = ({
 
                         // Auto save to Firestore for cards that match this baseWord
                         if (userId) {
-                            visibleCards.forEach(async (card) => {
+                            setCards.forEach(async (card) => {
                                 const cardFrontText = card.frontWithFurigana || card.front || '';
                                 const cardBaseWord = cardFrontText.split('（')[0].split('(')[0].trim();
                                 if (cardBaseWord === baseWord) {
-                                    const needsPitchSave = !card.pitch && !(card.accent !== undefined && card.accent !== '' && card.accent !== null) && jotobaData.pitch;
-                                    const needsReadingSave = !card.reading && jotobaData.reading;
+                                    const hasPitch = !!card.pitch || (card.accent !== undefined && card.accent !== '' && card.accent !== null);
+                                    const hasReading = !!card.reading;
+                                    const needsPitchSave = !hasPitch && !!jotobaData.pitch;
+                                    const needsReadingSave = !hasReading && !!jotobaData.reading;
                                     if (needsPitchSave || needsReadingSave) {
                                         try {
                                             const cardRef = doc(db, `artifacts/${appId}/users/${userId}/vocabulary`, card.id);
@@ -507,15 +510,16 @@ const StudySetDetail = ({
                     }
                 });
 
-                setPitchAccentData(prev => ({ ...prev, ...newData }));
+                if (isMounted) {
+                    setPitchAccentData(prev => ({ ...prev, ...newData }));
+                }
             } catch (e) {
                 console.error('Error fetching pitch accent data in parallel:', e);
             }
         };
         fetchAll();
-        return () => { cancelled = true; };
-    }, [visibleCards, cardSettings.back.pitchAccent]);
-
+        return () => { isMounted = false; };
+    }, [setCards, cardSettings.back.pitchAccent]);
     const renderPitchAccent = (card) => {
         if (cardSettings.back.pitchAccent === false) return null;
 
@@ -553,27 +557,27 @@ const StudySetDetail = ({
                         const pm = charPitchMap[ci];
                         const isHigh = pm ? pm.high : false;
                         const nextHigh = ci + 1 < charPitchMap.length ? charPitchMap[ci + 1]?.high : isHigh;
-                        const showDrop = isHigh && !nextHigh && ci < readingChars.length - 1;
-                        const showRise = !isHigh && nextHigh && ci < readingChars.length - 1;
+                        const showTransition = ci + 1 < charPitchMap.length && isHigh !== nextHigh;
+                        const lineColor = '#ef4444'; // Standard NHK Red
                         
                         return (
                             <span key={ci} className="relative inline-block" style={{ marginRight: '0px' }}>
                                 <span
                                     className="block"
                                     style={{
-                                        borderTop: isHigh ? '2px solid #f97316' : '2px solid transparent',
-                                        paddingTop: '1px',
+                                        borderTop: `1.5px solid ${isHigh ? lineColor : 'transparent'}`,
+                                        borderBottom: `1.5px solid ${!isHigh ? lineColor : 'transparent'}`,
+                                        paddingTop: '0px',
+                                        paddingBottom: '0px',
                                         paddingLeft: '1px',
                                         paddingRight: '1px',
+                                        lineHeight: '1.1',
                                     }}
                                 >
                                     <span className="text-gray-400 dark:text-gray-500">{char}</span>
                                 </span>
-                                {showDrop && (
-                                    <span className="absolute -right-[1px] top-0 w-[2px] bg-orange-500" style={{ height: '100%' }}></span>
-                                )}
-                                {showRise && (
-                                    <span className="absolute -right-[1px] top-0 w-[2px] bg-orange-500" style={{ height: '100%' }}></span>
+                                {showTransition && (
+                                    <span className="absolute -right-[0.75px] top-0 bottom-0 w-[1.5px]" style={{ backgroundColor: lineColor }}></span>
                                 )}
                             </span>
                         );
