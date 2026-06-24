@@ -96,9 +96,9 @@ export const LEAGUE_COLORS = {
     'Bạch Kim': 'from-teal-400 to-emerald-600 text-teal-50 border-teal-500',
     'Lục Bảo': 'from-emerald-500 to-green-700 text-emerald-50 border-emerald-600',
     'Kim Cương': 'from-sky-400 to-indigo-500 text-indigo-50 border-sky-400',
-    'Cao Thủ': 'from-purple-500 to-pink-650 text-purple-50 border-purple-500',
+    'Cao Thủ': 'from-cyan-500 to-indigo-650 text-cyan-50 border-cyan-500',
     'Đại Cao Thủ': 'from-red-500 to-rose-700 text-rose-50 border-red-600',
-    'Thách Đấu': 'from-indigo-600 via-purple-650 to-amber-500 text-amber-100 border-amber-400'
+    'Thách Đấu': 'from-indigo-600 via-sky-500 to-amber-500 text-amber-100 border-amber-400'
 };
 
 // Returns a stable Sunday-based week identifier string (e.g. "2026-06-14")

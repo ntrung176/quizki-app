@@ -385,12 +385,12 @@ html.dark .text-caption {
 }
 
 .btn-primary {
-  background: linear-gradient(to right, #4f46e5, #7c3aed);
+  background: linear-gradient(to right, #4f46e5, #0ea5e9);
   color: white;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(to right, #4338ca, #6d28d9);
+  background: linear-gradient(to right, #4338ca, #0284c7);
 }
 
 .btn-secondary {

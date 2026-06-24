@@ -4471,7 +4471,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 <div className="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-fade-in">
                     <div className="bg-white/95 dark:bg-slate-900/95 border border-indigo-100/50 dark:border-slate-800/80 rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden transition-all duration-300 transform scale-100 relative">
                         {/* Header with decorative background */}
-                        <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-6 text-white text-center relative overflow-hidden">
+                        <div className="bg-gradient-to-r from-indigo-500 via-sky-500 to-pink-500 p-6 text-white text-center relative overflow-hidden">
                             {/* Decorative ambient blobs */}
                             <div className="absolute -top-10 -left-10 w-24 h-24 bg-white/20 rounded-full blur-xl animate-pulse"></div>
                             <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-white/20 rounded-full blur-xl"></div>
@@ -4698,7 +4698,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     <div className="relative bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-900 border border-indigo-500/40 rounded-3xl shadow-[0_20px_50px_rgba(99,102,241,0.4),_inset_0_1px_0_rgba(255,255,255,0.1)] max-w-sm w-full p-8 text-center overflow-visible scale-100 animate-scale-up">
 
                         {/* Floating/rotating glow element behind */}
-                        <div className="absolute -inset-1 bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-500 rounded-[26px] blur-2xl opacity-40 animate-pulse -z-10" />
+                        <div className="absolute -inset-1 bg-gradient-to-r from-pink-500 via-sky-500 to-indigo-500 rounded-[26px] blur-2xl opacity-40 animate-pulse -z-10" />
 
                         {/* Celebration sparkles */}
                         <div className="absolute inset-0 pointer-events-none opacity-40">

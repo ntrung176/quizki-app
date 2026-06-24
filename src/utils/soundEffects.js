@@ -191,7 +191,7 @@ const PRESET_TRACKS = [
         tempo: 4000,
         waveform: 'sine',
         filterFreq: 600,
-        color: 'from-purple-500 to-indigo-500',
+        color: 'from-sky-500 to-indigo-500',
     },
     {
         id: 'soft-piano',
@@ -225,7 +225,7 @@ const PRESET_TRACKS = [
         tempo: 6000,
         waveform: 'sine',
         filterFreq: 400,
-        color: 'from-violet-500 to-purple-500',
+        color: 'from-sky-500 to-indigo-500',
     },
     {
         id: 'jazz-cafe',

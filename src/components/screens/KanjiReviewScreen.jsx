@@ -577,13 +577,13 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     </div>
 
                     <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-sm">
-                        <span className="text-[10px] font-bold text-violet-500 uppercase tracking-wider">Cao cấp (Thành thạo)</span>
+                        <span className="text-[10px] font-bold text-sky-500 uppercase tracking-wider">Cao cấp (Thành thạo)</span>
                         <div className="flex items-baseline gap-1 mt-2">
                             <span className="text-3xl font-black text-slate-850 dark:text-white">{Math.max(0, stats.longTerm - Math.round(stats.longTerm * 0.2))}</span>
                             <span className="text-xs text-slate-400">chữ</span>
                         </div>
                         <div className="w-full bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden mt-3">
-                            <div className="h-full bg-violet-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? ((stats.longTerm - Math.round(stats.longTerm * 0.2)) / stats.kanjiLearned) * 100 : 0}%` }} />
+                            <div className="h-full bg-sky-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? ((stats.longTerm - Math.round(stats.longTerm * 0.2)) / stats.kanjiLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 

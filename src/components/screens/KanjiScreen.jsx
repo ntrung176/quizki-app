@@ -23,7 +23,7 @@ const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
 const LEVEL_COLORS = {
     N5: { bg: 'bg-emerald-500 dark:bg-emerald-600/80', hover: 'hover:bg-emerald-600 dark:hover:bg-emerald-500', text: 'text-white' },
     N4: { bg: 'bg-sky-500 dark:bg-sky-600/80', hover: 'hover:bg-sky-600 dark:hover:bg-sky-500', text: 'text-white' },
-    N3: { bg: 'bg-violet-500 dark:bg-violet-600/80', hover: 'hover:bg-violet-600 dark:hover:bg-violet-500', text: 'text-white' },
+    N3: { bg: 'bg-sky-500 dark:bg-sky-600/80', hover: 'hover:bg-sky-600 dark:hover:bg-sky-500', text: 'text-white' },
     N2: { bg: 'bg-amber-500 dark:bg-amber-600/80', hover: 'hover:bg-amber-600 dark:hover:bg-amber-500', text: 'text-white' },
     N1: { bg: 'bg-rose-500 dark:bg-rose-600/80', hover: 'hover:bg-rose-600 dark:hover:bg-rose-500', text: 'text-white' },
     'Bộ thủ': { bg: 'bg-orange-500 dark:bg-orange-600/80', hover: 'hover:bg-orange-600 dark:hover:bg-orange-500', text: 'text-white' },
@@ -32,7 +32,7 @@ const LEVEL_COLORS = {
 const LEVEL_TAB_COLORS = {
     N5: 'bg-emerald-500 text-white shadow-md shadow-emerald-200 dark:shadow-emerald-900/50',
     N4: 'bg-sky-500 text-white shadow-md shadow-sky-200 dark:shadow-sky-900/50',
-    N3: 'bg-violet-500 text-white shadow-md shadow-violet-200 dark:shadow-violet-900/50',
+    N3: 'bg-sky-500 text-white shadow-md shadow-sky-200 dark:shadow-sky-900/50',
     N2: 'bg-amber-500 text-white shadow-md shadow-amber-200 dark:shadow-amber-900/50',
     N1: 'bg-rose-500 text-white shadow-md shadow-rose-900/50',
     'Bộ thủ': 'bg-orange-500 text-white shadow-md shadow-orange-200 dark:shadow-orange-900/50',
@@ -1446,7 +1446,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             {v.audioBase64 && (
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); playAudio(v.audioBase64, v.word); }}
-                                                    className="p-1.5 text-violet-500 hover:text-violet-400 hover:bg-violet-100 dark:hover:bg-violet-900/30 transition-colors rounded-md"
+                                                    className="p-1.5 text-sky-500 hover:text-sky-400 hover:bg-sky-100 dark:hover:bg-sky-900/30 transition-colors rounded-md"
                                                     title="Nghe phát âm"
                                                 >
                                                     <Volume2 className="w-3.5 h-3.5" />
@@ -1817,7 +1817,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                 <div
                                     className={`h-full rounded-full transition-all duration-700 ease-out bg-gradient-to-r ${selectedLevel === 'N5' ? 'from-emerald-400 to-teal-500' :
                                         selectedLevel === 'N4' ? 'from-sky-400 to-cyan-500' :
-                                            selectedLevel === 'N3' ? 'from-violet-400 to-fuchsia-500' :
+                                            selectedLevel === 'N3' ? 'from-sky-400 to-indigo-500' :
                                                 selectedLevel === 'N2' ? 'from-amber-400 to-orange-500' :
                                                     selectedLevel === 'N1' ? 'from-rose-400 to-pink-500' : 'from-orange-400 to-amber-500'
                                         }`}
@@ -2071,7 +2071,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             {/* Progress / Level Accent Bar */}
                                             <div className={`absolute bottom-0 left-0 right-0 h-1.5 rounded-b-3xl bg-gradient-to-r ${selectedLevel === 'N5' ? 'from-emerald-400 to-teal-500' :
                                                 selectedLevel === 'N4' ? 'from-sky-400 to-cyan-500' :
-                                                    selectedLevel === 'N3' ? 'from-violet-400 to-fuchsia-500' :
+                                                    selectedLevel === 'N3' ? 'from-sky-400 to-indigo-500' :
                                                         selectedLevel === 'N2' ? 'from-amber-400 to-orange-500' :
                                                             selectedLevel === 'N1' ? 'from-rose-400 to-pink-500' : 'from-orange-400 to-amber-500'
                                                 }`} />

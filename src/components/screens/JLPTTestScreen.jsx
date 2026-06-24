@@ -1138,7 +1138,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                 red: '#EF4444',
                 blue: '#3B82F6',
                 green: '#10B981',
-                purple: '#8B5CF6',
+                sky: '#0EA5E9',
                 orange: '#F59E0B'
             };
             const activeColor = colors[furiganaColor];
@@ -2025,7 +2025,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                             { id: 'red', color: '#EF4444', label: 'Đỏ', bgClass: 'bg-red-500' },
                                                             { id: 'blue', color: '#3B82F6', label: 'Xanh', bgClass: 'bg-blue-500' },
                                                             { id: 'green', color: '#10B981', label: 'Lá', bgClass: 'bg-emerald-500' },
-                                                            { id: 'purple', color: '#8B5CF6', label: 'Tím', bgClass: 'bg-purple-500' },
+                                                            { id: 'sky', color: '#0EA5E9', label: 'Xanh trời', bgClass: 'bg-sky-500' },
                                                             { id: 'orange', color: '#F59E0B', label: 'Cam', bgClass: 'bg-amber-500' }
                                                         ].map(colorOpt => {
                                                             const isSelected = furiganaColor === colorOpt.id;
@@ -2594,7 +2594,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                         { id: 'red', color: '#EF4444', label: 'Đỏ', bgClass: 'bg-red-500' },
                                                         { id: 'blue', color: '#3B82F6', label: 'Xanh', bgClass: 'bg-blue-500' },
                                                         { id: 'green', color: '#10B981', label: 'Lá', bgClass: 'bg-emerald-500' },
-                                                        { id: 'purple', color: '#8B5CF6', label: 'Tím', bgClass: 'bg-purple-500' },
+                                                        { id: 'sky', color: '#0EA5E9', label: 'Xanh trời', bgClass: 'bg-sky-500' },
                                                         { id: 'orange', color: '#F59E0B', label: 'Cam', bgClass: 'bg-amber-500' }
                                                     ].map(colorOpt => {
                                                         const isSelected = furiganaColor === colorOpt.id;

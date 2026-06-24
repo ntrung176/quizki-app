@@ -5,7 +5,7 @@ export const POS_TYPES = {
     suru_verb: { label: 'Danh động từ', color: 'bg-rose-100 text-rose-700 border-rose-200' },
     'adj-i': { label: 'Tính từ -い', color: 'bg-yellow-100 text-yellow-700 border-yellow-200' },
     'adj-na': { label: 'Tính từ -な', color: 'bg-orange-100 text-orange-700 border-orange-200' },
-    adverb: { label: 'Trạng từ', color: 'bg-purple-100 text-purple-700 border-purple-200' },
+    adverb: { label: 'Trạng từ', color: 'bg-sky-100 text-sky-700 border-sky-200' },
     conjunction: { label: 'Liên từ', color: 'bg-pink-100 text-pink-700 border-pink-200' },
     particle: { label: 'Trợ từ', color: 'bg-cyan-100 text-cyan-700 border-cyan-200' },
     grammar: { label: 'Ngữ pháp', color: 'bg-indigo-100 text-indigo-700 border-indigo-200' },
@@ -48,7 +48,7 @@ export const JLPT_LEVELS = [
     { value: 'N5', label: 'N5', color: 'bg-emerald-100 text-emerald-700 border-emerald-200', target: 800, kanjiTarget: 80 },
     { value: 'N4', label: 'N4', color: 'bg-teal-100 text-teal-700 border-teal-200', target: 1500, kanjiTarget: 170 },
     { value: 'N3', label: 'N3', color: 'bg-blue-100 text-blue-700 border-blue-200', target: 3000, kanjiTarget: 370 },
-    { value: 'N2', label: 'N2', color: 'bg-violet-100 text-violet-700 border-violet-200', target: 6000, kanjiTarget: 620 },
+    { value: 'N2', label: 'N2', color: 'bg-sky-100 text-sky-700 border-sky-200', target: 6000, kanjiTarget: 620 },
     { value: 'N1', label: 'N1', color: 'bg-rose-100 text-rose-700 border-rose-200', target: 10000, kanjiTarget: 1000 }
 ];
 

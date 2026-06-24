@@ -521,7 +521,17 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack,
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 relative z-10">
-                                             <div
+                        {[
+                            { step: 1, label: 'Bạn thứ 1', bonus: '+15 ngày' },
+                            { step: 2, label: 'Bạn thứ 2', bonus: '+30 ngày' },
+                            { step: 3, label: 'Bạn thứ 3', bonus: '+45 ngày' },
+                            { step: 4, label: 'Bạn thứ 4+', bonus: '+60 ngày/bạn' }
+                        ].map((milestone) => {
+                            const isAchieved = refStats.premiumInvited >= milestone.step || (milestone.step === 4 && refStats.premiumInvited >= 4);
+                            const isActiveNext = refStats.premiumInvited === milestone.step - 1;
+                            
+                            return (
+                                <div
                                     key={milestone.step}
                                     className={`p-3.5 rounded-xl border flex flex-col items-center justify-between text-center relative overflow-hidden transition-all ${
                                         isAchieved

@@ -207,7 +207,7 @@ export const CardEditorItem = ({
                                     type="button"
                                     onClick={() => onAiAssist(card.id)}
                                     disabled={isAiLoading || !card.front.trim()}
-                                    className="flex items-center justify-center px-3 py-2 bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-500 dark:to-indigo-500 text-white rounded-xl shadow hover:shadow-md transition-all font-black text-xs disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0 min-w-[38px]"
+                                    className="flex items-center justify-center px-3 py-2 bg-gradient-to-r from-sky-500 to-indigo-600 dark:from-sky-500 dark:to-indigo-500 text-white rounded-xl shadow hover:shadow-md transition-all font-black text-xs disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0 min-w-[38px]"
                                     title="Tự động điền thông tin bằng AI (Alt+G)"
                                 >
                                     {isAiLoading ? <Loader2 className="animate-spin w-4 h-4" /> : <span className="tracking-wide">AI</span>}
