@@ -422,15 +422,16 @@ const StudySetDetail = ({
         if (!visibleCards || visibleCards.length === 0) return;
         if (cardSettings.back.pitchAccent === false) return;
 
-        // Extract base words that need fetching (ONLY if the card is expanded)
+        // Extract base words that need fetching
         const wordsToFetch = [];
         visibleCards.forEach(card => {
-            if (expandedCardIds.has(card.id)) {
-                const frontText = card.frontWithFurigana || card.front || '';
-                const baseWord = frontText.split('（')[0].split('(')[0].trim();
-                if (baseWord && !pitchAccentData[baseWord]) {
-                    wordsToFetch.push(baseWord);
-                }
+            const frontText = card.frontWithFurigana || card.front || '';
+            const baseWord = frontText.split('（')[0].split('(')[0].trim();
+            const { reading } = parseWordAndReading(frontText);
+            const hasLocalReading = card.reading || reading;
+            const hasLocalPitch = card.pitch || (card.accent !== undefined && card.accent !== '' && card.accent !== null);
+            if ((!hasLocalReading || !hasLocalPitch) && baseWord && !pitchAccentData[baseWord]) {
+                wordsToFetch.push(baseWord);
             }
         });
 
@@ -478,21 +479,24 @@ const StudySetDetail = ({
                                 const cardFrontText = card.frontWithFurigana || card.front || '';
                                 const cardBaseWord = cardFrontText.split('（')[0].split('(')[0].trim();
                                 if (cardBaseWord === baseWord) {
-                                    const hasLocalPitch = card.pitch || (card.accent !== undefined && card.accent !== '' && card.accent !== null);
-                                    if (!hasLocalPitch) {
+                                    const needsPitchSave = !card.pitch && !(card.accent !== undefined && card.accent !== '' && card.accent !== null) && jotobaData.pitch;
+                                    const needsReadingSave = !card.reading && jotobaData.reading;
+                                    if (needsPitchSave || needsReadingSave) {
                                         try {
                                             const cardRef = doc(db, `artifacts/${appId}/users/${userId}/vocabulary`, card.id);
                                             const updatePayload = {};
-                                            if (jotobaData.pitch) updatePayload.pitch = jotobaData.pitch;
-                                            if (jotobaData.reading) updatePayload.reading = jotobaData.reading;
-                                            if (Object.keys(updatePayload).length > 0) {
-                                                await updateDoc(cardRef, updatePayload);
-                                                card.pitch = jotobaData.pitch || null;
-                                                card.reading = jotobaData.reading || null;
-                                                console.log(`💾 Auto-saved pitch accent to Firestore for card: ${baseWord}`);
+                                            if (needsPitchSave) {
+                                                updatePayload.pitch = jotobaData.pitch;
+                                                card.pitch = jotobaData.pitch;
                                             }
+                                            if (needsReadingSave) {
+                                                updatePayload.reading = jotobaData.reading;
+                                                card.reading = jotobaData.reading;
+                                            }
+                                            await updateDoc(cardRef, updatePayload);
+                                            console.log(`💾 Auto-saved missing pitch/reading to Firestore for card: ${baseWord}`);
                                         } catch (err) {
-                                            console.warn(`Failed to auto-save pitch accent for card ${card.id}:`, err);
+                                            console.warn(`Failed to auto-save missing pitch/reading for card ${card.id}:`, err);
                                         }
                                     }
                                 }
@@ -510,7 +514,7 @@ const StudySetDetail = ({
         };
         fetchAll();
         return () => { cancelled = true; };
-    }, [visibleCards, expandedCardIds, cardSettings.back.pitchAccent]);
+    }, [visibleCards, cardSettings.back.pitchAccent]);
 
     const renderPitchAccent = (card) => {
         if (cardSettings.back.pitchAccent === false) return null;
@@ -522,7 +526,7 @@ const StudySetDetail = ({
         const jotobaReading = jotobaData?.reading || null;
         
         // Fallback reading
-        const finalReading = card.reading || reading || jotobaReading || (hasKanji(word) ? '' : word);
+        const finalReading = card.reading || reading || jotobaReading || word;
         if (!finalReading) return null;
 
         // Support local card pitch or accent if stored in Firestore

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Loader2, Image as ImageIcon, Check, X, Wand2, ChevronDown } from 'lucide-react'
-import { POS_TYPES, JLPT_LEVELS } from '../../config/constants'
+import { POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants'
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExample, allCards = [] }) => {
@@ -156,7 +156,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
                                             pos === 'grammar' ? (
                                                 `Ngữ pháp ${level ? `(${level})` : ''}`
                                             ) : (
-                                                POS_TYPES[pos]?.label || pos
+                                                getPosLabel(pos)
                                             )
                                         ) : (
                                             '-- Chọn Từ Loại --'

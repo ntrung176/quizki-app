@@ -182,6 +182,8 @@ const BatchAiModal = ({
                         nuance: aiData.nuance || '',
                         pos: aiData.pos || '',
                         level: aiData.level || '',
+                        reading: aiData.reading || '',
+                        accent: aiData.accent !== undefined ? String(aiData.accent) : '',
                         imageBase64: null,
                         audioBase64: null
                     });
@@ -201,6 +203,8 @@ const BatchAiModal = ({
                         nuance: '',
                         pos: '',
                         level: '',
+                        reading: '',
+                        accent: '',
                         imageBase64: null,
                         audioBase64: null
                     });
@@ -221,6 +225,8 @@ const BatchAiModal = ({
                     nuance: '',
                     pos: '',
                     level: '',
+                    reading: '',
+                    accent: '',
                     imageBase64: null,
                     audioBase64: null
                 });

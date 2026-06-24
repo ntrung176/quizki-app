@@ -13,7 +13,7 @@ const isCardModified = (card, originalCard) => {
     const fields = [
         'front', 'back', 'synonym', 'example', 'exampleMeaning', 
         'nuance', 'pos', 'level', 'sinoVietnamese', 'synonymSinoVietnamese', 
-        'imageBase64', 'audioBase64'
+        'reading', 'accent', 'imageBase64', 'audioBase64'
     ];
     for (const f of fields) {
         const val1 = card[f] !== undefined && card[f] !== null ? card[f] : '';
@@ -57,7 +57,7 @@ const EditSetScreen = ({
         : allCards.filter(c => cardFolders[c.id] === folderId);
 
     const [cards, setCards] = useState(originalSetCards.length > 0 ? originalSetCards : [
-        { id: `new_${Date.now()}`, isNew: true, front: '', back: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', imageBase64: null, audioBase64: null }
+        { id: `new_${Date.now()}`, isNew: true, front: '', back: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', reading: '', accent: '', imageBase64: null, audioBase64: null }
     ]);
 
     const [activeCardId, setActiveCardId] = useState(cards[0]?.id);
@@ -98,7 +98,7 @@ const EditSetScreen = ({
     };
 
     const handleAddCardRow = () => {
-        const newCard = { id: `new_${Date.now()}`, isNew: true, front: '', back: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', imageBase64: null, audioBase64: null };
+        const newCard = { id: `new_${Date.now()}`, isNew: true, front: '', back: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', reading: '', accent: '', imageBase64: null, audioBase64: null };
         setCards(prev => [...prev, newCard]);
         setActiveCardId(newCard.id);
         setTimeout(() => {
@@ -158,7 +158,9 @@ const EditSetScreen = ({
                         exampleMeaning: aiData.exampleMeaning || c.exampleMeaning,
                         nuance: aiData.nuance || c.nuance,
                         pos: aiData.pos || c.pos,
-                        level: aiData.level || c.level
+                        level: aiData.level || c.level,
+                        reading: aiData.reading || c.reading || '',
+                        accent: aiData.accent !== undefined ? String(aiData.accent) : (c.accent || '')
                     };
                 }
                 return c;
@@ -311,6 +313,7 @@ const EditSetScreen = ({
                             example: card.example, exampleMeaning: card.exampleMeaning, 
                             nuance: card.nuance, pos: card.pos, level: card.level, 
                             sinoVietnamese: card.sinoVietnamese, synonymSinoVietnamese: card.synonymSinoVietnamese, 
+                            reading: card.reading || '', accent: card.accent || '',
                             imageBase64: card.imageBase64, audioBase64: card.audioBase64
                         };
                         if (needsFolderUpdate) {

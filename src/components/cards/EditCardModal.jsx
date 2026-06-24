@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Loader2, X, Image as ImageIcon, Music, Volume2, Trash2, Check, ChevronDown, AlertTriangle } from 'lucide-react';
-import { POS_TYPES, JLPT_LEVELS } from '../../config/constants';
+import { POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 import { playAudio } from '../../utils/audio';
@@ -191,7 +191,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] })
                                             pos === 'grammar' ? (
                                                 `Ngữ pháp ${level ? `(${level})` : ''}`
                                             ) : (
-                                                POS_TYPES[pos]?.label || pos
+                                                getPosLabel(pos)
                                             )
                                         ) : (
                                             '-- Chọn Từ Loại --'
@@ -279,10 +279,6 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] })
                             <div className="grid grid-cols-2 gap-2">
                                 <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Hán Việt" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
                                 <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
-                            </div>
-                            <div className="grid grid-cols-2 gap-2">
-                                <input type="text" value={reading} onChange={(e) => setReading(e.target.value)} placeholder="Cách đọc (Hiragana)" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
-                                <input type="text" value={accent} onChange={(e) => setAccent(e.target.value)} placeholder="Cao độ (Số Accent: 0, 1...)" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
                             </div>
                         </div>
                         <div className="space-y-4">

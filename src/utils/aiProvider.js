@@ -417,6 +417,8 @@ const saveSharedVocab = async (word, data) => {
             nuance: data.nuance || '',
             pos: data.pos || '',
             level: data.level || '',
+            reading: data.reading || '',
+            accent: data.accent !== undefined && data.accent !== null ? String(data.accent) : '',
             updatedAt: Date.now(),
         }, { merge: true });
         console.log(`✅ [aiAssistVocab] Saved/Updated sharedVocabulary: ${matchedId}`);
@@ -468,6 +470,8 @@ const lookupBookVocabInAI = async (key) => {
                         level: match.level || '',
                         sinoVietnamese: match.sinoVietnamese || '',
                         synonymSinoVietnamese: '',
+                        reading: match.reading || '',
+                        accent: match.accent !== undefined && match.accent !== null ? String(match.accent) : '',
                         _fromBook: true,
                         _docPath: lessonData._docPath,
                         _originalWord: match.word || match.front || key
@@ -507,6 +511,8 @@ const lookupSharedVocabInAI = async (key) => {
                 level: data.level || '',
                 sinoVietnamese: data.sinoVietnamese || '',
                 synonymSinoVietnamese: data.synonymSinoVietnamese || '',
+                reading: data.reading || '',
+                accent: data.accent !== undefined && data.accent !== null ? String(data.accent) : '',
                 _fromShared: true
             };
         }
@@ -532,6 +538,8 @@ const lookupSharedVocabInAI = async (key) => {
                     level: data.level || '',
                     sinoVietnamese: data.sinoVietnamese || '',
                     synonymSinoVietnamese: data.synonymSinoVietnamese || '',
+                    reading: data.reading || '',
+                    accent: data.accent !== undefined && data.accent !== null ? String(data.accent) : '',
                     _fromShared: true
                 };
             }
@@ -559,6 +567,8 @@ const lookupSharedVocabInAI = async (key) => {
                     level: data.level || '',
                     sinoVietnamese: data.sinoVietnamese || '',
                     synonymSinoVietnamese: data.synonymSinoVietnamese || '',
+                    reading: data.reading || '',
+                    accent: data.accent !== undefined && data.accent !== null ? String(data.accent) : '',
                     _fromShared: true
                 };
             }
@@ -594,6 +604,8 @@ const lookupSharedVocabInAI = async (key) => {
                     level: data.level || '',
                     sinoVietnamese: data.sinoVietnamese || '',
                     synonymSinoVietnamese: data.synonymSinoVietnamese || '',
+                    reading: data.reading || '',
+                    accent: data.accent !== undefined && data.accent !== null ? String(data.accent) : '',
                     _fromShared: true
                 };
             }
@@ -1393,5 +1405,33 @@ Trả về duy nhất một đối tượng JSON có định dạng sau:
     } catch (e) {
         console.error('Error in aiRecreateVocabulary:', e);
         throw e;
+    }
+};
+
+export const fetchPitchAccentWithAI = async (word) => {
+    try {
+        if (!word) return null;
+        const cleanWord = word.split('（')[0].split('(')[0].trim();
+        if (!cleanWord) return null;
+
+        const prompt = `Bạn là chuyên gia tiếng Nhật. Hãy tìm cách đọc (Hiragana/Katakana) và cao độ (accent - một số nguyên biểu thị accent, ví dụ: 0 cho heiban, 1 cho atamadaka, 2 cho nakadaka, v.v.) của từ vựng dưới đây.
+Từ vựng: "${cleanWord}"
+
+Chỉ trả về duy nhất JSON theo định dạng sau (không viết markdown, không giải thích):
+{"reading": "...", "accent": "..."}`;
+
+        const responseText = await callAI(prompt, 'google/gemini-2.5-flash', 'vocab_sino_viet');
+        if (!responseText) return null;
+        
+        const cleaned = responseText.replace(/```json/gi, '').replace(/```/g, '').trim();
+        const parsed = JSON.parse(cleaned);
+        
+        return {
+            reading: parsed.reading || null,
+            accent: parsed.accent !== undefined && parsed.accent !== null ? String(parsed.accent) : null
+        };
+    } catch (e) {
+        console.warn('Error fetching pitch accent with AI:', e);
+        return null;
     }
 };

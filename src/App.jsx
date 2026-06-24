@@ -1898,6 +1898,8 @@ const App = () => {
                 nuance: shared.nuance || fallbackData.nuance || fallbackData.note || '',
                 pos: shared.pos || fallbackData.pos || '',
                 level: shared.level || fallbackData.level || '',
+                reading: shared.reading || fallbackData.reading || '',
+                accent: shared.accent !== undefined && shared.accent !== null ? String(shared.accent) : (fallbackData.accent !== undefined && fallbackData.accent !== null ? String(fallbackData.accent) : ''),
                 _source: 'shared',
             };
 
@@ -1932,6 +1934,8 @@ const App = () => {
             nuance: fallbackData.nuance || fallbackData.note || '',
             pos: fallbackData.pos || '',
             level: fallbackData.level || '',
+            reading: fallbackData.reading || '',
+            accent: fallbackData.accent !== undefined && fallbackData.accent !== null ? String(fallbackData.accent) : '',
             _source: 'fallback',
         };
 
@@ -3366,6 +3370,8 @@ const App = () => {
                             level: match.level || '',
                             sinoVietnamese: match.sinoVietnamese || '',
                             synonymSinoVietnamese: '',
+                            reading: match.reading || '',
+                            accent: match.accent !== undefined && match.accent !== null ? String(match.accent) : '',
                             imageBase64: match.imageUrl || null,
                             audioBase64: match.audioBase64 || null,
                             exampleAudioBase64: match.exampleAudioBase64 || null,
@@ -3610,6 +3616,8 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                             level: shared.level || '',
                             sinoVietnamese: shared.sinoVietnamese || '',
                             synonymSinoVietnamese: shared.synonymSinoVietnamese || '',
+                            reading: shared.reading || '',
+                            accent: shared.accent !== undefined && shared.accent !== null ? String(shared.accent) : '',
                             _fromShared: true
                         };
 

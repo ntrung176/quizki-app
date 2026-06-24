@@ -73,7 +73,6 @@ export const MASTERED_THRESHOLD = 43200; // 30 ngày = 43200 phút
 // Interval tối đa (365 ngày)
 export const MAX_INTERVAL = 525600; // 365 ngày = 525600 phút
 
-// Helper functions
 export const getPosLabel = (posKey) => {
     if (!posKey) return '';
     const cleanKey = posKey.trim().toLowerCase();
@@ -87,28 +86,66 @@ export const getPosLabel = (posKey) => {
         'suru verb': 'Danh động từ',
         'adj-i': 'Tính từ -い',
         'adj_i': 'Tính từ -い',
+        'i-adjective': 'Tính từ -い',
+        'adjective-i': 'Tính từ -い',
+        'adjective_i': 'Tính từ -い',
         'adj-na': 'Tính từ -な',
         'adj_na': 'Tính từ -な',
+        'na-adjective': 'Tính từ -な',
+        'adjective-na': 'Tính từ -な',
+        'adjective_na': 'Tính từ -な',
         'adjective': 'Tính từ',
         'adverb': 'Trạng từ',
         'conjunction': 'Liên từ',
         'particle': 'Trợ từ',
         'grammar': 'Ngữ pháp',
         'phrase': 'Cụm từ',
+        'expression': 'Cụm từ',
         'pronoun': 'Đại từ',
         'preposition': 'Giới từ',
         'interjection': 'Thán từ',
+        'prefix': 'Tiền tố',
+        'suffix': 'Hậu tố',
+        'counter': 'Lượng từ / Từ đếm',
+        'numeral': 'Số từ',
+        'copula': 'Hệ từ (Copula)',
+        'auxiliary-verb': 'Trợ động từ',
+        'auxiliary verb': 'Trợ động từ',
+        'auxiliary_verb': 'Trợ động từ',
+        'auxiliary': 'Trợ động từ',
+        'transitive-verb': 'Tha động từ',
+        'transitive verb': 'Tha động từ',
+        'transitive_verb': 'Tha động từ',
+        'intransitive-verb': 'Tự động từ',
+        'intransitive verb': 'Tự động từ',
+        'intransitive_verb': 'Tự động từ',
+        'transitive': 'Tha động từ',
+        'intransitive': 'Tự động từ',
+        'verb-group-1': 'Động từ nhóm 1',
+        'verb-group-2': 'Động từ nhóm 2',
+        'verb-group-3': 'Động từ nhóm 3',
+        'v1': 'Động từ nhóm 2 (Ichidan)',
+        'v5': 'Động từ nhóm 1 (Godan)',
+        'vs': 'Danh động từ (Suru)',
+        'vk': 'Động từ Kuru',
         'other': 'Khác'
     };
     
     if (dict[cleanKey]) return dict[cleanKey];
+    
+    const normalized = normalizePosKey(posKey);
+    if (POS_TYPES[normalized]) return POS_TYPES[normalized].label;
     
     const matched = Object.keys(POS_TYPES).find(k => k.toLowerCase() === cleanKey);
     if (matched) return POS_TYPES[matched].label;
     
     return posKey;
 };
-export const getPosColor = (posKey) => POS_TYPES[posKey]?.color || 'bg-gray-100 text-gray-700 border-gray-200';
+export const getPosColor = (posKey) => {
+    if (!posKey) return 'bg-gray-100 text-gray-700 border-gray-200';
+    const normalized = normalizePosKey(posKey);
+    return POS_TYPES[normalized]?.color || 'bg-gray-100 text-gray-700 border-gray-200';
+};
 
 export const getLevelColor = (levelValue) => {
     const level = JLPT_LEVELS.find(l => l.value === levelValue);

@@ -91,7 +91,7 @@ service cloud.firestore {
     match /artifacts/{appId}/users/{userId}/vocabulary/{vocabId} {
       allow read: if isOwner(userId) || hasAdminPrivileges(appId);
       allow create: if isOwner(userId) && isReasonableSize();
-      allow update: if isOwner(userId);
+      allow update: if isOwner(userId) || hasAdminPrivileges(appId);
       allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
     }
     
@@ -134,7 +134,8 @@ service cloud.firestore {
     
     match /artifacts/{appId}/sharedVocab/{vocabId} {
       allow read: if true; // Cho phép xem công khai
-      allow create: if isAuthenticated() && isReasonableSize() &&
+      allow create: if hasAdminPrivileges(appId) || (
+                    isAuthenticated() && isReasonableSize() &&
                     (
                       (request.resource.data.word is string && request.resource.data.word.size() > 0) ||
                       (request.resource.data.front is string && request.resource.data.front.size() > 0)
@@ -142,12 +143,15 @@ service cloud.firestore {
                     (
                       (request.resource.data.meaning is string && request.resource.data.meaning.size() > 0) ||
                       (request.resource.data.back is string && request.resource.data.back.size() > 0)
-                    );
-      allow update: if isAuthenticated() &&
+                    )
+                  );
+      allow update: if hasAdminPrivileges(appId) || (
+                    isAuthenticated() &&
                     (
                       (request.resource.data.meaning is string && request.resource.data.meaning.size() > 0) ||
                       (request.resource.data.back is string && request.resource.data.back.size() > 0)
-                    );
+                    )
+                  );
       allow delete: if hasAdminPrivileges(appId);
     }
     
@@ -158,7 +162,8 @@ service cloud.firestore {
     
     match /sharedVocabulary/{vocabId} {
       allow read: if true;
-      allow create: if isAuthenticated() && isReasonableSize() &&
+      allow create: if isAdmin() || (
+                    isAuthenticated() && isReasonableSize() &&
                     (
                       (request.resource.data.word is string && request.resource.data.word.size() > 0) ||
                       (request.resource.data.front is string && request.resource.data.front.size() > 0)
@@ -166,13 +171,16 @@ service cloud.firestore {
                     (
                       (request.resource.data.meaning is string && request.resource.data.meaning.size() > 0) ||
                       (request.resource.data.back is string && request.resource.data.back.size() > 0)
-                    );
-      allow update: if isAuthenticated() &&
+                    )
+                  );
+      allow update: if isAdmin() || (
+                    isAuthenticated() &&
                     (
                       (request.resource.data.meaning is string && request.resource.data.meaning.size() > 0) ||
                       (request.resource.data.back is string && request.resource.data.back.size() > 0)
-                    );
-      allow delete: if hasAdminPrivileges(appId);
+                    )
+                  );
+      allow delete: if isAdmin() || hasAdminPrivileges(appId);
     }
 
     match /artifacts/{appId}/referrals/{referredId} {
@@ -276,6 +284,11 @@ service cloud.firestore {
     // Cho phép truy cập bài học theo collection group
     match /{path=**}/lessons/{lessonId} {
       allow read: if true;
+    }
+
+    // Cho phép truy cập và cập nhật thẻ từ vựng của người dùng theo collection group (dành cho Admin đồng bộ audio)
+    match /{path=**}/vocabulary/{vocabId} {
+      allow read, update: if isAdmin();
     }
     
     // ============================================

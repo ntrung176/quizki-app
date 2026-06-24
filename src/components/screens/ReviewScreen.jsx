@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { Zap, RotateCcw, MessageSquare, FileText, Repeat2, ChevronRight, Check, X, Lightbulb, ArrowLeft, Eye, EyeOff, Settings, Volume2, Headphones } from 'lucide-react'
-import { POS_TYPES } from '../../config/constants'
+import { POS_TYPES, getPosLabel } from '../../config/constants'
 import { speakJapanese } from '../../utils/audio'
 import {
     shuffleArray,
@@ -1437,7 +1437,7 @@ const ReviewScreen = ({
                                                 {currentCard.pos && (
                                                     <p className="text-sm">
                                                         <span className="inline-block px-2 py-0.5 bg-slate-600/60 rounded-md text-xs font-medium text-teal-300">
-                                                            {POS_TYPES[currentCard.pos]?.label || currentCard.pos}
+                                                            {getPosLabel(currentCard.pos)}
                                                         </span>
                                                     </p>
                                                 )}

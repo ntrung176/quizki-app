@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import FuriganaText from './FuriganaText';
-import { fetchJotobaWordData } from '../../utils/pitchAccent';
-import { POS_TYPES } from '../../config/constants';
+import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
+import { POS_TYPES, getPosLabel } from '../../config/constants';
 
 const getCardScaleStyles = (card, settings) => {
     if (!card) return {};
@@ -124,7 +124,17 @@ const Flashcard = ({
 
     useEffect(() => {
         if (!card) return;
+        
         const frontText = card.frontWithFurigana || card.front || '';
+        const { word, reading } = parseWordAndReading(frontText);
+        const hasLocalReading = card.reading || reading;
+        const hasLocalPitch = card.pitch || (card.accent !== undefined && card.accent !== '' && card.accent !== null);
+        
+        if (hasLocalReading && hasLocalPitch) {
+            setPitchData(null);
+            return;
+        }
+
         const cleanWord = frontText.split('（')[0].split('(')[0].replace(/\s*[（(][^）)]*[）)]/g, '').trim();
         if (!cleanWord) {
             setPitchData(null);
@@ -246,17 +256,19 @@ const Flashcard = ({
             const text = card.frontWithFurigana || card.front || '';
             const { word, reading } = parseWordAndReading(text);
             
-            const pitchParts = pitchData?.pitch || null;
             const jotobaReading = pitchData?.reading || null;
+            const finalReading = reading || card.reading || jotobaReading || word;
             
-            const finalReading = reading || jotobaReading || (hasKanji(word) ? '' : word);
+            const cardPitchParts = card.pitch || (card.accent !== undefined && card.accent !== null && card.accent !== '' ? accentNumberToPitchParts(finalReading, card.accent) : null);
+            const pitchParts = cardPitchParts || pitchData?.pitch || null;
             if (!finalReading) {
                 return <FuriganaText text={text} showReadingOnly={true} />;
             }
 
             const readingChars = [...finalReading];
             
-            if (pitchParts && pitchParts.length > 0) {
+            const showPitchLines = cardSettings.back.pitchAccent !== false && pitchParts && pitchParts.length > 0;
+            if (showPitchLines) {
                 const charPitchMap = [];
                 for (const pp of pitchParts) {
                     const partChars = [...pp.part];
@@ -314,14 +326,14 @@ const Flashcard = ({
                 {card.imageBase64 && (
                     <div className="flex-shrink-0">
                         <img
-                            src={card.imageBase64}
-                            alt={card.front}
-                            className={`w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 rounded-2xl object-cover shadow-sm ${variant === 'review' ? 'border-4 border-white/30 shadow-lg' : 'border border-gray-200 dark:border-slate-700'}`}
+                             src={card.imageBase64}
+                             alt={card.front}
+                             className={`w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 rounded-2xl object-cover shadow-sm ${variant === 'review' ? 'border-4 border-white/30 shadow-lg' : 'border border-gray-200 dark:border-slate-700'}`}
                         />
                     </div>
                 )}
                 <div className={`flex flex-col items-center justify-center text-center min-w-0 space-y-1 w-full h-full py-1.5 ${card.imageBase64 && variant === 'review' ? 'text-left min-w-0 flex-1' : ''}`}>
-                    {cardSettings.back.reading && (
+                    {(cardSettings.back.reading || cardSettings.back.pitchAccent) && (
                         <div className={`${scale.wordSize || 'text-3xl font-extrabold'} font-bold ${readingColorClass} font-japanese select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap`}>
                             {renderReadingWithPitchAccent()}
                             {card.pos && (
@@ -329,18 +341,18 @@ const Flashcard = ({
                                     "inline-block px-2 py-0.5 bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold rounded-full font-sans" : 
                                     "inline-block px-2 py-0.5 bg-slate-50 dark:bg-slate-900/60 border border-slate-200/40 dark:border-slate-800 rounded-full text-[10px] font-semibold text-slate-500 dark:text-slate-400 font-sans"
                                 }>
-                                    {POS_TYPES[card.pos]?.label || card.pos}
+                                    {getPosLabel(card.pos)}
                                 </span>
                             )}
                         </div>
                     )}
-                    {!cardSettings.back.reading && card.pos && (
+                    {!(cardSettings.back.reading || cardSettings.back.pitchAccent) && card.pos && (
                         <div className="text-center mb-0.5">
                             <span className={variant === 'review' ? 
                                 "inline-block px-2 py-0.5 bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold rounded-full font-sans" : 
                                 "inline-block px-2 py-0.5 bg-slate-50 dark:bg-slate-900/60 border border-slate-200/40 dark:border-slate-800 rounded-full text-[10px] font-semibold text-slate-500 dark:text-slate-400 font-sans"
                             }>
-                                {POS_TYPES[card.pos]?.label || card.pos}
+                                {getPosLabel(card.pos)}
                             </span>
                         </div>
                     )}

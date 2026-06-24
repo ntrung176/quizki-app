@@ -37,6 +37,8 @@ const QuickAddVocabForm = ({
             level: '', 
             sinoVietnamese: '', 
             synonymSinoVietnamese: '', 
+            reading: '',
+            accent: '',
             imageBase64: null, 
             audioBase64: null 
         }
@@ -82,6 +84,8 @@ const QuickAddVocabForm = ({
             level: '', 
             sinoVietnamese: '', 
             synonymSinoVietnamese: '', 
+            reading: '',
+            accent: '',
             imageBase64: null, 
             audioBase64: null 
         };
@@ -126,7 +130,9 @@ const QuickAddVocabForm = ({
                         example: aiData.example || '',
                         exampleMeaning: aiData.exampleMeaning || '',
                         nuance: aiData.nuance || '',
-                        synonymSinoVietnamese: aiData.synonymSinoVietnamese || ''
+                        synonymSinoVietnamese: aiData.synonymSinoVietnamese || '',
+                        reading: aiData.reading || '',
+                        accent: aiData.accent !== undefined ? String(aiData.accent) : ''
                     };
                 }
                 return c;

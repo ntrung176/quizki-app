@@ -6,7 +6,7 @@ import { db, appId } from '../../config/firebase';
 import { Users, Search, Shield, Trash2, BarChart3, Clock, AlertTriangle, CheckCircle, Loader2, Languages, BookOpen, Sparkle, Bot, UserCheck, UserX, ToggleLeft, ToggleRight, Settings, Crown, ShieldCheck, ChevronLeft, CreditCard, Plus, Check, X as XIcon, Ticket, DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send, MessageSquare, Image as ImageIcon, Volume2, Music } from 'lucide-react'
 import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, AI_FEATURES, addModerator, removeModerator, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense, manuallyApplyPackageToUser, sendGlobalNotification, deleteGlobalNotification } from '../../utils/adminSettings'
 import { showConfirm } from '../../utils/toast';
-import { playAudio } from '../../utils/audio';
+import { playAudio, generateAudioSilent } from '../../utils/audio';
 import { aiNormalizeVerbs, aiScanVerbsForNormalization, aiFixFuriganaFormat, aiRecreateVocabulary } from '../../utils/aiProvider';
 
 const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, adminConfig, isAdmin }) => {
@@ -75,12 +75,27 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const [editingDictItem, setEditingDictItem] = useState(null);
     const [deletingDictItem, setDeletingDictItem] = useState(null);
     const [recreatingVocabId, setRecreatingVocabId] = useState(null);
+    const [showAudioRecreatePopup, setShowAudioRecreatePopup] = useState(false);
+    const [isGeneratingAudio, setIsGeneratingAudio] = useState(false);
+    const [originalAudioBase64, setOriginalAudioBase64] = useState(null);
+    const [customAudioText, setCustomAudioText] = useState('');
+    const [isManualInputMode, setIsManualInputMode] = useState(false);
 
     const [scanMode, setScanMode] = useState('verb_normalization');
     const [scanTargetGroup, setScanTargetGroup] = useState('all');
     const [scanResults, setScanResults] = useState(null);
     const [scanning, setScanning] = useState(false);
     const [applyingScanId, setApplyingScanId] = useState(null);
+
+    // Auto-dismiss notification after 4 seconds
+    useEffect(() => {
+        if (notification) {
+            const timer = setTimeout(() => {
+                setNotification(null);
+            }, 4000);
+            return () => clearTimeout(timer);
+        }
+    }, [notification]);
 
     // Fetch API balances
     const fetchApiBalances = async () => {
@@ -765,48 +780,62 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             };
             await setDoc(doc(db, 'sharedVocabulary', docId), saveData, { merge: true });
 
-            // Sync audio updates to all users' matching cards
-            const normalizedWord = editingDictItem.front.split('（')[0].split('(')[0].trim().toLowerCase();
-            const q = query(collectionGroup(db, 'vocabulary'));
-            const snap = await getDocs(q);
-
-            const matchedRefs = [];
-            snap.forEach((vocabDoc) => {
-                if (vocabDoc.ref.path.includes(`artifacts/${appId}/`)) {
-                    const cardData = vocabDoc.data();
-                    const cardFrontNormalized = (cardData.front || '').split('（')[0].split('(')[0].trim().toLowerCase();
-                    if (cardFrontNormalized === normalizedWord) {
-                        matchedRefs.push(vocabDoc.ref);
-                    }
-                }
-            });
-
-            if (matchedRefs.length > 0) {
-                let currentBatch = writeBatch(db);
-                let opCount = 0;
-                for (const docRef of matchedRefs) {
-                    if (opCount >= 500) {
-                        await currentBatch.commit();
-                        currentBatch = writeBatch(db);
-                        opCount = 0;
-                    }
-                    currentBatch.update(docRef, {
-                        audioBase64: editingDictItem.audioBase64 || null
-                    });
-                    opCount++;
-                }
-                if (opCount > 0) {
-                    await currentBatch.commit();
-                }
-                console.log(`Sync'd audio for ${matchedRefs.length} user cards.`);
-            }
-
+            // Close popup immediately and show success notification
             setEditingDictItem(null);
-            setNotification({ type: 'success', message: 'Đã cập nhật từ vựng và đồng bộ âm thanh đến học phần người dùng!' });
+            setNotification({ type: 'success', message: 'Đã lưu từ vựng kho chung thành công!' });
+
+            // Sync audio updates to all users' matching cards in the background
+            setTimeout(async () => {
+                try {
+                    const normalizedWord = saveData.front.split('（')[0].split('(')[0].trim().toLowerCase();
+                    const q = query(collectionGroup(db, 'vocabulary'));
+                    const snap = await getDocs(q);
+
+                    const matchedRefs = [];
+                    snap.forEach((vocabDoc) => {
+                        if (vocabDoc.ref.path.includes(`artifacts/${appId}/`)) {
+                            const cardData = vocabDoc.data();
+                            const cardFrontNormalized = (cardData.front || '').split('（')[0].split('(')[0].trim().toLowerCase();
+                            if (cardFrontNormalized === normalizedWord) {
+                                matchedRefs.push(vocabDoc.ref);
+                            }
+                        }
+                    });
+
+                    if (matchedRefs.length > 0) {
+                        let currentBatch = writeBatch(db);
+                        let opCount = 0;
+                        for (const docRef of matchedRefs) {
+                            if (opCount >= 500) {
+                                await currentBatch.commit();
+                                currentBatch = writeBatch(db);
+                                opCount = 0;
+                            }
+                            currentBatch.update(docRef, {
+                                audioBase64: saveData.audioBase64 || null
+                            });
+                            opCount++;
+                        }
+                        if (opCount > 0) {
+                            await currentBatch.commit();
+                        }
+                        console.log(`Sync'd audio for ${matchedRefs.length} user cards.`);
+                        setNotification({ type: 'success', message: `Đã cập nhật từ vựng và đồng bộ âm thanh đến ${matchedRefs.length} thẻ học phần!` });
+                    }
+                } catch (syncErr) {
+                    console.error("Failed to sync audio to user cards in background:", syncErr);
+                    setNotification({ type: 'warning', message: 'Đã lưu kho chung, nhưng đồng bộ nền gặp lỗi phân quyền hoặc kết nối.' });
+                }
+            }, 50);
         } catch (err) {
             console.error("Error saving dict item:", err);
             setNotification({ type: 'error', message: 'Lỗi khi cập nhật từ vựng: ' + err.message });
         }
+    };
+
+    const handleOpenEditModal = (item) => {
+        setEditingDictItem(item);
+        setOriginalAudioBase64(item.audioBase64 || null);
     };
 
     const handleDeleteDictItem = async () => {
@@ -2367,112 +2396,6 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             {/* ==================== VOCABULARY SECTION ==================== */}
             {activeSection === 'vocabulary' && (
                 <div className="space-y-6">
-                    {/* Part 1: AI Scanner */}
-                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 space-y-4">
-                        <div className="flex items-center justify-between border-b border-gray-150 dark:border-gray-750 pb-3">
-                            <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2">
-                                <Sparkle className="w-5 h-5 text-indigo-500" />
-                                Quét chuẩn hóa từ vựng bằng AI
-                            </h3>
-                        </div>
-                        <div className="flex flex-wrap items-center gap-4 text-sm">
-                            <div className="flex items-center gap-2">
-                                <span className="font-semibold text-gray-500">Chế độ quét:</span>
-                                <select
-                                    value={scanMode}
-                                    onChange={(e) => {
-                                        setScanMode(e.target.value);
-                                        setScanResults(null);
-                                    }}
-                                    className="px-3 py-1.5 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none"
-                                >
-                                    <option value="verb_normalization">Đưa động từ về thể từ điển gốc (Jishokei)</option>
-                                    <option value="furigana_format">Sửa lỗi định dạng ngoặc phiên âm Furigana</option>
-                                </select>
-                            </div>
-
-                            {scanMode === 'verb_normalization' && (
-                                <div className="flex items-center gap-2">
-                                    <span className="font-semibold text-gray-500">Nhóm quét:</span>
-                                    <select
-                                        value={scanTargetGroup}
-                                        onChange={(e) => setScanTargetGroup(e.target.value)}
-                                        className="px-3 py-1.5 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none"
-                                    >
-                                        <option value="all">Tất cả</option>
-                                        <option value="verb">Động từ nhóm 1 & 2</option>
-                                        <option value="suru_verb">Động từ nhóm 3 (Suru)</option>
-                                        <option value="phrase">Cụm từ dài</option>
-                                    </select>
-                                </div>
-                            )}
-
-                            <button
-                                onClick={handleScanSharedVocabulary}
-                                disabled={scanning}
-                                className="px-4 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold disabled:opacity-50 flex items-center gap-1.5 transition-all"
-                            >
-                                {scanning ? (
-                                    <>
-                                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                                        <span>Đang quét...</span>
-                                    </>
-                                ) : (
-                                    <>
-                                        <Search className="w-3.5 h-3.5" />
-                                        <span>Quét ngay</span>
-                                    </>
-                                )}
-                            </button>
-                        </div>
-
-                        {/* Scan Results Table */}
-                        {scanResults && (
-                            <div className="border border-gray-150 dark:border-gray-750 rounded-xl overflow-hidden mt-4">
-                                <div className="overflow-x-auto">
-                                    <table className="w-full text-left border-collapse text-xs">
-                                        <thead>
-                                            <tr className="bg-gray-50 dark:bg-gray-750/30 border-b border-gray-150 dark:border-gray-750 text-gray-500 font-bold">
-                                                <th className="p-3">Từ gốc</th>
-                                                <th className="p-3">{scanMode === 'furigana_format' ? 'Đề xuất định dạng chuẩn' : 'Đề xuất thể từ điển gốc'}</th>
-                                                <th className="p-3">Giải thích lý do</th>
-                                                <th className="p-3 text-right">Thao tác</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody className="divide-y divide-gray-150 dark:divide-gray-750">
-                                            {scanResults.length === 0 ? (
-                                                <tr>
-                                                    <td colSpan="4" className="p-8 text-center text-gray-400 italic">Không tìm thấy từ vựng nào cần sửa đổi trong chế độ này.</td>
-                                                </tr>
-                                            ) : (
-                                                scanResults.map((item) => (
-                                                    <tr key={item.id} className="hover:bg-gray-50/50 dark:hover:bg-gray-750/30 transition-colors">
-                                                        <td className="p-3 font-semibold text-gray-900 dark:text-gray-100">{item.front}</td>
-                                                        <td className="p-3 font-semibold text-emerald-600 dark:text-emerald-400">{item.dictionaryForm || 'Giữ nguyên'}</td>
-                                                        <td className="p-3 text-gray-500">{item.reason || 'Đã chuẩn hóa'}</td>
-                                                        <td className="p-3 text-right space-x-2">
-                                                            {item.action === 'chon_sua' && item.dictionaryForm ? (
-                                                                <button
-                                                                    onClick={() => handleApplyScanCorrection(item)}
-                                                                    disabled={applyingScanId === item.id}
-                                                                    className="px-2.5 py-1 bg-emerald-500 hover:bg-emerald-600 text-white rounded text-[10px] font-bold disabled:opacity-50 transition-all"
-                                                                >
-                                                                    {applyingScanId === item.id ? 'Đang sửa...' : 'Đồng ý sửa'}
-                                                                </button>
-                                                            ) : (
-                                                                <span className="text-gray-400 italic text-[10px]">Bỏ qua (hợp lệ)</span>
-                                                            )}
-                                                        </td>
-                                                    </tr>
-                                                ))
-                                            )}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-
                     {/* Part 2: Vocabulary List */}
                     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 space-y-4">
                         <div className="flex items-center justify-between border-b border-gray-150 dark:border-gray-750 pb-3">
@@ -2632,6 +2555,15 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                         <td className="p-3 font-semibold text-gray-900 dark:text-gray-100">
                                                             <div className="flex items-center gap-1.5 flex-wrap">
                                                                 <span>{item.front}</span>
+                                                                {item.audioBase64 && (
+                                                                    <button
+                                                                        onClick={() => playAudio(item.audioBase64)}
+                                                                        className="p-1 text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 rounded-lg transition-colors cursor-pointer"
+                                                                        title="Nghe thử âm thanh"
+                                                                    >
+                                                                        <Volume2 className="w-3.5 h-3.5" />
+                                                                    </button>
+                                                                )}
                                                                 {item.reportedError && (
                                                                     <span className="px-1.5 py-0.5 rounded bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 text-[9px] font-bold flex items-center gap-0.5 animate-pulse">
                                                                         <AlertTriangle className="w-2.5 h-2.5" />
@@ -2646,7 +2578,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                                 )}
                                                             </div>
                                                         </td>
-                                                        <td className="p-3 text-gray-650 dark:text-gray-300 max-w-[200px] truncate">{item.back || item.meaning}</td>
+                                                        <td className="p-3 text-gray-655 dark:text-gray-300 max-w-[200px] truncate">{item.back || item.meaning}</td>
                                                         <td className="p-3 text-pink-600 dark:text-pink-400 font-bold">{item.sinoVietnamese || '-'}</td>
                                                         <td className="p-3 text-gray-500 font-medium">{item.pos || '-'}</td>
                                                         <td className="p-3"><span className="px-1.5 py-0.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold rounded">{item.level || '-'}</span></td>
@@ -2659,7 +2591,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                                 {recreatingVocabId === item.id ? 'Đang tạo...' : 'AI tạo từ vựng'}
                                                             </button>
                                                             <button
-                                                                onClick={() => setEditingDictItem(item)}
+                                                                onClick={() => handleOpenEditModal(item)}
                                                                 className="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-600 rounded text-[10px] font-bold transition-all"
                                                             >
                                                                 Sửa
@@ -2988,60 +2920,76 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 />
                             </div>
 
-                            {/* Audio Section for Admin */}
-                            <div className="pt-3 border-t border-gray-150 dark:border-gray-750">
-                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Audio kho chung</label>
-                                <div className="flex items-center gap-3 bg-gray-50 dark:bg-gray-700/30 p-3 rounded-xl border border-gray-150 dark:border-gray-700">
-                                    <input 
-                                        id="admin-audio-upload" 
-                                        type="file" 
-                                        accept=".wav,.mp3,audio/wav,audio/mpeg" 
-                                        onChange={(e) => {
-                                            const file = e.target.files[0];
-                                            if (!file) return;
-                                            const reader = new FileReader();
-                                            reader.onload = (event) => {
-                                                const res = event.target.result;
-                                                setEditingDictItem(prev => ({ ...prev, audioBase64: res.split(',')[1] }));
-                                            };
-                                            reader.readAsDataURL(file);
-                                        }} 
-                                        className="hidden" 
-                                    />
-                                    
-                                    <label 
-                                        htmlFor="admin-audio-upload" 
-                                        className="cursor-pointer px-3 py-2 bg-white dark:bg-gray-800 border border-gray-350 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm dark:text-gray-200"
-                                    >
-                                        <Music className="w-3.5 h-3.5 text-indigo-500" />
-                                        {editingDictItem.audioBase64 ? "Thay đổi Audio" : "Tải Audio lên"}
-                                    </label>
 
-                                    {editingDictItem.audioBase64 ? (
-                                        <div className="flex items-center gap-1.5">
-                                            <span className="text-xs text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-0.5">
-                                                <Check className="w-3.5 h-3.5" /> Có sẵn
-                                            </span>
-                                            <button 
-                                                type="button" 
-                                                onClick={() => playAudio(editingDictItem.audioBase64)} 
-                                                className="p-1.5 text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 rounded-lg transition-colors cursor-pointer"
-                                                title="Nghe thử"
-                                            >
-                                                <Volume2 className="w-4 h-4" />
-                                            </button>
-                                            <button 
-                                                type="button" 
-                                                onClick={() => setEditingDictItem(prev => ({ ...prev, audioBase64: null }))} 
-                                                className="p-1.5 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors cursor-pointer"
-                                                title="Xóa audio"
-                                            >
-                                                <Trash2 className="w-4 h-4" />
-                                            </button>
-                                        </div>
-                                    ) : (
-                                        <span className="text-xs text-gray-400 italic">Chưa có audio</span>
-                                    )}
+
+                            {/* Audio Section for Admin */}
+                            <div className="pt-3 border-t border-gray-150 dark:border-gray-750 mb-4">
+                                <label className="block text-xs font-bold text-gray-500 uppercase mb-2">Audio kho chung</label>
+                                <div className="flex flex-col gap-3 bg-gray-50 dark:bg-gray-700/30 p-3 rounded-xl border border-gray-150 dark:border-gray-700">
+                                    <div className="flex items-center gap-3">
+                                        <button
+                                            type="button"
+                                            onClick={() => {
+                                                setShowAudioRecreatePopup(true);
+                                                setIsManualInputMode(false);
+                                                setCustomAudioText(editingDictItem.front.split('（')[0].split('(')[0].trim());
+                                            }}
+                                            className="px-3 py-2 bg-white dark:bg-gray-800 border border-gray-350 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm dark:text-gray-200 cursor-pointer"
+                                        >
+                                            <RefreshCw className="w-3.5 h-3.5 text-indigo-500" />
+                                            Tạo lại âm thanh
+                                        </button>
+                                    </div>
+
+                                    {/* Playback Controls */}
+                                    <div className="flex flex-wrap items-center gap-4 text-xs">
+                                        {/* Original Audio (Before Edit) */}
+                                        {originalAudioBase64 && (
+                                            <div className="flex items-center gap-1.5 bg-white dark:bg-gray-800 px-2.5 py-1.5 rounded-lg border border-gray-150 dark:border-gray-700">
+                                                <span className="text-gray-500 font-medium">Audio gốc (Trước sửa):</span>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => playAudio(originalAudioBase64)}
+                                                    className="p-1 text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 rounded-lg transition-colors cursor-pointer"
+                                                    title="Nghe audio gốc"
+                                                >
+                                                    <Volume2 className="w-4 h-4" />
+                                                </button>
+                                            </div>
+                                        )}
+
+                                        {/* Current / New Audio (After Edit / Recreated) */}
+                                        {editingDictItem.audioBase64 ? (
+                                            <div className="flex items-center gap-1.5 bg-white dark:bg-gray-800 px-2.5 py-1.5 rounded-lg border border-gray-150 dark:border-gray-700">
+                                                <span className="text-gray-500 font-medium">
+                                                    {editingDictItem.audioBase64 === originalAudioBase64 ? "Audio hiện tại:" : "Audio mới (Sau sửa):"}
+                                                </span>
+                                                <span className="text-xs text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-0.5">
+                                                    <Check className="w-3.5 h-3.5" /> Có sẵn
+                                                </span>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => playAudio(editingDictItem.audioBase64)}
+                                                    className="p-1 text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 rounded-lg transition-colors cursor-pointer"
+                                                    title="Nghe audio mới"
+                                                >
+                                                    <Volume2 className="w-4 h-4" />
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setEditingDictItem(prev => ({ ...prev, audioBase64: null }))}
+                                                    className="p-1 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors cursor-pointer"
+                                                    title="Xóa audio"
+                                                >
+                                                    <Trash2 className="w-4 h-4" />
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            <div className="flex items-center gap-1.5 bg-white dark:bg-gray-800 px-2.5 py-1.5 rounded-lg border border-gray-150 dark:border-gray-750">
+                                                <span className="text-gray-400 italic">Chưa có audio mới</span>
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
 
@@ -3061,6 +3009,134 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 </button>
                             </div>
                         </form>
+                    </div>
+                </div>
+            )}
+
+            {/* Sub-modal: Recreate Audio Choices */}
+            {showAudioRecreatePopup && (
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[10001] flex items-center justify-center p-4">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 max-w-sm w-full shadow-2xl text-center animate-bounce-in">
+                        <h4 className="font-bold text-gray-900 dark:text-white mb-2 text-base">Tạo lại âm thanh</h4>
+                        
+                        {!isManualInputMode ? (
+                            <>
+                                <p className="text-xs text-gray-500 dark:text-gray-400 mb-6">
+                                    Chọn phương thức tạo lại âm thanh cho từ vựng: <br />
+                                    <span className="font-semibold text-indigo-600 dark:text-indigo-400">"{editingDictItem.front}"</span>
+                                </p>
+                                
+                                <div className="space-y-3">
+                                    <button
+                                        type="button"
+                                        onClick={async () => {
+                                            setIsGeneratingAudio(true);
+                                            try {
+                                                const cleanText = editingDictItem.front.split('（')[0].split('(')[0].trim();
+                                                const result = await generateAudioSilent(cleanText);
+                                                if (result && result.base64) {
+                                                    setEditingDictItem(prev => ({ ...prev, audioBase64: result.base64 }));
+                                                    setNotification({ type: 'success', message: 'Đã tạo âm thanh bằng AI thành công!' });
+                                                    setShowAudioRecreatePopup(false);
+                                                } else {
+                                                    setNotification({ type: 'error', message: 'Không thể tạo âm thanh bằng AI. Vui lòng kiểm tra cấu hình SpeechGen.' });
+                                                }
+                                            } catch (err) {
+                                                console.error("AI audio generation error:", err);
+                                                setNotification({ type: 'error', message: 'Lỗi khi tạo âm thanh AI: ' + err.message });
+                                            } finally {
+                                                setIsGeneratingAudio(false);
+                                            }
+                                        }}
+                                        disabled={isGeneratingAudio}
+                                        className="w-full py-2.5 bg-indigo-600 text-white rounded-xl font-bold text-xs hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                                    >
+                                        {isGeneratingAudio ? (
+                                            <Loader2 className="w-4 h-4 animate-spin" />
+                                        ) : (
+                                            <Sparkle className="w-4 h-4 text-amber-300 fill-amber-300" />
+                                        )}
+                                        Dùng AI (Tự động theo chữ Nhật)
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsManualInputMode(true)}
+                                        className="w-full py-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 rounded-xl text-xs font-bold text-gray-700 dark:text-gray-205 flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                                    >
+                                        <Bot className="w-4 h-4 text-indigo-500" />
+                                        Nhập tay chữ đọc (Hiragana...)
+                                    </button>
+                                </div>
+                                
+                                <button
+                                    type="button"
+                                    onClick={() => setShowAudioRecreatePopup(false)}
+                                    className="mt-6 text-xs text-gray-500 hover:text-gray-750 dark:hover:text-gray-300 font-medium cursor-pointer"
+                                >
+                                    Hủy bỏ
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">
+                                    Nhập Hiragana hoặc chữ đọc tùy chỉnh cho: <br />
+                                    <span className="font-semibold text-indigo-650 dark:text-indigo-400">"{editingDictItem.front}"</span>
+                                </p>
+
+                                <div className="space-y-4">
+                                    <input
+                                        type="text"
+                                        value={customAudioText}
+                                        onChange={(e) => setCustomAudioText(e.target.value)}
+                                        placeholder="Ví dụ: たべる..."
+                                        className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm outline-none text-center dark:text-white"
+                                        disabled={isGeneratingAudio}
+                                    />
+
+                                    <div className="flex gap-2">
+                                        <button
+                                            type="button"
+                                            onClick={() => setIsManualInputMode(false)}
+                                            disabled={isGeneratingAudio}
+                                            className="flex-1 py-2 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-xl text-xs font-bold transition-all disabled:opacity-50"
+                                        >
+                                            Quay lại
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={async () => {
+                                                if (!customAudioText.trim()) {
+                                                    setNotification({ type: 'error', message: 'Vui lòng nhập chữ đọc.' });
+                                                    return;
+                                                }
+                                                setIsGeneratingAudio(true);
+                                                try {
+                                                    const result = await generateAudioSilent(customAudioText.trim());
+                                                    if (result && result.base64) {
+                                                        setEditingDictItem(prev => ({ ...prev, audioBase64: result.base64 }));
+                                                        setNotification({ type: 'success', message: 'Đã tạo âm thanh từ chữ đọc thành công!' });
+                                                        setShowAudioRecreatePopup(false);
+                                                    } else {
+                                                        setNotification({ type: 'error', message: 'Không thể tạo âm thanh. Vui lòng kiểm tra cấu hình SpeechGen.' });
+                                                    }
+                                                } catch (err) {
+                                                    console.error("AI audio generation error:", err);
+                                                    setNotification({ type: 'error', message: 'Lỗi khi tạo âm thanh: ' + err.message });
+                                                } finally {
+                                                    setIsGeneratingAudio(false);
+                                                }
+                                            }}
+                                            disabled={isGeneratingAudio || !customAudioText.trim()}
+                                            className="flex-1 py-2.5 bg-indigo-650 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold transition-all disabled:opacity-50 flex items-center justify-center gap-1 cursor-pointer"
+                                        >
+                                            {isGeneratingAudio && <Loader2 className="w-3 h-3 animate-spin" />}
+                                            Tạo âm thanh
+                                        </button>
+                                    </div>
+                                </div>
+                            </>
+                        )}
                     </div>
                 </div>
             )}
@@ -3094,7 +3170,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
 
             {/* Notification Toast */}
             {notification && (
-                <div className={`fixed bottom-4 right-4 z-50 px-4 py-3 rounded-xl shadow-lg flex items-center gap-2 animate-fade-in ${notification.type === 'success'
+                <div className={`fixed bottom-4 right-4 z-[10005] px-4 py-3 rounded-xl shadow-lg flex items-center gap-2 animate-fade-in ${notification.type === 'success'
                     ? 'bg-green-500 text-white'
                     : 'bg-red-500 text-white'
                     }`}>

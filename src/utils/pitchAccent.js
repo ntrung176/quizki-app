@@ -44,7 +44,8 @@ let offlineUntil = 0;
 
 const disableJotobaTemporarily = () => {
     isJotobaOffline = true;
-    const until = Date.now() + 30 * 60 * 1000; // Disable for 30 minutes
+    const duration = import.meta.env.DEV ? 2 * 60 * 1000 : 30 * 60 * 1000;
+    const until = Date.now() + duration;
     offlineUntil = until;
     try {
         localStorage.setItem('jotoba_offline_until', String(until));
@@ -70,6 +71,34 @@ const checkJotobaOffline = () => {
     return false;
 };
 
+let aiQueue = [];
+let aiRunning = false;
+
+const processAiQueue = async () => {
+    if (aiRunning || aiQueue.length === 0) return;
+    aiRunning = true;
+    
+    const { word, resolve, reject } = aiQueue.shift();
+    try {
+        const { fetchPitchAccentWithAI } = await import('./aiProvider');
+        const data = await fetchPitchAccentWithAI(word);
+        resolve(data);
+    } catch (e) {
+        reject(e);
+    } finally {
+        await new Promise(r => setTimeout(r, 1200));
+        aiRunning = false;
+        processAiQueue();
+    }
+};
+
+const fetchPitchAccentWithAIQueued = (word) => {
+    return new Promise((resolve, reject) => {
+        aiQueue.push({ word, resolve, reject });
+        processAiQueue();
+    });
+};
+
 const JOTOBA_BASE = 'https://jotoba.de';
 
 /**
@@ -90,12 +119,27 @@ export const fetchJotobaWordData = async (word) => {
 
     // Circuit breaker check
     if (checkJotobaOffline()) {
+        try {
+            const aiData = await fetchPitchAccentWithAIQueued(cleanWord);
+            if (aiData && aiData.reading) {
+                const pitchParts = accentNumberToPitchParts(aiData.reading, aiData.accent);
+                const result = {
+                    pitch: pitchParts,
+                    audioUrl: null,
+                    reading: aiData.reading,
+                    _fromAI: true
+                };
+                jotobaCache.set(cleanWord, result);
+                saveCache();
+                return result;
+            }
+        } catch (_) {}
         return null;
     }
 
     try {
         // Use Vite proxy in development to avoid CORS, direct URL in production
-        const isDev = typeof window !== 'undefined' && window.location.hostname === 'localhost';
+        const isDev = import.meta.env.DEV;
         const apiUrl = isDev
             ? '/api/jotoba/search/words'
             : `${JOTOBA_BASE}/api/search/words`;
@@ -115,6 +159,23 @@ export const fetchJotobaWordData = async (word) => {
             if (response.status === 500 || response.status === 429 || response.status === 503) {
                 disableJotobaTemporarily();
             }
+
+            try {
+                const aiData = await fetchPitchAccentWithAIQueued(cleanWord);
+                if (aiData && aiData.reading) {
+                    const pitchParts = accentNumberToPitchParts(aiData.reading, aiData.accent);
+                    const result = {
+                        pitch: pitchParts,
+                        audioUrl: null,
+                        reading: aiData.reading,
+                        _fromAI: true
+                    };
+                    jotobaCache.set(cleanWord, result);
+                    saveCache();
+                    return result;
+                }
+            } catch (_) {}
+
             jotobaCache.set(cleanWord, null);
             saveCache();
             return null;
@@ -140,12 +201,45 @@ export const fetchJotobaWordData = async (word) => {
             return result;
         }
 
+        try {
+            const aiData = await fetchPitchAccentWithAIQueued(cleanWord);
+            if (aiData && aiData.reading) {
+                const pitchParts = accentNumberToPitchParts(aiData.reading, aiData.accent);
+                const result = {
+                    pitch: pitchParts,
+                    audioUrl: null,
+                    reading: aiData.reading,
+                    _fromAI: true
+                };
+                jotobaCache.set(cleanWord, result);
+                saveCache();
+                return result;
+            }
+        } catch (_) {}
+
         jotobaCache.set(cleanWord, null);
         saveCache();
         return null;
     } catch (e) {
         console.warn('Failed to fetch Jotoba data:', e);
         disableJotobaTemporarily();
+
+        try {
+            const aiData = await fetchPitchAccentWithAIQueued(cleanWord);
+            if (aiData && aiData.reading) {
+                const pitchParts = accentNumberToPitchParts(aiData.reading, aiData.accent);
+                const result = {
+                    pitch: pitchParts,
+                    audioUrl: null,
+                    reading: aiData.reading,
+                    _fromAI: true
+                };
+                jotobaCache.set(cleanWord, result);
+                saveCache();
+                return result;
+            }
+        } catch (_) {}
+
         jotobaCache.set(cleanWord, null);
         saveCache();
         return null;
@@ -180,7 +274,7 @@ const playJotobaAudio = async (word) => {
     if (data?.audioUrl) {
         try {
             // Use proxy in dev for audio too
-            const isDev = typeof window !== 'undefined' && window.location.hostname === 'localhost';
+            const isDev = import.meta.env.DEV;
             const audioSrc = isDev
                 ? data.audioUrl.replace(JOTOBA_BASE, '')
                 : data.audioUrl;

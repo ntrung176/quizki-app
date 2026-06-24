@@ -10,6 +10,8 @@ import { convertToDictionaryForm } from '../../utils/textProcessing';
 import { db } from '../../config/firebase';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 
+import { getPosLabel } from '../../config/constants';
+
 // Helper to format Japanese readings: e.g. "日本語（にほんご）" -> "日本語 (にほんご)"
 const formatReading = (text) => {
     if (!text) return '';
@@ -770,8 +772,8 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                     {/* Badges row */}
                                     <div className="flex gap-2">
                                         {aiResult.pos && (
-                                            <span className="px-2 py-0.5 rounded-md bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100/50 dark:border-indigo-900/40 text-[10px] font-black text-indigo-600 dark:text-indigo-400 uppercase">
-                                                {aiResult.pos}
+                                            <span className="px-2 py-0.5 rounded-md bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100/50 dark:border-indigo-900/40 text-[10px] font-black text-indigo-600 dark:text-indigo-400">
+                                                {getPosLabel(aiResult.pos)}
                                             </span>
                                         )}
                                         {aiResult.level && (

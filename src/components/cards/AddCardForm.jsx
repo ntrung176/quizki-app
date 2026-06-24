@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Languages, Sparkle, ChevronDown, CreditCard, Trash2, Folder, PenTool, RotateCcw } from 'lucide-react'
-import { POS_TYPES, JLPT_LEVELS } from '../../config/constants'
+import { POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants'
 import { compressImage } from '../../utils/image';
 
 import { TopTabBar } from '../ui';
@@ -421,7 +421,7 @@ export const CardEditorItem = ({
                                         card.pos === 'grammar' ? (
                                             `Ngữ pháp ${card.level ? `(${card.level})` : ''}`
                                         ) : (
-                                            POS_TYPES[card.pos]?.label || card.pos
+                                            getPosLabel(card.pos)
                                         )
                                     ) : (
                                         '-- Chọn từ loại --'
@@ -709,7 +709,7 @@ const AddCardForm = ({
     const [description, setDescription] = useState('');
     const [coverImage, setCoverImage] = useState(null);
     const [cards, setCards] = useState([
-        { id: Date.now(), front: '', back: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', imageBase64: null, audioBase64: null }
+        { id: Date.now(), front: '', back: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', reading: '', accent: '', imageBase64: null, audioBase64: null }
     ]);
     const [activeCardId, setActiveCardId] = useState(cards[0].id);
     const [isSaving, setIsSaving] = useState(false);
@@ -735,7 +735,7 @@ const AddCardForm = ({
                 id: Date.now() + index,
                 front: typeof vocab === 'string' ? vocab : vocab.front || '',
                 back: typeof vocab === 'string' ? '' : vocab.back || '',
-                synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', imageBase64: null, audioBase64: null
+                synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', reading: '', accent: '', imageBase64: null, audioBase64: null
             }));
             setCards(initialCards);
             setActiveCardId(initialCards[0].id);
@@ -758,7 +758,7 @@ const AddCardForm = ({
     };
 
     const handleAddCardRow = () => {
-        const newCard = { id: Date.now(), front: '', back: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', imageBase64: null, audioBase64: null };
+        const newCard = { id: Date.now(), front: '', back: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', reading: '', accent: '', imageBase64: null, audioBase64: null };
         setCards(prev => [...prev, newCard]);
         setActiveCardId(newCard.id);
         setTimeout(() => {
@@ -819,6 +819,8 @@ const AddCardForm = ({
                     level: selectedLevel,
                     sinoVietnamese: '',
                     synonymSinoVietnamese: '',
+                    reading: '',
+                    accent: '',
                     imageBase64: null,
                     audioBase64: null
                 };
@@ -843,7 +845,9 @@ const AddCardForm = ({
                         exampleMeaning: aiData.exampleMeaning || '',
                         nuance: aiData.nuance || '',
                         pos: aiData.pos || selectedPos || '',
-                        level: aiData.level || selectedLevel || ''
+                        level: aiData.level || selectedLevel || '',
+                        reading: aiData.reading || '',
+                        accent: aiData.accent !== undefined ? String(aiData.accent) : ''
                     };
                 }
                 return c;
