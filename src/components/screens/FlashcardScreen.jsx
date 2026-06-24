@@ -3,6 +3,8 @@ import { createPortal } from 'react-dom';
 import { RotateCcw, Check, X, Undo2, RefreshCw, Volume2, ArrowLeft, ChevronRight, Zap, Layers, Settings, Lightbulb } from 'lucide-react'
 import { speakJapanese } from '../../utils/audio'
 import { playCompletionFanfare } from '../../utils/soundEffects';
+import { getAuth } from 'firebase/auth';
+import { saveStudyProgress } from '../../utils/studyProgressService';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
 const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard, onSaveCardAudio, onBack }) => {
@@ -118,6 +120,10 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         };
         const key = setId ? `study_progress_${setId}_flashcard` : 'flashcard_progress';
         localStorage.setItem(key, JSON.stringify(progressData));
+        if (setId) {
+            const userId = getAuth().currentUser?.uid;
+            saveStudyProgress(userId, setId, 'flashcard', progressData);
+        }
     }, [currentIndex, knownCards, unknownCards, isComplete, round, currentDeck, setId]);
     const currentCard = currentDeck[currentIndex];
     const progress = currentDeck.length > 0 ? Math.round(((currentIndex) / currentDeck.length) * 100) : 100;
@@ -250,7 +256,8 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         setRound(1);
         sessionWrongCardIdsRef.current = new Set();
         if (setId) {
-            localStorage.removeItem(`study_progress_${setId}_flashcard`);
+            const userId = getAuth().currentUser?.uid;
+            resetStudyProgress(userId, setId, 'flashcard');
         }
     }, [initialCards, setId]);
     // Undo last action
@@ -288,11 +295,21 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             } else if (e.key === 'z' && (e.ctrlKey || e.metaKey)) {
                 e.preventDefault();
                 handleUndo();
+            } else if (e.key === 'Enter') {
+                if (isComplete) {
+                    e.preventDefault();
+                    if (unknownCards.length === 0) {
+                        if (onComplete) onComplete();
+                        else if (onBack) onBack();
+                    } else {
+                        handleContinueUnknown();
+                    }
+                }
             }
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [handleFlip, handleKnown, handleUnknown, handleUndo, isComplete, isFlipped]);
+    }, [handleFlip, handleKnown, handleUnknown, handleUndo, handleContinueUnknown, isComplete, isFlipped, unknownCards, onComplete, onBack]);
     // Touch handlers
     const minSwipeDistance = 50;
     const onTouchStart = (e) => {
@@ -371,7 +388,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                             </button>
                             <button 
                                 onClick={onComplete} 
-                                className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1 cursor-pointer"
+                                className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-sky-500 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1 cursor-pointer"
                             >
                                 Xong <ChevronRight className="w-4 h-4" />
                             </button>
@@ -396,7 +413,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                             {unknownCount > 0 && (
                                 <button
                                     onClick={handleContinueUnknown}
-                                    className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-md hover:-translate-y-0.5 transition-all flex items-center justify-center gap-1 cursor-pointer"
+                                    className="w-full py-3 bg-gradient-to-r from-indigo-600 to-sky-500 text-white font-bold rounded-xl shadow-md hover:-translate-y-0.5 transition-all flex items-center justify-center gap-1 cursor-pointer"
                                 >
                                     <RefreshCw className="w-4 h-4" /> Tiếp tục ({unknownCount} thẻ)
                                 </button>

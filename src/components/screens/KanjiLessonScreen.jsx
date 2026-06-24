@@ -439,7 +439,7 @@ const KanjiLessonScreen = ({ awardXP }) => {
                     <div className="flex flex-col gap-3 justify-center mt-8 w-full max-w-sm mx-auto">
                         <div className="grid grid-cols-2 gap-3">
                             <button onClick={() => { setShowCelebration(false); setActiveMode('test'); }}
-                                className="w-full px-4 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white rounded-xl font-bold transition-all shadow-lg shadow-indigo-500/30 flex flex-col items-center justify-center gap-1.5 focus:outline-none hover:scale-105">
+                                className="w-full px-4 py-3 bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-400 hover:to-sky-400 text-white rounded-xl font-bold transition-all shadow-lg shadow-indigo-500/30 flex flex-col items-center justify-center gap-1.5 focus:outline-none hover:scale-105">
                                 <PenTool className="w-5 h-5" /><span className="text-xs">Học nâng cao</span>
                             </button>
                             <button onClick={() => navigate(ROUTES.KANJI_REVIEW)}
@@ -484,7 +484,7 @@ const KanjiLessonScreen = ({ awardXP }) => {
             { id: 'hanviet', label: 'Hán Việt', icon: BookOpen, desc: 'Kiểm tra nghĩa Hán Việt', color: 'from-emerald-500 to-teal-500', shadow: 'shadow-emerald-500/20' },
             { id: 'vocab', label: 'Từ vựng', icon: Layers, desc: 'Trắc nghiệm từ vựng Kanji', color: 'from-blue-500 to-indigo-500', shadow: 'shadow-blue-500/20' },
             { id: 'typing', label: 'Âm đọc', icon: Keyboard, desc: 'Nhập âm Onyomi/Kunyomi', color: 'from-orange-500 to-red-500', shadow: 'shadow-orange-500/20' },
-            { id: 'writing', label: 'Viết Kanji', icon: PenTool, desc: 'Luyện viết nét Hán tự', color: 'from-purple-500 to-pink-500', shadow: 'shadow-purple-500/20' },
+            { id: 'writing', label: 'Viết Kanji', icon: PenTool, desc: 'Luyện viết nét Hán tự', color: 'from-sky-500 to-indigo-500', shadow: 'shadow-sky-500/20' },
         ];
         return (
             <div className="max-w-4xl mx-auto py-8 px-4 animate-fade-in">
@@ -648,7 +648,7 @@ const KanjiLessonScreen = ({ awardXP }) => {
                                 )}
                                 {allDone && (
                                     <button onClick={resetKanjiFlip}
-                                        className="w-full py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-xl font-bold text-sm transition-all shadow-lg flex items-center justify-center gap-2">
+                                        className="w-full py-2.5 bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 text-white rounded-xl font-bold text-sm transition-all shadow-lg flex items-center justify-center gap-2">
                                         <RotateCcw className="w-4 h-4" />
                                         Đặt lại thẻ
                                     </button>
@@ -682,7 +682,7 @@ const KanjiLessonScreen = ({ awardXP }) => {
                     <div className="w-full rounded-2xl p-4 flex flex-col gap-3">
                         {/* Header: Round + Counter + Progress */}
                         <div className="flex items-center justify-between flex-shrink-0">
-                            <span className="px-2.5 py-1 bg-purple-500 text-white text-xs font-bold rounded-full">Vòng {kanjiFlipRound}</span>
+                            <span className="px-2.5 py-1 bg-sky-500 text-white text-xs font-bold rounded-full">Vòng {kanjiFlipRound}</span>
                             <span className="text-white font-bold text-sm">{kanjiFlipIndex + 1}/{kanjiFlipCards.length}</span>
                         </div>
                         <div className="flex justify-between text-[10px] text-gray-500 flex-shrink-0">
@@ -806,7 +806,7 @@ const KanjiLessonScreen = ({ awardXP }) => {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <button onClick={startKanjiFlipMode}
                     className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-[1.02] shadow-sm">
-                    <Layers className="w-4 h-4 text-purple-500" />
+                    <Layers className="w-4 h-4 text-sky-500" />
                     {kanjiFlipAllDone ? 'Đặt lại thẻ' : kanjiFlipUnknownCount > 0 ? `Lật thẻ (${kanjiFlipUnknownCount} chưa thuộc)` : '🃏 Lật thẻ ghi nhớ'}
                 </button>
                 <div className="flex justify-center gap-1.5 py-1">
@@ -1518,7 +1518,7 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
     }
     if (!currentQ) return <div className="text-gray-400 text-center py-12">Không có câu hỏi</div>;
     const modeLabels = { hanviet: 'Kiểm tra âm Hán Việt', vocab: 'Kiểm tra từ vựng', typing: 'Chế độ khó', writing: 'Kiểm tra viết' };
-    const modeColors = { hanviet: 'cyan', vocab: 'emerald', typing: 'orange', writing: 'purple' };
+    const modeColors = { hanviet: 'cyan', vocab: 'emerald', typing: 'orange', writing: 'sky' };
     const progress = Math.round(((qIndex + 1) / total) * 100);
     return (
         <div className="min-h-[calc(100vh-120px)] flex items-center justify-center">
@@ -1680,7 +1680,7 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                 {/* Next button - only for writing mode */}
                 {answered && currentQ.type === 'writing' && (
                     <button onClick={nextQuestion}
-                        className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2">
+                        className="w-full py-3 bg-gradient-to-r from-indigo-600 to-sky-500 hover:from-indigo-500 hover:to-sky-450 text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2">
                         {qIndex + 1 >= questions.length ? 'Xem kết quả' : 'Câu tiếp theo →'}
                         <ChevronRight className="w-4 h-4" />
                     </button>

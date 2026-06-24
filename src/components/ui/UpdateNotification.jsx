@@ -8,7 +8,7 @@ import { RefreshCw, X, Sparkle } from 'lucide-react';
 const UpdateNotification = ({ onRefresh, onDismiss }) => {
     return (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[9999] animate-slide-up">
-            <div className="flex items-center gap-3 px-5 py-3.5 bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 text-white rounded-2xl shadow-2xl shadow-indigo-500/40 border border-indigo-400/30 backdrop-blur-sm">
+            <div className="flex items-center gap-3 px-5 py-3.5 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white rounded-2xl shadow-2xl shadow-indigo-500/30 border border-indigo-400/20 backdrop-blur-sm">
                 <div className="flex items-center gap-2">
                     <Sparkle className="w-5 h-5 text-yellow-300 animate-pulse" />
                     <span className="text-sm font-semibold whitespace-nowrap">

@@ -37,7 +37,7 @@ const AvatarDisplay = ({ avatar, name, size = 'w-9 h-9', textSize = 'text-sm' })
     }
     const emoji = AVATAR_EMOJIS[avatar];
     return (
-        <div className={`${size} rounded-full flex items-center justify-center flex-shrink-0 shadow-sm ${emoji ? 'bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40' : 'bg-gradient-to-br from-indigo-400 to-purple-500 text-white font-bold'}`}>
+        <div className={`${size} rounded-full flex items-center justify-center flex-shrink-0 shadow-sm ${emoji ? 'bg-gradient-to-br from-indigo-100 to-sky-100 dark:from-indigo-900/40 dark:to-sky-900/40' : 'bg-gradient-to-br from-indigo-400 to-sky-500 text-white font-bold'}`}>
             {emoji ? <span className={textSize === 'text-sm' ? 'text-lg' : 'text-xl'}>{emoji}</span> : <span className={textSize}>{(name || 'U')[0].toUpperCase()}</span>}
         </div>
     );
@@ -48,7 +48,7 @@ const AvatarDisplay = ({ avatar, name, size = 'w-9 h-9', textSize = 'text-sm' })
 const CATEGORIES = [
     { id: 'all', label: 'Tất cả', icon: '📋', color: 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300' },
     { id: 'question', label: 'Hỏi đáp', icon: '❓', color: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300' },
-    { id: 'grammar', label: 'Ngữ pháp', icon: '📝', color: 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300' },
+    { id: 'grammar', label: 'Ngữ pháp', icon: '📝', color: 'bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300' },
     { id: 'vocab', label: 'Từ vựng', icon: '📚', color: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' },
     { id: 'kanji', label: 'Kanji', icon: '🈁', color: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300' },
     { id: 'tips', label: 'Mẹo học', icon: '💡', color: 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300' },
@@ -784,7 +784,7 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
                     <button
                         onClick={handleSubmit}
                         disabled={!content.trim() || isSubmitting || postStatus === 'success'}
-                        className="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-bold text-sm shadow-lg shadow-indigo-500/25 disabled:opacity-50 transition-all flex items-center justify-center gap-2"
+                        className="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-600 hover:to-sky-600 text-white font-bold text-sm shadow-lg shadow-indigo-500/25 disabled:opacity-50 transition-all flex items-center justify-center gap-2"
                     >
                         {postStatus === 'submitting' ? (
                             <>
@@ -995,7 +995,7 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
                         {!searchQuery && (
                             <button
                                 onClick={() => setShowCreateModal(true)}
-                                className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-xl font-bold text-sm shadow-lg shadow-indigo-500/25 hover:from-indigo-600 hover:to-purple-600 transition-all"
+                                className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-sky-500 text-white rounded-xl font-bold text-sm shadow-lg shadow-indigo-500/25 hover:from-indigo-600 hover:to-sky-600 transition-all"
                             >
                                 <Plus className="w-4 h-4" /> Đăng bài đầu tiên
                             </button>
@@ -1007,7 +1007,7 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
             {posts.length > 0 && (
                 <button
                     onClick={() => setShowCreateModal(true)}
-                    className="fixed bottom-20 right-4 sm:right-8 w-14 h-14 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full shadow-xl shadow-indigo-500/30 flex items-center justify-center text-white hover:scale-110 transition-transform z-30"
+                    className="fixed bottom-20 right-4 sm:right-8 w-14 h-14 bg-gradient-to-r from-indigo-500 to-sky-500 rounded-full shadow-xl shadow-indigo-500/30 flex items-center justify-center text-white hover:scale-110 transition-transform z-30"
                 >
                     <Plus className="w-6 h-6" />
                 </button>

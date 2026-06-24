@@ -24,7 +24,7 @@ const PremiumLockedModal = ({ isOpen, onClose, pkgName = 'Premium' }) => {
             {/* Modal Body */}
             <div className="relative w-full max-w-md bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-100 dark:border-slate-800 transition-all duration-300 transform scale-100 flex flex-col">
                 {/* Background decorative glow */}
-                <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-full blur-3xl -z-10" />
+                <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-indigo-500/20 to-sky-500/20 rounded-full blur-3xl -z-10" />
                 <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-gradient-to-tr from-sky-500/15 to-emerald-500/15 rounded-full blur-3xl -z-10" />
 
                 {/* Close Button */}

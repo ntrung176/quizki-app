@@ -322,7 +322,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
 
                     {/* Quick Practice card */}
                     {!isEditing && totalExercises > 0 && (
-                        <div className="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/10 dark:to-purple-900/10 border border-indigo-200 dark:border-indigo-800/40 rounded-2xl p-6">
+                        <div className="bg-gradient-to-br from-indigo-50 to-sky-50 dark:from-indigo-900/10 dark:to-sky-900/10 border border-indigo-200 dark:border-indigo-800/40 rounded-2xl p-6">
                             <h2 className="text-xs font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-widest mb-3 flex items-center gap-2"><PenTool className="w-4 h-4" /> Luyện tập bài tập</h2>
                             <div className="space-y-2 mb-4">
                                 {gp.exercises?.length > 0 && (
@@ -340,7 +340,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                             <p className="text-xs font-bold text-slate-800 dark:text-white">Trắc nghiệm chọn từ</p>
                                             <p className="text-[10px] text-slate-400">Chọn phương án đúng điền vào chỗ trống</p>
                                         </div>
-                                        <span className="px-2 py-0.5 text-xs font-bold bg-purple-50 text-purple-600 dark:bg-purple-950 dark:text-purple-400 rounded">{gp.quizzes.length} câu</span>
+                                        <span className="px-2 py-0.5 text-xs font-bold bg-sky-50 text-sky-600 dark:bg-sky-950 dark:text-sky-400 rounded">{gp.quizzes.length} câu</span>
                                     </div>
                                 )}
                             </div>

@@ -1066,11 +1066,11 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                         </div>
                         <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                                    <BarChart3 className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                                <div className="w-10 h-10 rounded-lg bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center">
+                                    <BarChart3 className="w-5 h-5 text-sky-600 dark:text-sky-400" />
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-bold text-purple-600">{stats.totalCards}</p>
+                                    <p className="text-2xl font-bold text-sky-600">{stats.totalCards}</p>
                                     <p className="text-xs text-gray-500">Tổng flashcard</p>
                                 </div>
                             </div>
@@ -1906,12 +1906,12 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                             </div>
 
                             {/* SpeechGen */}
-                            <div className="p-3 rounded-xl border border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20">
+                            <div className="p-3 rounded-xl border border-sky-200 dark:border-sky-800 bg-sky-50 dark:bg-sky-900/20">
                                 <div className="flex items-center gap-2 mb-2">
-                                    <div className="w-7 h-7 rounded-lg bg-purple-500 flex items-center justify-center">
+                                    <div className="w-7 h-7 rounded-lg bg-sky-500 flex items-center justify-center">
                                         <span className="text-white text-xs font-bold">🔊</span>
                                     </div>
-                                    <span className="font-bold text-sm text-purple-700 dark:text-purple-300">SpeechGen.io</span>
+                                    <span className="font-bold text-sm text-sky-700 dark:text-sky-300">SpeechGen.io</span>
                                 </div>
                                 {apiBalances.speechGen === null ? (
                                     <p className="text-xs text-gray-400 italic">Nhấn "Kiểm tra" để xem số dư</p>
@@ -2105,12 +2105,12 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                     {/* All-time group */}
                                     <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
                                         <div className="flex items-center gap-2 mb-1">
-                                            <div className="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                                                <CreditCard className="w-4 h-4 text-purple-600" />
+                                            <div className="w-8 h-8 rounded-lg bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center">
+                                                <CreditCard className="w-4 h-4 text-sky-600" />
                                             </div>
-                                            <span className="text-[10px] font-bold text-purple-600 uppercase">Tất cả</span>
+                                            <span className="text-[10px] font-bold text-sky-600 uppercase">Tất cả</span>
                                         </div>
-                                        <p className="text-lg font-bold text-purple-600">{formatVND(allTimeRevenue)}</p>
+                                        <p className="text-lg font-bold text-sky-600">{formatVND(allTimeRevenue)}</p>
                                         <p className="text-[10px] text-gray-500">Tổng doanh thu</p>
                                     </div>
                                     <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">

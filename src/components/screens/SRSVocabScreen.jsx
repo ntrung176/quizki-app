@@ -575,7 +575,7 @@ const SRSVocabScreen = ({
                                 <span className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-full font-bold">{currentReviewIndex + 1} / {reviewQueue.length}</span>
                             </div>
                             <div className="h-2 w-full bg-gray-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                                <div className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-700 ease-out" style={{ width: `${progress}%` }}></div>
+                                <div className="h-full bg-gradient-to-r from-indigo-500 to-sky-500 rounded-full transition-all duration-700 ease-out" style={{ width: `${progress}%` }}></div>
                             </div>
                         </div>
 
@@ -763,26 +763,26 @@ const SRSVocabScreen = ({
             <div className="max-w-5xl mx-auto space-y-8 px-4 md:px-8 mt-6 animate-fade-in">
 
                 {/* Today's Focus Overview Banner */}
-                <div className="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-950 text-white rounded-3xl p-6 md:p-8 shadow-xl border border-slate-800 relative overflow-hidden flex flex-col lg:flex-row gap-6 justify-between items-stretch">
-                    <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+                <div className="bg-gradient-to-br from-indigo-500 to-indigo-700 text-white rounded-3xl p-6 md:p-8 shadow-xl border border-indigo-500/20 relative overflow-hidden flex flex-col lg:flex-row gap-6 justify-between items-stretch">
+                    <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3 pointer-events-none" />
 
                     <div className="flex-1 space-y-6 z-10 flex flex-col justify-between">
                         <div>
-                            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-sky-500/20 border border-sky-500/30 rounded-full text-[10px] font-black text-sky-300 tracking-wider uppercase mb-3">
+                            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-sky-500/20 border border-sky-300/30 rounded-full text-[10px] font-black text-sky-300 tracking-wider uppercase mb-3">
                                 <Zap className="w-3 h-3 text-sky-400 fill-current" />
                                 Mục tiêu hôm nay
                             </div>
                             <h1 className="text-2xl md:text-3xl font-black mb-1.5 tracking-tight">Mục tiêu hôm nay</h1>
-                            <p className="text-slate-400 text-xs md:text-sm font-medium">
+                            <p className="text-indigo-100 text-xs md:text-sm font-medium">
                                 Bạn đang tiến bộ rất tốt, {displayName || 'người dùng'}.
                             </p>
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
                             <div className="flex gap-4">
-                                <div className="bg-white/5 backdrop-blur-md rounded-2xl p-4 border border-white/10 flex-1 min-w-[120px]">
+                                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/15 flex-1 min-w-[120px]">
                                     <div className="text-2xl font-black text-orange-400 mb-0.5">{globalStats.due}</div>
-                                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">SRS cần ôn</div>
+                                    <div className="text-[10px] font-bold text-indigo-100 uppercase tracking-wider">SRS cần ôn</div>
                                 </div>
                             </div>
                             {globalStats.due > 0 ? (
@@ -794,7 +794,7 @@ const SRSVocabScreen = ({
                                     Ôn tập ngắt quãng
                                 </button>
                             ) : (
-                                <p className="text-[11px] text-slate-400 italic leading-relaxed max-w-[180px]">
+                                <p className="text-[11px] text-indigo-100 italic leading-relaxed max-w-[180px]">
                                     Mở học phần → bấm "Thêm vào ngắt quãng" để bắt đầu.
                                 </p>
                             )}
@@ -802,19 +802,19 @@ const SRSVocabScreen = ({
                     </div>
 
                     {/* Right side Mastery Streak panel */}
-                    <div className="w-full lg:w-80 bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 flex flex-col justify-between z-10 space-y-4">
+                    <div className="w-full lg:w-80 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/15 flex flex-col justify-between z-10 space-y-4">
                         <div className="flex items-start justify-between">
                             <div>
-                                <h3 className="text-sm font-black text-slate-200">Chuỗi học tập</h3>
-                                <p className="text-[11px] text-slate-400 mt-0.5">Hãy tiếp tục học để duy trì chuỗi học tập!</p>
+                                <h3 className="text-sm font-black text-white">Chuỗi học tập</h3>
+                                <p className="text-[11px] text-indigo-100 mt-0.5">Hãy tiếp tục học để duy trì chuỗi học tập!</p>
                             </div>
                             <Award className="w-8 h-8 text-amber-400" />
                         </div>
                         <div className="space-y-2">
                             <div className="text-3xl font-black text-white flex items-baseline gap-1">
-                                {streak} <span className="text-xs font-bold text-slate-400 uppercase">Ngày</span>
+                                {streak} <span className="text-xs font-bold text-indigo-100 uppercase">Ngày</span>
                             </div>
-                            <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                            <div className="w-full h-2 bg-white/20 rounded-full overflow-hidden">
                                 <div className="h-full bg-gradient-to-r from-amber-400 to-orange-500 rounded-full" style={{ width: `${streakPct}%` }} />
                             </div>
                             <p className="text-[10px] text-amber-300 font-bold tracking-wide">

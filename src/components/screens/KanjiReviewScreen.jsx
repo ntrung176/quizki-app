@@ -418,7 +418,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             <span className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-full font-bold">{currentReviewIndex + 1} / {reviewQueue.length}</span>
                         </div>
                         <div className="h-2 w-full bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-700 ease-out" style={{ width: `${progress}%` }}></div>
+                            <div className="h-full bg-gradient-to-r from-indigo-500 to-sky-500 rounded-full transition-all duration-700 ease-out" style={{ width: `${progress}%` }}></div>
                         </div>
                     </div>
 

@@ -4,6 +4,8 @@ import { ArrowLeft, Check, X, BookOpen, RotateCcw, Zap, ChevronRight, Settings }
 import { speakJapanese } from '../../utils/audio';
 import { playCorrectSound, playIncorrectSound } from '../../utils/soundEffects';
 import { launchFanfare } from '../../utils/celebrations';
+import { getAuth } from 'firebase/auth';
+import { saveStudyProgress, resetStudyProgress } from '../../utils/studyProgressService';
 import FuriganaText from '../ui/FuriganaText';
 import { shuffleArray } from '../../utils/textProcessing';
 
@@ -343,7 +345,7 @@ const SessionComplete = ({ totalCards, onBack, onRestart }) => {
                 <button onClick={onRestart} className="flex-1 py-3 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-bold rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-all flex items-center justify-center gap-1">
                     <RotateCcw className="w-4 h-4" /> Học lại
                 </button>
-                <button onClick={onBack} className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1">
+                <button onClick={onBack} className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-sky-500 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1">
                     Xong <ChevronRight className="w-4 h-4" />
                 </button>
             </div>
@@ -480,6 +482,10 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         };
         const key = `study_progress_${studySessionData.setId}_study`;
         localStorage.setItem(key, JSON.stringify(progressData));
+        if (studySessionData?.setId) {
+            const userId = getAuth().currentUser?.uid;
+            saveStudyProgress(userId, studySessionData.setId, 'study', progressData);
+        }
     }, [
         studySessionData?.setId,
         originalCards,
@@ -649,8 +655,8 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
 
     const handleRestart = useCallback(() => {
         if (studySessionData?.setId) {
-            localStorage.removeItem(`study_progress_${studySessionData.setId}_study`);
-            localStorage.removeItem(`study_completed_${studySessionData.setId}_study`);
+            const userId = getAuth().currentUser?.uid;
+            resetStudyProgress(userId, studySessionData.setId, 'study');
         }
         const shuffled = shuffleArray([...originalCards]);
         const b = [];
@@ -749,7 +755,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                             </div>
                             <div className="h-2 w-full bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
                                 <div
-                                    className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-500"
+                                    className="h-full bg-gradient-to-r from-indigo-500 to-sky-500 rounded-full transition-all duration-500"
                                     style={{ width: `${progress}%` }}
                                 />
                             </div>

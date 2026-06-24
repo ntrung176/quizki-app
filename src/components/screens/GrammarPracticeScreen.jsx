@@ -428,7 +428,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                             <textarea value={jsonInputQuiz} onChange={e => setJsonInputQuiz(e.target.value)} rows={6} placeholder='[{"question": "...", "options": ["..."], "answer": "..."}]'
                                 className="w-full font-mono text-[11px] p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl dark:text-white outline-none resize-none" />
                             <button onClick={() => handleImportJson('quiz')} disabled={importing || !jsonInputQuiz.trim()}
-                                className="w-full py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold rounded-lg disabled:opacity-50">
+                                className="w-full py-2 bg-sky-500 hover:bg-sky-600 text-white text-xs font-bold rounded-lg disabled:opacity-50">
                                 Nhập thêm Trắc nghiệm
                             </button>
                         </div>
@@ -584,7 +584,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
 
                                             <div className="flex flex-wrap items-center gap-2.5 mt-4">
                                                 <button onClick={() => handleAiCheck(id)} disabled={!translateAnswers[id]?.trim() || isAiLoading}
-                                                    className="px-4 py-2 bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white text-sm font-bold rounded-xl disabled:opacity-40 flex items-center gap-1.5">
+                                                    className="px-4 py-2 bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 text-white text-sm font-bold rounded-xl disabled:opacity-40 flex items-center gap-1.5">
                                                     {isAiLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkle className="w-4 h-4" />} AI đánh giá
                                                 </button>
                                                 <button onClick={() => setShowTranslateAnswer(p => ({ ...p, [id]: true }))}
@@ -614,8 +614,8 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
 
                                     if (isEditing) {
                                         return (
-                                            <div key={qIdx} className="bg-slate-50 dark:bg-slate-900 border-2 border-purple-400 dark:border-purple-600 rounded-2xl p-5 space-y-3">
-                                                <h4 className="text-xs font-bold text-purple-600 uppercase">Sửa câu hỏi trắc nghiệm {qIdx + 1}</h4>
+                                            <div key={qIdx} className="bg-slate-50 dark:bg-slate-900 border-2 border-sky-400 dark:border-sky-600 rounded-2xl p-5 space-y-3">
+                                                <h4 className="text-xs font-bold text-sky-600 uppercase">Sửa câu hỏi trắc nghiệm {qIdx + 1}</h4>
                                                 <div>
                                                     <label className="text-[10px] font-bold text-slate-400 uppercase">Câu hỏi (Dùng ______ để điền chỗ trống)</label>
                                                     <input value={editForm.question} onChange={e => setEditForm(f => ({ ...f, question: e.target.value }))}
@@ -673,7 +673,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                                             )}
 
                                             <div className="flex items-center justify-between mb-3">
-                                                <span className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 text-sm font-black">{qIdx + 1}</span>
+                                                <span className="w-8 h-8 flex items-center justify-center rounded-full bg-sky-100 dark:bg-sky-900/40 text-sky-700 dark:text-sky-300 text-sm font-black">{qIdx + 1}</span>
                                                 {isAnswered && (
                                                     isCorrect ? (
                                                         <span className="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2.5 py-1 rounded-lg mr-8">Chính xác</span>

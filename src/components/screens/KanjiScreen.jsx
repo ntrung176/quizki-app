@@ -1072,7 +1072,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         const vocab = getVocabForKanji(selectedKanji);
         const related = getRelatedKanji(selectedKanji);
         const content = (
-            <div className="min-h-screen p-4 lg:p-8 bg-gradient-to-br from-indigo-50/95 via-white/95 to-purple-50/95 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900">
+            <div className="min-h-screen p-4 lg:p-8 bg-gradient-to-br from-indigo-50/95 via-white/95 to-sky-50/95 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900">
                 {/* Header */}
                 <div className="flex justify-between items-center mb-6">
                     <button onClick={() => { setShowDetailModal(false); if (location.state?.fromLesson) { navigate(-1); } else { navigate('/kanji/list'); } }} className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105">
@@ -1095,7 +1095,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             {/* Replay Button */}
                             <button
                                 onClick={() => detailStrokeCtrl.current?.replay()}
-                                className="absolute bottom-3 right-3 p-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-400 hover:to-purple-400 rounded-xl text-white shadow-lg shadow-indigo-500/30 transition-all hover:scale-110 hover:shadow-xl"
+                                className="absolute bottom-3 right-3 p-2.5 bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-400 hover:to-sky-400 rounded-xl text-white shadow-lg shadow-indigo-500/30 transition-all hover:scale-110 hover:shadow-xl"
                                 title="Xem lại nét vẽ"
                             >
                                 <RotateCcw className="w-4 h-4" />
@@ -1178,7 +1178,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                 <button
                                                     key={i}
                                                     onClick={() => { setSelectedKanji(p); setDiagramPan({ x: 0, y: 0 }); setDiagramZoom(1); }}
-                                                    className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg text-base font-japanese hover:bg-purple-200 dark:hover:bg-purple-800/50 transition-colors cursor-pointer"
+                                                    className="px-2 py-1 bg-sky-100 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400 rounded-lg text-base font-japanese hover:bg-sky-200 dark:hover:bg-sky-800/50 transition-colors cursor-pointer"
                                                 >
                                                     {p}
                                                 </button>
@@ -1235,10 +1235,10 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                     <div className="flex items-center justify-center gap-3 flex-wrap">
                                                         {partsArr.map((p, i) => (
                                                             <button key={i} onClick={() => { navigate(`/kanji/list/${p}`); setSelectedKanji(p); }} className="group relative">
-                                                                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-100 to-violet-100 dark:from-purple-900/40 dark:to-violet-900/40 border-2 border-purple-200 dark:border-purple-700/50 flex items-center justify-center text-2xl font-japanese text-purple-700 dark:text-purple-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-200/50 dark:hover:shadow-purple-900/50 transition-all cursor-pointer">
+                                                                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-sky-100 to-indigo-100 dark:from-sky-900/40 dark:to-indigo-900/40 border-2 border-sky-200 dark:border-sky-700/50 flex items-center justify-center text-2xl font-japanese text-sky-700 dark:text-sky-300 hover:scale-110 hover:shadow-lg hover:shadow-sky-200/50 dark:hover:shadow-sky-900/50 transition-all cursor-pointer">
                                                                     {p}
                                                                 </div>
-                                                                <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[9px] text-purple-500 dark:text-purple-400 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                                                                <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[9px] text-sky-500 dark:text-sky-400 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
                                                                     {kanjiMap.get(p)?.sinoViet || getJotobaKanjiData(p)?.sinoViet || ''}
                                                                 </span>
                                                             </button>
@@ -1500,7 +1500,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             // Render each category section
                             const categoryColors = [
                                 { text: 'text-orange-500 dark:text-orange-400', tag: 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400' },
-                                { text: 'text-purple-500 dark:text-purple-400', tag: 'bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400' },
+                                { text: 'text-sky-500 dark:text-sky-400', tag: 'bg-sky-100 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400' },
                                 { text: 'text-emerald-500 dark:text-emerald-400', tag: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400' },
                                 { text: 'text-blue-500 dark:text-blue-400', tag: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' },
                                 { text: 'text-pink-500 dark:text-pink-400', tag: 'bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400' },
@@ -1587,7 +1587,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     // Loading screen - skip if detail modal is already open (fast path via URL param)
     if (loading && !showDetailModal) {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:bg-slate-900 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 text-gray-900 dark:text-white pb-8">
+            <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:bg-slate-900 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 text-gray-900 dark:text-white pb-8">
                 <TopTabBar tabs={KANJI_TABS} />
                 <div className="animate-fade-in">
                     <LoadingIndicator text="Đang tải dữ liệu Kanji..." />
@@ -1602,7 +1602,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         // Skeleton while selectedKanji is being resolved from URL params
         if (!selectedKanji) {
             return (
-                <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 flex items-center justify-center">
+                <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 flex items-center justify-center">
                     <div className="flex flex-col items-center gap-4 animate-pulse">
                         <div className="w-24 h-24 rounded-2xl bg-slate-200 dark:bg-slate-700" />
                         <div className="h-4 w-40 rounded-lg bg-slate-200 dark:bg-slate-700" />
@@ -1613,7 +1613,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         }
         // Call as function (useCallback result) with isFullPage=true
         return (
-            <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 text-gray-900 dark:text-white animate-fade-in">
+            <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 text-gray-900 dark:text-white animate-fade-in">
                 {KanjiDetailModal({ isFullPage: true })}
             </div>
         );
@@ -2368,7 +2368,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[400px] max-w-[90vw] space-y-4 shadow-2xl">
                             <div className="flex justify-between items-center">
                                 <h3 className="text-lg font-bold flex items-center gap-2 text-gray-900 dark:text-white">
-                                    <FolderPlus className="w-5 h-5 text-purple-500 dark:text-purple-400" /> Quản lý phân loại từ vựng
+                                    <FolderPlus className="w-5 h-5 text-sky-500 dark:text-sky-400" /> Quản lý phân loại từ vựng
                                 </h3>
                                 <button onClick={() => setShowCategoryModal(false)} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-5 h-5" /></button>
                             </div>
@@ -2382,12 +2382,12 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     onChange={e => setNewCategoryName(e.target.value)}
                                     onKeyDown={e => e.key === 'Enter' && handleAddCategory()}
                                     placeholder="Tên phân loại mới..."
-                                    className="flex-1 bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                    className="flex-1 bg-gray-100 dark:bg-slate-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-sky-500 focus:border-transparent"
                                 />
                                 <button
                                     onClick={handleAddCategory}
                                     disabled={!newCategoryName.trim()}
-                                    className="px-4 py-2 bg-purple-600 hover:bg-purple-500 disabled:bg-gray-300 dark:disabled:bg-slate-600 disabled:cursor-not-allowed text-white rounded-lg font-medium text-sm flex items-center gap-1 transition-colors"
+                                    className="px-4 py-2 bg-sky-600 hover:bg-sky-500 disabled:bg-gray-300 dark:disabled:bg-slate-600 disabled:cursor-not-allowed text-white rounded-lg font-medium text-sm flex items-center gap-1 transition-colors"
                                 >
                                     <Plus className="w-4 h-4" /> Thêm
                                 </button>
@@ -2401,7 +2401,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                         const catVocabCount = vocabList.filter(v => v.category === cat.name).length;
                                         const colors = [
                                             'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-orange-200 dark:border-orange-800',
-                                            'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800',
+                                            'bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800',
                                             'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800',
                                             'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800',
                                             'bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 border-pink-200 dark:border-pink-800',

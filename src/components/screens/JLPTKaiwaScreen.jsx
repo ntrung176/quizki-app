@@ -13,7 +13,7 @@ const LEVELS = [
     { value: 'N5', label: 'JLPT N5', desc: 'Sơ cấp 1 (Chào hỏi, sinh hoạt cơ bản)', gradient: 'from-emerald-500 to-teal-600' },
     { value: 'N4', label: 'JLPT N4', desc: 'Sơ cấp 2 (Giao tiếp thường nhật đơn giản)', gradient: 'from-teal-500 to-cyan-600' },
     { value: 'N3', label: 'JLPT N3', desc: 'Trung cấp (Trao đổi quan điểm, đời sống/công việc)', gradient: 'from-blue-500 to-indigo-600' },
-    { value: 'N2', label: 'JLPT N2', desc: 'Thượng trung cấp (Bàn luận xã hội, công sở chuyên sâu)', gradient: 'from-violet-500 to-purple-600' },
+    { value: 'N2', label: 'JLPT N2', desc: 'Thượng trung cấp (Bàn luận xã hội, công sở chuyên sâu)', gradient: 'from-sky-500 to-blue-600' },
     { value: 'N1', label: 'JLPT N1', desc: 'Cao cấp (Hội thoại chuyên sâu, học thuật/thương mại)', gradient: 'from-rose-500 to-red-600' }
 ];
 
@@ -618,7 +618,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                     <div className="flex justify-center pt-4">
                         <button
                             onClick={handleStartConversation}
-                            className="px-12 py-4 bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-700 hover:scale-[1.02] active:scale-[0.98] text-white font-extrabold text-base rounded-2xl shadow-xl shadow-indigo-200 dark:shadow-none hover:shadow-2xl transition-all cursor-pointer flex items-center gap-2 group"
+                            className="px-12 py-4 bg-gradient-to-r from-indigo-600 via-indigo-700 to-sky-500 hover:scale-[1.02] active:scale-[0.98] text-white font-extrabold text-base rounded-2xl shadow-xl shadow-indigo-200 dark:shadow-none hover:shadow-2xl transition-all cursor-pointer flex items-center gap-2 group"
                         >
                             <Play className="w-5 h-5 fill-white group-hover:scale-110 transition-transform" />
                             Bắt đầu Luyện Kaiwa ngay

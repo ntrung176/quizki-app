@@ -1961,7 +1961,7 @@ const BookScreen = ({
                                                                             else { speakJapanese(word); }
                                                                         }}
                                                                         className={`p-1 rounded-lg transition-all hover:scale-110 shrink-0 ${v.audioBase64
-                                                                            ? 'text-violet-500 hover:bg-violet-50 dark:hover:bg-violet-900/20 hover:text-violet-600'
+                                                                            ? 'text-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/20 hover:text-sky-600'
                                                                             : 'text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-500'
                                                                             }`}
                                                                         title={v.audioBase64 ? 'Phát audio đã cắt' : 'Phát TTS'}
@@ -2022,7 +2022,7 @@ const BookScreen = ({
                                                                 )}
                                                                 <p className={`text-sm text-sky-600 dark:text-sky-400 mt-2 font-medium transition-all duration-300 ${blurVN ? blurClass : ''}`}>{v.meaning || v.back || ''}</p>
                                                                 {v.synonym && (
-                                                                    <p className={`text-xs text-purple-500 dark:text-purple-400 mt-1 transition-all duration-300 ${blurVN ? blurClass : ''}`}>🔄 {v.synonym}</p>
+                                                                    <p className={`text-xs text-sky-500 dark:text-sky-400 mt-1 transition-all duration-300 ${blurVN ? blurClass : ''}`}>🔄 {v.synonym}</p>
                                                                 )}
                                                             </>);
                                                         })()}
@@ -2182,8 +2182,8 @@ const BookScreen = ({
                         {/* Option 2: Manual input */}
                         <div className="space-y-2">
                             <div className="flex items-center gap-2">
-                                <div className="w-8 h-8 rounded-lg bg-violet-100 dark:bg-violet-900/40 flex items-center justify-center shrink-0">
-                                    <Mic className="w-4 h-4 text-violet-600 dark:text-violet-400" />
+                                <div className="w-8 h-8 rounded-lg bg-sky-100 dark:bg-sky-900/40 flex items-center justify-center shrink-0">
+                                    <Mic className="w-4 h-4 text-sky-600 dark:text-sky-400" />
                                 </div>
                                 <p className="text-sm font-bold text-gray-900 dark:text-white">Nhập cách đọc thủ công</p>
                             </div>
@@ -2193,7 +2193,7 @@ const BookScreen = ({
                                     value={fixAudioCustomReading}
                                     onChange={e => setFixAudioCustomReading(e.target.value)}
                                     placeholder="Nhập hiragana/katakana... (VD: たべる)"
-                                    className="flex-1 px-3 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-violet-400 focus:border-violet-400 outline-none transition-all"
+                                    className="flex-1 px-3 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-sky-400 focus:border-sky-400 outline-none transition-all"
                                     disabled={fixAudioLoading}
                                     onKeyDown={e => { if (e.key === 'Enter' && fixAudioCustomReading.trim()) handleFixAudio(fixAudioIndex, fixAudioCustomReading); }}
                                 />
@@ -2202,7 +2202,7 @@ const BookScreen = ({
                                     disabled={fixAudioLoading || !fixAudioCustomReading.trim()}
                                     className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-1.5 shrink-0 ${fixAudioLoading || !fixAudioCustomReading.trim()
                                         ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-                                        : 'bg-violet-500 hover:bg-violet-600 text-white shadow-sm hover:shadow-md'
+                                        : 'bg-sky-500 hover:bg-sky-600 text-white shadow-sm hover:shadow-md'
                                         }`}
                                 >
                                     {fixAudioLoading && fixAudioCustomReading ? (

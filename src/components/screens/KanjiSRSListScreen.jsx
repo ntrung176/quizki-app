@@ -926,8 +926,8 @@ const KanjiSRSListScreen = () => {
                                                         dotBg = 'bg-indigo-500';
                                                         ringClass = 'ring-indigo-50 dark:ring-indigo-950';
                                                     } else if (item.type === 'review') {
-                                                        dotBg = 'bg-purple-500';
-                                                        ringClass = 'ring-purple-50 dark:ring-purple-950';
+                                                        dotBg = 'bg-sky-500';
+                                                        ringClass = 'ring-sky-50 dark:ring-sky-950';
                                                     }
 
                                                     return (

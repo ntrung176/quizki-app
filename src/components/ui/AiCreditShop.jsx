@@ -27,10 +27,10 @@ const COLORS = {
     premium_3y: 'from-amber-500 to-orange-600',
     premium: 'from-amber-500 to-orange-600',
     starter: 'from-blue-500 to-cyan-500',
-    popular: 'from-indigo-500 to-purple-600',
+    popular: 'from-indigo-500 to-sky-500',
     best_value: 'from-amber-500 to-orange-600',
     ultimate: 'from-rose-500 to-pink-600',
-    vocab_zen: 'from-purple-500 to-indigo-600',
+    vocab_zen: 'from-sky-500 to-indigo-600',
     grammar_zen: 'from-teal-400 to-emerald-600',
     kanji_zen: 'from-amber-500 to-orange-500',
     jlpt_prep: 'from-rose-500 to-pink-500'
@@ -42,10 +42,10 @@ const BG_LIGHT = {
     premium_3y: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
     premium: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
     starter: 'from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20',
-    popular: 'from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20',
+    popular: 'from-indigo-50 to-sky-50 dark:from-indigo-950/20 dark:to-sky-950/20',
     best_value: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
     ultimate: 'from-rose-50 to-pink-50 dark:from-rose-950/20 dark:to-pink-950/20',
-    vocab_zen: 'from-purple-50 to-indigo-50 dark:from-purple-950/20 dark:to-indigo-950/20',
+    vocab_zen: 'from-sky-50 to-indigo-50 dark:from-sky-950/20 dark:to-indigo-950/20',
     grammar_zen: 'from-teal-50 to-emerald-50 dark:from-teal-950/20 dark:to-emerald-950/20',
     kanji_zen: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
     jlpt_prep: 'from-rose-50 to-pink-50 dark:from-rose-950/20 dark:to-pink-950/20'
@@ -450,7 +450,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                             {editedConfig.specializedPackages.map((pkg, idx) => (
                                 <div key={pkg.id || idx} className="relative border border-gray-200 dark:border-slate-700 rounded-2xl p-4 bg-gray-50/50 dark:bg-slate-900/30">
                                     <div className="flex items-center justify-between mb-2 pb-2 border-b border-gray-150/40 dark:border-slate-800">
-                                        <p className="text-xs font-bold text-purple-650 uppercase">Gói: {pkg.name}</p>
+                                        <p className="text-xs font-bold text-sky-600 uppercase">Gói: {pkg.name}</p>
                                         <button
                                             type="button"
                                             onClick={() => deleteSpecializedPackage(idx)}
@@ -548,10 +548,10 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                 <button
                                     type="button"
                                     onClick={addSpecializedPackage}
-                                    className="flex-1 flex items-center justify-center p-4 border-2 border-dashed border-gray-300 dark:border-slate-700 hover:border-purple-500 dark:hover:border-purple-400 rounded-2xl bg-gray-50/20 dark:bg-slate-900/10 hover:bg-purple-50/10 transition-all group gap-2"
+                                    className="flex-1 flex items-center justify-center p-4 border-2 border-dashed border-gray-300 dark:border-slate-700 hover:border-sky-500 dark:hover:border-sky-400 rounded-2xl bg-gray-50/20 dark:bg-slate-900/10 hover:bg-sky-50/10 transition-all group gap-2"
                                 >
-                                    <Plus className="w-5 h-5 text-gray-400 group-hover:text-purple-500 transition-colors" />
-                                    <span className="text-xs font-bold text-gray-500 group-hover:text-purple-600 dark:group-hover:text-purple-400">Thêm gói tính năng chuyên sâu mới</span>
+                                    <Plus className="w-5 h-5 text-gray-400 group-hover:text-sky-500 transition-colors" />
+                                    <span className="text-xs font-bold text-gray-500 group-hover:text-sky-600 dark:group-hover:text-sky-400">Thêm gói tính năng chuyên sâu mới</span>
                                 </button>
                                 
                                 <button
@@ -718,7 +718,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         {/* Phần 2: Giả lập các gói chuyên sâu Zen */}
                         <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-5 bg-slate-50/50 dark:bg-slate-900/30">
                             <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-1.5 font-bold">
-                                <Sparkle className="w-4 h-4 text-purple-500" />
+                                <Sparkle className="w-4 h-4 text-sky-500" />
                                 2. Mở khóa Gói tính năng chuyên sâu Zen
                             </h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -1127,7 +1127,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                             setSelectedPackage(null); 
                             setSubmitted(false); 
                         }} 
-                        className="w-full px-8 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-sm shadow-lg shadow-indigo-500/10"
+                        className="w-full px-8 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-500 to-sky-500 text-white font-bold text-sm shadow-lg shadow-indigo-500/10"
                     >
                         Quay lại trang chủ
                     </button>
@@ -1249,7 +1249,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     {!checking && (
                         <button 
                             onClick={handleManualConfirm} 
-                            className="w-full py-3.5 rounded-3xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-sm shadow-lg shadow-indigo-500/10 hover:-translate-y-0.5 transition-all"
+                            className="w-full py-3.5 rounded-3xl bg-gradient-to-r from-indigo-500 to-sky-500 text-white font-bold text-sm shadow-lg shadow-indigo-500/10 hover:-translate-y-0.5 transition-all"
                         >
                             Tôi đã chuyển khoản thành công ✓
                         </button>

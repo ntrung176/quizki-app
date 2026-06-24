@@ -265,7 +265,7 @@ const BatchAiModal = ({
                 onClick={e => e.stopPropagation()}
             >
                 {/* Header */}
-                <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-700 bg-gradient-to-r from-indigo-50/50 to-purple-50/55 dark:from-slate-900 dark:to-slate-900">
+                <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-700 bg-gradient-to-r from-indigo-50/50 to-sky-50/55 dark:from-slate-900 dark:to-slate-900">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
                             {activeTab === 'image' ? <ImageIcon className="w-5 h-5" /> : <Sparkle className="w-5 h-5 animate-pulse" />}
@@ -307,7 +307,7 @@ const BatchAiModal = ({
                             {/* Progress bar */}
                             <div className="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-3 overflow-hidden shadow-inner">
                                 <div 
-                                    className="bg-gradient-to-r from-indigo-500 to-purple-600 h-full rounded-full transition-all duration-300 shadow-md"
+                                    className="bg-gradient-to-r from-indigo-500 to-sky-500 h-full rounded-full transition-all duration-300 shadow-md"
                                     style={{ width: `${(progress.current / progress.total) * 100}%` }}
                                 ></div>
                             </div>
@@ -402,7 +402,7 @@ const BatchAiModal = ({
                                             </div>
                                             <button
                                                 onClick={handleStartOcr}
-                                                className="w-full py-3 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white text-sm font-bold rounded-xl shadow-md shadow-indigo-200 dark:shadow-none hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                                                className="w-full py-3 bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-600 hover:to-sky-600 text-white text-sm font-bold rounded-xl shadow-md shadow-indigo-200 dark:shadow-none hover:shadow-lg transition-all flex items-center justify-center gap-2"
                                             >
                                                 <Sparkle className="w-4 h-4" />
                                                 Bắt đầu quét & trích xuất từ ảnh
@@ -489,7 +489,7 @@ const BatchAiModal = ({
                             <button
                                 onClick={handleStartGeneration}
                                 disabled={isOcrLoading || !textInput.trim()}
-                                className="px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 disabled:from-slate-300 disabled:to-slate-300 dark:disabled:from-slate-700 dark:disabled:to-slate-700 text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 disabled:shadow-none"
+                                className="px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-600 hover:to-sky-600 disabled:from-slate-300 disabled:to-slate-300 dark:disabled:from-slate-700 dark:disabled:to-slate-700 text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 disabled:shadow-none"
                             >
                                 <Play className="w-4 h-4 fill-current" />
                                 Bắt đầu tạo bằng AI

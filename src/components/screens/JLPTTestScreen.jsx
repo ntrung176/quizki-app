@@ -15,14 +15,14 @@ const SECTION_ICONS = {
     reading: FileText, listening: Headphones,
 };
 const SECTION_COLORS = {
-    vocabulary: 'blue', grammar: 'purple', kanji: 'teal',
+    vocabulary: 'blue', grammar: 'sky', kanji: 'teal',
     reading: 'green', listening: 'orange',
 };
 const LEVEL_GRADIENTS = {
     N5: 'from-emerald-500 to-teal-600',
     N4: 'from-teal-500 to-cyan-600',
     N3: 'from-blue-500 to-indigo-600',
-    N2: 'from-violet-500 to-purple-600',
+    N2: 'from-sky-500 to-blue-600',
     N1: 'from-rose-500 to-red-600',
 };
 
@@ -372,7 +372,7 @@ const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
                 <button type="button" onClick={() => insertTag(elementId, '<i>', '</i>')} className="px-2 py-1 text-xs italic hover:bg-slate-250 dark:hover:bg-slate-700 rounded text-slate-700 dark:text-slate-300" title="In nghiêng">I</button>
                 <button type="button" onClick={() => insertTag(elementId, '<u>', '</u>')} className="px-2 py-1 text-xs underline hover:bg-slate-250 dark:hover:bg-slate-700 rounded text-slate-700 dark:text-slate-300" title="Gạch chân">U</button>
                 <button type="button" onClick={() => insertTag(elementId, '<ruby>', '<rt>よみかた</rt></ruby>')} className="px-2 py-1 text-xs hover:bg-slate-250 dark:hover:bg-slate-700 rounded text-rose-600 dark:text-rose-400 font-bold" title="Thêm Furigana">Ruby</button>
-                <button type="button" onClick={() => insertTag(elementId, '<br/>', '')} className="px-2 py-1 text-xs hover:bg-slate-250 dark:hover:bg-slate-700 rounded text-purple-600 dark:text-purple-400 font-bold" title="Xuống dòng">BR</button>
+                <button type="button" onClick={() => insertTag(elementId, '<br/>', '')} className="px-2 py-1 text-xs hover:bg-slate-250 dark:hover:bg-slate-700 rounded text-sky-650 dark:text-sky-400 font-bold" title="Xuống dòng">BR</button>
             </div>
         );
     };
@@ -1748,7 +1748,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
             <div className="fixed inset-0 z-[9999] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in font-sans">
                 <div className="bg-white dark:bg-slate-800 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-100 dark:border-slate-700/60 transform transition-all scale-100">
                     {/* Header */}
-                    <div className="p-6 pb-4 border-b border-slate-100 dark:border-slate-700/50 flex items-center justify-between bg-gradient-to-r from-indigo-50/50 to-purple-50/50 dark:from-slate-800 dark:to-slate-800">
+                    <div className="p-6 pb-4 border-b border-slate-100 dark:border-slate-700/50 flex items-center justify-between bg-gradient-to-r from-indigo-50/50 to-sky-50/50 dark:from-slate-800 dark:to-slate-800">
                         <div>
                             <span className="text-[10px] font-extrabold uppercase bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-400 px-2 py-0.5 rounded-md">Cấu hình bài thi</span>
                             <h3 className="text-lg font-black text-slate-800 dark:text-white mt-1 leading-snug">{pendingStartTest.title}</h3>
@@ -4132,9 +4132,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                         </div>
                         {/* Card 2: Ngữ pháp */}
                         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700/50 p-6 hover:shadow-md transition-all flex flex-col justify-between min-h-[14rem] relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-16 h-16 bg-purple-500/5 rounded-bl-full pointer-events-none" />
+                            <div className="absolute top-0 right-0 w-16 h-16 bg-sky-500/5 rounded-bl-full pointer-events-none" />
                             <div>
-                                <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/30 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4">
+                                <div className="w-10 h-10 rounded-xl bg-sky-50 dark:bg-sky-950/30 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-4">
                                     <BookOpen className="w-5 h-5" />
                                 </div>
                                 <h4 className="text-base font-bold text-slate-800 dark:text-white">Ngữ pháp (Grammar)</h4>
@@ -4145,11 +4145,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                             <div className="mt-4 flex flex-col gap-3">
                                 <div className="flex items-center gap-2">
                                     <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-1.5">
-                                        <div className="bg-purple-500 h-1.5 rounded-full" style={{ width: `${getSkillProgress('grammar')}%` }} />
+                                        <div className="bg-sky-500 h-1.5 rounded-full" style={{ width: `${getSkillProgress('grammar')}%` }} />
                                     </div>
                                     <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 w-8 text-right">{getSkillProgress('grammar')}%</span>
                                 </div>
-                                <button onClick={() => handleStartPractice('grammar', 'Ngữ pháp')} className="w-full py-2 bg-purple-50 dark:bg-purple-950/40 hover:bg-purple-100 dark:hover:bg-purple-950/60 text-purple-600 dark:text-purple-400 font-bold text-[10px] tracking-wider rounded-xl transition cursor-pointer text-center">
+                                <button onClick={() => handleStartPractice('grammar', 'Ngữ pháp')} className="w-full py-2 bg-sky-50 dark:bg-sky-950/40 hover:bg-sky-100 dark:hover:bg-sky-950/60 text-sky-600 dark:text-sky-400 font-bold text-[10px] tracking-wider rounded-xl transition cursor-pointer text-center">
                                     BẮT ĐẦU LUYỆN
                                 </button>
                             </div>

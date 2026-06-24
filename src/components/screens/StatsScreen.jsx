@@ -403,7 +403,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                 >
                     <div className="flex-shrink-0 w-6 flex justify-center">{rankIcon}</div>
 
-                    <div className={`w-9 h-9 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-gray-700 ${isCustomPhoto(user.avatar) ? '' : 'bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40 text-lg font-bold'}`}>
+                    <div className={`w-9 h-9 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-gray-700 ${isCustomPhoto(user.avatar) ? '' : 'bg-gradient-to-br from-indigo-100 to-sky-100 dark:from-indigo-900/40 dark:to-sky-900/20 text-lg font-bold'}`}>
                         {getAvatarDisplayNode(user.avatar, user.displayName || 'U', isMe)}
                     </div>
 
@@ -418,7 +418,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                 </span>
                             )}
                             {user.title && (
-                                <span className="bg-purple-500 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded truncate max-w-[100px] flex items-center justify-center" title={user.title}>
+                                <span className="bg-indigo-500 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded truncate max-w-[100px] flex items-center justify-center" title={user.title}>
                                     {user.title}
                                 </span>
                             )}
@@ -498,7 +498,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                     <span className="text-[10px] font-bold text-gray-400 block mb-1">Số ngày học:</span>
                                     <span className="text-sm font-black text-emerald-600 dark:text-emerald-450">{user.activeDaysLast7Days || 0}</span> / 7 ngày
                                 </div>
-                                <div className="p-2.5 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20 rounded-xl border border-indigo-100/50 dark:border-indigo-950/50 shadow-sm flex flex-col justify-center">
+                                <div className="p-2.5 bg-gradient-to-br from-indigo-50 to-sky-50 dark:from-indigo-950/20 dark:to-sky-950/10 rounded-xl border border-indigo-100/50 dark:border-indigo-950/50 shadow-sm flex flex-col justify-center">
                                     <span className="text-[10px] font-bold text-indigo-500 dark:text-indigo-400 block mb-0.5">Điểm vinh danh:</span>
                                     <span className="text-sm font-black text-indigo-600 dark:text-indigo-400 flex items-center gap-0.5">
                                         <Star className="w-4 h-4 fill-indigo-500 text-indigo-500 dark:fill-indigo-400 dark:text-indigo-400" /> {user.computedScore} điểm
@@ -518,8 +518,8 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
 
     return (
         <div className="space-y-6 max-w-4xl mx-auto pb-24 animate-fade-in">
-            {/* Purple Header Stats Card */}
-            <div className="bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] p-6 rounded-3xl text-white shadow-xl">
+            {/* Indigo Header Stats Card */}
+            <div className="bg-gradient-to-r from-indigo-500 to-indigo-700 p-6 rounded-3xl text-white shadow-xl">
                 <div className="flex items-center gap-4 mb-5">
                     <div className={`w-14 h-14 overflow-hidden rounded-full flex items-center justify-center flex-shrink-0 bg-white/20 border-2 border-white/40 shadow-inner text-2xl`}>
                         {getAvatarDisplayNode(profile.avatar, profile.displayName || 'U', true)}
@@ -667,7 +667,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                             </span>
                                         )}
                                         {podiumList[1].title && (
-                                            <span className="bg-purple-500 text-white text-[8px] font-medium px-1 rounded truncate max-w-[60px]" title={podiumList[1].title}>
+                                            <span className="bg-indigo-500 text-white text-[8px] font-medium px-1 rounded truncate max-w-[60px]" title={podiumList[1].title}>
                                                 {podiumList[1].title}
                                             </span>
                                         )}
@@ -714,7 +714,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                             </span>
                                         )}
                                         {podiumList[0].title && (
-                                            <span className="bg-purple-500 text-white text-[8px] font-medium px-1.5 rounded truncate max-w-[70px]" title={podiumList[0].title}>
+                                            <span className="bg-indigo-500 text-white text-[8px] font-medium px-1.5 rounded truncate max-w-[70px]" title={podiumList[0].title}>
                                                 {podiumList[0].title}
                                             </span>
                                         )}
@@ -758,7 +758,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                             </span>
                                         )}
                                         {podiumList[2].title && (
-                                            <span className="bg-purple-500 text-white text-[8px] font-medium px-1 rounded truncate max-w-[60px]" title={podiumList[2].title}>
+                                            <span className="bg-indigo-500 text-white text-[8px] font-medium px-1 rounded truncate max-w-[60px]" title={podiumList[2].title}>
                                                 {podiumList[2].title}
                                             </span>
                                         )}

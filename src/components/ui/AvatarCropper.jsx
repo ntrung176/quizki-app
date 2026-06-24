@@ -325,8 +325,8 @@ const AvatarCropper = ({ onConfirm, onCancel, currentAvatarUrl }) => {
                                     max="180"
                                     value={rotation}
                                     onChange={e => setRotation(Number(e.target.value))}
-                                    className="flex-1 h-2 rounded-full appearance-none cursor-pointer accent-purple-500"
-                                    style={{ background: `linear-gradient(to right, #8b5cf6 ${((rotation + 180) / 360) * 100}%, #e5e7eb ${((rotation + 180) / 360) * 100}%)` }}
+                                    className="flex-1 h-2 rounded-full appearance-none cursor-pointer accent-sky-500"
+                                    style={{ background: `linear-gradient(to right, #0ea5e9 ${((rotation + 180) / 360) * 100}%, #e5e7eb ${((rotation + 180) / 360) * 100}%)` }}
                                 />
                                 <span className="text-xs text-gray-500 w-10 text-right font-mono">{rotation}°</span>
                                 <button
@@ -354,7 +354,7 @@ const AvatarCropper = ({ onConfirm, onCancel, currentAvatarUrl }) => {
                             <button
                                 onClick={handleConfirm}
                                 disabled={isProcessing}
-                                className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white text-sm font-bold shadow-lg shadow-indigo-500/25 transition-all disabled:opacity-60"
+                                className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-600 hover:to-sky-600 text-white text-sm font-bold shadow-lg shadow-indigo-500/25 transition-all disabled:opacity-60"
                             >
                                 {isProcessing ? (
                                     <div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />

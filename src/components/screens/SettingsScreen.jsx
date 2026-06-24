@@ -417,7 +417,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                             <div className="lg:col-span-7 flex flex-col sm:flex-row gap-5 items-start">
                                 <div className="relative group shrink-0">
                                     <div
-                                        className="w-20 h-20 rounded-full overflow-hidden bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40 flex items-center justify-center text-5xl shadow-lg border-2 border-white dark:border-gray-600 cursor-pointer hover:scale-105 transition-transform"
+                                        className="w-20 h-20 rounded-full overflow-hidden bg-gradient-to-br from-indigo-100 to-sky-100 dark:from-indigo-900/40 dark:to-sky-900/20 flex items-center justify-center text-5xl shadow-lg border-2 border-white dark:border-gray-600 cursor-pointer hover:scale-105 transition-transform"
                                         onClick={() => setShowAvatarPicker(!showAvatarPicker)}
                                     >
                                         {getAvatarDisplay(profile?.avatar)}
@@ -489,7 +489,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                                     <span className="bg-sky-500 text-white text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider flex items-center justify-center">
                                                         LV {xpDetails.level}
                                                     </span>
-                                                    <span className="bg-purple-500 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded truncate max-w-[120px] flex items-center justify-center" title={getLevelTitle(xpDetails.level)}>
+                                                    <span className="bg-sky-500 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded truncate max-w-[120px] flex items-center justify-center" title={getLevelTitle(xpDetails.level)}>
                                                         {getLevelTitle(xpDetails.level)}
                                                     </span>
                                                 </div>
@@ -523,7 +523,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                         <span className="text-gray-205 dark:text-gray-700">|</span>
                                         <button
                                             onClick={() => setShowAvatarCropper(true)}
-                                            className="text-purple-500 hover:text-purple-600 dark:text-purple-400 font-medium transition-colors flex items-center gap-1"
+                                            className="text-sky-500 hover:text-sky-600 dark:text-sky-400 font-medium transition-colors flex items-center gap-1"
                                         >
                                             <Camera className="w-3 h-3" />
                                             Tải ảnh lên
@@ -625,7 +625,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                     </button>
                                     <button
                                         onClick={() => setAvatarTab('photo')}
-                                        className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1 ${avatarTab === 'photo' ? 'bg-white dark:bg-gray-600 text-purple-600 dark:text-purple-400 shadow-sm' : 'text-gray-500 dark:text-gray-400'}`}
+                                        className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1 ${avatarTab === 'photo' ? 'bg-white dark:bg-gray-600 text-sky-600 dark:text-sky-400 shadow-sm' : 'text-gray-500 dark:text-gray-400'}`}
                                     >
                                         <Camera className="w-3 h-3" /> Ảnh của bạn
                                     </button>
@@ -658,13 +658,13 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                 {avatarTab === 'photo' && (
                                     <div className="space-y-3">
                                         {isCustomPhoto(profile?.avatar) ? (
-                                            <div className="flex items-center gap-4 p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl border border-purple-200 dark:border-purple-800">
-                                                <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border-2 border-purple-300 dark:border-purple-700">
+                                            <div className="flex items-center gap-4 p-3 bg-sky-50 dark:bg-sky-900/20 rounded-xl border border-sky-200 dark:border-sky-800">
+                                                <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border-2 border-sky-300 dark:border-sky-700">
                                                     <img src={profile.avatar} alt="Current avatar" className="w-full h-full object-cover" />
                                                 </div>
                                                 <div className="flex-1">
-                                                    <p className="text-xs font-bold text-purple-700 dark:text-purple-300">Ảnh hiện tại</p>
-                                                    <p className="text-[10px] text-purple-500 dark:text-purple-400 mt-0.5">Ảnh tùy chỉnh đang được sử dụng</p>
+                                                    <p className="text-xs font-bold text-sky-700 dark:text-sky-300">Ảnh hiện tại</p>
+                                                    <p className="text-[10px] text-sky-500 dark:text-sky-400 mt-0.5">Ảnh tùy chỉnh đang được sử dụng</p>
                                                 </div>
                                                 <button
                                                     onClick={() => handleSelectAvatar('default')}
@@ -675,15 +675,15 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                             </div>
                                         ) : (
                                             <div className="flex flex-col items-center gap-3 py-4">
-                                                <div className="w-16 h-16 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                                                    <Camera className="w-7 h-7 text-purple-400" />
+                                                <div className="w-16 h-16 rounded-full bg-sky-100 dark:bg-sky-900/20 flex items-center justify-center">
+                                                    <Camera className="w-7 h-7 text-sky-400" />
                                                 </div>
                                                 <p className="text-sm text-gray-500 dark:text-gray-400 text-center">Chưa có ảnh tùy chỉnh</p>
                                             </div>
                                         )}
                                         <button
                                             onClick={() => { setShowAvatarPicker(false); setShowAvatarCropper(true); }}
-                                            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white text-sm font-bold shadow-md shadow-purple-200 dark:shadow-purple-900/30 transition-all"
+                                            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 text-white text-sm font-bold shadow-md shadow-sky-200 dark:shadow-sky-900/20 transition-all"
                                         >
                                             <Upload className="w-4 h-4" />
                                             Tải ảnh mới lên
@@ -751,7 +751,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                         <button
                             onClick={handleChangePassword}
                             disabled={isSaving || !newPassword || !confirmPassword}
-                            className="w-full py-2.5 bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-500 dark:to-indigo-500 text-white rounded-xl font-bold text-sm hover:from-violet-700 hover:to-indigo-700 disabled:opacity-50 transition-all"
+                            className="w-full py-2.5 bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-sky-600 dark:to-indigo-600 text-white rounded-xl font-bold text-sm hover:from-sky-600 hover:to-indigo-600 disabled:opacity-50 transition-all"
                         >
                             {linkedProviders.includes('password') ? 'Đổi mật khẩu' : 'Tạo mật khẩu'}
                         </button>
@@ -820,13 +820,13 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                     {/* ==================== REFERRAL SECTION ==================== */}
                     <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-6">
                         <div className="flex items-center gap-3 pb-4 border-b border-gray-150/50 dark:border-gray-700">
-                            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-500 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-indigo-100 dark:shadow-none">
+                            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-indigo-50 dark:shadow-none">
                                 <Gift className="w-5 h-5" />
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 flex items-center gap-1.5">
                                     Giới thiệu bạn bè & Nhận quà lũy tiến
-                                    <span className="bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
+                                    <span className="bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
                                         hot
                                     </span>
                                 </h3>
@@ -861,7 +861,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {/* Panel 1: Share Link */}
-                            <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-slate-900/40 dark:to-slate-800/40 p-5 rounded-2xl border border-indigo-100/40 dark:border-slate-800 flex flex-col justify-between space-y-4">
+                            <div className="bg-gradient-to-r from-indigo-50 to-sky-50 dark:from-slate-900/40 dark:to-slate-805/20 p-5 rounded-2xl border border-indigo-100/40 dark:border-slate-800 flex flex-col justify-between space-y-4">
                                 <div>
                                     <h4 className="text-xs font-bold text-indigo-700 dark:text-indigo-400 uppercase tracking-wider mb-2">Link giới thiệu của bạn</h4>
                                     <p className="text-gray-500 dark:text-slate-450 text-[11px] leading-relaxed">
@@ -978,7 +978,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                         {/* Progressive Reward Map */}
                         <div className="border border-indigo-50/80 dark:border-slate-750 bg-indigo-50/10 dark:bg-slate-900/10 rounded-2xl p-5 space-y-4">
                             <div className="flex items-center gap-1.5">
-                                <Award className="w-4 h-4 text-purple-600" />
+                                <Award className="w-4 h-4 text-sky-600" />
                                 <h4 className="text-xs font-bold text-gray-800 dark:text-slate-200">
                                     Bản đồ phần thưởng Premium lũy tiến (Khi bạn bè nâng cấp Premium)
                                 </h4>
@@ -1001,7 +1001,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                                 isAchieved
                                                     ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-800 dark:text-emerald-400'
                                                     : isActiveNext
-                                                    ? 'bg-purple-500/10 border-purple-500/30 text-purple-800 dark:text-purple-400 shadow-sm shadow-purple-100 dark:shadow-none animate-pulse'
+                                                    ? 'bg-sky-500/10 border-sky-500/30 text-sky-800 dark:text-sky-400 shadow-sm shadow-sky-100 dark:shadow-none animate-pulse'
                                                     : 'bg-white dark:bg-slate-800 border-gray-150/40 dark:border-slate-700 text-gray-400'
                                             }`}
                                         >
@@ -1009,13 +1009,13 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                                 {isAchieved ? (
                                                     <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-0.5">✓ ĐÃ CỘNG</span>
                                                 ) : isActiveNext ? (
-                                                    <span className="text-purple-600 dark:text-purple-400 flex items-center gap-0.5 animate-bounce">TỚI LƯỢT</span>
+                                                    <span className="text-sky-600 dark:text-sky-400 flex items-center gap-0.5 animate-bounce">TỚI LƯỢT</span>
                                                 ) : (
                                                     <span>CHƯA ĐẠT</span>
                                                 )}
                                             </div>
                                             <span className="text-[10px] font-extrabold block mb-1 uppercase tracking-wider">{milestone.label}</span>
-                                            <span className={`text-sm font-black mt-1 ${isAchieved ? 'text-emerald-700 dark:text-emerald-300' : isActiveNext ? 'text-purple-700 dark:text-purple-300' : 'text-gray-700 dark:text-slate-350'}`}>
+                                            <span className={`text-sm font-black mt-1 ${isAchieved ? 'text-emerald-700 dark:text-emerald-300' : isActiveNext ? 'text-sky-700 dark:text-sky-300' : 'text-gray-700 dark:text-slate-350'}`}>
                                                 {milestone.bonus}
                                             </span>
                                         </div>
@@ -1284,7 +1284,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                     : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500'
                                     }`}
                             >
-                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-inner">
+                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-sky-600 flex items-center justify-center shadow-inner">
                                     <Moon className="w-6 h-6 text-white" />
                                 </div>
                                 <span className={`text-sm font-bold ${isDarkMode ? 'text-indigo-700 dark:text-indigo-400' : 'text-gray-500 dark:text-gray-400'}`}>Tối</span>

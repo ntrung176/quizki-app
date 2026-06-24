@@ -13,6 +13,8 @@ import {
 } from '../../utils/textProcessing';
 import { flashCorrect, launchFanfare, celebrateCorrectAnswer } from '../../utils/celebrations'
 import { playCorrectSound, playIncorrectSound } from '../../utils/soundEffects';
+import { getAuth } from 'firebase/auth';
+import { saveStudyProgress, resetStudyProgress } from '../../utils/studyProgressService';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
 
@@ -237,6 +239,10 @@ const ReviewScreen = ({
         };
         const key = `study_progress_${setId}_${reviewMode}`;
         localStorage.setItem(key, JSON.stringify(progressData));
+        if (setId && reviewMode) {
+            const userId = getAuth().currentUser?.uid;
+            saveStudyProgress(userId, setId, reviewMode, progressData);
+        }
     }, [currentIndex, cards, failedCards, setId, reviewMode, initialCards, showComplete]);
 
     // Update ref when failedCards change
@@ -706,7 +712,7 @@ const ReviewScreen = ({
                                 if (onCompleteReview) onCompleteReview(null);
                                 else if (onBack) onBack();
                             }}
-                            className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1 cursor-pointer"
+                            className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-sky-500 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1 cursor-pointer"
                         >
                             Xong <ChevronRight className="w-4 h-4" />
                         </button>
@@ -821,7 +827,7 @@ const ReviewScreen = ({
                 const firstExample = exampleLines[0] || currentCard.example;
                 const firstExampleMeaning = exampleMeaningLines[0] || currentCard.exampleMeaning || null;
                 const maskedExample = maskWordInExample(wordToMask, firstExample, currentCard.pos, readingForMask);
-                return { label: 'Điền từ còn thiếu', text: maskedExample, meaning: firstExampleMeaning, image: currentCard.imageBase64, icon: FileText, color: 'text-purple-600' };
+                return { label: 'Điền từ còn thiếu', text: maskedExample, meaning: firstExampleMeaning, image: currentCard.imageBase64, icon: FileText, color: 'text-sky-600' };
             }
             case 'dictation':
                 return { label: 'Nghe chép', text: null, image: null, icon: Headphones, color: 'text-indigo-600' };
@@ -1633,7 +1639,7 @@ const ReviewScreen = ({
                                     disabled={isProcessing}
                                     className={`flex-1 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all shadow-md ${isProcessing
                                         ? 'bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-500 cursor-not-allowed'
-                                        : 'bg-gradient-to-r from-indigo-500 to-purple-600 dark:from-indigo-600 dark:to-purple-700 text-white hover:shadow-lg hover:scale-105'
+                                        : 'bg-gradient-to-r from-indigo-500 to-sky-500 dark:from-indigo-600 dark:to-sky-600 text-white hover:shadow-lg hover:scale-105'
                                         }`}
                                     title="Thẻ tiếp theo (→)"
                                 >
@@ -2206,7 +2212,7 @@ export const ReviewCompleteScreen = ({ onBack, allCards }) => {
                     </div>
                 </div>
                 <div className="flex gap-3">
-                    <button onClick={onBack} className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white font-bold rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
+                    <button onClick={onBack} className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-sky-500 dark:from-indigo-500 dark:to-sky-500 text-white font-bold rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
                         Quay lại Ôn tập
                     </button>
                 </div>

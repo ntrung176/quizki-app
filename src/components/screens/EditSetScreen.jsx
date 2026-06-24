@@ -428,9 +428,9 @@ const EditSetScreen = ({
                                     setBatchModalInitialTab('image');
                                     setIsBatchModalOpen(true);
                                 }}
-                                className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-purple-650 bg-purple-50 hover:bg-purple-100 border border-purple-100 dark:text-purple-400 dark:bg-slate-800 dark:border-purple-900/50 dark:hover:bg-slate-700 transition-all shadow-sm"
+                                className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-sky-600 bg-sky-50 hover:bg-sky-100 border border-sky-100 dark:text-sky-400 dark:bg-slate-800 dark:border-sky-900/50 dark:hover:bg-slate-700 transition-all shadow-sm"
                             >
-                                <ImageIcon className="w-4 h-4 text-purple-500" />
+                                <ImageIcon className="w-4 h-4 text-sky-500" />
                                 Thêm từ vựng theo ảnh
                             </button>
                         </div>

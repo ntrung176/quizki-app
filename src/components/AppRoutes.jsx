@@ -2,6 +2,8 @@ import React from 'react';
 import LoadingIndicator from './ui/LoadingIndicator';
 import { Routes, Route, Navigate, useNavigate, useParams, useLocation } from 'react-router-dom';
 import { ROUTES, ProtectedRoute, PublicOnlyRoute } from '../router';
+import { getAuth } from 'firebase/auth';
+import { saveStudyCompletion } from '../utils/studyProgressService';
 import UpgradeScreen from './ui/AiCreditShop';
 import { shuffleArray } from '../utils/textProcessing';
 
@@ -254,7 +256,7 @@ const ZenProtectedRoute = ({ children, packageId, profile, isAdmin }) => {
                 <div className="flex flex-col gap-3">
                     <button
                         onClick={() => navigate(ROUTES.UPGRADE)}
-                        className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-xl transition-all shadow-lg shadow-indigo-200 dark:shadow-none cursor-pointer text-sm"
+                        className="w-full py-3 bg-gradient-to-r from-indigo-600 to-sky-500 hover:from-indigo-700 hover:to-sky-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-indigo-200 dark:shadow-none cursor-pointer text-sm"
                     >
                         Mở khóa ngay
                     </button>
@@ -834,8 +836,8 @@ const AppRoutes = ({
                                             setReviewMode(reviewMode || 'mixed');
                                         } else {
                                             if (reviewSetId && reviewMode) {
-                                                localStorage.removeItem(`study_progress_${reviewSetId}_${reviewMode}`);
-                                                localStorage.setItem(`study_completed_${reviewSetId}_${reviewMode}`, 'true');
+                                                const userId = getAuth().currentUser?.uid;
+                                                saveStudyCompletion(userId, reviewSetId, reviewMode);
                                             }
                                             if (reviewSetId && reviewSetId !== 'mistakes') {
                                                 navigate(`/vocab/set/${reviewSetId}`);
@@ -880,8 +882,8 @@ const AppRoutes = ({
                                 onCompleteStudy={() => {
                                     const setId = studySessionData?.setId;
                                     if (setId) {
-                                        localStorage.removeItem(`study_progress_${setId}_study`);
-                                        localStorage.setItem(`study_completed_${setId}_study`, 'true');
+                                        const userId = getAuth().currentUser?.uid;
+                                        saveStudyCompletion(userId, setId, 'study');
                                     }
                                     setStudySessionData({
                                         learning: [],
@@ -1016,8 +1018,8 @@ const AppRoutes = ({
                                     onSaveCardAudio={handleSaveCardAudio}
                                     onComplete={() => {
                                         if (flashcardSetId) {
-                                            localStorage.removeItem(`study_progress_${flashcardSetId}_flashcard`);
-                                            localStorage.setItem(`study_completed_${flashcardSetId}_flashcard`, 'true');
+                                            const userId = getAuth().currentUser?.uid;
+                                            saveStudyCompletion(userId, flashcardSetId, 'flashcard');
                                         }
                                         if (flashcardSetId && flashcardSetId !== 'mistakes') {
                                             navigate(`/vocab/set/${flashcardSetId}`);
@@ -1074,8 +1076,8 @@ const AppRoutes = ({
                                     }}
                                     onComplete={() => {
                                         if (flashcardSetId) {
-                                            localStorage.removeItem(`study_progress_${flashcardSetId}_synonym`);
-                                            localStorage.setItem(`study_completed_${flashcardSetId}_synonym`, 'true');
+                                            const userId = getAuth().currentUser?.uid; saveStudyCompletion(userId, flashcardSetId, 'synonym');
+                                            // Completion saved
                                         }
                                         const targetId = flashcardSetId;
                                         if (targetId && targetId !== 'mistakes') {
@@ -1263,7 +1265,7 @@ const AppRoutes = ({
                                         <div className="flex flex-col gap-3">
                                             <button
                                                 onClick={() => navigate(ROUTES.HOME)}
-                                                className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-xl transition-all shadow-lg shadow-indigo-200 dark:shadow-none cursor-pointer text-sm"
+                                                className="w-full py-3 bg-gradient-to-r from-indigo-600 to-sky-500 hover:from-indigo-700 hover:to-sky-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-indigo-200 dark:shadow-none cursor-pointer text-sm"
                                             >
                                                 Quay lại Trang chủ
                                             </button>

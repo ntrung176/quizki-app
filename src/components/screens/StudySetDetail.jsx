@@ -8,6 +8,7 @@ import { playAudio, speakJapanese } from '../../utils/audio';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, writeBatch, updateDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
+import { syncStudyProgress, resetStudyProgress } from '../../utils/studyProgressService';
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { showToast } from '../../utils/toast';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
@@ -332,22 +333,37 @@ const StudySetDetail = ({
     });
 
     useEffect(() => {
-        setCompletedStates({
-            flashcard: localStorage.getItem(`study_completed_${folderId}_flashcard`) === 'true',
-            study: localStorage.getItem(`study_completed_${folderId}_study`) === 'true',
-            meaning_input: localStorage.getItem(`study_completed_${folderId}_meaning_input`) === 'true',
-            dictation: localStorage.getItem(`study_completed_${folderId}_dictation`) === 'true',
-            example: localStorage.getItem(`study_completed_${folderId}_example`) === 'true',
-            synonym: localStorage.getItem(`study_completed_${folderId}_synonym`) === 'true'
-        });
-        setProgressStates({
-            flashcard: !!localStorage.getItem(`study_progress_${folderId}_flashcard`),
-            study: !!localStorage.getItem(`study_progress_${folderId}_study`),
-            meaning_input: !!localStorage.getItem(`study_progress_${folderId}_meaning_input`),
-            dictation: !!localStorage.getItem(`study_progress_${folderId}_dictation`),
-            example: !!localStorage.getItem(`study_progress_${folderId}_example`),
-            synonym: !!localStorage.getItem(`study_progress_${folderId}_synonym`)
-        });
+        let isMounted = true;
+        const fetchProgress = async () => {
+            const userId = getAuth().currentUser?.uid;
+            // First show what is currently in localStorage (instant load)
+            setCompletedStates({
+                flashcard: localStorage.getItem(`study_completed_${folderId}_flashcard`) === 'true',
+                study: localStorage.getItem(`study_completed_${folderId}_study`) === 'true',
+                meaning_input: localStorage.getItem(`study_completed_${folderId}_meaning_input`) === 'true',
+                dictation: localStorage.getItem(`study_completed_${folderId}_dictation`) === 'true',
+                example: localStorage.getItem(`study_completed_${folderId}_example`) === 'true',
+                synonym: localStorage.getItem(`study_completed_${folderId}_synonym`) === 'true'
+            });
+            setProgressStates({
+                flashcard: !!localStorage.getItem(`study_progress_${folderId}_flashcard`),
+                study: !!localStorage.getItem(`study_progress_${folderId}_study`),
+                meaning_input: !!localStorage.getItem(`study_progress_${folderId}_meaning_input`),
+                dictation: !!localStorage.getItem(`study_progress_${folderId}_dictation`),
+                example: !!localStorage.getItem(`study_progress_${folderId}_example`),
+                synonym: !!localStorage.getItem(`study_progress_${folderId}_synonym`)
+            });
+
+            // Then sync with Firestore
+            const resolved = await syncStudyProgress(userId, folderId);
+            if (isMounted) {
+                setCompletedStates(resolved.completed);
+                setProgressStates(resolved.progress);
+            }
+        };
+
+        fetchProgress();
+        return () => { isMounted = false; };
     }, [folderId]);
 
     const folder = useMemo(() => {
@@ -922,11 +938,12 @@ const StudySetDetail = ({
                                         <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Thẻ ghi nhớ</span>
                                         <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
                                         <button
-                                            onClick={(e) => {
+                                            onClick={async (e) => {
                                                 e.stopPropagation();
-                                                localStorage.removeItem(`study_completed_${folderId}_flashcard`);
-                                                localStorage.removeItem(`study_progress_${folderId}_flashcard`);
+                                                const userId = getAuth().currentUser?.uid;
+                                                await resetStudyProgress(userId, folderId, 'flashcard');
                                                 setCompletedStates(prev => ({ ...prev, flashcard: false }));
+                                                setProgressStates(prev => ({ ...prev, flashcard: false }));
                                             }}
                                             className="mt-3 text-[11px] bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 text-indigo-650 dark:text-indigo-400 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-850 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
                                         >
@@ -937,7 +954,7 @@ const StudySetDetail = ({
                                     <button onClick={() => onFlashcardSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-blue-400 dark:hover:border-blue-600 shadow-sm hover:shadow-lg transition-all group relative">
                                         {progressStates.flashcard && (
                                             <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-blue-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
-                                                Học dở
+                                                Đang học
                                             </div>
                                         )}
                                         <div className="w-11 h-11 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Layers className="w-5 h-5 text-blue-500" /></div>
@@ -956,11 +973,12 @@ const StudySetDetail = ({
                                         <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Học tập</span>
                                         <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
                                         <button
-                                            onClick={(e) => {
+                                            onClick={async (e) => {
                                                 e.stopPropagation();
-                                                localStorage.removeItem(`study_completed_${folderId}_study`);
-                                                localStorage.removeItem(`study_progress_${folderId}_study`);
+                                                const userId = getAuth().currentUser?.uid;
+                                                await resetStudyProgress(userId, folderId, 'study');
                                                 setCompletedStates(prev => ({ ...prev, study: false }));
+                                                setProgressStates(prev => ({ ...prev, study: false }));
                                             }}
                                             className="mt-3 text-[11px] bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 text-indigo-650 dark:text-indigo-400 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-850 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
                                         >
@@ -971,7 +989,7 @@ const StudySetDetail = ({
                                     <button onClick={() => onStudySet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-emerald-400 dark:hover:border-emerald-600 shadow-sm hover:shadow-lg transition-all group relative">
                                         {progressStates.study && (
                                             <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-emerald-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
-                                                Học dở
+                                                Đang học
                                             </div>
                                         )}
                                         <div className="w-11 h-11 rounded-full bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><BookOpen className="w-5 h-5 text-emerald-500" /></div>
@@ -990,11 +1008,12 @@ const StudySetDetail = ({
                                         <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Nhập ý nghĩa</span>
                                         <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
                                         <button
-                                            onClick={(e) => {
+                                            onClick={async (e) => {
                                                 e.stopPropagation();
-                                                localStorage.removeItem(`study_completed_${folderId}_meaning_input`);
-                                                localStorage.removeItem(`study_progress_${folderId}_meaning_input`);
+                                                const userId = getAuth().currentUser?.uid;
+                                                await resetStudyProgress(userId, folderId, 'meaning_input');
                                                 setCompletedStates(prev => ({ ...prev, meaning_input: false }));
+                                                setProgressStates(prev => ({ ...prev, meaning_input: false }));
                                             }}
                                             className="mt-3 text-[11px] bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 text-indigo-650 dark:text-indigo-400 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-850 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
                                         >
@@ -1005,7 +1024,7 @@ const StudySetDetail = ({
                                     <button onClick={() => onMeaningSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-pink-400 dark:hover:border-pink-600 shadow-sm hover:shadow-lg transition-all group relative">
                                         {progressStates.meaning_input && (
                                             <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-pink-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
-                                                Học dở
+                                                Đang học
                                             </div>
                                         )}
                                         <div className="w-11 h-11 rounded-full bg-pink-50 dark:bg-pink-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Edit2 className="w-5 h-5 text-pink-500" /></div>
@@ -1024,11 +1043,12 @@ const StudySetDetail = ({
                                         <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Nghe Chép</span>
                                         <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
                                         <button
-                                            onClick={(e) => {
+                                            onClick={async (e) => {
                                                 e.stopPropagation();
-                                                localStorage.removeItem(`study_completed_${folderId}_dictation`);
-                                                localStorage.removeItem(`study_progress_${folderId}_dictation`);
+                                                const userId = getAuth().currentUser?.uid;
+                                                await resetStudyProgress(userId, folderId, 'dictation');
                                                 setCompletedStates(prev => ({ ...prev, dictation: false }));
+                                                setProgressStates(prev => ({ ...prev, dictation: false }));
                                             }}
                                             className="mt-3 text-[11px] bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 text-indigo-650 dark:text-indigo-400 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-850 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
                                         >
@@ -1039,7 +1059,7 @@ const StudySetDetail = ({
                                     <button onClick={() => onDictationSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-indigo-400 dark:hover:border-indigo-600 shadow-sm hover:shadow-lg transition-all group relative">
                                         {progressStates.dictation && (
                                             <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-indigo-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
-                                                Học dở
+                                                Đang học
                                             </div>
                                         )}
                                         <div className="w-11 h-11 rounded-full bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Headphones className="w-5 h-5 text-indigo-500" /></div>
@@ -1058,11 +1078,12 @@ const StudySetDetail = ({
                                         <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Câu ví dụ</span>
                                         <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
                                         <button
-                                            onClick={(e) => {
+                                            onClick={async (e) => {
                                                 e.stopPropagation();
-                                                localStorage.removeItem(`study_completed_${folderId}_example`);
-                                                localStorage.removeItem(`study_progress_${folderId}_example`);
+                                                const userId = getAuth().currentUser?.uid;
+                                                await resetStudyProgress(userId, folderId, 'example');
                                                 setCompletedStates(prev => ({ ...prev, example: false }));
+                                                setProgressStates(prev => ({ ...prev, example: false }));
                                             }}
                                             className="mt-3 text-[11px] bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 text-indigo-650 dark:text-indigo-400 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-850 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
                                         >
@@ -1073,7 +1094,7 @@ const StudySetDetail = ({
                                     <button onClick={() => onExampleSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-amber-400 dark:hover:border-amber-600 shadow-sm hover:shadow-lg transition-all group relative">
                                         {progressStates.example && (
                                             <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-amber-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
-                                                Học dở
+                                                Đang học
                                             </div>
                                         )}
                                         <div className="w-11 h-11 rounded-full bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><FileText className="w-5 h-5 text-amber-500" /></div>
@@ -1092,11 +1113,12 @@ const StudySetDetail = ({
                                         <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Đồng nghĩa</span>
                                         <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
                                         <button
-                                            onClick={(e) => {
+                                            onClick={async (e) => {
                                                 e.stopPropagation();
-                                                localStorage.removeItem(`study_completed_${folderId}_synonym`);
-                                                localStorage.removeItem(`study_progress_${folderId}_synonym`);
+                                                const userId = getAuth().currentUser?.uid;
+                                                await resetStudyProgress(userId, folderId, 'synonym');
                                                 setCompletedStates(prev => ({ ...prev, synonym: false }));
+                                                setProgressStates(prev => ({ ...prev, synonym: false }));
                                             }}
                                             className="mt-3 text-[11px] bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 text-indigo-650 dark:text-indigo-400 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-850 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
                                         >
@@ -1104,13 +1126,13 @@ const StudySetDetail = ({
                                         </button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => onSynonymQuiz && onSynonymQuiz(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-purple-400 dark:hover:border-purple-600 shadow-sm hover:shadow-lg transition-all group relative">
+                                    <button onClick={() => onSynonymQuiz && onSynonymQuiz(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-sky-400 dark:hover:border-sky-600 shadow-sm hover:shadow-lg transition-all group relative">
                                         {progressStates.synonym && (
-                                            <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-purple-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
-                                                Học dở
+                                            <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-sky-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
+                                                Đang học
                                             </div>
                                         )}
-                                        <div className="w-11 h-11 rounded-full bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Users className="w-5 h-5 text-purple-500" /></div>
+                                        <div className="w-11 h-11 rounded-full bg-sky-50 dark:bg-sky-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Users className="w-5 h-5 text-sky-500" /></div>
                                         <span className="font-bold text-sm text-gray-800 dark:text-white text-center">Đồng nghĩa</span>
                                         <span className="text-[11px] text-gray-500 mt-0.5 text-center">Trắc nghiệm đồng nghĩa</span>
                                     </button>

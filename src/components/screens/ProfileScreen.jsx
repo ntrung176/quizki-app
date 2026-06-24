@@ -12,7 +12,7 @@ const ProfileScreen = ({ onSave }) => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-sky-50 flex items-center justify-center p-4">
             <div className="w-full max-w-md bg-white/90 backdrop-blur-xl shadow-2xl rounded-3xl p-10 space-y-8 border border-white/50">
                 <div className="text-center space-y-2">
                     <div className="w-16 h-16 bg-indigo-600 rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-indigo-200">
@@ -41,7 +41,7 @@ const ProfileScreen = ({ onSave }) => {
                 <button
                     onClick={handleSubmit}
                     disabled={isLoading || !displayName.trim()}
-                    className="w-full px-6 py-4 text-lg font-bold rounded-xl shadow-lg shadow-indigo-200 text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:translate-y-[-2px]"
+                    className="w-full px-6 py-4 text-lg font-bold rounded-xl shadow-lg shadow-indigo-200 text-white bg-gradient-to-r from-indigo-600 to-sky-500 hover:from-indigo-750 hover:to-sky-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:translate-y-[-2px]"
                 >
                     {isLoading ? <Loader2 className="animate-spin w-6 h-6 mx-auto" /> : "Bắt đầu hành trình"}
                 </button>

@@ -12,7 +12,7 @@ const SAMPLE_TEXTBOOKS_JSON = `[
     "levels": ["N2"],
     "category": "jlpt",
     "featured": true,
-    "color": "#6366f1"
+    "color": "#3b82f6"
   },
   {
     "title": "新完全マスター 文法 N3",

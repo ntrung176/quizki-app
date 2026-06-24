@@ -10,7 +10,7 @@ import { ROUTES } from '../../router';
 import { compressImage, fileToBase64 } from '../../utils/image';
 const SECTION_TYPES = [
     { value: 'vocabulary', label: 'Từ vựng (文字・語彙)', icon: Languages, color: 'blue' },
-    { value: 'grammar', label: 'Ngữ pháp (文法)', icon: BookOpen, color: 'purple' },
+    { value: 'grammar', label: 'Ngữ pháp (文法)', icon: BookOpen, color: 'sky' },
     { value: 'kanji', label: 'Hán tự (漢字)', icon: Award, color: 'teal' },
     { value: 'reading', label: 'Đọc hiểu (読解)', icon: FileText, color: 'green' },
     { value: 'listening', label: 'Nghe hiểu (聴解)', icon: Headphones, color: 'orange' },
@@ -276,7 +276,7 @@ const HighlightedHtmlTextarea = ({ value, onChange, placeholder, id }) => {
             } else if (lower.includes('rt')) {
                 return `<span class="text-emerald-600 dark:text-emerald-455 font-extrabold">${match}</span>`;
             } else if (lower.includes('br')) {
-                return `<span class="text-purple-650 dark:text-purple-400 font-extrabold">${match}</span>`;
+                return `<span class="text-sky-600 dark:text-sky-400 font-extrabold">${match}</span>`;
             } else if (lower.includes('span') || lower.includes('div')) {
                 return `<span class="text-blue-650 dark:text-sky-400 font-bold">${match}</span>`;
             } else {
@@ -1517,7 +1517,7 @@ const JLPTAdminScreen = ({ userId }) => {
                                 N5: 'bg-emerald-50 text-emerald-600 dark:bg-emerald-950/20 dark:text-emerald-400 border border-emerald-100/55',
                                 N4: 'bg-teal-50 text-teal-600 dark:bg-teal-950/20 dark:text-teal-400 border border-teal-100/55',
                                 N3: 'bg-blue-50 text-blue-600 dark:bg-blue-950/20 dark:text-blue-400 border border-blue-100/55',
-                                N2: 'bg-violet-50 text-violet-600 dark:bg-violet-950/20 dark:text-violet-400 border border-violet-100/55',
+                                N2: 'bg-sky-50 text-sky-600 dark:bg-sky-950/20 dark:text-sky-400 border border-sky-100/55',
                                 N1: 'bg-rose-50 text-rose-600 dark:bg-rose-950/20 dark:text-rose-400 border border-rose-100/55',
                             };
                             return (

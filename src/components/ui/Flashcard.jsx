@@ -413,7 +413,7 @@ const Flashcard = ({
     let backCardClass = "";
 
     if (variant === 'review') {
-        frontCardClass = `absolute inset-0 backface-hidden bg-gradient-to-br from-indigo-500 to-purple-600 rounded-[32px] border-4 border-white shadow-2xl ${scale.cardPadding || 'p-6'} flex flex-col items-center w-full h-full hover:shadow-3xl transition-shadow relative overflow-hidden`;
+        frontCardClass = `absolute inset-0 backface-hidden bg-gradient-to-br from-indigo-500 to-sky-500 rounded-[32px] border-4 border-white shadow-2xl ${scale.cardPadding || 'p-6'} flex flex-col items-center w-full h-full hover:shadow-3xl transition-shadow relative overflow-hidden`;
         backCardClass = `absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-[32px] border-4 border-white shadow-2xl ${scale.cardPadding || 'p-6'} flex flex-col items-center w-full h-full hover:shadow-3xl transition-shadow relative overflow-hidden`;
     } else {
         frontCardClass = `absolute inset-0 backface-hidden bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none ${scale.cardPadding || 'p-6'} flex flex-col items-center text-center overflow-hidden w-full h-full transition-shadow hover:shadow-xl`;

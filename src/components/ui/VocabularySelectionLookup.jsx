@@ -751,7 +751,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
 
                             <button
                                 onClick={handleLookup}
-                                className="w-full mt-3 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white rounded-xl text-xs font-black shadow-md shadow-indigo-100 dark:shadow-none transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                                className="w-full mt-3 py-2 bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-600 hover:to-sky-600 text-white rounded-xl text-xs font-black shadow-md shadow-indigo-50 dark:shadow-none transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                             >
                                 <Sparkle className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
                                 Tra cứu mở rộng bằng AI

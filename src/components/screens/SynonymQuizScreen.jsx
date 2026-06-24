@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { ArrowLeft, Users, CheckCircle, XCircle, RotateCcw, ChevronRight, Zap, Settings, X } from 'lucide-react'
+import { getAuth } from 'firebase/auth';
+import { saveStudyProgress, resetStudyProgress } from '../../utils/studyProgressService';
 import FuriganaText from '../ui/FuriganaText';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare } from '../../utils/soundEffects';
 import { speakJapanese } from '../../utils/audio';
@@ -75,6 +77,10 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
         };
         const key = `study_progress_${setId}_synonym`;
         localStorage.setItem(key, JSON.stringify(progressData));
+        if (setId) {
+            const userId = getAuth().currentUser?.uid;
+            saveStudyProgress(userId, setId, 'synonym', progressData);
+        }
     }, [currentIndex, score, isComplete, quizQueue, setId]);
 
     // Generate multiple choice options
@@ -211,8 +217,8 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
 
     const handleReset = () => {
         if (setId) {
-            localStorage.removeItem(`study_completed_${setId}_synonym`);
-            localStorage.removeItem(`study_progress_${setId}_synonym`);
+            const userId = getAuth().currentUser?.uid;
+            resetStudyProgress(userId, setId, 'synonym');
         }
         setQuizQueue(quizCards);
         failedCardsRef.current = new Set();
@@ -239,6 +245,14 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
     useEffect(() => {
         const handler = (e) => {
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            if (isComplete) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (onComplete) onComplete();
+                    else if (onBack) onBack();
+                }
+                return;
+            }
             if (!isRevealed && ['1', '2', '3', '4'].includes(e.key)) {
                 const idx = parseInt(e.key) - 1;
                 if (options[idx]) handleSelect(options[idx]);
@@ -247,7 +261,7 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
         };
         window.addEventListener('keydown', handler);
         return () => window.removeEventListener('keydown', handler);
-    }, [isRevealed, options, handleSelect, handleNext]);
+    }, [isRevealed, options, handleSelect, handleNext, isComplete, onComplete, onBack]);
 
     if (quizCards.length === 0) {
         return (
@@ -290,7 +304,7 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                         </button>
                         <button
                             onClick={onComplete || onBack}
-                            className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1 cursor-pointer"
+                            className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-sky-500 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1 cursor-pointer"
                         >
                             Xong <ChevronRight className="w-4 h-4" />
                         </button>
@@ -320,17 +334,17 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                 <div className="w-full flex flex-col space-y-4 p-5 md:p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl">
                     {/* Progress */}
                     <div className="space-y-1">
-                        <div className="flex justify-between items-center text-sm font-bold text-purple-500 dark:text-purple-400">
+                        <div className="flex justify-between items-center text-sm font-bold text-sky-500 dark:text-sky-400">
                             <span className="flex items-center gap-2"><Users className="w-4 h-4" /> ĐỒNG NGHĨA</span>
                             <div className="flex items-center gap-2">
                                 <span className="text-gray-500">{currentIndex + 1} / {quizQueue.length}</span>
-                                <button onClick={() => setShowSettings(true)} className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-gray-500 hover:text-purple-650" title="Cài đặt">
+                                <button onClick={() => setShowSettings(true)} className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-gray-500 hover:text-sky-600" title="Cài đặt">
                                     <Settings className="w-4 h-4" />
                                 </button>
                             </div>
                         </div>
                         <div className="h-2 bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                            <div className="h-full bg-purple-500 rounded-full transition-all duration-300" style={{ width: `${progress}%` }}></div>
+                            <div className="h-full bg-sky-500 rounded-full transition-all duration-300" style={{ width: `${progress}%` }}></div>
                         </div>
                     </div>
 
@@ -350,7 +364,7 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                             const isSelected = selectedAnswer === option;
                             let cls = 'w-full p-4 rounded-xl font-bold text-left border-2 transition-all text-base ';
                             if (!isRevealed) {
-                                cls += 'bg-gray-50 dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-purple-400 dark:hover:border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/20 text-gray-800 dark:text-gray-200 cursor-pointer';
+                                cls += 'bg-gray-50 dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-sky-400 dark:hover:border-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/20 text-gray-800 dark:text-gray-200 cursor-pointer';
                             } else if (isCorrect) {
                                 cls += 'bg-green-50 dark:bg-green-900/20 border-green-400 dark:border-green-600 text-green-700 dark:text-green-400 cursor-default';
                             } else if (isSelected && !isCorrect) {
@@ -393,7 +407,7 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                             <button 
                                 onClick={() => handleNext(false)} 
                                 disabled={isTransitioning}
-                                className={`w-full py-4 rounded-xl font-bold text-lg bg-purple-600 hover:bg-purple-700 text-white shadow-lg transition-all flex items-center justify-center gap-2 mt-2 ${isTransitioning ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'}`}
+                                className={`w-full py-4 rounded-xl font-bold text-lg bg-sky-600 hover:bg-sky-700 text-white shadow-lg transition-all flex items-center justify-center gap-2 mt-2 ${isTransitioning ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'}`}
                             >
                                 {isTransitioning ? 'Đang hoàn tất...' : (currentIndex < quizQueue.length - 1 ? <><span>Tiếp tục</span><ChevronRight className="w-5 h-5" /></> : <span>Hoàn thành 🎉</span>)}
                             </button>

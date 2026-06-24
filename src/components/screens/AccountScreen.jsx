@@ -240,7 +240,7 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack,
                     {!profile?.isPremiumUnlocked ? (
                         <button
                             onClick={() => navigate(ROUTES.UPGRADE)}
-                            className="w-full md:w-auto px-6 py-3 text-sm font-bold bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-xl shadow-md transition-all hover:scale-[1.02] cursor-pointer"
+                            className="w-full md:w-auto px-6 py-3 text-sm font-bold bg-gradient-to-r from-indigo-600 to-sky-500 hover:from-indigo-700 hover:to-sky-600 text-white rounded-xl shadow-md transition-all hover:scale-[1.02] cursor-pointer"
                         >
                             Nâng cấp Premium ngay
                         </button>
@@ -375,13 +375,13 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack,
             {/* ==================== REFERRAL SECTION ==================== */}
             <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-6">
                 <div className="flex items-center gap-3 pb-4 border-b border-gray-150/50 dark:border-gray-700">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-500 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-indigo-100 dark:shadow-none">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-indigo-100 dark:shadow-none">
                         <Gift className="w-5 h-5" />
                     </div>
                     <div>
                         <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 flex items-center gap-1.5">
                             Giới thiệu bạn bè & Nhận quà lũy tiến
-                            <span className="bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
+                            <span className="bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
                                 hot
                             </span>
                         </h3>
@@ -416,7 +416,7 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack,
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {/* Panel 1: Share Link */}
-                    <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-slate-900/40 dark:to-slate-800/40 p-5 rounded-2xl border border-indigo-100/40 dark:border-slate-800 flex flex-col justify-between space-y-4">
+                    <div className="bg-gradient-to-r from-indigo-50 to-sky-50 dark:from-slate-900/40 dark:to-slate-800/40 p-5 rounded-2xl border border-indigo-100/40 dark:border-slate-800 flex flex-col justify-between space-y-4 font-sans">
                         <div>
                             <h4 className="text-xs font-bold text-indigo-700 dark:text-indigo-400 uppercase tracking-wider mb-2">Link giới thiệu của bạn</h4>
                             <p className="text-gray-500 dark:text-slate-450 text-[11px] leading-relaxed">
@@ -514,44 +514,34 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack,
                 {/* Progressive Reward Map */}
                 <div className="border border-indigo-50/80 dark:border-slate-750 bg-indigo-50/10 dark:bg-slate-900/10 rounded-2xl p-5 space-y-4">
                     <div className="flex items-center gap-1.5">
-                        <Award className="w-4 h-4 text-purple-600" />
+                        <Award className="w-4 h-4 text-sky-600" />
                         <h4 className="text-xs font-bold text-gray-800 dark:text-slate-200">
                             Bản đồ phần thưởng Premium lũy tiến (Khi bạn bè nâng cấp Premium)
                         </h4>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 relative z-10">
-                        {[
-                            { step: 1, label: 'Bạn thứ 1', bonus: '+15 ngày' },
-                            { step: 2, label: 'Bạn thứ 2', bonus: '+30 ngày' },
-                            { step: 3, label: 'Bạn thứ 3', bonus: '+45 ngày' },
-                            { step: 4, label: 'Bạn thứ 4+', bonus: '+60 ngày/bạn' }
-                        ].map((milestone) => {
-                            const isAchieved = refStats.premiumInvited >= milestone.step || (milestone.step === 4 && refStats.premiumInvited >= 4);
-                            const isActiveNext = refStats.premiumInvited === milestone.step - 1;
-                            
-                            return (
-                                <div
+                                             <div
                                     key={milestone.step}
                                     className={`p-3.5 rounded-xl border flex flex-col items-center justify-between text-center relative overflow-hidden transition-all ${
                                         isAchieved
                                             ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-800 dark:text-emerald-400'
                                             : isActiveNext
-                                            ? 'bg-purple-500/10 border-purple-500/30 text-purple-800 dark:text-purple-400 shadow-sm shadow-purple-100 dark:shadow-none animate-pulse'
+                                            ? 'bg-sky-500/10 border-sky-500/30 text-sky-800 dark:text-sky-400 shadow-sm shadow-sky-100 dark:shadow-none animate-pulse'
                                             : 'bg-white dark:bg-slate-800 border-gray-150/40 dark:border-slate-700 text-gray-400'
                                     }`}
                                 >
                                     <div className="absolute top-1.5 right-2 text-[8px] font-black uppercase tracking-wider">
                                         {isAchieved ? (
-                                            <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-0.5">✓ ĐÃ CỘNG</span>
+                                            <span className="text-emerald-600 dark:text-emerald-450 flex items-center gap-0.5">✓ ĐÃ CỘNG</span>
                                         ) : isActiveNext ? (
-                                            <span className="text-purple-600 dark:text-purple-400 flex items-center gap-0.5 animate-bounce">TỚI LƯỢT</span>
+                                            <span className="text-sky-600 dark:text-sky-400 flex items-center gap-0.5 animate-bounce">TỚI LƯỢT</span>
                                         ) : (
                                             <span>CHƯA ĐẠT</span>
                                         )}
                                     </div>
                                     <span className="text-[10px] font-extrabold block mb-1 uppercase tracking-wider">{milestone.label}</span>
-                                    <span className={`text-sm font-black mt-1 ${isAchieved ? 'text-emerald-700 dark:text-emerald-300' : isActiveNext ? 'text-purple-700 dark:text-purple-300' : 'text-gray-700 dark:text-slate-350'}`}>
+                                    <span className={`text-sm font-black mt-1 ${isAchieved ? 'text-emerald-700 dark:text-emerald-300' : isActiveNext ? 'text-sky-700 dark:text-sky-300' : 'text-gray-700 dark:text-slate-350'}`}>
                                         {milestone.bonus}
                                     </span>
                                 </div>

@@ -38,7 +38,7 @@ const AvatarDisplay = ({ avatar, name, size = 'w-20 h-20', textSize = 'text-2xl'
     // Render default or emoji
     const emoji = (resolvedAvatar && resolvedAvatar !== 'default') ? AVATAR_EMOJIS[resolvedAvatar] : null;
     return (
-        <div className={`${size} rounded-full flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-indigo-200 dark:ring-indigo-800 border-[3px] border-white dark:border-gray-700 ${emoji ? 'bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40' : 'bg-gradient-to-br from-indigo-400 to-purple-500 text-white font-bold'}`}>
+        <div className={`${size} rounded-full flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-indigo-200 dark:ring-indigo-800 border-[3px] border-white dark:border-gray-700 ${emoji ? 'bg-gradient-to-br from-indigo-100 to-sky-100 dark:from-indigo-900/40 dark:to-sky-900/20' : 'bg-gradient-to-br from-indigo-500 to-indigo-650 text-white font-bold'}`}>
             {emoji ? <span className={textSize === 'text-2xl' ? 'text-3xl' : textSize}>{emoji}</span> : <span className={textSize}>{(name || 'U')[0].toUpperCase()}</span>}
         </div>
     );
@@ -139,7 +139,7 @@ const EditProfileModal = ({ profileData, onClose, onSave }) => {
                     <button
                         onClick={handleSave}
                         disabled={saving}
-                        className="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-bold text-sm shadow-lg shadow-indigo-500/25 disabled:opacity-50 transition-all flex items-center justify-center gap-2"
+                        className="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-lg shadow-indigo-500/25 disabled:opacity-50 transition-all flex items-center justify-center gap-2"
                     >
                         {saving ? (
                             <div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
@@ -196,7 +196,7 @@ const ReplyMiniCard = ({ reply }) => {
 const PostMiniCard = ({ post }) => {
     const CATEGORIES = {
         question: { icon: '❓', label: 'Hỏi đáp', color: 'text-blue-600 bg-blue-50 dark:bg-blue-900/20 dark:text-blue-400' },
-        grammar: { icon: '📝', label: 'Ngữ pháp', color: 'text-purple-600 bg-purple-50 dark:bg-purple-900/20 dark:text-purple-400' },
+        grammar: { icon: '📝', label: 'Ngữ pháp', color: 'text-sky-600 bg-sky-50 dark:bg-sky-900/20 dark:text-sky-400' },
         vocab: { icon: '📚', label: 'Từ vựng', color: 'text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 dark:text-emerald-400' },
         kanji: { icon: '🈁', label: 'Kanji', color: 'text-red-600 bg-red-50 dark:bg-red-900/20 dark:text-red-400' },
         tips: { icon: '💡', label: 'Mẹo học', color: 'text-amber-600 bg-amber-50 dark:bg-amber-900/20 dark:text-amber-400' },
@@ -540,7 +540,7 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
             {/* Profile Card */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden">
                 {/* Cover gradient */}
-                <div className="h-24 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 relative">
+                <div className="h-24 bg-gradient-to-r from-indigo-500 to-indigo-700 relative">
                     {/* Avatar - positioned to overlap */}
                     <div className="absolute -bottom-10 left-5">
                         <AvatarDisplay avatar={displayAvatar} name={displayName} size="w-20 h-20" textSize="text-2xl" isSelf={isSelf} />

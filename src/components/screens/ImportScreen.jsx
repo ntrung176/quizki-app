@@ -262,7 +262,7 @@ const ImportScreen = ({ onImport }) => {
                     <button
                         onClick={handleConfirmImport}
                         disabled={isConfirming}
-                        className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-60"
+                        className="w-full py-3 bg-gradient-to-r from-indigo-600 to-sky-500 hover:from-indigo-700 hover:to-sky-600 text-white font-bold rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-60"
                     >
                         {isConfirming
                             ? <><Loader2 className="w-4 h-4 animate-spin" /> Đang nhập...</>

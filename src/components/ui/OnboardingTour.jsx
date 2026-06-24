@@ -693,7 +693,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
 
                             <div className="p-5 pb-3">
                                 <div className="flex items-start gap-3">
-                                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/30">
+                                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-sky-500 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/30">
                                         <Sparkle className="w-5 h-5 text-white" />
                                     </div>
                                     <div className="flex-1 min-w-0">

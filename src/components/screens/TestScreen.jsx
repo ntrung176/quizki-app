@@ -330,8 +330,8 @@ const TestScreen = ({ allCards, onBack }) => {
         return (
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm animate-fade-in">
                 <div className="flex flex-col items-center justify-center text-center space-y-6 p-6 max-w-md">
-                    <div className="w-28 h-28 bg-gradient-to-br from-indigo-100 to-purple-200 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-full flex items-center justify-center mb-2 shadow-inner">
-                        <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 animate-bounce">
+                    <div className="w-28 h-28 bg-gradient-to-br from-indigo-100 to-sky-200 dark:from-indigo-900/30 dark:to-sky-900/30 rounded-full flex items-center justify-center mb-2 shadow-inner">
+                        <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-sky-500 rounded-full flex items-center justify-center shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 animate-bounce">
                             <Award className="w-10 h-10 text-white" strokeWidth={2} />
                         </div>
                     </div>
@@ -348,7 +348,7 @@ const TestScreen = ({ allCards, onBack }) => {
                     </div>
                     <button
                         onClick={() => { if (onBack) onBack(); }}
-                        className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500 text-white font-bold rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all"
+                        className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-sky-500 dark:from-indigo-500 dark:to-sky-500 text-white font-bold rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all"
                     >
                         Trở về
                     </button>
@@ -360,7 +360,7 @@ const TestScreen = ({ allCards, onBack }) => {
     if (testMode && questions.length > 0) {
         const currentQuestion = questions[currentQuestionIndex];
         return (
-            <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
+            <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
                 {onBack && (
                     <button
                         onClick={onBack}
@@ -472,7 +472,7 @@ const TestScreen = ({ allCards, onBack }) => {
     // Render config screen
     if (showConfig) {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
+            <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
                 <div className="max-w-2xl mx-auto">
                     <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-6 md:p-8">
                         <div className="flex items-center justify-between mb-8">
@@ -535,7 +535,7 @@ const TestScreen = ({ allCards, onBack }) => {
     }
     // Render menu screen (initial)
     return (
-        <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
+        <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
             {onBack && (
                 <button
                     onClick={onBack}
@@ -613,7 +613,7 @@ const TestScreen = ({ allCards, onBack }) => {
                     {/* Grammar Section */}
                     <div>
                         <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center">
-                            <Wrench className="w-6 h-6 mr-2 text-purple-600 dark:text-purple-400" />
+                            <Wrench className="w-6 h-6 mr-2 text-sky-600 dark:text-sky-400" />
                             Ngữ pháp
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
