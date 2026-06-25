@@ -58,8 +58,8 @@ const VOICE_STORAGE_KEY = 'quizki-tts-voice';
 
 // Available voices (SpeechGen.io Japanese voices)
 export const TTS_VOICES = {
-    mayu: { id: 'mayu', label: 'Achernar (Nữ HD)', speechgenName: 'Achernar', gender: 'Female' },
-    ryota: { id: 'ryota', label: 'Achird (Nam HD)', speechgenName: 'Achird', gender: 'Male' },
+    mayu: { id: 'mayu', label: 'Mayu (Nữ)', speechgenName: 'Mayu', gender: 'Female' },
+    ryota: { id: 'ryota', label: 'Ryota (Nam)', speechgenName: 'Ryota', gender: 'Male' },
 };
 
 // Get current voice preference

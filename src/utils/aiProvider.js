@@ -206,13 +206,25 @@ export const parseJsonFromAI = (text) => {
     if (jsonStr.endsWith('```')) jsonStr = jsonStr.slice(0, -3);
     jsonStr = jsonStr.trim();
 
-    // Try to extract JSON array first, then object from mixed content
-    const arrayMatch = jsonStr.match(/\[[\s\S]*\]/);
-    if (arrayMatch) {
-        jsonStr = arrayMatch[0];
-    } else {
+    // Determine if it is an array or object based on the first character
+    const firstChar = jsonStr.charAt(0);
+    if (firstChar === '[') {
+        const arrayMatch = jsonStr.match(/\[[\s\S]*\]/);
+        if (arrayMatch) jsonStr = arrayMatch[0];
+    } else if (firstChar === '{') {
         const objectMatch = jsonStr.match(/\{[\s\S]*\}/);
         if (objectMatch) jsonStr = objectMatch[0];
+    } else {
+        // Fallback to previous logic if first char is neither (e.g. some prepended text)
+        const firstBrace = jsonStr.indexOf('{');
+        const firstBracket = jsonStr.indexOf('[');
+        if (firstBracket !== -1 && (firstBrace === -1 || firstBracket < firstBrace)) {
+            const arrayMatch = jsonStr.match(/\[[\s\S]*\]/);
+            if (arrayMatch) jsonStr = arrayMatch[0];
+        } else {
+            const objectMatch = jsonStr.match(/\{[\s\S]*\}/);
+            if (objectMatch) jsonStr = objectMatch[0];
+        }
     }
 
     try {
