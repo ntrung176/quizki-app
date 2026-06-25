@@ -30,6 +30,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
     const [loading, setLoading] = useState(true);
     const [completedDays, setCompletedDays] = useState({});
     const userId = getAuth().currentUser?.uid;
+
     // Load kanji and progress from Firebase
     useEffect(() => {
         const loadData = async () => {
@@ -37,10 +38,10 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                 const kanjiData = await getSharedKanjiList();
                 setKanjiList(kanjiData);
                 // Load user progress
+                const progress = {};
                 if (userId) {
                     try {
                         const progressSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiProgress`));
-                        const progress = {};
                         progressSnap.docs.forEach(d => {
                             const data = d.data();
                             const key = `${data.level}_${data.day}`;
@@ -49,6 +50,19 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                         setCompletedDays(progress);
                     } catch (e) { console.error('Error loading progress:', e); }
                 }
+
+                // Determine next uncompleted day for initial level (N5) synchronously to avoid a post-load double render
+                const levelKanjiItems = kanjiData.filter(k => k.level === 'N5');
+                const levelDaysCount = Math.ceil(levelKanjiItems.length / 10) || JLPT_CONFIG['N5']?.totalDays || 12;
+                let nextDay = 1;
+                for (let d = 1; d <= levelDaysCount; d++) {
+                    if (!progress[`N5_${d}`]) {
+                        nextDay = d;
+                        break;
+                    }
+                    nextDay = levelDaysCount;
+                }
+                setCurrentDay(nextDay);
             } catch (e) {
                 console.error('Error loading kanji:', e);
             } finally {
@@ -57,35 +71,68 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
         };
         loadData();
     }, [userId]);
+
+    // Precompute total days for each level once kanjiList changes to avoid doing it in tabs rendering loop
+    const levelDaysMap = useMemo(() => {
+        const map = {};
+        Object.keys(JLPT_CONFIG).forEach(lvl => {
+            const count = kanjiList.filter(k => k.level === lvl).length;
+            map[lvl] = Math.ceil(count / 10) || JLPT_CONFIG[lvl]?.totalDays || 12;
+        });
+        return map;
+    }, [kanjiList]);
+
+    // Precompute completed status for each level
+    const completedLevelsMap = useMemo(() => {
+        const map = {};
+        Object.keys(JLPT_CONFIG).forEach(lvl => {
+            const levelDays = levelDaysMap[lvl] || 12;
+            let isCompleted = true;
+            for (let d = 1; d <= levelDays; d++) {
+                if (!completedDays[`${lvl}_${d}`]) {
+                    isCompleted = false;
+                    break;
+                }
+            }
+            map[lvl] = isCompleted;
+        });
+        return map;
+    }, [levelDaysMap, completedDays]);
+
     // Get kanji for selected level, sorted from easy to hard (stroke count → frequency)
     const levelKanji = useMemo(() => {
         const filtered = kanjiList.filter(k => k.level === selectedLevel);
-        return filtered.sort((a, b) => {
-            // Primary: stroke count (fewer strokes = easier)
-            const jA = getJotobaKanjiData(a.character);
-            const jB = getJotobaKanjiData(b.character);
-            const strokeA = jA?.stroke_count || parseInt(a.strokeCount) || 999;
-            const strokeB = jB?.stroke_count || parseInt(b.strokeCount) || 999;
-            if (strokeA !== strokeB) return strokeA - strokeB;
-            // Secondary: frequency (lower = more common = learn first)
-            const freqA = jA?.frequency || 9999;
-            const freqB = jB?.frequency || 9999;
-            return freqA - freqB;
+        const mapped = filtered.map(k => {
+            const jData = getJotobaKanjiData(k.character);
+            return {
+                item: k,
+                stroke: jData?.stroke_count || parseInt(k.strokeCount) || 999,
+                freq: jData?.frequency || 9999
+            };
         });
+        mapped.sort((a, b) => {
+            if (a.stroke !== b.stroke) return a.stroke - b.stroke;
+            return a.freq - b.freq;
+        });
+        return mapped.map(x => x.item);
     }, [kanjiList, selectedLevel]);
+
     // Calculate total days for level
     const totalDays = useMemo(() => {
-        return Math.ceil(levelKanji.length / 10) || JLPT_CONFIG[selectedLevel]?.totalDays || 12;
-    }, [levelKanji, selectedLevel]);
+        return levelDaysMap[selectedLevel] || 12;
+    }, [levelDaysMap, selectedLevel]);
+
     // Get kanji for current day (10 kanji per day)
     const todayKanji = useMemo(() => {
         const startIndex = (currentDay - 1) * 10;
         return levelKanji.slice(startIndex, startIndex + 10);
     }, [levelKanji, currentDay]);
+
     // Check if a specific day is completed
     const isDayCompleted = (lvl, d) => {
         return !!completedDays[`${lvl}_${d}`];
     };
+
     // Count completed days for selected level
     const completedDaysCount = useMemo(() => {
         let count = 0;
@@ -94,6 +141,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
         }
         return count;
     }, [completedDays, selectedLevel, totalDays]);
+
     // Calculate stats
     const stats = useMemo(() => {
         const totalKanji = levelKanji.length;
@@ -107,26 +155,29 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
             totalKanji,
         };
     }, [levelKanji, completedDaysCount, totalDays]);
-    // Auto-set current day to next uncompleted day
+
+    // Auto-set current day to next uncompleted day (fallback / sync)
     useEffect(() => {
+        if (loading || kanjiList.length === 0) return;
+        let nextDay = 1;
         for (let d = 1; d <= totalDays; d++) {
             if (!isDayCompleted(selectedLevel, d)) {
-                setCurrentDay(d);
-                return;
+                nextDay = d;
+                break;
             }
+            nextDay = totalDays;
         }
-        // All days completed, stay on last
-        setCurrentDay(totalDays);
-    }, [selectedLevel, completedDays, totalDays]);
+        if (currentDay !== nextDay) {
+            setCurrentDay(nextDay);
+        }
+    }, [selectedLevel, completedDays, totalDays, loading, kanjiList]);
+
     const handleStartStudy = () => {
         navigate(`${ROUTES.KANJI_STUDY}/lesson?level=${selectedLevel}&day=${currentDay}`);
     };
+
     const isLevelCompleted = (levelKey) => {
-        const levelDays = Math.ceil(kanjiList.filter(k => k.level === levelKey).length / 10) || JLPT_CONFIG[levelKey]?.totalDays || 12;
-        for (let d = 1; d <= levelDays; d++) {
-            if (!completedDays[`${levelKey}_${d}`]) return false;
-        }
-        return true;
+        return !!completedLevelsMap[levelKey];
     };
     const config = JLPT_CONFIG[selectedLevel];
     const progressRadius = 54;
@@ -210,7 +261,18 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                                         setShowPremiumModal(true);
                                     } else {
                                         setSelectedLevel(level);
-                                        setCurrentDay(1);
+                                        // Calculate next uncompleted day synchronously for this level to avoid extra re-renders
+                                        const levelKanjiItems = kanjiList.filter(k => k.level === level);
+                                        const levelDaysCount = Math.ceil(levelKanjiItems.length / 10) || JLPT_CONFIG[level]?.totalDays || 12;
+                                        let nextDay = 1;
+                                        for (let d = 1; d <= levelDaysCount; d++) {
+                                            if (!completedDays[`${level}_${d}`]) {
+                                                nextDay = d;
+                                                break;
+                                            }
+                                            nextDay = levelDaysCount;
+                                        }
+                                        setCurrentDay(nextDay);
                                     }
                                 }}
                                 className={`flex-1 min-w-[90px] py-3.5 rounded-xl text-center transition-all flex flex-col items-center justify-center gap-1.5 ${isSelected

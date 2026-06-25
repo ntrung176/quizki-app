@@ -87,6 +87,13 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const [scanning, setScanning] = useState(false);
     const [applyingScanId, setApplyingScanId] = useState(null);
 
+    // Firebase cost estimator parameters
+    const [firebaseReadsPerUser, setFirebaseReadsPerUser] = useState(150);
+    const [firebaseWritesPerUser, setFirebaseWritesPerUser] = useState(30);
+    const [firebaseAvgCardSizeKb, setFirebaseAvgCardSizeKb] = useState(40);
+    const [firebaseExchangeRate, setFirebaseExchangeRate] = useState(25400);
+    const [includeFirebaseInExpenses, setIncludeFirebaseInExpenses] = useState(true);
+
     // Auto-dismiss notification after 4 seconds
     useEffect(() => {
         if (notification) {
@@ -1960,11 +1967,34 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                             if (exp.recurring === 'yearly') return (exp.month || '').slice(5, 7) === selectedMonth.slice(5, 7);
                                             return exp.month === selectedMonth;
                                         });
+
+                                        // Firebase cost calculation
+                                        const dailyReads = stats.activeToday * firebaseReadsPerUser;
+                                        const billableDailyReads = Math.max(0, dailyReads - 50000);
+                                        const dailyReadsCostUsd = billableDailyReads * 0.0000006;
+                                        const monthlyReadsCostVnd = Math.round(dailyReadsCostUsd * 30.5 * firebaseExchangeRate);
+
+                                        const dailyWrites = stats.activeToday * firebaseWritesPerUser;
+                                        const billableDailyWrites = Math.max(0, dailyWrites - 20000);
+                                        const dailyWritesCostUsd = billableDailyWrites * 0.0000018;
+                                        const monthlyWritesCostVnd = Math.round(dailyWritesCostUsd * 30.5 * firebaseExchangeRate);
+
+                                        const storageGb = ((stats.totalCards * firebaseAvgCardSizeKb) + (users.length * 5)) / (1024 * 1024);
+                                        const billableStorageGb = Math.max(0, storageGb - 1);
+                                        const monthlyStorageCostVnd = Math.round(billableStorageGb * 0.18 * firebaseExchangeRate);
+
+                                        const monthlyBandwidthGb = (dailyReads * 30.5 * 2) / (1024 * 1024);
+                                        const billableBandwidthGb = Math.max(0, monthlyBandwidthGb - 10);
+                                        const monthlyBandwidthCostVnd = Math.round(billableBandwidthGb * 0.12 * firebaseExchangeRate);
+
+                                        const totalFirebaseCostVnd = monthlyReadsCostVnd + monthlyWritesCostVnd + monthlyStorageCostVnd + monthlyBandwidthCostVnd;
+                                        const firebaseExpenses = includeFirebaseInExpenses ? totalFirebaseCostVnd : 0;
+
                                         const totalRevenue = monthTxs.reduce((s, r) => s + (r.amount || 0), 0);
                                         const totalFixed = monthExps.filter(e => e.type === 'fixed').reduce((s, e) => s + (e.amount || 0), 0);
                                         const totalOp = monthExps.filter(e => e.type === 'operating').reduce((s, e) => s + (e.amount || 0), 0);
                                         const totalOther = monthExps.filter(e => e.type === 'other').reduce((s, e) => s + (e.amount || 0), 0);
-                                        const totalExp = totalFixed + totalOp + totalOther;
+                                        const totalExp = totalFixed + totalOp + totalOther + firebaseExpenses;
                                         const profit = totalRevenue - totalExp;
 
                                         // Sheet 1: Tổng quan
@@ -1974,16 +2004,17 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                             ['Hạng mục', 'Số tiền (VND)'],
                                             ['Doanh thu', totalRevenue],
                                             ['Chi phí cố định', totalFixed],
-                                            ['Chi phí vận hành', totalOp],
+                                            ['Chi phí vận hành', totalOp + firebaseExpenses],
                                             ['Chi phí khác', totalOther],
+                                            includeFirebaseInExpenses ? ['Trong đó Firebase Blaze (Ước tính)', totalFirebaseCostVnd] : null,
                                             ['Tổng chi phí', totalExp],
                                             [],
                                             ['LỢI NHUẬN RÒNG', profit],
                                             [],
                                             ['Số giao dịch', monthTxs.length],
-                                        ];
+                                        ].filter(row => row !== null);
                                         const ws1 = XLSX.utils.aoa_to_sheet(summaryData);
-                                        ws1['!cols'] = [{ wch: 25 }, { wch: 20 }];
+                                        ws1['!cols'] = [{ wch: 35 }, { wch: 20 }];
 
                                         // Sheet 2: Giao dịch
                                         const txHeaders = ['STT', 'Ngày', 'Người dùng', 'Email', 'Gói', 'Số thẻ', 'Số tiền (VND)'];
@@ -2000,8 +2031,11 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                         const typeMap = { fixed: 'Cố định', operating: 'Vận hành', other: 'Khác' };
                                         const recurMap = { monthly: 'Hàng tháng', yearly: 'Hàng năm', once: 'Một lần' };
                                         const expRows = monthExps.map((e, i) => [i + 1, e.name, typeMap[e.type] || e.type, recurMap[e.recurring] || e.recurring, e.month, e.amount || 0, e.description || '']);
+                                        if (includeFirebaseInExpenses) {
+                                            expRows.push([expRows.length + 1, 'Firebase Blaze (Ước tính)', 'Vận hành', 'Hàng tháng', selectedMonth, totalFirebaseCostVnd, 'Tính toán tự động dựa trên số liệu DAU & Cards']);
+                                        }
                                         const ws3 = XLSX.utils.aoa_to_sheet([expHeaders, ...expRows]);
-                                        ws3['!cols'] = [{ wch: 5 }, { wch: 20 }, { wch: 12 }, { wch: 12 }, { wch: 10 }, { wch: 15 }, { wch: 25 }];
+                                        ws3['!cols'] = [{ wch: 5 }, { wch: 25 }, { wch: 12 }, { wch: 12 }, { wch: 10 }, { wch: 15 }, { wch: 30 }];
 
                                         // Create workbook
                                         const wb = XLSX.utils.book_new();
@@ -2053,7 +2087,31 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                         const totalFixedCost = monthExpenses.filter(e => e.type === 'fixed').reduce((sum, e) => sum + (e.amount || 0), 0);
                         const totalOperatingCost = monthExpenses.filter(e => e.type === 'operating').reduce((sum, e) => sum + (e.amount || 0), 0);
                         const totalOtherCost = monthExpenses.filter(e => e.type === 'other').reduce((sum, e) => sum + (e.amount || 0), 0);
-                        const totalExpenses = totalFixedCost + totalOperatingCost + totalOtherCost;
+
+                        // Firebase Blaze estimation calculations:
+                        const dailyReads = stats.activeToday * firebaseReadsPerUser;
+                        const billableDailyReads = Math.max(0, dailyReads - 50000);
+                        const dailyReadsCostUsd = billableDailyReads * 0.0000006;
+                        const monthlyReadsCostVnd = Math.round(dailyReadsCostUsd * 30.5 * firebaseExchangeRate);
+
+                        const dailyWrites = stats.activeToday * firebaseWritesPerUser;
+                        const billableDailyWrites = Math.max(0, dailyWrites - 20000);
+                        const dailyWritesCostUsd = billableDailyWrites * 0.0000018;
+                        const monthlyWritesCostVnd = Math.round(dailyWritesCostUsd * 30.5 * firebaseExchangeRate);
+
+                        // 40 KB per card average, 5 KB per user profile
+                        const storageGb = ((stats.totalCards * firebaseAvgCardSizeKb) + (users.length * 5)) / (1024 * 1024);
+                        const billableStorageGb = Math.max(0, storageGb - 1);
+                        const monthlyStorageCostVnd = Math.round(billableStorageGb * 0.18 * firebaseExchangeRate);
+
+                        const monthlyBandwidthGb = (dailyReads * 30.5 * 2) / (1024 * 1024); // 2 KB payload per document read
+                        const billableBandwidthGb = Math.max(0, monthlyBandwidthGb - 10);
+                        const monthlyBandwidthCostVnd = Math.round(billableBandwidthGb * 0.12 * firebaseExchangeRate);
+
+                        const totalFirebaseCostVnd = monthlyReadsCostVnd + monthlyWritesCostVnd + monthlyStorageCostVnd + monthlyBandwidthCostVnd;
+
+                        const firebaseExpenses = includeFirebaseInExpenses ? totalFirebaseCostVnd : 0;
+                        const totalExpenses = totalFixedCost + totalOperatingCost + totalOtherCost + firebaseExpenses;
                         const profit = monthRevenue - totalExpenses;
 
                         // All-time stats
@@ -2062,7 +2120,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                             .reduce((sum, r) => sum + (r.amount || 0), 0);
 
                         const allTimeExpenses = expenses
-                            .reduce((sum, e) => sum + (e.amount || 0), 0);
+                            .reduce((sum, e) => sum + (e.amount || 0), 0) + firebaseExpenses;
 
                         const allTimeProfit = allTimeRevenue - allTimeExpenses;
 
@@ -2135,6 +2193,100 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                     </div>
                                 </div>
 
+                                {/* Firebase Blaze Cost Estimator Panel */}
+                                <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 space-y-4">
+                                    <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2">
+                                        <Wifi className="w-4 h-4 text-orange-500" />
+                                        Ước tính Chi phí Firebase (Gói Blaze)
+                                    </h3>
+                                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                                        Firebase Blaze tính phí dựa trên sử dụng thực tế. Dưới đây là ước tính chi phí dựa trên số lượng người dùng và thẻ hiện tại.
+                                    </p>
+                                    
+                                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                        <div>
+                                            <label className="text-[10px] font-bold text-gray-500 uppercase block mb-1">Reads/DAU/Ngày</label>
+                                            <input
+                                                type="number"
+                                                value={firebaseReadsPerUser}
+                                                onChange={(e) => setFirebaseReadsPerUser(Math.max(0, parseInt(e.target.value) || 0))}
+                                                className="w-full px-3 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="text-[10px] font-bold text-gray-500 uppercase block mb-1">Writes/DAU/Ngày</label>
+                                            <input
+                                                type="number"
+                                                value={firebaseWritesPerUser}
+                                                onChange={(e) => setFirebaseWritesPerUser(Math.max(0, parseInt(e.target.value) || 0))}
+                                                className="w-full px-3 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="text-[10px] font-bold text-gray-500 uppercase block mb-1">Dung lượng/Thẻ (KB)</label>
+                                            <input
+                                                type="number"
+                                                value={firebaseAvgCardSizeKb}
+                                                onChange={(e) => setFirebaseAvgCardSizeKb(Math.max(0, parseInt(e.target.value) || 0))}
+                                                className="w-full px-3 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="text-[10px] font-bold text-gray-500 uppercase block mb-1">Tỷ giá USD/VND</label>
+                                            <input
+                                                type="number"
+                                                value={firebaseExchangeRate}
+                                                onChange={(e) => setFirebaseExchangeRate(Math.max(0, parseInt(e.target.value) || 0))}
+                                                className="w-full px-3 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs dark:text-white outline-none"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    {/* Cost breakdown table */}
+                                    <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4 border border-gray-150 dark:border-gray-805 text-xs space-y-3">
+                                        <div className="flex justify-between items-center text-gray-400">
+                                            <span>Thông số hệ thống:</span>
+                                            <span className="font-semibold">{users.length} Users • {stats.totalCards} Cards • {stats.activeToday} DAU</span>
+                                        </div>
+                                        <div className="border-t border-gray-200 dark:border-gray-800 pt-2 space-y-2">
+                                            <div className="flex justify-between">
+                                                <span className="text-gray-600 dark:text-gray-400">📖 Firestore Reads: {new Intl.NumberFormat().format(dailyReads * 30.5)} lượt/tháng (Miễn phí: 50k/ngày)</span>
+                                                <span className="font-bold text-gray-750 dark:text-gray-300">{formatVND(monthlyReadsCostVnd)}</span>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <span className="text-gray-600 dark:text-gray-400">✍️ Firestore Writes: {new Intl.NumberFormat().format(dailyWrites * 30.5)} lượt/tháng (Miễn phí: 20k/ngày)</span>
+                                                <span className="font-bold text-gray-750 dark:text-gray-300">{formatVND(monthlyWritesCostVnd)}</span>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <span className="text-gray-600 dark:text-gray-400">💾 Firestore Storage: {storageGb.toFixed(3)} GB (Miễn phí: 1 GB)</span>
+                                                <span className="font-bold text-gray-750 dark:text-gray-300">{formatVND(monthlyStorageCostVnd)}</span>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <span className="text-gray-600 dark:text-gray-400">🌐 Băng thông (Network Egress): {monthlyBandwidthGb.toFixed(2)} GB (Miễn phí: 10 GB)</span>
+                                                <span className="font-bold text-gray-750 dark:text-gray-300">{formatVND(monthlyBandwidthCostVnd)}</span>
+                                            </div>
+                                        </div>
+                                        <div className="border-t border-gray-205 dark:border-gray-800 pt-2 flex justify-between items-center font-bold text-sm">
+                                            <span className="text-gray-800 dark:text-white">🔥 Tổng chi phí Firebase Blaze ước tính:</span>
+                                            <span className="text-orange-600 dark:text-orange-400">{formatVND(totalFirebaseCostVnd)} (~${(totalFirebaseCostVnd / firebaseExchangeRate).toFixed(2)})</span>
+                                        </div>
+                                        
+                                        <div className="flex items-center gap-2 pt-2 border-t border-gray-200 dark:border-gray-800">
+                                            <button
+                                                type="button"
+                                                onClick={() => setIncludeFirebaseInExpenses(!includeFirebaseInExpenses)}
+                                                className="text-indigo-650 dark:text-indigo-400 hover:underline flex items-center gap-1 font-bold text-xs"
+                                            >
+                                                {includeFirebaseInExpenses ? (
+                                                    <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-emerald-500" /> Đang cộng dồn vào tổng chi phí tháng</span>
+                                                ) : (
+                                                    <span className="flex items-center gap-1"><AlertTriangle className="w-3.5 h-3.5 text-yellow-500" /> Bấm để cộng dồn vào tổng chi phí tháng</span>
+                                                )}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 {/* Expense Breakdown */}
                                 <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
                                     <h3 className="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
@@ -2165,6 +2317,14 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                 <div className="flex items-center justify-between">
                                                     <span className="text-sm font-medium text-amber-700 dark:text-amber-400">⚙️ Chi phí vận hành</span>
                                                     <span className="text-sm font-bold text-amber-600">-{formatVND(totalOperatingCost)}</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {includeFirebaseInExpenses && totalFirebaseCostVnd > 0 && (
+                                            <div className="p-3 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg">
+                                                <div className="flex items-center justify-between">
+                                                    <span className="text-sm font-medium text-orange-750 dark:text-orange-400">🔥 Firebase Blaze (Ước tính)</span>
+                                                    <span className="text-sm font-bold text-orange-600">-{formatVND(totalFirebaseCostVnd)}</span>
                                                 </div>
                                             </div>
                                         )}

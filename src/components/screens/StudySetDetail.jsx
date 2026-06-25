@@ -83,13 +83,168 @@ const InlineEditCell = ({ value, onSave, className = '', isJapanese = false }) =
     );
 };
 
+const FlashcardPlayerSection = ({
+    setCards,
+    cardSettings,
+    setShowSettingsMenu,
+    onSaveCardAudio
+}) => {
+    const [currentCardIndex, setCurrentCardIndex] = useState(0);
+    const [isCardFlipped, setIsCardFlipped] = useState(false);
+    const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
+    const [slideDirection, setSlideDirection] = useState('');
+    const [isShuffled, setIsShuffled] = useState(false);
+    const [shuffledCards, setShuffledCards] = useState([]);
+
+    // Reset shuffle state when setCards changes
+    useEffect(() => {
+        setIsShuffled(false);
+        setShuffledCards([]);
+        setCurrentCardIndex(0);
+        setIsCardFlipped(false);
+    }, [setCards]);
+
+    const activeCardsList = useMemo(() => {
+        return isShuffled ? shuffledCards : setCards;
+    }, [isShuffled, shuffledCards, setCards]);
+
+    const activeCard = activeCardsList[currentCardIndex];
+
+    // Preload adjacent cards' base64 images for seamless transitions
+    useEffect(() => {
+        if (!activeCardsList || activeCardsList.length === 0) return;
+        const indicesToPreload = [currentCardIndex - 1, currentCardIndex + 1, currentCardIndex + 2];
+        indicesToPreload.forEach(idx => {
+            if (idx >= 0 && idx < activeCardsList.length) {
+                const card = activeCardsList[idx];
+                if (card && card.imageBase64) {
+                    const img = new Image();
+                    img.src = card.imageBase64;
+                    if (typeof img.decode === 'function') {
+                        img.decode().catch(() => {});
+                    }
+                }
+            }
+        });
+    }, [currentCardIndex, activeCardsList]);
+
+    const changeCard = (newIndex, direction = '') => {
+        if (direction) {
+            setSlideDirection(direction);
+            setTimeout(() => {
+                setIsCardFlipped(false);
+                setCurrentCardIndex(newIndex);
+                setSlideDirection('');
+            }, 200);
+        } else {
+            if (isCardFlipped) {
+                setIsAnimatingFlip(false);
+                setIsCardFlipped(false);
+                setTimeout(() => {
+                    setCurrentCardIndex(newIndex);
+                    setIsAnimatingFlip(true);
+                }, 250);
+            } else {
+                setCurrentCardIndex(newIndex);
+            }
+        }
+    };
+
+    const nextCard = (e) => { e?.stopPropagation(); if (currentCardIndex < activeCardsList.length - 1) changeCard(currentCardIndex + 1, 'left'); };
+    const prevCard = (e) => { e?.stopPropagation(); if (currentCardIndex > 0) changeCard(currentCardIndex - 1, 'right'); };
+
+    if (!setCards || setCards.length === 0) return null;
+
+    return (
+        <div className="w-full max-w-3xl mx-auto relative">
+            <Flashcard
+                card={activeCard}
+                cardSettings={cardSettings}
+                isFlipped={isCardFlipped}
+                onFlip={() => {
+                    setIsAnimatingFlip(true);
+                    const nextFlippedState = !isCardFlipped;
+                    setIsCardFlipped(nextFlippedState);
+                    if (activeCard && cardSettings.autoPlayAudio && cardSettings.audioEnabled !== false) {
+                        if (nextFlippedState) {
+                            speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null);
+                        }
+                    }
+                }}
+                onSaveCardAudio={onSaveCardAudio}
+                transitionEnabled={isAnimatingFlip}
+                slideDirection={slideDirection}
+            />
+
+            {/* Speaker Button - OUTSIDE the flipping container */}
+            {cardSettings.audioEnabled !== false && activeCard && (
+                <button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null);
+                    }}
+                    className="absolute top-6 right-18 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
+                    title="Phát âm"
+                >
+                    <Volume2 className="w-4 h-4" />
+                </button>
+            )}
+
+            {/* Settings Button - OUTSIDE the flipping container */}
+            <button
+                onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
+                className="absolute top-6 right-6 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
+                title="Cấu hình hiển thị"
+            >
+                <Settings className="w-4 h-4" />
+            </button>
+
+            {/* Navigation */}
+            <div className="flex items-center justify-center gap-6 mt-5">
+                <button onClick={prevCard} disabled={currentCardIndex === 0} className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow border border-gray-200 dark:border-slate-700 flex items-center justify-center disabled:opacity-30 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors">
+                    <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                </button>
+
+                <span className="text-sm font-bold text-gray-400 tracking-widest">{currentCardIndex + 1} / {activeCardsList.length}</span>
+
+                <button onClick={nextCard} disabled={currentCardIndex === activeCardsList.length - 1} className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow border border-gray-200 dark:border-slate-700 flex items-center justify-center disabled:opacity-30 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors">
+                    <ChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                </button>
+
+                {/* Shuffle Button */}
+                <button
+                    onClick={() => {
+                        if (isShuffled) {
+                            setIsShuffled(false);
+                            const originalIndex = setCards.findIndex(c => c.id === activeCard?.id);
+                            setCurrentCardIndex(originalIndex !== -1 ? originalIndex : 0);
+                        } else {
+                            const shuffled = shuffleArray([...setCards]);
+                            setShuffledCards(shuffled);
+                            setIsShuffled(true);
+                            setCurrentCardIndex(0);
+                        }
+                        setIsCardFlipped(false);
+                    }}
+                    className={`w-10 h-10 rounded-full shadow border flex items-center justify-center transition-all hover:scale-105 ${isShuffled
+                            ? 'bg-indigo-650 border-indigo-650 text-white hover:bg-indigo-700'
+                            : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
+                        }`}
+                    title={isShuffled ? "Tắt trộn thẻ" : "Trộn thẻ"}
+                >
+                    <Shuffle className="w-4.5 h-4.5" />
+                </button>
+            </div>
+        </div>
+    );
+};
+
 const StudySetDetail = ({
     folderId, folders, cardFolders, allCards,
     onBack, onEditSet, onStudySet, onFlashcardSet, onMeaningSet, onDictationSet, onExampleSet, onSynonymQuiz,
     onNavigateToAdd, onDeleteFolder, onSaveChanges, onSaveCardAudio,
     onDeleteCards, onDeleteCard, onToggleSrs, onGeminiAssist
 }) => {
-    const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [expandedCardIds, setExpandedCardIds] = useState(new Set());
     const [isAddingKanji, setIsAddingKanji] = useState(false);
     const [editingCard, setEditingCard] = useState(null);
@@ -242,9 +397,7 @@ const StudySetDetail = ({
             return next;
         });
     };
-    const [isCardFlipped, setIsCardFlipped] = useState(false);
-    const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
-    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
     // Card Settings State (stored in localStorage with v2 version to apply new defaults)
     const [cardSettings, setCardSettings] = useState(() => {
@@ -291,9 +444,6 @@ const StudySetDetail = ({
 
     const [showSettingsMenu, setShowSettingsMenu] = useState(false);
 
-    // Card Shuffling State
-    const [isShuffled, setIsShuffled] = useState(false);
-    const [shuffledCards, setShuffledCards] = useState([]);
 
     useEffect(() => {
         localStorage.setItem('quizki_flashcard_settings_v2', JSON.stringify(cardSettings));
@@ -658,33 +808,7 @@ const StudySetDetail = ({
         };
     }, [folderId]);
 
-    // Reset shuffle state when setCards changes
-    useEffect(() => {
-        setIsShuffled(false);
-        setShuffledCards([]);
-        setCurrentCardIndex(0);
-        setIsCardFlipped(false);
-    }, [setCards]);
 
-    const activeCardsList = useMemo(() => {
-        return isShuffled ? shuffledCards : setCards;
-    }, [isShuffled, shuffledCards, setCards]);
-
-    const activeCard = activeCardsList[currentCardIndex];
-
-    const changeCard = (newIndex) => {
-        if (isCardFlipped) {
-            setIsAnimatingFlip(false);
-            setIsCardFlipped(false);
-            setCurrentCardIndex(newIndex);
-            setTimeout(() => setIsAnimatingFlip(true), 50);
-        } else {
-            setCurrentCardIndex(newIndex);
-        }
-    };
-
-    const nextCard = (e) => { e?.stopPropagation(); if (currentCardIndex < activeCardsList.length - 1) changeCard(currentCardIndex + 1); };
-    const prevCard = (e) => { e?.stopPropagation(); if (currentCardIndex > 0) changeCard(currentCardIndex - 1); };
 
     const handleInlineSave = (card, field, newValue) => {
         if (!onSaveChanges) return;
@@ -753,86 +877,12 @@ const StudySetDetail = ({
                 <div className="max-w-6xl mx-auto px-4 md:px-8 mt-8 space-y-10">
                     {setCards.length > 0 ? (
                         <>
-                            <div className="w-full max-w-3xl mx-auto relative">
-                                <Flashcard
-                                    card={activeCard}
-                                    cardSettings={cardSettings}
-                                    isFlipped={isCardFlipped}
-                                    onFlip={() => {
-                                        setIsAnimatingFlip(true);
-                                        const nextFlippedState = !isCardFlipped;
-                                        setIsCardFlipped(nextFlippedState);
-                                        if (activeCard && cardSettings.autoPlayAudio && cardSettings.audioEnabled !== false) {
-                                            // Chỉ phát âm thanh khi lật từ mặt trước sang mặt sau (nextFlippedState === true)
-                                            if (nextFlippedState) {
-                                                speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null);
-                                            }
-                                        }
-                                    }}
-                                    onSaveCardAudio={onSaveCardAudio}
-                                    transitionEnabled={isAnimatingFlip}
-                                />
-
-                                {/* Speaker Button - OUTSIDE the flipping container */}
-                                {cardSettings.audioEnabled !== false && (
-                                    <button
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null);
-                                        }}
-                                        className="absolute top-6 right-18 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
-                                        title="Phát âm"
-                                    >
-                                        <Volume2 className="w-4 h-4" />
-                                    </button>
-                                )}
-
-                                {/* Settings Button - OUTSIDE the flipping container */}
-                                <button
-                                    onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
-                                    className="absolute top-6 right-6 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
-                                    title="Cấu hình hiển thị"
-                                >
-                                    <Settings className="w-4 h-4" />
-                                </button>
-
-                                {/* Navigation */}
-                                <div className="flex items-center justify-center gap-6 mt-5">
-                                    <button onClick={prevCard} disabled={currentCardIndex === 0} className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow border border-gray-200 dark:border-slate-700 flex items-center justify-center disabled:opacity-30 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors">
-                                        <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-                                    </button>
-
-                                    <span className="text-sm font-bold text-gray-400 tracking-widest">{currentCardIndex + 1} / {activeCardsList.length}</span>
-
-                                    <button onClick={nextCard} disabled={currentCardIndex === activeCardsList.length - 1} className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow border border-gray-200 dark:border-slate-700 flex items-center justify-center disabled:opacity-30 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors">
-                                        <ChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-                                    </button>
-
-                                    {/* Shuffle Button */}
-                                    <button
-                                        onClick={() => {
-                                            if (isShuffled) {
-                                                setIsShuffled(false);
-                                                const originalIndex = setCards.findIndex(c => c.id === activeCard?.id);
-                                                setCurrentCardIndex(originalIndex !== -1 ? originalIndex : 0);
-                                            } else {
-                                                const shuffled = shuffleArray([...setCards]);
-                                                setShuffledCards(shuffled);
-                                                setIsShuffled(true);
-                                                setCurrentCardIndex(0);
-                                            }
-                                            setIsCardFlipped(false);
-                                        }}
-                                        className={`w-10 h-10 rounded-full shadow border flex items-center justify-center transition-all hover:scale-105 ${isShuffled
-                                                ? 'bg-indigo-650 border-indigo-650 text-white hover:bg-indigo-700'
-                                                : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
-                                            }`}
-                                        title={isShuffled ? "Tắt trộn thẻ" : "Trộn thẻ"}
-                                    >
-                                        <Shuffle className="w-4.5 h-4.5" />
-                                    </button>
-                                </div>
-                            </div>
+                            <FlashcardPlayerSection
+                                setCards={setCards}
+                                cardSettings={cardSettings}
+                                setShowSettingsMenu={setShowSettingsMenu}
+                                onSaveCardAudio={onSaveCardAudio}
+                            />
                             {/* Bảng trạng thái ghi nhớ (Mastery Status) */}
                             <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 border border-gray-200 dark:border-slate-700/80 shadow-sm space-y-6">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">

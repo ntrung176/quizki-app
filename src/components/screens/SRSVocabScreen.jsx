@@ -257,6 +257,24 @@ const SRSVocabScreen = ({
         setShowNuancePopup(false);
     }, [currentReviewIndex, reviewMode]);
 
+    // Preload adjacent cards' base64 images for seamless transitions
+    useEffect(() => {
+        if (!reviewQueue || reviewQueue.length === 0) return;
+        const indicesToPreload = [currentReviewIndex - 1, currentReviewIndex + 1, currentReviewIndex + 2];
+        indicesToPreload.forEach(idx => {
+            if (idx >= 0 && idx < reviewQueue.length) {
+                const card = reviewQueue[idx];
+                if (card && card.imageBase64) {
+                    const img = new Image();
+                    img.src = card.imageBase64;
+                    if (typeof img.decode === 'function') {
+                        img.decode().catch(() => {});
+                    }
+                }
+            }
+        });
+    }, [currentReviewIndex, reviewQueue]);
+
     // Safely determine if a card is due
     const isDue = (card) => {
         if (card.srsEnabled !== true) return false;

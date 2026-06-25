@@ -136,6 +136,24 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         setShowNuancePopup(false);
         cardShownTimeRef.current = Date.now(); // Reset timer khi đổi card
     }, [currentIndex, round]);
+
+    // Preload adjacent cards' base64 images for seamless transitions
+    useEffect(() => {
+        if (!currentDeck || currentDeck.length === 0) return;
+        const indicesToPreload = [currentIndex - 1, currentIndex + 1, currentIndex + 2];
+        indicesToPreload.forEach(idx => {
+            if (idx >= 0 && idx < currentDeck.length) {
+                const card = currentDeck[idx];
+                if (card && card.imageBase64) {
+                    const img = new Image();
+                    img.src = card.imageBase64;
+                    if (typeof img.decode === 'function') {
+                        img.decode().catch(() => {});
+                    }
+                }
+            }
+        });
+    }, [currentIndex, currentDeck]);
     // Auto-exit when all cards are completed in Flashcards
     useEffect(() => {
         if (isComplete && unknownCards.length === 0) {

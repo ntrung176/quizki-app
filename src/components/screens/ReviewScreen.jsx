@@ -132,6 +132,24 @@ const ReviewScreen = ({
     useEffect(() => {
         setShowNuancePopup(false);
     }, [currentIndex, reviewMode]);
+
+    // Preload adjacent cards' base64 images for seamless transitions
+    useEffect(() => {
+        if (!cards || cards.length === 0) return;
+        const indicesToPreload = [currentIndex - 1, currentIndex + 1, currentIndex + 2];
+        indicesToPreload.forEach(idx => {
+            if (idx >= 0 && idx < cards.length) {
+                const card = cards[idx];
+                if (card && card.imageBase64) {
+                    const img = new Image();
+                    img.src = card.imageBase64;
+                    if (typeof img.decode === 'function') {
+                        img.decode().catch(() => {});
+                    }
+                }
+            }
+        });
+    }, [currentIndex, cards]);
     const [touchStart, setTouchStart] = useState(null);
     const [touchEnd, setTouchEnd] = useState(null);
     const [swipeOffset, setSwipeOffset] = useState(0);

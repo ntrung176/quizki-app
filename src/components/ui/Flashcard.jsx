@@ -122,6 +122,8 @@ const Flashcard = ({
 
     const [pitchData, setPitchData] = useState(null);
 
+    const hasSwipeHandlers = typeof onSwipeLeft === 'function' || typeof onSwipeRight === 'function';
+
     useEffect(() => {
         if (!card) return;
         
@@ -142,37 +144,45 @@ const Flashcard = ({
         }
 
         let isMounted = true;
-        const fetchPitch = async () => {
-            try {
-                const data = await fetchJotobaWordData(cleanWord);
-                if (isMounted) {
-                    setPitchData(data);
+        // Debounce pitch accent fetching to prevent thread lock when flipping cards rapidly
+        const fetchTimer = setTimeout(() => {
+            const fetchPitch = async () => {
+                try {
+                    const data = await fetchJotobaWordData(cleanWord);
+                    if (isMounted) {
+                        setPitchData(data);
+                    }
+                } catch (e) {
+                    console.warn('Error fetching pitch in Flashcard:', e);
+                    if (isMounted) setPitchData(null);
                 }
-            } catch (e) {
-                console.warn('Error fetching pitch in Flashcard:', e);
-                if (isMounted) setPitchData(null);
-            }
-        };
-        fetchPitch();
+            };
+            fetchPitch();
+        }, 250);
+
         return () => {
             isMounted = false;
+            clearTimeout(fetchTimer);
         };
     }, [card]);
 
     // Reset swipe state when card changes
     useEffect(() => {
-        setTouchStart(null);
-        setTouchEnd(null);
-        setSwipeOffset(0);
-    }, [card]);
+        if (hasSwipeHandlers) {
+            setTouchStart(null);
+            setTouchEnd(null);
+            setSwipeOffset(0);
+        }
+    }, [card, hasSwipeHandlers]);
 
     const onTouchStart = (e) => {
+        if (!hasSwipeHandlers) return;
         setTouchEnd(null);
         setTouchStart(e.targetTouches[0].clientX);
     };
 
     const onTouchMove = (e) => {
-        if (!touchStart) return;
+        if (!hasSwipeHandlers || !touchStart) return;
         const currentTouch = e.targetTouches[0].clientX;
         setTouchEnd(currentTouch);
         const diff = currentTouch - touchStart;
@@ -181,6 +191,7 @@ const Flashcard = ({
     };
 
     const onTouchEnd = () => {
+        if (!hasSwipeHandlers) return;
         if (!touchStart || !touchEnd) {
             setTouchStart(null);
             setTouchEnd(null);
@@ -423,7 +434,6 @@ const Flashcard = ({
     return (
         <div className="perspective-1000 w-full mx-auto relative select-none" style={{ height: '460px' }}>
             <div
-                key={card?.id}
                 className={`w-full transform-style-preserve-3d card-slide ${isFlipped ? 'rotate-y-180' : ''} ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
                 onClick={(e) => {
                     e.stopPropagation();

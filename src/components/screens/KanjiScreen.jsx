@@ -546,21 +546,23 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         const mergedSet = new Set([...jotobaChars, ...firebaseChars]);
         let merged = [...mergedSet];
         // Sort by stroke count (simple → complex) — using Map for O(1) lookups
-        merged.sort((a, b) => {
-            const jA = getJotobaKanjiData(a);
-            const jB = getJotobaKanjiData(b);
-            const fA = kanjiMap.get(a);
-            const fB = kanjiMap.get(b);
-            const strokeA = jA?.stroke_count || parseInt(fA?.strokeCount) || 999;
-            const strokeB = jB?.stroke_count || parseInt(fB?.strokeCount) || 999;
-            if (strokeA !== strokeB) return strokeA - strokeB;
-            const freqA = jA?.frequency || 9999;
-            const freqB = jB?.frequency || 9999;
-            return freqA - freqB;
+        const mapped = merged.map(char => {
+            const jData = getJotobaKanjiData(char);
+            const fData = kanjiMap.get(char);
+            return {
+                char,
+                stroke: jData?.stroke_count || parseInt(fData?.strokeCount) || 999,
+                freq: jData?.frequency || 9999
+            };
         });
-        if (!searchQuery.trim()) return merged;
+        mapped.sort((a, b) => {
+            if (a.stroke !== b.stroke) return a.stroke - b.stroke;
+            return a.freq - b.freq;
+        });
+        let sorted = mapped.map(x => x.char);
+        if (!searchQuery.trim()) return sorted;
         const query = searchQuery.toLowerCase().trim();
-        return merged.filter(k => {
+        return sorted.filter(k => {
             if (k.includes(query)) return true;
             const fData = kanjiMap.get(k);
             if (fData) {

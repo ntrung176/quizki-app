@@ -122,6 +122,20 @@ service cloud.firestore {
       allow update: if isOwner(userId);
       allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
     }
+
+    match /artifacts/{appId}/users/{userId}/studyProgress/{setId} {
+      allow read: if isOwner(userId) || hasAdminPrivileges(appId);
+      allow create: if isOwner(userId) && isReasonableSize();
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
+    }
+
+    match /artifacts/{appId}/users/{userId}/bookProgress/{lessonPersistKey} {
+      allow read: if isOwner(userId) || hasAdminPrivileges(appId);
+      allow create: if isOwner(userId) && isReasonableSize();
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
+    }
     
     match /artifacts/{appId}/users/{userId} {
       allow read: if isOwner(userId) || hasAdminPrivileges(appId);

@@ -2217,11 +2217,27 @@ export const JOTOBA_KANJI_DATA = {
   '麿': { literal: '麿', meaningVi: 'Tôi, bạn, (kokuji)', sinoViet: 'MA', meanings: ['I','you','(kokuji)'], stroke_count: 18, frequency: null, jlpt: 1, onyomi: [], kunyomi: ['まろ'], parts: ['口','木','广','麻','ノ'], level: 'N1' },
 };
 
+// Static caches to avoid repeatedly filtering JOTOBA_KANJI_DATA (2200+ items)
+const dataByLevelCache = {};
+const charsByLevelCache = {};
+
 // Get all kanji for a specific JLPT level
-export const getJotobaKanjiByLevel = (level) => Object.values(JOTOBA_KANJI_DATA).filter(k => k.level === level);
+export const getJotobaKanjiByLevel = (level) => {
+  if (!dataByLevelCache[level]) {
+    dataByLevelCache[level] = Object.values(JOTOBA_KANJI_DATA).filter(k => k.level === level);
+  }
+  return dataByLevelCache[level];
+};
 
 // Get kanji data for a specific character
 export const getJotobaKanjiData = (char) => JOTOBA_KANJI_DATA[char] || null;
 
 // Get all kanji characters for a level (just the characters)
-export const getJotobaKanjiChars = (level) => Object.values(JOTOBA_KANJI_DATA).filter(k => k.level === level).map(k => k.literal);
+export const getJotobaKanjiChars = (level) => {
+  if (!charsByLevelCache[level]) {
+    charsByLevelCache[level] = Object.values(JOTOBA_KANJI_DATA)
+      .filter(k => k.level === level)
+      .map(k => k.literal);
+  }
+  return charsByLevelCache[level];
+};
