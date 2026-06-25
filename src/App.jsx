@@ -817,6 +817,12 @@ const App = () => {
                 // Lưu vào sessionStorage
                 sessionStorage.setItem(cachedProfileKey, JSON.stringify(profileData));
             } else {
+                // Nếu snapshot này lấy từ cache và chưa có dữ liệu, có thể tài liệu thực sự tồn tại trên server.
+                // Chúng ta CẦN đợi snapshot từ server để tránh ghi đè thông tin người dùng bằng các giá trị mặc định.
+                if (docSnap.metadata.fromCache) {
+                    console.log("Hồ sơ không có trong cache, đợi phản hồi từ server...");
+                    return;
+                }
                 // Tự động tạo profile mặc định nếu chưa có, không hiển thị màn hỏi tên riêng
                 try {
                     const defaultName = auth?.currentUser?.email
