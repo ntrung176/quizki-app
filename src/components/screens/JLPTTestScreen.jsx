@@ -2937,6 +2937,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                     </button>
                                 )}
                             </div>
+                            <p className="text-center text-[10px] text-gray-400 dark:text-gray-500 mt-3 opacity-60">
+                                ⌨️ Phím tắt: Phím [1-4] hoặc [A-D] để chọn đáp án | [←] / [→] để chuyển câu hỏi
+                            </p>
                         </div>
                     </div>
                 </div>

@@ -162,6 +162,16 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
                     );
                 })}
             </div>
+            {!answered && (
+                <p className="text-center text-[10px] text-gray-400 dark:text-gray-500 mt-1 opacity-70">
+                    ⌨️ Nhấn phím 1-4 để chọn nhanh
+                </p>
+            )}
+            {answered && normalize(selected) !== normalize(correct) && (
+                <p className="text-center text-[10px] text-gray-400 dark:text-gray-500 mt-1 opacity-70">
+                    ⌨️ Nhấn phím Enter để tiếp tục
+                </p>
+            )}
 
             {/* Wrong answer: show continue */}
             {answered && normalize(selected) !== normalize(correct) && (
@@ -280,13 +290,18 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
             />
 
             {!feedback && !needsRetype && (
-                <button
-                    onClick={check}
-                    disabled={!input.trim()}
-                    className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-lg"
-                >
-                    Kiểm tra
-                </button>
+                <div className="space-y-1.5">
+                    <button
+                        onClick={check}
+                        disabled={!input.trim()}
+                        className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-lg"
+                    >
+                        Kiểm tra
+                    </button>
+                    <p className="text-center text-[10px] text-gray-400 dark:text-gray-500 opacity-70">
+                        ⌨️ Nhấn Enter để kiểm tra nhanh
+                    </p>
+                </div>
             )}
 
             {feedback === 'correct' && (

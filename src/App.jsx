@@ -3141,6 +3141,32 @@ const App = () => {
             accent: (accent || '').trim(),
         };
 
+        // 1. Optimistically update local state immediately so UI updates instantly without lag or flicker
+        setAllCards(prevCards => {
+            return prevCards.map(c => {
+                if (c.id === cardId) {
+                    return {
+                        ...c,
+                        front: front.trim(),
+                        back: back.trim(),
+                        synonym: synonym.trim(),
+                        sinoVietnamese: sinoVietnamese.trim(),
+                        synonymSinoVietnamese: synonymSinoVietnamese.trim(),
+                        example: example.trim(),
+                        exampleMeaning: exampleMeaning.trim(),
+                        nuance: nuance.trim(),
+                        pos: pos || '',
+                        level: level || '',
+                        reading: (reading || '').trim(),
+                        accent: (accent || '').trim(),
+                        ...(imageBase64 !== undefined ? { imageBase64 } : {}),
+                        ...(audioBase64 !== undefined && audioBase64 !== null && audioBase64 !== '' ? { audioBase64 } : {})
+                    };
+                }
+                return c;
+            });
+        });
+
         // CHỈ cập nhật audioBase64 nếu có giá trị mới (không null/undefined)
         // Nếu audioBase64 là null, có nghĩa là người dùng muốn xóa audio
         // Nếu audioBase64 là undefined, giữ nguyên audio cũ (không cập nhật)
@@ -3160,6 +3186,9 @@ const App = () => {
                 if (result && result.base64) {
                     updatedData.audioBase64 = result.base64;
                     updatedData.audioVoiceId = result.voiceId || null;
+                    
+                    // Update the newly generated audio in local state too
+                    setAllCards(prevCards => prevCards.map(c => c.id === cardId ? { ...c, audioBase64: result.base64, audioVoiceId: result.voiceId || null } : c));
                 }
             } catch (e) {
                 console.warn('⚠️ Lỗi tự động tạo audio khi cập nhật thẻ:', e);
@@ -3175,6 +3204,8 @@ const App = () => {
         } catch (e) {
             console.error("Lỗi khi cập nhật thẻ:", e);
             setNotification("Lỗi khi cập nhật thẻ.");
+            // Revert state if firestore update fails
+            setAllCards(prevCards => prevCards.map(c => c.id === cardId ? oldCard : c));
         }
     };
 

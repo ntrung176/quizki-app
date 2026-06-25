@@ -415,7 +415,9 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                         </>
                     )}
 
-                    <p className="text-center text-[10px] text-gray-400">1-4: Chọn | Enter: Tiếp tục</p>
+                    <p className="text-center text-[10px] text-gray-400 dark:text-gray-500 mt-1 opacity-70">
+                        ⌨️ Phím tắt: Phím 1-4 để chọn | Enter để tiếp tục
+                    </p>
                 </div>
             </div>
 

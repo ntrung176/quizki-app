@@ -49,7 +49,7 @@ const getSrsCycleLabel = (card) => {
     return `${Math.round(days / 30)} tháng`;
 };
 
-const InlineEditCell = ({ value, onSave, className = '', isJapanese = false }) => {
+const InlineEditCell = ({ value, onSave, className = '', isJapanese = false, placeholder = '' }) => {
     const [editing, setEditing] = useState(false);
     const [draft, setDraft] = useState(value);
 
@@ -67,6 +67,7 @@ const InlineEditCell = ({ value, onSave, className = '', isJapanese = false }) =
                 onBlur={save}
                 onKeyDown={handleKeyDown}
                 onClick={(e) => e.stopPropagation()}
+                placeholder={placeholder}
                 className={`w-full bg-indigo-50 dark:bg-indigo-900/20 border-2 border-indigo-400 dark:border-indigo-500 rounded-lg px-3 py-1.5 outline-none text-gray-900 dark:text-white ${isJapanese ? 'font-japanese' : ''} ${className}`}
             />
         );
@@ -78,7 +79,11 @@ const InlineEditCell = ({ value, onSave, className = '', isJapanese = false }) =
             className={`cursor-pointer rounded-lg px-3 py-1.5 -mx-3 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors border-2 border-transparent hover:border-indigo-200 dark:hover:border-indigo-800 ${className}`}
             title="Bấm để sửa"
         >
-            {isJapanese ? <FuriganaText text={value} forceHide={true} /> : value}
+            {isJapanese ? (
+                value ? <FuriganaText text={value} forceHide={true} /> : <span className="text-slate-400 dark:text-slate-500 italic text-sm">{placeholder || 'Trống'}</span>
+            ) : (
+                value || <span className="text-slate-400 dark:text-slate-500 italic text-sm">{placeholder || 'Trống'}</span>
+            )}
         </div>
     );
 };
@@ -886,7 +891,7 @@ const StudySetDetail = ({
             exampleMeaning: card.exampleMeaning || '', nuance: card.nuance || '',
             pos: card.pos || '', level: card.level || '',
             imageBase64: card.imageBase64,
-            sinoVietnamese: card.sinoVietnamese || '',
+            sinoVietnamese: field === 'sinoVietnamese' ? newValue : (card.sinoVietnamese || ''),
             synonymSinoVietnamese: card.synonymSinoVietnamese || ''
         });
     };
@@ -1305,15 +1310,14 @@ const StudySetDetail = ({
                                                                 />
                                                                 {renderPitchAccent(card)}
                                                             </div>
-                                                            {card.sinoVietnamese && (
-                                                                <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium">
-                                                                    <InlineEditCell
-                                                                        value={card.sinoVietnamese}
-                                                                        onSave={(v) => handleInlineSave(card, 'sinoVietnamese', v)}
-                                                                        className="text-sm font-medium inline-block"
-                                                                    />
-                                                                </div>
-                                                            )}
+                                                            <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium min-h-[1.5rem] flex items-center">
+                                                                <InlineEditCell
+                                                                    value={card.sinoVietnamese || ''}
+                                                                    placeholder="[Thêm Hán Việt]"
+                                                                    onSave={(v) => handleInlineSave(card, 'sinoVietnamese', v)}
+                                                                    className="text-sm font-medium inline-block min-w-[100px]"
+                                                                />
+                                                            </div>
                                                         </div>
                                                         <div className="flex-1 md:w-1/2 flex items-center justify-between gap-4">
                                                             <div className="flex-1 flex flex-col justify-center text-lg text-gray-800 dark:text-gray-200">

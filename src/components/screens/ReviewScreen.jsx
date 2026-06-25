@@ -1655,47 +1655,52 @@ const ReviewScreen = ({
 
                         {/* Flashcard Mode Navigation */}
                         {reviewMode === 'flashcard' && (
-                            <div className="flex gap-2 md:gap-4">
-                                <button
-                                    onClick={moveToPreviousCard}
-                                    disabled={isProcessing || currentIndex === 0}
-                                    className={`px-3 md:px-4 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all shadow-md ${isProcessing || currentIndex === 0
-                                        ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-                                        : 'bg-gray-500 dark:bg-gray-600 text-white hover:bg-gray-600 dark:hover:bg-gray-700 hover:shadow-lg hover:scale-105'
-                                        }`}
-                                    title="Thẻ trước (←)"
-                                >
-                                    ←
-                                </button>
-                                <button
-                                    onClick={() => {
-                                        if (currentIndex < cards.length - 1) {
-                                            setSlideDirection('left');
-                                            setTimeout(() => {
-                                                setIsFlipped(false);
-                                                setIsAnimatingFlip(false);
-                                                setCurrentIndex(currentIndex + 1);
-                                                setSlideDirection('right');
+                            <div className="space-y-2 w-full">
+                                <div className="flex gap-2 md:gap-4">
+                                    <button
+                                        onClick={moveToPreviousCard}
+                                        disabled={isProcessing || currentIndex === 0}
+                                        className={`px-3 md:px-4 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all shadow-md ${isProcessing || currentIndex === 0
+                                            ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                                            : 'bg-gray-500 dark:bg-gray-600 text-white hover:bg-gray-600 dark:hover:bg-gray-700 hover:shadow-lg hover:scale-105'
+                                            }`}
+                                        title="Thẻ trước (←)"
+                                    >
+                                        ←
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            if (currentIndex < cards.length - 1) {
+                                                setSlideDirection('left');
                                                 setTimeout(() => {
-                                                    setSlideDirection('');
+                                                    setIsFlipped(false);
+                                                    setIsAnimatingFlip(false);
+                                                    setCurrentIndex(currentIndex + 1);
+                                                    setSlideDirection('right');
                                                     setTimeout(() => {
-                                                        setIsAnimatingFlip(true);
-                                                    }, 110);
-                                                }, 20);
-                                            }, 70);
-                                        } else {
-                                            handleCompleteReview();
-                                        }
-                                    }}
-                                    disabled={isProcessing}
-                                    className={`flex-1 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all shadow-md ${isProcessing
-                                        ? 'bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-500 cursor-not-allowed'
-                                        : 'bg-gradient-to-r from-indigo-500 to-sky-500 dark:from-indigo-600 dark:to-sky-600 text-white hover:shadow-lg hover:scale-105'
-                                        }`}
-                                    title="Thẻ tiếp theo (→)"
-                                >
-                                    {currentIndex < cards.length - 1 ? 'Thẻ tiếp theo →' : 'Hoàn thành'}
-                                </button>
+                                                        setSlideDirection('');
+                                                        setTimeout(() => {
+                                                            setIsAnimatingFlip(true);
+                                                        }, 110);
+                                                    }, 20);
+                                                }, 70);
+                                            } else {
+                                                handleCompleteReview();
+                                            }
+                                        }}
+                                        disabled={isProcessing}
+                                        className={`flex-1 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all shadow-md ${isProcessing
+                                            ? 'bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-500 cursor-not-allowed'
+                                            : 'bg-gradient-to-r from-indigo-500 to-sky-500 dark:from-indigo-600 dark:to-sky-600 text-white hover:shadow-lg hover:scale-105'
+                                            }`}
+                                        title="Thẻ tiếp theo (→)"
+                                    >
+                                        {currentIndex < cards.length - 1 ? 'Thẻ tiếp theo →' : 'Hoàn thành'}
+                                    </button>
+                                </div>
+                                <p className="text-[10px] text-gray-400 dark:text-gray-500 text-center opacity-70">
+                                    ⌨️ Phím tắt: Space (Lật thẻ) | ← (Trước) | → (Tiếp theo)
+                                </p>
                             </div>
                         )}
 
@@ -1769,6 +1774,7 @@ const ReviewScreen = ({
                                             <Check className="w-5 h-5" />
                                             <span>Xác nhận đáp án đúng</span>
                                         </button>
+                                        <p className="text-[10px] text-gray-400 dark:text-gray-500 text-center opacity-70">⌨️ Nhấn Enter để xác nhận nhanh</p>
                                     </div>
                                 ) : !isRevealed && (
                                     <div className="flex gap-3">
@@ -1799,14 +1805,17 @@ const ReviewScreen = ({
                                                 })()})</span>
                                             </button>
                                         )}
-                                        <button
-                                            onClick={checkAnswer}
-                                            disabled={!inputValue.trim() || isProcessing}
-                                            className="flex-1 flex items-center justify-center gap-2 px-6 py-4.5 text-lg md:text-xl bg-orange-500 hover:bg-orange-600 text-white rounded-2xl font-bold shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-[0.98]"
-                                        >
-                                            <Check className="w-5 h-5" />
-                                            <span>Kiểm tra</span>
-                                        </button>
+                                        <div className="flex-1 flex flex-col gap-1.5">
+                                            <button
+                                                onClick={checkAnswer}
+                                                disabled={!inputValue.trim() || isProcessing}
+                                                className="w-full flex items-center justify-center gap-2 px-6 py-4.5 text-lg md:text-xl bg-orange-500 hover:bg-orange-600 text-white rounded-2xl font-bold shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-[0.98]"
+                                            >
+                                                <Check className="w-5 h-5" />
+                                                <span>Kiểm tra</span>
+                                            </button>
+                                            <p className="text-[10px] text-gray-400 dark:text-gray-500 text-center opacity-70">⌨️ Nhấn Enter để kiểm tra nhanh</p>
+                                        </div>
                                     </div>
                                 )}
                             </div>
