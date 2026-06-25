@@ -146,9 +146,14 @@ export function playFlipSound() {
     } catch (e) { }
 }
 
-// ==================== COMPLETION FANFARE ====================
+let lastPlayedCompletionTime = 0;
 export function playCompletionFanfare() {
     if (!isSfxEnabled()) return;
+    const now = Date.now();
+    if (now - lastPlayedCompletionTime < 1500) {
+        return; // Guard against rapid duplicate play
+    }
+    lastPlayedCompletionTime = now;
     const volume = getSfxVolume();
     try {
         let audioToPlay;

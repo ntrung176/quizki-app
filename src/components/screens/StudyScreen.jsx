@@ -102,6 +102,28 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
             }
         }
     };
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.repeat) return;
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+            if (!answered) {
+                const key = parseInt(e.key);
+                if (key >= 1 && key <= 4 && options[key - 1]) {
+                    e.preventDefault();
+                    handleSelect(options[key - 1]);
+                }
+            } else if (normalize(selected) !== normalize(correct)) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    onWrong();
+                }
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [answered, options, selected, correct, onWrong]);
 
     return (
         <div className="space-y-5 animate-fade-in">

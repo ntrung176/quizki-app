@@ -189,7 +189,12 @@ function showCelebrationBanner(text = '🎊 Tuyệt vời! 🎊') {
 }
 
 // ==================== FANFARE (gold explosion for completion) ====================
+let lastFanfareTime = 0;
 export function launchFanfare() {
+    const now = Date.now();
+    if (now - lastFanfareTime < 1500) return;
+    lastFanfareTime = now;
+
     // 1. Big confetti burst
     launchConfetti(3500, 150);
 

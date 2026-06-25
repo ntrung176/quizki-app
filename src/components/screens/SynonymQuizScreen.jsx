@@ -244,6 +244,7 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
     // Keyboard
     useEffect(() => {
         const handler = (e) => {
+            if (e.repeat) return;
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
             if (isComplete) {
                 if (e.key === 'Enter') {
