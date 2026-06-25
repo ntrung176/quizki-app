@@ -37,6 +37,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
     });
     const [currentIndex, setCurrentIndex] = useState(savedProgress?.currentIndex || 0);
     const [isFlipped, setIsFlipped] = useState(false);
+    const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
     const [slideDirection, setSlideDirection] = useState('');
     const [unknownCards, setUnknownCards] = useState(() => {
         if (savedProgress?.unknownCardIds) {
@@ -203,14 +204,21 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             setSlideDirection('left');
             setTimeout(() => {
                 setIsFlipped(false);
+                setIsAnimatingFlip(false);
                 if (currentIndex < currentDeck.length - 1) {
                     setCurrentIndex(currentIndex + 1);
                 } else {
                     // Deck finished
                     checkCompletion();
                 }
-                setSlideDirection('');
-            }, 200);
+                setSlideDirection('right');
+                setTimeout(() => {
+                    setSlideDirection('');
+                    setTimeout(() => {
+                        setIsAnimatingFlip(true);
+                    }, 110);
+                }, 20);
+            }, 70);
         }, 300);
     }, [isFlipped, currentCard, currentIndex, currentDeck.length, buttonPressed, onUpdateCard]);
     // Mark card as unknown
@@ -235,14 +243,21 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             setSlideDirection('left');
             setTimeout(() => {
                 setIsFlipped(false);
+                setIsAnimatingFlip(false);
                 if (currentIndex < currentDeck.length - 1) {
                     setCurrentIndex(currentIndex + 1);
                 } else {
                     // Deck finished
                     checkCompletion();
                 }
-                setSlideDirection('');
-            }, 200);
+                setSlideDirection('right');
+                setTimeout(() => {
+                    setSlideDirection('');
+                    setTimeout(() => {
+                        setIsAnimatingFlip(true);
+                    }, 110);
+                }, 20);
+            }, 70);
         }, 300);
     }, [isFlipped, currentCard, currentIndex, currentDeck.length, buttonPressed, onUpdateCard]);
     // Check if round is complete
@@ -293,9 +308,21 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         if (isComplete) {
             setIsComplete(false);
         }
-        // Go back to the previous card
-        setCurrentIndex(lastAction.index);
-        setButtonPressed(null);
+        
+        setIsAnimatingFlip(false);
+        setSlideDirection('right');
+        setTimeout(() => {
+            setIsFlipped(false);
+            setCurrentIndex(lastAction.index);
+            setButtonPressed(null);
+            setSlideDirection('left');
+            setTimeout(() => {
+                setSlideDirection('');
+                setTimeout(() => {
+                    setIsAnimatingFlip(true);
+                }, 110);
+            }, 20);
+        }, 70);
     }, [history, isComplete]);
     // Keyboard controls
     useEffect(() => {
@@ -504,7 +531,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                     width: '100%',
                                     height: '460px',
                                     transform: swipeOffset ? `translateX(${swipeOffset}px)` : undefined,
-                                    transition: swipeOffset ? 'none' : (slideDirection ? 'transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.3s ease' : 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)'),
+                                    transition: swipeOffset ? 'none' : (slideDirection ? 'transform 0.12s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.12s ease' : 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)'),
                                     touchAction: 'pan-y',
                                 }}
                             >
@@ -514,7 +541,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                     isFlipped={isFlipped}
                                     onFlip={handleFlip}
                                     onSaveCardAudio={onSaveCardAudio}
-                                    transitionEnabled={true}
+                                    transitionEnabled={isAnimatingFlip}
                                 />
                             </div>
 

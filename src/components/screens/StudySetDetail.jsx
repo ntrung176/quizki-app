@@ -96,6 +96,48 @@ const FlashcardPlayerSection = ({
     const [isShuffled, setIsShuffled] = useState(false);
     const [shuffledCards, setShuffledCards] = useState([]);
 
+    const [touchStart, setTouchStart] = useState(null);
+    const [touchEnd, setTouchEnd] = useState(null);
+    const [swipeOffset, setSwipeOffset] = useState(0);
+    const minSwipeDistance = 50;
+
+    const onTouchStart = (e) => {
+        setTouchEnd(null);
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const onTouchMove = (e) => {
+        if (!touchStart) return;
+        const currentTouch = e.targetTouches[0].clientX;
+        setTouchEnd(currentTouch);
+        const diff = currentTouch - touchStart;
+        const maxOffset = 200;
+        setSwipeOffset(Math.max(-maxOffset, Math.min(maxOffset, diff)));
+    };
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) {
+            setTouchStart(null);
+            setTouchEnd(null);
+            setSwipeOffset(0);
+            return;
+        }
+
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe && currentCardIndex < activeCardsList.length - 1) {
+            changeCard(currentCardIndex + 1, 'left');
+        } else if (isRightSwipe && currentCardIndex > 0) {
+            changeCard(currentCardIndex - 1, 'right');
+        }
+
+        setTouchStart(null);
+        setTouchEnd(null);
+        setSwipeOffset(0);
+    };
+
     // Reset shuffle state when setCards changes
     useEffect(() => {
         setIsShuffled(false);
@@ -130,12 +172,23 @@ const FlashcardPlayerSection = ({
 
     const changeCard = (newIndex, direction = '') => {
         if (direction) {
+            setIsAnimatingFlip(false);
             setSlideDirection(direction);
             setTimeout(() => {
                 setIsCardFlipped(false);
                 setCurrentCardIndex(newIndex);
-                setSlideDirection('');
-            }, 200);
+                const oppositeDirection = direction === 'left' ? 'right' : 'left';
+                setSlideDirection(oppositeDirection);
+                setTouchStart(null);
+                setTouchEnd(null);
+                setSwipeOffset(0);
+                setTimeout(() => {
+                    setSlideDirection('');
+                    setTimeout(() => {
+                        setIsAnimatingFlip(true);
+                    }, 110);
+                }, 20);
+            }, 70);
         } else {
             if (isCardFlipped) {
                 setIsAnimatingFlip(false);
@@ -157,24 +210,37 @@ const FlashcardPlayerSection = ({
 
     return (
         <div className="w-full max-w-3xl mx-auto relative">
-            <Flashcard
-                card={activeCard}
-                cardSettings={cardSettings}
-                isFlipped={isCardFlipped}
-                onFlip={() => {
-                    setIsAnimatingFlip(true);
-                    const nextFlippedState = !isCardFlipped;
-                    setIsCardFlipped(nextFlippedState);
-                    if (activeCard && cardSettings.autoPlayAudio && cardSettings.audioEnabled !== false) {
-                        if (nextFlippedState) {
-                            speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null);
-                        }
-                    }
+            <div
+                className={`w-full relative card-slide ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
+                style={{
+                    width: '100%',
+                    height: '460px',
+                    transform: swipeOffset ? `translateX(${swipeOffset}px)` : undefined,
+                    transition: swipeOffset ? 'none' : (slideDirection ? 'transform 0.12s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.12s ease' : 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)'),
+                    touchAction: 'pan-y',
                 }}
-                onSaveCardAudio={onSaveCardAudio}
-                transitionEnabled={isAnimatingFlip}
-                slideDirection={slideDirection}
-            />
+            >
+                <Flashcard
+                    card={activeCard}
+                    cardSettings={cardSettings}
+                    isFlipped={isCardFlipped}
+                    onFlip={() => {
+                        setIsAnimatingFlip(true);
+                        const nextFlippedState = !isCardFlipped;
+                        setIsCardFlipped(nextFlippedState);
+                        if (activeCard && cardSettings.autoPlayAudio && cardSettings.audioEnabled !== false) {
+                            if (nextFlippedState) {
+                                speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null);
+                            }
+                        }
+                    }}
+                    onSaveCardAudio={onSaveCardAudio}
+                    transitionEnabled={isAnimatingFlip}
+                />
+            </div>
 
             {/* Speaker Button - OUTSIDE the flipping container */}
             {cardSettings.audioEnabled !== false && activeCard && (

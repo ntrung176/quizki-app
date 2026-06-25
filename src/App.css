@@ -72,18 +72,18 @@
 
 /* Slide animation for flashcard navigation */
 .card-slide {
-  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.3s ease;
+  transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.2s ease;
   transform-origin: center;
 }
 
 .slide-out-left {
-  transform: translateX(-120%) scale(0.8);
+  transform: translateX(-30%);
   opacity: 0;
   pointer-events: none;
 }
 
 .slide-out-right {
-  transform: translateX(120%) scale(0.8);
+  transform: translateX(30%);
   opacity: 0;
   pointer-events: none;
 }

@@ -78,6 +78,7 @@ const ReviewScreen = ({
     const [feedback, setFeedback] = useState(null);
     const [isProcessing, setIsProcessing] = useState(false);
     const [isFlipped, setIsFlipped] = useState(false);
+    const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
     const [slideDirection, setSlideDirection] = useState('');
 
     // Card Settings State (stored in localStorage with v2 version to apply new defaults)
@@ -351,6 +352,7 @@ const ReviewScreen = ({
                 setSlideDirection('right');
                 setTimeout(() => {
                     setIsFlipped(false);
+                    setIsAnimatingFlip(false);
                     setCurrentIndex(currentIndex - 1);
                     setInputValue('');
                     setIsRevealed(false);
@@ -359,8 +361,13 @@ const ReviewScreen = ({
                     setMessage('');
                     setNeedsRetype(false);
                     setSlideDirection('left');
-                    setTimeout(() => setSlideDirection(''), 300);
-                }, 150);
+                    setTimeout(() => {
+                        setSlideDirection('');
+                        setTimeout(() => {
+                            setIsAnimatingFlip(true);
+                        }, 110);
+                    }, 20);
+                }, 70);
             } else {
                 setCurrentIndex(currentIndex - 1);
                 setInputValue('');
@@ -438,10 +445,16 @@ const ReviewScreen = ({
                     setSlideDirection('left');
                     setTimeout(() => {
                         setIsFlipped(false);
+                        setIsAnimatingFlip(false);
                         setCurrentIndex(currentIndex + 1);
                         setSlideDirection('right');
-                        setTimeout(() => setSlideDirection(''), 300);
-                    }, 150);
+                        setTimeout(() => {
+                            setSlideDirection('');
+                            setTimeout(() => {
+                                setIsAnimatingFlip(true);
+                            }, 110);
+                        }, 20);
+                    }, 70);
                 } else {
                     handleCompleteReview();
                 }
@@ -527,14 +540,21 @@ const ReviewScreen = ({
             setSlideDirection('left');
             setTimeout(() => {
                 setIsFlipped(false);
+                setIsAnimatingFlip(false);
                 setCurrentIndex(currentIndex + 1);
                 setSlideDirection('right');
-                setTimeout(() => setSlideDirection(''), 300);
-            }, 150);
+                setTimeout(() => {
+                    setSlideDirection('');
+                    setTimeout(() => {
+                        setIsAnimatingFlip(true);
+                    }, 110);
+                }, 20);
+            }, 70);
         } else if (isRightSwipe && currentIndex > 0) {
             setSlideDirection('right');
             setTimeout(() => {
                 setIsFlipped(false);
+                setIsAnimatingFlip(false);
                 setCurrentIndex(currentIndex - 1);
                 setInputValue('');
                 setIsRevealed(false);
@@ -542,8 +562,13 @@ const ReviewScreen = ({
                 setFeedback(null);
                 setMessage('');
                 setSlideDirection('left');
-                setTimeout(() => setSlideDirection(''), 300);
-            }, 150);
+                setTimeout(() => {
+                    setSlideDirection('');
+                    setTimeout(() => {
+                        setIsAnimatingFlip(true);
+                    }, 110);
+                }, 20);
+            }, 70);
         } else if (currentIndex >= cards.length - 1 && isLeftSwipe) {
             handleCompleteReview();
         }
@@ -1086,8 +1111,8 @@ const ReviewScreen = ({
                         if (cardReviewType === 'back' && !isMultipleChoice && inputRef.current && !isMobileDevice()) {
                             setTimeout(() => inputRef.current?.focus(), 100);
                         }
-                    }, 300);
-                }, 150);
+                    }, 110);
+                }, 70);
             } else {
                 setCurrentIndex(nextIndex);
                 setInputValue('');
@@ -1239,7 +1264,7 @@ const ReviewScreen = ({
                                         minHeight: '480px',
                                         height: 'auto',
                                         transform: swipeOffset ? `translateX(${swipeOffset}px)` : undefined,
-                                        transition: swipeOffset ? 'none' : (slideDirection ? 'transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.3s ease' : 'transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1)'),
+                                        transition: swipeOffset ? 'none' : (slideDirection ? 'transform 0.12s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.12s ease' : 'transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1)'),
                                         touchAction: 'pan-y',
                                     }}
                                 >
@@ -1248,6 +1273,7 @@ const ReviewScreen = ({
                                         cardSettings={cardSettings}
                                         isFlipped={isFlipped}
                                         onFlip={() => {
+                                            setIsAnimatingFlip(true);
                                             const newFlippedState = !isFlipped;
                                             setIsFlipped(newFlippedState);
                                             if (newFlippedState && currentCard) {
@@ -1255,7 +1281,7 @@ const ReviewScreen = ({
                                             }
                                         }}
                                         variant="review"
-                                        transitionEnabled={true}
+                                        transitionEnabled={isAnimatingFlip}
                                     />
                                 </div>
 
@@ -1646,10 +1672,17 @@ const ReviewScreen = ({
                                         if (currentIndex < cards.length - 1) {
                                             setSlideDirection('left');
                                             setTimeout(() => {
+                                                setIsFlipped(false);
+                                                setIsAnimatingFlip(false);
                                                 setCurrentIndex(currentIndex + 1);
                                                 setSlideDirection('right');
-                                                setTimeout(() => setSlideDirection(''), 300);
-                                            }, 150);
+                                                setTimeout(() => {
+                                                    setSlideDirection('');
+                                                    setTimeout(() => {
+                                                        setIsAnimatingFlip(true);
+                                                    }, 110);
+                                                }, 20);
+                                            }, 70);
                                         } else {
                                             handleCompleteReview();
                                         }

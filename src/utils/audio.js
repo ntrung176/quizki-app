@@ -58,8 +58,8 @@ const VOICE_STORAGE_KEY = 'quizki-tts-voice';
 
 // Available voices (SpeechGen.io Japanese voices)
 export const TTS_VOICES = {
-    mayu: { id: 'mayu', label: 'Tomoko plus (Nữ)', speechgenName: 'Tomoko plus', gender: 'Female' },
-    ryota: { id: 'ryota', label: 'Takumi plus (Nam)', speechgenName: 'Takumi plus', gender: 'Male' },
+    mayu: { id: 'mayu', label: 'Achernar (Nữ HD)', speechgenName: 'Achernar', gender: 'Female' },
+    ryota: { id: 'ryota', label: 'Achird (Nam HD)', speechgenName: 'Achird', gender: 'Male' },
 };
 
 // Get current voice preference
@@ -298,7 +298,7 @@ const JAP_HOMOGRAPHS = {
     '汚れ': { default: 'よごれ', alternatives: ['けがれ'] },
 };
 
-// Trích xuất phần đọc từ text: ưu tiên từ Kanji chính ngoài ngoặc, so sánh đối chiếu với hiragana trong ngoặc để sửa đổi âm đọc đặc biệt
+// Trích xuất phần đọc từ text: ưu tiên tạo SSML <sub alias="..."> để chuẩn cả pitch accent lẫn On/Kun
 const extractReadingText = (text) => {
     if (!text) return '';
     
@@ -311,13 +311,8 @@ const extractReadingText = (text) => {
         const hasLatin = /[a-zA-Z]/.test(candidate);
         
         if (hasJapanese && !hasLatin) {
-            const homograph = JAP_HOMOGRAPHS[mainText];
-            if (homograph) {
-                if (homograph.alternatives.includes(candidate)) {
-                    return candidate;
-                }
-            }
-            return mainText;
+            // Trả về SSML để SpeechGen giữ nguyên Kanji (để biết pitch accent) nhưng phát âm theo Hiragana (để không sai On/Kun)
+            return `<sub alias="${candidate}">${mainText}</sub>`;
         }
     }
     return mainText;
@@ -372,8 +367,15 @@ const speakWithWebSpeech = (text) => {
         if (!text || !window.speechSynthesis) return safeResolve();
 
         // Ưu tiên đọc hiragana trong ngoặc
-        const cleanText = extractReadingText(text);
+        let cleanText = extractReadingText(text);
         if (!cleanText) return safeResolve();
+
+        // Nếu cleanText chứa thẻ sub SSML (trong trường hợp ta trả về SSML từ extractReadingText)
+        // ta bóc tách lấy phần alias để đọc
+        if (cleanText.includes('<sub alias=')) {
+            const match = cleanText.match(/alias="([^"]+)"/);
+            if (match) cleanText = match[1];
+        }
 
         const utterance = new SpeechSynthesisUtterance(cleanText);
         utterance.lang = 'ja-JP';

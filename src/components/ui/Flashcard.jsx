@@ -108,21 +108,11 @@ const Flashcard = ({
     cardSettings,
     isFlipped,
     onFlip,
-    slideDirection = '',
-    onSwipeLeft,
-    onSwipeRight,
     onSaveCardAudio,
     variant = 'default', // 'default' | 'emerald' | 'review'
     transitionEnabled = true
 }) => {
-    const [touchStart, setTouchStart] = useState(null);
-    const [touchEnd, setTouchEnd] = useState(null);
-    const [swipeOffset, setSwipeOffset] = useState(0);
-    const minSwipeDistance = 50;
-
     const [pitchData, setPitchData] = useState(null);
-
-    const hasSwipeHandlers = typeof onSwipeLeft === 'function' || typeof onSwipeRight === 'function';
 
     useEffect(() => {
         if (!card) return;
@@ -165,54 +155,6 @@ const Flashcard = ({
             clearTimeout(fetchTimer);
         };
     }, [card]);
-
-    // Reset swipe state when card changes
-    useEffect(() => {
-        if (hasSwipeHandlers) {
-            setTouchStart(null);
-            setTouchEnd(null);
-            setSwipeOffset(0);
-        }
-    }, [card, hasSwipeHandlers]);
-
-    const onTouchStart = (e) => {
-        if (!hasSwipeHandlers) return;
-        setTouchEnd(null);
-        setTouchStart(e.targetTouches[0].clientX);
-    };
-
-    const onTouchMove = (e) => {
-        if (!hasSwipeHandlers || !touchStart) return;
-        const currentTouch = e.targetTouches[0].clientX;
-        setTouchEnd(currentTouch);
-        const diff = currentTouch - touchStart;
-        const maxOffset = 200;
-        setSwipeOffset(Math.max(-maxOffset, Math.min(maxOffset, diff)));
-    };
-
-    const onTouchEnd = () => {
-        if (!hasSwipeHandlers) return;
-        if (!touchStart || !touchEnd) {
-            setTouchStart(null);
-            setTouchEnd(null);
-            setSwipeOffset(0);
-            return;
-        }
-
-        const distance = touchStart - touchEnd;
-        const isLeftSwipe = distance > minSwipeDistance;
-        const isRightSwipe = distance < -minSwipeDistance;
-
-        if (isLeftSwipe && onSwipeLeft) {
-            onSwipeLeft();
-        } else if (isRightSwipe && onSwipeRight) {
-            onSwipeRight();
-        }
-
-        setTouchStart(null);
-        setTouchEnd(null);
-        setSwipeOffset(0);
-    };
 
     if (!card) return null;
 
@@ -434,22 +376,17 @@ const Flashcard = ({
     return (
         <div className="perspective-1000 w-full mx-auto relative select-none" style={{ height: '460px' }}>
             <div
-                className={`w-full transform-style-preserve-3d card-slide ${isFlipped ? 'rotate-y-180' : ''} ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
+                className={`w-full transform-style-preserve-3d card-slide ${isFlipped ? 'rotate-y-180' : ''}`}
                 onClick={(e) => {
                     e.stopPropagation();
-                    if (Math.abs(swipeOffset) < 10 && onFlip) {
+                    if (onFlip) {
                         onFlip();
                     }
                 }}
-                onTouchStart={onTouchStart}
-                onTouchMove={onTouchMove}
-                onTouchEnd={onTouchEnd}
                 style={{
                     width: '100%',
                     height: '460px',
-                    transform: swipeOffset ? `translateX(${swipeOffset}px)` : undefined,
-                    transition: swipeOffset ? 'none' : (slideDirection ? 'transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.3s ease' : (transitionEnabled ? 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)' : 'none')),
-                    touchAction: 'pan-y',
+                    transition: transitionEnabled ? 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)' : 'none',
                 }}
             >
                 {/* Front Side */}

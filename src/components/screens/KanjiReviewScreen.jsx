@@ -53,6 +53,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
     const [reviewHistory, setReviewHistory] = useState([]);
+    const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
+    const [slideDirection, setSlideDirection] = useState('');
     const sessionXpRef = useRef(0);
 
     const userId = getAuth().currentUser?.uid;
@@ -263,8 +265,20 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         setSrsData(prev => ({ ...prev, [currentCard.id]: newSrs }));
         if (currentReviewIndex + 1 < reviewQueue.length) {
             if (rating === 'good' || rating === 'easy') { flashCorrect(); }
-            setCurrentReviewIndex(prev => prev + 1);
-            setIsFlipped(false);
+            
+            setIsAnimatingFlip(false);
+            setSlideDirection('left');
+            setTimeout(() => {
+                setIsFlipped(false);
+                setCurrentReviewIndex(prev => prev + 1);
+                setSlideDirection('right');
+                setTimeout(() => {
+                    setSlideDirection('');
+                    setTimeout(() => {
+                        setIsAnimatingFlip(true);
+                    }, 110);
+                }, 20);
+            }, 70);
         } else {
             launchFanfare();
             logKanjiActivity(userId, {
@@ -323,8 +337,20 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             }
             return next;
         });
-        setCurrentReviewIndex(cardIndex);
-        setIsFlipped(wasFlipped || false);
+
+        setIsAnimatingFlip(false);
+        setSlideDirection('right');
+        setTimeout(() => {
+            setCurrentReviewIndex(cardIndex);
+            setIsFlipped(wasFlipped || false);
+            setSlideDirection('left');
+            setTimeout(() => {
+                setSlideDirection('');
+                setTimeout(() => {
+                    setIsAnimatingFlip(true);
+                }, 110);
+            }, 20);
+        }, 70);
 
         // Revert session XP
         sessionXpRef.current -= xpAwarded;
@@ -423,27 +449,46 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     </div>
 
                     {/* Flashcard */}
-                    <div className="w-full cursor-pointer" style={{ perspective: '1000px' }} onClick={() => { setIsFlipped(f => !f); playFlipSound(); }}>
-                        <div key={currentCard.id} style={{ position: 'relative', width: '100%', height: '360px', transformStyle: 'preserve-3d', transition: 'transform 0.6s cubic-bezier(0.4,0,0.2,1)', transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
-                            {/* Front */}
-                            <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none"
-                                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                                <div className="text-[140px] leading-none font-bold text-gray-800 dark:text-white select-none font-japanese">{currentCard.character}</div>
-                                <div className="absolute bottom-6 left-0 right-0 text-center">
-                                    <span className="text-xs text-gray-400 dark:text-gray-500 px-3.5 py-1.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">Nhấn để lật thẻ</span>
+                    <div className="w-full relative" style={{ perspective: '1000px', height: '360px' }}>
+                        <div
+                            className={`w-full relative card-slide ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
+                            style={{
+                                width: '100%',
+                                height: '360px',
+                                transition: slideDirection ? 'transform 0.12s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.12s ease' : 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)',
+                            }}
+                        >
+                            <div 
+                                onClick={() => { setIsFlipped(f => !f); playFlipSound(); }}
+                                style={{ 
+                                    position: 'relative', 
+                                    width: '100%', 
+                                    height: '100%', 
+                                    transformStyle: 'preserve-3d', 
+                                    transition: isAnimatingFlip ? 'transform 0.4s cubic-bezier(0.4,0,0.2,1)' : 'none', 
+                                    transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' 
+                                }}
+                            >
+                                {/* Front */}
+                                <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none"
+                                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                                    <div className="text-[140px] leading-none font-bold text-gray-800 dark:text-white select-none font-japanese">{currentCard.character}</div>
+                                    <div className="absolute bottom-6 left-0 right-0 text-center">
+                                        <span className="text-xs text-gray-400 dark:text-gray-500 px-3.5 py-1.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">Nhấn để lật thẻ</span>
+                                    </div>
                                 </div>
-                            </div>
-                            {/* Back */}
-                            <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none"
-                                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px', overflowY: 'auto' }}>
-                                <div className="text-center space-y-4 w-full">
-                                    <div className="text-4xl font-bold bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">{currentCard.sinoViet || '—'}</div>
-                                    <div className="text-xl text-cyan-600 dark:text-cyan-400 font-semibold">{currentCard.meaning || '—'}</div>
-                                    {currentCard.mnemonic && (
-                                        <div className="text-sm text-slate-650 dark:text-slate-350 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 leading-relaxed border border-slate-100 dark:border-slate-800 text-left w-full">
-                                            💡 {currentCard.mnemonic}
-                                        </div>
-                                    )}
+                                {/* Back */}
+                                <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none"
+                                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px', overflowY: 'auto' }}>
+                                    <div className="text-center space-y-4 w-full">
+                                        <div className="text-4xl font-bold bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">{currentCard.sinoViet || '—'}</div>
+                                        <div className="text-xl text-cyan-600 dark:text-cyan-400 font-semibold">{currentCard.meaning || '—'}</div>
+                                        {currentCard.mnemonic && (
+                                            <div className="text-sm text-slate-650 dark:text-slate-350 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 leading-relaxed border border-slate-100 dark:border-slate-800 text-left w-full">
+                                                💡 {currentCard.mnemonic}
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>

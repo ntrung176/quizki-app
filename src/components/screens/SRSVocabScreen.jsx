@@ -249,6 +249,8 @@ const SRSVocabScreen = ({
     const [reviewQueue, setReviewQueue] = useState([]);
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
+    const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
+    const [slideDirection, setSlideDirection] = useState('');
     const [reviewMode, setReviewModeState] = useState(false);
     const [reviewHistory, setReviewHistory] = useState([]);
     const sessionXpRef = useRef(0);
@@ -461,8 +463,19 @@ const SRSVocabScreen = ({
         }
 
         if (currentReviewIndex + 1 < reviewQueue.length) {
-            setCurrentReviewIndex(prev => prev + 1);
-            setIsFlipped(false);
+            setIsAnimatingFlip(false);
+            setSlideDirection('left');
+            setTimeout(() => {
+                setIsFlipped(false);
+                setCurrentReviewIndex(prev => prev + 1);
+                setSlideDirection('right');
+                setTimeout(() => {
+                    setSlideDirection('');
+                    setTimeout(() => {
+                        setIsAnimatingFlip(true);
+                    }, 110);
+                }, 20);
+            }, 70);
         } else {
             // Completed queue
             try {
@@ -514,9 +527,20 @@ const SRSVocabScreen = ({
             sessionXpRef.current -= (revertedXp || 0);
         }
 
-        // Restore index and flipped state
-        setCurrentReviewIndex(cardIndex);
-        setIsFlipped(wasFlipped || false);
+        // Restore index and flipped state with slide animation
+        setIsAnimatingFlip(false);
+        setSlideDirection('right');
+        setTimeout(() => {
+            setCurrentReviewIndex(cardIndex);
+            setIsFlipped(wasFlipped || false);
+            setSlideDirection('left');
+            setTimeout(() => {
+                setSlideDirection('');
+                setTimeout(() => {
+                    setIsAnimatingFlip(true);
+                }, 110);
+            }, 20);
+        }, 70);
     };
 
     // Keyboard controls for Flashcards review
@@ -600,16 +624,24 @@ const SRSVocabScreen = ({
                         {/* Flashcard Container Wrapper */}
                         <div className="w-full relative" data-tour-id="FLASHCARD_CONTAINER">
                             {/* Flashcard Container */}
-                            <div className="w-full relative" style={{ height: '460px' }}>
+                            <div
+                                className={`w-full relative card-slide ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
+                                style={{
+                                    width: '100%',
+                                    height: '460px',
+                                    transition: slideDirection ? 'transform 0.12s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.12s ease' : 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)',
+                                }}
+                            >
                                 <Flashcard
                                     card={currentCard}
                                     cardSettings={cardSettings}
                                     isFlipped={isFlipped}
                                     onFlip={() => {
+                                        setIsAnimatingFlip(true);
                                         setIsFlipped(!isFlipped);
                                     }}
                                     variant="emerald"
-                                    transitionEnabled={true}
+                                    transitionEnabled={isAnimatingFlip}
                                 />
                             </div>
 
