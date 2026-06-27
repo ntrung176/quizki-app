@@ -332,12 +332,16 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
 
     // Find current user's rank
     const myRankInfo = useMemo(() => {
+        const userBelongsToThisLeague = (profile?.league || 'Sắt') === selectedLeague;
+        if (!userBelongsToThisLeague) {
+            return { rank: -1, total: leagueParticipants.length };
+        }
         const index = leagueParticipants.findIndex(u => u.id === userId);
         return {
-            rank: index !== -1 ? index + 1 : 30,
+            rank: index !== -1 ? index + 1 : -1,
             total: leagueParticipants.length
         };
-    }, [leagueParticipants, userId]);
+    }, [leagueParticipants, userId, selectedLeague, profile?.league]);
 
     // Top 3 Podium
     const podiumList = useMemo(() => {
