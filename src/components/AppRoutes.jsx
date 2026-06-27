@@ -665,6 +665,9 @@ const AppRoutes = ({
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
                             <AddCardForm
+                                allCards={allCards}
+                                cardFolders={cardFolders}
+                                folders={folders}
                                 onAddFolder={onAddFolder}
                                 onSave={handleSaveNewCard}
                                 onBack={() => setView('LIST')}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Plus, Loader2, Image as ImageIcon, Check, X, Sparkle, Folder } from 'lucide-react'
+import { Plus, Loader2, Image as ImageIcon, Check, X, Sparkle, Folder, AlertTriangle } from 'lucide-react'
 
 import { compressImage } from '../../utils/image';
 import { TopTabBar } from '../ui';
@@ -64,6 +64,7 @@ const EditSetScreen = ({
     const [isSaving, setIsSaving] = useState(false);
     const [isAiLoadingMap, setIsAiLoadingMap] = useState({});
     const [showFolderSelector, setShowFolderSelector] = useState(false);
+    const [duplicateCheckResult, setDuplicateCheckResult] = useState(null);
 
     // Bulk AI Modal State
     const [isBatchModalOpen, setIsBatchModalOpen] = useState(false);
@@ -203,7 +204,6 @@ const EditSetScreen = ({
     const handleConfirmSaveSet = async (parentFolderId) => {
         setShowFolderSelector(false);
         const validCards = cards.filter(c => c.front.trim() && c.back.trim());
-        setIsSaving(true);
 
         // 1. Check for duplicates within the current screen's inputs
         const seenInputs = new Set();
@@ -220,11 +220,78 @@ const EditSetScreen = ({
 
         if (screenDuplicates.length > 0) {
             showToast(`Có từ vựng bị trùng lặp trên màn hình: ${screenDuplicates.join(', ')}`, 'error');
-            setIsSaving(false);
             return;
         }
 
+        // 2. Check for duplicates in other sets
+        const getFrontTextOnly = (front) => {
+            if (!front) return '';
+            return front.split('（')[0].split('(')[0].trim().toLowerCase();
+        };
 
+        const duplicates = [];
+        for (const card of validCards) {
+            const norm = getFrontTextOnly(card.front);
+            if (!norm) continue;
+
+            const existingDuplicate = allCards?.find(c => {
+                if (c.id === card.id) return false;
+
+                const otherNorm = getFrontTextOnly(c.front);
+                if (otherNorm !== norm) return false;
+
+                const otherFolderId = cardFolders[c.id];
+                if (!otherFolderId || otherFolderId === 'unfiled' || otherFolderId === folderId) return false;
+
+                return true;
+            });
+
+            if (existingDuplicate) {
+                const otherFolderId = cardFolders[existingDuplicate.id];
+                const otherFolder = folders?.find(f => f.id === otherFolderId);
+                duplicates.push({
+                    cardId: card.id,
+                    front: card.front,
+                    otherSetName: otherFolder ? otherFolder.name : 'Học phần khác'
+                });
+            }
+        }
+
+        if (duplicates.length > 0) {
+            setDuplicateCheckResult({ duplicates, parentFolderId });
+            return;
+        }
+
+        await proceedSaveWithChoices(parentFolderId, []);
+    };
+
+    const proceedSaveWithChoices = async (parentFolderId, cardIdsToExclude) => {
+        setDuplicateCheckResult(null);
+        setIsSaving(true);
+
+        // Delete any existing cards that are explicitly excluded
+        if (cardIdsToExclude.length > 0 && onDeleteCard) {
+            try {
+                const deletePromises = cardIdsToExclude.map(async (cardId) => {
+                    const card = cards.find(c => c.id === cardId);
+                    if (card && !card.isNew) {
+                        return onDeleteCard(cardId, '');
+                    }
+                });
+                await Promise.all(deletePromises);
+            } catch (e) {
+                console.error("Lỗi khi loại bỏ từ trùng:", e);
+            }
+        }
+
+        // Filter cards to save
+        const validCards = cards.filter(c => c.front.trim() && c.back.trim() && !cardIdsToExclude.includes(c.id));
+
+        if (validCards.length === 0) {
+            showToast('Không còn từ vựng nào để lưu sau khi loại bỏ từ trùng.', 'warning');
+            setIsSaving(false);
+            return;
+        }
 
         let activeFolderId = folderId;
         // Create new folder if 'unfiled' was renamed/edited
@@ -628,6 +695,79 @@ const EditSetScreen = ({
                                 className="px-5 py-2 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-250 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
                             >
                                 Hủy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+            {/* Duplicates Alert Dialog */}
+            {duplicateCheckResult && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+                    <div className="bg-white dark:bg-gray-800 rounded-3xl w-full max-w-md max-h-[80vh] flex flex-col shadow-2xl border border-slate-100 dark:border-slate-700 overflow-hidden">
+                        
+                        {/* Dialog Header */}
+                        <div className="flex items-center gap-3 p-5 border-b border-slate-150 dark:border-slate-750 bg-amber-50/50 dark:bg-amber-950/10">
+                            <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center shrink-0">
+                                <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-bold text-slate-800 dark:text-white">
+                                    Từ vựng đã tồn tại
+                                </h3>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">
+                                    Phát hiện từ trùng lặp trong học phần khác
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* List of Duplicates */}
+                        <div className="flex-1 overflow-y-auto p-5 space-y-3 max-h-[40vh] custom-scrollbar">
+                            <p className="text-sm text-slate-650 dark:text-slate-350">
+                                Có <strong className="text-amber-600 dark:text-amber-400">{duplicateCheckResult.duplicates.length} từ vựng</strong> trong học phần này đã được tạo ở các học phần khác của bạn:
+                            </p>
+                            <div className="space-y-2">
+                                {duplicateCheckResult.duplicates.map((dup, index) => (
+                                    <div key={index} className="flex items-center justify-between p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800/80">
+                                        <span className="font-semibold text-sm text-slate-750 dark:text-slate-250 truncate max-w-[180px]">
+                                            {dup.front}
+                                        </span>
+                                        <div className="flex items-center gap-1.5 text-xs text-slate-450 dark:text-slate-500 shrink-0 font-medium">
+                                            <Folder className="w-3.5 h-3.5 text-amber-500/80" />
+                                            <span className="truncate max-w-[120px]">{dup.otherSetName}</span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Actions */}
+                        <div className="p-4 bg-slate-50 dark:bg-slate-900/40 border-t border-slate-100 dark:border-slate-750/50 flex flex-col gap-2">
+                            <button
+                                type="button"
+                                onClick={() => proceedSaveWithChoices(duplicateCheckResult.parentFolderId, [])}
+                                className="w-full py-2.5 text-sm font-bold rounded-xl text-white bg-indigo-650 hover:bg-indigo-700 dark:bg-indigo-600 dark:hover:bg-indigo-700 transition-colors shadow-sm cursor-pointer"
+                            >
+                                Vẫn tiếp tục lưu học phần
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => proceedSaveWithChoices(
+                                    duplicateCheckResult.parentFolderId, 
+                                    duplicateCheckResult.duplicates.map(d => d.cardId)
+                                )}
+                                className="w-full py-2.5 text-sm font-semibold rounded-xl text-indigo-700 dark:text-indigo-400 bg-indigo-50 hover:bg-indigo-100 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors cursor-pointer border border-indigo-100 dark:border-slate-700"
+                            >
+                                Lưu và trừ {duplicateCheckResult.duplicates.length} từ trùng
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    setDuplicateCheckResult(null);
+                                    setIsSaving(false);
+                                }}
+                                className="w-full py-2 text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors cursor-pointer"
+                            >
+                                Hủy bỏ
                             </button>
                         </div>
                     </div>
