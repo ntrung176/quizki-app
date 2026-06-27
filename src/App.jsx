@@ -677,6 +677,19 @@ const App = () => {
                 const calculatedLevel = lvlInfo.level;
                 const calculatedTitle = getLevelTitle(calculatedLevel);
 
+                // Tự sửa lỗi (Self-healing migration): Nếu là người học mới (level 1 hoặc XP bằng 0)
+                // nhưng bị gán nhầm vào bảng xếp hạng 'Đồng' (do giá trị mặc định cũ),
+                // hệ thống sẽ tự động đưa họ về bảng xếp hạng 'Sắt' (Iron).
+                if ((calculatedLevel === 1 || currentXp === 0) && profileData.league === 'Đồng') {
+                    console.log(`[Self-Healing] Đưa người học mới ${userId} từ 'Đồng' về 'Sắt'`);
+                    profileData.league = 'Sắt';
+                    try {
+                        await updateDoc(doc(db, settingsDocPath), { league: 'Sắt' });
+                    } catch (e) {
+                        console.error("[Self-Healing] Lỗi tự động sửa league:", e);
+                    }
+                }
+
                 if (profileData.level !== undefined && calculatedLevel > profileData.level) {
                     // Level up celebration!
                     setLevelUpInfo({ level: calculatedLevel, title: calculatedTitle });

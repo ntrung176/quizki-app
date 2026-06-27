@@ -16,27 +16,26 @@ const db = getFirestore(app);
 
 async function listUsers() {
     try {
-        console.log("Fetching users from Firestore...");
+        console.log("Fetching all users from userStats...");
         const path = "artifacts/1:28989364918:web:a2a99ad33fc0c23fca6417/public/data/userStats";
         const snapshot = await getDocs(collection(db, path));
         
         const users = [];
         snapshot.forEach(doc => {
-            users.push({
-                uid: doc.id,
-                ...doc.data()
-            });
+            const data = doc.data();
+            if (data.league === 'Đồng' && (data.score === undefined || data.score === 0 || data.level === 1)) {
+                users.push({
+                    uid: doc.id,
+                    ...data
+                });
+            }
         });
         
-        users.sort((a, b) => (b.level || 0) - (a.level || 0));
-        
-        let output = `Found ${users.length} user profiles in database:\n`;
+        console.log(`Found ${users.length} users in 'Đồng' with score 0/undefined or level 1:`);
         users.forEach((u, i) => {
-            output += `${i+1}. UID: ${u.uid} | Name: ${u.displayName} | Level: ${u.level} | XP: ${u.xp} | League: ${u.league}\n`;
+            const dateStr = u.lastUpdated?.toDate ? u.lastUpdated.toDate().toISOString() : (u.lastUpdated?.seconds ? new Date(u.lastUpdated.seconds * 1000).toISOString() : 'N/A');
+            console.log(`${i+1}. Name: ${u.displayName} | UID: ${u.uid} | Level: ${u.level} | Score: ${u.score} | LastUpdated: ${dateStr}`);
         });
-        
-        fs.writeFileSync('scratch/users_list.txt', output, 'utf8');
-        console.log("Written users list to scratch/users_list.txt");
     } catch (e) {
         console.error("Error listing users:", e);
     }

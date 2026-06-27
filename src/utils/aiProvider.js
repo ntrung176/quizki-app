@@ -290,7 +290,7 @@ QUY TẮC BẮT BUỘC:
 2. meaning: ${isGrammar ? 'Định nghĩa ngữ pháp theo hướng dẫn ở trên.' : 'Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống.'}
 
 3. pos/level: Phải khớp ngữ cảnh nếu đã chọn. Grammar→giải thích như ngữ pháp.
-   - pos: noun/verb/suru_verb/adj_i/adj_na/adverb/conjunction/particle/grammar/phrase/other.
+   - pos: Bắt buộc chọn một trong các chuỗi sau: "noun" (danh từ), "verb" (động từ), "suru_verb" (danh động từ - suru verb), "adj-i" (tính từ -い), "adj-na" (tính từ -な), "adverb" (trạng từ), "conjunction" (liên từ), "particle" (trợ từ), "grammar" (ngữ pháp), "phrase" (cụm từ), "other" (khác).
 
 ${exampleRule}
 ${exampleMeaningRule}
