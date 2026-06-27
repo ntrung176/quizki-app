@@ -17,7 +17,7 @@ import { normalizePosKey } from './config/constants'
 import { getSharedBookGroups, getCachedBookGroups } from './utils/bookService';
 
 import { playAudio, generateAudioSilent } from './utils/audio'
-import { getNextReviewDate, DEFAULT_EASE, calculateCorrectInterval, calculateAnkiSRS } from './utils/srs'
+import { getNextReviewDate, DEFAULT_EASE, calculateCorrectInterval, calculateAnkiSRS, isKanjiMastered } from './utils/srs'
 import { shuffleArray, getSpeechText } from './utils/textProcessing'
 import { callAI, parseJsonFromAI, getAIProviderInfo, generateVocabPrompt, getOpenRouterKeys, getSinoVietnamese } from './utils/aiProvider';
 import { subscribeAdminConfig, hasAdminPrivileges } from './utils/adminSettings'
@@ -726,7 +726,7 @@ const App = () => {
                 if (lastLeagueWeekId && lastLeagueWeekId !== currentWeekId) {
                     const prevScore = profileData.score || 0;
                     const prevLeague = userLeague;
-                    const isBotEnabledForPrevLeague = prevLeague === 'Sắt' || prevLeague === 'Đồng';
+                    const isBotEnabledForPrevLeague = false;
 
                     let allParticipants = [{ id: userId, computedScore: prevScore }];
 
@@ -998,7 +998,13 @@ const App = () => {
                     reading: data.reading || '',
                     accent: data.accent !== undefined && data.accent !== null ? String(data.accent) : '',
                     createdAt: data.createdAt?.toDate ? data.createdAt.toDate() : (data.createdAt ? new Date(data.createdAt) : today),
-                    intervalIndex_back: legacyIndex,
+                    intervalIndex_back: (srsEnabled && resolvedState) ? (
+                        resolvedState === 'NEW' ? -1 : (
+                            resolvedState === 'LEARNING' || resolvedState === 'RELEARNING' ? 0 : (
+                                srsInterval >= 21 ? 4 : (srsInterval >= 3 ? 3 : 2)
+                            )
+                        )
+                    ) : legacyIndex,
                     correctStreak_back: typeof data.correctStreak_back === 'number' ? data.correctStreak_back : 0,
                     nextReview_back: nextReviewBack,
                     intervalIndex_synonym: typeof data.intervalIndex_synonym === 'number' ? data.intervalIndex_synonym : -1,
@@ -1034,6 +1040,11 @@ const App = () => {
 
             // Sort by createdAt desc by default initially
             cards.sort((a, b) => b.createdAt - a.createdAt);
+            console.log("[Quizki Debug] loadVocabulary onSnapshot loaded cards count:", cards.length);
+            console.log("[Quizki Debug] Sample cards info (up to 5):");
+            cards.slice(0, 5).forEach(c => {
+                console.log(`- Card: "${c.front}" | intervalIndex_back: ${c.intervalIndex_back} | srsInterval: ${c.srsInterval} | srsState: ${c.srsState}`);
+            });
             setAllCards(cards);
             // Lưu vào sessionStorage (convert Date objects to ISO strings, loại bỏ audioBase64 và imageBase64 để tiết kiệm dung lượng)
             const cardsForStorage = cards.map(card => {
@@ -2896,7 +2907,7 @@ const App = () => {
                     srsLapseCount: result.lapseCount,
                     srsPrelapseInterval: result.prelapseInterval,
                     srsState: result.state,
-                    intervalIndex_back: result.state === 'NEW' ? -1 : (result.state === 'REVIEW' ? 2 : 0),
+                    intervalIndex_back: result.state === 'NEW' ? -1 : (result.state === 'REVIEW' ? (result.interval >= 21 ? 4 : (result.interval >= 3 ? 3 : 2)) : 0),
                     nextReview_back: nextReviewDate,
                     lastReviewed: new Date(),
                     needsMistakeReview: rating === 'again',
@@ -2947,7 +2958,7 @@ const App = () => {
                     srsLapseCount: result.lapseCount,
                     srsPrelapseInterval: result.prelapseInterval,
                     srsState: result.state,
-                    intervalIndex_back: result.state === 'NEW' ? -1 : (result.state === 'REVIEW' ? 2 : 0),
+                    intervalIndex_back: result.state === 'NEW' ? -1 : (result.state === 'REVIEW' ? (result.interval >= 21 ? 4 : (result.interval >= 3 ? 3 : 2)) : 0),
                     nextReview_back: nextReviewDate,
                     lastReviewed: serverTimestamp(),
                     needsMistakeReview: rating === 'again',
@@ -4059,8 +4070,11 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             let total = 0, mastered = 0;
             snap.docs.forEach(d => {
                 total++;
-                if (d.data().reps >= 5) mastered++;
+                const data = d.data();
+                if (isKanjiMastered(data)) mastered++;
             });
+            console.log("[Quizki Debug] Kanji SRS snapshot loaded for user:", userId);
+            console.log("[Quizki Debug] Kanji SRS Total:", total, "Mastered:", mastered);
             setKanjiSrsPublicCount({ total, mastered });
         }, () => { });
         return () => unsub();
@@ -4073,6 +4087,11 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             try {
                 const statsDocRef = doc(db, publicStatsCollectionPath, userId);
                 const vocabMastered = allCards.filter(c => c.intervalIndex_back >= 4).length;
+
+                console.log("[Quizki Debug] updatePublicStats triggered for user:", userId);
+                console.log("[Quizki Debug] Total Vocabulary Cards:", allCards.length);
+                console.log("[Quizki Debug] Vocabulary Mastered (intervalIndex_back >= 4):", vocabMastered);
+                console.log("[Quizki Debug] Kanji Mastered:", kanjiSrsPublicCount.mastered);
 
                 const currentStreak = calculatedStreak;
 

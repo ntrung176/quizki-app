@@ -150,6 +150,16 @@ export const generateSimulatedLeague = (userId, weekId, userScore) => {
         botScore += Math.floor(nextRandom() * 30) - 15;
         if (botScore < 0) botScore = 0;
         
+        const botTotalCards = Math.floor(nextRandom() * 150) + 30;
+        const botKanjiTotal = Math.floor(nextRandom() * 80) + 5;
+        const botMastered = Math.floor(nextRandom() * (botTotalCards * 0.4)) + Math.floor(botTotalCards * 0.1);
+        const botKanjiMastered = Math.floor(nextRandom() * (botKanjiTotal * 0.4)) + Math.floor(botKanjiTotal * 0.1);
+
+        const botAdded = Math.floor(nextRandom() * 15) + 3;
+        const botKanjiAdded = Math.floor(nextRandom() * 8) + 1;
+        const botReviews = Math.floor(nextRandom() * 60) + 10;
+        const botActiveDays = Math.max(1, Math.min(7, Math.floor(nextRandom() * 4) + (botScore > 500 ? 3 : 1)));
+
         bots.push({
             id: `bot_${weekId}_${i}`,
             displayName: name,
@@ -158,8 +168,14 @@ export const generateSimulatedLeague = (userId, weekId, userScore) => {
             score: botScore,
             computedScore: botScore,
             isBot: true,
-            totalCards: Math.floor(nextRandom() * 150) + 30,
-            kanjiTotal: Math.floor(nextRandom() * 80) + 5,
+            totalCards: botTotalCards,
+            kanjiTotal: botKanjiTotal,
+            mastered: botMastered,
+            kanjiMastered: botKanjiMastered,
+            addedLast7Days: botAdded,
+            kanjiAddedLast7Days: botKanjiAdded,
+            reviewsLast7Days: botReviews,
+            activeDaysLast7Days: botActiveDays,
             streak: Math.floor(nextRandom() * 10) + 1,
             lastUpdated: { toDate: () => new Date() }
         });
@@ -169,15 +185,13 @@ export const generateSimulatedLeague = (userId, weekId, userScore) => {
 
 // Dynamic Promotion/Demotion rules based on active user counts (ideal for small user bases)
 export const getLeagueTierRules = (leagueName, totalParticipants) => {
-    const isBotEnabled = leagueName === 'Sắt' || leagueName === 'Đồng';
-    
-    if (isBotEnabled) {
+    if (leagueName === 'Sắt' || leagueName === 'Đồng') {
         return {
             minScoreForPromotion: 100, // Phải đạt tối thiểu 100 điểm để thăng hạng
             minScoreForSafety: 20,     // Dưới 20 điểm hoặc đứng chót sẽ xuống hạng
             promoteCount: 5,
             demoteCount: leagueName === 'Sắt' ? 0 : 5,
-            isBotEnabled: true
+            isBotEnabled: false
         };
     }
 

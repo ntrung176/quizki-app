@@ -3,6 +3,7 @@ import { Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Search, Users, 
 import { collection, query, onSnapshot } from 'firebase/firestore';
 import { auth, db, appId } from '../../config/firebase';
 import LoadingIndicator from '../ui/LoadingIndicator';
+import { isKanjiMastered } from '../../utils/srs';
 import { getLevelFromXp, getLevelTitle, LEAGUES, LEAGUE_ICONS, LEAGUE_COLORS, getWeekId, generateSimulatedLeague, getLeagueTierRules } from '../../utils/scoring';
 
 // Avatar emoji lookup
@@ -60,6 +61,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
     const [selectedLeague, setSelectedLeague] = useState(profile?.league || 'Sắt');
     const [timeLeft, setTimeLeft] = useState('');
 
+
     // Sync selected league when profile updates
     useEffect(() => {
         if (profile?.league) {
@@ -109,7 +111,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
             snap.docs.forEach(d => {
                 total++;
                 const data = d.data();
-                if (data.reps >= 5) mastered++;
+                if (isKanjiMastered(data)) mastered++;
                 else learning++;
                 if (data.nextReview && data.nextReview <= now) dueToday++;
             });
@@ -191,12 +193,8 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
         );
     }, []);
 
-    // Current user's calculated score
-    const myScore = useMemo(() => {
-        const me = leaderboardData.find(u => u.id === userId);
-        if (me) return computeScore(me);
-
-        // Fallback to local log-based calculation
+    // Current user's weekly stats
+    const myWeeklyStats = useMemo(() => {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         const last7DaysLogs = (dailyActivityLogs || []).filter(log => {
@@ -216,14 +214,28 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
         const reviewsLast7Days = last7DaysLogs.reduce((s, l) => s + (l.reviewsDone || 0), 0);
         const activeDaysLast7Days = last7DaysLogs.filter(l => (l.newWordsAdded || 0) > 0 || (l.newKanjiAdded || 0) > 0 || (l.reviewsDone || 0) > 0).length;
 
+        return {
+            addedLast7Days,
+            kanjiLast7Days,
+            reviewsLast7Days,
+            activeDaysLast7Days
+        };
+    }, [dailyActivityLogs]);
+
+    // Current user's calculated score
+    const myScore = useMemo(() => {
+        const me = leaderboardData.find(u => u.id === userId);
+        if (me) return computeScore(me);
+
+        // Fallback to local log-based calculation
         return Math.round(
-            (addedLast7Days * 10) +
-            (kanjiLast7Days * 15) +
-            (reviewsLast7Days * 20) +
-            (activeDaysLast7Days * 50) +
+            (myWeeklyStats.addedLast7Days * 10) +
+            (myWeeklyStats.kanjiLast7Days * 15) +
+            (myWeeklyStats.reviewsLast7Days * 20) +
+            (myWeeklyStats.activeDaysLast7Days * 50) +
             (streak * 20)
         );
-    }, [leaderboardData, userId, dailyActivityLogs, streak, computeScore]);
+    }, [leaderboardData, userId, myWeeklyStats, streak, computeScore]);
 
     // Current user's XP progress
     const xpDetails = useMemo(() => {
@@ -235,10 +247,15 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
 
     // Filter real users and fill with bots to form exactly 30 participants (only for Sắt and Đồng)
     const leagueParticipants = useMemo(() => {
-        let realUsersInLeague = leaderboardData.map(u => ({
-            ...u,
-            computedScore: computeScore(u)
-        })).filter(u => (u.league || 'Sắt') === selectedLeague);
+        let realUsersInLeague = leaderboardData.map(u => {
+            // Self-heal: users who have not studied anything (0 vocabulary and 0 kanji) must belong to 'Sắt'
+            const resolvedLeague = ((u.totalCards || 0) === 0 && (u.kanjiTotal || 0) === 0) ? 'Sắt' : (u.league || 'Sắt');
+            return {
+                ...u,
+                league: resolvedLeague,
+                computedScore: computeScore(u)
+            };
+        }).filter(u => u.league === selectedLeague);
 
         // Remove the current user to avoid duplicates
         const currentUserId = userId;
@@ -248,7 +265,9 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
         const userBelongsToThisLeague = (profile?.league || 'Sắt') === selectedLeague;
         let finalParticipants = [...realUsersInLeague];
         if (userBelongsToThisLeague) {
+            const me = leaderboardData.find(u => u.id === currentUserId) || {};
             finalParticipants.push({
+                ...me,
                 id: currentUserId,
                 displayName: profile?.displayName || 'Bạn',
                 avatar: profile?.avatar || 'default',
@@ -256,15 +275,21 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                 title: profile?.title || getLevelTitle(1),
                 streak: streak,
                 totalCards: totalCards,
+                mastered: vocabMastery.mastered,
                 kanjiTotal: kanjiSrsStats.total,
+                kanjiMastered: kanjiSrsStats.mastered,
+                addedLast7Days: myWeeklyStats.addedLast7Days,
+                kanjiAddedLast7Days: myWeeklyStats.kanjiLast7Days,
+                reviewsLast7Days: myWeeklyStats.reviewsLast7Days,
+                activeDaysLast7Days: myWeeklyStats.activeDaysLast7Days,
                 computedScore: myScore,
                 league: selectedLeague,
-                lastUpdated: { toDate: () => new Date() }
+                lastUpdated: me.lastUpdated || { toDate: () => new Date() }
             });
         }
 
-        // Fill remaining spaces with deterministic competitive bots only for entry-level leagues (Sắt, Đồng) and only if it matches the user's active league
-        const isBotEnabled = (selectedLeague === 'Sắt' || selectedLeague === 'Đồng') && (profile?.league || 'Sắt') === selectedLeague;
+        // Fill remaining spaces with deterministic competitive bots (Disabled)
+        const isBotEnabled = false;
         if (isBotEnabled) {
             const needed = 30 - finalParticipants.length;
             if (needed > 0) {
@@ -303,7 +328,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
         });
 
         return finalParticipants;
-    }, [leaderboardData, selectedLeague, profile, userId, myScore, streak, totalCards, kanjiSrsStats.total, currentWeekId, searchTerm, sortBy, computeScore]);
+    }, [leaderboardData, selectedLeague, profile, userId, myScore, streak, totalCards, vocabMastery.mastered, kanjiSrsStats.total, kanjiSrsStats.mastered, myWeeklyStats, currentWeekId, searchTerm, sortBy, computeScore]);
 
     // Find current user's rank
     const myRankInfo = useMemo(() => {
@@ -327,6 +352,67 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
 
     const handleToggleExpandUser = (id) => {
         setExpandedUser(prev => prev === id ? null : id);
+    };
+
+    const activePodiumUser = useMemo(() => {
+        if (!expandedUser) return null;
+        return podiumList.find(u => u.id === expandedUser) || null;
+    }, [expandedUser, podiumList]);
+
+    const renderExpandedDetails = (user) => {
+        return (
+            <div className="px-5 pb-5 pt-3 bg-slate-50/80 dark:bg-slate-800/80 border-t border-gray-150 dark:border-slate-700/40 text-xs text-gray-500 dark:text-gray-400 animate-fade-in space-y-4">
+                {/* Cumulative Section */}
+                <div>
+                    <span className="text-[10px] font-extrabold text-indigo-500 uppercase tracking-widest block mb-2">Thống kê tích lũy</span>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
+                            <span className="text-[10px] font-bold text-gray-400 block mb-1">Tổng từ vựng:</span>
+                            <span className="text-sm font-black text-slate-700 dark:text-gray-200">{user.totalCards || 0}</span> từ ({user.mastered || 0} thuộc)
+                        </div>
+                        <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
+                            <span className="text-[10px] font-bold text-gray-400 block mb-1">Tổng chữ Hán:</span>
+                            <span className="text-sm font-black text-slate-700 dark:text-gray-200">{user.kanjiTotal || 0}</span> tự ({user.kanjiMastered || 0} thuộc)
+                        </div>
+                        <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
+                            <span className="text-[10px] font-bold text-gray-400 block mb-1">Chuỗi ngày (Streak):</span>
+                            <span className="text-sm font-black text-orange-500 flex items-center gap-0.5">
+                                <Flame className="w-4 h-4 fill-orange-500" /> {user.streak || 0} ngày
+                            </span>
+                        </div>
+                        <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
+                            <span className="text-[10px] font-bold text-gray-400 block mb-1">Hoạt động cuối:</span>
+                            <span className="text-sm font-black text-slate-700 dark:text-gray-200">{formatLastActive(user.lastUpdated)}</span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Weekly Section */}
+                <div>
+                    <span className="text-[10px] font-extrabold text-emerald-500 uppercase tracking-widest block mb-2">Hoạt động tuần này (7 ngày qua)</span>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
+                            <span className="text-[10px] font-bold text-gray-400 block mb-1">Từ học mới:</span>
+                            <span className="text-sm font-black text-emerald-600 dark:text-emerald-450">+{user.addedLast7Days || 0}</span> từ vựng
+                        </div>
+                        <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
+                            <span className="text-[10px] font-bold text-gray-400 block mb-1">Tổng lượt ôn tập:</span>
+                            <span className="text-sm font-black text-emerald-600 dark:text-emerald-450">+{user.reviewsLast7Days || 0}</span> lượt
+                        </div>
+                        <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
+                            <span className="text-[10px] font-bold text-gray-400 block mb-1">Số ngày học:</span>
+                            <span className="text-sm font-black text-emerald-600 dark:text-emerald-450">{user.activeDaysLast7Days || 0}</span> / 7 ngày
+                        </div>
+                        <div className="p-2.5 bg-gradient-to-br from-indigo-50 to-sky-50 dark:from-indigo-950/20 dark:to-sky-950/10 rounded-xl border border-indigo-100/50 dark:border-indigo-950/50 shadow-sm flex flex-col justify-center">
+                            <span className="text-[10px] font-bold text-indigo-500 dark:text-indigo-400 block mb-0.5">Điểm vinh danh:</span>
+                            <span className="text-sm font-black text-indigo-600 dark:text-indigo-400 flex items-center gap-0.5">
+                                <Star className="w-4 h-4 fill-indigo-500 text-indigo-500 dark:fill-indigo-400 dark:text-indigo-400" /> {user.computedScore} điểm
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
     };
 
     const renderUserRow = (user, index, rank) => {
@@ -455,59 +541,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                 </div>
 
                 {/* Expanded Details Panel */}
-                {isExpanded && (
-                    <div className="px-5 pb-5 pt-3 bg-slate-50/80 dark:bg-slate-800/80 border-t border-gray-150 dark:border-slate-700/40 text-xs text-gray-500 dark:text-gray-400 animate-fade-in space-y-4">
-                        {/* Cumulative Section */}
-                        <div>
-                            <span className="text-[10px] font-extrabold text-indigo-500 uppercase tracking-widest block mb-2">Thống kê tích lũy</span>
-                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                                <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
-                                    <span className="text-[10px] font-bold text-gray-400 block mb-1">Tổng từ vựng:</span>
-                                    <span className="text-sm font-black text-slate-700 dark:text-gray-200">{user.totalCards || 0}</span> từ ({user.mastered || 0} thuộc)
-                                </div>
-                                <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
-                                    <span className="text-[10px] font-bold text-gray-400 block mb-1">Tổng chữ Hán:</span>
-                                    <span className="text-sm font-black text-slate-700 dark:text-gray-200">{user.kanjiTotal || 0}</span> tự ({user.kanjiMastered || 0} thuộc)
-                                </div>
-                                <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
-                                    <span className="text-[10px] font-bold text-gray-400 block mb-1">Chuỗi ngày (Streak):</span>
-                                    <span className="text-sm font-black text-orange-500 flex items-center gap-0.5">
-                                        <Flame className="w-4 h-4 fill-orange-500" /> {user.streak || 0} ngày
-                                    </span>
-                                </div>
-                                <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
-                                    <span className="text-[10px] font-bold text-gray-400 block mb-1">Hoạt động cuối:</span>
-                                    <span className="text-sm font-black text-slate-700 dark:text-gray-200">{formatLastActive(user.lastUpdated)}</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Weekly Section */}
-                        <div>
-                            <span className="text-[10px] font-extrabold text-emerald-500 uppercase tracking-widest block mb-2">Hoạt động tuần này (7 ngày qua)</span>
-                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                                <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
-                                    <span className="text-[10px] font-bold text-gray-400 block mb-1">Từ học mới:</span>
-                                    <span className="text-sm font-black text-emerald-600 dark:text-emerald-450">+{user.addedLast7Days || 0}</span> từ vựng
-                                </div>
-                                <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
-                                    <span className="text-[10px] font-bold text-gray-400 block mb-1">Tổng lượt ôn tập:</span>
-                                    <span className="text-sm font-black text-emerald-600 dark:text-emerald-450">+{user.reviewsLast7Days || 0}</span> lượt
-                                </div>
-                                <div className="p-2.5 bg-white dark:bg-slate-850 rounded-xl border border-slate-100 dark:border-slate-850/60 shadow-sm">
-                                    <span className="text-[10px] font-bold text-gray-400 block mb-1">Số ngày học:</span>
-                                    <span className="text-sm font-black text-emerald-600 dark:text-emerald-450">{user.activeDaysLast7Days || 0}</span> / 7 ngày
-                                </div>
-                                <div className="p-2.5 bg-gradient-to-br from-indigo-50 to-sky-50 dark:from-indigo-950/20 dark:to-sky-950/10 rounded-xl border border-indigo-100/50 dark:border-indigo-950/50 shadow-sm flex flex-col justify-center">
-                                    <span className="text-[10px] font-bold text-indigo-500 dark:text-indigo-400 block mb-0.5">Điểm vinh danh:</span>
-                                    <span className="text-sm font-black text-indigo-600 dark:text-indigo-400 flex items-center gap-0.5">
-                                        <Star className="w-4 h-4 fill-indigo-500 text-indigo-500 dark:fill-indigo-400 dark:text-indigo-400" /> {user.computedScore} điểm
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
+                {isExpanded && renderExpandedDetails(user)}
             </div>
         );
     };
@@ -643,139 +677,160 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
 
             {/* Top 3 Podium Displays */}
             {!searchTerm.trim() && podiumList.length > 0 && (
-                <div className="grid grid-cols-3 gap-3 pt-6 items-end max-w-xl mx-auto mb-6">
-                    {/* 2nd Place (Silver) */}
-                    {podiumList[1] && (
-                        <div className="flex flex-col items-center group cursor-pointer" onClick={() => handleToggleExpandUser(podiumList[1].id)}>
-                            <div className="relative mb-2">
-                                <div className="w-16 h-16 rounded-full border-4 border-slate-300 overflow-hidden bg-white shadow-lg group-hover:scale-105 transition-all duration-300">
-                                    <div className="w-full h-full flex items-center justify-center text-xl bg-slate-100 dark:bg-slate-800">
-                                        {getAvatarDisplayNode(podiumList[1].avatar, podiumList[1].displayName)}
+                <div className="max-w-2xl mx-auto mb-6">
+                    <div className="grid grid-cols-3 gap-3 pt-6 items-end">
+                        {/* 2nd Place (Silver) */}
+                        {podiumList[1] && (
+                            <div className="flex flex-col items-center group cursor-pointer" onClick={() => handleToggleExpandUser(podiumList[1].id)}>
+                                <div className="relative mb-2">
+                                    <div className="w-16 h-16 rounded-full border-4 border-slate-300 overflow-hidden bg-white shadow-lg group-hover:scale-105 transition-all duration-300">
+                                        <div className="w-full h-full flex items-center justify-center text-xl bg-slate-100 dark:bg-slate-800">
+                                            {getAvatarDisplayNode(podiumList[1].avatar, podiumList[1].displayName)}
+                                        </div>
+                                    </div>
+                                    <div className="absolute -top-3 -right-2 bg-slate-300 text-slate-800 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold border-2 border-white shadow">
+                                        2
                                     </div>
                                 </div>
-                                <div className="absolute -top-3 -right-2 bg-slate-300 text-slate-800 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold border-2 border-white shadow">
-                                    2
-                                </div>
-                            </div>
-                            <div className="text-center bg-white dark:bg-gray-800 rounded-2xl p-3 border border-slate-200 dark:border-gray-700 w-full shadow-md group-hover:shadow-lg transition-all duration-300">
-                                <div className="flex flex-col items-center gap-0.5 justify-center mb-1">
-                                    <p className="font-bold text-xs truncate text-gray-700 dark:text-gray-200 max-w-full">{podiumList[1].displayName || 'Ẩn danh'}</p>
-                                    <div className="flex flex-wrap gap-1 items-center justify-center scale-90">
-                                        {podiumList[1].level && (
-                                            <span className="bg-sky-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider">
-                                                LV {podiumList[1].level}
-                                            </span>
-                                        )}
-                                        {podiumList[1].title && (
-                                            <span className="bg-indigo-500 text-white text-[8px] font-medium px-1 rounded truncate max-w-[60px]" title={podiumList[1].title}>
-                                                {podiumList[1].title}
-                                            </span>
-                                        )}
-                                        {(podiumList[1].isPremium || podiumList[1].isPremiumUnlocked) && (
-                                            <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
-                                                <Crown className="w-2 h-2 fill-white text-white" />
-                                                PREMIUM
-                                            </span>
-                                        )}
+                                <div className="text-center bg-white dark:bg-gray-800 rounded-2xl p-3 border border-slate-200 dark:border-gray-700 w-full shadow-md group-hover:shadow-lg transition-all duration-300">
+                                    <div className="flex flex-col items-center gap-0.5 justify-center mb-1">
+                                        <p className="font-bold text-xs truncate text-gray-700 dark:text-gray-200 max-w-full">{podiumList[1].displayName || 'Ẩn danh'}</p>
+                                        <div className="flex flex-wrap gap-1 items-center justify-center scale-90">
+                                            {podiumList[1].level && (
+                                                <span className="bg-sky-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider">
+                                                    LV {podiumList[1].level}
+                                                </span>
+                                            )}
+                                            {podiumList[1].title && (
+                                                <span className="bg-indigo-500 text-white text-[8px] font-medium px-1 rounded truncate max-w-[60px]" title={podiumList[1].title}>
+                                                    {podiumList[1].title}
+                                                </span>
+                                            )}
+                                            {(podiumList[1].isPremium || podiumList[1].isPremiumUnlocked) && (
+                                                <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
+                                                    <Crown className="w-2 h-2 fill-white text-white" />
+                                                    PREMIUM
+                                                </span>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <p className="text-[10px] text-gray-400 mt-0.5 whitespace-nowrap">{podiumList[1].totalCards || 0} từ · {podiumList[1].kanjiTotal || 0} kanji</p>
+                                    <div className="mt-2 text-indigo-500 font-bold text-xs flex items-center justify-center gap-0.5">
+                                        <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+                                        {podiumList[1].computedScore}
                                     </div>
                                 </div>
-                                <p className="text-[10px] text-gray-400 mt-0.5">{podiumList[1].totalCards || 0} từ · {podiumList[1].kanjiTotal || 0} kanji</p>
-                                <div className="mt-2 text-indigo-500 font-bold text-xs flex items-center justify-center gap-0.5">
-                                    <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
-                                    {podiumList[1].computedScore}
-                                </div>
                             </div>
-                        </div>
-                    )}
+                        )}
 
-                    {/* 1st Place (Gold Crown) */}
-                    {podiumList[0] && (
-                        <div className="flex flex-col items-center group z-10 cursor-pointer" onClick={() => handleToggleExpandUser(podiumList[0].id)}>
-                            <div className="relative mb-2">
-                                <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-yellow-500 animate-bounce">
-                                    <Crown className="w-8 h-8 fill-yellow-500 text-yellow-500 drop-shadow-[0_2px_5px_rgba(234,179,8,0.4)]" />
-                                </div>
-                                <div className="w-20 h-20 rounded-full border-4 border-yellow-400 overflow-hidden bg-white shadow-xl group-hover:scale-105 transition-all duration-300 ring-4 ring-yellow-400/20">
-                                    <div className="w-full h-full flex items-center justify-center text-2xl bg-amber-50 dark:bg-amber-950/20">
-                                        {getAvatarDisplayNode(podiumList[0].avatar, podiumList[0].displayName)}
+                        {/* 1st Place (Gold Crown) */}
+                        {podiumList[0] && (
+                            <div className="flex flex-col items-center group z-10 cursor-pointer" onClick={() => handleToggleExpandUser(podiumList[0].id)}>
+                                <div className="relative mb-2">
+                                    <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-yellow-500 animate-bounce">
+                                        <Crown className="w-8 h-8 fill-yellow-500 text-yellow-500 drop-shadow-[0_2px_5px_rgba(234,179,8,0.4)]" />
+                                    </div>
+                                    <div className="w-20 h-20 rounded-full border-4 border-yellow-400 overflow-hidden bg-white shadow-xl group-hover:scale-105 transition-all duration-300 ring-4 ring-yellow-400/20">
+                                        <div className="w-full h-full flex items-center justify-center text-2xl bg-amber-50 dark:bg-amber-950/20">
+                                            {getAvatarDisplayNode(podiumList[0].avatar, podiumList[0].displayName)}
+                                        </div>
+                                    </div>
+                                    <div className="absolute -top-1 -right-1 bg-yellow-400 text-yellow-950 rounded-full w-7 h-7 flex items-center justify-center text-sm font-bold border-2 border-white shadow">
+                                        1
                                     </div>
                                 </div>
-                                <div className="absolute -top-1 -right-1 bg-yellow-400 text-yellow-950 rounded-full w-7 h-7 flex items-center justify-center text-sm font-bold border-2 border-white shadow">
-                                    1
-                                </div>
-                            </div>
-                            <div className="text-center bg-gradient-to-b from-yellow-50 to-white dark:from-yellow-950/20 dark:to-gray-800 rounded-2xl p-4 border-2 border-yellow-300 dark:border-yellow-600/30 w-full shadow-lg group-hover:shadow-xl transition-all duration-300 ring-4 ring-yellow-400/10">
-                                <div className="flex flex-col items-center gap-0.5 justify-center mb-1">
-                                    <p className="font-bold text-sm truncate text-yellow-700 dark:text-yellow-400 max-w-full">{podiumList[0].displayName || 'Ẩn danh'}</p>
-                                    <div className="flex flex-wrap gap-1 items-center justify-center scale-90">
-                                        {podiumList[0].level && (
-                                            <span className="bg-sky-500 text-white text-[8px] font-black px-1.5 rounded uppercase tracking-wider">
-                                                LV {podiumList[0].level}
-                                            </span>
-                                        )}
-                                        {podiumList[0].title && (
-                                            <span className="bg-indigo-500 text-white text-[8px] font-medium px-1.5 rounded truncate max-w-[70px]" title={podiumList[0].title}>
-                                                {podiumList[0].title}
-                                            </span>
-                                        )}
-                                        {(podiumList[0].isPremium || podiumList[0].isPremiumUnlocked) && (
-                                            <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[8px] font-black px-1.5 rounded uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
-                                                <Crown className="w-2.5 h-2.5 fill-white text-white" />
-                                                PREMIUM
-                                            </span>
-                                        )}
+                                <div className="text-center bg-gradient-to-b from-yellow-50 to-white dark:from-yellow-950/20 dark:to-gray-800 rounded-2xl p-4 border-2 border-yellow-300 dark:border-yellow-600/30 w-full shadow-lg group-hover:shadow-xl transition-all duration-300 ring-4 ring-yellow-400/10">
+                                    <div className="flex flex-col items-center gap-0.5 justify-center mb-1">
+                                        <p className="font-bold text-sm truncate text-yellow-700 dark:text-yellow-400 max-w-full">{podiumList[0].displayName || 'Ẩn danh'}</p>
+                                        <div className="flex flex-wrap gap-1 items-center justify-center scale-90">
+                                            {podiumList[0].level && (
+                                                <span className="bg-sky-500 text-white text-[8px] font-black px-1.5 rounded uppercase tracking-wider">
+                                                    LV {podiumList[0].level}
+                                                </span>
+                                            )}
+                                            {podiumList[0].title && (
+                                                <span className="bg-indigo-500 text-white text-[8px] font-medium px-1.5 rounded truncate max-w-[70px]" title={podiumList[0].title}>
+                                                    {podiumList[0].title}
+                                                </span>
+                                            )}
+                                            {(podiumList[0].isPremium || podiumList[0].isPremiumUnlocked) && (
+                                                <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[8px] font-black px-1.5 rounded uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
+                                                    <Crown className="w-2.5 h-2.5 fill-white text-white" />
+                                                    PREMIUM
+                                                </span>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <p className="text-[10px] text-gray-400 mt-0.5 whitespace-nowrap">{podiumList[0].totalCards || 0} từ · {podiumList[0].kanjiTotal || 0} kanji</p>
+                                    <div className="mt-2 text-yellow-600 dark:text-yellow-400 font-bold text-sm flex items-center justify-center gap-0.5">
+                                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                                        {podiumList[0].computedScore}
                                     </div>
                                 </div>
-                                <p className="text-[10px] text-gray-400 mt-0.5">{podiumList[0].totalCards || 0} từ · {podiumList[0].kanjiTotal || 0} kanji</p>
-                                <div className="mt-2 text-yellow-600 dark:text-yellow-400 font-bold text-sm flex items-center justify-center gap-0.5">
-                                    <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                                    {podiumList[0].computedScore}
-                                </div>
                             </div>
-                        </div>
-                    )}
+                        )}
 
-                    {/* 3rd Place (Bronze) */}
-                    {podiumList[2] && (
-                        <div className="flex flex-col items-center group cursor-pointer" onClick={() => handleToggleExpandUser(podiumList[2].id)}>
-                            <div className="relative mb-2">
-                                <div className="w-16 h-16 rounded-full border-4 border-amber-600 overflow-hidden bg-white shadow-lg group-hover:scale-105 transition-all duration-300">
-                                    <div className="w-full h-full flex items-center justify-center text-xl bg-orange-50 dark:bg-orange-950/20">
-                                        {getAvatarDisplayNode(podiumList[2].avatar, podiumList[2].displayName)}
+                        {/* 3rd Place (Bronze) */}
+                        {podiumList[2] && (
+                            <div className="flex flex-col items-center group cursor-pointer" onClick={() => handleToggleExpandUser(podiumList[2].id)}>
+                                <div className="relative mb-2">
+                                    <div className="w-16 h-16 rounded-full border-4 border-amber-600 overflow-hidden bg-white shadow-lg group-hover:scale-105 transition-all duration-300">
+                                        <div className="w-full h-full flex items-center justify-center text-xl bg-orange-50 dark:bg-orange-950/20">
+                                            {getAvatarDisplayNode(podiumList[2].avatar, podiumList[2].displayName)}
+                                        </div>
+                                    </div>
+                                    <div className="absolute -top-3 -right-2 bg-amber-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold border-2 border-white shadow">
+                                        3
                                     </div>
                                 </div>
-                                <div className="absolute -top-3 -right-2 bg-amber-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold border-2 border-white shadow">
-                                    3
-                                </div>
-                            </div>
-                            <div className="text-center bg-white dark:bg-gray-800 rounded-2xl p-3 border border-amber-200 dark:border-gray-700 w-full shadow-md group-hover:shadow-lg transition-all duration-300">
-                                <div className="flex flex-col items-center gap-0.5 justify-center mb-1">
-                                    <p className="font-bold text-xs truncate text-gray-700 dark:text-gray-200 max-w-full">{podiumList[2].displayName || 'Ẩn danh'}</p>
-                                    <div className="flex flex-wrap gap-1 items-center justify-center scale-90">
-                                        {podiumList[2].level && (
-                                            <span className="bg-sky-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider">
-                                                LV {podiumList[2].level}
-                                            </span>
-                                        )}
-                                        {podiumList[2].title && (
-                                            <span className="bg-indigo-500 text-white text-[8px] font-medium px-1 rounded truncate max-w-[60px]" title={podiumList[2].title}>
-                                                {podiumList[2].title}
-                                            </span>
-                                        )}
-                                        {(podiumList[2].isPremium || podiumList[2].isPremiumUnlocked) && (
-                                            <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
-                                                <Crown className="w-2 h-2 fill-white text-white" />
-                                                PREMIUM
-                                            </span>
-                                        )}
+                                <div className="text-center bg-white dark:bg-gray-800 rounded-2xl p-3 border border-amber-200 dark:border-gray-700 w-full shadow-md group-hover:shadow-lg transition-all duration-300">
+                                    <div className="flex flex-col items-center gap-0.5 justify-center mb-1">
+                                        <p className="font-bold text-xs truncate text-gray-700 dark:text-gray-200 max-w-full">{podiumList[2].displayName || 'Ẩn danh'}</p>
+                                        <div className="flex flex-wrap gap-1 items-center justify-center scale-90">
+                                            {podiumList[2].level && (
+                                                <span className="bg-sky-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider">
+                                                    LV {podiumList[2].level}
+                                                </span>
+                                            )}
+                                            {podiumList[2].title && (
+                                                <span className="bg-indigo-500 text-white text-[8px] font-medium px-1 rounded truncate max-w-[60px]" title={podiumList[2].title}>
+                                                    {podiumList[2].title}
+                                                </span>
+                                            )}
+                                            {(podiumList[2].isPremium || podiumList[2].isPremiumUnlocked) && (
+                                                <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
+                                                    <Crown className="w-2 h-2 fill-white text-white" />
+                                                    PREMIUM
+                                                </span>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <p className="text-[10px] text-gray-400 mt-0.5 whitespace-nowrap">{podiumList[2].totalCards || 0} từ · {podiumList[2].kanjiTotal || 0} kanji</p>
+                                    <div className="mt-2 text-indigo-500 font-bold text-xs flex items-center justify-center gap-0.5">
+                                        <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+                                        {podiumList[2].computedScore}
                                     </div>
                                 </div>
-                                <p className="text-[10px] text-gray-400 mt-0.5">{podiumList[2].totalCards || 0} từ · {podiumList[2].kanjiTotal || 0} kanji</p>
-                                <div className="mt-2 text-indigo-500 font-bold text-xs flex items-center justify-center gap-0.5">
-                                    <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
-                                    {podiumList[2].computedScore}
-                                </div>
                             </div>
+                        )}
+                    </div>
+
+                    {/* Render details for the selected podium user */}
+                    {activePodiumUser && (
+                        <div className="bg-white dark:bg-gray-800 rounded-3xl border border-slate-100 dark:border-gray-700 shadow-md overflow-hidden mt-6 animate-fade-in">
+                            <div className="bg-indigo-50/50 dark:bg-indigo-950/20 px-5 py-3 border-b border-gray-150 dark:border-gray-700/50 flex justify-between items-center">
+                                <span className="font-bold text-xs text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5">
+                                    <Trophy className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
+                                    Chi tiết thành tích của: <span className="underline font-black">{activePodiumUser.displayName || 'Ẩn danh'}</span>
+                                </span>
+                                <button 
+                                    onClick={() => setExpandedUser(null)} 
+                                    className="text-xs text-gray-400 hover:text-gray-650 dark:hover:text-gray-250 font-bold"
+                                >
+                                    Đóng
+                                </button>
+                            </div>
+                            {renderExpandedDetails(activePodiumUser)}
                         </div>
                     )}
                 </div>

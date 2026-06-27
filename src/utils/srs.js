@@ -57,6 +57,21 @@ const normalizeSRSState = (srs) => {
                 reps = 0;
                 interval = 0;
             }
+        } else if (interval > 0) {
+            // General legacy studied cards (e.g. Kanji studied in Leitner system)
+            const isMinutes = interval >= 1000;
+            const days = isMinutes ? Math.max(1, Math.round(interval / 1440)) : interval;
+            if (days >= 21) {
+                state = 'REVIEW';
+                learningStep = null;
+                reps = 5;
+                interval = days;
+            } else {
+                state = 'REVIEW';
+                learningStep = null;
+                reps = Math.max(1, Math.min(4, Math.round(days)));
+                interval = days;
+            }
         }
     }
 
@@ -414,4 +429,18 @@ export const calculateAnkiSRS = (srs, rating) => {
         state: nextState,
         nextReviewOffsetMs: nextReviewOffsetMs
     };
+};
+
+export const isKanjiMastered = (srs) => {
+    if (!srs) return false;
+    const state = getCardState(srs);
+    if (state === 'new' || state === 'NEW' || 
+        state === 'learning' || state === 'LEARNING' || 
+        state === 'relearning' || state === 'RELEARNING') {
+        return false;
+    }
+    const interval = srs.interval || 0;
+    const isLegacyMinute = interval >= 1440;
+    const daysInterval = isLegacyMinute ? (interval / 1440) : interval;
+    return daysInterval >= 7;
 };

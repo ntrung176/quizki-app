@@ -1,6 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import fs from 'fs';
+import { getFirestore, collection, getDocs, doc, getDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
     apiKey: "AIzaSyBGHxudWm6DnkL9g_rLmqKpVaaT4R39_zk",
@@ -14,31 +13,46 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-async function listUsers() {
+const userId = "cKaoe0SnScaX4IxoTaSY4xldySa2";
+const appIdStr = "1:28989364918:web:a2a99ad33fc0c23fca6417";
+
+async function inspectUserCards() {
     try {
-        console.log("Fetching all users from userStats...");
-        const path = "artifacts/1:28989364918:web:a2a99ad33fc0c23fca6417/public/data/userStats";
-        const snapshot = await getDocs(collection(db, path));
+        console.log(`\n--- INSPECTING USER: ${userId} ---`);
         
-        const users = [];
-        snapshot.forEach(doc => {
-            const data = doc.data();
-            if (data.league === 'Đồng' && (data.score === undefined || data.score === 0 || data.level === 1)) {
-                users.push({
-                    uid: doc.id,
-                    ...data
-                });
+        // 1. Vocabulary
+        const vocabPath = `artifacts/${appIdStr}/users/${userId}/vocabulary`;
+        console.log(`Fetching vocabulary from: ${vocabPath}`);
+        const vocabSnap = await getDocs(collection(db, vocabPath));
+        console.log(`Total vocabulary cards found: ${vocabSnap.size}`);
+        
+        let vocabCount = 0;
+        vocabSnap.forEach(d => {
+            const data = d.data();
+            // print first 5, or cards with any interval
+            if (vocabCount < 10 || data.srsInterval > 0 || data.intervalIndex_back > 0) {
+                console.log(`Vocab: "${data.front}" | srsInterval: ${data.srsInterval} | intervalIndex_back: ${data.intervalIndex_back} | reps: ${data.srsReps} | state: ${data.srsState}`);
+                vocabCount++;
             }
         });
+
+        // 2. Kanji SRS
+        const kanjiPath = `artifacts/${appIdStr}/users/${userId}/kanjiSRS`;
+        console.log(`\nFetching kanjiSRS from: ${kanjiPath}`);
+        const kanjiSnap = await getDocs(collection(db, kanjiPath));
+        console.log(`Total Kanji SRS cards found: ${kanjiSnap.size}`);
         
-        console.log(`Found ${users.length} users in 'Đồng' with score 0/undefined or level 1:`);
-        users.forEach((u, i) => {
-            const dateStr = u.lastUpdated?.toDate ? u.lastUpdated.toDate().toISOString() : (u.lastUpdated?.seconds ? new Date(u.lastUpdated.seconds * 1000).toISOString() : 'N/A');
-            console.log(`${i+1}. Name: ${u.displayName} | UID: ${u.uid} | Level: ${u.level} | Score: ${u.score} | LastUpdated: ${dateStr}`);
+        let kanjiCount = 0;
+        kanjiSnap.forEach(d => {
+            const data = d.data();
+            if (kanjiCount < 10 || data.interval > 0 || data.reps > 0) {
+                console.log(`Kanji ID: "${d.id}" | interval: ${data.interval} | reps: ${data.reps} | state: ${data.state}`);
+                kanjiCount++;
+            }
         });
     } catch (e) {
-        console.error("Error listing users:", e);
+        console.error("Error inspecting user cards:", e);
     }
 }
 
-listUsers();
+inspectUserCards();
