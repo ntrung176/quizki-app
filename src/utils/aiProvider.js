@@ -290,7 +290,7 @@ QUY TẮC BẮT BUỘC:
 2. meaning: ${isGrammar ? 'Định nghĩa ngữ pháp theo hướng dẫn ở trên.' : 'Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống.'}
 
 3. pos/level: Phải khớp ngữ cảnh nếu đã chọn. Grammar→giải thích như ngữ pháp.
-   - pos: Bắt buộc chọn một trong các chuỗi sau: "noun" (danh từ), "verb" (động từ), "suru_verb" (danh động từ - suru verb), "adj-i" (tính từ -い), "adj-na" (tính từ -な), "adverb" (trạng từ), "conjunction" (liên từ), "particle" (trợ từ), "grammar" (ngữ pháp), "phrase" (cụm từ), "other" (khác).
+   - pos: Bắt buộc chọn một trong các chuỗi sau: "noun" (danh từ), "verb" (động từ), "suru_verb" (danh động từ - suru verb), "adj-i" (tính từ -い), "adj-na" (tính từ -な), "noun/adj-na" (danh từ kiêm tính từ -な), "adverb" (trạng từ), "conjunction" (liên từ), "particle" (trợ từ), "grammar" (ngữ pháp), "phrase" (cụm từ), "other" (khác).
 
 ${exampleRule}
 ${exampleMeaningRule}
@@ -674,6 +674,7 @@ Lưu ý: Từ loại (pos) BẮT BUỘC phải là một trong các chuỗi sau:
 - "suru_verb"
 - "adj-i"
 - "adj-na"
+- "noun/adj-na"
 - "adverb"
 - "conjunction"
 - "particle"
@@ -786,6 +787,7 @@ Lưu ý: Từ loại (pos) BẮT BUỘC phải là một trong các chuỗi sau:
 - "suru_verb"
 - "adj-i"
 - "adj-na"
+- "noun/adj-na"
 - "adverb"
 - "conjunction"
 - "particle"
