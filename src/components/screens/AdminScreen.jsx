@@ -133,12 +133,19 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             results.openRouter = { error: e.message };
         }
 
-        // 2. SpeechGen balance
+        // 2. SpeechGen / Azure Speech balance
         try {
+            const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
             const speechToken = import.meta.env.VITE_SPEECHGEN_TOKEN;
             const speechEmail = import.meta.env.VITE_SPEECHGEN_EMAIL;
             const proxyUrl = import.meta.env.VITE_SPEECHGEN_PROXY_URL;
-            if (speechToken && speechEmail && proxyUrl) {
+
+            if (azureKey) {
+                results.speechGen = {
+                    balance: 'Active',
+                    isAzure: true
+                };
+            } else if (speechToken && speechEmail && proxyUrl) {
                 const baseProxy = proxyUrl.replace(/\/+$/, '');
                 const res = await fetch(`${baseProxy}/balance?token=${encodeURIComponent(speechToken)}&email=${encodeURIComponent(speechEmail)}`);
                 if (res.ok) {
@@ -1912,18 +1919,28 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                 )}
                             </div>
 
-                            {/* SpeechGen */}
+                            {/* SpeechGen / Azure */}
                             <div className="p-3 rounded-xl border border-sky-200 dark:border-sky-800 bg-sky-50 dark:bg-sky-900/20">
                                 <div className="flex items-center gap-2 mb-2">
                                     <div className="w-7 h-7 rounded-lg bg-sky-500 flex items-center justify-center">
                                         <span className="text-white text-xs font-bold">🔊</span>
                                     </div>
-                                    <span className="font-bold text-sm text-sky-700 dark:text-sky-300">SpeechGen.io</span>
+                                    <span className="font-bold text-sm text-sky-700 dark:text-sky-300">
+                                        {apiBalances.speechGen?.isAzure ? 'Microsoft Azure' : 'SpeechGen.io'}
+                                    </span>
                                 </div>
                                 {apiBalances.speechGen === null ? (
                                     <p className="text-xs text-gray-400 italic">Nhấn "Kiểm tra" để xem số dư</p>
                                 ) : apiBalances.speechGen.error ? (
                                     <p className="text-xs text-red-500">⚠️ {apiBalances.speechGen.error}</p>
+                                ) : apiBalances.speechGen.isAzure ? (
+                                    <div className="space-y-1">
+                                        <div className="flex justify-between pt-1">
+                                            <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Trạng thái:</span>
+                                            <span className="text-sm font-bold text-emerald-600">Đang hoạt động</span>
+                                        </div>
+                                        <p className="text-[10px] text-gray-400">Kết nối trực tiếp qua API Key Azure (Gói Free F0)</p>
+                                    </div>
                                 ) : (
                                     <div className="space-y-1">
                                         <div className="flex justify-between pt-1">

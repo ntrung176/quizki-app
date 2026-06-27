@@ -153,6 +153,112 @@ const saveSharedAudio = async (text, base64, gender) => {
 };
 
 /**
+ * Gọi Microsoft Azure AI Speech API trực tiếp từ client
+ * Kiểm tra shared vocab audio cache trước → nếu có thì dùng, không tốn API call
+ * Trả về {blobUrl, base64, voiceId} để có thể phát và lưu vào database
+ * @param {string} text - Text tiếng Nhật cần đọc
+ * @returns {Promise<{blobUrl: string, base64: string, voiceId: string}|null>}
+ */
+const azureTTS = async (text) => {
+    const key = import.meta.env.VITE_AZURE_SPEECH_KEY;
+    const region = import.meta.env.VITE_AZURE_SPEECH_REGION || 'eastasia';
+
+    if (!key || !text) return null;
+
+    // Check session cache (holds {blobUrl, base64, voiceId})
+    const voiceId = getTTSVoice();
+    const cacheKey = `azure:${voiceId}:${text}`;
+    if (ttsCache.has(cacheKey)) {
+        return ttsCache.get(cacheKey);
+    }
+
+    // Map giọng đọc sang tên giọng chính thức của Microsoft Azure
+    const voiceMap = {
+        mayu: 'ja-JP-MayuNeural',
+        ryota: 'ja-JP-RyotaNeural'
+    };
+    const azureVoiceName = voiceMap[voiceId] || 'ja-JP-MayuNeural';
+    const gender = voiceId === 'ryota' ? 'male' : 'female';
+
+    // === Bước 1: Kiểm tra shared vocab audio cache ===
+    const cachedAudio = await lookupSharedAudio(text, gender);
+    if (cachedAudio) {
+        const audioSrc = cachedAudio.startsWith('data:audio')
+            ? cachedAudio
+            : `data:audio/mp3;base64,${cachedAudio}`;
+        const audioBlob = await fetch(audioSrc).then(r => r.blob());
+        const blobUrl = URL.createObjectURL(audioBlob);
+        const result = { blobUrl, base64: cachedAudio, voiceId, fromSharedCache: true };
+
+        // Cache vào session
+        if (ttsCache.size >= MAX_CACHE_SIZE) {
+            const firstKey = ttsCache.keys().next().value;
+            const oldResult = ttsCache.get(firstKey);
+            if (oldResult?.blobUrl) URL.revokeObjectURL(oldResult.blobUrl);
+            ttsCache.delete(firstKey);
+        }
+        ttsCache.set(cacheKey, result);
+        return result;
+    }
+
+    // === Bước 2: Không có cache → gọi Azure Speech API ===
+    try {
+        const url = `https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`;
+        
+        const ssml = `<speak version='1.0' xml:lang='ja-JP'><voice xml:lang='ja-JP' name='${azureVoiceName}'>${text}</voice></speak>`;
+
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Ocp-Apim-Subscription-Key': key,
+                'Content-Type': 'application/ssml+xml',
+                'X-Microsoft-OutputFormat': 'audio-24khz-48kbitrate-mono-mp3',
+                'User-Agent': 'quizki-app'
+            },
+            body: ssml
+        });
+
+        if (!response.ok) {
+            console.warn(`⚠️ Azure TTS API error (${response.status})`);
+            return null;
+        }
+
+        const audioBlob = await response.blob();
+        const blobUrl = URL.createObjectURL(audioBlob);
+
+        // Convert blob to base64 để lưu vào database
+        const base64 = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const result = reader.result;
+                const base64Data = result.split(',')[1] || result;
+                resolve(base64Data);
+            };
+            reader.readAsDataURL(audioBlob);
+        });
+
+        const result = { blobUrl, base64, voiceId };
+
+        // Cache vào session
+        if (ttsCache.size >= MAX_CACHE_SIZE) {
+            const firstKey = ttsCache.keys().next().value;
+            const oldResult = ttsCache.get(firstKey);
+            if (oldResult?.blobUrl) URL.revokeObjectURL(oldResult.blobUrl);
+            ttsCache.delete(firstKey);
+        }
+        ttsCache.set(cacheKey, result);
+
+        // === Bước 3: Lưu audio vào shared vocab (fire-and-forget) ===
+        saveSharedAudio(text, base64, gender);
+
+        return result;
+    } catch (e) {
+        console.warn('⚠️ Azure TTS network error:', e.message);
+        return null;
+    }
+};
+
+/**
  * Gọi SpeechGen.io API qua Cloudflare Worker proxy
  * Kiểm tra shared vocab audio cache trước → nếu có thì dùng, không tốn API call
  * Trả về {blobUrl, base64, voiceId} để có thể phát và lưu vào database
@@ -429,46 +535,57 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
             window.speechSynthesis.cancel();
         }
 
-        // Thử SpeechGen TTS trước
-        const token = import.meta.env.VITE_SPEECHGEN_TOKEN;
-        const email = import.meta.env.VITE_SPEECHGEN_EMAIL;
-        const proxyUrl = import.meta.env.VITE_SPEECHGEN_PROXY_URL;
+        const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
+        const speechgenToken = import.meta.env.VITE_SPEECHGEN_TOKEN;
 
-        if (token && email && proxyUrl) {
+        let result = null;
+
+        // Thử Azure TTS trước
+        if (azureKey) {
             try {
-                const result = await speechgenTTS(cleanText);
-                if (sessionId !== null && globalAudioSessionId !== sessionId) return safeResolve();
+                result = await azureTTS(cleanText);
+            } catch (e) {
+                console.warn('Azure TTS error, falling back:', e);
+            }
+        }
 
-                if (result && result.blobUrl) {
-                    currentAudioObj = new Audio(result.blobUrl);
-                    currentAudioObj.onended = () => {
-                        currentAudioObj = null;
-                        safeResolve();
-                    };
-                    currentAudioObj.onerror = async () => {
-                        console.warn('SpeechGen play error, falling back');
-                        if (sessionId !== null && globalAudioSessionId !== sessionId) return safeResolve();
-                        await speakWithWebSpeech(text);
-                        safeResolve();
-                    };
-                    try {
-                        await currentAudioObj.play();
-                    } catch (e) {
-                        console.warn('SpeechGen play error, falling back:', e);
-                        if (sessionId !== null && globalAudioSessionId !== sessionId) return safeResolve();
-                        await speakWithWebSpeech(text);
-                        safeResolve();
-                    }
-
-                    // Gọi callback để component lưu audio vào database (đánh dấu |cleaned để tránh sinh lại)
-                    if (onAudioGenerated && result.base64) {
-                        onAudioGenerated(result.base64 + '|cleaned', result.voiceId);
-                    }
-                    return;
-                }
+        // Fallback sang SpeechGen TTS
+        if (!result && speechgenToken) {
+            try {
+                result = await speechgenTTS(cleanText);
             } catch (e) {
                 console.warn('SpeechGen TTS error, falling back:', e);
             }
+        }
+
+        if (sessionId !== null && globalAudioSessionId !== sessionId) return safeResolve();
+
+        if (result && result.blobUrl) {
+            currentAudioObj = new Audio(result.blobUrl);
+            currentAudioObj.onended = () => {
+                currentAudioObj = null;
+                safeResolve();
+            };
+            currentAudioObj.onerror = async () => {
+                console.warn('Speech API play error, falling back to Web Speech');
+                if (sessionId !== null && globalAudioSessionId !== sessionId) return safeResolve();
+                await speakWithWebSpeech(text);
+                safeResolve();
+            };
+            try {
+                await currentAudioObj.play();
+            } catch (e) {
+                console.warn('Speech API play error, falling back to Web Speech:', e);
+                if (sessionId !== null && globalAudioSessionId !== sessionId) return safeResolve();
+                await speakWithWebSpeech(text);
+                safeResolve();
+            }
+
+            // Gọi callback để component lưu audio vào database (đánh dấu |cleaned để tránh sinh lại)
+            if (onAudioGenerated && result.base64) {
+                onAudioGenerated(result.base64 + '|cleaned', result.voiceId);
+            }
+            return;
         }
 
         // Fallback to Web Speech API
@@ -659,8 +776,17 @@ export const generateAudioSilent = async (text) => {
     const cleanText = extractReadingText(text);
     if (!cleanText) return null;
 
+    const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
+    const speechgenToken = import.meta.env.VITE_SPEECHGEN_TOKEN;
+
     try {
-        const result = await speechgenTTS(cleanText);
+        let result = null;
+        if (azureKey) {
+            result = await azureTTS(cleanText);
+        }
+        if (!result && speechgenToken) {
+            result = await speechgenTTS(cleanText);
+        }
         if (result && result.base64) {
             return { base64: result.base64, voiceId: result.voiceId };
         }
@@ -688,7 +814,18 @@ export const generateAudioSilentWithVoice = async (text, voiceId) => {
     const originalVoice = getTTSVoice();
     try {
         setTTSVoice(voiceId);
-        const result = await speechgenTTS(cleanText);
+        
+        const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
+        const speechgenToken = import.meta.env.VITE_SPEECHGEN_TOKEN;
+
+        let result = null;
+        if (azureKey) {
+            result = await azureTTS(cleanText);
+        }
+        if (!result && speechgenToken) {
+            result = await speechgenTTS(cleanText);
+        }
+
         setTTSVoice(originalVoice);
         if (result && result.base64) {
             return { base64: result.base64, voiceId };
