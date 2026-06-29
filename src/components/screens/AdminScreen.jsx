@@ -136,14 +136,30 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         // 2. Microsoft Azure Speech check
         try {
             const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
+            const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
 
-            if (azureKey) {
+            if (proxyUrl) {
+                const baseProxy = proxyUrl.replace(/\/+$/, '');
+                const res = await fetch(`${baseProxy}/status`);
+                if (res.ok) {
+                    const data = await res.json();
+                    results.speechGen = {
+                        balance: 'Active',
+                        isAzure: true,
+                        isProxy: true,
+                        region: data.region || 'Unknown'
+                    };
+                } else {
+                    const errData = await res.json().catch(() => ({}));
+                    results.speechGen = { error: `Proxy Error: HTTP ${res.status}${errData.error ? ` - ${errData.error}` : ''}` };
+                }
+            } else if (azureKey) {
                 results.speechGen = {
                     balance: 'Active',
                     isAzure: true
                 };
             } else {
-                results.speechGen = { error: 'Chưa cấu hình API key Azure' };
+                results.speechGen = { error: 'Chưa cấu hình API key hoặc Proxy URL Azure' };
             }
         } catch (e) {
             results.speechGen = { error: e.message };
@@ -1914,7 +1930,11 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                             <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Trạng thái:</span>
                                             <span className="text-sm font-bold text-emerald-600">Đang hoạt động</span>
                                         </div>
-                                        <p className="text-[10px] text-gray-400">Kết nối trực tiếp qua API Key Azure</p>
+                                        <p className="text-[10px] text-gray-400">
+                                            {apiBalances.speechGen.isProxy
+                                                ? `Kết nối qua Proxy Worker (Vùng: ${apiBalances.speechGen.region})`
+                                                : 'Kết nối trực tiếp qua API Key Azure'}
+                                        </p>
                                     </div>
                                 )}
                             </div>

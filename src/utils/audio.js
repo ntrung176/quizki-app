@@ -155,8 +155,10 @@ const saveSharedAudio = async (text, base64, gender) => {
 const azureTTS = async (text) => {
     const key = import.meta.env.VITE_AZURE_SPEECH_KEY;
     const region = import.meta.env.VITE_AZURE_SPEECH_REGION || 'eastasia';
+    const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
 
-    if (!key || !text) return null;
+    if (!proxyUrl && !key) return null;
+    if (!text) return null;
 
     const voiceId = getTTSVoice();
     const cacheKey = `azure:${voiceId}:${text}`;
@@ -191,19 +193,34 @@ const azureTTS = async (text) => {
     }
 
     try {
-        const url = `https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`;
-        const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="ja-JP"><voice xml:lang="ja-JP" name="${azureVoiceName}">${text}</voice></speak>`;
+        let response;
+        if (proxyUrl) {
+            const baseProxy = proxyUrl.replace(/\/+$/, '');
+            response = await fetch(baseProxy, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    text,
+                    voiceName: azureVoiceName
+                })
+            });
+        } else {
+            const url = `https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`;
+            const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="ja-JP"><voice xml:lang="ja-JP" name="${azureVoiceName}">${text}</voice></speak>`;
 
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Ocp-Apim-Subscription-Key': key,
-                'Content-Type': 'application/ssml+xml',
-                'X-Microsoft-OutputFormat': 'audio-24khz-48kbitrate-mono-mp3',
-                'User-Agent': 'quizki-app'
-            },
-            body: ssml
-        });
+            response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Ocp-Apim-Subscription-Key': key,
+                    'Content-Type': 'application/ssml+xml',
+                    'X-Microsoft-OutputFormat': 'audio-24khz-48kbitrate-mono-mp3',
+                    'User-Agent': 'quizki-app'
+                },
+                body: ssml
+            });
+        }
 
         if (!response.ok) {
             console.warn(`⚠️ Azure TTS API error (${response.status})`);
@@ -372,9 +389,10 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
         if (window.speechSynthesis) window.speechSynthesis.cancel();
 
         const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
+        const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
         let result = null;
 
-        if (azureKey) {
+        if (azureKey || proxyUrl) {
             try {
                 result = await azureTTS(cleanText);
             } catch (e) {
@@ -495,8 +513,9 @@ export const generateAudioSilent = async (text) => {
     const cleanText = extractReadingText(text);
     if (!cleanText) return null;
     const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
+    const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
     try {
-        if (azureKey) {
+        if (azureKey || proxyUrl) {
             const result = await azureTTS(cleanText);
             if (result && result.base64) return { base64: result.base64, voiceId: result.voiceId };
         }
@@ -514,8 +533,9 @@ export const generateAudioSilentWithVoice = async (text, voiceId) => {
     try {
         setTTSVoice(voiceId);
         const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
+        const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
         let result = null;
-        if (azureKey) {
+        if (azureKey || proxyUrl) {
             result = await azureTTS(cleanText);
         }
         setTTSVoice(originalVoice);
