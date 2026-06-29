@@ -2611,7 +2611,7 @@ const App = () => {
     };
 
     // ============== BACKGROUND AUDIO GENERATION ==============
-    // Tự động tạo audio ngầm đã bị tắt để tránh lãng phí API quota SpeechGen.
+    // Tự động tạo audio ngầm đã bị tắt để tránh lãng phí API quota Azure Speech.
     // Audio sẽ được tạo tự động 1 lần duy nhất khi thêm/sửa card hoặc tạo lười (on-demand) khi học/ôn tập.
 
     const handleDeleteCard = async (cardId, cardFront) => {

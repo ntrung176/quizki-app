@@ -1214,7 +1214,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                             <Mic className="w-4 h-4" /> Giọng đọc tiếng Nhật
                         </h3>
                         <p className="text-xs text-gray-500 dark:text-gray-400">
-                            Chọn giọng AI đọc từ vựng tiếng Nhật (SpeechGen.io)
+                            Chọn giọng AI đọc từ vựng tiếng Nhật (Microsoft Azure Speech)
                         </p>
                         <div className="grid grid-cols-2 gap-3">
                             {Object.values(TTS_VOICES).map(voice => (
