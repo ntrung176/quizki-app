@@ -2,7 +2,8 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc, addDoc, where, serverTimestamp, setDoc, writeBatch, collectionGroup } from 'firebase/firestore'
 import * as XLSX from 'xlsx';
-import { db, appId } from '../../config/firebase';
+import { db, appId, storage } from '../../config/firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { Users, Search, Shield, Trash2, BarChart3, Clock, AlertTriangle, CheckCircle, Loader2, Languages, BookOpen, Sparkle, Bot, UserCheck, UserX, ToggleLeft, ToggleRight, Settings, Crown, ShieldCheck, ChevronLeft, CreditCard, Plus, Check, X as XIcon, Ticket, DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send, MessageSquare, Image as ImageIcon, Volume2, Music } from 'lucide-react'
 import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, AI_FEATURES, addModerator, removeModerator, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense, manuallyApplyPackageToUser, sendGlobalNotification, deleteGlobalNotification } from '../../utils/adminSettings'
 import { showConfirm } from '../../utils/toast';
@@ -57,6 +58,17 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const [notificationError, setNotificationError] = useState('');
     const [sendingNotification, setSendingNotification] = useState(false);
     const [notificationType, setNotificationType] = useState('normal');
+
+    // Cache Sync States
+    const [cacheConfig, setCacheConfig] = useState(null);
+    const [syncingCache, setSyncingCache] = useState({
+        kanji: false,
+        books: false,
+        grammar: false,
+        jlpt: false,
+        all: false
+    });
+    const [syncProgress, setSyncProgress] = useState('');
 
     // Vocabulary manager states
     const [dictResults, setDictResults] = useState([]);
@@ -595,6 +607,273 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         });
         return () => unsubscribe();
     }, []);
+
+    // Load cache config
+    useEffect(() => {
+        if (!db) return;
+        const ref = doc(db, `artifacts/${appId}/settings/cacheConfig`);
+        const unsubscribe = onSnapshot(ref, (snap) => {
+            if (snap.exists()) {
+                setCacheConfig(snap.data());
+            } else {
+                setCacheConfig(null);
+            }
+        }, (error) => {
+            console.error('Error loading cache config:', error);
+        });
+        return () => unsubscribe();
+    }, []);
+
+    // Helper functions to fetch full Firestore collections
+    const fetchAllKanjiData = async () => {
+        const snap = await getDocs(collection(db, 'kanji'));
+        return snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    };
+
+    const fetchAllVocabData = async () => {
+        const snap = await getDocs(collection(db, 'kanjiVocab'));
+        return snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    };
+
+    const fetchAllVocabCategories = async () => {
+        const snap = await getDocs(collection(db, 'vocabCategories'));
+        return snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    };
+
+    const fetchAllBooksData = async () => {
+        const COLLECTION = 'bookGroups';
+        const groupsSnap = await getDocs(collection(db, COLLECTION));
+        const groups = await Promise.all(groupsSnap.docs.map(async (groupDoc) => {
+            const group = { id: groupDoc.id, ...groupDoc.data(), books: [] };
+            const booksSnap = await getDocs(collection(db, COLLECTION, groupDoc.id, 'books'));
+            group.books = await Promise.all(booksSnap.docs.map(async (bookDoc) => {
+                const book = { id: bookDoc.id, ...bookDoc.data(), chapters: [] };
+                const chaptersSnap = await getDocs(collection(db, COLLECTION, groupDoc.id, 'books', bookDoc.id, 'chapters'));
+                book.chapters = await Promise.all(chaptersSnap.docs.map(async (chapterDoc) => {
+                    const chapter = { id: chapterDoc.id, ...chapterDoc.data(), lessons: [] };
+                    const lessonsSnap = await getDocs(collection(db, COLLECTION, groupDoc.id, 'books', bookDoc.id, 'chapters', chapterDoc.id, 'lessons'));
+                    chapter.lessons = lessonsSnap.docs.map(lessonDoc => ({
+                        id: lessonDoc.id,
+                        _docPath: lessonDoc.ref.path,
+                        ...lessonDoc.data()
+                    })).sort((a, b) => (a.order || 0) - (b.order || 0));
+                    return chapter;
+                }));
+                book.chapters.sort((a, b) => (a.order || 0) - (b.order || 0));
+                return book;
+            }));
+            group.books.sort((a, b) => (a.order || 0) - (b.order || 0));
+            return group;
+        }));
+        groups.sort((a, b) => (a.order || 0) - (b.order || 0));
+        return groups;
+    };
+
+    const fetchAllGrammarData = async () => {
+        const textbooksPath = `artifacts/${appId}/grammarTextbooks`;
+        const textbooksSnap = await getDocs(collection(db, textbooksPath));
+        const textbooks = await Promise.all(textbooksSnap.docs.map(async (tbDoc) => {
+            const tb = { id: tbDoc.id, ...tbDoc.data(), lessons: [] };
+            const lessonsSnap = await getDocs(collection(db, `artifacts/${appId}/grammarTextbooks/${tbDoc.id}/lessons`));
+            tb.lessons = await Promise.all(lessonsSnap.docs.map(async (lessonDoc) => {
+                const lesson = { id: lessonDoc.id, ...lessonDoc.data(), points: [] };
+                const pointsSnap = await getDocs(collection(db, `artifacts/${appId}/grammarTextbooks/${tbDoc.id}/lessons/${lessonDoc.id}/points`));
+                lesson.points = pointsSnap.docs.map(gpDoc => ({
+                    id: gpDoc.id,
+                    ...gpDoc.data()
+                })).sort((a, b) => (a.order || 0) - (b.order || 0));
+                return lesson;
+            }));
+            tb.lessons.sort((a, b) => (a.order || 0) - (b.order || 0));
+            return tb;
+        }));
+        textbooks.sort((a, b) => (a.order || 0) - (b.order || 0));
+        return textbooks;
+    };
+
+    const fetchAllJlptTestsData = async () => {
+        const testsPath = `artifacts/${appId}/jlptTests`;
+        const snap = await getDocs(collection(db, testsPath));
+        return snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    };
+
+    // Helper to upload static data to Storage and return public URL
+    const uploadCacheFile = async (fileName, data) => {
+        const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+        const fileRef = ref(storage, `cache/${appId}/${fileName}`);
+        await uploadBytes(fileRef, blob);
+        return getDownloadURL(fileRef);
+    };
+
+    // Synchronize individual modules
+    const syncKanjiAndVocab = async (silent = false) => {
+        if (!silent) {
+            setSyncingCache(prev => ({ ...prev, kanji: true }));
+            setSyncProgress('Đang tải dữ liệu Kanji từ Firestore...');
+        }
+        try {
+            const kanjiList = await fetchAllKanjiData();
+            if (!silent) setSyncProgress('Đang tải dữ liệu Từ vựng từ Firestore...');
+            const vocabList = await fetchAllVocabData();
+            if (!silent) setSyncProgress('Đang tải Danh mục từ vựng...');
+            const categories = await fetchAllVocabCategories();
+
+            if (!silent) setSyncProgress('Đang tải file lên Cloud Storage CDN...');
+            const kanjiUrl = await uploadCacheFile('kanji_data.json', kanjiList);
+            const vocabUrl = await uploadCacheFile('vocab_data.json', vocabList);
+            const vocabCategoriesUrl = await uploadCacheFile('vocab_categories.json', categories);
+
+            const exportedAt = Date.now();
+            await setDoc(doc(db, `artifacts/${appId}/settings/cacheConfig`), {
+                kanjiUrl,
+                vocabUrl,
+                vocabCategoriesUrl,
+                exportedAt
+            }, { merge: true });
+
+            if (!silent) {
+                setNotification({ type: 'success', message: 'Đồng bộ Kanji & Từ vựng thành công!' });
+            }
+            return { kanjiUrl, vocabUrl, vocabCategoriesUrl, exportedAt };
+        } catch (error) {
+            console.error('Error syncing Kanji & Vocab:', error);
+            if (!silent) {
+                setNotification({ type: 'error', message: 'Lỗi khi đồng bộ Kanji & Từ vựng: ' + error.message });
+            }
+            throw error;
+        } finally {
+            if (!silent) {
+                setSyncingCache(prev => ({ ...prev, kanji: false }));
+                setSyncProgress('');
+            }
+        }
+    };
+
+    const syncBooks = async (silent = false) => {
+        if (!silent) {
+            setSyncingCache(prev => ({ ...prev, books: true }));
+            setSyncProgress('Đang tải dữ liệu Kho sách từ Firestore...');
+        }
+        try {
+            const booksData = await fetchAllBooksData();
+            if (!silent) setSyncProgress('Đang tải file Kho sách lên Cloud Storage CDN...');
+            const booksUrl = await uploadCacheFile('books_data.json', booksData);
+
+            const exportedAt = Date.now();
+            await setDoc(doc(db, `artifacts/${appId}/settings/cacheConfig`), {
+                booksUrl,
+                exportedAt
+            }, { merge: true });
+
+            if (!silent) {
+                setNotification({ type: 'success', message: 'Đồng bộ Kho sách thành công!' });
+            }
+            return { booksUrl, exportedAt };
+        } catch (error) {
+            console.error('Error syncing books:', error);
+            if (!silent) {
+                setNotification({ type: 'error', message: 'Lỗi khi đồng bộ Kho sách: ' + error.message });
+            }
+            throw error;
+        } finally {
+            if (!silent) {
+                setSyncingCache(prev => ({ ...prev, books: false }));
+                setSyncProgress('');
+            }
+        }
+    };
+
+    const syncGrammar = async (silent = false) => {
+        if (!silent) {
+            setSyncingCache(prev => ({ ...prev, grammar: true }));
+            setSyncProgress('Đang tải dữ liệu Ngữ pháp từ Firestore...');
+        }
+        try {
+            const grammarData = await fetchAllGrammarData();
+            if (!silent) setSyncProgress('Đang tải file Ngữ pháp lên Cloud Storage CDN...');
+            const grammarUrl = await uploadCacheFile('grammar_data.json', grammarData);
+
+            const exportedAt = Date.now();
+            await setDoc(doc(db, `artifacts/${appId}/settings/cacheConfig`), {
+                grammarUrl,
+                exportedAt
+            }, { merge: true });
+
+            if (!silent) {
+                setNotification({ type: 'success', message: 'Đồng bộ Ngữ pháp thành công!' });
+            }
+            return { grammarUrl, exportedAt };
+        } catch (error) {
+            console.error('Error syncing grammar:', error);
+            if (!silent) {
+                setNotification({ type: 'error', message: 'Lỗi khi đồng bộ Ngữ pháp: ' + error.message });
+            }
+            throw error;
+        } finally {
+            if (!silent) {
+                setSyncingCache(prev => ({ ...prev, grammar: false }));
+                setSyncProgress('');
+            }
+        }
+    };
+
+    const syncJlpt = async (silent = false) => {
+        if (!silent) {
+            setSyncingCache(prev => ({ ...prev, jlpt: true }));
+            setSyncProgress('Đang tải dữ liệu Đề thi JLPT từ Firestore...');
+        }
+        try {
+            const jlptData = await fetchAllJlptTestsData();
+            if (!silent) setSyncProgress('Đang tải file Đề thi JLPT lên Cloud Storage CDN...');
+            const jlptUrl = await uploadCacheFile('jlpt_data.json', jlptData);
+
+            const exportedAt = Date.now();
+            await setDoc(doc(db, `artifacts/${appId}/settings/cacheConfig`), {
+                jlptUrl,
+                exportedAt
+            }, { merge: true });
+
+            if (!silent) {
+                setNotification({ type: 'success', message: 'Đồng bộ Đề thi JLPT thành công!' });
+            }
+            return { jlptUrl, exportedAt };
+        } catch (error) {
+            console.error('Error syncing JLPT:', error);
+            if (!silent) {
+                setNotification({ type: 'error', message: 'Lỗi khi đồng bộ Đề thi JLPT: ' + error.message });
+            }
+            throw error;
+        } finally {
+            if (!silent) {
+                setSyncingCache(prev => ({ ...prev, jlpt: false }));
+                setSyncProgress('');
+            }
+        }
+    };
+
+    const syncAllCache = async () => {
+        setSyncingCache(prev => ({ ...prev, all: true }));
+        try {
+            setSyncProgress('1. Đồng bộ Kanji & Từ vựng...');
+            await syncKanjiAndVocab(true);
+
+            setSyncProgress('2. Đồng bộ Kho sách...');
+            await syncBooks(true);
+
+            setSyncProgress('3. Đồng bộ Ngữ pháp...');
+            await syncGrammar(true);
+
+            setSyncProgress('4. Đồng bộ Đề thi JLPT...');
+            await syncJlpt(true);
+
+            setNotification({ type: 'success', message: 'Đồng bộ tất cả dữ liệu tĩnh thành công!' });
+        } catch (error) {
+            setNotification({ type: 'error', message: 'Lỗi khi đồng bộ: ' + error.message });
+        } finally {
+            setSyncingCache(prev => ({ ...prev, all: false }));
+            setSyncProgress('');
+        }
+    };
 
     const handleSendNotification = async () => {
         if (!newNotificationText.title.trim() || !newNotificationText.message.trim()) {
@@ -2898,6 +3177,119 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                         </div>
                     </div>
 
+                    {/* CDN Cache Synchronization setting card */}
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 md:col-span-2">
+                        <h3 className="font-bold text-gray-800 dark:text-white text-lg mb-2 flex items-center gap-2">
+                            <Wifi className="w-5 h-5 text-emerald-500" />
+                            Quản lý Bộ nhớ đệm CDN (Cache Sync)
+                        </h3>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
+                            Xuất dữ liệu từ Firestore thành các file JSON tĩnh và lưu trữ trên Firebase Storage CDN để giảm tải Firestore đọc (reads) và tăng tốc độ tải màn hình cho học sinh.
+                        </p>
+
+                        {syncProgress && (
+                            <div className="mb-6 p-4 bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40 rounded-2xl flex items-center gap-3 text-indigo-700 dark:text-indigo-300 text-sm font-medium animate-pulse">
+                                <Loader2 className="w-5 h-5 animate-spin" />
+                                <span>{syncProgress}</span>
+                            </div>
+                        )}
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                            {/* Kanji Card */}
+                            <div className="p-4 bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800 rounded-2xl space-y-3">
+                                <div className="flex items-center justify-between">
+                                    <span className="font-bold text-sm text-slate-800 dark:text-white">Kanji & Từ vựng</span>
+                                    <span className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${cacheConfig?.kanjiUrl ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-450' : 'bg-amber-100 text-amber-700 dark:bg-amber-950/30 dark:text-amber-450'}`}>
+                                        {cacheConfig?.kanjiUrl ? 'Đã bật' : 'Chưa có'}
+                                    </span>
+                                </div>
+                                <p className="text-[11px] text-slate-400 dark:text-slate-500">
+                                    {cacheConfig?.kanjiUrl && cacheConfig?.exportedAt ? `Cập nhật: ${new Date(cacheConfig.exportedAt).toLocaleString('vi-VN')}` : 'Chưa đồng bộ'}
+                                </p>
+                                <button
+                                    onClick={() => syncKanjiAndVocab()}
+                                    disabled={Object.values(syncingCache).some(Boolean)}
+                                    className="w-full py-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
+                                >
+                                    {syncingCache.kanji ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <RefreshCw className="w-3.5 h-3.5" />}
+                                    Đồng bộ ngay
+                                </button>
+                            </div>
+
+                            {/* Books Card */}
+                            <div className="p-4 bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800 rounded-2xl space-y-3">
+                                <div className="flex items-center justify-between">
+                                    <span className="font-bold text-sm text-slate-800 dark:text-white">Kho sách</span>
+                                    <span className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${cacheConfig?.booksUrl ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-450' : 'bg-amber-100 text-amber-700 dark:bg-amber-950/30 dark:text-amber-450'}`}>
+                                        {cacheConfig?.booksUrl ? 'Đã bật' : 'Chưa có'}
+                                    </span>
+                                </div>
+                                <p className="text-[11px] text-slate-400 dark:text-slate-500">
+                                    {cacheConfig?.booksUrl && cacheConfig?.exportedAt ? `Cập nhật: ${new Date(cacheConfig.exportedAt).toLocaleString('vi-VN')}` : 'Chưa đồng bộ'}
+                                </p>
+                                <button
+                                    onClick={() => syncBooks()}
+                                    disabled={Object.values(syncingCache).some(Boolean)}
+                                    className="w-full py-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
+                                >
+                                    {syncingCache.books ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <RefreshCw className="w-3.5 h-3.5" />}
+                                    Đồng bộ ngay
+                                </button>
+                            </div>
+
+                            {/* Grammar Card */}
+                            <div className="p-4 bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800 rounded-2xl space-y-3">
+                                <div className="flex items-center justify-between">
+                                    <span className="font-bold text-sm text-slate-800 dark:text-white">Ngữ pháp</span>
+                                    <span className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${cacheConfig?.grammarUrl ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-450' : 'bg-amber-100 text-amber-700 dark:bg-amber-950/30 dark:text-amber-450'}`}>
+                                        {cacheConfig?.grammarUrl ? 'Đã bật' : 'Chưa có'}
+                                    </span>
+                                </div>
+                                <p className="text-[11px] text-slate-400 dark:text-slate-500">
+                                    {cacheConfig?.grammarUrl && cacheConfig?.exportedAt ? `Cập nhật: ${new Date(cacheConfig.exportedAt).toLocaleString('vi-VN')}` : 'Chưa đồng bộ'}
+                                </p>
+                                <button
+                                    onClick={() => syncGrammar()}
+                                    disabled={Object.values(syncingCache).some(Boolean)}
+                                    className="w-full py-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
+                                >
+                                    {syncingCache.grammar ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <RefreshCw className="w-3.5 h-3.5" />}
+                                    Đồng bộ ngay
+                                </button>
+                            </div>
+
+                            {/* JLPT Card */}
+                            <div className="p-4 bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800 rounded-2xl space-y-3">
+                                <div className="flex items-center justify-between">
+                                    <span className="font-bold text-sm text-slate-800 dark:text-white">Đề thi JLPT</span>
+                                    <span className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${cacheConfig?.jlptUrl ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-450' : 'bg-amber-100 text-amber-700 dark:bg-amber-950/30 dark:text-amber-450'}`}>
+                                        {cacheConfig?.jlptUrl ? 'Đã bật' : 'Chưa có'}
+                                    </span>
+                                </div>
+                                <p className="text-[11px] text-slate-400 dark:text-slate-500">
+                                    {cacheConfig?.jlptUrl && cacheConfig?.exportedAt ? `Cập nhật: ${new Date(cacheConfig.exportedAt).toLocaleString('vi-VN')}` : 'Chưa đồng bộ'}
+                                </p>
+                                <button
+                                    onClick={() => syncJlpt()}
+                                    disabled={Object.values(syncingCache).some(Boolean)}
+                                    className="w-full py-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
+                                >
+                                    {syncingCache.jlpt ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <RefreshCw className="w-3.5 h-3.5" />}
+                                    Đồng bộ ngay
+                                </button>
+                            </div>
+                        </div>
+
+                        <button
+                            onClick={syncAllCache}
+                            disabled={Object.values(syncingCache).some(Boolean)}
+                            className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer disabled:opacity-50"
+                        >
+                            {syncingCache.all ? <Loader2 className="w-4 h-4 animate-spin" /> : <RefreshCw className="w-4 h-4" />}
+                            Đồng bộ tất cả dữ liệu (Full Sync)
+                        </button>
+                    </div>
+
                     {/* Notification History card */}
                     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 md:col-span-2">
                         <h3 className="font-bold text-gray-800 dark:text-white text-lg mb-3 flex items-center gap-2">
@@ -3358,7 +3750,15 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
 
     const messagesEndRef = React.useRef(null);
     const fileInputRef = React.useRef(null);
+    const textareaRef = React.useRef(null);
     const chatPath = `artifacts/${appId}/public/data/feedbacks`;
+
+    React.useEffect(() => {
+        if (textareaRef.current) {
+            textareaRef.current.style.height = 'auto';
+            textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 120)}px`;
+        }
+    }, [replyText]);
 
     const fetchThreads = React.useCallback(async (showLoader = false) => {
         if (!db) return;
@@ -3531,6 +3931,9 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
 
         setReplyText('');
         setSelectedImage(null);
+        if (textareaRef.current) {
+            textareaRef.current.style.height = '36px';
+        }
 
         try {
             // 1. Add comment/message to the subcollection
@@ -3664,13 +4067,22 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                             ) : (
                                 messages.map(msg => {
                                     const isSelf = msg.isAdmin;
+                                    const dateObj = msg.createdAt?.toDate ? msg.createdAt.toDate() : (msg.createdAt ? new Date(msg.createdAt) : null);
+                                    const formattedTime = dateObj ? dateObj.toLocaleString('vi-VN', {
+                                        hour: '2-digit',
+                                        minute: '2-digit',
+                                        day: '2-digit',
+                                        month: '2-digit',
+                                        year: 'numeric'
+                                    }) : '';
                                     return (
                                         <div
                                             key={msg.id}
                                             className={`flex flex-col ${isSelf ? 'items-end' : 'items-start'}`}
                                         >
-                                            <span className="text-[9px] text-slate-400 font-bold mb-0.5 px-1">
+                                            <span className="text-[9px] text-slate-400 dark:text-slate-500 font-bold mb-0.5 px-1">
                                                 {isSelf ? 'Ban quản trị' : selectedThread.displayName}
+                                                {formattedTime && <span className="font-normal text-slate-400/80 dark:text-slate-550/80 ml-1.5">{formattedTime}</span>}
                                             </span>
                                             <div
                                                 className={`max-w-[75%] rounded-2xl px-3.5 py-2.5 text-xs shadow-sm ${isSelf
@@ -3731,12 +4143,19 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                 className="hidden"
                             />
 
-                            <input
-                                type="text"
+                            <textarea
+                                ref={textareaRef}
+                                rows={1}
                                 value={replyText}
                                 onChange={(e) => setReplyText(e.target.value)}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter' && !e.shiftKey) {
+                                        e.preventDefault();
+                                        handleSendReply(e);
+                                    }
+                                }}
                                 onPaste={handlePaste}
-                                className="flex-1 py-2.5 px-4 text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-[#2E5B70] text-slate-850 dark:text-slate-200"
+                                className="flex-1 py-2 px-3 text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-[#2E5B70] text-slate-800 dark:text-slate-200 placeholder-slate-400 resize-none max-h-[120px] min-h-[36px] leading-relaxed scrollbar-hide"
                                 placeholder="Gõ câu trả lời của bạn hoặc dán ảnh (Ctrl+V)..."
                             />
 

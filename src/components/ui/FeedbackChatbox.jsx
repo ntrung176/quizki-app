@@ -341,6 +341,14 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
                         ) : (
                             messages.map((msg, index) => {
                                 const isSelf = !msg.isAdmin;
+                                const dateObj = msg.createdAt?.toDate ? msg.createdAt.toDate() : (msg.createdAt ? new Date(msg.createdAt) : null);
+                                const formattedTime = dateObj ? dateObj.toLocaleString('vi-VN', {
+                                    hour: '2-digit',
+                                    minute: '2-digit',
+                                    day: '2-digit',
+                                    month: '2-digit',
+                                    year: 'numeric'
+                                }) : '';
                                 return (
                                     <div
                                         key={msg.id || index}
@@ -348,6 +356,7 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
                                     >
                                         <span className="text-[9px] text-slate-400 font-bold mb-0.5 px-1">
                                             {isSelf ? 'Bạn' : 'Hỗ trợ QuizKi'}
+                                            {formattedTime && <span className="font-normal text-slate-400/85 dark:text-slate-500/85 ml-1.5">{formattedTime}</span>}
                                         </span>
                                         <div
                                             className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-xs shadow-sm ${

@@ -1,27 +1,92 @@
 // grammarService.js — Firestore CRUD for Grammar module
 import { doc, getDoc, updateDoc, deleteDoc, collection, addDoc, getDocs, onSnapshot, serverTimestamp, writeBatch } from 'firebase/firestore'
 import { db, appId } from '../config/firebase';
+import { getCacheConfig } from './cacheConfigService';
 
 // ============== PATHS ==============
 const textbooksPath = () => `artifacts/${appId}/grammarTextbooks`;
 const lessonsPath = (textbookId) => `artifacts/${appId}/grammarTextbooks/${textbookId}/lessons`;
 const grammarPointsPath = (textbookId, lessonId) => `artifacts/${appId}/grammarTextbooks/${textbookId}/lessons/${lessonId}/points`;
 
+// ============== CDN CACHE ==============
+let cachedGrammarData = null;
+let grammarPromise = null;
+
+export const getSharedGrammarData = async () => {
+    if (cachedGrammarData) return cachedGrammarData;
+    if (grammarPromise) return grammarPromise;
+
+    grammarPromise = (async () => {
+        try {
+            console.log('Fetching shared grammar data from CDN...');
+            const cacheConfig = await getCacheConfig();
+            
+            let dataRes;
+            if (cacheConfig && cacheConfig.grammarUrl) {
+                console.log('Using Firebase Storage CDN for Grammar cache');
+                dataRes = await fetch(cacheConfig.grammarUrl);
+            } else {
+                console.log('Falling back to local bundle files for Grammar cache');
+                dataRes = await fetch('/data/grammar_data.json');
+            }
+
+            if (!dataRes || !dataRes.ok) throw new Error('CDN fetch failed');
+            
+            const contentType = dataRes.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                throw new Error('Response is not JSON (got: ' + contentType + ')');
+            }
+
+            cachedGrammarData = await dataRes.json();
+            return cachedGrammarData;
+        } catch (e) {
+            console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);
+            return null;
+        }
+    })();
+
+    return grammarPromise;
+};
+
 // ============== TEXTBOOKS ==============
 
-export const subscribeTextbooks = (callback) => {
-    try {
-        const colRef = collection(db, textbooksPath());
-        return onSnapshot(colRef, (snapshot) => {
-            const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-            items.sort((a, b) => (a.order || 0) - (b.order || 0));
-            callback(items);
-        }, () => callback([]));
-    } catch (e) {
-        console.error('Subscribe textbooks error:', e);
-        callback([]);
-        return () => {};
-    }
+export const subscribeTextbooks = (callback, isAdmin = false) => {
+    let active = true;
+    let unsubFs = null;
+
+    (async () => {
+        if (!isAdmin) {
+            try {
+                const data = await getSharedGrammarData();
+                if (data && active) {
+                    callback(data);
+                    return;
+                }
+            } catch (e) {
+                console.warn('CDN subscribeTextbooks failed, falling back to Firestore...', e);
+            }
+        }
+        if (!active) return;
+        
+        try {
+            const colRef = collection(db, textbooksPath());
+            unsubFs = onSnapshot(colRef, (snapshot) => {
+                const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+                items.sort((a, b) => (a.order || 0) - (b.order || 0));
+                if (active) callback(items);
+            }, () => {
+                if (active) callback([]);
+            });
+        } catch (e) {
+            console.error('Subscribe textbooks error:', e);
+            if (active) callback([]);
+        }
+    })();
+
+    return () => {
+        active = false;
+        if (unsubFs) unsubFs();
+    };
 };
 
 export const addTextbook = async (data, adminUserId) => {
@@ -79,19 +144,46 @@ export const deleteTextbook = async (textbookId) => {
 
 // ============== LESSONS ==============
 
-export const subscribeLessons = (textbookId, callback) => {
-    try {
-        const colRef = collection(db, lessonsPath(textbookId));
-        return onSnapshot(colRef, (snapshot) => {
-            const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-            items.sort((a, b) => (a.order || 0) - (b.order || 0));
-            callback(items);
-        }, () => callback([]));
-    } catch (e) {
-        console.error('Subscribe lessons error:', e);
-        callback([]);
-        return () => {};
-    }
+export const subscribeLessons = (textbookId, callback, isAdmin = false) => {
+    let active = true;
+    let unsubFs = null;
+
+    (async () => {
+        if (!isAdmin) {
+            try {
+                const data = await getSharedGrammarData();
+                if (data && active) {
+                    const tb = data.find(t => t.id === textbookId);
+                    if (tb) {
+                        callback(tb.lessons || []);
+                        return;
+                    }
+                }
+            } catch (e) {
+                console.warn('CDN subscribeLessons failed, falling back to Firestore...', e);
+            }
+        }
+        if (!active) return;
+
+        try {
+            const colRef = collection(db, lessonsPath(textbookId));
+            unsubFs = onSnapshot(colRef, (snapshot) => {
+                const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+                items.sort((a, b) => (a.order || 0) - (b.order || 0));
+                if (active) callback(items);
+            }, () => {
+                if (active) callback([]);
+            });
+        } catch (e) {
+            console.error('Subscribe lessons error:', e);
+            if (active) callback([]);
+        }
+    })();
+
+    return () => {
+        active = false;
+        if (unsubFs) unsubFs();
+    };
 };
 
 export const addLesson = async (textbookId, data, adminUserId) => {
@@ -139,19 +231,49 @@ export const deleteLesson = async (textbookId, lessonId) => {
 
 // ============== GRAMMAR POINTS ==============
 
-export const subscribeGrammarPoints = (textbookId, lessonId, callback) => {
-    try {
-        const colRef = collection(db, grammarPointsPath(textbookId, lessonId));
-        return onSnapshot(colRef, (snapshot) => {
-            const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-            items.sort((a, b) => (a.order || 0) - (b.order || 0));
-            callback(items);
-        }, () => callback([]));
-    } catch (e) {
-        console.error('Subscribe grammar points error:', e);
-        callback([]);
-        return () => {};
-    }
+export const subscribeGrammarPoints = (textbookId, lessonId, callback, isAdmin = false) => {
+    let active = true;
+    let unsubFs = null;
+
+    (async () => {
+        if (!isAdmin) {
+            try {
+                const data = await getSharedGrammarData();
+                if (data && active) {
+                    const tb = data.find(t => t.id === textbookId);
+                    if (tb) {
+                        const ls = (tb.lessons || []).find(l => l.id === lessonId);
+                        if (ls) {
+                            callback(ls.points || []);
+                            return;
+                        }
+                    }
+                }
+            } catch (e) {
+                console.warn('CDN subscribeGrammarPoints failed, falling back to Firestore...', e);
+            }
+        }
+        if (!active) return;
+
+        try {
+            const colRef = collection(db, grammarPointsPath(textbookId, lessonId));
+            unsubFs = onSnapshot(colRef, (snapshot) => {
+                const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+                items.sort((a, b) => (a.order || 0) - (b.order || 0));
+                if (active) callback(items);
+            }, () => {
+                if (active) callback([]);
+            });
+        } catch (e) {
+            console.error('Subscribe grammar points error:', e);
+            if (active) callback([]);
+        }
+    })();
+
+    return () => {
+        active = false;
+        if (unsubFs) unsubFs();
+    };
 };
 
 export const addGrammarPoint = async (textbookId, lessonId, data, adminUserId) => {
@@ -196,9 +318,29 @@ export const deleteGrammarPoint = async (textbookId, lessonId, grammarId) => {
 // ============== FETCH SINGLE GRAMMAR POINT (for detail/practice) ==============
 
 export const fetchGrammarPointById = async (grammarId) => {
-    // We need to search across all textbooks/lessons since grammarId is flat
-    // This uses collectionGroup which requires a composite index, so instead
-    // we store textbookId + lessonId on every grammar point doc for easy lookup
+    // Try CDN first
+    try {
+        const data = await getSharedGrammarData();
+        if (data) {
+            for (const textbook of data) {
+                for (const lesson of textbook.lessons || []) {
+                    const found = (lesson.points || []).find(pt => pt.id === grammarId);
+                    if (found) {
+                        return {
+                            ...found,
+                            textbookId: textbook.id,
+                            lessonId: lesson.id,
+                            textbook: { id: textbook.id, title: textbook.title, titleVi: textbook.titleVi, levels: textbook.levels, category: textbook.category, color: textbook.color },
+                            lesson: { id: lesson.id, title: lesson.title, meaning: lesson.meaning, sectionLabel: lesson.sectionLabel, isPremium: lesson.isPremium }
+                        };
+                    }
+                }
+            }
+        }
+    } catch (err) {
+        console.warn("CDN lookup for grammar point failed:", err);
+    }
+
     try {
         const textbooksSnap = await getDocs(collection(db, textbooksPath()));
         for (const tbDoc of textbooksSnap.docs) {

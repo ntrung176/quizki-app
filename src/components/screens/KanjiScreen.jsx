@@ -396,6 +396,38 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         };
         loadData();
     }, []);
+    // Listen to cache updates and sync state across all screens
+    useEffect(() => {
+        const handleCacheUpdate = (e) => {
+            const { type, data } = e.detail;
+            if (type === 'kanji') {
+                setKanjiList(prev => {
+                    const idx = prev.findIndex(k => k.id === data.id);
+                    if (idx !== -1) {
+                        return prev.map(k => k.id === data.id ? { ...k, ...data } : k);
+                    } else {
+                        return [...prev, data];
+                    }
+                });
+            } else if (type === 'kanji-delete') {
+                setKanjiList(prev => prev.filter(k => k.id !== data));
+            } else if (type === 'vocab') {
+                setVocabList(prev => {
+                    const idx = prev.findIndex(v => v.id === data.id);
+                    if (idx !== -1) {
+                        return prev.map(v => v.id === data.id ? { ...v, ...data } : v);
+                    } else {
+                        return [...prev, data];
+                    }
+                });
+            } else if (type === 'vocab-delete') {
+                setVocabList(prev => prev.filter(v => v.id !== data));
+            }
+        };
+
+        window.addEventListener('kanji-cache-updated', handleCacheUpdate);
+        return () => window.removeEventListener('kanji-cache-updated', handleCacheUpdate);
+    }, []);
     // Auto-open detail if :char param or ?char= param is present
     // FAST PATH: Open immediately using static Jotoba data, don't wait for full Firebase load
     useEffect(() => {
@@ -788,7 +820,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             const kanjiChars = newVocab.word.match(/[\u4e00-\u9faf]/g) || [];
             const vocabData = {
                 ...newVocab,
-                kanjiList: kanjiChars
+                kanjiList: kanjiChars,
+                updatedAt: Date.now()
             };
             const docRef = await addDoc(collection(db, 'kanjiVocab'), vocabData);
             const addedVocab = { ...vocabData, id: docRef.id };
@@ -907,16 +940,17 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             const existingFbKanji = kanjiList.find(k => k.character === kanjiDoc.character);
             const targetId = editingKanji.id || existingFbKanji?.id;
 
+            const kanjiDocToSave = { ...kanjiDoc, updatedAt: Date.now() };
             if (targetId) {
                 // Update existing
-                await updateDoc(doc(db, 'kanji', targetId), kanjiDoc);
-                const updatedKanji = { ...editingKanji, ...kanjiDoc, id: targetId };
+                await updateDoc(doc(db, 'kanji', targetId), kanjiDocToSave);
+                const updatedKanji = { ...editingKanji, ...kanjiDocToSave, id: targetId };
                 setKanjiList(kanjiList.map(k => k.id === targetId ? updatedKanji : k));
                 updateCachedKanji(updatedKanji);
             } else {
                 // Create new (from Jotoba data that admin customized)
-                const docRef = await addDoc(collection(db, 'kanji'), kanjiDoc);
-                const addedKanji = { ...kanjiDoc, id: docRef.id };
+                const docRef = await addDoc(collection(db, 'kanji'), kanjiDocToSave);
+                const addedKanji = { ...kanjiDocToSave, id: docRef.id };
                 setKanjiList([...kanjiList, addedKanji]);
                 updateCachedKanji(addedKanji);
             }
@@ -951,7 +985,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 source: editingVocab.source,
                 sinoViet: editingVocab.sinoViet,
                 category: editingVocab.category || '',
-                kanjiList: kanjiChars
+                kanjiList: kanjiChars,
+                updatedAt: Date.now()
             };
             await updateDoc(doc(db, 'kanjiVocab', editingVocab.id), vocabDoc);
             const updatedVocab = { ...editingVocab, ...vocabDoc };
@@ -1610,8 +1645,15 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             </div>
         );
     }, [selectedKanji, kanjiList, vocabList, kanjiApiData, isAdmin, diagramZoom, diagramPan, isDragging, dragStart, pitchAccentData, addedVocabIds, addingVocabId, vocabCategories]);
-    // Loading screen - skip if detail modal is already open (fast path via URL param)
-    if (loading && !showDetailModal) {
+    // Loading screen - show lazy load if data is still loading
+    if (loading) {
+        if (location.state?.fromLesson) {
+            return (
+                <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 flex items-center justify-center">
+                    <LoadingIndicator text="Đang tải chi tiết Kanji..." />
+                </div>
+            );
+        }
         return (
             <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:bg-slate-900 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 text-gray-900 dark:text-white pb-8">
                 <TopTabBar tabs={KANJI_TABS} />

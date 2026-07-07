@@ -45,11 +45,11 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
     const [saving, setSaving] = useState(false);
 
     useEffect(() => {
-        const u1 = subscribeTextbooks(tbs => setTextbook(tbs.find(t => t.id === textbookId)));
-        const u2 = subscribeLessons(textbookId, ls => setLesson(ls.find(l => l.id === lessonId)));
-        const u3 = subscribeGrammarPoints(textbookId, lessonId, setPoints);
+        const u1 = subscribeTextbooks(tbs => setTextbook(tbs.find(t => t.id === textbookId)), isAdmin);
+        const u2 = subscribeLessons(textbookId, ls => setLesson(ls.find(l => l.id === lessonId)), isAdmin);
+        const u3 = subscribeGrammarPoints(textbookId, lessonId, setPoints, isAdmin);
         return () => { u1?.(); u2?.(); u3?.(); };
-    }, [textbookId, lessonId]);
+    }, [textbookId, lessonId, isAdmin]);
 
     useEffect(() => {
         if (lesson && profile) {

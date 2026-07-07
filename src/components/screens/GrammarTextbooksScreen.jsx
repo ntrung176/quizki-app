@@ -102,9 +102,9 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
     const [saving, setSaving] = useState(false);
 
     useEffect(() => {
-        const unsub = subscribeTextbooks(setTextbooks);
+        const unsub = subscribeTextbooks(setTextbooks, isAdmin);
         return () => unsub && unsub();
-    }, []);
+    }, [isAdmin]);
 
     const filtered = useMemo(() => {
         let list = textbooks;

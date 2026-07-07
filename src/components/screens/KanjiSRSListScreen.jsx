@@ -214,6 +214,28 @@ const KanjiSRSListScreen = () => {
         load();
     }, [userId]);
 
+    // Listen to cache updates and sync state across all screens
+    useEffect(() => {
+        const handleCacheUpdate = (e) => {
+            const { type, data } = e.detail;
+            if (type === 'kanji') {
+                setKanjiList(prev => {
+                    const idx = prev.findIndex(k => k.id === data.id);
+                    if (idx !== -1) {
+                        return prev.map(k => k.id === data.id ? { ...k, ...data } : k);
+                    } else {
+                        return [...prev, data];
+                    }
+                });
+            } else if (type === 'kanji-delete') {
+                setKanjiList(prev => prev.filter(k => k.id !== data));
+            }
+        };
+
+        window.addEventListener('kanji-cache-updated', handleCacheUpdate);
+        return () => window.removeEventListener('kanji-cache-updated', handleCacheUpdate);
+    }, []);
+
     // Save folders to localStorage
     useEffect(() => {
         localStorage.setItem('kanji_srs_folders', JSON.stringify(folders));

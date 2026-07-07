@@ -1,0 +1,14 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      // Cho phép tất cả mọi người đọc dữ liệu tĩnh (để CDN hoạt động public)
+      allow read: if true;
+      
+      // Chỉ cho phép tài khoản Admin ghi/cập nhật dữ liệu tĩnh
+      allow write: if request.auth != null && 
+                   (request.auth.token.email == 'ntrungforwork@gmail.com' || 
+                    request.auth.token.email == 'lynguyennhattrung1706@gmail.com');
+    }
+  }
+}

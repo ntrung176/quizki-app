@@ -1,5 +1,6 @@
 import { db } from '../config/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { getCacheConfig } from './cacheConfigService';
 
 // In-memory module cache
 let cachedKanjiList = null;
@@ -11,20 +12,98 @@ let kanjiPromise = null;
 let vocabPromise = null;
 let categoriesPromise = null;
 
+// Incremental sync in the background
+async function fetchKanjiUpdatesFromFirestore(exportedAt) {
+    if (!exportedAt) return;
+    try {
+        console.log(`Checking Firestore for kanji updates after: ${new Date(exportedAt).toISOString()}`);
+        const q = query(collection(db, 'kanji'), where('updatedAt', '>', exportedAt));
+        const snap = await getDocs(q);
+        if (!snap.empty) {
+            console.log(`Found ${snap.size} newer kanji records in Firestore. Syncing...`);
+            snap.docs.forEach(d => {
+                const updatedKanji = { id: d.id, ...d.data() };
+                updateCachedKanji(updatedKanji);
+            });
+        } else {
+            console.log('No new kanji updates found in Firestore.');
+        }
+    } catch (e) {
+        console.warn('Error syncing kanji updates from Firestore:', e);
+    }
+}
+
+async function fetchVocabUpdatesFromFirestore(exportedAt) {
+    if (!exportedAt) return;
+    try {
+        console.log(`Checking Firestore for vocab updates after: ${new Date(exportedAt).toISOString()}`);
+        const q = query(collection(db, 'kanjiVocab'), where('updatedAt', '>', exportedAt));
+        const snap = await getDocs(q);
+        if (!snap.empty) {
+            console.log(`Found ${snap.size} newer vocab records in Firestore. Syncing...`);
+            snap.docs.forEach(d => {
+                const updatedVocab = { id: d.id, ...d.data() };
+                updateCachedVocab(updatedVocab);
+            });
+        } else {
+            console.log('No new vocab updates found in Firestore.');
+        }
+    } catch (e) {
+        console.warn('Error syncing vocab updates from Firestore:', e);
+    }
+}
+
 export const getSharedKanjiList = async () => {
     if (cachedKanjiList) return cachedKanjiList;
     if (kanjiPromise) return kanjiPromise;
 
     kanjiPromise = (async () => {
         try {
-            console.log('Fetching shared kanji list from Firestore...');
-            const snap = await getDocs(collection(db, 'kanji'));
-            cachedKanjiList = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+            console.log('Fetching shared kanji list from CDN...');
+            const cacheConfig = await getCacheConfig();
+            
+            let dataRes, exportedAt;
+            if (cacheConfig && cacheConfig.kanjiUrl) {
+                console.log('Using Firebase Storage CDN for Kanji cache');
+                dataRes = await fetch(cacheConfig.kanjiUrl);
+                exportedAt = cacheConfig.exportedAt || 0;
+            } else {
+                console.log('Falling back to local bundle files for Kanji cache');
+                const [localRes, metaRes] = await Promise.all([
+                    fetch('/data/kanji_data.json'),
+                    fetch('/data/metadata.json').catch(() => null)
+                ]);
+                dataRes = localRes;
+                const meta = metaRes && metaRes.ok ? await metaRes.json() : null;
+                exportedAt = meta?.exportedAt || 0;
+            }
+
+            if (!dataRes || !dataRes.ok) {
+                throw new Error('CDN fetch failed');
+            }
+
+            const contentType = dataRes.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                throw new Error('Response is not JSON (got: ' + contentType + ')');
+            }
+
+            cachedKanjiList = await dataRes.json();
+
+            // Sync edits made after the export timestamp in the background
+            fetchKanjiUpdatesFromFirestore(exportedAt);
+
             return cachedKanjiList;
         } catch (e) {
-            console.error('Error loading shared kanji list:', e);
-            kanjiPromise = null; // Reset promise so we can retry on failure
-            throw e;
+            console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);
+            try {
+                const snap = await getDocs(collection(db, 'kanji'));
+                cachedKanjiList = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+                return cachedKanjiList;
+            } catch (fsErr) {
+                console.error('Error loading shared kanji list from Firestore fallback:', fsErr);
+                kanjiPromise = null;
+                throw fsErr;
+            }
         }
     })();
 
@@ -37,14 +116,51 @@ export const getSharedVocabList = async () => {
 
     vocabPromise = (async () => {
         try {
-            console.log('Fetching shared vocab list from Firestore...');
-            const snap = await getDocs(collection(db, 'kanjiVocab'));
-            cachedVocabList = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+            console.log('Fetching shared vocab list from CDN...');
+            const cacheConfig = await getCacheConfig();
+            
+            let dataRes, exportedAt;
+            if (cacheConfig && cacheConfig.vocabUrl) {
+                console.log('Using Firebase Storage CDN for Vocab cache');
+                dataRes = await fetch(cacheConfig.vocabUrl);
+                exportedAt = cacheConfig.exportedAt || 0;
+            } else {
+                console.log('Falling back to local bundle files for Vocab cache');
+                const [localRes, metaRes] = await Promise.all([
+                    fetch('/data/vocab_data.json'),
+                    fetch('/data/metadata.json').catch(() => null)
+                ]);
+                dataRes = localRes;
+                const meta = metaRes && metaRes.ok ? await metaRes.json() : null;
+                exportedAt = meta?.exportedAt || 0;
+            }
+
+            if (!dataRes || !dataRes.ok) {
+                throw new Error('CDN fetch failed');
+            }
+
+            const contentType = dataRes.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                throw new Error('Response is not JSON (got: ' + contentType + ')');
+            }
+
+            cachedVocabList = await dataRes.json();
+
+            // Sync edits made after the export timestamp in the background
+            fetchVocabUpdatesFromFirestore(exportedAt);
+
             return cachedVocabList;
         } catch (e) {
-            console.error('Error loading shared vocab list:', e);
-            vocabPromise = null;
-            throw e;
+            console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);
+            try {
+                const snap = await getDocs(collection(db, 'kanjiVocab'));
+                cachedVocabList = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+                return cachedVocabList;
+            } catch (fsErr) {
+                console.error('Error loading shared vocab list from Firestore fallback:', fsErr);
+                vocabPromise = null;
+                throw fsErr;
+            }
         }
     })();
 
@@ -57,14 +173,38 @@ export const getSharedVocabCategories = async () => {
 
     categoriesPromise = (async () => {
         try {
-            console.log('Fetching shared vocab categories from Firestore...');
-            const snap = await getDocs(collection(db, 'vocabCategories'));
-            cachedVocabCategories = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+            console.log('Fetching shared vocab categories from CDN...');
+            const cacheConfig = await getCacheConfig();
+            
+            let dataRes;
+            if (cacheConfig && cacheConfig.vocabCategoriesUrl) {
+                console.log('Using Firebase Storage CDN for Vocab Categories cache');
+                dataRes = await fetch(cacheConfig.vocabCategoriesUrl);
+            } else {
+                console.log('Falling back to local bundle files for Vocab Categories cache');
+                dataRes = await fetch('/data/vocab_categories.json');
+            }
+
+            if (!dataRes || !dataRes.ok) {
+                throw new Error('CDN fetch failed');
+            }
+            const contentType = dataRes.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                throw new Error('Response is not JSON (got: ' + contentType + ')');
+            }
+            cachedVocabCategories = await dataRes.json();
             return cachedVocabCategories;
         } catch (e) {
-            console.error('Error loading shared vocab categories:', e);
-            categoriesPromise = null;
-            throw e;
+            console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);
+            try {
+                const snap = await getDocs(collection(db, 'vocabCategories'));
+                cachedVocabCategories = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+                return cachedVocabCategories;
+            } catch (fsErr) {
+                console.error('Error loading shared vocab categories from Firestore fallback:', fsErr);
+                categoriesPromise = null;
+                throw fsErr;
+            }
         }
     })();
 
@@ -80,11 +220,18 @@ export const updateCachedKanji = (kanji) => {
     } else {
         cachedKanjiList.push(kanji);
     }
+    // Dispatch event to keep other active screens in sync
+    window.dispatchEvent(new CustomEvent('kanji-cache-updated', { 
+        detail: { type: 'kanji', data: { ...cachedKanjiList[idx !== -1 ? idx : cachedKanjiList.length - 1] } } 
+    }));
 };
 
 export const deleteCachedKanji = (kanjiId) => {
     if (!cachedKanjiList) return;
     cachedKanjiList = cachedKanjiList.filter(k => k.id !== kanjiId);
+    window.dispatchEvent(new CustomEvent('kanji-cache-updated', { 
+        detail: { type: 'kanji-delete', data: kanjiId } 
+    }));
 };
 
 export const updateCachedVocab = (vocab) => {
@@ -95,11 +242,17 @@ export const updateCachedVocab = (vocab) => {
     } else {
         cachedVocabList.push(vocab);
     }
+    window.dispatchEvent(new CustomEvent('kanji-cache-updated', { 
+        detail: { type: 'vocab', data: { ...cachedVocabList[idx !== -1 ? idx : cachedVocabList.length - 1] } } 
+    }));
 };
 
 export const deleteCachedVocab = (vocabId) => {
     if (!cachedVocabList) return;
     cachedVocabList = cachedVocabList.filter(v => v.id !== vocabId);
+    window.dispatchEvent(new CustomEvent('kanji-cache-updated', { 
+        detail: { type: 'vocab-delete', data: vocabId } 
+    }));
 };
 
 export const getCachedKanjiList = () => cachedKanjiList;

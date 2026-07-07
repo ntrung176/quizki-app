@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
+import { getStorage } from 'firebase/storage';
 
 // --- Cấu hình Firebase ---
 const firebaseConfig = {
@@ -16,6 +17,7 @@ const firebaseConfig = {
 let app;
 let db;
 let auth;
+let storage;
 
 try {
     app = initializeApp(firebaseConfig);
@@ -28,6 +30,7 @@ try {
     });
 
     auth = getAuth(app);
+    storage = getStorage(app);
 } catch (e) {
     console.error("Lỗi khởi tạo Firebase:", e);
 }
@@ -35,5 +38,5 @@ try {
 // appId dùng chung cho đường dẫn Firestore (artifacts/${appId}/...)
 const appId = import.meta.env.VITE_FIREBASE_APP_ID || 'quizki-app';
 
-export { app, db, auth, appId };
+export { app, db, auth, appId, storage };
 

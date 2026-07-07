@@ -37,10 +37,10 @@ const GrammarLessonsScreen = ({ isAdmin, profile = null }) => {
     const [saving, setSaving] = useState(false);
 
     useEffect(() => {
-        const unsub1 = subscribeTextbooks(tbs => { setTextbook(tbs.find(t => t.id === textbookId) || null); });
-        const unsub2 = subscribeLessons(textbookId, setLessons);
+        const unsub1 = subscribeTextbooks(tbs => { setTextbook(tbs.find(t => t.id === textbookId) || null); }, isAdmin);
+        const unsub2 = subscribeLessons(textbookId, setLessons, isAdmin);
         return () => { unsub1 && unsub1(); unsub2 && unsub2(); };
-    }, [textbookId]);
+    }, [textbookId, isAdmin]);
 
     const handleSave = async () => {
         setSaving(true);

@@ -175,6 +175,38 @@ const KanjiLessonScreen = ({ awardXP }) => {
         };
         load();
     }, []);
+    // Listen to cache updates and sync state across all screens
+    useEffect(() => {
+        const handleCacheUpdate = (e) => {
+            const { type, data } = e.detail;
+            if (type === 'kanji') {
+                setKanjiList(prev => {
+                    const idx = prev.findIndex(k => k.id === data.id);
+                    if (idx !== -1) {
+                        return prev.map(k => k.id === data.id ? { ...k, ...data } : k);
+                    } else {
+                        return [...prev, data];
+                    }
+                });
+            } else if (type === 'kanji-delete') {
+                setKanjiList(prev => prev.filter(k => k.id !== data));
+            } else if (type === 'vocab') {
+                setVocabList(prev => {
+                    const idx = prev.findIndex(v => v.id === data.id);
+                    if (idx !== -1) {
+                        return prev.map(v => v.id === data.id ? { ...v, ...data } : v);
+                    } else {
+                        return [...prev, data];
+                    }
+                });
+            } else if (type === 'vocab-delete') {
+                setVocabList(prev => prev.filter(v => v.id !== data));
+            }
+        };
+
+        window.addEventListener('kanji-cache-updated', handleCacheUpdate);
+        return () => window.removeEventListener('kanji-cache-updated', handleCacheUpdate);
+    }, []);
     // Keep module cache in sync with UI state so back-navigation restores correctly
     useEffect(() => {
         _lessonDataCache.currentIndex = currentIndex;

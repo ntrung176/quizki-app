@@ -42,6 +42,7 @@ import { AddCardForm, EditCardForm } from './components/cards'
 import UpdateNotification from './components/ui/UpdateNotification';
 import VocabularySelectionLookup from './components/ui/VocabularySelectionLookup';
 import FeedbackChatbox from './components/ui/FeedbackChatbox';
+import AdminFloatingSupportChatbox from './components/ui/AdminFloatingSupportChatbox';
 
 // Import hooks
 import useVersionCheck from './hooks/useVersionCheck';
@@ -4139,7 +4140,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 const publicData = {
                     userId: userId,
                     displayName: profile.displayName || 'Người dùng ẩn danh',
-                    avatar: (profile.avatar && !profile.avatar.startsWith('data:image/')) ? profile.avatar : '',
+                    avatar: profile.avatar || '',
                     email: auth?.currentUser?.email || '',
                     totalCards: allCards.length,
                     shortTerm: memoryStats.shortTerm,
@@ -4831,12 +4832,16 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             )}
 
             {/* Real-time floating support/bug feedback chatbox */}
-            {userId && !isAdmin && (
-                <FeedbackChatbox
-                    userId={userId}
-                    profile={profile}
-                    isAdmin={isAdmin}
-                />
+            {userId && (
+                isAdmin ? (
+                    <AdminFloatingSupportChatbox currentUserId={userId} />
+                ) : (
+                    <FeedbackChatbox
+                        userId={userId}
+                        profile={profile}
+                        isAdmin={isAdmin}
+                    />
+                )
             )}
         </div>
 

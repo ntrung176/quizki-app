@@ -3,6 +3,7 @@ import LoadingIndicator from '../ui/LoadingIndicator';
 import { PremiumLockedModal } from '../ui';
 import { collection, query, onSnapshot, orderBy, doc, updateDoc, setDoc, getDoc } from 'firebase/firestore'
 import { db, appId } from '../../config/firebase';
+import { getCacheConfig } from '../../utils/cacheConfigService';
 import { Link, useNavigate } from 'react-router-dom';
 import { FileCheck, Play, ChevronRight, ChevronLeft, Maximize, Minimize, X, Check, CheckCircle, XCircle, Languages, BookOpen, FileText, Headphones, Timer, Volume2, AlertTriangle, Award, Lock, Unlock, Crown, Calendar, Edit3, Settings, Sparkle, ShieldAlert, Pencil, Save } from 'lucide-react'
 import { ROUTES } from '../../router';
@@ -1166,12 +1167,49 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
     // Load tests and completed status
     useEffect(() => {
         if (!db) return;
-        const q = query(collection(db, testsPath), orderBy('createdAt', 'desc'));
-        const unsub = onSnapshot(q, (snap) => {
-            setTests(snap.docs.map(d => ({ id: d.id, ...d.data() })));
-            setLoading(false);
-        });
-        return () => unsub();
+        let active = true;
+        let unsub = null;
+
+        (async () => {
+            try {
+                const cacheConfig = await getCacheConfig();
+                let res;
+                if (cacheConfig && cacheConfig.jlptUrl) {
+                    console.log('Fetching JLPT tests from Storage CDN...');
+                    res = await fetch(cacheConfig.jlptUrl);
+                } else {
+                    console.log('Fetching JLPT tests from local JSON cache...');
+                    res = await fetch('/data/jlpt_data.json');
+                }
+                if (res && res.ok && active) {
+                    const contentType = res.headers.get('content-type');
+                    if (contentType && contentType.includes('application/json')) {
+                        const data = await res.json();
+                        setTests(data);
+                        setLoading(false);
+                        return;
+                    } else {
+                        throw new Error('Response is not JSON (got: ' + contentType + ')');
+                    }
+                }
+            } catch (e) {
+                console.log('CDN JLPT tests load failed (expected if not synced), falling back to Firestore: ' + e.message);
+            }
+
+            if (!active) return;
+            const q = query(collection(db, testsPath), orderBy('createdAt', 'desc'));
+            unsub = onSnapshot(q, (snap) => {
+                if (active) {
+                    setTests(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+                    setLoading(false);
+                }
+            });
+        })();
+
+        return () => {
+            active = false;
+            if (unsub) unsub();
+        };
     }, [testsPath]);
     useEffect(() => {
         const saved = localStorage.getItem('quizki_completed_tests');

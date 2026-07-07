@@ -857,7 +857,7 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
                 ...postData,
                 authorId: userId,
                 authorName: profile?.displayName || 'Ẩn danh',
-                authorAvatar: (profile?.avatar && !profile.avatar.startsWith('data:image/')) ? profile.avatar : '',
+                authorAvatar: profile?.avatar || '',
                 likes: [],
                 commentCount: 0,
                 views: 0,
