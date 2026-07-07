@@ -103,10 +103,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
 
     // Load user's saved Kanji SRS items on mount
     useEffect(() => {
+        if (!userId) return;
         const loadUserSRS = async () => {
-            const auth = getAuth();
-            const userId = auth.currentUser?.uid;
-            if (!userId) return;
             try {
                 const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
                 const ids = srsSnap.docs.map(doc => doc.id);
@@ -116,8 +114,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             }
         };
         loadUserSRS();
-    }, []);
-
+    }, [userId]);
 
     const toggleKanjiSRS = async (e, kanjiChar) => {
         if (e) e.stopPropagation(); // Stop click from opening detail modal
@@ -138,64 +135,62 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         const isSRSAdded = userKanjiSRS.has(kanjiDoc.id);
 
         if (isSRSAdded) {
-            try {
-                await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanjiDoc.id));
-                setUserKanjiSRS(prev => {
-                    const next = new Set(prev);
-                    next.delete(kanjiDoc.id);
-                    return next;
-                });
-                showToast(`Đã xóa ${kanjiChar} khỏi danh sách ôn tập SRS`);
-            } catch (err) {
-                console.error('Error removing from SRS:', err);
-                showToast('Lỗi khi xóa khỏi SRS', 'error');
+            // No cancel function needed here, users will manage removal from the saved Kanji screen.
+            return;
+        }
+
+        // Optimistic UI Update: add the Kanji ID to userKanjiSRS Set immediately
+        setUserKanjiSRS(prev => new Set([...prev, kanjiDoc.id]));
+        showToast(`Đã thêm ${kanjiChar} vào danh sách ôn tập SRS`);
+
+        try {
+            const now = Date.now();
+            await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanjiDoc.id), {
+                interval: 0,
+                ease: 2.5,
+                nextReview: now,
+                lastReview: now,
+                reps: 0,
+                learningStep: null,
+                isLapsed: false,
+                lapseCount: 0,
+                prelapseInterval: null,
+                state: 'NEW'
+            }, { merge: true });
+
+            // Award XP for Kanji addition
+            let multiplier = 1.0;
+            const kLevel = kanjiDoc.level || selectedLevel || 'N5';
+            if (kLevel) {
+                const lvlUpper = String(kLevel).toUpperCase();
+                if (lvlUpper.includes('N3')) multiplier = 1.2;
+                else if (lvlUpper.includes('N2')) multiplier = 1.4;
+                else if (lvlUpper.includes('N1')) multiplier = 1.6;
             }
-        } else {
+            const xpAmount = Math.round(15 * multiplier);
+            if (xpAmount > 0 && awardXP) {
+                awardXP(xpAmount);
+            }
+
+            // Cập nhật hoạt động Kanji mới hàng ngày
             try {
-                const now = Date.now();
-                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanjiDoc.id), {
-                    interval: 0,
-                    ease: 2.5,
-                    nextReview: now,
-                    lastReview: now,
-                    reps: 0,
-                    learningStep: null,
-                    isLapsed: false,
-                    lapseCount: 0,
-                    prelapseInterval: null,
-                    state: 'NEW'
+                const todayDateString = new Date().toISOString().split('T')[0];
+                const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
+                await setDoc(activityRef, {
+                    newKanjiAdded: increment(1)
                 }, { merge: true });
-                setUserKanjiSRS(prev => new Set([...prev, kanjiDoc.id]));
-                showToast(`Đã thêm ${kanjiChar} vào danh sách ôn tập SRS`);
-
-                // Award XP for Kanji addition
-                let multiplier = 1.0;
-                const kLevel = kanjiDoc.level || selectedLevel || 'N5';
-                if (kLevel) {
-                    const lvlUpper = String(kLevel).toUpperCase();
-                    if (lvlUpper.includes('N3')) multiplier = 1.2;
-                    else if (lvlUpper.includes('N2')) multiplier = 1.4;
-                    else if (lvlUpper.includes('N1')) multiplier = 1.6;
-                }
-                const xpAmount = Math.round(15 * multiplier);
-                if (xpAmount > 0 && awardXP) {
-                    awardXP(xpAmount);
-                }
-
-                // Cập nhật hoạt động Kanji mới hàng ngày
-                try {
-                    const todayDateString = new Date().toISOString().split('T')[0];
-                    const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
-                    await setDoc(activityRef, {
-                        newKanjiAdded: increment(1)
-                    }, { merge: true });
-                } catch (err) {
-                    console.warn('Lỗi ghi activity Kanji mới:', err);
-                }
             } catch (err) {
-                console.error('Error adding to SRS:', err);
-                showToast('Lỗi khi lưu vào SRS', 'error');
+                console.warn('Lỗi ghi activity Kanji mới:', err);
             }
+        } catch (err) {
+            console.error('Error adding to SRS:', err);
+            showToast('Lỗi khi lưu vào SRS', 'error');
+            // Revert state update if firestore write failed
+            setUserKanjiSRS(prev => {
+                const next = new Set(prev);
+                next.delete(kanjiDoc.id);
+                return next;
+            });
         }
     };
 
@@ -1128,14 +1123,24 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                 const isSRSAdded = kanjiDoc ? userKanjiSRS.has(kanjiDoc.id) : false;
                                 return (
                                     <button
-                                        onClick={(e) => toggleKanjiSRS(e, selectedKanji)}
-                                        className={`py-1.5 px-3 rounded-lg font-bold text-xs transition-all flex items-center justify-center gap-1.5 shadow-sm hover:scale-[1.02] active:scale-95 border ${isSRSAdded
-                                                ? 'bg-amber-500 hover:bg-amber-600 text-white border-transparent'
-                                                : 'bg-white hover:bg-gray-50 text-gray-750 border-gray-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-gray-200 dark:border-slate-700'
+                                        onClick={(e) => !isSRSAdded && toggleKanjiSRS(e, selectedKanji)}
+                                        disabled={isSRSAdded}
+                                        className={`py-1.5 px-3 rounded-lg font-bold text-xs transition-all flex items-center justify-center gap-1.5 shadow-sm border ${isSRSAdded
+                                                ? 'bg-emerald-500 text-white border-transparent cursor-default'
+                                                : 'bg-white hover:bg-gray-50 text-gray-750 border-gray-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-gray-200 dark:border-slate-700 active:scale-95 hover:scale-[1.02]'
                                             }`}
                                     >
-                                        <Bookmark className="w-3.5 h-3.5" fill={isSRSAdded ? 'currentColor' : 'none'} />
-                                        {isSRSAdded ? 'Đang học Kanji này (Hủy)' : 'Thêm Kanji Vào Học'}
+                                        {isSRSAdded ? (
+                                            <>
+                                                <Check className="w-3.5 h-3.5" />
+                                                Đã lưu
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Bookmark className="w-3.5 h-3.5" />
+                                                Thêm Kanji Vào Học
+                                            </>
+                                        )}
                                     </button>
                                 );
                             })()}
@@ -2030,8 +2035,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                     const kanjiDoc = kanjiMap.get(kanji);
                                                     const isSRSAdded = kanjiDoc ? userKanjiSRS.has(kanjiDoc.id) : false;
                                                     return isSRSAdded && (
-                                                        <span className="flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-amber-500/10 dark:bg-amber-500/20 border border-amber-500/30 text-amber-600 dark:text-amber-400 text-[8px] font-black uppercase tracking-wider select-none shrink-0" title="Đã thêm vào học">
-                                                            Đang học
+                                                        <span className="flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-[8px] font-black uppercase tracking-wider select-none shrink-0" title="Đã thêm vào học">
+                                                            Đã lưu
                                                         </span>
                                                     );
                                                 })()}
@@ -2043,14 +2048,19 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                     const isSRSAdded = kanjiDoc ? userKanjiSRS.has(kanjiDoc.id) : false;
                                                     return (
                                                         <button
-                                                            onClick={(e) => toggleKanjiSRS(e, kanji)}
-                                                            className={`p-1.5 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 ${isSRSAdded
-                                                                    ? 'bg-amber-500/10 dark:bg-amber-500/20 text-amber-500 opacity-100 shadow-sm'
-                                                                    : 'text-slate-300 dark:text-slate-600 hover:text-indigo-500 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 group-hover:opacity-100 sm:opacity-0 transition-opacity'
+                                                            onClick={(e) => !isSRSAdded && toggleKanjiSRS(e, kanji)}
+                                                            disabled={isSRSAdded}
+                                                            className={`p-1.5 rounded-lg transition-all duration-200 ${isSRSAdded
+                                                                    ? 'bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-500 opacity-100 shadow-sm cursor-default'
+                                                                    : 'text-slate-300 dark:text-slate-600 hover:text-indigo-500 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 group-hover:opacity-100 sm:opacity-0 transition-opacity active:scale-95 hover:scale-110'
                                                                 }`}
-                                                            title={isSRSAdded ? "Xóa khỏi ôn tập SRS" : "Thêm vào ôn tập SRS"}
+                                                            title={isSRSAdded ? "Đã lưu vào ôn tập SRS" : "Thêm vào ôn tập SRS"}
                                                         >
-                                                            <Bookmark className="w-3.5 h-3.5" fill={isSRSAdded ? 'currentColor' : 'none'} />
+                                                            {isSRSAdded ? (
+                                                                <Check className="w-3.5 h-3.5 stroke-[3]" />
+                                                            ) : (
+                                                                <Bookmark className="w-3.5 h-3.5" />
+                                                            )}
                                                         </button>
                                                     );
                                                 })()}

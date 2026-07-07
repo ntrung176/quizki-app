@@ -957,56 +957,56 @@ const KanjiFlashcard = ({
     const handleBookmarkToggle = async () => {
         if (!kanji?.id || !userId) return;
         if (isBookmarked) {
-            try {
-                await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanji.id));
-                setSrsAddedSet(prev => {
-                    const n = new Set(prev);
-                    n.delete(kanji.id);
-                    return n;
-                });
-                showToast(`Đã xóa ${kanji.character} khỏi danh sách ôn tập`);
-            } catch (e) {
-                console.error('Error removing from SRS:', e);
-            }
-        } else {
-            try {
-                const now = Date.now();
-                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanji.id), {
-                    interval: 0, ease: 2.5, nextReview: now, lastReview: now, reps: 0,
-                    learningStep: null, isLapsed: false, lapseCount: 0, prelapseInterval: null,
-                    state: 'NEW'
-                }, { merge: true });
-                setSrsAddedSet(prev => new Set([...prev, kanji.id]));
-                showToast(`Đã thêm ${kanji.character} vào danh sách ôn tập`);
-                logKanjiActivity(userId, {
-                    type: 'save',
-                    title: `Đã lưu Kanji ${kanji.character}`,
-                    details: `Lưu từ mới vào danh sách ôn tập`
-                });
+            // No cancel function needed here, users will manage removal from the saved Kanji screen.
+            return;
+        }
 
-                // Award XP for Kanji manual addition
-                let multiplier = 1.0;
-                const kLevel = kanji.level || level || 'N5';
-                if (kLevel) {
-                    const lvlUpper = String(kLevel).toUpperCase();
-                    if (lvlUpper.includes('N3')) multiplier = 1.2;
-                    else if (lvlUpper.includes('N2')) multiplier = 1.4;
-                    else if (lvlUpper.includes('N1')) multiplier = 1.6;
-                }
-                const xpAmount = Math.round(15 * multiplier);
-                if (xpAmount > 0 && awardXP) {
-                    awardXP(xpAmount);
-                }
+        // Optimistic UI Update: add the Kanji ID immediately
+        setSrsAddedSet(prev => new Set([...prev, kanji.id]));
+        showToast(`Đã thêm ${kanji.character} vào danh sách ôn tập`);
 
-                // Cập nhật hoạt động Kanji mới hàng ngày
-                const todayDateString = new Date().toISOString().split('T')[0];
-                const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
-                await setDoc(activityRef, {
-                    newKanjiAdded: increment(1)
-                }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Kanji mới:', err));
-            } catch (e) {
-                console.error('Error adding to SRS:', e);
+        try {
+            const now = Date.now();
+            await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanji.id), {
+                interval: 0, ease: 2.5, nextReview: now, lastReview: now, reps: 0,
+                learningStep: null, isLapsed: false, lapseCount: 0, prelapseInterval: null,
+                state: 'NEW'
+            }, { merge: true });
+
+            logKanjiActivity(userId, {
+                type: 'save',
+                title: `Đã lưu Kanji ${kanji.character}`,
+                details: `Lưu từ mới vào danh sách ôn tập`
+            });
+
+            // Award XP for Kanji manual addition
+            let multiplier = 1.0;
+            const kLevel = kanji.level || level || 'N5';
+            if (kLevel) {
+                const lvlUpper = String(kLevel).toUpperCase();
+                if (lvlUpper.includes('N3')) multiplier = 1.2;
+                else if (lvlUpper.includes('N2')) multiplier = 1.4;
+                else if (lvlUpper.includes('N1')) multiplier = 1.6;
             }
+            const xpAmount = Math.round(15 * multiplier);
+            if (xpAmount > 0 && awardXP) {
+                awardXP(xpAmount);
+            }
+
+            // Cập nhật hoạt động Kanji mới hàng ngày
+            const todayDateString = new Date().toISOString().split('T')[0];
+            const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
+            await setDoc(activityRef, {
+                newKanjiAdded: increment(1)
+            }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Kanji mới:', err));
+        } catch (e) {
+            console.error('Error adding to SRS:', e);
+            // Revert state update if firestore write failed
+            setSrsAddedSet(prev => {
+                const n = new Set(prev);
+                n.delete(kanji.id);
+                return n;
+            });
         }
     };
     if (!kanji) return null;
@@ -1051,14 +1051,19 @@ const KanjiFlashcard = ({
                             </span>
                         </div>
                         <button
-                            onClick={handleBookmarkToggle}
+                            onClick={(e) => !isBookmarked && handleBookmarkToggle()}
+                            disabled={isBookmarked}
                             className={`p-2 rounded-xl transition-all ${isBookmarked
-                                    ? 'bg-amber-50 dark:bg-amber-900/20 text-amber-500'
-                                    : 'text-gray-400 hover:text-gray-600 dark:hover:text-gray-200'
+                                    ? 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-500 cursor-default shadow-sm'
+                                    : 'text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 active:scale-95 hover:scale-110'
                                 }`}
-                            title={isBookmarked ? "Xóa khỏi ôn tập" : "Thêm vào ôn tập"}
+                            title={isBookmarked ? "Đã lưu vào ôn tập" : "Thêm vào ôn tập"}
                         >
-                            <Bookmark className="w-5 h-5" fill={isBookmarked ? 'currentColor' : 'none'} />
+                            {isBookmarked ? (
+                                <Check className="w-5 h-5 stroke-[3]" />
+                            ) : (
+                                <Bookmark className="w-5 h-5" />
+                            )}
                         </button>
                     </div>
                     {/* Animated Stroke box */}
