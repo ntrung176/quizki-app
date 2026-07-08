@@ -288,7 +288,7 @@ const Flashcard = ({
                     </div>
                 )}
                 <div className={`flex flex-col items-center justify-center text-center min-w-0 space-y-1 w-full h-full py-1.5 ${card.imageBase64 && variant === 'review' ? 'text-left min-w-0 flex-1' : ''}`}>
-                    {(cardSettings.back.reading || cardSettings.back.pitchAccent) && (
+                    {cardSettings.back.reading && (
                         <div className={`${scale.wordSize || 'text-3xl font-extrabold'} font-bold ${readingColorClass} font-japanese select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap`}>
                             {renderReadingWithPitchAccent()}
                             {card.pos && (
@@ -301,7 +301,7 @@ const Flashcard = ({
                             )}
                         </div>
                     )}
-                    {!(cardSettings.back.reading || cardSettings.back.pitchAccent) && card.pos && (
+                    {!cardSettings.back.reading && card.pos && (
                         <div className="text-center mb-0.5">
                             <span className={variant === 'review' ? 
                                 "inline-block px-2 py-0.5 bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold rounded-full font-sans" : 
