@@ -1062,7 +1062,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         const vocab = getVocabForKanji(selectedKanji);
         if (vocab.length === 0) return;
         // Only fetch for words we don't already have pitch data for
-        const wordsToFetch = vocab.filter(v => !pitchAccentData[v.word] && v.word);
+        const wordsToFetch = vocab.filter(v => !v.pitch && !pitchAccentData[v.word] && v.word);
         if (wordsToFetch.length === 0) return;
         let cancelled = false;
         const fetchAll = async () => {
@@ -1076,7 +1076,27 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         chunk.map(async (v) => {
                             try {
                                 const jotobaData = await fetchJotobaWordData(v.word);
-                                return { word: v.word, pitch: jotobaData?.pitch || null };
+                                const pitch = jotobaData?.pitch || null;
+                                if (isAdmin && pitch && v.id) {
+                                    try {
+                                        const updatePayload = {
+                                            pitch: pitch,
+                                            updatedAt: Date.now()
+                                        };
+                                        if (jotobaData.reading && !v.reading) {
+                                            updatePayload.reading = jotobaData.reading;
+                                        }
+                                        await updateDoc(doc(db, 'kanjiVocab', v.id), updatePayload);
+                                        // Update the local vocab object to avoid refetching it or rendering stale values
+                                        v.pitch = pitch;
+                                        if (updatePayload.reading) v.reading = updatePayload.reading;
+                                        updateCachedVocab(v);
+                                        console.log(`💾 Auto-saved missing pitch to Firestore for kanjiVocab word: "${v.word}"`);
+                                    } catch (fsErr) {
+                                        console.warn(`Failed to auto-save pitch for kanjiVocab word ${v.word}:`, fsErr);
+                                    }
+                                }
+                                return { word: v.word, pitch };
                             } catch (e) {
                                 return { word: v.word, pitch: null };
                             }
@@ -1104,9 +1124,9 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         };
         fetchAll();
         return () => { cancelled = true; };
-    }, [showDetailModal, selectedKanji]);
-    // Kanji Detail Modal - memoized to prevent recreation on every render
-    const KanjiDetailModal = useCallback(({ isFullPage = false } = {}) => {
+    }, [showDetailModal, selectedKanji, isAdmin]);
+    // Kanji Detail Modal - rendered as a helper function to ensure it always gets fresh state
+    const KanjiDetailModal = ({ isFullPage = false } = {}) => {
         if (!selectedKanji) return null;
         const detail = getKanjiDetail(selectedKanji);
         const vocab = getVocabForKanji(selectedKanji);
@@ -1395,7 +1415,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                 const isSpecialReading = v.specialReading || false;
                                 const apiPitch = pitchAccentData[v.word];
                                 const storedPitch = v.accent !== undefined && v.accent !== '' ? accentNumberToPitchParts(v.reading, v.accent) : null;
-                                const pitchParts = apiPitch || storedPitch;
+                                const pitchParts = apiPitch || v.pitch || storedPitch;
                                 const renderWord = () => {
                                     if (isSpecialReading) {
                                         return <span className="text-blue-400 font-japanese font-bold">{v.word}</span>;
@@ -1644,7 +1664,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 {content}
             </div>
         );
-    }, [selectedKanji, kanjiList, vocabList, kanjiApiData, isAdmin, diagramZoom, diagramPan, isDragging, dragStart, pitchAccentData, addedVocabIds, addingVocabId, vocabCategories]);
+    };
     // Loading screen - show lazy load if data is still loading
     if (loading) {
         if (location.state?.fromLesson) {
