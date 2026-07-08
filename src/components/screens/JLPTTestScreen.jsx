@@ -994,7 +994,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
     const [showPremiumModal, setShowPremiumModal] = useState(false);
     const [lockedPkgName, setLockedPkgName] = useState('');
     const userIsAdmin = profile?.email && ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(profile.email);
-    const hasPremiumAccess = userIsAdmin || profile?.isPremiumUnlocked || (profile?.unlockedSpecializedPackages || []).includes('jlpt_prep');
+    const hasPremiumAccess = isAdmin || userIsAdmin || profile?.isPremiumUnlocked || (profile?.unlockedSpecializedPackages || []).includes('jlpt_prep');
     const canEdit = isAdmin || userIsAdmin;
 
     const handleSaveQuestionHtml = async (updatedQuestion) => {
@@ -1037,12 +1037,19 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
 
     const handleToggleTestPremium = async (e, test) => {
         e.stopPropagation();
-        if (!isAdmin) return;
+        if (!canEdit) return;
         try {
             const testRef = doc(db, `artifacts/${appId}/jlptTests`, test.id);
             const nextVal = !test.isPremium;
             await updateDoc(testRef, { isPremium: nextVal });
             setNotification(`Đã chuyển đề thi sang: ${nextVal ? 'Premium' : 'Miễn phí'}`);
+            // Update local state
+            setTests(prevTests => prevTests.map(t => {
+                if (t.id === test.id) {
+                    return { ...t, isPremium: nextVal };
+                }
+                return t;
+            }));
         } catch (err) {
             console.error('Error toggling premium status:', err);
             setNotification('Lỗi: ' + err.message);
@@ -1051,12 +1058,19 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
 
     const handleToggleTestFixed = async (e, test) => {
         if (e) e.stopPropagation();
-        if (!isAdmin) return;
+        if (!canEdit) return;
         try {
             const testRef = doc(db, `artifacts/${appId}/jlptTests`, test.id);
             const nextVal = !test.isFixed;
             await updateDoc(testRef, { isFixed: nextVal });
             setNotification(`Đã đánh dấu đề thi: ${nextVal ? 'Đã sửa' : 'Chưa sửa'}`);
+            // Update local state
+            setTests(prevTests => prevTests.map(t => {
+                if (t.id === test.id) {
+                    return { ...t, isFixed: nextVal };
+                }
+                return t;
+            }));
             if (activeTest && activeTest.id === test.id) {
                 setActiveTest(prev => ({ ...prev, isFixed: nextVal }));
             }
@@ -1176,7 +1190,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                 let res;
                 if (cacheConfig && cacheConfig.jlptUrl) {
                     console.log('Fetching JLPT tests from Storage CDN...');
-                    res = await fetch(cacheConfig.jlptUrl);
+                    const urlWithBuster = `${cacheConfig.jlptUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
+                    res = await fetch(urlWithBuster);
                 } else {
                     console.log('Fetching JLPT tests from local JSON cache...');
                     res = await fetch('/data/jlpt_data.json');
@@ -1333,8 +1348,20 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
     }, [isRealExam, activeTest, showResult]);
 
     // Start test
-    const startTest = (test) => {
-        if (test?.isPremium && !hasPremiumAccess) {
+    const startTest = async (test) => {
+        let isPremium = test?.isPremium;
+        if (!isPremium && db && test?.id) {
+            try {
+                const testRef = doc(db, `artifacts/${appId}/jlptTests`, test.id);
+                const snap = await getDoc(testRef);
+                if (snap.exists()) {
+                    isPremium = !!snap.data().isPremium;
+                }
+            } catch (err) {
+                console.error('Error verifying premium status:', err);
+            }
+        }
+        if (isPremium && !hasPremiumAccess) {
             setLockedPkgName('jlpt_prep');
             setShowPremiumModal(true);
             return;
@@ -1374,8 +1401,20 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
     };
 
     // Review completed test
-    const reviewTest = (test) => {
-        if (test?.isPremium && !hasPremiumAccess) {
+    const reviewTest = async (test) => {
+        let isPremium = test?.isPremium;
+        if (!isPremium && db && test?.id) {
+            try {
+                const testRef = doc(db, `artifacts/${appId}/jlptTests`, test.id);
+                const snap = await getDoc(testRef);
+                if (snap.exists()) {
+                    isPremium = !!snap.data().isPremium;
+                }
+            } catch (err) {
+                console.error('Error verifying premium status:', err);
+            }
+        }
+        if (isPremium && !hasPremiumAccess) {
             setLockedPkgName('jlpt_prep');
             setShowPremiumModal(true);
             return;
@@ -2006,7 +2045,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                 <div>
                                     <div className="flex items-center gap-2">
                                         <p className="text-sm font-bold text-gray-800 dark:text-white">{activeTest.title} (Xem lại đáp án)</p>
-                                        {isAdmin && (
+                                        {canEdit && (
                                             <label className="flex items-center gap-1.5 cursor-pointer select-none text-[10px] font-bold text-emerald-650 dark:text-emerald-450 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 px-2 py-0.5 rounded-lg border border-emerald-200/30 transition shrink-0 select-none">
                                                 <input 
                                                     type="checkbox" 
@@ -2552,7 +2591,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                             <div>
                                 <div className="flex items-center gap-2">
                                     <p className="text-sm font-bold text-gray-800 dark:text-white">{activeTest.title}</p>
-                                    {isAdmin && (
+                                    {canEdit && (
                                         <label className="flex items-center gap-1.5 cursor-pointer select-none text-[10px] font-bold text-emerald-650 dark:text-emerald-450 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 px-2 py-0.5 rounded-lg border border-emerald-200/30 transition shrink-0 select-none">
                                             <input 
                                                 type="checkbox" 
@@ -3220,8 +3259,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                         key={test.id}
                                         className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-h-[250px] relative overflow-hidden group shadow-sm"
                                     >
-                                        {isAdmin && (
-                                            <div className="absolute top-4 right-4 flex items-center gap-1.5 z-10 animate-fade-in">
+                                        {canEdit && (
+                                            <div className="absolute top-4 right-4 flex items-center gap-1.5 z-25 animate-fade-in">
                                                 <label className="flex items-center gap-1 cursor-pointer select-none text-[10px] font-bold text-emerald-650 dark:text-emerald-450 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 px-2 py-1 rounded-lg border border-emerald-200/30 transition shrink-0 select-none">
                                                     <input 
                                                         type="checkbox" 
@@ -3250,38 +3289,40 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                 <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-300 flex items-center justify-center">
                                                     <SkillIcon className="w-5 h-5" />
                                                 </div>
-                                                <div className="flex items-center gap-1.5">
-                                                    {test.isPremium && (
-                                                        <span className="flex items-center gap-1 text-[10px] font-black text-amber-600 bg-amber-50 dark:bg-amber-950/40 px-2.5 py-1.5 rounded-full border border-amber-200/50">
-                                                            <Crown className="w-3 h-3 fill-current" /> Premium
-                                                        </span>
-                                                    )}
-                                                    {status === 'completed' && (
-                                                        <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/20 px-3 py-1.5 rounded-full">
-                                                            HOÀN THÀNH
-                                                        </span>
-                                                    )}
-                                                    {status === 'retry' && (
-                                                        <span className="text-[10px] font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/20 px-3 py-1.5 rounded-full">
-                                                            CẦN ÔN LẠI
-                                                        </span>
-                                                    )}
-                                                    {status === 'in_progress' && (
-                                                        <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/20 px-3 py-1.5 rounded-full">
-                                                            ĐANG LÀM
-                                                        </span>
-                                                    )}
-                                                    {status === 'new' && (
-                                                        <span className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/20 px-3 py-1.5 rounded-full">
-                                                            MỚI
-                                                        </span>
-                                                    )}
-                                                    {status === 'not_started' && (
-                                                        <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-700/30 px-3 py-1.5 rounded-full">
-                                                            CHƯA LÀM
-                                                        </span>
-                                                    )}
-                                                </div>
+                                                {!canEdit && (
+                                                    <div className="flex items-center gap-1.5">
+                                                        {test.isPremium && (
+                                                            <span className="flex items-center gap-1 text-[10px] font-black text-amber-600 bg-amber-50 dark:bg-amber-950/40 px-2.5 py-1.5 rounded-full border border-amber-200/50">
+                                                                <Crown className="w-3 h-3 fill-current" /> Premium
+                                                            </span>
+                                                        )}
+                                                        {status === 'completed' && (
+                                                            <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/20 px-3 py-1.5 rounded-full">
+                                                                HOÀN THÀNH
+                                                            </span>
+                                                        )}
+                                                        {status === 'retry' && (
+                                                            <span className="text-[10px] font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/20 px-3 py-1.5 rounded-full">
+                                                                CẦN ÔN LẠI
+                                                            </span>
+                                                        )}
+                                                        {status === 'in_progress' && (
+                                                            <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/20 px-3 py-1.5 rounded-full">
+                                                                ĐANG LÀM
+                                                            </span>
+                                                        )}
+                                                        {status === 'new' && (
+                                                            <span className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/20 px-3 py-1.5 rounded-full">
+                                                                MỚI
+                                                            </span>
+                                                        )}
+                                                        {status === 'not_started' && (
+                                                            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-700/30 px-3 py-1.5 rounded-full">
+                                                                CHƯA LÀM
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                )}
                                             </div>
                                             {/* Test title and details */}
                                             <h4 className="text-base font-extrabold text-slate-800 dark:text-white leading-tight">
@@ -3557,7 +3598,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                             </h2>
                         </div>
                     </div>
-                    {isAdmin && (
+                    {canEdit && (
                         <Link to={ROUTES.JLPT_ADMIN}
                             className="px-4 py-2 bg-[#2E5B70] hover:bg-[#254A5C] text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm shrink-0">
                             <FileText className="w-3.5 h-3.5" /> Quản lý đề thi
@@ -3629,8 +3670,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                             key={test.id}
                                             className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-h-[250px] relative overflow-hidden group shadow-sm"
                                         >
-                                            {isAdmin && (
-                                                <div className="absolute top-4 right-4 flex items-center gap-1.5 z-10">
+                                            {canEdit && (
+                                                <div className="absolute top-4 right-4 flex items-center gap-1.5 z-25">
                                                     <label className="flex items-center gap-1 cursor-pointer select-none text-[10px] font-bold text-emerald-650 dark:text-emerald-455 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 px-2 py-1 rounded-lg border border-emerald-200/30 transition shrink-0 select-none">
                                                         <input 
                                                             type="checkbox" 
@@ -3666,38 +3707,40 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                     <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${lvlGradient} text-white flex items-center justify-center font-black text-[11px]`}>
                                                         {test.level}
                                                     </div>
-                                                    <div className="flex items-center gap-1.5">
-                                                        {test.isPremium && (
-                                                            <span className="flex items-center gap-1 text-[10px] font-black text-amber-600 bg-amber-50 dark:bg-amber-950/40 px-2.5 py-1.5 rounded-full border border-amber-200/50">
-                                                                <Crown className="w-3 h-3 fill-current" /> Premium
-                                                            </span>
-                                                        )}
-                                                        {status === 'completed' && (
-                                                            <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/20 px-3 py-1.5 rounded-full">
-                                                                HOÀN THÀNH
-                                                            </span>
-                                                        )}
-                                                        {status === 'retry' && (
-                                                            <span className="text-[10px] font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/20 px-3 py-1.5 rounded-full">
-                                                                CẦN ÔN LẠI
-                                                            </span>
-                                                        )}
-                                                        {status === 'in_progress' && (
-                                                            <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/20 px-3 py-1.5 rounded-full">
-                                                                ĐANG LÀM
-                                                            </span>
-                                                        )}
-                                                        {status === 'new' && (
-                                                            <span className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/20 px-3 py-1.5 rounded-full">
-                                                                MỚI
-                                                            </span>
-                                                        )}
-                                                        {status === 'not_started' && (
-                                                            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-700/30 px-3 py-1.5 rounded-full">
-                                                                CHƯA LÀM
-                                                            </span>
-                                                        )}
-                                                    </div>
+                                                    {!canEdit && (
+                                                        <div className="flex items-center gap-1.5">
+                                                            {test.isPremium && (
+                                                                <span className="flex items-center gap-1 text-[10px] font-black text-amber-600 bg-amber-50 dark:bg-amber-950/40 px-2.5 py-1.5 rounded-full border border-amber-200/50">
+                                                                    <Crown className="w-3 h-3 fill-current" /> Premium
+                                                                </span>
+                                                            )}
+                                                            {status === 'completed' && (
+                                                                <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/20 px-3 py-1.5 rounded-full">
+                                                                    HOÀN THÀNH
+                                                                </span>
+                                                            )}
+                                                            {status === 'retry' && (
+                                                                <span className="text-[10px] font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/20 px-3 py-1.5 rounded-full">
+                                                                    CẦN ÔN LẠI
+                                                                </span>
+                                                            )}
+                                                            {status === 'in_progress' && (
+                                                                <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/20 px-3 py-1.5 rounded-full">
+                                                                    ĐANG LÀM
+                                                                </span>
+                                                            )}
+                                                            {status === 'new' && (
+                                                                <span className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/20 px-3 py-1.5 rounded-full">
+                                                                    MỚI
+                                                                </span>
+                                                            )}
+                                                            {status === 'not_started' && (
+                                                                <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-700/30 px-3 py-1.5 rounded-full">
+                                                                    CHƯA LÀM
+                                                                </span>
+                                                            )}
+                                                        </div>
+                                                    )}
                                                 </div>
                                                 {/* Test title and details */}
                                                 <h4 className="text-base font-extrabold text-slate-800 dark:text-white leading-tight">
@@ -4074,7 +4117,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                         </p>
                     </div>
                     <div className="flex items-center gap-3 self-start md:self-center">
-                        {isAdmin && (
+                        {canEdit && (
                             <Link to={ROUTES.JLPT_ADMIN}
                                 className="px-4 py-2 bg-[#2E5B70] hover:bg-[#254A5C] text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
                                 <FileText className="w-3.5 h-3.5" /> Quản lý đề thi
@@ -4366,7 +4409,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                 </span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                {isAdmin && (
+                                                {canEdit && (
                                                     <div className="flex items-center gap-1.5 animate-fade-in shrink-0">
                                                         <label className="flex items-center gap-1 cursor-pointer select-none text-[10px] font-bold text-emerald-650 dark:text-emerald-450 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 px-2 py-1 rounded-lg border border-emerald-200/30 transition shrink-0 select-none">
                                                             <input 
