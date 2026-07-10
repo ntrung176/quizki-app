@@ -356,8 +356,9 @@ const App = () => {
         const rawEnv = import.meta.env.VITE_ADMIN_EMAIL || '';
         const adminEmailEnv = rawEnv.trim().replace(/^['"]|['"]$/g, '').toLowerCase();
         const currentEmail = (auth?.currentUser?.email || '').trim().toLowerCase();
-        return !!adminEmailEnv && !!currentEmail && currentEmail === adminEmailEnv;
-    }, [authReady, userId]);
+        const developerEmails = ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'];
+        return (!!adminEmailEnv && currentEmail === adminEmailEnv) || developerEmails.includes(currentEmail);
+    }, [authReady, userId, auth?.currentUser?.email]);
 
     // Admin config from Firestore (AI permissions, provider selection, moderators)
     const [adminConfig, setAdminConfig] = useState(null);

@@ -1077,7 +1077,9 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             try {
                                 const jotobaData = await fetchJotobaWordData(v.word);
                                 const pitch = jotobaData?.pitch || null;
-                                if (isAdmin && pitch && v.id) {
+                                const currentUserEmail = getAuth().currentUser?.email || '';
+                                const userHasAdmin = isAdmin || ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(currentUserEmail);
+                                if (userHasAdmin && pitch && v.id) {
                                     try {
                                         const updatePayload = {
                                             pitch: pitch,
