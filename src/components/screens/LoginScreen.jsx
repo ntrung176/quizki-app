@@ -235,9 +235,10 @@ const LoginScreen = () => {
 
             const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
             const isGitHubPages = window.location.hostname.endsWith('github.io');
+            const isVercel = window.location.hostname.endsWith('vercel.app');
 
-            if (isLocalhost || isGitHubPages) {
-                console.log("[Quizki Auth] Localhost/GitHub Pages detected. Using signInWithPopup to bypass cross-origin cookie blocking...");
+            if (isLocalhost || isGitHubPages || isVercel) {
+                console.log("[Quizki Auth] Localhost/GitHub Pages/Vercel detected. Using signInWithPopup to bypass cross-origin cookie blocking...");
                 const result = await signInWithPopup(auth, provider);
                 const user = result.user;
                 if (db) {
