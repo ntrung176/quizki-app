@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { useNavigate, useLocation, Navigate } from 'react-router-dom';
 
-import { onAuthStateChanged, signOut, updatePassword } from 'firebase/auth'
+import { onAuthStateChanged, signOut, updatePassword, getRedirectResult } from 'firebase/auth'
 import { doc, setDoc, addDoc, onSnapshot, collection, query, updateDoc, serverTimestamp, deleteDoc, getDoc, getDocs, writeBatch, increment, collectionGroup, deleteField, where } from 'firebase/firestore'
 import { auth, db, appId } from './config/firebase';
 import { Loader2, CheckCircle, HelpCircle, Save, AlertTriangle, Check, X, Filter, Wrench, LogOut, Bell, Trophy } from 'lucide-react'
@@ -423,7 +423,7 @@ const App = () => {
         if (!db || !appId || !targetUserId) return;
         // SECURITY: Verify admin at call time (not just render time)
         // Prevents: React DevTools tampering with isAdmin state
-        if (!isAdmin || !verifyAdminAtCallTime(auth, import.meta.env.VITE_ADMIN_EMAIL)) {
+        if (!userHasAdminPrivileges) {
             setNotification("Bạn không có quyền thực hiện chức năng này.");
             return;
         }
@@ -475,14 +475,36 @@ const App = () => {
             console.error("Lỗi xoá dữ liệu người dùng bởi admin:", e);
             setNotification(`Lỗi khi xoá dữ liệu người dùng: ${e.message}`);
         }
-    }, [db, appId, isAdmin, publicStatsCollectionPath]);
+    }, [db, appId, userHasAdminPrivileges, publicStatsCollectionPath]);
 
     useEffect(() => {
         if (!db || !auth) return;
 
+        // Xử lý kết quả đăng nhập từ Google Redirect
+        const handleRedirect = async () => {
+            console.log("[Quizki Auth] Calling getRedirectResult(auth)...");
+            try {
+                const result = await getRedirectResult(auth);
+                console.log("[Quizki Auth] getRedirectResult returned:", result ? {
+                    user: result.user?.email,
+                    uid: result.user?.uid,
+                    providerId: result.providerId
+                } : "null");
+                if (result?.user) {
+                    console.log("Google Redirect Sign-In Success:", result.user.email);
+                }
+            } catch (err) {
+                console.error("[Quizki Auth] Lỗi Google Redirect:", err);
+                setNotification("Đăng nhập bằng Google không thành công hoặc đã bị hủy.");
+            }
+        };
+        handleRedirect();
+
         const unsubscribe = onAuthStateChanged(auth, (user) => {
+            console.log("[Quizki Auth] onAuthStateChanged fired. User:", user ? user.email : "null", "uid:", user ? user.uid : "null", "emailVerified:", user ? user.emailVerified : "N/A");
             // Chặn vào app nếu email chưa xác thực
             if (user && !user.emailVerified) {
+                console.warn("[Quizki Auth] Chặn user vì email chưa xác thực:", user.email);
                 setNotification("Email chưa xác thực. Vui lòng kiểm tra hộp thư và bấm link xác nhận, sau đó đăng nhập lại.");
                 signOut(auth);
                 setUserId(null);
@@ -490,6 +512,7 @@ const App = () => {
                 return;
             }
             if (user) {
+                console.log("[Quizki Auth] Đặt userId:", user.uid);
                 setUserId(user.uid);
                 setNotification(''); // Đã xác thực và đăng nhập, xoá thông báo cũ (nếu có)
             } else {
@@ -4342,7 +4365,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     }}
                 />;
             case 'KANJI':
-                return <KanjiScreen isAdmin={isAdmin} onAddVocabToSRS={handleAddCard} onGeminiAssist={handleGeminiAssist} allUserCards={allCards} folders={folders} userId={userId} />;
+                return <KanjiScreen isAdmin={userHasAdminPrivileges} onAddVocabToSRS={handleAddCard} onGeminiAssist={handleGeminiAssist} allUserCards={allCards} folders={folders} userId={userId} />;
             case 'REVIEW':
                 if (reviewCards.length === 0) {
                     return <ReviewCompleteScreen onBack={() => setView('HOME')} />;
@@ -4437,7 +4460,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     onBack={() => setView('HOME')}
                 />;
             case 'ADMIN':
-                if (!isAdmin) {
+                if (!userHasAdminPrivileges) {
                     setView('HOME');
                     return null;
                 }
@@ -4471,7 +4494,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
 
     // Check if maintenance mode is active for non-admins
     const isLoginPage = location.pathname === ROUTES.LOGIN || location.pathname === '/login';
-    if (adminConfig?.maintenanceMode && !isAdmin && userId && !isLoginPage) {
+    if (adminConfig?.maintenanceMode && !userHasAdminPrivileges && userId && !isLoginPage) {
         return (
             <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-950 p-6 text-center">
                 <div className="max-w-md w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 shadow-xl flex flex-col items-center">
@@ -4535,14 +4558,14 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 handleAddCard={handleAddCard}
                 setNotification={setNotification}
                 disabled={isRealExamActive}
-                isPremiumUnlocked={isAdmin || hasPremium}
+                isPremiumUnlocked={userHasAdminPrivileges || hasPremium}
             />
 
             {/* Onboarding tour for new users */}
             {userId && (
                 <OnboardingTour
                     userId={userId}
-                    isAdmin={isAdmin}
+                    isAdmin={userHasAdminPrivileges}
                     section={getSectionFromPath(location.pathname)}
                     forceTrigger={tourTrigger}
                 />
@@ -4714,7 +4737,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                                 flashcardCards={flashcardCards}
                                 vocabCollectionPath={vocabCollectionPath}
                                 publicStatsCollectionPath={publicStatsCollectionPath}
-                                isAdmin={isAdmin}
+                                isAdmin={userHasAdminPrivileges}
                                 isDarkMode={isDarkMode}
                                 adminConfig={adminConfig}
                                 canUserUseAI={canUserUseAI}

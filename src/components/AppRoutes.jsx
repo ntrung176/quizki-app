@@ -275,6 +275,36 @@ const ZenProtectedRoute = ({ children, packageId, profile, isAdmin }) => {
     );
 };
 
+
+const GrammarProtectedRoute = ({ children, isAdmin }) => {
+    const navigate = useNavigate();
+    if (isAdmin) return children;
+    return (
+        <div className="w-full min-h-[70vh] flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden bg-slate-50/50 dark:bg-slate-900/30 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">
+            <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+            <div className="relative z-10 max-w-md w-full bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-xl dark:shadow-none border border-slate-100 dark:border-slate-700 text-center space-y-6">
+                <div className="w-16 h-16 rounded-2xl bg-amber-500/10 dark:bg-amber-500/10 flex items-center justify-center mx-auto shadow-sm">
+                    <span className="text-3xl">🛠️</span>
+                </div>
+                <div className="space-y-2">
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-white">Tính năng đang phát triển</h2>
+                    <p className="text-sm text-gray-500 dark:text-slate-400">
+                        Tính năng <strong>Học Ngữ pháp</strong> hiện đang trong quá trình thử nghiệm và phát triển. Chỉ tài khoản Quản trị viên (Admin) mới có quyền truy cập thử nghiệm.
+                    </p>
+                </div>
+                <div className="flex flex-col gap-3">
+                    <button
+                        onClick={() => navigate(ROUTES.HOME)}
+                        className="w-full py-3 bg-gradient-to-r from-indigo-600 to-sky-500 hover:from-indigo-700 hover:to-sky-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-indigo-200 dark:shadow-none cursor-pointer text-sm"
+                    >
+                        Quay lại Trang chủ
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const AppRoutes = ({
     // Auth state
     isAuthenticated,
@@ -1135,7 +1165,7 @@ const AppRoutes = ({
                     path={ROUTES.GRAMMAR}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <GrammarTextbooksScreen isAdmin={userHasAdminPrivileges} />
+                            <GrammarProtectedRoute isAdmin={isAdmin}><GrammarTextbooksScreen isAdmin={isAdmin} /></GrammarProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -1143,7 +1173,7 @@ const AppRoutes = ({
                     path={ROUTES.GRAMMAR_TEXTBOOK}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <GrammarLessonsScreen isAdmin={userHasAdminPrivileges} profile={profile} />
+                            <GrammarProtectedRoute isAdmin={isAdmin}><GrammarLessonsScreen isAdmin={isAdmin} profile={profile} /></GrammarProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -1151,7 +1181,7 @@ const AppRoutes = ({
                     path={ROUTES.GRAMMAR_LESSON}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <GrammarPointsScreen isAdmin={userHasAdminPrivileges} profile={profile} />
+                            <GrammarProtectedRoute isAdmin={isAdmin}><GrammarPointsScreen isAdmin={isAdmin} profile={profile} /></GrammarProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -1159,7 +1189,7 @@ const AppRoutes = ({
                     path={ROUTES.GRAMMAR_DETAIL}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <GrammarDetailScreen isAdmin={userHasAdminPrivileges} profile={profile} />
+                            <GrammarProtectedRoute isAdmin={isAdmin}><GrammarDetailScreen isAdmin={isAdmin} profile={profile} /></GrammarProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -1167,7 +1197,7 @@ const AppRoutes = ({
                     path={ROUTES.GRAMMAR_PRACTICE}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <GrammarPracticeScreen isAdmin={userHasAdminPrivileges} profile={profile} />
+                            <GrammarProtectedRoute isAdmin={isAdmin}><GrammarPracticeScreen isAdmin={isAdmin} profile={profile} /></GrammarProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
