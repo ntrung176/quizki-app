@@ -173,7 +173,8 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
         onSaveChanges={handleSaveChanges}
         onSaveCardAudio={handleSaveCardAudio}
         onToggleSrs={onToggleSrs}
-        onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
+        onGeminiAssist={handleGeminiAssist}
+        canUserUseAI={canUserUseAI}
     />;
 };
 
@@ -190,7 +191,8 @@ const EditSetScreenWrapper = ({
     handleGenerateMoreExample,
     handleExtractVocabFromImage,
     aiCreditsRemaining,
-    parentFolders
+    parentFolders,
+    canUserUseAI
 }) => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -210,6 +212,7 @@ const EditSetScreenWrapper = ({
         onExtractVocabFromImage={handleExtractVocabFromImage}
         aiCreditsRemaining={aiCreditsRemaining}
         parentFolders={parentFolders}
+        canUserUseAI={canUserUseAI}
     />;
 };
 
@@ -671,9 +674,10 @@ const AppRoutes = ({
                                 onAddFolder={onAddFolder}
                                 onSave={handleSaveNewCard}
                                 onBack={() => setView('LIST')}
-                                onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
-                                onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
-                                onExtractVocabFromImage={canUserUseAI ? handleExtractVocabFromImage : null}
+                                onGeminiAssist={handleGeminiAssist}
+                                onGenerateMoreExample={handleGenerateMoreExample}
+                                onExtractVocabFromImage={handleExtractVocabFromImage}
+                                canUserUseAI={canUserUseAI}
                                 batchMode={batchMode}
                                 currentBatchIndex={currentBatchIndex}
                                 totalBatchCount={batchVocabList?.length || 0}
@@ -699,8 +703,9 @@ const AppRoutes = ({
                                 allCards={allCards}
                                 onSave={handleSaveNewCard}
                                 onBack={() => navigate('/')}
-                                onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
-                                onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
+                                onGeminiAssist={handleGeminiAssist}
+                                onGenerateMoreExample={handleGenerateMoreExample}
+                                canUserUseAI={canUserUseAI}
                                 aiCreditsRemaining={aiCreditsRemaining}
                             />
                         </ProtectedRoute>
@@ -720,9 +725,10 @@ const AppRoutes = ({
                                 handleUpdateCard={handleUpdateCard}
                                 handleDeleteCard={handleDeleteCard}
                                 handleSaveNewCard={handleSaveNewCard}
-                                handleGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
-                                handleGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
-                                handleExtractVocabFromImage={canUserUseAI ? handleExtractVocabFromImage : null}
+                                handleGeminiAssist={handleGeminiAssist}
+                                handleGenerateMoreExample={handleGenerateMoreExample}
+                                handleExtractVocabFromImage={handleExtractVocabFromImage}
+                                canUserUseAI={canUserUseAI}
                                 aiCreditsRemaining={aiCreditsRemaining}
                                 navigate={navigate}
                                 parentFolders={parentFolders}

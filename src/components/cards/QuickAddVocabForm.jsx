@@ -10,6 +10,8 @@ import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import { CardEditorItem } from './AddCardForm';
 
+import PremiumLockedModal from '../ui/PremiumLockedModal';
+
 const QuickAddVocabForm = ({
     folders = [], // These are the study sets (type !== 'folder')
     parentFolders = [], // These are the directories/folders (type === 'folder')
@@ -19,9 +21,11 @@ const QuickAddVocabForm = ({
     onBack,
     onGeminiAssist,
     onGenerateMoreExample,
-    aiCreditsRemaining
+    aiCreditsRemaining,
+    canUserUseAI
 }) => {
     const navigate = useNavigate();
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
     
     // Initialize cards with all fields to match CardEditorItem structure
     const [cards, setCards] = useState([
@@ -99,6 +103,11 @@ const QuickAddVocabForm = ({
     const handleAiAssist = async (id) => {
         const card = cards.find(c => c.id === id);
         if (!card || !card.front.trim() || !onGeminiAssist) return;
+
+        if (!canUserUseAI) {
+            setShowPremiumModal(true);
+            return;
+        }
 
         // Check duplicate in current local set
         const currentFrontNormalized = card.front.split('（')[0].split('(')[0].trim().toLowerCase();
@@ -448,6 +457,7 @@ const QuickAddVocabForm = ({
                     </div>
                 </div>
             )}
+            <PremiumLockedModal isOpen={showPremiumModal} onClose={() => setShowPremiumModal(false)} />
         </div>
     );
 };

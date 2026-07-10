@@ -7,6 +7,7 @@ import { VOCAB_TABS } from '../../config/tabs';
 import { showToast } from '../../utils/toast';
 import { CardEditorItem } from '../cards/AddCardForm';
 import BatchAiModal from '../cards/BatchAiModal';
+import PremiumLockedModal from '../ui/PremiumLockedModal';
 
 const isCardModified = (card, originalCard) => {
     if (!originalCard) return true;
@@ -44,7 +45,8 @@ const EditSetScreen = ({
     onGenerateMoreExample,
     onExtractVocabFromImage,
     aiCreditsRemaining,
-    parentFolders = []
+    parentFolders = [],
+    canUserUseAI
 }) => {
     const folder = folderId === 'unfiled' ? { name: 'Từ vựng lẻ', description: 'Các từ vựng không thuộc học phần nào', coverImage: null } : (folders.find(f => f.id === folderId) || { name: 'Học phần', description: '', coverImage: null });
     const [title, setTitle] = useState(folder.name || '');
@@ -65,6 +67,7 @@ const EditSetScreen = ({
     const [isAiLoadingMap, setIsAiLoadingMap] = useState({});
     const [showFolderSelector, setShowFolderSelector] = useState(false);
     const [duplicateCheckResult, setDuplicateCheckResult] = useState(null);
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
 
     // Bulk AI Modal State
     const [isBatchModalOpen, setIsBatchModalOpen] = useState(false);
@@ -126,6 +129,11 @@ const EditSetScreen = ({
             if (activeCardId === id && activeFrontInputRef.current && !isMobileDevice()) {
                 activeFrontInputRef.current.focus();
             }
+            return;
+        }
+
+        if (!canUserUseAI) {
+            setShowPremiumModal(true);
             return;
         }
 
@@ -481,6 +489,10 @@ const EditSetScreen = ({
                             <button
                                 type="button"
                                 onClick={() => {
+                                    if (!canUserUseAI) {
+                                        setShowPremiumModal(true);
+                                        return;
+                                    }
                                     setBatchModalInitialTab('text');
                                     setIsBatchModalOpen(true);
                                 }}
@@ -492,10 +504,14 @@ const EditSetScreen = ({
                             <button
                                 type="button"
                                 onClick={() => {
+                                    if (!canUserUseAI) {
+                                        setShowPremiumModal(true);
+                                        return;
+                                    }
                                     setBatchModalInitialTab('image');
                                     setIsBatchModalOpen(true);
                                 }}
-                                className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-sky-600 bg-sky-50 hover:bg-sky-100 border border-sky-100 dark:text-sky-400 dark:bg-slate-800 dark:border-sky-900/50 dark:hover:bg-slate-700 transition-all shadow-sm"
+                                className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-sky-650 bg-sky-50 hover:bg-sky-100 border border-sky-100 dark:text-sky-400 dark:bg-slate-800 dark:border-sky-900/50 dark:hover:bg-slate-700 transition-all shadow-sm"
                             >
                                 <ImageIcon className="w-4 h-4 text-sky-500" />
                                 Thêm từ vựng theo ảnh
@@ -773,6 +789,7 @@ const EditSetScreen = ({
                     </div>
                 </div>
             )}
+            <PremiumLockedModal isOpen={showPremiumModal} onClose={() => setShowPremiumModal(false)} />
         </div>
     );
 };

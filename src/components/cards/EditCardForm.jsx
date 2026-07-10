@@ -3,7 +3,9 @@ import { Loader2, Image as ImageIcon, Check, X, Wand2, ChevronDown } from 'lucid
 import { POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants'
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
-const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExample, allCards = [] }) => {
+import PremiumLockedModal from '../ui/PremiumLockedModal';
+
+const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExample, allCards = [], canUserUseAI }) => {
     // All hooks must be called before any conditional return
     const [front, setFront] = useState(card?.front || '');
     const [back, setBack] = useState(card?.back || '');
@@ -18,6 +20,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
     const [imagePreview, setImagePreview] = useState(card?.imageBase64 || null);
     const [_isSaving, setIsSaving] = useState(false); // eslint-disable-line no-unused-vars
     const [isAiLoading, setIsAiLoading] = useState(false);
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
     const [isGeneratingExample, setIsGeneratingExample] = useState(false);
     const [posDropdownOpen, setPosDropdownOpen] = useState(false);
     const [showLevels, setShowLevels] = useState(false);
@@ -66,6 +69,12 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
     const handleAiAssist = async (e) => {
         e.preventDefault();
         if (!front.trim()) return;
+
+        if (!canUserUseAI) {
+            setShowPremiumModal(true);
+            return;
+        }
+
         // Check duplicate
         const currentFrontNormalized = front.split('（')[0].split('(')[0].trim().toLowerCase();
         const isDuplicate = allCards.some(c => {
@@ -297,6 +306,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
                 <button onClick={handleSave} className="flex-1 py-2 md:py-2.5 lg:py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg md:rounded-xl font-bold text-xs md:text-sm lg:text-base shadow-md md:shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors">Lưu Thay Đổi</button>
                 <button onClick={onBack} className="px-4 md:px-5 lg:px-6 py-2 md:py-2.5 lg:py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:rounded-xl font-medium text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">Hủy</button>
             </div>
+            <PremiumLockedModal isOpen={showPremiumModal} onClose={() => setShowPremiumModal(false)} />
         </div>
     );
 };

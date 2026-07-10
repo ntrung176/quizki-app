@@ -7,12 +7,15 @@ import { playAudio } from '../../utils/audio';
 import { db } from '../../config/firebase';
 import { doc, getDoc, updateDoc, setDoc } from 'firebase/firestore';
 
-const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] }) => {
+import PremiumLockedModal from '../ui/PremiumLockedModal';
+
+const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], canUserUseAI }) => {
     const [front, setFront] = useState(card?.front || '');
     const [back, setBack] = useState(card?.back || '');
     const [synonym, setSynonym] = useState(card?.synonym || '');
     const [example, setExample] = useState(card?.example || '');
     const [exampleMeaning, setExampleMeaning] = useState(card?.exampleMeaning || '');
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
     const [nuance, setNuance] = useState(card?.nuance || '');
     const [pos, setPos] = useState(card?.pos || '');
     const [level, setLevel] = useState(card?.level || '');
@@ -117,6 +120,11 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] })
         e.preventDefault();
         if (!front.trim()) return;
         
+        if (!canUserUseAI) {
+            setShowPremiumModal(true);
+            return;
+        }
+
         // Check duplicate
         const currentFrontNormalized = front.split('（')[0].split('(')[0].trim().toLowerCase();
         const isDuplicate = allCards.some(c => {
@@ -361,6 +369,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [] })
                     </button>
                 </div>
             </div>
+            <PremiumLockedModal isOpen={showPremiumModal} onClose={() => setShowPremiumModal(false)} />
         </div>
     );
 };

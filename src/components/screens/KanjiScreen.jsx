@@ -1132,9 +1132,9 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         const vocab = getVocabForKanji(selectedKanji);
         const related = getRelatedKanji(selectedKanji);
         const content = (
-            <div className="min-h-screen p-4 lg:p-8 bg-gradient-to-br from-indigo-50/95 via-white/95 to-sky-50/95 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900">
+            <div className="w-full h-full flex flex-col">
                 {/* Header */}
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex justify-between items-center mb-6 flex-shrink-0">
                     <button onClick={() => { setShowDetailModal(false); if (location.state?.fromLesson) { navigate(-1); } else { navigate('/kanji/list'); } }} className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105">
                         <ArrowLeft className="w-4 h-4" /> Quay lại
                     </button>
@@ -1142,9 +1142,9 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         Chi tiết Kanji
                     </div>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 flex-1 min-h-0 overflow-y-auto lg:overflow-hidden">
                     {/* Left: Kanji Display with Animation */}
-                    <div className="space-y-4">
+                    <div className="space-y-4 lg:h-full lg:overflow-y-auto pr-1">
                         <div className="bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 border border-gray-200/80 dark:border-slate-700/50 rounded-2xl p-6 aspect-square flex items-center justify-center relative shadow-2xl shadow-indigo-100/50 dark:shadow-black/30 overflow-hidden">
                             {/* KanjiVG Stroke Animation Container */}
                             <div
@@ -1176,7 +1176,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         </div>
                     </div>
                     {/* Center: Kanji Info */}
-                    <div className="space-y-4">
+                    <div className="space-y-4 lg:h-full lg:overflow-y-auto pr-1">
                         <div className="flex items-center gap-3 flex-wrap">
                             <span className="text-4xl font-bold text-gray-900 dark:text-white font-japanese">{selectedKanji}</span>
                             <span className="text-2xl text-gray-400">-</span>
@@ -1369,7 +1369,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         </div>
                     </div>
                     {/* Right: Vocabulary - grouped by category */}
-                    <div className="space-y-4 bg-white dark:bg-slate-800/30 rounded-xl p-4 border border-gray-100 dark:border-slate-700">
+                    <div className="flex flex-col gap-4 bg-white dark:bg-slate-800/30 rounded-xl p-4 border border-gray-100 dark:border-slate-700 lg:h-full lg:overflow-hidden">
                         {/* Header with Add All and Category Management */}
                         <div className="flex justify-between items-center">
                             <h3 className="text-orange-500 dark:text-orange-400 font-medium flex items-center gap-1.5">
@@ -1609,7 +1609,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             });
                             let colorIndex = 0;
                             return (
-                                <div className="space-y-4 max-h-[500px] overflow-y-auto">
+                                <div className="space-y-4 flex-1 overflow-y-auto max-h-[500px] lg:max-h-none">
                                     {sortedCatNames.map(catName => {
                                         const items = grouped[catName] || [];
                                         if (items.length === 0) return null;
@@ -1657,11 +1657,17 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             </div>
         );
         if (isFullPage) {
-            return content;
+            return (
+                <div className="w-full h-screen p-4 lg:p-8 bg-gradient-to-br from-indigo-50/95 via-white/95 to-sky-50/95 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 overflow-hidden">
+                    {content}
+                </div>
+            );
         }
         return (
-            <div className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm z-50 overflow-auto">
-                {content}
+            <div className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-6 lg:p-8">
+                <div className="w-full max-w-7xl h-[90vh] bg-gradient-to-br from-indigo-50/95 via-white/95 to-sky-50/95 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 rounded-3xl shadow-2xl border border-gray-200 dark:border-slate-800 flex flex-col p-6 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+                    {content}
+                </div>
             </div>
         );
     };
@@ -1714,7 +1720,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 <div className="flex flex-col gap-4">
                     <div>
                         <h1 className="text-3xl font-black text-slate-800 dark:text-white tracking-tight">
-                            Kanji Explorer
+                            Tra cứu Kanji
                         </h1>
                         <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
                             Khám phá và tra cứu hệ thống Kanji, nghĩa và âm Hán-Việt.

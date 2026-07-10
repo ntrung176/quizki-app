@@ -1,4 +1,4 @@
-﻿import { BookOpen, Plus, List, Library, Languages, Star } from 'lucide-react';
+import { BookOpen, Plus, List, Library, Languages, Star } from 'lucide-react';
 import { ROUTES } from '../router';
 
 export const VOCAB_TABS = [
@@ -9,8 +9,8 @@ export const VOCAB_TABS = [
 ];
 
 export const KANJI_TABS = [
-    { id: 'kanji-study', label: 'Bài học', icon: Languages, route: ROUTES.KANJI_STUDY, exact: false },
     { id: 'kanji-review', label: 'Ôn tập', icon: BookOpen, route: ROUTES.KANJI_REVIEW, exact: true },
+    { id: 'kanji-study', label: 'Bài học', icon: Languages, route: ROUTES.KANJI_STUDY, exact: false },
     { id: 'kanji-saved', label: 'Đã lưu', icon: Star, route: ROUTES.KANJI_SAVED, exact: true },
     { id: 'kanji-list', label: 'Tra cứu', icon: List, route: ROUTES.KANJI_LIST, exact: false },
 ];

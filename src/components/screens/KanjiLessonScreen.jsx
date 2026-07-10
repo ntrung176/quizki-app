@@ -1139,7 +1139,7 @@ const KanjiFlashcard = ({
                 {/* Usage Examples Section */}
                 <div className="order-5 lg:order-none bg-white dark:bg-slate-800 rounded-3xl border border-gray-100 dark:border-slate-700/60 p-6 shadow-sm">
                     <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-4">Ví dụ sử dụng</span>
-                    <div className="space-y-4">
+                    <div className="space-y-4 max-h-[300px] overflow-y-auto pr-1">
                         {vocab.length > 0 ? vocab.map((v, i) => (
                             <div key={v.id || i} className="flex justify-between items-start pb-4 border-b border-gray-50 dark:border-slate-700/30 last:border-0 last:pb-0">
                                 <div className="space-y-1 pr-4 text-left">

@@ -7,6 +7,7 @@ import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import { showToast } from '../../utils/toast';
 import BatchAiModal from './BatchAiModal';
+import PremiumLockedModal from '../ui/PremiumLockedModal';
 
 const isMobileDevice = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
@@ -706,7 +707,8 @@ const AddCardForm = ({
     userId,
     onGenerateMoreExample,
     aiCreditsRemaining,
-    parentFolders = []
+    parentFolders = [],
+    canUserUseAI
 }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -719,6 +721,7 @@ const AddCardForm = ({
     const [isAiLoadingMap, setIsAiLoadingMap] = useState({});
     const [showFolderSelector, setShowFolderSelector] = useState(false);
     const [duplicateCheckResult, setDuplicateCheckResult] = useState(null);
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
 
     // Bulk AI Modal State
     const [isBatchModalOpen, setIsBatchModalOpen] = useState(false);
@@ -789,6 +792,11 @@ const AddCardForm = ({
             if (activeCardId === id && activeFrontInputRef.current && !isMobileDevice()) {
                 activeFrontInputRef.current.focus();
             }
+            return;
+        }
+
+        if (!canUserUseAI) {
+            setShowPremiumModal(true);
             return;
         }
 
@@ -1085,6 +1093,10 @@ const AddCardForm = ({
                             <button
                                 type="button"
                                 onClick={() => {
+                                    if (!canUserUseAI) {
+                                        setShowPremiumModal(true);
+                                        return;
+                                    }
                                     setBatchModalInitialTab('text');
                                     setIsBatchModalOpen(true);
                                 }}
@@ -1097,6 +1109,10 @@ const AddCardForm = ({
                             <button
                                 type="button"
                                 onClick={() => {
+                                    if (!canUserUseAI) {
+                                        setShowPremiumModal(true);
+                                        return;
+                                    }
                                     setBatchModalInitialTab('image');
                                     setIsBatchModalOpen(true);
                                 }}
@@ -1361,6 +1377,7 @@ const AddCardForm = ({
                     </div>
                 </div>
             )}
+            <PremiumLockedModal isOpen={showPremiumModal} onClose={() => setShowPremiumModal(false)} />
         </div>
     );
 };

@@ -314,7 +314,7 @@ const StudySetDetail = ({
     folderId, folders, cardFolders, allCards,
     onBack, onEditSet, onStudySet, onFlashcardSet, onMeaningSet, onDictationSet, onExampleSet, onSynonymQuiz,
     onNavigateToAdd, onDeleteFolder, onSaveChanges, onSaveCardAudio,
-    onDeleteCards, onDeleteCard, onToggleSrs, onGeminiAssist
+    onDeleteCards, onDeleteCard, onToggleSrs, onGeminiAssist, canUserUseAI
 }) => {
     const [expandedCardIds, setExpandedCardIds] = useState(new Set());
     const [isAddingKanji, setIsAddingKanji] = useState(false);
@@ -1779,6 +1779,7 @@ const StudySetDetail = ({
                     onSave={onSaveChanges}
                     onClose={() => setEditingCard(null)}
                     onGeminiAssist={onGeminiAssist}
+                    canUserUseAI={canUserUseAI}
                     allCards={setCards}
                 />
             )}

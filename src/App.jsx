@@ -1976,10 +1976,10 @@ const App = () => {
             _source: 'fallback',
         };
 
-        // 3. Lưu vào kho dữ liệu chung cho lần sau (chạy ngầm không chặn)
-        if (result.back) {
-            saveSharedVocab(word, result).catch(e => console.warn('Error saving shared vocab:', e));
-        }
+        // 3. Đối với từ vựng do người dùng nhập tay không tạo bằng AI, không tự động lưu vào kho dữ liệu chung (sharedVocabulary)
+        // if (result.back) {
+        //     saveSharedVocab(word, result).catch(e => console.warn('Error saving shared vocab:', e));
+        // }
 
         return result;
     };
@@ -4279,6 +4279,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     onSave={handleSaveChanges}
                     onBack={() => { setEditingCard(null); navigate(ROUTES.VOCAB_REVIEW); }} // Giữ filter khi quay lại
                     onGeminiAssist={handleGeminiAssist}
+                    canUserUseAI={canUserUseAI}
                     allCards={allCards}
                 />;
             case 'STUDY':
