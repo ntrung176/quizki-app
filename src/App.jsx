@@ -595,6 +595,31 @@ const App = () => {
         };
     }, []);
 
+    // Heartbeat to update online presence status every 90 seconds
+    useEffect(() => {
+        if (!userId || !db || !publicStatsCollectionPath) return;
+
+        const updateHeartbeat = async () => {
+            if (document.hidden) return; // Only update if tab is visible/active
+            try {
+                const { doc, setDoc, serverTimestamp } = await import('firebase/firestore');
+                const statsDocRef = doc(db, publicStatsCollectionPath, userId);
+                await setDoc(statsDocRef, {
+                    lastUpdated: serverTimestamp()
+                }, { merge: true });
+            } catch (err) {
+                // Silent catch
+            }
+        };
+
+        // Initial update on load/auth change
+        updateHeartbeat();
+
+        const interval = setInterval(updateHeartbeat, 90000);
+        return () => clearInterval(interval);
+    }, [userId, publicStatsCollectionPath]);
+
+
     // Quản lý dark mode khi state thay đổi - INSTANT switch
     useEffect(() => {
         // Lưu vào localStorage
@@ -4494,10 +4519,10 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     isDarkMode={isDarkMode}
                     setIsDarkMode={setIsDarkMode}
                     displayName={profile?.displayName}
-                    isAdmin={isAdmin}
+                    isAdmin={userHasAdminPrivileges}
                     userId={userId}
                     allCards={allCards}
-                    isPremium={isAdmin || hasPremium}
+                    isPremium={userHasAdminPrivileges || hasPremium}
                     avatar={profile?.avatar}
                     profile={profile}
                 />
@@ -4834,7 +4859,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
 
             {/* Real-time floating support/bug feedback chatbox */}
             {userId && (
-                isAdmin ? (
+                userHasAdminPrivileges ? (
                     <AdminFloatingSupportChatbox currentUserId={userId} />
                 ) : (
                     <FeedbackChatbox

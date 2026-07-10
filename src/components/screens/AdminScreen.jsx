@@ -4,7 +4,7 @@ import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc, addDoc,
 import * as XLSX from 'xlsx';
 import { db, appId, storage } from '../../config/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { Users, Search, Shield, Trash2, BarChart3, Clock, AlertTriangle, CheckCircle, Loader2, Languages, BookOpen, Sparkle, Bot, UserCheck, UserX, ToggleLeft, ToggleRight, Settings, Crown, ShieldCheck, ChevronLeft, CreditCard, Plus, Check, X as XIcon, Ticket, DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send, MessageSquare, Image as ImageIcon, Volume2, Music } from 'lucide-react'
+import { Users, Search, Shield, Trash2, BarChart3, Clock, AlertTriangle, CheckCircle, Loader2, Languages, BookOpen, Sparkle, Bot, UserCheck, UserX, ToggleLeft, ToggleRight, Settings, Crown, ShieldCheck, ChevronLeft, CreditCard, Plus, Check, X as XIcon, Ticket, DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send, MessageSquare, Image as ImageIcon, Volume2, Music, Smile, CornerUpLeft } from 'lucide-react'
 import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, AI_FEATURES, addModerator, removeModerator, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense, manuallyApplyPackageToUser, sendGlobalNotification, deleteGlobalNotification } from '../../utils/adminSettings'
 import { showConfirm } from '../../utils/toast';
 import { playAudio, generateAudioSilent } from '../../utils/audio';
@@ -3747,6 +3747,52 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
     const [loadingThreads, setLoadingThreads] = React.useState(true);
     const [loadingMessages, setLoadingMessages] = React.useState(false);
     const [activePreviewImage, setActivePreviewImage] = React.useState(null);
+    const [replyingTo, setReplyingTo] = React.useState(null);
+    const [activeReactionPicker, setActiveReactionPicker] = React.useState(null);
+
+    const isUserOnline = React.useCallback((userId) => {
+        const u = users.find(user => user.id === userId);
+        if (!u || !u.lastUpdated) return false;
+        const date = u.lastUpdated.toDate ? u.lastUpdated.toDate() : new Date(u.lastUpdated);
+        return (Date.now() - date.getTime()) < 3 * 60 * 1000;
+    }, [users]);
+
+    const formatLastActive = React.useCallback((userId) => {
+        const u = users.find(user => user.id === userId);
+        if (!u || !u.lastUpdated) return 'Ngoại tuyến';
+        const date = u.lastUpdated.toDate ? u.lastUpdated.toDate() : new Date(u.lastUpdated);
+        const diffMs = Date.now() - date.getTime();
+        const diffMinutes = Math.floor(diffMs / 60000);
+        if (diffMinutes < 1) return 'Vừa hoạt động';
+        if (diffMinutes < 60) return `Hoạt động ${diffMinutes} phút trước`;
+        const diffHours = Math.floor(diffMinutes / 60);
+        if (diffHours < 24) return `Hoạt động ${diffHours} giờ trước`;
+        const diffDays = Math.floor(diffHours / 24);
+        return `Hoạt động ${diffDays} ngày trước`;
+    }, [users]);
+
+    const handleReact = async (msgId, emoji) => {
+        try {
+            if (!selectedUserId) return;
+            const { doc, updateDoc } = await import('firebase/firestore');
+            const chatPath = `artifacts/${appId}/forum/support_chat_${selectedUserId}/comments`;
+            const msgRef = doc(db, chatPath, msgId);
+            const msg = messages.find(m => m.id === msgId);
+            const currentReactions = msg?.reactions || {};
+            const newReactions = { ...currentReactions };
+            
+            const reactorId = currentUserId || 'admin';
+            if (newReactions[reactorId] === emoji) {
+                delete newReactions[reactorId];
+            } else {
+                newReactions[reactorId] = emoji;
+            }
+            
+            await updateDoc(msgRef, { reactions: newReactions });
+        } catch (e) {
+            console.error("Error setting reaction:", e);
+        }
+    };
 
     const messagesEndRef = React.useRef(null);
     const fileInputRef = React.useRef(null);
@@ -3777,6 +3823,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                     displayName: data.senderName || 'Người dùng ẩn danh',
                     email: data.email || '',
                     hasUnreadAdmin: data.hasUnreadAdmin || false,
+                    hasUnreadUser: data.hasUnreadUser || false,
                     lastMessage: {
                         text: data.text || '',
                         createdAt: data.updatedAt,
@@ -3878,6 +3925,25 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
         return () => clearInterval(interval);
     }, [fetchMessages, selectedUserId]);
 
+    // Heartbeat to update admin presence when chat is open in admin dashboard page
+    React.useEffect(() => {
+        if (!selectedUserId || !db) return;
+        const statusDocRef = doc(db, `artifacts/${appId}/forum`, `support_chat_${selectedUserId}`);
+        const updateAdminPresence = async () => {
+            try {
+                await setDoc(statusDocRef, {
+                    adminLastActive: serverTimestamp()
+                }, { merge: true });
+            } catch (e) {
+                // silent
+            }
+        };
+
+        updateAdminPresence();
+        const interval = setInterval(updateAdminPresence, 45000);
+        return () => clearInterval(interval);
+    }, [selectedUserId]);
+
     // Handle image select
     const handleImageSelect = (e) => {
         const file = e.target.files[0];
@@ -3929,8 +3995,15 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
         const textToSend = replyText.trim();
         const imageToSend = selectedImage;
 
+        const replyToPayload = replyingTo ? {
+            senderName: replyingTo.senderName,
+            text: replyingTo.text || '',
+            imageUrl: replyingTo.imageUrl || null
+        } : null;
+
         setReplyText('');
         setSelectedImage(null);
+        setReplyingTo(null);
         if (textareaRef.current) {
             textareaRef.current.style.height = '36px';
         }
@@ -3945,7 +4018,8 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                 imageUrl: imageToSend || null,
                 isAdmin: true,
                 isSupportChat: true,
-                createdAt: serverTimestamp()
+                createdAt: serverTimestamp(),
+                replyTo: replyToPayload
             });
 
             // 2. Update status doc
@@ -3999,6 +4073,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                         threads.map(thread => {
                             const isSelected = thread.userId === selectedUserId;
                             const needsReply = thread.hasUnreadAdmin;
+                            const isOnline = isUserOnline(thread.userId);
                             return (
                                 <div
                                     key={thread.userId}
@@ -4006,8 +4081,13 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                     className={`p-4 cursor-pointer hover:bg-white dark:hover:bg-gray-800 transition-all flex items-start gap-3 relative ${isSelected ? 'bg-white dark:bg-gray-800 border-l-4 border-[#2E5B70]' : ''
                                         }`}
                                 >
-                                    <div className="w-10 h-10 rounded-xl bg-[#2E5B70]/10 dark:bg-[#2E5B70]/20 flex items-center justify-center font-bold text-[#2E5B70] dark:text-[#3B728C] flex-shrink-0">
-                                        {(thread.displayName || '?')[0].toUpperCase()}
+                                    <div className="relative flex-shrink-0">
+                                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center font-bold text-[#2E5B70] dark:text-[#3B728C] border border-slate-200 dark:border-slate-700">
+                                            {(thread.displayName || '?')[0].toUpperCase()}
+                                        </div>
+                                        {isOnline && (
+                                            <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 rounded-full border-2 border-white dark:border-gray-800" title="Online" />
+                                        )}
                                     </div>
                                     <div className="flex-1 min-w-0">
                                         <div className="flex items-center justify-between mb-1">
@@ -4048,25 +4128,31 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                     <ChevronLeft className="w-5 h-5" />
                                 </button>
                                 <div>
-                                    <h4 className="font-bold text-gray-800 dark:text-white text-xs">
-                                        {selectedThread.displayName}
-                                    </h4>
-                                    <p className="text-[10px] text-gray-400 dark:text-gray-500 font-mono">
-                                        Email: {selectedThread.email || 'N/A'} | ID: {selectedThread.userId}
+                                    <div className="flex items-center gap-1.5">
+                                        <h4 className="font-bold text-gray-800 dark:text-white text-xs leading-none">
+                                            {selectedThread.displayName}
+                                        </h4>
+                                        <span className={`w-1.5 h-1.5 rounded-full ${isUserOnline(selectedThread.userId) ? 'bg-emerald-500 animate-pulse' : 'bg-gray-400'}`} />
+                                    </div>
+                                    <p className="text-[10px] text-gray-440 dark:text-gray-500 font-mono mt-1.5">
+                                        {isUserOnline(selectedThread.userId) ? 'Trực tuyến' : formatLastActive(selectedThread.userId)} | Email: {selectedThread.email || 'N/A'} | ID: {selectedThread.userId}
                                     </p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Message Stream */}
-                        <div className="flex-1 overflow-y-auto p-4 bg-slate-50 dark:bg-slate-950 space-y-3 support-chat-scrollbar">
+                        <div className="flex-1 overflow-y-auto overflow-x-hidden p-4 bg-slate-50 dark:bg-slate-950 space-y-3 support-chat-scrollbar">
                             {loadingMessages ? (
                                 <div className="h-full flex items-center justify-center">
                                     <Loader2 className="w-6 h-6 animate-spin text-[#2E5B70]" />
                                 </div>
-                            ) : (
-                                messages.map(msg => {
+                            ) : (() => {
+                                const lastAdminMsgIndex = [...messages].reverse().findIndex(msg => msg.isAdmin);
+                                const actualLastAdminMsgIndex = lastAdminMsgIndex !== -1 ? messages.length - 1 - lastAdminMsgIndex : -1;
+                                return messages.map((msg, index) => {
                                     const isSelf = msg.isAdmin;
+                                    const isLastAdminMsg = index === actualLastAdminMsgIndex;
                                     const dateObj = msg.createdAt?.toDate ? msg.createdAt.toDate() : (msg.createdAt ? new Date(msg.createdAt) : null);
                                     const formattedTime = dateObj ? dateObj.toLocaleString('vi-VN', {
                                         hour: '2-digit',
@@ -4077,35 +4163,141 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                     }) : '';
                                     return (
                                         <div
-                                            key={msg.id}
-                                            className={`flex flex-col ${isSelf ? 'items-end' : 'items-start'}`}
+                                            key={msg.id || index}
+                                            className={`flex flex-col ${isSelf ? 'items-end' : 'items-start'} mb-2`}
                                         >
                                             <span className="text-[9px] text-slate-400 dark:text-slate-500 font-bold mb-0.5 px-1">
                                                 {isSelf ? 'Ban quản trị' : selectedThread.displayName}
                                                 {formattedTime && <span className="font-normal text-slate-400/80 dark:text-slate-550/80 ml-1.5">{formattedTime}</span>}
                                             </span>
-                                            <div
-                                                className={`max-w-[75%] rounded-2xl px-3.5 py-2.5 text-xs shadow-sm ${isSelf
-                                                        ? 'bg-[#2E5B70] text-white rounded-tr-none'
-                                                        : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none border border-gray-150/40 dark:border-slate-700/50'
+                                            <div className="flex items-center gap-2 max-w-[85%] group relative">
+                                                {isSelf && (
+                                                    <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-150 relative">
+                                                        {activeReactionPicker === msg.id && (
+                                                            <div className="absolute bottom-full mb-1 left-0 flex items-center gap-1 bg-white dark:bg-slate-800 border border-gray-150 dark:border-slate-700 shadow-xl rounded-full px-2 py-1 z-30 flex-row">
+                                                                {['👍', '❤️', '😂', '😮', '😢', '😠'].map(emoji => (
+                                                                    <button
+                                                                        key={emoji}
+                                                                        type="button"
+                                                                        onClick={() => {
+                                                                            handleReact(msg.id, emoji);
+                                                                            setActiveReactionPicker(null);
+                                                                        }}
+                                                                        className="text-base hover:scale-130 transition-transform duration-100 p-0.5 cursor-pointer"
+                                                                    >
+                                                                        {emoji}
+                                                                    </button>
+                                                                ))}
+                                                            </div>
+                                                        )}
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => setActiveReactionPicker(activeReactionPicker === msg.id ? null : msg.id)}
+                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-slate-855 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                                                            title="Bày tỏ cảm xúc"
+                                                        >
+                                                            <Smile className="w-3.5 h-3.5" />
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => setReplyingTo({ id: msg.id, senderName: msg.isAdmin ? 'Ban quản trị' : (selectedThread.displayName || 'Người dùng'), text: msg.text, imageUrl: msg.imageUrl })}
+                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-slate-855 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                                                            title="Trả lời"
+                                                        >
+                                                            <CornerUpLeft className="w-3.5 h-3.5" />
+                                                        </button>
+                                                    </div>
+                                                )}
+
+                                                <div
+                                                    className={`rounded-2xl px-3.5 py-2.5 text-xs shadow-sm relative ${
+                                                        isSelf
+                                                            ? 'bg-[#2E5B70] text-white rounded-tr-none'
+                                                            : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none border border-gray-150/40 dark:border-slate-700/50'
                                                     }`}
-                                            >
-                                                {msg.text && <p className="whitespace-pre-wrap leading-relaxed">{msg.text}</p>}
-                                                {msg.imageUrl && (
-                                                    <div className="mt-2 rounded-lg overflow-hidden border border-black/5 dark:border-white/5 max-w-[260px]">
-                                                        <img
-                                                            src={msg.imageUrl}
-                                                            alt="Đính kèm"
-                                                            className="w-full h-auto object-cover max-h-56 cursor-pointer hover:opacity-90 transition-opacity"
-                                                            onClick={() => setActivePreviewImage(msg.imageUrl)}
-                                                        />
+                                                >
+                                                    {msg.replyTo && (
+                                                        <div className="mb-2 text-[10px] text-slate-400 dark:text-slate-450 bg-black/5 dark:bg-white/5 rounded-lg px-2 py-1.5 max-w-[220px] truncate border-l-2 border-[#2E5B70]/60">
+                                                            <span className="font-bold text-[#2E5B70] dark:text-[#3B728C] mr-1">
+                                                                {msg.replyTo.senderName}:
+                                                            </span>
+                                                            {msg.replyTo.text || '[Hình ảnh]'}
+                                                        </div>
+                                                    )}
+
+                                                    {msg.text && <p className="whitespace-pre-wrap leading-relaxed">{msg.text}</p>}
+
+                                                    {msg.imageUrl && (
+                                                        <div className="mt-2 rounded-lg overflow-hidden border border-black/5 dark:border-white/5 max-w-[260px]">
+                                                            <img
+                                                                src={msg.imageUrl}
+                                                                alt="Đính kèm"
+                                                                className="w-full h-auto object-cover max-h-56 cursor-zoom-in hover:opacity-90 transition-opacity"
+                                                                onClick={() => setActivePreviewImage(msg.imageUrl)}
+                                                            />
+                                                        </div>
+                                                    )}
+
+                                                    {/* Reactions Display */}
+                                                    {msg.reactions && Object.keys(msg.reactions).length > 0 && (
+                                                        <div className={`absolute -bottom-2.5 ${isSelf ? 'right-2' : 'left-2'} bg-white dark:bg-slate-800 border border-gray-150 dark:border-slate-700 shadow-sm rounded-full px-1.5 py-0.5 flex items-center gap-0.5 text-[9px] z-10 select-none`}>
+                                                            {Array.from(new Set(Object.values(msg.reactions))).map((emoji, idx) => (
+                                                                <span key={idx}>{emoji}</span>
+                                                            ))}
+                                                            {Object.keys(msg.reactions).length > 1 && (
+                                                                <span className="text-slate-455 dark:text-slate-400 font-bold ml-0.5">{Object.keys(msg.reactions).length}</span>
+                                                            )}
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {!isSelf && (
+                                                    <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-150 relative">
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => setReplyingTo({ id: msg.id, senderName: msg.isAdmin ? 'Ban quản trị' : (selectedThread.displayName || 'Người dùng'), text: msg.text, imageUrl: msg.imageUrl })}
+                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-slate-855 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                                                            title="Trả lời"
+                                                        >
+                                                            <CornerUpLeft className="w-3.5 h-3.5" />
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => setActiveReactionPicker(activeReactionPicker === msg.id ? null : msg.id)}
+                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-slate-855 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                                                            title="Bày tỏ cảm xúc"
+                                                        >
+                                                            <Smile className="w-3.5 h-3.5" />
+                                                        </button>
+                                                        {activeReactionPicker === msg.id && (
+                                                            <div className="absolute bottom-full mb-1 right-0 flex items-center gap-1 bg-white dark:bg-slate-800 border border-gray-150 dark:border-slate-700 shadow-xl rounded-full px-2 py-1 z-30 flex-row">
+                                                                {['👍', '❤️', '😂', '😮', '😢', '😠'].map(emoji => (
+                                                                    <button
+                                                                        key={emoji}
+                                                                        type="button"
+                                                                        onClick={() => {
+                                                                            handleReact(msg.id, emoji);
+                                                                            setActiveReactionPicker(null);
+                                                                        }}
+                                                                        className="text-base hover:scale-130 transition-transform duration-100 p-0.5 cursor-pointer"
+                                                                    >
+                                                                        {emoji}
+                                                                    </button>
+                                                                ))}
+                                                            </div>
+                                                        )}
                                                     </div>
                                                 )}
                                             </div>
+                                            {isSelf && isLastAdminMsg && (
+                                                <span className="text-[9px] text-slate-400 dark:text-slate-500 mt-1 mr-1">
+                                                    {selectedThread?.hasUnreadUser ? 'Đã gửi' : 'Đã đọc'}
+                                                </span>
+                                            )}
                                         </div>
                                     );
-                                })
-                            )}
+                                });
+                            })()}
                             <div ref={messagesEndRef} />
                         </div>
 
@@ -4121,6 +4313,27 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                     className="p-1 hover:bg-slate-200 dark:hover:bg-slate-750 text-slate-400 dark:text-slate-500 rounded-full cursor-pointer"
                                 >
                                     <XIcon className="w-4 h-4" />
+                                </button>
+                            </div>
+                        )}
+
+                        {/* Reply Quoted Preview */}
+                        {replyingTo && (
+                            <div className="px-4 py-2 bg-slate-100 dark:bg-slate-800 border-t border-gray-150 dark:border-slate-700 flex items-center justify-between text-xs animate-slide-up">
+                                <div className="flex-1 min-w-0 border-l-2 border-[#2E5B70] pl-2">
+                                    <p className="font-bold text-[#2E5B70] dark:text-[#3B728C] leading-none mb-1 text-[10px]">
+                                        Đang trả lời {replyingTo.senderName}
+                                    </p>
+                                    <p className="text-[11px] text-slate-550 dark:text-slate-400 truncate">
+                                        {replyingTo.text || '[Hình ảnh]'}
+                                    </p>
+                                </div>
+                                <button
+                                    type="button"
+                                    onClick={() => setReplyingTo(null)}
+                                    className="p-1 text-slate-400 hover:text-slate-600 hover:bg-slate-200 dark:hover:bg-slate-750 rounded-full transition-colors cursor-pointer ml-2"
+                                >
+                                    <XIcon className="w-3.5 h-3.5" />
                                 </button>
                             </div>
                         )}

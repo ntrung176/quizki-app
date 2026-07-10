@@ -994,12 +994,12 @@ const AppRoutes = ({
                     }
                 />
 
-                {/* Admin route - only for admins */}
+                {/* Admin route - only for admins and moderators */}
                 <Route
                     path={ROUTES.ADMIN}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            {isAdmin ? (
+                            {userHasAdminPrivileges ? (
                                 <AdminScreen
                                     publicStatsPath={publicStatsCollectionPath}
                                     currentUserId={userId}

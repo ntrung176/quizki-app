@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { db, appId } from '../../config/firebase';
-import { collection, addDoc, onSnapshot, serverTimestamp, setDoc, doc, query, where, getDocs } from 'firebase/firestore';
-import { MessageSquare, X, Send, Image as ImageIcon, Loader2, ChevronLeft } from 'lucide-react';
+import { collection, addDoc, onSnapshot, serverTimestamp, setDoc, doc, query, where, getDocs, updateDoc } from 'firebase/firestore';
+import { MessageSquare, X, Send, Image as ImageIcon, Loader2, ChevronLeft, CornerUpLeft, Smile } from 'lucide-react';
 
 // Image compression utility
 const compressImage = (file, maxWidth = 1200, maxHeight = 1200, quality = 0.7) => {
@@ -54,6 +54,45 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
     const [loadingThreads, setLoadingThreads] = useState(false);
     const [loadingMessages, setLoadingMessages] = useState(false);
 
+    const [replyingTo, setReplyingTo] = useState(null);
+    const [activeReactionPicker, setActiveReactionPicker] = useState(null);
+    const [activePreviewImage, setActivePreviewImage] = useState(null);
+
+    const formatLastActive = (lastActive) => {
+        if (!lastActive) return 'Ngoại tuyến';
+        const date = lastActive.toDate ? lastActive.toDate() : new Date(lastActive);
+        const diffMs = Date.now() - date.getTime();
+        const diffMinutes = Math.floor(diffMs / 60000);
+        if (diffMinutes < 1) return 'Vừa hoạt động';
+        if (diffMinutes < 60) return `Hoạt động ${diffMinutes} phút trước`;
+        const diffHours = Math.floor(diffMinutes / 60);
+        if (diffHours < 24) return `Hoạt động ${diffHours} giờ trước`;
+        const diffDays = Math.floor(diffHours / 24);
+        return `Hoạt động ${diffDays} ngày trước`;
+    };
+
+    const handleReact = async (msgId, emoji) => {
+        try {
+            if (!selectedUserId) return;
+            const chatPath = `artifacts/${appId}/forum/support_chat_${selectedUserId}/comments`;
+            const msgRef = doc(db, chatPath, msgId);
+            const msg = messages.find(m => m.id === msgId);
+            const currentReactions = msg?.reactions || {};
+            const newReactions = { ...currentReactions };
+            
+            const reactorId = currentUserId || 'admin';
+            if (newReactions[reactorId] === emoji) {
+                delete newReactions[reactorId];
+            } else {
+                newReactions[reactorId] = emoji;
+            }
+            
+            await updateDoc(msgRef, { reactions: newReactions });
+        } catch (e) {
+            console.error("Error setting reaction:", e);
+        }
+    };
+
     const messagesEndRef = useRef(null);
     const fileInputRef = useRef(null);
     const textareaRef = useRef(null);
@@ -98,7 +137,8 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
                         isAdmin: data.isAdminReply || false
                     },
                     hasUnreadAdmin: !!data.hasUnreadAdmin,
-                    hasUnreadUser: !!data.hasUnreadUser
+                    hasUnreadUser: !!data.hasUnreadUser,
+                    userLastActive: data.userLastActive || null
                 };
             });
 
@@ -197,6 +237,26 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
         }
     }, [isOpen, selectedUserId]);
 
+    // Heartbeat to update admin presence when chat is open
+    useEffect(() => {
+        if (!isOpen || !selectedUserId || !db) return;
+        const statusDocRef = doc(db, `artifacts/${appId}/forum`, `support_chat_${selectedUserId}`);
+        const updateAdminPresence = async () => {
+            try {
+                const { setDoc, serverTimestamp } = await import('firebase/firestore');
+                await setDoc(statusDocRef, {
+                    adminLastActive: serverTimestamp()
+                }, { merge: true });
+            } catch (e) {
+                // silent
+            }
+        };
+
+        updateAdminPresence();
+        const interval = setInterval(updateAdminPresence, 45000); // 45s heartbeat
+        return () => clearInterval(interval);
+    }, [isOpen, selectedUserId]);
+
     // Handle image select
     const handleImageSelect = async (e) => {
         const file = e.target.files[0];
@@ -258,11 +318,18 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
         const textToSend = replyText.trim();
         const imageToSend = selectedImage;
 
+        const replyToPayload = replyingTo ? {
+            senderName: replyingTo.senderName,
+            text: replyingTo.text || '',
+            imageUrl: replyingTo.imageUrl || null
+        } : null;
+
         if (textareaRef.current) {
             textareaRef.current.style.height = '36px';
         }
         setReplyText('');
         setSelectedImage(null);
+        setReplyingTo(null);
 
         try {
             // Add comment/message to the subcollection
@@ -274,7 +341,8 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
                 imageUrl: imageToSend || null,
                 isAdmin: true,
                 isSupportChat: true,
-                createdAt: serverTimestamp()
+                createdAt: serverTimestamp(),
+                replyTo: replyToPayload
             });
 
             // Update status doc
@@ -324,40 +392,49 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
             </button>
 
             {/* Chatbox Container */}
-            {isOpen && (
-                <div className="fixed bottom-24 right-6 z-55 w-[340px] sm:w-[390px] h-[500px] sm:h-[540px] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-gray-100 dark:border-slate-800 flex flex-col overflow-hidden animate-fade-in font-sans">
-                    
-                    {/* Header */}
-                    <div className="bg-[#2E5B70] p-4 flex items-center justify-between text-white">
-                        <div className="flex items-center gap-2.5 min-w-0">
-                            {selectedUserId ? (
-                                <button
-                                    onClick={() => setSelectedUserId(null)}
-                                    className="p-1 hover:bg-white/10 rounded-lg text-white/90 hover:text-white transition-colors cursor-pointer mr-1"
-                                >
-                                    <ChevronLeft className="w-5 h-5" />
-                                </button>
-                            ) : (
-                                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
-                                    <MessageSquare className="w-4 h-4 text-white" />
+            {isOpen && (() => {
+                const isUserOnline = (lastActive) => {
+                    if (!lastActive) return false;
+                    const date = lastActive.toDate ? lastActive.toDate() : new Date(lastActive);
+                    return (Date.now() - date.getTime()) < 3 * 60 * 1000;
+                };
+                return (
+                    <div className="fixed bottom-24 right-6 z-55 w-[340px] sm:w-[390px] h-[500px] sm:h-[540px] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-gray-100 dark:border-slate-800 flex flex-col overflow-hidden animate-fade-in font-sans">
+                        
+                        {/* Header */}
+                        <div className="bg-[#2E5B70] p-4 flex items-center justify-between text-white">
+                            <div className="flex items-center gap-2.5 min-w-0">
+                                {selectedUserId ? (
+                                    <button
+                                        onClick={() => setSelectedUserId(null)}
+                                        className="p-1 hover:bg-white/10 rounded-lg text-white/90 hover:text-white transition-colors cursor-pointer mr-1"
+                                    >
+                                        <ChevronLeft className="w-5 h-5" />
+                                    </button>
+                                ) : (
+                                    <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
+                                        <MessageSquare className="w-4 h-4 text-white" />
+                                    </div>
+                                )}
+                                <div className="min-w-0 flex-1">
+                                    <h3 className="text-sm font-bold leading-none truncate flex items-center gap-1.5">
+                                        {selectedThread ? selectedThread.displayName : 'Admin Hỗ trợ'}
+                                        {selectedThread && (
+                                            <span className={`w-1.5 h-1.5 rounded-full ${isUserOnline(selectedThread.userLastActive) ? 'bg-emerald-450 animate-pulse' : 'bg-slate-400'}`} />
+                                        )}
+                                    </h3>
+                                    <p className="text-[10px] text-white/80 font-medium mt-1 truncate">
+                                        {selectedThread ? `${isUserOnline(selectedThread.userLastActive) ? 'Trực tuyến' : formatLastActive(selectedThread.userLastActive)} | Email: ${selectedThread.email || 'N/A'}` : `Yêu cầu cần xử lý (${threads.length})`}
+                                    </p>
                                 </div>
-                            )}
-                            <div className="min-w-0 flex-1">
-                                <h3 className="text-sm font-bold leading-none truncate">
-                                    {selectedThread ? selectedThread.displayName : 'Admin Hỗ trợ'}
-                                </h3>
-                                <p className="text-[10px] text-white/80 font-medium mt-1 truncate">
-                                    {selectedThread ? `Email: ${selectedThread.email || 'N/A'}` : `Yêu cầu cần xử lý (${threads.length})`}
-                                </p>
                             </div>
+                            <button
+                                onClick={() => setIsOpen(false)}
+                                className="p-1 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
+                            >
+                                <X className="w-4 h-4" />
+                            </button>
                         </div>
-                        <button
-                            onClick={() => setIsOpen(false)}
-                            className="p-1 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
-                        >
-                            <X className="w-4 h-4" />
-                        </button>
-                    </div>
 
                     {/* Content Area */}
                     {!selectedUserId ? (
@@ -383,14 +460,20 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
                                     const timeStr = thread.lastMessage.createdAt?.toDate
                                         ? thread.lastMessage.createdAt.toDate().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })
                                         : '';
+                                    const isOnlineThread = isUserOnline(thread.userLastActive);
                                     return (
                                         <div
                                             key={thread.userId}
                                             onClick={() => setSelectedUserId(thread.userId)}
                                             className="p-3.5 hover:bg-white dark:hover:bg-slate-900 cursor-pointer transition-all flex items-start gap-3 relative"
                                         >
-                                            <div className="w-9 h-9 rounded-xl bg-[#2E5B70]/10 dark:bg-[#2E5B70]/20 flex items-center justify-center font-bold text-[#2E5B70] dark:text-[#3B728C] flex-shrink-0 text-sm">
-                                                {(thread.displayName || '?')[0].toUpperCase()}
+                                            <div className="relative flex-shrink-0">
+                                                <div className="w-9 h-9 rounded-xl bg-[#2E5B70]/10 dark:bg-[#2E5B70]/20 flex items-center justify-center font-bold text-[#2E5B70] dark:text-[#3B728C] text-sm">
+                                                    {(thread.displayName || '?')[0].toUpperCase()}
+                                                </div>
+                                                {isOnlineThread && (
+                                                    <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900" title="Online" />
+                                                )}
                                             </div>
                                             <div className="flex-1 min-w-0">
                                                 <div className="flex items-center justify-between mb-0.5">
@@ -418,14 +501,17 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
                     ) : (
                         /* Message Stream View */
                         <>
-                            <div className="flex-1 overflow-y-auto p-4 bg-slate-50 dark:bg-slate-950 space-y-3 support-chat-scrollbar">
+                            <div className="flex-1 overflow-y-auto overflow-x-hidden p-4 bg-slate-50 dark:bg-slate-950 space-y-3 support-chat-scrollbar">
                                 {loadingMessages ? (
                                     <div className="h-full flex items-center justify-center">
                                         <Loader2 className="w-6 h-6 text-[#2E5B70] animate-spin" />
                                     </div>
-                                ) : (
-                                    messages.map((msg, index) => {
+                                ) : (() => {
+                                    const lastAdminMsgIndex = [...messages].reverse().findIndex(msg => msg.isAdmin);
+                                    const actualLastAdminMsgIndex = lastAdminMsgIndex !== -1 ? messages.length - 1 - lastAdminMsgIndex : -1;
+                                    return messages.map((msg, index) => {
                                         const isSelf = msg.isAdmin;
+                                        const isLastAdminMsg = index === actualLastAdminMsgIndex;
                                         const dateObj = msg.createdAt?.toDate ? msg.createdAt.toDate() : (msg.createdAt ? new Date(msg.createdAt) : null);
                                         const formattedTime = dateObj ? dateObj.toLocaleString('vi-VN', {
                                             hour: '2-digit',
@@ -437,35 +523,140 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
                                         return (
                                             <div
                                                 key={msg.id || index}
-                                                className={`flex flex-col ${isSelf ? 'items-end' : 'items-start'}`}
+                                                className={`flex flex-col ${isSelf ? 'items-end' : 'items-start'} mb-2`}
                                             >
                                                 <span className="text-[9px] text-slate-400 dark:text-slate-550 font-bold mb-0.5 px-1">
                                                     {isSelf ? 'Ban quản trị' : selectedThread?.displayName}
                                                     {formattedTime && <span className="font-normal text-slate-400/85 dark:text-slate-500/85 ml-1.5">{formattedTime}</span>}
                                                 </span>
-                                                <div
-                                                    className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-xs shadow-sm ${
-                                                        isSelf
-                                                            ? 'bg-[#2E5B70] text-white rounded-tr-none'
-                                                            : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none border border-gray-150/40 dark:border-slate-700/50'
-                                                    }`}
-                                                >
-                                                    {msg.text && <p className="whitespace-pre-wrap leading-relaxed">{msg.text}</p>}
-                                                    {msg.imageUrl && (
-                                                        <div className="mt-2 rounded-lg overflow-hidden max-w-[200px] border border-black/5 dark:border-white/5">
-                                                            <img
-                                                                src={msg.imageUrl}
-                                                                alt="Đính kèm"
-                                                                className="w-full h-auto object-cover max-h-40 cursor-pointer"
-                                                                onClick={() => window.open(msg.imageUrl, '_blank')}
-                                                            />
+                                                <div className="flex items-center gap-2 max-w-[85%] group relative">
+                                                    {isSelf && (
+                                                        <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-150 relative">
+                                                            {activeReactionPicker === msg.id && (
+                                                                <div className="absolute bottom-full mb-1 left-0 flex items-center gap-1 bg-white dark:bg-slate-800 border border-gray-150 dark:border-slate-700 shadow-xl rounded-full px-2 py-1 z-30 flex-row">
+                                                                    {['👍', '❤️', '😂', '😮', '😢', '😠'].map(emoji => (
+                                                                        <button
+                                                                            key={emoji}
+                                                                            type="button"
+                                                                            onClick={() => {
+                                                                                handleReact(msg.id, emoji);
+                                                                                setActiveReactionPicker(null);
+                                                                            }}
+                                                                            className="text-base hover:scale-130 transition-transform duration-100 p-0.5 cursor-pointer"
+                                                                        >
+                                                                            {emoji}
+                                                                        </button>
+                                                                    ))}
+                                                                </div>
+                                                            )}
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => setActiveReactionPicker(activeReactionPicker === msg.id ? null : msg.id)}
+                                                                className="p-1 hover:bg-slate-100 dark:hover:bg-slate-850 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                                                                title="Bày tỏ cảm xúc"
+                                                            >
+                                                                <Smile className="w-3.5 h-3.5" />
+                                                            </button>
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => setReplyingTo({ id: msg.id, senderName: msg.isAdmin ? 'Ban quản trị' : (selectedThread?.displayName || 'Người dùng'), text: msg.text, imageUrl: msg.imageUrl })}
+                                                                className="p-1 hover:bg-slate-100 dark:hover:bg-slate-850 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                                                                title="Trả lời"
+                                                            >
+                                                                <CornerUpLeft className="w-3.5 h-3.5" />
+                                                            </button>
+                                                        </div>
+                                                    )}
+
+                                                    <div
+                                                        className={`rounded-2xl px-3.5 py-2.5 text-xs shadow-sm relative ${
+                                                            isSelf
+                                                                ? 'bg-[#2E5B70] text-white rounded-tr-none'
+                                                                : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none border border-gray-150/40 dark:border-slate-700/50'
+                                                        }`}
+                                                    >
+                                                        {msg.replyTo && (
+                                                            <div className="mb-2 text-[10px] text-slate-400 dark:text-slate-450 bg-black/5 dark:bg-white/5 rounded-lg px-2 py-1.5 max-w-[220px] truncate border-l-2 border-[#2E5B70]/60">
+                                                                <span className="font-bold text-[#2E5B70] dark:text-[#3B728C] mr-1">
+                                                                    {msg.replyTo.senderName}:
+                                                                </span>
+                                                                {msg.replyTo.text || '[Hình ảnh]'}
+                                                            </div>
+                                                        )}
+
+                                                        {msg.text && <p className="whitespace-pre-wrap leading-relaxed">{msg.text}</p>}
+
+                                                        {msg.imageUrl && (
+                                                            <div className="mt-2 rounded-lg overflow-hidden max-w-[200px] border border-black/5 dark:border-white/5">
+                                                                <img
+                                                                    src={msg.imageUrl}
+                                                                    alt="Đính kèm"
+                                                                    className="w-full h-auto object-cover max-h-40 cursor-zoom-in hover:opacity-95 transition-opacity"
+                                                                    onClick={() => setActivePreviewImage(msg.imageUrl)}
+                                                                />
+                                                            </div>
+                                                        )}
+
+                                                        {/* Reactions Display */}
+                                                        {msg.reactions && Object.keys(msg.reactions).length > 0 && (
+                                                            <div className={`absolute -bottom-2.5 ${isSelf ? 'right-2' : 'left-2'} bg-white dark:bg-slate-800 border border-gray-150 dark:border-slate-700 shadow-sm rounded-full px-1.5 py-0.5 flex items-center gap-0.5 text-[9px] z-10 select-none`}>
+                                                                {Array.from(new Set(Object.values(msg.reactions))).map((emoji, idx) => (
+                                                                    <span key={idx}>{emoji}</span>
+                                                                ))}
+                                                                {Object.keys(msg.reactions).length > 1 && (
+                                                                    <span className="text-slate-455 dark:text-slate-400 font-bold ml-0.5">{Object.keys(msg.reactions).length}</span>
+                                                                )}
+                                                            </div>
+                                                        )}
+                                                    </div>
+
+                                                    {!isSelf && (
+                                                        <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-150 relative">
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => setReplyingTo({ id: msg.id, senderName: msg.isAdmin ? 'Ban quản trị' : (selectedThread?.displayName || 'Người dùng'), text: msg.text, imageUrl: msg.imageUrl })}
+                                                                className="p-1 hover:bg-slate-100 dark:hover:bg-slate-855 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                                                                title="Trả lời"
+                                                            >
+                                                                <CornerUpLeft className="w-3.5 h-3.5" />
+                                                            </button>
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => setActiveReactionPicker(activeReactionPicker === msg.id ? null : msg.id)}
+                                                                className="p-1 hover:bg-slate-100 dark:hover:bg-slate-855 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                                                                title="Bày tỏ cảm xúc"
+                                                            >
+                                                                <Smile className="w-3.5 h-3.5" />
+                                                            </button>
+                                                            {activeReactionPicker === msg.id && (
+                                                                <div className="absolute bottom-full mb-1 right-0 flex items-center gap-1 bg-white dark:bg-slate-800 border border-gray-150 dark:border-slate-700 shadow-xl rounded-full px-2 py-1 z-30 flex-row">
+                                                                    {['👍', '❤️', '😂', '😮', '😢', '😠'].map(emoji => (
+                                                                        <button
+                                                                            key={emoji}
+                                                                            type="button"
+                                                                            onClick={() => {
+                                                                                handleReact(msg.id, emoji);
+                                                                                setActiveReactionPicker(null);
+                                                                            }}
+                                                                            className="text-base hover:scale-130 transition-transform duration-100 p-0.5 cursor-pointer"
+                                                                        >
+                                                                            {emoji}
+                                                                        </button>
+                                                                    ))}
+                                                                </div>
+                                                            )}
                                                         </div>
                                                     )}
                                                 </div>
+                                                {isSelf && isLastAdminMsg && (
+                                                    <span className="text-[9px] text-slate-400 dark:text-slate-550 mt-1 mr-1">
+                                                        {selectedThread?.hasUnreadUser ? 'Đã gửi' : 'Đã đọc'}
+                                                    </span>
+                                                )}
                                             </div>
                                         );
-                                    })
-                                )}
+                                    });
+                                })()}
                                 <div ref={messagesEndRef} />
                             </div>
 
@@ -481,6 +672,27 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
                                         className="p-1 hover:bg-slate-200 dark:hover:bg-slate-750 text-slate-400 dark:text-slate-500 rounded-full cursor-pointer"
                                     >
                                         <X className="w-4 h-4" />
+                                    </button>
+                                </div>
+                            )}
+
+                            {/* Reply Quoted Preview */}
+                            {replyingTo && (
+                                <div className="px-3 py-2 bg-slate-100 dark:bg-slate-800 border-t border-gray-150 dark:border-slate-700 flex items-center justify-between text-xs animate-slide-up">
+                                    <div className="flex-1 min-w-0 border-l-2 border-[#2E5B70] pl-2">
+                                        <p className="font-bold text-[#2E5B70] dark:text-[#3B728C] leading-none mb-1 text-[10px]">
+                                            Đang trả lời {replyingTo.senderName}
+                                        </p>
+                                        <p className="text-[11px] text-slate-550 dark:text-slate-400 truncate">
+                                            {replyingTo.text || '[Hình ảnh]'}
+                                        </p>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        onClick={() => setReplyingTo(null)}
+                                        className="p-1 text-slate-400 hover:text-slate-600 hover:bg-slate-200 dark:hover:bg-slate-750 rounded-full transition-colors cursor-pointer ml-2"
+                                    >
+                                        <X className="w-3.5 h-3.5" />
                                     </button>
                                 </div>
                             )}
@@ -534,7 +746,29 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
                         </>
                     )}
                 </div>
-            )}
+            )
+        })()}
+
+        {/* Fullscreen Image Preview Modal */}
+        {activePreviewImage && (
+            <div
+                className="fixed inset-0 bg-black/85 z-99 flex items-center justify-center p-4 animate-fade-in cursor-zoom-out"
+                onClick={() => setActivePreviewImage(null)}
+            >
+                <button
+                    onClick={() => setActivePreviewImage(null)}
+                    className="absolute top-4 right-4 p-2 text-white/80 hover:text-white bg-black/45 hover:bg-black/60 rounded-full transition-all cursor-pointer"
+                >
+                    <X className="w-6 h-6" />
+                </button>
+                <img
+                    src={activePreviewImage}
+                    alt="Zoomed"
+                    className="max-w-[95vw] max-h-[85vh] object-contain rounded-lg shadow-2xl transition-transform duration-300 ease-out"
+                    onClick={(e) => e.stopPropagation()}
+                />
+            </div>
+        )}
         </>
     );
 };
