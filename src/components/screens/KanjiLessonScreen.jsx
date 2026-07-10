@@ -1312,10 +1312,29 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
             });
         }
         if (testMode === 'typing') {
-            return todayKanji.filter(k => k.sinoViet || k.onyomi).map(k => ({
-                kanji: k.character, question: `Gõ âm Hán Việt hoặc cách đọc On của "${k.character}"`,
-                answers: [k.sinoViet?.toLowerCase(), k.onyomi?.toLowerCase()].filter(Boolean), type: 'typing'
-            }));
+            return todayKanji.filter(k => k.sinoViet || k.onyomi).map(k => {
+                const answers = [];
+                if (k.sinoViet) {
+                    if (Array.isArray(k.sinoViet)) {
+                        answers.push(...k.sinoViet.map(s => typeof s === 'string' ? s.trim().toLowerCase() : '').filter(Boolean));
+                    } else if (typeof k.sinoViet === 'string') {
+                        answers.push(...k.sinoViet.split(/[,，、\s]+/).map(s => s.trim().toLowerCase()).filter(Boolean));
+                    }
+                }
+                if (k.onyomi) {
+                    if (Array.isArray(k.onyomi)) {
+                        answers.push(...k.onyomi.map(s => typeof s === 'string' ? s.trim().toLowerCase() : '').filter(Boolean));
+                    } else if (typeof k.onyomi === 'string') {
+                        answers.push(...k.onyomi.split(/[,，、\s]+/).map(s => s.trim().toLowerCase()).filter(Boolean));
+                    }
+                }
+                return {
+                    kanji: k.character,
+                    question: `Gõ âm Hán Việt hoặc cách đọc On của "${k.character}"`,
+                    answers: [...new Set(answers)],
+                    type: 'typing'
+                };
+            });
         }
         if (testMode === 'writing') {
             return todayKanji.filter(k => k.sinoViet).map(k => ({
