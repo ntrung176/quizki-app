@@ -27,6 +27,7 @@ const LEVEL_COLORS = {
     N2: { bg: 'bg-amber-500 dark:bg-amber-600/80', hover: 'hover:bg-amber-600 dark:hover:bg-amber-500', text: 'text-white' },
     N1: { bg: 'bg-rose-500 dark:bg-rose-600/80', hover: 'hover:bg-rose-600 dark:hover:bg-rose-500', text: 'text-white' },
     'Bộ thủ': { bg: 'bg-orange-500 dark:bg-orange-600/80', hover: 'hover:bg-orange-600 dark:hover:bg-orange-500', text: 'text-white' },
+    'Mới thêm': { bg: 'bg-indigo-500 dark:bg-indigo-600/80', hover: 'hover:bg-indigo-600 dark:hover:bg-indigo-500', text: 'text-white' },
 };
 // Tab colors for level selector
 const LEVEL_TAB_COLORS = {
@@ -36,6 +37,7 @@ const LEVEL_TAB_COLORS = {
     N2: 'bg-amber-500 text-white shadow-md shadow-amber-200 dark:shadow-amber-900/50',
     N1: 'bg-rose-500 text-white shadow-md shadow-rose-900/50',
     'Bộ thủ': 'bg-orange-500 text-white shadow-md shadow-orange-200 dark:shadow-orange-900/50',
+    'Mới thêm': 'bg-indigo-500 text-white shadow-md shadow-indigo-200 dark:shadow-indigo-900/50',
 };
 const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserCards = [], profile = null, folders = [], userId, awardXP }) => {
     const fadeWholePage = useMenuTransition();
@@ -56,6 +58,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     const [lockedPkgName, setLockedPkgName] = useState('Premium');
 
     const [selectedLevel, setSelectedLevel] = useState('N5');
+    const currentUserEmail = getAuth().currentUser?.email || '';
+    const isUserAdmin = isAdmin || ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(currentUserEmail);
     const [searchQuery, setSearchQuery] = useState('');
     const [visibleLimit, setVisibleLimit] = useState(100);
     const [selectedKanji, setSelectedKanji] = useState(null);
@@ -567,26 +571,36 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         if (selectedLevel === 'Bộ thủ') {
             return Object.keys(RADICALS_214);
         }
-        const jotobaChars = getJotobaKanjiChars(selectedLevel);
-        const firebaseChars = [];
-        kanjiMap.forEach((v, k) => { if (v.level === selectedLevel) firebaseChars.push(k); });
-        const mergedSet = new Set([...jotobaChars, ...firebaseChars]);
-        let merged = [...mergedSet];
-        // Sort by stroke count (simple → complex) — using Map for O(1) lookups
-        const mapped = merged.map(char => {
-            const jData = getJotobaKanjiData(char);
-            const fData = kanjiMap.get(char);
-            return {
-                char,
-                stroke: jData?.stroke_count || parseInt(fData?.strokeCount) || 999,
-                freq: jData?.frequency || 9999
-            };
-        });
-        mapped.sort((a, b) => {
-            if (a.stroke !== b.stroke) return a.stroke - b.stroke;
-            return a.freq - b.freq;
-        });
-        let sorted = mapped.map(x => x.char);
+        
+        let sorted;
+        if (selectedLevel === 'Mới thêm') {
+            const list = kanjiList
+                .filter(k => k.updatedAt)
+                .sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
+            sorted = list.map(k => k.character);
+        } else {
+            const jotobaChars = getJotobaKanjiChars(selectedLevel);
+            const firebaseChars = [];
+            kanjiMap.forEach((v, k) => { if (v.level === selectedLevel) firebaseChars.push(k); });
+            const mergedSet = new Set([...jotobaChars, ...firebaseChars]);
+            let merged = [...mergedSet];
+            // Sort by stroke count (simple → complex) — using Map for O(1) lookups
+            const mapped = merged.map(char => {
+                const jData = getJotobaKanjiData(char);
+                const fData = kanjiMap.get(char);
+                return {
+                    char,
+                    stroke: jData?.stroke_count || parseInt(fData?.strokeCount) || 999,
+                    freq: jData?.frequency || 9999
+                };
+            });
+            mapped.sort((a, b) => {
+                if (a.stroke !== b.stroke) return a.stroke - b.stroke;
+                return a.freq - b.freq;
+            });
+            sorted = mapped.map(x => x.char);
+        }
+
         if (!searchQuery.trim()) return sorted;
         const query = searchQuery.toLowerCase().trim();
         return sorted.filter(k => {
@@ -609,7 +623,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             }
             return false;
         });
-    }, [selectedLevel, kanjiMap, searchQuery]);
+    }, [selectedLevel, kanjiMap, kanjiList, searchQuery]);
 
     const displayedKanjiList = useMemo(() => {
         if (selectedLevel === 'Bộ thủ') return currentKanjiList;
@@ -618,7 +632,14 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     // Get filtered kanji list with id for bulk operations (Firebase items only - need IDs for delete/edit)
     const filteredKanjiList = useMemo(() => {
         if (selectedLevel === 'Bộ thủ') return []; // No bulk ops for radicals
-        let filtered = kanjiList.filter(k => k.level === selectedLevel);
+        let filtered;
+        if (selectedLevel === 'Mới thêm') {
+            filtered = kanjiList
+                .filter(k => k.updatedAt)
+                .sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
+        } else {
+            filtered = kanjiList.filter(k => k.level === selectedLevel);
+        }
         if (searchQuery.trim()) {
             const query = searchQuery.toLowerCase().trim();
             filtered = filtered.filter(k => k.character.includes(query) || k.meaning?.toLowerCase().includes(query) || k.sinoViet?.toLowerCase().includes(query));
@@ -724,7 +745,14 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     };
     // Get filtered vocab list with id for bulk operations
     const filteredVocabList = useMemo(() => {
-        let filtered = vocabList.filter(v => v.level === selectedLevel);
+        let filtered;
+        if (selectedLevel === 'Mới thêm') {
+            filtered = vocabList
+                .filter(v => v.updatedAt)
+                .sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
+        } else {
+            filtered = vocabList.filter(v => v.level === selectedLevel);
+        }
         if (searchQuery.trim()) {
             filtered = filtered.filter(v => v.word?.includes(searchQuery) || v.meaning?.includes(searchQuery));
         }
@@ -1810,7 +1838,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         {showSearchResults && <div className="fixed inset-0 z-40" onClick={() => setShowSearchResults(false)} />}
                         {/* JLPT Level Tags */}
                         <div className="flex flex-wrap gap-2 items-center">
-                            {[...JLPT_LEVELS, 'Bộ thủ'].map(level => {
+                            {[...JLPT_LEVELS, 'Bộ thủ', ...(isUserAdmin ? ['Mới thêm'] : [])].map(level => {
                                 const isActive = selectedLevel === level;
                                 const isLocked = ['N4', 'N3', 'N2', 'N1'].includes(level) && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
                                 return (
@@ -1915,7 +1943,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                         selectedLevel === 'N4' ? 'from-sky-400 to-cyan-500' :
                                             selectedLevel === 'N3' ? 'from-sky-400 to-indigo-500' :
                                                 selectedLevel === 'N2' ? 'from-amber-400 to-orange-500' :
-                                                    selectedLevel === 'N1' ? 'from-rose-400 to-pink-500' : 'from-orange-400 to-amber-500'
+                                                    selectedLevel === 'N1' ? 'from-rose-400 to-pink-500' :
+                                                        selectedLevel === 'Mới thêm' ? 'from-indigo-400 to-violet-500' : 'from-orange-400 to-amber-500'
                                         }`}
                                     style={{ width: `${currentKanjiList.length > 0 ? (completedCount / currentKanjiList.length) * 100 : 0}%` }}
                                 />
@@ -2174,7 +2203,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                 selectedLevel === 'N4' ? 'from-sky-400 to-cyan-500' :
                                                     selectedLevel === 'N3' ? 'from-sky-400 to-indigo-500' :
                                                         selectedLevel === 'N2' ? 'from-amber-400 to-orange-500' :
-                                                            selectedLevel === 'N1' ? 'from-rose-400 to-pink-500' : 'from-orange-400 to-amber-500'
+                                                            selectedLevel === 'N1' ? 'from-rose-400 to-pink-500' :
+                                                                selectedLevel === 'Mới thêm' ? 'from-indigo-400 to-violet-500' : 'from-orange-400 to-amber-500'
                                                 }`} />
                                         </div>
                                     );
