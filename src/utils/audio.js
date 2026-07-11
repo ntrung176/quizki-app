@@ -168,7 +168,7 @@ const azureTTS = async (text) => {
     if (!text) return null;
 
     const voiceId = getTTSVoice();
-    const speed = 1.0;
+    const speed = 0.8;
     const volume = 'default';
 
     const cacheKey = `azure:${voiceId}:${speed}:${volume}:${text}`;
@@ -184,7 +184,7 @@ const azureTTS = async (text) => {
     const gender = voiceId === 'ryota' ? 'male' : 'female';
 
     let cachedAudio = null;
-    if (speed === 1.0 && volume === 'default') {
+    if (volume === 'default') {
         cachedAudio = await lookupSharedAudio(text, gender);
     }
     if (cachedAudio) {
@@ -269,7 +269,7 @@ const azureTTS = async (text) => {
         }
         ttsCache.set(cacheKey, result);
 
-        if (speed === 1.0 && volume === 'default') {
+        if (volume === 'default') {
             saveSharedAudio(text, base64, gender);
         }
 
