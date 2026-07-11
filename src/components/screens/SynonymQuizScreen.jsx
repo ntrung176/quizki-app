@@ -210,7 +210,7 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
 
         if (synonymAudioEnabled) {
             setTimeout(() => {
-                speakJapanese(currentCard.front, currentCard.audioBase64).catch(e => console.warn(e));
+                speakJapanese(currentCard.front, currentCard.audioBase64, null, currentCard.audioVoiceId).catch(e => console.warn(e));
             }, 500);
         }
     }, [isRevealed, currentCard, onUpdateCard, handleNext, synonymAudioEnabled]);

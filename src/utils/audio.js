@@ -152,6 +152,13 @@ const saveSharedAudio = async (text, base64, gender) => {
     }
 };
 
+const getSettings = () => {
+    try {
+        const saved = localStorage.getItem('quizki-settings');
+        return saved ? JSON.parse(saved) : {};
+    } catch { return {}; }
+};
+
 const azureTTS = async (text) => {
     const key = import.meta.env.VITE_AZURE_SPEECH_KEY;
     const region = import.meta.env.VITE_AZURE_SPEECH_REGION || 'eastasia';
@@ -161,7 +168,10 @@ const azureTTS = async (text) => {
     if (!text) return null;
 
     const voiceId = getTTSVoice();
-    const cacheKey = `azure:${voiceId}:${text}`;
+    const speed = 1.0;
+    const volume = 'default';
+
+    const cacheKey = `azure:${voiceId}:${speed}:${volume}:${text}`;
     if (ttsCache.has(cacheKey)) {
         return ttsCache.get(cacheKey);
     }
@@ -173,7 +183,10 @@ const azureTTS = async (text) => {
     const azureVoiceName = voiceMap[voiceId] || 'ja-JP-MayuNeural';
     const gender = voiceId === 'ryota' ? 'male' : 'female';
 
-    const cachedAudio = await lookupSharedAudio(text, gender);
+    let cachedAudio = null;
+    if (speed === 1.0 && volume === 'default') {
+        cachedAudio = await lookupSharedAudio(text, gender);
+    }
     if (cachedAudio) {
         const audioSrc = cachedAudio.startsWith('data:audio')
             ? cachedAudio
@@ -193,6 +206,12 @@ const azureTTS = async (text) => {
     }
 
     try {
+        let ssmlText = text;
+        if (speed !== 1.0 || volume !== 'default') {
+            const volumeAttr = volume !== 'default' ? ` volume="${volume}"` : '';
+            ssmlText = `<prosody rate="${speed}"${volumeAttr}>${text}</prosody>`;
+        }
+
         let response;
         if (proxyUrl) {
             const baseProxy = proxyUrl.replace(/\/+$/, '');
@@ -202,13 +221,13 @@ const azureTTS = async (text) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    text,
+                    text: ssmlText,
                     voiceName: azureVoiceName
                 })
             });
         } else {
             const url = `https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`;
-            const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="ja-JP"><voice xml:lang="ja-JP" name="${azureVoiceName}">${text}</voice></speak>`;
+            const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="ja-JP"><voice xml:lang="ja-JP" name="${azureVoiceName}">${ssmlText}</voice></speak>`;
 
             response = await fetch(url, {
                 method: 'POST',
@@ -250,7 +269,9 @@ const azureTTS = async (text) => {
         }
         ttsCache.set(cacheKey, result);
 
-        saveSharedAudio(text, base64, gender);
+        if (speed === 1.0 && volume === 'default') {
+            saveSharedAudio(text, base64, gender);
+        }
 
         return result;
     } catch (e) {
@@ -350,7 +371,8 @@ const speakWithWebSpeech = (text) => {
 
         const utterance = new SpeechSynthesisUtterance(cleanText);
         utterance.lang = 'ja-JP';
-        utterance.rate = 0.9;
+        const speed = 0.8;
+        utterance.rate = 0.9 * speed;
         utterance.pitch = 1;
 
         const japaneseVoice = loadJapaneseVoice();
@@ -404,6 +426,8 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
 
         if (result && result.blobUrl) {
             currentAudioObj = new Audio(result.blobUrl);
+            currentAudioObj.defaultPlaybackRate = 0.8;
+            currentAudioObj.playbackRate = 0.8;
             currentAudioObj.onended = () => {
                 currentAudioObj = null;
                 safeResolve();
@@ -478,6 +502,8 @@ export const playAudio = (base64Data, text = '', onAudioGenerated = null) => {
         if (base64Data) {
             const audioSrc = base64Data.startsWith('data:audio') ? base64Data : `data:audio/mp3;base64,${base64Data}`;
             currentAudioObj = new Audio(audioSrc);
+            currentAudioObj.defaultPlaybackRate = 0.8;
+            currentAudioObj.playbackRate = 0.8;
             currentAudioObj.onended = () => {
                 currentAudioObj = null;
                 safeResolve();
@@ -501,9 +527,21 @@ export const playAudio = (base64Data, text = '', onAudioGenerated = null) => {
     });
 };
 
-export const speakJapanese = (text, audioBase64 = null, onAudioGenerated = null) => {
+export const speakJapanese = (text, audioBase64 = null, onAudioGenerated = null, cardVoiceId = null) => {
     if (!text && !audioBase64) return Promise.resolve();
-    if (audioBase64) return playAudio(audioBase64, text || '', onAudioGenerated);
+
+    const currentVoiceId = getTTSVoice();
+    let effectiveBase64 = audioBase64;
+
+    if (audioBase64) {
+        const savedVoiceId = cardVoiceId || 'mayu';
+        if (savedVoiceId !== currentVoiceId) {
+            console.log(`🔊 Voice mismatch: card voice is "${savedVoiceId}", user selected "${currentVoiceId}". Bypassing pre-saved audio to regenerate.`);
+            effectiveBase64 = null;
+        }
+    }
+
+    if (effectiveBase64) return playAudio(effectiveBase64, text || '', onAudioGenerated);
     const textToSpeak = extractReadingText(text);
     return textToSpeak ? playAudio(null, textToSpeak, onAudioGenerated) : Promise.resolve();
 };

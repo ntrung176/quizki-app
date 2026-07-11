@@ -319,7 +319,7 @@ const ReviewScreen = ({
         if (card && (card.reviewType === 'dictation' || reviewMode === 'dictation')) {
             if (reviewAudioEnabled) {
                 timeoutId = setTimeout(() => {
-                    speakJapanese(card.front, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
+                    speakJapanese(card.front, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null, card.audioVoiceId);
                 }, 300);
             }
         }
@@ -432,7 +432,7 @@ const ReviewScreen = ({
                 setIsFlipped(prev => {
                     const newFlippedState = !prev;
                     if (newFlippedState && currentCard && cardSettings.autoPlayAudio) {
-                        speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+                        speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId);
                     }
                     return newFlippedState;
                 });
@@ -494,7 +494,7 @@ const ReviewScreen = ({
         if (currentCard && cardSettings.autoPlayAudio && cardSettings.audioEnabled !== false) {
             // Chỉ phát âm thanh khi lật từ mặt trước sang mặt sau (newFlippedState === true)
             if (newFlippedState) {
-                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId);
             }
         }
     }, [isFlipped, currentCard, cardSettings.autoPlayAudio, cardSettings.audioEnabled, onSaveCardAudio]);
@@ -981,7 +981,8 @@ const ReviewScreen = ({
                                     console.warn('⚠️ Failed to persist audio:', e.message);
                                 });
                             }
-                        } : null
+                        } : null,
+                        currentCard.audioVoiceId
                     ).catch(e => console.warn('⚠️ Audio playback error (continuing):', e.message));
                 }
 
@@ -1016,7 +1017,8 @@ const ReviewScreen = ({
                                             console.warn('⚠️ Failed to persist audio:', e.message);
                                         });
                                     }
-                                } : null
+                                } : null,
+                                currentCard.audioVoiceId
                             ).catch(e => {
                                 console.warn('⚠️ Audio playback error:', e.message);
                             });
@@ -1277,7 +1279,7 @@ const ReviewScreen = ({
                                             const newFlippedState = !isFlipped;
                                             setIsFlipped(newFlippedState);
                                             if (newFlippedState && currentCard) {
-                                                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+                                                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId);
                                             }
                                         }}
                                         variant="review"
@@ -1330,7 +1332,7 @@ const ReviewScreen = ({
                                     <button
                                         onClick={(e) => {
                                             e.stopPropagation();
-                                            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+                                            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId);
                                         }}
                                         className="absolute top-6 right-18 p-2 bg-white/20 hover:bg-white/35 backdrop-blur-sm text-white rounded-full transition-all hover:scale-110 z-30 shadow-md border border-white/20"
                                         title="Phát âm"
@@ -1468,7 +1470,7 @@ const ReviewScreen = ({
                                                 {/* Dictation mode: Show audio button, user listens and types */}
                                                 <div className="flex flex-col items-center gap-4">
                                                     <button
-                                                        onClick={() => speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null)}
+                                                        onClick={() => speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId)}
                                                         className="p-6 bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 hover:text-indigo-200 rounded-full transition-all shadow-lg hover:shadow-indigo-500/20 hover:scale-110 active:scale-95 border-2 border-indigo-400/30"
                                                         title="Phát âm thanh"
                                                     >
@@ -1616,7 +1618,7 @@ const ReviewScreen = ({
                                                         if (isCorrect) {
                                                             // Fire-and-forget audio, then auto-advance
                                                             if (reviewAudioEnabled) {
-                                                                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null)
+                                                                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId)
                                                                     .catch(e => console.warn('⚠️ Audio error:', e.message));
                                                             }
                                                             await new Promise(resolve => setTimeout(resolve, 700));
@@ -1625,7 +1627,7 @@ const ReviewScreen = ({
                                                             // Fire-and-forget audio for incorrect answer
                                                             if (reviewAudioEnabled) {
                                                                 setTimeout(() => {
-                                                                    speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null)
+                                                                    speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId)
                                                                         .catch(e => console.warn('⚠️ Audio error:', e.message));
                                                                 }, 500);
                                                             }

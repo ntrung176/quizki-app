@@ -238,7 +238,7 @@ const FlashcardPlayerSection = ({
                         setIsCardFlipped(nextFlippedState);
                         if (activeCard && cardSettings.autoPlayAudio && cardSettings.audioEnabled !== false) {
                             if (nextFlippedState) {
-                                speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null);
+                                speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null, activeCard.audioVoiceId);
                             }
                         }
                     }}
@@ -252,7 +252,7 @@ const FlashcardPlayerSection = ({
                 <button
                     onClick={(e) => {
                         e.stopPropagation();
-                        speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null);
+                        speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null, activeCard.audioVoiceId);
                     }}
                     className="absolute top-6 right-18 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
                     title="Phát âm"
