@@ -1,3 +1,5 @@
+import { KANJI_COMPONENTS } from './kanjiComponents';
+
 // 214 Bộ thủ (Radicals) - Kangxi Radicals
 // Đây là 214 bộ thủ cơ bản dùng để phân loại và chiết tự Kanji
 
@@ -529,6 +531,7 @@ const RADICAL_DECOMPOSITION = {
 export const KANJI_TREE = {
     // Merge radical decomposition into KANJI_TREE
     ...RADICAL_DECOMPOSITION,
+    ...KANJI_COMPONENTS,
 
     // Ví dụ từ hình: 冷 = 冫 + 令, và 令 = 人 + 一 + マ (hoặc 亼 + 卩)
     '冷': {

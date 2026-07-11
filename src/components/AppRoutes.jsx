@@ -604,6 +604,11 @@ const AppRoutes = ({
                     }
                 />
 
+                <Route
+                    path="/vocab"
+                    element={<Navigate to={ROUTES.VOCAB_REVIEW} replace />}
+                />
+
                 {/* Ôn tập từ vựng - SRSVocabScreen */}
                 <Route
                     path={ROUTES.VOCAB_REVIEW}
@@ -767,6 +772,10 @@ const AppRoutes = ({
                     }
                 />
 
+                <Route
+                    path="/kanji"
+                    element={<Navigate to={ROUTES.KANJI_REVIEW} replace />}
+                />
 
                 {/* Học Kanji - Study roadmap screen */}
                 <Route
