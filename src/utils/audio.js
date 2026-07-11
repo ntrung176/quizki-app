@@ -371,7 +371,7 @@ const speakWithWebSpeech = (text) => {
 
         const utterance = new SpeechSynthesisUtterance(cleanText);
         utterance.lang = 'ja-JP';
-        const speed = 0.8;
+        const speed = 1.0;
         utterance.rate = 0.9 * speed;
         utterance.pitch = 1;
 
@@ -426,8 +426,6 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
 
         if (result && result.blobUrl) {
             currentAudioObj = new Audio(result.blobUrl);
-            currentAudioObj.defaultPlaybackRate = 0.8;
-            currentAudioObj.playbackRate = 0.8;
             currentAudioObj.onended = () => {
                 currentAudioObj = null;
                 safeResolve();
@@ -502,8 +500,6 @@ export const playAudio = (base64Data, text = '', onAudioGenerated = null) => {
         if (base64Data) {
             const audioSrc = base64Data.startsWith('data:audio') ? base64Data : `data:audio/mp3;base64,${base64Data}`;
             currentAudioObj = new Audio(audioSrc);
-            currentAudioObj.defaultPlaybackRate = 0.8;
-            currentAudioObj.playbackRate = 0.8;
             currentAudioObj.onended = () => {
                 currentAudioObj = null;
                 safeResolve();
