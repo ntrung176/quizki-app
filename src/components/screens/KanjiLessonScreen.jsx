@@ -1218,6 +1218,59 @@ const KanjiFlashcard = ({
                             }
                         }
 
+                        const renderHighlightedReading = (v, rType) => {
+                            if (!v.reading) return null;
+                            const toHiragana = (str) => str.replace(/[\u30A1-\u30F6]/g, ch =>
+                                String.fromCharCode(ch.charCodeAt(0) - 0x60)
+                            );
+
+                            const kanjiReadings = [];
+                            onyomiList.forEach(r => {
+                                const clean = r.replace(/[-\.。]/g, '').trim();
+                                if (clean) kanjiReadings.push(clean);
+                            });
+                            kunyomiList.forEach(r => {
+                                const clean = r.split('.')[0].replace(/[-。]/g, '').trim();
+                                if (clean) kanjiReadings.push(clean);
+                            });
+
+                            let highlightStart = -1;
+                            let highlightEnd = -1;
+                            const readingChars = [...v.reading];
+                            
+                            for (const kr of kanjiReadings) {
+                                const hiraReading = toHiragana(kr);
+                                const readingStr = v.reading;
+                                const idx = readingStr.indexOf(hiraReading);
+                                if (idx !== -1) {
+                                    const beforeStr = readingStr.substring(0, idx);
+                                    highlightStart = [...beforeStr].length;
+                                    highlightEnd = highlightStart + [...hiraReading].length;
+                                    break;
+                                }
+                            }
+
+                            return (
+                                <div className="text-xs font-medium">
+                                    {readingChars.map((char, ci) => {
+                                        const isHighlighted = highlightStart >= 0 && ci >= highlightStart && ci < highlightEnd;
+                                        if (isHighlighted) {
+                                            return (
+                                                <span key={ci} className={rType === 'Kunyomi' ? 'text-red-500 dark:text-red-400 font-bold' : 'text-cyan-600 dark:text-cyan-400 font-bold'}>
+                                                    {char}
+                                                </span>
+                                            );
+                                        }
+                                        return (
+                                            <span key={ci} className="text-gray-400 dark:text-slate-400">
+                                                {char}
+                                            </span>
+                                        );
+                                    })}
+                                </div>
+                            );
+                        };
+
                         const renderVocabCard = (v, i, rType) => (
                             <div key={v.id || i} className="flex justify-between items-start pb-4 border-b border-gray-50 dark:border-slate-700/30 last:border-0 last:pb-0">
                                 <div className="space-y-1 pr-4 text-left">
@@ -1232,7 +1285,7 @@ const KanjiFlashcard = ({
                                             </span>
                                         )}
                                     </div>
-                                    <div className={`text-xs font-medium ${rType === 'Kunyomi' ? 'text-red-500/70 dark:text-red-400/70' : 'text-cyan-650/70 dark:text-cyan-450/70'}`}>{v.reading}</div>
+                                    {renderHighlightedReading(v, rType)}
                                     <div className="text-sm text-gray-600 dark:text-slate-300 font-medium mt-1">{v.meaning}</div>
                                 </div>
                                 <button

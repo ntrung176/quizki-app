@@ -1676,7 +1676,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                                     paddingRight: '1px',
                                                                 }}
                                                             >
-                                                                <span className={isHighlighted ? (rType === 'Kunyomi' ? 'text-red-600 dark:text-red-400 font-bold' : 'text-cyan-600 dark:text-cyan-400 font-bold') : (rType === 'Kunyomi' ? 'text-red-500/80 dark:text-red-400/80' : 'text-cyan-650/80 dark:text-cyan-400/80')}>{char}</span>
+                                                                <span className={isHighlighted ? (rType === 'Kunyomi' ? 'text-red-600 dark:text-red-400 font-bold' : 'text-cyan-600 dark:text-cyan-400 font-bold') : 'text-slate-800 dark:text-slate-200'}>{char}</span>
                                                             </span>
                                                             {showDrop && (
                                                                 <span className="absolute -right-[1px] top-0 w-[2.5px] bg-orange-500" style={{ height: '100%' }}></span>
@@ -1695,7 +1695,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             {readingChars.map((char, ci) => {
                                                 const isHighlighted = highlightStart >= 0 && ci >= highlightStart && ci < highlightEnd;
                                                 return (
-                                                    <span key={ci} className={isHighlighted ? (rType === 'Kunyomi' ? 'text-red-600 dark:text-red-400 font-bold' : 'text-cyan-600 dark:text-cyan-400 font-bold') : (rType === 'Kunyomi' ? 'text-red-500/80 dark:text-red-400/80' : 'text-cyan-650/80 dark:text-cyan-400/80')}>{char}</span>
+                                                    <span key={ci} className={isHighlighted ? (rType === 'Kunyomi' ? 'text-red-600 dark:text-red-400 font-bold' : 'text-cyan-600 dark:text-cyan-400 font-bold') : 'text-slate-800 dark:text-slate-200'}>{char}</span>
                                                 );
                                             })}
                                         </span>
