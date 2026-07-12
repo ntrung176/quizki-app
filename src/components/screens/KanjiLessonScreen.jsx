@@ -1181,7 +1181,7 @@ const KanjiFlashcard = ({
                             <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">Âm On</span>
                             <div className="flex flex-wrap gap-1.5">
                                 {onyomiList.length > 0 ? onyomiList.map((o, idx) => (
-                                    <span key={`${o}-${idx}`} className="px-2.5 py-1 bg-gray-50 dark:bg-slate-700/40 border border-gray-100 dark:border-slate-700/40 rounded-lg text-xs text-gray-700 dark:text-slate-200 font-medium font-japanese">{o}</span>
+                                    <span key={`${o}-${idx}`} className="px-2.5 py-1 bg-cyan-50 dark:bg-cyan-950/20 border border-cyan-100 dark:border-cyan-900/30 rounded-lg text-xs text-cyan-600 dark:text-cyan-400 font-bold font-japanese">{o}</span>
                                 )) : <span className="text-xs text-gray-400">-</span>}
                             </div>
                         </div>
@@ -1189,7 +1189,7 @@ const KanjiFlashcard = ({
                             <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">Âm Kun</span>
                             <div className="flex flex-wrap gap-1.5">
                                 {kunyomiList.length > 0 ? kunyomiList.map((k, idx) => (
-                                    <span key={`${k}-${idx}`} className="px-2.5 py-1 bg-gray-50 dark:bg-slate-700/40 border border-gray-100 dark:border-slate-700/40 rounded-lg text-xs text-gray-700 dark:text-slate-200 font-medium font-japanese">{k}</span>
+                                    <span key={`${k}-${idx}`} className="px-2.5 py-1 bg-red-50 dark:bg-red-950/20 border border-red-100 dark:border-red-900/30 rounded-lg text-xs text-red-600 dark:text-red-400 font-bold font-japanese">{k}</span>
                                 )) : <span className="text-xs text-gray-400">-</span>}
                             </div>
                         </div>
@@ -1222,7 +1222,7 @@ const KanjiFlashcard = ({
                             <div key={v.id || i} className="flex justify-between items-start pb-4 border-b border-gray-50 dark:border-slate-700/30 last:border-0 last:pb-0">
                                 <div className="space-y-1 pr-4 text-left">
                                     <div className="flex items-center gap-2 flex-wrap">
-                                        <span className={`text-lg font-bold font-japanese ${rType === 'Kunyomi' ? 'text-amber-600 dark:text-amber-400' : 'text-indigo-600 dark:text-indigo-400'}`}>{v.word}</span>
+                                        <span className={`text-lg font-bold font-japanese ${rType === 'Kunyomi' ? 'text-red-500 dark:text-red-400' : 'text-cyan-600 dark:text-cyan-400'}`}>{v.word}</span>
                                         {v.sinoViet && (
                                             <span className="px-1.5 py-0.5 bg-cyan-50 dark:bg-cyan-900/20 text-cyan-600 dark:text-cyan-400 text-[10px] font-bold uppercase rounded">{v.sinoViet}</span>
                                         )}
@@ -1232,7 +1232,7 @@ const KanjiFlashcard = ({
                                             </span>
                                         )}
                                     </div>
-                                    <div className="text-xs text-gray-400 dark:text-slate-400 font-medium">{v.reading}</div>
+                                    <div className={`text-xs font-medium ${rType === 'Kunyomi' ? 'text-red-500/70 dark:text-red-400/70' : 'text-cyan-650/70 dark:text-cyan-450/70'}`}>{v.reading}</div>
                                     <div className="text-sm text-gray-600 dark:text-slate-300 font-medium mt-1">{v.meaning}</div>
                                 </div>
                                 <button
@@ -1249,12 +1249,12 @@ const KanjiFlashcard = ({
                             <div className="space-y-6 max-h-[300px] overflow-y-auto pr-1">
                                 {kunyomiVocab.length > 0 && (
                                     <div className="space-y-3">
-                                        <div className="flex items-center gap-2 px-3 py-1.5 bg-amber-50 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/30 rounded-xl sticky top-0 bg-white dark:bg-slate-800 z-10">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                                            <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">
+                                        <div className="flex items-center gap-2 px-3 py-1.5 bg-red-50 dark:bg-red-950/20 border border-red-100 dark:border-red-900/30 rounded-xl sticky top-0 bg-white dark:bg-slate-800 z-10">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                            <span className="text-[10px] font-bold uppercase tracking-wider text-red-700 dark:text-red-400">
                                                 Kun yomi (Âm Kun)
                                             </span>
-                                            <span className="text-[10px] font-bold text-amber-600 dark:text-amber-500/80 ml-auto">({kunyomiVocab.length})</span>
+                                            <span className="text-[10px] font-bold text-red-600 dark:text-red-500/80 ml-auto">({kunyomiVocab.length})</span>
                                         </div>
                                         <div className="space-y-3 pl-1">
                                             {kunyomiVocab.map((v, i) => renderVocabCard(v, i, 'Kunyomi'))}
@@ -1264,12 +1264,12 @@ const KanjiFlashcard = ({
 
                                 {onyomiVocab.length > 0 && (
                                     <div className="space-y-3">
-                                        <div className="flex items-center gap-2 px-3 py-1.5 bg-indigo-50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/30 rounded-xl sticky top-0 bg-white dark:bg-slate-800 z-10">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                                            <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-650 dark:text-indigo-400">
+                                        <div className="flex items-center gap-2 px-3 py-1.5 bg-cyan-50 dark:bg-cyan-950/20 border border-cyan-100 dark:border-cyan-900/30 rounded-xl sticky top-0 bg-white dark:bg-slate-800 z-10">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
+                                            <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
                                                 On yomi (Âm On)
                                               </span>
-                                            <span className="text-[10px] font-bold text-indigo-500 dark:text-indigo-500/80 ml-auto">({onyomiVocab.length})</span>
+                                            <span className="text-[10px] font-bold text-cyan-500 dark:text-cyan-500/80 ml-auto">({onyomiVocab.length})</span>
                                         </div>
                                         <div className="space-y-3 pl-1">
                                             {onyomiVocab.map((v, i) => renderVocabCard(v, i, 'Onyomi'))}

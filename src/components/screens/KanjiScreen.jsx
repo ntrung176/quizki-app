@@ -1393,8 +1393,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                 <div className="space-y-2.5 flex-1 min-w-0 w-full">
                                     <p><span className="text-gray-500 dark:text-gray-400">Trình độ JLPT:</span> <span className="text-gray-900 dark:text-white font-medium">{detail.level || (kanjiApiData?.jlpt ? `N${kanjiApiData.jlpt}` : '-')}</span></p>
                                     <p><span className="text-gray-500 dark:text-gray-400">Số nét:</span> <span className="text-gray-900 dark:text-white font-bold">{detail.strokeCount || kanjiApiData?.stroke_count || getJotobaKanjiData(selectedKanji)?.stroke_count || '?'}</span></p>
-                                    <p><span className="text-gray-500 dark:text-gray-400">Âm Kun:</span> <span className="text-gray-900 dark:text-white font-japanese">{detail.kunyomi || (kanjiApiData?.kunyomi?.join('、')) || getJotobaKanjiData(selectedKanji)?.kunyomi?.join('、') || '-'}</span></p>
-                                    <p><span className="text-gray-500 dark:text-gray-400">Âm On:</span> <span className="text-cyan-600 dark:text-cyan-400 font-japanese">{detail.onyomi || (kanjiApiData?.onyomi?.join('、')) || getJotobaKanjiData(selectedKanji)?.onyomi?.join('、') || '-'}</span></p>
+                                    <p><span className="text-gray-500 dark:text-gray-400">Âm Kun:</span> <span className="text-red-500 dark:text-red-400 font-japanese font-bold">{detail.kunyomi || (kanjiApiData?.kunyomi?.join('、')) || getJotobaKanjiData(selectedKanji)?.kunyomi?.join('、') || '-'}</span></p>
+                                    <p><span className="text-gray-500 dark:text-gray-400">Âm On:</span> <span className="text-cyan-600 dark:text-cyan-400 font-japanese font-bold">{detail.onyomi || (kanjiApiData?.onyomi?.join('、')) || getJotobaKanjiData(selectedKanji)?.onyomi?.join('、') || '-'}</span></p>
                                     {/* Parts / Thành phần chiết tự */}
                                     {(() => {
                                         const parts = detail.parts || kanjiApiData?.parts || getJotobaKanjiData(selectedKanji)?.parts || [];
@@ -1605,9 +1605,9 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                         return <span className="text-blue-600 dark:text-blue-400 font-japanese font-bold">{wordClean}</span>;
                                     }
                                     if (rType === 'Kunyomi') {
-                                        return <span className="text-amber-600 dark:text-amber-500 font-japanese font-bold">{wordClean}</span>;
+                                        return <span className="text-red-500 dark:text-red-400 font-japanese font-bold">{wordClean}</span>;
                                     }
-                                    return <span className="text-indigo-600 dark:text-indigo-400 font-japanese font-bold">{wordClean}</span>;
+                                    return <span className="text-cyan-600 dark:text-cyan-400 font-japanese font-bold">{wordClean}</span>;
                                 };
 
                                 const renderReading = () => {
@@ -1676,7 +1676,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                                     paddingRight: '1px',
                                                                 }}
                                                             >
-                                                                <span className={isHighlighted ? 'text-blue-600 dark:text-blue-400 font-bold' : 'text-slate-800 dark:text-slate-200'}>{char}</span>
+                                                                <span className={isHighlighted ? (rType === 'Kunyomi' ? 'text-red-600 dark:text-red-400 font-bold' : 'text-cyan-600 dark:text-cyan-400 font-bold') : (rType === 'Kunyomi' ? 'text-red-500/80 dark:text-red-400/80' : 'text-cyan-650/80 dark:text-cyan-400/80')}>{char}</span>
                                                             </span>
                                                             {showDrop && (
                                                                 <span className="absolute -right-[1px] top-0 w-[2.5px] bg-orange-500" style={{ height: '100%' }}></span>
@@ -1695,7 +1695,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             {readingChars.map((char, ci) => {
                                                 const isHighlighted = highlightStart >= 0 && ci >= highlightStart && ci < highlightEnd;
                                                 return (
-                                                    <span key={ci} className={isHighlighted ? 'text-blue-600 dark:text-blue-400 font-bold' : 'text-slate-800 dark:text-slate-200'}>{char}</span>
+                                                    <span key={ci} className={isHighlighted ? (rType === 'Kunyomi' ? 'text-red-600 dark:text-red-400 font-bold' : 'text-cyan-600 dark:text-cyan-400 font-bold') : (rType === 'Kunyomi' ? 'text-red-500/80 dark:text-red-400/80' : 'text-cyan-650/80 dark:text-cyan-400/80')}>{char}</span>
                                                 );
                                             })}
                                         </span>
@@ -1793,12 +1793,12 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     {/* Kun yomi block */}
                                     {kunyomiVocab.length > 0 && (
                                         <div className="space-y-3">
-                                            <div className="flex items-center gap-2 px-3 py-2 bg-amber-50 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/30 rounded-xl sticky top-0 bg-white dark:bg-slate-900/90 z-10">
-                                                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-                                                <span className="text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">
+                                            <div className="flex items-center gap-2 px-3 py-2 bg-red-50 dark:bg-red-950/20 border border-red-100 dark:border-red-900/30 rounded-xl sticky top-0 bg-white dark:bg-slate-900/90 z-10">
+                                                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                                                <span className="text-xs font-bold uppercase tracking-wider text-red-700 dark:text-red-400">
                                                     Kun yomi (Âm Kun)
                                                 </span>
-                                                <span className="text-xs font-bold text-amber-600 dark:text-amber-500/80 ml-auto">({kunyomiVocab.length} từ)</span>
+                                                <span className="text-xs font-bold text-red-600 dark:text-red-500/80 ml-auto">({kunyomiVocab.length} từ)</span>
                                             </div>
                                             <div className="space-y-1.5">
                                                 {kunyomiVocab.map((v, i) => renderVocabItem(v, i, 'Kunyomi'))}
@@ -1809,12 +1809,12 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     {/* On yomi block */}
                                     {onyomiVocab.length > 0 && (
                                         <div className="space-y-3">
-                                            <div className="flex items-center gap-2 px-3 py-2 bg-indigo-50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/30 rounded-xl sticky top-0 bg-white dark:bg-slate-900/90 z-10">
-                                                <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
-                                                <span className="text-xs font-bold uppercase tracking-wider text-indigo-650 dark:text-indigo-400">
+                                            <div className="flex items-center gap-2 px-3 py-2 bg-cyan-50 dark:bg-cyan-950/20 border border-cyan-100 dark:border-cyan-900/30 rounded-xl sticky top-0 bg-white dark:bg-slate-900/90 z-10">
+                                                <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+                                                <span className="text-xs font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
                                                     On yomi (Âm On)
                                                 </span>
-                                                <span className="text-xs font-bold text-indigo-500 dark:text-indigo-500/80 ml-auto">({onyomiVocab.length} từ)</span>
+                                                <span className="text-xs font-bold text-cyan-500 dark:text-cyan-500/80 ml-auto">({onyomiVocab.length} từ)</span>
                                             </div>
                                             <div className="space-y-1.5">
                                                 {onyomiVocab.map((v, i) => renderVocabItem(v, i, 'Onyomi'))}
