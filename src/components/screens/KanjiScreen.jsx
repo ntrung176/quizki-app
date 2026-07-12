@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useSearchParams, useParams, useNavigate, useLocation } from 'react-router-dom';
-import { Search, Grid, PenTool, BookOpen, Folder, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw, ChevronUp, ChevronDown, Sparkle, Bookmark } from 'lucide-react'
+import { Search, Grid, PenTool, BookOpen, Folder, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw, ChevronUp, ChevronDown, Sparkle, Bookmark, Wifi } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
 import { getAuth } from 'firebase/auth';
 import { recordRecentKanji } from '../../utils/kanjiHistory';
