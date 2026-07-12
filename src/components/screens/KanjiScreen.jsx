@@ -1534,86 +1534,70 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                 <Tag className="w-4 h-4" /> Từ vựng ({vocab.length})
                             </h3>
                         </div>
-                        {/* Render vocab grouped by category */}
+                        {/* Render vocab grouped by Kun yomi and On yomi */}
                         {(() => {
-                            // Group vocab by category
-                            const grouped = {};
-                            const uncategorized = [];
-                            for (const v of vocab) {
-                                const cat = v.category || '';
-                                if (!cat) {
-                                    uncategorized.push(v);
-                                } else {
-                                    if (!grouped[cat]) grouped[cat] = [];
-                                    grouped[cat].push(v);
+                            // Helper to determine reading type (Kun or On)
+                            const checkReadingType = (v) => {
+                                const kanjiDetail = kanjiMap.get(selectedKanji);
+                                if (!kanjiDetail || !v.reading) return null;
+                                
+                                const toHiragana = (str) => str.replace(/[\u30A1-\u30F6]/g, ch =>
+                                    String.fromCharCode(ch.charCodeAt(0) - 0x60)
+                                );
+
+                                const onyomiReadings = [];
+                                if (kanjiDetail.onyomi) {
+                                    String(kanjiDetail.onyomi || '').split(/[、,]/).forEach(r => {
+                                        const clean = r.trim().replace(/[-\.。]/g, '');
+                                        if (clean) onyomiReadings.push(toHiragana(clean));
+                                    });
                                 }
-                            }
-                            // Get all category names (from Firebase categories + any found in vocab)
-                            const allCatNames = new Set([
-                                ...vocabCategories.map(c => c.name),
-                                ...Object.keys(grouped)
-                            ]);
+
+                                const kunyomiReadings = [];
+                                if (kanjiDetail.kunyomi) {
+                                    String(kanjiDetail.kunyomi || '').split(/[、,]/).forEach(r => {
+                                        const clean = r.trim().split('.')[0].replace(/[-。]/g, '');
+                                        if (clean) kunyomiReadings.push(toHiragana(clean));
+                                    });
+                                }
+
+                                const hiraReading = toHiragana(v.reading);
+                                const wordClean = (v.word || '').split('（')[0].split('(')[0].trim();
+
+                                // Check Case 1: Word starts with/equals target Kanji
+                                if (wordClean.startsWith(selectedKanji)) {
+                                    const okurigana = wordClean.slice(selectedKanji.length);
+                                    // If it has okurigana (e.g. 食べる)
+                                    if (okurigana && hiraReading.endsWith(toHiragana(okurigana))) {
+                                        const kanjiPart = hiraReading.slice(0, hiraReading.length - toHiragana(okurigana).length);
+                                        if (kunyomiReadings.includes(kanjiPart)) return 'Kunyomi';
+                                        if (onyomiReadings.includes(kanjiPart)) return 'Onyomi';
+                                    }
+                                    // If it's a single kanji word (e.g. 水)
+                                    if (wordClean === selectedKanji) {
+                                        if (kunyomiReadings.includes(hiraReading)) return 'Kunyomi';
+                                        if (onyomiReadings.includes(hiraReading)) return 'Onyomi';
+                                    }
+                                }
+
+                                // Fallback: does reading contain Kun or On readings?
+                                const hasKun = kunyomiReadings.some(kr => hiraReading.includes(kr));
+                                const hasOn = onyomiReadings.some(or => hiraReading.includes(or));
+                                
+                                if (hasKun && !hasOn) return 'Kunyomi';
+                                if (hasOn && !hasKun) return 'Onyomi';
+                                
+                                // Default fallback: 1-character word is usually Kun, multi-character word is usually On
+                                if (wordClean.length === 1) return 'Kunyomi';
+                                return 'Onyomi';
+                            };
+
                             // Render a single vocab item
                             const renderVocabItem = (v, i) => {
                                 const isSpecialReading = v.specialReading || false;
                                 const apiPitch = pitchAccentData[v.word];
                                 const storedPitch = v.accent !== undefined && v.accent !== '' ? accentNumberToPitchParts(v.reading, v.accent) : null;
                                 const pitchParts = apiPitch || v.pitch || storedPitch;
-
-                                const checkReadingType = () => {
-                                    const kanjiDetail = kanjiMap.get(selectedKanji);
-                                    if (!kanjiDetail || !v.reading) return null;
-                                    
-                                    const toHiragana = (str) => str.replace(/[\u30A1-\u30F6]/g, ch =>
-                                        String.fromCharCode(ch.charCodeAt(0) - 0x60)
-                                    );
-
-                                    const onyomiReadings = [];
-                                    if (kanjiDetail.onyomi) {
-                                        String(kanjiDetail.onyomi || '').split(/[、,]/).forEach(r => {
-                                            const clean = r.trim().replace(/[-\.。]/g, '');
-                                            if (clean) onyomiReadings.push(toHiragana(clean));
-                                        });
-                                    }
-
-                                    const kunyomiReadings = [];
-                                    if (kanjiDetail.kunyomi) {
-                                        String(kanjiDetail.kunyomi || '').split(/[、,]/).forEach(r => {
-                                            const clean = r.trim().split('.')[0].replace(/[-。]/g, '');
-                                            if (clean) kunyomiReadings.push(toHiragana(clean));
-                                        });
-                                    }
-
-                                    const hiraReading = toHiragana(v.reading);
-                                    const wordClean = (v.word || '').split('（')[0].split('(')[0].trim();
-
-                                    // Check Case 1: Word starts with/equals target Kanji
-                                    if (wordClean.startsWith(selectedKanji)) {
-                                        const okurigana = wordClean.slice(selectedKanji.length);
-                                        // If it has okurigana (e.g. 食べる)
-                                        if (okurigana && hiraReading.endsWith(toHiragana(okurigana))) {
-                                            const kanjiPart = hiraReading.slice(0, hiraReading.length - toHiragana(okurigana).length);
-                                            if (kunyomiReadings.includes(kanjiPart)) return 'Kunyomi';
-                                            if (onyomiReadings.includes(kanjiPart)) return 'Onyomi';
-                                        }
-                                        // If it's a single kanji word (e.g. 水)
-                                        if (wordClean === selectedKanji) {
-                                            if (kunyomiReadings.includes(hiraReading)) return 'Kunyomi';
-                                            if (onyomiReadings.includes(hiraReading)) return 'Onyomi';
-                                        }
-                                    }
-
-                                    // Fallback: does reading contain Kun or On readings?
-                                    const hasKun = kunyomiReadings.some(kr => hiraReading.includes(kr));
-                                    const hasOn = onyomiReadings.some(or => hiraReading.includes(or));
-                                    
-                                    if (hasKun && !hasOn) return 'Kunyomi';
-                                    if (hasOn && !hasKun) return 'Onyomi';
-                                    
-                                    // Default fallback: 1-character word is usually Kun, multi-character word is usually On
-                                    if (wordClean.length === 1) return 'Kunyomi';
-                                    return 'Onyomi';
-                                };
 
                                 const renderWord = () => {
                                     const wordClean = (v.word || '').split('（')[0].split('(')[0].trim();
@@ -1622,6 +1606,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     }
                                     return <span className="text-red-500 dark:text-red-400 font-japanese font-bold">{wordClean}</span>;
                                 };
+
                                 const renderReading = () => {
                                     if (!v.reading) return null;
                                     if (isSpecialReading) {
@@ -1713,6 +1698,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                         </span>
                                     );
                                 };
+
                                 return (
                                     <div key={`vocab-${v.id || i}`} className="flex items-center justify-between p-2.5 bg-gray-50 dark:bg-slate-800/80 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700/80 transition-colors border border-gray-200 dark:border-slate-700/50">
                                         <div className="flex-1 min-w-0 flex flex-col gap-1 text-sm">
@@ -1720,25 +1706,12 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             <div className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
                                                 {renderWord()}
                                                 <span className="text-slate-800 dark:text-slate-200 font-medium">（</span>{renderReading()}<span className="text-slate-800 dark:text-slate-200 font-medium">）</span>
-                                                {(() => {
-                                                    const rType = checkReadingType();
-                                                    if (rType === 'Kunyomi') {
-                                                        return (
-                                                            <span className="bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-1.5 py-0.5 rounded border border-amber-200/50 dark:border-amber-900/30">
-                                                                Kun yomi
-                                                            </span>
-                                                        );
-                                                    }
-                                                    if (rType === 'Onyomi') {
-                                                        return (
-                                                            <span className="bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400 text-[10px] font-bold px-1.5 py-0.5 rounded border border-indigo-200/50 dark:border-indigo-900/30">
-                                                                On yomi
-                                                            </span>
-                                                        );
-                                                    }
-                                                    return null;
-                                                })()}
                                                 <span className="text-cyan-600 dark:text-cyan-500 font-bold uppercase text-xs ml-3">{v.sinoViet ? `[${v.sinoViet}]` : ''}</span>
+                                                {v.category && (
+                                                    <span className="text-[10px] text-gray-400 dark:text-slate-500 font-medium border border-gray-150 dark:border-slate-700 px-1 py-0.2 rounded ml-auto">
+                                                        {v.category.replace('📚', '').trim()}
+                                                    </span>
+                                                )}
                                             </div>
                                             {/* Line 2: Vietnamese Meaning */}
                                             <div className="text-gray-700 dark:text-gray-200 pl-1 font-normal">
@@ -1796,75 +1769,52 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     </div>
                                 );
                             };
-                            // If no vocab at all
+
+                            // Group all vocabulary by checkReadingType
+                            const kunyomiVocab = [];
+                            const onyomiVocab = [];
+                            for (const v of vocab) {
+                                if (checkReadingType(v) === 'Kunyomi') {
+                                    kunyomiVocab.push(v);
+                                } else {
+                                    onyomiVocab.push(v);
+                                }
+                            }
+
                             if (vocab.length === 0) {
                                 return <p className="text-gray-400 dark:text-gray-500 text-center py-4">Chưa có từ vựng</p>;
                             }
-                            // Render each category section
-                            const categoryColors = [
-                                { text: 'text-orange-500 dark:text-orange-400', tag: 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400' },
-                                { text: 'text-sky-500 dark:text-sky-400', tag: 'bg-sky-100 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400' },
-                                { text: 'text-emerald-500 dark:text-emerald-400', tag: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400' },
-                                { text: 'text-blue-500 dark:text-blue-400', tag: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' },
-                                { text: 'text-pink-500 dark:text-pink-400', tag: 'bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400' },
-                                { text: 'text-amber-500 dark:text-amber-400', tag: 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400' },
-                            ];
-                            // Sort categories: use _bookOrder from vocab items, then JLPT level, then alphabetical
-                            const jlptOrder = { 'N5': 1, 'N4': 2, 'N3': 3, 'N2': 4, 'N1': 5 };
-                            const getJlptLevel = (name) => {
-                                const match = name.match(/N[1-5]/i);
-                                return match ? (jlptOrder[match[0].toUpperCase()] || 99) : 99;
-                            };
-                            const getCatOrder = (catName) => {
-                                const items = grouped[catName] || [];
-                                if (items.length > 0 && items[0]._bookOrder !== undefined) return items[0]._bookOrder;
-                                return getJlptLevel(catName);
-                            };
-                            const sortedCatNames = [...allCatNames].sort((a, b) => {
-                                const oa = getCatOrder(a);
-                                const ob = getCatOrder(b);
-                                if (oa !== ob) return oa - ob;
-                                const la = getJlptLevel(a);
-                                const lb = getJlptLevel(b);
-                                if (la !== lb) return la - lb;
-                                return a.localeCompare(b);
-                            });
-                            let colorIndex = 0;
-                            return (
-                                <div className="space-y-4 flex-1 overflow-y-auto max-h-[500px] lg:max-h-none">
-                                    {sortedCatNames.map(catName => {
-                                        const items = grouped[catName] || [];
-                                        if (items.length === 0) return null;
-                                        const color = categoryColors[colorIndex % categoryColors.length];
-                                        colorIndex++;
-                                        return (
-                                            <div key={catName}>
-                                                <div className="flex items-center gap-2 mb-2">
-                                                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${color.tag}`}>
-                                                        {catName}
-                                                    </span>
-                                                    <span className="text-xs text-gray-500 dark:text-gray-400">({items.length})</span>
 
-                                                </div>
-                                                <div className="space-y-1">
-                                                    {items.map((v, i) => renderVocabItem(v, i))}
-                                                </div>
+                            return (
+                                <div className="space-y-6 flex-1 overflow-y-auto max-h-[500px] lg:max-h-none pr-1">
+                                    {/* Kun yomi block */}
+                                    {kunyomiVocab.length > 0 && (
+                                        <div className="space-y-3">
+                                            <div className="flex items-center gap-2 px-3 py-2 bg-amber-50 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/30 rounded-xl sticky top-0 bg-white dark:bg-slate-900/90 z-10">
+                                                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                                                <span className="text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">
+                                                    Kun yomi (Âm Kun)
+                                                </span>
+                                                <span className="text-xs font-bold text-amber-600 dark:text-amber-500/80 ml-auto">({kunyomiVocab.length} từ)</span>
                                             </div>
-                                        );
-                                    })}
-                                    {/* Uncategorized vocab */}
-                                    {uncategorized.length > 0 && (
-                                        <div>
-                                            {sortedCatNames.some(catName => (grouped[catName] || []).length > 0) && (
-                                                <div className="flex items-center gap-2 mb-2 mt-2">
-                                                    <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-cyan-50 dark:bg-cyan-950/30 text-cyan-600 dark:text-cyan-400">
-                                                        Từ vựng từ điển
-                                                    </span>
-                                                    <span className="text-xs text-gray-500 dark:text-gray-400">({uncategorized.length})</span>
-                                                </div>
-                                            )}
-                                            <div className="space-y-1">
-                                                {uncategorized.map((v, i) => renderVocabItem(v, i))}
+                                            <div className="space-y-1.5">
+                                                {kunyomiVocab.map((v, i) => renderVocabItem(v, i))}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* On yomi block */}
+                                    {onyomiVocab.length > 0 && (
+                                        <div className="space-y-3">
+                                            <div className="flex items-center gap-2 px-3 py-2 bg-indigo-50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/30 rounded-xl sticky top-0 bg-white dark:bg-slate-900/90 z-10">
+                                                <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                                                <span className="text-xs font-bold uppercase tracking-wider text-indigo-650 dark:text-indigo-400">
+                                                    On yomi (Âm On)
+                                                </span>
+                                                <span className="text-xs font-bold text-indigo-500 dark:text-indigo-500/80 ml-auto">({onyomiVocab.length} từ)</span>
+                                            </div>
+                                            <div className="space-y-1.5">
+                                                {onyomiVocab.map((v, i) => renderVocabItem(v, i))}
                                             </div>
                                         </div>
                                     )}

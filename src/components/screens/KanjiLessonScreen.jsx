@@ -1198,32 +1198,38 @@ const KanjiFlashcard = ({
                 {/* Usage Examples Section */}
                 <div className="order-5 lg:order-none bg-white dark:bg-slate-800 rounded-3xl border border-gray-100 dark:border-slate-700/60 p-6 shadow-sm">
                     <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-4">Ví dụ sử dụng</span>
-                    <div className="space-y-4 max-h-[300px] overflow-y-auto pr-1">
-                        {vocab.length > 0 ? vocab.map((v, i) => (
+                    {(() => {
+                        if (vocab.length === 0) {
+                            return (
+                                <div className="text-center py-6 text-gray-400 text-sm">
+                                    Chưa có từ vựng cho chữ Kanji này
+                                </div>
+                            );
+                        }
+
+                        const kunyomiVocab = [];
+                        const onyomiVocab = [];
+                        for (const v of vocab) {
+                            const rType = getReadingType(v, kanji);
+                            if (rType === 'Kunyomi') {
+                                kunyomiVocab.push(v);
+                            } else {
+                                onyomiVocab.push(v);
+                            }
+                        }
+
+                        const renderVocabCard = (v, i) => (
                             <div key={v.id || i} className="flex justify-between items-start pb-4 border-b border-gray-50 dark:border-slate-700/30 last:border-0 last:pb-0">
                                 <div className="space-y-1 pr-4 text-left">
                                     <div className="flex items-center gap-2 flex-wrap">
                                         <span className="text-lg font-bold text-gray-900 dark:text-white font-japanese">{v.word}</span>
-                                        {(() => {
-                                            const rType = getReadingType(v, kanji);
-                                            if (rType === 'Kunyomi') {
-                                                return (
-                                                    <span className="bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-1.5 py-0.5 rounded border border-amber-200/50 dark:border-amber-900/30">
-                                                        Kun yomi
-                                                    </span>
-                                                );
-                                            }
-                                            if (rType === 'Onyomi') {
-                                                return (
-                                                    <span className="bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400 text-[10px] font-bold px-1.5 py-0.5 rounded border border-indigo-200/50 dark:border-indigo-900/30">
-                                                        On yomi
-                                                    </span>
-                                                );
-                                            }
-                                            return null;
-                                        })()}
                                         {v.sinoViet && (
                                             <span className="px-1.5 py-0.5 bg-cyan-50 dark:bg-cyan-900/20 text-cyan-600 dark:text-cyan-400 text-[10px] font-bold uppercase rounded">{v.sinoViet}</span>
+                                        )}
+                                        {v.category && (
+                                            <span className="text-[9px] text-gray-400 dark:text-slate-500 border border-gray-100 dark:border-slate-700 px-1 rounded ml-auto">
+                                                {v.category.replace('📚', '').trim()}
+                                            </span>
                                         )}
                                     </div>
                                     <div className="text-xs text-gray-400 dark:text-slate-400 font-medium">{v.reading}</div>
@@ -1237,12 +1243,42 @@ const KanjiFlashcard = ({
                                     <Volume2 className="w-4 h-4" />
                                 </button>
                             </div>
-                        )) : (
-                            <div className="text-center py-6 text-gray-400 text-sm">
-                                Chưa có câu ví dụ cho chữ Kanji này
+                        );
+
+                        return (
+                            <div className="space-y-6 max-h-[300px] overflow-y-auto pr-1">
+                                {kunyomiVocab.length > 0 && (
+                                    <div className="space-y-3">
+                                        <div className="flex items-center gap-2 px-3 py-1.5 bg-amber-50 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/30 rounded-xl sticky top-0 bg-white dark:bg-slate-800 z-10">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                            <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">
+                                                Kun yomi (Âm Kun)
+                                            </span>
+                                            <span className="text-[10px] font-bold text-amber-600 dark:text-amber-500/80 ml-auto">({kunyomiVocab.length})</span>
+                                        </div>
+                                        <div className="space-y-3 pl-1">
+                                            {kunyomiVocab.map((v, i) => renderVocabCard(v, i))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {onyomiVocab.length > 0 && (
+                                    <div className="space-y-3">
+                                        <div className="flex items-center gap-2 px-3 py-1.5 bg-indigo-50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/30 rounded-xl sticky top-0 bg-white dark:bg-slate-800 z-10">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                                            <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-650 dark:text-indigo-400">
+                                                On yomi (Âm On)
+                                              </span>
+                                            <span className="text-[10px] font-bold text-indigo-500 dark:text-indigo-500/80 ml-auto">({onyomiVocab.length})</span>
+                                        </div>
+                                        <div className="space-y-3 pl-1">
+                                            {onyomiVocab.map((v, i) => renderVocabCard(v, i))}
+                                        </div>
+                                    </div>
+                                )}
                             </div>
-                        )}
-                    </div>
+                        );
+                    })()}
                 </div>
             </div>
             {/* Right Column: Widgets */}
