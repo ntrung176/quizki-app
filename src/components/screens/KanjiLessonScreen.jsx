@@ -1218,11 +1218,11 @@ const KanjiFlashcard = ({
                             }
                         }
 
-                        const renderVocabCard = (v, i) => (
+                        const renderVocabCard = (v, i, rType) => (
                             <div key={v.id || i} className="flex justify-between items-start pb-4 border-b border-gray-50 dark:border-slate-700/30 last:border-0 last:pb-0">
                                 <div className="space-y-1 pr-4 text-left">
                                     <div className="flex items-center gap-2 flex-wrap">
-                                        <span className="text-lg font-bold text-gray-900 dark:text-white font-japanese">{v.word}</span>
+                                        <span className={`text-lg font-bold font-japanese ${rType === 'Kunyomi' ? 'text-amber-600 dark:text-amber-400' : 'text-indigo-600 dark:text-indigo-400'}`}>{v.word}</span>
                                         {v.sinoViet && (
                                             <span className="px-1.5 py-0.5 bg-cyan-50 dark:bg-cyan-900/20 text-cyan-600 dark:text-cyan-400 text-[10px] font-bold uppercase rounded">{v.sinoViet}</span>
                                         )}
@@ -1257,7 +1257,7 @@ const KanjiFlashcard = ({
                                             <span className="text-[10px] font-bold text-amber-600 dark:text-amber-500/80 ml-auto">({kunyomiVocab.length})</span>
                                         </div>
                                         <div className="space-y-3 pl-1">
-                                            {kunyomiVocab.map((v, i) => renderVocabCard(v, i))}
+                                            {kunyomiVocab.map((v, i) => renderVocabCard(v, i, 'Kunyomi'))}
                                         </div>
                                     </div>
                                 )}
@@ -1272,7 +1272,7 @@ const KanjiFlashcard = ({
                                             <span className="text-[10px] font-bold text-indigo-500 dark:text-indigo-500/80 ml-auto">({onyomiVocab.length})</span>
                                         </div>
                                         <div className="space-y-3 pl-1">
-                                            {onyomiVocab.map((v, i) => renderVocabCard(v, i))}
+                                            {onyomiVocab.map((v, i) => renderVocabCard(v, i, 'Onyomi'))}
                                         </div>
                                     </div>
                                 )}

@@ -1593,7 +1593,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             };
 
                             // Render a single vocab item
-                            const renderVocabItem = (v, i) => {
+                            const renderVocabItem = (v, i, rType) => {
                                 const isSpecialReading = v.specialReading || false;
                                 const apiPitch = pitchAccentData[v.word];
                                 const storedPitch = v.accent !== undefined && v.accent !== '' ? accentNumberToPitchParts(v.reading, v.accent) : null;
@@ -1604,7 +1604,10 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     if (isSpecialReading) {
                                         return <span className="text-blue-600 dark:text-blue-400 font-japanese font-bold">{wordClean}</span>;
                                     }
-                                    return <span className="text-red-500 dark:text-red-400 font-japanese font-bold">{wordClean}</span>;
+                                    if (rType === 'Kunyomi') {
+                                        return <span className="text-amber-600 dark:text-amber-500 font-japanese font-bold">{wordClean}</span>;
+                                    }
+                                    return <span className="text-indigo-600 dark:text-indigo-400 font-japanese font-bold">{wordClean}</span>;
                                 };
 
                                 const renderReading = () => {
@@ -1798,7 +1801,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                 <span className="text-xs font-bold text-amber-600 dark:text-amber-500/80 ml-auto">({kunyomiVocab.length} từ)</span>
                                             </div>
                                             <div className="space-y-1.5">
-                                                {kunyomiVocab.map((v, i) => renderVocabItem(v, i))}
+                                                {kunyomiVocab.map((v, i) => renderVocabItem(v, i, 'Kunyomi'))}
                                             </div>
                                         </div>
                                     )}
@@ -1814,7 +1817,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                 <span className="text-xs font-bold text-indigo-500 dark:text-indigo-500/80 ml-auto">({onyomiVocab.length} từ)</span>
                                             </div>
                                             <div className="space-y-1.5">
-                                                {onyomiVocab.map((v, i) => renderVocabItem(v, i))}
+                                                {onyomiVocab.map((v, i) => renderVocabItem(v, i, 'Onyomi'))}
                                             </div>
                                         </div>
                                     )}
