@@ -147,10 +147,66 @@ async function main() {
     });
     console.log(`Loaded ${vocabList.length} vocabulary words.`);
 
-    // Count vocabulary words for each Kanji (ignore book vocabularies starting with 📚)
+    // Helper function to convert Katakana to Hiragana
+    function katakanaToHiragana(str) {
+        if (!str) return '';
+        return str.replace(/[\u30a1-\u30f6]/g, function (match) {
+            const chr = match.charCodeAt(0) - 0x60;
+            return String.fromCharCode(chr);
+        });
+    }
+
+    // Helper to parse readings from onyomi/kunyomi fields
+    function parseReadings(fieldValue) {
+        if (!fieldValue) return [];
+        if (Array.isArray(fieldValue)) {
+            return fieldValue.flatMap(x => parseReadings(x));
+        }
+        if (typeof fieldValue === 'string') {
+            return fieldValue.split(/[、,.\/]/).map(x => {
+                const part = x.split('-')[0].split('.')[0].trim();
+                return part;
+            }).filter(Boolean);
+        }
+        return [];
+    }
+
+    // Helper to extract both Onyomi and Kunyomi readings from a Kanji object
+    function getReadings(kanjiObj) {
+        const onyomiList = parseReadings(kanjiObj.onyomi);
+        const kunyomiList = parseReadings(kanjiObj.kunyomi);
+        return { onyomiList, kunyomiList };
+    }
+
+    // Helper to check if a word's pronunciation matches any of the Kanji's Kunyomi readings
+    function isKunReading(wordStr, pronounced, kanjiChar, kunyomiList) {
+        if (kunyomiList.length === 0) return false;
+        const cleanPron = katakanaToHiragana(pronounced);
+        const hiraKunList = kunyomiList.map(k => katakanaToHiragana(k));
+        
+        // Case 1: Word is exactly the Kanji (e.g. "水" read as "みず")
+        if (wordStr === kanjiChar) {
+            return hiraKunList.some(k => cleanPron === k);
+        }
+        
+        // Case 2: Word starts with Kanji followed by okurigana (e.g. "食べる" read as "たべる")
+        if (wordStr.startsWith(kanjiChar)) {
+            const okurigana = wordStr.slice(kanjiChar.length);
+            if (cleanPron.endsWith(okurigana)) {
+                const kanjiReading = cleanPron.slice(0, cleanPron.length - okurigana.length);
+                return hiraKunList.some(k => kanjiReading === k);
+            }
+        }
+        
+        // Case 3: General check - does the pronounced string contain any of the Kunyomi readings?
+        return hiraKunList.some(k => cleanPron.includes(k));
+    }
+
     const kanjiVocabCount = {};
+    const kanjiHasKunVocab = {};
     kanjiList.forEach(k => {
         kanjiVocabCount[k.character] = 0;
+        kanjiHasKunVocab[k.character] = false;
     });
 
     const normalizeWord = (w) => {
@@ -162,29 +218,47 @@ async function main() {
         vocabList.map(v => normalizeWord(v.word))
     );
 
+    // Count vocabulary words and track if Kunyomi word exists for each Kanji
     vocabList.filter(v => !v.category || !v.category.startsWith('📚')).forEach(v => {
-        const chars = (v.word || '').match(/[\u4e00-\u9faf]/g) || [];
+        const wordStr = normalizeWord(v.word);
+        const pronounced = v.reading;
+        const chars = wordStr.match(/[\u4e00-\u9faf]/g) || [];
+        
         chars.forEach(c => {
             if (c in kanjiVocabCount) {
                 kanjiVocabCount[c]++;
+                
+                const kanjiObj = kanjiList.find(k => k.character === c);
+                if (kanjiObj) {
+                    const { kunyomiList } = getReadings(kanjiObj);
+                    if (isKunReading(wordStr, pronounced, c, kunyomiList)) {
+                        kanjiHasKunVocab[c] = true;
+                    }
+                }
             }
         });
     });
 
     const TARGET_VOCAB_COUNT = 10;
-    const lackingKanji = kanjiList.filter(k => kanjiVocabCount[k.character] < TARGET_VOCAB_COUNT);
+    const lackingKanji = kanjiList.filter(k => {
+        const count = kanjiVocabCount[k.character] || 0;
+        const { kunyomiList } = getReadings(k);
+        const needsKun = kunyomiList.length > 0 && !kanjiHasKunVocab[k.character];
+        const needsMore = count < TARGET_VOCAB_COUNT;
+        return needsMore || needsKun;
+    });
 
-    // Prioritize Kanji with 0 vocabulary words, then sort ascending by number of existing words
+    // Prioritize Kanji by number of existing words
     lackingKanji.sort((a, b) => {
         const countA = kanjiVocabCount[a.character] || 0;
         const countB = kanjiVocabCount[b.character] || 0;
         return countA - countB;
     });
 
-    console.log(`Found ${lackingKanji.length} Kanji characters currently having less than ${TARGET_VOCAB_COUNT} vocabulary words.`);
+    console.log(`Found ${lackingKanji.length} Kanji characters lacking enough vocabulary or missing Kunyomi readings.`);
 
     if (lackingKanji.length === 0) {
-        console.log(`🎉 All Kanji characters in the database already have at least ${TARGET_VOCAB_COUNT} vocabulary words!`);
+        console.log(`🎉 All Kanji characters in the database already have at least ${TARGET_VOCAB_COUNT} vocabulary words and their Kunyomi readings!`);
         process.exit(0);
     }
 
@@ -195,9 +269,19 @@ async function main() {
         const kanjiObj = processList[i];
         const char = kanjiObj.character;
         const currentCount = kanjiVocabCount[char] || 0;
-        const wordsNeeded = TARGET_VOCAB_COUNT - currentCount;
+        const { kunyomiList } = getReadings(kanjiObj);
+        const needsKun = kunyomiList.length > 0 && !kanjiHasKunVocab[char];
+        
+        let wordsNeeded = 0;
+        if (currentCount < TARGET_VOCAB_COUNT) {
+            wordsNeeded = TARGET_VOCAB_COUNT - currentCount;
+        } else if (needsKun) {
+            // Need to generate at least 1 Kunyomi vocabulary word
+            wordsNeeded = 1;
+        }
+
         console.log(`[${i + 1}/${processList.length}] Processing Kanji: ${char} (${kanjiObj.sinoViet || 'Không rõ Hán Việt'} - N${kanjiObj.level || '?'})`);
-        console.log(`  Current vocab count: ${currentCount}. Needs ${wordsNeeded} more word(s).`);
+        console.log(`  Current vocab count: ${currentCount}. Has Kunyomi vocab: ${kanjiHasKunVocab[char]}. Needs ${wordsNeeded} more word(s).`);
 
         try {
             // Fetch word candidates from kanjiapi.dev
@@ -211,9 +295,9 @@ async function main() {
             const filtered = data.filter(w => {
                 const wordStr = w.variants[0].written;
                 const pronounced = w.variants[0].pronounced;
-                if (wordStr.length < 2 || wordStr.length > 4) return false;
+                // Allow length 1 words for single Kunyomi nouns
+                if (wordStr.length < 1 || wordStr.length > 4) return false;
                 if (/[a-zA-Z]/.test(wordStr)) return false;
-                // Bỏ qua các từ mượn/từ phiên âm quốc tế (Ateji) thường phát âm bằng Katakana
                 if (/[\u30a0-\u30ff]/.test(pronounced)) return false;
                 if (existingWordsNormalized.has(normalizeWord(wordStr))) return false;
                 return true;
@@ -224,16 +308,39 @@ async function main() {
                 continue;
             }
 
-            // Sort: prioritize priority words, then shorter length
+            // Sort: prioritize Kunyomi words, then priority words, then shorter length
             filtered.sort((a, b) => {
+                const aWord = a.variants[0].written;
+                const aPron = a.variants[0].pronounced;
+                const bWord = b.variants[0].written;
+                const bPron = b.variants[0].pronounced;
+
+                const aIsKun = isKunReading(aWord, aPron, char, kunyomiList);
+                const bIsKun = isKunReading(bWord, bPron, char, kunyomiList);
+
+                if (aIsKun && !bIsKun) return -1;
+                if (!aIsKun && bIsKun) return 1;
+
                 const aHasPriority = a.variants.some(v => v.priorities && v.priorities.length > 0);
                 const bHasPriority = b.variants.some(v => v.priorities && v.priorities.length > 0);
                 if (aHasPriority && !bHasPriority) return -1;
                 if (!aHasPriority && bHasPriority) return 1;
-                return a.variants[0].written.length - b.variants[0].written.length;
+
+                return aWord.length - bWord.length;
             });
 
-            const candidates = filtered.slice(0, wordsNeeded);
+            let candidates = [];
+            if (currentCount >= TARGET_VOCAB_COUNT) {
+                // If we already have 10+ words, only target the missing Kunyomi words
+                candidates = filtered.filter(cand => {
+                    const word = cand.variants[0].written;
+                    const pron = cand.variants[0].pronounced;
+                    return isKunReading(word, pron, char, kunyomiList);
+                }).slice(0, wordsNeeded);
+            } else {
+                candidates = filtered.slice(0, wordsNeeded);
+            }
+
             console.log(`  Selected ${candidates.length} candidate word(s) to generate.`);
 
             for (const cand of candidates) {
