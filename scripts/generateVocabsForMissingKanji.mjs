@@ -89,6 +89,35 @@ async function callOpenRouter(prompt) {
     return JSON.parse(text);
 }
 
+const kanjiCachePath = 'scripts/.cache_kanji.json';
+const vocabCachePath = 'scripts/.cache_vocab.json';
+
+async function getCachedData(cachePath, fetchFn, maxAgeMs = 1800000) { // 30 minutes
+    try {
+        if (fs.existsSync(cachePath)) {
+            const stats = fs.statSync(cachePath);
+            const age = Date.now() - stats.mtimeMs;
+            if (age < maxAgeMs) {
+                console.log(`  [Cache] Loaded from local cache: ${cachePath} (Age: ${Math.round(age / 1000)}s)`);
+                return JSON.parse(fs.readFileSync(cachePath, 'utf8'));
+            }
+        }
+    } catch (e) {
+        console.warn(`  ⚠️ Failed to read cache at ${cachePath}:`, e.message);
+    }
+    
+    console.log(`  [Firestore] Fetching fresh data from network...`);
+    const data = await fetchFn();
+    
+    try {
+        fs.writeFileSync(cachePath, JSON.stringify(data), 'utf8');
+        console.log(`  [Cache] Saved fresh data to: ${cachePath}`);
+    } catch (e) {
+        console.warn(`  ⚠️ Failed to write cache to ${cachePath}:`, e.message);
+    }
+    return data;
+}
+
 async function main() {
     // Authenticate as admin
     const adminEmail = getEnv('VITE_ADMIN_EMAIL');
@@ -103,15 +132,19 @@ async function main() {
     }
 
     // Load Kanjis
-    console.log('Fetching Kanji from Firestore...');
-    const kanjiSnap = await getDocs(collection(db, 'kanji'));
-    const kanjiList = kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+    console.log('Loading Kanjis...');
+    const kanjiList = await getCachedData(kanjiCachePath, async () => {
+        const snap = await getDocs(collection(db, 'kanji'));
+        return snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    });
     console.log(`Loaded ${kanjiList.length} Kanji characters.`);
 
     // Load Vocabularies
-    console.log('Fetching Vocabularies from Firestore...');
-    const vocabSnap = await getDocs(collection(db, 'kanjiVocab'));
-    const vocabList = vocabSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+    console.log('Loading Vocabularies...');
+    const vocabList = await getCachedData(vocabCachePath, async () => {
+        const snap = await getDocs(collection(db, 'kanjiVocab'));
+        return snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    });
     console.log(`Loaded ${vocabList.length} vocabulary words.`);
 
     // Count vocabulary words for each Kanji (ignore book vocabularies starting with 📚)
@@ -260,6 +293,14 @@ QUY TẢC BẮT BUỘC:
 
                 // Add to existingWordsNormalized to prevent duplicates in the same run
                 existingWordsNormalized.add(normalizeWord(vocabData.word));
+
+                // Update local cached vocabList & save file
+                vocabList.push({ id: docRef.id, ...vocabData });
+                try {
+                    fs.writeFileSync(vocabCachePath, JSON.stringify(vocabList), 'utf8');
+                } catch (e) {
+                    console.warn(`  ⚠️ Failed to update cache:`, e.message);
+                }
 
                 // Slight pause to be polite to the APIs
                 await new Promise(r => setTimeout(r, 1000));
