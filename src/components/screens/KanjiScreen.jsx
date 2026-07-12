@@ -1559,6 +1559,62 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                 const apiPitch = pitchAccentData[v.word];
                                 const storedPitch = v.accent !== undefined && v.accent !== '' ? accentNumberToPitchParts(v.reading, v.accent) : null;
                                 const pitchParts = apiPitch || v.pitch || storedPitch;
+
+                                const checkReadingType = () => {
+                                    const kanjiDetail = kanjiMap.get(selectedKanji);
+                                    if (!kanjiDetail || !v.reading) return null;
+                                    
+                                    const toHiragana = (str) => str.replace(/[\u30A1-\u30F6]/g, ch =>
+                                        String.fromCharCode(ch.charCodeAt(0) - 0x60)
+                                    );
+
+                                    const onyomiReadings = [];
+                                    if (kanjiDetail.onyomi) {
+                                        String(kanjiDetail.onyomi || '').split(/[、,]/).forEach(r => {
+                                            const clean = r.trim().replace(/[-\.。]/g, '');
+                                            if (clean) onyomiReadings.push(toHiragana(clean));
+                                        });
+                                    }
+
+                                    const kunyomiReadings = [];
+                                    if (kanjiDetail.kunyomi) {
+                                        String(kanjiDetail.kunyomi || '').split(/[、,]/).forEach(r => {
+                                            const clean = r.trim().split('.')[0].replace(/[-。]/g, '');
+                                            if (clean) kunyomiReadings.push(toHiragana(clean));
+                                        });
+                                    }
+
+                                    const hiraReading = toHiragana(v.reading);
+                                    const wordClean = (v.word || '').split('（')[0].split('(')[0].trim();
+
+                                    // Check Case 1: Word starts with/equals target Kanji
+                                    if (wordClean.startsWith(selectedKanji)) {
+                                        const okurigana = wordClean.slice(selectedKanji.length);
+                                        // If it has okurigana (e.g. 食べる)
+                                        if (okurigana && hiraReading.endsWith(toHiragana(okurigana))) {
+                                            const kanjiPart = hiraReading.slice(0, hiraReading.length - toHiragana(okurigana).length);
+                                            if (kunyomiReadings.includes(kanjiPart)) return 'Kunyomi';
+                                            if (onyomiReadings.includes(kanjiPart)) return 'Onyomi';
+                                        }
+                                        // If it's a single kanji word (e.g. 水)
+                                        if (wordClean === selectedKanji) {
+                                            if (kunyomiReadings.includes(hiraReading)) return 'Kunyomi';
+                                            if (onyomiReadings.includes(hiraReading)) return 'Onyomi';
+                                        }
+                                    }
+
+                                    // Fallback: does reading contain Kun or On readings?
+                                    const hasKun = kunyomiReadings.some(kr => hiraReading.includes(kr));
+                                    const hasOn = onyomiReadings.some(or => hiraReading.includes(or));
+                                    
+                                    if (hasKun && !hasOn) return 'Kunyomi';
+                                    if (hasOn && !hasKun) return 'Onyomi';
+                                    
+                                    // Default fallback: 1-character word is usually Kun, multi-character word is usually On
+                                    if (wordClean.length === 1) return 'Kunyomi';
+                                    return 'Onyomi';
+                                };
+
                                 const renderWord = () => {
                                     const wordClean = (v.word || '').split('（')[0].split('(')[0].trim();
                                     if (isSpecialReading) {
@@ -1664,6 +1720,24 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             <div className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
                                                 {renderWord()}
                                                 <span className="text-slate-800 dark:text-slate-200 font-medium">（</span>{renderReading()}<span className="text-slate-800 dark:text-slate-200 font-medium">）</span>
+                                                {(() => {
+                                                    const rType = checkReadingType();
+                                                    if (rType === 'Kunyomi') {
+                                                        return (
+                                                            <span className="bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-1.5 py-0.5 rounded border border-amber-200/50 dark:border-amber-900/30">
+                                                                Kun yomi
+                                                            </span>
+                                                        );
+                                                    }
+                                                    if (rType === 'Onyomi') {
+                                                        return (
+                                                            <span className="bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400 text-[10px] font-bold px-1.5 py-0.5 rounded border border-indigo-200/50 dark:border-indigo-900/30">
+                                                                On yomi
+                                                            </span>
+                                                        );
+                                                    }
+                                                    return null;
+                                                })()}
                                                 <span className="text-cyan-600 dark:text-cyan-500 font-bold uppercase text-xs ml-3">{v.sinoViet ? `[${v.sinoViet}]` : ''}</span>
                                             </div>
                                             {/* Line 2: Vietnamese Meaning */}

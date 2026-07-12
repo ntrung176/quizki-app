@@ -992,6 +992,58 @@ const KanjiFlashcard = ({
     level,
     day
 }) => {
+    const getReadingType = (v, kanjiObj) => {
+        if (!kanjiObj || !v.reading) return null;
+        
+        const toHiragana = (str) => str.replace(/[\u30A1-\u30F6]/g, ch =>
+            String.fromCharCode(ch.charCodeAt(0) - 0x60)
+        );
+
+        const onyomiReadings = [];
+        if (kanjiObj.onyomi) {
+            const onyomiStr = Array.isArray(kanjiObj.onyomi) ? kanjiObj.onyomi.join('、') : kanjiObj.onyomi;
+            onyomiStr.split(/[、,]/).forEach(r => {
+                const clean = r.trim().replace(/[-\.。]/g, '');
+                if (clean) onyomiReadings.push(toHiragana(clean));
+            });
+        }
+
+        const kunyomiReadings = [];
+        if (kanjiObj.kunyomi) {
+            const kunyomiStr = Array.isArray(kanjiObj.kunyomi) ? kanjiObj.kunyomi.join('、') : kanjiObj.kunyomi;
+            kunyomiStr.split(/[、,]/).forEach(r => {
+                const clean = r.trim().split('.')[0].replace(/[-]./g, '');
+                if (clean) kunyomiReadings.push(toHiragana(clean));
+            });
+        }
+
+        const hiraReading = toHiragana(v.reading);
+        const wordClean = (v.word || '').split('（')[0].split('(')[0].trim();
+        const targetChar = kanjiObj.character;
+
+        if (wordClean.startsWith(targetChar)) {
+            const okurigana = wordClean.slice(targetChar.length);
+            if (okurigana && hiraReading.endsWith(toHiragana(okurigana))) {
+                const kanjiPart = hiraReading.slice(0, hiraReading.length - toHiragana(okurigana).length);
+                if (kunyomiReadings.includes(kanjiPart)) return 'Kunyomi';
+                if (onyomiReadings.includes(kanjiPart)) return 'Onyomi';
+            }
+            if (wordClean === targetChar) {
+                if (kunyomiReadings.includes(hiraReading)) return 'Kunyomi';
+                if (onyomiReadings.includes(hiraReading)) return 'Onyomi';
+            }
+        }
+
+        const hasKun = kunyomiReadings.some(kr => hiraReading.includes(kr));
+        const hasOn = onyomiReadings.some(or => hiraReading.includes(or));
+        
+        if (hasKun && !hasOn) return 'Kunyomi';
+        if (hasOn && !hasKun) return 'Onyomi';
+        
+        if (wordClean.length === 1) return 'Kunyomi';
+        return 'Onyomi';
+    };
+
     const isBookmarked = kanji?.id && srsAddedSet.has(kanji.id);
     const handleBookmarkToggle = async () => {
         if (!kanji?.id || !userId) return;
@@ -1152,6 +1204,24 @@ const KanjiFlashcard = ({
                                 <div className="space-y-1 pr-4 text-left">
                                     <div className="flex items-center gap-2 flex-wrap">
                                         <span className="text-lg font-bold text-gray-900 dark:text-white font-japanese">{v.word}</span>
+                                        {(() => {
+                                            const rType = getReadingType(v, kanji);
+                                            if (rType === 'Kunyomi') {
+                                                return (
+                                                    <span className="bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-1.5 py-0.5 rounded border border-amber-200/50 dark:border-amber-900/30">
+                                                        Kun yomi
+                                                    </span>
+                                                );
+                                            }
+                                            if (rType === 'Onyomi') {
+                                                return (
+                                                    <span className="bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400 text-[10px] font-bold px-1.5 py-0.5 rounded border border-indigo-200/50 dark:border-indigo-900/30">
+                                                        On yomi
+                                                    </span>
+                                                );
+                                            }
+                                            return null;
+                                        })()}
                                         {v.sinoViet && (
                                             <span className="px-1.5 py-0.5 bg-cyan-50 dark:bg-cyan-900/20 text-cyan-600 dark:text-cyan-400 text-[10px] font-bold uppercase rounded">{v.sinoViet}</span>
                                         )}
