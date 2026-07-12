@@ -9,6 +9,7 @@ import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, AI_FEATURES,
 import { showConfirm } from '../../utils/toast';
 import { playAudio, generateAudioSilent } from '../../utils/audio';
 import { aiNormalizeVerbs, aiScanVerbsForNormalization, aiFixFuriganaFormat, aiRecreateVocabulary } from '../../utils/aiProvider';
+import { syncKanjiAndVocabToCDN } from '../../utils/kanjiService';
 
 const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, adminConfig, isAdmin }) => {
     // State
@@ -717,32 +718,14 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const syncKanjiAndVocab = async (silent = false) => {
         if (!silent) {
             setSyncingCache(prev => ({ ...prev, kanji: true }));
-            setSyncProgress('Đang tải dữ liệu Kanji từ Firestore...');
+            setSyncProgress('Đang đồng bộ dữ liệu Kanji & Từ vựng lên CDN...');
         }
         try {
-            const kanjiList = await fetchAllKanjiData();
-            if (!silent) setSyncProgress('Đang tải dữ liệu Từ vựng từ Firestore...');
-            const vocabList = await fetchAllVocabData();
-            if (!silent) setSyncProgress('Đang tải Danh mục từ vựng...');
-            const categories = await fetchAllVocabCategories();
-
-            if (!silent) setSyncProgress('Đang tải file lên Cloud Storage CDN...');
-            const kanjiUrl = await uploadCacheFile('kanji_data.json', kanjiList);
-            const vocabUrl = await uploadCacheFile('vocab_data.json', vocabList);
-            const vocabCategoriesUrl = await uploadCacheFile('vocab_categories.json', categories);
-
-            const exportedAt = Date.now();
-            await setDoc(doc(db, `artifacts/${appId}/settings/cacheConfig`), {
-                kanjiUrl,
-                vocabUrl,
-                vocabCategoriesUrl,
-                exportedAt
-            }, { merge: true });
-
+            const result = await syncKanjiAndVocabToCDN();
             if (!silent) {
                 setNotification({ type: 'success', message: 'Đồng bộ Kanji & Từ vựng thành công!' });
             }
-            return { kanjiUrl, vocabUrl, vocabCategoriesUrl, exportedAt };
+            return result;
         } catch (error) {
             console.error('Error syncing Kanji & Vocab:', error);
             if (!silent) {

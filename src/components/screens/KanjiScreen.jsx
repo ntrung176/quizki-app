@@ -12,7 +12,7 @@ import HanziWriter from 'hanzi-writer';
 import { showToast, showConfirm } from '../../utils/toast';
 import { renderStrokeGuide, renderMaziiStyleKanji } from '../../utils/kanjiStroke';
 import { RADICALS_214, KANJI_TREE } from '../../data/radicals214';
-import { getSharedKanjiList, getSharedVocabList, getSharedVocabCategories, updateCachedKanji, deleteCachedKanji, updateCachedVocab, deleteCachedVocab, getCachedKanjiList, getCachedVocabList, getCachedVocabCategories } from '../../utils/kanjiService';
+import { getSharedKanjiList, getSharedVocabList, getSharedVocabCategories, updateCachedKanji, deleteCachedKanji, updateCachedVocab, deleteCachedVocab, getCachedKanjiList, getCachedVocabList, getCachedVocabCategories, syncKanjiAndVocabToCDN } from '../../utils/kanjiService';
 import { JOTOBA_KANJI_DATA, getJotobaKanjiChars, getJotobaKanjiData } from '../../data/jotobaKanjiData'
 import { TopTabBar, PremiumLockedModal } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
@@ -78,6 +78,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     const [showEditVocabModal, setShowEditVocabModal] = useState(false);
     const [editingKanji, setEditingKanji] = useState(null);
     const [editingVocab, setEditingVocab] = useState(null);
+    const [syncingCDN, setSyncingCDN] = useState(false);
     // Vocab Categories
     const [vocabCategories, setVocabCategories] = useState(() => getCachedVocabCategories() || []);
     const [showCategoryModal, setShowCategoryModal] = useState(false);
@@ -110,7 +111,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     const recognitionTimeoutRef = useRef(null);
 
     const pureKanjiVocabList = useMemo(() => {
-        return vocabList.filter(v => !v.category || !v.category.startsWith('📚'));
+        return vocabList;
     }, [vocabList]);
 
     // Load user's saved Kanji SRS items on mount
@@ -439,8 +440,19 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             }
         };
 
+        const handleCacheReloaded = (e) => {
+            const { kanjiList, vocabList, categories } = e.detail;
+            if (kanjiList) setKanjiList(kanjiList);
+            if (vocabList) setVocabList(vocabList);
+            if (categories) setVocabCategories(categories);
+        };
+
         window.addEventListener('kanji-cache-updated', handleCacheUpdate);
-        return () => window.removeEventListener('kanji-cache-updated', handleCacheUpdate);
+        window.addEventListener('kanji-cache-reloaded', handleCacheReloaded);
+        return () => {
+            window.removeEventListener('kanji-cache-updated', handleCacheUpdate);
+            window.removeEventListener('kanji-cache-reloaded', handleCacheReloaded);
+        };
     }, []);
     // Auto-open detail if :char param or ?char= param is present
     // FAST PATH: Open immediately using static Jotoba data, don't wait for full Firebase load
@@ -1127,6 +1139,26 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         } catch (e) {
             console.error('Lỗi khi đồng bộ Hán tự:', e);
             showToast('Đồng bộ thất bại: ' + e.message, 'error');
+        }
+    };
+
+    const handleCDNSync = async () => {
+        const confirmed = await showConfirm(
+            'Bạn có chắc chắn muốn xuất toàn bộ dữ liệu Kanji & Từ vựng mới nhất sang CDN Cloud Storage không? Dữ liệu trên ứng dụng của tất cả người dùng sẽ được đồng bộ ngay lập tức.',
+            { type: 'info', confirmText: 'Đồng bộ CDN' }
+        );
+        if (!confirmed) return;
+
+        setSyncingCDN(true);
+        showToast('Đang tải và cập nhật dữ liệu CDN...', 'info');
+        try {
+            await syncKanjiAndVocabToCDN();
+            showToast('Đồng bộ CDN thành công!', 'success');
+        } catch (err) {
+            console.error('Lỗi đồng bộ CDN:', err);
+            showToast('Đồng bộ CDN thất bại: ' + err.message, 'error');
+        } finally {
+            setSyncingCDN(false);
         }
     };
     // Edit Vocab
@@ -2104,12 +2136,15 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 {isAdmin && (
                     <div className="bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/50 rounded-3xl p-5 shadow-sm space-y-3">
                         <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Admin Control Panel</p>
-                        <div className="grid grid-cols-3 gap-3">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                             <button onClick={() => setShowAddKanjiModal(true)} className="py-2.5 bg-slate-50 dark:bg-slate-700/40 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl font-bold text-xs text-slate-700 dark:text-slate-300 border border-slate-250 dark:border-slate-650 transition-all flex items-center justify-center gap-1.5 shadow-sm">
                                 <Plus className="w-4 h-4 text-sky-500" /> Thêm Hán tự
                             </button>
                             <button onClick={handleSyncVocabToKanji} className="py-2.5 bg-slate-50 dark:bg-slate-700/40 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl font-bold text-xs text-slate-700 dark:text-slate-300 border border-slate-250 dark:border-slate-650 transition-all flex items-center justify-center gap-1.5 shadow-sm">
                                 <RefreshCw className="w-4 h-4 text-emerald-500" /> Đồng bộ Hán tự
+                            </button>
+                            <button onClick={handleCDNSync} disabled={syncingCDN} className="py-2.5 bg-slate-50 dark:bg-slate-700/40 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl font-bold text-xs text-slate-700 dark:text-slate-300 border border-slate-250 dark:border-slate-650 transition-all flex items-center justify-center gap-1.5 shadow-sm disabled:opacity-50">
+                                <Wifi className={`w-4 h-4 text-indigo-500 ${syncingCDN ? 'animate-spin' : ''}`} /> Đồng bộ CDN
                             </button>
                             <button
                                 onClick={() => { setBulkSelectMode(!bulkSelectMode); setSelectedKanjiIds([]); setSelectedVocabIds([]); }}

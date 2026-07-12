@@ -1,5 +1,6 @@
-import { db } from '../config/firebase';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db, storage, appId } from '../config/firebase';
+import { collection, getDocs, query, where, doc, setDoc } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getCacheConfig } from './cacheConfigService';
 
 // In-memory module cache
@@ -258,4 +259,51 @@ export const deleteCachedVocab = (vocabId) => {
 export const getCachedKanjiList = () => cachedKanjiList;
 export const getCachedVocabList = () => cachedVocabList;
 export const getCachedVocabCategories = () => cachedVocabCategories;
+
+export const syncKanjiAndVocabToCDN = async () => {
+    // 1. Fetch all kanji data
+    const kanjiSnap = await getDocs(collection(db, 'kanji'));
+    const kanjiList = kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+    // 2. Fetch all vocab data
+    const vocabSnap = await getDocs(collection(db, 'kanjiVocab'));
+    const vocabList = vocabSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+    // 3. Fetch all categories
+    const categoriesSnap = await getDocs(collection(db, 'vocabCategories'));
+    const categories = categoriesSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+    // 4. Upload cache files to Firebase Storage
+    const uploadFile = async (fileName, data) => {
+        const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+        const fileRef = ref(storage, `cache/${appId}/${fileName}`);
+        await uploadBytes(fileRef, blob);
+        return getDownloadURL(fileRef);
+    };
+
+    const kanjiUrl = await uploadFile('kanji_data.json', kanjiList);
+    const vocabUrl = await uploadFile('vocab_data.json', vocabList);
+    const vocabCategoriesUrl = await uploadFile('vocab_categories.json', categories);
+
+    const exportedAt = Date.now();
+    await setDoc(doc(db, `artifacts/${appId}/settings/cacheConfig`), {
+        kanjiUrl,
+        vocabUrl,
+        vocabCategoriesUrl,
+        exportedAt
+    }, { merge: true });
+
+    // Update the local in-memory cache directly!
+    cachedKanjiList = kanjiList;
+    cachedVocabList = vocabList;
+    cachedVocabCategories = categories;
+
+    // Dispatch custom event to tell all listeners that the entire cache has been reloaded/updated!
+    window.dispatchEvent(new CustomEvent('kanji-cache-reloaded', {
+        detail: { kanjiList, vocabList, categories }
+    }));
+
+    return { kanjiUrl, vocabUrl, vocabCategoriesUrl, exportedAt };
+};
+
 

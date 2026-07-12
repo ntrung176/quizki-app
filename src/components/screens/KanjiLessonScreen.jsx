@@ -204,8 +204,18 @@ const KanjiLessonScreen = ({ awardXP }) => {
             }
         };
 
+        const handleCacheReloaded = (e) => {
+            const { kanjiList, vocabList } = e.detail;
+            if (kanjiList) setKanjiList(kanjiList);
+            if (vocabList) setVocabList(vocabList);
+        };
+
         window.addEventListener('kanji-cache-updated', handleCacheUpdate);
-        return () => window.removeEventListener('kanji-cache-updated', handleCacheUpdate);
+        window.addEventListener('kanji-cache-reloaded', handleCacheReloaded);
+        return () => {
+            window.removeEventListener('kanji-cache-updated', handleCacheUpdate);
+            window.removeEventListener('kanji-cache-reloaded', handleCacheReloaded);
+        };
     }, []);
     // Keep module cache in sync with UI state so back-navigation restores correctly
     useEffect(() => {
