@@ -28,6 +28,8 @@ const LEVEL_COLORS = {
     N1: { bg: 'bg-rose-500 dark:bg-rose-600/80', hover: 'hover:bg-rose-600 dark:hover:bg-rose-500', text: 'text-white' },
     'Bộ thủ': { bg: 'bg-orange-500 dark:bg-orange-600/80', hover: 'hover:bg-orange-600 dark:hover:bg-orange-500', text: 'text-white' },
     'Mới thêm': { bg: 'bg-indigo-500 dark:bg-indigo-600/80', hover: 'hover:bg-indigo-600 dark:hover:bg-indigo-500', text: 'text-white' },
+    'Chưa có từ vựng': { bg: 'bg-fuchsia-500 dark:bg-fuchsia-600/80', hover: 'hover:bg-fuchsia-600 dark:hover:bg-fuchsia-500', text: 'text-white' },
+    'Đã có từ vựng': { bg: 'bg-teal-500 dark:bg-teal-600/80', hover: 'hover:bg-teal-600 dark:hover:bg-teal-500', text: 'text-white' },
 };
 // Tab colors for level selector
 const LEVEL_TAB_COLORS = {
@@ -38,6 +40,8 @@ const LEVEL_TAB_COLORS = {
     N1: 'bg-rose-500 text-white shadow-md shadow-rose-900/50',
     'Bộ thủ': 'bg-orange-500 text-white shadow-md shadow-orange-200 dark:shadow-orange-900/50',
     'Mới thêm': 'bg-indigo-500 text-white shadow-md shadow-indigo-200 dark:shadow-indigo-900/50',
+    'Chưa có từ vựng': 'bg-fuchsia-500 text-white shadow-md shadow-fuchsia-200 dark:shadow-fuchsia-900/50',
+    'Đã có từ vựng': 'bg-teal-500 text-white shadow-md shadow-teal-200 dark:shadow-teal-900/50',
 };
 const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUserCards = [], profile = null, folders = [], userId, awardXP }) => {
     const fadeWholePage = useMenuTransition();
@@ -104,6 +108,10 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     const handwritingStrokesRef = useRef([]); // stores [[xs, ys], ...] for each stroke
     const currentStrokeRef = useRef({ xs: [], ys: [] });
     const recognitionTimeoutRef = useRef(null);
+
+    const pureKanjiVocabList = useMemo(() => {
+        return vocabList.filter(v => !v.category || !v.category.startsWith('📚'));
+    }, [vocabList]);
 
     // Load user's saved Kanji SRS items on mount
     useEffect(() => {
@@ -226,7 +234,9 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                     pos: v.pos || '',
                     level: v.level || '',
                     sinoVietnamese: v.sinoViet || '',
-                    synonymSinoVietnamese: '',
+                    synonymSinoVietnamese: v.synonymSinoVietnamese || '',
+                    reading: v.reading || '',
+                    accent: v.accent !== undefined ? String(v.accent) : '0',
                     imageBase64: null,
                     audioBase64: null,
                     action: 'stay',
@@ -578,6 +588,22 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 .filter(k => k.updatedAt)
                 .sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
             sorted = list.map(k => k.character);
+        } else if (selectedLevel === 'Chưa có từ vựng') {
+            const kanjiInVocab = new Set();
+            pureKanjiVocabList.forEach(v => {
+                const chars = (v.word || '').match(/[\u4e00-\u9faf]/g) || [];
+                chars.forEach(c => kanjiInVocab.add(c));
+            });
+            const list = kanjiList.filter(k => !kanjiInVocab.has(k.character));
+            sorted = list.map(k => k.character);
+        } else if (selectedLevel === 'Đã có từ vựng') {
+            const kanjiInVocab = new Set();
+            pureKanjiVocabList.forEach(v => {
+                const chars = (v.word || '').match(/[\u4e00-\u9faf]/g) || [];
+                chars.forEach(c => kanjiInVocab.add(c));
+            });
+            const list = kanjiList.filter(k => kanjiInVocab.has(k.character));
+            sorted = list.map(k => k.character);
         } else {
             const jotobaChars = getJotobaKanjiChars(selectedLevel);
             const firebaseChars = [];
@@ -607,23 +633,23 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             if (k.includes(query)) return true;
             const fData = kanjiMap.get(k);
             if (fData) {
-                if (fData.meaning?.toLowerCase().includes(query)) return true;
-                if (fData.sinoViet?.toLowerCase().includes(query)) return true;
-                if (fData.onyomi?.toLowerCase().includes(query)) return true;
-                if (fData.kunyomi?.toLowerCase().includes(query)) return true;
+                if (fData.meaning && String(fData.meaning).toLowerCase().includes(query)) return true;
+                if (fData.sinoViet && String(fData.sinoViet).toLowerCase().includes(query)) return true;
+                if (fData.onyomi && String(fData.onyomi).toLowerCase().includes(query)) return true;
+                if (fData.kunyomi && String(fData.kunyomi).toLowerCase().includes(query)) return true;
                 return false;
             }
             const jData = getJotobaKanjiData(k);
             if (jData) {
-                if (jData.meaningVi?.toLowerCase().includes(query)) return true;
-                if (jData.meanings?.some(m => m.toLowerCase().includes(query))) return true;
-                if (jData.sinoViet?.toLowerCase().includes(query)) return true;
-                if (jData.onyomi?.some(o => o.toLowerCase().includes(query))) return true;
-                if (jData.kunyomi?.some(o => o.toLowerCase().includes(query))) return true;
+                if (jData.meaningVi && String(jData.meaningVi).toLowerCase().includes(query)) return true;
+                if (jData.meanings?.some(m => m && String(m).toLowerCase().includes(query))) return true;
+                if (jData.sinoViet && String(jData.sinoViet).toLowerCase().includes(query)) return true;
+                if (jData.onyomi?.some(o => o && String(o).toLowerCase().includes(query))) return true;
+                if (jData.kunyomi?.some(o => o && String(o).toLowerCase().includes(query))) return true;
             }
             return false;
         });
-    }, [selectedLevel, kanjiMap, kanjiList, searchQuery]);
+    }, [selectedLevel, kanjiMap, kanjiList, pureKanjiVocabList, searchQuery]);
 
     const displayedKanjiList = useMemo(() => {
         if (selectedLevel === 'Bộ thủ') return currentKanjiList;
@@ -637,15 +663,29 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             filtered = kanjiList
                 .filter(k => k.updatedAt)
                 .sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
+        } else if (selectedLevel === 'Chưa có từ vựng') {
+            const kanjiInVocab = new Set();
+            pureKanjiVocabList.forEach(v => {
+                const chars = (v.word || '').match(/[\u4e00-\u9faf]/g) || [];
+                chars.forEach(c => kanjiInVocab.add(c));
+            });
+            filtered = kanjiList.filter(k => !kanjiInVocab.has(k.character));
+        } else if (selectedLevel === 'Đã có từ vựng') {
+            const kanjiInVocab = new Set();
+            pureKanjiVocabList.forEach(v => {
+                const chars = (v.word || '').match(/[\u4e00-\u9faf]/g) || [];
+                chars.forEach(c => kanjiInVocab.add(c));
+            });
+            filtered = kanjiList.filter(k => kanjiInVocab.has(k.character));
         } else {
             filtered = kanjiList.filter(k => k.level === selectedLevel);
         }
         if (searchQuery.trim()) {
             const query = searchQuery.toLowerCase().trim();
-            filtered = filtered.filter(k => k.character.includes(query) || k.meaning?.toLowerCase().includes(query) || k.sinoViet?.toLowerCase().includes(query));
+            filtered = filtered.filter(k => k.character.includes(query) || (k.meaning && String(k.meaning).toLowerCase().includes(query)) || (k.sinoViet && String(k.sinoViet).toLowerCase().includes(query)));
         }
         return filtered;
-    }, [selectedLevel, kanjiList, searchQuery]);
+    }, [selectedLevel, kanjiList, pureKanjiVocabList, searchQuery]);
     // Calculate completed count for level
     const completedCount = useMemo(() => {
         const savedKanjiSet = new Set(allUserCards.map(c => c.front || c.character).filter(Boolean));
@@ -660,30 +700,29 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         const seenChars = new Set();
         // Helper: compute match priority score (lower = higher priority)
         const getMatchScore = (char, sinoViet, meaning, meanings, onyomi, kunyomi) => {
+            const cleanSino = sinoViet ? String(sinoViet).toLowerCase() : '';
+            const cleanMeaning = meaning ? String(meaning).toLowerCase() : '';
             // Exact sinoViet match
-            if (sinoViet?.toLowerCase() === query) return 0;
+            if (cleanSino === query) return 0;
             // sinoViet starts with query
-            if (sinoViet?.toLowerCase().startsWith(query)) return 1;
+            if (cleanSino.startsWith(query)) return 1;
             // sinoViet contains query
-            if (sinoViet?.toLowerCase().includes(query)) return 2;
+            if (cleanSino.includes(query)) return 2;
             // Exact character match
             if (char === query) return 3;
             // Meaning exact match
-            if (meaning?.toLowerCase() === query) return 4;
+            if (cleanMeaning === query) return 4;
             // Meaning/meanings contain query
-            if (meaning?.toLowerCase().includes(query)) return 5;
-            if (meanings?.some(m => m.toLowerCase().includes(query))) return 5;
+            if (cleanMeaning.includes(query)) return 5;
+            if (meanings?.some(m => m && String(m).toLowerCase().includes(query))) return 5;
 
             // Handle onyomi/kunyomi (either array or string)
             const checkReading = (readingVal) => {
                 if (!readingVal) return false;
                 if (Array.isArray(readingVal)) {
-                    return readingVal.some(r => r.toLowerCase().includes(query));
+                    return readingVal.some(r => r && String(r).toLowerCase().includes(query));
                 }
-                if (typeof readingVal === 'string') {
-                    return readingVal.toLowerCase().includes(query);
-                }
-                return false;
+                return String(readingVal).toLowerCase().includes(query);
             };
 
             if (checkReading(onyomi)) return 6;
@@ -805,7 +844,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     };
     // Get vocab containing this kanji (from kanjiVocab + linked book vocab)
     const getVocabForKanji = (char) => {
-        return vocabList.filter(v => (v.word || '').includes(char));
+        return pureKanjiVocabList.filter(v => (v.word || '').includes(char));
     };
     // Get related kanji (from same level or other kanji in Firebase)
     const getRelatedKanji = (char) => {
@@ -998,6 +1037,89 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             deleteCachedKanji(kanjiId);
         } catch (e) {
             console.error('Error deleting kanji:', e);
+        }
+    };
+    // Sync missing Kanji from Vocabulary list
+    const handleSyncVocabToKanji = async () => {
+        const kanjiInVocab = new Set();
+        pureKanjiVocabList.forEach(v => {
+            const chars = (v.word || '').match(/[\u4e00-\u9faf]/g) || [];
+            chars.forEach(c => kanjiInVocab.add(c));
+        });
+
+        const missingKanji = [...kanjiInVocab].filter(char => !kanjiList.some(k => k.character === char));
+
+        if (missingKanji.length === 0) {
+            showToast('Tất cả chữ Hán tự trong từ vựng đã tồn tại trong cơ sở dữ liệu!', 'info');
+            return;
+        }
+
+        const confirmed = await showConfirm(
+            `Tìm thấy ${missingKanji.length} chữ Hán tự trong từ vựng chưa có trong cơ sở dữ liệu. Bạn có muốn đồng bộ và tự động thêm các chữ này không?`,
+            { type: 'info', confirmText: 'Đồng bộ' }
+        );
+
+        if (!confirmed) return;
+
+        try {
+            const BATCH_SIZE = 450;
+            const now = Date.now();
+            const addedKanjiList = [];
+
+            for (let i = 0; i < missingKanji.length; i += BATCH_SIZE) {
+                const batch = writeBatch(db);
+                const chunk = missingKanji.slice(i, i + BATCH_SIZE);
+
+                for (const char of chunk) {
+                    const docRef = doc(collection(db, 'kanji'));
+                    const k = getJotobaKanjiData(char);
+
+                    let kanjiData;
+                    if (k) {
+                        kanjiData = {
+                            character: k.literal,
+                            meaning: k.meaningVi || k.meanings?.join(', ') || '',
+                            meaningVi: k.meaningVi || '',
+                            sinoViet: k.sinoViet || '',
+                            onyomi: k.onyomi?.join('、') || '',
+                            kunyomi: k.kunyomi?.join('、') || '',
+                            level: k.level || 'N1',
+                            strokeCount: String(k.stroke_count || ''),
+                            mnemonic: '',
+                            parts: (k.parts || []).join('、'),
+                            updatedAt: now
+                        };
+                    } else {
+                        kanjiData = {
+                            character: char,
+                            meaning: 'Hán tự tự động đồng bộ từ từ vựng',
+                            meaningVi: 'Hán tự tự động đồng bộ từ từ vựng',
+                            sinoViet: '',
+                            onyomi: '',
+                            kunyomi: '',
+                            level: 'N1',
+                            strokeCount: '',
+                            mnemonic: '',
+                            parts: '',
+                            updatedAt: now
+                        };
+                    }
+
+                    batch.set(docRef, kanjiData);
+                    addedKanjiList.push({ ...kanjiData, id: docRef.id });
+                }
+
+                await batch.commit();
+            }
+
+            // Update state and cache
+            setKanjiList(prev => [...prev, ...addedKanjiList]);
+            addedKanjiList.forEach(k => updateCachedKanji(k));
+
+            showToast(`Đã đồng bộ thành công ${addedKanjiList.length} chữ Hán tự mới!`, 'success');
+        } catch (e) {
+            console.error('Lỗi khi đồng bộ Hán tự:', e);
+            showToast('Đồng bộ thất bại: ' + e.message, 'error');
         }
     };
     // Edit Vocab
@@ -1200,8 +1322,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             <p className="text-xs text-gray-500 dark:text-slate-400 mb-1.5 px-1 font-medium">Hướng dẫn nét viết</p>
                             <div
                                 ref={strokeGuideRef}
-                                className="flex gap-0.5 overflow-x-auto pb-1 scrollbar-thin"
-                                style={{ scrollbarWidth: 'thin' }}
+                                className="flex flex-wrap gap-1 pb-1"
                             />
                         </div>
                     </div>
@@ -1405,21 +1526,6 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             <h3 className="text-orange-500 dark:text-orange-400 font-medium flex items-center gap-1.5">
                                 <Tag className="w-4 h-4" /> Từ vựng ({vocab.length})
                             </h3>
-                            <div className="flex items-center gap-2">
-                                {onAddVocabToSRS && vocab.length > 0 && (
-                                    <button
-                                        onClick={() => handleAddAllVocabToSRS(vocab)}
-                                        disabled={addingAllVocab}
-                                        className="flex items-center gap-1 px-2 py-1 text-xs bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 rounded-lg hover:bg-cyan-200 dark:hover:bg-cyan-800/40 transition-colors font-medium disabled:opacity-50"
-                                    >
-                                        {addingAllVocab ? (
-                                            <><div className="w-3 h-3 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin"></div> Đang thêm...</>
-                                        ) : (
-                                            <><Plus className="w-3 h-3" /> Thêm tất cả</>
-                                        )}
-                                    </button>
-                                )}
-                            </div>
                         </div>
                         {/* Render vocab grouped by category */}
                         {(() => {
@@ -1447,10 +1553,11 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                 const storedPitch = v.accent !== undefined && v.accent !== '' ? accentNumberToPitchParts(v.reading, v.accent) : null;
                                 const pitchParts = apiPitch || v.pitch || storedPitch;
                                 const renderWord = () => {
+                                    const wordClean = (v.word || '').split('（')[0].split('(')[0].trim();
                                     if (isSpecialReading) {
-                                        return <span className="text-blue-400 font-japanese font-bold">{v.word}</span>;
+                                        return <span className="text-blue-600 dark:text-blue-400 font-japanese font-bold">{wordClean}</span>;
                                     }
-                                    return <span className="text-orange-400 font-japanese font-bold">{v.word}</span>;
+                                    return <span className="text-red-500 dark:text-red-400 font-japanese font-bold">{wordClean}</span>;
                                 };
                                 const renderReading = () => {
                                     if (!v.reading) return null;
@@ -1518,7 +1625,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                                     paddingRight: '1px',
                                                                 }}
                                                             >
-                                                                <span className={isHighlighted ? 'text-blue-400' : 'text-gray-400'}>{char}</span>
+                                                                <span className={isHighlighted ? 'text-blue-600 dark:text-blue-400 font-bold' : 'text-slate-800 dark:text-slate-200'}>{char}</span>
                                                             </span>
                                                             {showDrop && (
                                                                 <span className="absolute -right-[1px] top-0 w-[2.5px] bg-orange-500" style={{ height: '100%' }}></span>
@@ -1537,7 +1644,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             {readingChars.map((char, ci) => {
                                                 const isHighlighted = highlightStart >= 0 && ci >= highlightStart && ci < highlightEnd;
                                                 return (
-                                                    <span key={ci} className={isHighlighted ? 'text-blue-400' : 'text-gray-400'}>{char}</span>
+                                                    <span key={ci} className={isHighlighted ? 'text-blue-600 dark:text-blue-400 font-bold' : 'text-slate-800 dark:text-slate-200'}>{char}</span>
                                                 );
                                             })}
                                         </span>
@@ -1545,13 +1652,17 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                 };
                                 return (
                                     <div key={`vocab-${v.id || i}`} className="flex items-center justify-between p-2.5 bg-gray-50 dark:bg-slate-800/80 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700/80 transition-colors border border-gray-200 dark:border-slate-700/50">
-                                        <div className="flex-1 min-w-0 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-sm">
-                                            {renderWord()}
-                                            <span className="text-gray-400 dark:text-gray-500">（</span>{renderReading()}<span className="text-gray-400 dark:text-gray-500">）</span>
-                                            <span className="text-gray-400 dark:text-gray-600">–</span>
-                                            <span className="text-cyan-600 dark:text-cyan-500 font-medium uppercase text-xs">{v.sinoViet || ''}</span>
-                                            <span className="text-gray-400 dark:text-gray-600">–</span>
-                                            <span className="text-gray-700 dark:text-gray-200">{v.meaning}</span>
+                                        <div className="flex-1 min-w-0 flex flex-col gap-1 text-sm">
+                                            {/* Line 1: Word (Reading)  SinoViet */}
+                                            <div className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
+                                                {renderWord()}
+                                                <span className="text-slate-800 dark:text-slate-200 font-medium">（</span>{renderReading()}<span className="text-slate-800 dark:text-slate-200 font-medium">）</span>
+                                                <span className="text-cyan-600 dark:text-cyan-500 font-bold uppercase text-xs ml-3">{v.sinoViet ? `[${v.sinoViet}]` : ''}</span>
+                                            </div>
+                                            {/* Line 2: Vietnamese Meaning */}
+                                            <div className="text-gray-700 dark:text-gray-200 pl-1 font-normal">
+                                                {v.meaning}
+                                            </div>
                                         </div>
                                         <div className="flex items-center gap-0.5 ml-2 flex-shrink-0">
                                             {v.audioBase64 && (
@@ -1663,12 +1774,14 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     {/* Uncategorized vocab */}
                                     {uncategorized.length > 0 && (
                                         <div>
-                                            <div className="flex items-center gap-2 mb-2">
-                                                <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700/50 text-gray-500 dark:text-gray-400">
-                                                    Chưa phân loại
-                                                </span>
-                                                <span className="text-xs text-gray-500 dark:text-gray-400">({uncategorized.length})</span>
-                                            </div>
+                                            {sortedCatNames.some(catName => (grouped[catName] || []).length > 0) && (
+                                                <div className="flex items-center gap-2 mb-2 mt-2">
+                                                    <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-cyan-50 dark:bg-cyan-950/30 text-cyan-600 dark:text-cyan-400">
+                                                        Từ vựng từ điển
+                                                    </span>
+                                                    <span className="text-xs text-gray-500 dark:text-gray-400">({uncategorized.length})</span>
+                                                </div>
+                                            )}
                                             <div className="space-y-1">
                                                 {uncategorized.map((v, i) => renderVocabItem(v, i))}
                                             </div>
@@ -1695,7 +1808,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         }
         return (
             <div className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-6 lg:p-8">
-                <div className="w-full max-w-7xl h-[90vh] bg-gradient-to-br from-indigo-50/95 via-white/95 to-sky-50/95 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 rounded-3xl shadow-2xl border border-gray-200 dark:border-slate-800 flex flex-col p-6 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+                <div className="w-full max-w-[92vw] lg:max-w-[1550px] h-[90vh] bg-gradient-to-br from-indigo-50/95 via-white/95 to-sky-50/95 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 rounded-3xl shadow-2xl border border-gray-200 dark:border-slate-800 flex flex-col p-6 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
                     {content}
                 </div>
             </div>
@@ -1779,7 +1892,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                 <Search className="w-4 h-4 text-gray-400" />
                             </div>
                             {/* Search Results Dropdown */}
-                            {showSearchResults && searchQuery.trim() && (searchResults.length > 0 || vocabList.some(v => v.word?.includes(searchQuery) || v.meaning?.toLowerCase().includes(searchQuery.toLowerCase()) || v.reading?.includes(searchQuery))) && (
+                            {showSearchResults && searchQuery.trim() && (searchResults.length > 0 || vocabList.some(v => v.word?.includes(searchQuery) || (v.meaning && String(v.meaning).toLowerCase().includes(searchQuery.toLowerCase())) || v.reading?.includes(searchQuery))) && (
                                 <div className="absolute z-50 w-full mt-2 bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/60 rounded-2xl shadow-2xl max-h-96 overflow-y-auto divide-y divide-slate-100 dark:divide-slate-700/50 animate-in fade-in slide-in-from-top-2 duration-200">
                                     {searchResults.length > 0 && (
                                         <>
@@ -1804,7 +1917,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     )}
                                     {(() => {
                                         const q = searchQuery.toLowerCase().trim();
-                                        const vocabResults = vocabList.filter(v => v.word?.includes(q) || v.meaning?.toLowerCase().includes(q) || v.reading?.includes(q) || v.sinoViet?.toLowerCase().includes(q)).slice(0, 10);
+                                        const vocabResults = vocabList.filter(v => v.word?.includes(q) || (v.meaning && String(v.meaning).toLowerCase().includes(q)) || v.reading?.includes(q) || (v.sinoViet && String(v.sinoViet).toLowerCase().includes(q))).slice(0, 10);
                                         if (vocabResults.length === 0) return null;
                                         return (
                                             <>
@@ -1838,7 +1951,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                         {showSearchResults && <div className="fixed inset-0 z-40" onClick={() => setShowSearchResults(false)} />}
                         {/* JLPT Level Tags */}
                         <div className="flex flex-wrap gap-2 items-center">
-                            {[...JLPT_LEVELS, 'Bộ thủ', ...(isUserAdmin ? ['Mới thêm'] : [])].map(level => {
+                            {[...JLPT_LEVELS, 'Bộ thủ', ...(isUserAdmin ? ['Mới thêm', 'Chưa có từ vựng', 'Đã có từ vựng'] : [])].map(level => {
                                 const isActive = selectedLevel === level;
                                 const isLocked = ['N4', 'N3', 'N2', 'N1'].includes(level) && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
                                 return (
@@ -1944,7 +2057,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             selectedLevel === 'N3' ? 'from-sky-400 to-indigo-500' :
                                                 selectedLevel === 'N2' ? 'from-amber-400 to-orange-500' :
                                                     selectedLevel === 'N1' ? 'from-rose-400 to-pink-500' :
-                                                        selectedLevel === 'Mới thêm' ? 'from-indigo-400 to-violet-500' : 'from-orange-400 to-amber-500'
+                                                        selectedLevel === 'Mới thêm' ? 'from-indigo-400 to-violet-500' :
+                                                            selectedLevel === 'Chưa có từ vựng' ? 'from-fuchsia-400 to-pink-500' : 'from-orange-400 to-amber-500'
                                         }`}
                                     style={{ width: `${currentKanjiList.length > 0 ? (completedCount / currentKanjiList.length) * 100 : 0}%` }}
                                 />
@@ -1956,15 +2070,18 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 {isAdmin && (
                     <div className="bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/50 rounded-3xl p-5 shadow-sm space-y-3">
                         <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Admin Control Panel</p>
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-3 gap-3">
                             <button onClick={() => setShowAddKanjiModal(true)} className="py-2.5 bg-slate-50 dark:bg-slate-700/40 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl font-bold text-xs text-slate-700 dark:text-slate-300 border border-slate-250 dark:border-slate-650 transition-all flex items-center justify-center gap-1.5 shadow-sm">
                                 <Plus className="w-4 h-4 text-sky-500" /> Thêm Hán tự
+                            </button>
+                            <button onClick={handleSyncVocabToKanji} className="py-2.5 bg-slate-50 dark:bg-slate-700/40 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl font-bold text-xs text-slate-700 dark:text-slate-300 border border-slate-250 dark:border-slate-650 transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                                <RefreshCw className="w-4 h-4 text-emerald-500" /> Đồng bộ Hán tự
                             </button>
                             <button
                                 onClick={() => { setBulkSelectMode(!bulkSelectMode); setSelectedKanjiIds([]); setSelectedVocabIds([]); }}
                                 className={`py-2.5 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-1.5 ${bulkSelectMode ? 'bg-rose-600 hover:bg-rose-500 text-white shadow-md' : 'bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'}`}
                             >
-                                {bulkSelectMode ? <><X className="w-4 h-4" /> Thoát chế độ chọn</> : <><Trash2 className="w-4 h-4" /> Xóa hàng loạt</>}
+                                {bulkSelectMode ? <><X className="w-4 h-4" /> Thoát</> : <><Trash2 className="w-4 h-4" /> Xóa hàng loạt</>}
                             </button>
                         </div>
                     </div>
@@ -2204,7 +2321,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                                     selectedLevel === 'N3' ? 'from-sky-400 to-indigo-500' :
                                                         selectedLevel === 'N2' ? 'from-amber-400 to-orange-500' :
                                                             selectedLevel === 'N1' ? 'from-rose-400 to-pink-500' :
-                                                                selectedLevel === 'Mới thêm' ? 'from-indigo-400 to-violet-500' : 'from-orange-400 to-amber-500'
+                                                                selectedLevel === 'Mới thêm' ? 'from-indigo-400 to-violet-500' :
+                                                                    selectedLevel === 'Chưa có từ vựng' ? 'from-fuchsia-400 to-pink-500' : 'from-orange-400 to-amber-500'
                                                 }`} />
                                         </div>
                                     );

@@ -4505,8 +4505,8 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     <h1 className="text-2xl font-extrabold text-slate-800 dark:text-white tracking-tight mb-3">
                         Hệ thống đang bảo trì
                     </h1>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm font-medium mb-6 leading-relaxed">
-                        QuizKi đang thực hiện nâng cấp và bảo trì định kỳ để mang lại trải nghiệm tốt nhất cho bạn. Chúng tôi sẽ trở lại trong thời gian sớm nhất.
+                    <p className="text-slate-600 dark:text-slate-400 text-sm font-medium mb-6 leading-relaxed whitespace-pre-wrap">
+                        {adminConfig?.maintenanceMessage || "QuizKi đang thực hiện nâng cấp và bảo trì định kỳ để mang lại trải nghiệm tốt nhất cho bạn. Chúng tôi sẽ trở lại trong thời gian sớm nhất."}
                     </p>
                     <div className="w-full h-px bg-slate-100 dark:bg-slate-800 mb-6"></div>
 

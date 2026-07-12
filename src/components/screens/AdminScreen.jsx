@@ -4,7 +4,7 @@ import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc, addDoc,
 import * as XLSX from 'xlsx';
 import { db, appId, storage } from '../../config/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { Users, Search, Shield, Trash2, BarChart3, Clock, AlertTriangle, CheckCircle, Loader2, Languages, BookOpen, Sparkle, Bot, UserCheck, UserX, ToggleLeft, ToggleRight, Settings, Crown, ShieldCheck, ChevronLeft, CreditCard, Plus, Check, X as XIcon, Ticket, DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send, MessageSquare, Image as ImageIcon, Volume2, Music, Smile, CornerUpLeft } from 'lucide-react'
+import { Users, Search, Shield, Trash2, BarChart3, Clock, AlertTriangle, CheckCircle, Loader2, Languages, BookOpen, Sparkle, Bot, UserCheck, UserX, ToggleLeft, ToggleRight, Settings, Crown, ShieldCheck, ChevronLeft, CreditCard, Plus, Check, X as XIcon, Ticket, DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send, MessageSquare, Image as ImageIcon, Volume2, Music, Smile, CornerUpLeft, Save } from 'lucide-react'
 import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, AI_FEATURES, addModerator, removeModerator, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense, manuallyApplyPackageToUser, sendGlobalNotification, deleteGlobalNotification } from '../../utils/adminSettings'
 import { showConfirm } from '../../utils/toast';
 import { playAudio, generateAudioSilent } from '../../utils/audio';
@@ -58,6 +58,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const [notificationError, setNotificationError] = useState('');
     const [sendingNotification, setSendingNotification] = useState(false);
     const [notificationType, setNotificationType] = useState('normal');
+    const [maintenanceMsg, setMaintenanceMsg] = useState(adminConfig?.maintenanceMessage || '');
 
     // Cache Sync States
     const [cacheConfig, setCacheConfig] = useState(null);
@@ -623,6 +624,13 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         });
         return () => unsubscribe();
     }, []);
+
+    // Sync maintenance message from adminConfig props
+    useEffect(() => {
+        if (adminConfig?.maintenanceMessage !== undefined) {
+            setMaintenanceMsg(adminConfig.maintenanceMessage || '');
+        }
+    }, [adminConfig?.maintenanceMessage]);
 
     // Helper functions to fetch full Firestore collections
     const fetchAllKanjiData = async () => {
@@ -3111,6 +3119,39 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                     ) : (
                                         <ToggleLeft className="w-12 h-12 text-slate-300 dark:text-slate-600" />
                                     )}
+                                </button>
+                            </div>
+
+                            <div className="mt-5 space-y-2 border-t border-slate-100 dark:border-slate-800 pt-4">
+                                <label className="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">
+                                    Dòng thông báo hiển thị khi bảo trì
+                                </label>
+                                <textarea
+                                    value={maintenanceMsg}
+                                    onChange={(e) => setMaintenanceMsg(e.target.value)}
+                                    placeholder="QuizKi đang thực hiện nâng cấp và bảo trì định kỳ để mang lại trải nghiệm tốt nhất cho bạn. Chúng tôi sẽ trở lại trong thời gian sớm nhất."
+                                    rows={3}
+                                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-750/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none text-sm text-gray-800 dark:text-white resize-none"
+                                />
+                                <button
+                                    onClick={async () => {
+                                        setSavingConfig(true);
+                                        const ok = await updateAdminConfig({ maintenanceMessage: maintenanceMsg.trim() }, currentUserId);
+                                        if (ok) {
+                                            setNotification({
+                                                type: 'success',
+                                                message: 'Đã cập nhật dòng thông báo bảo trì'
+                                            });
+                                        } else {
+                                            setNotification({ type: 'error', message: 'Lỗi khi cập nhật thông báo bảo trì' });
+                                        }
+                                        setSavingConfig(false);
+                                    }}
+                                    disabled={savingConfig || maintenanceMsg.trim() === (adminConfig?.maintenanceMessage || '')}
+                                    className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer disabled:opacity-50"
+                                >
+                                    {savingConfig ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Save className="w-3.5 h-3.5" />}
+                                    Lưu dòng thông báo
                                 </button>
                             </div>
                         </div>
