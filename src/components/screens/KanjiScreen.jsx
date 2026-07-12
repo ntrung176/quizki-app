@@ -844,7 +844,14 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     };
     // Get vocab containing this kanji (from kanjiVocab + linked book vocab)
     const getVocabForKanji = (char) => {
-        return pureKanjiVocabList.filter(v => (v.word || '').includes(char));
+        const list = pureKanjiVocabList.filter(v => (v.word || '').includes(char));
+        const levelOrder = { 'N5': 1, 'N4': 2, 'N3': 3, 'N2': 4, 'N1': 5 };
+        return list.sort((a, b) => {
+            const orderA = levelOrder[a.level] || 99;
+            const orderB = levelOrder[b.level] || 99;
+            if (orderA !== orderB) return orderA - orderB;
+            return (a.word || '').length - (b.word || '').length;
+        });
     };
     // Get related kanji (from same level or other kanji in Firebase)
     const getRelatedKanji = (char) => {

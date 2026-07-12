@@ -256,7 +256,14 @@ const KanjiLessonScreen = ({ awardXP }) => {
     // Vocab for current kanji
     const currentVocab = useMemo(() => {
         if (!currentKanji) return [];
-        return vocabList.filter(v => v.word?.includes(currentKanji.character));
+        const list = vocabList.filter(v => v.word?.includes(currentKanji.character));
+        const levelOrder = { 'N5': 1, 'N4': 2, 'N3': 3, 'N2': 4, 'N1': 5 };
+        return list.sort((a, b) => {
+            const orderA = levelOrder[a.level] || 99;
+            const orderB = levelOrder[b.level] || 99;
+            if (orderA !== orderB) return orderA - orderB;
+            return (a.word || '').length - (b.word || '').length;
+        });
     }, [currentKanji, vocabList]);
     // HanziWriter stroke animation
     useEffect(() => {
