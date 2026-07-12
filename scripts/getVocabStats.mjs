@@ -12,7 +12,11 @@ function getEnv(key) {
 
 const password = process.argv[2];
 
-if (!password) {
+const kanjiCachePath = 'scripts/.cache_kanji.json';
+const vocabCachePath = 'scripts/.cache_vocab.json';
+const hasCache = fs.existsSync(kanjiCachePath) && fs.existsSync(vocabCachePath);
+
+if (!password && !hasCache) {
     console.error('Usage: node scripts/getVocabStats.mjs <admin-password>');
     console.error('  Password for admin email:', getEnv('VITE_ADMIN_EMAIL'));
     process.exit(1);
@@ -33,20 +37,31 @@ const auth = getAuth(app);
 
 async function run() {
     try {
-        console.log('Logging in to Firebase as admin...');
-        const adminEmail = getEnv('VITE_ADMIN_EMAIL');
-        await signInWithEmailAndPassword(auth, adminEmail, password);
-        console.log('Successfully logged in!\n');
+        let kanjiList = [];
+        let vocabList = [];
 
-        console.log('Fetching Kanji characters...');
-        const kanjiSnapshot = await getDocs(collection(db, 'kanji'));
-        const kanjiList = kanjiSnapshot.docs.map(doc => doc.data());
-        console.log(`Loaded ${kanjiList.length} Kanji characters.`);
+        if (hasCache) {
+            console.log('Reading data from local cache files...');
+            kanjiList = JSON.parse(fs.readFileSync(kanjiCachePath, 'utf8'));
+            vocabList = JSON.parse(fs.readFileSync(vocabCachePath, 'utf8'));
+            console.log(`Loaded ${kanjiList.length} Kanji characters from cache.`);
+            console.log(`Loaded ${vocabList.length} total vocabulary words from cache.\n`);
+        } else {
+            console.log('Logging in to Firebase as admin...');
+            const adminEmail = getEnv('VITE_ADMIN_EMAIL');
+            await signInWithEmailAndPassword(auth, adminEmail, password);
+            console.log('Successfully logged in!\n');
 
-        console.log('Fetching vocabulary words...');
-        const vocabSnapshot = await getDocs(collection(db, 'kanjiVocab'));
-        const vocabList = vocabSnapshot.docs.map(doc => doc.data());
-        console.log(`Loaded ${vocabList.length} total vocabulary words.\n`);
+            console.log('Fetching Kanji characters...');
+            const kanjiSnapshot = await getDocs(collection(db, 'kanji'));
+            kanjiList = kanjiSnapshot.docs.map(doc => doc.data());
+            console.log(`Loaded ${kanjiList.length} Kanji characters.`);
+
+            console.log('Fetching vocabulary words...');
+            const vocabSnapshot = await getDocs(collection(db, 'kanjiVocab'));
+            vocabList = vocabSnapshot.docs.map(doc => doc.data());
+            console.log(`Loaded ${vocabList.length} total vocabulary words.\n`);
+        }
 
         // Statistics
         let bookVocabCount = 0;
