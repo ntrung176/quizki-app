@@ -177,8 +177,11 @@ async function main() {
             const data = await res.json();
             const filtered = data.filter(w => {
                 const wordStr = w.variants[0].written;
+                const pronounced = w.variants[0].pronounced;
                 if (wordStr.length < 2 || wordStr.length > 4) return false;
                 if (/[a-zA-Z]/.test(wordStr)) return false;
+                // Bỏ qua các từ mượn/từ phiên âm quốc tế (Ateji) thường phát âm bằng Katakana
+                if (/[\u30a0-\u30ff]/.test(pronounced)) return false;
                 if (existingWordsNormalized.has(normalizeWord(wordStr))) return false;
                 return true;
             });
