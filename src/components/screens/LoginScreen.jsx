@@ -233,37 +233,28 @@ const LoginScreen = () => {
                 prompt: 'select_account'
             });
 
-            const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-            const isGitHubPages = window.location.hostname.endsWith('github.io');
-            const isVercel = window.location.hostname.endsWith('vercel.app');
-
-            if (isLocalhost || isGitHubPages || isVercel) {
-                console.log("[Quizki Auth] Localhost/GitHub Pages/Vercel detected. Using signInWithPopup to bypass cross-origin cookie blocking...");
-                const result = await signInWithPopup(auth, provider);
-                const user = result.user;
-                if (db) {
-                    const profileRef = doc(db, `artifacts/${appId}/users/${user.uid}/settings/profile`);
-                    const profileSnap = await getDoc(profileRef);
-                    if (!profileSnap.exists()) {
-                        const defaultName = user.displayName || user.email?.split('@')[0] || 'Người học';
-                        await setDoc(profileRef, {
-                            displayName: defaultName,
-                            dailyGoal: 10,
-                            hasSeenHelp: true,
-                            createdAt: serverTimestamp(),
-                            email: user.email || ''
-                        }, { merge: true });
-                    } else if (!profileSnap.data()?.email) {
-                        await setDoc(profileRef, {
-                            email: user.email || ''
-                        }, { merge: true });
-                    }
+            console.log("[Quizki Auth] Using signInWithPopup to bypass cross-origin cookie blocking...");
+            const result = await signInWithPopup(auth, provider);
+            const user = result.user;
+            if (db) {
+                const profileRef = doc(db, `artifacts/${appId}/users/${user.uid}/settings/profile`);
+                const profileSnap = await getDoc(profileRef);
+                if (!profileSnap.exists()) {
+                    const defaultName = user.displayName || user.email?.split('@')[0] || 'Người học';
+                    await setDoc(profileRef, {
+                        displayName: defaultName,
+                        dailyGoal: 10,
+                        hasSeenHelp: true,
+                        createdAt: serverTimestamp(),
+                        email: user.email || ''
+                    }, { merge: true });
+                } else if (!profileSnap.data()?.email) {
+                    await setDoc(profileRef, {
+                        email: user.email || ''
+                    }, { merge: true });
                 }
-                setIsLoading(false);
-            } else {
-                console.log("[Quizki Auth] Production detected. Using signInWithRedirect...");
-                await signInWithRedirect(auth, provider);
             }
+            setIsLoading(false);
         } catch (e) {
             console.error('Lỗi đăng nhập Google:', e);
             let msg = 'Đăng nhập Google thất bại. Vui lòng thử lại.';
