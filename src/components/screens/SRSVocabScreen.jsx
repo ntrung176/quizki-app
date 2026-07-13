@@ -281,6 +281,7 @@ const SRSVocabScreen = ({
     // Safely determine if a card is due
     const isDue = (card) => {
         if (card.srsEnabled !== true) return false;
+        if (card.srsState === 'LEARNING' || card.srsState === 'RELEARNING') return true;
         if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined || card.intervalIndex_back < 0) return true; // Always due if enabled but never reviewed
         if (!card.nextReview_back) return true; // Due if enabled but has no review time
 
@@ -468,9 +469,8 @@ const SRSVocabScreen = ({
         // 1. Determine if card needs to be re-reviewed in this session
         let updatedQueue = [...reviewQueue];
         if (rating === 'again') {
-            // Re-insert the card into the queue (e.g. after 3 cards, or at the end)
-            const insertIndex = Math.min(updatedQueue.length, currentReviewIndex + 3);
-            updatedQueue.splice(insertIndex, 0, card);
+            // Re-insert the card at the end of the queue for the current session
+            updatedQueue.push(card);
         } else {
             // Mark as successfully completed
             completedCardIds.current.add(card.id);
@@ -756,9 +756,11 @@ const SRSVocabScreen = ({
                                 { key: 'easy', label: 'Dễ', interval: intervals.easy, bg: 'bg-blue-50 dark:bg-blue-950/20', border: 'border-blue-200 dark:border-blue-900/50', text: 'text-blue-600 dark:text-blue-400', sub: 'text-blue-400/80 dark:text-blue-500/60' },
                             ].map(btn => (
                                 <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
-                                    className={`py-3.5 rounded-2xl ${btn.bg} ${btn.border} border text-center transition-all duration-200 hover:scale-105 hover:shadow-md active:scale-95 cursor-pointer`}>
-                                    <div className={`font-bold ${btn.text} text-sm`}>{btn.label}</div>
-                                    <div className={`text-[10px] ${btn.sub} mt-0.5 font-medium`}>{btn.interval}</div>
+                                    className={`flex flex-col justify-center items-center py-3.5 rounded-2xl ${btn.bg} ${btn.border} border text-center transition-all duration-200 hover:scale-105 hover:shadow-md active:scale-95 cursor-pointer`}>
+                                    <div className={`font-bold ${btn.text} text-sm leading-tight`}>{btn.label}</div>
+                                    {btn.key !== 'again' && (
+                                        <div className={`text-[10px] ${btn.sub} mt-0.5 font-medium leading-none`}>{btn.interval}</div>
+                                    )}
                                 </button>
                             ))}
                         </div>

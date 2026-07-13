@@ -527,6 +527,8 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                 c.intervalIndex_back === -1 ||
                 c.intervalIndex_back === undefined ||
                 c.intervalIndex_back < 0 ||
+                c.srsState === 'LEARNING' ||
+                c.srsState === 'RELEARNING' ||
                 (c.nextReview_back instanceof Date ? c.nextReview_back.getTime() : new Date(c.nextReview_back).getTime()) <= now.getTime()
             )
         ).length;

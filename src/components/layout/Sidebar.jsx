@@ -120,6 +120,8 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             card.intervalIndex_back === -1 ||
             card.intervalIndex_back === undefined ||
             card.intervalIndex_back < 0 ||
+            card.srsState === 'LEARNING' ||
+            card.srsState === 'RELEARNING' ||
             (card.nextReview_back instanceof Date ? card.nextReview_back.getTime() : new Date(card.nextReview_back).getTime()) <= Date.now()
         )
     ).length;

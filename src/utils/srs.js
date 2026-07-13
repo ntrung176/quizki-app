@@ -246,8 +246,7 @@ export const calculateAnkiSRS = (srs, rating) => {
                 break;
             case 'hard':
                 nextState = 'LEARNING';
-                // Anki: Hard ở bước đầu = trung bình step 0 và step 1
-                newInterval = Math.round((LEARNING_STEPS[0] + LEARNING_STEPS[1]) / 2); // (1+10)/2 ≈ 6 phút
+                newInterval = 10; // Đổi thành 10 phút theo yêu cầu
                 newLearningStep = 0; // Giữ ở bước 0, không nhảy bước
                 break;
             case 'good':
@@ -278,8 +277,7 @@ export const calculateAnkiSRS = (srs, rating) => {
             case 'hard':
                 nextState = 'LEARNING';
                 if (learningStep === 0 && LEARNING_STEPS.length > 1) {
-                    // Anki: Hard ở bước đầu = trung bình step 0 và step 1
-                    newInterval = Math.round((LEARNING_STEPS[0] + LEARNING_STEPS[1]) / 2);
+                    newInterval = 10; // Đổi thành 10 phút theo yêu cầu
                 } else {
                     // Anki: Hard ở bước khác = lặp lại bước hiện tại
                     newInterval = LEARNING_STEPS[learningStep] || currentInterval;
@@ -312,6 +310,10 @@ export const calculateAnkiSRS = (srs, rating) => {
     // ========== RELEARNING STATE ==========
     else if (currentState === 'RELEARNING') {
         const refInterval = prelapseInterval || 1; // Fallback to 1 day
+        const hardIntVal = Math.max(1, Math.floor(refInterval * 0.1));
+        const goodIntVal = Math.max(hardIntVal + 1, Math.floor(refInterval * 0.2));
+        const easyIntVal = Math.max(goodIntVal + 1, Math.floor(refInterval * 0.2 * EASY_BONUS));
+
         switch (normRating) {
             case 'again':
                 nextState = 'RELEARNING';
@@ -323,7 +325,7 @@ export const calculateAnkiSRS = (srs, rating) => {
             case 'hard':
                 // Thay vì giữ ở Relearning (phút), cho tốt nghiệp với số ngày nhỏ hơn Good
                 nextState = 'REVIEW';
-                newInterval = Math.max(1, Math.floor(refInterval * 0.1)); // Giảm xuống 10% chu kỳ trước khi quên
+                newInterval = hardIntVal; // Giảm xuống 10% chu kỳ trước khi quên
                 newEase = currentEase - 0.15;
                 newLearningStep = null;
                 newIsLapsed = false;
@@ -331,15 +333,14 @@ export const calculateAnkiSRS = (srs, rating) => {
                 break;
             case 'good':
                 nextState = 'REVIEW';
-                newInterval = Math.max(1, Math.floor(refInterval * 0.2)); // Giảm xuống 20% chu kỳ trước khi quên (phạt 80%)
+                newInterval = goodIntVal; // Giảm xuống 20% chu kỳ trước khi quên (phạt 80%)
                 newLearningStep = null;
                 newIsLapsed = false;
                 newPrelapseInterval = null;
                 break;
             case 'easy':
                 nextState = 'REVIEW';
-                const goodInt = Math.max(1, Math.floor(refInterval * 0.2));
-                newInterval = Math.max(goodInt + 1, Math.floor(refInterval * 0.2 * EASY_BONUS)); 
+                newInterval = easyIntVal; 
                 newEase = currentEase + 0.15;
                 newLearningStep = null;
                 newIsLapsed = false;
@@ -347,7 +348,7 @@ export const calculateAnkiSRS = (srs, rating) => {
                 break;
             default:
                 nextState = 'REVIEW';
-                newInterval = Math.max(1, Math.floor(refInterval * 0.2));
+                newInterval = goodIntVal;
                 newLearningStep = null;
                 newIsLapsed = false;
                 newPrelapseInterval = null;
@@ -412,7 +413,9 @@ export const calculateAnkiSRS = (srs, rating) => {
 
     // Calculate milliseconds offset for scheduleNext
     let nextReviewOffsetMs = 0;
-    if (nextState === 'REVIEW') {
+    if (normRating === 'again') {
+        nextReviewOffsetMs = 0;
+    } else if (nextState === 'REVIEW') {
         nextReviewOffsetMs = newInterval * 24 * 60 * 60 * 1000; // day-based
     } else {
         nextReviewOffsetMs = newInterval * 60 * 1000; // minute-based

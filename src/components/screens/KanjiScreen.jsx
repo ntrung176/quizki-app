@@ -1167,12 +1167,19 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         try {
             const kanjiChars = editingVocab.word.match(/[\u4e00-\u9faf]/g) || [];
             const vocabDoc = {
-                word: editingVocab.word,
-                reading: editingVocab.reading,
-                meaning: editingVocab.meaning,
-                level: editingVocab.level,
-                source: editingVocab.source,
-                sinoViet: editingVocab.sinoViet,
+                word: editingVocab.word || '',
+                reading: editingVocab.reading || '',
+                meaning: editingVocab.meaning || '',
+                level: editingVocab.level || 'N5',
+                source: editingVocab.source || '',
+                sinoViet: editingVocab.sinoViet || '',
+                pos: editingVocab.pos || '',
+                synonym: editingVocab.synonym || '',
+                example: editingVocab.example || '',
+                exampleMeaning: editingVocab.exampleMeaning || '',
+                nuance: editingVocab.nuance || '',
+                synonymSinoVietnamese: editingVocab.synonymSinoVietnamese || '',
+                accent: editingVocab.accent !== undefined ? String(editingVocab.accent) : '0',
                 category: editingVocab.category || '',
                 kanjiList: kanjiChars,
                 updatedAt: Date.now()
@@ -2639,63 +2646,61 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                 readOnly={!!editingKanji.id || !!editingKanji._fromJotoba}
                             />
                             {/* Quick JSON paste inside Kanji Edit */}
-                            {!editingKanji.id && (
-                                <div className="p-3 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl mb-2">
-                                    <div className="flex justify-between items-center mb-1">
-                                        <label className="text-xs font-bold text-indigo-700 dark:text-indigo-400 flex items-center gap-1">
-                                            <Sparkle className="w-3 h-3" /> Paste dữ liệu JSON Kanji (nếu có)
-                                        </label>
-                                        <button
-                                            type="button"
-                                            onClick={() => {
-                                                const sample = {
-                                                    character: "丈",
-                                                    meaning: "trượng (đơn vị đo), tráng sĩ",
-                                                    onyomi: "ジョウ",
-                                                    kunyomi: "たけ",
-                                                    level: "N3",
-                                                    sinoViet: "TRƯỢNG",
-                                                    radical: "一",
-                                                    parts: "adv、乂",
-                                                    strokeCount: 3,
-                                                    mnemonic: "Cách nhớ chữ Trượng",
-                                                    imageUrl: "https://example.com/image.png"
-                                                };
-                                                navigator.clipboard.writeText(JSON.stringify(sample, null, 2));
-                                                showToast('Đã copy JSON mẫu!', 'success');
-                                            }}
-                                            className="text-[10px] bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-200 dark:hover:bg-indigo-900 px-2 py-0.5 rounded flex items-center gap-1 font-semibold transition-colors cursor-pointer"
-                                        >
-                                            <Copy className="w-2.5 h-2.5" /> Copy JSON mẫu
-                                        </button>
-                                    </div>
-                                    <textarea
-                                        placeholder={`{ "character": "...", "meaning": "...", "onyomi": "...", "hanViet": "...", ... }`}
-                                        className="w-full h-12 bg-white dark:bg-slate-800 rounded-lg px-2 py-1.5 text-[10px] font-mono text-gray-800 dark:text-amber-200 resize-none border border-indigo-100 dark:border-slate-600"
-                                        onChange={(e) => {
-                                            try {
-                                                const json = JSON.parse(e.target.value);
-                                                const updates = {};
-                                                if (json.character) updates.character = json.character;
-                                                if (json.meaning || json.nghia) updates.meaning = json.meaning || json.nghia;
-                                                if (json.onyomi || json.on) updates.onyomi = json.onyomi || json.on;
-                                                if (json.kunyomi || json.kun) updates.kunyomi = json.kunyomi || json.kun;
-                                                if (json.level || json.jlpt) updates.level = json.level || json.jlpt;
-                                                if (json.sinoViet || json.hanViet || json.hv) updates.sinoViet = json.sinoViet || json.hanViet || json.hv;
-                                                if (json.radical || json.boThu) updates.radical = json.radical || json.boThu;
-                                                if (json.parts) updates.parts = json.parts;
-                                                if (json.strokeCount) updates.strokeCount = json.strokeCount;
-                                                if (json.mnemonic || json.cachNho) updates.mnemonic = json.mnemonic || json.cachNho;
-                                                if (json.imageUrl || json.image) updates.imageUrl = json.imageUrl || json.image;
-                                                setEditingKanji({ ...editingKanji, ...updates });
-                                                showToast('Đã điền tự động từ JSON!', 'success');
-                                            } catch (err) {
-                                                // Ignore format error while typing
-                                            }
+                            <div className="p-3 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl mb-2">
+                                <div className="flex justify-between items-center mb-1">
+                                    <label className="text-xs font-bold text-indigo-700 dark:text-indigo-400 flex items-center gap-1">
+                                        <Sparkle className="w-3 h-3" /> Paste dữ liệu JSON Kanji (nếu có)
+                                    </label>
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            const sample = {
+                                                character: "丈",
+                                                meaning: "trượng (đơn vị đo), tráng sĩ",
+                                                onyomi: "ジョウ",
+                                                kunyomi: "たけ",
+                                                level: "N3",
+                                                sinoViet: "TRƯỢNG",
+                                                radical: "一",
+                                                parts: "一、乂",
+                                                strokeCount: 3,
+                                                mnemonic: "Cách nhớ chữ Trượng",
+                                                imageUrl: "https://example.com/image.png"
+                                            };
+                                            navigator.clipboard.writeText(JSON.stringify(sample, null, 2));
+                                            showToast('Đã copy JSON mẫu!', 'success');
                                         }}
-                                    />
+                                        className="text-[10px] bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-200 dark:hover:bg-indigo-900 px-2 py-0.5 rounded flex items-center gap-1 font-semibold transition-colors cursor-pointer"
+                                    >
+                                        <Copy className="w-2.5 h-2.5" /> Copy JSON mẫu
+                                    </button>
                                 </div>
-                            )}
+                                <textarea
+                                    placeholder={`{ "character": "...", "meaning": "...", "onyomi": "...", "hanViet": "...", ... }`}
+                                    className="w-full h-12 bg-white dark:bg-slate-800 rounded-lg px-2 py-1.5 text-[10px] font-mono text-gray-800 dark:text-amber-200 resize-none border border-indigo-100 dark:border-slate-600"
+                                    onChange={(e) => {
+                                        try {
+                                            const json = JSON.parse(e.target.value);
+                                            const updates = {};
+                                            if (json.character) updates.character = json.character;
+                                            if (json.meaning || json.nghia) updates.meaning = json.meaning || json.nghia;
+                                            if (json.onyomi || json.on) updates.onyomi = json.onyomi || json.on;
+                                            if (json.kunyomi || json.kun) updates.kunyomi = json.kunyomi || json.kun;
+                                            if (json.level || json.jlpt) updates.level = json.level || json.jlpt;
+                                            if (json.sinoViet || json.hanViet || json.hv || json.sino_viet) updates.sinoViet = json.sinoViet || json.hanViet || json.hv || json.sino_viet;
+                                            if (json.radical || json.boThu) updates.radical = json.radical || json.boThu;
+                                            if (json.parts) updates.parts = json.parts;
+                                            if (json.strokeCount || json.stroke_count) updates.strokeCount = json.strokeCount || json.stroke_count;
+                                            if (json.mnemonic || json.cachNho) updates.mnemonic = json.mnemonic || json.cachNho;
+                                            if (json.imageUrl || json.image) updates.imageUrl = json.imageUrl || json.image;
+                                            setEditingKanji(prev => ({ ...prev, ...updates }));
+                                            showToast('Đã điền tự động từ JSON!', 'success');
+                                        } catch (err) {
+                                            // Ignore format error while typing
+                                        }
+                                    }}
+                                />
+                            </div>
                             <input
                                 value={editingKanji.sinoViet || ''}
                                 onChange={e => setEditingKanji({ ...editingKanji, sinoViet: e.target.value })}
@@ -2772,6 +2777,64 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     <Edit className="w-5 h-5 text-orange-500 dark:text-orange-400" /> Chỉnh sửa Từ vựng
                                 </h3>
                                 <button onClick={() => { setShowEditVocabModal(false); setEditingVocab(null); }} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"><X className="w-6 h-6" /></button>
+                            </div>
+                            {/* Quick JSON paste inside Vocab Edit */}
+                            <div className="p-3 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl mb-2">
+                                <div className="flex justify-between items-center mb-1">
+                                    <label className="text-xs font-bold text-indigo-700 dark:text-indigo-400 flex items-center gap-1">
+                                        <Sparkle className="w-3 h-3" /> Paste dữ liệu JSON Từ vựng (nếu có)
+                                    </label>
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            const sample = {
+                                                word: "水道",
+                                                reading: "すいどう",
+                                                sinoViet: "THỦY ĐẠO",
+                                                meaning: "Đường ống nước, nước máy",
+                                                level: "N5",
+                                                pos: "noun",
+                                                synonym: "上水",
+                                                example: "水道の水を飲みます。",
+                                                exampleMeaning: "Tôi uống nước máy.",
+                                                nuance: "Sắc thái / ghi chú khác",
+                                                category: "Từ vựng chung"
+                                            };
+                                            navigator.clipboard.writeText(JSON.stringify(sample, null, 2));
+                                            showToast('Đã copy JSON mẫu!', 'success');
+                                        }}
+                                        className="text-[10px] bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-200 dark:hover:bg-indigo-900 px-2 py-0.5 rounded flex items-center gap-1 font-semibold transition-colors cursor-pointer"
+                                    >
+                                        <Copy className="w-2.5 h-2.5" /> Copy JSON mẫu
+                                    </button>
+                                </div>
+                                <textarea
+                                    placeholder={`{ "word": "...", "reading": "...", "meaning": "...", "level": "...", ... }`}
+                                    className="w-full h-12 bg-white dark:bg-slate-800 rounded-lg px-2 py-1.5 text-[10px] font-mono text-gray-800 dark:text-amber-200 resize-none border border-indigo-100 dark:border-slate-600"
+                                    onChange={(e) => {
+                                        try {
+                                            const json = JSON.parse(e.target.value);
+                                            const updates = {};
+                                            if (json.word) updates.word = json.word;
+                                            if (json.reading) updates.reading = json.reading;
+                                            if (json.sinoViet || json.hanViet || json.hv || json.sino_viet) updates.sinoViet = json.sinoViet || json.hanViet || json.hv || json.sino_viet;
+                                            if (json.meaning || json.nghia) updates.meaning = json.meaning || json.nghia;
+                                            if (json.level || json.jlpt) updates.level = json.level || json.jlpt;
+                                            if (json.pos || json.tuLoai || json.part_of_speech) updates.pos = json.pos || json.tuLoai || json.part_of_speech;
+                                            if (json.synonym || json.dongNghia) updates.synonym = json.synonym || json.dongNghia;
+                                            if (json.example || json.viDu) updates.example = json.example || json.viDu;
+                                            if (json.exampleMeaning || json.nghiaViDu) updates.exampleMeaning = json.exampleMeaning || json.nghiaViDu;
+                                            if (json.nuance || json.sacThai || json.ghiChu) updates.nuance = json.nuance || json.sacThai || json.ghiChu;
+                                            if (json.category || json.phanLoai) updates.category = json.category || json.phanLoai;
+                                            if (json.synonymSinoVietnamese || json.synonym_sino_vietnamese) updates.synonymSinoVietnamese = json.synonymSinoVietnamese || json.synonym_sino_vietnamese;
+                                            if (json.accent !== undefined) updates.accent = String(json.accent);
+                                            setEditingVocab(prev => ({ ...prev, ...updates }));
+                                            showToast('Đã điền tự động từ JSON!', 'success');
+                                        } catch (err) {
+                                            // Ignore format error while typing
+                                        }
+                                    }}
+                                />
                             </div>
                             <input
                                 value={editingVocab.word}

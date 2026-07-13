@@ -267,8 +267,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         // 1. Determine if card needs to be re-reviewed in this session
         let updatedQueue = [...reviewQueue];
         if (rating === 'again') {
-            const insertIndex = Math.min(updatedQueue.length, currentReviewIndex + 3);
-            updatedQueue.splice(insertIndex, 0, currentCard);
+            // Re-insert the card at the end of the queue for the current session
+            updatedQueue.push(currentCard);
         } else {
             completedCardIds.current.add(currentCard.id);
         }
@@ -538,9 +538,11 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             { key: 'easy', label: 'Dễ', interval: intervals.easy, gradient: 'from-blue-500 to-indigo-500', bg: 'bg-blue-50 dark:bg-blue-900/20', border: 'border-blue-200 dark:border-blue-800/50', text: 'text-blue-600 dark:text-blue-400', sub: 'text-blue-400/70 dark:text-blue-500/60' },
                         ].map(btn => (
                             <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
-                                className={`py-3.5 rounded-2xl ${btn.bg} ${btn.border} border text-center transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95`}>
-                                <div className={`font-bold ${btn.text} text-sm`}>{btn.label}</div>
-                                <div className={`text-[10px] ${btn.sub} mt-0.5`}>{btn.interval}</div>
+                                className={`flex flex-col justify-center items-center py-3.5 rounded-2xl ${btn.bg} ${btn.border} border text-center transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95`}>
+                                <div className={`font-bold ${btn.text} text-sm leading-tight`}>{btn.label}</div>
+                                {btn.key !== 'again' && (
+                                    <div className={`text-[10px] ${btn.sub} mt-0.5`}>{btn.interval}</div>
+                                )}
                             </button>
                         ))}
                     </div>

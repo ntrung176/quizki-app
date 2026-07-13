@@ -1224,10 +1224,15 @@ const App = () => {
     const dueCounts = useMemo(() => {
         const now = new Date();
 
+        const isDue = (card) => {
+            if (card.srsState === 'LEARNING' || card.srsState === 'RELEARNING') return true;
+            return card.nextReview_back <= now;
+        };
+
         // Logic mới: bao gồm cả thẻ mới (intervalIndex_back === -1) VÀ thẻ đến hạn
         const isCardAvailable = (card) => {
             if (card.intervalIndex_back === -1) return true; // Thẻ mới luôn sẵn sàng
-            return card.nextReview_back <= now;
+            return isDue(card);
         };
 
         const mixed = allCards.filter(card => {
@@ -1282,29 +1287,29 @@ const App = () => {
             card.intervalIndex_back !== -1 && card.intervalIndex_back !== undefined && card.intervalIndex_back >= 0
         );
         const oldMixed = oldCards.filter(card => {
-            const isDue = card.nextReview_back <= now;
-            if (!isDue) return false;
+            const isDueCard = isDue(card);
+            if (!isDueCard) return false;
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
             const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
             const dictationStreak = typeof card.correctStreak_dictation === 'number' ? card.correctStreak_dictation : 0;
             return backStreak < 1 || (card.example && exampleStreak < 1) || dictationStreak < 1;
         }).length;
         const oldBack = oldCards.filter(card => {
-            const isDue = card.nextReview_back <= now;
+            const isDueCard = isDue(card);
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
-            return isDue && backStreak < 1;
+            return isDueCard && backStreak < 1;
         }).length;
         const oldSynonym = oldCards.filter(card => {
             if (!card.synonym || card.synonym.trim() === '') return false;
-            const isDue = card.nextReview_back <= now;
+            const isDueCard = isDue(card);
             const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
-            return isDue && synonymStreak < 1;
+            return isDueCard && synonymStreak < 1;
         }).length;
         const oldExample = oldCards.filter(card => {
             if (!card.example || card.example.trim() === '') return false;
-            const isDue = card.nextReview_back <= now;
+            const isDueCard = isDue(card);
             const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
-            return isDue && exampleStreak < 1;
+            return isDueCard && exampleStreak < 1;
         }).length;
 
         // New cards (chưa có SRS)
@@ -1319,8 +1324,8 @@ const App = () => {
         // Grammar cards
         const grammarCards = allCards.filter(card => card.pos === 'grammar');
         const grammarMixed = grammarCards.filter(card => {
-            const isDue = card.nextReview_back <= now;
-            if (!isDue && card.intervalIndex_back >= 0) return false;
+            const isDueCard = isDue(card);
+            if (!isDueCard && card.intervalIndex_back >= 0) return false;
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
             const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
             const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
@@ -1328,22 +1333,22 @@ const App = () => {
             return backStreak < 1 || (card.synonym && synonymStreak < 1) || (card.example && exampleStreak < 1) || dictationStreak < 1;
         }).length;
         const grammarBack = grammarCards.filter(card => {
-            const isDue = card.nextReview_back <= now;
-            if (!isDue && card.intervalIndex_back >= 0) return false;
+            const isDueCard = isDue(card);
+            if (!isDueCard && card.intervalIndex_back >= 0) return false;
             const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
             return backStreak < 1;
         }).length;
         const grammarSynonym = grammarCards.filter(card => {
             if (!card.synonym || card.synonym.trim() === '') return false;
-            const isDue = card.nextReview_back <= now;
-            if (!isDue && card.intervalIndex_back >= 0) return false;
+            const isDueCard = isDue(card);
+            if (!isDueCard && card.intervalIndex_back >= 0) return false;
             const synonymStreak = typeof card.correctStreak_synonym === 'number' ? card.correctStreak_synonym : 0;
             return synonymStreak < 1;
         }).length;
         const grammarExample = grammarCards.filter(card => {
             if (!card.example || card.example.trim() === '') return false;
-            const isDue = card.nextReview_back <= now;
-            if (!isDue && card.intervalIndex_back >= 0) return false;
+            const isDueCard = isDue(card);
+            if (!isDueCard && card.intervalIndex_back >= 0) return false;
             const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
             return exampleStreak < 1;
         }).length;
@@ -1381,6 +1386,11 @@ const App = () => {
         // Kiểm tra xem có phải từ mới (chưa có SRS) không
         const isNewCategory = category === 'new';
 
+        const isDue = (card) => {
+            if (card.srsState === 'LEARNING' || card.srsState === 'RELEARNING') return true;
+            return card.nextReview_back <= today;
+        };
+
         // Flashcard mode: Chỉ dành cho từ vựng chưa có SRS
         if (mode === 'flashcard') {
             dueCards = filteredCards.filter(card => {
@@ -1397,7 +1407,7 @@ const App = () => {
                     const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
                     if (backStreak >= 1) return false;
                     if (isNew(card)) return true;
-                    return card.nextReview_back <= today;
+                    return isDue(card);
                 })
                 .map(card => ({ ...card, reviewType: 'back' }));
 
@@ -1407,7 +1417,7 @@ const App = () => {
                     const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
                     if (exampleStreak >= 1) return false;
                     if (isNew(card)) return true;
-                    return card.nextReview_back <= today;
+                    return isDue(card);
                 })
                 .map(card => ({ ...card, reviewType: 'example' }));
 
@@ -1417,7 +1427,7 @@ const App = () => {
                     const dictationStreak = typeof card.correctStreak_dictation === 'number' ? card.correctStreak_dictation : 0;
                     if (dictationStreak >= 1) return false;
                     if (isNew(card)) return true;
-                    return card.nextReview_back <= today;
+                    return isDue(card);
                 })
                 .map(card => ({ ...card, reviewType: 'dictation' }));
 
@@ -1430,7 +1440,7 @@ const App = () => {
                     // Thẻ mới luôn được bao gồm
                     if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined) return true;
                     // Thẻ cũ: kiểm tra nextReview và streak
-                    if (card.nextReview_back > today) return false;
+                    if (!isDue(card)) return false;
                     const backStreak = typeof card.correctStreak_back === 'number' ? card.correctStreak_back : 0;
                     return backStreak < 1;
                 });
@@ -1457,7 +1467,7 @@ const App = () => {
                     // Thẻ mới luôn được bao gồm
                     if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined) return true;
                     // Thẻ cũ: kiểm tra nextReview và streak
-                    if (card.nextReview_back > today) return false;
+                    if (!isDue(card)) return false;
                     const exampleStreak = typeof card.correctStreak_example === 'number' ? card.correctStreak_example : 0;
                     return exampleStreak < 1;
                 });
@@ -1468,7 +1478,7 @@ const App = () => {
                     // Thẻ mới luôn được bao gồm
                     if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined) return true;
                     // Thẻ cũ: kiểm tra nextReview và streak
-                    if (card.nextReview_back > today) return false;
+                    if (!isDue(card)) return false;
                     const dictationStreak = typeof card.correctStreak_dictation === 'number' ? card.correctStreak_dictation : 0;
                     return dictationStreak < 1;
                 });
