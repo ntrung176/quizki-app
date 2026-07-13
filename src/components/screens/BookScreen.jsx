@@ -296,7 +296,7 @@ const BookScreen = ({
     const loadAllData = async (silent = false, forceRefresh = false) => {
         if (!silent) setLoading(true);
         try {
-            const groups = await getSharedBookGroups(forceRefresh);
+            const groups = await getSharedBookGroups(forceRefresh, isAdmin);
             setBookGroups(groups);
         } catch (e) {
             console.error('Error loading book data:', e);
@@ -346,40 +346,140 @@ const BookScreen = ({
     };
     const handleAddGroup = async () => {
         if (!formName.trim()) return;
-        await addDoc(collection(db, COLLECTION), {
-            name: formName.trim(), subtitle: formSubtitle.trim(),
-            imageUrl: formImageUrl.trim(), order: bookGroups.length,
-            createdAt: Date.now()
-        });
-        resetForm(); setShowAddGroup(false); loadAllData(false, true);
+        try {
+            const docRef = await addDoc(collection(db, COLLECTION), {
+                name: formName.trim(), subtitle: formSubtitle.trim(),
+                imageUrl: formImageUrl.trim(), order: bookGroups.length,
+                createdAt: Date.now()
+            });
+            const newGroup = {
+                id: docRef.id,
+                name: formName.trim(),
+                subtitle: formSubtitle.trim(),
+                imageUrl: formImageUrl.trim(),
+                order: bookGroups.length,
+                books: [],
+                createdAt: Date.now()
+            };
+            setBookGroups(prev => [...prev, newGroup].sort((a, b) => (a.order || 0) - (b.order || 0)));
+            showToast('Đã thêm nhóm sách thành công!', 'success');
+            resetForm(); setShowAddGroup(false);
+        } catch (e) {
+            console.error('Lỗi khi thêm nhóm sách:', e);
+            showToast('Lỗi khi thêm nhóm sách: ' + e.message, 'error');
+        }
     };
     const handleAddBook = async () => {
         if (!formName.trim() || !groupId) return;
         const booksCount = currentGroup?.books?.length || 0;
-        await addDoc(collection(db, COLLECTION, groupId, 'books'), {
-            name: formName.trim(), subtitle: formSubtitle.trim(),
-            color: formColor, wordCount: formWordCount.trim(),
-            description: formDescription.trim(), order: booksCount,
-            createdAt: Date.now()
-        });
-        resetForm(); setShowAddBook(false); loadAllData(false, true);
+        try {
+            const docRef = await addDoc(collection(db, COLLECTION, groupId, 'books'), {
+                name: formName.trim(), subtitle: formSubtitle.trim(),
+                color: formColor, wordCount: formWordCount.trim(),
+                description: formDescription.trim(), order: booksCount,
+                createdAt: Date.now()
+            });
+            const newBook = {
+                id: docRef.id,
+                name: formName.trim(),
+                subtitle: formSubtitle.trim(),
+                color: formColor,
+                wordCount: formWordCount.trim(),
+                description: formDescription.trim(),
+                order: booksCount,
+                chapters: [],
+                createdAt: Date.now()
+            };
+            setBookGroups(prev => prev.map(g => {
+                if (g.id !== groupId) return g;
+                return {
+                    ...g,
+                    books: [...(g.books || []), newBook].sort((a, b) => (a.order || 0) - (b.order || 0))
+                };
+            }));
+            showToast('Đã thêm sách thành công!', 'success');
+            resetForm(); setShowAddBook(false);
+        } catch (e) {
+            console.error('Lỗi khi thêm sách:', e);
+            showToast('Lỗi khi thêm sách: ' + e.message, 'error');
+        }
     };
     const handleAddChapter = async () => {
         if (!formName.trim() || !groupId || !bookId) return;
         const chaptersCount = currentBook?.chapters?.length || 0;
-        await addDoc(collection(db, COLLECTION, groupId, 'books', bookId, 'chapters'), {
-            name: formName.trim(), order: chaptersCount, createdAt: Date.now()
-        });
-        resetForm(); setShowAddChapter(false); loadAllData(false, true);
+        try {
+            const docRef = await addDoc(collection(db, COLLECTION, groupId, 'books', bookId, 'chapters'), {
+                name: formName.trim(), order: chaptersCount, createdAt: Date.now()
+            });
+            const newChapter = {
+                id: docRef.id,
+                name: formName.trim(),
+                order: chaptersCount,
+                lessons: [],
+                createdAt: Date.now()
+            };
+            setBookGroups(prev => prev.map(g => {
+                if (g.id !== groupId) return g;
+                return {
+                    ...g,
+                    books: g.books.map(b => {
+                        if (b.id !== bookId) return b;
+                        return {
+                            ...b,
+                            chapters: [...(b.chapters || []), newChapter].sort((a, b) => (a.order || 0) - (b.order || 0))
+                        };
+                    })
+                };
+            }));
+            showToast('Đã thêm chương thành công!', 'success');
+            resetForm(); setShowAddChapter(false);
+        } catch (e) {
+            console.error('Lỗi khi thêm chương:', e);
+            showToast('Lỗi khi thêm chương: ' + e.message, 'error');
+        }
     };
     const handleAddLesson = async () => {
         if (!formName.trim() || !groupId || !bookId || !chapterId) return;
         const lessonsCount = currentChapter?.lessons?.length || 0;
-        await addDoc(
-            collection(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons'),
-            { name: formName.trim(), vocab: [], order: lessonsCount, createdAt: Date.now() }
-        );
-        resetForm(); setShowAddLesson(false); loadAllData(false, true);
+        try {
+            const docRef = await addDoc(
+                collection(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons'),
+                { name: formName.trim(), vocab: [], order: lessonsCount, createdAt: Date.now() }
+            );
+            const newLesson = {
+                id: docRef.id,
+                name: formName.trim(),
+                vocab: [],
+                order: lessonsCount,
+                isPremium: false,
+                createdAt: Date.now(),
+                _docPath: `${COLLECTION}/${groupId}/books/${bookId}/chapters/${chapterId}/lessons/${docRef.id}`
+            };
+            setBookGroups(prev => prev.map(g => {
+                if (g.id !== groupId) return g;
+                return {
+                    ...g,
+                    books: g.books.map(b => {
+                        if (b.id !== bookId) return b;
+                        return {
+                            ...b,
+                            chapters: b.chapters.map(c => {
+                                if (c.id !== chapterId) return c;
+                                return {
+                                    ...c,
+                                    lessons: [...(c.lessons || []), newLesson].sort((a, b) => (a.order || 0) - (b.order || 0))
+                                };
+                            })
+                        };
+                    })
+                };
+            }));
+            showToast('Đã thêm bài học thành công!', 'success');
+            resetForm(); setShowAddLesson(false);
+        } catch (e) {
+            console.error('Lỗi khi thêm bài học:', e);
+            showToast('Lỗi khi thêm bài học: ' + e.message, 'error');
+        }
     };
     // ==================== EDIT GROUP/BOOK ====================
     const handleStartEditGroup = (group) => {
@@ -395,8 +495,17 @@ const BookScreen = ({
             await updateDoc(doc(db, COLLECTION, editTarget.id), {
                 name: formName.trim(), subtitle: formSubtitle.trim(), imageUrl: formImageUrl.trim()
             });
+            setBookGroups(prev => prev.map(g => {
+                if (g.id !== editTarget.id) return g;
+                return {
+                    ...g,
+                    name: formName.trim(),
+                    subtitle: formSubtitle.trim(),
+                    imageUrl: formImageUrl.trim()
+                };
+            }));
             showToast('Đã cập nhật nhóm sách!', 'success');
-            resetForm(); setShowEditGroup(false); loadAllData(false, true);
+            resetForm(); setShowEditGroup(false);
         } catch (e) { showToast('Lỗi: ' + e.message, 'error'); }
     };
     const handleStartEditBook = (book) => {
@@ -416,8 +525,25 @@ const BookScreen = ({
                 color: formColor, wordCount: formWordCount.trim(),
                 description: formDescription.trim()
             });
+            setBookGroups(prev => prev.map(g => {
+                if (g.id !== groupId) return g;
+                return {
+                    ...g,
+                    books: g.books.map(b => {
+                        if (b.id !== editTarget.id) return b;
+                        return {
+                            ...b,
+                            name: formName.trim(),
+                            subtitle: formSubtitle.trim(),
+                            color: formColor,
+                            wordCount: formWordCount.trim(),
+                            description: formDescription.trim()
+                        };
+                    })
+                };
+            }));
             showToast('Đã cập nhật sách!', 'success');
-            resetForm(); setShowEditBook(false); loadAllData(false, true);
+            resetForm(); setShowEditBook(false);
         } catch (e) { showToast('Lỗi: ' + e.message, 'error'); }
     };
     // ==================== REORDER CHAPTERS/LESSONS ====================
@@ -432,7 +558,22 @@ const BookScreen = ({
             batch.update(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chA.id), { order: swapIdx });
             batch.update(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chB.id), { order: ci });
             await batch.commit();
-            loadAllData(true, true);
+            
+            const reordered = [...chapters];
+            reordered[ci] = { ...chA, order: swapIdx };
+            reordered[swapIdx] = { ...chB, order: ci };
+            reordered.sort((a, b) => (a.order || 0) - (b.order || 0));
+
+            setBookGroups(prev => prev.map(g => {
+                if (g.id !== groupId) return g;
+                return {
+                    ...g,
+                    books: g.books.map(b => {
+                        if (b.id !== bookId) return b;
+                        return { ...b, chapters: reordered };
+                    })
+                };
+            }));
         } catch (e) { showToast('Lỗi: ' + e.message, 'error'); }
     };
     const handleReorderLesson = async (chId, li, direction) => {
@@ -448,7 +589,28 @@ const BookScreen = ({
             batch.update(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chId, 'lessons', lsA.id), { order: swapIdx });
             batch.update(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chId, 'lessons', lsB.id), { order: li });
             await batch.commit();
-            loadAllData(true, true);
+            
+            const reordered = [...lessons];
+            reordered[li] = { ...lsA, order: swapIdx };
+            reordered[swapIdx] = { ...lsB, order: li };
+            reordered.sort((a, b) => (a.order || 0) - (b.order || 0));
+
+            setBookGroups(prev => prev.map(g => {
+                if (g.id !== groupId) return g;
+                return {
+                    ...g,
+                    books: g.books.map(b => {
+                        if (b.id !== bookId) return b;
+                        return {
+                            ...b,
+                            chapters: b.chapters.map(c => {
+                                if (c.id !== chId) return c;
+                                return { ...c, lessons: reordered };
+                            })
+                        };
+                    })
+                };
+            }));
         } catch (e) { showToast('Lỗi: ' + e.message, 'error'); }
     };
     const handleImportJson = async () => {
@@ -487,36 +649,120 @@ const BookScreen = ({
                 }
             }
             await updateDoc(lessonRef, { vocab: existing });
+            
+            setBookGroups(prev => prev.map(g => {
+                if (g.id !== groupId) return g;
+                return {
+                    ...g,
+                    books: g.books.map(b => {
+                        if (b.id !== bookId) return b;
+                        return {
+                            ...b,
+                            chapters: b.chapters.map(c => {
+                                if (c.id !== chapterId) return c;
+                                return {
+                                    ...c,
+                                    lessons: c.lessons.map(l => {
+                                        if (l.id !== lessonId) return l;
+                                        return { ...l, vocab: existing };
+                                    })
+                                };
+                            })
+                        };
+                    })
+                };
+            }));
+
             const msgs = [];
             if (addedCount > 0) msgs.push(`Thêm ${addedCount} từ mới`);
             if (updatedCount > 0) msgs.push(`Cập nhật ${updatedCount} từ`);
             showToast(msgs.join(', ') || 'Không có thay đổi', msgs.length > 0 ? 'success' : 'info');
-            resetForm(); setShowJsonImport(false); loadAllData(false, true);
+            resetForm(); setShowJsonImport(false);
         } catch (e) { showToast('JSON không hợp lệ: ' + e.message, 'error'); }
     };
     const handleDeleteGroup = async (gId) => {
         if (!await showConfirm('Xóa nhóm sách này?', { type: 'danger', confirmText: 'Xóa' })) return;
-        await deleteDoc(doc(db, COLLECTION, gId));
-        if (groupId === gId) navigateTo({});
-        loadAllData(false, true);
+        try {
+            await deleteDoc(doc(db, COLLECTION, gId));
+            setBookGroups(prev => prev.filter(g => g.id !== gId));
+            showToast('Đã xóa nhóm sách thành công!', 'success');
+            if (groupId === gId) navigateTo({});
+        } catch (e) {
+            console.error('Lỗi khi xóa nhóm sách:', e);
+            showToast('Lỗi khi xóa nhóm sách: ' + e.message, 'error');
+        }
     };
     const handleDeleteBook = async (bId) => {
         if (!await showConfirm('Xóa sách này?', { type: 'danger', confirmText: 'Xóa' })) return;
-        await deleteDoc(doc(db, COLLECTION, groupId, 'books', bId));
-        if (bookId === bId) navigateTo({ group: groupId });
-        loadAllData(false, true);
+        try {
+            await deleteDoc(doc(db, COLLECTION, groupId, 'books', bId));
+            setBookGroups(prev => prev.map(g => {
+                if (g.id !== groupId) return g;
+                return {
+                    ...g,
+                    books: g.books.filter(b => b.id !== bId)
+                };
+            }));
+            showToast('Đã xóa sách thành công!', 'success');
+            if (bookId === bId) navigateTo({ group: groupId });
+        } catch (e) {
+            console.error('Lỗi khi xóa sách:', e);
+            showToast('Lỗi khi xóa sách: ' + e.message, 'error');
+        }
     };
     const handleDeleteChapter = async (cId) => {
         if (!await showConfirm('Xóa chương này?', { type: 'danger', confirmText: 'Xóa' })) return;
-        await deleteDoc(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', cId));
-        if (chapterId === cId) navigateTo({ group: groupId, book: bookId });
-        loadAllData(false, true);
+        try {
+            await deleteDoc(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', cId));
+            setBookGroups(prev => prev.map(g => {
+                if (g.id !== groupId) return g;
+                return {
+                    ...g,
+                    books: g.books.map(b => {
+                        if (b.id !== bookId) return b;
+                        return {
+                            ...b,
+                            chapters: b.chapters.filter(c => c.id !== cId)
+                        };
+                    })
+                };
+            }));
+            showToast('Đã xóa chương thành công!', 'success');
+            if (chapterId === cId) navigateTo({ group: groupId, book: bookId });
+        } catch (e) {
+            console.error('Lỗi khi xóa chương:', e);
+            showToast('Lỗi khi xóa chương: ' + e.message, 'error');
+        }
     };
     const handleDeleteLesson = async (lId) => {
         if (!await showConfirm('Xóa bài này?', { type: 'danger', confirmText: 'Xóa' })) return;
-        await deleteDoc(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lId));
-        if (lessonId === lId) navigateTo({ group: groupId, book: bookId, chapter: chapterId });
-        loadAllData(false, true);
+        try {
+            await deleteDoc(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lId));
+            setBookGroups(prev => prev.map(g => {
+                if (g.id !== groupId) return g;
+                return {
+                    ...g,
+                    books: g.books.map(b => {
+                        if (b.id !== bookId) return b;
+                        return {
+                            ...b,
+                            chapters: b.chapters.map(c => {
+                                if (c.id !== chapterId) return c;
+                                return {
+                                    ...c,
+                                    lessons: c.lessons.filter(l => l.id !== lId)
+                                };
+                            })
+                        };
+                    })
+                };
+            }));
+            showToast('Đã xóa bài học thành công!', 'success');
+            if (lessonId === lId) navigateTo({ group: groupId, book: bookId, chapter: chapterId });
+        } catch (e) {
+            console.error('Lỗi khi xóa bài học:', e);
+            showToast('Lỗi khi xóa bài học: ' + e.message, 'error');
+        }
     };
     const handleToggleLessonPremium = async (e, chId, lesson) => {
         e.stopPropagation();
@@ -524,8 +770,29 @@ const BookScreen = ({
             const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chId, 'lessons', lesson.id);
             const nextVal = !lesson.isPremium;
             await updateDoc(lessonRef, { isPremium: nextVal });
+            setBookGroups(prev => prev.map(g => {
+                if (g.id !== groupId) return g;
+                return {
+                    ...g,
+                    books: g.books.map(b => {
+                        if (b.id !== bookId) return b;
+                        return {
+                            ...b,
+                            chapters: b.chapters.map(c => {
+                                if (c.id !== chId) return c;
+                                return {
+                                    ...c,
+                                    lessons: c.lessons.map(l => {
+                                        if (l.id !== lesson.id) return l;
+                                        return { ...l, isPremium: nextVal };
+                                    })
+                                };
+                            })
+                        };
+                    })
+                };
+            }));
             showToast(`Đã chuyển trạng thái bài học thành ${nextVal ? 'Premium' : 'Miễn phí'}`, 'success');
-            await loadAllData(true, true);
         } catch (err) {
             console.error('Lỗi toggle premium:', err);
             showToast('Lỗi: ' + err.message, 'error');
@@ -533,11 +800,38 @@ const BookScreen = ({
     };
     const handleDeleteVocab = async (vocabIndex) => {
         if (!await showConfirm('Xóa từ vựng này?', { type: 'danger', confirmText: 'Xóa' })) return;
-        const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
-        const newVocab = [...(currentLesson?.vocab || [])];
-        newVocab.splice(vocabIndex, 1);
-        await updateDoc(lessonRef, { vocab: newVocab });
-        loadAllData(false, true);
+        try {
+            const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
+            const newVocab = [...(currentLesson?.vocab || [])];
+            newVocab.splice(vocabIndex, 1);
+            await updateDoc(lessonRef, { vocab: newVocab });
+            setBookGroups(prev => prev.map(g => {
+                if (g.id !== groupId) return g;
+                return {
+                    ...g,
+                    books: g.books.map(b => {
+                        if (b.id !== bookId) return b;
+                        return {
+                            ...b,
+                            chapters: b.chapters.map(c => {
+                                if (c.id !== chapterId) return c;
+                                return {
+                                    ...c,
+                                    lessons: c.lessons.map(l => {
+                                        if (l.id !== lessonId) return l;
+                                        return { ...l, vocab: newVocab };
+                                    })
+                                };
+                            })
+                        };
+                    })
+                };
+            }));
+            showToast('Đã xóa từ vựng thành công!', 'success');
+        } catch (e) {
+            console.error('Lỗi khi xóa từ vựng:', e);
+            showToast('Lỗi khi xóa từ vựng: ' + e.message, 'error');
+        }
     };
     const handleEditVocab = (vocabIndex) => {
         const v = currentLesson?.vocab?.[vocabIndex];
@@ -583,13 +877,31 @@ const BookScreen = ({
                     } catch (e) { console.warn('Could not create vocab update record:', e); }
                 }
             }
+            setBookGroups(prev => prev.map(g => {
+                if (g.id !== groupId) return g;
+                return {
+                    ...g,
+                    books: g.books.map(b => {
+                        if (b.id !== bookId) return b;
+                        return {
+                            ...b,
+                            chapters: b.chapters.map(c => {
+                                if (c.id !== chapterId) return c;
+                                return {
+                                    ...c,
+                                    lessons: c.lessons.map(l => {
+                                        if (l.id !== lessonId) return l;
+                                        return { ...l, vocab: newVocab };
+                                    })
+                                };
+                            })
+                        };
+                    })
+                };
+            }));
             setEditingVocabIndex(null);
             setEditingVocabData(null);
             showToast('Đã cập nhật từ vựng!', 'success');
-            // Preserve scroll position during reload
-            const scrollY = window.scrollY;
-            await loadAllData(true, true);
-            requestAnimationFrame(() => { window.scrollTo(0, scrollY); });
         } catch (e) {
             console.error('Error saving vocab edit:', e);
             showToast('Lỗi khi lưu: ' + e.message, 'error');
@@ -615,9 +927,43 @@ const BookScreen = ({
                 ref = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', id);
             }
             if (ref) {
-                await updateDoc(ref, { name: editingNameValue.trim() });
+                const nameTrimmed = editingNameValue.trim();
+                await updateDoc(ref, { name: nameTrimmed });
+                
+                setBookGroups(prev => prev.map(g => {
+                    if (type === 'group' && g.id === id) {
+                        return { ...g, name: nameTrimmed };
+                    }
+                    if (g.id !== groupId) return g;
+                    return {
+                        ...g,
+                        books: g.books.map(b => {
+                            if (type === 'book' && b.id === id) {
+                                return { ...b, name: nameTrimmed };
+                            }
+                            if (b.id !== bookId) return b;
+                            return {
+                                ...b,
+                                chapters: b.chapters.map(c => {
+                                    if (type === 'chapter' && c.id === id) {
+                                        return { ...c, name: nameTrimmed };
+                                    }
+                                    if (c.id !== chapterId) return c;
+                                    return {
+                                        ...c,
+                                        lessons: c.lessons.map(l => {
+                                            if (type === 'lesson' && l.id === id) {
+                                                return { ...l, name: nameTrimmed };
+                                            }
+                                            return l;
+                                        })
+                                    };
+                                })
+                            };
+                        })
+                    };
+                }));
                 showToast('Đã cập nhật tên!', 'success');
-                loadAllData(false, true);
             }
         } catch (e) {
             console.error('Error saving name edit:', e);

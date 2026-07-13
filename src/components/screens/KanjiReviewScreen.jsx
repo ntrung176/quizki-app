@@ -56,6 +56,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
     const [slideDirection, setSlideDirection] = useState('');
     const sessionXpRef = useRef(0);
+    const completedCardIds = useRef(new Set());
 
     const userId = getAuth().currentUser?.uid;
 
@@ -194,6 +195,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const startReview = () => {
         if (dueKanji.length === 0) return;
         sessionXpRef.current = 0;
+        completedCardIds.current.clear();
         setReviewQueue([...dueKanji]);
         setCurrentReviewIndex(0);
         setIsFlipped(false);
@@ -258,12 +260,40 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             cardId: currentCard.id,
             srs: srs ? { ...srs } : null,
             isFlipped: isFlipped,
-            xpAwarded: totalXp
+            xpAwarded: totalXp,
+            queue: [...reviewQueue] // Save copy of queue for undo
         }]);
 
-        // 1. Update local states immediately (optimistic UI)
+        // 1. Determine if card needs to be re-reviewed in this session
+        let updatedQueue = [...reviewQueue];
+        if (rating === 'again') {
+            const insertIndex = Math.min(updatedQueue.length, currentReviewIndex + 3);
+            updatedQueue.splice(insertIndex, 0, currentCard);
+        } else {
+            completedCardIds.current.add(currentCard.id);
+        }
+
+        // 2. Scan kanjiList for newly due cards that aren't in the queue yet
+        const nowTime = Date.now();
+        const upcomingCardIds = new Set(updatedQueue.slice(currentReviewIndex + 1).map(c => c.id));
+        const newlyDueKanji = kanjiList.filter(k => {
+            if (k.id === currentCard.id) return false;
+            if (completedCardIds.current.has(k.id)) return false;
+            if (upcomingCardIds.has(k.id)) return false;
+            const srs = srsData[k.id];
+            if (!srs) return false;
+            return (srs.nextReview || 0) <= nowTime;
+        });
+
+        if (newlyDueKanji.length > 0) {
+            updatedQueue = [...updatedQueue, ...newlyDueKanji];
+        }
+
+        setReviewQueue(updatedQueue);
+
+        // Update local states immediately (optimistic UI)
         setSrsData(prev => ({ ...prev, [currentCard.id]: newSrs }));
-        if (currentReviewIndex + 1 < reviewQueue.length) {
+        if (currentReviewIndex + 1 < updatedQueue.length) {
             if (rating === 'good' || rating === 'easy') { flashCorrect(); }
             
             setIsAnimatingFlip(false);
@@ -283,7 +313,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             launchFanfare();
             logKanjiActivity(userId, {
                 type: 'review',
-                title: `Đã ôn tập ${reviewQueue.length} chữ Kanji`,
+                title: `Đã ôn tập ${updatedQueue.length} chữ Kanji`,
                 details: `Hoàn thành phiên ôn tập SRS`
             });
             exitReview();
@@ -325,7 +355,12 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         const lastAction = reviewHistory[reviewHistory.length - 1];
         setReviewHistory(prev => prev.slice(0, -1));
 
-        const { cardIndex, cardId, srs, isFlipped: wasFlipped, xpAwarded } = lastAction;
+        const { cardIndex, cardId, srs, isFlipped: wasFlipped, xpAwarded, queue: savedQueue } = lastAction;
+
+        if (savedQueue) {
+            setReviewQueue(savedQueue);
+        }
+        completedCardIds.current.delete(cardId);
 
         // 1. Revert local states immediately
         setSrsData(prev => {

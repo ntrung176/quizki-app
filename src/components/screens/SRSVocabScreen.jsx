@@ -254,6 +254,7 @@ const SRSVocabScreen = ({
     const [reviewMode, setReviewModeState] = useState(false);
     const [reviewHistory, setReviewHistory] = useState([]);
     const sessionXpRef = useRef(0);
+    const completedCardIds = useRef(new Set());
 
     useEffect(() => {
         setShowNuancePopup(false);
@@ -383,6 +384,7 @@ const SRSVocabScreen = ({
     const startFolderReview = (dueCards) => {
         if (dueCards.length === 0) return;
         sessionXpRef.current = 0;
+        completedCardIds.current.clear();
         setReviewQueue(shuffleArray([...dueCards]));
         setCurrentReviewIndex(0);
         setIsFlipped(false);
@@ -444,7 +446,8 @@ const SRSVocabScreen = ({
             cardIndex: currentReviewIndex,
             cardId: card.id,
             srsFields: prevSrsFields,
-            isFlipped: isFlipped
+            isFlipped: isFlipped,
+            queue: [...reviewQueue] // Save copy of queue for undo
         }]);
 
         // Call parent update vocab srs rating on Firestore asynchronously (no await!)
@@ -462,7 +465,34 @@ const SRSVocabScreen = ({
             console.error(e);
         }
 
-        if (currentReviewIndex + 1 < reviewQueue.length) {
+        // 1. Determine if card needs to be re-reviewed in this session
+        let updatedQueue = [...reviewQueue];
+        if (rating === 'again') {
+            // Re-insert the card into the queue (e.g. after 3 cards, or at the end)
+            const insertIndex = Math.min(updatedQueue.length, currentReviewIndex + 3);
+            updatedQueue.splice(insertIndex, 0, card);
+        } else {
+            // Mark as successfully completed
+            completedCardIds.current.add(card.id);
+        }
+
+        // 2. Scan allCards for any newly due cards that aren't in the queue yet
+        const now = Date.now();
+        const upcomingCardIds = new Set(updatedQueue.slice(currentReviewIndex + 1).map(c => c.id));
+        const newlyDueCards = allCards.filter(c => {
+            if (c.id === card.id) return false;
+            if (completedCardIds.current.has(c.id)) return false;
+            if (upcomingCardIds.has(c.id)) return false;
+            return isDue(c);
+        });
+
+        if (newlyDueCards.length > 0) {
+            updatedQueue = [...updatedQueue, ...newlyDueCards];
+        }
+
+        setReviewQueue(updatedQueue);
+
+        if (currentReviewIndex + 1 < updatedQueue.length) {
             setIsAnimatingFlip(false);
             setSlideDirection('left');
             setTimeout(() => {
@@ -506,7 +536,12 @@ const SRSVocabScreen = ({
         const lastAction = reviewHistory[reviewHistory.length - 1];
         setReviewHistory(prev => prev.slice(0, -1));
 
-        const { cardIndex, cardId, srsFields, isFlipped: wasFlipped } = lastAction;
+        const { cardIndex, cardId, srsFields, isFlipped: wasFlipped, queue: savedQueue } = lastAction;
+
+        if (savedQueue) {
+            setReviewQueue(savedQueue);
+        }
+        completedCardIds.current.delete(cardId);
 
         // 1. Revert local states immediately in current reviewQueue
         setReviewQueue(prevQueue => {

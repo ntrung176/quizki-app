@@ -13,33 +13,12 @@ let bookGroupsPromise = null;
  * Caches the results and shares the promise if concurrently requested.
  * @param {boolean} forceRefresh - If true, bypasses cache and forces a fresh query.
  */
-export const getSharedBookGroups = async (forceRefresh = false) => {
-    if (cachedBookGroups && !forceRefresh) return cachedBookGroups;
-    if (bookGroupsPromise && !forceRefresh) return bookGroupsPromise;
+export const getSharedBookGroups = async (forceRefresh = false, forceLiveFirestore = false) => {
+    if (cachedBookGroups && !forceRefresh && !forceLiveFirestore) return cachedBookGroups;
+    if (bookGroupsPromise && !forceRefresh && !forceLiveFirestore) return bookGroupsPromise;
 
     bookGroupsPromise = (async () => {
-        try {
-            console.log('Fetching shared book groups from CDN...');
-            const cacheConfig = await getCacheConfig();
-            
-            let dataRes;
-            if (cacheConfig && cacheConfig.booksUrl) {
-                console.log('Using Firebase Storage CDN for Books cache');
-                dataRes = await fetch(cacheConfig.booksUrl);
-            } else {
-                console.log('Falling back to local bundle files for Books cache');
-                dataRes = await fetch('/data/books_data.json');
-            }
-
-            if (!dataRes || !dataRes.ok) throw new Error('CDN fetch failed');
-            const contentType = dataRes.headers.get('content-type');
-            if (!contentType || !contentType.includes('application/json')) {
-                throw new Error('Response is not JSON (got: ' + contentType + ')');
-            }
-            cachedBookGroups = await dataRes.json();
-            return cachedBookGroups;
-        } catch (e) {
-            console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);
+        const fetchFromFirestoreFallback = async () => {
             try {
                 console.log('Fetching shared book groups from Firestore fallback...');
                 const COLLECTION = 'bookGroups';
@@ -90,6 +69,35 @@ export const getSharedBookGroups = async (forceRefresh = false) => {
                 bookGroupsPromise = null;
                 throw fsErr;
             }
+        };
+
+        if (forceLiveFirestore) {
+            return fetchFromFirestoreFallback();
+        }
+
+        try {
+            console.log('Fetching shared book groups from CDN...');
+            const cacheConfig = await getCacheConfig();
+            
+            let dataRes;
+            if (cacheConfig && cacheConfig.booksUrl) {
+                console.log('Using Firebase Storage CDN for Books cache');
+                dataRes = await fetch(cacheConfig.booksUrl);
+            } else {
+                console.log('Falling back to local bundle files for Books cache');
+                dataRes = await fetch('/data/books_data.json');
+            }
+
+            if (!dataRes || !dataRes.ok) throw new Error('CDN fetch failed');
+            const contentType = dataRes.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                throw new Error('Response is not JSON (got: ' + contentType + ')');
+            }
+            cachedBookGroups = await dataRes.json();
+            return cachedBookGroups;
+        } catch (e) {
+            console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);
+            return fetchFromFirestoreFallback();
         }
     })();
 
