@@ -1016,7 +1016,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
     const [isPrintTriggered, setIsPrintTriggered] = useState(false);
     const [includeAnswers, setIncludeAnswers] = useState(true);
     const [includeAnswerSheet, setIncludeAnswerSheet] = useState(true);
-    const [debugPrintView, setDebugPrintView] = useState(false);
 
     useEffect(() => {
         if (isPrintTriggered) {
@@ -1395,6 +1394,15 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
     const userIsAdmin = profile?.email && ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(profile.email);
     const hasPremiumAccess = isAdmin || userIsAdmin || profile?.isPremiumUnlocked || (profile?.unlockedSpecializedPackages || []).includes('jlpt_prep');
     const canEdit = isAdmin || userIsAdmin;
+
+    const handleStartPrint = (test) => {
+        if (!test) return;
+        if (test.isPremium && !hasPremiumAccess) {
+            setShowPremiumModal(true);
+            return;
+        }
+        setPrintingTest(test);
+    };
 
     const handleSaveQuestionHtml = async (updatedQuestion) => {
         if (!activeTest || !editingQuestionData) return;
@@ -2252,18 +2260,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                 </div>
                             </label>
 
-                            <label className="flex items-center gap-3 p-3.5 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-slate-100 dark:border-slate-800 cursor-pointer select-none hover:bg-slate-100/50 dark:hover:bg-slate-900/60 transition-all">
-                                <input 
-                                    type="checkbox" 
-                                    checked={debugPrintView}
-                                    onChange={(e) => setDebugPrintView(e.target.checked)}
-                                    className="w-4 h-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
-                                />
-                                <div className="flex-1">
-                                    <div className="text-xs font-bold text-slate-700 dark:text-slate-200">Hiển thị bản xem trước đề thi (Debug)</div>
-                                    <div className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5 font-medium">Xem trực tiếp nội dung đề thi trên màn hình để kiểm tra dữ liệu</div>
-                                </div>
-                            </label>
+
                         </div>
 
                         {/* Tips */}
@@ -2319,28 +2316,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                         </PrintErrorBoundary>
                     </div>
                 )}
-                {debugPrintView && printingTest && (
-                    <div className="fixed inset-0 z-[10000] bg-white text-black overflow-auto p-8 font-sans">
-                        <div className="max-w-4xl mx-auto border border-gray-300 p-6 bg-white relative shadow-2xl rounded-2xl my-8">
-                            <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-                                <h3 className="text-lg font-bold text-gray-800">BẢN XEM TRƯỚC TRÊN MÀN HÌNH (DEBUG PREVIEW)</h3>
-                                <button 
-                                    onClick={() => setDebugPrintView(false)}
-                                    className="px-4 py-2 bg-red-600 hover:bg-red-750 text-white rounded-xl font-bold text-xs transition"
-                                >
-                                    Đóng Xem Trước
-                                </button>
-                            </div>
-                            <PrintErrorBoundary>
-                                <JLPTPrintView 
-                                    test={printingTest} 
-                                    includeAnswers={includeAnswers} 
-                                    includeAnswerSheet={includeAnswerSheet} 
-                                />
-                            </PrintErrorBoundary>
-                        </div>
-                    </div>
-                )}
+
             </>
         );
     };
@@ -3054,7 +3030,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                     {/* Actions */}
                     <div className="flex flex-col sm:flex-row gap-3">
                         <button 
-                            onClick={() => setPrintingTest(activeTest)}
+                            onClick={() => handleStartPrint(activeTest)}
                             className="flex-1 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold transition flex items-center justify-center gap-1.5 cursor-pointer shadow-md"
                         >
                             <Printer className="w-5 h-5" />
@@ -4329,7 +4305,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                             <button
                                                                 onClick={(e) => {
                                                                     e.stopPropagation();
-                                                                    setPrintingTest(test);
+                                                                    handleStartPrint(test);
                                                                 }}
                                                                 className="p-1.5 text-slate-500 hover:text-[#2E5B70] dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 rounded-xl transition-all cursor-pointer shrink-0 border border-transparent hover:border-slate-200 dark:hover:border-slate-600"
                                                                 title="In đề thi / Xuất PDF"
@@ -4357,7 +4333,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                             <button
                                                                 onClick={(e) => {
                                                                     e.stopPropagation();
-                                                                    setPrintingTest(test);
+                                                                    handleStartPrint(test);
                                                                 }}
                                                                 className="p-1.5 text-slate-500 hover:text-[#2E5B70] dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 rounded-xl transition-all cursor-pointer shrink-0 border border-transparent hover:border-slate-200 dark:hover:border-slate-600"
                                                                 title="In đề thi / Xuất PDF"
@@ -4386,7 +4362,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                             <button
                                                                 onClick={(e) => {
                                                                     e.stopPropagation();
-                                                                    setPrintingTest(test);
+                                                                    handleStartPrint(test);
                                                                 }}
                                                                 className="p-1.5 text-slate-500 hover:text-[#2E5B70] dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 rounded-xl transition-all cursor-pointer shrink-0 border border-transparent hover:border-slate-200 dark:hover:border-slate-600"
                                                                 title="In đề thi / Xuất PDF"
@@ -4421,7 +4397,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                                 <button
                                                                     onClick={(e) => {
                                                                         e.stopPropagation();
-                                                                        setPrintingTest(test);
+                                                                        handleStartPrint(test);
                                                                     }}
                                                                     className="p-1.5 text-slate-500 hover:text-[#2E5B70] dark:text-slate-400 dark:hover:text-sky-455 hover:bg-slate-100 dark:hover:bg-slate-700/50 rounded-xl transition-all cursor-pointer shrink-0 border border-transparent hover:border-slate-200 dark:hover:border-slate-600"
                                                                     title="In đề thi / Xuất PDF"
@@ -5052,7 +5028,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                         <button
                                                             onClick={(e) => {
                                                                 e.stopPropagation();
-                                                                setPrintingTest(test);
+                                                                handleStartPrint(test);
                                                             }}
                                                             className="p-1 text-slate-500 hover:text-[#2E5B70] dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 rounded transition cursor-pointer"
                                                             title="In đề thi / Xuất PDF"
@@ -5071,7 +5047,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                         <button
                                                             onClick={(e) => {
                                                                 e.stopPropagation();
-                                                                setPrintingTest(test);
+                                                                handleStartPrint(test);
                                                             }}
                                                             className="p-1 text-slate-500 hover:text-[#2E5B70] dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 rounded transition cursor-pointer"
                                                             title="In đề thi / Xuất PDF"
@@ -5087,7 +5063,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                         <button
                                                             onClick={(e) => {
                                                                 e.stopPropagation();
-                                                                setPrintingTest(test);
+                                                                handleStartPrint(test);
                                                             }}
                                                             className="p-1 text-slate-500 hover:text-[#2E5B70] dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 rounded transition cursor-pointer"
                                                             title="In đề thi / Xuất PDF"
