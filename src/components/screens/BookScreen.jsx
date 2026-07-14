@@ -734,10 +734,10 @@ const BookScreen = ({
             showToast('Lỗi khi xóa chương: ' + e.message, 'error');
         }
     };
-    const handleDeleteLesson = async (lId) => {
+    const handleDeleteLesson = async (cId, lId) => {
         if (!await showConfirm('Xóa bài này?', { type: 'danger', confirmText: 'Xóa' })) return;
         try {
-            await deleteDoc(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lId));
+            await deleteDoc(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', cId, 'lessons', lId));
             setBookGroups(prev => prev.map(g => {
                 if (g.id !== groupId) return g;
                 return {
@@ -747,7 +747,7 @@ const BookScreen = ({
                         return {
                             ...b,
                             chapters: b.chapters.map(c => {
-                                if (c.id !== chapterId) return c;
+                                if (c.id !== cId) return c;
                                 return {
                                     ...c,
                                     lessons: c.lessons.filter(l => l.id !== lId)
@@ -758,7 +758,7 @@ const BookScreen = ({
                 };
             }));
             showToast('Đã xóa bài học thành công!', 'success');
-            if (lessonId === lId) navigateTo({ group: groupId, book: bookId, chapter: chapterId });
+            if (lessonId === lId) navigateTo({ group: groupId, book: bookId, chapter: cId });
         } catch (e) {
             console.error('Lỗi khi xóa bài học:', e);
             showToast('Lỗi khi xóa bài học: ' + e.message, 'error');
@@ -1925,7 +1925,7 @@ const BookScreen = ({
                                                             className={`p-0.5 rounded ${li === chapter.lessons.length - 1 ? 'text-gray-250 dark:text-gray-600' : 'text-gray-300 hover:text-sky-500'}`}>
                                                             <ChevronDown className="w-3 h-3" />
                                                         </button>
-                                                        <button onClick={(e) => { e.stopPropagation(); handleDeleteLesson(lesson.id); }}
+                                                        <button onClick={(e) => { e.stopPropagation(); handleDeleteLesson(chapter.id, lesson.id); }}
                                                             className="p-1 text-gray-300 hover:text-red-500 transition-colors">
                                                             <Trash2 className="w-3 h-3" />
                                                         </button>
