@@ -246,7 +246,7 @@ export const calculateAnkiSRS = (srs, rating) => {
                 break;
             case 'hard':
                 nextState = 'LEARNING';
-                newInterval = 10; // Đổi thành 10 phút theo yêu cầu
+                newInterval = 5; // Đổi thành 5 phút theo yêu cầu để phân biệt với Good (10 phút)
                 newLearningStep = 0; // Giữ ở bước 0, không nhảy bước
                 break;
             case 'good':
@@ -277,7 +277,7 @@ export const calculateAnkiSRS = (srs, rating) => {
             case 'hard':
                 nextState = 'LEARNING';
                 if (learningStep === 0 && LEARNING_STEPS.length > 1) {
-                    newInterval = 10; // Đổi thành 10 phút theo yêu cầu
+                    newInterval = 5; // Đổi thành 5 phút theo yêu cầu để phân biệt với Good (10 phút)
                 } else {
                     // Anki: Hard ở bước khác = lặp lại bước hiện tại
                     newInterval = LEARNING_STEPS[learningStep] || currentInterval;
