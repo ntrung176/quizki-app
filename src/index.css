@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
@@ -482,4 +482,189 @@ mark {
 html.dark mark {
   background-color: #854d0e;
   color: #f8fafc;
+}
+
+/* ======================================================== */
+/* JLPT EXAM PRINT STYLES                                  */
+/* ======================================================== */
+
+@media screen {
+  #quizki-print-portal {
+    display: none !important;
+  }
+  
+  /* Force light mode styles for print preview on screen */
+  .print-preview-force-light,
+  .print-preview-force-light * {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+    border-color: #000000 !important;
+  }
+}
+
+@media print {
+  /* Reset html and body layout and colors for clean printing */
+  html, body, html.dark, html.dark body {
+    display: block !important;
+    position: static !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: auto !important;
+    background: white !important;
+    background-color: white !important;
+    color: black !important;
+    color-scheme: light !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide all elements during print by default */
+  body * {
+    visibility: hidden !important;
+  }
+
+  /* Show only the print container wrapper and its children */
+  .print-container-wrapper,
+  .print-container-wrapper * {
+    visibility: visible !important;
+  }
+
+  .print-container-wrapper {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    display: block !important;
+    background-color: white !important;
+  }
+
+  /* Force all elements in the print wrapper to use black text on a transparent/white background */
+  .print-container-wrapper,
+  .print-container-wrapper * {
+    color: black !important;
+    background-color: transparent !important;
+    border-color: black !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Specific background shading that is helpful for printed layout readability */
+  .print-container-wrapper .bg-gray-50,
+  .print-container-wrapper .bg-gray-50\/50,
+  .print-container-wrapper .bg-gray-100 {
+    background-color: #f3f4f6 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Standard page layout */
+  @page {
+    size: A4;
+    margin: 20mm 15mm 20mm 15mm;
+  }
+
+  .print-container {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    font-family: "Times New Roman", "BIZ UDPMincho", "MS Mincho", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif !important;
+    color: #000 !important;
+    background: white !important;
+    background-color: white !important;
+    line-height: 1.6 !important;
+  }
+
+  .print-header {
+    border-bottom: 3px double #000 !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .print-section-header {
+    font-size: 13pt !important;
+    font-weight: bold !important;
+    border-bottom: 1px solid #000 !important;
+    padding-bottom: 4px !important;
+    margin-top: 24px !important;
+    margin-bottom: 16px !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .print-passage-box {
+    border: 1px solid #000 !important;
+    padding: 12px !important;
+    margin-top: 10px !important;
+    margin-bottom: 16px !important;
+    background: #fff !important;
+    font-size: 10.5pt !important;
+    line-height: 1.8 !important;
+    border-radius: 4px !important;
+    page-break-inside: auto !important;
+  }
+
+  .print-question-item {
+    margin-bottom: 20px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .print-options-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8px !important;
+    margin-top: 8px !important;
+    margin-left: 20px !important;
+    margin-bottom: 12px !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-options-2col {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .print-options-1col {
+    display: block !important;
+    margin-top: 6px !important;
+    margin-left: 20px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .print-options-1col > div {
+    margin-bottom: 4px !important;
+  }
+
+  .print-option {
+    font-size: 10.5pt !important;
+  }
+
+  .print-page-break {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  .print-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-top: 12px !important;
+  }
+
+  .print-table th, .print-table td {
+    border: 1px solid #000 !important;
+    padding: 6px 8px !important;
+    text-align: center !important;
+    font-size: 10pt !important;
+  }
+
+  ruby rt {
+    font-size: 0.58em !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Override font-japanese during print to match serif theme */
+  .print-container-wrapper .font-japanese,
+  .print-container-wrapper.print-preview-force-light .font-japanese {
+    font-family: "Times New Roman", "BIZ UDPMincho", "MS Mincho", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1.6 !important;
+  }
 }

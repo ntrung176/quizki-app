@@ -277,17 +277,17 @@ const Flashcard = ({
         };
 
         return (
-            <div className={`flex-1 flex ${card.imageBase64 && variant !== 'review' ? 'flex-row' : 'flex-col md:flex-row'} items-center justify-center gap-4 md:gap-8 px-2 w-full h-full min-h-0`}>
-                {card.imageBase64 && (
+            <div className={`flex-1 flex ${(card.imageUrl || card.imageBase64) && variant !== 'review' ? 'flex-row' : 'flex-col md:flex-row'} items-center justify-center gap-4 md:gap-8 px-2 w-full h-full min-h-0`}>
+                {(card.imageUrl || card.imageBase64) && (
                     <div className="flex-shrink-0">
                         <img
-                             src={card.imageBase64}
+                             src={card.imageUrl || card.imageBase64}
                              alt={card.front}
                              className={`w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 rounded-2xl object-cover shadow-sm ${variant === 'review' ? 'border-4 border-white/30 shadow-lg' : 'border border-gray-200 dark:border-slate-700'}`}
                         />
                     </div>
                 )}
-                <div className={`flex flex-col items-center justify-center text-center min-w-0 space-y-1 w-full h-full py-1.5 ${card.imageBase64 && variant === 'review' ? 'text-left min-w-0 flex-1' : ''}`}>
+                <div className={`flex flex-col items-center justify-center text-center min-w-0 space-y-1 w-full h-full py-1.5 ${(card.imageUrl || card.imageBase64) && variant === 'review' ? 'text-left min-w-0 flex-1' : ''}`}>
                     {cardSettings.back.reading && (
                         <div className={`${scale.wordSize || 'text-3xl font-extrabold'} font-bold ${readingColorClass} font-japanese select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap`}>
                             {renderReadingWithPitchAccent()}

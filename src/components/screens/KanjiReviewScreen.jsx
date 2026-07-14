@@ -523,6 +523,11 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                                 💡 {currentCard.mnemonic}
                                             </div>
                                         )}
+                                        {(currentCard.imageUrl || currentCard.imageBase64) && (
+                                            <div className="w-28 h-28 sm:w-36 sm:h-36 mx-auto shrink-0 bg-slate-50 dark:bg-slate-900/40 rounded-2xl overflow-hidden border border-gray-150 dark:border-slate-700 flex items-center justify-center p-1.5 shadow-inner">
+                                                <img src={currentCard.imageUrl || currentCard.imageBase64} alt="illustration" className="max-w-full max-h-full object-contain rounded-xl" />
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>

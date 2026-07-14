@@ -14,6 +14,7 @@ import { renderStrokeGuide, renderMaziiStyleKanji } from '../../utils/kanjiStrok
 import { RADICALS_214, KANJI_TREE } from '../../data/radicals214';
 import { getSharedKanjiList, getSharedVocabList, getSharedVocabCategories, updateCachedKanji, deleteCachedKanji, updateCachedVocab, deleteCachedVocab, getCachedKanjiList, getCachedVocabList, getCachedVocabCategories, syncKanjiAndVocabToCDN } from '../../utils/kanjiService';
 import { JOTOBA_KANJI_DATA, getJotobaKanjiChars, getJotobaKanjiData } from '../../data/jotobaKanjiData'
+import kanjiComponents from '../../data/kanjiComponents.json' with { type: 'json' };
 import { TopTabBar, PremiumLockedModal } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
@@ -79,6 +80,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
     const [editingKanji, setEditingKanji] = useState(null);
     const [editingVocab, setEditingVocab] = useState(null);
     const [syncingCDN, setSyncingCDN] = useState(false);
+    const [migratingComponents, setMigratingComponents] = useState(false);
     // Vocab Categories
     const [vocabCategories, setVocabCategories] = useState(() => getCachedVocabCategories() || []);
     const [showCategoryModal, setShowCategoryModal] = useState(false);
@@ -825,7 +827,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 onyomi: onyomiStr || jData?.onyomi?.join('、') || '',
                 kunyomi: kunyomiStr || jData?.kunyomi?.join('、') || '',
                 strokeCount: fbData.strokeCount || jData?.stroke_count || '',
-                parts: fbData.parts || jData?.parts?.join('、') || '',
+                parts: kanjiComponents[char] ? kanjiComponents[char].join('、') : (fbData.parts || jData?.parts?.join('、') || ''),
                 radical: fbData.radical || '',
                 mnemonic: fbData.mnemonic || '',
                 level: fbData.level || jData?.level || 'N5',
@@ -845,7 +847,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 strokeCount: jData.stroke_count || '',
                 mnemonic: '',
                 radical: '',
-                parts: jData.parts?.join('、') || '',
+                parts: kanjiComponents[char] ? kanjiComponents[char].join('、') : (jData.parts?.join('、') || ''),
                 _fromJotoba: true
             };
         }
@@ -1161,6 +1163,56 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             setSyncingCDN(false);
         }
     };
+
+    const handleMigrateComponents = async () => {
+        const confirmed = await showConfirm(
+            'Bạn có chắc chắn muốn ghi đè bộ thủ chuẩn (từ kanjiComponents.json) cho toàn bộ Hán tự trong Firestore không? Thao tác này sẽ cập nhật trường thành phần của các tài liệu Hán tự khác biệt.',
+            { type: 'info', confirmText: 'Ghi đè Bộ thủ' }
+        );
+        if (!confirmed) return;
+
+        setMigratingComponents(true);
+        showToast('Đang quét và ghi đè bộ thủ trong Firestore...', 'info');
+        try {
+            const kanjiSnap = await getDocs(collection(db, 'kanji'));
+            let batch = writeBatch(db);
+            let updateCount = 0;
+            let batchCount = 0;
+
+            for (const docSnap of kanjiSnap.docs) {
+                const data = docSnap.data();
+                const char = data.character;
+                if (char && kanjiComponents[char]) {
+                    const cleanParts = kanjiComponents[char].join('、');
+                    if (data.parts !== cleanParts) {
+                        batch.update(docSnap.ref, {
+                            parts: cleanParts,
+                            updatedAt: Date.now()
+                        });
+                        updateCount++;
+                        batchCount++;
+
+                        if (batchCount === 500) {
+                            await batch.commit();
+                            batch = writeBatch(db);
+                            batchCount = 0;
+                        }
+                    }
+                }
+            }
+
+            if (batchCount > 0) {
+                await batch.commit();
+            }
+
+            showToast(`Ghi đè thành công ${updateCount} chữ Kanji! Hãy bấm Đồng bộ CDN để cập nhật cache.`, 'success');
+        } catch (err) {
+            console.error('Lỗi khi ghi đè bộ thủ:', err);
+            showToast('Ghi đè bộ thủ thất bại: ' + err.message, 'error');
+        } finally {
+            setMigratingComponents(false);
+        }
+    };
     // Edit Vocab
     const handleEditVocab = async () => {
         if (!editingVocab || !editingVocab.id) return;
@@ -1436,7 +1488,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     <p><span className="text-gray-500 dark:text-gray-400">Âm On:</span> <span className="text-cyan-600 dark:text-cyan-400 font-japanese font-bold">{detail.onyomi || (kanjiApiData?.onyomi?.join('、')) || getJotobaKanjiData(selectedKanji)?.onyomi?.join('、') || '-'}</span></p>
                                     {/* Parts / Thành phần chiết tự */}
                                     {(() => {
-                                        const parts = detail.parts || kanjiApiData?.parts || getJotobaKanjiData(selectedKanji)?.parts || [];
+                                        const parts = kanjiComponents[selectedKanji] || detail.parts || kanjiApiData?.parts || getJotobaKanjiData(selectedKanji)?.parts || [];
                                         if (parts.length === 0) return null;
                                         const partsArr = typeof parts === 'string' ? parts.split(/[,，、]/).filter(Boolean) : parts;
                                         return (
@@ -1458,8 +1510,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                     })()}
                                 </div>
                                 {detail.imageUrl && (
-                                    <div className="w-full sm:w-28 sm:h-28 md:w-32 md:h-32 shrink-0 bg-slate-100 dark:bg-slate-700 rounded-xl overflow-hidden border border-gray-150 dark:border-slate-600 flex items-center justify-center p-1.5 group shadow-inner">
-                                        <img src={detail.imageUrl} alt={detail.character} className="max-w-full max-h-full object-contain rounded-lg transition-transform duration-300 group-hover:scale-105" />
+                                    <div className="w-full sm:w-40 sm:h-40 md:w-48 md:h-48 shrink-0 bg-slate-50 dark:bg-slate-900/40 rounded-2xl overflow-hidden border border-gray-250 dark:border-slate-700 flex items-center justify-center p-1.5 group shadow-inner">
+                                        <img src={detail.imageUrl} alt={detail.character} className="max-w-full max-h-full object-contain rounded-xl transition-transform duration-300 group-hover:scale-105" />
                                     </div>
                                 )}
                             </div>
@@ -1487,7 +1539,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                         return withoutParens.split(/[,，、\s]+/).map(s => s.trim()).filter(s => s.length > 0);
                                     };
                                     const det = getKanjiDetail(selectedKanji);
-                                    const parts = det.parts || kanjiApiData?.parts || getJotobaKanjiData(selectedKanji)?.parts || [];
+                                    const parts = kanjiComponents[selectedKanji] || det.parts || kanjiApiData?.parts || getJotobaKanjiData(selectedKanji)?.parts || [];
                                     const partsArr = (typeof parts === 'string' ? parseRads(parts) : parts).filter(p => p !== selectedKanji);
                                     const resultKanji = [
                                         ...Object.entries(KANJI_TREE)
@@ -1497,7 +1549,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                             .filter(k => {
                                                 if (k.character === selectedKanji) return false;
                                                 const rads = parseRads(k.radical || '');
-                                                const kParts = parseRads(k.parts || '');
+                                                const customParts = kanjiComponents[k.character];
+                                                const kParts = customParts ? customParts : parseRads(k.parts || '');
                                                 return rads.includes(selectedKanji) || kParts.includes(selectedKanji);
                                             })
                                             .map(k => k.character)
@@ -2143,12 +2196,15 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 {isAdmin && (
                     <div className="bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/50 rounded-3xl p-5 shadow-sm space-y-3">
                         <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Admin Control Panel</p>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
                             <button onClick={() => setShowAddKanjiModal(true)} className="py-2.5 bg-slate-50 dark:bg-slate-700/40 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl font-bold text-xs text-slate-700 dark:text-slate-300 border border-slate-250 dark:border-slate-650 transition-all flex items-center justify-center gap-1.5 shadow-sm">
                                 <Plus className="w-4 h-4 text-sky-500" /> Thêm Hán tự
                             </button>
                             <button onClick={handleSyncVocabToKanji} className="py-2.5 bg-slate-50 dark:bg-slate-700/40 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl font-bold text-xs text-slate-700 dark:text-slate-300 border border-slate-250 dark:border-slate-650 transition-all flex items-center justify-center gap-1.5 shadow-sm">
                                 <RefreshCw className="w-4 h-4 text-emerald-500" /> Đồng bộ Hán tự
+                            </button>
+                            <button onClick={handleMigrateComponents} disabled={migratingComponents} className="py-2.5 bg-slate-50 dark:bg-slate-700/40 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl font-bold text-xs text-slate-700 dark:text-slate-300 border border-slate-250 dark:border-slate-650 transition-all flex items-center justify-center gap-1.5 shadow-sm disabled:opacity-50">
+                                <Layers className={`w-4 h-4 text-orange-500 ${migratingComponents ? 'animate-spin' : ''}`} /> Ghi đè Bộ thủ
                             </button>
                             <button onClick={handleCDNSync} disabled={syncingCDN} className="py-2.5 bg-slate-50 dark:bg-slate-700/40 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl font-bold text-xs text-slate-700 dark:text-slate-300 border border-slate-250 dark:border-slate-650 transition-all flex items-center justify-center gap-1.5 shadow-sm disabled:opacity-50">
                                 <Wifi className={`w-4 h-4 text-indigo-500 ${syncingCDN ? 'animate-spin' : ''}`} /> Đồng bộ CDN

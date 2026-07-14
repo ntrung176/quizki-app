@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useRef, useMemo, Fragment } from 'react';
+import { createPortal } from 'react-dom';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { PremiumLockedModal } from '../ui';
 import { collection, query, onSnapshot, orderBy, doc, updateDoc, setDoc, getDoc } from 'firebase/firestore'
 import { db, appId } from '../../config/firebase';
 import { getCacheConfig } from '../../utils/cacheConfigService';
 import { Link, useNavigate } from 'react-router-dom';
-import { FileCheck, Play, ChevronRight, ChevronLeft, Maximize, Minimize, X, Check, CheckCircle, XCircle, Languages, BookOpen, FileText, Headphones, Timer, Volume2, AlertTriangle, Award, Lock, Unlock, Crown, Calendar, Edit3, Settings, Sparkle, ShieldAlert, Pencil, Save } from 'lucide-react'
+import { FileCheck, Play, ChevronRight, ChevronLeft, Maximize, Minimize, X, Check, CheckCircle, XCircle, Languages, BookOpen, FileText, Headphones, Timer, Volume2, AlertTriangle, Award, Lock, Unlock, Crown, Calendar, Edit3, Settings, Sparkle, ShieldAlert, Pencil, Save, Printer } from 'lucide-react'
 import { ROUTES } from '../../router';
 import { aiTranslateSentence } from '../../utils/aiProvider';
 import { playCompletionFanfare } from '../../utils/soundEffects';
@@ -43,6 +44,43 @@ const ROADMAP_TASKS = {
     listening: { title: "Kỹ năng Nghe hiểu", desc: "Nghe hội thoại ngắn 10 phút và trả lời câu hỏi." },
     practice: { title: "Luyện đề thi thử", desc: "Làm 1 bài thi mini test kiểm tra năng lực tổng quát." }
 };
+
+class PrintErrorBoundary extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { hasError: false, error: null };
+    }
+
+    static getDerivedStateFromError(error) {
+        return { hasError: true, error };
+    }
+
+    componentDidCatch(error, errorInfo) {
+        console.error("PrintErrorBoundary caught an error:", error, errorInfo);
+    }
+
+    render() {
+        if (this.state.hasError) {
+            return (
+                <div className="p-6 border-2 border-red-500 bg-red-50 rounded-xl text-red-800 font-sans my-4">
+                    <h3 className="font-bold text-base mb-2">⚠️ Lỗi hiển thị bản in (Print Render Error)</h3>
+                    <p className="text-xs mb-3 font-medium text-red-700">Mã nguồn gặp lỗi khi cố gắng hiển thị đáp án hoặc phiếu trả lời. Chi tiết lỗi:</p>
+                    <pre className="p-3 bg-red-100 rounded text-[11px] font-mono overflow-auto max-h-40 whitespace-pre-wrap text-red-900 border border-red-200">
+                        {this.state.error?.stack || this.state.error?.message || String(this.state.error)}
+                    </pre>
+                    <button 
+                        onClick={() => this.setState({ hasError: false, error: null })}
+                        className="mt-3 px-4 py-2 bg-red-600 hover:bg-red-750 text-white rounded-lg text-xs font-bold transition"
+                    >
+                        Thử lại (Retry)
+                    </button>
+                </div>
+            );
+        }
+
+        return this.props.children;
+    }
+}
 
 const getDayTask = (dayNum) => {
     const taskType = dayNum % 5 === 1 ? 'vocabulary'
@@ -544,6 +582,344 @@ const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
     );
 };
 
+// Portal component to render printable content outside #root
+const PrintPortal = ({ children }) => {
+    const mountNode = useRef(null);
+    
+    if (!mountNode.current) {
+        let el = document.getElementById('quizki-print-portal');
+        if (!el) {
+            el = document.createElement('div');
+            el.id = 'quizki-print-portal';
+            document.body.appendChild(el);
+        }
+        mountNode.current = el;
+    }
+    
+    useEffect(() => {
+        console.log("PrintPortal: mounted in DOM");
+        return () => {
+            console.log("PrintPortal: unmounting, removing DOM element");
+            const el = document.getElementById('quizki-print-portal');
+            if (el) {
+                el.remove();
+            }
+        };
+    }, []);
+    
+    return createPortal(children, mountNode.current);
+};
+
+// Sub-component for optical answer sheet in print layout
+const AnswerSheet = ({ totalQuestions }) => {
+    const itemsPerCol = Math.ceil(totalQuestions / 3);
+    const rows = [];
+    for (let i = 0; i < itemsPerCol; i++) {
+        rows.push([
+            i + 1,
+            i + 1 + itemsPerCol,
+            i + 1 + itemsPerCol * 2
+        ]);
+    }
+    
+    return (
+        <div className="print-page-break mt-8">
+            <div className="border-t-2 border-black pt-6">
+                <h3 className="text-center font-bold text-lg mb-4 uppercase tracking-wider">
+                    PHIẾU TRẢ LỜI ĐÁP ÁN (ANSWER SHEET)
+                </h3>
+                <p className="text-center text-xs text-gray-600 mb-6 italic">
+                    (Thí sinh chọn phương án đúng nhất bằng cách đánh dấu nhân [X] hoặc tô đen ô tròn phương án lựa chọn)
+                </p>
+                <table className="print-table w-full border border-collapse border-black">
+                    <thead>
+                        <tr className="bg-gray-100">
+                            <th className="w-12 border border-black p-1 text-xs">Câu</th>
+                            <th className="border border-black p-1 text-xs">Phương án</th>
+                            <th className="w-12 border border-black p-1 text-xs">Câu</th>
+                            <th className="border border-black p-1 text-xs">Phương án</th>
+                            <th className="w-12 border border-black p-1 text-xs">Câu</th>
+                            <th className="border border-black p-1 text-xs">Phương án</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {rows.map((row, idx) => (
+                            <tr key={idx}>
+                                {row.map((qNum, colIdx) => {
+                                    if (qNum > totalQuestions) {
+                                        return (
+                                            <Fragment key={colIdx}>
+                                                <td className="bg-gray-50/50 text-gray-400 font-bold border border-black p-1 text-xs">—</td>
+                                                <td className="bg-gray-50/50 border border-black p-1 text-xs"></td>
+                                            </Fragment>
+                                        );
+                                    }
+                                    return (
+                                        <Fragment key={colIdx}>
+                                            <td className="font-bold border border-black p-1 text-xs">{qNum}</td>
+                                            <td className="border border-black p-1 text-xs">
+                                                <div className="flex justify-center gap-4 text-xs font-semibold">
+                                                    <span>( 1 )</span>
+                                                    <span>( 2 )</span>
+                                                    <span>( 3 )</span>
+                                                    <span>( 4 )</span>
+                                                </div>
+                                            </td>
+                                        </Fragment>
+                                    );
+                                })}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    );
+};
+
+// Printable layout of the JLPT exam
+const JLPTPrintView = ({ test, includeAnswers, includeAnswerSheet }) => {
+    console.log("JLPTPrintView: Rendering test", test?.id, "sections count:", test?.sections?.length);
+    if (!test) return null;
+
+    const answerableQuestions = [];
+    try {
+        test.sections?.forEach((sec, si) => {
+            sec?.questions?.forEach((q, qi) => {
+                if (q?.subQuestions && q.subQuestions.length > 0) {
+                    q.subQuestions.forEach((sq, sqi) => {
+                        answerableQuestions.push({
+                            ...sq,
+                            sectionTitle: sec?.title || '',
+                            sectionType: sec?.type || '',
+                            parentQuestion: q?.question || '',
+                            passage: q?.passage || '',
+                            imageUrl: q?.imageUrl || ''
+                        });
+                    });
+                } else {
+                    answerableQuestions.push({
+                        ...q,
+                        sectionTitle: sec?.title || '',
+                        sectionType: sec?.type || ''
+                    });
+                }
+            });
+        });
+    } catch (err) {
+        console.error("JLPTPrintView error building questions list:", err);
+    }
+
+    const getOptionsGridClass = (options) => {
+        if (!options || !Array.isArray(options) || options.length === 0) return 'hidden';
+        try {
+            const totalLength = options.reduce((sum, opt) => {
+                if (typeof opt !== 'string') return sum;
+                return sum + opt.replace(/<[^>]*>/g, '').length;
+            }, 0);
+            if (totalLength < 40) return 'print-options-grid';
+            if (totalLength < 80) return 'print-options-grid print-options-2col';
+            return 'print-options-1col';
+        } catch (err) {
+            console.error("JLPTPrintView error calc options grid class:", err);
+            return 'print-options-1col';
+        }
+    };
+
+    const getCleanContent = (text) => {
+        if (!text || typeof text !== 'string') return '';
+        try {
+            if (!/<\/?[a-z][\s\S]*>/i.test(text)) {
+                return text.replace(/\n/g, '<br/>');
+            }
+            return text;
+        } catch (err) {
+            return String(text);
+        }
+    };
+
+    const totalQCount = answerableQuestions.length;
+    let questionGlobalCounter = 0;
+
+    return (
+        <div className="print-container print-preview-force-light bg-white text-black p-8 font-serif leading-relaxed">
+
+            <div className="print-header">
+                <div className="flex justify-between items-start">
+                    <div>
+                        <h1 className="text-xl font-bold tracking-tight">QUIZKI - HỆ THỐNG LUYỆN THI TIẾNG NHẬT</h1>
+                        <h2 className="text-lg font-extrabold mt-1">ĐỀ THI THỬ JLPT {test.level} - CHÍNH THỨC</h2>
+                        <p className="text-xs mt-1 text-gray-700">Mã đề: {test.id} | Đề thi: {test.title}</p>
+                    </div>
+                    <div className="text-right border border-black p-2 rounded text-xs min-w-[150px]">
+                        <span className="font-bold uppercase tracking-wider block border-b border-black pb-1 mb-1">Thời gian làm bài</span>
+                        <span className="text-base font-black">{test.timeLimit} phút</span>
+                    </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4 mt-6 text-sm border-t border-dashed border-black pt-4">
+                    <div>
+                        <b>Họ và tên học sinh:</b> ............................................................................
+                    </div>
+                    <div>
+                        <b>Số báo danh:</b> ..............................................................
+                    </div>
+                    <div>
+                        <b>Ngày thi làm bài:</b> ...../...../20...
+                    </div>
+                    <div>
+                        <b>Điểm số đạt được:</b> ............. / 180 (Điểm)
+                    </div>
+                </div>
+            </div>
+
+            <div className="text-xs border border-black p-3 bg-gray-50/50 rounded mb-6">
+                <b>HƯỚNG DẪN LÀM BÀI:</b>
+                <ul className="list-disc pl-4 mt-1 space-y-1">
+                    <li>Đề thi gồm có {test.sections?.length || 0} phần kiểm tra đầy đủ các kỹ năng.</li>
+                    <li>Thí sinh đọc kỹ câu hỏi và khoanh tròn hoặc ghi nhận kết quả vào <b>Phiếu Trả Lời</b> ở trang cuối.</li>
+                    <li>Đối với phần Nghe hiểu (Listening), vui lòng quét mã QR hoặc truy cập ứng dụng Quizki để nghe file âm thanh.</li>
+                </ul>
+            </div>
+
+            {test.sections?.map((sec, si) => (
+                <div key={si} className="mb-8">
+                    <h3 className="print-section-header uppercase">
+                        PHẦN {si + 1}: {sec.title} ({sec.type === 'listening' ? 'Nghe hiểu' : sec.type === 'reading' ? 'Đọc hiểu' : sec.type === 'vocabulary' ? 'Từ vựng' : sec.type === 'grammar' ? 'Ngữ pháp' : 'Hán tự'})
+                    </h3>
+
+                    {sec.type === 'listening' && (
+                        <div className="my-4 p-3 border border-black bg-gray-50 text-xs rounded">
+                            <b>🔊 LƯU Ý PHẦN THI NGHE HIỂU:</b>
+                            <p className="mt-1">Thí sinh cần bật file âm thanh của đề thi này trên ứng dụng Quizki để hoàn thành các câu hỏi nghe hiểu bên dưới.</p>
+                        </div>
+                    )}
+
+                    {sec.questions?.map((q, qi) => {
+                        const hasSub = q.subQuestions && q.subQuestions.length > 0;
+                        
+                        return (
+                            <div key={qi} className="print-question-item">
+                                {q.passage && (
+                                    <div className="print-passage-box">
+                                        <div dangerouslySetInnerHTML={{ __html: q.passage }} />
+                                    </div>
+                                )}
+
+                                {q.question && (
+                                    <div className="mb-2">
+                                        {hasSub ? (
+                                            <span dangerouslySetInnerHTML={{ __html: getCleanContent(q.question) }} />
+                                        ) : (
+                                            <>
+                                                {(() => {
+                                                    questionGlobalCounter++;
+                                                    return (
+                                                        <>
+                                                            <span className="font-bold">Câu {questionGlobalCounter}. </span>
+                                                            <span dangerouslySetInnerHTML={{ __html: getCleanContent(q.question) }} />
+                                                        </>
+                                                    );
+                                                })()}
+                                            </>
+                                        )}
+                                    </div>
+                                )}
+
+                                {q.imageUrl && (
+                                    <div className="my-2.5 max-w-md">
+                                        <img src={q.imageUrl} alt="Exam Illustration" className="max-h-56 object-contain border border-black/30 rounded p-0.5" />
+                                    </div>
+                                )}
+
+                                {!hasSub && q.options && q.options.length > 0 && (
+                                    <div className={getOptionsGridClass(q.options)}>
+                                        {q.options.map((opt, oi) => (
+                                            <div key={oi} className="print-option">
+                                                <span className="font-bold mr-1">({oi + 1})</span>
+                                                <span dangerouslySetInnerHTML={{ __html: opt }} />
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {hasSub && (
+                                    <div className="space-y-4 pl-4 border-l border-black/40 mt-3">
+                                        {q.subQuestions.map((sq, sqi) => {
+                                            questionGlobalCounter++;
+                                            return (
+                                                <div key={sqi} className="print-question-item">
+                                                    <div className="mb-1">
+                                                        <span className="font-bold">Câu {questionGlobalCounter}. </span>
+                                                        <span dangerouslySetInnerHTML={{ __html: getCleanContent(sq.question) }} />
+                                                    </div>
+                                                    {sq.options && sq.options.length > 0 && (
+                                                        <div className={getOptionsGridClass(sq.options)}>
+                                                            {sq.options.map((opt, oi) => (
+                                                                <div key={oi} className="print-option">
+                                                                    <span className="font-bold mr-1">({oi + 1})</span>
+                                                                    <span dangerouslySetInnerHTML={{ __html: opt }} />
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
+                </div>
+            ))}
+
+            {includeAnswerSheet && <AnswerSheet totalQuestions={totalQCount} />}
+
+            {includeAnswers && (
+                <div className="print-page-break mt-10">
+                    <h3 className="text-center font-bold text-lg border-b-2 border-black pb-2 mb-6">
+                        ĐÁP ÁN & HƯỚNG DẪN GIẢI CHI TIẾT
+                    </h3>
+                    <table className="w-full border border-collapse border-black mb-8">
+                        <thead>
+                            <tr className="bg-gray-100">
+                                <th className="border border-black p-2 text-xs w-16">Câu hỏi</th>
+                                <th className="border border-black p-2 text-xs w-24">Đáp án đúng</th>
+                                <th className="border border-black p-2 text-xs">Nội dung câu hỏi / Giải thích ngắn gọn</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {answerableQuestions.map((q, idx) => (
+                                <tr key={idx} className="print-no-break">
+                                    <td className="border border-black p-2 text-xs font-bold">Câu {idx + 1}</td>
+                                    <td className="border border-black p-2 text-xs font-extrabold text-emerald-800">
+                                        Phương án ({(typeof q?.correctAnswer === 'number' ? q.correctAnswer : 0) + 1})
+                                    </td>
+                                    <td className="border border-black p-2 text-left text-xs">
+                                        {q?.parentQuestion && (
+                                            <div className="text-gray-500 mb-0.5">
+                                                <i>Bối cảnh:</i> <span dangerouslySetInnerHTML={{ __html: getCleanContent(q.parentQuestion) }} />
+                                            </div>
+                                        )}
+                                        <div className="font-japanese font-semibold">
+                                            <span dangerouslySetInnerHTML={{ __html: getCleanContent(q?.question) }} />
+                                        </div>
+                                        {q?.explanation && typeof q.explanation === 'string' && (
+                                            <div className="text-slate-650 mt-1 italic">
+                                                💡 {q.explanation.replace(/<\/?[a-z][\s\S]*>/i, '')}
+                                            </div>
+                                        )}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            )}
+        </div>
+    );
+};
+
 const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
     const navigate = useNavigate();
     // State
@@ -634,6 +1010,29 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
     const [selectedFullExamLevel, setSelectedFullExamLevel] = useState(null); // 'N5', 'N4', 'N3', 'N2', 'N1'
     const [statusFilter, setStatusFilter] = useState('all');
     const [sortBy, setSortBy] = useState('newest');
+
+    // PDF Export & Printing states
+    const [printingTest, setPrintingTest] = useState(null);
+    const [isPrintTriggered, setIsPrintTriggered] = useState(false);
+    const [includeAnswers, setIncludeAnswers] = useState(true);
+    const [includeAnswerSheet, setIncludeAnswerSheet] = useState(true);
+    const [debugPrintView, setDebugPrintView] = useState(false);
+
+    useEffect(() => {
+        if (isPrintTriggered) {
+            document.body.classList.add('is-printing');
+            
+            const printTimer = setTimeout(() => {
+                window.print();
+            }, 800);
+
+            return () => {
+                clearTimeout(printTimer);
+            };
+        } else {
+            document.body.classList.remove('is-printing');
+        }
+    }, [isPrintTriggered]);
     // Test taking state
     const [activeTest, setActiveTest] = useState(null);
     const [currentSectionIdx, setCurrentSectionIdx] = useState(0);
@@ -1800,6 +2199,152 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
         setSelectedSkillPractice({ type: skillType, label: skillLabel, tests: matchingTests });
     };
 
+    const renderPrintSettingsModal = () => {
+        if (!printingTest) return null;
+
+        return (
+            <div className="fixed inset-0 z-[9999] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in font-sans">
+                <div className="bg-white dark:bg-slate-800 rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-slate-100 dark:border-slate-700/60 transform transition-all scale-100">
+                    {/* Header */}
+                    <div className="p-6 pb-4 border-b border-slate-100 dark:border-slate-700/50 flex items-center justify-between bg-gradient-to-r from-emerald-50/50 to-teal-50/50 dark:from-slate-800 dark:to-slate-850">
+                        <div>
+                            <span className="text-[10px] font-extrabold uppercase bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400 px-2 py-0.5 rounded-md">Xuất đề thi PDF</span>
+                            <h3 className="text-lg font-black text-slate-800 dark:text-white mt-1 leading-snug">{printingTest.title}</h3>
+                        </div>
+                        <button 
+                            onClick={() => {
+                                setPrintingTest(null);
+                                setIsPrintTriggered(false);
+                            }}
+                            className="p-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition cursor-pointer"
+                        >
+                            <X className="w-5 h-5" />
+                        </button>
+                    </div>
+                    {/* Content */}
+                    <div className="p-6 space-y-5">
+                        <div className="space-y-3">
+                            <span className="text-[11px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider block">Cài đặt in & xuất bản</span>
+                            
+                            <label className="flex items-center gap-3 p-3.5 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-slate-100 dark:border-slate-800 cursor-pointer select-none hover:bg-slate-100/50 dark:hover:bg-slate-900/60 transition-all">
+                                <input 
+                                    type="checkbox" 
+                                    checked={includeAnswerSheet}
+                                    onChange={(e) => setIncludeAnswerSheet(e.target.checked)}
+                                    className="w-4 h-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                                />
+                                <div className="flex-1">
+                                    <div className="text-xs font-bold text-slate-700 dark:text-slate-200">Phiếu trả lời (Answer Sheet)</div>
+                                    <div className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5 font-medium">Bao gồm khung tô đáp án ở cuối đề thi</div>
+                                </div>
+                            </label>
+
+                            <label className="flex items-center gap-3 p-3.5 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-slate-100 dark:border-slate-800 cursor-pointer select-none hover:bg-slate-100/50 dark:hover:bg-slate-900/60 transition-all">
+                                <input 
+                                    type="checkbox" 
+                                    checked={includeAnswers}
+                                    onChange={(e) => setIncludeAnswers(e.target.checked)}
+                                    className="w-4 h-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                                />
+                                <div className="flex-1">
+                                    <div className="text-xs font-bold text-slate-700 dark:text-slate-200">Đáp án & Giải thích chi tiết</div>
+                                    <div className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5 font-medium">Bao gồm bảng đáp án và giải thích ở trang riêng</div>
+                                </div>
+                            </label>
+
+                            <label className="flex items-center gap-3 p-3.5 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-slate-100 dark:border-slate-800 cursor-pointer select-none hover:bg-slate-100/50 dark:hover:bg-slate-900/60 transition-all">
+                                <input 
+                                    type="checkbox" 
+                                    checked={debugPrintView}
+                                    onChange={(e) => setDebugPrintView(e.target.checked)}
+                                    className="w-4 h-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                                />
+                                <div className="flex-1">
+                                    <div className="text-xs font-bold text-slate-700 dark:text-slate-200">Hiển thị bản xem trước đề thi (Debug)</div>
+                                    <div className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5 font-medium">Xem trực tiếp nội dung đề thi trên màn hình để kiểm tra dữ liệu</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        {/* Tips */}
+                        <div className="p-4 bg-amber-50 dark:bg-amber-950/20 border border-amber-200/50 dark:border-amber-900/30 rounded-2xl space-y-1.5">
+                            <span className="text-xs font-bold text-amber-800 dark:text-amber-450 flex items-center gap-1">💡 Hướng dẫn tạo file PDF:</span>
+                            <ul className="text-[10px] text-slate-650 dark:text-slate-350 leading-relaxed list-disc pl-4 space-y-1 font-medium">
+                                <li>Sau khi bấm nút, hộp thoại in của trình duyệt sẽ xuất hiện.</li>
+                                <li>Chọn mục <b>"Máy in" (Printer) / "Đích đến" (Destination)</b>.</li>
+                                <li>Chọn <b>"Lưu dưới dạng PDF" (Save as PDF)</b>.</li>
+                                <li>Nếu muốn in ra giấy, chọn đúng máy in đang kết nối.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    {/* Footer */}
+                    <div className="p-6 border-t border-slate-100 dark:border-slate-700/50 flex items-center justify-end gap-3 bg-slate-50 dark:bg-slate-800">
+                        <button 
+                            onClick={() => {
+                                setPrintingTest(null);
+                                setIsPrintTriggered(false);
+                            }}
+                            className="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-650 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-750 transition text-xs font-bold"
+                        >
+                            Hủy
+                        </button>
+                        <button 
+                            onClick={() => {
+                                setIsPrintTriggered(false);
+                                setTimeout(() => setIsPrintTriggered(true), 100);
+                            }}
+                            className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl transition text-xs font-bold shadow-md hover:shadow-lg flex items-center gap-1.5 hover:scale-105 transform cursor-pointer"
+                        >
+                            <FileText className="w-3.5 h-3.5" />
+                            <span>Bắt đầu In / Xuất PDF</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
+    const renderPrintElements = () => {
+        return (
+            <>
+                {renderPrintSettingsModal()}
+                {printingTest && isPrintTriggered && (
+                    <div className="print-container-wrapper">
+                        <PrintErrorBoundary>
+                            <JLPTPrintView 
+                                test={printingTest} 
+                                includeAnswers={includeAnswers} 
+                                includeAnswerSheet={includeAnswerSheet} 
+                            />
+                        </PrintErrorBoundary>
+                    </div>
+                )}
+                {debugPrintView && printingTest && (
+                    <div className="fixed inset-0 z-[10000] bg-white text-black overflow-auto p-8 font-sans">
+                        <div className="max-w-4xl mx-auto border border-gray-300 p-6 bg-white relative shadow-2xl rounded-2xl my-8">
+                            <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
+                                <h3 className="text-lg font-bold text-gray-800">BẢN XEM TRƯỚC TRÊN MÀN HÌNH (DEBUG PREVIEW)</h3>
+                                <button 
+                                    onClick={() => setDebugPrintView(false)}
+                                    className="px-4 py-2 bg-red-600 hover:bg-red-750 text-white rounded-xl font-bold text-xs transition"
+                                >
+                                    Đóng Xem Trước
+                                </button>
+                            </div>
+                            <PrintErrorBoundary>
+                                <JLPTPrintView 
+                                    test={printingTest} 
+                                    includeAnswers={includeAnswers} 
+                                    includeAnswerSheet={includeAnswerSheet} 
+                                />
+                            </PrintErrorBoundary>
+                        </div>
+                    </div>
+                )}
+            </>
+        );
+    };
+
     const renderModeSelectionModal = () => {
         if (!pendingStartTest) return null;
         const savedProgress = savedProgresses[pendingStartTest.id];
@@ -2509,6 +3054,13 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                     {/* Actions */}
                     <div className="flex flex-col sm:flex-row gap-3">
                         <button 
+                            onClick={() => setPrintingTest(activeTest)}
+                            className="flex-1 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold transition flex items-center justify-center gap-1.5 cursor-pointer shadow-md"
+                        >
+                            <Printer className="w-5 h-5" />
+                            Xuất đề thi / In PDF
+                        </button>
+                        <button 
                             onClick={() => {
                                 if (!showDetailedReview) {
                                     setCurrentSectionIdx(0);
@@ -2547,6 +3099,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                         onSave={handleSaveQuestionHtml} 
                     />
                 )}
+                {renderPrintElements()}
             </div>
         );
     }
@@ -3510,6 +4063,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                     </div>
                 </div>
                 {renderModeSelectionModal()}
+                {renderPrintElements()}
             </div>
         );
     };
@@ -3771,12 +4325,24 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                                 Điểm: {completedInfo?.percentage}%
                                                             </span>
                                                         </div>
-                                                        <button
-                                                            onClick={() => reviewTest(test)}
-                                                            className="text-xs font-bold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 flex items-center gap-1 hover:underline cursor-pointer"
-                                                        >
-                                                            Xem lại <ChevronRight className="w-3.5 h-3.5" />
-                                                        </button>
+                                                        <div className="flex items-center gap-2">
+                                                            <button
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation();
+                                                                    setPrintingTest(test);
+                                                                }}
+                                                                className="p-1.5 text-slate-500 hover:text-[#2E5B70] dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 rounded-xl transition-all cursor-pointer shrink-0 border border-transparent hover:border-slate-200 dark:hover:border-slate-600"
+                                                                title="In đề thi / Xuất PDF"
+                                                            >
+                                                                <Printer className="w-4 h-4" />
+                                                            </button>
+                                                            <button
+                                                                onClick={() => reviewTest(test)}
+                                                                className="text-xs font-bold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 flex items-center gap-1 hover:underline cursor-pointer"
+                                                            >
+                                                                Xem lại <ChevronRight className="w-3.5 h-3.5" />
+                                                            </button>
+                                                        </div>
                                                     </>
                                                 )}
                                                 {status === 'retry' && (
@@ -3788,6 +4354,16 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                             </span>
                                                         </div>
                                                         <div className="flex items-center gap-2">
+                                                            <button
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation();
+                                                                    setPrintingTest(test);
+                                                                }}
+                                                                className="p-1.5 text-slate-500 hover:text-[#2E5B70] dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 rounded-xl transition-all cursor-pointer shrink-0 border border-transparent hover:border-slate-200 dark:hover:border-slate-600"
+                                                                title="In đề thi / Xuất PDF"
+                                                            >
+                                                                <Printer className="w-4 h-4" />
+                                                            </button>
                                                             <button
                                                                 onClick={() => reviewTest(test)}
                                                                 className="text-xs font-bold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 flex items-center gap-1 hover:underline cursor-pointer"
@@ -3806,12 +4382,24 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                 {(status === 'new' || status === 'not_started') && (
                                                     <>
                                                         <span className="text-xs font-medium text-slate-400">Chưa có lượt thi</span>
-                                                        <button
-                                                            onClick={() => startTest(test)}
-                                                            className="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-900 dark:bg-slate-700 dark:hover:bg-slate-650 text-white flex items-center justify-center transition-all cursor-pointer shadow-md hover:scale-105"
-                                                        >
-                                                            <Play className="w-4 h-4 ml-0.5 fill-current" />
-                                                        </button>
+                                                        <div className="flex items-center gap-2">
+                                                            <button
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation();
+                                                                    setPrintingTest(test);
+                                                                }}
+                                                                className="p-1.5 text-slate-500 hover:text-[#2E5B70] dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 rounded-xl transition-all cursor-pointer shrink-0 border border-transparent hover:border-slate-200 dark:hover:border-slate-600"
+                                                                title="In đề thi / Xuất PDF"
+                                                            >
+                                                                <Printer className="w-4 h-4" />
+                                                            </button>
+                                                            <button
+                                                                onClick={() => startTest(test)}
+                                                                className="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-900 dark:bg-slate-700 dark:hover:bg-slate-650 text-white flex items-center justify-center transition-all cursor-pointer shadow-md hover:scale-105"
+                                                            >
+                                                                <Play className="w-4 h-4 ml-0.5 fill-current" />
+                                                            </button>
+                                                        </div>
                                                     </>
                                                 )}
                                                 {status === 'in_progress' && (() => {
@@ -3829,13 +4417,25 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                                     <div className="bg-blue-500 h-1.5 rounded-full transition-all duration-300" style={{ width: `${pct}%` }} />
                                                                 </div>
                                                             </div>
-                                                            <button
-                                                                onClick={() => startTest(test)}
-                                                                className="w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center transition-all cursor-pointer shadow-md hover:scale-105 shrink-0"
-                                                                title="Tiếp tục làm bài"
-                                                            >
-                                                                <Play className="w-4 h-4 ml-0.5 fill-current" />
-                                                            </button>
+                                                            <div className="flex items-center gap-2 shrink-0">
+                                                                <button
+                                                                    onClick={(e) => {
+                                                                        e.stopPropagation();
+                                                                        setPrintingTest(test);
+                                                                    }}
+                                                                    className="p-1.5 text-slate-500 hover:text-[#2E5B70] dark:text-slate-400 dark:hover:text-sky-455 hover:bg-slate-100 dark:hover:bg-slate-700/50 rounded-xl transition-all cursor-pointer shrink-0 border border-transparent hover:border-slate-200 dark:hover:border-slate-600"
+                                                                    title="In đề thi / Xuất PDF"
+                                                                >
+                                                                    <Printer className="w-4 h-4" />
+                                                                </button>
+                                                                <button
+                                                                    onClick={() => startTest(test)}
+                                                                    className="w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center transition-all cursor-pointer shadow-md hover:scale-105 shrink-0"
+                                                                    title="Tiếp tục làm bài"
+                                                                >
+                                                                    <Play className="w-4 h-4 ml-0.5 fill-current" />
+                                                                </button>
+                                                            </div>
                                                         </>
                                                     );
                                                 })()}
@@ -3929,6 +4529,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                     </div>
                 </div>
                 {renderModeSelectionModal()}
+                {renderPrintElements()}
             </div>
         );
     };
@@ -4448,7 +5049,17 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                         <span className="text-[10px] text-emerald-500 font-bold bg-emerald-50 dark:bg-emerald-950/20 px-2 py-0.5 rounded animate-fade-in">
                                                             Đã xong
                                                         </span>
-                                                        <button onClick={() => { setSelectedSkillPractice(null); reviewTest(test); }} className="px-3 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-650 text-slate-600 dark:text-slate-300 text-[10px] font-bold rounded-lg transition cursor-pointer">
+                                                        <button
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                setPrintingTest(test);
+                                                            }}
+                                                            className="p-1 text-slate-500 hover:text-[#2E5B70] dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 rounded transition cursor-pointer"
+                                                            title="In đề thi / Xuất PDF"
+                                                        >
+                                                            <Printer className="w-3.5 h-3.5" />
+                                                        </button>
+                                                        <button onClick={() => { setSelectedSkillPractice(null); reviewTest(test); }} className="px-3 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-650 text-slate-605 dark:text-slate-300 text-[10px] font-bold rounded-lg transition cursor-pointer">
                                                             Xem lại
                                                         </button>
                                                     </div>
@@ -4457,14 +5068,36 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                                         <span className="text-[10px] text-blue-500 font-bold bg-blue-50 dark:bg-blue-950/25 px-2 py-0.5 rounded animate-fade-in">
                                                             Đang làm
                                                         </span>
+                                                        <button
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                setPrintingTest(test);
+                                                            }}
+                                                            className="p-1 text-slate-500 hover:text-[#2E5B70] dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 rounded transition cursor-pointer"
+                                                            title="In đề thi / Xuất PDF"
+                                                        >
+                                                            <Printer className="w-3.5 h-3.5" />
+                                                        </button>
                                                         <button onClick={() => { setSelectedSkillPractice(null); startTest(test); }} className="px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold rounded-lg transition cursor-pointer">
                                                             Tiếp tục
                                                         </button>
                                                     </div>
                                                 ) : (
-                                                    <button onClick={() => { setSelectedSkillPractice(null); startTest(test); }} className="px-4 py-1.5 bg-[#2E5B70] hover:bg-[#254A5C] text-white text-[10px] font-bold rounded-lg transition shadow-sm cursor-pointer">
-                                                        Làm bài
-                                                    </button>
+                                                    <div className="flex items-center gap-2">
+                                                        <button
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                setPrintingTest(test);
+                                                            }}
+                                                            className="p-1 text-slate-500 hover:text-[#2E5B70] dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-700/50 rounded transition cursor-pointer"
+                                                            title="In đề thi / Xuất PDF"
+                                                        >
+                                                            <Printer className="w-3.5 h-3.5" />
+                                                        </button>
+                                                        <button onClick={() => { setSelectedSkillPractice(null); startTest(test); }} className="px-4 py-1.5 bg-[#2E5B70] hover:bg-[#254A5C] text-white text-[10px] font-bold rounded-lg transition shadow-sm cursor-pointer">
+                                                            Làm bài
+                                                        </button>
+                                                    </div>
                                                 )}
                                             </div>
                                         </div>
@@ -4481,6 +5114,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                 onClose={() => setShowPremiumModal(false)} 
                 pkgName={lockedPkgName} 
             />
+            {renderPrintElements()}
         </div>
     );
 };

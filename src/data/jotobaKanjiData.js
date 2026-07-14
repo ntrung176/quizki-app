@@ -3,6 +3,8 @@
 // Total: 2387 kanji (N5:79 N4:167 N3:367 N2:373 N1:1401)
 // Meanings translated to Vietnamese
 
+import kanjiComponents from './kanjiComponents.json' with { type: 'json' };
+
 export const JOTOBA_KANJI_DATA = {
   '日': { literal: '日', meaningVi: 'ngày, mặt trời, Nhật Bản, bộ đếm ngày', sinoViet: 'NHẬT, NHỰT', meanings: ['day','sun','Japan','counter for days'], stroke_count: 4, frequency: 1, jlpt: 5, onyomi: ['ニチ','ジツ'], kunyomi: ['ひ','-び','-か'], parts: ['日'], level: 'N5' },
   '一': { literal: '一', meaningVi: 'một, một cấp tiến (số 1)', sinoViet: 'NHẤT', meanings: ['one','one radical (no.1)'], stroke_count: 1, frequency: 2, jlpt: 5, onyomi: ['イチ','イツ'], kunyomi: ['ひと-','ひとつ'], parts: ['一'], level: 'N5' },
@@ -2397,7 +2399,15 @@ export const JOTOBA_KANJI_DATA = {
 export const getJotobaKanjiByLevel = (level) => Object.values(JOTOBA_KANJI_DATA).filter(k => k.level === level);
 
 // Get kanji data for a specific character
-export const getJotobaKanjiData = (char) => JOTOBA_KANJI_DATA[char] || null;
+export const getJotobaKanjiData = (char) => {
+  const data = JOTOBA_KANJI_DATA[char];
+  if (!data) return null;
+  const customParts = kanjiComponents[char];
+  if (customParts) {
+    return { ...data, parts: customParts };
+  }
+  return data;
+};
 
 // Get all kanji characters for a level (just the characters)
 export const getJotobaKanjiChars = (level) => Object.values(JOTOBA_KANJI_DATA).filter(k => k.level === level).map(k => k.literal);

@@ -1348,10 +1348,17 @@ const KanjiFlashcard = ({
             <div className="contents lg:block lg:space-y-6 lg:sticky lg:top-6 text-left">
                 {/* Meaning Card */}
                 <div className="order-2 lg:order-none bg-white dark:bg-slate-800 rounded-3xl border border-gray-100 dark:border-slate-700/60 p-6 shadow-sm">
-                    <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-2">Ý nghĩa</span>
-                    <div className="space-y-2">
-                        <h3 className="text-2xl font-extrabold text-indigo-600 dark:text-cyan-400 tracking-wide">{kanji.sinoViet || ''}</h3>
-                        <p className="text-base text-gray-700 dark:text-slate-200 font-bold leading-relaxed">{kanji.meaning || '-'}</p>
+                    <div className="flex justify-between items-start gap-4">
+                        <div className="space-y-2 flex-1 min-w-0">
+                            <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-2">Ý nghĩa</span>
+                            <h3 className="text-2xl font-extrabold text-indigo-600 dark:text-cyan-400 tracking-wide">{kanji.sinoViet || ''}</h3>
+                            <p className="text-base text-gray-700 dark:text-slate-200 font-bold leading-relaxed">{kanji.meaning || '-'}</p>
+                        </div>
+                        {(kanji.imageUrl || kanji.imageBase64) && (
+                            <div className="w-24 h-24 sm:w-28 sm:h-28 shrink-0 bg-slate-50 dark:bg-slate-900/40 rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 flex items-center justify-center p-1.5 shadow-inner">
+                                <img src={kanji.imageUrl || kanji.imageBase64} alt="illustration" className="max-w-full max-h-full object-contain rounded-lg" />
+                            </div>
+                        )}
                     </div>
                 </div>
                 {/* Mnemonics Card */}
@@ -1362,9 +1369,9 @@ const KanjiFlashcard = ({
                     ) : (
                         <p className="text-sm text-gray-400 italic">Không có mẹo ghi nhớ cho chữ này</p>
                     )}
-                    {kanji.imageBase64 && (
+                    {(kanji.imageUrl || kanji.imageBase64) && (
                         <div className="mt-4 rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 p-2 shadow-inner">
-                            <img src={kanji.imageBase64} alt="illustration" className="w-full max-h-48 object-contain mx-auto" />
+                            <img src={kanji.imageUrl || kanji.imageBase64} alt="illustration" className="w-full max-h-48 object-contain mx-auto" />
                         </div>
                     )}
                 </div>
