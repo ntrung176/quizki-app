@@ -128,12 +128,52 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
         });
     }, [pendingWord, allCards]);
 
+    const dragStartRef = useRef(null);
+
+    useEffect(() => {
+        const handleMouseDown = (e) => {
+            dragStartRef.current = { x: e.clientX, y: e.clientY };
+        };
+        const handleTouchStart = (e) => {
+            if (e.touches && e.touches[0]) {
+                dragStartRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            }
+        };
+        document.addEventListener('mousedown', handleMouseDown, { capture: true });
+        document.addEventListener('touchstart', handleTouchStart, { capture: true, passive: true });
+        return () => {
+            document.removeEventListener('mousedown', handleMouseDown, { capture: true });
+            document.removeEventListener('touchstart', handleTouchStart, { capture: true });
+        };
+    }, []);
+
     useEffect(() => {
         const handleMouseUp = (e) => {
             if (disabled) return;
             // Ignore if clicking inside our own popup
             if (popupRef.current && popupRef.current.contains(e.target)) {
                 return;
+            }
+
+            // Calculate movement distance to prevent triggering on simple clicks / double clicks
+            let clientX = e.clientX;
+            let clientY = e.clientY;
+            if (e.type === 'touchend' && e.changedTouches && e.changedTouches[0]) {
+                clientX = e.changedTouches[0].clientX;
+                clientY = e.changedTouches[0].clientY;
+            }
+
+            if (dragStartRef.current && clientX !== undefined && clientY !== undefined) {
+                const dx = clientX - dragStartRef.current.x;
+                const dy = clientY - dragStartRef.current.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < 10) { // If distance moved is less than 10px, treat it as a click/double-click (not a selection sweep)
+                    if (!showDetails) {
+                        setShowButton(false);
+                        setPendingWord('');
+                    }
+                    return;
+                }
             }
 
             // Small timeout to ensure window.getSelection() is populated
