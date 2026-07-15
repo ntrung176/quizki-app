@@ -26,7 +26,7 @@ import { ensureFuriganaFormat } from './utils/furiganaHelper';
 import { getLevelFromXp, getLevelTitle, getWeekId, generateSimulatedLeague, LEAGUES, getLeagueTierRules } from './utils/scoring';
 import { playCompletionFanfare } from './utils/soundEffects';
 import { initConsoleProtection, aiRateLimiter } from './utils/security';
-import { getSharedKanjiList, getSharedKanjiSrs, clearUserSrsCache } from './utils/kanjiService';
+import { getSharedKanjiList, getSharedKanjiSrs, clearUserSrsCache, getSharedKanjiProgress, clearKanjiProgressCache } from './utils/kanjiService';
 
 // Import screens
 import { HomeScreen, LoginScreen, AccountScreen, HelpScreen, ImportScreen, StatsScreen, ListView, ReviewScreen, ReviewCompleteScreen, KanjiScreen, StudyScreen, TestScreen, AdminScreen, FlashcardScreen } from './components/screens'
@@ -528,6 +528,7 @@ const App = () => {
                 setEditingCard(null);
                 setNotification('');
                 clearUserSrsCache();
+                clearKanjiProgressCache();
                 // Xóa sessionStorage của user cũ
                 if (oldUserId) {
                     sessionStorage.removeItem(`profile_${oldUserId}`);
@@ -543,11 +544,12 @@ const App = () => {
         return () => unsubscribe();
     }, []);
 
-    // Prefetch Kanji list and user Kanji SRS data so they are ready when navigating to Kanji screens
+    // Prefetch Kanji list, user Kanji SRS data and progress so they are ready when navigating to Kanji screens
     useEffect(() => {
         if (!userId) return;
         getSharedKanjiList().catch(() => {});
         getSharedKanjiSrs(userId).catch(() => {});
+        getSharedKanjiProgress(userId).catch(() => {});
     }, [userId]);
 
     // Khởi tạo dark mode ngay khi component mount - đồng bộ với state

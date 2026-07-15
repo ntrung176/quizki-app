@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight, BookOpen, CheckCircle, Zap } from 'lucide-re
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import { getSharedKanjiList } from '../../utils/kanjiService';
+import { getSharedKanjiList, getCachedKanjiList, getSharedKanjiProgress, getCachedKanjiProgress } from '../../utils/kanjiService';
 import { ROUTES } from '../../router';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import { TopTabBar, PremiumLockedModal } from '../ui';
@@ -25,44 +25,47 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
     const [showPremiumModal, setShowPremiumModal] = useState(false);
     const [lockedPkgName, setLockedPkgName] = useState('Thư viện Kanji Zen');
     const [selectedLevel, setSelectedLevel] = useState('N5');
-    const [currentDay, setCurrentDay] = useState(1);
-    const [kanjiList, setKanjiList] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [completedDays, setCompletedDays] = useState({});
+    
+    const [kanjiList, setKanjiList] = useState(() => getCachedKanjiList() || []);
+    const [completedDays, setCompletedDays] = useState(() => getCachedKanjiProgress() || {});
+    const [loading, setLoading] = useState(() => {
+        const hasKanji = !!getCachedKanjiList();
+        const hasProgress = !!getCachedKanjiProgress();
+        return !(hasKanji && hasProgress);
+    });
+    
     const userId = getAuth().currentUser?.uid;
 
-    // Load kanji and progress from Firebase
+    // Helper to determine initial uncompleted day synchronously
+    const initialDay = useMemo(() => {
+        if (kanjiList.length === 0) return 1;
+        const levelKanjiItems = kanjiList.filter(k => k.level === selectedLevel);
+        const levelDaysCount = Math.ceil(levelKanjiItems.length / 10) || JLPT_CONFIG[selectedLevel]?.totalDays || 12;
+        for (let d = 1; d <= levelDaysCount; d++) {
+            if (!completedDays[`${selectedLevel}_${d}`]) {
+                return d;
+            }
+        }
+        return levelDaysCount;
+    }, [kanjiList, selectedLevel, completedDays]);
+
+    const [currentDay, setCurrentDay] = useState(() => initialDay);
+
+    // Keep currentDay in sync if initialDay changes (e.g. after loading completed)
+    useEffect(() => {
+        setCurrentDay(initialDay);
+    }, [initialDay]);
+
+    // Load kanji and progress from Firebase/Cache
     useEffect(() => {
         const loadData = async () => {
             try {
                 const kanjiData = await getSharedKanjiList();
                 setKanjiList(kanjiData);
-                // Load user progress
-                const progress = {};
                 if (userId) {
-                    try {
-                        const progressSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiProgress`));
-                        progressSnap.docs.forEach(d => {
-                            const data = d.data();
-                            const key = `${data.level}_${data.day}`;
-                            progress[key] = data;
-                        });
-                        setCompletedDays(progress);
-                    } catch (e) { console.error('Error loading progress:', e); }
+                    const progress = await getSharedKanjiProgress(userId);
+                    setCompletedDays(progress);
                 }
-
-                // Determine next uncompleted day for initial level (N5) synchronously to avoid a post-load double render
-                const levelKanjiItems = kanjiData.filter(k => k.level === 'N5');
-                const levelDaysCount = Math.ceil(levelKanjiItems.length / 10) || JLPT_CONFIG['N5']?.totalDays || 12;
-                let nextDay = 1;
-                for (let d = 1; d <= levelDaysCount; d++) {
-                    if (!progress[`N5_${d}`]) {
-                        nextDay = d;
-                        break;
-                    }
-                    nextDay = levelDaysCount;
-                }
-                setCurrentDay(nextDay);
             } catch (e) {
                 console.error('Error loading kanji:', e);
             } finally {

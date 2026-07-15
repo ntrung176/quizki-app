@@ -13,7 +13,7 @@ import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { fetchJotobaWordData } from '../../utils/pitchAccent';
 import { renderMaziiStyleKanji, fetchKanjiSvg } from '../../utils/kanjiStroke';
-import { getSharedKanjiList, getSharedVocabList, getSharedKanjiSrs, updateCachedUserSrs } from '../../utils/kanjiService';
+import { getSharedKanjiList, getSharedVocabList, getSharedKanjiSrs, updateCachedUserSrs, updateCachedKanjiProgress } from '../../utils/kanjiService';
 // ── Module-level data cache ────────────────────────────────────────────────
 // Survives component unmount/remount (e.g. Back from KanjiScreen detail).
 // Cleared only when the browser tab is closed or hard-refreshed.
@@ -220,6 +220,18 @@ const KanjiLessonScreen = ({ awardXP }) => {
         _lessonDataCache.level = level;
         _lessonDataCache.day = day;
     }, [currentIndex, viewedSet, isCompleted, level, day]);
+
+    // Track last active lesson in localStorage for tab redirect
+    useEffect(() => {
+        if (level && day) {
+            localStorage.setItem('last_kanji_lesson', `/kanji/study/lesson?level=${level}&day=${day}`);
+        }
+    }, [level, day]);
+
+    const handleBackToRoadmap = () => {
+        localStorage.removeItem('last_kanji_lesson');
+        navigate(ROUTES.KANJI_STUDY);
+    };
     // Reset when day/level changes (new lesson)
     useEffect(() => {
         if (sameLesson) return; // skip reset if restoring from cache
@@ -414,6 +426,13 @@ const KanjiLessonScreen = ({ awardXP }) => {
                     kanjiCount: todayKanji.length,
                     srsCount: kanjiIdsToAdd.length,
                 }, { merge: true });
+                updateCachedKanjiProgress(userId, level, day, {
+                    level,
+                    day,
+                    completedAt: Date.now(),
+                    kanjiCount: todayKanji.length,
+                    srsCount: kanjiIdsToAdd.length,
+                });
             } catch (e) { console.error('Error saving progress:', e); }
         }
         // Log study history activities
@@ -454,7 +473,7 @@ const KanjiLessonScreen = ({ awardXP }) => {
         return (
             <div className="max-w-4xl mx-auto text-center py-20">
                 <p className="text-gray-400 text-lg">Không có kanji cho ngày {day} cấp {level}</p>
-                <button onClick={() => navigate(ROUTES.KANJI_STUDY)} className="mt-4 px-6 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg transition-colors">
+                <button onClick={handleBackToRoadmap} className="mt-4 px-6 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg transition-colors">
                     Quay lại lộ trình
                 </button>
             </div>
@@ -494,7 +513,7 @@ const KanjiLessonScreen = ({ awardXP }) => {
                             </button>
                         </div>
                         <div className="flex gap-2 mt-1">
-                            <button onClick={() => navigate(ROUTES.KANJI_STUDY)} className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105">
+                            <button onClick={handleBackToRoadmap} className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105">
                                 <ArrowLeft className="w-4 h-4" /> Lộ trình
                             </button>
                             <button onClick={goToNextDay}
@@ -827,7 +846,7 @@ const KanjiLessonScreen = ({ awardXP }) => {
                 {/* Breadcrumbs */}
                 <div className="space-y-1">
                     <div className="flex items-center gap-2 text-gray-400 dark:text-slate-400 text-[10px] font-bold tracking-wider uppercase">
-                        <button onClick={() => navigate(ROUTES.KANJI_STUDY)} className="hover:text-indigo-500 transition-colors">
+                        <button onClick={handleBackToRoadmap} className="hover:text-indigo-500 transition-colors">
                             Lộ trình {level}
                         </button>
                         <span>/</span>

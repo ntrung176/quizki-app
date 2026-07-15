@@ -308,6 +308,59 @@ export const clearUserSrsCache = () => {
     userSrsPromise = null;
 };
 
+let cachedKanjiProgress = null;
+let cachedUserIdForProgress = null;
+let kanjiProgressPromise = null;
+
+export const getCachedKanjiProgress = () => cachedKanjiProgress;
+
+export const getSharedKanjiProgress = async (userId) => {
+    if (!userId) return {};
+    if (cachedUserIdForProgress === userId && cachedKanjiProgress) {
+        return cachedKanjiProgress;
+    }
+    if (kanjiProgressPromise) return kanjiProgressPromise;
+
+    kanjiProgressPromise = (async () => {
+        try {
+            console.log('Fetching user Kanji progress from Firestore...');
+            const progressSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiProgress`));
+            const progress = {};
+            progressSnap.docs.forEach(d => {
+                const data = d.data();
+                const key = `${data.level}_${data.day}`;
+                progress[key] = data;
+            });
+            cachedKanjiProgress = progress;
+            cachedUserIdForProgress = userId;
+            return cachedKanjiProgress;
+        } catch (e) {
+            console.error('Error fetching user Kanji progress:', e);
+            kanjiProgressPromise = null;
+            return {};
+        }
+    })();
+
+    return kanjiProgressPromise;
+};
+
+export const updateCachedKanjiProgress = (userId, level, day, progressData) => {
+    if (cachedUserIdForProgress === userId && cachedKanjiProgress) {
+        const key = `${level}_${day}`;
+        if (progressData === null) {
+            delete cachedKanjiProgress[key];
+        } else {
+            cachedKanjiProgress[key] = progressData;
+        }
+    }
+};
+
+export const clearKanjiProgressCache = () => {
+    cachedKanjiProgress = null;
+    cachedUserIdForProgress = null;
+    kanjiProgressPromise = null;
+};
+
 export const syncKanjiAndVocabToCDN = async () => {
     // 1. Fetch all kanji data
     const kanjiSnap = await getDocs(collection(db, 'kanji'));

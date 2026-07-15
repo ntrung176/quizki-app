@@ -37,10 +37,18 @@ const TopTabBar = ({ tabs }) => {
                         {tabs.map((tab) => {
                             const isActive = location.pathname === tab.route || (tab.exact === false && location.pathname.startsWith(tab.route));
                             
+                            let destination = tab.route;
+                            if (tab.id === 'kanji-study') {
+                                const lastLesson = localStorage.getItem('last_kanji_lesson');
+                                if (lastLesson) {
+                                    destination = lastLesson;
+                                }
+                            }
+
                             return (
                                 <Link
                                     key={tab.id}
-                                    to={tab.route}
+                                    to={destination}
                                     className={`tab-item relative z-10 flex items-center space-x-2 px-4 py-3 text-sm font-bold whitespace-nowrap ${
                                         isActive
                                             ? 'text-indigo-600 dark:text-indigo-400'
