@@ -260,6 +260,54 @@ export const getCachedKanjiList = () => cachedKanjiList;
 export const getCachedVocabList = () => cachedVocabList;
 export const getCachedVocabCategories = () => cachedVocabCategories;
 
+let cachedUserSrsData = null;
+let cachedUserIdForSrs = null;
+let userSrsPromise = null;
+
+export const getCachedUserSrsData = () => cachedUserSrsData;
+
+export const getSharedKanjiSrs = async (userId) => {
+    if (!userId) return {};
+    if (cachedUserIdForSrs === userId && cachedUserSrsData) {
+        return cachedUserSrsData;
+    }
+    if (userSrsPromise) return userSrsPromise;
+
+    userSrsPromise = (async () => {
+        try {
+            console.log('Fetching user Kanji SRS data from Firestore...');
+            const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
+            const srs = {};
+            srsSnap.docs.forEach(d => { srs[d.id] = d.data(); });
+            cachedUserSrsData = srs;
+            cachedUserIdForSrs = userId;
+            return cachedUserSrsData;
+        } catch (e) {
+            console.error('Error fetching user Kanji SRS data:', e);
+            userSrsPromise = null;
+            return {};
+        }
+    })();
+
+    return userSrsPromise;
+};
+
+export const updateCachedUserSrs = (userId, kanjiId, newSrs) => {
+    if (cachedUserIdForSrs === userId && cachedUserSrsData) {
+        if (newSrs === null) {
+            delete cachedUserSrsData[kanjiId];
+        } else {
+            cachedUserSrsData[kanjiId] = newSrs;
+        }
+    }
+};
+
+export const clearUserSrsCache = () => {
+    cachedUserSrsData = null;
+    cachedUserIdForSrs = null;
+    userSrsPromise = null;
+};
+
 export const syncKanjiAndVocabToCDN = async () => {
     // 1. Fetch all kanji data
     const kanjiSnap = await getDocs(collection(db, 'kanji'));

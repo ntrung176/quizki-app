@@ -6,7 +6,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGri
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth';
-import { getSharedKanjiList } from '../../utils/kanjiService';
+import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs } from '../../utils/kanjiService';
 
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { formatCountdown, getCardState, calculateAnkiSRS } from '../../utils/srs';
@@ -43,11 +43,16 @@ const formatInterval = (minutes) => {
 
 // ==================== MAIN COMPONENT ====================
 const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
+    const userId = getAuth().currentUser?.uid;
     const fadeWholePage = useMenuTransition();
     const navigate = useNavigate();
-    const [kanjiList, setKanjiList] = useState([]);
-    const [srsData, setSrsData] = useState({});
-    const [loading, setLoading] = useState(true);
+    const [kanjiList, setKanjiList] = useState(() => getCachedKanjiList() || []);
+    const [srsData, setSrsData] = useState(() => (userId ? getCachedUserSrsData() || {} : {}));
+    const [loading, setLoading] = useState(() => {
+        const hasKanji = !!getCachedKanjiList();
+        const hasSrs = userId ? !!getCachedUserSrsData() : true;
+        return !(hasKanji && hasSrs);
+    });
     const [reviewMode, setReviewMode] = useState(false);
     const [reviewQueue, setReviewQueue] = useState([]);
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
@@ -58,17 +63,15 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const sessionXpRef = useRef(0);
     const completedCardIds = useRef(new Set());
 
-    const userId = getAuth().currentUser?.uid;
-
     useEffect(() => {
         const load = async () => {
             try {
-                const kanjiData = await getSharedKanjiList();
+                const [kanjiData, srs] = await Promise.all([
+                    getSharedKanjiList(),
+                    userId ? getSharedKanjiSrs(userId) : Promise.resolve({})
+                ]);
                 setKanjiList(kanjiData);
-                if (userId) {
-                    const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
-                    const srs = {};
-                    srsSnap.docs.forEach(d => { srs[d.id] = d.data(); });
+                if (userId && srs) {
                     setSrsData(srs);
                 }
             } catch (e) {
@@ -293,6 +296,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
         // Update local states immediately (optimistic UI)
         setSrsData(prev => ({ ...prev, [currentCard.id]: newSrs }));
+        updateCachedUserSrs(userId, currentCard.id, newSrs);
         if (currentReviewIndex + 1 < updatedQueue.length) {
             if (rating === 'good' || rating === 'easy') { flashCorrect(); }
             
@@ -372,6 +376,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             }
             return next;
         });
+        updateCachedUserSrs(userId, cardId, srs || null);
 
         setIsAnimatingFlip(false);
         setSlideDirection('right');

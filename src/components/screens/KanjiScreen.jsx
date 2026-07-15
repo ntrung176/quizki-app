@@ -12,7 +12,7 @@ import HanziWriter from 'hanzi-writer';
 import { showToast, showConfirm } from '../../utils/toast';
 import { renderStrokeGuide, renderMaziiStyleKanji } from '../../utils/kanjiStroke';
 import { RADICALS_214, KANJI_TREE } from '../../data/radicals214';
-import { getSharedKanjiList, getSharedVocabList, getSharedVocabCategories, updateCachedKanji, deleteCachedKanji, updateCachedVocab, deleteCachedVocab, getCachedKanjiList, getCachedVocabList, getCachedVocabCategories, syncKanjiAndVocabToCDN } from '../../utils/kanjiService';
+import { getSharedKanjiList, getSharedVocabList, getSharedVocabCategories, updateCachedKanji, deleteCachedKanji, updateCachedVocab, deleteCachedVocab, getCachedKanjiList, getCachedVocabList, getCachedVocabCategories, syncKanjiAndVocabToCDN, getSharedKanjiSrs, updateCachedUserSrs } from '../../utils/kanjiService';
 import { JOTOBA_KANJI_DATA, getJotobaKanjiChars, getJotobaKanjiData } from '../../data/jotobaKanjiData'
 import kanjiComponents from '../../data/kanjiComponents.json' with { type: 'json' };
 import { TopTabBar, PremiumLockedModal } from '../ui';
@@ -121,9 +121,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         if (!userId) return;
         const loadUserSRS = async () => {
             try {
-                const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
-                const ids = srsSnap.docs.map(doc => doc.id);
-                setUserKanjiSRS(new Set(ids));
+                const srs = await getSharedKanjiSrs(userId);
+                setUserKanjiSRS(new Set(Object.keys(srs)));
             } catch (e) {
                 console.error('Error loading user kanjiSRS:', e);
             }
@@ -160,7 +159,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
 
         try {
             const now = Date.now();
-            await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanjiDoc.id), {
+            const newSrs = {
                 interval: 0,
                 ease: 2.5,
                 nextReview: now,
@@ -171,7 +170,9 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 lapseCount: 0,
                 prelapseInterval: null,
                 state: 'NEW'
-            }, { merge: true });
+            };
+            await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanjiDoc.id), newSrs, { merge: true });
+            updateCachedUserSrs(userId, kanjiDoc.id, newSrs);
 
             // Award XP for Kanji addition
             let multiplier = 1.0;

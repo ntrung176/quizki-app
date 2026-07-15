@@ -13,7 +13,7 @@ import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { fetchJotobaWordData } from '../../utils/pitchAccent';
 import { renderMaziiStyleKanji, fetchKanjiSvg } from '../../utils/kanjiStroke';
-import { getSharedKanjiList, getSharedVocabList } from '../../utils/kanjiService';
+import { getSharedKanjiList, getSharedVocabList, getSharedKanjiSrs, updateCachedUserSrs } from '../../utils/kanjiService';
 // ── Module-level data cache ────────────────────────────────────────────────
 // Survives component unmount/remount (e.g. Back from KanjiScreen detail).
 // Cleared only when the browser tab is closed or hard-refreshed.
@@ -103,15 +103,10 @@ const KanjiLessonScreen = ({ awardXP }) => {
         if (!userId) return;
         const loadSrs = async () => {
             try {
-                const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
-                const map = new Map();
-                const ids = [];
-                srsSnap.docs.forEach(doc => {
-                    map.set(doc.id, doc.data());
-                    ids.push(doc.id);
-                });
+                const srs = await getSharedKanjiSrs(userId);
+                const map = new Map(Object.entries(srs));
                 setSrsDataMap(map);
-                setSrsAddedSet(new Set(ids));
+                setSrsAddedSet(new Set(Object.keys(srs)));
             } catch (e) {
                 console.error('Error loading kanjiSRS:', e);
             }
@@ -332,7 +327,7 @@ const KanjiLessonScreen = ({ awardXP }) => {
             const newKanjiIds = kanjiIds.filter(id => !srsAddedSet.has(id));
 
             for (const kanjiId of kanjiIds) {
-                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanjiId), {
+                const newSrs = {
                     interval: 0,
                     ease: 2.5,
                     nextReview: now, // Due immediately for first review
@@ -343,7 +338,9 @@ const KanjiLessonScreen = ({ awardXP }) => {
                     lapseCount: 0,
                     prelapseInterval: null,
                     state: 'NEW'
-                }, { merge: true });
+                };
+                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanjiId), newSrs, { merge: true });
+                updateCachedUserSrs(userId, kanjiId, newSrs);
             }
 
             if (newKanjiIds.length > 0) {
@@ -1068,11 +1065,13 @@ const KanjiFlashcard = ({
 
         try {
             const now = Date.now();
-            await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanji.id), {
+            const newSrs = {
                 interval: 0, ease: 2.5, nextReview: now, lastReview: now, reps: 0,
                 learningStep: null, isLapsed: false, lapseCount: 0, prelapseInterval: null,
                 state: 'NEW'
-            }, { merge: true });
+            };
+            await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanji.id), newSrs, { merge: true });
+            updateCachedUserSrs(userId, kanji.id, newSrs);
 
             logKanjiActivity(userId, {
                 type: 'save',

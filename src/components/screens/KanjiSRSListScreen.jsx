@@ -6,7 +6,7 @@ import { Search, Trash2, ChevronLeft, ChevronRight, BookOpen, Clock, CheckCircle
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, getDoc, doc, deleteDoc, writeBatch } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import { getSharedKanjiList } from '../../utils/kanjiService';
+import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs } from '../../utils/kanjiService';
 import { ROUTES } from '../../router';
 import { showToast, showConfirm } from '../../utils/toast';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
@@ -60,10 +60,16 @@ const formatNextReview = (nextReview) => {
 };
 
 const KanjiSRSListScreen = () => {
+    const user = getAuth().currentUser;
+    const userId = user?.uid;
     const navigate = useNavigate();
-    const [kanjiList, setKanjiList] = useState([]);
-    const [srsData, setSrsData] = useState({});
-    const [loading, setLoading] = useState(true);
+    const [kanjiList, setKanjiList] = useState(() => getCachedKanjiList() || []);
+    const [srsData, setSrsData] = useState(() => (userId ? getCachedUserSrsData() || {} : {}));
+    const [loading, setLoading] = useState(() => {
+        const hasKanji = !!getCachedKanjiList();
+        const hasSrs = userId ? !!getCachedUserSrsData() : true;
+        return !(hasKanji && hasSrs);
+    });
     const [searchQuery, setSearchQuery] = useState('');
     const [filterLevel, setFilterLevel] = useState('all');
     const [filterStatus, setFilterStatus] = useState('all');
@@ -92,9 +98,6 @@ const KanjiSRSListScreen = () => {
     const [currentFolder, setCurrentFolder] = useState(null);
     const [showNewSubFolderInput, setShowNewSubFolderInput] = useState(false);
     const [newSubFolderInput, setNewSubFolderInput] = useState('');
-
-    const user = getAuth().currentUser;
-    const userId = user?.uid;
 
     const [recentlyViewed, setRecentlyViewed] = useState([]);
     const [studyHistory, setStudyHistory] = useState([]);
@@ -186,24 +189,13 @@ const KanjiSRSListScreen = () => {
     useEffect(() => {
         const load = async () => {
             try {
-                const fetchTasks = [
-                    getSharedKanjiList()
-                ];
-
-                if (userId) {
-                    fetchTasks.push(
-                        getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`)).then(snap => {
-                            const srs = {};
-                            snap.docs.forEach(d => { srs[d.id] = d.data(); });
-                            return srs;
-                        })
-                    );
-                }
-
-                const results = await Promise.all(fetchTasks);
-                setKanjiList(results[0]);
-                if (userId && results[1]) {
-                    setSrsData(results[1]);
+                const [kanjiData, srs] = await Promise.all([
+                    getSharedKanjiList(),
+                    userId ? getSharedKanjiSrs(userId) : Promise.resolve({})
+                ]);
+                setKanjiList(kanjiData);
+                if (userId && srs) {
+                    setSrsData(srs);
                 }
             } catch (e) {
                 console.error('Error loading data:', e);
@@ -510,7 +502,10 @@ const KanjiSRSListScreen = () => {
             }
             setSrsData(prev => {
                 const next = { ...prev };
-                selectedIds.forEach(id => delete next[id]);
+                selectedIds.forEach(id => {
+                    delete next[id];
+                    updateCachedUserSrs(userId, id, null);
+                });
                 return next;
             });
             setSelectedIds(new Set());

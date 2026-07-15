@@ -255,6 +255,7 @@ const SRSVocabScreen = ({
     const [reviewHistory, setReviewHistory] = useState([]);
     const sessionXpRef = useRef(0);
     const completedCardIds = useRef(new Set());
+    const activeReviewCardIds = useRef(new Set());
 
     useEffect(() => {
         setShowNuancePopup(false);
@@ -387,6 +388,7 @@ const SRSVocabScreen = ({
         if (dueCards.length === 0) return;
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
+        activeReviewCardIds.current = new Set(dueCards.map(c => c.id));
         setReviewQueue(shuffleArray([...dueCards]));
         setCurrentReviewIndex(0);
         setIsFlipped(false);
@@ -477,10 +479,11 @@ const SRSVocabScreen = ({
             completedCardIds.current.add(card.id);
         }
 
-        // 2. Scan allCards for any newly due cards that aren't in the queue yet
+        // 2. Scan allCards for any newly due cards that aren't in the queue yet (restricted to active review cards)
         const now = Date.now();
         const upcomingCardIds = new Set(updatedQueue.slice(currentReviewIndex + 1).map(c => c.id));
         const newlyDueCards = allCards.filter(c => {
+            if (!activeReviewCardIds.current.has(c.id)) return false;
             if (c.id === card.id) return false;
             if (completedCardIds.current.has(c.id)) return false;
             if (upcomingCardIds.has(c.id)) return false;
