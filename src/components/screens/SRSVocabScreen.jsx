@@ -92,7 +92,7 @@ const SRSVocabScreen = ({
         if (vocabSetStartIndex > 0) {
             setAnimationDirection('right');
             setIsAnimating(true);
-            setVocabSetStartIndex(prev => Math.max(0, prev - 1));
+            setVocabSetStartIndex(prev => Math.max(0, prev - 3));
             setTimeout(() => setIsAnimating(false), 300);
         }
     };
@@ -102,7 +102,7 @@ const SRSVocabScreen = ({
         if (vocabSetStartIndex + 3 < folderStats.length) {
             setAnimationDirection('left');
             setIsAnimating(true);
-            setVocabSetStartIndex(prev => Math.min(folderStats.length - 3, prev + 1));
+            setVocabSetStartIndex(prev => prev + 3);
             setTimeout(() => setIsAnimating(false), 300);
         }
     };
@@ -371,7 +371,8 @@ const SRSVocabScreen = ({
 
     useEffect(() => {
         if (vocabSetStartIndex >= folderStats.length) {
-            setVocabSetStartIndex(Math.max(0, folderStats.length - 3));
+            const pageStart = Math.max(0, Math.floor((folderStats.length - 1) / 3) * 3);
+            setVocabSetStartIndex(pageStart);
         }
     }, [folderStats.length, vocabSetStartIndex]);
 
