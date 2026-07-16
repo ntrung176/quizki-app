@@ -93,6 +93,48 @@ export const generateFuriganaText = async (text) => {
 };
 
 /**
+ * Normalize and merge multiple parenthesis patterns into a single trailing bracket format.
+ * E.g., "お土産（おみやげ）を届ける（おとどける）" -> "お土産を届ける（おみやげをとどける）"
+ */
+export const normalizeParenthesesFormat = (text) => {
+    if (!text) return '';
+    const trimmed = text.trim();
+    
+    if (!trimmed.includes('(') && !trimmed.includes('（')) {
+        return trimmed;
+    }
+
+    let rawText = '';
+    let readingText = '';
+    
+    // Match any text before parentheses, plus the content inside the parentheses
+    const regex = /([^\(（]*)(?:[\(（]([^\)）]+)[\)）])/g;
+    let lastIndex = 0;
+    let match;
+    
+    while ((match = regex.exec(trimmed)) !== null) {
+        const prefix = match[1];
+        const inside = match[2];
+        rawText += prefix;
+        readingText += prefix + inside;
+        lastIndex = regex.lastIndex;
+    }
+    
+    if (lastIndex < trimmed.length) {
+        const remaining = trimmed.slice(lastIndex);
+        rawText += remaining;
+        readingText += remaining;
+    }
+
+    const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF]/.test(rawText);
+    if (hasKanji && readingText !== rawText) {
+        return `${rawText}（${readingText}）`;
+    }
+    
+    return rawText;
+};
+
+/**
  * Convert a word to standard format: "Word（reading）" if it contains Kanji and is missing brackets.
  * If the word has no Kanji, it keeps it as is (no brackets).
  * If the word already has brackets, it preserves/standardizes them.
@@ -104,9 +146,8 @@ export const ensureFuriganaFormat = async (word, knownReading = '') => {
     
     // Check if it already has full-width or half-width brackets
     if (trimmedWord.includes('（') || trimmedWord.includes('(')) {
-        // Just standardize brackets to full-width and return
-        // E.g. "日本語 (にほんご)" -> "日本語（にほんご）"
-        return trimmedWord.replace(/\s*[\(（]([^\)）]+)[\)）]/g, '（$1）');
+        // Standardize and merge any misplaced parentheses
+        return normalizeParenthesesFormat(trimmedWord);
     }
 
     // Check if it contains Kanji

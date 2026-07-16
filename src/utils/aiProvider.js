@@ -282,9 +282,10 @@ QUY TẮC BẮT BUỘC:
 2. Từ vựng (frontWithFurigana) & Từ đồng nghĩa (synonym) định dạng cách đọc:
    - BẮT BUỘC dùng định dạng: "Từ gốc（cách đọc hiragana của CẢ TỪ）".
    - Ngoặc cách đọc phải đặt duy nhất ở CUỐI CÙNG sau toàn bộ từ gốc. Tuyệt đối KHÔNG chèn ngoặc cách đọc vào giữa các nhóm chữ trong từ gốc.
+   - Đối với các cụm từ dài hoặc cụm động từ/tính từ chứa nhiều từ/nhiều chữ Kanji (Ví dụ: "お土産を届ける"), TUYỆT ĐỐI KHÔNG được chia thành nhiều ngoặc như "お土産（おみやげ）を届ける（おとどける）", mà BẮT BUỘC phải viết một ngoặc đọc duy nhất ở cuối cùng cho toàn bộ cụm: "お土産を届ける（おみやげをとどける）".
    - Đối với từ gốc có chứa Katakana xen lẫn Kanji/Hiragana (Ví dụ: "スマホを使う"), trong ngoặc đọc phải giữ nguyên phần chữ Katakana tương ứng và chuyển các chữ Kanji sang Hiragana (Ví dụ: "スマホを使う（スマホをつかう）", chứ không viết là "スマホを使う（すまほをつかう）" hay cắt ngắn).
-   - Ví dụ ĐÚNG: "顔認証（かおにんしょう）", "振り込む（ふりこむ）", "スマホを使う（スマホをつかう）"
-   - Ví dụ SAI: "顔（かお）認証（にんしょう）", "振（ふ）り込（こ）む", "スマホ（すまほ）を使う（つかう）"
+   - Ví dụ ĐÚNG: "顔認証（かおにんしょう）", "振り込む（ふりこむ）", "スマホを使う（スマホをつかう）", "お土産を届ける（おみやげをとどける）"
+   - Ví dụ SAI: "顔（かお）認証（にんしょう）", "振（ふ）り込（こ）む", "スマホ（すまほ）を使う（つかう）", "お土産（おみやげ）を届ける（おとどける）"
    - Trả về trường "frontWithFurigana" cho từ gốc và "synonym" cho từ đồng nghĩa.
 
 2. meaning: ${isGrammar ? 'Định nghĩa ngữ pháp theo hướng dẫn ở trên.' : 'Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống.'}
