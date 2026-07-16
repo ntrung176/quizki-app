@@ -446,32 +446,35 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                 }
             } else {
                 // Check shared dictionary first
+                const enableDbLookup = false; // Tạm thời vô hiệu hoá lấy dữ liệu từ kho từ vựng chung
                 const normalizedKey = pendingWord.split('（')[0].split('(')[0].trim().toLowerCase();
                 const docRef = doc(db, 'sharedVocabulary', normalizedKey);
                 let fetchedResult = null;
 
-                try {
-                    const docSnap = await getDoc(docRef);
-                    if (docSnap.exists()) {
-                        const data = docSnap.data();
-                        fetchedResult = {
-                            frontWithFurigana: data.front || data.frontWithFurigana || pendingWord,
-                            meaning: data.back || data.meaning || '',
-                            synonym: data.synonym || '',
-                            sinoVietnamese: data.sinoVietnamese || '',
-                            synonymSinoVietnamese: data.synonymSinoVietnamese || '',
-                            example: data.example || '',
-                            exampleMeaning: data.exampleMeaning || '',
-                            nuance: data.nuance || '',
-                            pos: data.pos || '',
-                            level: data.level || '',
-                            isShared: true,
-                            reportedError: data.reportedError || false
-                        };
-                        console.log('📚 Found shared dictionary match:', fetchedResult);
+                if (enableDbLookup) {
+                    try {
+                        const docSnap = await getDoc(docRef);
+                        if (docSnap.exists()) {
+                            const data = docSnap.data();
+                            fetchedResult = {
+                                frontWithFurigana: data.front || data.frontWithFurigana || pendingWord,
+                                meaning: data.back || data.meaning || '',
+                                synonym: data.synonym || '',
+                                sinoVietnamese: data.sinoVietnamese || '',
+                                synonymSinoVietnamese: data.synonymSinoVietnamese || '',
+                                example: data.example || '',
+                                exampleMeaning: data.exampleMeaning || '',
+                                nuance: data.nuance || '',
+                                pos: data.pos || '',
+                                level: data.level || '',
+                                isShared: true,
+                                reportedError: data.reportedError || false
+                            };
+                            console.log('📚 Found shared dictionary match:', fetchedResult);
+                        }
+                    } catch (dbErr) {
+                        console.warn('Error reading from sharedVocabulary:', dbErr);
                     }
-                } catch (dbErr) {
-                    console.warn('Error reading from sharedVocabulary:', dbErr);
                 }
 
                 if (fetchedResult) {

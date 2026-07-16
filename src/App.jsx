@@ -3599,7 +3599,8 @@ const App = () => {
         }
         lastAssistedRef.current = { word: frontText, timestamp: now };
 
-        if (!actualRetry) {
+        const enableDbLookup = false; // Tạm thời vô hiệu hoá lấy dữ liệu từ kho sách và kho từ vựng chung
+        if (!actualRetry && enableDbLookup) {
             // === BƯỚC 1: Luôn kiểm tra Book Vocabulary database trước ===
             try {
                 const cachedVocab = await lookupBookVocab(frontText);
