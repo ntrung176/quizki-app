@@ -104,6 +104,19 @@ export const normalizeParenthesesFormat = (text) => {
         return trimmed;
     }
 
+    // First check if there is only one pair of parentheses and it is at the very end.
+    const trailingRegex = /^([^\(（]+)[\(（]([^\)）]+)[\)）]$/;
+    const trailingMatch = trimmed.match(trailingRegex);
+    if (trailingMatch) {
+        const raw = trailingMatch[1].trim();
+        const reading = trailingMatch[2].trim();
+        const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF]/.test(raw);
+        if (hasKanji && reading !== raw) {
+            return `${raw}（${reading}）`;
+        }
+        return raw;
+    }
+
     let rawText = '';
     let readingText = '';
     
@@ -115,8 +128,26 @@ export const normalizeParenthesesFormat = (text) => {
     while ((match = regex.exec(trimmed)) !== null) {
         const prefix = match[1];
         const inside = match[2];
+        
         rawText += prefix;
-        readingText += prefix + inside;
+        
+        // Find where the word starts in the prefix
+        // 1. Check for Kanji
+        let wordStartIdx = prefix.search(/[\u4E00-\u9FAF\u3400-\u4DBF]/);
+        // 2. If no Kanji, check for Katakana
+        if (wordStartIdx === -1) {
+            wordStartIdx = prefix.search(/[\u30A0-\u30FF]/);
+        }
+        
+        if (wordStartIdx !== -1) {
+            // Keep everything before the word start, and replace the word with the inside reading
+            const kanaPrefix = prefix.slice(0, wordStartIdx);
+            readingText += kanaPrefix + inside;
+        } else {
+            // If no Kanji or Katakana, just append the prefix and the inside reading
+            readingText += prefix + inside;
+        }
+        
         lastIndex = regex.lastIndex;
     }
     

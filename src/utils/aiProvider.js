@@ -644,7 +644,8 @@ export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '
     }
     lastAssistedWordInAI = { word: frontText, timestamp: now };
 
-    if (!forceRefresh) {
+    const enableDbLookup = false; // Tạm thời vô hiệu hoá lấy dữ liệu từ kho sách và kho từ vựng chung
+    if (!forceRefresh && enableDbLookup) {
         // 1. Kiểm tra kho sách trước
     try {
         const bookMatch = await lookupBookVocabInAI(frontText);
