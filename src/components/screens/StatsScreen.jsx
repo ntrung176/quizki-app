@@ -3,6 +3,7 @@ import { Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Search, Users, 
 import { collection, query, onSnapshot } from 'firebase/firestore';
 import { auth, db, appId } from '../../config/firebase';
 import LoadingIndicator from '../ui/LoadingIndicator';
+import { SafeAvatarImage } from '../ui';
 import { isKanjiMastered } from '../../utils/srs';
 import { getLevelFromXp, getLevelTitle, LEAGUES, LEAGUE_ICONS, LEAGUE_COLORS, getWeekId, generateSimulatedLeague, getLeagueTierRules } from '../../utils/scoring';
 
@@ -26,12 +27,20 @@ const getAvatarDisplayNode = (avatarValue, textFallback = 'U', isMe = false) => 
         resolvedAvatar = auth.currentUser.photoURL;
     }
 
-    if (isPhotoUrl(resolvedAvatar)) {
-        return <img src={resolvedAvatar} alt="avatar" className="w-full h-full object-cover" />;
-    }
     const emoji = (resolvedAvatar && resolvedAvatar !== 'default') ? getAvatarEmoji(resolvedAvatar) : null;
-    if (emoji) return <span>{emoji}</span>;
-    return <span>{(textFallback || 'U')[0].toUpperCase()}</span>;
+    const fallbackNode = emoji ? <span>{emoji}</span> : <span>{(textFallback || 'U')[0].toUpperCase()}</span>;
+
+    if (isPhotoUrl(resolvedAvatar)) {
+        return (
+            <SafeAvatarImage
+                src={resolvedAvatar}
+                alt="avatar"
+                className="w-full h-full object-cover"
+                fallback={fallbackNode}
+            />
+        );
+    }
+    return fallbackNode;
 };
 
 // Helper định dạng thời gian hoạt động cuối

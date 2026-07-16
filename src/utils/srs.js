@@ -413,9 +413,7 @@ export const calculateAnkiSRS = (srs, rating) => {
 
     // Calculate milliseconds offset for scheduleNext
     let nextReviewOffsetMs = 0;
-    if (normRating === 'again') {
-        nextReviewOffsetMs = 0;
-    } else if (nextState === 'REVIEW') {
+    if (nextState === 'REVIEW') {
         nextReviewOffsetMs = newInterval * 24 * 60 * 60 * 1000; // day-based
     } else {
         nextReviewOffsetMs = newInterval * 60 * 1000; // minute-based

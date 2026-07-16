@@ -4,6 +4,8 @@ import { collection, doc, getDoc, setDoc, updateDoc, deleteDoc, query, where, ge
 import { auth, db, appId } from '../../config/firebase';
 import { ROUTES } from '../../router';
 import { ArrowLeft, Settings, Pencil, X, Check, MessageSquare, Heart, Users, Award, ExternalLink, Link as LinkIcon, ChevronRight, MessageCircle, Shield, Loader2 } from 'lucide-react'
+import { SafeAvatarImage } from '../ui';
+
 // ==========================
 // AVATAR EMOJIS (reuse)
 // ==========================
@@ -27,21 +29,27 @@ const AvatarDisplay = ({ avatar, name, size = 'w-20 h-20', textSize = 'text-2xl'
         resolvedAvatar = auth.currentUser.photoURL;
     }
 
-    if (isPhotoUrl(resolvedAvatar)) {
-        return (
-            <div className={`${size} rounded-full overflow-hidden flex-shrink-0 border-[3px] border-white dark:border-gray-700 shadow-lg ring-2 ring-indigo-200 dark:ring-indigo-800`}>
-                <img src={resolvedAvatar} alt="" className="w-full h-full object-cover" />
-            </div>
-        );
-    }
-    
-    // Render default or emoji
     const emoji = (resolvedAvatar && resolvedAvatar !== 'default') ? AVATAR_EMOJIS[resolvedAvatar] : null;
-    return (
+    const fallbackChar = (
         <div className={`${size} rounded-full flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-indigo-200 dark:ring-indigo-800 border-[3px] border-white dark:border-gray-700 ${emoji ? 'bg-gradient-to-br from-indigo-100 to-sky-100 dark:from-indigo-900/40 dark:to-sky-900/20' : 'bg-gradient-to-br from-indigo-500 to-indigo-650 text-white font-bold'}`}>
             {emoji ? <span className={textSize === 'text-2xl' ? 'text-3xl' : textSize}>{emoji}</span> : <span className={textSize}>{(name || 'U')[0].toUpperCase()}</span>}
         </div>
     );
+
+    if (isPhotoUrl(resolvedAvatar)) {
+        return (
+            <div className={`${size} rounded-full overflow-hidden flex-shrink-0 border-[3px] border-white dark:border-gray-700 shadow-lg ring-2 ring-indigo-200 dark:ring-indigo-800`}>
+                <SafeAvatarImage
+                    src={resolvedAvatar}
+                    alt=""
+                    className="w-full h-full object-cover"
+                    fallback={fallbackChar}
+                />
+            </div>
+        );
+    }
+    
+    return fallbackChar;
 };
 // ==========================
 // TIME AGO

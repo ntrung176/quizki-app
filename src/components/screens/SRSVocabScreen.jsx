@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2, Lightbulb } from 'lucide-react'
+import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2, Lightbulb, Clock } from 'lucide-react'
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import { useNavigate } from 'react-router-dom';
@@ -83,6 +83,13 @@ const SRSVocabScreen = ({
 }) => {
     const navigate = useNavigate();
     const fadeWholePage = useMenuTransition();
+    const [dashboardTick, setDashboardTick] = useState(Date.now());
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setDashboardTick(Date.now());
+        }, 1000);
+        return () => clearInterval(intervalId);
+    }, []);
     const [vocabSetStartIndex, setVocabSetStartIndex] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
     const [animationDirection, setAnimationDirection] = useState('');
@@ -256,6 +263,7 @@ const SRSVocabScreen = ({
     const sessionXpRef = useRef(0);
     const completedCardIds = useRef(new Set());
     const activeReviewCardIds = useRef(new Set());
+    const sessionSrsData = useRef({});
 
     useEffect(() => {
         setShowNuancePopup(false);
@@ -281,18 +289,26 @@ const SRSVocabScreen = ({
 
     // Safely determine if a card is due
     const isDue = (card) => {
-        if (card.srsEnabled !== true) return false;
-        if (card.srsState === 'LEARNING' || card.srsState === 'RELEARNING') return true;
-        if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined || card.intervalIndex_back < 0) return true; // Always due if enabled but never reviewed
-        if (!card.nextReview_back) return true; // Due if enabled but has no review time
+        // Merge with local session SRS data if available
+        const localSrs = sessionSrsData.current[card.id];
+        const srsEnabled = card.srsEnabled === true;
+        if (!srsEnabled) return false;
 
-        const reviewTime = card.nextReview_back instanceof Date
-            ? card.nextReview_back.getTime()
-            : (card.nextReview_back.seconds
-                ? card.nextReview_back.seconds * 1000
-                : new Date(card.nextReview_back).getTime());
+        const nextReviewVal = localSrs ? localSrs.nextReview_back : card.nextReview_back;
+        const intervalIndexVal = localSrs 
+            ? (localSrs.intervalIndex_back !== undefined ? localSrs.intervalIndex_back : (localSrs.srsReps > 0 ? 1 : -1)) 
+            : card.intervalIndex_back;
 
-        return reviewTime <= Date.now();
+        if (intervalIndexVal === -1 || intervalIndexVal === undefined || intervalIndexVal < 0) return true;
+        if (!nextReviewVal) return true;
+
+        const reviewTime = nextReviewVal instanceof Date
+            ? nextReviewVal.getTime()
+            : (nextReviewVal.seconds
+                ? nextReviewVal.seconds * 1000
+                : new Date(nextReviewVal).getTime());
+
+        return reviewTime <= dashboardTick;
     };
 
     // Calculate comprehensive stats for each folder (including completed ones)
@@ -368,7 +384,7 @@ const SRSVocabScreen = ({
                 }
                 return b.total - a.total;
             });
-    }, [allCards, folders, cardFolders]);
+    }, [allCards, folders, cardFolders, dashboardTick]);
 
     useEffect(() => {
         if (vocabSetStartIndex >= folderStats.length) {
@@ -376,6 +392,57 @@ const SRSVocabScreen = ({
             setVocabSetStartIndex(pageStart);
         }
     }, [folderStats.length, vocabSetStartIndex]);
+
+    const savedSessionInfo = useMemo(() => {
+        try {
+            const saved = localStorage.getItem('quizki_vocab_review_session');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                const remaining = (parsed.queueIds || []).length - (parsed.currentIndex || 0);
+                if (remaining > 0) {
+                    return { remaining, parsed };
+                }
+            }
+        } catch (e) {}
+        return null;
+    }, [reviewMode, reviewQueue]);
+
+    const nextDueVocabInfo = useMemo(() => {
+        const now = dashboardTick;
+        let earliest = Infinity;
+        allCards.forEach(c => {
+            if (c.srsEnabled === true) {
+                const localSrs = sessionSrsData.current[c.id];
+                const nextReviewVal = localSrs ? localSrs.nextReview_back : c.nextReview_back;
+                if (!nextReviewVal) return;
+
+                const reviewTime = nextReviewVal instanceof Date
+                    ? nextReviewVal.getTime()
+                    : (nextReviewVal.seconds
+                        ? nextReviewVal.seconds * 1000
+                        : new Date(nextReviewVal).getTime());
+
+                if (reviewTime > now && reviewTime < earliest) {
+                    earliest = reviewTime;
+                }
+            }
+        });
+        return earliest === Infinity ? null : earliest;
+    }, [allCards, dashboardTick]);
+
+    const countdownText = useMemo(() => {
+        if (!nextDueVocabInfo) return null;
+        const secondsLeft = Math.max(0, Math.ceil((nextDueVocabInfo - dashboardTick) / 1000));
+        if (secondsLeft <= 0) return null;
+        
+        const pad = (n) => String(n).padStart(2, '0');
+        if (secondsLeft < 60) return `00:00:${pad(secondsLeft)}`;
+        
+        const hours = Math.floor(secondsLeft / 3600);
+        const mins = Math.floor((secondsLeft % 3600) / 60);
+        const secs = secondsLeft % 60;
+        return `${pad(hours)}:${pad(mins)}:${pad(secs)}`;
+    }, [nextDueVocabInfo, dashboardTick]);
 
     const globalStats = useMemo(() => {
         return folderStats.reduce((acc, curr) => ({
@@ -388,6 +455,7 @@ const SRSVocabScreen = ({
         if (dueCards.length === 0) return;
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
+        sessionSrsData.current = {};
         activeReviewCardIds.current = new Set(dueCards.map(c => c.id));
         setReviewQueue(shuffleArray([...dueCards]));
         setCurrentReviewIndex(0);
@@ -425,6 +493,118 @@ const SRSVocabScreen = ({
         }
     };
 
+    const [lastTick, setLastTick] = useState(Date.now());
+
+    const getLearningCardsWaiting = () => {
+        return Object.entries(sessionSrsData.current)
+            .filter(([id, srs]) => {
+                if (!activeReviewCardIds.current.has(id)) return false;
+                if (srs.state === 'REVIEW') return false;
+                if (completedCardIds.current.has(id)) return false;
+                return true;
+            })
+            .map(([id, srs]) => ({
+                id,
+                nextReview: srs.nextReview_back instanceof Date 
+                    ? srs.nextReview_back.getTime() 
+                    : new Date(srs.nextReview_back).getTime()
+            }));
+    };
+
+    const handleReviewNow = () => {
+        const waiting = getLearningCardsWaiting();
+        if (waiting.length === 0) return;
+        
+        waiting.forEach(item => {
+            if (sessionSrsData.current[item.id]) {
+                sessionSrsData.current[item.id].nextReview = Date.now();
+                sessionSrsData.current[item.id].nextReview_back = new Date();
+            }
+        });
+        
+        // Trigger immediate injection
+        setReviewQueue(prevQueue => {
+            const nextQueue = [...prevQueue];
+            const upcomingIds = new Set(nextQueue.slice(currentReviewIndex + 1).map(c => c.id));
+            const cardsToInject = [];
+            waiting.forEach(item => {
+                if (!upcomingIds.has(item.id) && (currentReviewIndex >= nextQueue.length || nextQueue[currentReviewIndex].id !== item.id)) {
+                    const fullCard = allCards.find(c => c.id === item.id);
+                    if (fullCard) {
+                        const localSrs = sessionSrsData.current[item.id];
+                        cardsToInject.push({
+                            ...fullCard,
+                            srsInterval: localSrs ? localSrs.srsInterval : fullCard.srsInterval,
+                            srsEase: localSrs ? localSrs.srsEase : fullCard.srsEase,
+                            srsLearningStep: localSrs ? localSrs.srsLearningStep : fullCard.srsLearningStep,
+                            srsIsLapsed: localSrs ? localSrs.srsIsLapsed : fullCard.srsIsLapsed,
+                            srsReps: localSrs ? localSrs.srsReps : fullCard.srsReps,
+                            srsLapseCount: localSrs ? localSrs.srsLapseCount : fullCard.srsLapseCount,
+                            srsPrelapseInterval: localSrs ? localSrs.srsPrelapseInterval : fullCard.srsPrelapseInterval,
+                            srsState: localSrs ? localSrs.srsState : fullCard.srsState,
+                            nextReview_back: localSrs ? (localSrs.nextReview_back instanceof Date ? localSrs.nextReview_back : new Date(localSrs.nextReview_back)) : fullCard.nextReview_back,
+                            lastReviewed: localSrs ? localSrs.lastReviewed : fullCard.lastReviewed
+                        });
+                    }
+                }
+            });
+            
+            if (cardsToInject.length > 0) {
+                const insertIndex = Math.min(currentReviewIndex + 1, nextQueue.length);
+                nextQueue.splice(insertIndex, 0, ...cardsToInject);
+                return nextQueue;
+            }
+            return prevQueue;
+        });
+    };
+
+    useEffect(() => {
+        if (!reviewMode) return;
+        const intervalId = setInterval(() => {
+            setLastTick(Date.now());
+            
+            const now = Date.now();
+            const waiting = getLearningCardsWaiting();
+            const dueNow = waiting.filter(w => w.nextReview <= now);
+            if (dueNow.length > 0) {
+                setReviewQueue(prevQueue => {
+                    const nextQueue = [...prevQueue];
+                    const upcomingIds = new Set(nextQueue.slice(currentReviewIndex + 1).map(c => c.id));
+                    const cardsToInject = [];
+                    dueNow.forEach(item => {
+                        if (!upcomingIds.has(item.id) && (currentReviewIndex >= nextQueue.length || nextQueue[currentReviewIndex].id !== item.id)) {
+                            const fullCard = allCards.find(c => c.id === item.id);
+                            if (fullCard) {
+                                const localSrs = sessionSrsData.current[item.id];
+                                cardsToInject.push({
+                                    ...fullCard,
+                                    srsInterval: localSrs ? localSrs.srsInterval : fullCard.srsInterval,
+                                    srsEase: localSrs ? localSrs.srsEase : fullCard.srsEase,
+                                    srsLearningStep: localSrs ? localSrs.srsLearningStep : fullCard.srsLearningStep,
+                                    srsIsLapsed: localSrs ? localSrs.srsIsLapsed : fullCard.srsIsLapsed,
+                                    srsReps: localSrs ? localSrs.srsReps : fullCard.srsReps,
+                                    srsLapseCount: localSrs ? localSrs.srsLapseCount : fullCard.srsLapseCount,
+                                    srsPrelapseInterval: localSrs ? localSrs.srsPrelapseInterval : fullCard.srsPrelapseInterval,
+                                    srsState: localSrs ? localSrs.srsState : fullCard.srsState,
+                                    nextReview_back: localSrs ? (localSrs.nextReview_back instanceof Date ? localSrs.nextReview_back : new Date(localSrs.nextReview_back)) : fullCard.nextReview_back,
+                                    lastReviewed: localSrs ? localSrs.lastReviewed : fullCard.lastReviewed
+                                });
+                            }
+                        }
+                    });
+                    
+                    if (cardsToInject.length > 0) {
+                        const insertIndex = Math.min(currentReviewIndex + 1, nextQueue.length);
+                        nextQueue.splice(insertIndex, 0, ...cardsToInject);
+                        return nextQueue;
+                    }
+                    return prevQueue;
+                });
+            }
+        }, 1000);
+        return () => clearInterval(intervalId);
+    }, [reviewMode, currentReviewIndex, allCards]);
+
     const handleRating = (rating) => {
         const card = reviewQueue[currentReviewIndex];
         if (!card) return;
@@ -454,6 +634,46 @@ const SRSVocabScreen = ({
             queue: [...reviewQueue] // Save copy of queue for undo
         }]);
 
+        // Calculate next SRS state locally
+        const currentSrs = sessionSrsData.current[card.id] || {
+            interval: card.srsInterval || 0,
+            ease: card.srsEase || 2.5,
+            learningStep: card.srsLearningStep !== undefined ? card.srsLearningStep : null,
+            isLapsed: card.srsIsLapsed || false,
+            reps: card.srsReps || 0,
+            lapseCount: card.srsLapseCount || 0,
+            prelapseInterval: card.srsPrelapseInterval || null,
+            state: card.srsState || null,
+            intervalIndex_back: typeof card.intervalIndex_back === 'number' ? card.intervalIndex_back : -1,
+            masteryState: card.masteryState || 'not_learned',
+            seenCount: typeof card.seenCount === 'number' ? card.seenCount : 0,
+            lastReviewed: card.lastReviewed || null
+        };
+
+        const result = calculateAnkiSRS(currentSrs, rating);
+        const nowTime = Date.now();
+        const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
+        
+        const newSrs = {
+            ...currentSrs,
+            srsInterval: result.interval,
+            srsEase: result.ease,
+            srsLearningStep: result.learningStep,
+            srsIsLapsed: result.isLapsed,
+            srsReps: result.reps,
+            srsLapseCount: result.lapseCount,
+            srsPrelapseInterval: result.prelapseInterval,
+            srsState: result.state,
+            nextReview_back: new Date(nowTime + nextReviewOffset),
+            lastReviewed: nowTime,
+            state: result.state,
+            interval: result.interval,
+            ease: result.ease,
+            nextReview: nowTime + nextReviewOffset
+        };
+
+        sessionSrsData.current[card.id] = newSrs;
+
         // Call parent update vocab srs rating on Firestore asynchronously (no await!)
         if (onUpdateVocabSrsRating) {
             const xp = onUpdateVocabSrsRating(card.id, rating, true);
@@ -469,24 +689,19 @@ const SRSVocabScreen = ({
             console.error(e);
         }
 
-        // 1. Determine if card needs to be re-reviewed in this session
+        // 1. Determine if card graduated/completed in this session
         let updatedQueue = [...reviewQueue];
-        if (rating === 'again') {
-            // Re-insert the card at the end of the queue for the current session
-            updatedQueue.push(card);
-        } else {
-            // Mark as successfully completed
+        if (result.state === 'REVIEW') {
             completedCardIds.current.add(card.id);
         }
 
         // 2. Scan allCards for any newly due cards that aren't in the queue yet (restricted to active review cards)
-        const now = Date.now();
-        const upcomingCardIds = new Set(updatedQueue.slice(currentReviewIndex + 1).map(c => c.id));
+        const allQueueCardIds = new Set(updatedQueue.map(c => c.id));
         const newlyDueCards = allCards.filter(c => {
             if (!activeReviewCardIds.current.has(c.id)) return false;
             if (c.id === card.id) return false;
             if (completedCardIds.current.has(c.id)) return false;
-            if (upcomingCardIds.has(c.id)) return false;
+            if (allQueueCardIds.has(c.id)) return false;
             return isDue(c);
         });
 
@@ -497,6 +712,7 @@ const SRSVocabScreen = ({
         setReviewQueue(updatedQueue);
 
         if (currentReviewIndex + 1 < updatedQueue.length) {
+            saveSessionState(updatedQueue, currentReviewIndex + 1);
             setIsAnimatingFlip(false);
             setSlideDirection('left');
             setTimeout(() => {
@@ -511,20 +727,114 @@ const SRSVocabScreen = ({
                 }, 20);
             }, 70);
         } else {
-            // Completed queue
-            try {
-                launchFanfare();
-            } catch (e) {
-                console.error(e);
-            }
-            exitReview();
-            if (setNotification) {
-                setNotification("Chúc mừng! Bạn đã hoàn thành tất cả các thẻ ôn tập hôm nay.");
+            const waiting = getLearningCardsWaiting();
+            if (waiting.length > 0) {
+                saveSessionState(updatedQueue, updatedQueue.length);
+                // Show waiting screen (by advancing index to updatedQueue.length)
+                setIsAnimatingFlip(false);
+                setSlideDirection('left');
+                setTimeout(() => {
+                    setIsFlipped(false);
+                    setCurrentReviewIndex(updatedQueue.length);
+                    setSlideDirection('right');
+                    setTimeout(() => {
+                        setSlideDirection('');
+                        setTimeout(() => {
+                            setIsAnimatingFlip(true);
+                        }, 110);
+                    }, 20);
+                }, 70);
+            } else {
+                localStorage.removeItem('quizki_vocab_review_session');
+                try {
+                    playCompletionFanfare();
+                    launchFanfare();
+                } catch (e) { }
+                exitReview();
+                if (setNotification) {
+                    setNotification("Chúc mừng! Bạn đã hoàn thành tất cả các thẻ ôn tập hôm nay.");
+                }
             }
         }
     };
 
+    const saveSessionState = (queue, index) => {
+        if (index >= queue.length && getLearningCardsWaiting().length === 0) {
+            localStorage.removeItem('quizki_vocab_review_session');
+            return;
+        }
+        try {
+            const data = {
+                queueIds: queue.map(c => c.id),
+                currentIndex: index,
+                sessionSrsData: sessionSrsData.current,
+                activeReviewCardIds: Array.from(activeReviewCardIds.current),
+                completedCardIds: Array.from(completedCardIds.current),
+                sessionXp: sessionXpRef.current,
+                savedAt: Date.now()
+            };
+            localStorage.setItem('quizki_vocab_review_session', JSON.stringify(data));
+        } catch (e) {
+            console.error("Failed to save vocab session state", e);
+        }
+    };
+
+    const handleResumeSavedSession = () => {
+        try {
+            const raw = localStorage.getItem('quizki_vocab_review_session');
+            if (!raw) return;
+            const data = JSON.parse(raw);
+            
+            sessionXpRef.current = data.sessionXp || 0;
+            completedCardIds.current = new Set(data.completedCardIds || []);
+            activeReviewCardIds.current = new Set(data.activeReviewCardIds || []);
+            sessionSrsData.current = data.sessionSrsData || {};
+            
+            const reconstructedQueue = (data.queueIds || []).map(id => {
+                const found = allCards.find(c => c.id === id);
+                if (found) {
+                    const localSrs = sessionSrsData.current[id];
+                    if (localSrs) {
+                        return {
+                            ...found,
+                            srsInterval: localSrs.srsInterval !== undefined ? localSrs.srsInterval : localSrs.interval,
+                            srsEase: localSrs ? localSrs.srsEase : localSrs.ease,
+                            srsLearningStep: localSrs ? localSrs.srsLearningStep : localSrs.learningStep,
+                            srsIsLapsed: localSrs ? localSrs.srsIsLapsed : localSrs.isLapsed,
+                            srsReps: localSrs ? localSrs.srsReps : localSrs.reps,
+                            srsLapseCount: localSrs ? localSrs.srsLapseCount : localSrs.lapseCount,
+                            srsPrelapseInterval: localSrs ? localSrs.srsPrelapseInterval : localSrs.prelapseInterval,
+                            srsState: localSrs ? localSrs.srsState : localSrs.state,
+                            nextReview_back: localSrs.nextReview_back,
+                            lastReviewed: localSrs.lastReviewed
+                        };
+                    }
+                    return found;
+                }
+                return null;
+            }).filter(Boolean);
+
+            setReviewQueue(reconstructedQueue);
+            setCurrentReviewIndex(data.currentIndex || 0);
+            setIsFlipped(false);
+            setReviewHistory([]);
+            setReviewModeState(true);
+            if (setIsReviewActive) {
+                setIsReviewActive(true);
+            }
+        } catch (e) {
+            console.error("Failed to resume saved vocab session", e);
+            localStorage.removeItem('quizki_vocab_review_session');
+        }
+    };
+
+    const handleDiscardSavedSession = () => {
+        localStorage.removeItem('quizki_vocab_review_session');
+        setLastTick(Date.now());
+    };
+
     const exitReview = () => {
+        saveSessionState(reviewQueue, currentReviewIndex);
         if (sessionXpRef.current > 0 && awardXP) {
             awardXP(sessionXpRef.current);
         }
@@ -546,6 +856,15 @@ const SRSVocabScreen = ({
             setReviewQueue(savedQueue);
         }
         completedCardIds.current.delete(cardId);
+
+        // Revert sessionSrsData local cache
+        if (srsFields) {
+            sessionSrsData.current[cardId] = { ...srsFields };
+        } else {
+            delete sessionSrsData.current[cardId];
+        }
+
+        saveSessionState(savedQueue || reviewQueue, cardIndex);
 
         // 1. Revert local states immediately in current reviewQueue
         setReviewQueue(prevQueue => {
@@ -615,17 +934,16 @@ const SRSVocabScreen = ({
     }, [reviewMode, currentReviewIndex, isFlipped, cardSettings.autoPlayAudio, cardSettings.audioEnabled, reviewQueue]);
 
     // ==================== LOCAL SRS REVIEW MODE ====================
-    if (reviewMode && reviewQueue.length > 0) {
-        const currentCard = reviewQueue[currentReviewIndex];
-        if (currentCard) {
-            const previewIntv = getPreviewIntervals(currentCard);
+    const currentCard = (reviewMode && reviewQueue.length > 0) ? reviewQueue[currentReviewIndex] : null;
+    if (reviewMode && currentCard) {
+        const previewIntv = getPreviewIntervals(currentCard);
             const intervals = {
                 again: formatInterval(previewIntv.again),
                 hard: formatInterval(previewIntv.hard),
                 good: formatInterval(previewIntv.good),
                 easy: formatInterval(previewIntv.easy),
             };
-            const progress = Math.round(((currentReviewIndex + 1) / reviewQueue.length) * 100);
+            const progress = reviewQueue.length > 0 ? Math.min(100, Math.round((currentReviewIndex / reviewQueue.length) * 100)) : 100;
             return (
                 <div className="min-h-screen flex flex-col justify-center items-center px-4 bg-transparent py-8">
                     <div className="w-[800px] max-w-[95vw] mx-auto flex flex-col justify-center items-center space-y-6">
@@ -653,7 +971,7 @@ const SRSVocabScreen = ({
                         <div className="w-full space-y-2">
                             <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
                                 <span className="flex items-center gap-1.5"><Target className="w-3.5 h-3.5 text-indigo-500" /> Tiến độ</span>
-                                <span className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-full font-bold">{currentReviewIndex + 1} / {reviewQueue.length}</span>
+                                <span className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-full font-bold">{Math.min(currentReviewIndex + 1, reviewQueue.length)} / {reviewQueue.length}</span>
                             </div>
                             <div className="h-2 w-full bg-gray-200 dark:bg-slate-700 rounded-full overflow-hidden">
                                 <div className="h-full bg-gradient-to-r from-indigo-500 to-sky-500 rounded-full transition-all duration-700 ease-out" style={{ width: `${progress}%` }}></div>
@@ -762,9 +1080,7 @@ const SRSVocabScreen = ({
                                 <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
                                     className={`flex flex-col justify-center items-center py-3.5 rounded-2xl ${btn.bg} ${btn.border} border text-center transition-all duration-200 hover:scale-105 hover:shadow-md active:scale-95 cursor-pointer`}>
                                     <div className={`font-bold ${btn.text} text-sm leading-tight`}>{btn.label}</div>
-                                    {btn.key !== 'again' && (
-                                        <div className={`text-[10px] ${btn.sub} mt-0.5 font-medium leading-none`}>{btn.interval}</div>
-                                    )}
+                                    <div className={`text-[10px] ${btn.sub} mt-0.5 font-medium leading-none`}>{btn.interval}</div>
                                 </button>
                             ))}
                         </div>
@@ -846,12 +1162,72 @@ const SRSVocabScreen = ({
                 </div>
             );
         }
+
+    if (reviewMode && !currentCard) {
+        const waiting = getLearningCardsWaiting();
+        if (waiting.length > 0) {
+            const now = Date.now();
+            const earliestNextReview = Math.min(...waiting.map(w => w.nextReview));
+            const secondsLeft = Math.max(0, Math.ceil((earliestNextReview - now) / 1000));
+            
+            let countdownText = "";
+            if (secondsLeft < 60) {
+                countdownText = `${secondsLeft} giây`;
+            } else {
+                const mins = Math.floor(secondsLeft / 60);
+                const secs = secondsLeft % 60;
+                countdownText = `${mins} phút ${secs} giây`;
+            }
+
+            return (
+                <div className="min-h-screen flex flex-col justify-center items-center px-4 bg-transparent py-8 animate-fade-in">
+                    <div className="w-[600px] max-w-[95vw] mx-auto flex flex-col justify-center items-center space-y-6 bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border border-gray-150 dark:border-slate-700/85">
+                        <div className="flex flex-col items-center space-y-4 text-center">
+                            <div className="w-16 h-16 bg-indigo-50 dark:bg-indigo-950/40 rounded-2xl flex items-center justify-center animate-bounce">
+                                <Clock className="w-8 h-8 text-indigo-500 animate-spin-slow" />
+                            </div>
+                            <h2 className="text-xl font-bold text-gray-800 dark:text-white">
+                                Đang đợi thẻ từ vựng tiếp theo...
+                            </h2>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 max-w-sm">
+                                Bạn đã hoàn thành các thẻ từ vựng đến hạn hiện tại. Có <span className="font-bold text-indigo-500">{waiting.length}</span> thẻ đang chờ ôn lại theo chu kỳ.
+                            </p>
+                        </div>
+
+                        <div className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-sky-500 text-white rounded-2xl shadow-md flex items-center gap-2">
+                            <span className="text-xs font-semibold uppercase tracking-wider">Thẻ tiếp theo sau:</span>
+                            <span className="text-lg font-black tracking-widest">{countdownText}</span>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-3 w-full">
+                            <button
+                                onClick={handleReviewNow}
+                                className="flex-1 py-3 px-4 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-bold text-sm rounded-xl transition-all shadow-md cursor-pointer text-center"
+                            >
+                                Ôn ngay lập tức (Không đợi)
+                            </button>
+                            <button
+                                onClick={exitReview}
+                                className="flex-1 py-3 px-4 bg-gray-100 hover:bg-gray-250 dark:bg-slate-700 dark:hover:bg-slate-650 active:scale-95 text-gray-700 dark:text-gray-200 font-bold text-sm rounded-xl transition-all border border-gray-200 dark:border-slate-600 cursor-pointer text-center"
+                            >
+                                Kết thúc phiên ôn tập
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        setTimeout(() => exitReview(), 0);
+        return null;
     }
 
     return (
         <div className="min-h-screen pb-24 bg-transparent">
             <TopTabBar tabs={VOCAB_TABS} />
             <div className="max-w-5xl mx-auto space-y-8 px-4 md:px-8 mt-6 animate-fade-in">
+
+
 
                 {/* Today's Focus Overview Banner */}
                 <div className="bg-gradient-to-br from-indigo-500 to-indigo-700 text-white rounded-3xl p-6 md:p-8 shadow-xl border border-indigo-500/20 relative overflow-hidden flex flex-col lg:flex-row gap-6 justify-between items-stretch">
@@ -872,11 +1248,21 @@ const SRSVocabScreen = ({
                         <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
                             <div className="flex gap-4">
                                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/15 flex-1 min-w-[120px]">
-                                    <div className="text-2xl font-black text-orange-400 mb-0.5">{globalStats.due}</div>
+                                    <div className="text-2xl font-black text-orange-400 mb-0.5">
+                                        {savedSessionInfo ? savedSessionInfo.remaining : globalStats.due}
+                                    </div>
                                     <div className="text-[10px] font-bold text-indigo-100 uppercase tracking-wider">SRS cần ôn</div>
                                 </div>
                             </div>
-                            {globalStats.due > 0 ? (
+                            {savedSessionInfo ? (
+                                <button
+                                    onClick={handleResumeSavedSession}
+                                    className="bg-white hover:bg-slate-100 text-slate-900 px-6 py-4 rounded-2xl font-black text-xs tracking-wider uppercase transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer animate-pulse"
+                                >
+                                    <Play className="w-3.5 h-3.5 fill-current text-emerald-600" />
+                                    Tiếp tục ôn tập
+                                </button>
+                            ) : globalStats.due > 0 ? (
                                 <button
                                     onClick={handleResumeGlobal}
                                     className="bg-white hover:bg-slate-100 text-slate-900 px-6 py-4 rounded-2xl font-black text-xs tracking-wider uppercase transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
@@ -884,10 +1270,21 @@ const SRSVocabScreen = ({
                                     <Play className="w-3.5 h-3.5 fill-current" />
                                     Ôn tập ngắt quãng
                                 </button>
+                            ) : countdownText ? (
+                                <button
+                                    disabled
+                                    className="bg-white/20 text-white/60 border border-white/10 px-6 py-4 rounded-2xl font-black text-xs tracking-wider uppercase flex items-center justify-center gap-2 cursor-not-allowed"
+                                >
+                                    <Clock className="w-3.5 h-3.5 animate-spin-slow" />
+                                    Thẻ tiếp sau: {countdownText}
+                                </button>
                             ) : (
-                                <p className="text-[11px] text-indigo-100 italic leading-relaxed max-w-[180px]">
-                                    Mở học phần → bấm "Thêm vào ngắt quãng" để bắt đầu.
-                                </p>
+                                <button
+                                    disabled
+                                    className="bg-white/15 text-white/50 border border-white/5 px-6 py-4 rounded-2xl font-bold text-xs tracking-wider uppercase flex items-center justify-center gap-2 cursor-not-allowed"
+                                >
+                                    Hết thẻ ôn tập
+                                </button>
                             )}
                         </div>
                     </div>

@@ -6,6 +6,8 @@ import { collection, query, onSnapshot, doc } from 'firebase/firestore';
 import { ROUTES } from '../../router';
 import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
 import { Home, BookOpen, Plus, LogOut, Sun, Moon, Sparkle, ChevronRight, X, List, Repeat2, FileCheck, Languages, Shield, ChevronDown, Trophy, Crown, User, Bell, MessageSquare, HelpCircle } from 'lucide-react'
+import { SafeAvatarImage } from '../ui';
+
 // Sidebar Component - Navigation with submenu support
 const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allCards = [], isPremium = false, avatar, profile }) => {
     const navigate = useNavigate();
@@ -17,9 +19,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
     // Avatar display helper
     const renderAvatar = () => {
         const isPhotoUrl = (v) => typeof v === 'string' && (v.startsWith('data:image/') || v.startsWith('http://') || v.startsWith('https://'));
-        if (isPhotoUrl(avatar)) {
-            return <img src={avatar} alt="Avatar" className="w-full h-full object-cover" />;
-        }
+        
         const AVATAR_EMOJIS = {
             fox: '🦊', cat: '🐱', dog: '🐶', rabbit: '🐰', bear: '🐻', panda: '🐼', koala: '🐨', tiger: '🐯', lion: '🦁', cow: '🐮',
             pig: '🐷', mouse: '🐭', hamster: '🐹', penguin: '🐧', chicken: '🐔', duck: '🦆', owl: '🦉', eagle: '🦅', parrot: '🦜', flamingo: '🦩',
@@ -27,14 +27,39 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             bee: '🐝', ladybug: '🐞', snail: '🐌', monkey: '🐵', gorilla: '🦍', horse: '🐴', unicorn: '🦄', zebra: '🦓', giraffe: '🦒', elephant: '🐘',
             rhino: '🦏', hippo: '🦛', camel: '🐫', deer: '🦌', wolf: '🐺', bat: '🦇', raccoon: '🦝', sloth: '🦥', hedgehog: '🦔', shrimp: '🦐',
         };
+
+        const fallbackChar = (
+            <span className="text-lg select-none">
+                {displayName ? displayName.charAt(0).toUpperCase() : '👤'}
+            </span>
+        );
+
+        if (isPhotoUrl(avatar)) {
+            return (
+                <SafeAvatarImage
+                    src={avatar}
+                    alt="Avatar"
+                    fallback={fallbackChar}
+                />
+            );
+        }
+        
         const emoji = AVATAR_EMOJIS[avatar];
         if (emoji) {
-            return <span className="text-lg">{emoji}</span>;
+            return <span className="text-lg select-none">{emoji}</span>;
         }
+        
         if (auth?.currentUser?.photoURL) {
-            return <img src={auth.currentUser.photoURL} alt="Avatar" className="w-full h-full object-cover" />;
+            return (
+                <SafeAvatarImage
+                    src={auth.currentUser.photoURL}
+                    alt="Avatar"
+                    fallback={fallbackChar}
+                />
+            );
         }
-        return <span className="text-lg">👤</span>;
+        
+        return fallbackChar;
     };
 
     const location = useLocation();
@@ -380,6 +405,20 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                     </div>
                 </div>
                 <div className="flex items-center space-x-2">
+                    {/* Bell Notification Button */}
+                    <div className="relative">
+                        <button
+                            onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
+                            className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-150/40 dark:hover:bg-slate-800 rounded-lg transition-colors relative cursor-pointer"
+                            title="Thông báo"
+                        >
+                            <Bell className="w-5 h-5" />
+                            {hasUnread && (
+                                <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-rose-500 rounded-full animate-pulse"></span>
+                            )}
+                        </button>
+                        <NotificationsPopover isMobile={true} />
+                    </div>
                     <Link
                         to={ROUTES.VOCAB_ADD}
                         className="p-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg transition-colors"
@@ -398,54 +437,43 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             {isMobileMenuOpen && (
                 <div className="absolute top-14 left-0 right-0 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl border-b border-gray-200 dark:border-slate-700/50 shadow-2xl max-h-[calc(100vh-3.5rem)] overflow-y-auto">
                     <nav className="p-3 space-y-1">
-                        {/* User info on mobile with notifications & avatar capsule */}
+                        {/* User info on mobile with avatar capsule */}
                         {displayName && (
-                            <div className="px-4 py-3 mb-3 bg-gray-50 dark:bg-slate-800/50 rounded-2xl flex items-center gap-3 justify-between border border-gray-200 dark:border-slate-700/50 relative">
-                                <div className="flex items-center gap-2 flex-1">
-                                    {/* Bell Notification Button */}
-                                    <button
-                                        onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
-                                        className="p-2.5 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-full text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:shadow-sm transition-all relative flex-shrink-0 cursor-pointer"
-                                    >
-                                        <Bell className="w-5 h-5" />
-                                        {hasUnread && (
-                                            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full animate-pulse"></span>
-                                        )}
-                                    </button>
-                                    {/* Profile Capsule */}
-                                    <Link
-                                        to={ROUTES.SETTINGS}
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                        className="flex items-center gap-2.5 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-2xl p-2 shadow-sm overflow-hidden flex-1 cursor-pointer hover:border-slate-300 dark:hover:border-slate-600 transition-all min-w-0"
-                                    >
-                                        <div className="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-slate-700 dark:text-slate-300 overflow-hidden flex-shrink-0 border border-white dark:border-slate-800 shadow-sm">
+                            <div className="px-3 py-2 mb-3 bg-gray-50/50 dark:bg-slate-800/20 rounded-2xl border border-gray-150 dark:border-slate-750/30">
+                                {/* Profile Capsule */}
+                                <Link
+                                    to={ROUTES.SETTINGS}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-2xl p-3 shadow-sm w-full cursor-pointer hover:border-slate-300 dark:hover:border-slate-600 transition-all min-w-0"
+                                >
+                                    {/* Left column: Avatar & Level */}
+                                    <div className="flex flex-col items-center gap-1.5 flex-shrink-0">
+                                        <div className="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-slate-700 dark:text-slate-300 overflow-hidden border border-white dark:border-slate-800 shadow-md">
                                             {renderAvatar()}
                                         </div>
-                                        <div className="flex flex-col min-w-0 flex-1">
-                                            {isPremium ? (
-                                                <span className="text-[9px] font-extrabold uppercase tracking-widest bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent flex items-center gap-0.5">
-                                                    <Crown className="w-2.5 h-2.5 text-amber-500 fill-amber-500 inline" /> Premium
-                                                </span>
-                                            ) : (
-                                                <span className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 dark:text-slate-500">
-                                                    FREE Account
-                                                </span>
-                                            )}
-                                            <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300 truncate mt-0.5">
-                                                {displayName}
+                                        <span className="bg-sky-500 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider flex items-center justify-center shrink-0 shadow-sm">
+                                            LV {xpDetails.level}
+                                        </span>
+                                    </div>
+                                    {/* Right column: Name, Account type, and Level title */}
+                                    <div className="flex flex-col min-w-0 flex-1 justify-center">
+                                        {isPremium ? (
+                                            <span className="text-[9px] font-extrabold uppercase tracking-widest bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent flex items-center gap-0.5">
+                                                <Crown className="w-2.5 h-2.5 text-amber-500 fill-amber-500 inline" /> Premium
                                             </span>
-                                            <div className="flex items-center gap-1 mt-0.5">
-                                                <span className="bg-sky-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider flex items-center justify-center">
-                                                    LV {xpDetails.level}
-                                                </span>
-                                                <span className="text-[9px] text-slate-400 dark:text-slate-500 font-semibold truncate max-w-[80px]" title={getLevelTitle(xpDetails.level)}>
-                                                    {getLevelTitle(xpDetails.level)}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                </div>
-                                <NotificationsPopover isMobile={true} />
+                                        ) : (
+                                            <span className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 dark:text-slate-500">
+                                                FREE Account
+                                            </span>
+                                        )}
+                                        <span className="text-xs font-black text-slate-850 dark:text-white truncate mt-0.5">
+                                            {displayName}
+                                        </span>
+                                        <span className="text-[10px] text-slate-450 dark:text-slate-400 font-bold truncate mt-1" title={getLevelTitle(xpDetails.level)}>
+                                            {getLevelTitle(xpDetails.level)}
+                                        </span>
+                                    </div>
+                                </Link>
                             </div>
                         )}
                         {mobileMenuItems.map((item) => (
@@ -539,7 +567,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
     const DesktopSidebar = () => (
         <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} bg-[#F8F9FA] dark:bg-slate-900 border-r border-slate-100 dark:border-slate-800/40 shadow-sm`}>
             {/* Logo */}
-            <div className="p-4 border-b border-slate-100 dark:border-slate-800/40 flex justify-center lg:justify-start">
+            <div className="p-4 border-b border-slate-100 dark:border-slate-800/40 flex items-center justify-between">
                 <Link
                     to={ROUTES.HOME}
                     className="flex items-center space-x-3"
@@ -558,59 +586,60 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                         </div>
                     )}
                 </Link>
+                {!isCollapsed && (
+                    <div className="relative">
+                        <button
+                            onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
+                            className="p-2 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-full text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:shadow-sm transition-all relative cursor-pointer"
+                            title="Thông báo"
+                        >
+                            <Bell className="w-4.5 h-4.5" />
+                            {hasUnread && (
+                                <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-rose-500 rounded-full animate-pulse"></span>
+                            )}
+                        </button>
+                        <NotificationsPopover isMobile={false} />
+                    </div>
+                )}
             </div>
             {/* User info */}
             {!isCollapsed && displayName && (
-                <div className="px-4 py-4 border-b border-slate-100 dark:border-slate-800/40 flex flex-col gap-2 relative">
-                    <div className="flex items-center gap-2 justify-between w-full">
-                        <div className="flex items-center gap-2 flex-1 min-w-0">
-                            {/* Bell Notification Button */}
-                            <button
-                                onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
-                                className="p-2 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-full text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:shadow-sm transition-all relative flex-shrink-0 cursor-pointer"
-                                title="Thông báo"
-                            >
-                                <Bell className="w-4 h-4" />
-                                {hasUnread && (
-                                    <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-rose-500 rounded-full animate-pulse"></span>
-                                )}
-                            </button>
-                            {/* Profile Capsule */}
-                            <Link
-                                to={ROUTES.SETTINGS}
-                                data-tour-id="SETTINGS"
-                                className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-2xl p-2 shadow-sm overflow-hidden flex-1 cursor-pointer hover:border-slate-300 dark:hover:border-slate-600 transition-all min-w-0"
-                                title="Trang cá nhân"
-                            >
-                                <div className="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden flex-shrink-0 border border-white dark:border-slate-800 shadow-sm">
-                                    {renderAvatar()}
-                                </div>
-                                <div className="flex flex-col min-w-0 flex-1">
-                                    {isPremium ? (
-                                        <span className="text-[9px] font-extrabold uppercase tracking-widest bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent flex items-center gap-0.5">
-                                            <Crown className="w-2.5 h-2.5 text-amber-500 fill-amber-500 inline" /> Premium
-                                        </span>
-                                    ) : (
-                                        <span className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 dark:text-slate-500">
-                                            FREE Account
-                                        </span>
-                                    )}
-                                    <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300 truncate mt-0.5">
-                                        {displayName}
-                                    </span>
-                                    <div className="flex items-center gap-1 mt-0.5">
-                                        <span className="bg-sky-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider flex items-center justify-center">
-                                            LV {xpDetails.level}
-                                        </span>
-                                        <span className="text-[9px] text-slate-400 dark:text-slate-500 font-semibold truncate max-w-[80px]" title={getLevelTitle(xpDetails.level)}>
-                                            {getLevelTitle(xpDetails.level)}
-                                        </span>
-                                    </div>
-                                </div>
-                            </Link>
+                <div className="px-4 py-4 border-b border-slate-100 dark:border-slate-800/40 relative">
+                    {/* Profile Capsule */}
+                    <Link
+                        to={ROUTES.SETTINGS}
+                        data-tour-id="SETTINGS"
+                        className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-2xl p-3 shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-slate-600 transition-all w-full cursor-pointer group min-w-0"
+                        title="Trang cá nhân"
+                    >
+                        {/* Left column: Avatar & Level */}
+                        <div className="flex flex-col items-center gap-1.5 flex-shrink-0">
+                            <div className="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-350 overflow-hidden border border-white dark:border-slate-800 shadow-md group-hover:scale-105 transition-transform duration-300">
+                                {renderAvatar()}
+                            </div>
+                            <span className="bg-sky-500 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider flex items-center justify-center shrink-0 shadow-sm">
+                                LV {xpDetails.level}
+                            </span>
                         </div>
-                        <NotificationsPopover isMobile={false} />
-                    </div>
+                        {/* Right column: Name, Account type, and Level title */}
+                        <div className="flex flex-col min-w-0 flex-1 justify-center">
+                            {isPremium ? (
+                                <span className="text-[9px] font-extrabold uppercase tracking-widest bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent flex items-center gap-0.5">
+                                    <Crown className="w-2.5 h-2.5 text-amber-500 fill-amber-500 inline" /> Premium
+                                </span>
+                            ) : (
+                                <span className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 dark:text-slate-500">
+                                    FREE Account
+                                </span>
+                            )}
+                            <span className="text-xs font-black text-slate-850 dark:text-white truncate mt-0.5">
+                                {displayName}
+                            </span>
+                            <span className="text-[10px] text-slate-450 dark:text-slate-400 font-bold truncate mt-1" title={getLevelTitle(xpDetails.level)}>
+                                {getLevelTitle(xpDetails.level)}
+                            </span>
+                        </div>
+                    </Link>
                 </div>
             )}
             {/* Navigation */}

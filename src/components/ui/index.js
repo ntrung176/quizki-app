@@ -3,3 +3,4 @@ export { default as SrsStatusCell } from './SrsStatusCell';
 export { default as BackToHomeButton } from './BackToHomeButton';
 export { default as TopTabBar } from './TopTabBar';
 export { default as PremiumLockedModal } from './PremiumLockedModal';
+export { default as SafeAvatarImage } from './SafeAvatarImage';

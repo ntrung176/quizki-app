@@ -62,6 +62,15 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const [slideDirection, setSlideDirection] = useState('');
     const sessionXpRef = useRef(0);
     const completedCardIds = useRef(new Set());
+    const activeReviewCardIds = useRef(new Set());
+
+    const [dashboardTick, setDashboardTick] = useState(Date.now());
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setDashboardTick(Date.now());
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
 
     useEffect(() => {
         const load = async () => {
@@ -84,13 +93,27 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     }, [userId]);
 
     const dueKanji = useMemo(() => {
-        const now = Date.now();
+        const now = dashboardTick;
         return kanjiList.filter(k => {
             const srs = srsData[k.id];
             if (!srs) return false;
             return (srs.nextReview || 0) <= now;
         });
-    }, [kanjiList, srsData]);
+    }, [kanjiList, srsData, dashboardTick]);
+
+    const savedSessionInfo = useMemo(() => {
+        try {
+            const saved = localStorage.getItem('quizki_kanji_review_session');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                const remaining = (parsed.queueIds || []).length - (parsed.currentIndex || 0);
+                if (remaining > 0) {
+                    return { remaining, parsed };
+                }
+            }
+        } catch (e) {}
+        return null;
+    }, [reviewMode, reviewQueue]);
 
     const stats = useMemo(() => {
         const now = Date.now();
@@ -195,10 +218,125 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         return () => clearInterval(interval);
     }, [srsData]);
 
+    const [lastTick, setLastTick] = useState(Date.now());
+
+    const getLearningCardsWaiting = () => {
+        return Object.entries(srsData)
+            .filter(([id, srs]) => {
+                if (!activeReviewCardIds.current.has(id)) return false;
+                if (srs.state === 'REVIEW') return false;
+                if (completedCardIds.current.has(id)) return false;
+                return true;
+            })
+            .map(([id, srs]) => ({ id, nextReview: srs.nextReview }));
+    };
+
+    const handleReviewNow = () => {
+        const waiting = getLearningCardsWaiting();
+        if (waiting.length === 0) return;
+        
+        waiting.forEach(item => {
+            if (srsData[item.id]) {
+                const updatedSrs = {
+                    ...srsData[item.id],
+                    nextReview: Date.now()
+                };
+                setSrsData(prev => ({
+                    ...prev,
+                    [item.id]: updatedSrs
+                }));
+                updateCachedUserSrs(userId, item.id, updatedSrs);
+            }
+        });
+        
+        // Trigger immediate injection
+        setReviewQueue(prevQueue => {
+            const nextQueue = [...prevQueue];
+            const upcomingIds = new Set(nextQueue.slice(currentReviewIndex + 1).map(c => c.id));
+            const cardsToInject = [];
+            waiting.forEach(item => {
+                if (!upcomingIds.has(item.id) && (currentReviewIndex >= nextQueue.length || nextQueue[currentReviewIndex].id !== item.id)) {
+                    const fullCard = kanjiList.find(c => c.id === item.id);
+                    if (fullCard) {
+                        const localSrs = srsData[item.id];
+                        cardsToInject.push({
+                            ...fullCard,
+                            srsInterval: localSrs ? localSrs.interval : fullCard.srsInterval,
+                            srsEase: localSrs ? localSrs.ease : fullCard.srsEase,
+                            srsLearningStep: localSrs ? localSrs.learningStep : fullCard.srsLearningStep,
+                            srsIsLapsed: localSrs ? localSrs.isLapsed : fullCard.srsIsLapsed,
+                            srsReps: localSrs ? localSrs.reps : fullCard.srsReps,
+                            srsLapseCount: localSrs ? localSrs.lapseCount : fullCard.srsLapseCount,
+                            srsPrelapseInterval: localSrs ? localSrs.prelapseInterval : fullCard.srsPrelapseInterval,
+                            srsState: localSrs ? localSrs.state : fullCard.srsState,
+                            nextReview_back: localSrs ? (localSrs.nextReview_back instanceof Date ? localSrs.nextReview_back : new Date(localSrs.nextReview_back)) : fullCard.nextReview_back,
+                            lastReviewed: localSrs ? localSrs.lastReviewed : fullCard.lastReviewed
+                        });
+                    }
+                }
+            });
+            
+            if (cardsToInject.length > 0) {
+                const insertIndex = Math.min(currentReviewIndex + 1, nextQueue.length);
+                nextQueue.splice(insertIndex, 0, ...cardsToInject);
+                return nextQueue;
+            }
+            return prevQueue;
+        });
+    };
+
+    useEffect(() => {
+        if (!reviewMode) return;
+        const intervalId = setInterval(() => {
+            setLastTick(Date.now());
+            
+            const now = Date.now();
+            const waiting = getLearningCardsWaiting();
+            const dueNow = waiting.filter(w => w.nextReview <= now);
+            if (dueNow.length > 0) {
+                setReviewQueue(prevQueue => {
+                    const nextQueue = [...prevQueue];
+                    const upcomingIds = new Set(nextQueue.slice(currentReviewIndex + 1).map(c => c.id));
+                    const cardsToInject = [];
+                    dueNow.forEach(item => {
+                        if (!upcomingIds.has(item.id) && (currentReviewIndex >= nextQueue.length || nextQueue[currentReviewIndex].id !== item.id)) {
+                            const fullCard = kanjiList.find(c => c.id === item.id);
+                            if (fullCard) {
+                                const localSrs = srsData[item.id];
+                                cardsToInject.push({
+                                    ...fullCard,
+                                    srsInterval: localSrs ? localSrs.interval : fullCard.srsInterval,
+                                    srsEase: localSrs ? localSrs.ease : fullCard.srsEase,
+                                    srsLearningStep: localSrs ? localSrs.learningStep : fullCard.srsLearningStep,
+                                    srsIsLapsed: localSrs ? localSrs.isLapsed : fullCard.srsIsLapsed,
+                                    srsReps: localSrs ? localSrs.reps : fullCard.srsReps,
+                                    srsLapseCount: localSrs ? localSrs.lapseCount : fullCard.srsLapseCount,
+                                    srsPrelapseInterval: localSrs ? localSrs.prelapseInterval : fullCard.srsPrelapseInterval,
+                                    srsState: localSrs ? localSrs.state : fullCard.srsState,
+                                    nextReview_back: localSrs ? (localSrs.nextReview_back instanceof Date ? localSrs.nextReview_back : new Date(localSrs.nextReview_back)) : fullCard.nextReview_back,
+                                    lastReviewed: localSrs ? localSrs.lastReviewed : fullCard.lastReviewed
+                                });
+                            }
+                        }
+                    });
+                    
+                    if (cardsToInject.length > 0) {
+                        const insertIndex = Math.min(currentReviewIndex + 1, nextQueue.length);
+                        nextQueue.splice(insertIndex, 0, ...cardsToInject);
+                        return nextQueue;
+                    }
+                    return prevQueue;
+                });
+            }
+        }, 1000);
+        return () => clearInterval(intervalId);
+    }, [reviewMode, currentReviewIndex, kanjiList, srsData]);
+
     const startReview = () => {
         if (dueKanji.length === 0) return;
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
+        activeReviewCardIds.current = new Set(dueKanji.map(c => c.id));
         setReviewQueue([...dueKanji]);
         setCurrentReviewIndex(0);
         setIsFlipped(false);
@@ -267,22 +405,19 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             queue: [...reviewQueue] // Save copy of queue for undo
         }]);
 
-        // 1. Determine if card needs to be re-reviewed in this session
+        // 1. Determine if card graduated/completed in this session
         let updatedQueue = [...reviewQueue];
-        if (rating === 'again') {
-            // Re-insert the card at the end of the queue for the current session
-            updatedQueue.push(currentCard);
-        } else {
+        if (result.state === 'REVIEW') {
             completedCardIds.current.add(currentCard.id);
         }
 
         // 2. Scan kanjiList for newly due cards that aren't in the queue yet
         const nowTime = Date.now();
-        const upcomingCardIds = new Set(updatedQueue.slice(currentReviewIndex + 1).map(c => c.id));
+        const allQueueCardIds = new Set(updatedQueue.map(c => c.id));
         const newlyDueKanji = kanjiList.filter(k => {
             if (k.id === currentCard.id) return false;
             if (completedCardIds.current.has(k.id)) return false;
-            if (upcomingCardIds.has(k.id)) return false;
+            if (allQueueCardIds.has(k.id)) return false;
             const srs = srsData[k.id];
             if (!srs) return false;
             return (srs.nextReview || 0) <= nowTime;
@@ -298,6 +433,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         setSrsData(prev => ({ ...prev, [currentCard.id]: newSrs }));
         updateCachedUserSrs(userId, currentCard.id, newSrs);
         if (currentReviewIndex + 1 < updatedQueue.length) {
+            saveSessionState(updatedQueue, currentReviewIndex + 1);
             if (rating === 'good' || rating === 'easy') { flashCorrect(); }
             
             setIsAnimatingFlip(false);
@@ -314,13 +450,33 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 }, 20);
             }, 70);
         } else {
-            launchFanfare();
-            logKanjiActivity(userId, {
-                type: 'review',
-                title: `Đã ôn tập ${updatedQueue.length} chữ Kanji`,
-                details: `Hoàn thành phiên ôn tập SRS`
-            });
-            exitReview();
+            const waiting = getLearningCardsWaiting();
+            if (waiting.length > 0) {
+                saveSessionState(updatedQueue, updatedQueue.length);
+                // Show waiting screen (by advancing index to updatedQueue.length)
+                setIsAnimatingFlip(false);
+                setSlideDirection('left');
+                setTimeout(() => {
+                    setIsFlipped(false);
+                    setCurrentReviewIndex(updatedQueue.length);
+                    setSlideDirection('right');
+                    setTimeout(() => {
+                        setSlideDirection('');
+                        setTimeout(() => {
+                            setIsAnimatingFlip(true);
+                        }, 110);
+                    }, 20);
+                }, 70);
+            } else {
+                localStorage.removeItem('quizki_kanji_review_session');
+                launchFanfare();
+                logKanjiActivity(userId, {
+                    type: 'review',
+                    title: `Đã ôn tập ${updatedQueue.length} chữ Kanji`,
+                    details: `Hoàn thành phiên ôn tập SRS`
+                });
+                exitReview();
+            }
         }
 
         // Accumulate session XP
@@ -343,7 +499,81 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         })();
     };
 
+    const saveSessionState = (queue, index) => {
+        if (index >= queue.length && getLearningCardsWaiting().length === 0) {
+            localStorage.removeItem('quizki_kanji_review_session');
+            return;
+        }
+        try {
+            const data = {
+                queueIds: queue.map(c => c.id),
+                currentIndex: index,
+                activeReviewCardIds: Array.from(activeReviewCardIds.current),
+                completedCardIds: Array.from(completedCardIds.current),
+                sessionXp: sessionXpRef.current,
+                savedAt: Date.now()
+            };
+            localStorage.setItem('quizki_kanji_review_session', JSON.stringify(data));
+        } catch (e) {
+            console.error("Failed to save kanji session state", e);
+        }
+    };
+
+    const handleResumeSavedSession = () => {
+        try {
+            const raw = localStorage.getItem('quizki_kanji_review_session');
+            if (!raw) return;
+            const data = JSON.parse(raw);
+            
+            sessionXpRef.current = data.sessionXp || 0;
+            completedCardIds.current = new Set(data.completedCardIds || []);
+            activeReviewCardIds.current = new Set(data.activeReviewCardIds || []);
+            
+            const reconstructedQueue = (data.queueIds || []).map(id => {
+                const found = kanjiList.find(c => c.id === id);
+                if (found) {
+                    const localSrs = srsData[id];
+                    if (localSrs) {
+                        return {
+                            ...found,
+                            srsInterval: localSrs.interval,
+                            srsEase: localSrs.ease,
+                            srsLearningStep: localSrs.learningStep,
+                            srsIsLapsed: localSrs.isLapsed,
+                            srsReps: localSrs.reps,
+                            srsLapseCount: localSrs.lapseCount,
+                            srsPrelapseInterval: localSrs.prelapseInterval,
+                            srsState: localSrs.state,
+                            nextReview_back: localSrs.nextReview_back,
+                            lastReviewed: localSrs.lastReview
+                        };
+                    }
+                    return found;
+                }
+                return null;
+            }).filter(Boolean);
+
+            setReviewQueue(reconstructedQueue);
+            setCurrentReviewIndex(data.currentIndex || 0);
+            setIsFlipped(false);
+            setReviewHistory([]);
+            setReviewMode(true);
+            if (setIsReviewActive) {
+                setIsReviewActive(true);
+            }
+        } catch (e) {
+            console.error("Failed to resume saved kanji session", e);
+            localStorage.removeItem('quizki_kanji_review_session');
+        }
+    };
+
+    const handleDiscardSavedSession = () => {
+        localStorage.removeItem('quizki_kanji_review_session');
+        setLastTick(Date.now());
+    };
+
     const exitReview = () => {
+        saveSessionState(reviewQueue, currentReviewIndex);
         if (sessionXpRef.current > 0 && awardXP) {
             awardXP(sessionXpRef.current);
         }
@@ -365,6 +595,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             setReviewQueue(savedQueue);
         }
         completedCardIds.current.delete(cardId);
+
+        saveSessionState(savedQueue || reviewQueue, cardIndex);
 
         // 1. Revert local states immediately
         setSrsData(prev => {
@@ -455,7 +687,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             good: formatInterval(previewIntv.good),
             easy: formatInterval(previewIntv.easy),
         };
-        const progress = Math.round(((currentReviewIndex + 1) / reviewQueue.length) * 100);
+        const progress = reviewQueue.length > 0 ? Math.min(100, Math.round((currentReviewIndex / reviewQueue.length) * 100)) : 100;
 
         return (
             <div className="min-h-[calc(100vh-120px)] flex items-center justify-center px-4 animate-fade-in">
@@ -481,7 +713,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     <div className="w-full space-y-2">
                         <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
                             <span className="flex items-center gap-1.5"><Target className="w-3.5 h-3.5" /> Ôn tập Kanji</span>
-                            <span className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-full font-bold">{currentReviewIndex + 1} / {reviewQueue.length}</span>
+                            <span className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-full font-bold">{Math.min(currentReviewIndex + 1, reviewQueue.length)} / {reviewQueue.length}</span>
                         </div>
                         <div className="h-2 w-full bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
                             <div className="h-full bg-gradient-to-r from-indigo-500 to-sky-500 rounded-full transition-all duration-700 ease-out" style={{ width: `${progress}%` }}></div>
@@ -550,9 +782,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
                                 className={`flex flex-col justify-center items-center py-3.5 rounded-2xl ${btn.bg} ${btn.border} border text-center transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95`}>
                                 <div className={`font-bold ${btn.text} text-sm leading-tight`}>{btn.label}</div>
-                                {btn.key !== 'again' && (
-                                    <div className={`text-[10px] ${btn.sub} mt-0.5`}>{btn.interval}</div>
-                                )}
+                                <div className={`text-[10px] ${btn.sub} mt-0.5`}>{btn.interval}</div>
                             </button>
                         ))}
                     </div>
@@ -567,11 +797,72 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         );
     }
 
+    if (reviewMode && !currentCard) {
+        const waiting = getLearningCardsWaiting();
+        if (waiting.length > 0) {
+            const now = Date.now();
+            const earliestNextReview = Math.min(...waiting.map(w => w.nextReview));
+            const secondsLeft = Math.max(0, Math.ceil((earliestNextReview - now) / 1000));
+            
+            let countdownText = "";
+            if (secondsLeft < 60) {
+                countdownText = `${secondsLeft} giây`;
+            } else {
+                const mins = Math.floor(secondsLeft / 60);
+                const secs = secondsLeft % 60;
+                countdownText = `${mins} phút ${secs} giây`;
+            }
+
+            return (
+                <div className="min-h-[calc(100vh-120px)] flex items-center justify-center px-4 animate-fade-in">
+                    <div className="w-[600px] max-w-full flex flex-col justify-center items-center space-y-6 bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border border-gray-150 dark:border-slate-700/85">
+                        <div className="flex flex-col items-center space-y-4 text-center">
+                            <div className="w-16 h-16 bg-indigo-50 dark:bg-indigo-950/40 rounded-2xl flex items-center justify-center animate-bounce">
+                                <Clock className="w-8 h-8 text-indigo-500 animate-spin-slow" />
+                            </div>
+                            <h2 className="text-xl font-bold text-gray-800 dark:text-white">
+                                Đang đợi thẻ Kanji tiếp theo...
+                            </h2>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 max-w-sm">
+                                Bạn đã hoàn thành các thẻ Kanji đến hạn hiện tại. Có <span className="font-bold text-indigo-500">{waiting.length}</span> thẻ đang chờ ôn lại theo chu kỳ.
+                            </p>
+                        </div>
+
+                        <div className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-sky-500 text-white rounded-2xl shadow-md flex items-center gap-2">
+                            <span className="text-xs font-semibold uppercase tracking-wider">Thẻ tiếp theo sau:</span>
+                            <span className="text-lg font-black tracking-widest">{countdownText}</span>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-3 w-full">
+                            <button
+                                onClick={handleReviewNow}
+                                className="flex-1 py-3 px-4 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-bold text-sm rounded-xl transition-all shadow-md cursor-pointer text-center"
+                            >
+                                Ôn ngay lập tức (Không đợi)
+                            </button>
+                            <button
+                                onClick={exitReview}
+                                className="flex-1 py-3 px-4 bg-gray-100 hover:bg-gray-250 dark:bg-slate-700 dark:hover:bg-slate-650 active:scale-95 text-gray-700 dark:text-gray-200 font-bold text-sm rounded-xl transition-all border border-gray-200 dark:border-slate-600 cursor-pointer text-center"
+                            >
+                                Kết thúc phiên ôn tập
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        
+        setTimeout(() => exitReview(), 0);
+        return null;
+    }
+
     // ==================== STATS SCREEN ====================
     return (
         <div className="w-full pb-12 transition-colors duration-300">
             <TopTabBar tabs={KANJI_TABS} />
             <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-6 mt-6 animate-fade-in">
+
+
 
                 {/* Hero Banner */}
                 <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-rose-400 via-pink-500 to-rose-500 p-8 text-white shadow-lg border border-rose-350 dark:border-rose-900/50">
@@ -587,18 +878,40 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             </p>
                         </div>
                         <div className="flex flex-col items-center bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 text-center w-full md:w-64 shrink-0 shadow-sm">
-                            <span className="text-5xl font-black tracking-tight mb-1">{stats.dueToday}</span>
-                            <span className="text-[10px] text-pink-100 font-extrabold uppercase tracking-wider">Chữ Kanji cần ôn tập hôm nay</span>
-                            <button
-                                onClick={startReview}
-                                disabled={stats.dueToday === 0}
-                                className={`mt-4 w-full py-3 rounded-xl text-xs font-bold tracking-wider uppercase transition-all shadow-md ${stats.dueToday > 0
-                                        ? 'bg-white text-rose-600 hover:bg-rose-50 hover:shadow-lg hover:scale-105 active:scale-95'
-                                        : 'bg-white/25 text-white/50 cursor-not-allowed'
-                                    }`}
-                            >
-                                BẮT ĐẦU ÔN TẬP
-                            </button>
+                            <span className="text-5xl font-black tracking-tight mb-1">
+                                {savedSessionInfo ? savedSessionInfo.remaining : stats.dueToday}
+                            </span>
+                            <span className="text-[10px] text-pink-100 font-extrabold uppercase tracking-wider">Chữ Kanji cần ôn tập</span>
+                            {savedSessionInfo ? (
+                                <button
+                                    onClick={handleResumeSavedSession}
+                                    className="mt-4 w-full py-3 rounded-xl text-xs font-bold tracking-wider uppercase transition-all shadow-md bg-white text-rose-600 hover:bg-rose-50 hover:shadow-lg hover:scale-105 active:scale-95 animate-pulse flex items-center justify-center gap-1.5 cursor-pointer"
+                                >
+                                    TIẾP TỤC ÔN TẬP
+                                </button>
+                            ) : stats.dueToday > 0 ? (
+                                <button
+                                    onClick={startReview}
+                                    className="mt-4 w-full py-3 rounded-xl text-xs font-bold tracking-wider uppercase transition-all shadow-md bg-white text-rose-600 hover:bg-rose-50 hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
+                                >
+                                    BẮT ĐẦU ÔN TẬP
+                                </button>
+                            ) : nextReviewText ? (
+                                <button
+                                    disabled
+                                    className="mt-4 w-full py-3 rounded-xl text-[10px] font-black tracking-wider uppercase transition-all bg-white/20 text-white/60 cursor-not-allowed flex items-center justify-center gap-1"
+                                >
+                                    <Clock className="w-3 h-3 animate-spin-slow" />
+                                    TIẾP SAU: {nextReviewText}
+                                </button>
+                            ) : (
+                                <button
+                                    disabled
+                                    className="mt-4 w-full py-3 rounded-xl text-xs font-bold tracking-wider uppercase transition-all bg-white/15 text-white/50 cursor-not-allowed"
+                                >
+                                    HẾT THẺ ÔN TẬP
+                                </button>
+                            )}
                         </div>
                     </div>
                 </div>

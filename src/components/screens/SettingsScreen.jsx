@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Settings, User, Volume2, VolumeX, Music, Sun, Moon, ArrowLeft, Save, Check, X, Palette, Shield, Trash2, Upload, Play, Mic, Edit, Type, Camera, Gift, Copy, Crown, Award, Sparkles } from 'lucide-react'
 import AvatarCropper from '../ui/AvatarCropper';
+import { SafeAvatarImage } from '../ui';
 import { ROUTES } from '../../router';
 import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
 import {
@@ -209,14 +210,34 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
     const isPhotoUrl = (avatarValue) => typeof avatarValue === 'string' && (avatarValue.startsWith('data:image/') || avatarValue.startsWith('http://') || avatarValue.startsWith('https://'));
     // Lấy display content cho avatar
     const getAvatarDisplay = (avatarValue, sizeClass = 'text-5xl') => {
+        const fallbackChar = (
+            <span className={sizeClass}>
+                {profile?.displayName ? profile.displayName.charAt(0).toUpperCase() : '👤'}
+            </span>
+        );
+
         if (isPhotoUrl(avatarValue)) {
-            return <img src={avatarValue} alt="avatar" className="w-full h-full object-cover" />;
+            return (
+                <SafeAvatarImage
+                    src={avatarValue}
+                    alt="avatar"
+                    className="w-full h-full object-cover"
+                    fallback={fallbackChar}
+                />
+            );
         }
         if (avatarValue === 'default' || !avatarValue) {
             if (auth?.currentUser?.photoURL) {
-                return <img src={auth.currentUser.photoURL} alt="avatar" className="w-full h-full object-cover" />;
+                return (
+                    <SafeAvatarImage
+                        src={auth.currentUser.photoURL}
+                        alt="avatar"
+                        className="w-full h-full object-cover"
+                        fallback={fallbackChar}
+                    />
+                );
             }
-            return <span className={sizeClass}>👤</span>;
+            return fallbackChar;
         }
         return <span className={sizeClass}>{getAvatarEmoji(avatarValue)}</span>;
     };
