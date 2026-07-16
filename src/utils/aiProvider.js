@@ -288,8 +288,7 @@ QUY TẮC BẮT BUỘC:
    - Ví dụ SAI: "顔（かお）認証（にんしょう）", "振（ふ）り込（こ）む", "スマホ（すまほ）を使う（つかう）", "お土産（おみやげ）を届ける（おとどける）"
    - Trả về trường "frontWithFurigana" cho từ gốc và "synonym" cho từ đồng nghĩa.
 
-2. meaning: ${isGrammar ? 'Định nghĩa ngữ pháp theo hướng dẫn ở trên.' : 'Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống.'}
-
+2. meaning: ${isGrammar ? 'Định nghĩa ngữ pháp theo hướng dẫn ở trên.' : 'Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống. Đặc biệt, nếu từ gốc là một cụm từ dài, câu, collocation hoặc có pos là "phrase" (Ví dụ: "進学を契機にテニス部に入った"), thì trường "meaning" BẮT BUỘC phải là một bản dịch tiếng Việt tự nhiên, thoát ý duy nhất cho TOÀN BỘ cụm từ/câu đó. TUYỆT ĐỐI KHÔNG dịch tách nhỏ từng vế hoặc liệt kê nhiều nghĩa rời rạc phân cách bởi dấu chấm phẩy (;).'}
 3. pos/level: Phải khớp ngữ cảnh nếu đã chọn. Grammar→giải thích như ngữ pháp.
    - pos: Bắt buộc chọn một trong các chuỗi sau: "noun" (danh từ), "verb" (động từ), "suru_verb" (danh động từ - suru verb), "adj-i" (tính từ -い), "adj-na" (tính từ -な), "noun/adj-na" (danh từ kiêm tính từ -な), "adverb" (trạng từ), "conjunction" (liên từ), "particle" (trợ từ), "grammar" (ngữ pháp), "phrase" (cụm từ), "other" (khác).
 
@@ -1394,7 +1393,7 @@ QUY TẮC PHÁN HỒI:
 Trả về duy nhất một đối tượng JSON có định dạng sau:
 {
   "front": "Từ gốc chuẩn hóa định dạng Kanji(Hiragana) hoặc Katakana, bắt buộc đặt ngoặc phiên âm ở cuối từ nếu chứa Kanji (ví dụ: '勉強する（べんきょうする）', '日本語（にほんご）', '美味しい（おいしい）'). Nếu thuần Kana thì không cần ngoặc (ví dụ: 'あたま', 'カメラ').",
-  "back": "Nghĩa tiếng Việt chuẩn, gọn gàng, dịch đúng ngữ pháp/ngữ nghĩa.",
+  "back": "Nghĩa tiếng Việt chuẩn, gọn gàng, dịch đúng ngữ pháp/ngữ nghĩa. Nếu là cụm từ/câu dài, hãy dịch thoát ý nguyên cụm/câu thành một bản dịch tự nhiên duy nhất, tuyệt đối không tách rời hay liệt kê các nghĩa nhỏ phân cách bởi dấu chấm phẩy (;).",
   "sinoVietnamese": "Chữ Hán Việt viết hoa của từ (ví dụ: 'MIỄN CƯỜNG', 'NHẬT BẢN', 'MỸ VỊ'). Nếu từ không chứa Kanji thì để trống.",
   "pos": "Một trong các phân loại sau: 'noun', 'verb', 'adjective_i', 'adjective_na', 'adverb', 'pronoun', 'phrase', 'suru_verb'. Hãy chọn phân loại chính xác nhất.",
   "level": "Trình độ JLPT tương ứng của từ ('N5', 'N4', 'N3', 'N2', 'N1'), hoặc để trống nếu không rõ.",
