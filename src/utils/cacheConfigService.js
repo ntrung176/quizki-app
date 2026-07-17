@@ -1,14 +1,28 @@
 import { db, appId } from '../config/firebase';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, onSnapshot } from 'firebase/firestore';
 
 let cachedConfig = null;
 let configPromise = null;
+let unsubConfig = null;
 
-/**
- * Fetches the remote cache config containing Storage URLs for static JSON files.
- * Caches the result in memory for subsequent requests.
- */
+export const subscribeCacheConfig = () => {
+    if (unsubConfig || !db) return;
+    try {
+        const ref = doc(db, `artifacts/${appId}/settings/cacheConfig`);
+        unsubConfig = onSnapshot(ref, (snap) => {
+            if (snap.exists()) {
+                cachedConfig = snap.data();
+            }
+        }, (err) => {
+            console.warn('Real-time cacheConfig listener error:', err);
+        });
+    } catch (e) {
+        console.warn('Failed to start cacheConfig listener:', e);
+    }
+};
+
 export const getCacheConfig = async () => {
+    subscribeCacheConfig();
     if (cachedConfig) return cachedConfig;
     if (configPromise) return configPromise;
 
@@ -30,9 +44,6 @@ export const getCacheConfig = async () => {
     return configPromise;
 };
 
-/**
- * Force refetches the cache config from Firestore.
- */
 export const refreshCacheConfig = async () => {
     cachedConfig = null;
     configPromise = null;

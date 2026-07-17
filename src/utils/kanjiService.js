@@ -7,6 +7,7 @@ import { getCacheConfig } from './cacheConfigService';
 let cachedKanjiList = null;
 let cachedVocabList = null;
 let cachedVocabCategories = null;
+let lastLoadedExportedAt = null;
 
 // Loading promises to coordinate concurrent requests
 let kanjiPromise = null;
@@ -55,18 +56,29 @@ async function fetchVocabUpdatesFromFirestore(exportedAt) {
 }
 
 export const getSharedKanjiList = async () => {
-    if (cachedKanjiList) return cachedKanjiList;
-    if (kanjiPromise) return kanjiPromise;
+    const cacheConfig = await getCacheConfig();
+    const currentExport = cacheConfig?.exportedAt || 0;
+    const needsRefresh = currentExport && lastLoadedExportedAt && currentExport > lastLoadedExportedAt;
+
+    if (needsRefresh) {
+        cachedKanjiList = null;
+        kanjiPromise = null;
+    }
+
+    if (cachedKanjiList && !needsRefresh) return cachedKanjiList;
+    if (kanjiPromise && !needsRefresh) return kanjiPromise;
 
     kanjiPromise = (async () => {
         try {
             console.log('Fetching shared kanji list from CDN...');
-            const cacheConfig = await getCacheConfig();
             
             let dataRes, exportedAt;
             if (cacheConfig && cacheConfig.kanjiUrl) {
                 console.log('Using Firebase Storage CDN for Kanji cache');
-                dataRes = await fetch(cacheConfig.kanjiUrl);
+                const urlWithBuster = cacheConfig.kanjiUrl.includes('?') 
+                    ? `${cacheConfig.kanjiUrl}&t=${cacheConfig.exportedAt || Date.now()}`
+                    : `${cacheConfig.kanjiUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
+                dataRes = await fetch(urlWithBuster);
                 exportedAt = cacheConfig.exportedAt || 0;
             } else {
                 console.log('Falling back to local bundle files for Kanji cache');
@@ -89,6 +101,7 @@ export const getSharedKanjiList = async () => {
             }
 
             cachedKanjiList = await dataRes.json();
+            lastLoadedExportedAt = currentExport || Date.now();
 
             // Sync edits made after the export timestamp in the background
             fetchKanjiUpdatesFromFirestore(exportedAt);
@@ -99,6 +112,7 @@ export const getSharedKanjiList = async () => {
             try {
                 const snap = await getDocs(collection(db, 'kanji'));
                 cachedKanjiList = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+                lastLoadedExportedAt = currentExport || Date.now();
                 return cachedKanjiList;
             } catch (fsErr) {
                 console.error('Error loading shared kanji list from Firestore fallback:', fsErr);
@@ -112,18 +126,29 @@ export const getSharedKanjiList = async () => {
 };
 
 export const getSharedVocabList = async () => {
-    if (cachedVocabList) return cachedVocabList;
-    if (vocabPromise) return vocabPromise;
+    const cacheConfig = await getCacheConfig();
+    const currentExport = cacheConfig?.exportedAt || 0;
+    const needsRefresh = currentExport && lastLoadedExportedAt && currentExport > lastLoadedExportedAt;
+
+    if (needsRefresh) {
+        cachedVocabList = null;
+        vocabPromise = null;
+    }
+
+    if (cachedVocabList && !needsRefresh) return cachedVocabList;
+    if (vocabPromise && !needsRefresh) return vocabPromise;
 
     vocabPromise = (async () => {
         try {
             console.log('Fetching shared vocab list from CDN...');
-            const cacheConfig = await getCacheConfig();
             
             let dataRes, exportedAt;
             if (cacheConfig && cacheConfig.vocabUrl) {
                 console.log('Using Firebase Storage CDN for Vocab cache');
-                dataRes = await fetch(cacheConfig.vocabUrl);
+                const urlWithBuster = cacheConfig.vocabUrl.includes('?') 
+                    ? `${cacheConfig.vocabUrl}&t=${cacheConfig.exportedAt || Date.now()}`
+                    : `${cacheConfig.vocabUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
+                dataRes = await fetch(urlWithBuster);
                 exportedAt = cacheConfig.exportedAt || 0;
             } else {
                 console.log('Falling back to local bundle files for Vocab cache');
@@ -146,6 +171,7 @@ export const getSharedVocabList = async () => {
             }
 
             cachedVocabList = await dataRes.json();
+            lastLoadedExportedAt = currentExport || Date.now();
 
             // Sync edits made after the export timestamp in the background
             fetchVocabUpdatesFromFirestore(exportedAt);
@@ -156,6 +182,7 @@ export const getSharedVocabList = async () => {
             try {
                 const snap = await getDocs(collection(db, 'kanjiVocab'));
                 cachedVocabList = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+                lastLoadedExportedAt = currentExport || Date.now();
                 return cachedVocabList;
             } catch (fsErr) {
                 console.error('Error loading shared vocab list from Firestore fallback:', fsErr);
@@ -169,18 +196,29 @@ export const getSharedVocabList = async () => {
 };
 
 export const getSharedVocabCategories = async () => {
-    if (cachedVocabCategories) return cachedVocabCategories;
-    if (categoriesPromise) return categoriesPromise;
+    const cacheConfig = await getCacheConfig();
+    const currentExport = cacheConfig?.exportedAt || 0;
+    const needsRefresh = currentExport && lastLoadedExportedAt && currentExport > lastLoadedExportedAt;
+
+    if (needsRefresh) {
+        cachedVocabCategories = null;
+        categoriesPromise = null;
+    }
+
+    if (cachedVocabCategories && !needsRefresh) return cachedVocabCategories;
+    if (categoriesPromise && !needsRefresh) return categoriesPromise;
 
     categoriesPromise = (async () => {
         try {
             console.log('Fetching shared vocab categories from CDN...');
-            const cacheConfig = await getCacheConfig();
             
             let dataRes;
             if (cacheConfig && cacheConfig.vocabCategoriesUrl) {
                 console.log('Using Firebase Storage CDN for Vocab Categories cache');
-                dataRes = await fetch(cacheConfig.vocabCategoriesUrl);
+                const urlWithBuster = cacheConfig.vocabCategoriesUrl.includes('?') 
+                    ? `${cacheConfig.vocabCategoriesUrl}&t=${cacheConfig.exportedAt || Date.now()}`
+                    : `${cacheConfig.vocabCategoriesUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
+                dataRes = await fetch(urlWithBuster);
             } else {
                 console.log('Falling back to local bundle files for Vocab Categories cache');
                 dataRes = await fetch('/data/vocab_categories.json');
@@ -194,12 +232,14 @@ export const getSharedVocabCategories = async () => {
                 throw new Error('Response is not JSON (got: ' + contentType + ')');
             }
             cachedVocabCategories = await dataRes.json();
+            lastLoadedExportedAt = currentExport || Date.now();
             return cachedVocabCategories;
         } catch (e) {
             console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);
             try {
                 const snap = await getDocs(collection(db, 'vocabCategories'));
                 cachedVocabCategories = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+                lastLoadedExportedAt = currentExport || Date.now();
                 return cachedVocabCategories;
             } catch (fsErr) {
                 console.error('Error loading shared vocab categories from Firestore fallback:', fsErr);
@@ -404,6 +444,7 @@ export const syncKanjiAndVocabToCDN = async () => {
     cachedKanjiList = kanjiList;
     cachedVocabList = vocabList;
     cachedVocabCategories = categories;
+    lastLoadedExportedAt = exportedAt;
 
     // Dispatch custom event to tell all listeners that the entire cache has been reloaded/updated!
     window.dispatchEvent(new CustomEvent('kanji-cache-reloaded', {

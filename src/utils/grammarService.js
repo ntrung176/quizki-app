@@ -11,20 +11,32 @@ const grammarPointsPath = (textbookId, lessonId) => `artifacts/${appId}/grammarT
 // ============== CDN CACHE ==============
 let cachedGrammarData = null;
 let grammarPromise = null;
+let lastLoadedExportedAt = null;
 
 export const getSharedGrammarData = async () => {
-    if (cachedGrammarData) return cachedGrammarData;
-    if (grammarPromise) return grammarPromise;
+    const cacheConfig = await getCacheConfig();
+    const currentExport = cacheConfig?.exportedAt || 0;
+    const needsRefresh = currentExport && lastLoadedExportedAt && currentExport > lastLoadedExportedAt;
+
+    if (needsRefresh) {
+        cachedGrammarData = null;
+        grammarPromise = null;
+    }
+
+    if (cachedGrammarData && !needsRefresh) return cachedGrammarData;
+    if (grammarPromise && !needsRefresh) return grammarPromise;
 
     grammarPromise = (async () => {
         try {
             console.log('Fetching shared grammar data from CDN...');
-            const cacheConfig = await getCacheConfig();
             
             let dataRes;
             if (cacheConfig && cacheConfig.grammarUrl) {
                 console.log('Using Firebase Storage CDN for Grammar cache');
-                dataRes = await fetch(cacheConfig.grammarUrl);
+                const urlWithBuster = cacheConfig.grammarUrl.includes('?') 
+                    ? `${cacheConfig.grammarUrl}&t=${cacheConfig.exportedAt || Date.now()}`
+                    : `${cacheConfig.grammarUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
+                dataRes = await fetch(urlWithBuster);
             } else {
                 console.log('Falling back to local bundle files for Grammar cache');
                 dataRes = await fetch('/data/grammar_data.json');
@@ -38,6 +50,7 @@ export const getSharedGrammarData = async () => {
             }
 
             cachedGrammarData = await dataRes.json();
+            lastLoadedExportedAt = currentExport || Date.now();
             return cachedGrammarData;
         } catch (e) {
             console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);

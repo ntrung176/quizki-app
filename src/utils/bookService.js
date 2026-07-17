@@ -4,6 +4,7 @@ import { getCacheConfig } from './cacheConfigService';
 
 // In-memory module cache
 let cachedBookGroups = null;
+let lastLoadedExportedAt = null;
 
 // Loading promise to coordinate concurrent requests
 let bookGroupsPromise = null;
@@ -14,8 +15,17 @@ let bookGroupsPromise = null;
  * @param {boolean} forceRefresh - If true, bypasses cache and forces a fresh query.
  */
 export const getSharedBookGroups = async (forceRefresh = false, forceLiveFirestore = false) => {
-    if (cachedBookGroups && !forceRefresh && !forceLiveFirestore) return cachedBookGroups;
-    if (bookGroupsPromise && !forceRefresh && !forceLiveFirestore) return bookGroupsPromise;
+    const cacheConfig = await getCacheConfig();
+    const currentExport = cacheConfig?.exportedAt || 0;
+    const needsRefresh = forceRefresh || (currentExport && lastLoadedExportedAt && currentExport > lastLoadedExportedAt);
+
+    if (needsRefresh) {
+        cachedBookGroups = null;
+        bookGroupsPromise = null;
+    }
+
+    if (cachedBookGroups && !needsRefresh && !forceLiveFirestore) return cachedBookGroups;
+    if (bookGroupsPromise && !needsRefresh && !forceLiveFirestore) return bookGroupsPromise;
 
     bookGroupsPromise = (async () => {
         const fetchFromFirestoreFallback = async () => {
@@ -63,6 +73,7 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
                 
                 groups.sort((a, b) => (a.order || 0) - (b.order || 0));
                 cachedBookGroups = groups;
+                lastLoadedExportedAt = currentExport || Date.now();
                 return cachedBookGroups;
             } catch (fsErr) {
                 console.error('Error loading shared book groups from Firestore fallback:', fsErr);
@@ -82,7 +93,10 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
             let dataRes;
             if (cacheConfig && cacheConfig.booksUrl) {
                 console.log('Using Firebase Storage CDN for Books cache');
-                dataRes = await fetch(cacheConfig.booksUrl);
+                const urlWithBuster = cacheConfig.booksUrl.includes('?') 
+                    ? `${cacheConfig.booksUrl}&t=${cacheConfig.exportedAt || Date.now()}`
+                    : `${cacheConfig.booksUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
+                dataRes = await fetch(urlWithBuster);
             } else {
                 console.log('Falling back to local bundle files for Books cache');
                 dataRes = await fetch('/data/books_data.json');
@@ -94,6 +108,7 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
                 throw new Error('Response is not JSON (got: ' + contentType + ')');
             }
             cachedBookGroups = await dataRes.json();
+            lastLoadedExportedAt = currentExport || Date.now();
             return cachedBookGroups;
         } catch (e) {
             console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);
@@ -115,4 +130,5 @@ export const getCachedBookGroups = () => cachedBookGroups;
 export const invalidateBookGroupsCache = () => {
     cachedBookGroups = null;
     bookGroupsPromise = null;
+    lastLoadedExportedAt = null;
 };
