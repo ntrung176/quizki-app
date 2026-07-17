@@ -806,13 +806,13 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     };
 
     // Synchronize individual modules
-    const syncKanjiAndVocab = async (silent = false) => {
+    const syncKanjiAndVocab = async (silent = false, forceFull = false) => {
         if (!silent) {
             setSyncingCache(prev => ({ ...prev, kanji: true }));
             setSyncProgress('Đang đồng bộ dữ liệu Kanji & Từ vựng lên CDN...');
         }
         try {
-            const result = await syncKanjiAndVocabToCDN();
+            const result = await syncKanjiAndVocabToCDN(forceFull);
             if (!silent) {
                 setNotification({ type: 'success', message: 'Đồng bộ Kanji & Từ vựng thành công!' });
             }
@@ -937,7 +937,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         setSyncingCache(prev => ({ ...prev, all: true }));
         try {
             setSyncProgress('1. Đồng bộ Kanji & Từ vựng...');
-            await syncKanjiAndVocab(true);
+            await syncKanjiAndVocab(true, true);
 
             setSyncProgress('2. Đồng bộ Kho sách...');
             await syncBooks(true);

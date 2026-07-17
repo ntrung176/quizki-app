@@ -407,20 +407,72 @@ export const clearKanjiProgressCache = () => {
     kanjiProgressPromise = null;
 };
 
-export const syncKanjiAndVocabToCDN = async () => {
-    // 1. Fetch all kanji data
-    const kanjiSnap = await getDocs(collection(db, 'kanji'));
-    const kanjiList = kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+export const syncKanjiAndVocabToCDN = async (forceFull = false) => {
+    let kanjiList = [];
+    let vocabList = [];
+    let categories = [];
+    let exportedAt = Date.now();
+    let isIncremental = false;
 
-    // 2. Fetch all vocab data
-    const vocabSnap = await getDocs(collection(db, 'kanjiVocab'));
-    const vocabList = vocabSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+    const cacheConfig = await getCacheConfig();
 
-    // 3. Fetch all categories
-    const categoriesSnap = await getDocs(collection(db, 'vocabCategories'));
-    const categories = categoriesSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+    if (!forceFull && cacheConfig && cacheConfig.kanjiUrl && cacheConfig.vocabUrl && cacheConfig.vocabCategoriesUrl && cacheConfig.exportedAt) {
+        try {
+            console.log('Attempting incremental sync using existing CDN files...');
+            const lastExport = cacheConfig.exportedAt;
 
-    // 4. Upload cache files to Firebase Storage
+            // Fetch current CDN files in parallel (bypass CDN cache using timestamp query parameter)
+            const buster = Date.now();
+            const [kanjiRes, vocabRes, catsRes] = await Promise.all([
+                fetch(`${cacheConfig.kanjiUrl}&t=${buster}`).then(r => r.ok ? r.json() : null),
+                fetch(`${cacheConfig.vocabUrl}&t=${buster}`).then(r => r.ok ? r.json() : null),
+                fetch(`${cacheConfig.vocabCategoriesUrl}&t=${buster}`).then(r => r.ok ? r.json() : null)
+            ]);
+
+            if (kanjiRes && vocabRes && catsRes) {
+                // Fetch only modified docs since lastExport
+                const [kanjiUpdatesSnap, vocabUpdatesSnap, catsUpdatesSnap] = await Promise.all([
+                    getDocs(query(collection(db, 'kanji'), where('updatedAt', '>', lastExport))),
+                    getDocs(query(collection(db, 'kanjiVocab'), where('updatedAt', '>', lastExport))),
+                    getDocs(query(collection(db, 'vocabCategories'), where('updatedAt', '>', lastExport)))
+                ]);
+
+                console.log(`Incremental updates found: ${kanjiUpdatesSnap.size} kanji, ${vocabUpdatesSnap.size} vocab, ${catsUpdatesSnap.size} categories`);
+
+                // Helper to merge updates
+                const mergeList = (existingList, updatesSnap) => {
+                    const listMap = new Map(existingList.map(item => [item.id, item]));
+                    updatesSnap.docs.forEach(docSnap => {
+                        listMap.set(docSnap.id, { id: docSnap.id, ...docSnap.data() });
+                    });
+                    return Array.from(listMap.values());
+                };
+
+                kanjiList = mergeList(kanjiRes, kanjiUpdatesSnap);
+                vocabList = mergeList(vocabRes, vocabUpdatesSnap);
+                categories = mergeList(catsRes, catsUpdatesSnap);
+                isIncremental = true;
+            }
+        } catch (incError) {
+            console.warn('Incremental sync failed, falling back to full sync:', incError);
+        }
+    }
+
+    if (!isIncremental) {
+        console.log('Performing full sync of Kanji and Vocabulary...');
+        // Fetch all data in parallel
+        const [kanjiSnap, vocabSnap, categoriesSnap] = await Promise.all([
+            getDocs(collection(db, 'kanji')),
+            getDocs(collection(db, 'kanjiVocab')),
+            getDocs(collection(db, 'vocabCategories'))
+        ]);
+
+        kanjiList = kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+        vocabList = vocabSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+        categories = categoriesSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+    }
+
+    // Upload cache files to Firebase Storage
     const uploadFile = async (fileName, data) => {
         const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
         const fileRef = ref(storage, `cache/${appId}/${fileName}`);
@@ -428,11 +480,12 @@ export const syncKanjiAndVocabToCDN = async () => {
         return getDownloadURL(fileRef);
     };
 
-    const kanjiUrl = await uploadFile('kanji_data.json', kanjiList);
-    const vocabUrl = await uploadFile('vocab_data.json', vocabList);
-    const vocabCategoriesUrl = await uploadFile('vocab_categories.json', categories);
+    const [kanjiUrl, vocabUrl, vocabCategoriesUrl] = await Promise.all([
+        uploadFile('kanji_data.json', kanjiList),
+        uploadFile('vocab_data.json', vocabList),
+        uploadFile('vocab_categories.json', categories)
+    ]);
 
-    const exportedAt = Date.now();
     await setDoc(doc(db, `artifacts/${appId}/settings/cacheConfig`), {
         kanjiUrl,
         vocabUrl,
