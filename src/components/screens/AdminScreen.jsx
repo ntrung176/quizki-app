@@ -651,52 +651,143 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
 
     const fetchAllBooksData = async () => {
         const COLLECTION = 'bookGroups';
-        const groupsSnap = await getDocs(collection(db, COLLECTION));
-        const groups = await Promise.all(groupsSnap.docs.map(async (groupDoc) => {
-            const group = { id: groupDoc.id, ...groupDoc.data(), books: [] };
-            const booksSnap = await getDocs(collection(db, COLLECTION, groupDoc.id, 'books'));
-            group.books = await Promise.all(booksSnap.docs.map(async (bookDoc) => {
-                const book = { id: bookDoc.id, ...bookDoc.data(), chapters: [] };
-                const chaptersSnap = await getDocs(collection(db, COLLECTION, groupDoc.id, 'books', bookDoc.id, 'chapters'));
-                book.chapters = await Promise.all(chaptersSnap.docs.map(async (chapterDoc) => {
-                    const chapter = { id: chapterDoc.id, ...chapterDoc.data(), lessons: [] };
-                    const lessonsSnap = await getDocs(collection(db, COLLECTION, groupDoc.id, 'books', bookDoc.id, 'chapters', chapterDoc.id, 'lessons'));
-                    chapter.lessons = lessonsSnap.docs.map(lessonDoc => ({
-                        id: lessonDoc.id,
-                        _docPath: lessonDoc.ref.path,
-                        ...lessonDoc.data()
-                    })).sort((a, b) => (a.order || 0) - (b.order || 0));
-                    return chapter;
-                }));
-                book.chapters.sort((a, b) => (a.order || 0) - (b.order || 0));
-                return book;
-            }));
+        
+        // Fetch all 4 levels in parallel with only 4 Firestore requests!
+        const [groupsSnap, booksSnap, chaptersSnap, lessonsSnap] = await Promise.all([
+            getDocs(collection(db, COLLECTION)),
+            getDocs(collectionGroup(db, 'books')),
+            getDocs(collectionGroup(db, 'chapters')),
+            getDocs(collectionGroup(db, 'lessons'))
+        ]);
+
+        // Map groups
+        const groupsMap = {};
+        groupsSnap.docs.forEach(docSnap => {
+            groupsMap[docSnap.id] = { id: docSnap.id, ...docSnap.data(), books: [] };
+        });
+
+        // Map books to groups
+        const booksMap = {};
+        booksSnap.docs.forEach(docSnap => {
+            const pathParts = docSnap.ref.path.split('/');
+            // bookGroups/{groupId}/books/{bookId}
+            if (pathParts[0] === COLLECTION) {
+                const groupId = pathParts[1];
+                const bookId = docSnap.id;
+                const book = { id: bookId, ...docSnap.data(), chapters: [] };
+                booksMap[bookId] = book;
+                if (groupsMap[groupId]) {
+                    groupsMap[groupId].books.push(book);
+                }
+            }
+        });
+
+        // Map chapters to books
+        const chaptersMap = {};
+        chaptersSnap.docs.forEach(docSnap => {
+            const pathParts = docSnap.ref.path.split('/');
+            // bookGroups/{groupId}/books/{bookId}/chapters/{chapterId}
+            if (pathParts[0] === COLLECTION) {
+                const bookId = pathParts[3];
+                const chapterId = docSnap.id;
+                const chapter = { id: chapterId, ...docSnap.data(), lessons: [] };
+                chaptersMap[chapterId] = chapter;
+                if (booksMap[bookId]) {
+                    booksMap[bookId].chapters.push(chapter);
+                }
+            }
+        });
+
+        // Map lessons to chapters
+        lessonsSnap.docs.forEach(docSnap => {
+            const pathParts = docSnap.ref.path.split('/');
+            // bookGroups/{groupId}/books/{bookId}/chapters/{chapterId}/lessons/{lessonId}
+            if (pathParts[0] === COLLECTION) {
+                const chapterId = pathParts[5];
+                const lessonId = docSnap.id;
+                const lesson = {
+                    id: lessonId,
+                    _docPath: docSnap.ref.path,
+                    ...docSnap.data()
+                };
+                if (chaptersMap[chapterId]) {
+                    chaptersMap[chapterId].lessons.push(lesson);
+                }
+            }
+        });
+
+        // Sort everything
+        const groups = Object.values(groupsMap);
+        groups.forEach(group => {
             group.books.sort((a, b) => (a.order || 0) - (b.order || 0));
-            return group;
-        }));
+            group.books.forEach(book => {
+                book.chapters.sort((a, b) => (a.order || 0) - (b.order || 0));
+                book.chapters.forEach(chapter => {
+                    chapter.lessons.sort((a, b) => (a.order || 0) - (b.order || 0));
+                });
+            });
+        });
         groups.sort((a, b) => (a.order || 0) - (b.order || 0));
+
         return groups;
     };
 
     const fetchAllGrammarData = async () => {
         const textbooksPath = `artifacts/${appId}/grammarTextbooks`;
-        const textbooksSnap = await getDocs(collection(db, textbooksPath));
-        const textbooks = await Promise.all(textbooksSnap.docs.map(async (tbDoc) => {
-            const tb = { id: tbDoc.id, ...tbDoc.data(), lessons: [] };
-            const lessonsSnap = await getDocs(collection(db, `artifacts/${appId}/grammarTextbooks/${tbDoc.id}/lessons`));
-            tb.lessons = await Promise.all(lessonsSnap.docs.map(async (lessonDoc) => {
-                const lesson = { id: lessonDoc.id, ...lessonDoc.data(), points: [] };
-                const pointsSnap = await getDocs(collection(db, `artifacts/${appId}/grammarTextbooks/${tbDoc.id}/lessons/${lessonDoc.id}/points`));
-                lesson.points = pointsSnap.docs.map(gpDoc => ({
-                    id: gpDoc.id,
-                    ...gpDoc.data()
-                })).sort((a, b) => (a.order || 0) - (b.order || 0));
-                return lesson;
-            }));
+        
+        // Parallelized fetch of all 3 levels of Grammar hierarchy!
+        const [textbooksSnap, lessonsSnap, pointsSnap] = await Promise.all([
+            getDocs(collection(db, textbooksPath)),
+            getDocs(collectionGroup(db, 'lessons')),
+            getDocs(collectionGroup(db, 'points'))
+        ]);
+
+        // Map textbooks
+        const textbooksMap = {};
+        textbooksSnap.docs.forEach(docSnap => {
+            textbooksMap[docSnap.id] = { id: docSnap.id, ...docSnap.data(), lessons: [] };
+        });
+
+        // Map lessons to textbooks
+        const lessonsMap = {};
+        lessonsSnap.docs.forEach(docSnap => {
+            const pathParts = docSnap.ref.path.split('/');
+            // artifacts/{appId}/grammarTextbooks/{textbookId}/lessons/{lessonId}
+            if (pathParts[0] === 'artifacts' && pathParts[2] === 'grammarTextbooks') {
+                const textbookId = pathParts[3];
+                const lessonId = docSnap.id;
+                const lesson = { id: lessonId, ...docSnap.data(), points: [] };
+                lessonsMap[lessonId] = lesson;
+                if (textbooksMap[textbookId]) {
+                    textbooksMap[textbookId].lessons.push(lesson);
+                }
+            }
+        });
+
+        // Map points to lessons
+        pointsSnap.docs.forEach(docSnap => {
+            const pathParts = docSnap.ref.path.split('/');
+            // artifacts/{appId}/grammarTextbooks/{textbookId}/lessons/{lessonId}/points/{pointId}
+            if (pathParts[0] === 'artifacts' && pathParts[2] === 'grammarTextbooks') {
+                const lessonId = pathParts[5];
+                const pointId = docSnap.id;
+                const point = { id: pointId, ...docSnap.data() };
+                if (lessonsMap[lessonId]) {
+                    lessonsMap[lessonId].points.push(point);
+                }
+            }
+        });
+
+        // Sort everything
+        const textbooks = Object.values(textbooksMap);
+        textbooks.forEach(tb => {
             tb.lessons.sort((a, b) => (a.order || 0) - (b.order || 0));
-            return tb;
-        }));
+            tb.lessons.forEach(lesson => {
+                lesson.points.sort((a, b) => (a.order || 0) - (b.order || 0));
+            });
+        });
         textbooks.sort((a, b) => (a.order || 0) - (b.order || 0));
+
         return textbooks;
     };
 
