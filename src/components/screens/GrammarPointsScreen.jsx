@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Plus, Trash2, Edit2, Save, ChevronRight, PenTool, FileJson, Clipboard, Check, AlertCircle } from 'lucide-react';
-import { subscribeTextbooks, subscribeLessons, subscribeGrammarPoints, addGrammarPoint, updateGrammarPoint, deleteGrammarPoint, importGrammarPointsFromJson } from '../../utils/grammarService';
+import { 
+    ArrowLeft, Plus, Trash2, Edit2, Save, ChevronRight, PenTool, FileJson, 
+    Clipboard, Check, AlertCircle, Sparkles, Clock, X 
+} from 'lucide-react';
+import { 
+    subscribeTextbooks, subscribeLessons, subscribeGrammarPoints, 
+    addGrammarPoint, updateGrammarPoint, deleteGrammarPoint, importGrammarPointsFromJson 
+} from '../../utils/grammarService';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { storage } from '../../config/firebase';
 
 const SAMPLE_POINTS_JSON = `[
   {
@@ -10,7 +18,12 @@ const SAMPLE_POINTS_JSON = `[
     "meaningFull": "Cấu trúc trang trọng tương tự とき, dùng khi hướng dẫn, thông báo công cộng.",
     "structureRaw": "V-ru/V-ta + *際(ni) + N-no + *際(ni)",
     "tipsRaw": "Dùng trong văn viết hoặc chỉ dẫn trang trọng.\\nKhông dùng cho các hoạt động sinh hoạt thường ngày.",
-    "examplesRaw": "お降りの際は、足元にご注意ください。\\nKhi xuống xe, xin hãy chú ý dưới chân.\\n緊急 của 際は、このボタンを押してください。\\nTrong trường hợp khân cấp, hãy ấn nút này.",
+    "examplesRaw": "お降りの際は、足元にご注意ください。\\nKhi xuống xe, xin hãy chú ý dưới chân.\\n緊急の際は、このボタンを押してください。\\nTrong trường hợp khẩn cấp, hãy ấn nút này.",
+    "visual": {
+      "image": "",
+      "sentenceJa": "お降りの際は、足元にご注意ください。",
+      "descriptionVi": "Khi xuống xe, xin hãy chú ý dưới chân."
+    },
     "exercises": [
       {
         "questionVi": "Khi đi du lịch nước ngoài, hộ chiếu là cần thiết。",
@@ -28,6 +41,23 @@ const SAMPLE_POINTS_JSON = `[
   }
 ]`;
 
+const EMPTY_FORM = {
+    pattern: '',
+    meaningShort: '',
+    meaningFull: '',
+    structureRaw: '',
+    tipsRaw: '',
+    examplesRaw: '',
+    visual: {
+        title: '',
+        imageLabel: '',
+        image: '',
+        sentenceJa: '',
+        sentenceJaUnderline: '',
+        descriptionVi: ''
+    }
+};
+
 const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
     const { textbookId, lessonId } = useParams();
     const navigate = useNavigate();
@@ -41,8 +71,11 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
     const [importSuccess, setImportSuccess] = useState('');
     const [copied, setCopied] = useState(false);
     const [editId, setEditId] = useState(null);
-    const [form, setForm] = useState({ pattern: '', meaningShort: '', meaningFull: '', structureRaw: '', tipsRaw: '', examplesRaw: '' });
+    const [form, setForm] = useState(EMPTY_FORM);
     const [saving, setSaving] = useState(false);
+    
+    // Image uploading state for single visual
+    const [uploadingState, setUploadingState] = useState(false);
 
     useEffect(() => {
         const u1 = subscribeTextbooks(tbs => setTextbook(tbs.find(t => t.id === textbookId)), isAdmin);
@@ -88,12 +121,81 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
     const toTipsRaw = (arr) => arr ? arr.map(t => t.text).join('\n') : '';
     const toExamplesRaw = (arr) => arr ? arr.map(e => `${e.ja}\n${e.vi}`).join('\n') : '';
 
+    // Firebase Storage upload helper
+    const uploadImageFile = async (file) => {
+        try {
+            const fileExt = file.name ? file.name.split('.').pop() : 'png';
+            const storageRef = ref(storage, `grammar_visuals/${Date.now()}_${Math.random().toString(36).substring(2, 9)}.${fileExt}`);
+            const snapshot = await uploadBytes(storageRef, file);
+            const downloadUrl = await getDownloadURL(snapshot.ref);
+            return downloadUrl;
+        } catch (error) {
+            console.error("Upload error:", error);
+            throw error;
+        }
+    };
+
+    // Paste & drop handler
+    const handleImagePasteOrDrop = async (e) => {
+        e.preventDefault();
+        let file = null;
+
+        if (e.type === 'paste') {
+            const items = e.clipboardData?.items;
+            if (items) {
+                for (let i = 0; i < items.length; i++) {
+                    if (items[i].type.indexOf('image') !== -1) {
+                        file = items[i].getAsFile();
+                        break;
+                    }
+                }
+            }
+        } else if (e.type === 'drop') {
+            const files = e.dataTransfer?.files;
+            if (files && files.length > 0) {
+                if (files[0].type.indexOf('image') !== -1) {
+                    file = files[0];
+                }
+            }
+        }
+
+        if (file) {
+            try {
+                setUploadingState(true);
+                const url = await uploadImageFile(file);
+                setForm(f => ({
+                    ...f,
+                    visual: {
+                        ...f.visual,
+                        image: url
+                    }
+                }));
+            } catch (err) {
+                alert("Lỗi khi tải ảnh lên: " + err.message);
+            } finally {
+                setUploadingState(false);
+            }
+        }
+    };
+
     const handleSave = async () => {
         setSaving(true);
         const data = {
-            pattern: form.pattern, meaningShort: form.meaningShort, meaningFull: form.meaningFull,
-            structure: parseStructure(form.structureRaw), tips: parseTips(form.tipsRaw),
-            examples: parseExamples(form.examplesRaw)
+            pattern: form.pattern.trim(), 
+            meaningShort: form.meaningShort.trim(), 
+            meaningFull: form.meaningFull.trim(),
+            structure: parseStructure(form.structureRaw), 
+            tips: parseTips(form.tipsRaw),
+            examples: parseExamples(form.examplesRaw),
+            visual: {
+                active: !!(form.visual.image.trim() || form.visual.sentenceJa.trim()),
+                title: form.visual.title.trim() || "Học Ngữ pháp Trực quan Zen",
+                imageLabel: form.visual.imageLabel.trim(),
+                image: form.visual.image.trim(),
+                sentenceJa: form.visual.sentenceJa.trim(),
+                sentenceJaUnderline: form.visual.sentenceJaUnderline.trim(),
+                descriptionVi: form.visual.descriptionVi.trim()
+            }
         };
 
         if (editId) {
@@ -106,8 +208,9 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
             data.quizzes = [];
             await addGrammarPoint(textbookId, lessonId, data, 'admin');
         }
-        setShowAdd(false); setEditId(null);
-        setForm({ pattern: '', meaningShort: '', meaningFull: '', structureRaw: '', tipsRaw: '', examplesRaw: '' });
+        setShowAdd(false); 
+        setEditId(null);
+        setForm(EMPTY_FORM);
         setSaving(false);
     };
 
@@ -142,28 +245,41 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
 
     const handleEdit = (gp) => {
         setForm({
-            pattern: gp.pattern || '', meaningShort: gp.meaningShort || '', meaningFull: gp.meaningFull || '',
-            structureRaw: toStructureRaw(gp.structure), tipsRaw: toTipsRaw(gp.tips),
-            examplesRaw: toExamplesRaw(gp.examples)
+            pattern: gp.pattern || '', 
+            meaningShort: gp.meaningShort || '', 
+            meaningFull: gp.meaningFull || '',
+            structureRaw: toStructureRaw(gp.structure), 
+            tipsRaw: toTipsRaw(gp.tips),
+            examplesRaw: toExamplesRaw(gp.examples),
+            visual: gp.visual ? {
+                title: gp.visual.title || '',
+                imageLabel: gp.visual.imageLabel || gp.visual.themeRight || gp.visual.themeLeft || '',
+                image: gp.visual.image || gp.visual.rightImage || gp.visual.leftImage || '',
+                sentenceJa: gp.visual.sentenceJa || '',
+                sentenceJaUnderline: gp.visual.sentenceJaUnderline || '',
+                descriptionVi: gp.visual.descriptionVi || ''
+            } : EMPTY_FORM.visual
         });
-        setEditId(gp.id); setShowAdd(true); setShowJsonImport(false);
+        setEditId(gp.id); 
+        setShowAdd(true); 
+        setShowJsonImport(false);
     };
 
     if (!textbook || !lesson) return <div className="p-8 text-center text-slate-500">Đang tải...</div>;
 
     return (
-        <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
+        <div className="max-w-4xl mx-auto space-y-6 animate-fade-in px-4 md:px-0">
             <div>
                 <button onClick={() => navigate(`/grammar/textbook/${textbookId}`)} className="flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline mb-3">
                     <ArrowLeft className="w-3.5 h-3.5" /> Quay lại
                 </button>
-                <h1 className="text-xl font-extrabold text-slate-800 dark:text-white">{textbook.title || textbook.titleVi} - {lesson.sectionLabel}</h1>
+                <h1 className="text-xl font-bold text-slate-800 dark:text-white">{textbook.title || textbook.titleVi} - {lesson.sectionLabel}</h1>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{lesson.title} • {lesson.meaning}</p>
             </div>
 
             {isAdmin && (
                 <div className="flex flex-wrap gap-2">
-                    <button onClick={() => { setShowAdd(true); setShowJsonImport(false); setEditId(null); setForm({ pattern: '', meaningShort: '', meaningFull: '', structureRaw: '', tipsRaw: '', examplesRaw: '' }); }}
+                    <button onClick={() => { setShowAdd(true); setShowJsonImport(false); setEditId(null); setForm(EMPTY_FORM); }}
                         className="flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-xl transition-colors">
                         <Plus className="w-4 h-4" /> Thêm mẫu ngữ pháp
                     </button>
@@ -175,39 +291,116 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
             )}
 
             {showAdd && isAdmin && (
-                <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 space-y-3">
-                    <h3 className="font-bold text-slate-800 dark:text-white">{editId ? 'Sửa ngữ pháp' : 'Thêm ngữ pháp'}</h3>
-                    <input placeholder="Mẫu (VD: 〜際(に))" value={form.pattern} onChange={e => setForm(f => ({ ...f, pattern: e.target.value }))}
-                        className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none" />
-                    <input placeholder="Nghĩa ngắn (VD: Nhân dịp / Khi)" value={form.meaningShort} onChange={e => setForm(f => ({ ...f, meaningShort: e.target.value }))}
-                        className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none" />
-                    <textarea placeholder="Giải thích chi tiết" value={form.meaningFull} onChange={e => setForm(f => ({ ...f, meaningFull: e.target.value }))} rows={2}
-                        className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none resize-none" />
+                <div className="bg-white dark:bg-slate-800 border border-slate-250 dark:border-slate-700 rounded-3xl p-6 space-y-4 shadow-sm w-full">
+                    <h3 className="font-bold text-slate-800 dark:text-white text-lg">{editId ? 'Sửa ngữ pháp' : 'Thêm ngữ pháp'}</h3>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                        <div>
+                            <label className="text-xs font-bold text-slate-500 mb-1 block">Mẫu ngữ pháp</label>
+                            <input placeholder="Mẫu (VD: 〜際(に))" value={form.pattern} onChange={e => setForm(f => ({ ...f, pattern: e.target.value }))}
+                                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-bold" />
+                        </div>
+                        <div>
+                            <label className="text-xs font-bold text-slate-500 mb-1 block">Nghĩa ngắn</label>
+                            <input placeholder="Nghĩa ngắn (VD: Nhân dịp / Khi)" value={form.meaningShort} onChange={e => setForm(f => ({ ...f, meaningShort: e.target.value }))}
+                                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none" />
+                        </div>
+                    </div>
+
                     <div>
-                        <label className="text-xs font-bold text-slate-500 mb-1 block">Cấu trúc (dùng + ngăn cách, *đánh dấu highlight): VD: V-た + *際(ni)</label>
+                        <label className="text-xs font-bold text-slate-500 mb-1 block">Giải thích chi tiết (GIẢI THÍCH)</label>
+                        <textarea placeholder="Giải thích chi tiết..." value={form.meaningFull} onChange={e => setForm(f => ({ ...f, meaningFull: e.target.value }))} rows={2}
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none resize-none" />
+                    </div>
+
+                    <div>
+                        <label className="text-xs font-bold text-slate-500 mb-1 block">Cấu trúc (dùng + ngăn cách, *đọc highlight): VD: V-た + *際(ni) + N-no</label>
                         <input value={form.structureRaw} onChange={e => setForm(f => ({ ...f, structureRaw: e.target.value }))}
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none" />
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-mono" />
                     </div>
+
                     <div>
-                        <label className="text-xs font-bold text-slate-500 mb-1 block">Lưu ý (mỗi dòng 1 tip)</label>
+                        <label className="text-xs font-bold text-slate-500 mb-1 block">Lưu ý (mỗi dòng 1 lưu ý)</label>
                         <textarea value={form.tipsRaw} onChange={e => setForm(f => ({ ...f, tipsRaw: e.target.value }))} rows={3}
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none resize-none" />
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none resize-none" />
                     </div>
+
                     <div>
                         <label className="text-xs font-bold text-slate-500 mb-1 block">Ví dụ (dòng lẻ: tiếng Nhật, dòng chẵn: tiếng Việt)</label>
                         <textarea value={form.examplesRaw} onChange={e => setForm(f => ({ ...f, examplesRaw: e.target.value }))} rows={4}
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none resize-none" />
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none resize-none font-sans" />
                     </div>
-                    <div className="flex gap-2 pt-2">
-                        <button onClick={handleSave} disabled={saving || !form.pattern} className="px-4 py-2 bg-indigo-600 text-white text-sm font-bold rounded-lg disabled:opacity-50 flex items-center gap-1.5"><Save className="w-4 h-4" /> Lưu</button>
-                        <button onClick={() => setShowAdd(false)} className="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm rounded-lg">Huỷ</button>
+
+                    {/* Zen Visual Grammar Card integrated directly */}
+                    <div className="border-t border-slate-200 dark:border-slate-700 pt-6 mt-6 space-y-4 w-full">
+                        <h3 className="text-base font-bold text-slate-855 dark:text-white flex items-center gap-2">
+                            <Sparkles className="w-5 h-5 text-indigo-500" /> Giao diện trực quan (Zen Visual Grammar)
+                        </h3>
+                        
+                        <div className="grid grid-cols-1 gap-4 bg-slate-50 dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 w-full">
+
+                            <div>
+                                <label className="text-xs font-bold text-slate-500 uppercase block mb-1">Đường dẫn ảnh minh hoạ</label>
+                                <input 
+                                    value={form.visual.image} 
+                                    onChange={e => setForm(f => ({ ...f, visual: { ...f.visual, image: e.target.value } }))}
+                                    placeholder="VD: /images/grammar/ageku_miss.png hoặc URL"
+                                    className="w-full px-3 py-2 bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none"
+                                />
+                            </div>
+
+                            {/* Image Paste/Drop zone */}
+                            <div 
+                                onPaste={handleImagePasteOrDrop}
+                                onDrop={handleImagePasteOrDrop}
+                                onDragOver={e => e.preventDefault()}
+                                className="border border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-4 text-center cursor-pointer hover:bg-slate-100/50 dark:hover:bg-slate-800/40 transition-colors relative"
+                            >
+                                {uploadingState ? (
+                                    <p className="text-xs text-indigo-500 font-bold animate-pulse py-4">Đang tải ảnh lên...</p>
+                                ) : (
+                                    <div className="space-y-2">
+                                        <p className="text-xs text-slate-500 font-bold">Bấm vào đây rồi dán ảnh (Ctrl+V) hoặc kéo thả file để tải lên</p>
+                                        {form.visual.image && (
+                                            <img src={form.visual.image} alt="preview" className="max-h-24 mx-auto object-contain rounded border border-slate-200 shadow-sm" />
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+
+                            <div>
+                                <label className="text-xs font-bold text-slate-500 uppercase block mb-1">Nghĩa tiếng Việt giải thích cho ảnh</label>
+                                <textarea 
+                                    value={form.visual.descriptionVi} 
+                                    onChange={e => setForm(f => ({ ...f, visual: { ...f.visual, descriptionVi: e.target.value } }))}
+                                    placeholder="VD: Sau một hồi chạy thục mạng, cuối cùng tôi lại bị lỡ chuyến xe buýt."
+                                    rows={2}
+                                    className="w-full px-3 py-2 bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-700 rounded-xl text-xs outline-none resize-none"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="text-xs font-bold text-slate-500 uppercase block mb-1">Câu tiếng Nhật minh hoạ</label>
+                                <input 
+                                    value={form.visual.sentenceJa} 
+                                    onChange={e => setForm(f => ({ ...f, visual: { ...f.visual, sentenceJa: e.target.value } }))}
+                                    placeholder="VD: 必死で走ったあげく、バスに乗り遅れてしまった。"
+                                    className="w-full px-3 py-2 bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-700 rounded-xl text-xs outline-none font-bold"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="flex gap-2 pt-2 shrink-0">
+                        <button onClick={handleSave} disabled={saving || !form.pattern} className="px-5 py-2.5 bg-indigo-600 text-white text-sm font-bold rounded-xl disabled:opacity-50 flex items-center gap-1.5 shadow-sm transition-all hover:bg-indigo-700"><Save className="w-4 h-4" /> Lưu ngữ pháp</button>
+                        <button onClick={() => setShowAdd(false)} className="px-5 py-2.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm font-bold rounded-xl transition-all hover:bg-slate-200">Huỷ</button>
                     </div>
                 </div>
             )}
 
             {/* Admin: JSON Import Panel */}
             {showJsonImport && isAdmin && (
-                <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 space-y-4 shadow-sm">
+                <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 space-y-4 shadow-sm w-full">
                     <div className="flex items-center justify-between">
                         <h3 className="font-bold text-slate-800 dark:text-white flex items-center gap-2">
                             <FileJson className="w-5 h-5 text-indigo-500" /> Nhập cấu trúc Ngữ pháp hàng loạt từ JSON
@@ -251,14 +444,14 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
             )}
 
             {points.length === 0 && <p className="text-center text-slate-400 py-12">Chưa có mẫu ngữ pháp nào. {isAdmin ? 'Nhấn "Thêm mẫu ngữ pháp" hoặc "Nhập bằng JSON" để bắt đầu.' : ''}</p>}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
                 {points.map(gp => (
-                    <div key={gp.id} className="group relative bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                    <div key={gp.id} className="group relative bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 min-w-0 w-full">
                         <button onClick={() => navigate(`/grammar/detail/${gp.id}?tb=${textbookId}&ls=${lessonId}`)} className="w-full text-left">
-                            <h3 className="text-lg font-extrabold text-slate-800 dark:text-white pr-16">{gp.pattern}</h3>
-                            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{gp.meaningShort}</p>
+                            <h3 className="text-lg font-bold text-slate-800 dark:text-white pr-16 break-all">{gp.pattern}</h3>
+                            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 break-all">{gp.meaningShort}</p>
                         </button>
-                        <div className="absolute top-3 right-3 flex items-center gap-1">
+                        <div className="absolute top-3 right-3 flex items-center gap-1 shrink-0">
                             {isAdmin && (
                                 <>
                                     <button onClick={() => handleEdit(gp)} className="p-1.5 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900/30 opacity-0 group-hover:opacity-100 transition-all"><Edit2 className="w-3.5 h-3.5 text-indigo-600" /></button>

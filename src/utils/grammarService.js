@@ -471,7 +471,20 @@ export const importGrammarPointsFromJson = async (textbookId, lessonId, jsonArra
                 tips: Array.isArray(gp.tips) ? gp.tips : parseTips(gp.tipsRaw || gp.tips || ''),
                 examples: Array.isArray(gp.examples) ? gp.examples : parseExamples(gp.examplesRaw || gp.examples || ''),
                 exercises: Array.isArray(gp.exercises) ? gp.exercises : parseExercises(gp.exercisesRaw || gp.exercises || ''),
-                quizzes: Array.isArray(gp.quizzes) ? gp.quizzes : []
+                quizzes: Array.isArray(gp.quizzes) ? gp.quizzes : [],
+                visual: gp.visual ? {
+                    active: gp.visual.active !== undefined ? gp.visual.active : true,
+                    title: gp.visual.title || "Học Ngữ pháp Trực quan Zen",
+                    image: gp.visual.image || "",
+                    sentenceJa: gp.visual.sentenceJa || "",
+                    descriptionVi: gp.visual.descriptionVi || ""
+                } : {
+                    active: false,
+                    title: "Học Ngữ pháp Trực quan Zen",
+                    image: "",
+                    sentenceJa: "",
+                    descriptionVi: ""
+                }
             };
 
             const res = await addGrammarPoint(textbookId, lessonId, gpData, adminUserId);
