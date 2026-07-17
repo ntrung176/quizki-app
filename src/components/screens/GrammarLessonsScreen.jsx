@@ -12,8 +12,9 @@ const SAMPLE_LESSONS_JSON = `[
   },
   {
     "sectionLabel": "第1部 2課",
-    "title": "〜関係・〜にともなって",
-    "meaning": "Liên quan / Đồng hành cùng"
+    "title": "Ôn tập tổng hợp",
+    "meaning": "Bài luyện tập trắc nghiệm",
+    "isReview": true
   }
 ]`;
 
@@ -33,7 +34,7 @@ const GrammarLessonsScreen = ({ isAdmin, profile = null }) => {
     const [importSuccess, setImportSuccess] = useState('');
     const [copied, setCopied] = useState(false);
     const [editId, setEditId] = useState(null);
-    const [form, setForm] = useState({ sectionLabel: '', title: '', meaning: '' });
+    const [form, setForm] = useState({ sectionLabel: '', title: '', meaning: '', isReview: false });
     const [saving, setSaving] = useState(false);
 
     useEffect(() => {
@@ -44,9 +45,13 @@ const GrammarLessonsScreen = ({ isAdmin, profile = null }) => {
 
     const handleSave = async () => {
         setSaving(true);
-        if (editId) await updateLesson(textbookId, editId, form);
-        else await addLesson(textbookId, form, 'admin');
-        setShowAdd(false); setEditId(null); setForm({ sectionLabel: '', title: '', meaning: '' });
+        const lessonData = {
+            ...form,
+            isReview: !!form.isReview
+        };
+        if (editId) await updateLesson(textbookId, editId, lessonData);
+        else await addLesson(textbookId, lessonData, 'admin');
+        setShowAdd(false); setEditId(null); setForm({ sectionLabel: '', title: '', meaning: '', isReview: false });
         setSaving(false);
     };
 
@@ -79,7 +84,7 @@ const GrammarLessonsScreen = ({ isAdmin, profile = null }) => {
         setTimeout(() => setCopied(false), 2000);
     };
 
-    const handleEdit = (l) => { setForm({ sectionLabel: l.sectionLabel || '', title: l.title || '', meaning: l.meaning || '' }); setEditId(l.id); setShowAdd(true); setShowJsonImport(false); };
+    const handleEdit = (l) => { setForm({ sectionLabel: l.sectionLabel || '', title: l.title || '', meaning: l.meaning || '', isReview: !!l.isReview }); setEditId(l.id); setShowAdd(true); setShowJsonImport(false); };
     const handleDelete = async (id) => {
         if (await window.showConfirm('Xoá bài học này?', { type: 'danger' })) {
             await deleteLesson(textbookId, id);
@@ -112,7 +117,7 @@ const GrammarLessonsScreen = ({ isAdmin, profile = null }) => {
 
             {isAdmin && (
                 <div className="flex flex-wrap gap-2">
-                    <button onClick={() => { setShowAdd(true); setShowJsonImport(false); setEditId(null); setForm({ sectionLabel: '', title: '', meaning: '' }); }}
+                    <button onClick={() => { setShowAdd(true); setShowJsonImport(false); setEditId(null); setForm({ sectionLabel: '', title: '', meaning: '', isReview: false }); }}
                         className="flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-xl transition-colors">
                         <Plus className="w-4 h-4" /> Thêm bài học
                     </button>
@@ -132,6 +137,11 @@ const GrammarLessonsScreen = ({ isAdmin, profile = null }) => {
                         className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none" />
                     <input placeholder="Ý nghĩa (VD: Thời điểm • Ngay sau khi)" value={form.meaning} onChange={e => setForm(f => ({ ...f, meaning: e.target.value }))}
                         className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none" />
+                    <label className="flex items-center gap-2 cursor-pointer py-1.5">
+                        <input type="checkbox" checked={form.isReview || false} onChange={e => setForm(f => ({ ...f, isReview: e.target.checked }))}
+                            className="w-4 h-4 text-indigo-600 border-slate-350 rounded focus:ring-indigo-500" />
+                        <span className="text-sm font-bold text-slate-700 dark:text-slate-200">Bài ôn tập / Trắc nghiệm (Chỉ làm Quiz, không chứa ngữ pháp)</span>
+                    </label>
                     <div className="flex gap-2">
                         <button onClick={handleSave} disabled={saving || !form.title} className="px-4 py-2 bg-indigo-600 text-white text-sm font-bold rounded-lg disabled:opacity-50 flex items-center gap-1.5"><Save className="w-4 h-4" /> Lưu</button>
                         <button onClick={() => setShowAdd(false)} className="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm rounded-lg">Huỷ</button>
@@ -204,6 +214,11 @@ const GrammarLessonsScreen = ({ isAdmin, profile = null }) => {
                                     {lesson.isPremium && (
                                         <span className="flex items-center gap-1 px-2 py-0.5 text-[8px] font-black tracking-widest text-amber-600 bg-amber-100 dark:bg-amber-900/30 dark:text-amber-400 rounded-full uppercase">
                                             <Crown className="w-2.5 h-2.5 fill-current" /> Premium
+                                        </span>
+                                    )}
+                                    {lesson.isReview && (
+                                        <span className="flex items-center gap-1 px-2 py-0.5 text-[8px] font-black tracking-widest text-indigo-600 bg-indigo-100 dark:bg-indigo-900/30 dark:text-indigo-400 rounded-full uppercase">
+                                            📝 Ôn tập
                                         </span>
                                     )}
                                 </div>

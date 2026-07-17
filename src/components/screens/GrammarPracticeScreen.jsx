@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, Eye, Lightbulb, Sparkle, X, Loader2, Award, ClipboardCheck, Save, Trash2, Edit2, FileJson } from 'lucide-react'
+import { ArrowLeft, CheckCircle, Eye, Lightbulb, Sparkle, X, Loader2, Award, ClipboardCheck, Save, Trash2, Edit2, FileJson, Plus } from 'lucide-react'
 import { fetchGrammarPointById, updateGrammarPoint } from '../../utils/grammarService';
 import { aiCheckGrammarAnswer } from '../../utils/aiProvider';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare } from '../../utils/soundEffects';
@@ -78,7 +78,21 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
     const [quizAnswers, setQuizAnswers] = useState({}); // { [quizIndex]: selectedOption }
 
     // Admin states
-    const [showImportPanel, setShowImportPanel] = useState(false);
+    const [showAddExercisePanel, setShowAddExercisePanel] = useState(false);
+    const [showAddQuizPanel, setShowAddQuizPanel] = useState(false);
+    const [activeAddExerciseTab, setActiveAddExerciseTab] = useState('manual'); // 'manual' or 'json'
+    const [activeAddQuizTab, setActiveAddQuizTab] = useState('manual'); // 'manual' or 'json'
+    const [manualExerciseForm, setManualExerciseForm] = useState({
+        questionVi: '',
+        hint: '',
+        answersRaw: ''
+    });
+    const [manualQuizForm, setManualQuizForm] = useState({
+        question: '',
+        options: ['', '', '', ''],
+        answer: '',
+        explanation: ''
+    });
     const [jsonInputTranslate, setJsonInputTranslate] = useState('');
     const [jsonInputQuiz, setJsonInputQuiz] = useState('');
     const [importing, setImporting] = useState(false);
@@ -87,24 +101,132 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
     const [editingItem, setEditingItem] = useState(null); // { type: 'translate' | 'quiz', index: number }
     const [editForm, setEditForm] = useState(null); // stores the copy of item being edited
 
+    const handleAddExerciseManually = async () => {
+        const qVi = manualExerciseForm.questionVi.trim();
+        const hint = manualExerciseForm.hint.trim();
+        const answers = manualExerciseForm.answersRaw.split('\n').map(a => a.trim()).filter(Boolean);
+
+        if (!qVi) {
+            alert("Vui lòng nhập câu hỏi tiếng Việt!");
+            return;
+        }
+        if (answers.length === 0) {
+            alert("Vui lòng nhập ít nhất 1 đáp án tiếng Nhật!");
+            return;
+        }
+
+        setImporting(true);
+        try {
+            const newEx = {
+                questionVi: qVi,
+                hint,
+                answers
+            };
+
+            const updatedExercises = [...exercises, newEx];
+            const success = await updateGrammarPoint(gp.textbookId, gp.lessonId, grammarId, {
+                ...gp,
+                exercises: updatedExercises
+            });
+
+            if (success) {
+                setGp(prev => ({ ...prev, exercises: updatedExercises }));
+                alert("Đã thêm bài tập đặt câu thành công!");
+                setManualExerciseForm({ questionVi: '', hint: '', answersRaw: '' });
+                setShowAddExercisePanel(false);
+            } else {
+                alert("Lỗi khi cập nhật database.");
+            }
+        } catch (e) {
+            console.error(e);
+            alert("Lỗi: " + e.message);
+        }
+        setImporting(false);
+    };
+
+    const handleAddQuizManually = async () => {
+        const q = manualQuizForm.question.trim();
+        const opts = manualQuizForm.options.map(o => o.trim()).filter(Boolean);
+        const ans = manualQuizForm.answer.trim();
+        const expl = manualQuizForm.explanation.trim();
+
+        if (!q) {
+            alert("Vui lòng nhập câu hỏi!");
+            return;
+        }
+        if (opts.length < 2) {
+            alert("Vui lòng nhập ít nhất 2 lựa chọn!");
+            return;
+        }
+        if (!ans || !opts.includes(ans)) {
+            alert("Vui lòng chọn hoặc nhập đáp án đúng nằm trong danh sách các lựa chọn!");
+            return;
+        }
+
+        setImporting(true);
+        try {
+            const newQuiz = {
+                question: q,
+                options: opts,
+                answer: ans,
+                explanation: expl
+            };
+
+            const updatedQuizzes = [...quizzes, newQuiz];
+            const success = await updateGrammarPoint(gp.textbookId, gp.lessonId, grammarId, {
+                ...gp,
+                quizzes: updatedQuizzes
+            });
+
+            if (success) {
+                setGp(prev => ({ ...prev, quizzes: updatedQuizzes }));
+                alert("Đã thêm câu hỏi trắc nghiệm thành công!");
+                setManualQuizForm({
+                    question: '',
+                    options: ['', '', '', ''],
+                    answer: '',
+                    explanation: ''
+                });
+                setShowAddQuizPanel(false);
+            } else {
+                alert("Lỗi khi cập nhật database.");
+            }
+        } catch (e) {
+            console.error(e);
+            alert("Lỗi: " + e.message);
+        }
+        setImporting(false);
+    };
+
     const inputRef = useRef(null);
 
     useEffect(() => {
         (async () => {
             setLoading(true);
-            const data = await fetchGrammarPointById(grammarId);
+            const data = await fetchGrammarPointById(grammarId, tb, ls);
             setGp(data);
-            // Choose initial active tab based on what data is available
-            if (data) {
-                if (data.exercises?.length > 0) {
-                    setActiveTab('translate');
-                } else if (data.quizzes?.length > 0) {
-                    setActiveTab('quiz');
+            
+            const addType = searchParams.get('add');
+            if (addType === 'translate') {
+                setShowAddExercisePanel(true);
+                setShowAddQuizPanel(false);
+                setActiveTab('translate');
+            } else if (addType === 'quiz') {
+                setShowAddQuizPanel(true);
+                setShowAddExercisePanel(false);
+                setActiveTab('quiz');
+            } else {
+                if (data) {
+                    if (data.exercises?.length > 0) {
+                        setActiveTab('translate');
+                    } else if (data.quizzes?.length > 0) {
+                        setActiveTab('quiz');
+                    }
                 }
             }
             setLoading(false);
         })();
-    }, [grammarId]);
+    }, [grammarId, tb, ls, searchParams]);
 
     useEffect(() => {
         if (gp && profile) {
@@ -387,58 +509,162 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                     <p className="text-sm text-slate-500">{gp.meaningShort}</p>
                 </div>
                 {isAdmin && (
-                    <button onClick={() => setShowImportPanel(!showImportPanel)}
-                        className="flex items-center gap-1.5 px-3 py-2 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl transition-all border border-indigo-200 dark:border-indigo-800/80 shadow-sm shrink-0">
-                        <FileJson className="w-3.5 h-3.5" /> {showImportPanel ? 'Ẩn ô thêm JSON' : 'Thêm bằng JSON'}
-                    </button>
+                    <div className="flex gap-2 shrink-0">
+                        <button onClick={() => { setShowAddExercisePanel(!showAddExercisePanel); setShowAddQuizPanel(false); }}
+                            className="flex items-center gap-1.5 px-3 py-2 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl transition-all border border-indigo-200 dark:border-indigo-800/80 shadow-sm">
+                            <Plus className="w-3.5 h-3.5" /> Thêm đặt câu
+                        </button>
+                        <button onClick={() => { setShowAddQuizPanel(!showAddQuizPanel); setShowAddExercisePanel(false); }}
+                            className="flex items-center gap-1.5 px-3 py-2 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950 dark:hover:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 text-xs font-bold rounded-xl transition-all border border-emerald-200 dark:border-emerald-800/80 shadow-sm">
+                            <Plus className="w-3.5 h-3.5" /> Thêm Trắc nghiệm
+                        </button>
+                    </div>
                 )}
             </div>
 
-            {/* ADMIN JSON IMPORT PANEL */}
-            {isAdmin && showImportPanel && (
+            {/* ADMIN ADD EXERCISE PANEL (MANUAL & JSON) */}
+            {isAdmin && showAddExercisePanel && (
                 <div className="bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 space-y-4 shadow-sm animate-in fade-in slide-in-from-top duration-200">
-                    <div>
+                    <div className="flex items-center justify-between border-b border-slate-250 dark:border-slate-700 pb-2.5">
                         <h3 className="font-extrabold text-slate-800 dark:text-white flex items-center gap-2 text-sm">
-                            ⚙️ Nhập và Thêm câu hỏi bằng JSON (Admin)
+                            ⚙️ Thêm bài tập Đặt câu (Admin)
                         </h3>
-                        <p className="text-[11px] text-slate-500 mt-0.5">Dữ liệu dán vào sẽ được thêm nối tiếp vào danh sách câu hỏi hiện tại.</p>
+                        <div className="flex gap-1.5 p-0.5 bg-slate-200 dark:bg-slate-700 rounded-lg">
+                            <button onClick={() => setActiveAddExerciseTab('manual')}
+                                className={`px-2.5 py-1 text-[11px] font-bold rounded-md transition-all ${activeAddExerciseTab === 'manual' ? 'bg-white dark:bg-slate-600 text-slate-800 dark:text-white shadow-xs' : 'text-slate-500 hover:text-slate-750 dark:hover:text-slate-200'}`}>
+                                Nhập thủ công
+                            </button>
+                            <button onClick={() => setActiveAddExerciseTab('json')}
+                                className={`px-2.5 py-1 text-[11px] font-bold rounded-md transition-all ${activeAddExerciseTab === 'json' ? 'bg-white dark:bg-slate-600 text-slate-800 dark:text-white shadow-xs' : 'text-slate-500 hover:text-slate-750 dark:hover:text-slate-200'}`}>
+                                Nhập bằng JSON
+                            </button>
+                        </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
+
+                    {activeAddExerciseTab === 'manual' ? (
+                        <div className="space-y-3 animate-fade-in">
+                            <div>
+                                <label className="text-[10px] font-bold text-slate-400 uppercase">Câu hỏi tiếng Việt</label>
+                                <input value={manualExerciseForm.questionVi} onChange={e => setManualExerciseForm(f => ({ ...f, questionVi: e.target.value }))} placeholder="Ví dụ: Khi đi du lịch nước ngoài, hộ chiếu là cần thiết。"
+                                    className="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/25" />
+                            </div>
+                            <div>
+                                <label className="text-[10px] font-bold text-slate-400 uppercase">Gợi ý (Hint)</label>
+                                <input value={manualExerciseForm.hint} onChange={e => setManualExerciseForm(f => ({ ...f, hint: e.target.value }))} placeholder="Ví dụ: passport"
+                                    className="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/25" />
+                            </div>
+                            <div>
+                                <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">Đáp án tiếng Nhật (Mỗi dòng một đáp án)</label>
+                                <textarea value={manualExerciseForm.answersRaw} onChange={e => setManualExerciseForm(f => ({ ...f, answersRaw: e.target.value }))} rows={3} placeholder="Ví dụ: 外国旅行の際、パスポートが必要です。"
+                                    className="w-full font-mono text-sm px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl dark:text-white outline-none resize-none focus:ring-2 focus:ring-indigo-500/25" />
+                            </div>
+                            <button onClick={handleAddExerciseManually} disabled={importing}
+                                className="w-full py-2.5 bg-indigo-650 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl transition-all shadow-sm">
+                                Thêm bài tập Đặt câu
+                            </button>
+                        </div>
+                    ) : (
+                        <div className="space-y-2 animate-fade-in">
                             <div className="flex items-center justify-between">
-                                <label className="text-[10px] font-bold text-slate-500 uppercase block">Thêm Đặt câu (JSON)</label>
+                                <label className="text-[10px] font-bold text-slate-500 uppercase block">Đặt câu JSON</label>
                                 <button onClick={() => {
                                     setJsonInputTranslate(`[\n  {\n    "questionVi": "Câu tiếng Việt ở đây",\n    "hint": "Gợi ý",\n    "answers": ["Đáp án tiếng Nhật"]\n  }\n]`);
                                 }} className="text-[10px] text-indigo-600 hover:underline">Copy mẫu</button>
                             </div>
-                            <textarea value={jsonInputTranslate} onChange={e => setJsonInputTranslate(e.target.value)} rows={6} placeholder='[{"questionVi": "...", "answers": ["..."]}]'
-                                className="w-full font-mono text-[11px] p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl dark:text-white outline-none resize-none" />
-                            <button onClick={() => handleImportJson('translate')} disabled={importing || !jsonInputTranslate.trim()}
-                                className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg disabled:opacity-50">
-                                Nhập thêm Đặt câu
+                            <textarea value={jsonInputTranslate} onChange={e => setJsonInputTranslate(e.target.value)} rows={5} placeholder='[{"questionVi": "...", "answers": ["..."]}]'
+                                className="w-full font-mono text-[11px] p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl dark:text-white outline-none resize-none focus:ring-2 focus:ring-indigo-500/25" />
+                            <button onClick={() => { handleImportJson('translate'); setShowAddExercisePanel(false); }} disabled={importing || !jsonInputTranslate.trim()}
+                                className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl transition-all shadow-sm">
+                                Nhập câu hỏi từ JSON
                             </button>
                         </div>
-                        <div className="space-y-2">
+                    )}
+                </div>
+            )}
+
+            {/* ADMIN ADD QUIZ PANEL (MANUAL & JSON) */}
+            {isAdmin && showAddQuizPanel && (
+                <div className="bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 space-y-4 shadow-sm animate-in fade-in slide-in-from-top duration-200">
+                    <div className="flex items-center justify-between border-b border-slate-250 dark:border-slate-700 pb-2.5">
+                        <h3 className="font-extrabold text-slate-800 dark:text-white flex items-center gap-2 text-sm">
+                            ⚙️ Thêm câu hỏi Trắc nghiệm (Admin)
+                        </h3>
+                        <div className="flex gap-1.5 p-0.5 bg-slate-200 dark:bg-slate-700 rounded-lg">
+                            <button onClick={() => setActiveAddQuizTab('manual')}
+                                className={`px-2.5 py-1 text-[11px] font-bold rounded-md transition-all ${activeAddQuizTab === 'manual' ? 'bg-white dark:bg-slate-600 text-slate-800 dark:text-white shadow-xs' : 'text-slate-500 hover:text-slate-750 dark:hover:text-slate-200'}`}>
+                                Nhập thủ công
+                            </button>
+                            <button onClick={() => setActiveAddQuizTab('json')}
+                                className={`px-2.5 py-1 text-[11px] font-bold rounded-md transition-all ${activeAddQuizTab === 'json' ? 'bg-white dark:bg-slate-600 text-slate-800 dark:text-white shadow-xs' : 'text-slate-500 hover:text-slate-755 dark:hover:text-slate-250'}`}>
+                                Nhập bằng JSON
+                            </button>
+                        </div>
+                    </div>
+
+                    {activeAddQuizTab === 'manual' ? (
+                        <div className="space-y-3 animate-fade-in">
+                            <div>
+                                <label className="text-[10px] font-bold text-slate-400 uppercase">Câu hỏi (Dùng ______ để điền chỗ trống)</label>
+                                <input value={manualQuizForm.question} onChange={e => setManualQuizForm(f => ({ ...f, question: e.target.value }))} placeholder="Ví dụ: 非常の______、このボタンを押してください。"
+                                    className="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/25" />
+                            </div>
+                            <div className="grid grid-cols-2 gap-3">
+                                {manualQuizForm.options.map((opt, oIdx) => (
+                                    <div key={oIdx}>
+                                        <label className="text-[10px] font-bold text-slate-400 uppercase">Lựa chọn {String.fromCharCode(65 + oIdx)}</label>
+                                        <input value={opt} onChange={e => {
+                                            const newOpts = [...manualQuizForm.options];
+                                            newOpts[oIdx] = e.target.value;
+                                            setManualQuizForm(f => ({ ...f, options: newOpts }));
+                                        }} placeholder={`Lựa chọn ${oIdx + 1}`}
+                                            className="w-full px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/25" />
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">Đáp án đúng</label>
+                                    <select value={manualQuizForm.answer} onChange={e => setManualQuizForm(f => ({ ...f, answer: e.target.value }))}
+                                        className="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/25">
+                                        <option value="">-- Chọn đáp án đúng --</option>
+                                        {manualQuizForm.options.filter(Boolean).map((opt, oIdx) => (
+                                            <option key={oIdx} value={opt}>{opt}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">Giải thích (Explanation)</label>
+                                    <input value={manualQuizForm.explanation} onChange={e => setManualQuizForm(f => ({ ...f, explanation: e.target.value }))} placeholder="Ví dụ: Cách dùng trang trọng của 際"
+                                        className="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/25" />
+                                </div>
+                            </div>
+                            <button onClick={handleAddQuizManually} disabled={importing}
+                                className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition-all shadow-sm">
+                                Thêm câu hỏi Trắc nghiệm
+                            </button>
+                        </div>
+                    ) : (
+                        <div className="space-y-2 animate-fade-in">
                             <div className="flex items-center justify-between">
-                                <label className="text-[10px] font-bold text-slate-500 uppercase block">Thêm Trắc nghiệm (JSON)</label>
+                                <label className="text-[10px] font-bold text-slate-500 uppercase block">Trắc nghiệm JSON</label>
                                 <button onClick={() => {
                                     setJsonInputQuiz(`[\n  {\n    "question": "非常の______、このボタンを押してください。",\n    "options": ["際", "際に", "とき", "こと"],\n    "answer": "際",\n    "explanation": "Giải thích cấu trúc"\n  }\n]`);
                                 }} className="text-[10px] text-indigo-600 hover:underline">Copy mẫu</button>
                             </div>
-                            <textarea value={jsonInputQuiz} onChange={e => setJsonInputQuiz(e.target.value)} rows={6} placeholder='[{"question": "...", "options": ["..."], "answer": "..."}]'
-                                className="w-full font-mono text-[11px] p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl dark:text-white outline-none resize-none" />
-                            <button onClick={() => handleImportJson('quiz')} disabled={importing || !jsonInputQuiz.trim()}
-                                className="w-full py-2 bg-sky-500 hover:bg-sky-600 text-white text-xs font-bold rounded-lg disabled:opacity-50">
-                                Nhập thêm Trắc nghiệm
+                            <textarea value={jsonInputQuiz} onChange={e => setJsonInputQuiz(e.target.value)} rows={5} placeholder='[{"question": "...", "options": ["..."], "answer": "..."}]'
+                                className="w-full font-mono text-[11px] p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl dark:text-white outline-none resize-none focus:ring-2 focus:ring-indigo-500/25" />
+                            <button onClick={() => { handleImportJson('quiz'); setShowAddQuizPanel(false); }} disabled={importing || !jsonInputQuiz.trim()}
+                                className="w-full py-2 bg-sky-500 hover:bg-sky-600 text-white text-xs font-bold rounded-xl transition-all shadow-sm">
+                                Nhập câu hỏi từ JSON
                             </button>
                         </div>
-                    </div>
+                    )}
                 </div>
             )}
 
             {exercises.length === 0 && quizzes.length === 0 ? (
                 <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-8 text-center">
-                    <p className="text-slate-500">Không có bài tập cho mẫu ngữ pháp này. {isAdmin ? 'Nhấn "Thêm bằng JSON" ở trên để nhập câu hỏi.' : ''}</p>
+                    <p className="text-slate-500">Không có bài tập cho mẫu ngữ pháp này. {isAdmin ? 'Sử dụng các nút thêm ở trên để bắt đầu nhập câu hỏi.' : ''}</p>
                 </div>
             ) : (
                 <>

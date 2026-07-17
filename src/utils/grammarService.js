@@ -13,6 +13,19 @@ let cachedGrammarData = null;
 let grammarPromise = null;
 let lastLoadedExportedAt = null;
 
+// SWR / Firestore fallback caches
+let textbooksCache = null;
+let textbooksListeners = new Set();
+let textbooksUnsub = null;
+
+const lessonsCache = {}; // textbookId -> lessons array
+const lessonsListeners = {}; // textbookId -> Set of callbacks
+const lessonsUnsubs = {}; // textbookId -> unsub function
+
+const pointsCache = {}; // "textbookId/lessonId" -> points array
+const pointsListeners = {}; // "textbookId/lessonId" -> Set of callbacks
+const pointsUnsubs = {}; // "textbookId/lessonId" -> unsub function
+
 export const getSharedGrammarData = async () => {
     const cacheConfig = await getCacheConfig();
     const currentExport = cacheConfig?.exportedAt || 0;
@@ -64,41 +77,48 @@ export const getSharedGrammarData = async () => {
 // ============== TEXTBOOKS ==============
 
 export const subscribeTextbooks = (callback, isAdmin = false) => {
-    let active = true;
-    let unsubFs = null;
-
-    (async () => {
-        if (!isAdmin) {
+    // Try CDN first
+    if (!isAdmin) {
+        (async () => {
             try {
                 const data = await getSharedGrammarData();
-                if (data && active) {
+                if (data) {
                     callback(data);
                     return;
                 }
             } catch (e) {
-                console.warn('CDN subscribeTextbooks failed, falling back to Firestore...', e);
+                console.warn('CDN subscribeTextbooks failed:', e);
             }
-        }
-        if (!active) return;
-        
-        try {
-            const colRef = collection(db, textbooksPath());
-            unsubFs = onSnapshot(colRef, (snapshot) => {
-                const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-                items.sort((a, b) => (a.order || 0) - (b.order || 0));
-                if (active) callback(items);
-            }, () => {
-                if (active) callback([]);
-            });
-        } catch (e) {
-            console.error('Subscribe textbooks error:', e);
-            if (active) callback([]);
-        }
-    })();
+        })();
+    }
+
+    // Return cached textbooks immediately if available (instant page transition)
+    if (textbooksCache) {
+        callback(textbooksCache);
+    }
+
+    textbooksListeners.add(callback);
+
+    if (!textbooksUnsub) {
+        const colRef = collection(db, textbooksPath());
+        textbooksUnsub = onSnapshot(colRef, (snapshot) => {
+            const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+            items.sort((a, b) => (a.order || 0) - (b.order || 0));
+            textbooksCache = items;
+            textbooksListeners.forEach(cb => cb(items));
+        }, (err) => {
+            console.error('Subscribe textbooks error:', err);
+            textbooksListeners.forEach(cb => cb([]));
+        });
+    }
 
     return () => {
-        active = false;
-        if (unsubFs) unsubFs();
+        textbooksListeners.delete(callback);
+        if (textbooksListeners.size === 0 && textbooksUnsub) {
+            textbooksUnsub();
+            textbooksUnsub = null;
+            textbooksCache = null;
+        }
     };
 };
 
@@ -158,14 +178,17 @@ export const deleteTextbook = async (textbookId) => {
 // ============== LESSONS ==============
 
 export const subscribeLessons = (textbookId, callback, isAdmin = false) => {
-    let active = true;
-    let unsubFs = null;
+    if (!textbookId) {
+        callback([]);
+        return () => {};
+    }
 
-    (async () => {
-        if (!isAdmin) {
+    // Try CDN first
+    if (!isAdmin) {
+        (async () => {
             try {
                 const data = await getSharedGrammarData();
-                if (data && active) {
+                if (data) {
                     const tb = data.find(t => t.id === textbookId);
                     if (tb) {
                         callback(tb.lessons || []);
@@ -173,29 +196,49 @@ export const subscribeLessons = (textbookId, callback, isAdmin = false) => {
                     }
                 }
             } catch (e) {
-                console.warn('CDN subscribeLessons failed, falling back to Firestore...', e);
+                console.warn('CDN subscribeLessons failed:', e);
             }
-        }
-        if (!active) return;
+        })();
+    }
 
-        try {
-            const colRef = collection(db, lessonsPath(textbookId));
-            unsubFs = onSnapshot(colRef, (snapshot) => {
-                const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-                items.sort((a, b) => (a.order || 0) - (b.order || 0));
-                if (active) callback(items);
-            }, () => {
-                if (active) callback([]);
-            });
-        } catch (e) {
-            console.error('Subscribe lessons error:', e);
-            if (active) callback([]);
-        }
-    })();
+    // Return cached lessons immediately if available (instant page transition)
+    if (lessonsCache[textbookId]) {
+        callback(lessonsCache[textbookId]);
+    }
+
+    if (!lessonsListeners[textbookId]) {
+        lessonsListeners[textbookId] = new Set();
+    }
+    lessonsListeners[textbookId].add(callback);
+
+    if (!lessonsUnsubs[textbookId]) {
+        const colRef = collection(db, lessonsPath(textbookId));
+        lessonsUnsubs[textbookId] = onSnapshot(colRef, (snapshot) => {
+            const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+            items.sort((a, b) => (a.order || 0) - (b.order || 0));
+            lessonsCache[textbookId] = items;
+            if (lessonsListeners[textbookId]) {
+                lessonsListeners[textbookId].forEach(cb => cb(items));
+            }
+        }, (err) => {
+            console.error('Subscribe lessons error:', err);
+            if (lessonsListeners[textbookId]) {
+                lessonsListeners[textbookId].forEach(cb => cb([]));
+            }
+        });
+    }
 
     return () => {
-        active = false;
-        if (unsubFs) unsubFs();
+        if (lessonsListeners[textbookId]) {
+            lessonsListeners[textbookId].delete(callback);
+            if (lessonsListeners[textbookId].size === 0) {
+                if (lessonsUnsubs[textbookId]) {
+                    lessonsUnsubs[textbookId]();
+                    delete lessonsUnsubs[textbookId];
+                }
+                delete lessonsListeners[textbookId];
+            }
+        }
     };
 };
 
@@ -245,14 +288,19 @@ export const deleteLesson = async (textbookId, lessonId) => {
 // ============== GRAMMAR POINTS ==============
 
 export const subscribeGrammarPoints = (textbookId, lessonId, callback, isAdmin = false) => {
-    let active = true;
-    let unsubFs = null;
+    if (!textbookId || !lessonId) {
+        callback([]);
+        return () => {};
+    }
 
-    (async () => {
-        if (!isAdmin) {
+    const key = `${textbookId}/${lessonId}`;
+
+    // Try CDN first
+    if (!isAdmin) {
+        (async () => {
             try {
                 const data = await getSharedGrammarData();
-                if (data && active) {
+                if (data) {
                     const tb = data.find(t => t.id === textbookId);
                     if (tb) {
                         const ls = (tb.lessons || []).find(l => l.id === lessonId);
@@ -263,29 +311,49 @@ export const subscribeGrammarPoints = (textbookId, lessonId, callback, isAdmin =
                     }
                 }
             } catch (e) {
-                console.warn('CDN subscribeGrammarPoints failed, falling back to Firestore...', e);
+                console.warn('CDN subscribeGrammarPoints failed:', e);
             }
-        }
-        if (!active) return;
+        })();
+    }
 
-        try {
-            const colRef = collection(db, grammarPointsPath(textbookId, lessonId));
-            unsubFs = onSnapshot(colRef, (snapshot) => {
-                const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-                items.sort((a, b) => (a.order || 0) - (b.order || 0));
-                if (active) callback(items);
-            }, () => {
-                if (active) callback([]);
-            });
-        } catch (e) {
-            console.error('Subscribe grammar points error:', e);
-            if (active) callback([]);
-        }
-    })();
+    // Return cached points immediately if available (instant page transition)
+    if (pointsCache[key]) {
+        callback(pointsCache[key]);
+    }
+
+    if (!pointsListeners[key]) {
+        pointsListeners[key] = new Set();
+    }
+    pointsListeners[key].add(callback);
+
+    if (!pointsUnsubs[key]) {
+        const colRef = collection(db, grammarPointsPath(textbookId, lessonId));
+        pointsUnsubs[key] = onSnapshot(colRef, (snapshot) => {
+            const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+            items.sort((a, b) => (a.order || 0) - (b.order || 0));
+            pointsCache[key] = items;
+            if (pointsListeners[key]) {
+                pointsListeners[key].forEach(cb => cb(items));
+            }
+        }, (err) => {
+            console.error('Subscribe grammar points error:', err);
+            if (pointsListeners[key]) {
+                pointsListeners[key].forEach(cb => cb([]));
+            }
+        });
+    }
 
     return () => {
-        active = false;
-        if (unsubFs) unsubFs();
+        if (pointsListeners[key]) {
+            pointsListeners[key].delete(callback);
+            if (pointsListeners[key].size === 0) {
+                if (pointsUnsubs[key]) {
+                    pointsUnsubs[key]();
+                    delete pointsUnsubs[key];
+                }
+                delete pointsListeners[key];
+            }
+        }
     };
 };
 
@@ -330,13 +398,15 @@ export const deleteGrammarPoint = async (textbookId, lessonId, grammarId) => {
 
 // ============== FETCH SINGLE GRAMMAR POINT (for detail/practice) ==============
 
-export const fetchGrammarPointById = async (grammarId) => {
+export const fetchGrammarPointById = async (grammarId, textbookId, lessonId) => {
     // Try CDN first
     try {
         const data = await getSharedGrammarData();
         if (data) {
             for (const textbook of data) {
+                if (textbookId && textbook.id !== textbookId) continue;
                 for (const lesson of textbook.lessons || []) {
+                    if (lessonId && lesson.id !== lessonId) continue;
                     const found = (lesson.points || []).find(pt => pt.id === grammarId);
                     if (found) {
                         return {
@@ -354,6 +424,48 @@ export const fetchGrammarPointById = async (grammarId) => {
         console.warn("CDN lookup for grammar point failed:", err);
     }
 
+    // Try in-memory SWR pointsCache first (extremely fast)
+    if (textbookId && lessonId) {
+        const key = `${textbookId}/${lessonId}`;
+        if (pointsCache[key]) {
+            const found = pointsCache[key].find(pt => pt.id === grammarId);
+            if (found) {
+                const tbData = textbooksCache?.find(t => t.id === textbookId) || { id: textbookId };
+                const lsData = lessonsCache[textbookId]?.find(l => l.id === lessonId) || { id: lessonId };
+                return {
+                    ...found,
+                    textbookId,
+                    lessonId,
+                    textbook: tbData,
+                    lesson: lsData
+                };
+            }
+        }
+    }
+
+    try {
+        // If textbookId and lessonId are provided, query directly!
+        if (textbookId && lessonId) {
+            const gpRef = doc(db, grammarPointsPath(textbookId, lessonId), grammarId);
+            const gpSnap = await getDoc(gpRef);
+            if (gpSnap.exists()) {
+                const tbSnap = await getDoc(doc(db, textbooksPath(), textbookId));
+                const lsSnap = await getDoc(doc(db, lessonsPath(textbookId), lessonId));
+                return {
+                    ...gpSnap.data(),
+                    id: gpSnap.id,
+                    textbookId,
+                    lessonId,
+                    textbook: tbSnap.exists() ? { id: textbookId, ...tbSnap.data() } : { id: textbookId },
+                    lesson: lsSnap.exists() ? { id: lessonId, ...lsSnap.data() } : { id: lessonId }
+                };
+            }
+        }
+    } catch (err) {
+        console.warn("Direct Firestore fetch failed, falling back to search:", err);
+    }
+
+    // Fallback nested loop query if textbookId/lessonId are not provided or if direct query fails
     try {
         const textbooksSnap = await getDocs(collection(db, textbooksPath()));
         for (const tbDoc of textbooksSnap.docs) {
@@ -413,7 +525,10 @@ export const importLessonsFromJson = async (textbookId, jsonArray, adminUserId) 
             const lessonData = {
                 sectionLabel: lesson.sectionLabel || '',
                 title: lesson.title || '',
-                meaning: lesson.meaning || ''
+                meaning: lesson.meaning || '',
+                isReview: !!lesson.isReview,
+                exercises: Array.isArray(lesson.exercises) ? lesson.exercises : [],
+                quizzes: Array.isArray(lesson.quizzes) ? lesson.quizzes : []
             };
             const res = await addLesson(textbookId, lessonData, adminUserId);
             if (!res.success) throw new Error(`Lỗi bài học "${lessonData.title}": ${res.error}`);

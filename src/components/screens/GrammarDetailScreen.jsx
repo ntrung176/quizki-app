@@ -66,11 +66,11 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         (async () => {
             setGp(null);
             setLoading(true);
-            const data = await fetchGrammarPointById(grammarId);
+            const data = await fetchGrammarPointById(grammarId, tb, ls);
             setGp(data);
             setLoading(false);
         })();
-    }, [grammarId]);
+    }, [grammarId, tb, ls]);
 
     // Fetch sibling points to calculate indexes and next/prev
     useEffect(() => {
@@ -279,7 +279,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
     // Helper to highlight N, A, V symbols
     const highlightNAV = (text) => {
         if (!text) return text;
-        const navRegex = /([NAV])/g;
+        const navRegex = /(Aい|Aな|A|V|N)/g;
         const parts = text.split(navRegex);
         if (parts.length <= 1) return text;
         
@@ -301,10 +301,10 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                 </span>
                             );
                         }
-                        if (part === 'A') {
+                        if (part === 'A' || part === 'Aい' || part === 'Aな') {
                             return (
                                 <span key={index} className="inline-flex items-center justify-center bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300 border border-amber-100 dark:border-amber-900/40 px-1.5 py-0.5 rounded-md mx-0.5 text-xs font-black align-middle leading-none">
-                                    A
+                                    {part}
                                 </span>
                             );
                         }
