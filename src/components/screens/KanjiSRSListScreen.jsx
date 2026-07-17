@@ -78,14 +78,28 @@ const KanjiSRSListScreen = () => {
     const [showConfirmDelete, setShowConfirmDelete] = useState(false);
 
     // Folder management — with parentId for nesting
-    const [folders, setFolders] = useState(() => {
-        const saved = localStorage.getItem('kanji_srs_folders');
-        return saved ? JSON.parse(saved) : [];
-    });
-    const [kanjiCardFolders, setKanjiCardFolders] = useState(() => {
-        const saved = localStorage.getItem('kanji_srs_card_folders');
-        return saved ? JSON.parse(saved) : {};
-    });
+    const [folders, setFolders] = useState([]);
+    const [kanjiCardFolders, setKanjiCardFolders] = useState({});
+
+    // Load folders & cardFolders when userId changes
+    useEffect(() => {
+        const foldersKey = userId ? `kanji_srs_folders_${userId}` : 'kanji_srs_folders';
+        const cardFoldersKey = userId ? `kanji_srs_card_folders_${userId}` : 'kanji_srs_card_folders';
+        
+        try {
+            const savedFolders = localStorage.getItem(foldersKey);
+            setFolders(savedFolders ? JSON.parse(savedFolders) : []);
+        } catch (e) {
+            setFolders([]);
+        }
+        
+        try {
+            const savedCardFolders = localStorage.getItem(cardFoldersKey);
+            setKanjiCardFolders(savedCardFolders ? JSON.parse(savedCardFolders) : {});
+        } catch (e) {
+            setKanjiCardFolders({});
+        }
+    }, [userId]);
     const [filterFolder, setFilterFolder] = useState('all');
     const [showFolderManager, setShowFolderManager] = useState(false);
     const [showMoveModal, setShowMoveModal] = useState(null);
@@ -118,14 +132,17 @@ const KanjiSRSListScreen = () => {
     // Load Recently Viewed and Study History
     useEffect(() => {
         const loadHistoryAndRecents = async () => {
+            const recentsKey = userId ? `kanji_recently_viewed_${userId}` : 'kanji_recently_viewed';
+            const historyKey = userId ? `kanji_study_history_${userId}` : 'kanji_study_history';
+            
             let localRecents = [];
             try {
-                localRecents = JSON.parse(localStorage.getItem('kanji_recently_viewed')) || [];
+                localRecents = JSON.parse(localStorage.getItem(recentsKey)) || [];
             } catch (e) { console.error(e); }
 
             let localHistory = [];
             try {
-                localHistory = JSON.parse(localStorage.getItem('kanji_study_history')) || [];
+                localHistory = JSON.parse(localStorage.getItem(historyKey)) || [];
             } catch (e) { console.error(e); }
 
             setRecentlyViewed(localRecents);
@@ -139,7 +156,7 @@ const KanjiSRSListScreen = () => {
                         const fbRecents = recentSnap.data().characters || [];
                         if (fbRecents.length > 0) {
                             setRecentlyViewed(fbRecents.slice(0, 10));
-                            localStorage.setItem('kanji_recently_viewed', JSON.stringify(fbRecents.slice(0, 15)));
+                            localStorage.setItem(recentsKey, JSON.stringify(fbRecents.slice(0, 15)));
                         }
                     }
                 } catch (err) {
@@ -153,7 +170,7 @@ const KanjiSRSListScreen = () => {
                         const fbHistory = historySnap.data().activities || [];
                         if (fbHistory.length > 0) {
                             setStudyHistory(fbHistory.slice(0, 10));
-                            localStorage.setItem('kanji_study_history', JSON.stringify(fbHistory.slice(0, 50)));
+                            localStorage.setItem(historyKey, JSON.stringify(fbHistory.slice(0, 50)));
                         }
                     }
                 } catch (err) {
@@ -166,13 +183,15 @@ const KanjiSRSListScreen = () => {
 
         const handleRecentsChange = () => {
             try {
-                const updated = JSON.parse(localStorage.getItem('kanji_recently_viewed')) || [];
+                const recentsKey = userId ? `kanji_recently_viewed_${userId}` : 'kanji_recently_viewed';
+                const updated = JSON.parse(localStorage.getItem(recentsKey)) || [];
                 setRecentlyViewed(updated);
             } catch (e) {}
         };
         const handleHistoryChange = () => {
             try {
-                const updated = JSON.parse(localStorage.getItem('kanji_study_history')) || [];
+                const historyKey = userId ? `kanji_study_history_${userId}` : 'kanji_study_history';
+                const updated = JSON.parse(localStorage.getItem(historyKey)) || [];
                 setStudyHistory(updated);
             } catch (e) {}
         };
@@ -230,11 +249,15 @@ const KanjiSRSListScreen = () => {
 
     // Save folders to localStorage
     useEffect(() => {
-        localStorage.setItem('kanji_srs_folders', JSON.stringify(folders));
-    }, [folders]);
+        if (!userId) return;
+        const foldersKey = userId ? `kanji_srs_folders_${userId}` : 'kanji_srs_folders';
+        localStorage.setItem(foldersKey, JSON.stringify(folders));
+    }, [folders, userId]);
     useEffect(() => {
-        localStorage.setItem('kanji_srs_card_folders', JSON.stringify(kanjiCardFolders));
-    }, [kanjiCardFolders]);
+        if (!userId) return;
+        const cardFoldersKey = userId ? `kanji_srs_card_folders_${userId}` : 'kanji_srs_card_folders';
+        localStorage.setItem(cardFoldersKey, JSON.stringify(kanjiCardFolders));
+    }, [kanjiCardFolders, userId]);
 
     // Folder CRUD
     const createFolder = useCallback((name, parentId = null) => {

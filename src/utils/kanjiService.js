@@ -268,6 +268,9 @@ export const getCachedUserSrsData = () => cachedUserSrsData;
 
 export const getSharedKanjiSrs = async (userId) => {
     if (!userId) return {};
+    if (cachedUserIdForSrs !== userId) {
+        clearUserSrsCache();
+    }
     if (cachedUserIdForSrs === userId && cachedUserSrsData) {
         return cachedUserSrsData;
     }
@@ -316,6 +319,9 @@ export const getCachedKanjiProgress = () => cachedKanjiProgress;
 
 export const getSharedKanjiProgress = async (userId) => {
     if (!userId) return {};
+    if (cachedUserIdForProgress !== userId) {
+        clearKanjiProgressCache();
+    }
     if (cachedUserIdForProgress === userId && cachedKanjiProgress) {
         return cachedKanjiProgress;
     }

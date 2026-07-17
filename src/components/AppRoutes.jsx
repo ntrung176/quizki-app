@@ -616,6 +616,7 @@ const AppRoutes = ({
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
                             <SRSVocabScreen
                                 displayName={profile?.displayName}
+                                userId={userId}
                                 folders={folders}
                                 cardFolders={cardFolders}
                                 setReviewCards={setReviewCards}

@@ -1069,6 +1069,16 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
     const [reviewDrawDraftStrokes, setReviewDrawDraftStrokes] = useState([]);
     const [reviewDrawDraftDataUrl, setReviewDrawDraftDataUrl] = useState('');
 
+    // Reset states when userId changes to prevent cross-account leak
+    useEffect(() => {
+        setCompletedTests({});
+        setSavedProgresses({});
+        setNotes({});
+        setRoadmapProgress({
+            N2: Array.from({ length: 24 }, (_, i) => i + 1)
+        });
+    }, [userId]);
+
     // Firestore synchronization for JLPT test progress and notes
     useEffect(() => {
         if (!userId || !db) return;

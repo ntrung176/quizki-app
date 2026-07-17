@@ -535,6 +535,17 @@ const App = () => {
                     sessionStorage.removeItem(`allCards_${oldUserId}`);
                     sessionStorage.removeItem(`dailyActivityLogs_${oldUserId}`);
                 }
+                
+                // Clear user-specific localStorage keys on logout to prevent cross-account data leakage
+                localStorage.removeItem('quizki_vocab_review_session');
+                localStorage.removeItem('quizki_kanji_review_session');
+                localStorage.removeItem('last_kanji_lesson');
+                for (let i = localStorage.length - 1; i >= 0; i--) {
+                    const key = localStorage.key(i);
+                    if (key && (key.startsWith('study_completed_') || key.startsWith('study_progress_'))) {
+                        localStorage.removeItem(key);
+                    }
+                }
             }
             setAuthReady(true);
         });

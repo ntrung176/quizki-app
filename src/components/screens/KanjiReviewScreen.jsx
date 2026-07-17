@@ -92,6 +92,18 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         load();
     }, [userId]);
 
+    useEffect(() => {
+        try {
+            const saved = localStorage.getItem('quizki_kanji_review_session');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                if (parsed.userId && parsed.userId !== userId) {
+                    localStorage.removeItem('quizki_kanji_review_session');
+                }
+            }
+        } catch (e) {}
+    }, [userId]);
+
     const dueKanji = useMemo(() => {
         const now = dashboardTick;
         return kanjiList.filter(k => {
@@ -106,6 +118,9 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             const saved = localStorage.getItem('quizki_kanji_review_session');
             if (saved) {
                 const parsed = JSON.parse(saved);
+                if (parsed.userId && parsed.userId !== userId) {
+                    return null;
+                }
                 const remaining = (parsed.queueIds || []).length - (parsed.currentIndex || 0);
                 if (remaining > 0) {
                     return { remaining, parsed };
@@ -113,7 +128,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             }
         } catch (e) {}
         return null;
-    }, [reviewMode, reviewQueue]);
+    }, [reviewMode, reviewQueue, userId]);
 
     const stats = useMemo(() => {
         const now = Date.now();
@@ -224,11 +239,38 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         return Object.entries(srsData)
             .filter(([id, srs]) => {
                 if (!activeReviewCardIds.current.has(id)) return false;
-                if (srs.state === 'REVIEW') return false;
+                
+                const stateStr = (srs.state || srs.srsState || '').toUpperCase();
+                if (stateStr === 'REVIEW') return false;
                 if (completedCardIds.current.has(id)) return false;
+
+                // Safely parse nextReview date and check if it is more than 12 hours in the future
+                const nextReviewVal = srs.nextReview || srs.nextReview_back;
+                if (nextReviewVal) {
+                    const reviewTime = nextReviewVal instanceof Date
+                        ? nextReviewVal.getTime()
+                        : (nextReviewVal.seconds
+                            ? nextReviewVal.seconds * 1000
+                            : new Date(nextReviewVal).getTime());
+                    if (!isNaN(reviewTime) && reviewTime - Date.now() > 12 * 60 * 60 * 1000) {
+                        return false;
+                    }
+                }
+
                 return true;
             })
-            .map(([id, srs]) => ({ id, nextReview: srs.nextReview }));
+            .map(([id, srs]) => {
+                const nextReviewVal = srs.nextReview || srs.nextReview_back;
+                const reviewTime = nextReviewVal instanceof Date
+                    ? nextReviewVal.getTime()
+                    : (nextReviewVal.seconds
+                        ? nextReviewVal.seconds * 1000
+                        : new Date(nextReviewVal).getTime());
+                return {
+                    id,
+                    nextReview: isNaN(reviewTime) ? Date.now() : reviewTime
+                };
+            });
     };
 
     const handleReviewNow = () => {
@@ -475,7 +517,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     title: `Đã ôn tập ${updatedQueue.length} chữ Kanji`,
                     details: `Hoàn thành phiên ôn tập SRS`
                 });
-                exitReview();
+                exitReview(false);
             }
         }
 
@@ -506,6 +548,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         }
         try {
             const data = {
+                userId,
                 queueIds: queue.map(c => c.id),
                 currentIndex: index,
                 activeReviewCardIds: Array.from(activeReviewCardIds.current),
@@ -524,6 +567,10 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             const raw = localStorage.getItem('quizki_kanji_review_session');
             if (!raw) return;
             const data = JSON.parse(raw);
+            if (data.userId && data.userId !== userId) {
+                localStorage.removeItem('quizki_kanji_review_session');
+                return;
+            }
             
             sessionXpRef.current = data.sessionXp || 0;
             completedCardIds.current = new Set(data.completedCardIds || []);
@@ -572,8 +619,12 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         setLastTick(Date.now());
     };
 
-    const exitReview = () => {
-        saveSessionState(reviewQueue, currentReviewIndex);
+    const exitReview = (shouldSave = true) => {
+        if (shouldSave) {
+            saveSessionState(reviewQueue, currentReviewIndex);
+        } else {
+            localStorage.removeItem('quizki_kanji_review_session');
+        }
         if (sessionXpRef.current > 0 && awardXP) {
             awardXP(sessionXpRef.current);
         }
@@ -852,7 +903,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             );
         }
         
-        setTimeout(() => exitReview(), 0);
+        setTimeout(() => exitReview(false), 0);
         return null;
     }
 

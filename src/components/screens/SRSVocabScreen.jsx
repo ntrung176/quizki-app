@@ -64,6 +64,7 @@ const getPreviewIntervals = (card) => {
 
 const SRSVocabScreen = ({
     displayName,
+    userId,
     allCards = [],
     folders = [],
     cardFolders = {},
@@ -295,11 +296,6 @@ const SRSVocabScreen = ({
         if (!srsEnabled) return false;
 
         const nextReviewVal = localSrs ? localSrs.nextReview_back : card.nextReview_back;
-        const intervalIndexVal = localSrs 
-            ? (localSrs.intervalIndex_back !== undefined ? localSrs.intervalIndex_back : (localSrs.srsReps > 0 ? 1 : -1)) 
-            : card.intervalIndex_back;
-
-        if (intervalIndexVal === -1 || intervalIndexVal === undefined || intervalIndexVal < 0) return true;
         if (!nextReviewVal) return true;
 
         const reviewTime = nextReviewVal instanceof Date
@@ -393,11 +389,26 @@ const SRSVocabScreen = ({
         }
     }, [folderStats.length, vocabSetStartIndex]);
 
+    useEffect(() => {
+        try {
+            const saved = localStorage.getItem('quizki_vocab_review_session');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                if (parsed.userId && parsed.userId !== userId) {
+                    localStorage.removeItem('quizki_vocab_review_session');
+                }
+            }
+        } catch (e) {}
+    }, [userId]);
+
     const savedSessionInfo = useMemo(() => {
         try {
             const saved = localStorage.getItem('quizki_vocab_review_session');
             if (saved) {
                 const parsed = JSON.parse(saved);
+                if (parsed.userId && parsed.userId !== userId) {
+                    return null;
+                }
                 const remaining = (parsed.queueIds || []).length - (parsed.currentIndex || 0);
                 if (remaining > 0) {
                     return { remaining, parsed };
@@ -405,7 +416,7 @@ const SRSVocabScreen = ({
             }
         } catch (e) {}
         return null;
-    }, [reviewMode, reviewQueue]);
+    }, [reviewMode, reviewQueue, userId]);
 
     const nextDueVocabInfo = useMemo(() => {
         const now = dashboardTick;
@@ -499,16 +510,38 @@ const SRSVocabScreen = ({
         return Object.entries(sessionSrsData.current)
             .filter(([id, srs]) => {
                 if (!activeReviewCardIds.current.has(id)) return false;
-                if (srs.state === 'REVIEW') return false;
+                
+                const stateStr = (srs.state || srs.srsState || '').toUpperCase();
+                if (stateStr === 'REVIEW') return false;
                 if (completedCardIds.current.has(id)) return false;
+
+                // Safely parse nextReview date and check if it is more than 12 hours in the future
+                const nextReviewVal = srs.nextReview_back || srs.nextReview;
+                if (nextReviewVal) {
+                    const reviewTime = nextReviewVal instanceof Date
+                        ? nextReviewVal.getTime()
+                        : (nextReviewVal.seconds
+                            ? nextReviewVal.seconds * 1000
+                            : new Date(nextReviewVal).getTime());
+                    if (!isNaN(reviewTime) && reviewTime - Date.now() > 12 * 60 * 60 * 1000) {
+                        return false;
+                    }
+                }
+
                 return true;
             })
-            .map(([id, srs]) => ({
-                id,
-                nextReview: srs.nextReview_back instanceof Date 
-                    ? srs.nextReview_back.getTime() 
-                    : new Date(srs.nextReview_back).getTime()
-            }));
+            .map(([id, srs]) => {
+                const nextReviewVal = srs.nextReview_back || srs.nextReview;
+                const reviewTime = nextReviewVal instanceof Date
+                    ? nextReviewVal.getTime()
+                    : (nextReviewVal.seconds
+                        ? nextReviewVal.seconds * 1000
+                        : new Date(nextReviewVal).getTime());
+                return {
+                    id,
+                    nextReview: isNaN(reviewTime) ? Date.now() : reviewTime
+                };
+            });
     };
 
     const handleReviewNow = () => {
@@ -750,7 +783,7 @@ const SRSVocabScreen = ({
                     playCompletionFanfare();
                     launchFanfare();
                 } catch (e) { }
-                exitReview();
+                exitReview(false);
                 if (setNotification) {
                     setNotification("Chúc mừng! Bạn đã hoàn thành tất cả các thẻ ôn tập hôm nay.");
                 }
@@ -765,6 +798,7 @@ const SRSVocabScreen = ({
         }
         try {
             const data = {
+                userId,
                 queueIds: queue.map(c => c.id),
                 currentIndex: index,
                 sessionSrsData: sessionSrsData.current,
@@ -784,6 +818,10 @@ const SRSVocabScreen = ({
             const raw = localStorage.getItem('quizki_vocab_review_session');
             if (!raw) return;
             const data = JSON.parse(raw);
+            if (data.userId && data.userId !== userId) {
+                localStorage.removeItem('quizki_vocab_review_session');
+                return;
+            }
             
             sessionXpRef.current = data.sessionXp || 0;
             completedCardIds.current = new Set(data.completedCardIds || []);
@@ -833,8 +871,12 @@ const SRSVocabScreen = ({
         setLastTick(Date.now());
     };
 
-    const exitReview = () => {
-        saveSessionState(reviewQueue, currentReviewIndex);
+    const exitReview = (shouldSave = true) => {
+        if (shouldSave) {
+            saveSessionState(reviewQueue, currentReviewIndex);
+        } else {
+            localStorage.removeItem('quizki_vocab_review_session');
+        }
         if (sessionXpRef.current > 0 && awardXP) {
             awardXP(sessionXpRef.current);
         }
@@ -1218,7 +1260,7 @@ const SRSVocabScreen = ({
             );
         }
 
-        setTimeout(() => exitReview(), 0);
+        setTimeout(() => exitReview(false), 0);
         return null;
     }
 

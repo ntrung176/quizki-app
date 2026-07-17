@@ -20,10 +20,11 @@ export const logKanjiActivity = async (userId, activity) => {
 
     // 1. Save to LocalStorage
     try {
-        const localHistory = JSON.parse(localStorage.getItem('kanji_study_history')) || [];
+        const key = userId ? `kanji_study_history_${userId}` : 'kanji_study_history';
+        const localHistory = JSON.parse(localStorage.getItem(key)) || [];
         // Keep last 50 activities
         const updated = [record, ...localHistory].slice(0, 50);
-        localStorage.setItem('kanji_study_history', JSON.stringify(updated));
+        localStorage.setItem(key, JSON.stringify(updated));
         
         // Dispatch custom event for UI updates
         window.dispatchEvent(new Event('kanji_history_changed'));
@@ -58,7 +59,7 @@ export const recordRecentKanji = async (userId, character) => {
 
     // 1. Save to LocalStorage
     try {
-        const key = 'kanji_recently_viewed';
+        const key = userId ? `kanji_recently_viewed_${userId}` : 'kanji_recently_viewed';
         const existing = JSON.parse(localStorage.getItem(key)) || [];
         const updated = [character, ...existing.filter(c => c !== character)].slice(0, 15);
         localStorage.setItem(key, JSON.stringify(updated));
