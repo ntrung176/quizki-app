@@ -428,6 +428,8 @@ const SRSVocabScreen = ({
         return `${pad(hours)}:${pad(mins)}:${pad(secs)}`;
     }, [nextDueVocabInfo, dashboardTick]);
 
+    const activeFolderIdRef = useRef('global');
+
     const globalStats = useMemo(() => {
         return folderStats.reduce((acc, curr) => ({
             new: acc.new + curr.newCards.length,
@@ -435,8 +437,9 @@ const SRSVocabScreen = ({
         }), { new: 0, due: 0 });
     }, [folderStats]);
 
-    const startFolderReview = (dueCards) => {
+    const startFolderReview = (dueCards, folderId = 'global') => {
         if (dueCards.length === 0) return;
+        activeFolderIdRef.current = folderId;
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
         sessionSrsData.current = {};
@@ -460,7 +463,7 @@ const SRSVocabScreen = ({
                 navigate(`/vocab/set/${folderId || 'unfiled'}`);
                 break;
             case 'due':
-                startFolderReview(cards);
+                startFolderReview(cards, folderId || 'unfiled');
                 break;
         }
     };
@@ -469,7 +472,7 @@ const SRSVocabScreen = ({
     const handleResumeGlobal = () => {
         const allDue = allCards.filter(isDue);
         if (allDue.length > 0) {
-            startFolderReview(allDue);
+            startFolderReview(allDue, 'global');
         } else {
             if (setNotification) {
                 setNotification("Không có thẻ nào cần ôn tập ngắt quãng lúc này. Hãy mở học phần và bấm \"Thêm vào ngắt quãng\"!");
@@ -704,7 +707,10 @@ const SRSVocabScreen = ({
         // 2. Scan allCards for any newly due cards that aren't in the queue yet (restricted to active review cards)
         const allQueueCardIds = new Set(updatedQueue.map(c => c.id));
         const newlyDueCards = allCards.filter(c => {
-            if (!activeReviewCardIds.current.has(c.id)) return false;
+            const cardFolder = cardFolders[c.id] || 'unfiled';
+            if (activeFolderIdRef.current !== 'global' && cardFolder !== activeFolderIdRef.current) {
+                return false;
+            }
             if (c.id === card.id) return false;
             if (completedCardIds.current.has(c.id)) return false;
             if (allQueueCardIds.has(c.id)) return false;
@@ -1348,7 +1354,7 @@ const SRSVocabScreen = ({
 
                                             {folder.dueCards.length > 0 && (
                                                 <button
-                                                    onClick={(e) => { e.stopPropagation(); startFolderReview(folder.dueCards); }}
+                                                    onClick={(e) => { e.stopPropagation(); startFolderReview(folder.dueCards, folder.id); }}
                                                     className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-orange-50 dark:bg-orange-950/20 hover:bg-orange-100 dark:hover:bg-orange-900/30 text-orange-700 dark:text-orange-400 transition-colors border border-orange-100 dark:border-orange-900/50 group cursor-pointer"
                                                 >
                                                     <div className="flex items-center gap-2">
