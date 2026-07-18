@@ -1485,6 +1485,24 @@ const BookScreen = ({
         const n = word.split('（')[0].split('(')[0].trim();
         return allUserCards.some(c => c.front.split('（')[0].split('(')[0].trim() === n);
     };
+    const getLessonProgressInfo = useCallback((gId, bId, chapterId, lesson) => {
+        const vocabLen = lesson.vocab?.length || 0;
+        if (vocabLen === 0) return { percent: 0, count: 0, total: 0 };
+        const key = `book_reveal_${gId}_${bId}_${chapterId}_${lesson.id}`;
+        try {
+            const saved = localStorage.getItem(key);
+            if (saved) {
+                const arr = JSON.parse(saved);
+                const count = new Set(arr).size;
+                return {
+                    percent: Math.round((count / vocabLen) * 100),
+                    count,
+                    total: vocabLen
+                };
+            }
+        } catch(e) {}
+        return { percent: 0, count: 0, total: vocabLen };
+    }, []);
     const getBookProgress = useCallback((gId, book) => {
         let totalVocab = 0;
         let revealedCount = 0;
@@ -1882,6 +1900,7 @@ const BookScreen = ({
                             <div className="divide-y divide-gray-100 dark:divide-gray-700">
                                 {chapter.lessons.map((lesson, li) => {
                                     const isLocked = lesson.isPremium && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('vocab_zen');
+                                    const progressInfo = getLessonProgressInfo(groupId, bookId, chapter.id, lesson);
                                     return (
                                         <div key={lesson.id}
                                             onClick={() => {
@@ -1906,7 +1925,18 @@ const BookScreen = ({
                                                     )}
                                                 </span>
                                             </div>
-                                            <div className="flex items-center gap-1">
+                                            <div className="flex items-center gap-2">
+                                                {progressInfo.percent > 0 && (
+                                                    progressInfo.percent === 100 ? (
+                                                        <span className="px-2 py-0.5 text-[10px] font-bold bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400 rounded-md border border-emerald-200/50 dark:border-emerald-800/30">
+                                                            ✓ Hoàn thành
+                                                        </span>
+                                                    ) : (
+                                                        <span className="px-2 py-0.5 text-[10px] font-bold bg-sky-50 text-sky-600 dark:bg-sky-950/30 dark:text-sky-400 rounded-md border border-sky-200 dark:border-sky-800/30">
+                                                            {progressInfo.count}/{progressInfo.total} ({progressInfo.percent}%)
+                                                        </span>
+                                                    )
+                                                )}
                                                 <span className="text-xs text-gray-400">{lesson.vocab?.length || 0} từ</span>
                                                 {isAdmin && (
                                                     <>
@@ -1960,6 +1990,7 @@ const BookScreen = ({
                                         <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 px-2 py-1">{ch.name}</p>
                                         {ch.lessons.map((ls, j) => {
                                             const isLocked = ls.isPremium && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('vocab_zen');
+                                            const progressInfo = getLessonProgressInfo(groupId, bookId, ch.id, ls);
                                             return (
                                                 <button key={ls.id}
                                                     onClick={() => {
@@ -1971,7 +2002,16 @@ const BookScreen = ({
                                                         }
                                                     }}
                                                     className="w-full text-left text-[11px] px-3 py-1 text-gray-500 dark:text-gray-400 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-sky-50 dark:hover:bg-sky-900/10 rounded transition-colors truncate flex items-center justify-between gap-1">
-                                                    <span className="truncate">{ls.name}</span>
+                                                    <span className="truncate flex items-center gap-1">
+                                                        {ls.name}
+                                                        {progressInfo.percent > 0 && (
+                                                            progressInfo.percent === 100 ? (
+                                                                <span className="text-emerald-500 font-black text-[9px] shrink-0" title="Hoàn thành">✓</span>
+                                                            ) : (
+                                                                <span className="text-sky-500 font-bold text-[9px] shrink-0">({progressInfo.percent}%)</span>
+                                                            )
+                                                        )}
+                                                    </span>
                                                     {ls.isPremium && <span className="text-[9px] text-amber-500 shrink-0" title="Bài học Premium">👑</span>}
                                                 </button>
                                             );
