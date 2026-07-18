@@ -92,18 +92,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         load();
     }, [userId]);
 
-    useEffect(() => {
-        try {
-            const saved = localStorage.getItem('quizki_kanji_review_session');
-            if (saved) {
-                const parsed = JSON.parse(saved);
-                if (parsed.userId && parsed.userId !== userId) {
-                    localStorage.removeItem('quizki_kanji_review_session');
-                }
-            }
-        } catch (e) {}
-    }, [userId]);
-
     const dueKanji = useMemo(() => {
         const now = dashboardTick;
         return kanjiList.filter(k => {
@@ -113,22 +101,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         });
     }, [kanjiList, srsData, dashboardTick]);
 
-    const savedSessionInfo = useMemo(() => {
-        try {
-            const saved = localStorage.getItem('quizki_kanji_review_session');
-            if (saved) {
-                const parsed = JSON.parse(saved);
-                if (parsed.userId && parsed.userId !== userId) {
-                    return null;
-                }
-                const remaining = (parsed.queueIds || []).length - (parsed.currentIndex || 0);
-                if (remaining > 0) {
-                    return { remaining, parsed };
-                }
-            }
-        } catch (e) {}
-        return null;
-    }, [reviewMode, reviewQueue, userId]);
+    const savedSessionInfo = null;
 
     const stats = useMemo(() => {
         const now = Date.now();
@@ -494,7 +467,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         } else {
             const waiting = getLearningCardsWaiting();
             if (waiting.length > 0) {
-                saveSessionState(updatedQueue, updatedQueue.length);
                 // Show waiting screen (by advancing index to updatedQueue.length)
                 setIsAnimatingFlip(false);
                 setSlideDirection('left');
@@ -510,14 +482,13 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     }, 20);
                 }, 70);
             } else {
-                localStorage.removeItem('quizki_kanji_review_session');
                 launchFanfare();
                 logKanjiActivity(userId, {
                     type: 'review',
                     title: `Đã ôn tập ${updatedQueue.length} chữ Kanji`,
                     details: `Hoàn thành phiên ôn tập SRS`
                 });
-                exitReview(false);
+                exitReview();
             }
         }
 
@@ -541,90 +512,11 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         })();
     };
 
-    const saveSessionState = (queue, index) => {
-        if (index >= queue.length && getLearningCardsWaiting().length === 0) {
-            localStorage.removeItem('quizki_kanji_review_session');
-            return;
-        }
-        try {
-            const data = {
-                userId,
-                queueIds: queue.map(c => c.id),
-                currentIndex: index,
-                activeReviewCardIds: Array.from(activeReviewCardIds.current),
-                completedCardIds: Array.from(completedCardIds.current),
-                sessionXp: sessionXpRef.current,
-                savedAt: Date.now()
-            };
-            localStorage.setItem('quizki_kanji_review_session', JSON.stringify(data));
-        } catch (e) {
-            console.error("Failed to save kanji session state", e);
-        }
-    };
+    const saveSessionState = () => {};
+    const handleResumeSavedSession = () => {};
+    const handleDiscardSavedSession = () => {};
 
-    const handleResumeSavedSession = () => {
-        try {
-            const raw = localStorage.getItem('quizki_kanji_review_session');
-            if (!raw) return;
-            const data = JSON.parse(raw);
-            if (data.userId && data.userId !== userId) {
-                localStorage.removeItem('quizki_kanji_review_session');
-                return;
-            }
-            
-            sessionXpRef.current = data.sessionXp || 0;
-            completedCardIds.current = new Set(data.completedCardIds || []);
-            activeReviewCardIds.current = new Set(data.activeReviewCardIds || []);
-            
-            const reconstructedQueue = (data.queueIds || []).map(id => {
-                const found = kanjiList.find(c => c.id === id);
-                if (found) {
-                    const localSrs = srsData[id];
-                    if (localSrs) {
-                        return {
-                            ...found,
-                            srsInterval: localSrs.interval,
-                            srsEase: localSrs.ease,
-                            srsLearningStep: localSrs.learningStep,
-                            srsIsLapsed: localSrs.isLapsed,
-                            srsReps: localSrs.reps,
-                            srsLapseCount: localSrs.lapseCount,
-                            srsPrelapseInterval: localSrs.prelapseInterval,
-                            srsState: localSrs.state,
-                            nextReview_back: localSrs.nextReview_back,
-                            lastReviewed: localSrs.lastReview
-                        };
-                    }
-                    return found;
-                }
-                return null;
-            }).filter(Boolean);
-
-            setReviewQueue(reconstructedQueue);
-            setCurrentReviewIndex(data.currentIndex || 0);
-            setIsFlipped(false);
-            setReviewHistory([]);
-            setReviewMode(true);
-            if (setIsReviewActive) {
-                setIsReviewActive(true);
-            }
-        } catch (e) {
-            console.error("Failed to resume saved kanji session", e);
-            localStorage.removeItem('quizki_kanji_review_session');
-        }
-    };
-
-    const handleDiscardSavedSession = () => {
-        localStorage.removeItem('quizki_kanji_review_session');
-        setLastTick(Date.now());
-    };
-
-    const exitReview = (shouldSave = true) => {
-        if (shouldSave) {
-            saveSessionState(reviewQueue, currentReviewIndex);
-        } else {
-            localStorage.removeItem('quizki_kanji_review_session');
-        }
+    const exitReview = () => {
         if (sessionXpRef.current > 0 && awardXP) {
             awardXP(sessionXpRef.current);
         }
@@ -646,8 +538,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             setReviewQueue(savedQueue);
         }
         completedCardIds.current.delete(cardId);
-
-        saveSessionState(savedQueue || reviewQueue, cardIndex);
 
         // 1. Revert local states immediately
         setSrsData(prev => {
@@ -804,7 +694,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                 <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none"
                                     style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px', overflowY: 'auto' }}>
                                     <div className="text-center space-y-4 w-full">
-                                        <div className="text-4xl font-bold bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent">{currentCard.sinoViet || '—'}</div>
+                                        <div className="text-4xl font-bold text-emerald-600 dark:text-emerald-400">{currentCard.sinoViet || '—'}</div>
                                         <div className="text-xl text-cyan-600 dark:text-cyan-400 font-semibold">{currentCard.meaning || '—'}</div>
                                         {currentCard.mnemonic && (
                                             <div className="text-sm text-slate-650 dark:text-slate-350 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 leading-relaxed border border-slate-100 dark:border-slate-800 text-left w-full">

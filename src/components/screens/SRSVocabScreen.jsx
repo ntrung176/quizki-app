@@ -389,34 +389,7 @@ const SRSVocabScreen = ({
         }
     }, [folderStats.length, vocabSetStartIndex]);
 
-    useEffect(() => {
-        try {
-            const saved = localStorage.getItem('quizki_vocab_review_session');
-            if (saved) {
-                const parsed = JSON.parse(saved);
-                if (parsed.userId && parsed.userId !== userId) {
-                    localStorage.removeItem('quizki_vocab_review_session');
-                }
-            }
-        } catch (e) {}
-    }, [userId]);
-
-    const savedSessionInfo = useMemo(() => {
-        try {
-            const saved = localStorage.getItem('quizki_vocab_review_session');
-            if (saved) {
-                const parsed = JSON.parse(saved);
-                if (parsed.userId && parsed.userId !== userId) {
-                    return null;
-                }
-                const remaining = (parsed.queueIds || []).length - (parsed.currentIndex || 0);
-                if (remaining > 0) {
-                    return { remaining, parsed };
-                }
-            }
-        } catch (e) {}
-        return null;
-    }, [reviewMode, reviewQueue, userId]);
+    const savedSessionInfo = null;
 
     const nextDueVocabInfo = useMemo(() => {
         const now = dashboardTick;
@@ -745,7 +718,6 @@ const SRSVocabScreen = ({
         setReviewQueue(updatedQueue);
 
         if (currentReviewIndex + 1 < updatedQueue.length) {
-            saveSessionState(updatedQueue, currentReviewIndex + 1);
             setIsAnimatingFlip(false);
             setSlideDirection('left');
             setTimeout(() => {
@@ -762,7 +734,6 @@ const SRSVocabScreen = ({
         } else {
             const waiting = getLearningCardsWaiting();
             if (waiting.length > 0) {
-                saveSessionState(updatedQueue, updatedQueue.length);
                 // Show waiting screen (by advancing index to updatedQueue.length)
                 setIsAnimatingFlip(false);
                 setSlideDirection('left');
@@ -778,12 +749,11 @@ const SRSVocabScreen = ({
                     }, 20);
                 }, 70);
             } else {
-                localStorage.removeItem('quizki_vocab_review_session');
                 try {
                     playCompletionFanfare();
                     launchFanfare();
                 } catch (e) { }
-                exitReview(false);
+                exitReview();
                 if (setNotification) {
                     setNotification("Chúc mừng! Bạn đã hoàn thành tất cả các thẻ ôn tập hôm nay.");
                 }
@@ -791,92 +761,11 @@ const SRSVocabScreen = ({
         }
     };
 
-    const saveSessionState = (queue, index) => {
-        if (index >= queue.length && getLearningCardsWaiting().length === 0) {
-            localStorage.removeItem('quizki_vocab_review_session');
-            return;
-        }
-        try {
-            const data = {
-                userId,
-                queueIds: queue.map(c => c.id),
-                currentIndex: index,
-                sessionSrsData: sessionSrsData.current,
-                activeReviewCardIds: Array.from(activeReviewCardIds.current),
-                completedCardIds: Array.from(completedCardIds.current),
-                sessionXp: sessionXpRef.current,
-                savedAt: Date.now()
-            };
-            localStorage.setItem('quizki_vocab_review_session', JSON.stringify(data));
-        } catch (e) {
-            console.error("Failed to save vocab session state", e);
-        }
-    };
+    const saveSessionState = () => {};
+    const handleResumeSavedSession = () => {};
+    const handleDiscardSavedSession = () => {};
 
-    const handleResumeSavedSession = () => {
-        try {
-            const raw = localStorage.getItem('quizki_vocab_review_session');
-            if (!raw) return;
-            const data = JSON.parse(raw);
-            if (data.userId && data.userId !== userId) {
-                localStorage.removeItem('quizki_vocab_review_session');
-                return;
-            }
-            
-            sessionXpRef.current = data.sessionXp || 0;
-            completedCardIds.current = new Set(data.completedCardIds || []);
-            activeReviewCardIds.current = new Set(data.activeReviewCardIds || []);
-            sessionSrsData.current = data.sessionSrsData || {};
-            
-            const reconstructedQueue = (data.queueIds || []).map(id => {
-                const found = allCards.find(c => c.id === id);
-                if (found) {
-                    const localSrs = sessionSrsData.current[id];
-                    if (localSrs) {
-                        return {
-                            ...found,
-                            srsInterval: localSrs.srsInterval !== undefined ? localSrs.srsInterval : localSrs.interval,
-                            srsEase: localSrs ? localSrs.srsEase : localSrs.ease,
-                            srsLearningStep: localSrs ? localSrs.srsLearningStep : localSrs.learningStep,
-                            srsIsLapsed: localSrs ? localSrs.srsIsLapsed : localSrs.isLapsed,
-                            srsReps: localSrs ? localSrs.srsReps : localSrs.reps,
-                            srsLapseCount: localSrs ? localSrs.srsLapseCount : localSrs.lapseCount,
-                            srsPrelapseInterval: localSrs ? localSrs.srsPrelapseInterval : localSrs.prelapseInterval,
-                            srsState: localSrs ? localSrs.srsState : localSrs.state,
-                            nextReview_back: localSrs.nextReview_back,
-                            lastReviewed: localSrs.lastReviewed
-                        };
-                    }
-                    return found;
-                }
-                return null;
-            }).filter(Boolean);
-
-            setReviewQueue(reconstructedQueue);
-            setCurrentReviewIndex(data.currentIndex || 0);
-            setIsFlipped(false);
-            setReviewHistory([]);
-            setReviewModeState(true);
-            if (setIsReviewActive) {
-                setIsReviewActive(true);
-            }
-        } catch (e) {
-            console.error("Failed to resume saved vocab session", e);
-            localStorage.removeItem('quizki_vocab_review_session');
-        }
-    };
-
-    const handleDiscardSavedSession = () => {
-        localStorage.removeItem('quizki_vocab_review_session');
-        setLastTick(Date.now());
-    };
-
-    const exitReview = (shouldSave = true) => {
-        if (shouldSave) {
-            saveSessionState(reviewQueue, currentReviewIndex);
-        } else {
-            localStorage.removeItem('quizki_vocab_review_session');
-        }
+    const exitReview = () => {
         if (sessionXpRef.current > 0 && awardXP) {
             awardXP(sessionXpRef.current);
         }
@@ -905,8 +794,6 @@ const SRSVocabScreen = ({
         } else {
             delete sessionSrsData.current[cardId];
         }
-
-        saveSessionState(savedQueue || reviewQueue, cardIndex);
 
         // 1. Revert local states immediately in current reviewQueue
         setReviewQueue(prevQueue => {
